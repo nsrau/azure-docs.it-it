@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77656926"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668589"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
 
@@ -30,11 +30,11 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 
 **Certificati**
 
-- [Perché la catena di certificati del certificato SSL del servizio cloud non è completa?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
+- [Perché la catena di certificati del certificato TLS/SSL del servizio cloud è incompleta?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
 - [Qual è lo scopo del certificato di crittografia degli strumenti di Microsoft Azure per le estensioni?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [Come è possibile generare una richiesta di firma del certificato senza usare RPD per l'istanza?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [Il certificato di gestione del servizio cloud sta per scadere. Come rinnovarlo?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [Come è possibile automatizzare l'installazione del certificato SSL principale (con estensione pfx) e del certificato intermedio (con estensione p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [Come automatizzare l'installazione del certificato TLS/SSL principale (.pfx) e del certificato intermedio (.p7b)?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - [Qual è lo scopo del certificato "Microsoft Azure Service Management for MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Monitoraggio e registrazione**
@@ -55,7 +55,7 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 - [I tecnici interni Microsoft possono usare desktop remoto per le istanze dei servizi cloud senza autorizzazione?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [Non è possibile eseguire il collegamento remoto da desktop a VM del servizio cloud utilizzando il file RDP. Viene visualizzato il seguente errore: Si è verificato un errore di autenticazione (codice: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
-**Ridimensionamento**
+**Scalabilità**
 
 - [Impossibile eseguire la scalabilità per un numero di istanze superiore a X](#i-cannot-scale-beyond-x-instances)
 - [Come è possibile configurare la scalabilità automatica in base alle metriche di memoria?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
@@ -75,7 +75,7 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 
 ## <a name="certificates"></a>Certificati
 
-### <a name="why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete"></a>Perché la catena di certificati del certificato SSL del servizio cloud non è completa?
+### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Perché la catena di certificati del certificato TLS/SSL del servizio cloud è incompleta?
     
 È consigliabile installare la catena di certificati completa (certificato foglia, certificati intermedi e certificato radice) invece che solo il certificato foglia. Quando si installa solo il certificato foglia, ci si basa su Windows per creare la catena di certificati scorrendo l'elenco di scopi consentiti. In caso di problemi intermittenti di rete o DNS in Azure o Windows Update quando Windows tenta di convalidare il certificato, il certificato potrebbe essere considerato non valido. Installando la catena di certificati completa, è possibile evitare questo problema. Il post di blog [How to install a chained SSL Certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) (Come installare un certificato SSL incluso in una catena) spiega come fare.
 
@@ -103,7 +103,7 @@ La richiesta di firma del certificato è semplicemente un file di testo. Non è 
 
 **Get-AzurePublishSettingsFile** creerà un nuovo certificato di gestione in **Sottoscrizione** > **Certificati di gestione** nel portale di Azure. Il nome del nuovo certificato è simile a "[NomeSottoscrizione]-[DataCorrente] - credenziali".
 
-### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Come è possibile automatizzare l'installazione del certificato SSL principale (con estensione pfx) e del certificato intermedio (con estensione p7b)?
+### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Come automatizzare l'installazione del certificato TLS/SSL principale (.pfx) e del certificato intermedio (.p7b)?
 
 È possibile automatizzare questa attività usando uno script di avvio (batch/cmd/PowerShell) e registrare lo script di avvio nel file di definizione del servizio. Aggiungere sia lo script di avvio sia il certificato (file con estensione p7b) nella cartella del progetto nella stessa directory dello script di avvio.
 

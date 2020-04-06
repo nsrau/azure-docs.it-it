@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72330621"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667773"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creare e gestire le pianificazioni dei lab per le classi in Azure Lab Services 
 Le pianificazioni consentono di configurare un lab per le classi in modo che le macchine virtuali nel lab vengano automaticamente avviate e arrestate a un orario specificato. È possibile definire una pianificazione occasionale o una pianificazione ricorrente. Le procedure seguenti illustrano i passaggi per creare e gestire le pianificazioni di lab per le classi: 
@@ -28,6 +28,12 @@ Le pianificazioni consentono di configurare un lab per le classi in modo che le 
 
 ## <a name="set-a-schedule-for-the-lab"></a>Impostare una pianificazione per il lab
 Creare un evento pianificato per il lab in modo che le VM al suo interno vengano automaticamente avviate/arrestate in specifici orari. La quota utente specificata in precedenza corrisponde al tempo aggiuntivo assegnato a ogni utente al di fuori del tempo pianificato. 
+
+> [!NOTE]
+> Prima di iniziare, ecco come le pianificazioni influiscono sulle macchine virtuali lab:Before we get started, here's how schedules affect lab virtual machines: 
+>- La macchina virtuale modello non è inclusa nelle pianificazioni. 
+>- Vengono avviate solo le macchine virtuali assegnate. Ciò significa che, se una macchina non viene rivendicata da un utente finale (studente), la macchina non verrà avviata nelle ore pianificate. 
+>- Tutte le macchine virtuali (richieste da un utente o meno) vengono arrestate in base alla pianificazione lab. 
 
 1. Passare alla pagina **Schedules** (Pianificazione) e selezionare **Add scheduled event** (Aggiungi evento pianificato) sulla barra degli strumenti. 
 

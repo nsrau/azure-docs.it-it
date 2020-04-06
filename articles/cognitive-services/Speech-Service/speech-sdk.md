@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: a2ff4a94c1b2941f645cd7032ef476d33dffdb00
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 440944033e4b6a8fb29cf9ace6ad784b91316526
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656652"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668746"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 
@@ -69,21 +69,11 @@ Molti dei linguaggi di programmazione di Speech SDK supportano flussi di input a
 
 ## <a name="rest-api"></a>API REST
 
-Mentre l'SDK vocale copre molte funzionalità del servizio di riconoscimento vocale, per alcuni scenari è possibile usare l'API REST. Ad esempio, la gestione degli endpoint viene esposta solo tramite l'API REST.
-
-> [!TIP]
-> Quando si utilizza l'API REST, usare l'editor Swagger per generare automaticamente le librerie client. Ad esempio, per generare una libreria client di trascrizione Batch.For example, to generate a Batch transcription client library.
-> 1. Copia l'URL di esempio qui sotto:
->     ```http
->     https://westus.cris.ai/docs/v2.0/swagger
->     ```
-> 1. Accedere <a href="https://editor.swagger.io/" target="_blank">all'editor <span class="docon docon-navigate-external x-hidden-focus"></span> Swagger</a>
-> 1. Selezionare**URL di importazione** **file** > e incollare l'URL
-> 1. Selezionare **Genera client** e scegliere il linguaggio di programmazione desiderato
+Mentre l'SDK vocale copre molte funzionalità del servizio di riconoscimento vocale, per alcuni scenari è possibile usare l'API REST.
 
 ### <a name="batch-transcription"></a>Trascrizione Batch
 
-[La trascrizione batch](batch-transcription.md) consente la trascrizione asincrona vocale/sintesi testo di grandi volumi di dati. La trascrizione batch è possibile solo dall'API REST.
+[La trascrizione batch](batch-transcription.md) consente la trascrizione asincrona vocale/sintesi testo di grandi volumi di dati. La trascrizione batch è possibile solo dall'API REST. Oltre a convertire l'audio vocale in testo, la sintesi vocale batch consente anche la diarizzazione e l'analisi del sentiment.
 
 ## <a name="customization"></a>Personalizzazione
 

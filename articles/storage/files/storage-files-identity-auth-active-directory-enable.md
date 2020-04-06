@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: rogarana
-ms.openlocfilehash: 0bf8960f1e97de45d5369f69c698311d0b4e3dbb
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 081ee364b3ddee5d1d1be75613309a4ae427066f
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584521"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666823"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Abilitare l'autenticazione di Active Directory su SMB per le condivisioni file di AzureEnable Active Directory authentication over SMB for Azure file shares
 
@@ -34,6 +34,9 @@ ms.locfileid: "80584521"
 Quando si abilita AD per le condivisioni file di Azure su SMB, i computer aggiunti al dominio di Active Directory possono montare le condivisioni file di Azure usando le credenziali di Active Directory esistenti. Questa funzionalità può essere abilitata con un ambiente AD ospitato in computer locali o ospitati in Azure.This capability can be enabled with an AD environment hosted either in prem machines or hosted in Azure.
 
 Le identità di Active Directory usate per accedere alle condivisioni file di Azure devono essere sincronizzate con Azure AD per applicare le autorizzazioni dei file a livello di condivisione tramite il modello di controllo degli [accessi in base](../../role-based-access-control/overview.md) al ruolo standard. [Gli elenchi DACL di tipo Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) su file/directory trasferiti da file server esistenti verranno mantenuti e applicati. Questa funzionalità offre una perfetta integrazione con l'infrastruttura di dominio AD aziendale. Quando si sostituiscono i file server locali con condivisioni file di Azure, gli utenti esistenti possono accedere alle condivisioni file di Azure dai client correnti con un'esperienza Single Sign-On, senza alcuna modifica alle credenziali in uso.  
+
+> [!NOTE]
+> Per facilitare l'installazione dell'autenticazione di File di Azure ad Esempio per i casi d'uso comuni, sono stati pubblicati due video con istruzioni dettagliate sulla sostituzione dei file server locali con File di Azure e sull'uso di File di Azure come contenitore di profili per Desktop virtuale di Windows.To help you setup Azure Files AD authentication for the common use cases, we published [two videos](https://docs.microsoft.com/azure/storage/files/storage-files-introduction#videos) with the step by step guidance on placing on-premises file servers with Azure Files and using Azure Files as the profile container for Windows Virtual Desktop.
  
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -69,15 +72,17 @@ L'autenticazione di Azure Files AD (anteprima) è disponibile in [tutte le aree 
 
 Prima di abilitare l'autenticazione ad Active Directory su SMB per le condivisioni file di Azure, è consigliabile esaminare i prerequisiti e [assicurarsi](#prerequisites) di aver completato tutti i passaggi. I prerequisiti verificano che gli ambienti AD, Azure AD e Archiviazione di Azure siano configurati correttamente. 
 
-Successivamente, concedere l'accesso alle risorse di File di Azure con credenziali di Active Directory:Next, grant access to Azure Files resources with AD credentials: 
+Seguire quindi i passaggi seguenti per configurare i file di Azure per l'autenticazione di Active Directory:Next, follow the steps below to setup Azure Files for AD Authentication: 
 
-- Abilitare l'autenticazione di File di Azure ad nell'account di archiviazione.  
+1. Abilitare l'autenticazione di File di Azure ad nell'account di archiviazione. 
 
-- Assegnare le autorizzazioni di accesso per una condivisione all'identità di Azure AD (un utente, un gruppo o un'entità servizio) sincronizzata con l'identità di Active Directory di destinazione. 
+2. Assegnare le autorizzazioni di accesso per una condivisione all'identità di Azure AD (un utente, un gruppo o un'entità servizio) sincronizzata con l'identità di Active Directory di destinazione. 
 
-- Configurare gli ACL su SMB per directory e file. 
+3. Configurare gli ACL su SMB per directory e file. 
 
-- Montare una condivisione file di Azure da una macchina virtuale aggiunta a un dominio active directory. 
+4. Montare una condivisione file di Azure da una macchina virtuale aggiunta a un dominio active directory. 
+
+5. Ruotare la password dell'account AD (facoltativo)
 
 Il diagramma seguente illustra il flusso di lavoro end-to-end per abilitare l'autenticazione di Azure AD rispetto a SMB per le condivisioni file di Azure.The following diagram illustrates the end-to-end workflow for enabling Azure AD authentication over SMB for Azure file shares. 
 
@@ -86,25 +91,28 @@ Il diagramma seguente illustra il flusso di lavoro end-to-end per abilitare l'au
 > [!NOTE]
 > L'autenticazione di Active Directory tramite SMB per le condivisioni file di Azure è supportata solo nei computer o nelle macchine virtuali in esecuzione in versioni del sistema operativo più recenti di Windows 7 o Windows Server 2008 R2. 
 
-## <a name="enable-ad-authentication-for-your-account"></a>Abilitare l'autenticazione di Active Directory per l'accountEnable AD authentication for your account 
+## <a name="1-enable-ad-authentication-for-your-account"></a>1. Abilitare l'autenticazione AD per l'account 
 
 Per abilitare l'autenticazione di Active Directory su SMB per le condivisioni file di Azure, è innanzitutto necessario registrare l'account di archiviazione con Active Directory e quindi impostare le proprietà di dominio necessarie nell'account di archiviazione. Quando la funzionalità è abilitata nell'account di archiviazione, si applica a tutte le condivisioni file nuove ed esistenti nell'account. Utilizzare `join-AzStorageAccountForAuth` per abilitare la funzionalità. La descrizione dettagliata del flusso di lavoro end-to-end è riportata nella sezione seguente. 
 
 > [!IMPORTANT]
 > Il `Join-AzStorageAccountForAuth` cmdlet apporterà modifiche all'ambiente Ad. Leggere la spiegazione seguente per comprendere meglio cosa sta facendo per assicurarsi di disporre delle autorizzazioni appropriate per eseguire il comando e che le modifiche applicate siano in linea con i criteri di conformità e sicurezza. 
 
-Il `Join-AzStorageAccountForAuth` cmdlet eseguirà l'equivalente di un aggiunta a un dominio offline per conto dell'account di archiviazione indicato. Verrà creato un account nel dominio di Active Directory, un [account computer](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) o un account di accesso al [servizio](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). L'account di Active Directory creato rappresenta l'account di archiviazione nel dominio di Active Directory. Se l'account di Active Directory viene creato in un'unità organizzativa di Active Directory che impone la scadenza della password, è necessario aggiornare la password prima della validità massima della password. Se non si aggiorna la password dell'account di Active Directory, si verificano errori di autenticazione durante l'accesso alle condivisioni file di Azure.Sefailing to update AD account password will result in authentication failures when accessing Azure file shares. Per informazioni su come aggiornare la password, vedere [Aggiornare](#update-ad-account-password)la password dell'account AD .
+Il `Join-AzStorageAccountForAuth` cmdlet eseguirà l'equivalente di un aggiunta a un dominio offline per conto dell'account di archiviazione indicato. Verrà creato un account nel dominio di Active Directory, un [account computer](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (predefinito) o un account di accesso al [servizio.](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) L'account di Active Directory creato rappresenta l'account di archiviazione nel dominio di Active Directory. Se l'account di Active Directory viene creato in un'unità organizzativa di Active Directory che impone la scadenza della password, è necessario aggiornare la password prima della validità massima della password. Se non si aggiorna la password dell'account di Active Directory, si verificano errori di autenticazione durante l'accesso alle condivisioni file di Azure.Sefailing to update AD account password will result in authentication failures when accessing Azure file shares. Per informazioni su come aggiornare la password, vedere [Aggiornare](#5-update-ad-account-password)la password dell'account AD .
 
 È possibile utilizzare lo script seguente per eseguire la registrazione e abilitare la funzionalità oppure, in alternativa, è possibile eseguire manualmente le operazioni eseguite dallo script. Tali operazioni sono descritte nella sezione che segue lo script. Non è necessario eseguire entrambe le cose.
 
-### <a name="1-check-prerequisites"></a>1. Verificare i prerequisiti
+### <a name="11-check-prerequisites"></a>1.1 Verificare i prerequisiti
 - [Scaricare e decomprimere il modulo AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases)
 - Installare ed eseguire il modulo in un dispositivo aggiunto a Un dominio ad Active Directory con credenziali di Active Directory che dispongono delle autorizzazioni per creare un account di accesso al servizio o un account computer in Active Directory di destinazione.
 -  Eseguire lo script usando una credenziale AD sincronizzata con Azure AD. Le autorizzazioni del ruolo RBAC dell'account di archiviazione o del ruolo RBAC del collaboratore devono disporre delle autorizzazioni del ruolo RBAC del collaboratore.
 - Assicurarsi che l'account di archiviazione si trova in [un'area supportata.](#regional-availability)
 
-### <a name="2-domain-join-your-storage-account"></a>2. Aggiungere un account di archiviazione all'account di archiviazione
+### <a name="12-domain-join-your-storage-account"></a>1.2 Aggiunta all'account di archiviazione per il dominio
 Ricordarsi di sostituire i valori segnaposto con i propri nei parametri seguenti prima di eseguirlo in PowerShell.Remember to replace the placeholder values with your own in the parameters below before executing it in PowerShell.
+> [!IMPORTANT]
+> Si consiglia di fornire un'unità organizzativa di Active Directory (OU) che NON impone la scadenza della password. Se si utilizza un'unità organizzativa con la scadenza della password configurata, è necessario aggiornarla prima della validità massima della password. Se non si aggiorna la password dell'account di Active Directory, si verificano errori di autenticazione durante l'accesso alle condivisioni file di Azure.Sefailing to update AD account password will result in authentication failures when accessing Azure file shares. Per informazioni su come aggiornare la password, vedere [Aggiornare](#5-update-ad-account-password)la password dell'account AD .
+
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -123,19 +131,19 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
-# You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName.
+# You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName "<resource-group-name-here>" `
         -Name "<storage-account-name-here>" `
         -DomainAccountType "ComputerAccount" `
-        -OrganizationalUnitName "<ou-name-here>"
+        -OrganizationalUnitName "<ou-name-here>" or -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>"
 ```
 
 Nella descrizione seguente vengono riepilogate tutte le azioni eseguite quando il `Join-AzStorageAccountForAuth` cmdlet viene eseguito. Se si preferisce non utilizzare il comando, è possibile eseguire questi passaggi manualmente:
 
 > [!NOTE]
-> Se lo `Join-AzStorageAccountForAuth` script è già stato eseguito correttamente, passare alla sezione successiva "3. Verificare che la funzionalità sia abilitata". Non è necessario eseguire nuovamente le operazioni riportate di seguito.
+> Se lo `Join-AzStorageAccountForAuth` script precedente è già stato eseguito correttamente, passare alla sezione successiva "1.3 Verificare che la funzionalità sia abilitata". Non è necessario eseguire nuovamente le operazioni riportate di seguito.
 
 #### <a name="a-checking-environment"></a>a. Controllo dell'ambiente
 
@@ -147,7 +155,7 @@ Per creare manualmente questo account, creare una nuova `New-AzStorageAccountKey
 
 Una volta che hai questa chiave, creare un account di servizio o computer sotto l'unità organizzativa. Usare la specifica seguente: SPN: "cifs/your-storage-account-name-here.file.core.windows.net" Password: chiave Kerberos per l'account di archiviazione.
 
-Se l'unità organizzativa impone la scadenza della password, è necessario aggiornare la password prima della validità massima della password per evitare errori di autenticazione durante l'accesso alle condivisioni file di Azure.If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. Per informazioni dettagliate, vedere Aggiornare la [password dell'account AD.](#update-ad-account-password)
+Se l'unità organizzativa impone la scadenza della password, è necessario aggiornare la password prima della validità massima della password per evitare errori di autenticazione durante l'accesso alle condivisioni file di Azure.If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. Per informazioni dettagliate, vedere Aggiornare la [password dell'account AD.](#5-update-ad-account-password)
 
 Mantenere il SID dell'account appena creato, sarà necessario per il passaggio successivo. Non è necessario sincronizzare l'identità di Active Directory appena creata che rappresenta l'account di archiviazione con Azure AD.
 
@@ -170,7 +178,7 @@ Set-AzStorageAccount `
 ```
 
 
-### <a name="3-confirm-that-the-feature-is-enabled"></a>3. Verificare che la funzione sia abilitata
+### <a name="13-confirm-that-the-feature-is-enabled"></a>1.3 Verificare che la funzionalità sia abilitata
 
 È possibile verificare se la funzionalità è abilitata nell'account di archiviazione, è possibile usare lo script seguente:You can check to confirm whether the feature is enabled on your storage account, you can use the following script:
 
@@ -191,9 +199,9 @@ La funzionalità è stata abilitata correttamente nell'account di archiviazione.
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-L'autenticazione di Active Directory è stata abilitata correttamente tramite SMB e ha assegnato un ruolo personalizzato che fornisce l'accesso a una condivisione file di Azure con un'identità di Active Directory.You have successfully enabled AD authentication over SMB and assigned a custom role that provides access to an Azure file share with an AD identity. Per concedere ad altri utenti l'accesso alla condivisione file, seguire le istruzioni nelle sezioni [Assegnare le autorizzazioni](#assign-access-permissions-to-an-identity) di accesso per utilizzare un'identità e [Configurare le autorizzazioni NTFS su SMB.](#configure-ntfs-permissions-over-smb)
+L'autenticazione di Active Directory è stata abilitata correttamente tramite SMB e ha assegnato un ruolo personalizzato che fornisce l'accesso a una condivisione file di Azure con un'identità di Active Directory.You have successfully enabled AD authentication over SMB and assigned a custom role that provides access to an Azure file share with an AD identity. Per concedere ad altri utenti l'accesso alla condivisione file, seguire le istruzioni nelle sezioni [Assegnare le autorizzazioni](#2-assign-access-permissions-to-an-identity) di accesso per utilizzare un'identità e [Configurare le autorizzazioni NTFS su SMB.](#3-configure-ntfs-permissions-over-smb)
 
-## <a name="update-ad-account-password"></a>Aggiornare la password dell'account AD
+## <a name="5-update-ad-account-password"></a>5. Aggiornare la password dell'account AD
 
 Se l'identità/account di Active Directory che rappresenta l'account di archiviazione in un'unità organizzativa che applica l'ora di scadenza della password, è necessario ruotare la password prima della validità massima della password. Se non si aggiorna la password dell'account ad Active Directory, si verificano errori di autenticazione per accedere alle condivisioni file di Azure.Senon update the password of the AD account will result in authentication failures to access Azure file shares.  
 

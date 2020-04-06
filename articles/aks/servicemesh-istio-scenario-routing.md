@@ -1,17 +1,18 @@
 ---
-title: Routing intelligente e versioni canary con Istio nel servizio Azure Container (AKS)
+title: Utilizzare Istio per il routing intelligente
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come usare Istio per fornire il routing intelligente e distribuire versioni canary in un cluster del servizio Azure Container (AKS)
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 4a695957c287e69ff6b40e5a01254a729eaae441
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01a7764eb0a353e6842441093f70ad29c9316bbd
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78272995"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668281"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Usare il routing intelligente e le versioni canary con Istio nel servizio Azure Container (AKS)
 

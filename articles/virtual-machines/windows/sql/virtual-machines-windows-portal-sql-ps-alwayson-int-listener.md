@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cabfc84d2bc0c9d08a457e67c0182d7550f04ceb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647884"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668898"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurare uno o più listener di gruppi di disponibilità AlwaysOn - Resource Manager
 Questo argomento illustra come:
@@ -58,9 +58,13 @@ Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi 
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Determinare lo SKU di Load Balancer necessario
 
-Il servizio di [bilanciamento del carico](../../../load-balancer/load-balancer-overview.md) di Azure è disponibile in 2 SKU: Basic & Standard.Azure load balancer is available in 2 SKUs: Basic & Standard. È consigliato l'uso di Load Balancer Standard. Se, tuttavia, le macchine virtuali sono in un set di disponibilità, è consentito l'uso di Load Balancer Basic. Load Balancer Standard richiede che tutti gli indirizzi IP delle macchine virtuali usino indirizzi IP standard.
+Il servizio di [bilanciamento del carico](../../../load-balancer/load-balancer-overview.md) di Azure è disponibile in 2 SKU: Basic & Standard.Azure load balancer is available in 2 SKUs: Basic & Standard. È consigliato l'uso di Load Balancer Standard. Se, tuttavia, le macchine virtuali sono in un set di disponibilità, è consentito l'uso di Load Balancer Basic. Se le macchine virtuali si trovano in una zona di disponibilità, è necessario un servizio di bilanciamento del carico standard. Load Balancer Standard richiede che tutti gli indirizzi IP delle macchine virtuali usino indirizzi IP standard.
 
 Il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) corrente per un gruppo di disponibilità usa un'istanza di Load Balancer Basic con indirizzi IP di base.
+
+   > [!NOTE]
+   > Sarà necessario configurare un [endpoint del servizio](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) se si usa un servizio di bilanciamento del carico standard e Archiviazione di Azure per il cloud di controllo. 
+
 
 Gli esempi in questo articolo si riferiscono a un'istanza di Load Balancer Standard. Negli esempi lo script include `-sku Standard`.
 
@@ -226,6 +230,8 @@ Tenere presente le linee guida seguenti per il listener del gruppo di disponibil
 * Con un servizio di bilanciamento del carico interno è possibile accedere al listener solo dalla stessa rete virtuale.
 
 * Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi che le regole di autorizzazione includano gli indirizzi IP della macchina virtuale di SQL Server di back-end e gli indirizzi IP del bilanciamento del carico mobile per il listener AG e l'indirizzo IP principale del cluster, se disponibile.
+
+* Creare un endpoint del servizio quando si usa un servizio di bilanciamento del carico standard con Archiviazione di Azure per il cloud. Per altre informazioni, vedere [Concedere l'accesso da una rete virtuale.](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)
 
 ## <a name="for-more-information"></a>Per ulteriori informazioni
 Per altre informazioni, vedere [Configurare manualmente i gruppi di disponibilità AlwaysOn nelle VM di Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 23550c83e76631e44d5036e0a038f01b61a79f1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f71c039aa6666cec1b871a158d84a6f5a2a107c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79208241"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666825"
 ---
-## <a name="assign-access-permissions-to-an-identity"></a>Assegnare le autorizzazioni di accesso a un'identità
+## <a name="2-assign-access-permissions-to-an-identity"></a>2. Assegnare le autorizzazioni di accesso a un'identità
 
-Per accedere alle risorse File di Azure con autenticazione basata sull'identità, un'identità (un utente, un gruppo o un'entità servizio) deve disporre delle autorizzazioni necessarie a livello di condivisione. Questo processo è simile alla specifica delle autorizzazioni di condivisione di Windows, in cui si specifica il tipo di accesso di un determinato utente a una condivisione file. Le istruzioni dettagliate fornite in questa sezione spiegano come assegnare a un'identità le autorizzazioni di lettura, scrittura o eliminazione per una condivisione file.
+Per accedere alle risorse File di Azure con autenticazione basata sull'identità, un'identità (un utente, un gruppo o un'entità servizio) deve disporre delle autorizzazioni necessarie a livello di condivisione. Questo processo è simile alla specifica delle autorizzazioni di condivisione di Windows, in cui si specifica il tipo di accesso di un determinato utente a una condivisione file. Si consiglia di utilizzare l'autorizzazione a livello di condivisione per la gestione degli accessi di alto livello a un team o a un gruppo, quindi sfruttare le autorizzazioni NTFS per il controllo granulare dell'accesso a livello di directory/file. Le istruzioni dettagliate fornite in questa sezione spiegano come assegnare a un'identità le autorizzazioni di lettura, scrittura o eliminazione per una condivisione file. 
 
 Sono stati introdotti tre ruoli predefiniti di Azure per concedere autorizzazioni a livello di condivisione agli utenti:We have introduced three Azure built-in roles for granting share-level permissions to users:
 
@@ -68,7 +68,7 @@ Prima di eseguire lo script di esempio seguente, ricordarsi di sostituire i valo
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="configure-ntfs-permissions-over-smb"></a>Configurare le autorizzazioni NTFS tramite SMB 
+## <a name="3-configure-ntfs-permissions-over-smb"></a>3. Configurare le autorizzazioni NTFS su SMB 
 Dopo aver assegnato le autorizzazioni a livello di condivisione con RBAC, è necessario assegnare le autorizzazioni NTFS appropriate a livello di radice, directory o file. Considerare le autorizzazioni a livello di condivisione come gatekeeper di alto livello che determina se un utente può accedere alla condivisione. Mentre le autorizzazioni NTFS agiscono a un livello più granulare per determinare le operazioni che l'utente può eseguire a livello di directory o di file.
 
 File di Azure supporta il set completo di autorizzazioni NTFS di base e avanzate. È possibile visualizzare e configurare le autorizzazioni NTFS per directory e file in una condivisione file di Azure montando la condivisione e quindi utilizzando Esplora file di Windows o eseguendo il comando [Icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) o [Set-ACL di](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) Windows. 
@@ -113,9 +113,9 @@ Utilizzare Esplora file di Windows per concedere l'autorizzazione completa a tut
 8.  Nella scheda Sicurezza, selezionare tutte le autorizzazioni che si desidera concedere all'utente appena aggiunto
 9.  Fare clic su **Applica**
 
-## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Montare una condivisione file da una macchina virtuale aggiunta a dominio
+## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Montare una condivisione file da una macchina virtuale aggiunta a un dominio
 
-Il processo seguente verifica che le autorizzazioni di condivisione file e accesso siano state configurate correttamente e che sia possibile accedere a una condivisione file di Azure da una macchina virtuale aggiunta a un dominio:The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM:
+Il processo seguente verifica che le autorizzazioni di condivisione file e accesso siano state configurate correttamente e che sia possibile accedere a una condivisione file di Azure da una macchina virtuale aggiunta a un dominio. Tenere presente che l'assegnazione di ruolo RBAC a livello di condivisione può richiedere del tempo per essere attiva. 
 
 Accedere alla macchina virtuale usando l'identità di Azure AD a cui sono state concesse le autorizzazioni, come illustrato nell'immagine seguente. Se è stata abilitata l'autenticazione di Active Directory per i file di Azure, usare le credenziali di Active Directory.If you have enabled AD authentication for Azure Files, use the AD credential. Per l'autenticazione di Azure AD DS, accedere con le credenziali di Azure AD.
 

@@ -4,16 +4,16 @@ description: Usare un TPM simulato in una macchina virtuale Linux per testare il
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/01/2019
+ms.date: 3/2/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6bb1282212ccff45f179b8750e3ed8aec27d129e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b62f551e2532e0205159358b3618695524ae85c8
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76511060"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666696"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Creare ed eseguire il provisioning di un dispositivo IoT Edge con un TPM virtuale in una macchina virtuale LinuxCreate and provision an IoT Edge device with a virtual TPM on a Linux virtual machine
 
@@ -156,6 +156,9 @@ Con il servizio Device Provisioning in esecuzione, copiare il valore di **Ambito
 Recuperare le informazioni di provisioning dalla macchina virtuale e usarle per creare una registrazione singola nel servizio Device Provisioning.
 
 Quando si crea una registrazione nel servizio Device Provisioning, si ha la possibilità di dichiarare un valore di **Stato dispositivo gemello iniziale**. Nel dispositivo gemello è possibile impostare tag per raggruppare i dispositivi in base a una qualsiasi metrica necessaria nella propria soluzione, come l'area, l'ambiente, la località o il tipo di dispositivo. Questi tag vengono usati per creare [distribuzioni automatiche](how-to-deploy-monitor.md).
+
+> [!TIP]
+> Nell'interfaccia della riga di comando di Azure è possibile creare una registrazione o un gruppo di registrazione e usare il flag abilitato per Edge per specificare che un dispositivo o un gruppo di dispositivi è un dispositivo IoT Edge.In the Azure CLI, you can create an [enrollment](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) or [an enrollment group](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
 
 1. Nel [portale di Azure](https://portal.azure.com)passare all'istanza del servizio di provisioning dei dispositivi dell'hub IoT.In the Azure portal , navigate to your instance of IoT Hub Device Provisioning Service.
 

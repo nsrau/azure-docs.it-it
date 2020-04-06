@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e7070e925d12df82adbc3683da5b10e48c5d4b0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942939"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668123"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -35,14 +35,14 @@ Per le risposte alle domande comuni sull'uso di un nome di dominio personalizzat
 Per informazioni su come acquistare e configurare un dominio personalizzato per l'app Web del servizio app, vedere [Acquistare e configurare un nome di dominio personalizzato nel servizio app](manage-custom-dns-buy-domain.md).
 
 
-## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Come si carica e si configura un certificato SSL esistente per un'app Web?
+## <a name="how-do-i-upload-and-configure-an-existing-tlsssl-certificate-for-my-web-app"></a>Come si carica e si configura un certificato TLS/SSL esistente per l'app Web?
 
-Per informazioni su come caricare e configurare un certificato SSL personalizzato esistente, vedere [Aggiungere un certificato SSL all'app del servizio app.](configure-ssl-certificate.md)
+Per informazioni su come caricare e configurare un certificato TLS/SSL personalizzato esistente, vedere [Aggiungere un certificato TLS/SSL all'app del servizio app.](configure-ssl-certificate.md)
 
 
-## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Come si acquista e si configura un nuovo certificato SSL certificate in Azure per un'app Web?
+## <a name="how-do-i-purchase-and-configure-a-new-tlsssl-certificate-in-azure-for-my-web-app"></a>Come è possibile acquistare e configurare un nuovo certificato TLS/SSL in Azure per l'app Web?
 
-Per informazioni su come acquistare e configurare un certificato SSL per l'app Web del servizio app, vedere [Aggiungere un certificato SSL all'app del servizio app](configure-ssl-certificate.md).
+Per informazioni su come acquistare e configurare un certificato TLS/SSL per l'app Web del servizio app, vedere [Aggiungere un certificato TLS/SSL all'app del servizio app.](configure-ssl-certificate.md)
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Come si spostano le risorse di Application Insights?
@@ -84,7 +84,7 @@ Per informazioni su come ottenere l'indirizzo IP in uscita se il sito Web è osp
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Come si ottiene un indirizzo IP in ingresso dedicato o riservato per un'app Web?
 
-Per configurare un indirizzo IP dedicato o riservato per le chiamate in ingresso al sito Web dell'app di Azure, installare e configurare un certificato SSL basato su IP.
+Per configurare un indirizzo IP dedicato o riservato per le chiamate in ingresso effettuate al sito Web dell'app Azure, installare e configurare un certificato TLS/SSL basato su IP.
 
 Si noti che per utilizzare un indirizzo IP dedicato o riservato per le chiamate in ingresso, il piano del servizio app deve essere di tipo Basic o superiore.
 

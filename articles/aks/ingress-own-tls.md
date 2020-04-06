@@ -1,15 +1,16 @@
 ---
-title: Usare i propri certificati TLS per l'ingresso con cluster del servizio Azure Kubernetes
+title: Usare i certificati TLS per l'ingressoUse your TLS certificates for ingress
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come installare e configurare un controller di ingresso NGINX che usa i propri certificati in un cluster del servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: e567f5384cdd1e40ea67284713a29a92ee87af7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec6a398b52424c142b3d7ee82625c10c733456ab
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595502"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668468"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS e usare i propri certificati TLS nel servizio Azure Kubernetes
 
@@ -28,7 +29,7 @@ Questo articolo illustra come distribuire il [controller di ingresso NGINX][ngin
 
 Questo articolo usa Helm per installare il controller di ingresso NGINX e un'app Web di esempio. È necessario disporre di Helm inizializzato nel cluster servizio Azure Kubernetes e usare un account del servizio per Tiller. Assicurarsi di usare l'ultima versione di Helm. Per istruzioni sull'aggiornamento, vedere la [documentazione sull'installazione][helm-install]di Helm . Per altre informazioni sulla configurazione e l'uso di Helm, vedere [Installare le applicazioni con Helm nel servizio Azure Kubernetes (AKS)][use-helm].
 
-Questo articolo richiede anche che si stia eseguendo l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][azure-cli-install]you need to install or upgrade, see Install Azure CLI.
+Questo articolo richiede anche che si stia eseguendo l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Creare un controller di ingresso
 

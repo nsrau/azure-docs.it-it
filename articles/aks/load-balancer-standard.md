@@ -1,17 +1,18 @@
 ---
-title: Usare un servizio di bilanciamento del carico SKU Standard nel servizio Kubernetes di AzureUse a Standard SKU load balancer in Azure Kubernetes Service (AKS)
+title: Usare un servizio di bilanciamento del carico SKU StandardUse a Standard SKU load balancer
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come usare un servizio di bilanciamento del carico con uno SKU Standard per esporre i servizi con il servizio Azure Kubernetes (AKS).
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17e474de9c221126d67cc2982ba11c6ff75e7aa3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252909"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668502"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico SKU Standard nel servizio Kubernetes di AzureUse a Standard SKU load balancer in Azure Kubernetes Service (AKS)
 
@@ -25,7 +26,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.81 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][install-azure-cli]you need to install or upgrade, see Install Azure CLI.
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.81 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: c5972b602d92b2e08fd70850dd1af5c1236e2b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234468"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668653"
 ---
 # <a name="connect-to-azure-storage-services"></a>Connettersi ai servizi di archiviazione di AzureConnect to Azure storage services
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ Sono necessari gli elementi seguenti:
 
 ## <a name="supported-data-storage-service-types"></a>Tipi di servizi di archiviazione dati supportatiSupported data storage service types
 
-Gli archivi dati supportano attualmente l'archiviazione delle informazioni di connessione ai servizi di archiviazione elencati nella matrice seguente. Al momento, il data warehouse di Azure non è supportato. 
+Gli archivi dati supportano attualmente l'archiviazione delle informazioni di connessione ai servizi di archiviazione elencati nella matrice seguente.
 
 | Tipo&nbsp;di archiviazione | Tipo&nbsp;di autenticazione | [Studio&nbsp;&nbsp;di Azure Machine Learning](https://ml.azure.com/) | [SDK&nbsp;&nbsp;di&nbsp; Python di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Interfaccia&nbsp;&nbsp;della riga di comando di Azure Machine LearningAzure Machine Learning CLI](reference-azure-machine-learning-cli.md) | [API&nbsp;&nbsp;Rest&nbsp; di Azure Machine LearningAzure Machine Learning Rest API](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---

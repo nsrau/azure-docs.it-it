@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2e3c7763a13c8850554b079a426ed4172b74d28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb173bcbf7cd163dca16c211d45018e0fe056edd
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599275"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666843"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Abilitare l'autenticazione di Servizi di dominio Azure Active Directory nei file di AzureEnable Azure Active Directory Domain Services authentication on Azure Files
 
@@ -61,16 +61,16 @@ Prima di abilitare l'autenticazione di Servizi di dominio Active Directory di Az
 
 Eseguire quindi le operazioni seguenti per concedere l'accesso alle risorse File di Azure con credenziali di Azure AD:Next, do the following things to grant access to Azure Files resources with Azure AD credentials:
 
-- Abilitare l'autenticazione di Servizi di dominio Active Directory di Azure su SMB per l'account di archiviazione per registrare l'account di archiviazione con la distribuzione di Servizi di dominio Azure AD associata.
-- Assegnare le autorizzazioni di accesso per una condivisione a un'identità di Azure AD (utente, gruppo o entità servizio).
-- Configurare le autorizzazioni NTFS su SMB per file e directory.
-- Montare una condivisione file di Azure da una macchina virtuale aggiunta a dominio.
+1. Abilitare l'autenticazione di Servizi di dominio Active Directory di Azure su SMB per l'account di archiviazione per registrare l'account di archiviazione con la distribuzione di Servizi di dominio Azure AD associata.
+2. Assegnare le autorizzazioni di accesso per una condivisione a un'identità di Azure AD (utente, gruppo o entità servizio).
+3. Configurare le autorizzazioni NTFS su SMB per file e directory.
+4. Montare una condivisione file di Azure da una macchina virtuale aggiunta a dominio.
 
 The following diagram illustrates the end-to-end workflow for enabling Azure AD DS authentication over SMB for Azure Files.
 
 ![Diagramma che mostra il flusso di lavoro per l'autenticazione di Azure AD tramite SMB per File di Azure](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>Abilitare l'autenticazione di Azure AD DS per l'accountEnable Azure AD DS authentication for your account
+## <a name="1-enable-azure-ad-ds-authentication-for-your-account"></a>1. Abilitare l'autenticazione di Servizi di dominio Active Directory di Azure per l'account
 
 Per abilitare l'autenticazione di Servizi di dominio Active Directory di Azure su SMB per file di Azure, è possibile impostare una proprietà negli account di archiviazione usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.To enable Azure AD DS authentication over SMB for Azure Files, you can set a property on storage accounts by using the Azure portal, Azure PowerShell, or Azure CLI. L'impostazione implicita di questa proprietà "aggiunta di domini" all'account di archiviazione con la distribuzione di Servizi di dominio Azure AD associata. L'autenticazione di Servizi di dominio Active Directory di Azure su SMB viene quindi abilitata per tutte le condivisioni file nuove ed esistenti nell'account di archiviazione.
 
@@ -135,7 +135,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-L'autenticazione di Servizi di dominio Active Directory di Azure è stata abilitata su SMB e ha assegnato un ruolo personalizzato che fornisce l'accesso a una condivisione file di Azure con un'identità di Azure AD. Per concedere ad altri utenti l'accesso alla condivisione file, seguire le istruzioni nelle sezioni [Assegnare le autorizzazioni](#assign-access-permissions-to-an-identity) di accesso per utilizzare un'identità e [Configurare le autorizzazioni NTFS su SMB](#configure-ntfs-permissions-over-smb).
+L'autenticazione di Servizi di dominio Active Directory di Azure è stata abilitata su SMB e ha assegnato un ruolo personalizzato che fornisce l'accesso a una condivisione file di Azure con un'identità di Azure AD. Per concedere ad altri utenti l'accesso alla condivisione file, seguire le istruzioni nelle sezioni [Assegnare le autorizzazioni](#2-assign-access-permissions-to-an-identity) di accesso per utilizzare un'identità e [Configurare le autorizzazioni NTFS su SMB](#3-configure-ntfs-permissions-over-smb).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

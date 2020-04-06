@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: ee7fbddade055c11f5870aa5a588a2fd02f10a23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb39f1ec83416ee8ab2a33b514971110db0c0b17
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131593"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668846"
 ---
 # <a name="what-is-batch-transcription"></a>Che cos'è la trascrizione batch?
 
@@ -31,7 +31,7 @@ La trascrizione asincrona vocale testrina è solo una delle funzionalità. È po
 |    Recupera un elenco di trascrizioni per la sottoscrizione autenticata.    |    GET       |    api/speechtotext/v2.0/transcriptioni            |
 |    Ottiene un elenco di impostazioni locali supportate per le trascrizioni offline.              |    GET       |    api/speechtotext/v2.0/transcriptions/locales    |
 |    Aggiorna i dettagli modificabili della trascrizione identificata dal relativo ID.    |    PATCH     |    api/speechtotext/v2.0/trascrizioni/       |
-|    Elimina l'attività di trascrizione specificata.                                 |    Elimina    |    api/speechtotext/v2.0/trascrizioni/       |
+|    Elimina l'attività di trascrizione specificata.                                 |    DELETE    |    api/speechtotext/v2.0/trascrizioni/       |
 |    Ottiene la trascrizione identificata dall'ID specificato.                        |    GET       |    api/speechtotext/v2.0/trascrizioni/       |
 
 
@@ -304,9 +304,6 @@ Il servizio di trascrizione è in grado di gestire un gran numero di trascrizion
 ## <a name="sample-code"></a>Codice di esempio
 
 Esempi completi sono disponibili nel repository `samples/batch` di esempio [GitHub](https://aka.ms/csspeech/samples) all'interno della sottodirectory.
-
-> [!NOTE]
-> La funzionalità di trascrizione batch viene esposta tramite l'API REST descritta in precedenza. In questo modo la trascrizione Batch può essere usata da quasi tutti i linguaggi o ambienti di programmazione che supporta REST. Gli esempi seguenti e gli esempi in GitHub sono meramente rappresentativi e **non** connotano limiti su dove è possibile usare l'API.
 
 È necessario personalizzare il codice di esempio con le informazioni della sottoscrizione, l'area di servizio, l'URI di firma di accesso condiviso che punta al file audio da trascrivere e gli ID di modello in caso si voglia usare un modello acustico o linguistico personalizzato.
 

@@ -3,12 +3,12 @@ title: Funzionalità di sicurezza per proteggere i carichi di lavoro cloudSecuri
 description: Informazioni su come usare le funzionalità di sicurezza in Backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 57c9fd76ae32aea49f480f2a88d8296538d8052d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7c86e18114513a264a0f9252589533fb7ff2d3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156073"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668730"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funzionalità di sicurezza per proteggere i carichi di lavoro cloud che usano Backup di AzureSecurity features to help protect cloud workloads that use Azure Backup
 
@@ -34,7 +34,7 @@ L'eliminazione temporanea per le macchine virtuali protegge i backup delle macch
 
 ### <a name="supported-regions"></a>Aree supportate
 
-L'eliminazione temporanea è attualmente supportata negli Stati Uniti centro-occidentali, Asia orientale, Canada centrale, Canada orientale, Francia centrale, Francia Sud, Corea centrale, Corea del Sud, Regno Unito Sud, Regno Unito occidentale, Australia orientale, Australia Sud-est, Nord Europa, Stati Uniti occidentali, Stati Uniti occidentali2, Stati Uniti centrali, Sud Asia orientale, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Giappone orientale, Giappone occidentale, India meridionale, India centrale, India occidentale, Stati Uniti orientali 2, Svizzera settentrionale, Svizzera occidentale e tutte le regioni nazionali.
+L'eliminazione temporanea è attualmente supportata negli Stati Uniti centro-occidentali, Asia orientale, Canada centrale, Canada orientale, Francia centrale, Francia meridionale, Corea centrale, Corea del Sud, Regno Unito Sud, Regno Unito occidentale, Australia orientale, Nord Europa, Stati Uniti occidentali, Stati Uniti centrali, Asia sudorientale, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Giappone orientale, Giappone occidentale, India meridionale, India centrale, India occidentale, Stati Uniti orientali 2 , Svizzera Nord, Svizzera Ovest, Norvegia Ovest, Norvegia Est e tutte le regioni nazionali.
 
 ### <a name="soft-delete-for-vms-using-azure-portal"></a>Eliminazione temporanea per le macchine virtuali tramite il portale di AzureSoft delete for VMs using Azure portal
 

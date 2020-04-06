@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 839e13dffc7d15b8cd258dd4b7dda6776223d052
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051730"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666860"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente in Azure Active Directory B2C
 
@@ -91,7 +91,10 @@ Prima di utilizzare i propri file HTML e CSS per personalizzare l'interfaccia ut
 
 Quando si usano i propri file HTML e CSS per personalizzare l'interfaccia utente, è possibile ospitare il contenuto dell'interfaccia utente in qualsiasi endpoint HTTPS disponibile pubblicamente che supporta CORS. Ad esempio, Archiviazione BLOB di [Azure,](../storage/blobs/storage-blobs-introduction.md)server Web, reti CDN, AWS S3 o sistemi di condivisione file.
 
-L'aspetto importante è che il contenuto sia ospitato in un endpoint HTTPS disponibile pubblicamente con CORS abilitato. Quando si specifica un URL nel contenuto, è necessario usare un URL assoluto.
+Il punto importante è che si ospita il contenuto in un endpoint HTTPS disponibile pubblicamente con [CORS abilitato](https://enable-cors.org/server.html). Quando si specifica un URL nel contenuto, è necessario usare un URL assoluto.
+
+> [!NOTE]
+> Per informazioni dettagliate sulla creazione di contenuto HTML, sul caricamento di contenuto nell'archiviazione BLOB di Azure e sulla configurazione di CORS, vedere la sezione Procedura dettagliata sul contenuto della [pagina personalizzata](custom-policy-ui-customization.md#custom-page-content-walkthrough) nell'articolo sulla personalizzazione dell'interfaccia utente.
 
 ## <a name="get-started-with-custom-html-and-css"></a>Introduzione a HTML e CSS personalizzati
 
@@ -166,7 +169,7 @@ Per personalizzare le pagine del flusso utente, è innanzitutto necessario confi
 
 Iniziare impostando il logo del banner, l'immagine di sfondo e il colore di sfondo all'interno **del marchio dell'azienda**.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 1. In **Gestisci**selezionare **Personalizzazione società**.

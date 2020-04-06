@@ -1,15 +1,16 @@
 ---
-title: Creare un controller di ingresso di base del servizio Azure Kubernetes
+title: Creare un controller di ingresso
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come installare e configurare un controller di ingresso di base NGINX in un cluster del servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
 ms.date: 12/20/2019
-ms.openlocfilehash: e37f7aa677be129aa9fe568880c53cc860947e30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b9e4537d6dd771697accc1f9fbdc3b6e2584863
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595638"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668529"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso del servizio Azure Kubernetes
 
@@ -28,7 +29,7 @@ Questo articolo illustra come distribuire il [controller di ingresso NGINX][ngin
 
 Questo articolo usa Helm per installare il controller di ingresso NGINX e un'app Web di esempio.
 
-Questo articolo richiede anche che si stia eseguendo l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][azure-cli-install]you need to install or upgrade, see Install Azure CLI.
+Questo articolo richiede anche che si stia eseguendo l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Creare un controller di ingresso
 

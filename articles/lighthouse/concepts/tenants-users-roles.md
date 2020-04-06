@@ -1,14 +1,14 @@
 ---
 title: Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 description: Informazioni sui concetti di tenant, utenti e ruoli di Azure Active Directory, nonché su come possono essere usati negli scenari di Azure Lighthouse.
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7540e17fd80f9a1d8e996295000c126614b838d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4734f12c8b4b25bf75ecabc39d9e99d8ebe0951c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246892"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668866"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 
@@ -41,6 +41,7 @@ Quando si creano le autorizzazioni, è consigliabile attenersi alle procedure co
 - Assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti abbiano solo le autorizzazioni necessarie per completare il proprio lavoro, riducendo la possibilità di errori accidentali. Per altre informazioni, vedere [Procedure di sicurezza consigliate](../concepts/recommended-security-practices.md).
 - Includere un utente con il [ruolo di eliminazione di assegnazione di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) in modo che sia possibile [rimuovere l'accesso alla delega](../how-to/onboard-customer.md#remove-access-to-a-delegation) in un secondo momento, se necessario. Se questo ruolo non viene assegnato, le risorse delegate possono essere rimosse solo da un utente che si trova nel tenant del cliente.
 - Assicurarsi che tutti gli utenti che devono [visualizzare la pagina Clienti personali nel portale di Azure](../how-to/view-manage-customers.md) dispongano del ruolo [Lettore](../../role-based-access-control/built-in-roles.md#reader) o di un altro ruolo predefinito che include l'accesso in lettura.
+- Gli utenti nel tenant di gestione non avranno accesso per visualizzare le informazioni di fatturazione per una sottoscrizione cliente delegata, anche se dispongono di un ruolo predefinito che in genere consente l'accesso. Ciò è dovuto al fatto che l'accesso alle informazioni di fatturazione richiede passaggi aggiuntivi attualmente supportati solo per gli utenti all'interno dello stesso tenant.
 
 > [!IMPORTANT]
 > Per aggiungere autorizzazioni per un gruppo di Azure AD, il tipo di **gruppo** deve essere **Sicurezza** e non **Office 365.** Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).

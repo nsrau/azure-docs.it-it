@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73242487"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667866"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
 
@@ -39,10 +39,11 @@ Le funzionalità seguenti non sono attualmente supportate per i file NetApp di A
 * Route definite dall'utente (UDR) con prefisso dell'indirizzo come subnet dei file di Azure NetAppUser-defined routes (UDRs) with address prefix as Azure NetApp files subnet
 * Criteri di Azure (ad esempio, criteri di denominazione personalizzati) nell'interfaccia dei file netApp di AzureAzure policies (for example, custom naming policies) on the Azure NetApp Files interface
 * Servizi di bilanciamento del carico per il traffico dei file NetApp di AzureLoad balancers for Azure NetApp Files traffic
+* Azure NetApp Files is not supported with Azure Virtual WAN
 
 Le restrizioni di rete seguenti si applicano ai file NetApp di Azure:The following network restrictions apply to Azure NetApp Files:
 
-* Il numero di indirizzi IP in uso in una rete virtuale con file NetApp di Azure (incluse le reti virtuali con peering) non può superare 1000.The number of Ip in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. Stiamo lavorando per aumentare questo limite per soddisfare le esigenze di scalabilità dei clienti. Nel frattempo, se avete bisogno di più IP, contattare il nostro team di supporto con il vostro caso d'uso e limite richiesto.
+* Il numero di indirizzi IP in uso in una rete virtuale con file NetApp di Azure (incluse le reti virtuali con peering) non può superare 1000.The number of Ip in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. Stiamo lavorando per aumentare questo limite per soddisfare le esigenze di scalabilità dei clienti. 
 * In ogni rete virtuale di Azure (VNet), è possibile delegare solo una subnet in Azure NetApp Files.
 
 
@@ -123,8 +124,8 @@ Nella topologia illustrata in precedenza, la rete locale è connessa a una rete 
 * Le risorse locali VM 1 e VM 2 possono connettersi al Volume 2 o al Volume 3 tramite una VPN da sito a sito e un peering vnet regionale.
 * La VM 3 nella rete virtuale dell'hub può connettersi al volume 2 nella rete virtuale a raggi 1 e nel volume 3 nella rete virtuale a raggi 2.
 * VM 4 dalla rete virtuale a raggi 1 e dalla MACCHINA VIRTUALE 5 della rete virtuale a raggi 2 può connettersi al volume 1 nella rete virtuale dell'hub.
-
-VM 4 nella rete virtuale a raggi 1 non può connettersi al volume 3 nella rete virtuale a raggi 2. Inoltre, VM 5 nella rete virtuale 2 spoke non può connettersi al volume 2 nella rete virtuale a raggi 1. Questo è il caso perché le reti virtuali a raggi non sono sottoposte a peering e il _routing di transito non è supportato tramite peering della rete virtuale._
+* VM 4 nella rete virtuale a raggi 1 non può connettersi al volume 3 nella rete virtuale a raggi 2. Inoltre, VM 5 nella rete virtuale 2 spoke non può connettersi al volume 2 nella rete virtuale a raggi 1. Questo è il caso perché le reti virtuali a raggi non sono sottoposte a peering e il _routing di transito non è supportato tramite peering della rete virtuale._
+* Nell'architettura precedente se è presente un gateway anche nella rete virtuale a raggi, la connettività al volume ANF da locale che si connette tramite il gateway nell'hub andrà persa. Per impostazione automatica, la preferenza viene data al gateway nella rete virtuale a raggi e quindi solo i computer che si connettono a tale gateway possono connettersi al volume ANF.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

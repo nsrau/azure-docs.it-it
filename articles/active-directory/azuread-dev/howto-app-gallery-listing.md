@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 969193b2c0843c4eb217d2bdb9f9ad9a40ccf9af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154968"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666931"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -49,9 +49,9 @@ Questo articolo illustra come elencare un'applicazione nella raccolta di applica
 
 ## <a name="submit-the-request-in-the-portal"></a>Inviare la richiesta nel portale
 
-Dopo aver verificato che l'integrazione dell'applicazione funzioni con Azure AD, inviare la richiesta di accesso nel [portale Rete applicazioni.](https://microsoft.sharepoint.com/teams/apponboarding/Apps) Se si dispone di un account Office 365, usarlo per accedere a questo portale. In caso contrario, utilizzare l'account Microsoft, ad esempio Outlook o Hotmail, per accedere.
+Dopo aver verificato che l'integrazione dell'applicazione funzioni con Azure AD, inviare la richiesta di applicazione nel [portale Microsoft Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-Dopo l'accesso, viene visualizzata la pagina seguente, contattare il team di [integrazione SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)di Azure AD. Specificare l'account di posta elettronica che si desidera utilizzare per l'invio della richiesta. Il team di Azure AD aggiungerà l'account nel portale Microsoft Application Network.The Azure AD team will add the account in the Microsoft Application Network portal.
+Dopo l'accesso, viene visualizzata la pagina seguente, contattare il team di [integrazione SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)di Azure AD. Specificare l'account di posta elettronica che si desidera utilizzare per l'invio della richiesta. È preferibile un [name@yourbusiness.com](mailto:name@yourbusiness.com) indirizzo di posta elettronica aziendale. Il team di Azure AD aggiungerà l'account nel portale Microsoft Application Network.The Azure AD team will add the account in the Microsoft Application Network portal.
 
 ![Messaggio di richiesta di accesso nel portale di SharePoint](./media/howto-app-gallery-listing/errorimage.png)
 

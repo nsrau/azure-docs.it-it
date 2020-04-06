@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c251569cfe6a2f27f86421ffe6a446ace52b435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f884f4c0ea3a610f28a8fdbb34b081f0b0a64d08
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051162"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666955"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -78,6 +78,7 @@ Il server NPS deve essere in grado di comunicare con gli URL seguenti sulle port
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 Inoltre, la connettività agli URL seguenti è necessaria per completare la [configurazione dell'adapter utilizzando lo script di PowerShell fornito](#run-the-powershell-script)
 
@@ -125,7 +126,7 @@ Sono due i fattori che determinano i metodi di autenticazione disponibili con un
       > [!NOTE]
       > Quando si distribuisce l'estensione di Server dei criteri di rete, usare questi fattori per valutare i metodi disponibili per gli utenti. Se il client RADIUS supporta PAP, ma nel client non esistono campi di input per un codice di verifica, la chiamata telefonica e la notifica dell'app per dispositivi mobili sono le due opzioni supportate.
       >
-      > Inoltre, se l'esperienza utente del client VPN supporta il campo di input e sono stati configurati criteri di accesso alla rete, l'autenticazione potrebbe avere esito positivo, tuttavia nessuno degli attributi RADIUS configurati nei criteri di rete verrà applicato né al dispositivo di accesso alla rete, come il server RRAS, né il client VPN. Di conseguenza, il client VPN potrebbe avere più accesso di quanto desiderato o meno a nessun accesso.
+      > Inoltre, se l'esperienza utente del client VPN supporta il campo di input e sono stati configurati criteri di accesso alla rete, l'autenticazione potrebbe avere esito positivo, tuttavia nessuno degli attributi RADIUS configurati nei criteri di rete verrà applicato né al dispositivo di accesso alla rete, né al server RRAS, né al client VPN. Di conseguenza, il client VPN potrebbe avere più accesso di quanto desiderato o meno a nessun accesso.
       >
 
 2. I metodi di input che l'applicazione client (VPN, server Netscaler o altra) può gestire. Ad esempio, gli strumenti usati dal client VPN per consentire all'utente di digitare un codice di verifica da un testo o da un'app per dispositivi mobili.

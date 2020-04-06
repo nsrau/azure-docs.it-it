@@ -1,15 +1,16 @@
 ---
-title: Aggiornare e riavviare i nodi Linux con kured nel servizio Azure Kubernetes (AKS)
+title: Gestire i riavvii dei nodi Linux con il nodo
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come aggiornare i nodi Linux e riavviarli automaticamente con il servizio Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 74b12c1bc6e2a88582cc357c8091b5590e6bf3cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8006baa3025ee1e794359bed854094cc9005dd14
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191283"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668377"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Applicare gli aggiornamenti di sicurezza e del kernel ai nodi Linux nel servizio Azure Kubernetes (AKS)Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)
 

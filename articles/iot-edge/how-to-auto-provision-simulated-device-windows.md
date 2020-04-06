@@ -4,16 +4,16 @@ description: Usare un dispositivo simulato nel computer Windows per testare il p
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee4f01c3ec57b0cf9e3ecf47254b57be95ea051a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc051e2a0ebbdae7c62ff8a249747d118d3c2ce4
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76510941"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668683"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Creare ed eseguire il provisioning di un dispositivo IoT Edge simulato con un TPM virtuale in Windows
 
@@ -60,11 +60,14 @@ Scegliere il linguaggio di SDK che si vuole usare per creare il dispositivo simu
 
 Quando si crea la registrazione singola, selezionare **True** per dichiarare che il dispositivo TPM simulato nel computer di sviluppo Windows è un **dispositivo IoT Edge**.
 
+> [!TIP]
+> Nell'interfaccia della riga di comando di Azure è possibile creare una registrazione o un gruppo di registrazione e usare il flag abilitato per Edge per specificare che un dispositivo o un gruppo di dispositivi è un dispositivo IoT Edge.In the Azure CLI, you can create an [enrollment](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) or [an enrollment group](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
+
 Guide relative ai dispositivi simulati e alle singole registrazioni:
 
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C #](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
+* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
 * [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 

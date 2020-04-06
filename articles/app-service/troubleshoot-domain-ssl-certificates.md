@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi ai certificati DI dominio e SSLTroubleshoot domain and SSL certificates
-description: Trovare soluzioni ai problemi comuni che possono verificarsi quando si configura un dominio o un certificato SSL nel servizio app di Azure.Find solutions to the common problems that you might encounter when you configure a domain or SSL certificate in Azure App Service.
+title: Risolvere i problemi relativi ai certificati di dominio e TLS/SSLTroubleshoot domain and TLS/SSL certificates
+description: Trovare soluzioni ai problemi comuni che possono verificarsi quando si configura un dominio o un certificato TLS/SSL nel servizio app di Azure.Find solutions to the common problems that you might encounter when you configure a domain or TLS/SSL certificate in Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966985"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668031"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Risolvere i problemi relativi al dominio e al certificato SSL in Servizio app di Azure
+# <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Risolvere i problemi relativi al dominio e ai certificati TLS/SSL nel servizio app di AzureTroubleshoot domain and TLS/SSL certificate problems in Azure App Service
 
-Questo articolo elenca i problemi comuni riscontrabili quando si configura un dominio o un certificato SSL per le app Web in Servizio app di Azure. L'articolo descrive anche le possibili cause e soluzioni per tali problemi.
+Questo articolo elenca i problemi comuni che possono verificarsi quando si configura un dominio o un certificato TLS/SSL per le app Web nel servizio app di Azure.This article lists common problems that you might encounter when you configure a domain or TLS/SSL certificate for your web apps in Azure App Service. L'articolo descrive anche le possibili cause e soluzioni per tali problemi.
 
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni **supporto**.
 
@@ -26,17 +26,17 @@ Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, conta
 
 ## <a name="certificate-problems"></a>Problemi certificati
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>Non è consentito aggiungere un'associazione di certificato SSL a un'app 
+### <a name="you-cant-add-a-tlsssl-certificate-binding-to-an-app"></a>Non è possibile aggiungere un binding di certificato TLS/SSL a un'appYou can't add a TLS/SSL certificate binding to an app 
 
 #### <a name="symptom"></a>Sintomo
 
-Quando si aggiunge un'associazione SSL, si riceve il messaggio di errore seguente:
+Quando si aggiunge un'associazione TLS, viene visualizzato il seguente messaggio di errore:
 
 "Non è stato possibile aggiungere l'associazione SSL. Impossibile impostare il certificato per l'indirizzo VIP esistente perché tale certificato è già utilizzato da un altro indirizzo VIP."
 
 #### <a name="cause"></a>Causa
 
-Questo problema può verificarsi se si dispone di più associazioni SSL basate su IP per lo stesso indirizzo IP tra più app. Ad esempio, l'app A dispone di un SSL basato su IP con un certificato precedente. L'app B ha un SSL basato su IP con un nuovo certificato per lo stesso indirizzo IP. Quando si aggiorna l'associazione SSL dell'app con il nuovo certificato, l'operazione ha esito negativo con questo errore, in quanto lo stesso indirizzo IP è in uso per un'altra app. 
+Questo problema può verificarsi se si dispone di più associazioni SSL basate su IP per lo stesso indirizzo IP tra più app. Ad esempio, l'app A dispone di un SSL basato su IP con un certificato precedente. L'app B ha un SSL basato su IP con un nuovo certificato per lo stesso indirizzo IP. Quando si aggiorna l'associazione TLS dell'app con il nuovo certificato, non riesce con questo errore perché lo stesso indirizzo IP viene utilizzato per un'altra app. 
 
 #### <a name="solution"></a>Soluzione 
 
@@ -51,7 +51,7 @@ Per risolvere il problema, usare uno dei metodi seguenti:
 
 Quando si tenta di eliminare un certificato, viene visualizzato il messaggio di errore seguente:
 
-"Impossibile eliminare il certificato perché è attualmente in uso in un'associazione SSL. Prima di poter eliminare il certificato, è necessario rimuovere l'associazione SSL."
+"Impossibile eliminare il certificato perché è attualmente in uso in un binding TLS/SSL. L'associazione TLS deve essere rimossa prima di poter eliminare il certificato."
 
 #### <a name="cause"></a>Causa
 
@@ -59,7 +59,7 @@ Questo problema può verificarsi se il certificato è usato da un'altra app.
 
 #### <a name="solution"></a>Soluzione
 
-Rimuovere l'associazione SSL per il certificato dalle app, quindi provare a eliminare il certificato. Se non è ancora possibile eliminare il certificato, cancellare la cache del browser Internet e riaprire il portale di Azure in una nuova finestra del browser. quindi provare a eliminare il certificato.
+Rimuovere l'associazione TLS per il certificato dalle app. quindi provare a eliminare il certificato. Se non è ancora possibile eliminare il certificato, cancellare la cache del browser Internet e riaprire il portale di Azure in una nuova finestra del browser. quindi provare a eliminare il certificato.
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Non è possibile acquistare un certificato del servizio app 
 
@@ -69,7 +69,7 @@ Non è possibile acquistare un [certificato del servizio app di Azure](./configu
 #### <a name="cause-and-solution"></a>Causa e soluzione
 Questo problema può verificarsi per uno dei motivi seguenti:
 
-- Il piano di servizio app è Gratuito o Condiviso. Questi livelli di prezzo non supportano SSL. 
+- Il piano di servizio app è Gratuito o Condiviso. Questi piani tariffari non supportano TLS. 
 
     **Soluzione:** aggiornare il piano di servizio app per l'app a Standard.
 
@@ -88,7 +88,7 @@ Questo problema può verificarsi per uno dei motivi seguenti:
 
     **Soluzione**: se il certificato è contrassegnato come illecito e il problema non viene risolto entro 24 ore, attenersi alla procedura seguente:
 
-    1. Accedere al [portale](https://portal.azure.com)di Azure .
+    1. Accedere al [portale di Azure](https://portal.azure.com).
     2. Passare a **Certificati del servizio app** e selezionare il certificato.
     3. Selezionare **Configurazione** > certificato**Passaggio 2: Verifica** > **verifica dominio**. Questo passaggio invia una notifica di posta elettronica al provider del certificato di Azure per risolvere il problema.
 
@@ -165,7 +165,7 @@ Se il dominio è stato eliminato da meno di sette giorni, il processo di elimina
 
 ## <a name="domain-problems"></a>Problemi di dominio
 
-### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>È stato acquistato un certificato SSL per il dominio errato
+### <a name="you-purchased-a-tlsssl-certificate-for-the-wrong-domain"></a>È stato acquistato un certificato TLS/SSL per il dominio errato
 
 #### <a name="symptom"></a>Sintomo
 
@@ -190,7 +190,7 @@ Il servizio app sincronizza automaticamente il certificato entro 48 ore. Quando 
 
 È possibile forzare una sincronizzazione del certificato:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Passare a **Certificati del servizio app** e selezionare il certificato.
+1. Accedere al [portale di Azure](https://portal.azure.com). Passare a **Certificati del servizio app** e selezionare il certificato.
 2. Selezionare **Rekey and Sync**, quindi **Selezionare Sync**. Il completamento della sincronizzazione richiede del tempo. 
 3. Al termine della sincronizzazione, viene visualizzata la notifica seguente: "Aggiornate correttamente tutte le risorse con l'ultimo certificato".
 
@@ -262,7 +262,7 @@ Questo problema si verifica per uno dei motivi seguenti:
 
     |Tipo di record|Host|Punta a|
     |------|------|-----|
-    |Una |@|Indirizzo IP per l'app|
+    |Una|@|Indirizzo IP per l'app|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
@@ -306,7 +306,7 @@ Quando acquisti un dominio, non ti viene addebitato un periodo di cinque giorni,
 
 **È possibile usare il dominio in un'altra app del servizio app di Azure nella sottoscrizione?**
 
-Sì. Quando si accede al pannello Domini personalizzati e SSL nel portale di Azure, vengono visualizzati i domini acquistati. Puoi configurare l'app per l'uso di uno di questi domini.
+Sì. Quando si accede al pannello Domini personalizzati e TLS nel portale di Azure, vengono visualizzati i domini acquistati. Puoi configurare l'app per l'uso di uno di questi domini.
 
 **È possibile trasferire un dominio da una sottoscrizione a un'altra?**
 

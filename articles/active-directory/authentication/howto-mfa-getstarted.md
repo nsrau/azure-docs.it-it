@@ -1,6 +1,6 @@
 ---
-title: Distribuire Azure Multi-Factor Authentication - Azure Active DirectoryDeploy Azure Multi-Factor Authentication - Azure Active Directory
-description: Pianificazione della distribuzione di Microsoft Azure Multi-Factor Authentication
+title: Considerazioni sulla distribuzione per Azure Multi-Factor Authentication
+description: Informazioni sulle considerazioni sulla distribuzione e sulla strategia per la corretta implementazione di Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,18 +11,25 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ae58482ced524958ffcdd6094ae57856d088eaf
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653947"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667350"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud
+# <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Pianificare una distribuzione di Azure Multi-Factor AuthenticationPlan an Azure Multi-Factor Authentication deployment
 
 Le persone si connettono alle risorse dell'organizzazione in scenari sempre più complicati. Le persone si connettono da dispositivi pubblici, personali e pubblici dell'organizzazione all'aria e fuori dalla rete aziendale utilizzando smartphone, tablet, PC e laptop, spesso su più piattaforme. In questo mondo sempre connesso, multi-dispositivo e multi-piattaforma, la sicurezza degli account utente è più importante che mai. Le password, indipendentemente dalla complessità, utilizzate su dispositivi, reti e piattaforme non sono più sufficienti per garantire la sicurezza dell'account utente, soprattutto quando gli utenti tendono a riutilizzare le password tra gli account. Phishing sofisticato e altri attacchi di social engineering possono comportare nomi utente e password vengono pubblicati e venduti attraverso il dark web.
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) consente di proteggere l'accesso a dati e applicazioni. Fornisce un ulteriore livello di sicurezza utilizzando una seconda forma di autenticazione. Le organizzazioni possono utilizzare [l'accesso condizionale](../conditional-access/overview.md) per adattare la soluzione alle proprie esigenze specifiche.
+
+Questa guida alla distribuzione illustra come pianificare e quindi testare un'implementazione di Azure Multi-Factor Authentication.This deployment guide shows you how to plan and then test an Azure Multi-Factor Authentication roll-out.
+
+Per vedere rapidamente Azure Multi-Factor Authentication in azione e quindi tornare a comprendere ulteriori considerazioni sulla distribuzione:To quickly see Azure Multi-Factor Authentication in action and then torna a comprendere ulteriori considerazioni sulla distribuzione:To quickly see Azure Multi-Factor Authentication in action and then torna a comprendere ulteriori considerazioni sulla distribuzione
+
+> [!div class="nextstepaction"]
+> [Abilitare Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -173,7 +180,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 Se gli utenti sono stati abilitati usando Azure Multi-Factor Authentication abilitato per utente e applicato, PowerShell può essere indicato nella conversione in Azure Multi-Factor Authentication basato sull'accesso condizionale.
 
-Eseguire PowerShell in una finestra di ISE o salvare come file . PS1 per l'esecuzione locale.
+Eseguire PowerShell in una finestra di `.PS1` ISE o salvare come file per l'esecuzione in locale.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -317,7 +324,7 @@ In ogni server ADFS, nell'archivio personale del computer locale, sarà presente
 
 Se il periodo di validità dei certificati sta per scadere, [generare e verificare un nuovo certificato MFA in ogni server ADFS.](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers)
 
-Le indicazioni seguenti illustrano in dettaglio come gestire i certificati Azure MFA nei server ADFS. Quando si configura ADFS con Azure MFA, `New-AdfsAzureMfaTenantCertificate` i certificati generati tramite il cmdlet PowerShell sono validi per 2 anni. Rinnovare e installare i certificati rinnovati prima della scadenza per ovoid interruzioni nel servizio Di mandare a più fattori.
+Le indicazioni seguenti illustrano in dettaglio come gestire i certificati Azure MFA nei server ADFS. Quando si configura ADFS con Azure MFA, `New-AdfsAzureMfaTenantCertificate` i certificati generati tramite il cmdlet PowerShell sono validi per due anni. Rinnovare e installare i certificati rinnovati prima della scadenza per ovoid interruzioni nel servizio Di mandare a più fattori.
 
 ## <a name="implement-your-plan"></a>Implementare il piano
 
@@ -357,6 +364,7 @@ Per trovare soluzioni aproblemi comuni relativi all'autenticazione a più fattor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Cosa si intende per metodi di autenticazione?](concept-authentication-methods.md)
-* [Abilitare la registrazione convergente per Azure Multi-Factor Authentication e la reimpostazione della password self-service di Azure AD](concept-registration-mfa-sspr-converged.md)
-* Perché a un utente è stato richiesto o non è stato richiesto di eseguire MFA? Vedere la sezione [Report sugli accessi ad Azure AD nel documento Report in Azure Multi-Factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+Per vedere Azure Multi-Factor Authentication in azione, completare l'esercitazione seguente:To see Azure Multi-Factor Authentication in action, complete the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Abilitare Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)

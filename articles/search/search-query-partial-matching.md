@@ -8,29 +8,32 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 3e0e0291ff855b4502224466e17696a4fe668c2a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7f001a0d443e4ec668aedaabb7505884163bf37e
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655991"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666779"
 ---
-# <a name="partial-term-search-in-azure-cognitive-search-queries-wildcard-regex-fuzzy-search-patterns"></a>Ricerca a termine parziale nelle query di Ricerca cognitiva di Azure (caratteri jolly, espressione regolare, ricerca fuzzy, modelli)Partial term search in Azure Cognitive Search queries (wildcard, regex, fuzzy search, patterns)
+# <a name="partial-term-search-and-patterns-with-special-characters---azure-cognitive-search-wildcard-regex-patterns"></a>Ricerca a termine parziale e modelli con caratteri speciali - Ricerca cognitiva di Azure (caratteri jolly, espressioni, modelli)Partial term search and patterns with special characters - Azure Cognitive Search (wildcard, regex, patterns)
 
-Una *ricerca a termine parziale* si riferisce a query costituite da frammenti di termini, ad esempio le prime, le ultime o le parti interne di una stringa, o un modello costituito da una combinazione di frammenti, spesso separati da caratteri speciali, ad esempio trattini o barre. I casi d'uso comuni includono l'esecuzione di query per parti di un numero di telefono, URL, persone o codici prodotto o parole composte.
+Una *ricerca a termine parziale* si riferisce a query costituite da frammenti di termini, ad esempio la prima, l'ultima o le parti interne di una stringa. Un *modello* può essere una combinazione di frammenti, talvolta con caratteri speciali, ad esempio trattini o barre, che fanno parte della query. I casi d'uso comuni includono l'esecuzione di query per parti di un numero di telefono, URL, persone o codici prodotto o parole composte.
 
-La ricerca parziale può essere problematica perché l'indice stesso in genere non archivia i termini in modo da favorire la corrispondenza parziale di stringa e pattern. Durante la fase di analisi del testo dell'indicizzazione, i caratteri speciali vengono eliminati, le stringhe composte e composte vengono suddivise, causando l'esito negativo delle query di modello quando non viene trovata alcuna corrispondenza. Ad esempio, un `+1 (425) 703-6214`numero di `"1"`telefono `"425"` `"703"`come `"6214"`(tokenizzato come , `"3-62"` , , ) non verrà visualizzato in una query perché tale contenuto non esiste effettivamente nell'indice. 
+La ricerca parziale può essere problematica se l'indice non dispone di termini nel formato richiesto per la corrispondenza dei modelli. Durante la fase di analisi del testo dell'indicizzazione, utilizzando l'analizzatore standard predefinito, i caratteri speciali vengono eliminati, le stringhe composte e composte vengono suddivise, causando l'esito negativo delle query di modello quando non viene trovata alcuna corrispondenza. Ad esempio, un `+1 (425) 703-6214`numero di `"1"`telefono `"425"` `"703"`come `"6214"`(tokenizzato come , `"3-62"` , , ) non verrà visualizzato in una query perché tale contenuto non esiste effettivamente nell'indice. 
 
-La soluzione consiste nell'archiviare versioni intatte di queste stringhe nell'indice in modo che è possibile supportare scenari di ricerca parziale. La creazione di un campo aggiuntivo per una stringa intatta, oltre a utilizzare un analizzatore di conservazione del contenuto, è la base della soluzione.
+La soluzione consiste nel richiamare un analizzatore che mantiene una stringa completa, inclusi spazi e caratteri speciali, se necessario, in modo da poter supportare termini e modelli parziali. La creazione di un campo aggiuntivo per una stringa intatta, oltre a utilizzare un analizzatore di conservazione del contenuto, è la base della soluzione.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Ricerca parziale in Ricerca cognitiva di AzureWhat is partial search in Azure Cognitive Search
 
-In Ricerca cognitiva di Azure la ricerca parziale è disponibile nei moduli seguenti:In Azure Cognitive Search, partial search is available in these forms:
+In Ricerca cognitiva di Azure la ricerca parziale e il modello sono disponibili nei moduli seguenti:In Azure Cognitive Search, partial search and pattern is available in these forms:
 
 + [Ricerca dei](query-simple-syntax.md#prefix-search)prefissi , ad `search=cap*`esempio , corrispondente a "Cap'n Jack's Waterfront Inn" o "Gacc Capital". È possibile utilizzare la sintassi di query simply per la ricerca dei prefissi.
-+ [Ricerca con caratteri jolly](query-lucene-syntax.md#bkmk_wildcard) o [Espressioni regolari](query-lucene-syntax.md#bkmk_regex) che cercano un modello o parti di una stringa incorporata, incluso il suffisso. Ad esempio, dato il termine "alfanumerico",`search=/.*numeric.*/`è necessario utilizzare una ricerca con caratteri jolly ( ) per una corrispondenza di query suffisso su tale termine. I caratteri jolly e le espressioni regolari richiedono la sintassi Lucene completa.
 
-Quando uno dei tipi di query precedenti è necessario nell'applicazione client, seguire i passaggi descritti in questo articolo per verificare l'esito necessario nell'indice.
++ [Ricerca con caratteri jolly](query-lucene-syntax.md#bkmk_wildcard) o [Espressioni regolari](query-lucene-syntax.md#bkmk_regex) che cercano un modello o parti di una stringa incorporata, incluso il suffisso. I caratteri jolly e le espressioni regolari richiedono la sintassi Lucene completa. 
+
+  Di seguito sono riportati alcuni esempi di ricerca a termine parziale. Per una query suffisso, dato il termine "alfanumerico", è necessario utilizzare una ricerca con caratteri jolly (`search=/.*numeric.*/`) per trovare una corrispondenza. Per un termine parziale che include caratteri, ad esempio un frammento di URL, potrebbe essere necessario aggiungere caratteri di escape. In JSON, una `/` barra viene preceduta da una barra `\`rovesciata . Di conseguenza, `search=/.*microsoft.com\/azure\/.*/` è la sintassi per il frammento di URL "microsoft.com/azure/".
+
+Come indicato, tutto quanto sopra richiede che l'indice contenga stringhe in un formato favorevole ai criteri di ricerca, che l'analizzatore standard non fornisce. Seguendo la procedura descritta in questo articolo, è possibile assicurarsi che il contenuto necessario esista per supportare questi scenari.
 
 ## <a name="solving-partial-search-problems"></a>Risoluzione di problemi di ricerca parziale
 

@@ -9,12 +9,12 @@ ms.date: 03/06/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48c8179af4a4b69924fb943ac98918b48d3a2008
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4d247f151240da8c3f0d38bbd22e43e230a1b95
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537362"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668623"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creare ed eseguire il provisioning di un dispositivo IoT Edge usando i certificati X.509Create and provision an IoT Edge device using X.509 certificates
 
@@ -72,6 +72,9 @@ Se si desidera eseguire il provisioning di più dispositivi IoT Edge, seguire i 
 Quando si crea una registrazione nel servizio Device Provisioning, si ha la possibilità di dichiarare un valore di **Stato dispositivo gemello iniziale**. Nel dispositivo gemello è possibile impostare tag per raggruppare i dispositivi in base a una qualsiasi metrica necessaria nella propria soluzione, come l'area, l'ambiente, la località o il tipo di dispositivo. Questi tag vengono usati per creare [distribuzioni automatiche](how-to-deploy-monitor.md).
 
 Per ulteriori informazioni sulle registrazioni nel servizio Device Provisioning, vedere [Come gestire le registrazioni dei dispositivi](../iot-dps/how-to-manage-enrollments.md).
+
+   > [!TIP]
+   > Nell'interfaccia della riga di comando di Azure è possibile creare una registrazione o un gruppo di registrazione e usare il flag abilitato per Edge per specificare che un dispositivo o un gruppo di dispositivi è un dispositivo IoT Edge.In the Azure CLI, you can create an [enrollment](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) or [an enrollment group](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
 
 1. Nel [portale di Azure](https://portal.azure.com)passare all'istanza del servizio di provisioning dei dispositivi dell'hub IoT.In the Azure portal , navigate to your instance of IoT Hub Device Provisioning Service.
 

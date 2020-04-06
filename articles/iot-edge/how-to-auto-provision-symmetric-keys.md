@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 10/04/2019
+ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9944308d00c9cfecbd38a6443efb49913148806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 139a2cafe137d000b991cbad8b8567e005ffc728
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535919"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668664"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed eseguire il provisioning di un dispositivo IoT Edge usando l'attestazione a chiave simmetricaCreate and provision an IoT Edge device using symmetric key attestation
 
@@ -71,6 +71,9 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
    1. Se lo desideri, fornisci un **ID dispositivo hub IoT** per il tuo dispositivo. È possibile usare gli ID dispositivo per identificare come destinazione un singolo dispositivo per la distribuzione di moduli. Se non fornisci un ID dispositivo, viene utilizzato l'ID di registrazione.
 
    1. Selezionare True per dichiarare che la registrazione è per un dispositivo IoT Edge.Select **True** to declare that the enrollment is for an IoT Edge device. Per una registrazione di gruppo, tutti i dispositivi devono essere dispositivi IoT Edge o nessuno di essi può essere.
+
+   > [!TIP]
+   > Nell'interfaccia della riga di comando di Azure è possibile creare una registrazione o un gruppo di registrazione e usare il flag abilitato per Edge per specificare che un dispositivo o un gruppo di dispositivi è un dispositivo IoT Edge.In the Azure CLI, you can create an [enrollment](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) or [an enrollment group](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
 
    1. Accettare il valore predefinito dai criteri di allocazione del servizio Device Provisioning per **la modalità** di assegnazione dei dispositivi agli hub o scegliere un valore diverso specifico per questa registrazione.
 

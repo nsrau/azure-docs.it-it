@@ -1,6 +1,6 @@
 ---
-title: Distribuzione della reimpostazione della password self-service - Azure Active Directory
-description: Strategia per la corretta implementazione della reimpostazione della password self-service di Azure ADStrategy for successful implementation of Azure AD self-service password reset
+title: Considerazioni sulla distribuzione per la reimpostazione della password self-service di Azure Active Directory
+description: Informazioni sulle considerazioni sulla distribuzione e sulla strategia per la corretta implementazione della reimpostazione della password self-service di Azure ADLearn about deployment considerations and strategy for successful implementation of Azure AD self-service password reset
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,27 +11,34 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7be99959c2ae420cff667491f68c40dfa0862a9
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: cd5b9e1f2640e68f7c819a49ad34d9c051c582c5
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652395"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667322"
 ---
-# <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Pianificare la reimpostazione della password self-service di Azure Active DirectoryPlan an Azure Active Directory self-service password reset
+# <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active DirectoryPlan an Azure Active Directory self-service password reset deployment
 
-> [!NOTE]
-> Questo piano di distribuzione offre indicazioni di pianificazione e procedure consigliate per la distribuzione della reimpostazione della password self-service (SSPR) di Azure AD. <br>**Se stai cercando lo strumento SSPR per tornare al [https://aka.ms/sspr](https://aka.ms/sspr)tuo account, vai su **.
+> [!IMPORTANT]
+> Questo piano di distribuzione offre indicazioni e procedure consigliate per la distribuzione della reimpostazione della password self-service (SSPR) di Azure AD.
+>
+> **Se sei e l'utente finale e devi tornare [https://aka.ms/sspr](https://aka.ms/sspr)al tuo account, vai a **.
 
-[Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) è una funzionalità di Azure Active Directory (AD) che consente agli utenti di reimpostare le password senza contattare il personale IT per assistenza. Gli utenti possono sbloccare rapidamente se stessi e continuare a lavorare non importa dove sono o ora del giorno. Consentendo ai dipendenti di sbloccarsi, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati per i problemi più comuni relativi alle password. 
+[Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) è una funzionalità di Azure Active Directory (AD) che consente agli utenti di reimpostare le password senza contattare il personale IT per assistenza. Gli utenti possono sbloccare rapidamente se stessi e continuare a lavorare non importa dove sono o ora del giorno. Consentendo ai dipendenti di sbloccarsi, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati per i problemi più comuni relativi alle password.
 
 SSPR dispone delle seguenti funzionalità chiave:
 
 * Il self-service consente agli utenti finali di reimpostare le password scadute o non scadute senza contattare un amministratore o un helpdesk per assistenza.
-
 * [Il writeback delle](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) password consente la gestione delle password locali e la risoluzione del blocco degli account nel cloud.
-
 * I report delle attività di gestione delle password forniscono agli amministratori informazioni dettagliate sull'attività di reimpostazione e registrazione delle password che si verificano nell'organizzazione.
+
+In questa guida alla distribuzione viene illustrato come pianificare e quindi testare un'implementazione di SSPR.
+
+Per vedere rapidamente SSPR in azione e quindi tornare a comprendere ulteriori considerazioni sulla distribuzione:To quickly see SSPR in action and then back to understand additional deployment considerations:
+
+> [!div class="nextstepaction"]
+> [Abilitare la reimpostazione della password self-service (SSPR)Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
 
 ## <a name="learn-about-sspr"></a>Scopri di più su SSPR
 
@@ -134,7 +141,7 @@ La comunicazione è fondamentale per il successo di ogni nuovo servizio. È cons
 
 ### <a name="plan-a-pilot"></a>Pianificare un progetto pilota
 
-È consigliabile che la configurazione iniziale di SSPR si sorsia in un ambiente di test. Iniziare con un gruppo pilota abilitando SSPR per un sottoinsieme di utenti nell'organizzazione. Vedere [Procedure consigliate per un progetto pilota](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
+È consigliabile che la configurazione iniziale di SSPR si sofsia in un ambiente di test. Iniziare con un gruppo pilota abilitando SSPR per un sottoinsieme di utenti nell'organizzazione. Vedere [Procedure consigliate per un progetto pilota](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
 
 Per creare un gruppo, vedere come [creare un gruppo e aggiungere membri in Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) 
 
@@ -213,7 +220,7 @@ Gli account amministratore dispongono di autorizzazioni elevate. Gli amministrat
 
 ### <a name="environments-with-multiple-identity-management-systems"></a>Ambienti con più sistemi di gestione delle identità
 
-Alcuni ambienti dispongono di più sistemi di gestione delle identità. I gestori di identità locali, come Oracle AM e SiteMinder, richiedono la sincronizzazione con AD per le password. È possibile farlo utilizzando uno strumento come il servizio di notifica di modifica della password (PCNS) con Microsoft Identity Manager (MIM). Per informazioni su questo scenario più complesso, vedere [l'articolo Distribuire il](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller)servizio di notifica di modifica della password MIM in un controller di dominio .
+Alcuni ambienti dispongono di più sistemi di gestione delle identità. I gestori di identità locali, ad esempio Oracle AM e SiteMinder, richiedono la sincronizzazione con AD per le password. È possibile farlo utilizzando uno strumento come il servizio di notifica di modifica della password (PCNS) con Microsoft Identity Manager (MIM). Per informazioni su questo scenario più complesso, vedere [l'articolo Distribuire il](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller)servizio di notifica di modifica della password MIM in un controller di dominio .
 
 ## <a name="plan-testing-and-support"></a>Pianificare i test e il supporto
 
@@ -255,7 +262,7 @@ Per consentire il successo del team di supporto, puoi creare una FAQ in base all
 | L'utente non può impostare una nuova password| Un utente completa la verifica durante il flusso di reimpostazione della password, ma non può impostare una nuova password. |
 | L'utente non vede un collegamento Reimposta password in un dispositivo Windows 10| Un utente sta tentando di reimpostare la password dalla schermata di blocco di Windows 10, ma il dispositivo non è aggiunto ad Azure AD o il criterio del dispositivo Intune non è abilitato |
 
-### <a name="plan-roll-back"></a>Pianificare il rollback
+### <a name="plan-rollback"></a>Pianificare il rollback
 
 Per eseguire il rollback della distribuzione:
 
@@ -336,7 +343,7 @@ I registri di controllo per la registrazione e la reimpostazione della password 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per iniziare a distribuire SSPR, vedere [Completare un'implementazione pilota](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) per la reimpostazione della password self-service di Azure ADTo get started deploying SSPR, see Complete an Azure AD self-service password reset pilot roll out
+* Per iniziare a distribuire SSPR, vedere Abilitare la reimpostazione della password self-service di Azure ADTo get started deploying SSPR, see [Enable Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr.md)
 
 * [Valutare la possibilità di implementare la protezione con password di Azure ADConsider implementing Azure AD password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 

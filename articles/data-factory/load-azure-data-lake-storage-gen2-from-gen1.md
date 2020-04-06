@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: f782985d975dd137aa2da48d12757685b47e62b1
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 81f8577592f1d53627bc09a2f9ace8c060ad4660
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421253"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668860"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiare dati da Azure Data Lake Storage Gen1 a Gen2 con Azure Data Factory
 
@@ -65,7 +65,7 @@ Questo articolo illustra come usare lo strumento dati di copia di Data Factory p
 1. Nella pagina **Guida introduttiva** selezionare il riquadro **Copia dati** per avviare lo strumento Copia dati. 
 
    ![Copia riquadro dello strumento Copia dati](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
-2. Nella pagina **Proprietà** specificare **CopyFromADLSGen1ToGen2** per il campo **Nome attività.** Fare clic su **Avanti**.
+2. Nella pagina **Proprietà** specificare **CopyFromADLSGen1ToGen2** per il campo **Nome attività.** Selezionare **Avanti**.
 
     ![Pagina Proprietà](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
 3. Nella pagina **Archivio dati di origine** selezionare **Crea nuova connessione**.
@@ -82,7 +82,7 @@ Questo articolo illustra come usare lo strumento dati di copia di Data Factory p
   
    b. Selezionare **Test connessione** per convalidare le impostazioni. Quindi selezionare **Fine**.
   
-   c. Si nota che è stata creata una nuova connessione. Fare clic su **Avanti**.
+   c. Si nota che è stata creata una nuova connessione. Selezionare **Avanti**.
    
    > [!IMPORTANT]
    > In this walk-through, you use a managed identity for Azure resources to authenticate your Azure Data Lake Storage Gen1. Per concedere all'identità gestita le autorizzazioni appropriate in Azure Data Lake Storage Gen1, seguire [queste istruzioni.](connector-azure-data-lake-store.md#managed-identity)
@@ -93,7 +93,7 @@ Questo articolo illustra come usare lo strumento dati di copia di Data Factory p
 
     ![Scegliere il file o la cartella di input](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
 
-7. Specificare il comportamento di copia selezionando le opzioni Copia file in **modo ricorsivo** e **Copia binaria.** Fare clic su **Avanti**.
+7. Specificare il comportamento di copia selezionando le opzioni Copia file in **modo ricorsivo** e **Copia binaria.** Selezionare **Avanti**.
 
     ![Specificare la cartella di output](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
@@ -137,7 +137,7 @@ Questo articolo illustra come usare lo strumento dati di copia di Data Factory p
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Per valutare l'aggiornamento da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2 in generale, vedere [Aggiornare le soluzioni di analisi dei Big Data da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2.](../storage/blobs/data-lake-storage-upgrade.md) Nelle sezioni seguenti vengono presentate le procedure consigliate per l'utilizzo di Data Factory per un aggiornamento dei dati da Data Lake Storage Gen1 a Data Lake Storage Gen2.
+Per valutare l'aggiornamento da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2 in generale, vedere [Aggiornare le soluzioni di analisi dei Big Data da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2.](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md) Nelle sezioni seguenti vengono presentate le procedure consigliate per l'utilizzo di Data Factory per un aggiornamento dei dati da Data Lake Storage Gen1 a Data Lake Storage Gen2.
 
 ### <a name="data-partition-for-historical-data-copy"></a>Partizione dati per la copia dei dati cronologiciData partition for historical data copy
 

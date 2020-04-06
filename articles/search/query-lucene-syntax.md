@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1392f69bea09996e46ad4c112474f9067ff5a63d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ed7686bbef7dc1342528475226d11b8b8b8fb640
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656906"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668597"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Lucene query syntax in Azure Cognitive Search
 
@@ -104,7 +104,7 @@ Il raggruppamento di campi è simile, ma definisce un singolo campo come ambito 
 
 ### <a name="or-operator-or-or-"></a>Operatore OR `OR` o `||`
 
-L'operatore OR è un carattere barra verticale o pipe. Ad esempio, `wifi || luxury` cercherà i documenti contenenti "wifi" o "luxury" oppure entrambi. Poiché OR è l'operatore di congiunzione predefinito, è anche possibile escluderlo, in modo che `wifi luxury` sia l'equivalente di `wifi || luxuery`.
+L'operatore OR è un carattere barra verticale o pipe. Ad esempio, `wifi || luxury` cercherà i documenti contenenti "wifi" o "luxury" oppure entrambi. Poiché OR è l'operatore di congiunzione predefinito, è anche possibile escluderlo, in modo che `wifi luxury` sia l'equivalente di `wifi || luxury`.
 
 ### <a name="and-operator-and--or-"></a>Operatore AND `AND`, `&&` o `+`
 
@@ -162,6 +162,8 @@ L'esempio seguente illustra le differenze. Si supponga che esista un profilo di 
  Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
  Ad esempio, per trovare i documenti contenenti "motel" o "hotel", specificare `/[mh]otel/`. Le ricerche basate su espressioni regolari vengono confrontate con parole singole.
+
+Alcuni strumenti e lingue impongono requisiti aggiuntivi per i caratteri di escape. Per JSON, le stringhe che includono una barra vengono precedute `search=/.* <string-placeholder>.*/` da una barra `microsoft.com\/azure\/` rovesciata: "microsoft.com/azure/" diventa `search=/.*microsoft.com\/azure\/.*/` dove imposta l'espressione regolare ed è la stringa con una barra di escape.
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Ricerca con caratteri jolly  
  È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.

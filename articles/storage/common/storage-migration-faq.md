@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1445d74e3050ffd6da7c45037df552f4bee9acf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116680"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668558"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -269,7 +269,7 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
 **Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come si fa\/a fare in modo\/che "https: /mystorageaccountname.blob.core.windows.net/images/image.gif" venga visualizzato come "https: /www.contoso.com/images/image.gif"?**
 
-Gli account di archiviazione con domini personalizzati attualmente non supportano l'autenticazione SSL.
+TLS/SSL non è attualmente supportato per gli account di archiviazione con domini personalizzati.
 È però possibile usare domini personalizzati non HTTPS. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../blobs/storage-custom-domain-name.md).
 
 ## <a name="access-to-storage"></a>Accesso allo storage
