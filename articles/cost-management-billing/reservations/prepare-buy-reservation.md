@@ -1,20 +1,20 @@
 ---
-title: Prepararsi ad acquistare una prenotazione di Azure
+title: Acquistare una prenotazione di Azure
 description: Informazioni sui punti importanti prima di acquistare una prenotazione di Azure.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 1f5ca2d43356eab98cffe8414c00d97e5744739a
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 3a45a04786bb9976a42269191c8b24282905f96f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80235661"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436979"
 ---
-# <a name="prepare-to-buy-a-reservation"></a>Prepararsi ad acquistare una prenotazione
+# <a name="buy-a-reservation"></a>Acquistare una prenotazione
 
 Le prenotazioni di Azure consentono di risparmiare denaro a fronte di un impegno di acquisto di un piano di uno o tre anni per numerose risorse di Azure. Prima di sottoscrivere un impegno di acquisto per una prenotazione, esaminare le sezioni seguenti per prepararsi all'acquisto.
 
@@ -50,6 +50,17 @@ Dopo aver acquistato una prenotazione, è sempre possibile aggiornare l'ambito. 
 
 ![Esempio di modifica dell'ambito di una prenotazione](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
 
+## <a name="discounted-subscription-and-offer-types"></a>Sottoscrizione scontata e tipi di offerte
+
+Gli sconti Prenotazione si applicano alle sottoscrizioni idonee e ai tipi di offerte seguenti.
+
+- Contratto Enterprise (numeri offerte: MS-AZR-0017P o MS-AZR-0148P)
+- Sottoscrizioni Contratto del cliente Microsoft.
+- Piani individuali con tariffe con pagamento in base al consumo (numeri offerte: MS-AZR-0003P o MS-AZR-0023P)
+- Sottoscrizioni provider di servizi cloud
+
+Le risorse eseguite in una sottoscrizione con altri tipi di offerta non prevedono questo tipo di sconto.
+
 ## <a name="purchase-reservations"></a>Acquistare prenotazioni
 
 È possibile acquistare prenotazioni tramite il portale di Azure, le API, PowerShell e l'interfaccia della riga di comando. Quando si è pronti per acquistare una prenotazione, leggere gli articoli seguenti in base alle esigenze:
@@ -66,6 +77,54 @@ Dopo aver acquistato una prenotazione, è sempre possibile aggiornare l'ambito. 
 - [Database SQL](../../sql-database/sql-database-reserved-capacity.md)
 - [SQL Data Warehouse](prepay-sql-data-warehouse-charges.md)
 - [Macchine virtuali](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+
+## <a name="buy-reservations-with-monthly-payments"></a>Acquistare prenotazioni con pagamenti mensili
+
+Ora è possibile pagare le prenotazioni con pagamenti mensili. A differenza di un acquisto anticipato, in cui si paga l'importo completo, l'opzione di pagamento mensile divide il costo totale della prenotazione in modo uniforme per ogni mese del periodo. Il costo totale delle prenotazioni con pagamento anticipato e mensile è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente.
+
+Se la prenotazione è stata acquistata tramite un Contratto del cliente Microsoft, l'importo del pagamento mensile potrebbe essere soggetto a variazioni in base al tasso di cambio del mese corrente per la valuta locale.
+
+I pagamenti mensili non sono disponibili per: Databricks, prenotazioni SUSE Linux, piani Red Hat e calcolo Azure Red Hat OpenShift.
+
+### <a name="view-payments-made"></a>Visualizzare i pagamenti effettuati
+
+È possibile visualizzare i pagamenti effettuati usando le API, i dati di utilizzo e l'analisi dei costi. Per le prenotazioni pagate mensilmente, il valore della frequenza viene visualizzato come **ricorrente** nei dati di utilizzo e nell'API relativa agli addebiti della prenotazione. Per le prenotazioni pagate in anticipo, il valore viene visualizzato come **una tantum**.
+
+L'analisi dei costi mostra gli acquisti mensili nella visualizzazione predefinita. Applicare il filtro **acquisto** per **Tipo di addebito** e **ricorrente** per **Frequenza** per visualizzare tutti gli acquisti. Per visualizzare solo le prenotazioni, applicare un filtro per **Prenotazione**.
+
+![Esempio che mostra i costi di acquisto della prenotazione nell'analisi dei costi](./media/prepare-buy-reservation/cost-analysis.png)
+
+### <a name="exchange-and-refunds"></a>Cambio e rimborsi
+
+Analogamente ad altre prenotazioni, è possibile scambiare le prenotazioni acquistate con la fatturazione mensile o ottenere un rimborso. 
+
+Quando si scambia una prenotazione con pagamento mensile, il costo di durata totale del nuovo acquisto deve essere superiore ai pagamenti rimanenti annullati per la prenotazione restituita. Non sono previsti altri limiti o tariffe per gli scambi. È possibile scambiare una prenotazione pagata in anticipo per acquistare una nuova prenotazione fatturata mensilmente. Il valore di durata della nuova prenotazione, tuttavia, deve essere maggiore del valore ripartito in modo proporzionale della prenotazione da restituire.
+
+Se si annulla una prenotazione con pagamento mensile, i pagamenti futuri annullati vengono cumulati fino al limite di rimborso di $ 50.000 USD.
+
+Per altre informazioni su scambi e rimborsi, vedere [Scambi e rimborsi in modalità self-service per le prenotazioni di Azure](exchange-and-refund-azure-reservations.md).
+
+## <a name="reservation-notifications"></a>Notifiche per le prenotazioni
+
+A seconda del metodo di pagamento scelto per la sottoscrizione di Azure, gli utenti dell'organizzazione indicati di seguito riceveranno notifiche sulle prenotazioni tramite posta elettronica. Le notifiche vengono inviate per vari eventi, tra cui: 
+
+- Purchase
+- Scadenza imminente della prenotazione
+- Expiry
+- Rinnovo
+- Annullamento
+- Cambio di ambito
+
+Per i clienti con sottoscrizioni EA:
+
+- Le altre notifiche vengono inviate solo ai contatti per le notifiche del contratto Enterprise.
+- Gli utenti aggiunti a una prenotazione tramite l'autorizzazione Controllo degli accessi in base al ruolo (IAM) non ricevono notifiche tramite posta elettronica.
+
+Per i clienti con sottoscrizioni singole:
+
+- L'acquirente riceve una notifica di acquisto.
+- Al momento dell'acquisto, il proprietario dell'account di fatturazione della sottoscrizione riceve una notifica di acquisto.
+- Il proprietario dell'account riceve tutte le altre notifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,16 +3,16 @@ title: Utilizzi dell'analisi dei costi comune in Gestione costi di Azure
 description: Questo articolo illustra come ottenere risultati per le attività di analisi dei costi comune in Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/31/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 901f271ac401cb985e59c434b9e6d7f8db03889f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203101"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520872"
 ---
 # <a name="common-cost-analysis-uses"></a>Utilizzi dell'analisi dei costi comune
 
@@ -26,9 +26,9 @@ La visualizzazione dei costi da parte di un servizio di Azure può aiutare a com
 1. Selezionare **Costo per servizio** e quindi raggruppare per **Livello di servizio**.
 1. Modificare la visualizzazione in **Tabella**.
 
-![Ripartizione dei costi per servizio di Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)
+[![Ripartizione dei costi per servizio di Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
 
-## <a name="view-cost-breakdown-by-azure-resource"></a>Visualizzare la riipartizione dei costi per servizio di Azure
+## <a name="view-cost-breakdown-by-azure-resource"></a>Visualizzare la ripartizione dei costi per servizio di Azure
 
 I servizi sono compilati con le risorse di Azure. La revisione dei costi in base alle risorse consente di identificare rapidamente i collaboratori del costo primario. Se un servizio dispone di risorse troppo onerose, provare ad apportare modifiche per ridurre i costi.
 
@@ -36,18 +36,18 @@ I servizi sono compilati con le risorse di Azure. La revisione dei costi in base
 1. Selezionare **Costo per risorsa**.
 1. Modificare la visualizzazione in **Tabella**.
 
-![Visualizzare la ripartizione dei costi per servizio di Azure](./media/cost-analysis-common-uses/cost-by-resource.png)
+[![Visualizzare la ripartizione dei costi per risorsa di Azure](./media/cost-analysis-common-uses/cost-by-resource.png)](./media/cost-analysis-common-uses/cost-by-resource.png#lightbox)
 
-## <a name="view-cost-breakdown-by-selected-dimensions"></a>Visualizzare la suddivisione dei costi in base alle dimensioni selezionate
+## <a name="view-cost-breakdown-by-selected-dimensions"></a>Visualizzare la ripartizione dei costi in base alle dimensioni selezionate
 
 Le dimensioni consentono di organizzare i costi in base ai diversi valori dei metadati indicati negli addebiti. È ad esempio possibile raggruppare i costi in base alla località.
 
 1. Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio: **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
 1. Selezionare il filtro **Raggruppa per**.  
-    ![Consente di selezionare un elemento da Raggruppa per](./media/cost-analysis-common-uses/group-by.png)
+    [![Selezionare un elemento da Raggruppa per](./media/cost-analysis-common-uses/group-by.png)](./media/cost-analysis-common-uses/group-by.png#lightbox)
 1. Facoltativamente, è possibile salvare la vista per un uso successivo.
 1. Fare clic su un grafico a torta sotto al grafico per visualizzare dati più dettagliati.  
-    ![Visualizzare la ripartizione dei costi in base alle dimensioni selezionate](./media/cost-analysis-common-uses/drill-down.png)
+    [![Visualizzare la ripartizione dei costi in base alle dimensioni selezionate](./media/cost-analysis-common-uses/drill-down.png)](./media/cost-analysis-common-uses/drill-down.png#lightbox)
 
 ## <a name="view-costs-per-day-or-by-month"></a>Visualizzare i costi al giorno o al mese
 
@@ -56,7 +56,58 @@ Esaminare i costi giornalieri e mensili può essere utile per comprendere meglio
 1. Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio: **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
 1. Impostare la **Granularità** su **Mensile** o **Giornaliera**.
 
-![Visualizzare i costi al giorno](./media/cost-analysis-common-uses/daily-granularity.png)
+[![Visualizzare i costi al giorno](./media/cost-analysis-common-uses/daily-granularity.png)](./media/cost-analysis-common-uses/daily-granularity.png#lightbox)
+
+
+## <a name="view-your-spot-vm-charges"></a>Visualizzare gli addebiti per le VM spot
+
+Le VM spot possono offrire risparmi sui costi significativi per i carichi di lavoro in grado di gestire le interruzioni. I carichi di lavoro vengono eseguiti in una capacità di Azure inutilizzata. Poiché possono essere eliminati in qualsiasi momento, le VM spot garantiscono uno sconto significativo. Per visualizzare gli addebiti per le VM spot, procedere come segue.
+
+1. Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio, **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
+2. Aggiungere un filtro per **Modello di determinazione prezzi: Spot**.
+
+![Esempio che mostra il filtro per le VM spot](./media/cost-analysis-common-uses/spot-vm-filter.png)
+
+La dimensione Modello di determinazione prezzi viene usata anche per visualizzare gli addebiti su richiesta e delle prenotazioni.
+
+## <a name="view-your-reservation-charges"></a>Visualizzare gli addebiti per la prenotazione
+
+Le istanze riservate offrono un modo per risparmiare denaro con Azure. Con le prenotazioni è possibile acquistare in anticipo un determinato numero di risorse nel tempo. L'analisi dei costi mostra gli addebiti visualizzati nella fattura. Gli addebiti vengono visualizzati come costi effettivi o ammortizzati nel corso del periodo di prenotazione.
+
+1. Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio, **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
+1. Aggiungere un filtro per **Modello di determinazione prezzi: Prenotazione**.
+1. In **Ambito** e accanto al costo visualizzato fare clic sul simbolo della freccia verso il basso e selezionare la metrica **Costo effettivo** o **Costo ammortizzato**.
+
+![Selezionare una metrica di costo](./media/cost-analysis-common-uses/metric-cost.png)
+
+Ogni metrica influisce sulla modalità di visualizzazione dei dati per gli addebiti delle prenotazioni.
+
+**Costo effettivo**: mostra l'acquisto come visualizzato nella fattura. Se, ad esempio, è stata acquistata una prenotazione di un anno per $ 1200 a gennaio, l'analisi dei costi mostra un costo di $ 1200 nel mese di gennaio per la prenotazione. Non viene visualizzato alcun costo di prenotazione per gli altri mesi dell'anno. Se si raggruppano i costi effettivi per macchina virtuale, una macchina virtuale che ha ricevuto il vantaggio della prenotazione per un determinato mese presenterà un costo pari a zero per il mese.
+
+**Costo ammortizzato**: mostra l'acquisto della prenotazione ripartito come costo ammortizzato per la durata del periodo di prenotazione. Usando lo stesso esempio precedente, l'analisi dei costi mostra un costo di $ 100 per ogni mese dell'anno se è stata acquistata una prenotazione di un anno per $ 1200 a gennaio. Se in questo esempio si raggruppano i costi per macchina virtuale, si noterà che i costi sono attribuiti a ogni macchina virtuale che ha ricevuto il vantaggio della prenotazione.
+
+## <a name="view-your-reservation-utilization"></a>Visualizzare l'utilizzo della prenotazione
+
+Dopo l'acquisto di una prenotazione, è importante tenere traccia dell'utilizzo in modo da poter usufruire dei servizi acquistati. Se, ad esempio, sono state acquistate 10 macchine virtuali per un anno e ne sono state usate solo cinque, la metà dell'acquisto è stata sprecata. Esistono due modi diversi per valutare l'utilizzo:
+
+### <a name="view-unused-ri-costs-in-cost-analysis"></a>Visualizzare i costi delle istanze riservate inutilizzate nell'analisi dei costi
+
+Per identificare la quantità di costi attualmente sprecata ogni mese per l'acquisto della prenotazione, seguire questa procedura.
+
+1. Nel portale di Azure passare all'analisi dei costi per l'ambito a cui è applicata la prenotazione. Ad esempio, **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
+1. Aggiungere un filtro per **Modello di determinazione prezzi: Prenotazione**.
+1. Selezionare la visualizzazione **Costo ammortizzato**.
+1. Impostare la granularità su **Mensile**.
+1. Impostare il periodo di tempo sull'anno corrente o sul periodo della prenotazione.
+1. Impostare il tipo di grafico su **Istogramma (in pila)** .
+1. Raggruppare gli addebiti per **Tipo di addebito**.
+1. Esaminare i risultati per i valori `unusedreservation`.
+
+[![Esempio che mostra l'uso della prenotazione](./media/cost-analysis-common-uses/view-reservation-cost.png)](./media/cost-analysis-common-uses/view-reservation-cost.png#lightbox)
+
+### <a name="view-utilization-in-reservations"></a>Visualizzare l'utilizzo nelle prenotazioni
+
+Per istruzioni dettagliate, vedere [Ottimizzare l'uso delle prenotazioni](../reservations/manage-reserved-vm-instance.md#optimize-reservation-use).
 
 ## <a name="view-costs-for-a-specific-tag"></a>Visualizzare i costi per un tag specifico
 
@@ -67,7 +118,7 @@ Il supporto per i tag si applica all'uso segnalato *dopo* che il tag è stato ap
 1. Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio: **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
 1. Selezionare **Raggruppa per** per il tag.
 
-![Visualizzare i costi per un tag specifico](./media/cost-analysis-common-uses/tag.png)
+[![Visualizzare i costi per un tag specifico](./media/cost-analysis-common-uses/tag.png)](./media/cost-analysis-common-uses/tag.png#lightbox)
 
 ## <a name="download-your-usage-details"></a>Scaricare i dettagli di utilizzo
 
@@ -75,7 +126,7 @@ Il file di report dei dettagli sull'utilizzo in formato CSV fornisce una riparti
 
 1. Nel portale di Azure passare alla scheda **Utilizzo e addebiti** per un account o una sottoscrizione di fatturazione. Ad esempio: **Gestione dei costi e fatturazione** > **Fatturazione** > **Utilizzo e addebiti**.
 1. Selezionare la voce da scaricare e fare clic sul simbolo di download.  
-    ![Scaricare l'utilizzo e gli addebiti](./media/cost-analysis-common-uses/download1.png)
+    [![Scaricare l'utilizzo e gli addebiti](./media/cost-analysis-common-uses/download1.png)](./media/cost-analysis-common-uses/download1.png#lightbox)
 1.  Selezionare il file di utilizzo da scaricare.  
     ![Scegliere un file di utilizzo da scaricare](./media/cost-analysis-common-uses/download2.png)
 
@@ -88,13 +139,13 @@ Vengono mostrati i costi solo per la registrazione attiva. Se una registrazione 
 
 1. Nel portale di Azure passare a **Gestione dei costi e fatturazione** > **Panoramica**.
 1. Fare clic su **Ripartizione** per il mese corrente e visualizzare il burn-down dell'impegno monetario.  
-    ![Panoramica dei costi EA - riepilogo della ripartizione](./media/cost-analysis-common-uses/breakdown1.png)
+    [![Panoramica dei costi EA - riepilogo della ripartizione](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
 1.  Fare clic sulla scheda **Utilizzo e addebiti** e visualizzare la ripartizione del mese precedente nell'intervallo di tempo scelto.  
-    ![Scheda Utilizzo e addebiti](./media/cost-analysis-common-uses/breakdown2.png)
+    [![Scheda Utilizzo e addebiti](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)
 
 ## <a name="view-enrollment-monthly-cost-by-term"></a>Visualizzare il costo mensile per l'iscrizione per termine
 
-Usare una vista grafica dei costi mensili della registrazione per comprendere le tendenze dei costi e gli importi fatturati per un determinato periodo.
+Usare una visualizzazione grafica dei costi mensili della registrazione per comprendere le tendenze dei costi e gli importi fatturati per un determinato periodo.
 
 1. Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio: **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
 1. Selezionare la registrazione e impostare il termine di registrazione.
@@ -102,7 +153,7 @@ Usare una vista grafica dei costi mensili della registrazione per comprendere le
 
 È possibile raggruppare e filtrare i dati per un'analisi più dettagliata.
 
-![Costo di registrazione mensile per termine](./media/cost-analysis-common-uses/enrollment-term1.png)
+[![Costo di registrazione mensile per periodo](./media/cost-analysis-common-uses/enrollment-term1.png)](./media/cost-analysis-common-uses/enrollment-term1.png#lightbox)
 
 ## <a name="view-ea-enrollment-accumulated-costs"></a>Visualizzare i costi accumulati per la registrazione EA
 
@@ -111,7 +162,7 @@ Consente di visualizzare i costi cumulativi netti nel tempo per comprendere le s
 1. Nel portale di Azure passare all'analisi dei costi per l'ambito di interesse. Ad esempio: **Gestione dei costi e fatturazione** > **Gestione dei costi** > **Analisi dei costi**.
 1. Selezionare la registrazione, quindi visualizzare i costi accumulati correnti.
 
-![Costi accumulati per la registrazione](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
+[![Costi accumulati per la registrazione](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)](./media/cost-analysis-common-uses/cost-analysis-enrollment.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Se non è stata ancora completata la prima guida introduttiva di Gestione costi, esaminarla in [Avviare l’analisi dei costi](quick-acm-cost-analysis.md).

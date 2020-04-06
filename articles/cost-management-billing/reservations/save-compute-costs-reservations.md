@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 6277a7e7dc5891a3bc67c298a31344284c92e31d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 97bd03fb2aa8f5b486ef87a04f260fec43eb81bd
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80235640"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396708"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -20,7 +20,7 @@ Le prenotazioni di Azure consentono di risparmiare denaro a fronte di un impegno
 
 Il pagamento per le prenotazioni può essere anticipato o mensile. Il costo totale delle prenotazioni con pagamento anticipato e mensile è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente. Il pagamento mensile è disponibile per le prenotazioni di Azure, non per prodotti di terze parti.
 
-È possibile acquistare una prenotazione nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+È possibile acquistare una prenotazione nel portale di Azure all'indirizzo [https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## <a name="why-buy-a-reservation"></a>Perché acquistare una prenotazione?
 
@@ -34,6 +34,48 @@ Per altre informazioni su come viene applicato lo sconto, vedere [Applicazione d
 
 Per altre informazioni sul funzionamento dell'ambito di prenotazione, vedere [Definire l'ambito delle prenotazioni](prepare-buy-reservation.md#scope-reservations).
 
+## <a name="determine-what-to-purchase"></a>Decidere cosa acquistare 
+
+Tutte le prenotazioni, ad eccezione di Azure Databricks, vengono applicate su base oraria. Valutare gli acquisti delle prenotazioni in base all'utilizzo di base coerente. È possibile determinare la prenotazione da acquistare analizzando i dati di utilizzo o usando le raccomandazioni per le prenotazioni. Le raccomandazioni sono disponibili in:
+
+- Azure Advisor (solo macchine virtuali)
+- Esperienza di acquisto della prenotazione nel portale di Azure
+- App Power BI Gestione costi di Azure
+- API 
+
+Per altre informazioni, vedere  [Determinare la prenotazione da acquistare](determine-reservation-purchase.md) 
+
+## <a name="buying-a-reservation"></a>Acquisto di una prenotazione 
+
+È possibile acquistare prenotazioni tramite il portale di Azure, le API, PowerShell e l'interfaccia della riga di comando. 
+
+Passare al portale di Azure per procedere all'acquisto (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) ). 
+
+Per altre informazioni, vedere  [Acquistare una prenotazione](prepare-buy-reservation.md) 
+
+## <a name="how-is-a-reservation-billed"></a>Come viene fatturata una prenotazione? 
+
+La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Il costo della prenotazione viene sottratto dal saldo dell'impegno monetario, se disponibile. Se tale saldo non copre il costo della prenotazione, l'eccedenza verrà fatturata. Se si ha una sottoscrizione di un singolo piano con pagamento in base al consumo, sulla carta di credito associata all'account verranno immediatamente addebitati gli acquisti anticipati. I pagamenti mensili vengono visualizzati nella fattura e addebitati mensilmente sulla carta di credito. Se l'addebito avviene tramite fattura, il costo risulterà visibile sulla fattura successiva. 
+
+## <a name="permissions-to-view-and-manage-reservations"></a>Assegnare autorizzazioni per la visualizzazione e la gestione delle prenotazioni 
+
+L'utente che acquista una prenotazione e l'amministratore dell'account della sottoscrizione usata per la fatturazione della prenotazione ottengono il ruolo di proprietario per l'ordine della prenotazione e per la prenotazione.
+
+È possibile delegare la gestione di una prenotazione mediante l'aggiunta di utenti all'ordine o alla prenotazione. I ruoli vengono assegnati nel portale di Azure o tramite le API e PowerShell. 
+
+Per altre informazioni vedere  [Aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+
+## <a name="get-reservation-details-and-utilization-after-purchase"></a>Ottenere i dettagli e l'utilizzo della prenotazione dopo l'acquisto
+
+Se si dispone dell'autorizzazione per visualizzare la prenotazione, è possibile visualizzare la prenotazione e il relativo utilizzo nel portale di Azure. È anche possibile ottenere i dati tramite le API. 
+
+Per altre informazioni su come visualizzare le prenotazioni nel portale di Azure, vedere [Visualizzare le prenotazioni nel portale di Azure](view-reservations.md) 
+
+## <a name="manage-reservations-after-purchase"></a>Gestire le prenotazioni dopo l'acquisto 
+
+Dopo aver acquistato una prenotazione di Azure, può essere necessario aggiornare l'ambito per applicarla a una sottoscrizione diversa, cambiare la persona che gestisce la prenotazione, dividere la prenotazioni in parti più piccole o modificare la flessibilità delle dimensioni istanza. 
+
+Per altre informazioni, vedere  [Gestire le prenotazioni per le risorse di Azure](manage-reserved-vm-instance.md) 
 
 ## <a name="flexibility-with-azure-reservations"></a>Flessibilità offerta dalle prenotazioni di Azure
 
@@ -54,7 +96,7 @@ Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazio
 - **Database di Azure per MySQL**: in una prenotazione sono inclusi solo i costi di calcolo. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati al server di database MySQL.
 - **Database di Azure per PostgreSQL**: in una prenotazione sono inclusi solo i costi di calcolo. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati al server di database PostgreSQL.
 - **Database di Azure per MariaDB**: in una prenotazione sono inclusi solo i costi di calcolo. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati al server di database MariaDB.
-- **Esplora dati di Azure**: in una prenotazione sono inclusi gli addebiti di ricarico. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati ai cluster.
+- **Esplora dati di Azure**: in una prenotazione sono inclusi gli addebiti di ricarico. Non sono inclusi gli addebiti per il calcolo, la rete o l'archiviazione associati ai cluster.
 - **Azure Cache for Redis**: in una prenotazione sono inclusi solo i costi delle risorse di calcolo. Non sono inclusi gli addebiti per le funzionalità di rete o archiviazione associate alle istanze della cache Redis.
 - **Host dedicato di Azure**: solo i costi di calcolo sono inclusi nell'host dedicato.
 - **Prenotazioni di archiviazione su disco di Azure**: una prenotazione copre solo unità SSD Premium di dimensioni P30 o superiori. Non sono coperti altri tipi di disco o dimensioni inferiori a P30.

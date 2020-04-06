@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 2af84ccf679d28251e34f4c76ced38b0cb653a58
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e27f34572eef7d50c7b140c65cb78c6d0678fa8
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203016"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477603"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -94,9 +94,9 @@ Le tabelle seguenti illustrano i dati inclusi o meno in Gestione costi. Tutti i 
 
 _<sup>**5**</sup> L'utilizzo del servizio di Azure è basato sulla prenotazione e sui prezzi negoziati._
 
-_<sup>**6**</sup> Gli acquisti di Marketplace non sono attualmente disponibili per le offerte con pagamento in base al consumo, MSDN e Visual Studio._
+_<sup>**6**</sup> Gli acquisti del Marketplace non sono attualmente disponibili per le offerte MSDN e Visual Studio._
 
-_<sup>**7**</sup> Gli acquisti di prenotazioni sono disponibili attualmente solo per gli account Contratto Enterprise (EA)._
+_<sup>**7**</sup> Gli acquisti delle prenotazioni sono disponibili attualmente solo per gli account Contratto Enterprise (EA) e Contratto del cliente Microsoft._
 
 ## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Uso dei tag nei dati relativi a costi e utilizzo
 

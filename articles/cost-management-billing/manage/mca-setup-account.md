@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 24f7a81b267e858d16ae0805f9c7ab384be3b2fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81b6b8a7024de9ff3361e24cb14190d479e50681
+ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200643"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80258057"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurare l'account di fatturazione per un Contratto del cliente Microsoft
 
@@ -115,7 +115,7 @@ Ai contatti per le notifiche vengono inviate comunicazioni sul contratto Enterpr
 
 ### <a name="spending-quotas"></a>Quote di spesa
 
-Le quote di spesa impostate per i reparti nella registrazione Enterprise Agreement sono sostituite dai budget nel nuovo account di fatturazione. Viene creato un budget per ogni quota di spesa impostata per i reparti nella registrazione. Per altre informazioni sui budget, vedere la sezione sulla [creazione e gestione dei budget di Azure](../cloudyn/manage-budgets.md).
+Le quote di spesa impostate per i reparti nella registrazione Enterprise Agreement sono sostituite dai budget nel nuovo account di fatturazione. Viene creato un budget per ogni quota di spesa impostata per i reparti nella registrazione. Per altre informazioni sui budget, vedere [Esercitazione: Creare e gestire budget di Azure](../costs/tutorial-acm-create-budgets.md).
 
 ### <a name="cost-centers"></a>Centri di costo
 

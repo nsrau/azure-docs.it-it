@@ -1,18 +1,18 @@
 ---
-title: Introduzione alla fatturazione per il Contratto del cliente Microsoft - Azure
+title: Introduzione all'account di fatturazione del Contratto del cliente Microsoft - Azure
 description: Informazioni sull'account di fatturazione del Contratto del cliente Microsoft
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/27/2020
 ms.author: banders
-ms.openlocfilehash: a580dd1fb9d2965a9da1e4918733bd5cf137e443
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df54109010c694934dda005d6e8f1c219ec49efc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79139947"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370996"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Introduzione all'account di fatturazione per il Contratto del cliente Microsoft
 
@@ -34,7 +34,7 @@ I ruoli nell'account di fatturazione hanno il livello di autorizzazioni più ele
 
 Usare un profilo di fatturazione per gestire fatture e metodi di pagamento. Viene generata una fattura mensile all'inizio del mese per ogni profilo di fatturazione incluso nell'account. La fattura contiene gli addebiti rispettivi per tutte le sottoscrizioni di Azure e gli altri acquisti del mese precedente.
 
-Per l'account di fatturazione viene creato automaticamente un profilo di fatturazione, che per impostazione predefinita contiene una sezione della fattura. È possibile creare sezioni aggiuntive per tenere traccia dei costi e allocarli facilmente in base alle esigenze, ad esempio per progetto, reparto o ambiente di sviluppo. Queste sezioni verranno visualizzate nella fattura del profilo di fatturazione e rispecchieranno l'utilizzo di ogni sottoscrizione e gli acquisti assegnati ad essa assegnati.
+Per l'account di fatturazione viene creato automaticamente un profilo di fatturazione, che per impostazione predefinita contiene una sezione della fattura. È possibile creare sezioni aggiuntive per tenere traccia dei costi e allocarli facilmente in base alle esigenze, ad esempio per progetto, reparto o ambiente di sviluppo. Queste sezioni verranno visualizzate nella fattura del profilo di fatturazione e rispecchieranno l'utilizzo di ogni sottoscrizione e gli acquisti ad essa assegnati.
 
 Ai ruoli nei profili di fatturazione sono assegnate le autorizzazioni per visualizzare e gestire fatture e metodi di pagamento. Assegnare questi ruoli agli utenti che pagano fatture, ad esempio i membri del team di contabilità nell'organizzazione. Per altre informazioni, vedere [Ruoli e attività del profilo di fatturazione](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
