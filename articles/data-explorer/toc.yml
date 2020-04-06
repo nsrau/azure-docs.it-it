@@ -67,7 +67,13 @@
     - name: Inserire dati
       items:
         - name: Inserimento con un clic
-          href: ingest-data-one-click.md
+          items:
+            - name: Panoramica dell'inserimento con un clic
+              href: ingest-data-one-click.md
+            - name: Inserimento con un clic in una nuova tabella
+              href: one-click-ingestion-new-table.md
+            - name: Inserimento con un clic in una tabella esistente
+              href: one-click-ingestion-existing-table.md
         - name: Inserimento del flusso
           href: ingest-data-streaming.md
         - name: Uso di LightIngest
@@ -188,6 +194,8 @@
               href: customer-managed-keys-csharp.md
             - name: Modello di Azure Resource Manager
               href: customer-managed-keys-resource-manager.md
+        - name: Creare l'app di Azure AD
+          href: provision-azure-ad-app.md
     - name: Gestione
       items:
         - name: Cluster
@@ -208,6 +216,8 @@
                   href: cluster-principal-python.md
                 - name: Modello di Azure Resource Manager
                   href: cluster-principal-resource-manager.md
+            - name: Gestire le estensioni del linguaggio dei cluster
+              href: language-extensions.md
         - name: Database
           items:
             - name: Database di follower
@@ -240,6 +250,8 @@
           href: using-diagnostic-logs.md
         - name: Usare le metriche per monitorare l'integrità del cluster
           href: using-metrics.md
+        - name: Usare Integrità risorsa per monitorare l'integrità del cluster
+          href: monitor-with-resource-health.md
     - name: Integrazione con altri strumenti
       items:
         - name: Data factory di Azure
@@ -264,6 +276,8 @@
           href: connect-from-databricks.md
         - name: Analizzare i dati in Jupyter Notebook e Kqlmagic
           href: kqlmagic.md
+        - name: Analizzare i dati in Azure Notebooks
+          href: azure-notebooks.md
         - name: Azure Pipelines
           href: devops.md
     - name: Risolvere problemi

@@ -697,6 +697,10 @@
       items:
         - name: Analizzare i dati con Interactive Query
           href: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+    - name: Concetti
+      items:
+        - name: Procedure consigliate per il gateway
+          href: ./interactive-query/gateway-best-practices.md
     - name: Procedure
       items:
         - name: Sviluppo
@@ -816,6 +820,8 @@
       items:
         - name: Usare Apache Storm per scrivere nella risorsa di archiviazione
           href: ./storm/apache-storm-write-data-lake-store.md
+        - name: Apache Kafka e Apache Storm (Java)
+          href: ./hdinsight-apache-storm-with-kafka.md
     - name: Procedure
       items:
         - name: Eseguire la migrazione di Storm a Spark
@@ -836,10 +842,6 @@
                   href: ./storm/apache-storm-example-topology.md
             - name: Pipeline di flusso
               items:
-                - name: Apache Kafka e Apache Storm (Java)
-                  href: ./hdinsight-apache-storm-with-kafka.md
-                - name: 'HHub eventi, archiviazione e Data Lake Storage (Java)'
-                  href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
                 - name: 'Hub eventi e Apache Storm (C# e Java)'
                   href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
         - name: Gestione

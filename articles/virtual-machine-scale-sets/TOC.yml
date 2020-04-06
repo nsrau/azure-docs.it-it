@@ -13,11 +13,13 @@
       href: quick-create-cli.md
     - name: Creare con Azure PowerShell
       href: quick-create-powershell.md
-    - name: Creare con un modello
+    - name: Creare un modello di Azure Resource Manager
       items:
         - name: Set di scalabilità Linux
+          displayName: 'ARM, resource manager'
           href: quick-create-template-linux.md
         - name: Set di scalabilità Windows
+          displayName: 'ARM, resource manager'
           href: quick-create-template-windows.md
 - name: Esercitazioni
   items:
@@ -291,7 +293,7 @@
         - name: Ridimensionare automaticamente un set di scalabilità
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview

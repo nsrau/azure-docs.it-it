@@ -52,7 +52,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Aprire le porte per RDP e HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
-1. Lasciare invariate le impostazioni predefinite rimanenti, quindi selezionare il pulsante **Rivedi + Crea** nella parte inferiore della pagina.
+1. Lasciare invariate le impostazioni predefinite rimanenti, quindi selezionare il pulsante **Rivedi e crea** nella parte inferiore della pagina.
 
     ![Rivedi e crea](./media/quick-create-portal/review-create.png)
 

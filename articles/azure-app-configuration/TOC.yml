@@ -120,7 +120,7 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: Azure SDK per JavaScript
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: REST
+        - name: API REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Gestione delle funzionalità
       items:
@@ -128,6 +128,10 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
         - name: Libreria di filtri di .NET Core
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
+    - name: Gestione dell'archivio di configurazione
+      items:
+        - name: API REST
+          href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
 - name: Risorse
   items:
     - name: Prezzi

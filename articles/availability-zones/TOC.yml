@@ -85,6 +85,10 @@
           items:
             - name: Creare un'istanza di Azure Active Directory Domain Services
               href: ../active-directory-domain-services/tutorial-create-instance.md
+    - name: Documentazione sulle zone perimetrali
+      items:
+        - name: Cosa sono le zone perimetrali?
+          href: ../networking/edge-zones-overview.md
 - name: Ripristino di emergenza
   items:
     - name: Usare Azure Site Recovery

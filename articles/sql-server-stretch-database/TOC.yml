@@ -1,5 +1,5 @@
-- name: Documentazione di SQL Server Stretch Database
-  href: index.md
+- name: Documentazione di SQL Server Stretch Database di Azure
+  href: index.yml
 - name: Panoramica
   items:
     - name: Che cos'è Stretch Database?
@@ -36,7 +36,7 @@
           href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
         - name: Disabilitare Stretch Database
           href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-server-database'

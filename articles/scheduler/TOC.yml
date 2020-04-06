@@ -1,5 +1,5 @@
-- name: Documentazione di Utilità di pianificazione
-  href: index.md
+- name: Documentazione di Utilità di pianificazione di Azure
+  href: index.yml
 - name: Panoramica
   items:
     - name: Che cos'è l'Utilità di pianificazione di Azure?
@@ -34,7 +34,7 @@
       items:
         - name: Autenticare le chiamate in uscita
           href: scheduler-outbound-authentication.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.scheduler

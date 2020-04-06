@@ -32,6 +32,8 @@
           href: migrate-cost-management-api.md
     - name: Guide pratiche
       items:
+        - name: Prevenire e analizzare gli addebiti imprevisti
+          href: ../manage/getting-started.md
         - name: Assegnare l'accesso ai dati
           href: assign-access-acm-data.md
         - name: Usare l'analisi dei costi per attività comuni

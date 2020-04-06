@@ -93,6 +93,8 @@
           href: security-audit-events.md
         - name: Analizzare gli eventi di controllo con Cartelle di lavoro di Monitoraggio di Azure
           href: use-azure-monitor-workbooks.md
+        - name: Accesso remoto sicuro alle VM
+          href: secure-remote-vm-access.md
     - name: Aggiungere macchine virtuali al dominio
       items:
         - name: VM Windows Server da un modello
@@ -143,13 +145,9 @@
       href: faqs.md
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
-    - name: Software di terze parti compatibile
-      href: compatible-software.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
     - name: Forum di commenti e suggerimenti su Azure AD
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Contatti
-      href: contact-us.md
     - name: Usare Azure AD Domain Services nelle sottoscrizioni CSP di Azure
       href: csp.md

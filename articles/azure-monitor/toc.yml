@@ -15,7 +15,7 @@
     - name: Monitorare le macchine virtuali
       items:
         - name: Macchine virtuali di Azure
-          href: learn/quick-collect-azurevm.md
+          href: learn/quick-monitor-azure-vm.md
         - name: Computer Linux
           href: learn/quick-collect-linux-computer.md
         - name: Computer Windows
@@ -303,10 +303,6 @@
             - name: Correlazione di dati di telemetria
               href: app/correlation.md
               displayname: 'correlation headers, w3c, distributed tracing, tracing'
-            - name: Server d'inoltro locale
-              href: app/opencensus-local-forwarder.md
-            - name: Go
-              href: app/opencensus-go.md
         - name: Flusso metriche attive
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
@@ -488,9 +484,17 @@
             - name: Panoramica
               displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/platform-logs-overview.md
-            - name: Visualizzare il log attività
-              displayName: Platform logs
-              href: platform/activity-log-view.md
+            - name: Log attività
+              items:
+                - name: Visualizzare nel portale di Azure
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-view.md
+                - name: Raccogliere e analizzare
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-collect.md
+                - name: Esportare (legacy)
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
             - name: Destinazioni di invio
               items:
                 - name: Area di lavoro Log Analytics
@@ -502,20 +506,6 @@
                 - name: Hub eventi
                   displayname: 'Resource logs, Activity log, Platform logs'
                   href: platform/resource-logs-stream-event-hubs.md
-            - name: Raccolta di log attività legacy
-              items:
-                - name: Panoramica
-                  displayName: Resource logs
-                  href: platform/diagnostic-settings-legacy.md
-                - name: Raccogliere e analizzare
-                  displayname: Activity log
-                  href: platform/activity-log-collect.md
-                - name: Raccogliere in più tenant
-                  displayname: Activity log
-                  href: platform/activity-log-collect-tenants.md
-                - name: Esportazione
-                  displayname: Activity log
-                  href: platform/activity-log-export.md
         - name: Impostazioni di diagnostica
           items:
             - name: Creare l'impostazione di diagnostica
@@ -531,6 +521,8 @@
           href: platform/stream-monitoring-data-event-hubs.md
     - name: Monitorare le macchine virtuali e il sistema operativo guest
       items:
+        - name: Monitorare le macchine virtuali di Azure
+          href: insights/monitor-vm-azure.md
         - name: Agenti
           items:
             - name: Panoramica degli agenti
@@ -636,12 +628,10 @@
           items:
             - name: Panoramica
               href: insights/vminsights-overview.md
-            - name: Problemi noti
-              href: insights/vminsights-known-issues.md
             - name: Domande frequenti sulla disponibilità generale
               href: insights/vminsights-ga-release-faq.md
             - name: Domande frequenti
-              href: 'faq.md#azure-monitor-for-vms-preview'
+              href: 'faq.md#azure-monitor-for-vms'
             - name: Abilitare il monitoraggio
               items:
                 - name: Abilitare il monitoraggio - Panoramica
@@ -654,18 +644,16 @@
                   href: insights/vminsights-enable-at-scale-powershell.md
                 - name: Eseguire l'abilitazione per l'ambiente ibrido
                   href: insights/vminsights-enable-hybrid-cloud.md
-                - name: Integrazione con Operations Manager
-                  href: insights/service-map-scom.md
-            - name: Monitorare l'integrità
-              href: insights/vminsights-health.md
             - name: Eseguire il mapping delle dipendenze
               href: insights/vminsights-maps.md
             - name: Monitorare le prestazioni
               href: insights/vminsights-performance.md
-            - name: Uso delle cartelle di lavoro
-              href: insights/vminsights-workbooks.md
             - name: Analizzare i dati con le query sui log
               href: insights/vminsights-log-search.md
+            - name: Visualizzare i dati con la cartella di lavoro
+              href: insights/vminsights-workbooks.md
+            - name: Creazione di regole di avviso
+              href: insights/vminsights-alerts.md
             - name: Aggiornare Dependency Agent
               href: insights/vminsights-dependency-agent-maintenance.md
             - name: Disabilitare il monitoraggio
@@ -680,6 +668,8 @@
               href: insights/wire-data.md
             - name: Soluzione Mapping dei servizi
               href: insights/service-map.md
+            - name: Mapping dei servizi e Operations Manager
+              href: insights/service-map-scom.md
         - name: Gruppi di computer
           href: platform/computer-groups.md
     - name: Monitorare i contenitori
@@ -708,6 +698,8 @@
               href: insights/container-insights-analyze.md
             - name: Monitorare l'integrità
               href: insights/container-insights-health.md
+            - name: Monitorare le prestazioni della GPU
+              href: insights/container-insights-gpu-monitoring.md
             - name: Visualizzare i dati dinamici
               items:
                 - name: Panoramica dei dati dinamici (anteprima)
@@ -896,13 +888,11 @@
                   href: log-query/query-optimization.md
                 - name: Analizzare i dati di testo
                   href: log-query/parse-text.md
-        - name: Flow/App per la logica
+        - name: App per la logica
           items:
-            - name: Connettore di Flow con log
-              href: platform/flow-tutorial.md
-            - name: Connettore di Flow con applicazioni
-              href: app/automate-with-flow.md
-            - name: App per la logica con applicazioni
+            - name: Connettore dei log di Monitoraggio di Azure
+              href: platform/logicapp-flow-connector.md
+            - name: Connettore di Application Insights
               href: app/automate-with-logic-apps.md
         - name: API REST
           displayname: 'metrics, analyze'
@@ -975,6 +965,8 @@
           href: platform/grafana-plugin.md
     - name: Creazione di avvisi
       items:
+        - name: Risolvere i problemi correlati agli avvisi
+          href: platform/alerts-troubleshoot.md
         - name: Regole di avviso per applicazioni
           items:
             - name: Disponibilità
@@ -999,7 +991,7 @@
               href: platform/alerts-log-query.md
             - name: Azioni webhook
               href: platform/alerts-log-webhook.md
-            - name: Risoluzione dei problemi
+            - name: Risolvere i problemi degli avvisi dei log
               href: platform/alert-log-troubleshoot.md
         - name: Regole di avviso del log attività
           items:
@@ -1263,8 +1255,6 @@
           href: 'https://azure.microsoft.com/updates/?product=log-analytics'
         - name: Note sulla versione di SDK
           href: app/release-notes.md
-    - name: Windows Analytics
-      href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: Video

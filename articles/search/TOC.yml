@@ -23,6 +23,9 @@
           href: knowledge-store-create-portal.md
         - name: Eseguire query con Esplora ricerche
           href: search-explorer.md
+    - name: Modello ARM
+      displayName: Resource Manager
+      href: search-get-started-arm.md
     - name: 'C#'
       href: search-get-started-dotnet.md
     - name: Java
@@ -77,14 +80,6 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: Esempi REST
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
-- name: Formazione
-  items:
-    - name: Introduzione (Microsoft Learn)
-      href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
-    - name: Aggiungere la ricerca nelle app (Pluralsight)
-      href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
-    - name: Corso per sviluppatori (Pluralsight)
-      href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
 - name: Concetti
   items:
     - name: Ricerca full-text
@@ -233,7 +228,7 @@
           href: search-query-simple-examples.md
         - name: Usare la sintassi Lucene completa
           href: search-query-lucene-examples.md
-        - name: Caratteri speciali e termini parziali
+        - name: Termini parziali e caratteri speciali
           href: search-query-partial-matching.md
         - name: Eseguire query da Power Apps
           href: search-howto-powerapps.md
@@ -261,7 +256,7 @@
           href: search-example-adventureworks-multilevel-faceting.md
     - name: Risultati
       items:
-        - name: Funzionalità correlate alle pagine
+        - name: Usare i risultati
           href: search-pagination-page-layout.md
         - name: Ottimizzazione della pertinenza (profili di punteggio)
           href: index-add-scoring-profiles.md
@@ -460,6 +455,14 @@
           href: 'https://aka.ms/azjobsdemo'
         - name: Eseguire ricerche nei casi d'uso
           href: 'https://searchsamples.azurewebsites.net/'
+    - name: Formazione
+      items:
+        - name: Introduzione (Microsoft Learn)
+          href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
+        - name: Aggiungere la ricerca nelle app (Pluralsight)
+          href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
+        - name: Corso per sviluppatori (Pluralsight)
+          href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
     - name: Domande frequenti
       href: search-faq-frequently-asked-questions.md
     - name: Prezzi

@@ -29,6 +29,8 @@
       href: quick-onboard-azure-stack.md
 - name: Esercitazioni
   items:
+    - name: Guida alla pianificazione e alle operazioni
+      href: security-center-planning-and-operations-guide.md
     - name: Proteggere le risorse
       href: tutorial-protect-resources.md
     - name: Rispondere agli eventi imprevisti
@@ -71,8 +73,8 @@
           href: security-center-incident.md
         - name: Correlazione tra avvisi intelligenti cloud (incidenti)
           href: security-center-alerts-cloud-smart.md
-        - name: Mappa degli avvisi di sicurezza e intelligence per le minacce
-          href: security-center-threat-intel.md
+        - name: Report sulle minacce
+          href: security-center-threat-report.md
         - name: Convalida degli avvisi (file di test EICAR)
           href: security-center-alert-validation.md
 - name: Guide pratiche
@@ -149,6 +151,8 @@
           href: security-center-sql-service-recommendations.md
         - name: Proteggere le identità e gli accessi
           href: security-center-identity-access.md
+        - name: Gestire i dati utente per l'indagine
+          href: security-center-investigation-user-data.md
     - name: Applicare difese cloud
       items:
         - name: Gestire l'accesso JIT
@@ -159,24 +163,6 @@
           href: security-center-file-integrity-monitoring.md
         - name: Protezione adattiva della rete
           href: security-center-adaptive-network-hardening.md
-    - name: Archiviazione
-      items:
-        - name: Applicare Crittografia dischi
-          href: security-center-apply-disk-encryption.md
-        - name: Applicare gli aggiornamenti di sistema
-          href: security-center-apply-system-updates.md
-        - name: Installa Endpoint Protection
-          href: security-center-install-endpoint-protection.md
-        - name: Report sulle minacce
-          href: security-center-threat-report.md
-        - name: Punteggio di attendibilità degli avvisi
-          href: security-center-confidence-score.md
-        - name: Analisi
-          href: security-center-investigation.md
-        - name: Gestire i dati utente per l'indagine
-          href: security-center-investigation-user-data.md
-        - name: Pianificazione e gestione
-          href: security-center-planning-and-operations-guide.md
 - name: Informazioni di riferimento
   items:
     - name: API REST
