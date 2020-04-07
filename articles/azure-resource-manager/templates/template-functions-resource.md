@@ -3,12 +3,12 @@ title: Funzioni modello - risorse
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 641602218aa19b790eb6e7feabdb7b46a520b590
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 23c0463649e748b35917c959a73536147e91f60b
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478267"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745001"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funzioni delle risorse per i modelli ARM
 
@@ -444,12 +444,12 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza o quando il nome della risorsa è ambiguo, specificare l'ID della risorsa. |
-| apiVersion |No |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. Per le versioni API valide per la risorsa, vedere [riferimento al modello](/azure/templates/). |
+| apiVersion |No |string |Versione dell'API della risorsa specificata. **Questo parametro è obbligatorio quando non viene eseguito il provisioning della risorsa all'interno dello stesso modello.** In genere il formato è **aaaa-mm-gg**. Per le versioni API valide per la risorsa, vedere [riferimento al modello](/azure/templates/). |
 | 'Full' |No |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Ogni tipo di risorsa restituisce proprietà diverse per la funzione di riferimento. La funzione non restituisce un singolo formato predefinito. Il valore restituito, poi, è diverso a seconda del fatto che sia stato richiesto l'oggetto completo o meno. Per visualizzare le proprietà per un tipo di risorsa, restituire l'oggetto nella sezione output, come illustrato nell'esempio.
+Ogni tipo di risorsa restituisce proprietà diverse per la funzione di riferimento. La funzione non restituisce un singolo formato predefinito. Inoltre, il valore restituito varia in base `'Full'` al valore dell'argomento. Per visualizzare le proprietà per un tipo di risorsa, restituire l'oggetto nella sezione output, come illustrato nell'esempio.
 
 ### <a name="remarks"></a>Osservazioni
 
@@ -514,7 +514,7 @@ Quando si fa riferimento a una risorsa distribuita nello stesso modello, specifi
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-Quando si fa riferimento a una risorsa non distribuita nello stesso modello, specificare l'ID risorsa.
+Quando si fa riferimento a una risorsa non distribuita nello stesso `apiVersion`modello, specificare l'ID risorsa e .
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"

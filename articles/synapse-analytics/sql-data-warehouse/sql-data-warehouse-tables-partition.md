@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4e19c20036d74752b75a668d6a37c46ef1b008e6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 368276f75128c80b8df326a26acf26c841e9f68a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583196"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742682"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partizionamento delle tabelle nel pool SQL Synapse
 
@@ -46,9 +46,9 @@ Quando si creano partizioni in tabelle **columnstore cluster**, è importante te
 
 ## <a name="syntax-differences-from-sql-server"></a>Differenze di sintassi rispetto a SQL Server
 
-Synapse SQL pool introduces a way to define partitions that is simpler than SQL Server. Le funzioni e gli schemi di partizionamento non vengono utilizzati nel pool SQL Synapse come in SQL Server. Piuttosto, è necessario identificare la colonna partizionata e le delimitazioni. Mentre la sintassi del partizionamento può essere leggermente diversa da quella di SQL Server, i concetti di base sono gli stessi. Il pool SQL di SQL Server e Synapse supporta una colonna di partizione per tabella, che può essere suddivisa in una partizione. Per altre informazioni sul partizionamento, vedere [Tabelle e indici partizionati](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
+Synapse SQL pool introduces a way to define partitions that is simpler than SQL Server. Le funzioni e gli schemi di partizionamento non vengono utilizzati nel pool SQL Synapse come in SQL Server. Piuttosto, è necessario identificare la colonna partizionata e le delimitazioni. Mentre la sintassi del partizionamento può essere leggermente diversa da quella di SQL Server, i concetti di base sono gli stessi. Il pool SQL di SQL Server e Synapse supporta una colonna di partizione per tabella, che può essere suddivisa in una partizione. Per altre informazioni sul partizionamento, vedere [Tabelle e indici partizionati](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-L'esempio seguente usa l'istruzione [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) per eseguire il partizionamento della tabella FactInternetSales nella colonna OrderDateKey:
+L'esempio seguente usa l'istruzione [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per eseguire il partizionamento della tabella FactInternetSales nella colonna OrderDateKey:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -78,8 +78,8 @@ WITH
 
 Per eseguire la migrazione delle definizioni di partizione di SQL Server al pool SQL Synapse è sufficiente:To migrate SQL Server partition definitions to Synapse SQL pool simply:
 
-- Eliminare lo [schema di partizione](/sql/t-sql/statements/create-partition-scheme-transact-sql) di SQL Server.
-- Aggiungere la definizione di [funzione di partizione](/sql/t-sql/statements/create-partition-function-transact-sql) all'istruzione CREATE TABLE.
+- Eliminare lo [schema di partizione](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) di SQL Server.
+- Aggiungere la definizione di [funzione di partizione](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) all'istruzione CREATE TABLE.
 
 Se si sta migrando una tabella con partizionamento da un'istanza di SQL Server, l'SQL di seguito è utile per calcolare il numero di righe in ogni partizione. Tenere presente che se la stessa granularità di partizionamento viene utilizzata nel pool SQL Synapse, il numero di righe per partizione diminuisce di un fattore di 60.  
 
@@ -119,7 +119,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Cambio di partizione
 
-Il pool SQL Synapse supporta la suddivisione, l'unione e il passaggio delle partizioni. Ognuna di queste funzioni viene eseguita usando l'istruzione [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).
+Il pool SQL Synapse supporta la suddivisione, l'unione e il passaggio delle partizioni. Ognuna di queste funzioni viene eseguita usando l'istruzione [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Per il cambio di partizione tra due tabelle, è necessario verificare che le partizioni siano allineate sui rispettivi limiti e che le definizioni delle tabelle corrispondano. Poiché non sono disponibili vincoli CHECK per imporre l'intervallo di valori in una tabella, la tabella di origine deve contenere gli stessi limiti di partizione della tabella di destinazione. Se i limiti di partizione non sono uguali, il cambio di partizione non riuscirà, perché i metadati della partizione non verranno sincronizzati.
 
@@ -344,4 +344,3 @@ Con questo approccio il codice nel controllo del codice sorgente rimane statico 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sullo sviluppo di tabelle, vedere gli articoli sui [cenni preliminari sulle tabelle](sql-data-warehouse-tables-overview.md).
-

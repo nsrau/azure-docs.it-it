@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report per Backup di Azure usando Log Analytics e cartelle di lavoro di AzureConfigure and view reports for Azure Backup using Log Analytics and Azure Workbooks
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497d70c1bcc577faa467720b959eb828e785a26a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78161202"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672655"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -21,7 +21,7 @@ Oggi, Backup di Azure offre una soluzione di creazione di report che sfrutta i l
 * I report di backup sono supportati per le macchine virtuali di Azure, SQL nelle macchine virtuali di Azure, SAP HANA/ASE nelle macchine virtuali di Azure, Azure Backup Agent (MARS), Azure Backup Server (MABS) e System Center DPM.
 * Per i carichi di lavoro DPM, i report di backup sono supportati per DPM versione 5.1.363.0 e successive e Versione agente 2.0.9127.0 e successive.
 * Per i carichi di lavoro MABS, i report di backup sono supportati per MABS versione 13.0.415.0 e successive e Agent Versione 2.0.9170.0 e successive.
-* I report di backup possono essere visualizzati in tutti gli elementi di backup, gli insiemi di credenziali, le sottoscrizioni e le aree geografiche, purché i dati vengano inviati a un'area di lavoro di Log Analytics (LA) a cui l'utente ha accesso. 
+* I report di backup possono essere visualizzati in tutti gli elementi di backup, gli insiemi di credenziali, le sottoscrizioni e le aree geografiche, purché i dati vengano inviati a un'area di lavoro di Log Analytics (LA) a cui l'utente ha accesso. Si noti che per visualizzare i report per un insieme di vault, è sufficiente disporre **dell'accesso del lettore all'area** di lavoro di LA a cui i vault inviano i dati. Non **è necessario** avere accesso ai singoli vault.
 * Se si è un utente [di Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) con accesso delegato alle sottoscrizioni dei clienti, è possibile usare questi report con Azure Lighthouse per visualizzare i report in tutti i tenant.
 * I dati per i processi di backup del log non vengono attualmente visualizzati nei report.
 

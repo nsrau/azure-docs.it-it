@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7e5f70d0323aa5c502491ab99db303fde31ade83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528626"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755040"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 and 8600 migration to Azure File Sync
 
@@ -146,7 +146,10 @@ La dimensione complessiva dei dati è meno di un collo di bottiglia - è il nume
 > Assicurarsi che la macchina virtuale sia distribuita nella stessa area di Azure dell'appliance virtuale StorSimple 8020. Se come parte di questa migrazione, è anche necessario modificare l'area dei dati cloud dall'area in cui sono archiviati oggi, è possibile farlo in un passaggio successivo, quando si esegue il provisioning delle condivisioni file di Azure.If as part of this migration, you also need to change the region of your cloud data from the region it is stored in today, you can do that in a later step, when you provision Azure file shares.
 
 > [!IMPORTANT]
-> Per ottimizzare le prestazioni, distribuire un disco del sistema **operativo molto veloce** per la macchina virtuale cloud. Il database di sincronizzazione verrà archiviato sul disco del sistema operativo per tutti i volumi di dati. Inoltre, assicurarsi di creare un **disco del sistema operativo**di grandi dimensioni . A seconda del numero di elementi (file e cartelle) nei volumi StorSimple, il disco del sistema operativo potrebbe richiedere **diverse centinaia** di GiB di spazio per contenere il database di sincronizzazione.
+> Spesso, un server Windows locale viene utilizzato per eseguire il front-front dell'appliance StorSimple locale. In tale configurazione, è possibile attivare la funzionalità "[Deduplicazione dati](https://docs.microsoft.com/windows-server/storage/data-deduplication/install-enable)" su tale Windows Server. **Se è stata usata la deduplicazione dei dati con i dati StorSimple, assicurarsi di abilitare la deduplicazione dei dati anche in questa macchina virtuale di Azure.If you used Data Deduplication with your StorSimple data, ensure that you enable Data Deduplication on this Azure VM well.** Non confondere questa deduplicazione a livello di file con StorSimples deduplicazione a livello di blocco incorporata, per la quale non è necessaria alcuna azione.
+
+> [!IMPORTANT]
+> Per ottimizzare le prestazioni, distribuire un **disco del sistema operativo veloce** per la macchina virtuale cloud. Il database di sincronizzazione verrà archiviato sul disco del sistema operativo per tutti i volumi di dati. Inoltre, assicurarsi di creare un **disco del sistema operativo**di grandi dimensioni . A seconda del numero di elementi (file e cartelle) nei volumi StorSimple, il disco del sistema operativo potrebbe richiedere **diverse centinaia** di GiB di spazio per contenere il database di sincronizzazione.
 
 ### <a name="expose-the-storsimple-8020-volumes-to-the-azure-vm"></a>Esporre i volumi StorSimple 8020 alla macchina virtuale di AzureExpose the StorSimple 8020 volumes to the Azure VM
 
@@ -424,7 +427,7 @@ Consultare i file di registro robocopy per verificare se i file sono stati lasci
 
 È probabilmente necessario creare le condivisioni SMB su Windows Server che si erano sui dati StorSimple in precedenza. È possibile caricare questo passaggio ed eseguirlo in precedenza per non perdere tempo qui, ma è necessario assicurarsi che prima di questo punto, non si verificano modifiche ai file sul server Windows.
 
-Se si dispone di una distribuzione DFS-N, è possibile puntare gli spazi dei nomi DFN ai nuovi percorsi delle cartelle del server. Se non si dispone di una distribuzione DFS-N e l'appliance 8100 8600 è stata anticipata localmente con Un server Windows Server, è possibile disconnettere il server dal dominio e aggiungere il nuovo Windows Server con AFS al dominio, assegnargli lo stesso nome del server precedente e gli stessi nomi di condivisione, il taglio al nuovo server rimane trasparente per gli utenti, i criteri di gruppo o gli script.
+Se si dispone di una distribuzione DFS-N, è possibile puntare gli spazi dei nomi DFN ai nuovi percorsi delle cartelle del server. Se non si dispone di una distribuzione DFS-N e l'appliance 8100 8600 è stata anticipata localmente con Un server Windows Server, è possibile disconnettere il server dal dominio e aggiungere il nuovo Windows Server con AFS al dominio, assegnargli lo stesso nome del server precedente e gli stessi nomi di condivisione, quindi il cut-over al nuovo server rimane trasparente per gli utenti. , criteri di gruppo o script.
 
 ## <a name="phase-7-deprovision"></a>Fase 7: Deprovision
 

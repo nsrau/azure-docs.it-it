@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 12/05/2019
-ms.openlocfilehash: 797cd82327d68003d4e5f007d1f16e9534092ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2f8b9f207993c49201d03d3d1fed3c5800e8780
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283992"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673825"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -22,7 +22,7 @@ Prima di [connettersi a origini dati locali da App per la logica](../logic-apps/
 * [Gateway dati locale di Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Gateway dati locale di Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
-Questo articolo illustra come scaricare, installare e configurare il gateway dati locale in modo da poter accedere alle origini dati locali da App per la logica di Azure.This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. Per altre informazioni sul [funzionamento del gateway dati](#gateway-cloud-service) più avanti in questo argomento, vedere Più avanti. Per altre informazioni sul gateway, vedere [Che cos'è un gateway locale?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)
+Questo articolo illustra come scaricare, installare e configurare il gateway dati locale in modo da poter accedere alle origini dati locali da App per la logica di Azure.This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. Per altre informazioni sul [funzionamento del gateway dati](#gateway-cloud-service) più avanti in questo argomento, vedere Più avanti. Per altre informazioni sul gateway, vedere [Che cos'è un gateway locale?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem) Per automatizzare le attività di installazione e gestione del gateway, visitare la raccolta di PowerShell per i [cmdlet di PowerShell per DataGateway.](https://www.powershellgallery.com/packages/DataGateway/3000.15.15)
 
 <a name="requirements"></a>
 

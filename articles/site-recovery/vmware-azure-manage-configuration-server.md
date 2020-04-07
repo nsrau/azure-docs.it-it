@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 692834903899448707200b24a955301e29e14f90
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478463"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672758"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza VM/server fisico VMware
 
@@ -45,7 +45,7 @@ La licenza fornita con il modello OVF è una licenza di valutazione valida per 1
 
 È possibile modificare le credenziali anche tramite CSPSConfigtool.exe.
 
-1. Accedere al server di configurazione e avviare CSPSConfigtool.exe.
+1. Accedere al server di configurazione e avviare CSPSConfigtool.exe
 2. Scegliere l'account che si vuole modificare e fare clic su **Modifica**.
 3. Immettere le credenziali modificate e fare clic su **OK**.
 
@@ -93,6 +93,32 @@ Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale de
 - È possibile [aggiungere un adattatore aggiuntivo alla macchina virtuale,](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)ma è necessario aggiungerlo prima di registrare il server di configurazione nell'insieme di credenziali.
 - Per aggiungere una scheda dopo aver registrato il server di configurazione nell'insieme di credenziali, aggiungere la scheda nelle proprietà della macchina virtuale. È quindi necessario [registrare di nuovo](#reregister-a-configuration-server-in-the-same-vault) il server nell'insieme di credenziali.
 
+## <a name="how-to-renew-ssl-certificates"></a>Come rinnovare i certificati SSL
+
+Il server di configurazione dispone di un server Web integrato, che orchestra le attività degli agenti Mobility su tutti i computer protetti, i server di elaborazione incorporati/scalabili tà-out e i server di destinazione master connessi. Il server Web usa un certificato SSL per autenticare i client. Il certificato scade dopo tre anni e può essere rinnovato in qualsiasi momento.
+
+### <a name="check-expiry"></a>Controllare la scadenza
+
+La data di scadenza viene visualizzata in **Integrità del server di configurazione**. Per le distribuzioni del server di configurazione precedenti maggio 2016, la scadenza del certificato è stata impostata su un anno. Se si ha un certificato che sta per scadere, si verifica quanto segue:
+
+- Quando mancano due mesi o meno alla data di scadenza, il servizio avvia l'invio di notifiche nel portale e tramite posta elettronica (se è stata effettuata la sottoscrizione alle notifiche di Site Recovery).
+- Un banner di notifica viene visualizzato nella pagina delle risorse dell'insieme di credenziali. Per altre informazioni, selezionare il banner.
+- Se viene visualizzato il pulsante **Aggiorna ora**, alcuni componenti nell'ambiente non sono stati aggiornati alla versione 9.4.xxxx.x o versioni successive. Aggiornare i componenti prima di rinnovare il certificato. Non è possibile eseguire il rinnovo per le versioni precedenti.
+
+### <a name="if-certificates-are-yet-to-expire"></a>Se i certificati devono ancora scadere
+
+1. Per eseguire il rinnovo, nell'insieme di credenziali aprire Server di**configurazione** **dell'infrastruttura** > di Site Recovery . Selezionare il server di configurazione richiesto.
+2. Verificare che tutti i componenti con scalabilità orizzontale dei server di elaborazione, dei server di destinazione master e degli agenti per dispositivi mobili in tutti i computer protetti siano nelle versioni più recenti e siano connessi.
+3. A questo punto, selezionare **Rinnova certificati**.
+4. Seguire attentamente le istruzioni in questa pagina e fare clic su OK per rinnovare i certificati nel server di configurazione selezionato e i componenti associati.
+
+### <a name="if-certificates-have-already-expired"></a>Se i certificati sono già scaduti
+
+1. Dopo la scadenza, i certificati **non possono essere rinnovati dal portale**di Azure. Prima di procedere, verificare che tutti i componenti con scalabilità orizzontale dei server di elaborazione, i server di destinazione master e gli agenti di mobilità su tutti i computer protetti siano nelle versioni più recenti e siano connessi.
+2. **Seguire questa procedura solo se i certificati sono già scaduti.** Accedere al server di configurazione, passare all'unità C > Program Data > Site Recovery > home > svsystems > bin ed eseguire lo strumento di esecutore "RenewCerts" come amministratore.
+3. Viene visualizzata una finestra di esecuzione di PowerShell che attiva il rinnovo dei certificati. Questa operazione può richiedere fino a 15 minuti. Non chiudere la finestra fino al completamento del rinnovo.
+
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="Rinnovare i certificatiRenewCertificates":::
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Registrare di nuovo un server di configurazione nello stesso insieme di credenziali
 
@@ -112,7 +138,7 @@ Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale de
    ```
 
     >[!NOTE]
-    >Per eseguire il pull dei **certificati più recenti** dal server di configurazione al server di elaborazione con scalabilità orizzontale eseguire il comando " *\<Unità di installazione, Microsoft Azure Site Recovery, agent, cdpcli.exe>" --registermt*
+    >Per estrarre i **certificati più recenti** dal server di configurazione al server di elaborazione con scalabilità orizzontale eseguire il comando " *\<Unità di installazione, Microsoft Azure Site Recovery, agente, cdpcli.exe>"--registermt*
 
 8. Infine, riavviare obengine eseguendo il comando seguente.
    ```
@@ -269,24 +295,6 @@ Facoltativamente, è possibile eliminare il server di configurazione usando Powe
 2. Per modificare la directory nella cartella cestino, eseguire il comando **cd %ProgramData%\ASR\home\svsystems\bin**
 3. Per generare il file della passphrase, eseguire **genpassphrase.exe -v > MobSvc.passphrase**.
 4. La passphrase sarà archiviata nel file che si trova in **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
-
-## <a name="renew-tlsssl-certificates"></a>Rinnovare i certificati TLS/SSL
-
-Il server di configurazione include un server Web integrato che orchestra le attività del servizio Mobility, dei server di elaborazione e dei server di destinazione master connessi. Il server Web utilizza un certificato TLS/SSL per autenticare i client. Il certificato scade dopo tre anni e può essere rinnovato in qualsiasi momento.
-
-### <a name="check-expiry"></a>Controllare la scadenza
-
-Per le distribuzioni del server di configurazione precedenti maggio 2016, la scadenza del certificato è stata impostata su un anno. Se si ha un certificato che sta per scadere, si verifica quanto segue:
-
-- Quando mancano due mesi o meno alla data di scadenza, il servizio avvia l'invio di notifiche nel portale e tramite posta elettronica (se è stata effettuata la sottoscrizione alle notifiche di Site Recovery).
-- Un banner di notifica viene visualizzato nella pagina delle risorse dell'insieme di credenziali. Per altre informazioni, selezionare il banner.
-- Se viene visualizzato il pulsante **Aggiorna ora**, alcuni componenti nell'ambiente non sono stati aggiornati alla versione 9.4.xxxx.x o versioni successive. Aggiornare i componenti prima di rinnovare il certificato. Non è possibile eseguire il rinnovo per le versioni precedenti.
-
-### <a name="renew-the-certificate"></a>Rinnovare il certificato
-
-1. Nell'insieme di credenziali aprire Server di**configurazione** **dell'infrastruttura** > di Site Recovery . Selezionare il server di configurazione richiesto.
-2. La data di scadenza viene visualizzata in **Integrità del server di configurazione**.
-3. Selezionare **Rinnova certificati**.
 
 ## <a name="refresh-configuration-server"></a>Aggiornare il server di configurazione
 

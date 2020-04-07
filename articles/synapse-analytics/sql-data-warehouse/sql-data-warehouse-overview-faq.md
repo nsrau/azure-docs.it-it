@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce87bac6fbcc3833684dc540c542bc14c9b4955
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: dcefe6a6144c9a8f9c6ab7daf5b34b2d81a73c3f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586515"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743007"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Domande frequenti su Azure Synapse Analytics (in precedenza SQL DW)
 
@@ -35,7 +35,7 @@ R. Synapse SQL pool refers to the enterprise data warehousing features that are 
 
 Q. Come si inizia a usare Azure Synapse?
 
-R. È possibile iniziare con un [account gratuito di Azure](https://azure.microsoft.com/free/sql-data-warehouse/) o [contattare le vendite per ulteriori informazioni.](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html) 
+R. È possibile iniziare con un [account gratuito di Azure](https://azure.microsoft.com/free/sql-data-warehouse/) o [contattare le vendite per ulteriori informazioni.](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html)
 
 Q. Cosa offre Azure Synapse per la sicurezza dei dati?
 
@@ -43,7 +43,8 @@ R. Azure Synapse offre diverse soluzioni per la protezione dei dati, ad esempio 
 
 Q. Dove è possibile individuare gli standard legali o aziendali con cui Azure Synapse è conforme?
 
-R. Visitare la pagina [Conformità di Microsoft](https://www.microsoft.com/trustcenter/compliance/complianceofferings) per le diverse offerte di conformità per prodotto, ad esempio SOC e ISO. In primo luogo, scegliere in base al titolo di conformità. Espandere quindi Azure nella sezione Servizi cloud nell'ambito Microsoft sul lato destro della pagina per vedere quali servizi sono conformi a Azure Synapse.Then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
+R. Visitare la pagina [Conformità di Microsoft](https://www.microsoft.com/trustcenter/compliance/complianceofferings) per le diverse offerte di conformità per prodotto, ad esempio SOC e ISO.
+In primo luogo, scegliere in base al titolo di conformità. Espandere quindi Azure nella sezione Servizi cloud nell'ambito Microsoft sul lato destro della pagina per vedere quali servizi sono conformi a Azure Synapse.Then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
 
 Q. È possibile connettere Power BI?
 
@@ -51,7 +52,7 @@ R.  Sì. Anche se Power BI supporta query dirette con Azure Synapse, non è dest
 
 Q. Quali sono i limiti di capacità del pool SQL Synapse?
 
-R. Vedere la pagina relativa ai [limiti di capacità](sql-data-warehouse-service-capacity-limits.md) correnti. 
+R. Vedere la pagina relativa ai [limiti di capacità](sql-data-warehouse-service-capacity-limits.md) correnti.
 
 Q. Perché le operazioni di ridimensionamento, sospensione o ripresa richiedono così tanto tempo?
 
@@ -65,13 +66,13 @@ R. Se si dispone di una richiesta di funzionalità, inviarla alla pagina [UserVo
 
 Q. Come posso fare?
 
-R. Per assistenza con lo sviluppo con Azure Synapse, è possibile porre domande nella pagina [Overflow dello stack.](https://stackoverflow.com/questions/tagged/azure-sqldw) 
+R. Per assistenza con lo sviluppo con Azure Synapse, è possibile porre domande nella pagina [Overflow dello stack.](https://stackoverflow.com/questions/tagged/azure-sqldw)
 
 Q. Come posso inviare un ticket di supporto?
 
 R. [I ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) possono essere inviati tramite il Portale di Azure.
 
-## <a name="sql-languagefeature-support"></a>Supporto per le funzionalità/linguaggio SQL 
+## <a name="sql-languagefeature-support"></a>Supporto per le funzionalità/linguaggio SQL
 
 Q. Quali tipi di dati sono supportati?
 
@@ -85,7 +86,7 @@ R. Sono supportate molte funzionalità. Le funzionalità non supportate sono dis
 
 Q. Il pool Synapse SQL supporta le API REST?
 
-R. Sì. La maggior parte delle funzionalità REST che possono essere usate con il database SQL è disponibile anche con il pool SQL Synapse. È possibile trovare informazioni sulle API nelle pagine di documentazione REST o in [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+R. Sì. La maggior parte delle funzionalità REST che possono essere usate con il database SQL è disponibile anche con il pool SQL Synapse. È possibile trovare informazioni sull'API all'interno di pagine di documentazione REST o [Database](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="loading"></a>Caricamento
 
@@ -97,17 +98,17 @@ D: Quali formati di file sono supportati da PolyBase?
 
 R: Orc, RC, Parquet e testo delimitato semplice
 
-D: A quali origini dati è possibile connettersi tramite PolyBase? 
+D: A quali origini dati è possibile connettersi tramite PolyBase?
 
 R: [Archiviazione di Azure Data Lake](sql-data-warehouse-load-from-azure-data-lake-store.md) e BLOB di Archiviazione di [Azure](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
-D: È possibile eseguire il pushdown del calcolo quando ci si connette a BLOB di Archiviazione di Azure o ADLS? 
+D: È possibile eseguire il pushdown del calcolo quando ci si connette a BLOB di Archiviazione di Azure o ADLS?
 
-R: No, PolyBase interagisce solo con i componenti di archiviazione. 
+R: No, PolyBase interagisce solo con i componenti di archiviazione.
 
 D: È possibile connettersi ad HDI?
 
-R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello HDFS, è possibile caricare i dati in un pool SQL Synapse. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
+R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello HDFS, è possibile caricare i dati in un pool SQL Synapse. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

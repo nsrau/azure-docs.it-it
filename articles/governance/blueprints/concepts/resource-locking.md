@@ -3,12 +3,12 @@ title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco in Azure Blueprints per proteggere le risorse durante l'assegnazione di un blueprint.
 ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86897ae6665f7a339b51aaae5f1c00144d8b7309
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 9c4e2f4c6fd8f5fb574002217ca71d1e7d130ff7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437742"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676757"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -20,20 +20,20 @@ La creazione di ambienti coerenti su larga scala è davvero efficace solo se esi
 ## <a name="locking-modes-and-states"></a>Modalità di blocco e stati
 
 La modalità di blocco si applica all'assegnazione del blueprint e dispone di tre opzioni: **Non bloccare**, **Sola lettura**o Non **eliminare**. La modalità di blocco viene configurata durante la distribuzione degli artefatti nel corso dell'assegnazione di un progetto. È possibile impostare una modalità di blocco diversa aggiornando l'assegnazione del progetto.
-Le modalità di blocco non possono tuttavia essere modificate al di fuori di Blueprints.
+Le modalità di blocco, tuttavia, non possono essere modificate al di fuori dei blueprint di Azure.Locking modes, however, can't be changed outside of Azure Blueprints.
 
 Le risorse create dagli elementi in un'assegnazione di blueprint hanno quattro stati: **Non bloccato**, **Sola lettura**, **Impossibile modificare/eliminare**o **Non eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
 |Mode|Tipo di risorsa artefatto|State|Descrizione|
 |-|-|-|-|
-|Non bloccare|*|Non bloccato|Le risorse non sono protette da Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
+|Non bloccare|*|Non bloccato|Le risorse non sono protette da Azure Blueprints.Resources aren't protected by Azure Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
 |Sola lettura|Resource group|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 |Sola lettura|Diverso da gruppo di risorse|Sola lettura|Non è possibile modificare la risorsa in alcun modo: non sono consentite modifiche e la risorsa non può essere eliminata.|
 |Non eliminare|*|Impossibile eliminare|Le risorse possono essere modificate, ma non possono essere eliminate. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 
 ## <a name="overriding-locking-states"></a>Sostituzione degli stati di blocco
 
-È in genere possibile che a un utente con [controllo degli accessi in base al ruolo](../../../role-based-access-control/overview.md) (RBAC) appropriato per la sottoscrizione, ad esempio il ruolo "Proprietario", sia consentito di modificare o eliminare qualsiasi risorsa. Questo tipo di accesso non è appropriato quando si applica il blocco ai progetti come parte di un'assegnazione distribuita. Se l'assegnazione è stata impostata con l'opzione **Sola lettura ** o **Non eliminare**, nemmeno il proprietario della sottoscrizione può eseguire l'azione bloccata sulla risorsa protetta.
+È in genere possibile che a un utente con [controllo degli accessi in base al ruolo](../../../role-based-access-control/overview.md) (RBAC) appropriato per la sottoscrizione, ad esempio il ruolo "Proprietario", sia consentito di modificare o eliminare qualsiasi risorsa. Questo accesso non è il caso in cui Azure Blueprints applica il blocco come parte di un'assegnazione distribuita. Se l'assegnazione è stata impostata con l'opzione **Sola lettura ** o **Non eliminare**, nemmeno il proprietario della sottoscrizione può eseguire l'azione bloccata sulla risorsa protetta.
 
 Questa misura di sicurezza salvaguarda la coerenza del progetto definito e l'ambiente che è stato progettato per creare a partire da eliminazioni accidentali o programmatiche.
 
@@ -97,11 +97,11 @@ Se si rende necessario modificare o eliminare una risorsa protetta da un'assegna
 - Aggiornare l'assegnazione del progetto impostando **Non bloccare** come modalità di blocco
 - Eliminare l'assegnazione del progetto
 
-Quando viene rimossa l'assegnazione, vengono rimossi i blocchi creati da Blueprint. La risorsa viene tuttavia tralasciata e dovrà essere eliminati in modo normale.
+Quando l'assegnazione viene rimossa, i blocchi creati da Azure Blueprints vengono rimossi. La risorsa viene tuttavia tralasciata e dovrà essere eliminati in modo normale.
 
 ## <a name="how-blueprint-locks-work"></a>Funzionamento dei blocchi progetto
 
-In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto viene applicata un'azione di [negazione assegnazioni](../../../role-based-access-control/deny-assignments.md) durante l'assegnazione di un progetto se per l'assegnazione è stata selezionata l'opzione **Sola lettura** o **Non eliminare**. L'azione di negazione viene aggiunta dall'identità gestita dell'assegnazione del progetto e può essere rimossa dalle risorse artefatto solo dalla stessa identità gestita. Questa misura di sicurezza consente di applicare il meccanismo di blocco e impedisce di eliminare il blocco di progetto al di fuori di Blueprint.
+In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto viene applicata un'azione di [negazione assegnazioni](../../../role-based-access-control/deny-assignments.md) durante l'assegnazione di un progetto se per l'assegnazione è stata selezionata l'opzione **Sola lettura** o **Non eliminare**. L'azione di negazione viene aggiunta dall'identità gestita dell'assegnazione del progetto e può essere rimossa dalle risorse artefatto solo dalla stessa identità gestita. Questa misura di sicurezza applica il meccanismo di blocco e impedisce la rimozione del blocco del blueprint all'esterno di Azure Blueprints.This security measure enforces the locking mechanism and prevents removing the blueprint lock outside Azure Blueprints.
 
 ![Blueprint rifiuta assegnazione nel gruppo di risorse](../media/resource-locking/blueprint-deny-assignment.png)
 

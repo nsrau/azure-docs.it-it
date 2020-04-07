@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: fb70600ad245968377cdebd23a7b531e552bb546
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 4f39ff5726c23db32c7b039335f406641ee090cb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529310"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754252"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurare Il collegamento privato di Azure per un'area di lavoro di Azure Machine Learning (anteprima)Configure Azure Private Link for an Azure Machine Learning workspace (Preview)
 
@@ -206,25 +206,9 @@ Per informazioni sulla protezione del Registro di sistema del contenitore di Azu
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -525,25 +509,9 @@ Per informazioni sulla protezione del Registro di sistema del contenitore di Azu
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -767,25 +735,9 @@ Per informazioni sulla protezione del Registro di sistema del contenitore di Azu
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -1044,25 +996,9 @@ Per informazioni sulla protezione del Registro di sistema del contenitore di Azu
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."

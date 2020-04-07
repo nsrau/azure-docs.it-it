@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 03/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e55923e688d1062adc5838a88e8d3202864282a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218395"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754141"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -76,7 +76,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 - Analisi dei log: eseguire query sui dati delle aree di lavoro dei clienti remoti in più tenant
 - Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio runbook di Automazione di Azure o Funzioni di Azure, nel tenant del provider di servizi tramite webhook
 
-[Criteri di Azure](../../governance/policy/index.yml):
+[Criteri di Azure:](../../governance/policy/index.yml)
 
 - Gli snapshot di conformità mostrano i dettagli per i criteri assegnati nelle sottoscrizioni delegate
 - Creare e modificare le definizioni dei criteri in una sottoscrizione delegata
@@ -84,7 +84,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 - I clienti visualizzano i criteri creati dal provider di servizi insieme ai criteri che hanno creato personalmente
 - Può [correggere deployIfNotExists o modificare le assegnazioni nel tenant del cliente](../how-to/deploy-policy-remediation.md)
 
-[Azure Resource Graph](../../governance/resource-graph/index.yml):
+[Azure Resource Graph :Azure Resource Graph](../../governance/resource-graph/index.yml):
 
 - Include ora l'ID tenant nei risultati delle query restituiti, consentendo di determinare se una sottoscrizione appartiene al tenant del cliente o al tenant del provider di servizi
 
@@ -105,12 +105,12 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
   - Assicurarsi che i server eseguano solo le applicazioni e i processi che devono eseguire con i controlli applicazione adattivi
   - Monitorare le modifiche apportate a file e voci del Registro di sistema importanti con Monitoraggio dell'integrità dei file
 
-[Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
+[Sentinella di Azure](../../sentinel/multiple-tenants-service-providers.md):
 
 - Gestire le risorse di Azure Sentinel [nei tenant dei clientiManage](../../sentinel/multiple-tenants-service-providers.md) Azure Sentinel resources in customer tenants
 - [Tenere traccia degli attacchi e visualizzare gli avvisi di sicurezza tra più tenant dei clienti](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
 
-[Integrità dei servizi di Azure](../../service-health/index.yml):
+[Integrità dei servizi di Azure:](../../service-health/index.yml)
 
 - Monitorare l'integrità delle risorse dei clienti con Integrità risorse di Azure
 - Tenere traccia dell'integrità dei servizi di Azure usati dai clienti
@@ -141,6 +141,7 @@ In tutti gli scenari tenere presenti le limitazioni correnti seguenti:
 - Le assegnazione di ruolo devono usare i [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) del controllo degli accessi in base al ruolo. Tutti i ruoli predefiniti sono attualmente supportati con la gestione risorse delegate di Azure, ad eccezione di Proprietario e dei ruoli predefiniti con l'autorizzazione [DataActions](../../role-based-access-control/role-definitions.md#dataactions). Il ruolo Amministratore Accesso utenti è supportato solo per uso limitato nell'[assegnazione di ruoli a identità gestite](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  I ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](../../role-based-access-control/classic-administrators.md) non sono supportati.
 - Sebbene sia possibile eseguire l'onboarding di sottoscrizioni che usano Azure Databricks, gli utenti nel tenant di gestione non possono avviare le aree di lavoro di Azure Databricks in una sottoscrizione delegata in questo momento.
 - Sebbene sia possibile eseguire l'onboarding di sottoscrizioni e gruppi di risorse per la gestione risorse delegate di Azure con blocchi di risorse, tali blocchi non impediranno l'esecuzione di azioni da parte degli utenti nel tenant di gestione. [Negare le assegnazioni](../../role-based-access-control/deny-assignments.md) che proteggono le risorse gestite dal sistema, ad esempio quelle create da applicazioni gestite di Azure o Azure Blueprint (assegnazioni di negazione assegnate dal sistema), impediscono agli utenti nel tenant di gestione di agire su tali risorse. Tuttavia, al momento gli utenti nel tenant del cliente non possono creare le proprie assegnazioni di negazione (assegnazioni di negazione assegnate dall'utente).
+- Gli utenti nel tenant di gestione non avranno accesso per visualizzare le informazioni di fatturazione per una sottoscrizione cliente delegata, anche se dispongono di un ruolo predefinito che in genere consente l'accesso. Ciò è dovuto al fatto che l'accesso alle informazioni di fatturazione richiede passaggi aggiuntivi attualmente supportati solo per gli utenti all'interno dello stesso tenant.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

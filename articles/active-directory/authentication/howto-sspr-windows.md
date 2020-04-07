@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a8675756aeef1140dbebd94023d7f7fb4c7af99
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652253"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743352"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedura: abilitare la reimpostazione della password dalla schermata di accesso di WindowsHow to: Enable password reset from the Windows login screen
 
@@ -43,7 +43,7 @@ Per i computer che eseguono Windows 7, 8, 8.1 e 10 è possibile consentire agli 
 - La combinazione delle seguenti tre impostazioni specifiche può far sì che questa funzione non funzioni.
     - Accesso interattivo: non è necessario CTRL -ALT-CANC - Disabilitato
     - DisableLockScreenAppNotifications - 1 o Abilitato
-    - IsContentDeliveryPolicyEnforced : 1 o True
+    - SKU di Windows non è l'edizione Home o Professional
 
 ## <a name="windows-10-password-reset"></a>Reimpostazione della password di Windows 10
 

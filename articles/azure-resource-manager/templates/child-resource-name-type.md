@@ -3,18 +3,18 @@ title: Risorse figlio nei modelli
 description: Descrive come impostare il nome e il tipo per le risorse figlio in un modello di Azure Resource Manager.Describes how to set the name and type for child resources in an Azure Resource Manager template.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 6de2b476fe19a057a62e4a54963dd8fde0d11579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77207894"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743845"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Impostare il nome e il tipo per le risorse figlioSet name and type for child resources
 
 Le risorse figlio sono risorse che esistono solo nel contesto di un'altra risorsa. Ad esempio, [un'estensione](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) di macchina virtuale non può esistere senza una [macchina virtuale](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). La risorsa di estensione è un elemento figlio della macchina virtuale.
 
-In un modello gestione risorse è possibile specificare la risorsa figlio all'interno della risorsa padre o all'esterno della risorsa padre. Nell'esempio seguente viene illustrata la risorsa figlio inclusa nella proprietà resources della risorsa padre.
+In un modello di Resource Manager è possibile specificare la risorsa figlio all'interno della risorsa padre o all'esterno della risorsa padre. Nell'esempio seguente viene illustrata la risorsa figlio inclusa nella proprietà resources della risorsa padre.
 
 ```json
 "resources": [

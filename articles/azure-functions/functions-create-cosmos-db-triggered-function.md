@@ -2,15 +2,15 @@
 title: Creare una funzione attivata da Azure Cosmos DB
 description: Usare Funzioni di Azure per creare una funzione senza server che viene richiamata quando vengono aggiunti i dati al database in Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 830c7cdee247118ed24fc9b3a2a9efe8609c75d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75863285"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754205"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 

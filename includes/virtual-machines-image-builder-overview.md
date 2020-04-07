@@ -6,10 +6,10 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
 ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "80419276"
 ---
 Le immagini di macchine virtuali (VM) standardizzate consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere impostazioni di sicurezza e configurazione predefinite e il software necessario. La configurazione della pipeline di creazione di immagini richiede tempo, infrastruttura e configurazione, ma con Azure VM Image Builder è sufficiente fornire una configurazione semplice che descriva l'immagine, la invii al servizio e l'immagine venga compilata e distribuita.

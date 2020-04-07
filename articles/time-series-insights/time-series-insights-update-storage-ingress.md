@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8987cbe6860422ff92119a9f3b13a0a365e6d1a4
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 95a579cacc339360295f5f25fa6415ab29cd68ff
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618329"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673912"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Azure Time Series Insights Preview supporta le origini eventi seguenti:Azure Tim
 - [Hub IoT Azure](../iot-hub/about-iot-hub.md)
 - [Hub eventi di Azure](../event-hubs/event-hubs-about.md)
 
-Azure Time Series Insights Preview supporta un massimo di due origini eventi per istanza.
+Azure Time Series Insights Preview supporta un massimo di due origini eventi per istanza. Quando si connette un'origine eventi, l'ambiente TSI leggerà tutti gli eventi attualmente archiviati nell'Iot o nell'Hub eventi, a partire dall'evento meno recente. 
 
 > [!IMPORTANT] 
 > * È possibile che si verifichi un'elevata latenza iniziale quando si associa un'origine eventi all'ambiente di anteprima. 

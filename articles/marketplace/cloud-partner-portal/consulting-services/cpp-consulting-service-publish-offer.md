@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1b00e177ed45762d10d0603b1d0a1fb2c1807416
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2de4114e8a1b48de2ad64b783d15f56fef4fc30
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278502"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743758"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Pubblicare l'offerta di un servizio di consulenza
+
+>[!Important]
+>A partire dal 30 marzo 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
 
 Dopo aver completato le **impostazioni dell'offerta**, i **dettagli della vetrina** e i **contatti**, selezionare **Pubblica** e specificare un indirizzo di posta elettronica. Quando Microsoft è pronto a pubblicare l'offerta, si riceve un messaggio di posta elettronica per visualizzare un'anteprima prima della pubblicazione. È possibile tornare al portale per controllare lo stato dell'offerta in qualsiasi momento.
 

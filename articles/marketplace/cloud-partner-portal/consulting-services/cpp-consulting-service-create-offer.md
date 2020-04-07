@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c2700339a7ac8342da0250227cff898c20e60118
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1298a6d277f072491d05945b272925a2aba52e02
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278553"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745665"
 ---
 # <a name="create-a-consulting-offer"></a>Crea un'offerta di consulenza
+
+>[!Important]
+>A partire dal 30 marzo 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
 
 Questo articolo descrive come creare e pubblicare un'offerta di un servizio di consulenza.
 
@@ -34,5 +37,5 @@ Per creare una nuova offerta, seguire questa procedura.
 
 La pagina **Nuova offerta** per il tipo di offerta di servizi di consulenza include un set di schede e di campi modulo che è possibile usare per creare una nuova offerta. Gli articoli seguenti illustrano come usare la scheda per definire le impostazioni dell'offerta e i dettagli della vetrina per la nuova offerta:
 
--   [Definire le impostazioni dell'offerta](./cpp-consulting-service-define-offer-settings.md)
--   [Immettere i dettagli della vetrina e la preferenza in merito alla pubblicazione in Azure Marketplace o in AppSource](./cpp-consulting-service-storefront-details.md)
+-    [Definire le impostazioni dell'offerta](./cpp-consulting-service-define-offer-settings.md)
+-    [Immettere i dettagli della vetrina e la preferenza in merito alla pubblicazione in Azure Marketplace o in AppSource](./cpp-consulting-service-storefront-details.md)

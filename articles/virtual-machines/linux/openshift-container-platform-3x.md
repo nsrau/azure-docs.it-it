@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd1c381ecd2b7dba4c77a025cb0332ace4147bf
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561287"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673670"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Distribuire OpenShift Container Platform 3.11 in AzureDeploy OpenShift Container Platform 3.11 in Azure
 
@@ -303,7 +303,7 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `masterClusterType` | Specificare se il cluster utilizza nodi master privati o pubblici. Se si seleziona private, i nodi master non saranno esposti a Internet tramite un indirizzo IP pubblico. Al contrario, utilizzerà l'IP privato specificato nel`masterPrivateClusterIp` | public <br> private | public |
 | `masterPrivateClusterIp` | Se vengono selezionati nodi master privati, è necessario specificare un indirizzo IP privato per l'utilizzo da parte del servizio di bilanciamento del carico interno per i nodi master. Questo IP statico deve trovarsi all'interno del blocco CIDR per la subnet master e non è già in uso. Se sono selezionati nodi master pubblici, questo valore non verrà utilizzato ma deve comunque essere specificato |  | 10.1.0.200 |
 | `routerClusterType` | Specificare se il cluster utilizza nodi infradiprivati privati o pubblici. Se si seleziona private, i nodi infra non saranno esposti a Internet tramite un indirizzo IP pubblico. Al contrario, utilizzerà l'IP privato specificato nel`routerPrivateClusterIp` | public <br> private | public |
-| `routerPrivateClusterIp` | Se vengono selezionati infradi privati, è necessario specificare un indirizzo IP privato per l'utilizzo da parte del servizio di bilanciamento del carico interno per i nodi infra.If private infra nodes are selected, then a private IP address must be specified for use by the internal load balancer for infra nodes. Questo IP statico deve trovarsi all'interno del blocco CIDR per la subnet master e non è già in uso. Se si selezionano infradi pubblici, questo valore non verrà utilizzato ma deve comunque essere specificato |  | 10.2.0.200 |
+| `routerPrivateClusterIp` | Se vengono selezionati infradi privati, è necessario specificare un indirizzo IP privato per l'utilizzo da parte del servizio di bilanciamento del carico interno per i nodi infra.If private infra nodes are selected, then a private IP address must be specified for use by the internal load balancer for infra nodes. Questo IP statico deve trovarsi all'interno del blocco CIDR per la subnet a infrarossi e non è già in uso. Se si selezionano infradi pubblici, questo valore non verrà utilizzato ma deve comunque essere specificato |  | 10.2.0.200 |
 | `routingCertType` | Usare il certificato personalizzato per il routing del dominio o il certificato autofirmato predefinito- seguire le istruzioni nella sezione **Certificati personalizzatiUse custom certificate** for routing domain or the default self-signed certificate - follow instructions in Custom Certificates section | autofirmato <br> personalizzati | autofirmato |
 | `masterCertType` | Usare il certificato personalizzato per il dominio master o il certificato autofirmato predefinito - seguire le istruzioni nella sezione **Certificati personalizzatiUse custom certificate** for master domain or the default self-signed certificate - follow instructions in Custom Certificates section | autofirmato <br> personalizzati | autofirmato |
 

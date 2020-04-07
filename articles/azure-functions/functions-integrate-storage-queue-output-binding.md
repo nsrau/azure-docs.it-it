@@ -2,15 +2,15 @@
 title: Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 description: Usare Funzioni di Azure per creare una funzione senza server che viene richiamata da una richiesta HTTP e crea un messaggio in una coda di Archiviazione di Azure.
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: a060cd35bbb42d2c31e98bed4855b2d27bfcbada
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75769184"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756634"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 

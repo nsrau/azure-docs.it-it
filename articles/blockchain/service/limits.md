@@ -1,15 +1,15 @@
 ---
 title: Limiti del servizio Blockchain di AzureAzure Blockchain Service limits
 description: Panoramica dei limiti di servizio e funzionalità nel servizio Blockchain di AzureOverview of the service and functional limits in Azure Blockchain Service
-ms.date: 03/30/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: c728e617ac37795988cd596c7cb0c5025aac4ccf
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529566"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676524"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limiti nel servizio Blockchain di AzureLimits in Azure Blockchain Service
 
@@ -35,7 +35,6 @@ La modifica del piano tariffario tra base e standard dopo la creazione dei membr
 La quantità massima di spazio di archiviazione che può essere utilizzata per nodo per i dati e i registri della contabilità generale è 1,8 terabyte.
 
 La riduzione delle dimensioni di archiviazione della contabilità generale e dei registri non è supportata.
-
 ## <a name="consortium-limits"></a>Limiti del consorzio
 
 * **I nomi di consorzio e membro devono essere univoci** rispetto agli altri nomi di consorzio e membro nel servizio Blockchain di Azure.Consortium and member names must be unique from other consortium and member names in the Azure Blockchain Service.
@@ -59,6 +58,12 @@ La riduzione delle dimensioni di archiviazione della contabilità generale e dei
 * **Tutti i membri di un consorzio devono utilizzare la stessa versione contabile**
 
     Per altre informazioni sulle versioni di applicazione di patch, aggiornamenti e contabilità generale disponibili nel servizio Blockchain di Azure, vedere [Applicazione di patch, aggiornamenti e versioni.](ledger-versions.md)
+
+## <a name="performance"></a>Prestazioni
+
+Non utilizzare la funzione *eth.estimate* gas per ogni invio di transazioni. La funzione *eth.estimate* richiede un utilizzo intensivo della memoria. La chiamata alla funzione più volte riduce drasticamente le transazioni al secondo.
+
+Se possibile, utilizzare un valore del gas conservativo per l'invio delle transazioni e ridurre al minimo l'uso di *eth.estimate*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

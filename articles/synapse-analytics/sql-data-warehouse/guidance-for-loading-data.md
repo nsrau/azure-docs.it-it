@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e5ad5f6f2f5be239af23ee4802cf09c388c93ae9
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632915"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745503"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Procedure consigliate per il caricamento dei dati tramite il pool SQL SynapseBest practices for loading data using Synapse SQL pool
 
@@ -104,7 +104,7 @@ In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riusci
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si utilizza l'API SqLBulkCopy o bcp
 
-Il caricamento con PolyBase fornirà la velocità effettiva massima con il pool SQL. Se non è possibile utilizzare PolyBase per caricare ed è necessario utilizzare [l'API SqLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) o [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva.
+Il caricamento con PolyBase fornirà la velocità effettiva massima con il pool SQL. Se non è possibile utilizzare PolyBase per caricare ed è necessario utilizzare [l'API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva.
 
 > [!TIP]
 > Una dimensione batch compresa tra 100 K e 1M righe è la linea di base consigliata per determinare la capacità ottimale delle dimensioni del batch.
@@ -120,7 +120,7 @@ Un record di dati viene considerato dirty se soddisfa una delle condizioni segue
 
 Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato di file esterno siano corrette e che i dati esterni siano conformi a queste definizioni.
 
-Se un sottoinsieme di record di dati esterni è dirty, è possibile scegliere di rifiutare questi record per le query utilizzando le opzioni di rifiuto in [CREATE EXTERNAL TABLE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15).
+Se un sottoinsieme di record di dati esterni è dirty, è possibile scegliere di rifiutare questi record per le query utilizzando le opzioni di rifiuto in [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="inserting-data-into-a-production-table"></a>Inserimento di dati in una tabella di produzione
 

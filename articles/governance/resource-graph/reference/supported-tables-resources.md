@@ -1,14 +1,14 @@
 ---
 title: Tipi di risorse supportati di Resource ManagerSupported Resource Manager resource types
 description: Fornire un elenco dei tipi di risorse di Resource Manager supportati da Azure Resource Graph e cronologia delle modifiche.
-ms.date: 03/23/2020
+ms.date: 04/06/2020
 ms.topic: reference
-ms.openlocfilehash: 64fd860090cc15cc6914ee926772146b98477edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85cab92981568f5ea3770e1102c3480ae4f3e638
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130620"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677061"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informazioni di riferimento sulla tabella e sul tipo di risorsa della tabella di Azure Resource GraphAzure Resource Graph table and resource type reference
 
@@ -188,6 +188,7 @@ Azure Resource Graph supporta i tipi di **risorse** seguenti di [Azure Resource 
 - microsoft.eventhub/clusters
 - microsoft.eventhub/spazi dei nomi
 - Microsoft.experimentation/experimentspazii
+- microsoft.falcon/namespaces
 - microsoft.gaming/titoli
 - microsoft.genomics/accounts (genomica/accounts)
 - microsoft.guestconfiguration/automanagedaccounts (configurazione di microsoft.guest/account gestiti automaticamente)
@@ -290,6 +291,7 @@ Azure Resource Graph supporta i tipi di **risorse** seguenti di [Azure Resource 
 - profili di esperimento microsoft.network/network
 - microsoft.network/networkintentpolicies
 - microsoft.network/networkinterfaces (interfacce di rete/rete)
+- microsoft.network/networkmanagers
 - microsoft.network/networkprofiles
 - microsoft.network/networksecuritygroups
 - microsoft.network/networkvirtualappliances
@@ -446,6 +448,7 @@ Azure Resource Graph supporta i tipi di **risorse** seguenti di [Azure Resource 
 - wandisco.fusion/fusiongroups
 - wandisco.fusion/fusiongroups/azurezones
 - wandisco.fusion/fusiongroups/azurezones/plugins
+- wandisco.fusion/fusiongroups/hivereplicationrules
 - wandisco.fusion/fusiongroups/managedonpremzones
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules

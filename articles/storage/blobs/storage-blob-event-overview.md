@@ -3,29 +3,29 @@ title: Reazione a eventi di Archiviazione BLOB di Azure | Microsoft Docs
 description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB.
 author: normesta
 ms.author: normesta
-ms.date: 01/30/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5281dab8fd42326d88964614fd20a81621b5e9dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4dd6bab6198546dc5acab78ec59d92387328dbb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268496"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755009"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
-Gli eventi di Archiviazione di Azure consentono alle applicazioni di reagire agli eventi, ad esempio la creazione e l'eliminazione di BLOB. e senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti.
+Gli eventi di Archiviazione di Azure consentono alle applicazioni di reagire agli eventi, ad esempio la creazione e l'eliminazione di BLOB. e senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti. La parte migliore è che si paga solo per quello che si utilizza.
 
-Gli eventi vengono inseriti usando [Griglia di eventi](https://azure.microsoft.com/services/event-grid/) di Azure per sottoscrittori come Funzioni di Azure, App per la logica di Azure o anche nel listener http. La parte migliore è che si paga solo per quello che si utilizza.
+Gli eventi di archiviazione BLOB vengono inviati usando [Griglia di eventi](https://azure.microsoft.com/services/event-grid/) di Azure per sottoscrittori come Funzioni di Azure, App per la logica di Azure o anche per il proprio listener http. Griglia di eventi fornisce un recapito affidabile degli eventi alle applicazioni tramite criteri di ripetizione dei tentativi avanzati e caratteri non recapitabili.
 
-L'archiviazione BLOB invia eventi a Griglia di eventi, che fornisce un recapito affidabile degli eventi alle applicazioni tramite criteri di ripetizione dei tentativi e caratteri non recapitabili.
+Vedere l'articolo dello schema degli eventi di [archiviazione BLOB](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per visualizzare l'elenco completo degli eventi supportati dall'archiviazione BLOB.
 
 Tra gli scenari comuni di eventi di Archiviazione BLOB sono inclusi l'elaborazione di immagini o video, l'indicizzazione delle ricerche o qualsiasi flusso di lavoro orientato ai file. I caricamenti asincroni di file sono operazioni perfette per gli eventi. Quando le modifiche non sono frequenti, ma lo scenario richiede tempi di risposta immediata, un'architettura basata su eventi può essere particolarmente efficiente.
 
-Se vuoi provarlo ora, consulta uno di questi articoli della Guida introduttiva:
+Se si desidera provare gli eventi di archiviazione BLOB, vedere uno di questi articoli della guida introduttiva:If you want to try blob storage events, see any of these quickstart articles:
 
 |Se si desidera utilizzare questo strumento:    |Vedere questo articolo:See this article: |
 |--|-|
@@ -39,7 +39,7 @@ Per visualizzare esempi approfonditi di reazione agli eventi di archiviazione BL
 - [Esercitazione: Automatizzare il ridimensionamento delle immagini caricate utilizzando Griglia di eventiTutorial: Automate resizing uploaded images using Event Grid](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)***non* supporta l'integrazione con Griglia di eventi.
+> Solo gli account di archiviazione di tipo **StorageV2 (uso generale v2),** **BlockBlobStorage**e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)***non* supporta l'integrazione con Griglia di eventi.
 
 ## <a name="the-event-model"></a>Il modello di evento
 
@@ -98,6 +98,7 @@ Per le applicazioni che gestiscono gli eventi di archiviazione BLOB è consiglia
 > * Controllare anche che il tipo di evento che si verifica, eventType, sia un oggetto che si è preparati a elaborare e non presupporre che tutti gli eventi che si ricevono siano dei tipi previsti.
 > * Poiché i messaggi possono arrivare dopo un certo ritardo, utilizzare i campi etag per capire se le informazioni sugli oggetti sono ancora aggiornate. Per informazioni su come usare il campo etag, vedere [Gestione della concorrenza nell'archiviazione BLOB](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
 > * Poiché i messaggi possono arrivare in ordine, utilizzare i campi del sequencer per comprendere l'ordine degli eventi su un oggetto specifico. Il campo sequencer è un valore stringa che rappresenta la sequenza logica di eventi per un particolare nome BLOB. È possibile usare il confronto tra stringhe standard per comprendere la sequenza relativa di due eventi sullo stesso nome BLOB.
+> Gli eventi di archiviazione garantiscono il recapito almeno una volta ai sottoscrittori, garantendo che tutti i messaggi vengano restituiti. Tuttavia, a causa di tentativi o disponibilità di sottoscrizioni, occasionalmente possono verificarsi messaggi duplicati.
 > * Usare il campo blobType per capire il tipo di operazioni consentite sul BLOB e quali tipi di librerie client è consigliabile usare per accedere al BLOB. I valori validi sono `BlockBlob` o `PageBlob`. 
 > * Usare il campo URL con i costruttori `CloudBlockBlob` e `CloudAppendBlob` per accedere al BLOB.
 > * Ignorare i campi che non si conoscono. Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.
@@ -109,4 +110,5 @@ Per le applicazioni che gestiscono gli eventi di archiviazione BLOB è consiglia
 Sono disponibili altre informazioni su Griglia di eventi e la possibilità di provare a usare gli eventi di archiviazione BLOB:
 
 - [Informazioni sulla griglia di eventi](../../event-grid/overview.md)
-- [Route Blob storage Events to a custom web endpoint](storage-blob-event-quickstart.md) (Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato)
+- [Schema degli eventi di archiviazione BLOBBlob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Instradare gli eventi di archiviazione BLOB a un endpoint Web personalizzatoRoute Blob storage Events to a custom web endpoint](storage-blob-event-quickstart.md)

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
-ms.openlocfilehash: fe1f1d2700619bfcac4512bb0e631262edf8401c
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 02424d7df24305d6642c364f12e3ed6e8674a01d
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398089"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676999"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
@@ -563,7 +563,7 @@ az group deployment create \
 
 ## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Modello per un avviso di metrica di soglia statica che monitora più criteri
 
-Gli avvisi delle metriche più recenti supportano la creazione di avvisi in base a metriche multidimensionali e la specifica di più criteri. È possibile utilizzare il modello seguente per creare una regola di avviso metrica più avanzata sulle metriche dimensionali e specificare più criteri.
+Gli avvisi di metrica più recenti supportano gli avvisi sulle metriche multidimensionali e supportano la definizione di più criteri (fino a 5 criteri per regola di avviso). È possibile utilizzare il modello seguente per creare una regola di avviso metrica più avanzata sulle metriche dimensionali e specificare più criteri.
 
 Quando si utilizzano le dimensioni in una regola di avviso che contiene più criteri, tenere presente quanto segue:
 - È possibile selezionare un solo valore per dimensione all'interno di ciascun criterio.

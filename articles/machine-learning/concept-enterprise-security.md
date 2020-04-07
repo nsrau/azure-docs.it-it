@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 359fd7fc787db5710deca75dd562215d25ed9148
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437480"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756560"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -134,7 +134,15 @@ Per altre informazioni, vedere [Come eseguire esperimenti e inferenza in una ret
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
 > [!IMPORTANT]
-> Se l'area di lavoro contiene dati sensibili, è consigliabile impostare il [flag hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) durante la creazione dell'area di lavoro. Questo controlla la quantità di dati raccolti da Microsoft per scopi diagnostici e abilita la crittografia aggiuntiva negli ambienti gestiti Microsoft.
+> Se l'area di lavoro contiene dati sensibili, è consigliabile impostare il [flag hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) durante la creazione dell'area di lavoro. 
+
+Il `hbi_workspace` flag controlla la quantità di dati raccolti da Microsoft per scopi diagnostici e abilita la crittografia aggiuntiva negli ambienti gestiti Microsoft. Inoltre, consente quanto segue:
+
+* Avvia la crittografia del disco di memoria virtuale locale nel cluster Amlcompute a condizione che non siano stati creati cluster precedenti in tale sottoscrizione. In caso contrario, è necessario generare un ticket di supporto per abilitare la crittografia del disco di memoria virtuale dei cluster di calcolo 
+* Pulisce il disco di memoria virtuale locale tra una esecuzione e l'altro
+* Passa in modo sicuro le credenziali per l'account di archiviazione, il registro contenitori e l'account SSH dal livello di esecuzione ai cluster di calcolo usando l'insieme di credenziali delle chiaviSecurely passes credentials for your storage account, container registry and SSH account from the execution layer to your compute clusters using your key vault
+* Abilita il filtro IP per garantire che i pool batch sottostanti non possano essere chiamati da servizi esterni diversi da AzureMachineLearningService
+
 
 Per altre informazioni sul funzionamento della crittografia inattivi in Azure, vedere Crittografia dei dati di [Azure inattivi.](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 

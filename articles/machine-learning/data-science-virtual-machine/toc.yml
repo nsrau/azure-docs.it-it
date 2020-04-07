@@ -17,8 +17,6 @@
       href: provision-vm.md
     - name: Creare una Data Science Virtual Machine Ubuntu
       href: dsvm-ubuntu-intro.md
-    - name: Creare una Data Science Virtual Machine CentOS
-      href: linux-dsvm-intro.md
     - name: Creare una Data Science Virtual Machine con intelligenza artificiale geografica
       href: provision-geo-ai-dsvm.md
 - name: Concetti
@@ -63,12 +61,10 @@
       href: 'https://stackoverflow.com/search?q=dsvm'
     - name: Guida per sviluppatori R
       href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Data Science Virtual Machine Ubuntu
       href: reference-ubuntu-vm.md
-    - name: Data Science Virtual Machine CentOS
-      href: reference-centos-vm.md
     - name: Note sulla versione
       href: release-notes.md
     - name: Problemi noti

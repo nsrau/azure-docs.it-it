@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 4a71f50a130bd9b22965d39fa942b47c70857a86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71aa937536f35c9af44adb5822ce7a2bb8f3a9eb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265038"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756014"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schema di eventi di Griglia di eventi di Azure per l'archiviazione BLOB
 
@@ -21,7 +21,7 @@ Questo articolo illustra le proprietà e lo schema per gli eventi di archiviazio
 Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi di archiviazione](event-sources.md#storage).
 
 >[!NOTE]
-> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)***non* supporta l'integrazione con Griglia di eventi.
+> Solo gli account di archiviazione di tipo **StorageV2 (uso generale v2),** **BlockBlobStorage**e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)***non* supporta l'integrazione con Griglia di eventi.
 
 ## <a name="list-of-events-for-blob-rest-apis"></a>Elenco di eventi per le API REST BLOB
 
@@ -37,7 +37,7 @@ Questi eventi vengono attivati quando un client crea, sostituisce o elimina un B
 
 ## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Elenco degli eventi per le API REST di Azure Data Lake Storage Gen 2
 
-Questi eventi vengono attivati se si abilita uno spazio dei nomi gerarchico nell'account di archiviazione e i client chiamano le API REST di Azure Data Lake Storage Gen2.
+Questi eventi vengono attivati se si abilita uno spazio dei nomi gerarchico nell'account di archiviazione e i client chiamano le API REST di Azure Data Lake Storage Gen2. Per altre informazioni su Azure Data Lake Storage Gen2, vedere [Introduzione ad Azure Data Lake Storage Gen2.](../storage/blobs/data-lake-storage-introduction.md)
 
 |Nome evento|Descrizione|
 |----------|-----------|
@@ -89,7 +89,7 @@ Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento di arch
 
 ### <a name="microsoftstorageblobcreated-event-data-lake-storage-gen2"></a>Evento Microsoft.Storage.BlobCreated (Data Lake Storage Gen2)
 
-Se l'account di archiviazione BLOB ha uno spazio dei nomi gerarchico, i dati sono simili all'esempio precedente, ad eccezione di queste modifiche:If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of the these changes:
+Se l'account di archiviazione BLOB ha uno spazio dei nomi gerarchico, i dati sono simili all'esempio precedente, ad eccezione di queste modifiche:If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of these changes:
 
 * La `dataVersion` chiave è impostata `2`su un valore di .
 
@@ -154,7 +154,7 @@ Se l'account di archiviazione BLOB ha uno spazio dei nomi gerarchico, i dati son
 
 ### <a name="microsoftstorageblobdeleted-event-data-lake-storage-gen2"></a>Evento Microsoft.Storage.BlobDeleted (Data Lake Storage Gen2)
 
-Se l'account di archiviazione BLOB ha uno spazio dei nomi gerarchico, i dati sono simili all'esempio precedente, ad eccezione di queste modifiche:If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of the these changes:
+Se l'account di archiviazione BLOB ha uno spazio dei nomi gerarchico, i dati sono simili all'esempio precedente, ad eccezione di queste modifiche:If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of these changes:
 
 * La `dataVersion` chiave è impostata `2`su un valore di .
 

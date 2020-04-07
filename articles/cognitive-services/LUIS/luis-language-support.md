@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220853"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744154"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -35,18 +35,25 @@ LUIS riconosce espressioni nelle lingue seguenti:
 | Inglese americano |`en-US` | ✔ | ✔  |✔|✔|
 | Arabo (anteprima - moderno arabo standard) |`ar-AR`|-|-|-|-|
 | *[Cinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Olandese |`nl-NL` |✔|  -   |-|✔|
+| Olandese |`nl-NL` |✔|-|-|✔|
 | Francese (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
-| Francese (Canada) |`fr-CA` |-|   -   |-|✔|
+| Francese (Canada) |`fr-CA` |-|-|-|✔|
 | Tedesco |`de-DE` |✔| ✔ |✔ |✔|
-| Hindi | `hi-IN`|-|-|-|-|
+| Gujarati | `gu-IN`|-|-|-|-|
+| Hindi | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
 | *[Giapponese](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Solo la frase chiave|
-| Coreano |`ko-KR` |✔|   -   |-|Solo la frase chiave|
+| Coreano |`ko-KR` |✔|-|-|Solo la frase chiave|
+| Marathi | `mr-IN`|-|-|-|-|
 | Portoghese (Brasile) |`pt-BR` |✔| ✔ |✔ |non tutte le impostazioni cultura secondarie|
 | Spagnolo (Spagna) |`es-ES` |✔| ✔ |✔|✔|
-| Spagnolo (Messico)|`es-MX` |-|  -   |✔|✔|
-| Turco | `tr-TR` |✔|-|-|Solo sentiment|
+| Spagnolo (Messico)|`es-MX` |-|-|✔|✔|
+| Tamil | `ta-IN`|-|-|-|-|
+| Telugu | `te-IN`|-|-|-|-|
+| Turco | `tr-TR` |✔|✔|-|Solo sentiment|
+
+
+
 
 Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-entities.md) e [domini predefiniti](luis-reference-prebuilt-domains.md).
 
@@ -77,22 +84,28 @@ Le lingue ibride combinano parole di due culture come l'inglese e il cinese. Que
 ## <a name="tokenization"></a>Tokenizzazione
 Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [token](luis-glossary.md#token) basati sulla cultura.
 
-|Linguaggio|  ogni spazio o carattere speciale | livello di caratteri|parole composte|[entità in token restituita](luis-concept-data-extraction.md#tokenized-entity-returned)
-|--|:--:|:--:|:--:|:--:|
-|Arabo|||||
-|Cinese||✔||✔|
-|Olandese|||✔|✔|
-|Inglese (en-us)|✔ ||||
-|Francese (fr-FR)|✔||||
-|Francese (fr-CA)|✔||||
-|Tedesco|||✔|✔|
-| Hindi |✔|-|-|-|-|
-|Italiano|✔||||
-|Giapponese||||✔|
-|Coreano||✔||✔|
-|Portoghese (Brasile)|✔||||
-|Spagnolo (es-ES)|✔||||
-|Spagnolo (es-MX)|✔||||
+|Linguaggio|  ogni spazio o carattere speciale | livello di caratteri|parole composte
+|--|:--:|:--:|:--:|
+|Arabo|✔|||
+|Cinese||✔||
+|Olandese|✔||✔|
+|Inglese (en-us)|✔ |||
+|Francese (fr-FR)|✔|||
+|Francese (fr-CA)|✔|||
+|Tedesco|✔||✔|
+|Gujarati|✔|||
+|Hindi|✔|||
+|Italiano|✔|||
+|Giapponese|||✔
+|Coreano||✔||
+|Marathi|✔|||
+|Portoghese (Brasile)|✔|||
+|Spagnolo (es-ES)|✔|||
+|Spagnolo (es-MX)|✔|||
+|Tamil|✔|||
+|Telugu|✔|||
+|Turco|✔|||
+
 
 ### <a name="custom-tokenizer-versions"></a>Versioni di tokenizer personalizzate
 
@@ -101,7 +114,10 @@ Le impostazioni cultura seguenti hanno versioni di tokenizer personalizzate:The 
 |Impostazioni cultura|Versione|Scopo|
 |--|--|--|
 |Tedesco<br>`de-de`|1.0.0|Tokenizza le parole suddividendole usando un tokenizer basato sull'apprendimento automatico che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente `Ich fahre einen krankenwagen` immette come espressione, questa `Ich fahre einen kranken wagen`viene trasformata in . Consentire la `kranken` marcatura di e `wagen` in modo indipendente come entità diverse.|
-|Tedesco<br>`de-de`|1.0.2|Tonizza le parole suddividendole negli spazi.<br> se un utente `Ich fahre einen krankenwagen` immette come espressione, rimane un singolo token. Pertanto, `krankenwagen` viene contrassegnata come una singola entità. |
+|Tedesco<br>`de-de`|1.0.2|Tonizza le parole suddividendole negli spazi.<br> Se un utente `Ich fahre einen krankenwagen` immette come espressione, rimane un singolo token. Pertanto, `krankenwagen` viene contrassegnata come una singola entità. |
+|Olandese<br>`de-de`|1.0.0|Tokenizza le parole suddividendole usando un tokenizer basato sull'apprendimento automatico che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente `Ik ga naar de kleuterschool` immette come espressione, questa `Ik ga naar de kleuter school`viene trasformata in . Consentire la `kleuter` marcatura di e `school` in modo indipendente come entità diverse.|
+|Olandese<br>`de-de`|1.0.1|Tonizza le parole suddividendole negli spazi.<br> Se un utente `Ik ga naar de kleuterschool` immette come espressione, rimane un singolo token. Pertanto, `kleuterschool` viene contrassegnata come una singola entità. |
+
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrazione tra versioni di tokenizerMigrating between tokenizer versions
 <!--

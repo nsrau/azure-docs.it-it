@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 79cdd12359a0d781b51db2632bc9d534e0d88c6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e085c465ecdd21452e8f0ca5aa721ad0059caf30
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285232"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744332"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Scheda Contacts (Contatti) per l'app Power BI
+
+>[!Important]
+>A partire dal 30 marzo 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzureCreatePBIServiceApp) sulla creazione di app Power BI per gestire le offerte migrate.
 
 La scheda **Contacts** (Contatti) nella pagina **New Offer** (Nuova offerta) consente di specificare le risorse di supporto tecnico e di assistenza clienti per la propria offerta. È diviso in due sezioni: **Engineering** e **Customer Support.**
 

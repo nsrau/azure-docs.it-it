@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/24/2020
+ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 687c9620ae70f7bca2b95a94dd8fe411d7348b30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25e62e7c6865f91daa242a33a0f491f8015be41a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246484"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672527"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Tenere traccia del comportamento degli utenti in Azure Active Directory B2C usando Application Insights
 
@@ -43,7 +43,7 @@ Completare la procedura descritta in [Introduzione ai criteri personalizzati](cu
 
 Quando si usa Application Insights con Azure AD B2C, è sufficiente creare una risorsa e ottenere la chiave di strumentazione. Per informazioni, vedere [Creare una risorsa di Application InsightsFor information,](../azure-monitor/app/create-new-resource.md) see Create an Application Insights resource
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure selezionando il filtro **Directory e sottoscrizione** nel menu in alto e scegliendo la directory che contiene la sottoscrizione. Questo non è il tenant di Azure AD B2C.
 3. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **Application Insights**.
 4. Fare clic su **Crea**.
@@ -132,6 +132,7 @@ Aggiungere i profili al file *TrustFrameworkExtensions.xml* dallo starter pack. 
         <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
         <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:CorrelationId}" DefaultValue="{Context:CorrelationId}" />
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
+      </InputClaims>
     </TechnicalProfile>
 
     <TechnicalProfile Id="AppInsights-SignInRequest">

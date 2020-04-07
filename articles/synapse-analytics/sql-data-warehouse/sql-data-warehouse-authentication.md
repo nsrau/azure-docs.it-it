@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: d0a246b111e4ab27a9e595952bb029fa62fe976d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: fcd9607cd630f41c67c655c2e8016254600b52e2
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633662"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745382"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Eseguire l'autenticazione ad Azure Synapse AnalyticsAuthenticate to Azure Synapse Analytics
 
@@ -76,7 +76,7 @@ Seguire questa procedura per configurare l'autenticazione di Azure Active Direct
 5. Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD
 6. Connettersi al pool SQL usando le identità di Azure ADConnect to your SQL pool by using Azure AD identities
 
-Gli utenti di Azure Active Directory non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql??toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#azure-ad-features-and-limitations).
+Gli utenti di Azure Active Directory non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#azure-ad-features-and-limitations).
 
 ### <a name="find-the-details"></a>Informazioni dettagliate
 

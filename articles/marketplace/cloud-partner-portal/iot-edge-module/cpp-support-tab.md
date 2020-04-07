@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 439de17ef9eb9c0c2c264884652236d47600b8ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 306f13cbc83c0c48ce1c90581762275a86dfcb90
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286507"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743978"
 ---
 # <a name="iot-edge-module-support-tab"></a>Scheda Support (Supporto) del modulo IoT Edge
+
+>[!Important]
+>A partire dal 30 marzo 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureCreateIoT) per gestire le offerte migrate.
 
 La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di specificare le risorse di supporto utente e tecniche della propria offerta.  Nel modulo Support (Supporto) sono presenti le aree di input seguenti: **Engineering Contact** (Contatto tecnico), **Customer Support** (Assistenza clienti) e **Support Urls** (URL del supporto). Un asterisco (*) accodato al nome del campo indica che si tratta di un campo obbligatorio.
 

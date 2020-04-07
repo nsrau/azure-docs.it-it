@@ -32,8 +32,6 @@
       href: tutorial-sql-backup.md
     - name: Eseguire il backup di database SAP HANA nelle VM di Azure
       href: tutorial-backup-sap-hana-db.md
-    - name: Eseguire il backup di condivisioni file di Azure
-      href: tutorial-backup-azure-files.md
     - name: Eseguire il backup di Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Ripristinare i file in Windows Server
@@ -336,7 +334,7 @@
               href: backup-azure-arm-userestapi-managejobs.md
         - name: Modelli di Gestione risorse
           href: backup-rm-template-samples.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Panoramica
           href: security-overview.md

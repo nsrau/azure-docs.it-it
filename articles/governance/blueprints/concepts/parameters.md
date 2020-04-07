@@ -3,12 +3,12 @@ title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come utilizzarli per creare blueprint sicuri e dinamici.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264713"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677574"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -20,7 +20,7 @@ Un esempio semplice è l'artefatto gruppo di risorse. Quando si crea un gruppo d
 > Non è un problema se due diversi progetti diversi includono un gruppo di risorse con lo stesso nome.
 > Se un gruppo di risorse incluso in un progetto già esiste, il progetto continua a creare gli artefatti correlati in tale gruppo di risorse. Questo potrebbe causare un conflitto, perché all'interno di una sottoscrizione non possono esistere due risorse con lo stesso nome e tipo di risorsa.
 
-La soluzione a questo problema è rappresentata dai parametri. I progetti consentono di definire il valore per ogni proprietà dell'artefatto durante l'assegnazione a una sottoscrizione. Questo parametro rende possibile riutilizzare un progetto che crea un gruppo di risorse e altre risorse all'interno di una singola sottoscrizione senza conflitti.
+La soluzione a questo problema è rappresentata dai parametri. Blueprint di Azure consente di definire il valore per ogni proprietà dell'elemento durante l'assegnazione a una sottoscrizione. Questo parametro rende possibile riutilizzare un progetto che crea un gruppo di risorse e altre risorse all'interno di una singola sottoscrizione senza conflitti.
 
 ## <a name="blueprint-parameters"></a>Parametri di progetto
 

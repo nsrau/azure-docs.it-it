@@ -2,13 +2,13 @@
 title: Importare le linee guida per il formato del documento - QnA Maker
 description: Comprendere in che modo i tipi di URL vengono utilizzati per importare e creare set QnA.
 ms.topic: reference
-ms.date: 01/02/2020
-ms.openlocfilehash: 6a954f2fd607b70c6db256ab6dcc1dbcd7a5a473
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 1e006520ce5c61f2da3f425af2332b0d41cc3881
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651839"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754899"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Linee guida per il formato di documenti e URL importati
 
@@ -20,6 +20,8 @@ Dopo aver importato un file o un URL, QnA Maker converte e memorizza i contenuti
 
 Se si aggiunge o si modifica il contenuto direttamente nella Knowledge Base, utilizzare la **formattazione markdown** per creare contenuto RTF o modificare il contenuto in formato markdown già presente nella risposta. QnA Maker supporta gran parte del formato markdown per portare funzionalità RTF ai tuoi contenuti. Tuttavia, l'applicazione client, ad esempio un bot di chat, potrebbe non supportare lo stesso set di formati markdown. È importante testare la visualizzazione delle risposte dell'applicazione client.
 
+Vedere un elenco completo dei [tipi di contenuto e degli esempi](./Concepts/content-types.md#file-and-url-data-types).
+
 ## <a name="basic-document-formatting"></a>Formattazione di base dei documenti
 
 QnA Maker identifica sezioni e sottosezioni e relazioni nel file in base a indizi visivi come:
@@ -28,12 +30,6 @@ QnA Maker identifica sezioni e sottosezioni e relazioni nel file in base a indiz
 * stile del carattere
 * Numerazione
 * colori
-
-|Esempi di documento|
-|--|
-||
-
-
 
 ## <a name="product-manuals"></a>Manuali di prodotti
 
@@ -116,7 +112,8 @@ L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Ba
 * Il primo carattere dell'intestazione deve essere maiuscolo.
 * Non terminare un titolo con `?`un punto interrogativo, .
 
+**Documenti di esempio**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Vantaggi di Contoso (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Vantaggi di Contoso (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 
-|Esempi di documento|
-|--|
-||
+## <a name="next-steps"></a>Passaggi successivi
+
+Visualizzare un elenco completo dei [tipi di contenuto e degli esempi](./Concepts/content-types.md#file-and-url-data-types)

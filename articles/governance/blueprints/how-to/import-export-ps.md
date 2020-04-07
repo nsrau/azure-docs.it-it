@@ -3,16 +3,16 @@ title: Importare ed esportare blueprint con PowerShellImport and export blueprin
 description: Informazioni su come utilizzare le definizioni del blueprint come codice. Condividi, controllo del codice sorgente e gestisci utilizzando i comandi di esportazione e importazione.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873200"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677144"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importare ed esportare definizioni di blueprint con PowerShellImport and export blueprint definitions with PowerShell
 
-I blueprint di Azure possono essere completamente gestiti tramite il portale di Azure.Azure Blueprints can be fully managed through Azure portal. Man mano che le organizzazioni avanzano nell'uso dei blueprint, dovrebbero iniziare a pensare alle definizioni dei blueprint come codice gestito. Questo concetto è spesso indicato come infrastruttura come codice (IaC). Trattare le definizioni del blueprint come codice offre ulteriori vantaggi oltre a quelli offerti dal portale di Azure.Treat your blueprint definitions as code offers additional advantages beyond what Azure portal offers. Questi vantaggi includono:
+I blueprint di Azure possono essere completamente gestiti tramite il portale di Azure.Azure Blueprints can be fully managed through Azure portal. Man mano che le organizzazioni avanzano nell'uso dei blueprint di Azure, devono iniziare a pensare alle definizioni dei blueprint come codice gestito. Questo concetto è spesso indicato come infrastruttura come codice (IaC). Trattare le definizioni del blueprint come codice offre ulteriori vantaggi oltre a quelli offerti dal portale di Azure.Treat your blueprint definitions as code offers additional advantages beyond what Azure portal offers. Questi vantaggi includono:
 
 - Condivisione delle definizioni dei blueprint
 - Backup delle definizioni dei blueprint

@@ -4,12 +4,12 @@ description: Informazioni sugli scenari di sicurezza per un cluster di Azure Ser
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5912f98f6a1c82250a66ec4d9fe39f2f69b1cc8f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258681"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80753805"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 
@@ -74,7 +74,7 @@ Per i cluster eseguiti in Azure è anche possibile proteggere l'accesso agli end
 Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azure, la raccomandazione per l'autenticazione reciproca client-nodo è:
 
 * Usare Azure Active Directory per l'identità del client
-* Un certificato per l'identità del server e la crittografia SSL della comunicazione HTTP
+* Un certificato per l'identità del server e la crittografia TLS della comunicazione http
 
 Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azure, per la sicurezza da nodo a nodo consigliabile usare un certificato cluster per autenticare i nodi.
 
@@ -103,13 +103,13 @@ Alcuni elementi importanti da considerare:
 
 Questi certificati (uno primario ed eventualmente uno secondario) sono necessari per proteggere un cluster e prevenire accessi non autorizzati. Questi certificati forniscono l'autenticazione del cluster e del server.
 
-L’autenticazione del cluster autentica la comunicazione da nodo a nodo per la federazione di cluster. Solo i nodi che possono dimostrare la propria identità con il certificato possono essere aggiunti al cluster. L’autenticazione del server autentica gli endpoint di gestione del cluster in un client di gestione, in modo che il client di gestione sappia con certezza di comunicare con il cluster reale e di non essere soggetto a un attacco "man in the middle". Questo certificato fornisce anche un certificato SSL per l'API di gestione HTTPS e per Service Fabric Explorer tramite HTTPS. Uno dei primi controlli eseguiti quando un client o un nodo autentica un nodo consiste nel controllare il valore del nome comune nel campo **Oggetto**. Questo nome comune o uno dei nomi alternativi del soggetto dei certificati deve essere presente nell'elenco di nomi comuni consentiti.
+L’autenticazione del cluster autentica la comunicazione da nodo a nodo per la federazione di cluster. Solo i nodi che possono dimostrare la propria identità con il certificato possono essere aggiunti al cluster. L’autenticazione del server autentica gli endpoint di gestione del cluster in un client di gestione, in modo che il client di gestione sappia con certezza di comunicare con il cluster reale e di non essere soggetto a un attacco "man in the middle". Questo certificato fornisce anche un TLS per l'API di gestione HTTPS e per Service Fabric Explorer su HTTPS. Uno dei primi controlli eseguiti quando un client o un nodo autentica un nodo consiste nel controllare il valore del nome comune nel campo **Oggetto**. Questo nome comune o uno dei nomi alternativi del soggetto dei certificati deve essere presente nell'elenco di nomi comuni consentiti.
 
 Il certificato deve soddisfare i requisiti seguenti:
 
 * Il certificato deve includere una chiave privata. In genere questi certificati hanno l'estensione pfx o pem.  
 * Il certificato deve essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
-* Il **nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster di Service Fabric**. Questa corrispondenza è necessaria per fornire un certificato SSL per l'endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'autorità di certificazione (CA) per il dominio *.cloudapp.azure.com. È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
+* Il **nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster di Service Fabric**. Questa corrispondenza è necessaria per fornire un TLS per l'endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato TLS/SSL da un'autorità di certificazione (CA) per il dominio con estensione cloudapp.azure.com. È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
 Altri aspetti da considerare:
 

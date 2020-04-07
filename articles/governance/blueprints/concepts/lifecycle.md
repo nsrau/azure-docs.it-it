@@ -3,17 +3,16 @@ title: Informazioni sul ciclo di vita di un progetto
 description: Informazioni sul ciclo di vita e dettagli su ogni fase, inclusa l'aggiornamento e la rimozione delle assegnazioni del blueprint.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74404582"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677379"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Comprendere il ciclo di vita di un progetto di Azure
 
-Come molte risorse all'interno di Azure, un progetto di Azure Blueprint ha un ciclo di vita tipico e naturale. Sono creati, distribuiti e infine eliminati quando non sono più necessari o pertinenti.
-Blueprints supporta le operazioni del ciclo di vita standard. In seguito compila su di esse per fornire livelli di stato aggiuntivi che supportano pipeline comuni di integrazione e distribuzione continua per le organizzazioni che ne gestiscono l'infrastruttura come Codice, un elemento fondamentale in DevOps.
+Come molte risorse all'interno di Azure, un progetto di Azure Blueprint ha un ciclo di vita tipico e naturale. Sono creati, distribuiti e infine eliminati quando non sono più necessari o pertinenti. Blueprint di Azure supporta le operazioni standard del ciclo di vita. In seguito compila su di esse per fornire livelli di stato aggiuntivi che supportano pipeline comuni di integrazione e distribuzione continua per le organizzazioni che ne gestiscono l'infrastruttura come Codice, un elemento fondamentale in DevOps.
 
 Per comprendere appieno i progetti e le relative fasi, illustriamo un ciclo di vita standard:
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 74e5a427d62d5249ffe6b0426b62a3577e43462f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0638cbccd5e3bc282dbdd7d3b5918e29081a12b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444485"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757157"
 ---
 # <a name="ip-groups-preview-in-azure-firewall"></a>IP Groups (preview) in Azure Firewall
 
@@ -54,7 +54,7 @@ I seguenti esempi di formato di indirizzo IPv4 sono validi per l'utilizzo nei gr
 
 1. Per visualizzare o modificare gli indirizzi IP, selezionare **Indirizzi IP** in **Impostazioni** nel riquadro sinistro.
 2. Per aggiungere uno o più indirizzi IP, selezionare **Aggiungi indirizzi IP**. Verrà visualizzata la pagina **Trascina o Sfoglia** per un caricamento oppure è possibile immettere l'indirizzo manualmente.
-3.  Selezionando i puntini di sospensione (**...**) a destra per modificare o eliminare gli indirizzi IP. Per modificare o eliminare più indirizzi IP, selezionare le caselle e selezionare **Modifica** o **Elimina** nella parte superiore.
+3.    Selezionando i puntini di sospensione (**...**) a destra per modificare o eliminare gli indirizzi IP. Per modificare o eliminare più indirizzi IP, selezionare le caselle e selezionare **Modifica** o **Elimina** nella parte superiore.
 4. Infine, è possibile esportare il file nel formato di file CSV.
 
 > [!NOTE]
@@ -72,24 +72,47 @@ I seguenti esempi di formato di indirizzo IPv4 sono validi per l'utilizzo nei gr
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-I gruppi IP sono attualmente disponibili nelle seguenti aree geografiche:
+I gruppi IP sono disponibili in tutte le aree del cloud pubblico.
 
-- Stati Uniti occidentali
-- Stati Uniti occidentali 2
-- Stati Uniti orientali
-- Stati Uniti orientali 2
-- Stati Uniti centrali
-- Stati Uniti centro-settentrionali
-- Stati Uniti centro-occidentali
-- Stati Uniti centro-meridionali
-- Canada centrale
-- Europa settentrionale
-- Europa occidentale
-- Francia centrale
-- Regno Unito meridionale
-- Australia orientale
-- Australia centrale
-- Australia sud-orientale
+## <a name="ip-address-limits"></a>Limiti degli indirizzi IP
+
+Per 50 gruppi IP o meno, è possibile avere un massimo di 5000 indirizzi IP individuali per ogni istanza del firewall. Per i gruppi IP da 51 a 100, è possibile avere 500 indirizzi IP individuali ciascuno per ogni istanza del firewall.
+
+### <a name="examples"></a>Esempi
+
+#### <a name="example-1-supported"></a>Esempio 1: supportatoExample 1: supported
+
+|Gruppi IP  |- Indirizzi IP  |Notation  |Regola  |
+|---------|---------|---------|---------|
+|Gruppo IP1 |4096     |10.0.0.0/20  |Rule1|
+|Gruppo IP2     |3|196.0.0.0 - 196.0.0.2|Rule1|
+|Gruppo IP3     |1|1.2.3.4|Rule1|
+|     |**Totale 4100**|         |         |
+|     |         |         |         |
+
+#### <a name="example-2-supported"></a>Esempio 2: supportatoExample 2: supported
+
+|Gruppi IP  |- Indirizzi IP  |Notation  |Regola  |
+|---------|---------|---------|---------|
+|Gruppo IP1 |4096     |10.0.0.0/20  |Rule1|
+|Gruppo IP2     |4096|11.0.0.0/20|Rule1|
+|     |**Totale 8192**|         |         |
+
+#### <a name="example-3-not-supported"></a>Esempio 3: non supportatoExample 3: not supported
+
+|Gruppi IP  |- Indirizzi IP  |Notation  |Regola  |
+|---------|---------|---------|---------|
+|Gruppo IP1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Rule1|
+|     |**Totale 8192**|||
+
+#### <a name="example-4-supported"></a>Esempio 4: supportatoExample 4: supported
+
+|Gruppi IP  |- Indirizzi IP  |Notation  |Regola  |
+|---------|---------|---------|---------|
+|Gruppo IP1 |4096     |10.0.0.0/20  |Rule1|
+|Gruppo IP2     |4096|11.0.0.0/20|Rule2|
+|     |**Totale 8192**|         |         |
+
 
 ## <a name="related-azure-powershell-cmdlets"></a>Cmdlet di Azure PowerShell correlati
 

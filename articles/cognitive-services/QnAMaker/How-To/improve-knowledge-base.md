@@ -2,13 +2,13 @@
 title: Migliorare una knowledge base - QnA Maker
 description: Migliora la qualità della tua base di conoscenze con l'apprendimento attivo. Rivedere, accettare o rifiutare, aggiungere senza rimuovere o modificare le domande esistenti.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 1eb0ed42f700c14350a5e4f1eff9b7592cbf8ef6
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 04/06/2020
+ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474891"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756780"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accettare le domande suggerite per l'apprendimento attivo nella Knowledge Base
 
@@ -33,7 +33,7 @@ Per visualizzare le domande suggerite, è necessario [attivare l'apprendimento a
 
 1. Ogni coppia QnA suggerisce le nuove alternative `✔` di domanda con `x` un segno di spunta, , per accettare la domanda o un per rifiutare i suggerimenti. Selezionare il segno di spunta per aggiungere la domanda.
 
-    [![Selezionare o rifiutare le alternative di domanda suggerite dall'apprendimento attivo selezionando il segno di spunta verde o il segno di eliminazione rosso.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Selezionare o rifiutare le alternative di domanda suggerite dall'apprendimento attivo selezionando il segno di spunta verde o il segno di eliminazione rosso.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     È possibile aggiungere o eliminare _tutti i suggerimenti_ selezionando Aggiungi **tutto** o **Rifiuta tutto** nella barra degli strumenti contestuale.
 

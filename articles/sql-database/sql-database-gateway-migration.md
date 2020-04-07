@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: fe35dc4c22f3852934cde0d6f33084b56266d514
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e3c33bb7493f07d9fbf19710f21d0114e7abec8
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73807696"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757075"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database traffic migration to newer Gateways
 
@@ -54,7 +54,7 @@ Non sarete interessati se si dispone di:
 
 È consigliabile consentire il traffico in uscita agli indirizzi IP per tutti gli indirizzi IP del [gateway del database SQL](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) di Azure nell'area sulla porta TCP 1433 e nell'intervallo di porte 11000-11999. Questa raccomandazione è applicabile ai client che si connettono da locali e anche a quelli che si connettono tramite endpoint del servizio. Per ulteriori informazioni sugli intervalli di porte, vedere [Criteri di connessione](sql-database-connectivity-architecture.md#connection-policy).
 
-Le connessioni effettuate da applicazioni che utilizzano il driver Microsoft JDBC sotto la versione 4.0 potrebbero non riuscire la convalida del certificato. Le versioni inferiori di Microsoft JDBC si basano sul nome comune (CN) nel campo Oggetto del certificato. L'attenuazione consiste nel garantire che la proprietà hostNameInCertificate sia impostata su .database.windows.net. Per ulteriori informazioni su come impostare la proprietà hostNameInCertificate , vedere [Connessione con crittografia SSL](/sql/connect/jdbc/connecting-with-ssl-encryption).
+Le connessioni effettuate da applicazioni che utilizzano il driver Microsoft JDBC sotto la versione 4.0 potrebbero non riuscire la convalida del certificato. Le versioni inferiori di Microsoft JDBC si basano sul nome comune (CN) nel campo Oggetto del certificato. L'attenuazione consiste nel garantire che la proprietà hostNameInCertificate sia impostata su .database.windows.net. Per ulteriori informazioni su come impostare la proprietà hostNameInCertificate , vedere [Connessione con crittografia](/sql/connect/jdbc/connecting-with-ssl-encryption).
 
 Se l'attenuazione precedente non funziona, presentare una richiesta di supporto per il database SQL utilizzando l'URL seguente:https://aka.ms/getazuresupport
 

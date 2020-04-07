@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07ba38a5d7e8e8a89ba122efb1734c1f13a94d48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 402eaecbf03fd52fbb5e871fdd196da2bc9a3e1f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332177"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743529"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione senza password per Azure Active DirectoryPasswordless authentication options for Azure Active Directory
 
@@ -97,7 +97,7 @@ Il processo seguente viene utilizzato quando un utente accede con una chiave di 
 8. Azure AD verifica il nonce firmato usando la chiave pubblica FIDO2.
 9. Azure AD restituisce PRT per consentire l'accesso alle risorse locali.
 
-Sebbene vi siano molte chiavi certificate FIDO2 da FIDO Alliance, Microsoft richiede che alcune estensioni facoltative della specifica FIDO2 Client-to-Authenticator Protocol (CTAP) siano implementate dal fornitore per garantire la massima sicurezza e la migliore Esperienza.
+Sebbene il fornitore implementi molte chiavi certificate FIDO2 da FIDO Alliance, Microsoft richiede che alcune estensioni facoltative della specifica CTAP (Client-to-Authenticator Protocol) FIDO2 siano implementate dal fornitore per garantire la massima sicurezza e la migliore esperienza.
 
 Una chiave di protezione **DEVE** implementare le funzionalità e le estensioni seguenti dal protocollo FIDO2 CTAP per essere compatibile con Microsoft:
 
@@ -142,7 +142,7 @@ La scelta tra queste tre opzioni senza password dipende dalla sicurezza, dalla p
 
 Ecco alcuni fattori da considerare quando si sceglie la tecnologia Microsoft passwordless:
 
-||**Windows Hello for Business** (Configurare Windows Hello for Business)|**Accesso senza password con l'app Microsoft Authenticator**|**Chiavi di protezione FIDO2**|
+||**Windows Hello for Business**|**Accesso senza password con l'app Microsoft Authenticator**|**Chiavi di protezione FIDO2**|
 |:-|:-|:-|:-|
 |**Prerequisito**| Windows 10 versione 1809 o successiva<br>Azure Active Directory| App Microsoft Authenticator<br>Telefono (dispositivi iOS e Android con Android 6.0 o versione successiva).|Windows 10 versione 1809 o successiva<br>Azure Active Directory|
 |**Modalità**|Piattaforma|Software|Hardware|
@@ -162,7 +162,7 @@ Utilizzare la tabella seguente per scegliere il metodo che supporterà le esigen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Abilitare le opzioni di password senza password della chiave di protezione FIDO2 nell'organizzazione](howto-authentication-passwordless-security-key.md)
+[Abilitare le opzioni di protezione FIDO2 senza password nell'organizzazione](howto-authentication-passwordless-security-key.md)
 
 [Abilitare le opzioni di senza password basate su telefono nell'organizzazione](howto-authentication-passwordless-phone.md)
 

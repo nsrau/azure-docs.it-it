@@ -1,15 +1,15 @@
 ---
 title: Archiviare dati non strutturati usando Azure Cosmos DB e Funzioni
 description: Archiviare dati non strutturati tramite Funzioni di Azure e Cosmos DB
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc
-ms.openlocfilehash: bae5e82bfe9091c2b2003b4f1735f51e3d37222d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: d11b7e7d55d0327bdec0a8bd6c73571cf846fd3c
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74230554"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756645"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Archiviare dati non strutturati usando Funzioni di Azure e Azure Cosmos DB
 

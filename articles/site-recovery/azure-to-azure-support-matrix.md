@@ -4,12 +4,12 @@ description: Riepiloga il supporto per il ripristino di emergenza delle macchine
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 0b4a654093e0842e66e1f8b0924edfa6c9c215e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f61f32ddc0a1cc6575907bc72522228b77552947
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276649"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673799"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza della macchina virtuale di Azure tra aree di AzureSupport matrix for Azure VM disaster recovery between Azure regions
 
@@ -21,9 +21,9 @@ Questo articolo riepiloga il supporto e i prerequisiti per il ripristino di emer
 **Distribuzione** |  **Supporto**
 --- | ---
 **Portale di Azure** | Supportato.
-**Powershell** | Supportato. [Scopri di più](azure-to-azure-powershell.md)
-**REST API** | Supportato.
-**Cli** | Attualmente non supportato
+**PowerShell** | Supportato. [Altre informazioni](azure-to-azure-powershell.md)
+**API REST** | Supportato.
+**CLI** | Attualmente non supportato
 
 
 ## <a name="resource-support"></a>Supporto delle risorse
@@ -44,13 +44,13 @@ Questo articolo riepiloga il supporto e i prerequisiti per il ripristino di emer
 **Cluster geografico** | **Aree di AzureAzure regions**
 -- | --
 America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali
-Europa | Regno Unito Ovest, Regno Unito Sud, Nord Europa, Europa occidentale, Francia Centrale, Francia Sud, Sud Africa Ovest, Sud Africa Nord, Norvegia Est, Norvegia Ovest
-Asia | India meridionale, India centrale, India occidentale, Sud-Est asiatico, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea del Sud, Emirati Arabi Uniti Centrale, Emirati Arabi Uniti Nord
+Europa | Regno Unito Ovest, Regno Unito Sud, Nord Europa, Europa occidentale, Sud Africa Ovest, Sud Africa Nord, Norvegia Orientale, Norvegia Ovest
+Asia | India meridionale, India centrale, India occidentale, Sud-est asiatico, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea del Sud
 Australia    | Australia orientale, Australia sud-orientale, Australia centrale, Australia centrale 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germania    | Germania centrale, Germania nord-orientale
 Cina | Cina orientale, Cina settentrionale, Cina settentrionale2, Cina orientale 2
-Aree con restrizioni riservate al ripristino di emergenza nazionale |Germania Nord riservata alla Germania Centro Ovest, Svizzera Ovest riservata alla Svizzera Nord, Francia Sud riservata ai clienti France Central
+Aree con restrizioni riservate al ripristino di emergenza nazionale |Germania Nord riservata alla Germania Centro-Ovest, Svizzera Ovest riservata alla Svizzera Nord, Francia Sud riservata a France Central, Emirati Arabi Uniti Centrale limitata ai clienti UAE North
 
 >[!NOTE]
 >
@@ -77,7 +77,7 @@ Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si usano
 
 Site Recovery supporta la replica di macchine virtuali di Azure che eseguono i sistemi operativi elencati in questa sezione. Si noti che se un computer già replicante viene successivamente aggiornato (o declassato) a un kernel principale diverso, è necessario disabilitare la replica e riattivare la replica dopo l'aggiornamento.
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 
 **Sistema operativo** | **Dettagli**
@@ -197,7 +197,7 @@ Questa tabella riepiloga il supporto per il disco del sistema operativo, il disc
 **Componente** | **Supporto** | **Dettagli**
 --- | --- | ---
 Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md) sui dischi delle VM.
-Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Scopri di più](../virtual-machines/windows/managed-disks-overview.md).
+Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md)
 Dimensione massima del disco dati | 8192 GB per i dischi gestiti<br></br>4095 GB per dischi non gestiti|
 Dimensione minima del disco dati | Nessuna restrizione per i dischi non gestiti. 2 GB per i dischi gestiti |
 Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/windows/sizes.md) sulle dimensioni delle VM.
@@ -264,12 +264,12 @@ Più indirizzi IP | Non supportate | Quando si esegue il failover di una macchin
 Gestione traffico     | Supportato | È possibile preconfigurare Gestione traffico in modo che il traffico venga regolarmente indirizzato all'endpoint nell'area di origine e all'endpoint nell'area di destinazione in caso di failover.
 DNS di Azure | Supportato |
 DNS personalizzato    | Supportato |
-Proxy non autenticato | Supportato | [Scopri di più](site-recovery-azure-to-azure-networking-guidance.md)
+Proxy non autenticato | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)
 Proxy autenticato | Non supportate | Se la macchina virtuale utilizza un proxy autenticato per la connettività in uscita, non può essere replicata tramite Azure Site Recovery.
-Connessione VPN da sito a sito a locale<br/><br/>(con o senza ExpressRoute)| Supportato | Assicurarsi che le UDR e i gruppi di sicurezza di rete siano configurati in modo che il traffico di Site Recovery non venga instradato in locale. [Scopri di più](site-recovery-azure-to-azure-networking-guidance.md)
-Connessione da rete virtuale a rete virtuale    | Supportato | [Scopri di più](site-recovery-azure-to-azure-networking-guidance.md)
+Connessione VPN da sito a sito a locale<br/><br/>(con o senza ExpressRoute)| Supportato | Assicurarsi che le UDR e i gruppi di sicurezza di rete siano configurati in modo che il traffico di Site Recovery non venga instradato in locale. [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)
+Connessione da rete virtuale a rete virtuale    | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)
 Endpoint servizio di rete virtuale | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, assicurarsi che ai servizi Microsoft attendibili sia consentito l'accesso all'account di archiviazione.
-Rete accelerata | Supportato | La rete accelerata deve essere abilitata su una macchina virtuale di origine. [Scopri di più](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Rete accelerata | Supportato | La rete accelerata deve essere abilitata su una macchina virtuale di origine. [Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
 
 

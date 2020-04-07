@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 45276884d59ac8d1d876e2225ac02bb51c3f74fc
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 5ddbb58837fbda0f14a07186d5a3053055954454
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437717"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677441"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -212,4 +212,8 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Perché un ping TCP e strumenti simili possono connettersi correttamente a un FQDN di destinazione anche quando nessuna regola in Firewall di Azure consente tale traffico?
 
-Un ping TCP non si connette effettivamente al nome di dominio completo di destinazione. Ciò si verifica perché il proxy trasparente di Firewall di Azure è in ascolto sulla porta 80/443 per il traffico in uscita. Il ping TCP stabilisce una connessione con il firewall, che quindi elimina il pacchetto e registra la connessione. Questo comportamento non ha alcun impatto sulla sicurezza. Tuttavia, per evitare confusione stiamo studiando potenziali modifiche a questo comportamento. 
+Un ping TCP non si connette effettivamente al nome di dominio completo di destinazione. Ciò si verifica perché il proxy trasparente di Firewall di Azure è in ascolto sulla porta 80/443 per il traffico in uscita. Il ping TCP stabilisce una connessione con il firewall, che quindi elimina il pacchetto e registra la connessione. Questo comportamento non ha alcun impatto sulla sicurezza. Tuttavia, per evitare confusione stiamo studiando potenziali modifiche a questo comportamento.
+
+## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Esistono limiti per il numero di indirizzi IP supportati dai gruppi IP?
+
+Sì. Per altre informazioni, vedere Limiti, quote e vincoli di sottoscrizione e servizio di AzureFor more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)

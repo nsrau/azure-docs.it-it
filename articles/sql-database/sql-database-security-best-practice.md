@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9c1260bb1fab23ede2d1a96725c3086dc128fffc
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 39747ac0a7133562bed526f44e30bf4a656127c0
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387649"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673599"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Playbook per la risoluzione dei requisiti di sicurezza comuni con il database SQL di Azure
 
@@ -466,7 +466,7 @@ Quando si utilizza CLE:
 
 Tenere presente che Always Encrypted è progettato principalmente per proteggere i dati sensibili in uso da utenti con privilegi elevati del database SQL di Azure (operatori cloud, amministratori di database) - vedere [Proteggere i dati sensibili in uso da utenti con privilegi elevati e non autorizzati](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Tenere presente le seguenti difficoltà quando si utilizza Always Encrypted per proteggere i dati dagli utenti dell'applicazione:
 
-- Per impostazione predefinita, tutti i driver client Microsoft che supportano Always Encrypted gestiscono una cache globale (uno per applicazione) di chiavi di crittografia di colonna. Una volta che un driver client acquisisce una chiave di crittografia di colonna di testo non crittografato contattando un archivio chiavi che contiene una chiave master di colonna, la chiave di crittografia della colonna di testo non crittografato viene memorizzata nella cache. Ciò rende difficile l'isolamento dei dati da parte degli utenti di un'applicazione multiutente. Se l'applicazione rappresenta gli utenti finali quando interagisce con un archivio di chiavi (ad esempio l'insieme di chiavi di Azure), dopo che la query di un utente popola la cache con una chiave di crittografia della colonna, una query successiva che richiede la stessa chiave ma viene attivata da un altro utente chiave memorizzata nella cache. Il driver non chiamerà l'archivio chiavi e non controlleranno se il secondo utente dispone di un'autorizzazione per accedere alla chiave di crittografia della colonna. Di conseguenza, l'utente potrà visualizzare i dati crittografati anche se l'utente non ha accesso alle chiavi. Per ottenere l'isolamento degli utenti all'interno di un'applicazione multiutente, è possibile disabilitare la memorizzazione nella cache della chiave di crittografia delle colonne. La disabilitazione della memorizzazione nella cache causerà ulteriori sovraccarichi delle prestazioni, poiché il driver dovrà contattare l'archivio chiavi per ogni operazione di crittografia o decrittografia dei dati.
+- Per impostazione predefinita, tutti i driver client Microsoft che supportano Always Encrypted gestiscono una cache globale (uno per applicazione) di chiavi di crittografia di colonna. Una volta che un driver client acquisisce una chiave di crittografia di colonna di testo non crittografato contattando un archivio chiavi che contiene una chiave master di colonna, la chiave di crittografia della colonna di testo non crittografato viene memorizzata nella cache. Ciò rende difficile l'isolamento dei dati da parte degli utenti di un'applicazione multiutente. Se l'applicazione rappresenta gli utenti finali quando interagisce con un archivio di chiavi (ad esempio L'insieme di credenziali delle chiavi di Azure), dopo che la query di un utente popola la cache con una chiave di crittografia della colonna, una query successiva che richiede la stessa chiave ma viene attivata da un altro utente utilizzerà la chiave memorizzata nella cache. Il driver non chiamerà l'archivio chiavi e non controlleranno se il secondo utente dispone di un'autorizzazione per accedere alla chiave di crittografia della colonna. Di conseguenza, l'utente potrà visualizzare i dati crittografati anche se l'utente non ha accesso alle chiavi. Per ottenere l'isolamento degli utenti all'interno di un'applicazione multiutente, è possibile disabilitare la memorizzazione nella cache della chiave di crittografia delle colonne. La disabilitazione della memorizzazione nella cache causerà ulteriori sovraccarichi delle prestazioni, poiché il driver dovrà contattare l'archivio chiavi per ogni operazione di crittografia o decrittografia dei dati.
 
 ### <a name="protect-data-against-unauthorized-viewing-by-application-users-while-preserving-data-format"></a>Proteggere i dati dalla visualizzazione non autorizzata da parte degli utenti dell'applicazione, preservando il formato dei dati
 Un'altra tecnica per impedire agli utenti non autorizzati di visualizzare i dati consiste nell'offuscare o mascherare i dati conservando i tipi di dati e i formati per garantire che le applicazioni utente possano continuare a gestire e visualizzare i dati.
@@ -735,7 +735,7 @@ Monitorare chi accede ai dati sensibili e acquisire query su dati sensibili nei 
 **Modalità di implementazione**:
 
 - Utilizzare il controllo SQL e la classificazione dei dati in combinazione. 
-  - Nel log di [controllo del database SQL](sql-database-auditing.md) è possibile tenere traccia dell'accesso specifico ai dati sensibili. È inoltre possibile visualizzare informazioni quali i dati a cui è stato effettuato l'accesso, nonché l'etichetta di riservatezza. Per ulteriori informazioni, vedere [Controllo dell'accesso ai dati sensibili](sql-database-data-discovery-and-classification.md#subheading-3). 
+  - Nel log di [controllo del database SQL](sql-database-auditing.md) è possibile tenere traccia dell'accesso specifico ai dati sensibili. È inoltre possibile visualizzare informazioni quali i dati a cui è stato effettuato l'accesso, nonché l'etichetta di riservatezza. Per ulteriori informazioni, vedere [Individuazione dei dati & Classificazione](sql-database-data-discovery-and-classification.md) e Controllo [dell'accesso ai dati sensibili.](sql-database-data-discovery-and-classification.md#audit-sensitive-data) 
 
 **Procedure consigliate**:
 
@@ -785,7 +785,7 @@ La maggior parte degli standard di sicurezza riguarda la disponibilità dei dati
 
 - Il livello Business Critical include gruppi di failover, zone a disponibilità multipla, backup del log completi e differenziali e backup di ripristino temporizzato abilitati per impostazione predefinita:  
   - [Database SQL di Azure e a disponibilità elevata - Configurazione ridondante dell'areaHigh-availability and Azure SQL Database - Zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration)
-  - [Backup automatici](sql-database-automated-backups.md)
+  - [Backup automatizzati](sql-database-automated-backups.md)
   - [Ripristinare un database SQL di Azure usando backup automatici del database - ripristino temporizzatoRecover an Azure SQL Database using automated database backups - Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 - Altre funzionalità di continuità aziendale, ad esempio i gruppi di failover automatico in diversi geo di Azure, possono essere configurate come descritto di seguito: [Panoramica della continuità aziendale con](sql-database-business-continuity.md) il database SQL di AzureAdditional business continuity features such as auto-failover groups across different Azure geos can be configured as described here: Overview of business continuity with Azure SQL Database

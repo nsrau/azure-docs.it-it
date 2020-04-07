@@ -4,12 +4,12 @@ description: In questo articolo viene illustrato come creare insiemi di credenzi
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 38f23ee458845b92c04af47307a2411b26c8ac81
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529389"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672855"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -88,31 +88,7 @@ Per questo processo, ci sono implicazioni di prezzo come è a livello di archivi
 >Prima di iniziare:
 >
 >- Esaminare la matrice di [supporto](backup-support-matrix.md#cross-region-restore) per un elenco di aree e tipi gestiti supportati.
->- La funzionalità Ripristino tra aree (CRR) è attualmente disponibile solo nelle seguenti aree: 
->    - Stati Uniti centro-occidentali
->    - Stati Uniti occidentali
->    - Stati Uniti occidentali 2
->    - Stati Uniti centro-meridionali
->    - Stati Uniti orientali
->    - Stati Uniti orientali 2
->    - Stati Uniti centro-settentrionali
->    - Canada centrale
->    - Canada orientale
->    - Australia orientale
->    - Australia sud-orientale
->    - India centrale
->    - India meridionale
->    - India occidentale
->    - Giappone orientale
->    - Giappone occidentale
->    - Asia sud-orientale
->    - Regno Unito meridionale
->    - Regno Unito occidentale
->    - Europa occidentale
->    - Europa settentrionale
->    - Francia centrale
->    - Corea centrale
->    - Corea meridionale
+>- La funzionalità ripristino tra aree (CRR) è ora visualizzata in anteprima in tutte le aree pubbliche di Azure.The Cross Region Restore (CRR) feature is now previewed in all Azure public regions.
 >- CRR è una funzione di consenso esplicito a livello di vault per qualsiasi vault GRS (disattivato per impostazione predefinita).
 >- Utilizzare il comando seguente per eseguire l'onboarding dell'abbonamento per questa funzionalità:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

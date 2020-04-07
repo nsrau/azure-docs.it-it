@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d5acc2b69ed521af4fd4777dc9f3496290078379
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 0d63f2c29bfdbdf320185647bd33ec30500ed874
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583281"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742701"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelle di indicizzazione nel pool SQL SynapseIndexing tables in Synapse SQL pool
 
@@ -24,9 +24,9 @@ Suggerimenti ed esempi per l'indicizzazione di tabelle nel pool Sql Synapse.
 
 ## <a name="index-types"></a>Tipi di indice
 
-Il pool Sql Synapse offre diverse opzioni di indicizzazione, tra cui [indici columnstore cluster,](/sql/relational-databases/indexes/columnstore-indexes-overview)indici cluster e indici non cluster e un'opzione non [indicizzata](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)nota anche come [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+Il pool Sql Synapse offre diverse opzioni di indicizzazione, tra cui [indici columnstore cluster,](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)indici cluster e indici non cluster e un'opzione non [indicizzata](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)nota anche come [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
-Per creare una tabella con un indice, vedere la documentazione [CREATE TABLE (pool SQL Synapse).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+Per creare una tabella con un indice, vedere la documentazione [CREATE TABLE (pool SQL Synapse).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="clustered-columnstore-indexes"></a>Indici columnstore cluster
 
@@ -230,7 +230,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 Accedere come utente dal passaggio 1 (ad esempio LoadUser), che ora utilizza una classe di risorse superiore ed eseguire le istruzioni ALTER INDEX. Assicurarsi che l'utente abbia l'autorizzazione ALTER per le tabelle in cui viene ricompilato l'indice. Questi esempi illustrano come ricompilare l'intero indice columnstore o una singola partizione. Nelle tabelle di grandi dimensioni, è consigliabile ricompilare gli indici procedendo una partizione alla volta.
 
-In alternativa, anziché ricompilare l'indice, è possibile copiare la tabella in una nuova tabella [utilizzando CTAS](sql-data-warehouse-develop-ctas.md). Qual è il modo migliore? Per grandi volumi di dati CTAS è in genere più veloce di [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Per volumi di dati più piccoli, ALTER INDEX è più facile da usare e non richiede la sostituzione della tabella.
+In alternativa, anziché ricompilare l'indice, è possibile copiare la tabella in una nuova tabella [utilizzando CTAS](sql-data-warehouse-develop-ctas.md). Qual è il modo migliore? Per grandi volumi di dati CTAS è in genere più veloce di [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Per volumi di dati più piccoli, ALTER INDEX è più facile da usare e non richiede la sostituzione della tabella.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La ricompilazione di un indice nel pool SQL Synapse è un'operazione offline.  Per altre informazioni sulla ricompilazione di indici, vedere la sezione ALTER INDEX REBUILD in [Deframmentazione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+La ricompilazione di un indice nel pool SQL Synapse è un'operazione offline.  Per altre informazioni sulla ricompilazione di indici, vedere la sezione ALTER INDEX REBUILD in [Deframmentazione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Passaggio 3: Verificare che la qualità dei segmenti columnstore cluster sia migliorata
 
@@ -260,7 +260,7 @@ Eseguire nuovamente la query che ha identificato la tabella con una qualità sca
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Ricompilazione degli indici con CTAS e cambio della partizione
 
-In questo esempio viene usata l'istruzione [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) e il cambio di partizione per ricompilare una partizione di tabella.
+In questo esempio viene usata l'istruzione [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e il cambio di partizione per ricompilare una partizione di tabella.
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS

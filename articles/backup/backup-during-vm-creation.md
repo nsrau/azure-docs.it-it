@@ -3,12 +3,12 @@ title: Abilitare il backup quando si crea una macchina virtuale di Azure
 description: Descrive come abilitare il backup quando si crea una macchina virtuale di Azure con Backup di Azure.Describes how to enable backup when you create an Azure VM with Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247852"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672819"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
 
@@ -64,6 +64,8 @@ Punti da notare:
 5. È possibile modificare il nome del file RG modificando il criterio se e quando necessario. Se il modello di nome viene modificato, verranno creati nuovi RP nel nuovo RG. Tuttavia, i vecchi RP risiederanno ancora nel vecchio RG e non verranno spostati, poiché RP Collection non supporta lo spostamento delle risorse. Alla fine i RP verranno raccolti spazzatura come i punti scadono.
 ![Modifica del nome durante la modifica dei criteri](./media/backup-during-vm-creation/modify-policy.png)
 6. Si consiglia di non bloccare il gruppo di risorse creato per l'utilizzo da parte del servizio di backup.
+
+Per configurare il gruppo di risorse Backup di Azure per le macchine virtuali tramite PowerShell, vedere Creazione del gruppo di risorse Backup di Azure durante la [conservazione dello snapshot.](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention)
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Avviare un backup dopo la creazione della macchina virtualeStart a backup after creating the VM
 

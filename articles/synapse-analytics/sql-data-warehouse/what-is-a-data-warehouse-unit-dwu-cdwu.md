@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 01a05755fc18a85a95e9c1bec1c470d37af656d1
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 62cf1f369cbde372e82e7c3ffe26473f09668bc7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632242"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742550"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unità data warehouse (DKU)
 
@@ -24,9 +24,9 @@ Consigli sulla scelta del numero ideale di unità di data warehouse (DKU) per ot
 
 ## <a name="what-are-data-warehouse-units"></a>Che cosa sono le unità di data warehouse
 
-Un [pool SQL Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) rappresenta una raccolta di risorse analitiche di cui viene eseguito il provisioning. Le risorse analitiche sono definite come una combinazione di CPU, memoria e I/O. 
+Un [pool SQL Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) rappresenta una raccolta di risorse analitiche di cui viene eseguito il provisioning. Le risorse analitiche sono definite come una combinazione di CPU, memoria e I/O.
 
-Queste tre risorse sono raggruppate in unità di scala di calcolo denominate Unità di data warehouse (DKU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. 
+Queste tre risorse sono raggruppate in unità di scala di calcolo denominate Unità di data warehouse (DKU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo.
 
 Una modifica al livello di servizio altera il numero di DKU disponibili per il sistema, che a sua volta regola le prestazioni e il costo del sistema.
 
@@ -72,7 +72,7 @@ Procedure per individuare l'impostazione DWU ottimale per il carico di lavoro:
 2. Monitorare le prestazioni dell'applicazione durante il caricamento dei dati di test nel sistema, osservando il numero di DWU selezionato in relazione alle prestazioni rilevate.
 3. Identificare eventuali requisiti aggiuntivi per i periodici periodi di punta delle attività. I carichi di lavoro che mostrano picchi e minimi significativi nell'attività potrebbero dover essere scalati frequentemente.
 
-Il pool SQL è un sistema con scalabilità orizzontale in grado di eseguire il provisioning di grandi quantità di dati di dimensioni elevate e di query. 
+Il pool SQL è un sistema con scalabilità orizzontale in grado di eseguire il provisioning di grandi quantità di dati di dimensioni elevate e di query.
 
 Per verificare le effettive capacità nell'ottica della scalabilità, in particolare per le maggiori quantità di DWU, è consigliabile ridimensionare il set di dati durante gli interventi di scalabilità per assicurarsi che siano disponibili dati sufficienti per le CPU. Per i test di scalabilità è consigliabile usare almeno 1 TB.
 
@@ -82,7 +82,7 @@ Per verificare le effettive capacità nell'ottica della scalabilità, in partico
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Per modificare le unità Data Warehouse sono necessarie le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql).
+Per modificare le unità Data Warehouse sono necessarie le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 I ruoli predefiniti per le risorse di Azure, ad esempio Collaboratore database SQL e Collaboratore SQL Server, possono modificare le impostazioni DWU.
 
@@ -134,7 +134,7 @@ Con T-SQL è possibile visualizzare le impostazioni DWU correnti, modificare le 
 Per modificare le DWU:
 
 1. Connettersi al database master associato al server di database SQL logico.
-2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). Nell'esempio seguente l'obiettivo del livello di servizio viene impostato su DW1000c per il database MySQLDW.
+2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Nell'esempio seguente l'obiettivo del livello di servizio viene impostato su DW1000c per il database MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW

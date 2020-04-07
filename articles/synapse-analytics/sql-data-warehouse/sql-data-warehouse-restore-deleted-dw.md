@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 251fdb83e848aaac3a5391320df23149ce1bce33
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: d2e2fdb181b553d330368b043b75159e211dd0d2
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633057"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745137"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Ripristinare un pool SQL eliminato usando Azure Synapse AnalyticsRestore a deleted SQL pool using Azure Synapse Analytics
 
@@ -30,9 +30,9 @@ In this article, you learn to restore a SQL using either the Azure portal or Pow
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Ripristinare un data warehouse eliminato tramite PowerShellRestore a deleted data warehouse through PowerShell
 
-Per ripristinare un pool SQL eliminato, utilizzare il cmdlet [Restore-AzSqlDatabase.](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) Se è stato eliminato anche il server logico corrispondente, non è possibile ripristinare tale data warehouse.
+Per ripristinare un pool SQL eliminato, utilizzare il cmdlet [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Se è stato eliminato anche il server logico corrispondente, non è possibile ripristinare tale data warehouse.
 
-1. Prima di iniziare, assicurarsi di [installare Azure PowerShell.](https://docs.microsoft.com/powershell/azure/overview)
+1. Prima di iniziare, assicurarsi di [installare Azure PowerShell.](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 2. Aprire PowerShell.
 3. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
 4. Selezionare la sottoscrizione che contiene il data warehouse eliminato da ripristinare.

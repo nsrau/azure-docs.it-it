@@ -15,16 +15,18 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 792864022cb7c1b2b4b43a4980d86e32b213525c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63bfb7c92e77c4059a46a83b76b3818fcb6d63be
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75640105"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754180"
 ---
 # <a name="supported-devices"></a>Dispositivi supportati
 
-Il portale di [Azure](https://portal.azure.com) è una console basata sul Web ed è in esecuzione nel browser di tutti i dispositivi desktop e tablet moderni. Se è necessario gestire le risorse di Azure da un dispositivo mobile, provare [l'app per dispositivi mobili](https://azure.microsoft.com/features/azure-portal/mobile-app/)di Azure. È disponibile per iOS e Android.
+Il portale di [Azure](https://portal.azure.com) è una console basata sul Web ed è in esecuzione nel browser di tutti i dispositivi desktop e tablet moderni. Per utilizzare il portale, è necessario che JavaScript sia abilitato nel browser.
+
+Se è necessario gestire le risorse di Azure da un dispositivo mobile, provare [l'app per dispositivi mobili](https://azure.microsoft.com/features/azure-portal/mobile-app/)di Azure. È disponibile per iOS e Android.
 
 ## <a name="recommended-browsers"></a>Browser consigliati
 

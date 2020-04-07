@@ -11,12 +11,12 @@ ms.date: 02/19/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 87b33e91076f8f7f31740795f0ec05cea49a1e83
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: e99fd898956e11a4827d023691111a47e5a790c0
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631196"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744965"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie di caricamento dei dati per il pool SQL SynapseData loading strategies for Synapse SQL pool
 
@@ -24,7 +24,7 @@ I pool SQL SMP tradizionali usano un processo ETL (Extract, Transform and Load) 
 
 L'utilizzo di un processo ELT (Extract, Load, and Transform) sfrutta MPP ed elimina le risorse necessarie per la trasformazione dei dati prima del caricamento.
 
-Mentre il pool SQL supporta molti metodi di caricamento, incluse le opzioni di SQL Server comuni come [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [l'API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), il modo più veloce e scalabile per caricare i dati è tramite le tabelle esterne PolyBase e l'istruzione [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (anteprima).
+Mentre il pool SQL supporta molti metodi di caricamento, incluse le opzioni di SQL Server comuni come [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [l'API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), il modo più veloce e scalabile per caricare i dati è tramite le tabelle esterne PolyBase e l'istruzione [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (anteprima).
 
 Con PolyBase e l'istruzione COPY, è possibile accedere ai dati esterni archiviati nell'archivio BLOB di Azure o nell'archivio dati di Azure tramite il linguaggio T-SQL. Per la massima flessibilità durante il caricamento, è consigliabile utilizzare l'istruzione COPY.
 
@@ -58,7 +58,7 @@ La modalità di recupero dei dati dal sistema di origine dipende dalla posizione
 
 Con PolyBase e l'istruzione COPY, è possibile caricare dati da file CSV o di testo delimitati con codifica UTF-8 e UTF-16. Oltre ai file di testo o CSV delimitati, viene caricato dai formati di file Hadoop come ORC e Parquet. PolyBase e l'istruzione COPY possono anche caricare dati da file compressi Gzip e Snappy.
 
-Non sono supportati ascii estesi, formati a larghezza fissa e formati nidificati, ad esempio Win.ip o XML. Se si esporta da SQL Server, è possibile utilizzare lo strumento da riga di [comando bcp](/sql/tools/bcp-utility?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per esportare i dati in file di testo delimitati.
+Non sono supportati ascii estesi, formati a larghezza fissa e formati nidificati, ad esempio Win.ip o XML. Se si esporta da SQL Server, è possibile utilizzare lo strumento da riga di [comando bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per esportare i dati in file di testo delimitati.
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Land i dati nell'archivio BLOB di Azure o nell'archivio dati di Azure
 
@@ -141,10 +141,10 @@ Per caricare i dati con PolyBase, è possibile usare una di queste opzioni di ca
 
 ### <a name="other-loading-options"></a>Altre opzioni di caricamento
 
-Oltre a PolyBase e all'istruzione COPY , è possibile utilizzare [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) o [l'API SqlBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp viene caricato direttamente nel database senza passare attraverso l'archiviazione BLOB di Azure ed è destinato solo a carichi di piccole dimensioni.
+Oltre a PolyBase e all'istruzione COPY , è possibile utilizzare [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) o [l'API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). bcp viene caricato direttamente nel database senza passare attraverso l'archiviazione BLOB di Azure ed è destinato solo a carichi di piccole dimensioni.
 
 > [!NOTE]
-> Si noti che le prestazioni di caricamento di queste opzioni sono più lente di PolyBase e dell'istruzione COPY.
+> Le prestazioni di caricamento di queste opzioni sono più lente di PolyBase e dell'istruzione COPY.
 
 ## <a name="5-transform-the-data"></a>5. Trasformare i dati
 

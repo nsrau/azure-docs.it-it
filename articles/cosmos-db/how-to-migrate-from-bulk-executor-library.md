@@ -4,14 +4,14 @@ description: Informazioni su come eseguire la migrazione dell'applicazione dall'
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/06/2020
 ms.author: maquaran
-ms.openlocfilehash: e1a2a5d849d3c94d62b8645c41f288ba130aa6a4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 820a5398d84122659b1676b7d5722bce08b1837d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479331"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755966"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Eseguire la migrazione dalla libreria dell'esecutore bulk al supporto bulk in Azure Cosmos DB .NET V3 SDKMigrate from the bulk executor library to the bulk support in Azure Cosmos DB .NET V3 SDK
 
@@ -73,6 +73,15 @@ I `BulkOperationResponse` contiene:
 1. Numero di operazioni riuscite.
 1. Totale delle unità richiesta consumate.
 1. In caso di errori, viene visualizzato un elenco di tuple che contengono l'eccezione e l'elemento associato per la registrazione e lo scopo di identificazione.
+
+## <a name="retry-configuration"></a>Riprovare la configurazioneRetry configuration
+
+La libreria dell'esecutore `MaxRetryWaitTimeInSeconds` `MaxRetryAttemptsOnThrottledRequests` in blocco disponeva di [indicazioni](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) che indicavano l'impostazione di e di [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) per `0` delegare il controllo alla libreria.
+
+Per il supporto in blocco in .NET SDK, non esiste alcun comportamento nascosto. È possibile configurare le opzioni di ripetizione dei tentativi direttamente tramite [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) e [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+
+> [!NOTE]
+> Nei casi in cui le unità di richiesta di cui è stato eseguito il provisioning sono molto inferiori a quelle previste in base alla quantità di dati, è consigliabile impostarle su valori elevati. L'operazione in blocco richiederà più tempo, ma ha maggiori probabilità di riuscire completamente a causa dei tentativi più elevati.
 
 ## <a name="performance-improvements"></a>Miglioramenti delle prestazioni.
 

@@ -3,14 +3,14 @@ title: Eseguire query sui log di gestione degli aggiornamenti di AzureQuery Azur
 description: In questo articolo viene descritto come eseguire una query sui log per la gestione degli aggiornamenti nell'area di lavoro di Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 863016bbeda9b4aec3bf2b4e12830bd30098150f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 81e12e775306cc8637dedd534f50e8a14bc09a26
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437852"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743880"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Query update records for Update Management in Azure Monitor Logs
 
@@ -112,7 +112,7 @@ Viene creato un `UpdateRunProgress` record con un tipo di che fornisce lo stato 
 | CorrelationId | Identificatore univoco del processo del runbook eseguito per l'aggiornamento. |
 | EndTime | Ora di fine del processo di sincronizzazione. | 
 | Risultato errore | Codice di errore di Windows Update generato se l'installazione di un aggiornamento non riesce. | 
-| InstallationStatus (Stato installazione) | I possibili stati di installazione di un aggiornamento nel computer client, *In progress*, Succeeded , *Parzialmente non* *riusciti*. |
+| InstallationStatus (Stato installazione) | I possibili stati di installazione di un aggiornamento sul computer client,<br> *NotStarted* - processo non ancora attivato.<br> *FailedToStart:* impossibile avviare il processo nel computer.<br> *Non riuscito:* processo avviato ma non riuscito con un'eccezione.<br> *InProgress* - processo in corso.<br> *MaintenanceWindowExceeded* - se l'esecuzione era rimanente ma è stato raggiunto l'intervallo della finestra di manutenzione.<br> *Operazione riuscita:* processo riuscito.<br> *InstallFailed* - aggiornamento non è stato installato correttamente.<br> *Non incluso*<br> *Esclusione* |
 | KBID | ID articolo della Knowledge Base per l'aggiornamento di Windows. | 
 | ManagementGroupName | Nome del gruppo di gestione di Operations Manager o dell'area di lavoro di Log Analytics. |
 | OSType | Specifica il tipo di sistema operativo, *Windows* o *Linux*. | 

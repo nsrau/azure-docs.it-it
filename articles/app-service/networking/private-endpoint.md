@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c2717b1f29af39c6fdc4602b11acba131d959f03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79534389"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756288"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso di endpoint privati per l'app Web di Azure (anteprima)Using Private Endpoints for Azure Web App (Preview)
 
@@ -25,7 +25,7 @@ ms.locfileid: "79534389"
 
 L'utilizzo di Private Endpoint per l'app Web consente di:
 
-- Proteggere l'app Web configurando l'endpoint del servizio, eliminando l'esposizione pubblica.
+- Proteggere l'app Web configurando l'endpoint privato, eliminando l'esposizione pubblica.
 - Connettersi in modo sicuro ad app Web da reti locali che si connettono alla rete virtuale tramite una VPN o il peering privato ExpressRoute.Securely connect to Web App from on-premises networks that connect to the VNet using a VPN or ExpressRoute private peering.
 
 Se è sufficiente una connessione sicura tra la rete virtuale e l'app Web, un endpoint del servizio è la soluzione più semplice. Se è necessario raggiungere anche l'app Web in locale tramite un gateway di Azure, una rete virtuale con peering regionale o una rete virtuale con mapping globale, l'endpoint privato è la soluzione.  
