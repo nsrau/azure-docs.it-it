@@ -17,18 +17,22 @@
   items:
     - name: Studio e progettazione
       items:
-        - name: 'Progettazione: 1. Eseguire il training di un modello di regressione'
-          displayName: studio
-          href: tutorial-designer-automobile-price-train-score.md
-        - name: 'Progettazione: 2. Distribuire il modello'
-          displayName: studio
-          href: tutorial-designer-automobile-price-deploy.md
-        - name: Creare un esperimento automatizzato di Machine Learning
-          displayName: 'automl, automated, auto ml, portal, ui'
-          href: tutorial-first-experiment-automated-ml.md
-        - name: Prevedere la domanda con ML automatizzato (dati sul bike sharing)
-          displayName: 'automl, automated, auto ml, portal, ui'
-          href: tutorial-automated-ml-forecast.md
+        - name: Finestra di progettazione (trascinamento della selezione)
+          items:
+            - name: 'Progettazione: 1. Eseguire il training di un modello di regressione'
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: 'Progettazione: 2. Distribuire il modello'
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: ML automatizzato (interfaccia utente)
+          items:
+            - name: Creare un esperimento automatizzato di Machine Learning
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-first-experiment-automated-ml.md
+            - name: Prevedere la domanda con ML automatizzato (dati sul bike sharing)
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-automated-ml-forecast.md
     - name: Python SDK
       items:
         - name: Creare il primo esperimento di Machine Learning
@@ -139,6 +143,9 @@
             - name: Usare le reti virtuali
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
+            - name: Usare Collegamento privato
+              displayName: private endpoint
+              href: how-to-configure-private-link.md
             - name: Proteggere il servizio Web con SSL
               href: how-to-secure-web-service.md
             - name: Usare l'identità di Azure AD nelle distribuzioni del servizio Azure Kubernetes
@@ -254,8 +261,6 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
-        - name: Chainer
-          href: how-to-train-chainer.md
     - name: Interpretare i modelli
       displayName: interpretability
       items:

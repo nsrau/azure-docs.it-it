@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: Informazioni sul proxy dell'applicazione per app locali
       href: what-is-application-proxy.md
+    - name: Scenari di gestione comuni per le app
+      href: common-scenarios.md
     - name: Che cos'è il provisioning di applicazioni?
       href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Avvi rapidi
@@ -325,7 +327,7 @@
       items:
         - name: Proteggere le app legacy con reti o controller di distribuzione delle app
           href: secure-hybrid-access.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Domande frequenti sul proxy dell'applicazione
       href: application-proxy-faq.md

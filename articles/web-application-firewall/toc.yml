@@ -18,6 +18,14 @@
       items:
         - name: Web Application Firewall nella rete CDN di Azure
           href: ./cdn/cdn-overview.md
+- name: Avvi rapidi
+  expanded: true
+  items:
+    - name: Gateway applicazione
+      items:
+        - name: Distribuire WAF v2 - Modello di Resource Manager
+          displayName: Resource Manager
+          href: ./ag/quick-create-template.md
 - name: Esercitazioni
   items:
     - name: Gateway applicazione

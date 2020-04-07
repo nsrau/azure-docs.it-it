@@ -5,25 +5,25 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 034e966d259f1ca5f22eec5935013de32c883b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 477f3cf270377bc1341e65ab500093e05277afa8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80056634"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657587"
 ---
 Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che è possibile pubblicare in un'app per le funzioni in Azure. È possibile usare un'app per le funzioni per raggruppare le funzioni in un'unità logica e semplificare la gestione, la distribuzione, il ridimensionamento e la condivisione delle risorse.
 
-1. Nel menu **File** in Visual Studio selezionare **Nuovo** > **Progetto**.
+1. Nel menu di Visual Studio selezionare **File** > **Nuovo** > **Progetto**.
 
-1. In **Crea un nuovo progetto** immettere *funzioni* nella casella di ricerca e quindi scegliere il modello **Funzioni di Azure**.
+1. In **Crea un nuovo progetto** immettere *funzioni* nella casella di ricerca, scegliere il modello **Funzioni di Azure** e quindi selezionare **Avanti**.
 
 1. In **Configura il nuovo progetto** immettere un **nome** per il progetto e quindi selezionare **Crea**. Il nome dell'app per le funzioni deve essere valido come spazio dei nomi C#, quindi non usare caratteri di sottolineatura, trattini o altri caratteri non alfanumerici.
 
-1. Per le impostazioni di **Nuovo progetto - &lt;nome del progetto&gt;** usare i valori nella tabella seguente:
+1. Per le impostazioni di **Crea una nuova applicazione Funzioni di Azure**, usare i valori riportati nella tabella seguente:
 
     | Impostazione      | valore  | Descrizione                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -38,4 +38,4 @@ Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che �
 
     Assicurarsi di impostare i **diritti di accesso** su **Anonimo**. Se si sceglie il livello predefinito **Funzione**, è necessario fornire la [chiave di funzione](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) nelle richieste di accesso all'endpoint della funzione.
 
-1. Selezionare **OK** per creare il progetto di funzione e la funzione attivata da HTTP.
+1. Selezionare **Crea** per creare il progetto di funzione e la funzione attivata da HTTP.

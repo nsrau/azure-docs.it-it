@@ -1,15 +1,17 @@
 ---
-author: wolfma61
+author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/07/2018
-ms.author: wolfma
-ms.openlocfilehash: f35a6c61cdbbb71d937b5293df1535e7751cf31d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/25/2020
+ms.author: dapine
+ms.openlocfilehash: f17cbc17558c22abefa0b0309b01780657c037f2
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67180435"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656544"
 ---
 > [!IMPORTANT]
-> Scaricando i componenti Speech SDK di Servizi cognitivi in questa pagina, si accetta la relativa licenza. Vedere le [Condizioni di licenza software Microsoft per Speech SDK](https://aka.ms/csspeech/license201809).
+> Scaricando uno dei componenti Speech SDK di Servizi cognitivi, si accetta la relativa licenza. Per altre informazioni, vedere:
+> - <a href="https://aka.ms/csspeech/license201809" target="_blank">Condizioni di licenza software Microsoft per Speech SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> - <a href="https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html" target="_blank">Informativa sul software di terze parti <span class="docon docon-navigate-external x-hidden-focus"></span></a>

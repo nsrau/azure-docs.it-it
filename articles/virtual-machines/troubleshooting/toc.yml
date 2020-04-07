@@ -77,6 +77,8 @@
           href: troubleshoot-guide-critical-process-died.md
         - name: Si è verificato un errore di un servizio critico
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: La VM non risponde quando si applicano criteri di utenti e gruppi locali
+          href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: Non è un disco di avvio
           href: troubleshoot-guide-not-bootable-disk.md
         - name: Ciclo di riavvio
@@ -87,6 +89,8 @@
           href: troubleshoot-vm-boot-configure-update.md
         - name: Non è possibile avviare la macchina virtuale a causa di Windows Boot Manager
           href: troubleshoot-guide-windows-boot-manager-menu.md
+        - name: La VM non risponde a causa dell'aggiornamento
+          href: unresponsive-vm-apply-windows-update.md
 - name: Impossibile connettersi alla macchina virtuale
   items:
     - name: RDP
