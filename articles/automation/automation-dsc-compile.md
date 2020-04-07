@@ -3,14 +3,14 @@ title: Compilazione di configurazioni in Configurazione stato di Automazione di 
 description: Questo articolo descrive come compilare configurazioni Desired State Configuration (DSC) per l'automazione di Azure.
 services: automation
 ms.subservice: dsc
-ms.date: 09/10/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48593920bdfcf743fceaeaeec891c0d5c4f2e108
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b366777cce4dd4212a2e3ec0cdcd180e0d7164f4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057642"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757183"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilazione di configurazioni DSC in Configurazione stato di Automazione di Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "80057642"
   - Utilizzare i dati di nodi e non di nodo su larga scalaWork with node and non-node data at scale
   - Miglioramento significativo delle prestazioni
 
-Per informazioni dettagliate sulla compilazione, vedere Estensione Configurazione stato desiderato con i modelli di [Azure Resource Manager.](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details)
+È anche possibile usare i modelli di Azure Resource Manager con l'estensione DSC (Desired State Configuration) di Azure per eseguire il push delle configurazioni nelle macchine virtuali di Azure.You can also use Azure Resource Manager templates with Azure Desired State Configuration (DSC) extension to push configurations to your Azure VMs. L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. Per informazioni dettagliate sulla compilazione con i modelli di Azure Resource Manager, vedere Estensione Configurazione stato desiderato con i modelli di [Azure Resource Manager.](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details) 
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Compilazione di una configurazione DSC nella configurazione dello stato di AzureCompiling a DSC configuration in Azure State Configuration
 
@@ -187,7 +187,7 @@ I riferimenti agli asset sono gli stessi sia nella configurazione dello stato di
 - [Certificati](automation-certificates.md)
 - [Connessioni](automation-connections.md)
 - [Credenziali](automation-credentials.md)
-- [Variabili](automation-variables.md)
+- [variables](automation-variables.md)
 
 #### <a name="credential-assets"></a>Risorse credenziali
 

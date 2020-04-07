@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.date: 04/06/2020
+ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387904"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756409"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configurare l'esportazione di streaming dei dati di telemetria di diagnostica del database SQL di AzureConfigure streaming export of Azure SQL Database diagnostic telemetry
 
@@ -225,7 +225,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica per un database del
 > [!TIP]
 > Ripetere questi passaggi per ogni database dell'istanza che si desidera monitorare.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -283,7 +283,7 @@ Specificare l'ID risorsa dell'area di lavoro \<$WSID\> come parametro quando si 
 
   Sostituire \<subID\> con l'ID abbonamento, \<RG_NAME\> con il nome del gruppo di risorse e \<WS_NAME\> con il nome dell'area di lavoro.
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È possibile abilitare le metriche e la registrazione diagnostica con l'interfaccia della riga di comando di Azure.
 
@@ -454,9 +454,15 @@ Fare riferimento alla tabella seguente per informazioni dettagliate sulle metric
 
 |**Metrica**|**Nome visualizzato per la metrica**|**Descrizione**|
 |---|---|---|
-|tempdb_data_size| Kilobyte delle dimensioni del file di dati Tempdb |Dimensioni file di dati Tempdb Kilobyte. Non applicabile ai data warehouse. Questa metrica sarà disponibile per i database che usano il modello di acquisto vCore con 2 vCore e versioni successive o 200 DTU e versioni successive per i modelli di acquisto basati su DTU. Questa metrica non è attualmente disponibile per i database di Hyperscale.This metric is not currently available for Hyperscale databases.|
-|tempdb_log_size| Kilobyte delle dimensioni del file di registro di Tempdb |Kilobyte della dimensione del file di registro di Tempdb. Non applicabile ai data warehouse. Questa metrica sarà disponibile per i database che usano il modello di acquisto vCore con 2 vCore e versioni successive o 200 DTU e versioni successive per i modelli di acquisto basati su DTU. Questa metrica non è attualmente disponibile per i database di Hyperscale.This metric is not currently available for Hyperscale databases.|
-|tempdb_log_used_percent| Registro percentuale Tempdb utilizzato |Registro percentuale Tempdb utilizzato. Non applicabile ai data warehouse. Questa metrica sarà disponibile per i database che usano il modello di acquisto vCore con 2 vCore e versioni successive o 200 DTU e versioni successive per i modelli di acquisto basati su DTU. Questa metrica non è attualmente disponibile per i database di Hyperscale.This metric is not currently available for Hyperscale databases.|
+|<sup>sqlserver_process_core_percent 1</sup>|Percentuale core del processo di SQL ServerSQL Server process core percent|Percentuale di utilizzo della CPU per il processo di SQL Server, misurata dal sistema operativo.|
+|sqlserver_process_memory_percent<sup>1</sup> |Percentuale memoria processo SQL Server|Percentuale di utilizzo della memoria per il processo di SQL Server, misurata dal sistema operativo.|
+|tempdb_data_size<sup>2</sup>| Kilobyte delle dimensioni del file di dati Tempdb |Dimensioni file di dati Tempdb Kilobyte.|
+|tempdb_log_size<sup>2</sup>| Kilobyte delle dimensioni del file di registro di Tempdb |Kilobyte della dimensione del file di registro di Tempdb.|
+|tempdb_log_used_percent<sup>2</sup>| Registro percentuale Tempdb utilizzato |Registro percentuale Tempdb utilizzato.|
+
+<sup>1</sup> Questa metrica è disponibile per i database che utilizzano il modello di acquisto vCore con 2 vCore e versioni successive oppure 200 DTU e versioni successive per i modelli di acquisto basati su DTU. 
+
+<sup>2</sup> Questa metrica è disponibile per i database che utilizzano il modello di acquisto vCore con 2 vCore e versioni successive, o 200 DTU e versioni successive per i modelli di acquisto basati su DTU. Questa metrica non è attualmente disponibile per i database Hyperscale o i data warehouse.
 
 ### <a name="basic-logs"></a>Registri di base
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 20aa55f9fc4ea65da1973628aeec313a5367816a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f7eb63d0bbdce86f4a7195430dc15d6873e9f6e6
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632039"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754304"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server dei dischi gestiti di AzureServer-side encryption of Azure managed disks
 
@@ -90,10 +90,13 @@ Per il momento, le chiavi gestite dal cliente hanno le restrizioni seguenti:For 
 
     Quando si crea l'istanza del Key Vault, è necessario abilitare la protezione soft delete ed purge. L'eliminazione temporanea garantisce che l'insieme di credenziali delle chiavi contenga una chiave eliminata per un determinato periodo di conservazione (impostazione predefinita di 90 giorni). La protezione dall'eliminazione garantisce che una chiave eliminata non possa essere eliminata definitivamente fino alla scadenza del periodo di conservazione. Queste impostazioni ti proteggono dalla perdita di dati a causa di cancellazioni accidentali. Queste impostazioni sono obbligatorie quando si utilizza un insieme di credenziali delle chiavi per la crittografia dei dischi gestiti.
 
+    > [!IMPORTANT]
+    > Non presentare la distinzione tra maiuscole e minuscole nell'area, in caso contrario potrebbero verificarsi problemi durante l'assegnazione di dischi aggiuntivi alla risorsa nel portale di Azure.Do not camel case the region, if you do so you may experience you may experience problems when assigning additional disks to the resource in the Azure portal.
+
     ```azurecli
     subscriptionId=yourSubscriptionID
     rgName=yourResourceGroupName
-    location=WestCentralUS
+    location=westcentralus
     keyVaultName=yourKeyVaultName
     keyName=yourKeyName
     diskEncryptionSetName=yourDiskEncryptionSetName
@@ -134,7 +137,7 @@ Per il momento, le chiavi gestite dal cliente hanno le restrizioni seguenti:For 
 ```azurecli
 rgName=yourResourceGroupName
 vmName=yourVMName
-location=WestCentralUS
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
 diskEncryptionSetName=yourDiskencryptionSetName
@@ -162,7 +165,7 @@ az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCus
 ```azurecli
 rgName=yourResourceGroupName
 vmssName=yourVMSSName
-location=WestCentralUS
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
 diskEncryptionSetName=yourDiskencryptionSetName
@@ -179,7 +182,7 @@ rgName=yourResourceGroupName
 diskName=yourDiskName
 diskSkuName=Premium_LRS
 diskSizeinGiB=30
-location=WestCentralUS
+location=westcentralus
 diskLUN=2
 diskEncryptionSetName=yourDiskEncryptionSetName
 

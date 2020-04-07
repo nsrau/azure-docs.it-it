@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ae866959dd2112bacbb6b56e5683e7b3b851a0
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631912"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755274"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
 
@@ -35,9 +35,9 @@ Quando si crea criteri di accesso condizionale, sono disponibili le opzioni segu
 - tutti gli utenti
    - Tutti gli utenti presenti nella directory, inclusi i guest B2B.
 - Selezionare Utenti e gruppi
-   - Tutti gli utenti guest ed esterni (anteprima)
+   - Tutti gli utenti guest ed esterni
       - Questa selezione include tutti gli ospiti B2B `user type` e gli `guest`utenti esterni, incluso qualsiasi utente con l'attributo impostato su . Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio Cloud Solution Provider (CSP). 
-   - Ruoli directory (anteprima)Directory roles (preview)
+   - Ruoli della directory
       - Consente agli amministratori di selezionare ruoli di directory di Azure AD specifici usati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
    - Utenti e gruppi
       - Consente il targeting di set specifici di utenti. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando un'app HR viene selezionata come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
@@ -51,9 +51,9 @@ Quando le organizzazioni includono ed escludono un utente o un gruppo, l'utente 
 
 Quando si crea criteri di accesso condizionale, sono disponibili le opzioni seguenti.
 
-- Tutti gli utenti guest ed esterni (anteprima)
+- Tutti gli utenti guest ed esterni
    - Questa selezione include tutti gli ospiti B2B `user type` e gli `guest`utenti esterni, incluso qualsiasi utente con l'attributo impostato su . Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio Cloud Solution Provider (CSP). 
-- Ruoli directory (anteprima)Directory roles (preview)
+- Ruoli della directory
    - Consente agli amministratori di selezionare ruoli di directory di Azure AD specifici usati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
 - Utenti e gruppi
    - Consente il targeting di set specifici di utenti. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando un'app HR viene selezionata come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.

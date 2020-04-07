@@ -3,12 +3,12 @@ title: Knowledge Base di progettazione - QnA Maker
 description: Una Knowledge Base di QnA Maker è costituita da un set di domande e risposte (QnA) e metadati facoltativi associati a ogni coppia QnA.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb71de0f6a3e372d8c1c1fede67ba0c0354532ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76844320"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756796"
 ---
 # <a name="question-and-answer-set-concepts"></a>Concetti relativi ai set di domande e risposte
 
@@ -33,7 +33,7 @@ Le impostazioni **facoltative** per un set includono:The optional settings for a
 
 ## <a name="editorially-add-to-knowledge-base"></a>Aggiunta di contenuti a livello editoriale alla knowledge base
 
-Se non si dispone di contenuto preesistente per popolare la Knowledge Base, è possibile aggiungere set QnA editorialmente nel portale QnA Maker. Informazioni su come aggiornare la Knowledge Base sono disponibili [qui](../How-To/edit-knowledge-base.md).
+Se non si dispone di contenuto preesistente per popolare la Knowledge Base, è possibile aggiungere coppie QnA editorialmente nel portale QnA Maker. Informazioni su come aggiornare la Knowledge Base sono disponibili [qui](../How-To/edit-knowledge-base.md).
 
 ## <a name="editing-your-knowledge-base-locally"></a>Modificare la knowledge base in locale
 

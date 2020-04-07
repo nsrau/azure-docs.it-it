@@ -5,21 +5,24 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 7e1989ee5fcc428bc7d29c17432ded8dab24ecee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22531c1080021c5e3724e5584b85bb58446fb1d3
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281698"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744120"
 ---
 # <a name="storefront-details-tab"></a>Scheda Dettagli vetrina
+
+>[!Important]
+>A partire dal 30 marzo 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
 
 Questo articolo illustra come immettere i dettagli relativi alla vetrina. La scheda **Dettagli vetrina** è costituita dalle sezioni seguenti:
 
 -   **Dettagli offerta**
--   **Informazioni sull'editore**
+-   **Informazioni sul server di pubblicazione**
 -   **Dettagli inserzione**
 -   **Artefatti di marketing**
 

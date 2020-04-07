@@ -4,15 +4,15 @@ description: Elenco delle metriche disponibili per ogni tipo di risorsa con il m
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 03/17/2020
+ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 79bae9712cea04425cc36414ec56fdddd4345eab
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 846e8da889e3913c4a8eaab7808495bbd8afad29
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586033"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754656"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -1999,11 +1999,11 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |dwu_used|Uso DWU|Conteggio|Massimo|DWU utilizzato. Si applica solo ai data warehouse.|nessuno|
 |cache_hit_percent|Percentuale dei riscontri nella cache|Percentuale|Massimo|Percentuale di riscontri nella cache. Si applica solo ai data warehouse.|nessuno|
 |cache_used_percent|Percentuale della cache utilizzata|Percentuale|Massimo|Percentuale utilizzata nella cache. Si applica solo ai data warehouse.|nessuno|
-|sqlserver_process_core_percent|Percentuale core del processo di SQL ServerSQL Server process core percent|Percentuale|Massimo|Percentuale di utilizzo della CPU per il processo di SQL Server, misurata dal sistema operativo.|nessuno|
-|sqlserver_process_memory_percent|Percentuale memoria processo SQL Server|Percentuale|Massimo|Percentuale di utilizzo della memoria per il processo di SQL Server, misurata dal sistema operativo.|nessuno|
-|tempdb_data_size|Kilobyte delle dimensioni del file di dati Tempdb|Conteggio|Massimo|Dimensioni file di dati Tempdb Kilobyte. Non applicabile ai data warehouse.|nessuno|
-|tempdb_log_size|Kilobyte delle dimensioni del file di registro di Tempdb|Conteggio|Massimo|Kilobyte della dimensione del file di registro di Tempdb. Non applicabile ai data warehouse.|nessuno|
-|tempdb_log_used_percent|Registro percentuale Tempdb utilizzato|Percentuale|Massimo|Registro percentuale Tempdb utilizzato. Non applicabile ai data warehouse.|nessuno|
+|<sup>sqlserver_process_core_percent 1</sup> |Percentuale core del processo di SQL ServerSQL Server process core percent|Percentuale|Massimo|Percentuale di utilizzo della CPU per il processo di SQL Server, misurata dal sistema operativo.|nessuno|
+|sqlserver_process_memory_percent<sup>1</sup> |Percentuale memoria processo SQL Server|Percentuale|Massimo|Percentuale di utilizzo della memoria per il processo di SQL Server, misurata dal sistema operativo.|nessuno|
+|tempdb_data_size<sup>2</sup> |Kilobyte delle dimensioni del file di dati Tempdb|Conteggio|Massimo|Dimensioni file di dati Tempdb Kilobyte.|nessuno|
+|tempdb_log_size<sup>2</sup> |Kilobyte delle dimensioni del file di registro di Tempdb|Conteggio|Massimo|Kilobyte della dimensione del file di registro di Tempdb.|nessuno|
+|tempdb_log_used_percent<sup>2</sup> |Registro percentuale Tempdb utilizzato|Percentuale|Massimo|Registro percentuale Tempdb utilizzato.|nessuno|
 |local_tempdb_usage_percent|Percentuale di tempdb locale|Percentuale|Media|Percentuale tempdb locale. Si applica solo ai data warehouse.|nessuno|
 |app_cpu_billed|CPU dell'app fatturata|Conteggio|Totale|CPU dell'app fatturata. Si applica ai database senza server.|nessuno|
 |app_cpu_percent|Percentuale CPU app|Percentuale|Media|Percentuale della CPU dell'app. Si applica ai database senza server.|nessuno|
@@ -2028,6 +2028,9 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |snapshot_backup_size_bytes|Dimensioni di archiviazione del backup snapshot|Byte|Massimo|Dimensioni di archiviazione del backup di snapshot cumulativo. Si applica ai database Hyperscale.|nessuno|
 |base_blob_size_bytes|Dimensioni di archiviazione BLOB di base|Byte|Massimo|Dimensioni di archiviazione BLOB di base. Si applica ai database Hyperscale.|nessuno|
 
+<sup>1</sup> Questa metrica è disponibile per i database che utilizzano il modello di acquisto vCore con 2 vCore e versioni successive oppure 200 DTU e versioni successive per i modelli di acquisto basati su DTU. 
+
+<sup>2</sup> Questa metrica è disponibile per i database che utilizzano il modello di acquisto vCore con 2 vCore e versioni successive, o 200 DTU e versioni successive per i modelli di acquisto basati su DTU. Questa metrica non è attualmente disponibile per i database Hyperscale o i data warehouse.
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -2057,14 +2060,19 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |database_cpu_limit|Limite CPU|Conteggio|Media|Limite CPU|DatabaseResourceId|
 |cpu_used|CPU utilizzata|Conteggio|Media|CPU utilizzata. Si applica ai pool elastici basati su vCore.|nessuno|
 |database_cpu_used|CPU utilizzata|Conteggio|Media|CPU utilizzata|DatabaseResourceId|
-|sqlserver_process_core_percent|Percentuale core del processo di SQL ServerSQL Server process core percent|Percentuale|Massimo|Percentuale di utilizzo della CPU per il processo di SQL Server, misurata dal sistema operativo. Si applica alle piscine elastiche.|nessuno|
-|sqlserver_process_memory_percent|Percentuale memoria processo SQL Server|Percentuale|Massimo|Percentuale di utilizzo della memoria per il processo di SQL Server, misurata dal sistema operativo. Si applica alle piscine elastiche.|nessuno|
-|tempdb_data_size|Kilobyte delle dimensioni del file di dati Tempdb|Conteggio|Massimo|Kilobyte delle dimensioni del file di dati Tempdb|nessuno|
-|tempdb_log_size|Kilobyte delle dimensioni del file di registro di Tempdb|Conteggio|Massimo|Kilobyte delle dimensioni del file di registro di Tempdb|nessuno|
-|tempdb_log_used_percent|Registro percentuale Tempdb utilizzato|Percentuale|Massimo|Registro percentuale Tempdb utilizzato|nessuno|
+|<sup>sqlserver_process_core_percent 1</sup>|Percentuale core del processo di SQL ServerSQL Server process core percent|Percentuale|Massimo|Percentuale di utilizzo della CPU per il processo di SQL Server, misurata dal sistema operativo. Si applica alle piscine elastiche. |nessuno|
+|sqlserver_process_memory_percent<sup>1</sup>|Percentuale memoria processo SQL Server|Percentuale|Massimo|Percentuale di utilizzo della memoria per il processo di SQL Server, misurata dal sistema operativo. Si applica alle piscine elastiche. |nessuno|
+|tempdb_data_size<sup>2</sup>|Kilobyte delle dimensioni del file di dati Tempdb|Conteggio|Massimo|Dimensioni file di dati Tempdb Kilobyte.|nessuno|
+|tempdb_log_size<sup>2</sup>|Kilobyte delle dimensioni del file di registro di Tempdb|Conteggio|Massimo|Kilobyte della dimensione del file di registro di Tempdb. |nessuno|
+|tempdb_log_used_percent<sup>2</sup>|Registro percentuale Tempdb utilizzato|Percentuale|Massimo|Registro percentuale Tempdb utilizzato.|nessuno|
 |allocated_data_storage|Spazio dati allocato|Byte|Media|Spazio dati allocato|nessuno|
 |database_allocated_data_storage|Spazio dati allocato|Byte|Media|Spazio dati allocato|DatabaseResourceId|
 |allocated_data_storage_percent|Percentuale spazio dati allocato|Percentuale|Massimo|Percentuale spazio dati allocato|nessuno|
+
+<sup>1</sup> Questa metrica è disponibile per i database che utilizzano il modello di acquisto vCore con 2 vCore e versioni successive oppure 200 DTU e versioni successive per i modelli di acquisto basati su DTU. 
+
+<sup>2</sup> Questa metrica è disponibile per i database che utilizzano il modello di acquisto vCore con 2 vCore e versioni successive, o 200 DTU e versioni successive per i modelli di acquisto basati su DTU. Questa metrica non è attualmente disponibile per i database di Hyperscale.This metric is not currently available for Hyperscale databases.
+
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
 

@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/20/2019
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 93c9ce45fd660f444146827e2f5bafaeb12fc471
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5aa1a677836be3f05269539d52abf7bd8704833d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310516"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757054"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Serie di video di procedure per il portale di Azure
 
@@ -22,18 +22,18 @@ La serie di video how-to del portale di Azure mostra come usare i servizi di Azu
 
 ## <a name="featured-video"></a>Video in primo piano
 
-In questo video in primo piano viene illustrato come risolvere i problemi comuni relativi alle macchine virtuali.
+In questo video in primo piano viene illustrato come risparmiare denaro in Azure usando i consigli sui costi di Azure Advisor.In this featured video, we show you how to save money in Azure using Azure Advisor cost recommendations.
 
-> [!VIDEO https://www.youtube.com/embed/MAJrN-2IPY8]
+> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
 
-[Risolvere i problemi comuni relativi alle macchine virtualiTroubleshoot common problems with virtual machines](https://www.youtube.com/watch?v=MAJrN-2IPY8)
+[Come usare i consigli sui costi in Azure AdvisorHow to use cost recommendations on Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
 
 Raggiungi questi video recenti che potresti aver perso:
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Immagine del video di YouTube su come creare un'app per le funzioni](https://i.ytimg.com/vi/BEIZKCDElMs/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=BEIZKCDElMs) | [![Immagine del video di YouTube su come usare la nuova schermata iniziale di Azure](https://i.ytimg.com/vi/Ddo__jkzgVo/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=Ddo__jkzgVo) | [![Immagine del video di YouTube sulla creazione del massimo da Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [Come creare un'app per le funzioni](https://www.youtube.com/watch?v=BEIZKCDElMs) | [Come usare la nuova home page di AzureHow to use the new Azure home](https://www.youtube.com/watch?v=Ddo__jkzgVo) | [Come sfruttare al meglio Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [![Immagine del video di YouTube sull'uso delle cartelle di lavoro di Monitoraggio di Azure](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Immagine del video di YouTube sul filtro della visualizzazione dell'elenco delle risorse nel portale di Azure](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![Immagine del video di YouTube sull'uso dell'aggiornamento automatico per le dashboard](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [Uso delle cartelle di lavoro di Monitoraggio di AzureUsing Azure Monitor workbooks](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Filtraggio della visualizzazione dell'elenco delle risorse nel portale di AzureFiltering your resource list view in the Azure portal](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [Uso dell'aggiornamento automatico per i dashboard](https://www.youtube.com/watch?v=tVoDXygZzWM) |
 
 ## <a name="video-playlist"></a>Playlist video
 

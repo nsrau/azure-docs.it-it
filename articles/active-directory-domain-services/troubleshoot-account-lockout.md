@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 04/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2e274aa353f6c3e485ae10a6a67ee2940eb88b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246320"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743459"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Risolvere i problemi di blocco degli account con un dominio gestito di Servizi di dominio Azure ADTroubleshoot account lockout problems with an Azure AD Domain Services managed domain
 
@@ -33,11 +33,11 @@ Le soglie di blocco account predefinite vengono configurate utilizzando criteri 
 
 ### <a name="fine-grained-password-policy"></a>Criteri granulari per le password
 
-I criteri granulari per le password (FGPP) consentono di applicare restrizioni specifiche per i criteri di blocco di password e account a utenti diversi in un dominio. FGPP influisce solo sugli utenti creati in Azure AD DS. Gli utenti cloud e gli utenti di dominio sincronizzati nel dominio gestito di Servizi di dominio Active Directory di Azure da Azure AD non sono interessati dai criteri password.
+I criteri granulari per le password (FGPP) consentono di applicare restrizioni specifiche per i criteri di blocco di password e account a utenti diversi in un dominio. FGPP ha effetto solo sugli utenti all'interno di un dominio gestito di Azure AD DS. Cloud users and domain users synchronized into the Azure AD DS managed domain from Azure AD are only affected by the password policies within Azure AD DS. I relativi account in Azure AD o in una directory locale non sono interessati.
 
 I criteri vengono distribuiti tramite l'associazione di gruppo nel dominio gestito di Servizi di dominio Active Directory di Azure e le modifiche apportate vengono applicate al successivo accesso utente. La modifica del criterio non sblocca un account utente già bloccato.
 
-Per ulteriori informazioni sui criteri granulari per le password, vedere Configurare i criteri di blocco di [password e account.][configure-fgpp]
+Per altre informazioni sui criteri granulari per le password e sulle differenze tra gli utenti creati direttamente in Servizi di dominio Active Directory di Azure e sincronizzati in Da Azure AD, vedere [Configurare i criteri][configure-fgpp]di blocco account e password.
 
 ## <a name="common-account-lockout-reasons"></a>Motivi comuni di blocco degli account
 

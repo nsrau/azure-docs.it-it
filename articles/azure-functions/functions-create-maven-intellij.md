@@ -2,16 +2,16 @@
 title: Creare una funzione di Azure con Java e IntelliJCreate an Azure function with Java and IntelliJ
 description: Informazioni su come creare e pubblicare in Azure un'app semplice senza server attivata tramite HTTP con Java e IntelliJ.
 author: jeffhollan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7003dc19a7bfc405809de91534028aba8e0416c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05074696ca2cc9d425269561523beb11eb18c4f3
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136851"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756452"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creare la prima funzione di Azure con Java e IntelliJCreate your first Azure function with Java and IntelliJ
 
@@ -31,7 +31,7 @@ Per sviluppare una funzione con Java e IntelliJ, installare il software seguente
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), versione 8
 - [Apache Maven](https://maven.apache.org), versione 3.0 o successiva
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versione Community o Ultimate con Maven
-- [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/cli/azure)
+- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT]
 > Per completare la procedura descritta in questo articolo, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.

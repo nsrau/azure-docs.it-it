@@ -1,24 +1,17 @@
 ---
 title: Come usare le chiavi di creazione e di runtime - LUISHow to use authoring and runtime keys - LUIS
-titleSuffix: Azure Cognitive Services
 description: Quando si utilizza per la prima volta Language Understanding (LUIS), non è necessario creare una chiave di creazione. Quando intendi pubblicare l'app, quindi usare l'endpoint di runtime, devi creare e assegnare la chiave di runtime all'app.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: diberry
-ms.openlocfilehash: a5140da32eb6fce03131a42bfa90e71e64552431
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: ea2799e7b8bb18ad4a729a70ae1477cde9f97e95
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219973"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754359"
 ---
-# <a name="using-authoring-and-runtime-resource-keys"></a>Uso delle chiavi di risorse di creazione e di runtimeUsing authoring and runtime resource keys
+# <a name="create-luis-resources"></a>Creare risorse LUISCreate LUIS resources
 
 Le risorse di creazione e esecuzione forniscono l'autenticazione all'app LUIS e all'endpoint di stima.
 
@@ -28,56 +21,40 @@ Le risorse di creazione e esecuzione forniscono l'autenticazione all'app LUIS e 
 Quando si accede al portale LUIS, è possibile scegliere di continuare con:
 
 * una [chiave](#trial-key) di prova gratuita, che fornisce la creazione e alcune query dell'endpoint di stima.
-* una risorsa di creazione e modifica di Azure [LUIS.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) 
-
+* una risorsa di creazione e modifica di Azure [LUIS.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 
 <a name="starter-key"></a>
 
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Accedere al portale LUIS e iniziare la creazione
 
 1. Accedere al [portale LUIS](https://www.luis.ai) e accettare le condizioni per l'utilizzo.
-1. Iniziare l'app LUIS scegliendo il tipo di chiave di creazione LUIS da usare: chiave di valutazione gratuita o nuova chiave di creazione di Azure LUIS. 
+1. Iniziare l'app LUIS scegliendo il tipo di chiave di creazione LUIS da usare: chiave di valutazione gratuita o nuova chiave di creazione di Azure LUIS.
 
     ![Scegliere un tipo di risorsa di creazione Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
-1. Al termine del processo di selezione delle risorse, [creare una nuova app.](luis-how-to-start-new-app.md#create-new-app-in-luis) 
+1. Al termine del processo di selezione delle risorse, [creare una nuova app.](luis-how-to-start-new-app.md#create-new-app-in-luis)
 
 ## <a name="trial-key"></a>Chiave di prova
 
-La chiave di prova (antipasto) è fornita per voi. Viene utilizzato come chiave di autenticazione per eseguire query sul runtime dell'endpoint di stima, fino a 1000 query al mese. 
+La chiave di prova (antipasto) è fornita per voi. Viene utilizzato come chiave di autenticazione per eseguire query sul runtime dell'endpoint di stima, fino a 1000 query al mese.
 
-È visibile sia nella pagina **Impostazioni utente** che nelle pagine **Gestisci -> risorse** di Azure nel portale LUIS. 
+È visibile sia nella pagina **Impostazioni utente** che nelle pagine **Gestisci -> risorse** di Azure nel portale LUIS.
 
-Quando si è pronti a pubblicare l'endpoint di stima, creare e assegnare chiavi di runtime di creazione e stima per sostituire la funzionalità della chiave di avvio. 
+Quando si è pronti a pubblicare l'endpoint di stima, [creare](#create-luis-resources) e [assegnare](#assign-a-resource-to-an-app) chiavi di runtime di creazione e stima per sostituire la funzionalità della chiave di avvio.
 
-## <a name="create-resources-in-the-azure-portal"></a>Creare risorse nel portale di AzureCreate resources in the Azure portal
+<a name="create-resources-in-the-azure-portal"></a>
 
-1. Usare [questo collegamento](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) per aprire il portale di Azure in cui è stata creato la creazione di risorse.
-1. Selezionare **Entrambi** per creare una chiave di runtime dell'endpoint di creazione e di stima. 
-1. Immettere le informazioni necessarie per creare la risorsa, quindi selezionare **Crea** per completare il processo.
 
-    ![Creare la risorsa di comprensione della linguaCreate the language understanding resource](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-    |Nome|Scopo|
-    |--|--|
-    |Nome risorsa| Un nome personalizzato scelto, usato come parte dell'URL per le query dell'endpoint di creazione e stima.|
-    |Nome sottoscrizione| sottoscrizione che verrà fatturata per la risorsa.|
-    |Resource group| Un nome di gruppo di risorse personalizzato scelto o creato. I gruppi di risorse consentono di raggruppare le risorse di Azure per l'accesso e la gestione nella stessa area.|
-    |Posizione di creazione|Area associata al modello.|
-    |Piano tariffario di creazione|Il piano tariffario determina la transazione massima al secondo e al mese.|
-    |Posizione di runtime|Area associata al runtime dell'endpoint di stima pubblicato.|
-    |Piano tariffario per il runtime|Il piano tariffario determina la transazione massima al secondo e al mese.|
-
-    Una volta create entrambe le risorse, assegnarle nel portale LUIS.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## <a name="create-resources-in-azure-cli"></a>Creare risorse nell'interfaccia della riga di comando di AzureCreate resources in Azure CLI
 
-Usare [l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) di Azure per creare ogni risorsa singolarmente. 
+Usare [l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) di Azure per creare ogni risorsa singolarmente.
 
 Risorsa `kind`:
 
 * Creazione:`LUIS.Authoring`
-* Previsione:`LUIS` 
+* Previsione:`LUIS`
 
 1. Accedere all'interfaccia della riga di comando di Azure:Sign in to the Azure CLI:
 
@@ -87,7 +64,7 @@ Risorsa `kind`:
 
     Verrà aperto un browser che consente di selezionare l'account corretto e fornire l'autenticazione.
 
-1. Creare una risorsa di creazione `LUIS.Authoring` **LUIS**, di `my-resource-group` tipo `westus` , denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato per l'area. 
+1. Creare una risorsa di creazione `LUIS.Authoring` **LUIS**, di `my-resource-group` tipo `westus` , denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato per l'area.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
@@ -99,7 +76,7 @@ Risorsa `kind`:
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
-    > [!Note] 
+    > [!Note]
     > Queste chiavi non vengono utilizzate dal portale LUIS finché **non** vengono assegnate nel portale LUIS nelle risorse di **Azure Gestisci->**.
 
 ## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Assegnare una risorsa di creazione nel portale LUIS per tutte le appAssign an authoring resource in the LUIS portal for all apps
@@ -108,7 +85,7 @@ Risorsa `kind`:
 
 1. Accedere al [portale LUIS](https://www.luis.ai).
 1. Nella barra di spostamento superiore, all'estrema destra, seleziona il tuo account utente, quindi seleziona **Impostazioni**.
-1. Nella pagina **Impostazioni utente** selezionare Aggiungi risorsa di creazione e **modifica,** quindi selezionare una risorsa di creazione esistente. Selezionare **Salva**. 
+1. Nella pagina **Impostazioni utente** selezionare Aggiungi risorsa di creazione e **modifica,** quindi selezionare una risorsa di creazione esistente. Selezionare **Salva**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Assegnare una risorsa a un'appAssign a resource to an app
 
@@ -119,8 +96,8 @@ Risorsa `kind`:
 
     ![Selezionare Gestisci -> risorse di Azure nel portale LUIS per assegnare una risorsa all'app.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
-1. Selezionare la scheda Risorsa di stima o creazione, quindi selezionare il pulsante **Aggiungi risorsa stima** o Aggiungi risorsa di **creazione.** 
-1. Selezionare i campi nel modulo per trovare la risorsa corretta, quindi selezionare **Salva**.  
+1. Selezionare la scheda Risorsa di stima o creazione, quindi selezionare il pulsante **Aggiungi risorsa stima** o Aggiungi risorsa di **creazione.**
+1. Selezionare i campi nel modulo per trovare la risorsa corretta, quindi selezionare **Salva**.
 
 ### <a name="assign-runtime-resource-without-using-luis-portal"></a>Assegnare risorse di runtime senza usare il portale LUISAssign runtime resource without using LUIS portal
 
@@ -130,18 +107,18 @@ Per scopi di automazione, ad esempio una pipeline CI/CD, è possibile automatizz
 
     ![Richiedere il token di Azure Resource Manager e ricevere il token di Azure Resource Manager](./media/luis-manage-keys/get-arm-token.png)
 
-1. Usare il token per richiedere le risorse di runtime LUIS tra sottoscrizioni, [dall'API Get LUIS azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), a cui l'account utente ha accesso. 
+1. Usare il token per richiedere le risorse di runtime LUIS tra sottoscrizioni, [dall'API Get LUIS azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), a cui l'account utente ha accesso.
 
     Questa API POST richiede le impostazioni seguenti:
 
     |Intestazione|valore|
     |--|--|
-    |`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.| 
+    |`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
 
-    Questa API restituisce una matrice di oggetti JSON delle sottoscrizioni LUIS inclusi ID sottoscrizione, gruppo di risorse e nome della risorsa restituito come nome dell'account. Trovare l'elemento della matrice che rappresenta la risorsa LUIS da assegnare all'app LUIS. 
+    Questa API restituisce una matrice di oggetti JSON delle sottoscrizioni LUIS inclusi ID sottoscrizione, gruppo di risorse e nome della risorsa restituito come nome dell'account. Trovare l'elemento della matrice che rappresenta la risorsa LUIS da assegnare all'app LUIS.
 
-1. Assegnare il token alla risorsa servizio LUIS con l'API [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) (Assegnare un account LUIS di Azure a un'applicazione). 
+1. Assegnare il token alla risorsa servizio LUIS con l'API [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) (Assegnare un account LUIS di Azure a un'applicazione).
 
     Questa API POST richiede le impostazioni seguenti:
 
@@ -150,22 +127,22 @@ Per scopi di automazione, ad esempio una pipeline CI/CD, è possibile automatizz
     |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
     |Intestazione|`Content-type`|`application/json`|
-    |QueryString|`appid`|L'ID dell'app LUIS. 
+    |QueryString|`appid`|L'ID dell'app LUIS.
     |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
-    Quando l'API ha esito positivo, restituisce 201 - stato creato. 
+    Quando l'API ha esito positivo, restituisce 201 - stato creato.
 
 ## <a name="unassign-resource"></a>Annullare l'assegnazione di una risorsa
 
 1. Accedere al [portale LUIS](https://www.luis.ai), quindi selezionare un'app dall'elenco **App** personali.
 1. Passare alla pagina **Gestisci risorse di Azure >.Navigate** to the Manage -> Azure resources page.
-1. Selezionare la scheda Prediction o Authoring resource , quindi selezionare il pulsante **Un (Un(Unassign resource)** per la risorsa. 
+1. Selezionare la scheda Prediction o Authoring resource , quindi selezionare il pulsante **Un (Un(Unassign resource)** per la risorsa.
 
-Quando si annulla l'assegnazione di una risorsa, questa non viene eliminata da Azure.When you unslassign a resource, it is not deleted from Azure. Viene soltanto scollegata da LUIS. 
+Quando si annulla l'assegnazione di una risorsa, questa non viene eliminata da Azure.When you unslassign a resource, it is not deleted from Azure. Viene soltanto scollegata da LUIS.
 
 ## <a name="reset-authoring-key"></a>Reimpostare la chiave di creazione
 
-**Per le app migrate delle risorse di [creazione:](luis-migration-authoring.md) **se la chiave di creazione è compromessa, reimpostare la chiave nel portale di Azure nella pagina **Chiavi** per tale risorsa di creazione. 
+**Per le app migrate delle risorse di [creazione:](luis-migration-authoring.md) **se la chiave di creazione è compromessa, reimpostare la chiave nel portale di Azure nella pagina **Chiavi** per tale risorsa di creazione.
 
 **Per le app di cui non è ancora stata eseguita la migrazione:** la chiave viene reimpostata su tutte le app nel portale LUIS. Se si creano le app tramite le API di creazione, è necessario modificare il valore di Ocp-Apim-Subscription-Key nella nuova chiave.
 
@@ -181,13 +158,13 @@ Per informazioni sui dati che vengono eliminati quando viene eliminato l'account
 
 1.  In [Azure](https://portal.azure.com), trova la sottoscrizione LUIS. Selezionare la sottoscrizione LUIS.
     ![Trova la sottoscrizione LUIS](./media/luis-usage-tiers/find.png)
-1.  Selezionare **Piano tariffario** per visualizzare i piani tariffari disponibili. 
+1.  Selezionare **Piano tariffario** per visualizzare i piani tariffari disponibili.
     ![Visualizza piano tariffario](./media/luis-usage-tiers/subscription.png)
-1.  Selezionare il piano tariffario e scegliere **Seleziona** per salvare la modifica. 
+1.  Selezionare il piano tariffario e scegliere **Seleziona** per salvare la modifica.
     ![Modifica il piano tariffario LUIS](./media/luis-usage-tiers/plans.png)
-1.  Una volta completata la modifica dei prezzi, una finestra popup verifica il nuovo piano tariffario. 
+1.  Una volta completata la modifica dei prezzi, una finestra popup verifica il nuovo piano tariffario.
     ![Verifica il piano tariffario LUIS](./media/luis-usage-tiers/updated.png)
-1. Ricorda di [assegnare questa chiave di endpoint](#assign-a-resource-to-an-app) nella pagina **Pubblica** e di usarla in tutte le query di endpoint. 
+1. Ricorda di [assegnare questa chiave di endpoint](#assign-a-resource-to-an-app) nella pagina **Pubblica** e di usarla in tutte le query di endpoint.
 
 ## <a name="viewing-azure-resource-metrics"></a>Visualizzazione delle metriche delle risorse di AzureViewing Azure resource metrics
 
@@ -201,20 +178,20 @@ Metrica offre una visualizzazione più dettagliata dei dati.
 
 ![Metriche predefinite](./media/luis-usage-tiers/metrics-default.png)
 
-È possibile configurare i grafici delle metriche per periodo di tempo e il tipo di metrica. 
+È possibile configurare i grafici delle metriche per periodo di tempo e il tipo di metrica.
 
 ![Metriche personalizzate](./media/luis-usage-tiers/metrics-custom.png)
 
 ### <a name="total-transactions-threshold-alert"></a>Avviso di superamento della soglia delle transazioni totali
-Se desideri sapere quando è stata raggiunta una determinata soglia delle transazioni, ad esempio 10.000 transazioni, puoi creare un avviso. 
+Se desideri sapere quando è stata raggiunta una determinata soglia delle transazioni, ad esempio 10.000 transazioni, puoi creare un avviso.
 
 ![Avvisi predefiniti](./media/luis-usage-tiers/alert-default.png)
 
-Aggiungi un avviso di metrica per la metrica **Totale chiamate** riferito a un determinato periodo di tempo. Aggiungi gli indirizzi e-mail di tutti gli utenti che devono ricevere l'avviso. Aggiungi webhook per tutti i sistemi che devono ricevere l'avviso. È anche possibile eseguire un'app per la logica quando viene generato l'avviso. 
+Aggiungi un avviso di metrica per la metrica **Totale chiamate** riferito a un determinato periodo di tempo. Aggiungi gli indirizzi e-mail di tutti gli utenti che devono ricevere l'avviso. Aggiungi webhook per tutti i sistemi che devono ricevere l'avviso. È anche possibile eseguire un'app per la logica quando viene generato l'avviso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Scopri come usare le versioni](luis-how-to-manage-versions.md) per controllare il ciclo di vita dell'app.
 * Comprendere i concetti, inclusi la [risorsa di creazione](luis-concept-keys.md#authoring-key) e i [collaboratori](luis-concept-keys.md#contributions-from-other-authors) per tale risorsa.
 * Informazioni su [come creare](luis-how-to-azure-subscription.md) risorse di creazione e esecuzione
-* Eseguire la migrazione alla nuova [risorsa di creazione](luis-migration-authoring.md) 
+* Eseguire la migrazione alla nuova [risorsa di creazione](luis-migration-authoring.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 90adb3b973b6952d10ef89e4b40d0fc68489e224
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061100"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756020"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -21,7 +21,7 @@ AzCopy è un'utilità della riga di comando che è possibile usare per copiare B
 > [!NOTE]
 > AzCopy V10 è la versione attualmente supportata di AzCopy.AzCopy **V10** is the currently supported version of AzCopy.
 >
-> Se è necessario utilizzare AzCopy **v8.1,** vedere la sezione [Usare la versione precedente di AzCopy](#previous-version) di questo articolo.
+> Se è necessario usare una versione precedente di AzCopy, vedere la sezione [Usare la versione precedente di AzCopy](#previous-version) di questo articolo.
 
 <a id="download-and-install-azcopy" />
 
@@ -67,7 +67,7 @@ Utilizzare questa tabella come guida:Use this table as a guide:
 |--|--|
 |**Archiviazione BLOB** | Azure AD & SAS |
 |**Archiviazione BLOB (spazio dei nomi gerarchico)Blob storage (hierarchical namespace)** | Azure AD & SAS |
-|**Archiviazione file** | Solo sAS |
+|**Archiviazione dei file** | Solo sAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opzione 1: Usare Azure Active DirectoryOption 1: Use Azure Active Directory
 
@@ -308,11 +308,11 @@ Storage Explorer usa la chiave dell'account per eseguire le operazioni, pertanto
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Usare la versione precedente di AzCopyUse the previous version of AzCopy
 
-Se è necessario utilizzare la versione precedente di AzCopy (AzCopy v8.1), vedere uno dei collegamenti seguenti:
+Se è necessario utilizzare la versione precedente di AzCopy, vedere uno dei collegamenti seguenti:
 
 - [AzCopy in Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy in Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy su Linux (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 

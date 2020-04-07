@@ -3,21 +3,24 @@ title: Ripristinare i file di Azure con PowerShellRestore Azure Files with Power
 description: In this article, learn how to restore Azure Files using the Azure Backup service and PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 99aeaa6173bb5336e6e1719a9fc0df0c668374e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12bff49bc249b23542534d218b13b517411f461b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086819"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756204"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Ripristinare i file di Azure con PowerShellRestore Azure Files with PowerShell
 
-Questo articolo illustra come ripristinare un'intera condivisione file, o file specifici, da un punto di ripristino creato dal servizio Backup di Azure tramite Azure Powershell.This article explains how to restore an entire file share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure Powershell.
+Questo articolo illustra come ripristinare un'intera condivisione file, o file specifici, da un punto di ripristino creato dal servizio Backup di Azure usando Azure PowerShell.This article explains how to restore an entire file share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure PowerShell.
 
 È possibile ripristinare un'intera condivisione file o file specifici nella condivisione. È possibile eseguire il ripristino nella posizione originale o in una posizione alternativa.
 
 > [!WARNING]
-> Assicurarsi che la versione PS sia aggiornata alla versione minima per 'Az.RecoveryServices 2.6.0' per i backup AFS. Per ulteriori dettagli, fare riferimento [alla sezione](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) che descrive il requisito di questa modifica.
+> Assicurarsi che la versione PS sia aggiornata alla versione minima per 'Az.RecoveryServices 2.6.0' per i backup AFS. Per altre informazioni, vedere [la sezione](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) che descrive il requisito di questa modifica.
+
+>[!NOTE]
+>Azure Backup now supports restoring multiple files or folders to the original or alternate Location using PowerShell. Fare riferimento a [questa sezione](#restore-multiple-files-or-folders-to-original-or-alternate-location) del documento per informazioni su come.
 
 ## <a name="fetch-recovery-points"></a>Recuperare i punti di recupero
 
@@ -102,17 +105,67 @@ Questo comando restituisce un processo con un ID di cui tenere traccia, come ill
 
 Quando si esegue il ripristino in una posizione originale, non è necessario specificare i parametri relativi alla destinazione e alla destinazione. Deve essere fornito solo **ResolveConflict**.
 
-#### <a name="overwrite-an-azure-file-share"></a>Sovrascrivere una condivisione file di Azure
+### <a name="overwrite-an-azure-file-share"></a>Sovrascrivere una condivisione file di Azure
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
 ```
 
-#### <a name="overwrite-an-azure-file"></a>Sovrascrivere un file di Azure
+### <a name="overwrite-an-azure-file"></a>Sovrascrivere un file di Azure
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
 ```
+
+## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>Ripristinare più file o cartelle nel percorso originale o alternativo
+
+Utilizzare il comando [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) passando il percorso di tutti i file o le cartelle che si desidera ripristinare come valore per il parametro **MultipleSourceFilePath.**
+
+### <a name="restore-multiple-files"></a>Ripristinare più file
+
+Nello script seguente, si sta tentando di ripristinare i file *FileSharePage.png* e *MyTestFile.txt.*
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("FileSharePage.png", "MyTestFile.txt")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType File -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+### <a name="restore-multiple-directories"></a>Ripristinare più directory
+
+Nello script seguente, si sta tentando di ripristinare le directory *di zrs1_restore* e *restore.*
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("Restore","zrs1_restore")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType Directory -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+L'output sarà simile al seguente:
+
+```output
+WorkloadName         Operation         Status          StartTime                EndTime       JobID
+------------         ---------         ------          ---------                -------       -----
+azurefiles           Restore           InProgress      4/5/2020 8:01:24 AM                    cd36abc3-0242-44b1-9964-0a9102b74d57
+```
+
+Se si desidera ripristinare più file o cartelle in un percorso alternativo, usare gli script precedenti specificando i valori dei parametri relativi al percorso di destinazione, come illustrato in precedenza in [Ripristinare un file di Azure in un percorso alternativo.](#restore-an-azure-file-to-an-alternate-location)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

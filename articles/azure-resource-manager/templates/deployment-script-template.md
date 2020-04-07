@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: aa49b313f0fb10175dc6c0003f1a919f61731269
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437885"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743308"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)Use deployment scripts in templates (Preview)
 
@@ -33,6 +33,8 @@ I vantaggi dello script di distribuzione:
 - Consentire di specificare le identità utilizzate per eseguire gli script. Attualmente è supportata solo [l'identità gestita assegnata dall'utente di Azure.Currently, only Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) is supported.
 - Consentire il passaggio di argomenti della riga di comando allo script.
 - Può specificare gli output dello script e passarli alla distribuzione.
+
+La risorsa script di distribuzione è disponibile solo nelle aree in cui è disponibile l'istanza del contenitore di Azure.The deployment script resource is only available in the regions where Azure Container Instance is available.  Vedere [Disponibilità delle risorse per le istanze del contenitore](../../container-instances/container-instances-region-availability.md)di Azure nelle aree di Azure.See Resource availability for Azure Container Instances in Azure regions.
 
 > [!IMPORTANT]
 > Due risorse dello script di distribuzione, un account di archiviazione e un'istanza del contenitore, vengono create nello stesso gruppo di risorse per l'esecuzione dello script e la risoluzione dei problemi. Queste risorse vengono in genere eliminate dal servizio script quando l'esecuzione dello script di distribuzione entra in uno stato terminale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per ulteriori informazioni, vedere [Risorse di script di distribuzione di pulizione](#clean-up-deployment-script-resources).
@@ -189,6 +191,8 @@ Oltre agli script inline, è anche possibile utilizzare file di script esterni. 
 Per visualizzare un esempio, selezionare [qui](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
 I file di script esterni devono essere accessibili.  Per proteggere i file di script archiviati negli account di archiviazione di Azure, vedere Esercitazione: Elementi sicuri nelle distribuzioni di modelli di Azure Resource Manager.To secure your script files that are stored in Azure storage accounts, see [Tutorial: Secure artifacts in Azure Resource Manager template deployments.](./template-tutorial-secure-artifacts.md)
+
+L'utente è responsabile di garantire l'integrità degli script a cui fa riferimento lo script di distribuzione, **PrimaryScriptUri** o **SupportingScriptUris**.  Fare riferimento solo agli script considerati attendibili.
 
 ## <a name="use-supporting-scripts"></a>Utilizzare script di supporto
 

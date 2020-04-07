@@ -3,12 +3,12 @@ title: Gestire le basi di conoscenza - QnA Maker
 description: QnA Maker consente di gestire le proprie basi di conoscenza fornendo l'accesso alle impostazioni e ai contenuti della Knowledge Base.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 57839125011016daed5f0b3d441a83e8db488198
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4eb07b30b10826c361f4f9b805b517e372fc5ea1
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80071144"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756811"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Creare una Knowledge Base e gestire le impostazioni
 
@@ -107,5 +107,5 @@ Se si condivide la Knowledge Base con i collaboratori,](base.md di conoscenza-co
 
 Informazioni sulla [gestione della lingua](language-knowledge-base.md) di tutte le Knowledge Base in una risorsa.
 
-* Modifica set QnA
+* Modifica coppie QnA
 * Gestire le risorse di Azure usate da QnA MakerManage Azure resources used by QnA Maker

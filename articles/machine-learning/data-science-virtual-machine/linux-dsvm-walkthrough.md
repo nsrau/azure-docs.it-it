@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 7292064a1df8aa9bfffcd9a19a03f7b332c0615e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 1298d5fe1d7407e836f454c2130a913dde6f8eec
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632724"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755152"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data science with a Linux Data Science Virtual Machine in Azure
 
@@ -39,7 +39,7 @@ Prima di poter utilizzare una DSVM Linux, è necessario disporre dei prerequisit
 Il set di [dati spambase](https://archive.ics.uci.edu/ml/datasets/spambase) è un set di dati relativamente piccolo che contiene 4.601 esempi. Il set di dati è una dimensione comoda per illustrare alcune delle funzionalità principali di DSVM perché mantiene i requisiti delle risorse modesti.
 
 > [!NOTE]
-> Questa procedura dettagliata è stata creata utilizzando un DSVM Linux di dimensioni V2 (CentOS Edition). È possibile utilizzare una DSVM di queste dimensioni per completare le procedure illustrate in questa procedura dettagliata.
+> Questa procedura dettagliata è stata creata utilizzando un DSVM Linux di dimensioni V2 (Ubuntu 18.04 Edition). È possibile utilizzare una DSVM di queste dimensioni per completare le procedure illustrate in questa procedura dettagliata.
 
 Se è necessario più spazio di archiviazione, è possibile creare dischi aggiuntivi e collegarli alla DSVM. I dischi usano l'archiviazione di Azure persistente, pertanto i dati vengono mantenuti anche se il server viene sottoposto a nuovo provisioning a causa del ridimensionamento o viene arrestato. Per aggiungere un disco e collegarlo alla macchina virtuale DSVM, completare i passaggi descritti in [Aggiungere un disco a una macchina virtuale Linux.](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) I passaggi per l'aggiunta di un disco usano l'interfaccia della riga di comando di Azure, già installata nella dSVM. È possibile completare completamente i passaggi dalla DSVM stessa. Un'altra opzione per aumentare lo spazio di archiviazione consiste nell'usare File di [Azure.](../../storage/files/storage-how-to-use-files-linux.md)
 

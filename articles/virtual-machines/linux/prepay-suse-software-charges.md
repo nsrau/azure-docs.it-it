@@ -7,14 +7,14 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e05920e495dd4aa14be6c849590a37a2bafa33f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75973140"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757223"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pagare in anticipo i piani software di Azure
 
@@ -38,6 +38,7 @@ Al metodo di pagamento dell'abbonamento vengono addebitati i costi iniziali per 
 4. Selezionare un ambito. L'ambito può coprire una o più sottoscrizioni (ambito condiviso).
     - Sottoscrizione singola: lo sconto del piano viene applicato all'utilizzo corrispondente nella sottoscrizione.
     - Condiviso: lo sconto del piano viene applicato alle istanze corrispondenti in qualsiasi sottoscrizione nel contesto di fatturazione. Per i clienti aziendali, il contesto di fatturazione è la registrazione e include tutte le sottoscrizioni nella registrazione. Per i singoli piani con prezzi con pagamento in base al consumo, il contesto di fatturazione è tutto un contesto di pianificazione individuale con sottoscrizioni di determinazione dei prezzi con pagamento in base al consumo create dall'amministratore dell'account.
+    - Singolo gruppo di risorse: applica lo sconto prenotazione solo alle risorse corrispondenti nel gruppo di risorse selezionato.
 5. Selezionare un prodotto per scegliere le dimensioni della macchina virtuale e il tipo di immagine. Lo sconto si applica solo alle dimensioni della macchina virtuale selezionata.
 6. Selezionare un periodo di un anno o di tre anni.
 7. Scegliere una quantità, ovvero il numero di istanze di macchine virtuali prepagate che possono ottenere lo sconto sulla fatturazione.
@@ -62,7 +63,7 @@ Non è possibile annullare o scambiare un piano SUSE o RedHat acquistato. Contro
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se hai domande o hai bisogno di aiuto, [crea una richiesta](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)di supporto .
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

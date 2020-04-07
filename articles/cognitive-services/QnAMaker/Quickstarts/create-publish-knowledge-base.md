@@ -3,12 +3,12 @@ title: 'Guida introduttiva: Creare, addestrare e pubblicare la Knowledge Base - 
 description: È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. Questo articolo offre un esempio della creazione di una knowledge base di QnA Maker da una semplice pagina Web di domande frequenti, per rispondere alle domande di QnA Maker.
 ms.topic: conceptual
 ms.date: 02/08/2020
-ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220578"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756815"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Guida introduttiva: Creare, addestrare e pubblicare la Knowledge Base di QnA Maker
 
@@ -135,7 +135,7 @@ Quando si apportano modifiche alla knowledge base e si ripete la pubblicazione, 
 
 ## <a name="what-did-you-accomplish"></a>Cosa si è ottenuto?
 
-È stata creata una nuova knowledge base in cui sono stati aggiunti un URL pubblico e un set di domande e risposte personalizzato, quindi la knowledge base è stata sottoposta a training, testata e pubblicata.
+È stata creata una nuova Knowledge Base, aggiunto un URL pubblico alla Knowledge Base, aggiunto la propria coppia QnA, addestrata, testata e pubblicata la Knowledge Base.
 
 Dopo aver pubblicato la knowledge base, è stato creato un bot, che è stato testato.
 

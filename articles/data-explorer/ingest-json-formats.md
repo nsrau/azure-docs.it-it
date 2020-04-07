@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcf6a0ccfc04890052f1a4bab19f97ee4e55f87a
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76772339"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756623"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Inserire i dati di esempio in formato JSON in Esplora dati di AzureIngest JSON formatted sample data into Azure Data Explorer
 
@@ -82,7 +82,7 @@ Usare il linguaggio di query Kusto per l'inserimento di dati in formato JSON non
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 Usare c'è per l'inserimento di dati in formato JSON non elaborato.
 
@@ -232,7 +232,7 @@ In questo esempio vengono ingeriti i dati dei record JSON. Ogni proprietà JSON 
 
     Il file 'simple.json' contiene alcuni record JSON separati da riga. Il formato `json`è e il mapping utilizzato nel `FlatEventMapping` comando di inserimento è quello creato dall'utente.
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Creare una nuova tabella, con uno schema simile ai dati di input JSON. Questa tabella verrà usata per tutti gli esempi seguenti e per i comandi di inserimento. 
 
@@ -337,7 +337,7 @@ Inserire i dati `Events` nella tabella.
 .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
 ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 Inserire i dati `Events` nella tabella.
 
@@ -427,7 +427,7 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
 1. Inserire i dati `RawEvents` nella tabella.
 
     ```Kusto
-    .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
+    .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
     ```
 
 1. Esaminare i `Events` dati nella tabella.
@@ -436,7 +436,7 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
     Events
     ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Creare una funzione di aggiornamento `records` che espande la raccolta di in modo che `mv-expand` ogni valore nella raccolta riceva una riga separata, utilizzando l'operatore . Useremo la `RawEvents` tabella come tabella `Events` di origine e come tabella di destinazione.   
 
@@ -584,7 +584,7 @@ Il dizionario strutturato JSON contiene coppie chiave-valore. I record Json veng
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
     ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Creare un mapping JSON.
 
