@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280755"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811721"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -61,7 +61,7 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 4. Se si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In **Livello di prezzo**selezionare il livello esistente per modificarlo. 
    
    > [!IMPORTANT]
-   > Se si sposta un'app da un piano di livello superiore a un piano di livello inferiore, ad esempio da **D1** a **F1,** l'app potrebbe perdere determinate funzionalità nel piano di destinazione. Ad esempio, se l'app usa certificati SSL, potresti visualizzare questo messaggio di errore:For example, if your app uses SSL certificates, you might see this error message:
+   > Se si sposta un'app da un piano di livello superiore a un piano di livello inferiore, ad esempio da **D1** a **F1,** l'app potrebbe perdere determinate funzionalità nel piano di destinazione. Ad esempio, se la tua app usa certificati TLS/SSL, potresti visualizzare questo messaggio di errore:
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 

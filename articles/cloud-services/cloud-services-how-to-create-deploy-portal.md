@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386171"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811347"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Come creare e distribuire un servizio Cloud
 Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *Creazione personalizzata*.
@@ -42,7 +42,7 @@ Per poter distribuire un servizio cloud, è necessario creare il pacchetto di se
 
 Per poter esportare un pacchetto di servizio, è necessario configurare tre funzionalità del servizio cloud:
 
-* Se si vuole distribuire un servizio cloud che usa SSL (Secure Sockets Layer) per la crittografia dei dati, [configurare l'applicazione](cloud-services-configure-ssl-certificate-portal.md#modify) per SSL.
+* Se si vuole distribuire un servizio cloud che usa Transport Layer Security (TLS), precedentemente noto come Secure Sockets Layer (SSL), per la crittografia dei dati, [configurare l'applicazione](cloud-services-configure-ssl-certificate-portal.md#modify) per TLS.
 * Se si vogliono configurare connessioni Desktop remoto a istanze del ruolo, [configurare i ruoli](cloud-services-role-enable-remote-desktop-new-portal.md) per Desktop remoto.
 * Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il monitoraggio dettagliato* raccoglie metriche aggiuntive in base ai dati sulle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più approfondita dei problemi che si verificano durante l'elaborazione dell'applicazione. Per informazioni su come abilitare Diagnostica di Azure, vedere [Abilitazione della diagnostica in Azure.To](cloud-services-dotnet-diagnostics.md)find out how to enable Azure Diagnostics, see Enabling diagnostics in Azure.
 
@@ -70,7 +70,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 ## <a name="upload-a-certificate"></a>Caricamento di un certificato
 Se il pacchetto di distribuzione è stato [configurato per usare i certificati](cloud-services-configure-ssl-certificate-portal.md#modify), a questo punto è possibile caricare il certificato.
 
-1. Selezionare **Certificati** e nel riquadro **Aggiungi certificati** selezionare il file PFX del certificato SSL e fornire la **password** per il certificato.
+1. Selezionare **Certificati**e nel riquadro **Aggiungi certificati** selezionare il file PFX del certificato TLS/SSL, quindi specificare la **Password** per il certificato,
 2. Fare clic su **Collega certificato** e quindi su **OK** nel riquadro **Aggiungi certificati**.
 3. Fare clic su **Crea** nel riquadro **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready** , è possibile procedere con i passaggi successivi.
 
@@ -90,7 +90,7 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 * [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
-* Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
+* Configurare i [certificati TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77138026"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811482"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -101,7 +101,7 @@ Nella tabella seguente sono elencate le minacce STRIDE e alcuni esempi di mitiga
 | Threat | Proprietà di sicurezza | Potenziali mitigazioni della piattaforma di Azure |
 | --- | --- | --- |
 | Spoofing | Authentication | Richiede connessioni HTTPS. |
-| Manomissione | Integrità | Convalida dei certificati SSL. |
+| Manomissione | Integrità | Convalidare i certificati TLS/SSL. |
 | Ripudio | Non ripudio | Abilitazione del [monitoraggio e diagnostica](/azure/architecture/best-practices/monitoring) di Azure. |
 | Diffusione di informazioni | Riservatezza | Crittografare i dati sensibili inattivi tramite [certificati di servizio](/rest/api/appservice/certificates). |
 | Denial of Service | Disponibilità | Monitorare le metriche delle prestazioni per le potenziali condizioni di Denial of service. Implementare i filtri di connessione. |
@@ -155,7 +155,7 @@ In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribu
 
 - [Servizio app di Azure](paas-applications-using-app-services.md)
 - [Database SQL di Azure e SQL Data Warehouse di Azure](paas-applications-using-sql.md)
-- [Archiviazione di AzureAzure Storage](paas-applications-using-storage.md)
+- [Archiviazione di Azure](paas-applications-using-storage.md)
 - Cache Redis di Azure
 - Bus di servizio di Azure
 - Web application firewall

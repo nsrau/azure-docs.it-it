@@ -1,18 +1,18 @@
 ---
 title: Tipi di URL supportati per l'importazione - QnA Maker
-description: Comprendere in che modo i tipi di URL vengono utilizzati per importare e creare set QnA.
+description: Comprendere in che modo i tipi di URL vengono utilizzati per importare e creare coppie QnA.
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: cf2a02f55d7c95ff9b3f0231ea07a783d18b73cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6c6c7ba19fe7be54733f45997134fddb56a6ba0
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651828"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804317"
 ---
 # <a name="urls-supported-for-importing-documents"></a>URL supportati per l'importazione di documenti
 
-Comprendere in che modo i tipi di URL vengono utilizzati per importare e creare set QnA.
+Comprendere in che modo i tipi di URL vengono utilizzati per importare e creare coppie QnA.
 
 ## <a name="faq-urls"></a>Indirizzo Web di domande frequenti
 

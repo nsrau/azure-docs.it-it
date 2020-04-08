@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298054"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811165"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
@@ -64,7 +64,7 @@ Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno
 * **Pool di server back-end:** costituisce l'indirizzo IP virtuale interno del servizio Gestione API.
 * **Impostazioni pool di server back-end:** Ogni pool dispone di impostazioni come porta, protocollo e affinità basata su cookie. Queste impostazioni vengono applicate a tutti i server nel pool.
 * **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico che raggiunge questa porta viene reindirizzato a uno dei server back-end.
-* **Listener:** Il listener dispone di una porta front-end, di un protocollo (Http o Https, questi valori fanno distinzione tra maiuscole e minuscole) e del nome del certificato SSL (se si configura l'offload SSL).
+* **Listener:** Il listener dispone di una porta front-end, di un protocollo (Http o Https, questi valori fanno distinzione tra maiuscole e minuscole) e del nome del certificato TLS/SSL (se si configura l'offload TLS).
 * **Regola:** associa un listener a un pool di server back-end.
 * **Probe di integrità personalizzato:** per impostazione predefinita, il gateway applicazione usa probe basati su indirizzi IP per individuare i server attivi in BackendAddressPool. Poiché il servizio Gestione API risponde solo alle richieste dotate di intestazione host corretta, i probe predefiniti non riescono. È necessario definire un probe di integrità personalizzato per consentire al gateway applicazione di determinare che il servizio è attivo e deve inoltrare le richieste.
 * **Certificati di dominio personalizzati:** per accedere a Gestione API da Internet, è necessario creare un mapping CNAME del nome host del servizio al nome DNS del front-end del gateway applicazione. Ciò garantisce che l'intestazione del nome host e il certificato inviati al gateway applicazione e inoltrati a Gestione API siano riconoscibili come validi da Gestione API. In questo esempio vengono usati due certificati, uno per il back-end e uno per il portale per sviluppatori.  
@@ -271,7 +271,7 @@ $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -Certificate
 
 ### <a name="step-5"></a>Passaggio 5
 
-Creare i listener HTTP per il gateway applicazione. Assegnare ai listener HTTP la configurazione IP, la porta e i certificati SSL del front-end.
+Creare i listener HTTP per il gateway applicazione. Assegnare loro i certificati di configurazione IP front-end, porta e TLS/SSL.
 
 ```powershell
 $listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
@@ -280,7 +280,7 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>Passaggio 6
 
-Creare probe personalizzati per l'endpoint del dominio proxy `ContosoApi` del servizio Gestione API. Il percorso `/status-0123456789abcdef` è un endpoint di integrità predefinito ospitato in tutti i servizi Gestione API. Impostare `api.contoso.net` come nome host probe personalizzato per assicurare la protezione con il certificato SSL.
+Creare probe personalizzati per l'endpoint del dominio proxy `ContosoApi` del servizio Gestione API. Il percorso `/status-0123456789abcdef` è un endpoint di integrità predefinito ospitato in tutti i servizi Gestione API. Impostare `api.contoso.net` come nome host del probe personalizzato per proteggerlo con il certificato TLS/SSL.
 
 > [!NOTE]
 > Il nome host `contosoapi.azure-api.net` è il nome host proxy predefinito configurato quando viene creato un servizio `contosoapi` nell'ambiente Azure pubblico.
@@ -293,7 +293,7 @@ $apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -
 
 ### <a name="step-7"></a>Passaggio 7
 
-Caricare il certificato da usare per le risorse del pool back-end abilitate per SSL. È lo stesso certificato configurato nel passaggio 4.
+Caricare il certificato da utilizzare nelle risorse del pool back-end abilitato per TLS. È lo stesso certificato configurato nel passaggio 4.
 
 ```powershell
 $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath

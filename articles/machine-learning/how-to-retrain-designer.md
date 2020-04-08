@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: keli19
 author: likebupt
-ms.date: 02/24/2020
-ms.openlocfilehash: c8791e933882832dc7b0037c860a4c4e1e9a54c7
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 04/06/2020
+ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389036"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810377"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Eseguire nuovamente il training di modelli con la finestra di progettazione di Azure Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In questo articolo sulle procedure viene illustrato come usare la finestra di progettazione di Azure Machine Learning per riqualificare un modello di apprendimento automatico. Informazioni su come usare le pipeline pubblicate per automatizzare i flussi di lavoro di Machine Learning per la riqualificazione.
+In questo articolo sulle procedure viene illustrato come usare la finestra di progettazione di Azure Machine Learning per riqualificare un modello di apprendimento automatico. Le pipeline pubblicate verranno usate per automatizzare il flusso di lavoro e impostare i parametri per il training del modello sui nuovi dati. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -27,90 +27,92 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Eseguire il training di un modello di Machine Learning.
 > * Creare un parametro della pipeline.
 > * Pubblicare la pipeline di formazione.
-> * Riqualificare il modello.
+> * Riqualificare il modello con nuovi parametri.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si dispone di una sottoscrizione di Azure, creare un [account gratuito.](https://aka.ms/AMLFree)
-* Un'area di lavoro di Azure Machine Learning con lo SKU Enterprise.An Azure Machine Learning workspace with the Enterprise SKU.
+* Un'area di lavoro di Azure Machine Learning con Enterprise SKU.
+* Un set di dati accessibile alla finestra di progettazione. I possibili valori sono i seguenti:
+   * Un set di dati registrato di Azure Machine LearningAn Azure Machine Learning registered dataset
+    
+     **-o-**
+   * Un file di dati archiviato in un archivio dati di Azure Machine Learning.A data file stored in an Azure Machine Learning datastore.
+   
+Per informazioni sull'accesso ai dati mediante la finestra di progettazione, vedere Come importare dati nella finestra di [progettazione](how-to-designer-import-data.md).
 
-In questo articolo si presuppone che si dispone di conoscenze di base per la compilazione di pipeline nella finestra di progettazione. Per un'introduzione guidata alla finestra di progettazione, completare l'[esercitazione](tutorial-designer-automobile-price-train-score.md). 
+In questo articolo si presuppone inoltre che si dispone di conoscenze di base per la compilazione di pipeline nella finestra di progettazione. Per un'introduzione guidata, completare [l'esercitazione](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Pipeline di esempio
 
-La pipeline utilizzata in questo articolo è una versione modificata di quella presente [nell'esempio 3: previsione del reddito](how-to-designer-sample-classification-predict-income.md). Usa il modulo [Importa dati](algorithm-module-reference/import-data.md) anziché il set di dati di esempio per mostrare come eseguire il training di un modello usando i propri dati.
+La pipeline utilizzata in questo articolo è una versione modificata [dell'esempio 3: previsione del reddito](samples-designer.md#classification-samples). La pipeline usa il modulo [Importa dati](algorithm-module-reference/import-data.md) anziché il set di dati di esempio per illustrare come eseguire il training dei modelli usando i propri dati.
 
 ![Screenshot che mostra la pipeline di esempio modificata con una casella che evidenzia il modulo Importa dati](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
-## <a name="train-a-machine-learning-model"></a>Eseguire il training di un modello di Machine Learning
-
-Per rieseguire il training di un modello, è necessario un modello iniziale. In questa sezione viene illustrato come eseguire il training di un modello e accedere al modello salvato tramite la finestra di progettazione.
-
-1. Selezionare il modulo **Importa dati.**
-1. Nel riquadro delle proprietà specificare un'origine dati.
-
-   ![Screenshot che mostra una configurazione di esempio del modulo Importa dati](./media/how-to-retrain-designer/import-data-settings.png)
-
-   Per questo esempio, i dati vengono archiviati in un datastore di Azure.For this example, the data is stored in an [Azure datastore](how-to-access-data.md). Se non si dispone già di un archivio dati, è possibile crearne uno ora selezionando **Nuovo archivio dati**.
-
-1. Specificare il percorso dei dati. È anche possibile selezionare **Sfoglia percorso** per passare all'archivio dati. 
-1. Seleziona **Invia** nella parte superiore dell'area di disegno.
-    
-   > [!NOTE]
-   > Se è già stato impostato un calcolo predefinito per questa bozza della pipeline, la pipeline verrà eseguita automaticamente. In caso contrario, è possibile seguire le istruzioni nel riquadro delle impostazioni per impostarne uno ora.
-
-### <a name="find-your-trained-model"></a>Trova il tuo modello addestrato
-
-La finestra di progettazione salva tutti gli output della pipeline, inclusi i modelli sottoposti a training, nell'account di archiviazione predefinito. Tuttavia, è anche possibile accedere ai modelli sottoposti a training direttamente nella finestra di progettazione:However, you can also access trained models directly in the designer:
-
-1. Attendere il completamento dell'esecuzione della pipeline.
-1. Selezionare il modulo **Train Model**.
-1. Nel riquadro delle impostazioni, selezionare **Output e registri**.
-1. Selezionare l'icona **Visualizza output** e seguire le istruzioni nella finestra popup per trovare il modello sottoposto a training.
-
-![Screenshot che mostra come scaricare il modello sottoposto a training](./media/how-to-retrain-designer/trained-model-view-output.png)
-
 ## <a name="create-a-pipeline-parameter"></a>Creare un parametro della pipelineCreate a pipeline parameter
 
-Aggiungere parametri della pipeline per impostare dinamicamente le variabili in fase di esecuzione. Per questa pipeline, aggiungere un parametro per il percorso dei dati di training in modo da poter eseguire nuovamente il training del modello in un nuovo set di dati.
+Creare parametri della pipeline per impostare dinamicamente le variabili in fase di esecuzione. Per questo esempio, si modificherà il percorso dei dati di training da un valore fisso a un parametro, in modo da poter eseguire nuovamente il training del modello su dati diversi.
 
 1. Selezionare il modulo **Importa dati.**
-1. Nel riquadro delle impostazioni, selezionare i puntini di sospensione sopra il campo **Percorso.**
+
+    > [!NOTE]
+    > In questo esempio viene utilizzato il modulo Import Data per accedere ai dati in un archivio dati registrato. Tuttavia, è possibile seguire passaggi simili se si utilizzano modelli di accesso ai dati alternativi.
+
+1. Nel riquadro dei dettagli del modulo, a destra dell'area di disegno, selezionare l'origine dati.
+
+1. Immettere il percorso dei dati. È anche possibile selezionare **Sfoglia percorso** per sfogliare l'albero dei file. 
+
+1. Posizionare il puntatore del mouse sul campo **Percorso** e selezionare i puntini di sospensione sopra il campo **Percorso** visualizzati.
+
+    ![Schermata che mostra come creare un parametro della pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
+
 1. Selezionare **Aggiungi al parametro della pipeline**.
+
 1. Specificare un nome di parametro e un valore predefinito.
 
    > [!NOTE]
    > È possibile esaminare e modificare i parametri della pipeline selezionando l'icona a forma di ingranaggio **Impostazioni** accanto al titolo della bozza della pipeline. 
 
-![Schermata che mostra come creare un parametro della pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
+1. Selezionare **Salva**.
+
+1. Inviare l'esecuzione della pipeline.
+
+## <a name="find-a-trained-model"></a>Trovare un modello con training
+
+La finestra di progettazione salva tutto l'output della pipeline, inclusi i modelli sottoposti a training, nell'account di archiviazione predefinito dell'area di lavoro. È inoltre possibile accedere ai modelli sottoposti a training direttamente nella finestra di progettazione:You can also access trained models directly in the designer:
+
+1. Attendere il completamento dell'esecuzione della pipeline.
+1. Selezionare il modulo **Train Model**.
+1. Nel riquadro dei dettagli del modulo, a destra dell'area di disegno, selezionare **Output e log**.
+1. È possibile trovare il modello in **Altri output** insieme ai log di esecuzione.
+1. In alternativa, selezionare l'icona **Visualizza output.** Da qui, è possibile seguire le istruzioni nella finestra di dialogo per passare direttamente all'archivio dati. 
+
+![Screenshot che mostra come scaricare il modello sottoposto a training](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Pubblicare una pipeline di formazione
 
-Quando si pubblica una pipeline, viene creato un endpoint della pipeline. Gli endpoint della pipeline consentono di riutilizzare e gestire le pipeline per la ripetibilità e l'automazione. In questo esempio, la pipeline è stata impostata per la riqualificazione.
+Pubblicare una pipeline in un endpoint della pipeline per riutilizzare facilmente le pipeline in futuro. Un endpoint della pipeline crea un endpoint REST per richiamare la pipeline in futuro. In questo esempio, l'endpoint della pipeline consente di riutilizzare la pipeline per eseguire il nuovo training di un modello su dati diversi.
 
 1. Selezionare **Pubblica** sopra l'area di disegno della finestra di progettazione.
 1. Selezionare o creare un endpoint della pipeline.
 
    > [!NOTE]
-   > È possibile pubblicare più pipeline in un singolo endpoint. A ogni pipeline nell'endpoint viene assegnato un numero di versione, che è possibile specificare quando si chiama l'endpoint della pipeline.
+   > È possibile pubblicare più pipeline in un singolo endpoint. A ogni pipeline in un endpoint specificato viene assegnato un numero di versione, che è possibile specificare quando si chiama l'endpoint della pipeline.
 
 1. Selezionare **Pubblica**.
 
 ## <a name="retrain-your-model"></a>Riqualificare il modello
 
-Ora che si dispone di una pipeline di training pubblicata, è possibile usarla per rieseguire il training del modello usando nuovi dati. È possibile inviare esecuzioni da un endpoint della pipeline dal portale di Azure o inviarle a livello di codice.
+Ora che si dispone di una pipeline di training pubblicata, è possibile usarla per rieseguire il training del modello sui nuovi dati. È possibile inviare esecuzioni da un endpoint della pipeline dall'area di lavoro di Studio o a livello di codice.
 
 ### <a name="submit-runs-by-using-the-designer"></a>Invio di esecuzioni tramite la finestra di progettazioneSubmit runs by using the designer
 
-Utilizzare la procedura seguente per inviare un endpoint della pipeline eseguito dalla finestra di progettazione:Use the following steps to submit a pipeline endpoint run from the designer:
+Utilizzare la procedura seguente per inviare un endpoint della pipeline con parametri eseguito dalla finestra di progettazione:Use the following steps to submit a parameterized pipeline endpoint run from the designer:
 
-1. Passare alla pagina **Endpoint.**
-1. Selezionare la scheda **Endpoint pipeline.**
-1. Selezionare l'endpoint della pipeline.
-1. Selezionare la scheda **Pipeline pubblicate.**
-1. Selezionare la pipeline che si desidera eseguire.
-1. Selezionare **Submit**.
-1. Nella finestra di dialogo di impostazione è possibile specificare un nuovo valore per il valore del percorso dei dati di input. Questo valore punta al nuovo set di dati.
+1. Passare alla pagina Endpoint nell'area di lavoro di Studio.Go to the **Endpoints** page in your studio workspace.
+1. Selezionare la scheda **Endpoint pipeline.** Selezionare quindi l'endpoint della pipeline.
+1. Selezionare la scheda **Pipeline pubblicate.** Selezionare quindi la versione della pipeline che si desidera eseguire.
+1. Selezionare **Submit** (Invia).
+1. Nella finestra di dialogo di configurazione, è possibile specificare i valori dei parametri per l'esecuzione. Per questo esempio, aggiornare il percorso dei dati per eseguire il training del modello usando un set di dati non statunitense.
 
 ![Screenshot che mostra come impostare un'esecuzione di pipeline con parametri nella finestra di progettazione](./media/how-to-retrain-designer/published-pipeline-run.png)
 
@@ -122,4 +124,6 @@ Per effettuare una chiamata REST, è necessaria un'intestazione di autenticazion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Seguire [l'esercitazione](tutorial-designer-automobile-price-train-score.md) sulla finestra di progettazione per eseguire il training e distribuire un modello di regressione.
+In questo articolo è stato illustrato come creare un endpoint della pipeline di training con parametri usando la finestra di progettazione.
+
+Per una procedura dettagliata completa su come è possibile distribuire un modello per eseguire stime, vedere [l'esercitazione](tutorial-designer-automobile-price-train-score.md) sulla progettazione per eseguire il training e distribuire un modello di regressione.

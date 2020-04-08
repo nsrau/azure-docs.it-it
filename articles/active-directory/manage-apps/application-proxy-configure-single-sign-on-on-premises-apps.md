@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf34b52e06e369fe4dd459ff9dfa2880596fb35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481348"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803298"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Single Sign-On SAML per le applicazioni locali con proxy di applicazione
 
@@ -74,14 +74,14 @@ Prima di poter fornire SSO per le applicazioni locali, è necessario abilitare i
 
 2. Nella pagina **Configura Single Sign-On con SAML,** vai all'intestazione **Configurazione SAML** di base e seleziona l'icona **Modifica** (una matita). Assicurarsi che **l'URL esterno** configurato in Proxy applicazione sia popolato nei campi **Identificatore**, **URL di risposta**e URL di **disconnessione.** Questi URL sono necessari per il corretto funzionamento del proxy di applicazione. 
 
-3. Modificare **l'URL** di risposta configurato in precedenza in modo che il relativo dominio sia raggiungibile dal proxy di applicazione. Ad esempio, se **l'URL esterno** `https://contosotravel-f128.msappproxy.net` è e l'URL di **risposta** originale è `https://contosotravel.com/acs`, sarà necessario aggiornare l'URL di **risposta** originale a `https://contosotravel-f128.msappproxy.net/acs`. 
+3. Modificare **l'URL** di risposta configurato in precedenza in modo che il relativo dominio sia raggiungibile su Internet tramite il proxy di applicazione. Ad esempio, se **l'URL esterno** `https://contosotravel-f128.msappproxy.net` è e l'URL di **risposta** originale è `https://contosotravel.com/acs`, sarà necessario aggiornare l'URL di **risposta** originale a `https://contosotravel-f128.msappproxy.net/acs`.
 
     ![Immettere i dati di configurazione SAML di base](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
 
 4. Selezionare la casella di controllo accanto **all'URL** di risposta aggiornato per contrassegnarlo come predefinito.
 
-   * Se **l'URL** di risposta richiesto è già presente nell'elenco, contrassegnare l'URL di **risposta** come predefinito ed eliminare l'URL di **risposta**configurato in precedenza.
+   * Dopo aver contrassegnato **l'URL** di risposta richiesto come predefinito, è anche possibile eliminare l'URL di **risposta** configurato in precedenza che utilizzava l'URL interno.
 
    * Per un flusso avviato da SP, assicurarsi che l'applicazione back-end specifichi **l'URL** di risposta o il servizio consumer di asserzione corretto per la ricezione del token di autenticazione.
 

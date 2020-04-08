@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce0a170a629f347e2687a2e9f63fb3438fe2bd2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280170"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811112"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di AzureConfigure an App Service app in the Azure portal
 
@@ -35,7 +35,7 @@ Anche altri stack di linguaggio ottengono le impostazioni dell'app come variabil
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [Php](containers/configure-language-php.md#access-environment-variables)
+- [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
 - [Ruby](containers/configure-language-ruby.md#access-environment-variables)
@@ -96,16 +96,17 @@ Per altri stack di lingue, è preferibile usare [le impostazioni dell'app,](#con
 
 In fase di esecuzione, le stringhe di connessione sono disponibili come variabili di ambiente, precedute dai tipi di connessione seguenti:At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
-* SQL Server: `SQLCONNSTR_`
-* MySQL: `MYSQLCONNSTR_`
-* Database SQL: `SQLAZURECONNSTR_`
+* Sqlserver:`SQLCONNSTR_`  
+* MySQL: `MYSQLCONNSTR_` 
+* SQLAzure:`SQLAZURECONNSTR_` 
 * Personalizzato: `CUSTOMCONNSTR_`
+* Postgresql:`POSTGRESQLCONNSTR_`  
 
 Ad esempio, è possibile accedere a una stringa di `MYSQLCONNSTR_connectionString1`connessione MySql denominata *connectionstring1* come variabile di ambiente . Per i passaggi specifici dello stack del linguaggio, vedere:For language-stack steps, see:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [Php](containers/configure-language-php.md#access-environment-variables)
+- [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
 - [Ruby](containers/configure-language-ruby.md#access-environment-variables)
@@ -173,7 +174,7 @@ Qui puoi configurare alcune impostazioni comuni per l'app. Per alcune impostazio
     - **Versione pipeline gestita**: [modalità pipeline]IIS . Impostarlo su **Classico** se si dispone di un'app legacy che richiede una versione precedente di IIS.
     - **Versione HTTP**: impostare su **2.0** per abilitare il supporto per il protocollo [HTTPS/2.](https://wikipedia.org/wiki/HTTP/2)
     > [!NOTE]
-    > I browser più recenti supportano il protocollo HTTP/2 solo su TLS, mentre il traffico non crittografato continua a usare il protocollo HTTP/1.1. Per assicurarsi che i browser client si connettano all'app con HTTP/2, [proteggere il nome DNS personalizzato con un'associazione SSL nel servizio app](configure-ssl-bindings.md)di Azure.
+    > I browser più recenti supportano il protocollo HTTP/2 solo su TLS, mentre il traffico non crittografato continua a usare il protocollo HTTP/1.1. Per garantire che i browser client si connettano all'app con HTTP/2, proteggi il nome DNS personalizzato. Per altre informazioni, vedere [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel servizio app](configure-ssl-bindings.md)di Azure.For more information, see Secure a custom DNS name with a TLS/SSL binding in Azure App Service .
     - **Affinità ARR**: in una distribuzione a più istanze, assicurarsi che il client venga instradato alla stessa istanza per tutta la durata della sessione. È possibile impostare questa opzione su **Disattivato** per le applicazioni senza stato.
 - **Debug**: abilita il debug remoto per [ASP.NET,](troubleshoot-dotnet-visual-studio.md#remotedebug) [ASP.NET core](/visualstudio/debugger/remote-debugging-azure)o [Node.js.](containers/configure-language-nodejs.md#debug-remotely) Questa opzione si spegne automaticamente dopo 48 ore.
 - **Certificati client in ingresso**: richiedono certificati client [nell'autenticazione reciproca](app-service-web-configure-tls-mutual-auth.md).
@@ -235,7 +236,7 @@ Per le app Linux, vedere:For Linux apps, see:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md)
 - [Node.js](containers/configure-language-nodejs.md)
-- [Php](containers/configure-language-php.md)
+- [PHP](containers/configure-language-php.md)
 - [Python](containers/how-to-configure-python.md)
 - [Java](containers/configure-language-java.md)
 - [Ruby](containers/configure-language-ruby.md)
@@ -248,7 +249,7 @@ Vedere [Configurare un contenitore Linux personalizzato per](containers/configur
 
 - [Configurare un nome di dominio personalizzato nel servizio app di Azure]
 - [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure]
-- [Proteggere un nome DNS personalizzato con un binding SSL nel Servizio app di Azure](configure-ssl-bindings.md)
+- [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel servizio app di AzureSecure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 - [Abilitare i log di diagnostica](troubleshoot-diagnostic-logs.md)
 - [Aumentare le prestazioni di un'app nel Servizio app di Azure]
 - [Informazioni di base sul monitoraggio nel Servizio app di Azure]
@@ -257,7 +258,7 @@ Vedere [Configurare un contenitore Linux personalizzato per](containers/configur
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
-[Portale di Azure]: https://portal.azure.com/
+[Portale di AzureAzure Portal]: https://portal.azure.com/
 [Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./app-service-web-tutorial-custom-domain.md
 [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure]: ./deploy-staging-slots.md
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906

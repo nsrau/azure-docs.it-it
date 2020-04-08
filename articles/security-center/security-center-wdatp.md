@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: 5136a00421aebaa72998b1dfcdf75feb935851c6
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: a502541a5a01ec3304338054239fc3b50f4d3c61
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435449"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810300"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con Il Centro sicurezza di Azure
 
@@ -36,7 +36,7 @@ Quando si utilizza Microsoft Defender ATP, si ottiene:
 
 Nel Centro sicurezza di Azure sono ora disponibili le funzionalità seguenti:The following capabilities are now available in Azure Security Center:
 
-- Onboarding automatico: il sensore Microsoft Defender ATP viene abilitato automaticamente per i server Windows che sono connessi al Centro sicurezza di **Azure.Automated onboarding:** The Microsoft Defender ATP sensor is automatically enabled for Windows servers that are onboarded to Azure Security Center.
+- **Onboarding automatico:** il sensore AtP di Microsoft Defender viene abilitato automaticamente per i server Windows che sono connessi al Centro sicurezza di Azure (ad eccezione di quelli che eseguono Windows Server 2019).
 
 - **Singolo riquadro di vetro:** nella console di Azure Security Center vengono visualizzati gli avvisi di Microsoft Defender ATP.
 
@@ -60,7 +60,7 @@ Microsoft Defender ATP nel Centro sicurezza supporta il rilevamento in Windows S
 Per eseguire l'onboarding dei server con il Centro sicurezza, fare clic su Vai al Centro sicurezza di Azure per eseguire **l'onboarding** del server Microsoft Defender ATP.
 
 1. Nell'area **Onboarding** selezionare o creare un'area di lavoro in cui archiviare i dati. <br>
-2. Se non è possibile visualizzare tutte le aree di lavoro, ciò potrebbe dipendere dalla mancanza di autorizzazioni. Verificare che l'area di lavoro sia impostata sul livello Standard del Centro sicurezza di Azure. Per ulteriori informazioni, vedere [Eseguire l'aggiornamento al livello Standard del Centro sicurezza per una maggiore sicurezza.](security-center-pricing.md)
+2. Se non è possibile visualizzare tutte le aree di lavoro, è possibile che si tratti di una mancanza di autorizzazioni, verificare che l'area di lavoro sia impostata sul livello Standard di sicurezza di Azure.If you can't see all your workspaces, it may be to a lack of permissions, make sure that your workspace is set to Azure Security Standard tier. Per ulteriori informazioni, vedere [Eseguire l'aggiornamento al livello Standard del Centro sicurezza per una maggiore sicurezza.](security-center-pricing.md)
     
 3. Selezionare Aggiungi server per visualizzare le istruzioni su come installare l'agente di Log Analytics.Select **Add servers** to view instructions on how to install the Log Analytics agent. 
 
@@ -107,11 +107,11 @@ Per generare un avviso di test di Microsoft Defender ATP benigno:
 
    ![Finestra del prompt dei comandi con il comando precedente](media/security-center-wdatp/image4.jpeg)
 
-3. Se il comando ha esito positivo, verrà visualizzato un nuovo avviso nel dashboard del Centro sicurezza di Azure e nel portale di Microsoft Defender ATP. Possono trascorrere alcuni minuti prima che l'avviso venga visualizzato.
+1. Se il comando ha esito positivo, verrà visualizzato un nuovo avviso nel dashboard del Centro sicurezza di Azure e nel portale di Microsoft Defender ATP. Possono trascorrere alcuni minuti prima che l'avviso venga visualizzato.
 
-4. Per esaminare l'avviso nel Centro sicurezza, passare a **Avvisi** > di sicurezza**Riga di comando powerShell sospetti**.
+1. Per esaminare l'avviso nel Centro sicurezza, passare a **Avvisi** > di sicurezza**Riga di comando powerShell sospetti**.
 
-5. Nella finestra di indagine, selezionare il collegamento per accedere al portale Microsoft Defender ATP.
+1. Nella finestra di indagine, selezionare il collegamento per accedere al portale Microsoft Defender ATP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

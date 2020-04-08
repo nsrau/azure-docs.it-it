@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 34a70a4698b69881a06cfb7a7017fa0c30647197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047688"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803246"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -73,7 +73,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |json-to-xml|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -117,7 +117,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |xml-to-json|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -153,7 +153,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |find-and-replace|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -264,7 +264,7 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 |----------|-----------------|--------------|
 |set-backend-service|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -513,7 +513,7 @@ OriginalUrl.
 |Nome|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
 |set-header|Elemento radice.|Sì|
-|value|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
+|Valore|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
 
 ### <a name="properties"></a>Proprietà
 
@@ -540,17 +540,12 @@ OriginalUrl.
 </set-query-parameter>
 ```
 
-### <a name="examples"></a>Esempi
-
 #### <a name="example"></a>Esempio
 
 ```xml
 
-<set-query-parameter>
-  <parameter name="api-key" exists-action="skip">
-    <value>12345678901</value>
-  </parameter>
-  <!-- for multiple parameters with the same name add additional value elements -->
+<set-query-parameter name="api-key" exists-action="skip">
+  <value>12345678901</value>
 </set-query-parameter>
 
 ```
@@ -573,7 +568,7 @@ OriginalUrl.
 |Nome|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento radice.|Sì|
-|value|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
+|Valore|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
 
 ### <a name="properties"></a>Proprietà
 
@@ -653,7 +648,7 @@ OriginalUrl.
 |----------|-----------------|--------------|
 |rewrite-uri|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
 |Attributo|Descrizione|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|

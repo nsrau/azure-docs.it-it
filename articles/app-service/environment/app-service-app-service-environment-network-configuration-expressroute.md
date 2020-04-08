@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243874"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804436"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Dettagli della configurazione di rete per l'ambiente del servizio app per PowerApps con Azure ExpressRoute
 
@@ -39,7 +39,7 @@ Per funzionare correttamente, l'ambiente del servizio app richiede le impostazio
 
 * Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (endpoint del modello di distribuzione classica di Azure e di Azure Resource Manager). La connettività verso questi endpoint include i domini management.core.windows.net e management.azure.com. 
 
-* Connettività di rete in uscita verso i domini ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. La connettività a questi domini è necessaria per il supporto della funzionalità SSL.
+* Connettività di rete in uscita verso i domini ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. La connettività a questi domini è necessaria per supportare la funzionalità TLS.
 
 * La configurazione del DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati in questo articolo. Se gli endpoint non possono essere risolti, l'ambiente del servizio app non viene creato. Gli eventuali ambienti del servizio app esistenti vengono contrassegnati come non integri.
 

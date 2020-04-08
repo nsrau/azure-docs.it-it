@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 787640ef08ee91220f42065af155c372247f0136
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274216"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804606"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archiviare i log delle risorse di Azure nell'account di archiviazione
 [I log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività di Azure e i log delle risorse, forniscono informazioni dettagliate su diagnostica e controllo per le risorse di Azure e la piattaforma di Azure da cui dipendono.  Questo articolo descrive la raccolta dei log della piattaforma in un account di archiviazione di Azure per conservare i dati per l'archiviazione.
@@ -20,6 +20,8 @@ ms.locfileid: "79274216"
 ## <a name="prerequisites"></a>Prerequisiti
 È necessario [creare un account di archiviazione](../../storage/common/storage-account-create.md) di Azure se non è già presente. Non è necessario che l'account di archiviazione si svolgi nella stessa sottoscrizione della risorsa che invia i log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
+> [!IMPORTANT]
+> Per inviare i dati a un archivio non modificabile, impostare i criteri non modificabili per l'account di archiviazione come descritto in Impostare e gestire i criteri di [immutabilità per l'archiviazione BLOB](../../storage/blobs/storage-blob-immutability-policies-manage.md). È necessario seguire tutti i passaggi descritti in questo articolo, inclusa l'abilitazione delle scritture di BLOB di accodamento protetto.
 
 > [!IMPORTANT]
 > Gli account Azure Data Lake Storage Gen2 non sono attualmente supportati come destinazione per le impostazioni di diagnostica anche se possono essere elencati come opzione valida nel portale di Azure.Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.

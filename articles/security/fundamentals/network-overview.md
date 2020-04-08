@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749946"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811091"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 
@@ -160,7 +160,7 @@ Rete di Azure supporta gli scenari di accesso remoto sicuro seguenti:
 
 La connessione VPN da punto a sito consente di configurare una connessione privata e sicura tra l'utente e la rete virtuale. Quando viene stabilita la connessione VPN, l'utente può usare RDP o SSH tramite il collegamento VPN in una macchina virtuale qualsiasi nella rete virtuale. Si presuppone che l'utente possa eseguire l'autenticazione e sia autorizzato. Supporto VPN da punto a sito:
 
-* Secure Socket Tunneling Protocol (SSTP), un protocollo VPN di proprietà basato su SSL. Una soluzione VPN SSL può penetrare i firewall perché la maggior parte dei firewall apre la porta TCP 443 usata da SSL. SSTP è supportato solo nei dispositivi Windows. Azure supporta tutte le versioni di Windows che hanno SSTP (Windows 7 e versioni successive).
+* Secure Socket Tunneling Protocol (SSTP), un protocollo VPN di proprietà basato su SSL. Una soluzione VPN SSL può penetrare nei firewall, poiché la maggior parte dei firewall apre la porta TCP 443, utilizzata da TLS/SSL. SSTP è supportato solo nei dispositivi Windows. Azure supporta tutte le versioni di Windows che hanno SSTP (Windows 7 e versioni successive).
 
 * VPN IKEv2, una soluzione VPN IPsec basata su standard. VPN IKEv2 può essere usato per connettersi da dispositivi Mac (versioni OSX 10.11 e successive).
 
@@ -232,7 +232,7 @@ Le organizzazioni che eseguono servizi basati sul Web spesso preferiscono implem
 Il gateway applicazione di Azure offre il bilanciamento del carico basato su HTTP per i servizi basati sul Web. Il gateway applicazione supporta:
 
 * Affinità di sessione basata su cookie Questa funzionalità garantisce che le connessioni stabilite a uno dei server controllati dal servizio di bilanciamento del carico restino inalterate tra il client e il server. In questo modo si assicura la stabilità delle transazioni.
-* Offload SSL Quando un client si connette con il servizio di bilanciamento del carico, la sessione viene crittografata tramite l'utilizzo del protocollo HTTPS (SSL). Per migliorare le prestazioni, è tuttavia possibile usare il protocollo HTTP (senza crittografia) per la connessione tra il servizio di bilanciamento del carico e il server Web controllato dal servizio di bilanciamento del carico. Questa modalità è definita "offload SSL", perché i server Web controllati dal servizio di bilanciamento del carico non sono soggetti al sovraccarico del processore interessato dalla crittografia. e quindi saranno in grado di soddisfare le richieste più rapidamente.
+* Offload TLS. Quando un client si connette al servizio di bilanciamento del carico, tale sessione viene crittografata utilizzando il protocollo HTTPS (TLS). Per migliorare le prestazioni, è tuttavia possibile usare il protocollo HTTP (senza crittografia) per la connessione tra il servizio di bilanciamento del carico e il server Web controllato dal servizio di bilanciamento del carico. Questa operazione viene definita "offload TLS", perché i server Web dietro il servizio di bilanciamento del carico non si verificano l'overhead del processore associato alla crittografia. e quindi saranno in grado di soddisfare le richieste più rapidamente.
 * Routing di contenuto basato su URL. Questa funzionalità consente al servizio di bilanciamento del carico di scegliere dove inoltrare le connessioni in base all'URL di destinazione, offrendo quindi maggiore flessibilità rispetto alle soluzioni che prendono decisioni sul bilanciamento del carico in base agli indirizzi IP.
 
 Altre informazioni:
@@ -336,7 +336,7 @@ Altre informazioni:
 
 ## <a name="azure-front-door"></a>Frontdoor di Azure
 
-Il servizio Frontdoor di Azure consente di definire, gestire e monitorare l'instradamento globale del traffico Web. Ottimizza il routing del traffico per ottenere prestazioni ottimali e disponibilità elevata. Il servizio Frontdoor di Azure consente di creare regole di Web application firewall (WAF) personalizzate (WAF) per il controllo degli accessi al fine di proteggere il tuo carico di lavoro HTTP/HTTPS dallo sfruttamento basato su indirizzi IP del client, codice paese e parametri HTTP. Frontdoor consente inoltre di creare regole di limitazione di velocità per combattere il traffico bot dannoso e include l'offload SSL, la richiesta per HTTP/HTTPS e l'elaborazione a livello di applicazione.
+Il servizio Frontdoor di Azure consente di definire, gestire e monitorare l'instradamento globale del traffico Web. Ottimizza il routing del traffico per ottenere prestazioni ottimali e disponibilità elevata. Il servizio Frontdoor di Azure consente di creare regole di Web application firewall (WAF) personalizzate (WAF) per il controllo degli accessi al fine di proteggere il tuo carico di lavoro HTTP/HTTPS dallo sfruttamento basato su indirizzi IP del client, codice paese e parametri HTTP. Inoltre, Front Door consente anche di creare regole di limitazione della frequenza per combattere il traffico bot dannoso, che include offload TLS e richiesta per HTTP/HTTPS, elaborazione a livello di applicazione.
 
 La stessa piattaforma Frontdoor è protetta da Protezione DDoS di Azure di Siti Web Basic. Per una protezione maggiore, Protezione DDoS Standard di Azure può essere abilitata nelle reti virtuali per proteggere le risorse dagli attacchi a livello di rete (TCP/UDP) attraverso l'ottimizzazione automatica e la mitigazione. Frontdoor è un proxy inverso di livello 7 e consente solo al traffico Web di attraversare i server back-end e bloccare altri tipi di traffico per impostazione predefinita.
 

@@ -3,12 +3,12 @@ title: Risoluzione dei problemi relativi a dati non disponibili in Application I
 description: I dati non vengono visualizzati in Azure Application Insights Risposte ai problemi più comuni.
 ms.topic: conceptual
 ms.date: 07/23/2018
-ms.openlocfilehash: 2627fde55f4177798d04aab02db169f3117d32dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34fc51f8f656ec0f630bd984ac1b28fbaa5e4dae
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665902"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802587"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Risoluzione dei problemi relativi all'assenza di dati - Application Insights per .NET/.NET CoreTroubleshooting no data - Application Insights for .NET/.NET Core
 
@@ -241,12 +241,16 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 È possibile modificare questi parametri in base alle esigenze:You can modify these parameters as needed:
 - **MaxCollectSec**. Impostare questo parametro per impedire l'esecuzione di PerfView all'infinito e influire sulle prestazioni del server.
 - **OnlyProviders**. Impostare questo parametro per raccogliere solo i log dall'SDK. È possibile personalizzare questo elenco in base alle indagini specifiche. 
-- **NoGui**. Impostare questo parametro per raccogliere i log senza Gui.
+- **NoGui**. Impostare questo parametro per raccogliere i log senza la GUI.
 
 
 Per ulteriori informazioni,
 - [Registrazione delle tracce delle prestazioni con PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+
+## <a name="how-to-remove-application-insights"></a>Come rimuovere Application Insights
+
+Per informazioni su come rimuovere Application Insights in Visual Studio, attenersi alla procedura descritta [nell'articolo](../../azure-monitor/app/remove-application-insights.md)sulla rimozione.
 
 ## <a name="still-not-working"></a>Non funzionante...
 * [Forum di Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

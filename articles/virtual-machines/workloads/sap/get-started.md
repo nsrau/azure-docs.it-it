@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/06/2020
+ms.date: 04/07/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df7461443fc9e89209545e8a2dfb9ad0addf3f3e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 86c5f572ba66845467a7e3f4412b8da8368fe772
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757142"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811259"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAPUse Azure to host and run SAP workload scenarios
 
@@ -110,6 +110,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+- 04/07/2020: Modifica della configurazione di [Pacemaker in SLES in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) per chiarire le istruzioni cloud-netconfig-azure
 - 04/06/2020: Modifiche in [SAP HANA scale-out con nodo standby nelle macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) di Azure con file NetApp di Azure in SLES e in SAP [HANA scale-out con nodo standby in macchine virtuali di Azure con file NetApp di Azure in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) per rimuovere i riferimenti a NetApp [TR-4435](https://www.netapp.com/us/media/tr-4746.pdf) (sostituito da [TR-4746](https://www.netapp.com/us/media/tr-4746.pdf))
 - 31/03/2020: Modifica della disponibilità elevata di SAP HANA nelle macchine virtuali di Azure in [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) e disponibilità elevata di SAP HANA nelle macchine virtuali di [Azure in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) per aggiungere istruzioni su come specificare le dimensioni dello stripe durante la creazione di volumi con striping
 - 27/03/2020: Modifica della disponibilità elevata per SAP NW nelle macchine virtuali di Azure in [SLES con applicazioni SAP per](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) allineare le opzioni di montaggio del file system a NetApp TR-4746 (rimuovere l'opzione di montaggio della sincronizzazione)

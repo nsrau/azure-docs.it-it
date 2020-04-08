@@ -1,15 +1,16 @@
 ---
-title: Controllare le risorse cluster con RBAC e Azure AD nel servizio Azure KubernetesControl cluster resources with RBAC and Azure AD in Azure Kubernetes Service
+title: Usare Azure AD e il controllo degli accessi in base al ruolo per i clusterUse Azure AD and RBAC for clusters
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come usare l'appartenenza ai gruppi di Azure Active Directory per limitare l'accesso alle risorse del cluster usando il controllo degli accessi in base al ruolo nel servizio Azure Kubernetes (AKS)Learn how to use Azure Active Directory group membership to restrict access to cluster resources using role-based access control (RBAC) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: 456b6dcdd590b48e06c830db85b726d4bebb69e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad195085c049776bf0db418c57f2c72830f1adff
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596522"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803570"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Control access to cluster resources using role-based access control and Azure Active Directory identities in Azure Kubernetes Service
 
@@ -21,7 +22,7 @@ Questo articolo illustra come usare l'appartenenza ai gruppi di Azure AD per con
 
 Questo articolo presuppone che tu abbia un cluster AKS esistente abilitato con l'integrazione di Azure AD. Se è necessario un cluster AKS, vedere [Integrare Azure Active Directory con AKS][azure-ad-aks-cli].
 
-È necessaria l'interfaccia della riga di comando di Azure versione 2.0.61 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][install-azure-cli]you need to install or upgrade, see Install Azure CLI.
+È necessaria l'interfaccia della riga di comando di Azure versione 2.0.61 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="create-demo-groups-in-azure-ad"></a>Creare gruppi dimostrativi in Azure ADCreate demo groups in Azure AD
 

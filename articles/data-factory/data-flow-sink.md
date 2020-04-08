@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: a0b9d424c1995fba075c05ffe5058e297d764775
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8941c097fbb2d05c3a28be87d216b7a2679ebc68
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531261"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804895"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel mapping del flusso di datiSink transformation in mapping data flow
 
@@ -39,7 +39,9 @@ Azure Data Factory ha accesso a oltre [90 connettori nativi.](connector-overview
 
 ## <a name="sink-settings"></a>Impostazioni del lavandino
 
-Dopo aver aggiunto un sink, configurarlo tramite la scheda **Sink.** Qui è possibile selezionare o creare il set di dati in cui scrive il sink 
+Dopo aver aggiunto un sink, configurarlo tramite la scheda **Sink.** Qui è possibile selezionare o creare il set di dati in cui scrive il sink. Di seguito è riportato un video che spiega una serie di diverse opzioni Sink per i tipi di file delimitati da testo:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
 
 ![Impostazioni del lavandino](media/data-flow/sink-settings.png "Impostazioni sink")
 

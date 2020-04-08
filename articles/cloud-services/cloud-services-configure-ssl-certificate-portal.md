@@ -1,6 +1,6 @@
 ---
-title: Configurare SSL per un servizio cloud | Documentazione Microsoft
-description: Informazioni su come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione. Questi esempi utilizzano il portale di Azure.
+title: Configurare TLS per un servizio cloud Documenti Microsoft
+description: Informazioni su come specificare un endpoint HTTPS per un ruolo Web e su come caricare un certificato TLS/SSL per proteggere l'applicazione. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -8,16 +8,16 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
-ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d397279ac7e5949398d695db615d9a003ab7acd
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273137"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811674"
 ---
-# <a name="configuring-ssl-for-an-application-in-azure"></a>Configurazione di SSL per un'applicazione in Azure
+# <a name="configuring-tls-for-an-application-in-azure"></a>Configurazione di TLS per un'applicazione in AzureConfiguring TLS for an application in Azure
 
-La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
+Transport Layer Security (TLS), precedentemente noto come crittografia Secure Socket Layer (SSL), è il metodo più comunemente utilizzato per proteggere i dati inviati attraverso Internet. Questa attività comune illustra come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato TLS/SSL per proteggere l'applicazione.
 
 > [!NOTE]
 > Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service/configure-ssl-bindings.md).
@@ -27,14 +27,14 @@ In questa attività viene usata una distribuzione di produzione. Alla fine di qu
 
 Leggere [questo articolo](cloud-services-how-to-create-deploy-portal.md) se non è stato ancora creato un servizio cloud.
 
-## <a name="step-1-get-an-ssl-certificate"></a>Passaggio 1: Ottenere un certificato SSL
-Per configurare SSL per un'applicazione, è necessario prima ottenere un certificato SSL che sia stato firmato da un'Autorità di certificazione (CA), ovvero un ente di terze parti attendibile che rilascia certificati per questo scopo. Se non se ne dispone già, è necessario ottenerne uno da un rivenditore di certificati SSL.
+## <a name="step-1-get-a-tlsssl-certificate"></a>Passaggio 1: Ottenere un certificato TLS/SSLStep 1: Get a TLS/SSL certificate
+Per configurare TLS per un'applicazione, è innanzitutto necessario ottenere un certificato TLS/SSL firmato da un'autorità di certificazione (CA), una terza parte attendibile che emette certificati a questo scopo. Se non si dispone già di uno, è necessario ottenerne uno da una società che vende certificati TLS/SSL.
 
-Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azure:
+The certificate must meet the following requirements for TLS/SSL certificates in Azure:
 
 * Il certificato deve includere una chiave privata.
 * Il certificato deve essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
-* Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Ad esempio, se il nome di dominio personalizzato è **contoso.com** è necessario richiedere un certificato**all'autorità** di certificazione per contoso.com o **www\.contoso.com**.
+* Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato TLS/SSL da un'autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Ad esempio, se il nome di dominio personalizzato è **contoso.com** è necessario richiedere un certificato**all'autorità** di certificazione per contoso.com o **www\.contoso.com**.
 * Per il certificato deve essere usata una crittografia di almeno 2048 bit.
 
 Per eseguire delle prove, è possibile [creare](cloud-services-certs-create.md) e usare un certificato auto firmato. Un certificato autofirmato non è autenticato tramite una CA e può usare il dominio cloudapp.net come URL del sito Web. Nell'attività seguente, ad esempio, viene usato un certificato autofirmato in cui il nome comune è **sslexample.cloudapp.net**.
@@ -166,7 +166,7 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
    ![Anteprima del sito](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anziché di produzione, è necessario innanzitutto determinare l'URL usato per la distribuzione di gestione temporanea. Una volta distribuito il servizio cloud, l'URL dell'ambiente di gestione temporanea è determinato dal GUID **ID distribuzione** nel formato seguente: `https://deployment-id.cloudapp.net/`  
+   > Se si desidera utilizzare TLS per una distribuzione di gestione temporanea anziché una distribuzione di produzione, è innanzitutto necessario determinare l'URL utilizzato per la distribuzione di gestione temporanea. Una volta distribuito il servizio cloud, l'URL dell'ambiente di gestione temporanea è determinato dal GUID **ID distribuzione** nel formato seguente: `https://deployment-id.cloudapp.net/`  
    >
    > Creare un certificato con il nome comune (CN) uguale all'URL basato su GUID, ad esempio,**328187776e774ceda8fc57609d404462.cloudapp.net**. Usare il portale per aggiungere il certificato al servizio cloud di gestione temporanea. Aggiungere le informazioni del certificato ai file CSDEF e CSCFG, ricreare il pacchetto dell'applicazione e aggiornare la distribuzione di gestione temporanea per usare il nuovo pacchetto.
    >

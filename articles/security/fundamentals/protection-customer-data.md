@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 741cbc82f2ed3ffffb553b146d981b4e35a273f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726673"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811420"
 ---
 # <a name="azure-customer-data-protection"></a>Protezione dei dati dei clienti di Azure   
 L'accesso ai dati dei clienti da parte del personale di supporto e delle operazioni Microsoft è negato per impostazione predefinita. Quando viene concesso l'accesso ai dati dei clienti, è necessaria l'approvazione della leadership prima di poter gestire e registrare l'accesso in modo accurato. I requisiti di controllo di accesso vengono definiti dai criteri di sicurezza di Azure seguenti:
@@ -45,7 +45,7 @@ Azure offre ai clienti un livello efficace di sicurezza dei dati, per impostazio
 - il cliente e il cloud e
 - i sistemi e i data center di Azure (internamente).
 
-**Crittografia**: la crittografia dei dati archiviati e in transito può essere distribuita da clienti come procedura consigliata per garantire la riservatezza e l'integrità dei dati. È molto semplice per i clienti configurare i servizi cloud di Azure per l'uso di SSL al fine di proteggere le comunicazioni da Internet e anche tra le proprie VM ospitate in Azure.
+**Crittografia**: la crittografia dei dati archiviati e in transito può essere distribuita da clienti come procedura consigliata per garantire la riservatezza e l'integrità dei dati. È semplice per i clienti configurare i servizi cloud di Azure per usare TLS per proteggere le comunicazioni da Internet e anche tra le macchine virtuali ospitate da Azure.It is straightforward for customers to configure their Azure cloud services to use TLS to protect communications from the internet and even between their Azure-hosted VMs.
 
 **Ridondanza dei dati**: Microsoft consente di assicurare la protezione dei dati in caso di attacco informatico o danni fisici in un data center. I clienti possono scegliere varie opzioni:
 

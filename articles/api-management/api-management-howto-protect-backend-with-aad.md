@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190372"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804368"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
 
@@ -137,7 +137,7 @@ In questo esempio la console per sviluppatori è l'app client. La procedura segu
 
 1. Se si utilizzano endpoint **v1,** aggiungere un parametro del corpo denominato **resource**. Per il valore di questo parametro, usare **l'ID applicazione** dell'app back-end. 
 
-1. Se si usano endpoint **v2,** usare l'ambito creato per l'app back-end nel campo **Ambito predefinito.**
+1. Se si usano endpoint **v2,** usare l'ambito creato per l'app back-end nel campo **Ambito predefinito.** Assicurarsi inoltre di impostare [`accessTokenAcceptedVersion`](/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) il `2` valore della proprietà su nel [manifesto dell'applicazione.](/azure/active-directory/develop/reference-app-manifest)
 
 1. Specificare quindi le credenziali del client. Queste sono le credenziali per l'app client.
 
@@ -147,7 +147,7 @@ In questo esempio la console per sviluppatori è l'app client. La procedura segu
 
 1. Immediatamente dopo il segreto client è riportato il valore di **redirect_url** per il tipo di concessione con codice di autorizzazione. Prendere nota dell'URL.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 1. Tornare all'app client e selezionare **Autenticazione**.
 

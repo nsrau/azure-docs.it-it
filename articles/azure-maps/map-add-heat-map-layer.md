@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19765bd28f365cc6f6d5b06646896613dd3e3e87
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77208540"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804555"
 ---
 # <a name="add-a-heat-map-layer"></a>Aggiungere un livello per le mappe termiche
 
@@ -98,11 +98,11 @@ Per impostazione predefinita, i raggi dei punti dati sottoposti a rendering nel 
 
 Utilizzare `zoom` un'espressione per scalare il raggio per ogni livello di zoom, in modo che ogni punto dati copra la stessa area fisica della mappa. Questa espressione rende il layer della mappa termica più statico e coerente. Ogni livello di zoom della mappa ha il doppio dei pixel verticalmente e orizzontalmente rispetto al livello di zoom precedente. 
 
-Ridimensionando il raggio in modo che raddoppi con ogni livello di zoom si crei una mappa termica che sembra coerente su tutti i livelli di zoom. Per applicare questo `zoom` ridimensionamento, `exponential interpolation` usare con un'espressione di base 2, come illustrato nell'esempio seguente. Ingrandire la mappa per vedere come la mappa termica viene ridimensionata con il livello di zoom.
+Ridimensionando il raggio in modo che raddoppi con ogni livello di zoom si crei una mappa termica che sembra coerente su tutti i livelli di zoom. Per applicare questo `zoom` ridimensionamento, `exponential interpolation` utilizzare con un'espressione di base 2, con il raggio dei pixel impostato `2 * Math.pow(2, minZoom - maxZoom)` per il livello di zoom minimo e un raggio in scala per il livello di zoom massimo calcolato come illustrato nell'esempio seguente. Ingrandire la mappa per vedere come la mappa termica viene ridimensionata con il livello di zoom.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mappa termica zoomabile coerente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mappa termica zoomabile coerente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Vedere la <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mappa termica ingrandibile</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>della penna di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

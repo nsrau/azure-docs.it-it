@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: b1f75a5f7a97907bf5b8bb460ff2df420d053f9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386800"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811642"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
 Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Se ad esempio il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come `http://contoso.cloudapp.net`. Azure assegna anche un indirizzo IP virtuale.
@@ -30,7 +30,7 @@ Se si conoscono già i record CNAME e A, [saltare la spiegazione](#add-a-cname-r
 <p/>
 
 > [!TIP]
-> Acquistare velocità: usare il NUOVO [percorso guidato](https://support.microsoft.com/kb/2990804) di Azure  Grazie al percorso guidato, è facilissimo associare un nome di dominio personalizzato E proteggere le comunicazioni (SSL) con i Servizi cloud di Azure o Siti Web di Azure.
+> Acquistare velocità: usare il NUOVO [percorso guidato](https://support.microsoft.com/kb/2990804) di Azure  Rende l'associazione di un nome di dominio personalizzato e la protezione delle comunicazioni (TLS) con i servizi cloud di Azure o i siti Web di Azure un gioco da ragazzi.
 > 
 > 
 
@@ -62,7 +62,7 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
 
        ![Sezione quick glance in cui è visualizzato l'URL del sito][csurl]
 
-       **O**
+       **OR**
    * Installare e configurare [Azure Powershell](/powershell/azure/overview), quindi eseguire il comando seguente:
 
        ```powershell
@@ -95,7 +95,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
 
        ![Sezione quick glance in cui è visualizzato l'indirizzo VIP][vip]
 
-       **O**
+       **OR**
    * Installare e configurare [Azure Powershell](/powershell/azure/overview), quindi eseguire il comando seguente:
 
        ```powershell
@@ -128,7 +128,7 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 * [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
-* Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
+* Configurare i [certificati TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname

@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 173f5c698ab44ea269995665bcbc33c726d4f03a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248138"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811452"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
 I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione. Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come distribuirli in Azure.
@@ -55,7 +55,7 @@ I certificati di gestione consentono di eseguire l'autenticazione con il modello
 * Viene creato per lo scambio di chiave (file PFX).
 * Il nome del soggetto deve corrispondere al dominio usato per accedere al servizio cloud.
 
-    > Non è possibile ottenere un certificato SSL per il dominio cloudapp.net o per domini di Azure. Il nome del soggetto del certificato deve pertanto corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio **contoso.net**, non **contoso.cloudapp.net**.
+    > Non è possibile acquisire un certificato TLS/SSL per il dominio cloudapp.net (o per qualsiasi dominio correlato ad Azure). il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Ad esempio **contoso.net**, non **contoso.cloudapp.net**.
 
 * Crittografia minima a 2048 bit.
 * **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *Personale* .

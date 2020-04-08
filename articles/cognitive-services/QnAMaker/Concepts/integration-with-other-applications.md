@@ -3,12 +3,12 @@ title: Integrazione con altre applicazioni - QnA Maker
 description: QnA Maker si integra nelle applicazioni client, come i bot di chat e con altri servizi di elaborazione del linguaggio naturale, ad esempio LuiS (Language Understanding).
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 38b275aa2b8cf5768a2bc95634a7ff4892893eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1edbfb6badfb73ce08a99709da0f8bfb61b7dc3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300520"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804189"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>Progettare la Knowledge Base per le applicazioni client
 
@@ -24,7 +24,7 @@ Dopo aver pubblicato la Knowledge Base, creare un bot dalla pagina **Pubblica** 
 
 ## <a name="providing-multi-turn-conversations"></a>Fornire conversazioni a più turni
 
-Un client bot fornisce la migliore risposta selezionata dalla Knowledge Base e può fornire prompt di completamento se la risposta fa parte di un set QnA a più turni. [Scopri come](../how-to/multiturn-conversation.md) aggiungere gruppi di domande e risposte di conversazione su più turni alla tua Knowledge Base.
+Un client bot fornisce la migliore risposta selezionata dalla Knowledge Base e può fornire prompt di follow-up se la risposta fa parte di una coppia QnA a più turni. [Scopri come](../how-to/multiturn-conversation.md) aggiungere gruppi di domande e risposte di conversazione su più turni alla tua Knowledge Base.
 
 ## <a name="natural-language-processing"></a>Elaborazione del linguaggio naturale
 

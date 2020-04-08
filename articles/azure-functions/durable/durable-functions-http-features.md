@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 29d837446960b7535b26284efdfab7a1c59ea968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132505"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802384"
 ---
 # <a name="http-features"></a>Funzionalità HTTP
 
@@ -41,17 +41,17 @@ Vedere [l'articolo API HTTP](durable-functions-http-api.md) per una descrizione 
 
 [L'associazione client](durable-functions-bindings.md#orchestration-client) di orchestrazione espone le API che possono generare utili payload di risposta HTTP. Ad esempio, può creare una risposta contenente collegamenti alle API di gestione per un'istanza di orchestrazione specifica. Gli esempi seguenti illustrano una funzione di trigger HTTP che illustra come usare questa API per una nuova istanza dell'orchestrazione:The following examples show an HTTP-trigger function that demonstrates how to use this API for a new orchestration instance:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-**function.json (funzione.json)**
+**function.json**
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
@@ -114,7 +114,7 @@ A partire da Funzioni durevoli 2.0, le orchestrazioni possono utilizzare in modo
 
 Il codice di esempio seguente mostra una funzione dell'agente di orchestrazione che effettua una richiesta HTTP in uscita:The following example code shows an orchestrator function making an outbound HTTP request:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,7 +134,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -172,7 +172,7 @@ Funzioni durevoli supporta in modo nativo le chiamate alle API che accettano tok
 
 Il codice seguente è un esempio di funzione dell'agente di orchestrazione .NET. La funzione effettua chiamate autenticate per riavviare una macchina virtuale utilizzando [l'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachines)delle macchine virtuali di Azure Resource Manager.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -198,7 +198,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -232,7 +232,7 @@ In fase di esecuzione, l'origine del token configurata restituisce automaticamen
 * I token non vengono mai archiviati nello stato di orchestrazione durevole.
 * Non è necessario scrivere codice per gestire l'acquisizione di token.
 
-È possibile trovare un esempio più completo [nell'esempio precompilato](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs)di Riavvio registrato in C.
+È possibile trovare un esempio più completo [nell'esempio precompilato](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs)di Riavvio registrato in C.
 
 Le identità gestite non sono limitate alla gestione delle risorse di Azure.Managed identities aren't limited to Azure resource management. È possibile usare le identità gestite per accedere a qualsiasi API che accetta token di connessione di Azure AD, inclusi i servizi di Azure di Microsoft e le app Web dei partner. L'app Web di un partner può anche essere un'altra app per le funzioni. Per un elenco dei servizi di Azure di Microsoft che supportano l'autenticazione con Azure AD, vedere [Servizi di Azure che supportano l'autenticazione](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)di Azure AD.
 

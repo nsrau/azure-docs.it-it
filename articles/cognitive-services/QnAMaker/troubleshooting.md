@@ -4,12 +4,12 @@ description: L'elenco curato delle domande più frequenti riguardanti il servizi
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: 310cfe0cc8c1f647c09b8e0efb435a1ab326ff62
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474953"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804351"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Risoluzione dei problemi per QnA Maker
 
@@ -142,7 +142,7 @@ Tutte le eliminazioni sono permanenti, incluse le coppie di domande e risposte, 
 * File - non supportati
 
 #### <a name="answer-text-in-markdown"></a>Testo della risposta in markdown
-Una volta che i set QnA si trovano nella Knowledge Base, è possibile modificare il testo markdown di una risposta per includere collegamenti a i file multimediali disponibili dagli URL pubblici.
+Una volta che le coppie QnA si trovano nella Knowledge Base, è possibile modificare il testo markdown di una risposta per includere collegamenti a i contenuti multimediali disponibili dagli URL pubblici.
 
 
 </details>

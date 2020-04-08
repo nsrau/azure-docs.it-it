@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/17/2020
+ms.date: 04/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3d0ddbd1282827f17cd82228fcf0f3fba3a60f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06ee1b6184e69ace68adcbfa36ad2384dc9fdd99
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471983"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811586"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure
 
@@ -365,6 +365,9 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    </code></pre>
 
 1. **[A]** Configurare cloud-netconfig-azure per il cluster HA
+
+   >[!NOTE]
+   > Controllare la versione installata del pacchetto **cloud-netconfig-azure** eseguendo **zypper info cloud-netconfig-azure**. Se la versione nell'ambiente è 1.3 o superiore, non è più necessario sopprimere la gestione delle interfacce di rete da parte del plug-in di rete cloud. Se la versione è inferiore a 1.3, è consigliabile aggiornare il pacchetto **cloud-netconfig-azure** alla versione più recente disponibile.  
 
    Modificare il file di configurazione per l'interfaccia di rete come illustrato di seguito per impedire al plug-in di rete cloud di rimuovere l'indirizzo IP virtuale (Pacemaker deve controllare l'assegnazione VIP). Per ulteriori informazioni, vedere [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 

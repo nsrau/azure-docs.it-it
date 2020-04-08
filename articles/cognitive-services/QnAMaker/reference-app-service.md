@@ -3,12 +3,12 @@ title: Configurazione del servizio - QnA MakerService configuration - QnA Maker
 description: Comprendere come e dove configurare le risorse.
 ms.topic: reference
 ms.date: 02/21/2020
-ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be32d1778604121c2acac88415cbfbc4bdbca3d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651861"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804261"
 ---
 # <a name="service-configuration"></a>Configurazione del servizio
 
@@ -27,8 +27,8 @@ Queste impostazioni sono disponibili nel portale di Azure per il servizio app. L
 
 |Risorsa|Impostazione|
 |--|--|
-|Chiave AzureSearchAdmin|Ricerca cognitiva - utilizzata per l'archiviazione dei set QnA e il #1 Ranker|
-|NomeAzureSearchName|Ricerca cognitiva - utilizzata per l'archiviazione dei set QnA e il #1 Ranker|
+|Chiave AzureSearchAdmin|Ricerca cognitiva - utilizzata per lo storage di coppie QnA e il #1 Ranker|
+|NomeAzureSearchName|Ricerca cognitiva - utilizzata per lo storage di coppie QnA e il #1 Ranker|
 |Risposta predefinita|Testo della risposta quando non viene trovata alcuna corrispondenza|
 |UserAppInsightsAppId|Log di chat e telemetria|
 |UserAppInsightsKey (Chiave UserAppInsightsKey)|Log di chat e telemetria|

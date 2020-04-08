@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 75890efebc42b74c56fb95ed1803152b516588b9
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385215"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811231"
 ---
 # <a name="develop-a-secure-web-app"></a>Sviluppare un'app Web sicura
 
@@ -104,11 +104,11 @@ Questa applicazione utilizzato:
 - [Interfaccia di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per la distribuzione.
 - [Docker Hub](https://hub.docker.com/) come registro contenitori.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 ### <a name="network"></a>Rete
 
-L'app di esempio usa la crittografia SSL end-to-end per i dati in transito che scorrono dentro e fuori la rete. Il gateway è configurato con un certificato autofirmato.
+L'app di esempio usa la crittografia TLS/SSL end-to-end per i dati in transito che entrano ed escono dalla rete. Il gateway è configurato con un certificato autofirmato.
 > [!IMPORTANT]
 > In questa dimostrazione viene utilizzato un certificato autofirmato. In un ambiente di produzione, è necessario ottenere certificati da un'autorità di certificazione (CA) verificata.
 
@@ -363,7 +363,7 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-Per altre informazioni su come configurare la verifica SSL e autorità di certificazione (CA) per PostgreSQL, vedere Configurare la connettività SSL nel database di [Azure per PostgreSQL.](/azure/postgresql/concepts-ssl-connection-security)
+Per altre informazioni su come configurare la verifica TLS e autorità di certificazione (CA) per PostgreSQL, vedere Configurare la [connettività TLS nel database di Azure per PostgreSQL.](/azure/postgresql/concepts-ssl-connection-security)
 
 Nel contenitore è incluso un certificato radice. Le operazioni adottate per ottenere il certificato sono:
 
@@ -375,7 +375,7 @@ Nel contenitore è incluso un certificato radice. Le operazioni adottate per ott
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Ulteriori informazioni su come configurare la sicurezza SSL per PostgreSQL sono disponibili qui [Configurare la protezione](/azure/postgresql/concepts-ssl-connection-security)della connessione SSL.
+Ulteriori informazioni su come configurare la sicurezza TLS per PostgreSQL qui [Configurare la sicurezza](/azure/postgresql/concepts-ssl-connection-security)della connessione TLS .
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Distribuire app Web di Azure in LinuxDeploy Azure Web Apps on Linux
 
@@ -991,5 +991,5 @@ La sicurezza è un'applicazione simile che controlla le dipendenze. Lo si può t
 Gli articoli seguenti consentono di progettare, sviluppare e distribuire applicazioni protette.
 
 - [Progettazione](secure-design.md)
-- [Sviluppare](secure-develop.md)
+- [Sviluppo](secure-develop.md)
 - [Distribuire](secure-deploy.md)

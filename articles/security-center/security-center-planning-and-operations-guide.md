@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 8244a0f164c8578bf9f79e4b66beb529b6a15f67
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586007"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810464"
 ---
 # <a name="planning-and-operations-guide"></a>Guida alla pianificazione e alle operazioni
 Questa guida è destinata ai professionisti IT, agli architetti IT, agli analisti della sicurezza delle informazioni e agli amministratori cloud che intendono usare il Centro sicurezza di Azure.This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Azure Security Center.
@@ -25,7 +25,7 @@ Questa guida illustra le attività che è possibile seguire per ottimizzare l'us
 * Ruoli di sicurezza e controlli di accesso
 * Criteri di sicurezza e raccomandazioni
 * Raccolta dati e archiviazione
-* Risorse non Azure in corso
+* Onboarding delle risorse non Azure
 * Monitoraggio continuo della sicurezza
 * Risposta agli eventi imprevisti
 

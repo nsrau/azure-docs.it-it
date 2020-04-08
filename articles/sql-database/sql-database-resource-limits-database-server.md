@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 550c315023c0ae907c369778c81b16e137004bec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: afb30a17d7a1450f169402c18f41ce249415e89d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067254"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804827"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limiti delle risorse del database SQL e governance delle risorse
 
@@ -134,7 +134,7 @@ Man mano che vengono generati i record di log, ogni operazione viene valutata e 
 
 Le velocità effettive di generazione dei log imposte in fase di esecuzione possono anche essere influenzate dai meccanismi di feedback, riducendo temporaneamente i tassi di log consentiti in modo che il sistema possa stabilizzarsi. Gestione dello spazio dei file di log, evitando di esaurire le condizioni di spazio di log e i meccanismi di replica del gruppo di disponibilità possono ridurre temporaneamente i limiti complessivi del sistema.
 
-Il data shaping del traffico di Log rate governor viene visualizzato tramite i seguenti tipi di attesa (esposti nella DMV [sys.dm_db_wait_stats):](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)
+Il data shaping del traffico di Log rate governor viene visualizzato tramite i seguenti tipi di attesa (esposti nelle viste [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats):](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
 
 | Tipo di attesa | Note |
 | :--- | :--- |
@@ -143,6 +143,7 @@ Il data shaping del traffico di Log rate governor viene visualizzato tramite i s
 | INSTANCE_LOG_RATE_GOVERNOR | Limitazione a livello di istanza |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controllo del feedback, la replica fisica del gruppo di disponibilità in Premium/Business Critical non tiene il passo |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controllo del feedback, limitazione dei tassi per evitare una condizione di spazio di log out |
+| HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Controllo del feedback di replica geografica, limitazione della frequenza di log per evitare un'elevata latenza dei dati e indisponibilità dei database geografici|
 |||
 
 Quando si rileva un limite di frequenza di registro che ostacola la scalabilità desiderata, considerare le opzioni seguenti:

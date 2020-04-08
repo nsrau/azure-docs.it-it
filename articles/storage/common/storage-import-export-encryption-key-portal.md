@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ca1327a547e8550e47ff37e4ba100fcbd2b7a79f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282461"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811434"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Usare chiavi gestite dal cliente nell'insieme di credenziali delle chiavi di Azure per il servizio importazione/esportazioneUse customer-managed keys in Azure Key Vault for Import/Export service
 
@@ -103,7 +103,7 @@ Se si ricevono errori relativi alla chiave gestita dal cliente, utilizzare la ta
 | CmkErrorAccessRevoked | È stata applicata una chiave gestita dal cliente ma l'accesso alla chiave è attualmente revocato. Per ulteriori informazioni, vedere [Abilitazione dell'accesso alla chiave](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Sì, controlla se: <ol><li>L'insieme di credenziali delle chiavi contiene ancora il file MSI nei criteri di accesso.</li><li>I criteri di accesso forniscono le autorizzazioni per Get, Wrap, Unwrap.</li><li>Se l'insieme di credenziali delle chiavi si trova in una rete virtuale dietro il firewall, **verificare** se l'opzione Consenti servizi attendibili Microsoft è abilitata.</li></ol>                                                                                            |
 | CmkErrorDisabled (disabilitato)      | È stata applicata una chiave gestita dal cliente ma la chiave è disabilitata. Per ulteriori informazioni, vedere Come [abilitare la chiave](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sì, attivando la versione chiave     |
 | CmkErrorNotFound      | È stata applicata una chiave gestita dal cliente ma non è possibile trovare la chiave. <br>Se la chiave viene eliminata ed eliminata dopo il periodo di conservazione, non è possibile recuperarla. Se è stato eseguito il backup della chiave, è possibile ripristinare la chiave per risolvere il problema. | No, la chiave è stata eliminata ed è stata eliminata anche dopo il periodo di conservazione. <br>Sì, solo se il cliente ha la chiave di backup e la ripristina.  |
-| CmkErrorVaultNotFound | È stata applicata una chiave gestita dal cliente ma non è possibile trovare l'insieme di credenziali delle chiavi associato alla chiave.<br>Se è stato eliminato l'insieme di credenziali delle chiavi, non è possibile recuperare la chiave gestita dal cliente.  Se è stata eseguita la migrazione dell'insieme di credenziali delle chiavi in un tenant diverso, vedere [Modificare un ID tenant dell'insieme di credenziali](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix)delle chiavi dopo uno spostamento della sottoscrizione. |   No, se il cliente ha eliminato l'insieme di credenziali delle chiavi.<br> Sì, se l'insieme di credenziali delle chiavi è stato sottoposto a una migrazione tenant, eseguire una delle operazione: <ol><li>spostare nuovamente l'insieme di credenziali delle chiavi al vecchio tenant.</li><li>impostare Identità - Nessuno e quindi di nuovo su Identità - SystemAssigned, questo elimina e ricrea l'identità</li></ol><br>Nota: il caso di migrazione tenant si basa su una comprensione limitata, è necessario testare e confermare il comportamento effettivo, potrebbe essere rivisto in un secondo momento. |
+| CmkErrorVaultNotFound | È stata applicata una chiave gestita dal cliente ma non è possibile trovare l'insieme di credenziali delle chiavi associato alla chiave.<br>Se è stato eliminato l'insieme di credenziali delle chiavi, non è possibile recuperare la chiave gestita dal cliente.  Se è stata eseguita la migrazione dell'insieme di credenziali delle chiavi in un tenant diverso, vedere [Modificare un ID tenant dell'insieme di credenziali](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix)delle chiavi dopo uno spostamento della sottoscrizione. |   No, se il cliente ha eliminato l'insieme di credenziali delle chiavi.<br> Sì, se l'insieme di credenziali delle chiavi è stato sottoposto a una migrazione tenant, eseguire una delle operazione: <ol><li>spostare nuovamente l'insieme di credenziali delle chiavi al vecchio tenant.</li><li>impostare Identità - Nessuno e quindi di nuovo su Identità - SystemAssigned, questo elimina e ricrea l'identità</li></ol>|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

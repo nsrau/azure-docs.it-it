@@ -3,12 +3,12 @@ title: Suggerimenti per l'apprendimento attivo - QnA Maker
 description: I suggerimenti per l'apprendimento attivo ti consentono di migliorare la qualità della tua knowledge base suggerendo domande alternative, basate su invii degli utenti, alla tua coppia di domande e risposte.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: af4f6b399bfd537b38ea741d03e59371ee81e588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edbe06b12fbb97473b28ccca968fd3e7d8366152
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053151"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804218"
 ---
 # <a name="active-learning-suggestions"></a>Suggerimenti per l'apprendimento attivo
 
@@ -27,7 +27,7 @@ Entrambi i metodi forniscono al classificatore query simili raggruppate.
 
 ## <a name="how-active-learning-works"></a>Funzionamento dell'apprendimento attivo
 
-L'apprendimento attivo viene attivato in base ai punteggi delle prime risposte restituite da QnA Maker. Se le differenze di punteggio tra i set QnA che corrispondono alla query si trovano all'interno di un intervallo ridotto, la query viene considerata un possibile suggerimento (come domanda alternativa) per ognuna delle possibili coppie QnA. Una volta accettata la domanda suggerita per una coppia QnA specifica, questa viene rifiutata per le altre coppie. È necessario ricordarsi di salvare e allenarsi, dopo aver accettato suggerimenti.
+L'apprendimento attivo viene attivato in base ai punteggi delle prime risposte restituite da QnA Maker. Se le differenze di punteggio tra le coppie QnA che corrispondono alla query si trovano all'interno di un intervallo ridotto, la query viene considerata un possibile suggerimento (come domanda alternativa) per ognuna delle possibili coppie QnA. Una volta accettata la domanda suggerita per una coppia QnA specifica, questa viene rifiutata per le altre coppie. È necessario ricordarsi di salvare e allenarsi, dopo aver accettato suggerimenti.
 
 L'apprendimento attivo fornisce i migliori suggerimenti possibili nei casi in cui gli endpoint ricevono una quantità e una varietà ragionevole di query di utilizzo. Quando sono raggruppate 5 o più query simili, ogni 30 minuti, QnA Maker suggerisce le domande basate sull'utente al progettista della Knowledge Base da accettare o rifiutare. Tutti i suggerimenti sono raggruppati per somiglianza e vengono visualizzati i primi suggerimenti per le domande alternative in base alla frequenza delle determinate query degli utenti finali.
 

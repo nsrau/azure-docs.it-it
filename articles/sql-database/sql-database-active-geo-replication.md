@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 02/17/2020
-ms.openlocfilehash: b80b58d64ea27df95c2704243d8a89fa6ca12e2a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/06/2020
+ms.openlocfilehash: 1f339d987d67047f5857679b440e93e6c3730059
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548500"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810443"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creazione e utilizzo della replica geografica attiva
 
@@ -101,7 +101,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Failover e failback controllati dall'utente**
 
-  Un database secondario può essere impostato esplicitamente sul ruolo di database primario in qualsiasi momento dall'applicazione o dall'utente. Durante un'interruzione reale, deve essere usata l'opzione "non pianificato", che alza immediatamente il livello di un database secondario a primario. Quando il database primario viene ripristinato ed è nuovamente disponibile, il sistema lo contrassegna automaticamente come database secondario e lo aggiorna con il nuovo database primario. A causa della natura asincrona della replica, una piccola quantità di dati può andare perduta durante i failover non pianificati se il database primario si interrompe prima di replicare le modifiche più recenti al database secondario. Quando un database primario con più database secondari esegue il failover, il sistema riconfigura automaticamente le relazioni di replica e collega i database secondari rimanenti al nuovo database primario appena alzato di livello senza alcun intervento da parte dell'utente. Dopo aver risolto l'interruzione del servizio che ha causato il failover, è opportuno ripristinare l'applicazione nell'area primaria. A tale scopo, richiamare il comando di failover con l'opzione "pianificato".
+  Un database secondario può essere impostato esplicitamente sul ruolo di database primario in qualsiasi momento dall'applicazione o dall'utente. Durante un'interruzione reale deve essere utilizzata l'opzione "non pianificata", che promuove immediatamente un secondario come primario. Quando il database primario viene ripristinato ed è nuovamente disponibile, il sistema lo contrassegna automaticamente come database secondario e lo aggiorna con il nuovo database primario. A causa della natura asincrona della replica, una piccola quantità di dati può andare perduta durante i failover non pianificati se il database primario si interrompe prima di replicare le modifiche più recenti al database secondario. Quando un database primario con più database secondari esegue il failover, il sistema riconfigura automaticamente le relazioni di replica e collega i database secondari rimanenti al nuovo database primario appena alzato di livello senza alcun intervento da parte dell'utente. Dopo aver risolto l'interruzione del servizio che ha causato il failover, è opportuno ripristinare l'applicazione nell'area primaria. A tale scopo, il comando di failover deve essere richiamato con l'opzione "pianificato".
 
 ## <a name="preparing-secondary-database-for-failover"></a>Preparazione del database secondario per il failover
 
@@ -113,14 +113,19 @@ Per assicurarsi che l'applicazione possa accedere immediatamente al nuovo databa
 
 ## <a name="configuring-secondary-database"></a>Configurazione del database secondario
 
-I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni di calcolo (DTU o vCore) del database primario. Se il database primario presenta un carico di lavoro di scrittura elevato, un database secondario con dimensioni di calcolo inferiori potrebbe non essere in grado di tenere il passo con esso. Ciò causerà il ritardo di rifare sulla indisponibilità secondaria e potenziale. Un database secondario in ritardo rispetto al database primario rischia anche una perdita di dati di grandi dimensioni in caso di failover forzato. Per ridurre questi rischi, un'efficace replica geografica attiva limiterà la frequenza di log del primario per consentire il recupero dei relativi database secondari. L'altra conseguenza di una configurazione secondaria sbilanciata è che dopo il failover le prestazioni dell'applicazione subiranno un'insufficiente capacità di calcolo del nuovo database primario. Sarà necessario eseguire l'aggiornamento a un calcolo superiore al livello necessario, che non sarà possibile fino a quando l'interruzione non viene attenuata. 
+I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni di calcolo (DTU o vCore) del database primario. Se il database primario presenta un carico di lavoro di scrittura elevato, un database secondario con dimensioni di calcolo inferiori potrebbe non essere in grado di tenere il passo con esso. Ciò causerà un ritardo sul secondario e una potenziale indisponibilità del secondario. Un database secondario in ritardo rispetto al database primario rischia anche una perdita di dati di grandi dimensioni, in caso di failover forzato. Per ridurre questi rischi, la replica geografica attiva limiterà la frequenza di log del primario, se necessario, per consentire il recupero dei database secondari. 
 
+L'altra conseguenza di una configurazione secondaria sbilanciata è che dopo il failover, le prestazioni dell'applicazione potrebbero risentirne a causa della capacità di calcolo insufficiente del nuovo database primario. In tal caso, sarà necessario scalare l'obiettivo del servizio di database al livello necessario, che può richiedere molto tempo e risorse di calcolo e richiederà un failover a [disponibilità elevata](sql-database-high-availability.md) alla fine del processo di scalabilità verticale.
 
 > [!IMPORTANT]
-> L'RPO pubblicato 5 secondi non può essere garantito a meno che il database secondario non sia configurato con le stesse dimensioni di calcolo del database primario. 
+> Il livello di servizio RPO pubblicato 5 secondi non può essere garantito a meno che il database secondario non sia configurato con le stesse o superiori dimensioni di calcolo del database primario. 
 
+Se si decide di creare il database secondario con dimensioni di calcolo inferiori, il grafico percentuale di I/O del log nel portale di Azure offre un buon modo per stimare le dimensioni minime di calcolo del database secondario necessario per sostenere il carico di replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale di scrittura del log è 50%, il database secondario deve essere almeno P4 (500 DTU). Per recuperare i dati di I/O del log cronologici, utilizzare la visualizzazione [sys.resource_stats.](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Per recuperare i dati recenti di scrittura del log con una maggiore granularità che riflette meglio i picchi a breve termine nella frequenza di log, utilizzare la visualizzazione [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) . 
 
-Se si decide di creare il database secondario con dimensioni di calcolo inferiori, il grafico della percentuale IO del log nel portale di Azure costituisce un buon metodo per stimare le dimensioni di calcolo minime del database secondario necessarie per sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  La limitazione delle richieste viene segnalata come stato di attesa HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO nelle viste del database [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
+La limitazione della frequenza del log delle transazioni nel database primario a causa di dimensioni di calcolo inferiori in un database secondario viene segnalata utilizzando il tipo di attesa HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visibile nelle viste di database [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
+
+> [!NOTE]
+> La frequenza del log delle transazioni nel database primario può essere limitata per motivi non correlati a dimensioni di calcolo inferiori in un database secondario. Questo tipo di limitazione può verificarsi anche se il database secondario ha dimensioni di calcolo uguali o superiori a quelle del database primario. Per informazioni dettagliate, inclusi i tipi di attesa per diversi tipi di limitazione della frequenza di log, vedere [Governance della frequenza del log delle transazioni](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).
 
 Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](sql-database-purchase-models.md).
 

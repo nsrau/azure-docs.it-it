@@ -3,12 +3,12 @@ title: Azure resources - QnA Maker
 description: QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Comprendere come vengono utilizzati singolarmente consente di pianificare e selezionare il piano tariffario corretto o di sapere quando modificare il piano tariffario. Comprendere come vengono utilizzati in combinazione consente di trovare e risolvere i problemi quando si verificano.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 8a5cc0f4889e31470514015035a92d230c40ed43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd491ecbd878cb7bb05a7eaa5712c75653f2cba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284246"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804300"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Azure resources for QnA Maker
 
@@ -54,7 +54,7 @@ La tabella seguente indica alcune linee guida generali.
 
 |Aggiornamento|Motivo|
 |--|--|
-|[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) SKU di gestione di QnA Maker|Si desidera avere più set QnA o origini documenti nella Knowledge Base.|
+|[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) SKU di gestione di QnA Maker|Si desidera avere più coppie QnA o origini documento nella Knowledge Base.|
 |[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) SKU del servizio app e controllare il livello Ricerca cognitiva e [creare repliche di Ricerca cognitiva](../../../search/search-capacity-planning.md)|La Knowledge Base deve soddisfare più richieste dall'app client, ad esempio un bot di chat.|
 |[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Servizio Ricerca cognitiva di AzureAzure Cognitive Search service|Si prevede di avere molte basi di conoscenza.|
 
@@ -95,8 +95,8 @@ Ogni risorsa di Azure creata con QnA Maker ha uno scopo specifico:Each Azure res
 
 La risorsa [Ricerca cognitiva](../../../search/index.yml) viene utilizzata per:
 
-* Memorizzare i set QnA
-* Fornire la classificazione iniziale (#1 più bile) dei set QnA in fase di esecuzioneProvide the initial ranking (ranker #1) of the QnA sets at runtime
+* Memorizzare le coppie QnA
+* Fornire la classificazione iniziale (#1 più bile) delle coppie QnA in fase di esecuzioneProvide the initial ranking (ranker #1) of the QnA pairs at runtime
 
 #### <a name="index-usage"></a>Utilizzo dell'indice
 
@@ -110,7 +110,7 @@ La prima Knowledge Base creata nella risorsa QnA Maker viene utilizzata per dete
 
 ### <a name="qna-maker-resource"></a>Risorsa QnA Maker
 
-La risorsa QnA Maker fornisce l'accesso alle API di creazione e pubblicazione, nonché al secondo livello di classificazione basato su NLP (NLP) basato sul secondo livello di classificazione (#2) dei set QnA in fase di esecuzione.
+La risorsa QnA Maker fornisce l'accesso alle API di creazione e pubblicazione, nonché al secondo livello di classificazione basato su NLP (Natural Language Processing) in base al livello di classificazione (#2) delle coppie QnA in fase di esecuzione.
 
 La seconda classificazione applica filtri intelligenti che possono includere metadati e prompt di completamento.
 

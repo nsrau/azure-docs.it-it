@@ -2,13 +2,13 @@
 title: Risorse senza limite di conteggio 800
 description: Elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse.
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 735cad0bfa936c41f603e42bdb9be77a1562cc1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 8644bec1a68acebff18cf83d17acb014784dc964
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937947"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804776"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 istanze per gruppo di risorseResources not limited to 800 instances per resource group
 
@@ -26,7 +26,6 @@ Per alcuni tipi di risorse, è necessario contattare il supporto per rimuovere i
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
-* verificaTasti
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -35,6 +34,9 @@ Per alcuni tipi di risorse, è necessario contattare il supporto per rimuovere i
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 * disks
+* galleries
+* galleries/images
+* galleries/images/versions
 * images
 * snapshots
 * virtualMachines
@@ -67,6 +69,11 @@ Per alcuni tipi di risorse, è necessario contattare il supporto per rimuovere i
 * gruppi di server
 * servers
 * serverv2 (serverv2)
+* singleServer
+
+## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
+
+* pianificazioni - Per impostazione predefinita, limitate a 800 istanze. Tale limite può essere aumentato contattando il supporto tecnico.
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
@@ -90,7 +97,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto per rimuovere i
 * softwareUpdateProfile (profilato)
 * softwareAggiornamenti
 
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## <a name="microsoftinsights"></a>microsoft.insights
 
 * metricalerts
 

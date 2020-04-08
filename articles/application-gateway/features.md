@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 550d9f4f5396b2165260e39cd28222b083dd6756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279988"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810237"
 ---
 # <a name="azure-application-gateway-features"></a>Funzionalità del gateway applicazione di AzureAzure Application Gateway features
 
@@ -26,14 +26,14 @@ Il gateway applicazione include le funzionalità seguenti:Application Gateway in
 - [Scalabilità automatica](#autoscaling)
 - [Ridondanza di zona](#zone-redundancy)
 - [VIP statico](#static-vip)
-- [Firewall applicazione Web](#web-application-firewall)
+- [Web application firewall](#web-application-firewall)
 - [Controller di ingresso per il servizio Azure Kubernetes](#ingress-controller-for-aks)
 - [Routing basato su URL](#url-based-routing)
 - [Hosting di più siti](#multiple-site-hosting)
 - [Reindirizzamento](#redirection)
 - [Affinità di sessione](#session-affinity)
 - [Traffico Websocket e HTTP/2](#websocket-and-http2-traffic)
-- [Drenaggio della connessione](#connection-draining)
+- [Esaurimento delle connessioni](#connection-draining)
 - [Pagine di errore personalizzate](#custom-error-pages)
 - [Riscrivere le intestazioni HTTP](#rewrite-http-headers)
 - [Ridimensionamento](#sizing)
@@ -160,6 +160,10 @@ La tabella seguente illustra una velocità effettiva media delle prestazioni per
 
 > [!NOTE]
 > Questi valori sono indicazioni approssimative della velocità effettiva di un gateway applicazione. La velocità effettiva dipende da vari dettagli ambientali come le dimensioni medie delle pagine, la posizione delle istanze back-end e il tempo di elaborazione per gestire una pagina. Per dati esatti sulle prestazioni, è consigliabile eseguire propri test. Questi valori vengono forniti solo come indicazioni per la pianificazione della capacità.
+
+## <a name="version-feature-comparison"></a>Confronto delle funzionalità di versione
+
+Per un confronto tra funzionalità del gateway applicazione v1-v2, vedere Scalabilità automatica e gateway applicazione con ridondanza di zona v2For an Application Gateway v1-v2 feature comparison, see [Autoscaling and zona-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

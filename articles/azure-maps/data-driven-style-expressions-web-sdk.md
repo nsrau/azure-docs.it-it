@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 3f15033095b02dd35c2d8d7bda60ca184df64c9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6009a655adcc26ebef31588eff2332a05f3a001
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475020"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804725"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (Web SDK)
 
@@ -85,11 +85,11 @@ Le espressioni di dati consentono di accedere ai dati delle proprietà in una fu
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Recupera un elemento da una matrice. |
 | `['geometry-type']` | string | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| `['get', string]` | value | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta non è presente. |
-| `['get', string, object]` | value | Ottiene il valore della proprietà dalle proprietà dell'oggetto fornito. Restituisce null se la proprietà richiesta non è presente. |
+| `['get', string]` | Valore | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta non è presente. |
+| `['get', string, object]` | Valore | Ottiene il valore della proprietà dalle proprietà dell'oggetto fornito. Restituisce null se la proprietà richiesta non è presente. |
 | `['has', string]` | boolean | Determina se le proprietà di una funzionalità hanno la proprietà specificata. |
 | `['has', string, object]` | boolean | Determina se le proprietà dell'oggetto hanno la proprietà specificata. |
-| `['id']` | value | Ottiene l'ID della funzionalità, se presente. |
+| `['id']` | Valore | Ottiene l'ID della funzionalità, se presente. |
 | `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
 | `['in', boolean | string | number, array]` | boolean | Determina se un elemento esiste in una matrice |
 | `['in', substring, string]` | boolean | Determina se in una stringa è presente una sottostringa |
@@ -837,7 +837,7 @@ Un'espressione `zoom` viene utilizzata per recuperare il livello di zoom `['zoom
 
 **Esempio**
 
-Per impostazione predefinita, i raggi dei punti dati sottoposti a rendering nel layer della mappa termica hanno un raggio pixel fisso per tutti i livelli di zoom. Quando la mappa viene ingrandita, i dati vengono aggregati insieme e il layer della mappa termica ha un aspetto diverso. Un'espressione `zoom` può essere utilizzata per scalare il raggio per ogni livello di zoom in modo che ogni punto dati copra la stessa area fisica della mappa. Renderà il layer della mappa termica più statico e coerente. Ogni livello di zoom della mappa ha il doppio dei pixel verticalmente e orizzontalmente rispetto al livello di zoom precedente. Scalare il raggio, in modo che raddoppi con ogni livello di zoom, creerà una mappa termica che sembra coerente su tutti i livelli di zoom. Può essere eseguita `zoom` utilizzando l'espressione con un'espressione, `base 2 exponential interpolation` come illustrato di seguito. 
+Per impostazione predefinita, i raggi dei punti dati sottoposti a rendering nel layer della mappa termica hanno un raggio pixel fisso per tutti i livelli di zoom. Quando la mappa viene ingrandita, i dati vengono aggregati insieme e il layer della mappa termica ha un aspetto diverso. Un'espressione `zoom` può essere utilizzata per scalare il raggio per ogni livello di zoom in modo che ogni punto dati copra la stessa area fisica della mappa. Renderà il layer della mappa termica più statico e coerente. Ogni livello di zoom della mappa ha il doppio dei pixel verticalmente e orizzontalmente rispetto al livello di zoom precedente. Scalare il raggio, in modo che raddoppi con ogni livello di zoom, creerà una mappa termica che sembra coerente su tutti i livelli di zoom. Può essere eseguita `zoom` usando l'espressione con un'espressione, `base 2 exponential interpolation` con il raggio dei pixel impostato per il `2 * Math.pow(2, minZoom - maxZoom)` livello di zoom minimo e un raggio in scala per il livello di zoom massimo calcolato come illustrato di seguito.
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -849,8 +849,8 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
         //For zoom level 1 set the radius to 2 pixels.
         10, 2,
 
-        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 10,000 pixels.
-        19, 10000
+        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * Math.pow(2, 19 - 1) pixels (524,288 pixels).
+        19, 2 * Math.pow(2, 19 - 1)
     ]
 };
 ```

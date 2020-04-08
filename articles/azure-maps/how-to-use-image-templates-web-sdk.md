@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: f3b1141ea3c3c8e33b8a2ae12c22b6962a90d32b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee8e8ee4ca64de0390b6fa34e36fb4d06348a8ac
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198225"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804810"
 ---
 # <a name="how-to-use-image-templates"></a>Come usare i modelli di immagine
 
@@ -58,7 +58,7 @@ L'esempio seguente esegue il `marker-flat` rendering di un livello simbolo usand
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Livello di simbolo con modello di icona incorporato" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Livello di simbolo con modello di icona incorporato" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Vedere il livello Simbolo penna <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>con il modello</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>di icona incorporato di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -70,7 +70,7 @@ L'esempio seguente esegue il rendering di una linea `car` rosa sulla mappa e usa
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Livello linea con modello di icona incorporato" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Livello linea con modello di icona incorporato" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Vedere il livello Linea penna <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>con modello</a> di<a href='https://codepen.io/azuremaps'>@azuremaps</a>icona incorporato di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -85,7 +85,7 @@ L'esempio seguente esegue il `dot` rendering di un livello poligono usando il mo
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Riempi poligono con modello di icona incorporato" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Riempi poligono con modello di icona incorporato" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Vedere il <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>poligono Di riempimento</a> penna con<a href='https://codepen.io/azuremaps'>@azuremaps</a>icon incorporato di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -100,7 +100,7 @@ Nell'esempio seguente `marker-arrow` viene utilizzato il modello con un colore p
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Marcatore HTML con modello di icona incorporato" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Marcatore HTML con modello di icona incorporato" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML</a> della penna con il<a href='https://codepen.io/azuremaps'>@azuremaps</a>modello di icona incorporato di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -127,7 +127,7 @@ L'esempio seguente mostra come accettare un modello SVG e aggiungerlo a Azure Ma
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Aggiungere un modello di icona personalizzato allo spazio dei nomi atlasAdd custom icon template to atlas namespace" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Aggiungere un modello di icona personalizzato allo spazio dei nomi atlasAdd custom icon template to atlas namespace" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Vedere il modello di icona personalizzata Pen Add<a href='https://codepen.io/azuremaps'>@azuremaps</a>to <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>atlas</a> di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

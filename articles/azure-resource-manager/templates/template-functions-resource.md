@@ -2,13 +2,13 @@
 title: Funzioni modello - risorse
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 23c0463649e748b35917c959a73536147e91f60b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.date: 04/06/2020
+ms.openlocfilehash: 90cee78c29c26c88d808cdef798e74a2184a5fcf
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745001"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804759"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funzioni delle risorse per i modelli ARM
 
@@ -496,7 +496,9 @@ Usare `'Full'` se sono necessari valori della risorsa che non fanno parte dello 
 
 ### <a name="valid-uses"></a>Usi validi
 
-La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione. Se utilizzata con l'iterazione delle `input` [proprietà](copy-properties.md), è possibile utilizzare la funzione di riferimento perché l'espressione viene assegnata alla proprietà della risorsa. Non è possibile utilizzarlo perché `count` il conteggio deve essere determinato prima che la funzione di riferimento venga risolta.
+La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione. Se utilizzata con l'iterazione delle `input` [proprietà](copy-properties.md), è possibile utilizzare la funzione di riferimento perché l'espressione viene assegnata alla proprietà della risorsa.
+
+Non è possibile utilizzare la funzione reference `count` per impostare il valore della proprietà in un ciclo di copia. È possibile utilizzare per impostare altre proprietà nel ciclo. Il riferimento è bloccato per la proprietà count perché tale proprietà deve essere determinata prima che la funzione di riferimento venga risolta.
 
 Non è possibile usare la funzione di riferimento negli output di un [modello annidato](linked-templates.md#nested-template) per restituire una risorsa distribuita nel modello annidato. Utilizzare invece un [modello collegato.](linked-templates.md#linked-template)
 

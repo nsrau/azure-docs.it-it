@@ -1,15 +1,16 @@
 ---
-title: Creare in modo dinamico un volume di file per pod multipli nel servizio Azure Kubernetes
+title: Creare dinamicamente la condivisione file di AzureDynamically create Azure Files share
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come creare in modo dinamico un volume persistente con i File di Azure per l'uso con pod multipli contemporaneamente nel servizio Azure Kubernetes
 services: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.openlocfilehash: 3628a9243d849cdb2f3143209dc239be5ac846b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59b773cd4608187fedb24358eac57715e1c271ea
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297786"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803535"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con File di Azure nel servizio Azure Kubernetes
 

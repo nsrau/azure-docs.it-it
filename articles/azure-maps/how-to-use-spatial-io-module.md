@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5bcfeebc1fcb96cfdf6ea802293eb4027f339815
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335201"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804640"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Come usare il modulo i/O spaziale di Azure MapsHow to use the Azure Maps Spatial IO module
 
@@ -26,6 +26,13 @@ Il Web SDK di Azure Maps fornisce il **modulo I/O spaziale**, che integra i dati
 - Sfruttare le classi di lettura e scrittura di [file XML e delimitate ad alta velocità.](spatial-io-core-operations.md)
 
 In questa guida verrà illustrato come integrare e utilizzare il modulo I/O spaziale in un'applicazione Web.In this guide, we'll learn how to integrate and use the Spatial IO module in a web application.
+
+Questo video offre una panoramica del modulo I/O spaziale in Azure Maps Web SDK.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integra facilmente i dati spaziali in Azure Maps - Video di Microsoft Channel 9"></iframe>
+
 
 > [!WARNING]
 > Utilizzare solo dati e servizi provenienti da un'origine attendibile, soprattutto se si fa riferimento ad esso da un altro dominio. Il modulo I/O spaziale adotta misure per ridurre al minimo i rischi, tuttavia l'approccio più sicuro è troppo non consentire l'inizio di dati in danagerous nell'applicazione. 

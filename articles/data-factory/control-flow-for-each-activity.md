@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: b8f95f22553a3b4639b1aba6576ce844116ae20b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71528385563b29ce70edf396434be0174beac105
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679885"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804844"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Attività ForEach in Azure Data Factory
 L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.
@@ -73,7 +73,7 @@ Proprietà | Descrizione | Valori consentiti | Obbligatoria
 name | Nome dell'attività ForEach. | string | Sì
 type | Deve essere impostato su **ForEach** | string | Sì
 isSequential | Specifica se il ciclo deve essere eseguito in sequenza o in parallelo.  È possibile eseguire un numero massimo di 20 iterazioni del ciclo simultanee in parallelo. Se si dispone ad esempio di un'iterazione di attività ForEach su un'attività di copia con 10 set di dati di origine e sink diversi con **isSequential** impostato su False, tutte le copie vengono eseguite simultaneamente. Il valore predefinito è False. <br/><br/> Se "isSequential" è impostato su False, assicurarsi che sia presente una configurazione corretta per usare più eseguibili. In caso contrario, questa proprietà deve essere usata con attenzione per evitare di incorrere in conflitti di scrittura. Per altre informazioni, vedere la sezione [Esecuzione parallela](#parallel-execution). | Boolean | No. Il valore predefinito è False.
-batchCount | Numero di batch da usare per controllare il numero di esecuzione parallela (quando isSequential è impostato su Falso). | Valore intero (massimo 50) | No. Il valore predefinito è 20.
+batchCount | Numero di batch da usare per controllare il numero di esecuzione parallela (quando isSequential è impostato su Falso). Questo è il limite di concorrenza superiore, ma l'attività for-each non verrà sempre eseguita a questo numero | Valore intero (massimo 50) | No. Il valore predefinito è 20.
 Items | Un'espressione che restituisce una matrice JSON su cui eseguire un'iterazione. | Espressione (che restituisce una matrice JSON) | Sì
 attività | Le attività da eseguire. | Elenco di attività | Sì
 

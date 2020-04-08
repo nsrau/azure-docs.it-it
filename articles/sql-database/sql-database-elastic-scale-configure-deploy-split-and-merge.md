@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 50dbca0b3a761b72134eaa6cfed57e231be4ef13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421037"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810198"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuire un servizio di divisione e unione per spostare i dati tra database partizionati
 
@@ -38,7 +38,7 @@ I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabas
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Creare un database SQL di Azure che verrà usato come database per lo stato di divisione e unione. Passare al [portale di Azure](https://portal.azure.com). Creazione personalizzata di un nuovo **database SQL**. Assegnare un nome al database e creare un nuovo amministratore e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
+1. Creare un database SQL di Azure che verrà usato come database per lo stato di divisione e unione. Accedere al [portale di Azure](https://portal.azure.com). Creazione personalizzata di un nuovo **database SQL**. Assegnare un nome al database e creare un nuovo amministratore e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
 
 1. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Nel portale accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **attiva**. Fare clic sull'icona "Salva".
 
@@ -107,7 +107,7 @@ Eseguire il seguente comando dalla stessa finestra in cui è stato eseguito make
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Caricare il file PFX nel servizio cloud
 
-1. Passare al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Servizi cloud**.
 3. Selezionare il servizio cloud creato precedentemente per il servizio di divisione e unione.
 4. Scegliere **Certificati** dal menu in alto.
@@ -140,7 +140,7 @@ Si noti che per distribuzioni destinate alla produzione è necessario usare cert
 
 ## <a name="deploy-your-service"></a>Distribuire il servizio
 
-1. Accedere al [portale di Azure](https://portal.azure.com)
+1. Passare al portale di [AzureGo](https://portal.azure.com) to the Azure portal
 2. Selezionare il servizio cloud creato in precedenza.
 3. Fare clic su **Overview**.
 4. Scegliere l'ambiente di gestione temporanea, quindi fare clic su **Carica**.
@@ -150,7 +150,7 @@ Si noti che per distribuzioni destinate alla produzione è necessario usare cert
 
 ## <a name="troubleshoot-the-deployment"></a>Risolvere i problemi relativi alla distribuzione
 
-Se la messa in linea del proprio ruolo Web non riesce, è probabile che si tratti di un problema relativo alla configurazione della sicurezza. Verificare che SSL sia configurato come descritto sopra.
+Se la messa in linea del proprio ruolo Web non riesce, è probabile che si tratti di un problema relativo alla configurazione della sicurezza. Verificare che TLS/SSL sia configurato come descritto in precedenza.
 
 Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del ruolo Web, è probabile che si tratti di un problema con la connessione al database per lo stato creato in precedenza.
 
@@ -254,7 +254,7 @@ I file di script inclusi sono i seguenti:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Eseguire lo script *ExecuteSampleSplitMerge.ps1* per eseguire un'operazione di divisione (spostando metà dei dati nella prima partizione alla seconda partizione) e quindi un'operazione di unione (spostando i dati nella prima partizione). Se si è configurato SSL e si è lasciato l'endpoint http disabilitato, assicurarsi di usare l'endpoint https://.
+5. Eseguire lo script *ExecuteSampleSplitMerge.ps1* per eseguire un'operazione di divisione (spostando metà dei dati nella prima partizione alla seconda partizione) e quindi un'operazione di unione (spostando i dati nella prima partizione). Se TLS è stato configurato e l'endpoint http è stato lasciato disabilitato, assicurarsi di usare invece l'endpoint https://.
 
    Riga di comando di esempio:
 
@@ -333,7 +333,7 @@ Quando si eseguono gli script di PowerShell di esempio, è possibile che venga v
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-Questo errore indica che il certificato SSL non è configurato correttamente. Seguire le istruzioni nella sezione "Connessione a un Web browser".
+Questo errore indica che il certificato TLS/SSL non è configurato correttamente. Seguire le istruzioni nella sezione "Connessione a un Web browser".
 
 Se non è possibile inviare richieste, potrebbe essere visualizzato il seguente messaggio:
 

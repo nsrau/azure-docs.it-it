@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 857b2b00aadced567bc8ac191cdd9908f7bea7a3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687399"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804402"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Come controllare il traffico in ingresso a un ambiente del servizio app
 ## <a name="overview"></a>Panoramica
@@ -31,10 +31,10 @@ Prima di bloccare il traffico di rete in ingresso tramite un gruppo di sicurezza
 
 Di seguito è riportato un elenco delle porte usate da un ambiente del servizio app. Tutte le porte sono di tipo **TCP**, se non indicato diversamente in modo chiaro:
 
-* 454: **Porta necessaria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite SSL.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
-* 455: **porta necessaria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite SSL.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+* 454: **Porta necessaria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+* 455: **porta necessaria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
 * 80: porta predefinita per il traffico HTTP in ingresso alle app in esecuzione nei piani di servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
-* 443: porta predefinita per il traffico SSL in ingresso alle app in esecuzione nei piani del servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
+* 443: porta predefinita per il traffico TLS in ingresso alle app in esecuzione nei piani di servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
 * 21: canale di controllo per il servizio FTP.  Questa porta può essere bloccata, se non si usa un servizio FTP.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB per un ambiente.
 * 990: canale di controllo per il servizio FTPS.  Questa porta può essere bloccata, se non si usa un servizio FTPS.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB per un ambiente.
 * 10001-10020: canali di dati per il servizio FTP.  Come per il canale di controllo, queste porte possono essere bloccate se non si usa il servizio FTP.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta può essere associata all'indirizzo ILB dell'ambiente.
@@ -62,7 +62,7 @@ Di seguito è illustrata la procedura di creazione di un gruppo di sicurezza di 
 
 Dopo aver creato il gruppo di sicurezza di rete, vengono aggiunte una o più regole di sicurezza di rete.  Poiché il set di regole può variare nel tempo, è consigliabile lasciare spazi vuoti nello schema di numerazione usato per le priorità delle regole al fine di agevolare l'inserimento di regole aggiuntive in futuro.
 
-L'esempio seguente illustra una regola che concede l'accesso in modo esplicito alle porte necessarie per la gestione e la manutenzione dell'ambiente del servizio app da parte dell'infrastruttura di Azure.  Si noti che tutto il traffico di gestione transita attraverso il protocollo SSL ed è protetto tramite certificati client, quindi anche se le porte sono aperte risultano inaccessibili a entità diverse dall'infrastruttura di gestione di Azure.
+L'esempio seguente illustra una regola che concede l'accesso in modo esplicito alle porte necessarie per la gestione e la manutenzione dell'ambiente del servizio app da parte dell'infrastruttura di Azure.  Si noti che tutto il traffico di gestione scorre su TLS ed è protetto da certificati client, pertanto, anche se le porte vengono aperte, sono inaccessibili da qualsiasi entità diversa dall'infrastruttura di gestione di Azure.Note that all management traffic flows over TLS and is secured by client certificates, so even though the ports are opened they are inaccessible by any entity other than Azure management infrastructure.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 

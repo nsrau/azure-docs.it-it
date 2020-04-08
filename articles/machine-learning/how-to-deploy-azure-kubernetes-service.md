@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: 792964f28ddb3fcb10932b8de9499a9c7027960f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: aec1b7f7bf60be34d21d52ca652a776cf3275fe8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475390"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811761"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster di servizi Azure KubernetesDeploy a model to an Azure Kubernetes Service cluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -135,7 +135,7 @@ Se si `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`imposta , non è nec
 
 Per altre informazioni sulla creazione di un cluster AKS usando l'interfaccia della riga di comando o il portale di Azure, vedere gli articoli seguenti:For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
-* [Creare un cluster AKS (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Creare un cluster del servizio Azure Kubernetes (interfaccia della riga di comando)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Creare un cluster AKS (portale)Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 Negli esempi seguenti viene illustrato come collegare un cluster AKS esistente all'area di lavoro:The following examples demonstrate how to attach an existing AKS cluster to your workspace:
@@ -233,10 +233,28 @@ Per informazioni sull'utilizzo del codice VS, vedere [distribuire in AKS tramite
 > La distribuzione tramite codice VS richiede in anticipo che il cluster AKS venga creato o collegato all'area di lavoro.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuire modelli in AKS usando l'implementazione controllata (anteprima)Deploy models to AKS using controlled rollout (preview)
-Analizzare e promuovere le versioni dei modelli in modo controllato utilizzando gli endpoint. Distribuire fino a 6 versioni dietro un singolo endpoint e configurare la percentuale di traffico di assegnazione dei punteggi a ogni versione distribuita. È possibile abilitare le informazioni dettagliate sulle app per visualizzare le metriche operative degli endpoint e delle versioni distribuite.
+
+Analizzare e promuovere le versioni dei modelli in modo controllato utilizzando gli endpoint. È possibile distribuire fino a sei versioni dietro un singolo endpoint. Gli endpoint forniscono le funzionalità seguenti:Endpoints provide the following capabilities:
+
+* Configurare la __percentuale di traffico di assegnazione del punteggio inviato a ogni endpoint.__ Ad esempio, instradare il 20% del traffico all'endpoint "test" e l'80% alla "produzione".
+
+    > [!NOTE]
+    > Se non si tiene conto del 100% del traffico, la percentuale rimanente viene instradata alla versione __predefinita__ dell'endpoint. Ad esempio, se si configura la versione dell'endpoint 'test' per ottenere il 10% del traffico e 'prod' per il 30%, il restante 60% viene inviato alla versione dell'endpoint predefinita.
+    >
+    > La prima versione dell'endpoint creata viene configurata automaticamente come predefinita. È possibile modificare `is_default=True` questa impostazione durante la creazione o l'aggiornamento di una versione dell'endpoint.
+     
+* Contrassegnare una versione dell'endpoint come __controllo__ o __trattamento__. Ad esempio, la versione dell'endpoint di produzione corrente potrebbe essere il controllo, mentre i nuovi potenziali modelli vengono distribuiti come versioni di trattamento. Dopo aver valutato le prestazioni delle versioni di trattamento, se uno supera il controllo corrente, potrebbe essere promosso alla nuova produzione / controllo.
+
+    > [!NOTE]
+    > È possibile avere __un__ solo controllo. Può avere più trattamenti.
+
+È possibile abilitare le informazioni dettagliate sulle app per visualizzare le metriche operative degli endpoint e delle versioni distribuite.
 
 ### <a name="create-an-endpoint"></a>Creare un endpoint
-Quando si è pronti per distribuire i modelli, creare un endpoint di assegnazione del punteggio e distribuire la prima versione. Nel passaggio seguente viene illustrato come distribuire e creare l'endpoint utilizzando l'SDK. La prima distribuzione verrà definita come la versione predefinita, il che significa che il percentile del traffico non specificato in tutte le versioni passerà alla versione predefinita.  
+Quando si è pronti per distribuire i modelli, creare un endpoint di assegnazione del punteggio e distribuire la prima versione. Nell'esempio seguente viene illustrato come distribuire e creare l'endpoint utilizzando l'SDK. La prima distribuzione verrà definita come la versione predefinita, il che significa che il percentile del traffico non specificato in tutte le versioni passerà alla versione predefinita.  
+
+> [!TIP]
+> Nell'esempio seguente, la configurazione imposta la versione iniziale dell'endpoint per gestire il 20% del traffico. Poiché questo è il primo endpoint, è anche la versione predefinita. E dal momento che non abbiamo altre versioni per l'altro 80% del traffico, è instradato al default pure. Fino a quando non vengono distribuite altre versioni che accettano una percentuale di traffico, questa riceve in modo efficace il 100% del traffico.
 
 ```python
 import azureml.core,
@@ -247,8 +265,8 @@ from azureml.core.compute import ComputeTarget
 compute = ComputeTarget(ws, 'myaks')
 namespace_name= endpointnamespace
 # define the endpoint and version name
-endpoint_name = "mynewendpoint",
-version_name= "versiona",
+endpoint_name = "mynewendpoint"
+version_name= "versiona"
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
                                                               enable_app_insights = True,
@@ -258,11 +276,16 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
                                                               traffic_percentile = 20)
  # deploy the model and endpoint
  endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ # Wait for he process to complete
+ endpoint.wait_for_deployment(True)
  ```
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>Aggiornare e aggiungere versioni a un endpointUpdate and add versions to an endpoint
 
-Aggiungere un'altra versione all'endpoint e configurare il percentile del traffico di punteggio per la versione. Ci sono due tipi di versioni, un controllo e una versione di trattamento. Ci può essere più versione di trattamento per aiutare a confrontare con una singola versione di controllo.
+Aggiungere un'altra versione all'endpoint e configurare il percentile del traffico di punteggio per la versione. Ci sono due tipi di versioni, un controllo e una versione di trattamento. Ci possono essere più versioni di trattamento per aiutare a confrontare con una singola versione di controllo.
+
+> [!TIP]
+> La seconda versione, creata dal frammento di codice seguente, accetta il 10% del traffico. La prima versione è configurata per il 20%, quindi solo il 30% del traffico è configurato per versioni specifiche. Il restante 70% viene inviato alla prima versione dell'endpoint, perché è anche la versione predefinita.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -275,9 +298,13 @@ endpoint.create_version(version_name = version_name_add,
                         tags = {'modelVersion':'b'},
                         description = "my second version",
                         traffic_percentile = 10)
+endpoint.wait_for_deployment(True)
 ```
 
-Aggiornare le versioni esistenti o eliminarle in un endpoint. È possibile modificare il tipo predefinito della versione, il tipo di controllo e il percentile del traffico.
+Aggiornare le versioni esistenti o eliminarle in un endpoint. È possibile modificare il tipo predefinito della versione, il tipo di controllo e il percentile del traffico. Nell'esempio seguente, la seconda versione aumenta il traffico al 40% ed è ora l'impostazione predefinita.
+
+> [!TIP]
+> Dopo il frammento di codice seguente, la seconda versione è ora predefinita. Ora è configurato per il 40%, mentre la versione originale è ancora configurata per il 20%. Ciò significa che il 40% del traffico non è rappresentato dalle configurazioni di versione. Il traffico rimanente verrà instradato alla seconda versione, perché ora è predefinito. Riceve effettivamente l'80% del traffico.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -288,7 +315,8 @@ endpoint.update_version(version_name=endpoint.versions["versionb"].name,
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
-
+# Wait for the process to complete before deleting
+endpoint.wait_for_deployment(true)
 # delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 

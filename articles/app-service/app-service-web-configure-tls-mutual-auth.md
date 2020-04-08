@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78301005"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811739"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurare l'autenticazione reciproca TLS per il servizio app di AzureConfigure TLS mutual authentication for Azure App Service
 
@@ -41,7 +41,7 @@ I percorsi di esclusione possono essere configurati selezionando**Impostazioni g
 
 ## <a name="access-client-certificate"></a>Accedere al certificato client
 
-In App Service, la chiusura SSL della richiesta viene eseguita nel servizio di bilanciamento del carico front-end. Quando si inoltra la richiesta al codice dell'app `X-ARR-ClientCert` con i certificati client [abilitati,](#enable-client-certificates)il servizio app inserisce un'intestazione di richiesta con il certificato client. Il servizio app non esegue alcuna operazione con questo certificato client se non l'inoltro all'app. Il codice dell'app è responsabile della convalida del certificato client.
+Nel servizio app, la chiusura TLS della richiesta viene eseguita nel servizio di bilanciamento del carico front-end. Quando si inoltra la richiesta al codice dell'app `X-ARR-ClientCert` con i certificati client [abilitati,](#enable-client-certificates)il servizio app inserisce un'intestazione di richiesta con il certificato client. Il servizio app non esegue alcuna operazione con questo certificato client se non l'inoltro all'app. Il codice dell'app è responsabile della convalida del certificato client.
 
 Ad ASP.NET, il certificato client è disponibile tramite la proprietà **HttpRequest.ClientCertificate.For** example, the client certificate is available through the HttpRequest.ClientCertificate property.
 

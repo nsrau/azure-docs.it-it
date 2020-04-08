@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0de94cdce1d7f0e9da9d2844b300956ad6f6970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330847"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803161"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
 
@@ -54,7 +54,7 @@ Per abilitare KMSI, `DataUri` impostare l'elemento di definizione del contenuto 
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Aggiungere i metadati al profilo tecnico auto-asserito
 
-Per aggiungere la casella di controllo KMSI alla pagina `setting.enableRememberMe` di iscrizione e accesso, impostare i metadati su false. Eseguire l'override dei profili tecnici SelfAsserted-LocalAccountSignin-Email nel file di estensione.
+Per aggiungere la casella di controllo KMSI alla pagina `setting.enableRememberMe` di iscrizione e accesso, imposta i metadati su true. Eseguire l'override dei profili tecnici SelfAsserted-LocalAccountSignin-Email nel file di estensione.
 
 1. Trovare l'elemento ClaimsProviders. Se l'elemento non esiste, aggiungerlo.
 1. Aggiungere il provider di attestazioni seguente all'elemento ClaimsProviders:
