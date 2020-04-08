@@ -174,7 +174,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
-3. Scorrere fino alla sezione **Import metadata file into Tableau Online** (Importa file di metadati in Tableau Online).  Fare clic su Browse (Sfoglia) e importare il file di metadati scaricato da Azure AD. Fare quindi clic su **Apply**(Applica).
+3. Scorrere fino alla sezione **Import metadata file into Tableau Online** (Importa file di metadati in Tableau Online).  Fare clic su Browse (Sfoglia) e importare il file di metadati scaricato da Azure AD. Fare quindi clic su **Apply** (Applica).
 
    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 

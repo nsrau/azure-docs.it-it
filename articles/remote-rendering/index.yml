@@ -1,0 +1,66 @@
+### YamlMime:Landing
+title: Documentazione di Rendering remoto di Azure
+summary: Rendering remoto di Azure è un servizio che consente di eseguire il rendering di modelli 3D estremamente complessi in tempo reale su dispositivi come HoloLens 2. Il servizio è attualmente disponibile in anteprima pubblica.
+metadata:
+  title: Documentazione di Rendering remoto di Azure
+  description: Informazioni su come usare il servizio Rendering remoto di Azure per eseguire il rendering di modelli 3D estremamente complessi in remoto e in tempo reale e visualizzare il risultato su dispositivi come HoloLens 2.
+  ms.service: azure-remote-rendering
+  ms.topic: landing-page
+  author: florianborn71
+  ms.author: flborn
+  ms.date: 03/26/2020
+  ms.openlocfilehash: a257b294c105ca153a57afe90db95a1bd1b753e8
+  ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 04/06/2020
+  ms.locfileid: "80678315"
+landingContent:
+- title: Informazioni su Rendering remoto di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Rendering remoto di Azure?
+      url: overview/about.md
+    - text: Requisiti di sistema
+      url: overview/system-requirements.md
+    - text: Creare un account di Rendering remoto di Azure
+      url: how-tos/create-an-account.md
+- title: Informazioni sui concetti chiave per iniziare a usare Rendering remoto di Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Configurare l'autenticazione
+      url: how-tos/authentication.md
+    - text: Sessioni di Rendering remoto
+      url: concepts/sessions.md
+    - text: Entità
+      url: concepts/entities.md
+    - text: Componenti
+      url: concepts/components.md
+    - text: Modelli
+      url: concepts/models.md
+    - text: Convertire i modelli
+      url: how-tos/conversion/model-conversion.md
+- title: Convertire ed eseguire il rendering del primo modello
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Eseguire il rendering di un modello con Unity
+      url: quickstarts/render-model.md
+    - text: Distribuire un esempio di Unity in HoloLens
+      url: quickstarts/deploy-to-hololens.md
+    - text: Distribuire un esempio di Unity sul desktop
+      url: quickstarts/deploy-to-desktop.md
+    - text: Convertire un modello per il rendering
+      url: quickstarts/convert-model.md
+- title: Informazioni su come creare un'app personalizzata in Unity
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurazione di un progetto Unity da zero
+      url: tutorials/unity/project-setup.md
+    - text: Uso di entità remote in Unity
+      url: tutorials/unity/working-with-remote-entities.md
+    - text: Cambiare ambiente e materiali
+      url: tutorials/unity/changing-environment-and-materials.md

@@ -307,6 +307,8 @@
           href: ../connectors/connectors-create-api-yammer.md
     - name: Gestione
       items:
+        - name: Gestire app per la logica - Portale di Azure
+          href: manage-logic-apps-with-azure-portal.md
         - name: Gestire app per la logica - Visual Studio
           href: manage-logic-apps-with-visual-studio.md
         - name: Gestire gli account di integrazione

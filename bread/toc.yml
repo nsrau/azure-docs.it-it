@@ -152,6 +152,9 @@
     - name: Ancoraggi nello spazio di Azure
       tocHref: /azure/spatial-anchors/
       topicHref: /azure/spatial-anchors/
+    - name: Rendering remoto di Azure
+      tocHref: /azure/remote-rendering/
+      topicHref: /azure/remote-rendering/
     - name: Registro Container
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
@@ -705,7 +708,7 @@
     - name: Utilità di pianificazione
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Security
+    - name: Sicurezza
       tocHref: /azure/security/
       topicHref: /azure/security/
       items:

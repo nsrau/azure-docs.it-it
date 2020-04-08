@@ -21,8 +21,10 @@
   items:
     - name: Connettersi
       items:
-        - name: Connettere un dispositivo
-          href: tutorial-connect-device.md
+        - name: Connettere un dispositivo (Node.js)
+          href: tutorial-connect-device-nodejs.md
+        - name: Connettere un dispositivo (Python)
+          href: tutorial-connect-device-python.md
         - name: Connettere un dispositivo Plug and Play (anteprima)
           href: tutorial-connect-pnp-device.md
         - name: Creare un modello di dispositivo gateway

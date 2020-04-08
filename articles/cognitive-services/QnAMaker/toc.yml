@@ -87,9 +87,9 @@
           displayName: 'metadata, pair'
         - name: Test
           href: How-To/test-knowledge-base.md
-    - name: Gestire set di domande e risposte
+    - name: Gestire coppie di domande e risposte
       items:
-        - name: Modificare il set di domande e risposte
+        - name: Modificare una coppia di domande e risposte
           href: How-To/edit-knowledge-base.md
         - name: Aggiungere richieste di completamento
           href: How-To/multiturn-conversation.md

@@ -1,0 +1,12 @@
+- name: Convertire i modelli
+  href: model-conversion.md
+- name: Usare l'archiviazione BLOB di Azure per la conversione dei modelli
+  href: blob-storage.md
+- name: Usare l'API REST per la conversione di modelli
+  href: conversion-rest-api.md
+- name: Configurare la conversione di modelli
+  href: configure-model-conversion.md
+- name: Sostituire i materiali durante la conversione di modelli
+  href: override-materials.md
+- name: Ottenere informazioni su un modello convertito
+  href: get-information.md

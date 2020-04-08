@@ -91,7 +91,7 @@
   items:
     - name: Panoramica delle procedure consigliate per Service Fabric
       href: service-fabric-best-practices-overview.md
-    - name: Security
+    - name: Sicurezza
       href: service-fabric-best-practices-security.md
     - name: Rete
       href: service-fabric-best-practices-networking.md
@@ -123,7 +123,7 @@
       href: service-fabric-application-scenarios.md
     - name: Architecture
       href: service-fabric-architecture.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza di Service Fabric
           href: service-fabric-best-practices-security.md
@@ -366,7 +366,7 @@
           href: service-fabric-get-started.md
         - name: Linux
           href: service-fabric-get-started-linux.md
-        - name: Mac OS
+        - name: macOS
           href: service-fabric-get-started-mac.md
         - name: Configurare l'interfaccia della riga di comando di Service Fabric
           href: service-fabric-cli.md
@@ -675,6 +675,8 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Connessione remota a una VM del nodo cluster
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+                - name: Aggiornare i nodi del cluster per usare dischi gestiti
+                  href: upgrade-managed-disks.md
         - name: Cluster autonomi
           items:
             - name: Create

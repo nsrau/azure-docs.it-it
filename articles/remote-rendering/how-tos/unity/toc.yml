@@ -1,0 +1,8 @@
+- name: Installare il pacchetto Rendering remoto per Unity
+  href: install-remote-rendering-unity-package.md
+- name: Configurare Rendering remoto per Unity
+  href: unity-setup.md
+- name: Interagire con gli oggetti e i componenti di gioco Unity
+  href: objects-components.md
+- name: Usare Holographic Remoting e Rendering remoto in Unity
+  href: holographic-remoting.md

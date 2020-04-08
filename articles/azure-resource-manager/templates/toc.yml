@@ -83,7 +83,7 @@
         - name: 3 - Creare una pipeline
           displayName: Devop
           href: deployment-tutorial-pipeline.md
-    - name: Avanzate
+    - name: Modelli avanzati
       items:
         - name: Utilizzare il riferimento del modello
           href: template-tutorial-use-template-reference.md
@@ -101,23 +101,21 @@
         - name: Integrare Key Vault
           displayName: secrets
           href: template-tutorial-use-key-vault.md
-        - name: Creare modelli collegati
-          href: template-tutorial-create-linked-templates.md
         - name: Distribuire estensioni di macchina virtuale
           displayName: virtual machine extensions
           href: template-tutorial-deploy-vm-extensions.md
         - name: Distribuire estensioni SQL
           href: template-tutorial-deploy-sql-extensions-bacpac.md
-        - name: Proteggere gli artefatti
-          href: template-tutorial-secure-artifacts.md
+        - name: Risoluzione dei problemi relativi alla distribuzione di modelli
+          href: template-tutorial-troubleshoot.md
+    - name: Deployment Manager
+      items:
         - name: Usare procedure di distribuzione sicure
           displayName: adm
           href: deployment-manager-tutorial.md
         - name: Usare il controllo integrità in Deployment Manager
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-        - name: Risoluzione dei problemi relativi alla distribuzione di modelli
-          href: template-tutorial-troubleshoot.md
 - name: Esempi
   items:
     - name: Modelli di Guida introduttiva di Azure

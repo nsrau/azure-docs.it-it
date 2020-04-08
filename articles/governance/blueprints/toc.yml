@@ -225,7 +225,7 @@
     - name: Ordine sequenziale della distribuzione del progetto
       displayName: customize
       href: ./concepts/sequencing-order.md
-    - name: Blocco delle risorse In Azure Blueprint
+    - name: Blocco delle risorse in Azure Blueprints
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
 - name: Guide pratiche
@@ -247,7 +247,7 @@
 - name: Risolvere problemi
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'

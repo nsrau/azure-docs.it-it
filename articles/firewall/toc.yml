@@ -5,7 +5,6 @@
     - name: Informazioni sul firewall di Azure
       href: overview.md
 - name: Esercitazioni
-  expanded: true
   items:
     - name: Distribuire e configurare
       href: tutorial-firewall-deploy-portal.md
@@ -15,6 +14,12 @@
       href: tutorial-firewall-dnat.md
     - name: Monitorare i log di diagnostica
       href: tutorial-diagnostics.md
+- name: Avvi rapidi
+  expanded: true
+  items:
+    - name: Eseguire la distribuzione con gruppi IP
+      displayName: Resource Manager
+      href: quick-create-ipgroup-template.md
 - name: Esempi
   items:
     - name: Azure PowerShell

@@ -530,7 +530,7 @@
           href: optimize-dev-test.md
         - name: Ottimizzare il costo con la capacità riservata
           href: cosmos-db-reserved-capacity.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Panoramica della sicurezza
           href: database-security.md
@@ -597,6 +597,8 @@
           items:
             - name: Scalabilità elastica
               href: manage-scale-cassandra.md
+            - name: Indici secondari
+              href: cassandra-secondary-index.md
         - name: Guide pratiche
           items:
             - name: Feed delle modifiche
@@ -999,7 +1001,7 @@
           href: how-to-write-javascript-query-api.md
         - name: 'Usare stored procedure, trigger e funzioni definite dall''utente'
           href: how-to-use-stored-procedures-triggers-udfs.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Configurare il firewall IP
           href: how-to-configure-firewall.md
@@ -1012,12 +1014,12 @@
           href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Configurare la condivisione di risorse tra le origini (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Proteggere le chiavi con un'identità gestita
+        - name: Usare identità gestite per accedere ai dati
           href: managed-identity-based-authentication.md
           displayName: 'msi, managed service identity, aad, azure active directory, identity'
-        - name: Autenticazione basata su certificato con Azure AD
+        - name: Usare certificati per accedere ai dati
           href: certificate-based-authentication.md
-        - name: Proteggere le chiavi con Key Vault
+        - name: Usare Azure Key Vault per accedere ai dati
           href: access-secrets-from-keyvault.md
         - name: Limitare l'accesso utente solo alle operazioni sui dati
           href: how-to-restrict-user-data.md

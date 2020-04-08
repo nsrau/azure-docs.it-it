@@ -1,35 +1,43 @@
 ---
-title: Creare una risorsa LUISCreate LUIS resource
+title: Creare una risorsa LUIS
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 04/06/2020
 ms.author: dapine
-ms.openlocfilehash: a765ac27936da9da5a2f41464c17491e3561f44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88289686e5b091ef3ec309ee9b54ee0f895c8c22
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73465909"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754355"
 ---
-## <a name="create-a-luis-resource"></a>Creare una risorsa LUISCreate a LUIS resource
+<a name="create-luis-resources"></a>
 
-1. Accedere al portale di [AzureSign](https://portal.azure.com) into the Azure portal
-1. Fare clic su [Crea **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+## <a name="create-luis-resources-in-azure-portal"></a>Creare risorse LUIS nel portale di Azure
+
+1. Seguire [questo collegamento](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) per iniziare a creare risorse LUIS nel portale di Azure.
+
 1. Immettere tutte le impostazioni richieste:
 
-    |Impostazione|valore|
+    |Nome|Scopo|
     |--|--|
-    |Nome|Il nome desiderato (2-64 caratteri)|
-    |Subscription|Selezionare la sottoscrizione appropriata|
-    |Location|Selezionare una località vicina e disponibile|
-    |Piano tariffario|`F0`: il piano tariffario minimo|
-    |Gruppo di risorse|Selezionare un gruppo di risorse disponibile|
+    |Nome sottoscrizione| La sottoscrizione a cui verrà fatturata la risorsa.|
+    |Resource group| Il nome di un gruppo di risorse personalizzato scelto o creato. I gruppi di risorse consentono di raggruppare le risorse di Azure per l'accesso e la gestione.|
+    |Nome| Un nome personalizzato scelto e usato come sottodominio personalizzato per le query sugli endpoint di creazione e previsione.|
+    |Posizione di creazione|L'area associata al modello.|
+    |Piano tariffario di creazione|Il piano tariffario determina il numero massimo di transazioni al secondo e al mese.|
+    |Posizione di runtime|L'area associata al runtime dell'endpoint di previsione pubblicato.|
+    |Piano tariffario per il runtime|Il piano tariffario determina il numero massimo di transazioni al secondo e al mese.|
 
-1. Fare clic su **Crea** e attendere che venga creata la risorsa. Una volta creata, passare alla relativa pagina.
-1. Raccogliere `endpoint` configurato e una chiave API, vedere [raccolta dei parametri necessari](#gathering-required-parameters).
+    > [!div class="mx-imgBorder"]
+    > [![Creare la risorsa LUIS](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
-[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+1. Fare clic su **Rivedi e crea** e attendere che venga creata la risorsa.
+1. Dopo aver creato entrambe le risorse, ancora nella portale di Azure selezionare la nuova risorsa di creazione, quindi **Avvio rapido** per ottenere l'**URL** e la **chiave** dell'endpoint di creazione per la creazione a livello di codice.
+
+> [!TIP]
+> Per usare le risorse, [assegnarle](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps) nel portale LUIS.
