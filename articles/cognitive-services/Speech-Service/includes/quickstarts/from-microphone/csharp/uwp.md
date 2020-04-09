@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 93a5a29c225912a48cf99ba6126690c298dfef9d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9a3f478604547819162ad13d39a9383263321857
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924947"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671780"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -22,7 +22,7 @@ Prima di iniziare:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 > * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
 
 Se queste operazioni sono già state eseguite, procedere come segue.
@@ -93,4 +93,4 @@ A questo punto è possibile compilare e testare l'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [footer](../footer.md)]

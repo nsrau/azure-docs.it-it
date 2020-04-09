@@ -4,7 +4,6 @@ description: Informazioni su come implementare l'accesso Microsoft in un'app Web
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
@@ -12,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 505c5f0786367feefa8ed11d4fbdd7d0ca85b8ef
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2946551233500a80c6fa7f02ad4c427f2d654b40
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79529731"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883645"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso Microsoft Identity Platform a un'app Web ASP.NET
 In questa guida introduttiva si usa un esempio di codice per illustrare in che modo l'app Web ASP.NET può accedere ad account personali (hotmail.com, outlook.com e di altro tipo) e account aziendali e dell'istituto di istruzione da qualsiasi istanza di Azure Active Directory (Azure AD).  Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
@@ -99,7 +98,7 @@ In questa guida introduttiva si usa un esempio di codice per illustrare in che m
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 ## <a name="more-information"></a>Ulteriori informazioni
 

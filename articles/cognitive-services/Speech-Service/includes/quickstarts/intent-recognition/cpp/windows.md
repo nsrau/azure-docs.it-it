@@ -2,22 +2,22 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/27/2020
+ms.date: 04/04/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: bc624197930044575a46666cbb74e5fe452e96ab
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: abd69a49659ef745f81a2186ea97440cf35f20df
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925214"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671892"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">Installare Speech SDK per l'ambiente di sviluppo e creare un progetto di esempio vuoto<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Installare Speech SDK per l'ambiente di sviluppo e creare un progetto di esempio vuoto<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creare un'app LUIS per il riconoscimento delle finalità
 

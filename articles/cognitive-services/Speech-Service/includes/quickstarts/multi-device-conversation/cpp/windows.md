@@ -5,14 +5,14 @@ manager: cpoulain
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/15/2020
+ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: e2c4530dbd5fa8b65e149e7467ce0f27adc15782
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 015986ffa687142cf20ca18cff175ac6c5952a11
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924829"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671334"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -20,7 +20,7 @@ Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 

@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 0f7c48c47e400c2db53b024267fbf9d9690ea404
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a39cd7aa2c15fedeaf69408d8c8ae8c6b0848fed
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204682"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677393"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Informazioni su come viene applicato lo sconto della prenotazione di Azure agli host dedicati di Azure
 
@@ -21,7 +21,7 @@ Dopo avere acquistato un'istanza riservata di host dedicati di Azure, lo sconto 
 
 Lo sconto per la prenotazione si basa sul principio "*use-it-or-lose-it*", ossia se non si usa si perde. Quindi, se non si hanno risorse corrispondenti per un'ora, si perderà la quantità di prenotazione per quell'ora. Non è possibile riportare le ore prenotate inutilizzate.
 
-Se si elimina un host dedicato, lo sconto della prenotazione si applica automaticamente a un'altra risorsa corrispondente nell'ambito specificato. Se non sono disponibili risorse corrispondenti nell'ambito specificato, le ore prenotate vanno  *perse*.
+Se si elimina un host dedicato, lo sconto della prenotazione si applica automaticamente a un'altra risorsa corrispondente nell'ambito specificato. Se non si trovano risorse corrispondenti nell'ambito specificato, le ore prenotate vanno *perse*.
 
 ## <a name="reservation-discount-for-dedicated-hosts"></a>Sconto della prenotazione per gli host dedicati
 

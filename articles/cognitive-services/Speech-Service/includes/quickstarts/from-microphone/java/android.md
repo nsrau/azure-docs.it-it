@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 6348d09351cf627624340083e2c419def38dfc01
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c37a52ea2a7d5f1d3e325c2f6d17bc075f50c5e0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77446150"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671245"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -23,7 +23,7 @@ Prima di iniziare:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=android)
+> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
 
 ## <a name="create-a-user-interface"></a>Creare un'interfaccia utente

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 878960738830dbe2f94b977e98215a681c4a79d2
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222948"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802553"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
@@ -85,7 +85,7 @@ Per una panoramica dei passaggi necessari per il proprio scenario, vedere la tab
 | Configurare il punto di connessione del servizio | ![Controllo][1] | ![Controllo][1] | ![Controllo][1] |
 | Configurare il rilascio delle attestazioni |     | ![Controllo][1] | ![Controllo][1] |
 | Abilitare dispositivi non Windows 10 |       |        | ![Controllo][1] |
-| Verificare i dispositivi aggiunti | ![Controllo][1] | ![Controllo][1] | [Controllo][1] |
+| Verificare i dispositivi aggiunti | ![Controllo][1] | ![Controllo][1] | ![Controllo][1] |
 
 ## <a name="configure-a-service-connection-point"></a>Configurare un punto di connessione del servizio
 

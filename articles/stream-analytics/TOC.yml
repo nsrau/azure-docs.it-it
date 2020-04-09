@@ -39,6 +39,8 @@
       href: streaming-technologies.md
     - name: Scegliere uno strumento di sviluppo di processi
       href: feature-comparison.md
+    - name: Sviluppare in locale
+      href: develop-locally.md
     - name: Tipi di input per un processo
       items:
         - name: Panoramica degli input

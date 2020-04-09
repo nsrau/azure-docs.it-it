@@ -6,12 +6,12 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d9815fd27a57acc8b418962e610d2ae1c106edde
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78272796"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673269"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Connettere la funzione Java ad archiviazione di Azure
 
@@ -21,7 +21,7 @@ Questo articolo illustra come integrare la funzione creata nel [precedente artic
 
 La maggior parte dei binding richiede una stringa di connessione archiviata che verrà usata da Funzioni per accedere al servizio associato. Per semplificare questa connessione, usare l'account di archiviazione creato con l'app per le funzioni. La connessione a questo account è già archiviata in un'impostazione dell'app denominata `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare con questo articolo, completare i passaggi della [parte 1 dell'argomento di avvio rapido su Java](functions-create-first-java-maven.md).
 
@@ -37,77 +37,13 @@ Prima di iniziare con questo articolo, completare i passaggi della [parte 1 dell
 
 ## <a name="add-an-output-binding"></a>Aggiungere un binding di output
 
-In un progetto Java i binding vengono definiti come annotazioni di binding nel metodo della funzione. Il file *function.json* viene quindi generato automaticamente in base a queste annotazioni.
-
-Passare al percorso del codice della funzione, _src/main/java_, aprire il file di progetto *Function.java* e aggiungere il parametro seguente alla definizione del metodo `run`:
-
-```java
-@QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg
-```
-
-Il parametro `msg` è un tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), che rappresenta una raccolta di stringhe scritte come messaggi in un binding di output al completamento della funzione. In questo caso, l'output è una coda di archiviazione denominata `outqueue`. La stringa di connessione per l'account di archiviazione è impostata dal metodo `connection`. Invece della stringa di connessione stessa, passare l'impostazione applicazione che contiene la stringa di connessione dell'account di archiviazione.
-
-La definizione del metodo `run` dovrà ora essere come indicato nell'esempio seguente:  
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION)  
-        HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    ...
-}
-```
+[!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Aggiungere il codice che usa l'associazione di output
 
-Ora è possibile usare il nuovo parametro `msg` per scrivere nel binding di output dal codice della funzione. Aggiungere la riga di codice seguente prima della risposta di operazione riuscita per aggiungere il valore di `name` al binding di output `msg`.
+[!INCLUDE [functions-add-output-binding-java-code](../../includes/functions-add-output-binding-java-code.md)]
 
-```java
-msg.setValue(name);
-```
-
-Quando si usa un binding di output, non è necessario usare il codice di Azure Storage SDK per l'autenticazione, per recuperare un riferimento alla coda o per scrivere dati. Queste attività vengono eseguite automaticamente dal runtime di Funzioni e dal binding di output.
-
-Il metodo `run` dovrà ora essere come indicato nell'esempio seguente:
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    context.getLogger().info("Java HTTP trigger processed a request.");
-
-    // Parse query parameter
-    String query = request.getQueryParameters().get("name");
-    String name = request.getBody().orElse(query);
-
-    if (name == null) {
-        return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
-    } else {
-        // Write the name to the message queue. 
-        msg.setValue(name);
-
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-    }
-}
-```
-
-## <a name="update-the-tests"></a>Aggiornare i test
-
-Poiché l'archetipo crea anche un set di test, è necessario aggiornare questi test per gestire il nuovo parametro `msg` nella firma del metodo `run`.  
-
-Passare al percorso del codice di test, _src/test/java_, aprire il file di progetto *Function.java* e sostituire la riga di codice sotto `//Invoke` con il codice seguente.
-
-```java
-@SuppressWarnings("unchecked")
-final OutputBinding<String> msg = (OutputBinding<String>)mock(OutputBinding.class);
-
-// Invoke
-final HttpResponseMessage ret = new Function().run(req, msg, context);
-``` 
+[!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 
 È ora possibile provare il nuovo binding di output in locale.
 
@@ -115,19 +51,17 @@ final HttpResponseMessage ret = new Function().run(req, msg, context);
 
 Come prima, usare il comando seguente per creare il progetto e avviare il runtime di Funzioni in locale:
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Maven](#tab/maven)
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle) 
 ```bash
 gradle jar --info
 gradle azureFunctionsRun
 ```
-::: zone-end
+---
 
 > [!NOTE]  
 > Poiché sono stati abilitati i bundle di estensioni nel file host.json, durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#add-to-your-functions-app), nonché altre estensioni di binding di Microsoft.
@@ -150,17 +84,15 @@ Quindi, usare l'interfaccia della riga di comando di Azure per visualizzare la n
 
 Per aggiornare l'app pubblicata, eseguire di nuovo il comando seguente:  
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Maven](#tab/maven)  
 ```bash
 mvn azure-functions:deploy
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle)  
 ```bash
 gradle azureFunctionsDeploy
 ```
-::: zone-end
+---
 
 Anche in questo caso, è possibile usare cURL per testare la funzione distribuita. Come prima, passare il valore `AzureFunctions` nel corpo della richiesta POST all'URL, come indicato in questo esempio:
 

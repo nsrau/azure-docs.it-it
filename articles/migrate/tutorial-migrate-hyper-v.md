@@ -3,13 +3,15 @@ title: Eseguire la migrazione di macchine virtuali Hyper-V ad Azure con Migrazio
 description: Informazioni su come eseguire la migrazione di macchine virtuali Hyper-V locali ad Azure con Migrazione server di Azure Migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: MVC
-ms.openlocfilehash: e1b670db3399857278c646d3793e8ec946d385b0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.custom:
+- MVC
+- fasttrack-edit
+ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943307"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422688"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Eseguire la migrazione di VM Hyper-V ad Azure 
 
@@ -50,7 +52,7 @@ Prima di iniziare questa esercitazione, è necessario:
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Aggiungere lo strumento Migrazione server di Azure Migrate
 
-Se non è stata seguita la seconda esercitazione per valutare le VM Hyper-V, è necessario [seguire queste istruzioni](how-to-add-tool-first-time.md) per configurare un progetto di Azure Migrate e aggiungervi lo strumento Migrazione server di Azure Migrate.
+Se non è stata seguita la seconda esercitazione per valutare le VM Hyper-V, è necessario [seguire queste istruzioni](how-to-add-tool-first-time.md) per configurare un progetto di Azure Migrate e aggiungervi lo strumento Valutazione server di Azure Migrate.
 
 Se è stata seguita la seconda esercitazione ed è già disponibile un progetto di Azure Migrate, aggiungere lo strumento Azure Migrate: Migrazione del server come segue:
 
@@ -67,10 +69,10 @@ Se è stata seguita la seconda esercitazione ed è già disponibile un progetto 
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurare l'appliance di Azure Migrate
 
-Lo strumento Migrazione server di Azure Migrate esegue un'appliance VM Hyper-V leggera.
+Migrazione server di Azure Migrate esegue un agente software negli host Hyper-V o nei nodi del cluster per orchestrare e replicare i dati in Azure Migrate e non richiede un'appliance dedicata per la migrazione.
 
-- L'appliance esegue l'individuazione delle VM e ne invia i metadati e i dati sulle prestazioni allo strumento Migrazione server di Azure Migrate.
-- L'appliance viene usata anche dallo strumento Azure Migrate: Valutazione server per eseguire la migrazione di VM Hyper-V ad Azure.
+- Azure Migrate: Valutazione server esegue l'individuazione delle macchine virtuali e ne invia i metadati e i dati sulle prestazioni allo strumento Migrazione server di Azure Migrate.
+- L'orchestrazione e la replica dei dati della migrazione vengono gestite dal provider di Microsoft Azure Site Recovery e dall'agente di Servizi di ripristino di Microsoft Azure.
 
 Per configurare l'appliance:
 - Se è stata seguita la seconda esercitazione per valutare le VM Hyper-V, la configurazione dell'appliance è già stata eseguita e non è necessario ripeterla.

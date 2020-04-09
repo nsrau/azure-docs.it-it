@@ -3,12 +3,12 @@ title: Distribuire app in Azure Spring Cloud con Jenkins e l'interfaccia della r
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure in una pipeline di integrazione e distribuzione continue per distribuire i microservizi nel servizio Azure Spring Cloud
 ms.topic: tutorial
 ms.date: 01/07/2020
-ms.openlocfilehash: 67ad97bb762ed302ef52c404d47c5755ea4b245b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bc48eecc9e73b95fd9112d645135409c24369e10
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75732854"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810213"
 ---
 # <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Esercitazione: Distribuire app in Azure Spring Cloud con Jenkins e l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,7 @@ Questa esercitazione presuppone una conoscenza di livello intermedio dei princip
 >[!Note]
 > Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 * Un account GitHub. Se non si ha un account GitHub, crearne [uno gratuito](https://github.com/) prima di iniziare.
 

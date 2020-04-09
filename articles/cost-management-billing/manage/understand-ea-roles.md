@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.author: banders
-ms.openlocfilehash: f31d8638e8672feafc1ab822acecb78ec0a48b11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 28fff2a24f703e0cff967bdde29a7b1238e197ee
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202774"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586143"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure
 
@@ -46,18 +46,18 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Struttura dell'organizzazione e autorizzazioni in base al ruolo
 
-|Attività| Amministratore dell'organizzazione|Amministratore dell'organizzazione (sola lettura)|Amministratore del reparto|Amministratore del reparto (sola lettura)|Proprietario dell'account|
-|---|---|---|---|---|---|
-|Visualizzare gli amministratori dell'organizzazione|✔|✔|✘|✘|✘|
-|Aggiungere o rimuovere gli amministratori dell'organizzazione|✔|✘|✘|✘|✘|
-|Visualizzare i contatti per le notifiche<sup>4</sup> |✔|✔|✘|✘|✘|
-|Aggiungere o rimuovere i contatti per le notifiche<sup>4</sup> |✔|✘|✘|✘|✘|
-|Creare e gestire i reparti |✔|✘|✘|✘|✘|
-|Visualizzare gli amministratore di reparto|✔|✔|✔|✔|✘|
-|Aggiungere o rimuovere gli amministratori di reparto|✔|✘|✔|✘|✘|
-|Visualizzare gli account nella registrazione |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|
-|Aggiungere gli account alla registrazione e cambiare il proprietario dell'account|✔|✘|✔<sup>5</sup>|✘|✘|
-|Creare e gestire le sottoscrizioni e le relative autorizzazioni|✘|✘|✘|✘|✔|
+|Attività| Amministratore dell'organizzazione|Amministratore dell'organizzazione (sola lettura)|Amministratore del reparto|Amministratore del reparto (sola lettura)|Proprietario dell'account| Partner|
+|---|---|---|---|---|---|---|
+|Visualizzare gli amministratori dell'organizzazione|✔|✔|✘|✘|✘|✔|
+|Aggiungere o rimuovere gli amministratori dell'organizzazione|✔|✘|✘|✘|✘|✘|
+|Visualizzare i contatti per le notifiche<sup>4</sup> |✔|✔|✘|✘|✘|✔|
+|Aggiungere o rimuovere i contatti per le notifiche<sup>4</sup> |✔|✘|✘|✘|✘|✘|
+|Creare e gestire i reparti |✔|✘|✘|✘|✘|✘|
+|Visualizzare gli amministratore di reparto|✔|✔|✔|✔|✘|✔|
+|Aggiungere o rimuovere gli amministratori di reparto|✔|✘|✔|✘|✘|✘|
+|Visualizzare gli account nella registrazione |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
+|Aggiungere gli account alla registrazione e cambiare il proprietario dell'account|✔|✘|✔<sup>5</sup>|✘|✘|✘|
+|Creare e gestire le sottoscrizioni e le relative autorizzazioni|✘|✘|✘|✘|✔|✘|
 
 - <sup>4</sup> Ai contatti per le notifiche vengono inviate comunicazioni sul Contratto Enterprise di Azure tramite posta elettronica.
 - <sup>5</sup> L'attività è limitata agli account nel reparto.
@@ -65,14 +65,14 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 
 ## <a name="usage-and-costs-access-by-role"></a>Accesso all'utilizzo e ai costi per ruolo
 
-|Attività| Amministratore dell'organizzazione|Amministratore dell'organizzazione (sola lettura)|Amministratore del reparto|Amministratore del reparto (sola lettura) |Proprietario dell'account|
-|---|---|---|---|---|---|
-|Visualizzare il saldo del credito incluso l'impegno monetario|✔|✔|✘|✘|✘|
-|Visualizzare le quote di spesa del reparto|✔|✔|✘|✘|✘|
-|Impostare le quote di spesa del reparto|✔|✘|✘|✘|✘|
-|Visualizzare l'elenco prezzi per il Contratto Enterprise dell'organizzazione|✔|✔|✘|✘|✘|
-|Visualizzare i dettagli relativi a utilizzo e costi|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|
-|Gestire le risorse nel portale di Azure|✘|✘|✘|✘|✔|
+|Attività| Amministratore dell'organizzazione|Amministratore dell'organizzazione (sola lettura)|Amministratore del reparto|Amministratore del reparto (sola lettura) |Proprietario dell'account| Partner|
+|---|---|---|---|---|---|---|
+|Visualizzare il saldo del credito incluso l'impegno monetario|✔|✔|✘|✘|✘|✔|
+|Visualizzare le quote di spesa del reparto|✔|✔|✘|✘|✘|✔|
+|Impostare le quote di spesa del reparto|✔|✘|✘|✘|✘|✘|
+|Visualizzare l'elenco prezzi per il Contratto Enterprise dell'organizzazione|✔|✔|✘|✘|✘|✔|
+|Visualizzare i dettagli relativi a utilizzo e costi|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
+|Gestire le risorse nel portale di Azure|✘|✘|✘|✘|✔|✘|
 
 - <sup>6</sup> È necessario che l'amministratore dell'organizzazione abiliti il criterio **DA view charges** (Visualizzazione addebiti per amministratori di reparto) nell'Enterprise Portal. L'amministratore del reparto potrà quindi visualizzare i dettagli dei costi per il reparto.
 - <sup>7</sup> È necessario che l'amministratore dell'organizzazione abiliti il criterio **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nell'Enterprise Portal. Il proprietario dell'account può quindi visualizzare i dettagli dei costi per l'account.

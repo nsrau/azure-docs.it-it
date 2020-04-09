@@ -1,24 +1,19 @@
 ---
-title: Valutare le macchine virtuali VMware per la migrazione ad Azure con Valutazione server di Azure Migrate
-description: Questo articolo descrive come valutare le macchine virtuali VMware locali per la migrazione ad Azure tramite Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Valutare le VM VMware per la migrazione ad Azure
+description: Questo articolo descrive come valutare le macchine virtuali VMware locali per la migrazione ad Azure tramite Valutazione server di Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
-ms.author: hamusa
-ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/23/2019
+ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223288"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548752"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Valutare le macchine virtuali VMware con Valutazione server di Azure Migrate
 
-Questo articolo illustra come valutare le macchine virtuali VMware locali usando lo strumento Valutazione server in Azure Migrate.
+Questo articolo illustra come valutare le macchine virtuali VMware locali usando lo strumento [Azure Migrate: Valutazione server](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
-[Azure Migrate](migrate-services-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) dei partner Microsoft.
 
 Questa esercitazione è la seconda di una serie che illustra come valutare le macchine virtuali VMware ed eseguirne la migrazione ad Azure. In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -35,17 +30,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Completare la prima esercitazione](tutorial-prepare-vmware.md) di questa serie. In caso contrario, le istruzioni di questa esercitazione non funzioneranno.
-
-Ecco le operazioni che dovrebbero essere state completate nella prima esercitazione:
-
-- [Configurare le autorizzazioni di Azure](tutorial-prepare-vmware.md#prepare-azure) per Azure Migrate.
-- [Preparare VMware](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) per la valutazione:
-   - [Verificare](migrate-support-matrix-vmware.md#vmware-requirements) le impostazioni di VMware.
-   - Configurare le autorizzazioni in VMware per creare una VM VMware con un modello OVA.
-   - Configurare un [account per l'individuazione delle macchine virtuali](migrate-support-matrix-vmware.md#vmware-requirements). 
-   - Rendere disponibili le [porte necessarie](migrate-support-matrix-vmware.md#port-access).
-   - Prestare attenzione agli [URL necessari](migrate-replication-appliance.md#url-access) per l'accesso ad Azure.
+- [Completare la prima esercitazione](tutorial-prepare-vmware.md) di questa serie. In caso contrario, le istruzioni di questa esercitazione non funzioneranno.
+- Ecco le operazioni che dovrebbero essere state completate nella prima esercitazione:
+    - [Preparare Azure](tutorial-prepare-vmware.md#prepare-azure) per l'uso con Azure Migrate.
+    - [Preparare VMware per la valutazione](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) della migrazione. La procedura include la verifica delle impostazioni di VMware, e la configurazione di un account per l'accesso di Azure Migrate al server vCenter.
+    - [Verificare](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment) i requisiti per la distribuzione dell'appliance di Azure Migrate per la valutazione di VMware.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurare un progetto di Azure Migrate
 
@@ -74,17 +63,15 @@ Per configurare un nuovo progetto di Azure Migrate, seguire questa procedura:
 1. In **Rivedi e aggiungi strumenti** rivedere le impostazioni e selezionare **Aggiungi strumenti**.
 1. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate. Verrà visualizzata la pagina del progetto. Se il progetto non viene visualizzato, è possibile accedervi da **Server** nel dashboard di Azure Migrate.
 
-## <a name="set-up-the-appliance-vm"></a>Configurare l'appliance VM
+## <a name="set-up-the-azure-migrate-appliance"></a>Configurare l'appliance di Azure Migrate
 
-Valutazione server di Azure Migrate esegue un'appliance macchina virtuale VMware leggera. L'appliance esegue l'individuazione delle macchine virtuali e raccoglie i metadati e i dati sulle prestazioni della macchina virtuale.
+Azure Migrate: Valutazione server si basa su un'appliance leggera di Azure Migrate. L'appliance esegue l'individuazione delle macchine virtuali e ne invia i metadati e i dati sulle prestazioni ad Azure Migrate.
+- Per configurare l'appliance in una VM VMware, è possibile usare un modello OVA scaricato. In alternativa, è possibile configurarla in una VM o in un computer fisico con uno script di installazione di PowerShell.
+- In questa esercitazione si usa il modello OVA. Leggere [questo articolo](deploy-appliance-script.md) se si vuole configurare l'appliance usando uno script.
 
-Per configurare l'appliance occorre:
+Dopo aver creato l'appliance, verificare che sia in grado di connettersi ad Azure Migrate: Valutazione server, configurarla per la prima volta e registrarla nel progetto di Azure Migrate.
 
-- Scaricare un file modello OVA e importarlo nel server vCenter.
-- Creare l'appliance e verificare che riesca a connettersi allo strumento Valutazione server di Azure Migrate.
-- Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate.
 
-È possibile configurare più appliance per un singolo progetto di Azure Migrate. Tra tutte le appliance, Valutazione server supporta l'individuazione di un massimo di 35.000 macchine virtuali. Può individuare un massimo di 10.000 server per appliance.
 
 ### <a name="download-the-ova-template"></a>Scaricare il modello OVA
 
@@ -134,7 +121,10 @@ Assicurarsi che l'appliance VM sia in grado di connettersi agli [URL di Azure](m
 
 ### <a name="configure-the-appliance"></a>Configurare l'appliance
 
-Per configurare l'appliance, seguire questa procedura:
+Configurare l'appliance per la prima volta.
+
+> [!NOTE]
+> Se si configura l'appliance usando uno [script di PowerShell](deploy-appliance-script.md) invece del modello OVA scaricato, i primi due passaggi di questa procedura non sono pertinenti.
 
 1. Nella console del client vSphere fare clic con il pulsante destro del mouse su sulla macchina virtuale e quindi scegliere **Open Console** (Apri console).
 1. Specificare la lingua, il fuso orario e la password per l'appliance.
@@ -164,77 +154,30 @@ Per configurare l'appliance, seguire questa procedura:
 1. Specificare un nome per l'appliance. Il nome deve essere costituito da un massimo di 14 caratteri alfanumerici.
 1. Selezionare **Registra**.
 
+
 ## <a name="start-continuous-discovery"></a>Avviare l'individuazione continua
 
 L'appliance deve connettersi al server vCenter per individuare la configurazione e i dati sulle prestazioni delle macchine virtuali.
 
 ### <a name="specify-vcenter-server-details"></a>Specificare i dettagli del server vCenter
 1. In **Specificare i dettagli del server vCenter** specificare il nome di dominio completo o l'indirizzo IP dell'istanza del server vCenter. È possibile lasciare la porta predefinita o specificare una porta personalizzata su cui il server vCenter rimane in ascolto.
-1. In **Nome utente** e **Password** specificare le credenziali dell'account del server vCenter che verranno usate dall'appliance per individuare le macchine virtuali nell'istanza del server vCenter. 
+2. In **Nome utente** e **Password** specificare le credenziali dell'account del server vCenter che verranno usate dall'appliance per individuare le macchine virtuali nell'istanza del server vCenter. 
 
-   Verificare che l'account abbia le [autorizzazioni necessarie per l'individuazione](migrate-support-matrix-vmware.md#vmware-requirements). È possibile [ridurre l'ambito dell'individuazione](tutorial-assess-vmware.md#set-the-scope-of-discovery) limitando l'accesso all'account vCenter.
-1. Selezionare **Convalida connessione** per verificare che l'appliance possa connettersi al server vCenter.
+    - È necessario aver configurato un account con le autorizzazioni necessarie nell'[esercitazione precedente](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - Per definire l'ambito dell'individuazione di oggetti VMware specifici (server vCenter data center, cluster, una cartella di cluster, host, una cartella di host o singole VM), rivedere le istruzioni riportate in [questo articolo](set-discovery-scope.md) per limitare l'account usato da Azure Migrate.
 
-### <a name="specify-vm-credentials"></a>Specificare le credenziali della VM
-Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dipendenze delle macchine virtuali, è possibile specificare le credenziali delle macchine virtuali che hanno accesso alle macchine virtuali VMware. È possibile aggiungere credenziali per le macchine virtuali Windows e per le macchine virtuali Linux. [Altre informazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) sulle autorizzazioni di accesso necessarie.
+3. Selezionare **Convalida connessione** per verificare che l'appliance possa connettersi al server vCenter.
+4. In **Individua applicazioni e dipendenze nelle macchine virtuali** facoltativamente fare clic su **Aggiungi credenziali** e specificare il sistema operativo per cui le credenziali sono appropriate, oltre ai relativi nome utente e password. Fare quindi clic su **Aggiungi**.
 
-> [!NOTE]
-> Questo input è facoltativo, ma è necessario per abilitare l'individuazione delle applicazioni e la visualizzazione delle dipendenze senza agente.
+    - Facoltativamente, è possibile aggiungere qui le credenziali se è stato creato un account da usare per la [funzionalità di individuazione delle applicazioni](how-to-discover-applications.md) o la [funzionalità di analisi delle dipendenze senza agente](how-to-create-group-machine-dependencies-agentless.md).
+    - Se non si usano queste funzionalità, è possibile ignorare questa impostazione.
+    - Verificare le credenziali necessarie per l'[individuazione delle app](migrate-support-matrix-vmware.md#application-discovery) o l'[analisi senza agente](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements).
 
-1. In **Individua applicazioni e dipendenze nelle macchine virtuali** selezionare **Aggiungi credenziali**.
-1. Effettuare una selezione per **Sistema operativo**.
-1. Specificare un nome descrittivo per le credenziali.
-1. In **nome utente** e **password**specificare un account che disponga almeno dell'accesso guest nelle macchine virtuali.
-1. Selezionare **Aggiungi**.
+5. **Salvare e avviare l'individuazione** delle VM.
 
-Dopo aver specificato l'istanza del server vCenter e le credenziali delle macchine virtuali (facoltativo), selezionare **Salva e avvia individuazione** per avviare l'individuazione dell'ambiente locale.
-
-Per visualizzare i metadati delle VM individuate nel portale occorre attendere circa 15 minuti. L'individuazione di applicazioni, ruoli e funzionalità installati richiede tempo. La durata dipende dal numero di macchine virtuali individuate. Per le macchine virtuali 500, la visualizzazione dell'inventario delle applicazioni nel portale di Azure Migrate richiede circa 1 ora.
-
-### <a name="set-the-scope-of-discovery"></a>Impostare l'ambito dell'individuazione
-
-È possibile definire l'ambito dell'individuazione limitando l'accesso dell'account vCenter usato per l'individuazione. L'ambito può essere impostato su data center, cluster, una cartella di cluster, host, una cartella di host o singole macchine virtuali del server vCenter.
-
-Per impostare l'ambito, seguire queste procedure.
-
-#### <a name="1-create-a-vcenter-user-account"></a>1. Creare un account utente vCenter
-1.  Accedere al client Web vSphere come amministratore del server vCenter.
-1.  Selezionare **Administration** > **SSO users and Groups** (Amministrazione > Utenti e gruppi SSO) e quindi selezionare la scheda **Users** (Utenti).
-1.  Selezionare l'icona **New User** (Nuovo utente).
-1.  Immettere le informazioni necessarie per creare un nuovo utente e fare clic su **OK**.
-
-#### <a name="2-define-a-new-role-with-required-permission"></a>2. Definire un nuovo ruolo con le autorizzazioni necessarie
-Questa procedura è necessaria per la migrazione del server senza agente.
-1.  Accedere al client Web vSphere come amministratore del server vCenter.
-1.  Passare ad **Administration** > **Role Manager** (Amministrazione > Gestione ruoli).
-1.  Selezionare l'istanza del server vCenter dal menu a discesa.
-1.  Selezionare **Create role** (Crea ruolo).
-1.  Immettere un nome per il nuovo ruolo, ad esempio <em>Azure_Migrate</em>.
-1.  Assegnare le [autorizzazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) al ruolo appena definito.
-1.  Selezionare **OK**.
-
-#### <a name="3-assign-permissions-on-vcenter-objects"></a>3. Assegnare le autorizzazioni per gli oggetti vCenter
-
-Sono disponibili due approcci per assegnare le autorizzazioni per gli oggetti inventario in vCenter all'account utente vCenter con un ruolo assegnato.
-
-Per Valutazione server, è necessario applicare il ruolo **Read-only** (sola lettura) all'account utente vCenter per tutti gli oggetti padre in cui sono ospitate le macchine virtuali da individuare. Tutti gli oggetti padre (host, cartella di host, cluster, cartella di cluster) nella gerarchia fino al data center verranno inclusi. Queste autorizzazioni verranno propagate agli oggetti figlio nella gerarchia.
-
-Allo stesso modo, per la migrazione del server, è necessario applicare un ruolo definito dall'utente con le [autorizzazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) per l'account utente vCenter per tutti gli oggetti padre che ospitano le macchine virtuali di cui verrà eseguita la migrazione. Questo ruolo può essere denominato <em>Azure_Migrate</em>.
-
-![Assegnare le autorizzazioni](./media/tutorial-assess-vmware/assign-perms.png)
-
-L'approccio alternativo consiste nell'assegnare l'account e il ruolo utente al livello del data center e quindi propagarli agli oggetti figlio. Assegnare quindi all'account un ruolo **No access** (nessun accesso) per ogni oggetto, ad esempio una macchina virtuale, da escludere dall'individuazione/migrazione. 
-
-Questa configurazione alternativa è complessa e al tempo stesso espone a controlli di accesso accidentali, perché a ogni nuovo oggetto figlio viene automaticamente concesso l'accesso ereditato dall'oggetto padre. È quindi consigliabile usare il primo approccio.
-
-> [!NOTE]
-> Attualmente lo strumento Valutazione server non è in grado di individuare le macchine virtuali se all'account vCenter è stato concesso l'accesso al livello della cartella delle macchine virtuali vCenter. Per definire l'ambito di individuazione in base alle cartelle delle macchine virtuali, seguire questa procedura. Garantisce che all'account vCenter sia assegnato l'accesso in sola lettura a livello di macchina virtuale.
->
-> 1. Assegnare autorizzazioni di sola lettura su tutte le VM nelle cartelle a cui si vuole limitare l'ambito dell'individuazione.
-> 1. Concedere l'accesso in sola lettura a tutti gli oggetti padre in cui sono ospitate le VM. Verranno inclusi tutti gli oggetti padre (host, cartella di host, cluster, cartella di cluster) nella gerarchia fino al data center. Non è necessario propagare le autorizzazioni a tutti gli oggetti figlio.
-> 1. Usare le credenziali per l'individuazione selezionando il data center come **Ambito raccolta**. La configurazione del controllo degli accessi in base al ruolo assicura che l'utente vCenter corrispondente possa accedere solo alle macchine virtuali specifiche del tenant.
->
-> Si noti che sono supportate le cartelle di host e cluster.
+L'individuazione funziona come segue:
+- Sono necessari circa 15 minuti prima che i metadati delle VM individuate vengano visualizzati nel portale.
+- L'individuazione di applicazioni, ruoli e funzionalità installati richiede tempo. La durata dipende dal numero di macchine virtuali individuate. Per 500 VM, è necessaria circa un'ora prima che l'inventario di applicazioni venga visualizzato nel portale di Azure Migrate.
 
 ### <a name="verify-vms-in-the-portal"></a>Verificare le macchine virtuali nel portale
 

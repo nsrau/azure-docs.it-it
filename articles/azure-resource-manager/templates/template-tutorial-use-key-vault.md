@@ -6,12 +6,12 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: a305914c5c870543e16c515880955693c2634044
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: e49fafc2889b98d013d77471f8177fd85a307cc8
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239168"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754885"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager
 
@@ -198,7 +198,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato recuperato un segreto da Azure Key Vault. Il segreto è stato quindi usato per la distribuzione del modello. Per informazioni su come creare modelli collegati, vedere:
+In questa esercitazione è stato recuperato un segreto da Azure Key Vault. Il segreto è stato quindi usato per la distribuzione del modello. Per informazioni su come usare estensioni di macchina virtuale per eseguire le attività post-distribuzione, vedere:
 
 > [!div class="nextstepaction"]
-> [Creare modelli collegati](./template-tutorial-create-linked-templates.md)
+> [Distribuire estensioni di macchina virtuale](./template-tutorial-deploy-vm-extensions.md)
