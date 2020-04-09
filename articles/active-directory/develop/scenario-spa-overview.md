@@ -2,24 +2,21 @@
 title: Scenario di app a pagina singola JavaScript - Piattaforma di identità Microsoft Azure
 description: Informazioni su come creare un'applicazione a pagina singola (panoramica dello scenario) usando la piattaforma di identità Microsoft.Learn how to build a single-page application (scenario overview) by using the Microsoft identity platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b430778bed811656b5c8aadc75ba3cf35917f737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ead0ea58c6860519f027eb6a7450df37396bd89
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701876"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885175"
 ---
 # <a name="scenario-single-page-application"></a>Scenario: applicazione a pagina singolaScenario: Single-page application
 

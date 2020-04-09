@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf3bb7e6733ef55a85d0b4ae26a4ce05059a8fb9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260761"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887155"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Come creare e configurare il runtime di integrazione di Azure
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per altre informazioni sul runtime di integrazione, vedere [Integration runtime](concepts-integration-runtime.md) (Runtime di integrazione).
@@ -30,7 +30,11 @@ Questo documento illustra come creare e configurare il runtime di integrazione d
 Per impostazione predefinita, ogni data factory ha un runtime di integrazione di Azure nel back-end che supporta le operazioni negli archivi dati cloud e i servizi di calcolo nella rete pubblica. La località di tale runtime di integrazione di Azure viene risolta automaticamente. Se la proprietà **connectVia** non viene specificata nella definizione del servizio collegato, viene usato il runtime di integrazione di Azure predefinito. È necessario creare in modo esplicito un runtime di integrazione di Azure solo quando si vuole definire in modo esplicito la località del runtime di integrazione o si vogliono raggruppare le esecuzioni di attività in runtime di integrazione diversi a scopo di gestione. 
 
 ## <a name="create-azure-ir"></a>Creare il runtime di integrazione di Azure
-Il runtime di integrazione può essere creato utilizzando il cmdlet PowerShell **Set-AzDataFactoryV2IntegrationRuntime.** Per creare un runtime di integrazione di Azure, specificare il nome, la località e il tipo nel comando. Ecco un comando di esempio per creare un runtime di integrazione di Azure con la località impostata su "Europa occidentale":
+
+Per creare e configurare un'operazione di controllo di irperazione di Azure, è possibile usare le procedure seguenti.
+
+### <a name="create-an-azure-ir-via-azure-powershell"></a>Creare un rapporto di stato di archiviazione tramite Azure PowerShellCreate an Azure IR via Azure PowerShell
+Il runtime di integrazione può essere creato utilizzando il cmdlet PowerShell **Set-AzDataFactoryV2IntegrationRuntime.** Per creare un ri-controllo degli accessi di Azure, specificare il nome, il percorso e il tipo per il comando. Ecco un comando di esempio per creare un runtime di integrazione di Azure con la località impostata su "Europa occidentale":
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
@@ -39,9 +43,30 @@ Per il runtime di integrazione di Azure, il tipo deve essere impostato su **Mana
 
 È possibile configurare un runtime di integrazione di Azure esistente per modificarne il percorso usando il cmdlet PowerShell Set-AzDataFactoryV2IntegrationRuntime.You can configure an existing Azure IR to change its location using the Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet. Per altre informazioni sulla località di un runtime di integrazione di Azure, vedere [Introduction to integration runtime](concepts-integration-runtime.md) (Introduzione al runtime di integrazione).
 
+### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Creare un catalogo di flusso di flusso di azure tramite l'interfaccia utente di Azure Data FactoryCreate an Azure IR via Azure Data Factory UI
+Usare la procedura seguente per creare un catalogo di accesso alternativo di Azure usando l'interfaccia utente di Azure Data Factory.Use the following steps to create an Azure IR using Azure Data Factory UI.
+
+1. Nella pagina **Iniziamo** dell'interfaccia utente di Azure Data Factory selezionare la scheda **Autore** nel riquadro sinistro.
+
+   ![Pulsante Autore della home page](media/doc-common-process/get-started-page-author-button.png)
+
+1. Selezionare Connessioni nella parte inferiore del riquadro sinistro e selezionare Runtime di integrazione nella finestra Connessioni.Select **Connections** at the bottom of the left pane, and select **Integration runtimes** in the **Connections** window. Selezionare **Nuovo**.
+
+   ![Creare un runtime di integrazione](media/create-azure-integration-runtime/new-integration-runtime.png)
+
+1. Nella pagina **Installazione runtime** integrazione selezionare **Azure, Self-Hosted**e quindi **Continua**. 
+
+1. Nella pagina seguente selezionare **Azure** per creare un 'rin/qui Azure e quindi selezionare **Continua**.
+   ![Creare un runtime di integrazione](media/create-azure-integration-runtime/new-azure-ir.png)
+
+1. Immettere un nome per il codice a/i del proprio rior di gruppo di Azure e selezionare **Crea**.
+   ![Creare un controllo di irperazione in più nei casiCreate an Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+
+1. Al termine della creazione verrà visualizzata una notifica popup. Nella pagina Runtime di **integrazione** verificare che nell'elenco sia visualizzato il runtime di integrazione appena creato.
+
 ## <a name="use-azure-ir"></a>Usare il runtime di integrazione di Azure
 
-Dopo la creazione di un runtime di integrazione di Azure, è possibile farvi riferimento nella definizione del servizio collegato. Segue un esempio di come fare riferimento al runtime di integrazione di Azure creato sopra da un servizio collegato Archiviazione di Azure:  
+Dopo la creazione di un runtime di integrazione di Azure, è possibile farvi riferimento nella definizione del servizio collegato. Segue un esempio di come fare riferimento al runtime di integrazione di Azure creato sopra da un servizio collegato Archiviazione di Azure:
 
 ```json
 {

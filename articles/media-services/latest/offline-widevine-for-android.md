@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 04/07/2020
 ms.author: willzhan
-ms.openlocfilehash: 64cd93acc78f4cb5b7ebc4266e7359aec662890c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94edec8261d9916b7575fb247e1698273f244130
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295428"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887198"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming Widevine offline per Android con Media Services v3
 
@@ -153,66 +153,14 @@ Questa app PWA open source è stata creata in Node.js. Se si vuole ospitare una 
     - Il certificato deve avere una CA attendibile. Non è possibile usare un certificato di sviluppo autofirmato.
     - Il certificato deve inoltre avere un nome comune (CN) corrispondente al nome DNS del server Web o del gateway.
 
-## <a name="frequently-asked-questions"></a>Domande frequenti
+## <a name="faqs"></a>Domande frequenti
 
-### <a name="question"></a>Domanda
-
-Come è possibile distribuire licenze permanenti (abilitate per la modalità offline) ad alcuni client o utenti e licenze non permanenti (disabilitate per la modalità offline) ad altri? È necessario duplicare il contenuto e usare chiavi simmetriche distinte?
-
-### <a name="answer"></a>Risposta
-Poiché Servizi multimediali versione 3 consente a un'entità Asset di avere più entità StreamingLocators, è possibile avere:
-
-1.    Un'entità ContentKeyPolicy con license_type = "persistent", un'entità ContentKeyPolicyRestriction con attestazione impostata su "persistent" e relativa entità StreamingLocator;
-2.    Un'altra entità ContentKeyPolicy con license_type = "nonpersistent", un'entità ContentKeyPolicyRestriction con attestazione impostata su "nonpersistent" e relativa entità StreamingLocator.
-3.    Le due entità StreamingLocators hanno diverse entità ContentKey.
-
-In base alla logica di business del servizio token di sicurezza personalizzato, nel token JWT vengono rilasciate diverse attestazioni. Con il token, può essere ottenuta solo la licenza corrispondente e può essere usato solo il relativo URL.
-
-### <a name="question"></a>Domanda
-
-Per i livelli di sicurezza Widevine, il documento "Widevine DRM Architecture Overview" di Google definisce tre diversi livelli di sicurezza. mentre nella [documentazione di Servizi multimediali di Azure relativa al modello di licenza Widevine](widevine-license-template-overview.md) ne vengono presentati cinque. Qual è la relazione o la corrispondenza tra i due diversi set di livelli di sicurezza?
-
-### <a name="answer"></a>Risposta
-
-Il documento "Widevine DRM Architecture Review" di Google definisce i seguenti tre livelli di sicurezza:
-
-1.  Livello di sicurezza 1: tutte le operazioni di elaborazione, crittografia e controllo del contenuto vengono eseguite all'interno dell'ambiente di esecuzione affidabile. In alcuni modelli di implementazione è possibile che l'elaborazione delle informazioni di sicurezza venga eseguita in chip diversi.
-2.  Livello di sicurezza 2: la crittografia (ma non l'elaborazione dei dati video) viene eseguita all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.
-3.  Livello di sicurezza 3: non è presente un ambiente di esecuzione affidabile sul dispositivo. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza.
-
-Parallelamente, nella [documentazione di Servizi multimediali di Azure relativa al modello di licenza Widevine](widevine-license-template-overview.md) la proprietà security_level di content_key_specs può avere i cinque valori seguenti, che definiscono i diversi requisiti di affidabilità client per la riproduzione di contenuto:
-
-1.  È necessario un crypto white-box basato su software.
-2.  Sono necessari una soluzione di crittografia software e un decodificatore offuscato.
-3.  Il materiale delle chiavi e le operazioni di crittografia devono essere gestiti all'interno di un ambiente di esecuzione affidabile basato su hardware.
-4.  Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.
-5.  Le operazioni di crittografia e decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.
-
-Entrambi i set di livelli di sicurezza sono definiti da Google Widevine. La differenza è data dall'uso che ne viene fatto, rispettivamente a livello di architettura o di API. I cinque livelli di sicurezza vengono usati nell'API Widevine. L'oggetto content_key_specs, che contiene security_level, viene deserializzato e passato al servizio di distribuzione globale di Widevine dal servizio licenze Widevine di Servizi multimediali di Azure. La tabella seguente illustra la corrispondenza tra i due set di livelli di sicurezza.
-
-| **Livelli di sicurezza definiti nell'architettura Widevine** |**Livelli di sicurezza usati nell'API Widevine**|
-|---|---| 
-| **Livello di sicurezza 1:** tutta l'elaborazione, la crittografia e il controllo del contenuto vengono eseguiti all'interno di Trusted Execution Environment (TEE). In alcuni modelli di implementazione è possibile che l'elaborazione delle informazioni di sicurezza venga eseguita in chip diversi.|**security_level=5**: le operazioni di crittografia e decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.<br/><br/>**security_level=4**: le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.|
-**Livello di sicurezza 2**: esegue la crittografia (ma non l'elaborazione dei dati video) all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.| **security_level=3**: il materiale delle chiavi e le operazioni di crittografia devono essere gestiti all'interno di un ambiente di esecuzione affidabile basato su hardware. |
-| **Livello di sicurezza 3**: non è presente un ambiente di esecuzione affidabile sul dispositivo. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza. | **security_level2**: Sono necessari software crittografici e un decodificatore offuscato.<br/><br/>**security_level=1**: è necessaria una soluzione di crittografia white box basata su software.|
-
-### <a name="question"></a>Domanda
-
-Perché il download di contenuto richiede molto tempo?
-
-### <a name="answer"></a>Risposta
-
-Per migliorare la velocità di download sono disponibili due diverse strategie:
-
-1.  Abilitare la rete CDN in modo che gli utenti finali raggiungano con maggiore probabilità la rete CDN anziché l'endpoint di origine/streaming per il download di contenuto. Se viene raggiunto l'endpoint di streaming, ogni segmento HLS o frammento DASH viene dinamicamente incluso in un pacchetto e crittografato. Anche se questa latenza è misurabile in millisecondi per singolo segmento o frammento, nel caso di un video della durata di un'ora la latenza accumulata può comportare tempi di download più lunghi.
-2.  Offrire agli utenti finali la possibilità di scegliere i livelli di qualità video e le tracce audio da scaricare anziché tutti i contenuti. Per la modalità offline, è inutile scaricare tutti i livelli di qualità. A questo scopo è possibile procedere in due modi:
-    1.  Modalità controllata dal client: l'app lettore seleziona automaticamente il livello di qualità video e le tracce audio da scaricare oppure è l'utente stesso a farlo.
-    2.  Modalità controllata dal servizio: è possibile usare la funzionalità di manifesto dinamico in Servizi multimediali di Azure per creare un filtro (globale) che limiti la playlist HLS o il file MPD (Media Presentation Description) DASH a un singolo livello di qualità video e a tracce audio selezionate. L'URL di download presentato agli utenti finali includerà pertanto questo filtro.
+Per ulteriori informazioni, consultate [Domande frequenti su Widevine.](frequently-asked-questions.md#widevine-streaming-for-android)
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
+Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Questo articolo ha illustrato come implementare la riproduzione in modalità offline per contenuto DASH protetto da Widevine su dispositivi Android.  Sono state inoltre fornite le risposte ad alcune domande frequenti relative allo streaming offline di contenuto protetto da Widevine.

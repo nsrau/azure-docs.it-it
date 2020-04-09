@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74007762"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891510"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
 
@@ -370,8 +370,8 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione di applicazioni|Modificare le condizioni per l'utilizzo|
 |Gestione di applicazioni|Pubblicare le condizioni per l'utilizzo|
 |Gestione di applicazioni|Annullare la pubblicazione delle condizioni per l'utilizzo|
-|Gestione di applicazioni|Aggiungere il certificato SSL dell'applicazione|
-|Gestione di applicazioni|Eliminare il binding SSL|
+|Gestione di applicazioni|Aggiungi certificato TLS/SSL dell'applicazione|
+|Gestione di applicazioni|Eliminare il binding TLSDelete TLS binding|
 |Gestione di applicazioni|Registrare il connettore|
 |Gestione di applicazioni|AdminPolicyDatas-RemoveResources|
 |Gestione di applicazioni|AdminPolicyDatas-SetResources|

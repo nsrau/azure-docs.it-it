@@ -2,13 +2,13 @@
 title: Panoramica dei modelli
 description: Descrive i vantaggi dell'uso dei modelli di Azure Resource Manager per la distribuzione delle risorse.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 4570f5471ef6baf6f3f4a920be4d93c3f5a90438
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258125"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885736"
 ---
 # <a name="what-are-arm-templates"></a>Che cosa sono i modelli di Azure Resource Manager?
 
@@ -30,11 +30,17 @@ Se si sta tentando di decidere tra l'utilizzo di modelli ARM e una delle altre i
 
    ![Confronto tra la distribuzione dei modelli](./media/overview/template-processing.png)
 
-* **Convalida predefinita:** il modello viene distribuito solo dopo il superamento della convalida. Resource Manager controlla il modello prima di avviare la distribuzione per assicurarsi che la distribuzione abbia esito positivo. È meno probabile che la distribuzione si interrompa in uno stato semifinito.
-
 * **File modulari**: È possibile suddividere i modelli in componenti più piccoli e riutilizzabili e collegarli tra loro al momento della distribuzione. È inoltre possibile nidificare un modello all'interno di un altro modello.
 
 * **Creare qualsiasi risorsa**di Azure: è possibile usare immediatamente i nuovi servizi e le nuove funzionalità di Azure nei modelli. Non appena un provider di risorse introduce nuove risorse, è possibile distribuire tali risorse tramite modelli. Non è necessario attendere l'aggiornamento di strumenti o moduli prima di utilizzare i nuovi servizi.
+
+* **Estensibilità**: Con gli script di [distribuzione,](deployment-script-template.md)è possibile aggiungere script PowerShell o Bash ai modelli. Gli script di distribuzione estendono la possibilità di configurare le risorse durante la distribuzione. Uno script può essere incluso nel modello o archiviato in un'origine esterna e a cui viene fatto riferimento nel modello. Gli script di distribuzione consentono di completare la configurazione dell'ambiente end-to-end in un unico modello ARM.
+
+* **Test**: È possibile assicurarsi che il modello segua le linee guida consigliate testandolo con il kit di strumenti del modello ARM (arm-ttk). Questo kit di test è uno script di PowerShell che è possibile scaricare da [GitHub](https://github.com/Azure/arm-ttk). Il kit di strumenti semplifica lo sviluppo di competenze utilizzando il linguaggio dei modelli.
+
+* **Anteprima delle modifiche**: È possibile utilizzare l'operazione [di what-if](template-deploy-what-if.md) per ottenere un'anteprima delle modifiche prima di distribuire il modello. Con what-if, vengono visualizzate le risorse che verranno create, aggiornate o eliminate e le proprietà delle risorse che verranno modificate. L'operazione di creazione-se controlla lo stato corrente dell'ambiente ed elimina la necessità di gestire lo stato.
+
+* **Convalida predefinita:** il modello viene distribuito solo dopo il superamento della convalida. Resource Manager controlla il modello prima di avviare la distribuzione per assicurarsi che la distribuzione abbia esito positivo. È meno probabile che la distribuzione si interrompa in uno stato semifinito.
 
 * **Distribuzioni rilevate:** nel portale di Azure è possibile esaminare la cronologia della distribuzione e ottenere informazioni sulla distribuzione del modello. È possibile visualizzare il modello distribuito, i valori dei parametri passati ed eventuali valori di output. Altre infrastrutture come servizi di codice non vengono monitorate tramite il portale.
 

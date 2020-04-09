@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: b9b66c379714c2f4fa2421876fda3bdb500ce6c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9e86706ecd4e5b2526e1d801dda45ed6b345c6
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250321"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887249"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitoraggio di Azure Cosmos DBMonitoring Azure Cosmos DB
 Quando si dispone di applicazioni e processi aziendali critici che si basano sulle risorse di Azure, si vuole monitorare tali risorse per la disponibilità, le prestazioni e il funzionamento. Questo articolo descrive i dati di monitoraggio generati dai database Cosmos di Azure e come è possibile usare le funzionalità di Monitoraggio di Azure per analizzare e avvisare questi dati.
@@ -38,7 +38,7 @@ Le sezioni seguenti si basano su questo articolo descrivendo i dati specifici ra
 
 ## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Visualizzare le metriche a livello di operazione per Azure Cosmos DBView operation level metrics for Azure Cosmos DB
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Selezionare **Monitor** nella barra di spostamento a sinistra e selezionare **Metriche**.
 
@@ -63,10 +63,6 @@ Le sezioni seguenti si basano su questo articolo descrivendo i dati specifici ra
 È possibile raggruppare le metriche utilizzando l'opzione **Applica divisione.** Ad esempio, è possibile raggruppare le unità di richiesta per tipo di operazione e visualizzare il grafico per tutte le operazioni contemporaneamente, come illustrato nell'immagine seguente:For example, you can group the request units per operation type and view the graph for all the operations once as shown in the following image:
 
 ![Aggiungere il filtro di divisione di applica](./media/monitor-cosmos-db/apply-metrics-splitting.png)
-
-Ecco un altro esempio per visualizzare le metriche di latenza lato server per un database, un contenitore o un'operazione specifica:Here is another example to view the server-side latency metrics for a specific database, container, or an operation:
-
-![Metriche di latenza lato serverServer-side latency metrics](./media/monitor-cosmos-db/serverside-latency-metric.png)
 
 ## <a name="monitoring-data-collected-from-azure-cosmos-db"></a>Monitoraggio dei dati raccolti da Azure Cosmos DBMonitoring data collected from Azure Cosmos DB
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: de91f61385942db077bc98721eabe9f3f0b8624c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d44e53520481e4ada5c2f16f0c56a4a6a724ec1
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083011"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892479"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure
 
@@ -82,7 +82,7 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
     La rete CDN di Azure usa il sottodominio *cdnverify* per convalidare il mapping DNS per completare questo processo di registrazione. Per altre informazioni, vedere [Creare un record DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Questo passaggio consente alla rete CDN di Azure di riconoscere il dominio personalizzato in modo da rispondere alle sue richieste.
     
     > [!NOTE]
-    > Per abilitare SSL in una rete CDN di Azure dai profili **Akamai,** è necessario assegnare direttamente il nome del dominio personalizzato all'endpoint. cdnverify per l'abilitazione di SSL non è ancora supportato. 
+    > Per abilitare TLS in una rete CDN di Azure dai profili **Akamai,** è necessario assegnare direttamente il nome del dominio personalizzato all'endpoint. cdnverify per l'abilitazione di TLS non è ancora supportata. 
     >
 
 3.  Tornare al sito Web per il provider di dominio del dominio personalizzato e aggiornare il primo mapping DNS creato, in modo che il dominio personalizzato sia mappato al secondo endpoint della rete CDN.

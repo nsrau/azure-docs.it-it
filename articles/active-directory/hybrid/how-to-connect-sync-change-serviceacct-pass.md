@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b2a0d0b77b6db481b13785907a1359d2bbe3e9b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65139385"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984505"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Modifica della password dell'account del servizio ADSync
 Se si modifica la password dell'account del servizio ADSync, il servizio di sincronizzazione non sarà in grado di avviarsi correttamente fino a quando non si è abbandonata la chiave di crittografia e reinizializzata la password dell'account del servizio ADSync. 
@@ -84,7 +84,7 @@ Abbandonare la chiave di crittografia esistente per poterne creare una nuova:
 
 2. Avviare una nuova sessione di PowerShell.
 
-3. Passare alla cartella `$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Passare alla cartella `'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
 
 4. Eseguire il comando `./miiskmu.exe /a`
 

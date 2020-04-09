@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/08/2020
 ms.author: aschhab
-ms.openlocfilehash: 3a4fca0b3b60fcb76bcdc4f5f2d53df816c5053b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756378"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891765"
 ---
 # <a name="message-counters"></a>Contatori di messaggi
 
@@ -43,6 +43,11 @@ Il conteggio dei messaggi attivi è utile per stabilire se una coda crea un back
 -   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): messaggi in attesa di trasferimento in un'altra coda o in un altro argomento.
 
 Se un'applicazione vuole ridimensionare le risorse in base alla lunghezza della coda, deve farlo in maniera limitata. L'acquisizione dei contatori di messaggi è un'operazione impegnativa all'interno del broker messaggi e, se viene eseguita frequentemente, influisce direttamente e negativamente sulle prestazioni dell'entità.
+
+> [!NOTE]
+> I messaggi inviati a un argomento del bus di servizio vengono inoltrati alle sottoscrizioni per tale argomento. Pertanto, il numero di messaggi attivi sull'argomento stesso è 0, poiché tali messaggi sono stati inoltrati correttamente alla sottoscrizione. Ottenere il numero di messaggi nella sottoscrizione e verificare che sia maggiore di 0.Get the message count at the subscription and verify that it's greater than 0. Anche se vengono visualizzati messaggi nella sottoscrizione, vengono effettivamente archiviati in uno spazio di archiviazione di proprietà dell'argomento. 
+
+Se si esaminano le sottoscrizioni, il numero di messaggi diverso da zero (che aggiunge fino a 323 MB di spazio per l'intera entità).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

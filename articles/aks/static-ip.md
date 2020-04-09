@@ -1,15 +1,16 @@
 ---
-title: Usare un indirizzo IP statico e un'etichetta DNS con il servizio di bilanciamento del carico del servizio Azure Kubernetes (AKS)
+title: Usare l'IP statico con il servizio di bilanciamento del caricoUse static IP with load balancer
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come creare e usare un indirizzo IP statico con il bilanciamento del carico del servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: 6c219976db21fb05ea1ad313b4effdf95906f986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047962"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886739"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usare un indirizzo IP pubblico statico e un'etichetta DNS con il servizio di bilanciamento del carico del servizio Azure Kubernetes (AKS)Use a static public IP address and DNS label with the Azure Kubernetes Service (AKS) load balancer
 
@@ -121,7 +122,7 @@ spec:
 > [!NOTE] 
 > Per pubblicare il servizio nel proprio dominio, vedere DNS di [Azure][azure-dns-zone] e il progetto [dns esterno.][external-dns]
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Se l'indirizzo IP statico definito nella proprietà *loadBalancerIP* del manifesto del servizio Kubernetes non esiste o non è stato creato nel gruppo di risorse del nodo e non sono state configurate altre deleghe, la creazione del servizio di bilanciamento del carico non riesce. Per risolvere il problema, rivedere gli eventi di creazione del servizio con il comando [kubectl describe][kubectl-describe]. Specificare il nome del servizio indicato nel manifesto YAML, come illustrato nell'esempio seguente:
 
