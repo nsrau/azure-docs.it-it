@@ -3,16 +3,16 @@ title: Distribuire un criterio che è possibile correggere
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
 ms.date: 10/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b625e9e3c96866cfbc655a55b770c9ac07a626bd
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270641"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985168"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata
 
-[Azure Lighthouse](../overview.md) consente ai provider di servizi di creare e modificare le definizioni dei criteri all'interno di una sottoscrizione delegata. Tuttavia, per distribuire i criteri che usano una [attività di correzione](../../governance/policy/how-to/remediate-resources.md) (ovvero criteri con effetto [deployIfNotExists ](../../governance/policy/concepts/effects.md#deployifnotexists) o [modify](../../governance/policy/concepts/effects.md#modify)), è necessario creare una [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente. Questa identità gestita può essere usata da Criteri di Azure per distribuire il modello all'interno del criterio. Per abilitare questo scenario sono necessari alcuni passaggi, sia quando si esegue l'onboarding del cliente per la gestione delle risorse delegate di Azure, sia quando si distribuisce il criterio stesso.
+[Azure Lighthouse](../overview.md) consente ai provider di servizi di creare e modificare le definizioni dei criteri all'interno di una sottoscrizione delegata. Tuttavia, per distribuire criteri che [utilizzano un'attività](../../governance/policy/how-to/remediate-resources.md) di correzione, ovvero criteri con l'effetto [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) o [modifica,](../../governance/policy/concepts/effects.md#modify) è necessario creare [un'identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente. Questa identità gestita può essere usata da Criteri di Azure per distribuire il modello all'interno del criterio. Per abilitare questo scenario sono necessari alcuni passaggi, sia quando si esegue l'onboarding del cliente per la gestione delle risorse delegate di Azure, sia quando si distribuisce il criterio stesso.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Creare un utente che può assegnare ruoli a un'identità gestita nel tenant del cliente
 
@@ -40,7 +40,7 @@ L'esempio seguente illustra un **principalId** che avrà il ruolo di Amministrat
 
 Dopo averlo creato come descritto in precedenza, l'utente con le autorizzazioni necessarie può distribuire nel tenant del cliente criteri che usano le attività di correzione.
 
-Si immagini, ad esempio, di voler abilitare la diagnostica sulle risorse di Azure Key Vault nel tenant del cliente, come illustrato in questo [esempio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring). Un utente nel tenant di gestione con le autorizzazioni appropriate (come descritto in precedenza) distribuirà un [modello di Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) per abilitare questo scenario.
+Si supponga, ad esempio, di voler abilitare la diagnostica nelle risorse dell'insieme di chiavi di Azure nel tenant del cliente, come illustrato in questo [esempio.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring) Un utente nel tenant di gestione con le autorizzazioni appropriate (come descritto in precedenza) distribuirà un [modello di Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) per abilitare questo scenario.
 
 Si noti che la creazione dell'assegnazione di criteri da usare con una sottoscrizione delegata deve essere eseguita tramite le API, non nel portale di Azure. Quando si esegue questa operazione, è necessario impostare **apiVersion** su **2019-04-01-Preview**, che include la nuova proprietà **delegatedManagedIdentityResourceId**. Questa proprietà consente di includere un'identità gestita che risiede nel tenant del cliente (in una sottoscrizione o in un gruppo di risorse di cui è stato eseguito l'onboarding in Gestione risorse delegate di Azure).
 
@@ -62,7 +62,7 @@ L'esempio seguente illustra un'assegnazione di ruolo con un **delegatedManagedId
 ```
 
 > [!TIP]
-> È disponibile un [esempio simile](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) che dimostra come distribuire un criterio che aggiunge o rimuove un tag (usando l'effetto modify) in una sottoscrizione delegata.
+> È disponibile un [esempio simile](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-add-or-replace-tag) che dimostra come distribuire un criterio che aggiunge o rimuove un tag (usando l'effetto modify) in una sottoscrizione delegata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

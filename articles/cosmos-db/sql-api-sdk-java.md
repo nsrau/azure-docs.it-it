@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: sngun
-ms.openlocfilehash: 514982727509788918c159e07f8061962df32336
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e57029e53365fbf99054e2d926296ccca3360663
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77558929"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983603"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 |**Contribuire all'SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Introduzione**|[Introduzione a SDK Java](sql-api-java-get-started.md)|
 |**Esercitazione sull'app Web**|[Sviluppo di applicazioni Web con Azure Cosmos DB](sql-api-java-application.md)|
-|**Runtime minimo supportato**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
+|**Runtime minimo supportato**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Note sulla versione
 
@@ -131,7 +131,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 
 ### <a name="1150"></a><a name="1.15.0"/>1.15.0
 * Miglioramento delle prestazioni di serializzazione Json.
-* Questa versione dell'SDK richiede la versione più recente dell'emulatore di Azure Cosmos DB che è possibile scaricare dalla pagina https://aka.ms/cosmosdb-emulator.
+* Questa versione SDK richiede la versione più recente di [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="1140"></a><a name="1.14.0"/>1.14.0
 * Modifiche interne per le librerie Friend di Microsoft.

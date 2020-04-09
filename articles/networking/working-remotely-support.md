@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: bcdd938365e50da1f5ae0e830e86692f1b915123
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618922"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982855"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Utilizzo remoto dei servizi di rete di AzureWorking remotely using Azure networking services
 
@@ -80,16 +80,16 @@ Per le distribuzioni in altri cloud pubblici, Microsoft può fornire connettivit
 
 Gli articoli seguenti illustrano come diverse funzionalità di rete di Azure possono essere usate per ridimensionare gli utenti per lavorare in remoto:The following articles discuss how different Azure networking features can be used to scale users to work remotely:
 
-| **Articolo** | **Ultimo aggiornamento** |
+| **Articolo** | **Descrizione** |
 | --- | --- |
-| [Come consentire agli utenti di lavorare in remoto](../vpn-gateway/work-remotely-support.md) | del 23 marzo 2020 |
-| [Lottando per soddisfare il lavoro da esigenze domestiche? Ecco dove può essere utile la rete WAN virtuale di AzureHere are where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md) | del 23 marzo 2020 |
-| [Supporto del traffico elevato nel gateway applicazione](../application-gateway/high-traffic-support.md) | del 23 marzo 2020 |
-| [Considerazioni sull'appliance virtuale di rete per il lavoro remoto](../vpn-gateway/nva-work-remotely-support.md)| del 23 marzo 2020 |
-| [Transizione al protocollo OpenVPN o IKEv2 da SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | del 23 marzo 2020 |
-| [Lavorare in remoto con Azure BastionWorking remotely using Azure Bastion](../bastion/work-remotely-support.md) | del 23 marzo 2020 |
-| [Uso di Azure ExpressRoute per creare connettività ibrida per supportare gli utenti remotiUsing Azure ExpressRoute to create hybrid connectivity to support remote users](../expressroute/work-remotely-support.md) | del 23 marzo 2020 |
-| [Supporto del lavoro remoto di Firewall di AzureAzure Firewall remote work support](../firewall/remote-work-support.md)|del 25 marzo 2020|
+| [Come consentire agli utenti di lavorare in remoto](../vpn-gateway/work-remotely-support.md) | Esaminare le opzioni disponibili per configurare l'accesso remoto per gli utenti o per integrare le soluzioni esistenti con capacità aggiuntiva per l'organizzazione.|
+| [Lottando per soddisfare il lavoro da esigenze domestiche? Ecco dove può essere utile la rete WAN virtuale di AzureHere are where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md) | Usare la rete WAN virtuale di Azure per soddisfare le esigenze di connettività remota dell'organizzazione.|
+| [Supporto del traffico elevato nel gateway applicazione](../application-gateway/high-traffic-support.md) | Utilizzare il gateway applicazione con Web Application Firewall (WAF) per un modo scalabile e sicuro per gestire il traffico verso le applicazioni Web. |
+| [Considerazioni sull'appliance virtuale di rete per il lavoro remoto](../vpn-gateway/nva-work-remotely-support.md)|Esaminare le linee guida sull'utilizzo delle nVA in Azure per fornire soluzioni di accesso remoto. |
+| [Transizione al protocollo OpenVPN o IKEv2 da SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Superare il limite di connessione simultanea di 128 di SSTP passando al protocollo OpenVPN o IKEv2.|
+| [Lavorare in remoto con Azure BastionWorking remotely using Azure Bastion](../bastion/work-remotely-support.md) | Fornire connettività RDP/SSH sicura e trasparente alle macchine virtuali all'interno della rete virtuale di Azure, direttamente nel portale di Azure, senza l'uso di un indirizzo IP pubblico. |
+| [Uso di Azure ExpressRoute per creare connettività ibrida per supportare gli utenti remotiUsing Azure ExpressRoute to create hybrid connectivity to support remote users](../expressroute/work-remotely-support.md) | Usare ExpressRoute per la connettività ibrida per consentire agli utenti dell'organizzazione di lavorare in remoto.|
+| [Supporto del lavoro remoto di Firewall di AzureAzure Firewall remote work support](../firewall/remote-work-support.md)|Proteggere le risorse di rete virtuale di Azure usando Firewall di Azure.Protect your Azure virtual network resources using Azure Firewall. |
 
 <!--Link References-->
 [VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

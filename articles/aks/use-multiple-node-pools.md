@@ -3,13 +3,13 @@ title: Usare pool di più nodi nel servizio Azure Kubernetes (AKS)Use multiple n
 description: Informazioni su come creare e gestire pool di più nodi per un cluster nel servizio Azure Kubernetes (AKS)Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/10/2020
-ms.openlocfilehash: 87f066ed17e5274439082956803d269bdd5853f5
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.date: 04/08/2020
+ms.openlocfilehash: 26fd541552ee203216af5a08d948644d82061191
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616510"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984913"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire pool di più nodi per un cluster nel servizio Azure Kubernetes (AKS)Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ In questo articolo viene illustrato come creare e gestire più pool di nodi in u
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-È necessaria l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][install-azure-cli]you need to install or upgrade, see Install Azure CLI.
+È necessaria l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -513,9 +513,9 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     ...
     "provisioningState": "Creating",
     ...
-    "nodeTaints":  {
-      "sku": "gpu:NoSchedule"
-    },
+    "nodeTaints":  [
+      "sku=gpu:NoSchedule"
+    ],
     ...
   },
  ...

@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300537"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983076"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
 
@@ -89,12 +89,14 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 ## <a name="synchronize-userprincipalname-updates"></a>Sincronizzare gli aggiornamenti di userPrincipalName
 
-In genere, gli aggiornamenti dell'attributo UserPrincipalName usando il servizio di sincronizzazione locale vengono bloccati, a meno che siano rispettate entrambe le condizioni seguenti:
+Storicamente, gli aggiornamenti all'attributo UserPrincipalName utilizzando il servizio di sincronizzazione da locale sono stati bloccati, a meno che entrambe queste condizioni non fossero vere:
 
 * L'utente è gestito (non federato).
 * All'utente non è stata assegnata una licenza.
 
-Per alte informazioni, vedere [I nomi utente in Office 365, Azure o Intune non corrispondono agli ID di accesso o alternativi dell'UPN locale](https://support.microsoft.com/kb/2523192).
+> [!NOTE]
+> A partire da marzo 2019 è consentita la sincronizzazione delle modifiche UPN per gli account utente federati.
+> 
 
 L'abilitazione di questa funzionalità consente al motore di sincronizzazione di aggiornare userPrincipalName quando viene modificato in locale e si usa la sincronizzazione dell'hash delle password o l'autenticazione pass-through.
 

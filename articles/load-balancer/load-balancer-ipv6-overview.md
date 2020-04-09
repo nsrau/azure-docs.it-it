@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 6bc7f45d84d525156a3d25bdceef4d1012844afa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931981"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981852"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Panoramica di IPv6 per Azure Load Balancer
 
@@ -81,6 +81,7 @@ Limitazioni
 * La modifica del parametro loadDistributionMethod per IPv6 **è attualmente non supportata**.
 * Gli indirizzi IP IPv6 riservati (dove IPAllocationMethod = statico) sono **attualmente non supportati**.
 * NAT64 (conversione di IPv6 in IPv4) non supportato.
+* La connessione di una scheda di interfaccia di rete secondaria che fa riferimento a una subnet IPv6 a un pool back-end non è **attualmente supportata.**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,16 +6,16 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 84cd201cd758293082a61a87528332c7d8c58811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef511c203caa11aad4dea1047c982158810c4038
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264306"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982124"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Informazioni sulla distribuzione globale con Azure Cosmos DB - panoramica
 
-Le applicazioni moderne devono garantire velocità di risposta elevate ed essere sempre online. Per ottenere bassa latenza e disponibilità elevata, è necessario che le istanze di queste applicazioni siano distribuite in data center vicini agli utenti. Queste applicazioni vengono in genere distribuite in più data center e vengono definite distribuite a livello globale. Per le applicazioni distribuite a livello globale è necessario un database distribuito a livello globale, che può replicare in modo trasparente i dati ovunque nel mondo per consentire alle applicazioni di operare su una copia dei dati vicina agli utenti. 
+Le applicazioni di oggi sono necessarie per essere altamente reattive e sempre online. Per ottenere bassa latenza e disponibilità elevata, è necessario che le istanze di queste applicazioni siano distribuite in data center vicini agli utenti. Queste applicazioni vengono in genere distribuite in più data center e vengono definite distribuite a livello globale. Per le applicazioni distribuite a livello globale è necessario un database distribuito a livello globale, che può replicare in modo trasparente i dati ovunque nel mondo per consentire alle applicazioni di operare su una copia dei dati vicina agli utenti. 
 
 Azure Cosmos DB è un servizio di database distribuito a livello globale e progettato per garantire bassa latenza, scalabilità elastica della velocità effettiva, semantica ben definita per la coerenza dei dati e disponibilità elevata. In breve, se l'applicazione ha bisogno di tempi di risposta rapidi garantiti in qualsiasi parte del mondo, se è necessario essere sempre online e richiede scalabilità illimitata ed elasticità di velocità effettiva e archiviazione, è necessario compilare l'applicazione in Azure Cosmos DB.
 
@@ -41,7 +41,7 @@ Usando le API multihoming Cosmos DB di Azure, l'applicazione è a conoscenza del
 
 **Mantenere la continuità aziendale durante le interruzioni regionali.** Azure Cosmos DB supporta il [failover automatico](how-to-manage-database-account.md#automatic-failover) in caso di interruzioni del servizio a livello di area. In questi casi, Azure Cosmos DB continua a garantire la conformità ai contratti di servizio per latenza, disponibilità, coerenza e velocità effettiva. Per assicurarsi che l'intera applicazione sia a disponibilità elevata, Cosmos DB offre un'API di failover manuale per simulare un'interruzione a livello di area. Con questa API è possibile eseguire esercitazioni periodiche per verificare la continuità aziendale.
 
-**Scalare la velocità effettiva di lettura e scrittura a livello globale.** È possibile abilitare ogni regione per essere scrivibile e scala elasticamente letture e scritture in tutto il mondo. La velocità effettiva configurata dall'applicazione in un database Cosmos di Azure o in un contenitore è garantita per essere recapitata in tutte le aree associate all'account Cosmos di Azure.The throughput that your application configures on an Azure Cosmos database or a container is guaranteed to be delivered across all regions associated with your Azure Cosmos account. La velocità effettiva di cui è stato eseguito il provisioning è garantita da contratti di [lavoro supportati finanziariamente.](https://aka.ms/acdbsla)
+**Scalare la velocità effettiva di lettura e scrittura a livello globale.** È possibile abilitare ogni regione per essere scrivibile e scala elasticamente letture e scritture in tutto il mondo. La velocità effettiva configurata dall'applicazione in un database Cosmos di Azure o in un contenitore è garantita per essere recapitata in tutte le aree associate all'account Cosmos di Azure.The throughput that your application configures on an Azure Cosmos database or a container is guaranteed to be delivered across all regions associated with your Azure Cosmos account. La velocità effettiva di cui è stato eseguito il provisioning è garantita da contratti di [lavoro supportati finanziariamente.](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)
 
 **Scegliere tra diversi modelli di coerenza ben definiti.** Il protocollo di replica di Azure Cosmos DB offre cinque modelli di coerenza ben definiti, pratici e intuitivi. Ogni modello prevede un compromesso ottimale tra coerenza e prestazioni. Usare questi modelli di coerenza per creare con facilità applicazioni distribuite a livello globale.
 

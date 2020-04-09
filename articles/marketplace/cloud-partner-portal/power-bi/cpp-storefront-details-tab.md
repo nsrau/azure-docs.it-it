@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1bcf06056dd7fdaf22716409f53d86da7321b94d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: f4fb5fba78cdea7996d006d34b2f07f3ac5e58fa
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745581"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981291"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Scheda Dettagli storefront per app Power BI
 
 >[!Important]
->A partire dal 30 marzo 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzureCreatePBIServiceApp) sulla creazione di app Power BI per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzureCreatePBIServiceApp) sulla creazione di app Power BI per gestire le offerte migrate.
 
 Nella pagina **Nuova offerta,** utilizza la scheda **Dettagli Negozio** per fornire informazioni legali, di marketing e legali per i potenziali clienti. In questa scheda è anche possibile configurare la gestione per i lead generati da Azure Marketplace.On this tab you can also set up management for leads that the Azure Marketplace generates. Questo modulo lungo è suddiviso in sei sezioni: **Dettagli offerta**, **Dettagli elenco**, **Artefatti di marketing**, **Legale**, **Supporto clienti**e **Gestione lead**.  Alla fine dell'etichetta di un campo si intende l'obbligatorizza del campo.
 
@@ -114,7 +114,7 @@ Nella sezione **Gestione lead** configurare il sistema per raccogliere i lead de
 |------------------------|--------------------------------------            |
 |  **Nessuno**              | Non raccogliere alcun lead. Questa è l'opzione predefinita.  |
 | **Azure Blob (deprecated)** (BLOB di Azure - deprecata) | Specificare [l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) di Azure usando un nome di contenitore e una stringa di connessione.  Questa scelta è deprecata. Usare invece **Tabella di Azure.Use Azure Table** instead.  |
-| **Tabella di AzureAzure Table**        | Specificare [l'archiviazione tabelle](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) di Azure usando una stringa di connessione.  |
+| **tabella di Azure**        | Specificare [l'archiviazione tabelle](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) di Azure usando una stringa di connessione.  |
 | **Dynamics CRM Online** | Specificare [Dynamics 365](https://dynamics.microsoft.com/) utilizzando un URL e le credenziali di autenticazione. |
 | **Endpoint HTTPS**     | Specificare l'endpoint HTTPS usando un payload JSON.   |
 | **Marketo**            | Specificare un'istanza [Marketo](https://www.marketo.com/) utilizzando un ID server, un ID munchkin e un ID modulo.   |

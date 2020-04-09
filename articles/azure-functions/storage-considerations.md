@@ -3,12 +3,12 @@ title: Considerazioni sull'archiviazione per funzioni di AzureStorage considerat
 description: Informazioni sui requisiti di archiviazione di Funzioni di Azure e sulla crittografia dei dati archiviati.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 3bacc93ad6c1851d9165e8efb7d27b427050e6f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276582"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984164"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerazioni sull'archiviazione per funzioni di AzureStorage considerations for Azure Functions
 
@@ -17,7 +17,7 @@ Funzioni di Azure richiede un account di archiviazione di Azure quando si crea u
 
 |Servizio di archiviazione  | Utilizzo delle funzioni  |
 |---------|---------|
-| [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md)     | Gestire lo stato delle associazioni e i tasti funzione.  <br/>Utilizzato anche dagli [hub attività in Funzioni durevoli](durable/durable-functions-task-hubs.md). |
+| [Archiviazione BLOB di AzureAzure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Gestire lo stato delle associazioni e i tasti funzione.  <br/>Utilizzato anche dagli [hub attività in Funzioni durevoli](durable/durable-functions-task-hubs.md). |
 | [File di Azure](../storage/files/storage-files-introduction.md)  | Condivisione file utilizzata per archiviare ed eseguire il codice dell'app per le funzioni in un piano di [consumo](functions-scale.md#consumption-plan). |
 | [Archiviazione delle code di AzureAzure Queue storage](../storage/queues/storage-queues-introduction.md)     | Utilizzato dagli [hub attività in Funzioni durevoli](durable/durable-functions-task-hubs.md).   |
 | [Archiviazione tabelle di AzureAzure Table storage](../storage/tables/table-storage-overview.md)  |  Utilizzato dagli [hub attività in Funzioni durevoli](durable/durable-functions-task-hubs.md).       |
@@ -29,7 +29,7 @@ Funzioni di Azure richiede un account di archiviazione di Azure quando si crea u
 
 Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure generico che supporti l'archiviazione BLOB, coda e tabelle. Ciò è dovuto al fatto che Funzioni si basa su Archiviazione di Azure per operazioni quali la gestione di trigger e la registrazione delle esecuzioni di funzioni. Alcuni account di archiviazione non supportano code e tabelle. Questi account includono gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione generici con la replica di archiviazione. Questi account non supportati vengono filtrati dal pannello Account di archiviazione durante la creazione di un'app per le funzioni.
 
-Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi](../storage/common/storage-introduction.md#azure-storage-services)di archiviazione di Azure.To learn more about storage account types, see Introducing the Azure Storage Services . 
+Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi](../storage/common/storage-introduction.md#core-storage-services)di archiviazione di Azure.To learn more about storage account types, see Introducing the Azure Storage Services . 
 
 Sebbene sia possibile usare un account di archiviazione esistente con l'app per le funzioni, è necessario assicurarsi che soddisfi questi requisiti. Gli account di archiviazione creati come parte del flusso di creazione dell'app per le funzioni sono garantiti per soddisfare questi requisiti dell'account di archiviazione.  
 

@@ -1,15 +1,16 @@
 ---
-title: Creare nodi virtuali usando l'interfaccia della riga di comando di Azure nel servizio Azure Kubernetes
+title: Creare nodi virtuali usando l'interfaccia della riga di comando di AzureCreate virtual nodes using Azure CLI
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un cluster del servizio Azure Kubernetes che usa nodi virtuali per eseguire i pod.
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 05e32b6b0017e945044bc7593d4d6dbc543a5b64
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: b6d44ceb9b447d670c4e51c951b547e90dfce38f
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616471"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984675"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -66,7 +67,7 @@ La funzionalità dei nodi virtuali dipende fortemente dal set di funzionalità d
 * [Alias host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argomenti](../container-instances/container-instances-exec.md#restrictions) per exec in ACIArguments for exec in ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuirà pod al nodo virtuale
-* [I nodi di Windows Server (attualmente in anteprima in AKS)](windows-container-cli.md) non sono supportati insieme ai nodi virtuali. È possibile utilizzare i nodi virtuali per pianificare i contenitori di Windows Server senza la necessità di nodi Windows Server in un cluster AKS.
+* I nodi virtuali supportano la pianificazione dei pod Linux.Virtual nodes supporting Linux pods. È possibile installare manualmente il provider ACI Open Source [Virtual Kubelet](https://github.com/virtual-kubelet/azure-aci) per pianificare i contenitori di Windows Server in ACI. 
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -74,7 +75,7 @@ Azure Cloud Shell è una shell interattiva gratuita che può essere usata per es
 
 Per aprire Cloud Shell, selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È inoltre possibile avviare Cloud Shell in [https://shell.azure.com/bash](https://shell.azure.com/bash)una scheda separata del browser accedendo a . Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
-Se si preferisce installare e usare l'interfaccia della riga di comando in locale, è necessaria l'interfaccia della riga di comando di Azure versione 2.0.49 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If]( /cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
+Se si preferisce installare e usare l'interfaccia della riga di comando in locale, è necessaria l'interfaccia della riga di comando di Azure versione 2.0.49 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

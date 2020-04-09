@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 7b2c9d136a32e54ce5b5db8f6ce9ba8cd63a4f3c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6a3c168d0bd13e7c335841ac4016f18464cd50d5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745639"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985117"
 ---
 # <a name="offer-settings-tab"></a>Scheda Impostazioni dell'offerta
 
 >[!Important]
->A partire dal 30 marzo 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
 
 Nella schermata **Nuova offerta,** il primo passaggio consiste nel creare l'identità dell'offerta. L'identità offerta è costituita da tre parti: **Offer ID** (ID offerta), **Publisher ID** (ID editore) e **Name** (Nome). Ciascuna di queste parti viene trattata nelle sezioni seguenti.
 

@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1298a6d277f072491d05945b272925a2aba52e02
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: ed744cfbb49393980c2622b00233fca373b32019
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745665"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985134"
 ---
 # <a name="create-a-consulting-offer"></a>Crea un'offerta di consulenza
 
 >[!Important]
->A partire dal 30 marzo 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
 
 Questo articolo descrive come creare e pubblicare un'offerta di un servizio di consulenza.
 

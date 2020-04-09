@@ -3,12 +3,12 @@ title: Supporto dei tag per le risorse
 description: Informazioni sui tipi di risorse di Azure che supportano i tag. Include informazioni dettagliate per tutti i servizi di Azure.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: e012126995136bec15dc360be5e91007b6f69f09
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: b8b1c0b738bb8b94ee53433141f1ae3dbbb3f942
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802493"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982328"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](tag-resources.md). I tag **Supports** della colonna indicano se il tipo di risorsa dispone di una proprietà per il tag. La colonna etichettata **Etichetta nel report dei costi** indica se quel tipo di risorsa passa il tag al report dei costi. È possibile visualizzare i costi in base ai tag nell'analisi dei costi di [gestione dei costi](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e nella fattura di fatturazione di Azure e nei dati di utilizzo [giornalieri.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -1493,6 +1493,7 @@ Passare a uno spazio dei nomi del provider di risorse:Jump to a resource provide
 > | networkSecurityGroups | Sì | Sì |
 > | networkWatchers | Sì | No |
 > | networkWatchers / connectionMonitors | Sì | No |
+> | networkWatchers / flowLogs | No | No |
 > | networkOsservatori / lenti | Sì | No |
 > | networkWatchers / pingMeshes | Sì | No |
 > | p2sVpnGateways | Sì | Sì |

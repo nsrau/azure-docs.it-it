@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2019
+ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e50eb561bcbb924ea093722d6c61bbe51747b328
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811265"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981308"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi, le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il portale di [Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
@@ -145,9 +145,6 @@ Sono consigliabili tre configurazioni primarie per una workstation con protezion
 | - | Separazione netta dei compiti | - |
 | Computer aziendale come macchina virtuale |Costi hardware ridotti | - |
 | - | Separazione di ruolo e applicazioni | - |
-| Windows da usare con la crittografia di unità BitLocker |Compatibilità con la maggior parte dei computer |Verifica delle risorse |
-| - | Convenienza economica e portabilità | - |
-| - | Ambiente di gestione isolato |- |
 
 È importante che la workstation con protezione avanzata sia l'host e non il guest e che non siano presenti elementi tra il sistema operativo host e l'hardware. Il rispetto del "principio dell'origine pulita", definito anche "origine sicura", comporta l'applicazione della protezione più avanzata sull'host. In caso contrario, la workstation con protezione avanzata (guest) è soggetta ad attacchi sul sistema in cui è ospitata.
 
@@ -170,15 +167,6 @@ Nei casi in cui una workstation autonoma con protezione avanzata separata risult
 Per evitare alcuni rischi relativi alla sicurezza che possono derivare dall'uso di una workstation per la gestione dei sistemi e per altre attività lavorative quotidiane, è possibile distribuire una macchina virtuale Hyper-V Windows per la workstation con protezione avanzata. Questa macchina virtuale può essere usata come computer aziendale. L'ambiente del computer aziendale può rimanere isolato dall'host, in modo da ridurne la superficie di attacco e rimuovere le attività quotidiane dell'utente, ad esempio la posta elettronica, per evitare la coesistenza con attività amministrative riservate.
 
 La macchina virtuale del computer aziendale è in esecuzione in uno spazio protetto e fornisce applicazioni utente. L'host rimane una "origine pulita" e applica criteri di rete rigorosi nel sistema operativo radice, ad esempio il blocco dell'accesso RDP dalla macchina virtuale.
-
-### <a name="windows-to-go"></a>Windows To Go
-Un'alternativa all'uso di una workstation autonoma con protezione avanzata è costituita dall'uso di un'unità [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx), una funzionalità che supporta l'avvio USB lato client. Windows To Go consente agli utenti di avviare un computer compatibile in un'immagine di sistema isolata in esecuzione da un'unità flash USB crittografata. Fornisce controlli aggiuntivi per endpoint di amministrazione remota, perché l'immagine può essere completamente gestita da un gruppo IT aziendale, con criteri di sicurezza rigorosi, una build minima del sistema operativo e supporto per TPM.
-
-Nella figura seguente l'immagine portatile è un sistema aggiunto a un dominio preconfigurato per connettersi solo ad Azure, che richiede l'autenticazione a più fattori e blocca tutto il traffico non di gestione. Se un utente riavvia lo stesso computer nell'immagine aziendale standard e prova ad accedere al Gateway Desktop remoto per gli strumenti di gestione di Azure, la sessione verrà bloccata. Windows To Go diventa il sistema operativo a livello di radice e non sono necessari altri livelli, ovvero sistema operativo, hypervisor, macchina virtuale, che potrebbero essere più vulnerabili agli attacchi esterni.
-
-![](./media/management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png)
-
-È importante notare che le unità flash USB possono essere perse più facilmente rispetto a un computer desktop medio. L'uso di BitLocker per crittografare l'intero volume, insieme a una password complessa, riduce la probabilità dell'uso dell'immagine dell'unità da parte di un utente malintenzionato per finalità dannose. Se inoltre si perde l'unità flash USB, la revoca e il [rilascio di un nuovo certificato di gestione](https://technet.microsoft.com/library/hh831574.aspx) insieme a una rapida reimpostazione della password possono ridurre l'esposizione. I log di controllo amministrativi si trovano in Azure, non sul client, per ridurre ulteriormente la perdita potenziale di dati.
 
 ## <a name="best-practices"></a>Procedure consigliate
 Prendere in considerazione le linee guida aggiuntive seguenti quando si gestiscono le applicazioni e i dati in Azure.
@@ -215,7 +203,7 @@ La riduzione al minimo del numero di attività che gli amministratori possono es
 * Criteri di gruppo. Creare criteri amministrativi globali applicati a qualsiasi workstation di dominio usata per la gestione (e bloccare l'accesso da tutte le altre), oltre che agli account utente autenticati su queste workstation.
 * Provisioning con miglioramento della sicurezza. Proteggere l'immagine della workstation con protezione avanzata baseline per semplificare la protezione da manomissioni. Usare misure di sicurezza quali la crittografia e l'isolamento per archiviare immagini, macchine virtuali e script e limitare l'accesso, usando ad esempio un processo di archiviazione/estrazione controllabile.
 * Applicazione di patch. Mantenere una build coerente o avere a disposizione immagini separate per attività di sviluppo, operative e altre attività amministrative, ricercare regolarmente modifiche e malware, mantenere aggiornata la build a oggi e attivare i computer solo quando sono necessari.
-* Crittografia. Assicurarsi che le workstation di gestione abbiano un TPM per abilitare in modo più sicuro [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) e BitLocker. Se si usa Windows To Go, usare solo chiavi USB crittografate insieme a BitLocker.
+* Crittografia. Assicurarsi che le workstation di gestione abbiano un TPM per abilitare in modo più sicuro [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) e BitLocker.
 * Governance. Usare gli oggetti Criteri di gruppo di Active Directory Domain Services per controllare tutte le interfacce amministrative di Windows, ad esempio la condivisione di file. Includere le workstation di gestione nei processi di controllo, monitoraggio e registrazione. Tenere traccia di tutti gli accessi e gli utilizzi di amministratori e sviluppatori.
 
 ## <a name="summary"></a>Summary

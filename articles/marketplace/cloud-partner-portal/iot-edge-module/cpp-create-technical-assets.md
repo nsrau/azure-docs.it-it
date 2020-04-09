@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: cd9cd9f3986ef1944d9f9119296af5512b352d1d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: b36d03695c107054549fba716f4cc27ecb7bba26
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744310"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983484"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparare gli asset tecnici del modulo IoT Edge
 
 >[!Important]
->A partire dal 30 marzo 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureIoTTechAsset) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureIoTTechAsset) per gestire le offerte migrate.
 
 Questo articolo descrive i requisiti che devono soddisfare gli asset tecnici del modulo IoT Edge prima della pubblicazione in Azure Marketplace.
 
@@ -111,7 +111,7 @@ I moduli che usano l'SDK dei moduli IoT devono impostare l'identificatore di mod
 
 Per i moduli che non usano l'SDK dei moduli IoT sono disponibili informazioni dettagliate meno precise nel portale Cloud Partner, ad esempio il numero di download.
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 I moduli IoT Edge devono richiedere l'accesso con meno privilegi possibile all'host. È consigliabile evitare [moduli con privilegi](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities).
 

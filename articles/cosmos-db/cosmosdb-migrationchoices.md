@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 9111193bb441487b9e3c49bc9ee1a296d49f8a31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34698a215477abdd7d68c3dfe050657ecf049690
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72882394"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984896"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opzioni per eseguire la migrazione dei dati locali o cloud in Azure Cosmos DBOptions to migrate your on-premises or cloud data to Azure Cosmos DB
 
@@ -34,20 +34,20 @@ I seguenti fattori determinano la scelta dello strumento di migrazione:
 |**Tipo di migrazione**|**Soluzione**|**Considerazioni**|
 |---------|---------|---------|
 |Offline|[Strumento di migrazione dei dati](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Facile da configurare e supporta più fonti <br/>&bull;Non adatto per set di dati di grandi dimensioni|
-|Offline|[Data Factory di AzureAzure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Facile da configurare e supporta più fonti <br/>&bull;Utilizza la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull;Adatto per set di dati di grandi dimensioni <br/>&bull;Mancanza di checkpoint - Significa che se si verifica un problema durante il corso della migrazione, è necessario riavviare l'intero processo di migrazione<br/>&bull;Mancanza di una coda di messaggi non recapitabili - Significa che alcuni file errati possono interrompere l'intero processo di migrazione.|
+|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Facile da configurare e supporta più fonti <br/>&bull;Utilizza la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull;Adatto per set di dati di grandi dimensioni <br/>&bull;Mancanza di checkpoint - Significa che se si verifica un problema durante il corso della migrazione, è necessario riavviare l'intero processo di migrazione<br/>&bull;Mancanza di una coda di messaggi non recapitabili - Significa che alcuni file errati possono interrompere l'intero processo di migrazione.|
 |Offline|[Connettore Spark db di Azure CosmosAzure Cosmos DB Spark connector](https://docs.microsoft.com/azure/cosmos-db/spark-connector)|&bull;Utilizza la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull;Adatto per set di dati di grandi dimensioni <br/>&bull;È necessaria una configurazione Spark personalizzata <br/>&bull;Spark è sensibile alle incoerenze dello schema e questo può essere un problema durante la migrazione |
 |Offline|[Strumento personalizzato con libreria dell'esecutore bulk Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/migrate-cosmosdb-data)|&bull;Fornisce funzionalità di checkpoint e caratteri inevii che aumentano la resilienza della migrazione <br/>&bull;Adatto per set di dati di grandi dimensioni (10 TB e versioni successive)  <br/>&bull;Richiede l'installazione personalizzata di questo strumento in esecuzione come servizio appRequires custom setup of this tool running as an App Service |
 |Online|[Funzioni cosmo DB - API ChangeFeed](https://docs.microsoft.com/azure/cosmos-db/change-feed-functions)|&bull;Facile da configurare <br/>&bull;Funziona solo se l'origine è un contenitore di database Cosmos di Azure <br/>&bull;Non adatto per set di dati di grandi dimensioni <br/>&bull;Non acquisisce le eliminazioni dal contenitore di origine |
-|Online|[Servizio di migrazione personalizzato con ChangeFeedCustom Migration Service using ChangeFeed](https://aka.ms/CosmosDBMigrationSample)|&bull;Fornisce il monitoraggio dello stato di avanzamento <br/>&bull;Funziona solo se l'origine è un contenitore di database Cosmos di Azure <br/>&bull;Funziona anche per set di dati di dimensioni maggiori <br/>&bull;Richiede all'utente di configurare un servizio app per ospitare il processore del feed di modifiche <br/>&bull;Non acquisisce le eliminazioni dal contenitore di origine|
+|Online|[Servizio di migrazione personalizzato con ChangeFeedCustom Migration Service using ChangeFeed](https://github.com/nomiero/CosmosDBLiveETLSample)|&bull;Fornisce il monitoraggio dello stato di avanzamento <br/>&bull;Funziona solo se l'origine è un contenitore di database Cosmos di Azure <br/>&bull;Funziona anche per set di dati di dimensioni maggiori <br/>&bull;Richiede all'utente di configurare un servizio app per ospitare il processore del feed di modifiche <br/>&bull;Non acquisisce le eliminazioni dal contenitore di origine|
 |Online|[Striim](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-sql-api-migrate-data-striim)|&bull;Funziona con un'ampia gamma di origini come Oracle, DB2, SQL Server <br/>&bull;Facile da costruire pipeline ETL e fornisce un dashboard per il monitoraggio <br/>&bull;Supporta set di dati più grandiSupports larger datasets <br/>&bull;Poiché si tratta di uno strumento di terze parti, deve essere acquistato dal marketplace e installato nell'ambiente dell'utente|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo API
 |**Tipo di migrazione**|**Soluzione**|**Considerazioni**|
 |---------|---------|---------|
 |Offline|[Strumento di migrazione dei dati](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Facile da configurare e supporta più fonti <br/>&bull;Non adatto per set di dati di grandi dimensioni|
-|Offline|[Data Factory di AzureAzure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Facile da configurare e supporta più fonti <br/>&bull;Utilizza la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull;Adatto per set di dati di grandi dimensioni <br/>&bull;La mancanza di checkpoint significa che qualsiasi problema durante il corso della migrazione richiederebbe il riavvio dell'intero processo di migrazione<br/>&bull;La mancanza di una coda di messaggi non recapitabili significherebbe che alcuni file errati potrebbero interrompere l'intero processo di migrazione <br/>&bull;Richiede codice personalizzato per aumentare la velocità effettiva di lettura per determinate origini dati|
+|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Facile da configurare e supporta più fonti <br/>&bull;Utilizza la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull;Adatto per set di dati di grandi dimensioni <br/>&bull;La mancanza di checkpoint significa che qualsiasi problema durante il corso della migrazione richiederebbe il riavvio dell'intero processo di migrazione<br/>&bull;La mancanza di una coda di messaggi non recapitabili significherebbe che alcuni file errati potrebbero interrompere l'intero processo di migrazione <br/>&bull;Richiede codice personalizzato per aumentare la velocità effettiva di lettura per determinate origini dati|
 |Offline|[Strumenti Mongo esistenti (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull;Facile da configurare e integrazione <br/>&bull;Ha bisogno di una gestione personalizzata per le limitazioni|
-|Online|[Servizio di migrazione del database di AzureAzure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db-online)|&bull;Utilizza la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull;Adatto per set di dati di grandi dimensioni e si occupa della replica delle modifiche in tempo reale <br/>&bull;Funziona solo con altre fonti MongoDB|
+|Online|[Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db-online)|&bull;Utilizza la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull;Adatto per set di dati di grandi dimensioni e si occupa della replica delle modifiche in tempo reale <br/>&bull;Funziona solo con altre fonti MongoDB|
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>API Cassandra di Azure Cosmos DB
 |**Tipo di migrazione**|**Soluzione**|**Considerazioni**|
@@ -60,11 +60,11 @@ I seguenti fattori determinano la scelta dello strumento di migrazione:
 ## <a name="other-apis"></a>Other APIs
 Per le API diverse dall'API SQL, dall'API Mongo e dall'API Cassandra, sono disponibili vari strumenti supportati da ognuno degli ecosistemi esistenti dell'API. 
 
-**API tabella** 
+**API di tabella** 
 * [Strumento di migrazione dei dati](https://docs.microsoft.com/azure/cosmos-db/table-import#data-migration-tool)
 * [Copia Azzurra](https://docs.microsoft.com/azure/cosmos-db/table-import#migrate-data-by-using-azcopy)
 
-**Gremlin API**
+**API Gremlin**
 * [Libreria dell'esecutore in blocco del graficoGraph bulk executor library](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-graph-dotnet)
 * [Gremlin Scintilla](https://github.com/Azure/azure-cosmosdb-spark/blob/2.4/samples/graphframes/main.scala) 
 

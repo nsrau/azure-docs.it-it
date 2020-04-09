@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf512fc521ef553f0bbd6ef6dd8ee19e398b37b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442180"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982704"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Uso della libreria .NET BulkExecutor per i grafi per eseguire operazioni in blocco nell'API Gremlin di Azure Cosmos DB
 
 Questa esercitazione include le istruzioni per l'uso della libreria .NET BulkExecutor di Azure Cosmos DB per importare e aggiornare oggetti grafo nel contenitore di API Gremlin di Azure Cosmos DB. Questo processo usa la classe Graph nella [libreria BulkExecutor](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) per creare oggetti vertice e arco a livello di codice e quindi inserirne diversi per ogni richiesta di rete. Questo comportamento può essere configurato tramite la libreria BulkExecutor per usare in modo ottimale risorse di database e di memoria locale.
 
-Diversamente dall'invio di query Gremlin a un database, in cui il comando viene valutato e quindi eseguito uno per volta, l'uso della libreria BulkExecutor richiede invece la creazione e la convalida degli oggetti in locale. Dopo aver creato gli oggetti, la libreria permette di inviare oggetti grafo al servizio di database in sequenza. Usando questo metodo, le velocità di inserimento dati possono rivelarsi fino a 100 volte maggiori e di conseguenza questo è un metodo ideale per migrazioni dei dati iniziali o operazioni periodiche di spostamento dati. Altre informazioni sono disponibili nella pagina GitHub dell'[applicazione di esempio Graph BulkExecutor di Azure Cosmos DB](https://aka.ms/graph-bulkexecutor-sample).
+Diversamente dall'invio di query Gremlin a un database, in cui il comando viene valutato e quindi eseguito uno per volta, l'uso della libreria BulkExecutor richiede invece la creazione e la convalida degli oggetti in locale. Dopo aver creato gli oggetti, la libreria permette di inviare oggetti grafo al servizio di database in sequenza. Usando questo metodo, le velocità di inserimento dati possono rivelarsi fino a 100 volte maggiori e di conseguenza questo è un metodo ideale per migrazioni dei dati iniziali o operazioni periodiche di spostamento dati. Altre informazioni sono disponibili nella pagina GitHub dell'[applicazione di esempio Graph BulkExecutor di Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
 
 ## <a name="bulk-operations-with-graph-data"></a>Operazioni in blocco con dati sui grafi
 
@@ -120,7 +120,7 @@ e.AddProperty("customProperty", "value");
 * Git. Per altre informazioni, vedere la [pagina dei download di Git](https://git-scm.com/downloads).
 
 ### <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
-In questa esercitazione vengono presentati i passaggi iniziali usando l'[esempio Graph BulkExecutor di Azure Cosmos DB](https://aka.ms/graph-bulkexecutor-sample) ospitato in GitHub. Questa applicazione è costituita da una soluzione .NET che genera casualmente oggetti vertice e arco e quindi esegue inserimenti in blocco nell'account di database di grafi specificato. Per ottenere l'applicazione, eseguire il comando `git clone` seguente:
+In questa esercitazione vengono presentati i passaggi iniziali usando l'[esempio Graph BulkExecutor di Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) ospitato in GitHub. Questa applicazione è costituita da una soluzione .NET che genera casualmente oggetti vertice e arco e quindi esegue inserimenti in blocco nell'account di database di grafi specificato. Per ottenere l'applicazione, eseguire il comando `git clone` seguente:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git

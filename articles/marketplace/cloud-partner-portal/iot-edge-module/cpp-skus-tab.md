@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: a989113c80cd8189cce9da959fe27509297f677a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: c1d1daea71ea8b69ef24031c643caf8dcd0d1fb7
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745695"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983331"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Scheda SKU di moduli per IoT Edge
 
 >[!Important]
->A partire dal 30 marzo 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureCreateIoT) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureCreateIoT) per gestire le offerte migrate.
 
 La scheda **SKU** della pagina **Nuova offerta** consente di creare uno o più SKU e di associarli alla nuova offerta.  È possibile usare vari SKU per differenziare una soluzione per set di funzionalità, modelli di fatturazione o altre caratteristiche.
 
@@ -112,7 +112,7 @@ Nella tabella seguente vengono descritti lo scopo, il contenuto e la formattazio
 | **Nome del gruppo di risorse\***      | Nome del gruppo di risorse di Registro Azure Container.|
 | **Nome del Registro di sistema\***  | Nome del Registro di sistema di Registro Azure Container. Copiare solo il nome del Registro di sistema, NON il nome del server di accesso (ad esempio, senza `azurecr.io`). |
 | **Nome del repository\***  | Nome del repository di Registro Azure Container contenente il modulo IoT Edge. **Nota:** dopo averlo impostato, il nome non potrà essere più modificato. Usare un nome univoco in modo che nessun'altra offerta dell'account abbia lo stesso nome. |
-| **Username\*** | Nome utente associato al Registro Azure Container (nome utente amministratore). |
+| **Nome utente\*** | Nome utente associato al Registro Azure Container (nome utente amministratore). |
 | **Password\*** | Password associata al Registro Azure Container. |
 |    |  ***Versione immagine***   |
 | **Tag immagine o digest\*** | Deve includere almeno un tag `latest` e un tag di versione (ad esempio, deve iniziare con `xx.xx.xx-`, dove xx rappresenta un numero). Devono essere [tag di manifesto](https://github.com/estesp/manifest-tool) per specificare come destinazione più piattaforme. È necessario aggiungere anche tutti i tag referenziati da un tag di manifesto per poterli caricare. È possibile aggiungere varie versioni di un modulo IoT Edge mediante tag. Tutti i tag di manifesto (tranne `latest`) devono iniziare con `X.Y-` o `X.Y.Z-`, dove X, Y, Z sono numeri interi. Altre informazioni sui [tag e sul controllo delle versioni sono disponibili in "Preparare gli asset tecnici del modulo IoT Edge"](./cpp-create-technical-assets.md). <br/> Se ad esempio un tag `latest` punta a `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, questi 6 tag devono essere aggiunti qui. |

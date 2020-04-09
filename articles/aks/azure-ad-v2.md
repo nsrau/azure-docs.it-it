@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 03/24/2020
-ms.openlocfilehash: 1ca4b70139ed5e0a136f6f5f2b0382b8c1688983
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 27abdfe28e2594c98778b51532fbd22f95bfa3ac
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389410"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984709"
 ---
 # <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Integrare Azure AD nel servizio Azure Kubernetes (anteprima)Integrate Azure AD in Azure Kubernetes Service (Preview)
 
@@ -49,11 +49,10 @@ az extension update --name aks-preview
 az extension list
 ```
 
-Per installare kubectl, utilizzare i seguenti
+Per installare kubectl, utilizzare quanto segue:
+
 ```azurecli
-curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.18.0-beta.2/bin/linux/amd64/kubectl"
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+sudo az aks install-cli
 kubectl version --client
 ```
 
@@ -99,7 +98,7 @@ Il comando precedente crea un cluster AKS a tre nodi, ma l'utente, che ha creato
 Dopo aver creato un gruppo e aggiunto se stessi (e altri) come membro, è possibile aggiornare il cluster con il gruppo di Azure AD usando il comando seguenteOnce you've created a group and added yourself (and others) as a member, you can update the cluster with the Azure AD group using the following command
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
 ```
 In alternativa, se si crea prima un gruppo e si aggiungono membri, è possibile abilitare il gruppo di Azure AD in fase di creazione usando il comando seguente,
 

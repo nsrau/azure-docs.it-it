@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 2a7f5d5eacb2d03e64ae95d34e1cf0bd37bbc7f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07b071b0e8efc5d664dada133a214d778c6531d0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259253"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984947"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 
@@ -33,7 +33,7 @@ Il bus di servizio Premium supporta il ripristino di emergenza geografico a live
 
 ### <a name="availability-zones"></a>Zone di disponibilità
 
-Lo SKU Premium del bus di servizio supporta le [zone di disponibilità](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno della stessa area di Azure.
+Lo SKU Premium del bus di servizio supporta le [zone di disponibilità](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno della stessa area di Azure. Il bus di servizio gestisce tre copie dell'archivio di messaggistica (1 principale e 2 secondario). Il bus di servizio mantiene tutte e tre le copie sincronizzate per le operazioni di gestione e dati. Se la copia primaria ha esito negativo, una delle copie secondarie viene promossa a primaria senza tempi di inattività percepiti. Se le applicazioni rilevano disconnessioni temporanee dal bus di servizio, la logica di ripetizione dei tentativi nell'SDK si riconnetterà automaticamente al bus di servizio. 
 
 > [!NOTE]
 > Il supporto per le zone di disponibilità per il bus di servizio di Azure Premium è disponibile solo nelle [aree di Azure](../availability-zones/az-overview.md#services-support-by-region) in cui sono presenti le zone di disponibilità.

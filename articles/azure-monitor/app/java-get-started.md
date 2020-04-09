@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: efa498ba600a664beab4b9a49eae2b2c3f1c8397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2355cb7ab995cab3060c7a94c9e7ea344bd9e92b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298303"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984641"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guida introduttiva: Introduzione a Application Insights in un progetto Web Java
 
@@ -25,7 +25,7 @@ Application Insights è un servizio di analisi estendibile per gli sviluppatori 
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Ottenere una chiave di strumentazione di Application Insights
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel portale di Azurecreare una risorsa di Application Insights. Impostare il tipo di applicazione nell'applicazione Web Java.
 
 3. Ottenere la chiave di strumentazione della nuova risorsa. Questa chiave dovrà a breve essere incollata nel progetto di codice.
@@ -223,7 +223,7 @@ E per la denominazione automatica del funzionamento.
 
 L'SDK di Java di Application Insights adesso supporta l'[analisi distribuita W3C](https://w3c.github.io/trace-context/).
 
-La configurazione dell'SDK in ingresso viene illustrata più dettagliatamente nell'articolo sulla [correlazione](correlation.md#telemetry-correlation-in-the-java-sdk).
+La configurazione dell'SDK in ingresso viene illustrata più dettagliatamente nell'articolo sulla [correlazione](correlation.md).
 
 La configurazione dell'SDK in uscita è definita nel file [AI-Agent.xml](java-agent.md).
 
@@ -258,7 +258,7 @@ Per disabilitare la raccolta del set standard di contatori delle prestazioni, ag
 * `displayName` : il nome visualizzato nel portale di Application Insights.
 * `objectName` : il nome dell'oggetto JMX.
 * `attribute` : l'attributo del nome dell'oggetto JMX da recuperare
-* `type` (facoltativo): il tipo di attributo dell'oggetto JMX:
+* `type`(opzionale) - Il tipo di attributo dell'oggetto JMX:
   * Impostazione predefinita: un tipo semplice come int o long.
   * `composite`: i dati del contatore delle prestazioni sono nel formato 'Attribute.Data'
   * `tabular`: i dati del contatore delle prestazioni sono nel formato della riga di una tabella

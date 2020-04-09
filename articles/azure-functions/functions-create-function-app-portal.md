@@ -1,15 +1,15 @@
 ---
-title: Creare un'app per le funzioni dal portale di AzureCreate a function app from the Azure Portal
+title: Creare un'app per le funzioni dal portale di Azure
 description: Creare una nuova app per le funzioni in Azure dal portale.
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 6c17dc28d7eea4897759c1c832fdb1aba7f1e445
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756538"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985015"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Creare un'app per le funzioni dal portale di Azure
 
@@ -36,7 +36,7 @@ Quando si crea un'app per le funzioni, è necessario creare o collegare un accou
 >[!NOTE]
 >Quando si usa il piano di hosting a consumo, i file del codice di funzione e la configurazione di binding vengono archiviati nell'archiviazione file di Azure nell'account di archiviazione principale. Quando si elimina l'account di archiviazione principale, il contenuto viene eliminato e non può essere ripristinato.
 
-Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi](../storage/common/storage-introduction.md#azure-storage-services)di archiviazione di Azure.To learn more about storage account types, see Introducing the Azure Storage Services . 
+Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi](../storage/common/storage-introduction.md#core-storage-services)di archiviazione di Azure.To learn more about storage account types, see Introducing the Azure Storage Services . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
