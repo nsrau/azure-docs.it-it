@@ -2,20 +2,22 @@
 title: Raccogliere i log delle risorse in & Analyze
 description: Informazioni su come inviare log delle risorse e dati di evento dai gruppi di contenitori nelle istanze del contenitore di Azure ai log di Monitoraggio di AzureLearn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 04/07/2020
 ms.author: danlep
-ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75770544"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892394"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registrazione di gruppi e istanze di contenitori con i log di Monitoraggio di AzureContainer group and instance logging with Azure Monitor logs
 
 Le aree di lavoro di Log Analytics forniscono una posizione centralizzata per l'archiviazione e l'esecuzione di query sui dati del log non solo dalle risorse di Azure, ma anche dalle risorse e dalle risorse locali in altri cloud. Il servizio Istanze di Azure Container supporta per impostazione predefinita l'invio di log e dati sugli eventi ai log di Monitoraggio di Azure.
 
-Per inviare i log del gruppo di contenitori e i dati degli eventi ai log di Monitoraggio di Azure, specificare un ID dell'area di lavoro di Log Analytics e una chiave dell'area di lavoro durante la creazione di un gruppo di contenitori. Nelle sezioni seguenti viene descritto come creare un gruppo di contenitori abilitato per la registrazione e come eseguire query sui log.
+Per inviare i log del gruppo di contenitori e i dati degli eventi ai log di Monitoraggio di Azure, specificare un ID dell'area di lavoro di Log Analytics e una chiave dell'area di lavoro esistenti durante la configurazione di un gruppo di contenitori. 
+
+Nelle sezioni seguenti viene descritto come creare un gruppo di contenitori abilitato per la registrazione e come eseguire query sui log. È inoltre possibile [aggiornare un gruppo](container-instances-update.md) di contenitori con un ID dell'area di lavoro e una chiave dell'area di lavoro per abilitare la registrazione.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,7 +28,7 @@ Per inviare i log del gruppo di contenitori e i dati degli eventi ai log di Moni
 
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
-* [Area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [Area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Ottenere le credenziali di Log Analytics

@@ -2,24 +2,21 @@
 title: API Web che chiama le API Web - Piattaforma di identità Microsoft Azure
 description: Informazioni su come creare un'API Web che chiama le API Web.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d66a08d4e84a3771d6c3fa46b96c975869435452
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bbd24978891efd147b0c317c1746d13961ce5e9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76833380"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885090"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Un'API Web che chiama le API Web: chiamare un'API
 

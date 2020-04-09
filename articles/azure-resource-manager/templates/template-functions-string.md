@@ -2,13 +2,13 @@
 title: Funzioni modello - stringa
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per operare con le stringhe.
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 070133c3db538e5df76644b62c25ced916adc4af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156277"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982415"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funzioni stringa per i modelli ARM
 
@@ -17,7 +17,7 @@ Resource Manager offre le funzioni seguenti per l'uso delle stringhe nei modelli
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [concat](#concat)
+* [Concat](#concat)
 * [Contiene](#contains)
 * [dataUri (informazioni in base all'](#datauri)
 * [dataUriToString](#datauritostring)
@@ -36,8 +36,8 @@ Resource Manager offre le funzioni seguenti per l'uso delle stringhe nei modelli
 * [skip](#skip)
 * [diviso](#split)
 * [Startswith](#startswith)
-* [Stringa](#string)
-* [substring](#substring)
+* [string](#string)
+* [Sottostringa](#substring)
 * [take](#take)
 * [Tolower](#tolower)
 * [Toupper](#toupper)
@@ -46,7 +46,6 @@ Resource Manager offre le funzioni seguenti per l'uso delle stringhe nei modelli
 * [Uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
-* [utcNow](#utcnow)
 
 ## <a name="base64"></a>base64
 
@@ -1097,6 +1096,8 @@ Restituisce un valore nel formato di un identificatore univoco globale. **Questa
 
 La funzione newGuid differisce dalla funzione [guid](#guid) perché non accetta parametri. Quando si chiama guid con lo stesso parametro, restituisce ogni volta lo stesso identificatore. Utilizzare guid quando è necessario generare in modo affidabile lo stesso GUID per un ambiente specifico. Usare newGuid quando ogni volta è necessario un identificatore diverso, ad esempio la distribuzione di risorse in un ambiente di test.
 
+La funzione newGuid utilizza la [struttura Guid](/dotnet/api/system.guid) in .NET Framework per generare l'identificatore univoco globale.
+
 Se si utilizza l'opzione per ridistribuire una [distribuzione con esito positivo precedente](rollback-on-error.md)e la distribuzione precedente include un parametro che utilizza newGuid, il parametro non viene rivalutato. Al contrario, il valore del parametro dalla distribuzione precedente viene riutilizzato automaticamente nella distribuzione di rollback.
 
 In un ambiente di test, potrebbe essere necessario distribuire ripetutamente le risorse che risiedono solo per un breve periodo di tempo. Anziché creare nomi univoci, è possibile utilizzare newGuid con [uniqueString](#uniquestring) per creare nomi univoci.
@@ -1876,7 +1877,7 @@ Nell'esempio seguente viene illustrato come creare un nome univoco per un accoun
     ...
 ```
 
-Se è necessario creare un nuovo nome univoco ogni volta che si distribuisce un modello e non si intende aggiornare la risorsa, è possibile usare la funzione [utcNow](#utcnow) con uniqueString. È possibile usare questo approccio in un ambiente di test. Per un esempio, vedere [utcNow](#utcnow).
+Se è necessario creare un nuovo nome univoco ogni volta che si distribuisce un modello e non si intende aggiornare la risorsa, è possibile usare la funzione [utcNow](template-functions-date.md#utcnow) con uniqueString. È possibile usare questo approccio in un ambiente di test. Per un esempio, vedere [utcNow](template-functions-date.md#utcnow).
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1923,7 +1924,7 @@ Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 
    * Se **baseUri** non ha barre (a parte il "//" vicino alla parte anteriore) il risultato è semplicemente **baseUri** seguito da **relativeUri**.
 
-   * Se **baseUri** ha alcune barre, ma non termina con una barra, tutto ciò che viene rimosso dall'ultima barra in poi viene rimosso da **baseUri** e il risultato è **baseUri** seguito da **relativeUri**.
+   * Se **baseUri** ha alcune barre, ma non termina con una barra, tutto, dall'ultima barra in poi, viene rimosso da **baseUri** e il risultato è **baseUri** seguito da **relativeUri**.
      
 Di seguito sono riportati alcuni esempi:
 
@@ -2093,115 +2094,6 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | uriOutput | string | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | string | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
 | toStringOutput | string | `http://contoso.com/resources/nested/azuredeploy.json` |
-
-## <a name="utcnow"></a>utcNow
-
-`utcNow(format)`
-
-Restituisce il valore datetime corrente (UTC) nel formato specificato. Se non viene fornito alcun formato, viene utilizzato il formato ISO 8601 (yyyyMddTHHmmss). **Questa funzione può essere utilizzata solo nel valore predefinito per un parametro.**
-
-### <a name="parameters"></a>Parametri
-
-| Parametro | Obbligatoria | Type | Descrizione |
-|:--- |:--- |:--- |:--- |
-| format |No |string |Valore URI codificato da convertire in stringa. Utilizzare [stringhe](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) di formato standard o stringhe di [formato personalizzate.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) |
-
-### <a name="remarks"></a>Osservazioni
-
-È possibile utilizzare questa funzione solo all'interno di un'espressione per il valore predefinito di un parametro. L'utilizzo di questa funzione in qualsiasi altro punto di un modello restituisce un errore. La funzione non è consentita in altre parti del modello perché restituisce un valore diverso ogni volta che viene chiamato. La distribuzione dello stesso modello con gli stessi parametri non produrrebbe in modo affidabile gli stessi risultati.
-
-Se si utilizza l'opzione per ridistribuire una [distribuzione con esito positivo precedente](rollback-on-error.md)e la distribuzione precedente include un parametro che utilizza utcNow, il parametro non viene rivalutato. Al contrario, il valore del parametro dalla distribuzione precedente viene riutilizzato automaticamente nella distribuzione di rollback.
-
-Prestare attenzione alla ridistribuzione di un modello che si basa sulla funzione utcNow per un valore predefinito. Quando si ridistribuisce e non si specifica un valore per il parametro, la funzione viene rivalutata. Se si desidera aggiornare una risorsa esistente anziché crearne una nuova, passare il valore del parametro dalla distribuzione precedente.
-
-### <a name="return-value"></a>Valore restituito
-
-Valore datetime UTC corrente.
-
-### <a name="examples"></a>Esempi
-
-Il modello di esempio seguente mostra formati diversi per il valore datetime.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcValue": {
-            "type": "string",
-            "defaultValue": "[utcNow()]"
-        },
-        "utcShortValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "utcCustomValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('M d')]"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "utcOutput": {
-            "type": "string",
-            "value": "[parameters('utcValue')]"
-        },
-        "utcShortOutput": {
-            "type": "string",
-            "value": "[parameters('utcShortValue')]"
-        },
-        "utcCustomOutput": {
-            "type": "string",
-            "value": "[parameters('utcCustomValue')]"
-        }
-    }
-}
-```
-
-L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile al seguente:The output from the preceding example varies for each deployment but will be similar to:
-
-| Nome | Type | valore |
-| ---- | ---- | ----- |
-| utcOutput (informazioni in questo campo) | string | 20190305T1753318 |
-| utcShortOutput | string | 05/03/2019 |
-| utcCustomOutput | string | 3 5 |
-
-L'esempio seguente mostra come usare un valore dalla funzione quando si imposta un valore di tag.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcShort": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "rgName": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "name": "[parameters('rgName')]",
-            "location": "westeurope",
-            "tags":{
-                "createdDate": "[parameters('utcShort')]"
-            },
-            "properties":{}
-        }
-    ],
-    "outputs": {
-        "utcShort": {
-            "type": "string",
-            "value": "[parameters('utcShort')]"
-        }
-    }
-}
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere Creazione di modelli di [Azure Resource Manager.](template-syntax.md)

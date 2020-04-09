@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 1f339d987d67047f5857679b440e93e6c3730059
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cc9d129894cefaf2fab853d2099d754d68238e5f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810443"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887351"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creazione e utilizzo della replica geografica attiva
 
@@ -113,14 +113,11 @@ Per assicurarsi che l'applicazione possa accedere immediatamente al nuovo databa
 
 ## <a name="configuring-secondary-database"></a>Configurazione del database secondario
 
-I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni di calcolo (DTU o vCore) del database primario. Se il database primario presenta un carico di lavoro di scrittura elevato, un database secondario con dimensioni di calcolo inferiori potrebbe non essere in grado di tenere il passo con esso. Ciò causerà un ritardo sul secondario e una potenziale indisponibilità del secondario. Un database secondario in ritardo rispetto al database primario rischia anche una perdita di dati di grandi dimensioni, in caso di failover forzato. Per ridurre questi rischi, la replica geografica attiva limiterà la frequenza di log del primario, se necessario, per consentire il recupero dei database secondari. 
+I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni di calcolo (DTU o vCore) del database primario. Se il database primario presenta un carico di lavoro di scrittura elevato, un database secondario con dimensioni di calcolo inferiori potrebbe non essere in grado di tenere il passo con esso. Ciò causerà un ritardo sul secondario e una potenziale indisponibilità del secondario. Per ridurre questi rischi, la replica geografica attiva limiterà la frequenza del log delle transazioni del primario, se necessario, per consentire ai database secondari di recuperare il ritardo. 
 
-L'altra conseguenza di una configurazione secondaria sbilanciata è che dopo il failover, le prestazioni dell'applicazione potrebbero risentirne a causa della capacità di calcolo insufficiente del nuovo database primario. In tal caso, sarà necessario scalare l'obiettivo del servizio di database al livello necessario, che può richiedere molto tempo e risorse di calcolo e richiederà un failover a [disponibilità elevata](sql-database-high-availability.md) alla fine del processo di scalabilità verticale.
+Un'altra conseguenza di una configurazione secondaria sbilanciata è che dopo il failover, le prestazioni dell'applicazione potrebbero risentirne a causa della capacità di calcolo insufficiente del nuovo database primario. In tal caso, sarà necessario scalare l'obiettivo del servizio di database al livello necessario, che può richiedere molto tempo e risorse di calcolo e richiederà un failover a [disponibilità elevata](sql-database-high-availability.md) alla fine del processo di scalabilità verticale.
 
-> [!IMPORTANT]
-> Il livello di servizio RPO pubblicato 5 secondi non può essere garantito a meno che il database secondario non sia configurato con le stesse o superiori dimensioni di calcolo del database primario. 
-
-Se si decide di creare il database secondario con dimensioni di calcolo inferiori, il grafico percentuale di I/O del log nel portale di Azure offre un buon modo per stimare le dimensioni minime di calcolo del database secondario necessario per sostenere il carico di replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale di scrittura del log è 50%, il database secondario deve essere almeno P4 (500 DTU). Per recuperare i dati di I/O del log cronologici, utilizzare la visualizzazione [sys.resource_stats.](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Per recuperare i dati recenti di scrittura del log con una maggiore granularità che riflette meglio i picchi a breve termine nella frequenza di log, utilizzare la visualizzazione [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) . 
+Se si decide di creare il database secondario con dimensioni di calcolo inferiori, il grafico percentuale di I/O del log nel portale di Azure offre un buon modo per stimare le dimensioni minime di calcolo del database secondario necessario per sostenere il carico di replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale di scrittura del log è 50%, il database secondario deve essere almeno P4 (500 DTU). Per recuperare i dati di I/O del log cronologici, utilizzare la visualizzazione [sys.resource_stats.](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Per recuperare i dati recenti di scrittura del log con una maggiore granularità che riflette meglio i picchi a breve termine nella frequenza di log, utilizzare la visualizzazione [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) .
 
 La limitazione della frequenza del log delle transazioni nel database primario a causa di dimensioni di calcolo inferiori in un database secondario viene segnalata utilizzando il tipo di attesa HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visibile nelle viste di database [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
 

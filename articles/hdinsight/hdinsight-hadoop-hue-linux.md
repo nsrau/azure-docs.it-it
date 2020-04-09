@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/28/2019
-ms.openlocfilehash: 69acfd4f2edab9be1b1dcfbb52eafbd00aec712f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: dea7e8d5679c8c5a14d6a4253b8a4b36343e6ed8
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934571"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887096"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installare e usare Hue nei cluster Hadoop di HDInsight
 
@@ -51,7 +51,7 @@ Utilizzare le informazioni nella tabella seguente per l'azione di script. Per is
 
 ## <a name="use-hue-with-hdinsight-clusters"></a>Usare Hue con i cluster HDInsight
 
-Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è in esecuzione. Il tunneling tramite SSH consente al traffico di raggiungere direttamente il nodo head del cluster in cui viene eseguito Hue. Al termine del provisioning del cluster, usare la procedura seguente per usare Hue in un cluster HDInsight.After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight cluster.
+È possibile avere un solo account utente con Hue nei cluster regolari. Per l'accesso multiutente, abilitare [Enterprise Security Package](./domain-joined/hdinsight-security-overview.md) nel cluster. SSH Tunneling è l'unico modo per accedere a Hue sul cluster una volta che è in esecuzione. Il tunneling tramite SSH consente al traffico di raggiungere direttamente il nodo head del cluster in cui viene eseguito Hue. Al termine del provisioning del cluster, usare la procedura seguente per usare Hue in un cluster HDInsight.After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight cluster.
 
 > [!NOTE]  
 > È consigliabile utilizzare il browser web di Firefox per seguire le istruzioni seguenti.
@@ -113,9 +113,9 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 1. Durante l'installazione vengono riavviati più servizi Hadoop (HDFS, YARN, MR2, Oozie) per l'aggiornamento della configurazione. Al termine dell'installazione di Hue tramite lo script, è possibile che l'avvio di altri servizi Hadoop richieda qualche istante. Ciò potrebbe influire inizialmente sulle prestazioni di Hue. Una volta avviati tutti i servizi, Hue sarà completamente funzionale.
 
-1. Hue non riconosce i processi di Apache Tez, che attualmente corrisponde all'importazione predefinita per Hive. Se si vuole usare MapReduce come motore di esecuzione di Hive, aggiornare lo script per l'uso dei comandi seguenti:
+1. La tonalità non comprende i lavori di Apache Tez, che è l'impostazione predefinita corrente per Hive. Se si vuole usare MapReduce come motore di esecuzione di Hive, aggiornare lo script per l'uso dei comandi seguenti:
 
-        set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
 
 1. Con i cluster Linux è possibile avere uno scenario in cui i servizi vengono eseguiti sul nodo head primario mentre Resource Manager potrebbe essere in esecuzione su quello secondario. Questo scenario potrebbe causare errori (illustrati di seguito) quando si usa Hue per visualizzare i dettagli dei processi IN ESECUZIONE nel cluster. I dettagli del processo possono tuttavia essere visualizzati dopo il completamento del processo.
 

@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/10/2020
-ms.openlocfilehash: 6302a7d6ffe7218d339121ec98a624f8e98356f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 3fe5a58046776d00ce68189cf724a995380869eb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065584"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887301"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 
@@ -62,11 +62,14 @@ Usare la procedura seguente per creare un metodo di recupero i /o più indipende
 
    ![Creare un runtime di integrazione](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
 
-1. Nella finestra **Impostazione runtime di integrazione** selezionare Esegui attività di spostamento e invio dei **dati a calcoli esterni**e **selezionare Continua**.
+1. Nella pagina **Installazione runtime** integrazione selezionare **Azure, Self-Hosted**e quindi **Continua**. 
+
+1. Nella pagina seguente selezionare **Self-Hosted** per creare un componente di gestione di proprietà self-hosted e quindi selezionare **Continue**.
+   ![Creare un iR self-hostedCreate a selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
 
 1. Immettere un nome per il file IR e selezionare **Crea**.
 
-1. Selezionare il collegamento sotto **l'opzione 1** per aprire la configurazione rapida nel computer. In alternativa, seguire i passaggi descritti in **Opzione 2** per impostare manualmente. Le seguenti istruzioni si basano sulla configurazione manuale:
+1. Nella pagina Installazione runtime di **integrazione** selezionare il collegamento in **Opzione 1** per aprire l'installazione rapida nel computer. In alternativa, seguire i passaggi descritti in **Opzione 2** per impostare manualmente. Le seguenti istruzioni si basano sulla configurazione manuale:
 
    ![Impostazione runtime di integrazione](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
@@ -357,7 +360,7 @@ Dopo aver registrato il runtime di integrazione self-hosted, se si desidera visu
 1. Aprire **Gestione configurazione di Microsoft Integration Runtime**.
 1. Selezionare la scheda **Impostazioni.**
 1. In **Proxy HTTP**selezionare il collegamento **Cambia** per aprire la finestra di dialogo Imposta **proxy HTTP.**
-1. Fare clic su **Avanti**. Viene quindi visualizzato un avviso che richiede l'autorizzazione per salvare l'impostazione proxy e riavviare il servizio host del runtime di integrazione.
+1. Selezionare **Avanti**. Viene quindi visualizzato un avviso che richiede l'autorizzazione per salvare l'impostazione proxy e riavviare il servizio host del runtime di integrazione.
 
 È possibile utilizzare lo strumento di gestione della configurazione per visualizzare e aggiornare il proxy HTTP.
 

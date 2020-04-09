@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086975"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886926"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Creare criteri Di Web Application Firewall per il gateway applicazione
 
@@ -24,6 +24,8 @@ Se al gateway applicazione è applicato un criterio e quindi si applicano criter
 
    > [!NOTE]
    > I criteri di WAF per sito e per URI sono disponibili in anteprima pubblica. Questa funzionalità è quindi soggetta alle condizioni per l'utilizzo supplementari di Microsoft. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > [!NOTE]
+   > Una volta che un criterio firewall è associato a un WAF, deve essere sempre presente un criterio associato a tale WAF. È possibile sovrascrivere tale criterio, ma la dissociazione di un criterio dal WAF non è completamente supportata. 
 
 Tutte le nuove impostazioni WAF di Web Application Firewall (regole personalizzate, configurazioni di rulset gestite, esclusioni e così via) risiedono all'interno di un criterio WAF. Se si dispone di un WAF esistente, queste impostazioni potrebbero essere ancora presenti nella configurazione WAF. Per istruzioni su come passare al nuovo criterio WAF, vedere Eseguire la migrazione della [configurazione WAF a un criterio WAF](#migrate) più avanti in questo articolo. 
 

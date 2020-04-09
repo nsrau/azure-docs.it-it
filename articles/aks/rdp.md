@@ -1,15 +1,16 @@
 ---
-title: RDP nei nodi di Windows Server del cluster RDP in Azure Kubernetes Service (AKS)
+title: Nodi da RDP ad AKS di Windows Server
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come creare una connessione RDP con i nodi di Windows Server del servizio Azure Kubernetes (AKS) per le attività di risoluzione dei problemi e manutenzione.
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: 897504aa9902d0feaf4245c719d3a4a3c6fd2241
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 140d59894b38c7f07f16b0ac3cf99316c201d120
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594482"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886790"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Connettersi con RDP ai nodi di Windows Server del servizio Azure Kubernetes (AKS) per la manutenzione o la risoluzione dei problemiConnect with RDP to Azure Kubernetes Service (AKS) cluster Windows Server nodes for maintenance or troubleshooting
 

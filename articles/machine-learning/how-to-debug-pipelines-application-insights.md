@@ -3,20 +3,20 @@ title: Debug and troubleshoot machine learning pipelines in Application Insights
 titleSuffix: Azure Machine Learning
 description: Aggiungere la registrazione alle pipeline di punteggio batch e di formazione e visualizzare i risultati registrati in Application Insights.Add logging to your training and batch scoring pipelines and view the logged results in Application Insights.
 services: machine-learning
-author: aburek
-ms.author: cgronlun
+author: sanpil
+ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 217a89f6ede4e4b1d2182eed79b088808432044f
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: b3e4bf19a7ec153f85483f3c5028e468e06ed7f0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529369"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982362"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Debug and troubleshoot machine learning pipelines in Application Insights
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

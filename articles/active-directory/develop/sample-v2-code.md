@@ -1,28 +1,23 @@
 ---
-title: Esempi di codice per la piattaforma di identità Microsoft Documenti Microsoft
+title: Esempi di codice per la piattaforma di identità MicrosoftCode samples for Microsoft identity platform
 description: Fornisce un indice degli esempi di codice disponibili sulla piattaforma di identità Microsoft (endpoint 2.0), organizzata in base allo scenario.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d8f69096544b0c3b51513d0cb5c4330fcbb1c18c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 5596f5f40e293a7bd11ac6a5f900e05c0b8d3b0e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419837"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883135"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Esempi di codice della piattaforma di identità Microsoft (endpoint v2.0)Microsoft identity platform code samples (v2.0 endpoint)
 

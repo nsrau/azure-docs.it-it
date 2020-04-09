@@ -3,7 +3,6 @@ title: Aggiungere ruoli dell'app e ottenerli da un token. Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come aggiungere ruoli dell'app in un'applicazione registrata in Azure Active Directory, assegnare utenti e gruppi a questi ruoli e riceverli nell'attestazione `roles` del token.
 services: active-directory
-documentationcenter: ''
 author: kkrishna
 manager: CelesteDG
 ms.service: active-directory
@@ -14,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399092"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884257"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -35,7 +34,7 @@ Questi ruoli applicazione sono definiti nel [portale di Azure](https://portal.az
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Dichiarare i ruoli dell'app tramite il portale di Azure
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare l'icona **Directory - Sottoscrizione** nella barra degli strumenti del portale.
 1. Nell'elenco **Preferiti** o **Tutte le directory** scegliere il tenant di Active Directory in cui si desidera registrare l'applicazione.
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.

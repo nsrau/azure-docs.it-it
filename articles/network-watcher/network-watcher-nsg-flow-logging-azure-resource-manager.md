@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 35d185a625a81a259c366a45999769ecf76c6a7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77538159"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891459"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurare i log di flusso del gruppo di sicurezza di rete da un modello di Azure Resource ManagerConfigure NSG Flow Logs from an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
 > - [Portale di Azure](network-watcher-nsg-flow-logging-portal.md)
-> - [Powershell](network-watcher-nsg-flow-logging-powershell.md)
-> - [Interfaccia della riga di comando di AzureAzure](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Interfaccia della riga di comando di Azure](network-watcher-nsg-flow-logging-cli.md)
+> - [API REST](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
@@ -169,6 +169,8 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 Esistono un paio di modi per verificare se la distribuzione è riuscita. La console di PowerShell dovrebbe visualizzare "ProvisioningState" come "Succeeded". Inoltre, è possibile visitare la pagina del [portale Registri di flusso del gruppo](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) di sicurezza di rete per confermare le modifiche. Se si sono verificati problemi con la distribuzione, vedere Risolvere gli errori comuni di distribuzione di [Azure con Azure Resource Manager.](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors)
 
+## <a name="deleting-your-resource"></a>Eliminazione della risorsa
+Azure abilita l'eliminazione delle risorse tramite la modalità di distribuzione "Completa". Per eliminare una risorsa Registri di flusso, specificare una distribuzione in modalità Completa senza includere la risorsa che si desidera eliminare. Ulteriori informazioni sulla [modalità di distribuzione completa](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

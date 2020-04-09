@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: aa49b313f0fb10175dc6c0003f1a919f61731269
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: f84707adfa406011989c8f9bfdf1e8d9270698a6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743308"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984794"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)Use deployment scripts in templates (Preview)
 
@@ -313,7 +313,7 @@ Il ciclo di vita di queste risorse è controllato dalle seguenti proprietà nel 
 
 L'esecuzione dello script di distribuzione è un'operazione idempotente. Se nessuna delle proprietà della risorsa deploymentScripts (incluso lo script inline) viene modificata, lo script non verrà eseguito quando si ridistribuisce il modello. Il servizio script di distribuzione confronta i nomi delle risorse nel modello con le risorse esistenti nello stesso gruppo di risorse. Sono disponibili due opzioni se si desidera eseguire lo stesso script di distribuzione più volte:There are two options if you want to execute the same deployment script multiple times:
 
-- Modificare il nome della risorsa deploymentScripts. Ad esempio, utilizzare la funzione di modello [utcNow](./template-functions-string.md#utcnow) come nome della risorsa o come parte del nome della risorsa. La modifica del nome della risorsa crea una nuova risorsa deploymentScripts.Changing the resource name creates a new deploymentScripts resource. È bene per mantenere una cronologia di esecuzione dello script.
+- Modificare il nome della risorsa deploymentScripts. Ad esempio, utilizzare la funzione di modello [utcNow](./template-functions-date.md#utcnow) come nome della risorsa o come parte del nome della risorsa. La modifica del nome della risorsa crea una nuova risorsa deploymentScripts.Changing the resource name creates a new deploymentScripts resource. È bene per mantenere una cronologia di esecuzione dello script.
 
     > [!NOTE]
     > La funzione utcNow può essere utilizzata solo nel valore predefinito per un parametro.

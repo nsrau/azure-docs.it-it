@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 3c7ff0061a57d1a1a7525ec03b4f77c117415ca5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: 929b9548661fe48fe90a55f0cacef234c3078cda
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155851"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887266"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare e trasformare i dati in Archiviazione dati di Azure Usando2 usando Azure Data FactoryCopy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory
 
@@ -44,8 +44,6 @@ Per l'attività Copia, con questo connettore è possibile:
 >[!IMPORTANT]
 >Se si abilita l'opzione **Consenti ai servizi Microsoft attendibili** di accedere a questo account di archiviazione nelle impostazioni del firewall di Archiviazione di Azure e si vuole usare il runtime di integrazione di Azure per connettersi a Data Lake Storage Gen2, è necessario usare [l'autenticazione dell'identità gestita](#managed-identity) per ADLS Gen2.
 
->[!TIP]
->Se si abilita lo spazio dei nomi gerarchico, attualmente non esiste alcuna interoperabilità delle operazioni tra le API Gen2 blob e Data Lake Storage. Se si seleziona l'errore "ErrorCode"FilesystemNotFound" con il messaggio "Il file system specificato non esiste", è causato dal file system di sink specificato creato tramite l'API BLOB anziché l'API Data Lake Storage Gen2 altrove. Per risolvere il problema, specificare un nuovo file system con un nome che non esiste come nome di un contenitore BLOB. Data Factory crea quindi automaticamente il file system durante la copia dei dati.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -393,7 +391,7 @@ Quando si trasformano i dati nel mapping del flusso di dati, è possibile legger
 
 ### <a name="source-transformation"></a>Trasformazione della fonte
 
-In the source transformation, you can read from a container, folder or individual file in Azure Data Lake Storage Gen2. La scheda **Opzioni di origine** consente di gestire la modalità di lettura dei file. 
+In the source transformation, you can read from a container, folder, or individual file in Azure Data Lake Storage Gen2. La scheda **Opzioni di origine** consente di gestire la modalità di lettura dei file. 
 
 ![Opzioni di origine](media/data-flow/sourceOptions1.png "Opzioni di origine")
 

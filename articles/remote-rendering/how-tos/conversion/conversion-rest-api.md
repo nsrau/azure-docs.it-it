@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 064a7b8adaec6f47a153743b58f4e1caf50db723
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681506"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887045"
 ---
-# <a name="use-the-model-conversion-rest-api"></a>Usare l'API REST di conversione del modelloUse the model conversion REST API
+# <a name="use-the-model-conversion-rest-api"></a>Usare l'API REST per la conversione di modelli
 
 Il servizio di [conversione](model-conversion.md) del modello viene controllato tramite [un'API REST.](https://en.wikipedia.org/wiki/Representational_state_transfer) Questo articolo descrive i dettagli dell'API del servizio di conversione.
 
@@ -47,7 +47,7 @@ L'account di rendering remoto di Azure deve avere accesso all'account di archivi
 
 | Endpoint | Metodo |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversion/create | POST |
+| /v1/accounts/**accountID**/conversioni/create | POST |
 
 Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapping in un documento JSON. Il nome del campo è "conversionId".
 
@@ -77,7 +77,7 @@ Se l'account ARR non è collegato all'account di archiviazione, questa interfacc
 
 | Endpoint | Metodo |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversion/createWithSharedAccessSignature | POST |
+| /v1/accounts/**accountID**/conversioni/createWithSharedAccessSignature | POST |
 
 Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapping in un documento JSON. Il nome del campo è "conversionId".
 
@@ -128,5 +128,5 @@ Se lo stato è "Errore", ci sarà un campo "errore" aggiuntivo con un sottocampo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare Archiviazione BLOB di Azure per la conversione dei modelliUse Azure Blob Storage for model conversion](blob-storage.md)
+- [Usare l'archiviazione BLOB di Azure per la conversione dei modelli](blob-storage.md)
 - [Conversione del modello](model-conversion.md)

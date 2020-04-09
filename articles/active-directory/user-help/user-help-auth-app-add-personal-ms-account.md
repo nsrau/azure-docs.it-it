@@ -8,35 +8,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 04/08/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 289c00e28fd82b78b321732628ff85d22c64cabf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cef4f83881aed67c46477110de530bbf191ee39f
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062303"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984753"
 ---
 # <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Aggiungere account Microsoft personali all'app Microsoft Authenticator
 
-Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LIVE all'app Microsoft Authenticator per il processo di verifica a due fattori standard e il metodo di accesso telefono senza password.
+Aggiungere gli account Microsoft personali, ad esempio per gli account Outlook.com e Xbox LIVE, all'app Microsoft Authenticator sia per il processo di verifica standard a due fattori che per l'accesso telefonico senza password.
 
-- **Metodo standard di verifica a due fattori.** Digitare il nome utente e la password nel dispositivo al quale si esegue l'accesso e quindi scegliere se l'app Microsoft Authenticator invii una notifica o se copiare il codice di verifica associato dalla schermata **Account ** dell'App Microsoft Authenticator.
+- **Metodo standard di verifica a due fattori.** Digitare il nome utente e la password nel dispositivo a cui si accede, quindi scegliere se l'app Microsoft Authenticator invia una notifica o se si preferisce copiare il codice di verifica associato dalla schermata **Account** dell'app Microsoft Authenticator.
 
-- **Accesso senza password.** Digitare il nome utente nel dispositivo al quale si esegue l'accesso per l'account Microsoft personale e quindi usare il proprio dispositivo mobile per verificare l'identità tramite l'impronta digitale, il viso o il PIN. Per questo metodo, non è necessario immettere la password.
+- **Accesso senza password.** Digitare il nome utente nel dispositivo a cui si accede utilizzando l'account Microsoft personale e quindi utilizzare il dispositivo mobile per verificare che si utilizzi l'impronta digitale, il volto o il PIN. Per questo metodo, non è necessario immettere la password.
 
 >[!Important]
 >Prima di poter aggiungere l'account, è necessario scaricare e installare l'app Microsoft Authenticator. Se non è ancora stato fatto, seguire i passaggi descritti nell'articolo [Scaricare e installare l'app](user-help-auth-app-download-install.md).
 
-## <a name="add-your-personal-microsoft-account"></a>Aggiungere l'account Microsoft personale
+È possibile aggiungere l'account Microsoft personale attivando la prima verifica a due fattori e quindi aggiungendo l'account all'app. Non è necessario attivare la verifica a due fattori per utilizzare solo l'accesso telefonico senza password per il tuo account, ma ti consigliamo vivamente di attivare la verifica a due fattori per una maggiore sicurezza dell'account.
 
-È possibile aggiungere l'account Microsoft personale attivando la prima verifica a due fattori e quindi aggiungendo l'account all'app.
-
->[!Note]
->Se si prevede di usare solo l'accesso tramite telefono senza password per l'account Microsoft personale, non è necessario attivare la verifica a due fattori. Tuttavia, per un'ulteriore sicurezza dell'account, è consigliabile attivare la verifica a due fattori.
-
-### <a name="turn-on-two-factor-verification"></a>Attivare la verifica a due fattori
+## <a name="turn-on-two-factor-verification"></a>Attivare la verifica a due fattori
 
 1. Nel computer in uso andare alla pagina [Informazioni di base sulla sicurezza](https://account.microsoft.com/security) e accedere usando l'account Microsoft personale. Ad esempio: alain@outlook.com.
 
@@ -46,24 +41,30 @@ Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LI
 
 3. Andare alla sezione **verifica in due passaggi** e scegliere di abilitare la funzionalità **Attiva**. È possibile anche disattivarla se non si desidera più usarla con l'account personale.
 
-### <a name="add-your-microsoft-account-to-the-app"></a>Aggiungere l'account Microsoft all'app
+## <a name="add-your-microsoft-account-to-the-app"></a>Aggiungere l'account Microsoft all'app
 
 1. Aprire l'app Microsoft Authenticator nel dispositivo mobile.
 
-2. Selezionare **Aggiungi account** dall'icona **Personalizza e controlla** in alto a destra.
+1. In Android, seleziona **Aggiungi account** dall'icona Personalizza **e controlla** in alto a destra.
 
-    ![Pagina account con l'icona Personalizza e controlla evidenziata](./media/user-help-auth-app-add-personal-ms-account/customize-and-control-icon.png)
+    ![Pagine di selezione dell'account Android](media/user-help-auth-app-add-personal-ms-account/customize-and-control-icon.png)
 
-3. Nella pagina **Aggiungi account**, scegliere **Account personale**.
+    In iOS, seleziona l'icona più in alto a destra.
 
-4. Accedi all'account personale, usando l'indirizzo di posta elettronica appropriato (ad esempio alain@outlook.com), quindi scegliere **Successivo**.
+    ![Versione iOS dell'esperienza di selezione dell'account](media/user-help-auth-app-add-personal-ms-account/customize-and-control-icon-ios.png)
+
+1. Nella pagina **Aggiungi account**, scegliere **Account personale**.
+
+1. Seleziona **Accedi con Microsoft** per aggiungere il tuo account. Un codice QR può essere utilizzato quando disponibile, ma puoi sempre aggiungere il tuo account accedendo con il tuo nome utente e password.
+
+    ![Selezionare un account Microsoft o eseguire la scansione di un codice QR quando disponibile](media/user-help-auth-app-add-personal-ms-account/add-account-android.png)
+
+1. Accedere all'account personale utilizzando l'indirizzo di alain@outlook.composta elettronica appropriato , ad esempio , e quindi selezionare **Avanti**.
 
     >[!Note]
-    >Se non si dispone di un account Microsoft personale, è possibile crearne uno qui.
+    >Se non si dispone di un account Microsoft personale, [è possibile crearne uno](https://account.microsoft.com/account/Account?refd=www.bing.com&ru=https%3A%2F%2Faccount.microsoft.com%2F%3Frefd%3Dwww.bing.com&destrt=home-index).
 
-5. Immettere la password e quindi scegliere **Accedi**.
-
-    L'account personale viene aggiunto all'app Microsoft Authenticator.
+1. Immettere la password e quindi selezionare **Accedi**. L'account personale viene aggiunto all'app Microsoft Authenticator.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

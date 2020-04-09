@@ -1,5 +1,5 @@
 ---
-title: Distribuire un'istanza di Prometheus autonoma in un cluster Azure Red Hat OpenShift. Documenti Microsoft
+title: Distribuire l'istanza prometeo nel cluster Azure Red Hat OpenShiftDeploy Prometheus instance in Azure Red Hat OpenShift cluster
 description: Creare un'istanza Prometheus in un cluster Azure Red Hat OpenShift per monitorare le metriche dell'applicazione.
 author: makdaam
 ms.author: b-lejaku
@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometeo, aro, openshift, metriche, cappello rosso
-ms.openlocfilehash: f81a993caa31578e689fb3a90108f3cf0ca81fc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69875129"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886889"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Distribuire un'istanza Prometheus autonoma in un cluster Azure Red Hat OpenShiftDeploy a standalone Prometheus instance in an Azure Red Hat OpenShift cluster
 

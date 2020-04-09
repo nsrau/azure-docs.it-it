@@ -3,12 +3,12 @@ title: Diagnosticare errori ed eccezioni con Azure Application InsightsDiagnose 
 description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria della richiesta.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccfcb354e27d36f40810b114a1729cf6addf8fb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294696"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892343"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
 Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insights](../../azure-monitor/app/app-insights-overview.md). È possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
@@ -19,7 +19,7 @@ Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insi
   * La macchina virtuale di Azure e la scalabilità della macchina virtuale di Azure impostano le app ospitate da IIS: aggiungere [l'estensione](../../azure-monitor/app/azure-vm-vmss-apps.md) di monitoraggio delle applicazioniAzure VM and Azure virtual machine scale set IIS-hosted apps: Add the Application Monitoring Extension
   * Installare [Application Insights SDK](../../azure-monitor/app/asp-net.md) nel codice dell'app, oppure
   * Server Web IIS: eseguire l'[Agente di Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md); o
-  * App Web Java: installare l'[agente Java](../../azure-monitor/app/java-agent.md)
+  * App Web Java: abilitare [l'agente Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * Installare il [frammento di JavaScript](../../azure-monitor/app/javascript.md) nelle pagine Web per intercettare le eccezioni del browser.
 * In certi framework applicazione o con alcune impostazioni è necessario eseguire alcuni passaggi aggiuntivi per intercettare più eccezioni:
   * [Web Form](#web-forms)
