@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 45982c0761fecdb456dba5dc4a5d604972b9c3e5
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 57564e9dffd6022e1e4fe464b4b26a5bb8eb318b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349319"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631337"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Guida introduttiva: Creare ed eseguire query in un pool SQL di Synapse con Azure PowerShell
 
@@ -33,24 +33,23 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere alla sottoscrizione di Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e seguire le indicazioni visualizzate.
+Accedere alla sottoscrizione di Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e seguire le indicazioni visualizzate.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Per vedere quale sottoscrizione si sta usando, eseguire [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Per vedere quale sottoscrizione si sta usando, eseguire [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Se è necessario usare una sottoscrizione diversa da quella predefinita, eseguire [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Se è necessario usare una sottoscrizione diversa da quella predefinita, eseguire [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
 ```
-
 
 ## <a name="create-variables"></a>Creare le variabili
 
@@ -75,7 +74,7 @@ $databasename = "mySampleDataWarehouse"
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un [gruppo di risorse di Azure](../../azure-resource-manager/management/overview.md) con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. L'esempio seguente consente di creare un gruppo di risorse denominato `myResourceGroup` nell'area `westeurope`.
+Creare un [gruppo di risorse di Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. L'esempio seguente consente di creare un gruppo di risorse denominato `myResourceGroup` nell'area `westeurope`.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
@@ -83,7 +82,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ## <a name="create-a-logical-server"></a>Creare un server logico
 
-Creare un [server logico SQL di Azure](../../sql-database/sql-database-logical-servers.md) con il comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un utente amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
+Creare un [server logico SQL di Azure](../../sql-database/sql-database-logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) con il comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un utente amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -94,7 +93,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurare una regola del firewall del server
 
-Creare una [regola del firewall a livello di server SQL di Azure](../../sql-database/sql-database-firewall-configure.md) con il comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utilità SQLCMD, di connettersi a un pool SQL tramite il firewall del servizio pool SQL. 
+Creare una [regola del firewall a livello di server SQL di Azure](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) con il comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utilità SQLCMD, di connettersi a un pool SQL tramite il firewall del servizio pool SQL.
 
 Nell'esempio seguente, il firewall è aperto solo per altre risorse di Azure. Per abilitare la connettività esterna, modificare l'indirizzo IP in un indirizzo appropriato per l'ambiente. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.
 
@@ -108,9 +107,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > Gli endpoint SQL comunicano sulla porta 1433. Se si sta tentando di connettersi da una rete aziendale, il traffico in uscita attraverso la porta 1433 potrebbe non essere autorizzato dal firewall della rete. In questo caso, sarà possibile connettersi al server SQL di Azure solo se il reparto IT apre la porta 1433.
 >
 
-
 ## <a name="create-a-sql-pool"></a>Creare un pool SQL
-L'esempio seguente crea un pool SQL usando le variabili definite in precedenza.  Specifica l'obiettivo di servizio come DW100c, ovvero un punto iniziale a basso costo per il pool SQL. 
+
+L'esempio seguente crea un pool SQL usando le variabili definite in precedenza.  Specifica l'obiettivo di servizio come DW100c, ovvero un punto iniziale a basso costo per il pool SQL.
 
 ```Powershell
 New-AzSqlDatabase `
@@ -133,15 +132,14 @@ I parametri obbligatori sono:
 
 I parametri facoltativi sono:
 
-- **CollationName**: se non specificate, le regole di confronto predefinite sono SQL_Latin1_General_CP1_CI_AS. Non è possibile modificare le regole di confronto in un database.
-- **MaxSizeBytes**: la dimensione massima predefinita di un database è 240 TB. Le dimensioni massime limitano i dati rowstore. Lo spazio di archiviazione dei dati a colonne è illimitato.
+* **CollationName**: se non specificate, le regole di confronto predefinite sono SQL_Latin1_General_CP1_CI_AS. Non è possibile modificare le regole di confronto in un database.
+* **MaxSizeBytes**: la dimensione massima predefinita di un database è 240 TB. Le dimensioni massime limitano i dati rowstore. Lo spazio di archiviazione dei dati a colonne è illimitato.
 
-Per altre informazioni sulle opzioni dei parametri, vedere [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
-
+Per altre informazioni sulle opzioni dei parametri, vedere [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre esercitazioni introduttive della raccolta si basano su questa guida introduttiva. 
+Altre esercitazioni introduttive della raccolta si basano su questa guida introduttiva.
 
 > [!TIP]
 > Se si prevede di continuare con le esercitazioni introduttive successive, non eseguire la pulizia delle risorse create in questo avvio rapido. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questo avvio rapido nel portale di Azure.
