@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442162"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985593"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Panoramica della libreria dell'executor bulk di Azure Cosmos DB
  
@@ -51,4 +51,4 @@ La libreria dell'executor bulk garantisce di utilizzare al massimo la velocità 
 * Per altre informazioni, provare le applicazioni di esempio che utilizzano la libreria dell'esecutore in blocco in [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md).  
 * Consultare le note sulla versione e le informazioni dell'SDK dell'executor bulk in [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md).
 * La libreria dell'executor bulk è integrata nel connettore Cosmos DB Spark, per altre informazioni, vedere l'articolo connettore Azure Cosmos DB Spark.The bulk executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](spark-connector.md) article.  
-* La libreria dell'executor bulk è integrata anche in una nuova versione del [connettore di Azure Cosmos DB](https://aka.ms/bulkexecutor-adf-v2) per consentire ad Azure Data Factory di copiare i dati.
+* La libreria dell'executor bulk è integrata anche in una nuova versione del [connettore di Azure Cosmos DB](../data-factory/connector-azure-cosmos-db.md) per consentire ad Azure Data Factory di copiare i dati.

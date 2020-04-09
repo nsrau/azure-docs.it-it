@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5fae2bba0acc4ab462c91f7272694d032fc6ceaa
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6f2af87cf5cef1b5a80bc16d962fba579b4ff309
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742657"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985865"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Statistiche delle tabelle nel pool SQL SynapseTable statistics in Synapse SQL pool
 
@@ -146,11 +146,11 @@ Per ulteriori informazioni, vedere indicazioni su [Statistiche](/sql/relational-
 
 ## <a name="implementing-statistics-management"></a>Implementazione della gestione delle statistiche
 
-È spesso consigliabile estendere il processo di caricamento dei dati per assicurare che le statistiche vengano aggiornate al termine del caricamento.
+Spesso è consigliabile estendere il processo di caricamento dei dati per garantire che le statistiche vengano aggiornate alla fine del caricamento per evitare/ridurre al minimo il blocco o la contesa delle risorse tra query simultanee.  
 
 Il caricamento dei dati è la fase in cui si verifica con maggiore frequenza una modifica delle dimensioni e/o della distribuzione dei valori delle tabelle. Il caricamento dei dati è una posizione logica per implementare alcuni processi di gestione.
 
-Di seguito sono disponibili i principi guida per l'aggiornamento delle statistiche durante il processo di caricamento:
+Per l'aggiornamento delle statistiche sono previsti i seguenti principi guida:
 
 - Assicurarsi che ogni tabella caricata includa almeno un oggetto statistiche aggiornato. Ciò permette di aggiornare le informazioni sulle dimensioni delle tabelle (numero di righe e pagine) come parte dell'aggiornamento delle statistiche.
 - Concentrarsi sulle colonne incluse nelle clausole JOIN, GROUP BY, ORDER BY e DISTINCT.

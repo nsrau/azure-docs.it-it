@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 4290bad405ddab6d89cac5ef7bfd185247d41da1
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: df51a408cc47908a240ceb66bf510fe3df3ce87f
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745108"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983399"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Scheda Marketplace del modulo IoT Edge
 
 >[!Important]
->A partire dal 30 marzo 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureCreateIoT) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureCreateIoT) per gestire le offerte migrate.
 
 La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo di grandi dimensioni è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione clienti potenziali) e **Legal** (Legale).
 
@@ -98,7 +98,7 @@ Questa sezione include le sottosezioni seguenti: **Logos** (Logo), **Screenshot*
 | **Immagine**                 | Acquisizione di schermata. Formato PNG 533x324                               |
 | *Video*  | I video vengono visualizzati nella pagina dei dettagli del prodotto. Si tratta di un ottimo metodo per comunicare in modo visivo ciò che fa il modulo IoT Edge e come funziona. |
 | **Nome**                  | Nome o titolo. La lunghezza massima consentita è di 100 caratteri.                             |
-| **Link**                  | URL del video, ospitato in YouTube o Vimeo                                        |
+| **Collegamento**                  | URL del video, ospitato in YouTube o Vimeo                                        |
 | **Anteprima**             | Formato PNG 533x324 pixel                                                     |
 |  |  |
 

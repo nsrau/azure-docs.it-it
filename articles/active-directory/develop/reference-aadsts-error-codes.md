@@ -2,26 +2,22 @@
 title: Codici di errore di autorizzazione & di autenticazione di Azure ADAzure AD authentication & authorization error codes
 description: Informazioni sui codici di errore AADSTS restituiti dal servizio token di sicurezza di Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 91d285e2a839a7d6266c5d58f52901a48a7a8c84
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473165"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875929"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione di Azure ADAzure AD Authentication and authorization error codes
 
@@ -133,6 +129,7 @@ Ricerca nella parte numerica del codice di errore restituito.  Ad esempio, se ha
 | AADSTS50180 | WindowsIntegratedAuthMissing: è necessaria l'autenticazione integrata di Windows. Abilitare il tenant per Seamless SSO. |
 | AADSTS50187 | DeviceInformationNotProvided: il servizio non è stato in grado di eseguire l'autenticazione del dispositivo. |
 | AADSTS50196 | LoopDetected - È stato rilevato un ciclo client. Controllare la logica dell'app per assicurarsi che la memorizzazione nella cache dei token sia implementata e che le condizioni di errore vengano gestite correttamente.  L'app ha effettuato troppe richieste nella stessa richiesta in un periodo troppo breve, indicando che si trova in uno stato di errore o è una richiesta abusiva di token. |
+| AADSTS50197 | ConflictingIdentities - Impossibile trovare l'utente. Prova ad accedere di nuovo. |
 | AADSTS50199 | CmsiInterrupt - Per motivi di sicurezza, è necessaria la conferma dell'utente per questa richiesta.  Poiché si tratta di un errore "interaction_required", il client deve eseguire l'autenticazione interattiva.  Ciò si verifica perché una webview di sistema è stata usata per richiedere un token per un'applicazione nativa: all'utente deve essere richiesto di chiedere se si tratta effettivamente dell'app a cui intendeva accedere.|
 | AADSTS51000 | RequiredFeatureNotEnabled: la funzionalità è disabilitata. |
 | AADSTS51001 | DomainHintMustbePresent: deve essere presente il suggerimento di dominio con l'ID di sicurezza locale o l'UPN locale. |

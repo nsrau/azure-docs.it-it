@@ -1,24 +1,24 @@
 ---
 title: Azure HDInsight for Visual Studio Code
-description: Informazioni su come usare spark & Hive Tools (Azure HDInsight) per Visual Studio Code per creare e inviare query e script.
+description: Informazioni su come usare Spark & Hive Tools (Azure HDInsight) per Visual Studio Code. Utilizzare gli strumenti per creare e inviare query e script.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.openlocfilehash: de433d85c2f04a7140fbcb918730218ac3a05e54
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75435678"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878630"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti Spark & Hive per il codice di Visual StudioUse Spark & Hive Tools for Visual Studio Code
 
-Informazioni su come usare Spark & Hive Tools per Visual Studio Code per creare e inviare processi batch Apache Hive, query Hive interattive e script PySpark per Apache Spark. In primo luogo verrà descritto come installare Spark & Hive Tools in Visual Studio Code, quindi verrà illustrato come inviare processi a Spark & Hive Tools.  
+Informazioni su come usare Apache Spark & Hive Tools per Visual Studio Code. Usa gli strumenti per creare e inviare processi batch Apache Hive, query Hive interattive e script PySpark per Apache Spark. In primo luogo verrà descritto come installare Spark & Hive Tools in Visual Studio Code. Quindi verrà illustrato come inviare i processi a Spark & Hive Tools.  
 
-È possibile installare Spark & Hive Tools nelle piattaforme supportate da Visual Studio Code, tra cui Windows, Linux e macOS. Tenere presente i prerequisiti seguenti per piattaforme diverse.
+Spark & Hive Tools possono essere installati su piattaforme supportate da Visual Studio Code. Tenere presente i prerequisiti seguenti per piattaforme diverse.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -70,13 +70,13 @@ Per un utente cloud nazionale, seguire questi passaggi per impostare prima l'amb
 
 ## <a name="connect-to-an-azure-account"></a>Connettersi a un account AzureConnect to an Azure account
 
-Prima di poter inviare script ai cluster dal codice di Visual Studio, è necessario connettersi all'account Azure o collegare un cluster (usando le credenziali a nome utente e password Apache Ambari o un account aggiunto al dominio). Seguire questi passaggi per connettersi ad Azure:Follow these steps to connect to Azure:
+Prima di poter inviare script ai cluster da Visual Studio Code, è necessario connettersi all'account di Azure o collegare un cluster. Utilizzare le credenziali di nome utente e password Apache Ambari o un account aggiunto al dominio. Seguire questi passaggi per connettersi ad Azure:Follow these steps to connect to Azure:
 
 1. Dalla barra dei menu, passare a **Visualizza** > **tavolozza comandi...** e immettere **Azure: Accedi:**
 
     ![Strumenti Spark & Hive per l'accesso al codice di Visual StudioSpark & Hive Tools for Visual Studio Code login](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Seguire le istruzioni di accesso per accedere ad Azure.Follow the sign-in instructions to sign in to Azure. Dopo aver connesso, il nome dell'account azure viene visualizzato nella barra di stato nella parte inferiore della finestra Del codice di Visual Studio.After you're connected, your Azure account name is shown on the status bar at the bottom of the Visual Studio Code window.  
+2. Seguire le istruzioni di accesso per accedere ad Azure.Follow the sign-in instructions to sign in to Azure. Dopo aver connesso, il nome dell'account Azure viene visualizzato nella barra di stato nella parte inferiore della finestra Codice di Visual Studio.After you're connected, your Azure account name shows on the status bar at the bottom of the Visual Studio Code window.  
 
 ## <a name="link-a-cluster"></a>Collegare un cluster
 
@@ -260,7 +260,7 @@ Dopo aver inviato un processo Python, i log di invio vengono visualizzati nella 
 
 ## <a name="apache-livy-configuration"></a>Configurazione di Apache Livy
 
-La configurazione di [Apache Livy](https://livy.incubator.apache.org/) è supportata. È possibile configurarlo nel **file . File VSCode-settings.json** nella cartella dell'area di lavoro. Attualmente, la configurazione di Livy supporta solo script Python. Per ulteriori dettagli, vedere [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+La configurazione di [Apache Livy](https://livy.incubator.apache.org/) è supportata. È possibile configurarlo nel **file . File VSCode-settings.json** nella cartella dell'area di lavoro. Attualmente, la configurazione di Livy supporta solo script Python. Per ulteriori informazioni, vedere [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**Come attivare la configurazione di Livy**
 
@@ -269,7 +269,7 @@ Metodo 1
 2. Nella casella **Impostazioni di ricerca** immettere **HDInsight Job Submission: Livy Conf**.  
 3. Selezionare **Edit in settings.json** (Modifica in settings.json) per il risultato della ricerca pertinente.
 
-Metodo 2 Inviare un file e notare che la cartella .vscode viene aggiunta automaticamente alla cartella di lavoro. È possibile visualizzare la configurazione di Livy selezionando **.vscode.settings.json**.
+Metodo 2 Inviare un file `.vscode` e notare che la cartella viene aggiunta automaticamente alla cartella di lavoro. È possibile visualizzare la configurazione di Livy selezionando **.vscode.settings.json**.
 
 + Impostazioni del progetto:
 
@@ -283,7 +283,7 @@ Metodo 2 Inviare un file e notare che la cartella .vscode viene aggiunta automat
     **POST /batch** Corpo della richiesta
 
     | name | description | type |
-    | :- | :- | :- |
+    | --- | --- | --- |
     | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
     | proxyUser | Utente da rappresentare quando si esegue il processo | string |
     | className | Classe principale Java/Spark dell'applicazione | string |
@@ -304,8 +304,8 @@ Metodo 2 Inviare un file e notare che la cartella .vscode viene aggiunta automat
     Corpo della risposta Oggetto Batch creato.
 
     | name | description | type |
-    | :- | :- | :- |
-    | id | ID sessione | Int |
+    | --- | ---| --- |
+    | ID | ID sessione | Int |
     | appId | ID applicazione di questa sessione | string |
     | appInfo | Informazioni dettagliate sull'applicazione | Mappa di chiave=valore |
     | log | Righe di registro | Elenco di stringhe |
@@ -340,8 +340,8 @@ Metodo 2 Inviare un file e notare che la cartella .vscode viene aggiunta automat
 
 - Pannello MESSAGGIO
    1. Quando il numero di righe nella tabella è maggiore di 100, viene visualizzato il messaggio seguente: "Le prime 100 righe vengono visualizzate per la tabella Hive".
-   2. Quando il numero di righe nella tabella è minore o uguale a 100, viene visualizzato un messaggio simile al seguente: "60 righe vengono visualizzate per la tabella Hive".
-   3. Quando non è presente alcun contenuto nella tabella, viene visualizzato il seguente messaggio: "0 righe vengono visualizzate per la tabella Hive".
+   2. Quando il numero di righe nella tabella è minore o uguale a 100, viene visualizzato il messaggio seguente: "60 righe vengono visualizzate per la tabella Hive".
+   3. Quando non c'è contenuto nella tabella, viene`0 rows are displayed for Hive table.`visualizzato il seguente messaggio: " "
 
         >[!NOTE]
         >
@@ -364,7 +364,7 @@ Spark & Hive per Visual Studio Code supporta anche le funzionalità seguenti:Spa
 
 ## <a name="reader-only-role"></a>Ruolo di sola lettura
 
-Users who are assigned the reader-only role for the cluster can no longer submit jobs to the HDInsight cluster, nor can they view the Hive database. Contattare l'amministratore del cluster per aggiornare il ruolo a [**Operatore cluster HDInsight**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) nel portale di [Azure.](https://ms.portal.azure.com/) Se si dispone di credenziali Ambari valide, è possibile collegare manualmente il cluster utilizzando le indicazioni seguenti.
+Gli utenti a cui è assegnato il ruolo di sola lettura per il cluster non possono inviare processi al cluster HDInsight né visualizzare il database Hive. Contattare l'amministratore del cluster per aggiornare il ruolo a [**Operatore cluster HDInsight**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) nel portale di [Azure.](https://ms.portal.azure.com/) Se si dispone di credenziali Ambari valide, è possibile collegare manualmente il cluster utilizzando le indicazioni seguenti.
 
 ### <a name="browse-the-hdinsight-cluster"></a>Esplorare il cluster HDInsight  
 
@@ -393,11 +393,11 @@ Quando si invia un processo a un cluster HDInsight, viene richiesto di collegare
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>Esplorare un account Data Lake Storage Gen2
 
-Quando si seleziona Esplora risorse di Azure HDInsight per espandere un account Data Lake Storage Gen2, viene richiesto di immettere la chiave di accesso all'archiviazione se l'account di Azure non ha accesso all'archiviazione Gen2. Dopo la convalida della chiave di accesso, l'account Data Lake Storage Gen2 viene espanso automaticamente.
+Selezionare Esplora hdInsight di Azure per espandere un account Data Lake Storage Gen2.Select the Azure HDInsight explorer to expand a Data Lake Storage Gen2 account. Viene richiesto di immettere la chiave di accesso all'archiviazione se l'account Azure non ha accesso all'archiviazione Gen2.You're prompted to enter the storage access key if your Azure account has no access to Gen2 storage. Dopo la convalida della chiave di accesso, l'account Data Lake Storage Gen2 viene espanso automaticamente.
 
 ### <a name="submit-jobs-to-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Inviare processi a un cluster HDInsight con Data Lake Storage Gen2
 
-Quando si invia un processo a un cluster HDInsight usando Data Lake Storage Gen2, viene richiesto di immettere la chiave di accesso all'archiviazione se l'account Azure non dispone dell'accesso in scrittura all'archiviazione Gen2. Dopo la convalida della chiave di accesso, il processo verrà inviato correttamente.
+Inviare un processo a un cluster HDInsight usando Data Lake Storage Gen2.Submit a job to an HDInsight cluster using Data Lake Storage Gen2. Viene richiesto di immettere la chiave di accesso all'archiviazione se l'account Azure non dispone dell'accesso in scrittura all'archiviazione Gen2.You're prompted to enter the storage access key if your Azure account has no write access to Gen2 storage. Dopo la convalida della chiave di accesso, il processo verrà inviato correttamente.
 
 ![Strumenti Spark & Hive per Visual Studio Code AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 5d6ba2bd52d8f4af4244e8ce1babeb7bc9d37fe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 326b79e1aca6fa82b3275249401c755428a8b71d
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235667"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878562"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -82,7 +82,13 @@ The quickstart uses pre-compiled DevKit firmware to send the telemetry to the Io
     ```
 
    > [!NOTE]
-   > Se viene visualizzato `device-identity`un errore durante l'esecuzione, installare l'estensione [IOT di Azure per l'interfaccia della riga di](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) comando di Azure per altri dettagli.
+   > Se viene visualizzato `device-identity`un errore durante l'esecuzione, installare l'estensione [IoT di Azure per l'interfaccia della riga](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md)di comando di Azure.
+   > Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge comandi specifici per Hub IoT, IoT Edge e IoT Device Provisioning Service (DPS) all'interfaccia della riga di comando di Azure.The IoT Extension adds commands that are specific to IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) to Azure CLI.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
 1. Eseguire i comandi seguenti in Azure Cloud Shell per ottenere la stringa di connessione del dispositivo per il dispositivo appena registrato:Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 

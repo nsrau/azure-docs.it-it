@@ -3,25 +3,21 @@ title: Configurare le app per le API Web protette Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'API Web protetta e configurare il codice dell'applicazione.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3f07105c14d4dafeb689eaaf7d679f93e5f235fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 073eca94ad93c69811b02abe2c8649940a394e8e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262516"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882472"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protetta: configurazione del codiceProtected web API: Code configuration
 

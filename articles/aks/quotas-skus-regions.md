@@ -1,15 +1,16 @@
 ---
-title: Quote, SKU e disponibilità di aree nel servizio Azure Kubernetes (AKS)Quotas, SKUs, and region availability in Azure Kubernetes Service (AKS)
+title: Limiti per risorse, SKU, aree
+titleSuffix: Azure Kubernetes Service
 description: Informazioni sulle quote predefinite, sulle dimensioni SKU delle macchine virtuali del nodo limitato e sulla disponibilità dell'area del servizio Azure Kubernetes (AKS).
 services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.openlocfilehash: 03e7396932f0813ef4bd00d644dcdaddfe229e6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 054d6ff4fc105d84192ac81feda97515f6cfae49
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252831"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886773"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quote, restrizioni sulle dimensioni delle macchine virtuali e disponibilità dell'area geografica nel servizio Azure Kubernetes (AKS)Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
 

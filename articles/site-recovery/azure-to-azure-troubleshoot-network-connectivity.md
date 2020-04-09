@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 49d2d3d3e8829198a57aaf2feb40e89f105667bd
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804861"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884869"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete da macchina virtuale azure ad AzureTroubleshoot Azure-to-Azure VM network connectivity issues
 
@@ -18,8 +18,8 @@ Questo articolo descrive i problemi comuni relativi alla connettività di rete q
 
 Per il funzionamento della replica di Site Recovery, è necessaria la connettività in uscita dalla VM a intervalli IP o URL specifici. Se la macchina virtuale è protetta da un firewall o usa regole di gruppi di sicurezza di rete (NGS) per controllare la connettività in uscita, potrebbe verificarsi uno di questi problemi.
 
-| **URL** | **Dettagli** |
-| --- | --- |
+| URL | Dettagli |
+|---|---|
 | `*.blob.core.windows.net` | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile usare un elenco consenti per gli URL degli account di archiviazione specifici. Ad `cache1.blob.core.windows.net` esempio, `cache2.blob.core.windows.net` e `*.blob.core.windows.net`anziché . |
 | `login.microsoftonline.com` | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery. |
 | `*.hypervrecoverymanager.windowsazure.com` | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile utilizzare _l'IP di Site Recovery_ corrispondente se il proxy del firewall supporta gli indirizzi IP. |
@@ -82,7 +82,7 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 1. Creare regole in uscita della porta HTTPS 443 per gli indirizzi IP di Site Recovery che corrispondono al percorso di destinazione:Create HTTPS port 443 outbound rules for the Site Recovery IPs that correspond to the target location:
 
-   | **Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery** |
+   | Location | Indirizzo IP di Site Recovery | Indirizzo IP di monitoraggio di Site Recovery |
    | --- | --- | --- |
    | Stati Uniti centrali | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +102,7 @@ Per questo esempio, queste regole del gruppo di sicurezza di rete sono necessari
 
 1. Creare regole in uscita della porta HTTPS 443 per gli indirizzi IP di Site Recovery che corrispondono al percorso di origine:Create HTTPS port 443 outbound rules for the Site Recovery IPs that correspond to the source location:
 
-   |**Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery** |
+   | Location | Indirizzo IP di Site Recovery | Indirizzo IP di monitoraggio di Site Recovery |
    | --- | --- | --- |
    | Stati Uniti orientali | 13.82.88.226 | 104.45.147.24 |
 
@@ -138,7 +138,8 @@ Le impostazioni proxy personalizzate non sono valide e l'agente del servizio per
    Port=567
    ```
 
-1. L'agente del servizio Per dispositivi mobili di Azure Site RECOVERY supporta solo **proxy non autenticati.**
+> [!NOTE]
+> L'agente del servizio Per dispositivi mobili di Azure Site RECOVERY supporta solo **proxy non autenticati.**
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 
@@ -146,4 +147,4 @@ Per consentire [gli URL necessari](azure-to-azure-about-networking.md#outbound-c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Replicare le macchine virtuali di Azure](site-recovery-replicate-azure-to-azure.md)
+[Replicare le macchine virtuali di Azure in un'altra area di AzureReplicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md)

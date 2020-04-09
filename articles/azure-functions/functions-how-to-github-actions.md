@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: cshoe
-ms.openlocfilehash: dd74fd5c38e5a8800d2092afc1db1b412b126861
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54010269e5b61ebf28a29dd3165c4310f3472817
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77649909"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878205"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Distribuzione continua tramite GitHub Action
 
@@ -24,8 +24,8 @@ Per un flusso di lavoro di Funzioni di Azure, il file include tre sezioni:For an
 
 | Sezione | Attività |
 | ------- | ----- |
-| **Autenticazione** | <ol><li>Definire un'entità servizio.</li><li>Scaricare il profilo di pubblicazione.</li><li>Creare un segreto GitHub.Create a GitHub secret.</li></ol>|
-| **Costruire** | <ol><li>Configurare l'ambiente.</li><li>Compilare l'app per le funzioni.</li></ol> |
+| **autenticazione** | <ol><li>Definire un'entità servizio.</li><li>Scaricare il profilo di pubblicazione.</li><li>Creare un segreto GitHub.Create a GitHub secret.</li></ol>|
+| **Compilare** | <ol><li>Configurare l'ambiente.</li><li>Compilare l'app per le funzioni.</li></ol> |
 | **Distribuire** | <ol><li>Distribuire l'app per le funzioni.</li></ol>|
 
 > [!NOTE]
@@ -69,13 +69,13 @@ GitHub can now authenticate to your function app in Azure.
 
 L'impostazione dell'ambiente viene eseguita utilizzando un'azione di installazione di pubblicazione specifica della lingua.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Nell'esempio seguente viene illustrata la `actions/setup-node` parte del flusso di lavoro che utilizza l'azione per configurare l'ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Node 10.x
@@ -90,7 +90,7 @@ Nell'esempio seguente viene illustrata la `actions/setup-python` parte del fluss
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Python 3.6
@@ -99,13 +99,13 @@ Nell'esempio seguente viene illustrata la `actions/setup-python` parte del fluss
         python-version: 3.6
 ```
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nell'esempio seguente viene illustrata la `actions/setup-dotnet` parte del flusso di lavoro che utilizza l'azione per configurare l'ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Dotnet 2.2.300
@@ -120,7 +120,7 @@ Nell'esempio seguente viene illustrata la `actions/setup-java` parte del flusso 
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Java 1.8.x
@@ -138,7 +138,7 @@ Questo dipende dalla lingua e per i linguaggi supportati da Funzioni di Azure, q
 
 L'esempio seguente mostra la parte del flusso di lavoro che compila l'app per le funzioni, che è specifica della lingua:
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -167,7 +167,7 @@ L'esempio seguente mostra la parte del flusso di lavoro che compila l'app per le
         popd
 ```
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'

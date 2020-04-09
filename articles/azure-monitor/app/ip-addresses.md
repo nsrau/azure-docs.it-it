@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: 74d696c19ac2a2d0d367f5a018fde8cd3a0eedb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 454138f8e0d92935126f446455810a444b0a053a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535205"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984147"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Indirizzi IP usati da Application Insights e Log Analytics
 Il servizio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa diversi indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
@@ -55,6 +55,8 @@ Configurazione di Status Monitor: necessaria solo quando si apportano modifiche.
 ## <a name="availability-tests"></a>Test della disponibilità
 Questo è l'elenco di indirizzi da cui vengono eseguiti i [test Web della disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) . Se si vogliono eseguire test Web sull'app, ma il server Web è limitato alla fornitura di servizi a client specifici, è necessario consentire il traffico in ingresso dai server di test della disponibilità.
 
+### <a name="service-tag"></a>Tag di servizio
+
 Se si usano gruppi di sicurezza di rete di Azure, è sufficiente aggiungere una regola di **porta in ingresso** per consentire il traffico dai test di disponibilità di Application Insights selezionando Tag del servizio come Tag **di** **origine** e **ApplicationInsightsAvailability** come tag del **servizio di origine**.
 
 >[!div class="mx-imgBorder"]
@@ -64,6 +66,11 @@ Se si usano gruppi di sicurezza di rete di Azure, è sufficiente aggiungere una 
 >![Aggiungere la scheda della regola di sicurezza in ingressoAdd inbound security rule tab](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Aprire le porte 80 (http) e 443 (https) per il traffico in ingresso da questi indirizzi (gli indirizzi IP sono raggruppati per posizione):
+
+### <a name="addresses-grouped-by-location"></a>Indirizzi raggruppati per località
+
+> [!NOTE]
+> Questi indirizzi sono elencati utilizzando la notazione CIDR (Classless Inter-Domain Routing). Ciò significa che `51.144.56.112/28` una voce simile equivale `51.144.56.112` a 16 indirizzi IP che iniziano e terminano da `51.144.56.127`.
 
 ```
 Australia East

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 921e22e637782ffd744af1a28e6bd43e7dd53c67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066077"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986798"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Client Windows
 
@@ -130,7 +130,7 @@ ms.locfileid: "80066077"
 5. Estrarre la chiave privata e l'identificazione personale base64 dal file con estensione pfx. Per eseguire questa operazione è possibile procedere diversi modi. Un modo consiste nell'usare OpenSSL nel computer.
 
     ```
-    openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
+    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
    Il file *profileinfo.txt* conterrà la chiave privata e l'identificazione personale per l'Autorità di certificazione e il certificato client. Assicurarsi di usare l'identificazione personale del certificato client.
 
@@ -161,7 +161,7 @@ ms.locfileid: "80066077"
 11. Per connettersi usando la riga di comando, digitare il comando seguente:
   
     ```
-    sudo openvpn –-config <name and path of your VPN profile file>&
+    sudo openvpn --config <name and path of your VPN profile file>&
     ```
 12. Per connettersi usando l'interfaccia utente grafica, passare alle impostazioni di sistema.
 13. Fare **+** clic per aggiungere una nuova connessione VPN.

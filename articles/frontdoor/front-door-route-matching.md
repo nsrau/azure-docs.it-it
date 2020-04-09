@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471592"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878596"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Individuazione della corrispondenza tra le richieste e una regola di routing in Frontdoor
 
-Dopo aver stabilito una connessione ed eseguito un handshake SSL, quando viene ricevuta una richiesta in un ambiente Frontdoor, una delle prime operazioni eseguite da Frontdoor è determinare da tutte le configurazioni la specifica regola di routing che corrisponde alla richiesta e quindi effettuare l'azione definita. Il documento seguente illustra in che modo Frontdoor determina la configurazione di routing da usare durante l'elaborazione di una richiesta HTTP.
+Dopo aver stabilito una connessione ed eseguito un handshake TLS, quando una richiesta atterra su un ambiente Front Door una delle prime operazioni eseguite da Front Door è determinare da tutte le configurazioni, quale particolare regola di routing deve corrispondere alla richiesta e quindi intraprendere l'azione definita. Il documento seguente illustra in che modo Frontdoor determina la configurazione di routing da usare durante l'elaborazione di una richiesta HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Struttura di una configurazione di routing di Frontdoor
 Una configurazione di una regola di routing di Frontdoor è costituita da due parti principali: un "lato sinistro" e un "lato destro". Viene verificata la corrispondenza della richiesta in ingresso con il lato sinistro della route, mentre il lato destro definisce la modalità di elaborazione della richiesta.
@@ -50,7 +50,7 @@ Per spiegare ulteriormente questo processo, esaminiamo una configurazione di ese
 
 | Regola di routing | Host front-end | Path |
 |-------|--------------------|-------|
-| Una  | foo.contoso.com | /\* |
+| Una | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
 | C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
@@ -80,7 +80,7 @@ Per chiarire ulteriormente il processo, esaminiamo un altro set di esempi:
 
 | Regola di routing | Host front-end    | Path     |
 |-------|---------|----------|
-| Una      | www\.contoso.com | /        |
+| Una     | www\.contoso.com | /        |
 | b     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
@@ -93,7 +93,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 
 | Richiesta in ingresso    | Route corrispondente |
 |---------------------|---------------|
-| www\.contoso.com/            | Una              |
+| www\.contoso.com/            | Una             |
 | www\.contoso.com/a           | b             |
 | www\.contoso.com/ab          | C             |
 | www\.contoso.com/abc         | D             |
@@ -114,7 +114,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 >
 > | Route | Host             | Path    |
 > |-------|------------------|---------|
-> | Una      | profile.contoso.com | /api/\* |
+> | Una     | profile.contoso.com | /api/\* |
 >
 > Tabella corrispondente:
 >

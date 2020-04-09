@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 887f9e100a60561271a4c15777e7131ea1f1f722
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 312e9db594983f85372285bdff415a2d5dc76ed3
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631440"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984011"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Che cos'è IPv6 per la rete virtuale di Azure?
 

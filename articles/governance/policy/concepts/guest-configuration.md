@@ -3,12 +3,12 @@ title: Informazioni su come controllare il contenuto delle macchine virtualiLear
 description: Informazioni su come Criteri di Azure usa l'agente di configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: cc2ba11f75da5f993b99c90e5d0cc1030003203e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 889e99e94b2c81a6654fcbe7851e93c40163a0c6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257257"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985321"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -18,7 +18,7 @@ Oltre a controllare e [correggere le](../how-to/remediate-resources.md) risorse 
 - Configurazione o presenza di applicazioni
 - Impostazioni dell'ambiente
 
-Al momento, Configurazione guest di Criteri di Azure controlla solo le impostazioni all'interno del computer. Non applica le configurazioni.
+Al momento, la maggior parte dei criteri di configurazione guest di Criteri di Azure controlla solo le impostazioni all'interno del computer. Non applicano configurazioni. L'eccezione è un criterio predefinito a [cui si fa riferimento di seguito.](#applying-configurations-using-guest-configuration)
 
 ## <a name="extension-and-client"></a>Estensione e client
 
@@ -61,12 +61,13 @@ La tabella seguente elenca gli strumenti locali usati on ciascun sistema operati
 
 |Sistema operativo|Strumento di convalida|Note|
 |-|-|-|
-|WINDOWS|[Configurazione dello stato desiderato](/powershell/scripting/dsc/overview/overview) di Windows PowerShell v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby e Python vengono installati dall'estensione della configurazione guest. |
+|Windows|[Configurazione dello stato desiderato](/powershell/scripting/dsc/overview/overview) di Windows PowerShell v2| |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Se Ruby e Python non sono presenti nel computer, vengono installati dall'estensione Configurazione ospite. |
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
 
-Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. Questo aggiornamento fa sì che criteri di Azure per valutare le proprietà di Azure Resource Manager.This update causes Azure Policy to evaluate the Azure Resource Manager properties. Una valutazione di Criteri di Azure su richiesta recupera il valore più recente dal provider di risorse Di configurazione guest. Tuttavia, non attiva un nuovo controllo della configurazione all'interno del computer.
+Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Una volta ricevuta un'assegnazione guest, le impostazioni per tale configurazione vengono ricontrollate a intervalli di 15 minuti.
+I risultati vengono inviati al provider di risorse Configurazione ospite al termine del controllo. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. Questo aggiornamento fa sì che criteri di Azure per valutare le proprietà di Azure Resource Manager.This update causes Azure Policy to evaluate the Azure Resource Manager properties. Una valutazione di Criteri di Azure su richiesta recupera il valore più recente dal provider di risorse Di configurazione guest. Tuttavia, non attiva un nuovo controllo della configurazione all'interno del computer.
 
 ## <a name="supported-client-types"></a>Tipi di client supportati
 
@@ -78,12 +79,9 @@ La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|Datacenter 2012, Datacenter 2012 R2, Datacenter 2016, Datacenter 2019 Datacenter|
 |Microsoft|Client Windows|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
+|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
 |SUSE|SLES|12 SP3|
-
-> [!IMPORTANT]
-> Configurazione guest può controllare i nodi che eseguono un sistema operativo supportato. Se si desidera controllare le macchine virtuali che utilizzano un'immagine personalizzata, è necessario duplicare la definizione **DeployIfNotExists** e modificare la sezione **If** per includere le proprietà dell'immagine.
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 
@@ -140,10 +138,6 @@ I criteri di controllo disponibili per la configurazione Guest includono il tipo
 
 I criteri di configurazione guest attualmente supportano l'assegnazione della stessa assegnazione guest una sola volta per computer, anche se l'assegnazione dei criteri utilizza parametri diversi.
 
-## <a name="built-in-resource-modules"></a>Moduli di risorse incorporati
-
-Quando si installa l'estensione Configurazione ospite, il modulo PowerShell 'GuestConfiguration' è incluso nella versione più recente dei moduli risorse DSC. Questo modulo può essere scaricato da PowerShell Gallery utilizzando il collegamento 'Download manuale' dalla pagina del modulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). Il formato di file '.nupkg' può essere rinominato in '.zip' per decomprimere e rivedere.
-
 ## <a name="client-log-files"></a>File di log client
 
 L'estensione Configurazione ospite scrive i file di registro nei percorsi seguenti:
@@ -159,7 +153,7 @@ Dove `<version>` si riferisce al numero di versione corrente.
 Il primo passaggio per la risoluzione dei `Test-GuestConfigurationPackage` problemi relativi alle configurazioni o ai moduli di Configurazione ospite deve essere quello di utilizzare il cmdlet seguendo la procedura relativa alla creazione di un criterio di [controllo della configurazione guest personalizzato per Windows.](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows)
 Se l'operazione non riesce, la raccolta dei log client consente di diagnosticare i problemi.
 
-#### <a name="windows"></a>WINDOWS
+#### <a name="windows"></a>Windows
 
 Per usare la funzionalità comando di esecuzione della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Windows, può essere utile lo script di PowerShell di esempio seguente. Per altre informazioni, vedere [Eseguire script di PowerShell nella macchina virtuale Windows con Esegui comando](../../../virtual-machines/windows/run-command.md).
 
@@ -193,7 +187,7 @@ L'origine per le iniziative predefinite Di configurazione guest dei criteri è d
 
 - Esaminare esempi in [Esempi di criteri di Azure](../samples/index.md).Review examples at Azure Policy samples .
 - Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
-- Rivedere [Informazioni sugli effetti dei criteri](effects.md).
+- Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Comprendere come creare criteri a livello di [codice.](../how-to/programmatically-create.md)
 - Scopri come ottenere i dati di [conformità](../how-to/get-compliance-data.md).
 - Informazioni su come [correggere le risorse non conformi.](../how-to/remediate-resources.md)

@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294969"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892258"
 ---
 # <a name="what-is-distributed-tracing"></a>Che cos'è la traccia distribuita?
 
@@ -27,17 +27,17 @@ Monitoraggio di Azure offre inoltre una vista della [mappa delle applicazioni](h
 
 ## <a name="how-to-enable-distributed-tracing"></a>Come abilitare la traccia distribuita
 
-Per abilitare la traccia distribuita tra i servizi in un'applicazione è sufficiente aggiungere la libreria o l'SDK appropriato a ogni servizio, in base al linguaggio con cui è stato implementato il servizio.
+L'abilitazione dell'analisi distribuita tra i servizi in un'applicazione è semplice come aggiungere l'agente, l'SDK o la libreria appropriata a ogni servizio, in base al linguaggio in cui è stato implementato il servizio.
 
-## <a name="enabling-via-application-insights-sdks"></a>Abilitazione tramite Application Insights SDK
+## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Abilitazione tramite Application Insights tramite strumentazione automatica o SDKEnabling via Application Insights through auto-instrumentation or SDKs
 
-Le versioni di Application Insights SDK per .NET, .NET Core, Java, Node.js e JavaScript supportano tutte la traccia distribuita in modo nativo. Le istruzioni per l'installazione e la configurazione di ogni versione di Application Insights SDK sono disponibili di seguito:
+Gli agenti e/o gli SDK di Application Insights per .NET, .NET Core, Java, Node.js e JavaScript supportano l'analisi distribuita in modo nativo. Le istruzioni per l'installazione e la configurazione di ogni versione di Application Insights SDK sono disponibili di seguito:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
+* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [Javascript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
 
 Dopo avere installato e configurato la versione corretta di Application Insights SDK, le informazioni di traccia vengono raccolte automaticamente per le librerie, le tecnologie e i framework più diffusi da agenti di raccolta delle dipendenze dell'SDK automatici. L'elenco completo delle tecnologie supportate è disponibile nella [documentazione sulla raccolta automatica delle dipendenze](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
@@ -55,5 +55,5 @@ Il sito Web OpenCensus include la documentazione di riferimento delle API per [P
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Guida all'utilizzo di Python con OpenCensus](https://opencensus.io/api/python/trace/usage.html)
-* [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
+* [Mappa dell'applicazione](./../../azure-monitor/app/app-map.md)
 * [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)

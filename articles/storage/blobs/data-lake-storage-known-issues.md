@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4f8fae6580272ed53b8d440ba3e74c6a1ed1e61a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f69f17dc9d0cab2491a2c7f37b5bd082cc96b2d6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061517"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985423"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
 Questo articolo descrive le limitazioni e i problemi noti di Azure Data Lake Storage Gen2.
 
-## <a name="supported-blob-storage-features"></a>Funzionalità di archiviazione BLOB supportateSupported Blob storage features
+## <a name="supported-blob-storage-features"></a>Funzionalità di archiviazione BLOB supportate
 
 Un numero crescente di funzionalità di archiviazione BLOB ora funziona con gli account con uno spazio dei nomi gerarchico. Per un elenco completo, vedere Funzionalità di archiviazione BLOB disponibili in Archiviazione dati di Azure2.For a complete list, [see Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
 ## <a name="supported-azure-service-integrations"></a>Integrazioni di servizi di Azure supportateSupported Azure service integrations
 
-Data Lake Storage Gen2 supporta diversi servizi di Azure che è possibile usare per inserire dati, eseguire analisi e creare rappresentazioni visive. Per un elenco dei servizi di Azure supportati, vedere Servizi di [Azure che supportano Azure Data Lake Storage Gen2.](data-lake-storage-supported-azure-services.md)
+Azure Data Lake Storage Gen2 supporta diversi servizi di Azure che è possibile usare per l'inserimento di dati, l'esecuzione di analisi e la creazione di rappresentazioni visive. Per un elenco dei servizi di Azure supportati, vedere Servizi di [Azure che supportano Azure Data Lake Storage Gen2.](data-lake-storage-supported-azure-services.md)
 
 Vedere [Servizi di Azure che supportano Azure Data Lake Storage Gen2.](data-lake-storage-supported-azure-services.md)
 
@@ -41,7 +41,7 @@ Le API BLOB e le API Gen2 di Data Lake Storage possono operare sugli stessi dati
 
 Questa sezione descrive i problemi e le limitazioni con l'uso di API BLOB e API Gen2 di Data Lake Storage per operare sugli stessi dati.
 
-* Non è possibile usare sia le API BLOB che le API di Data Lake Storage per scrivere nella stessa istanza di un file. Se si scrive in un file usando le API Gen2 di Data Lake Storage, i blocchi del file non saranno visibili alle chiamate all'API BLOB [Ottieni elenco blocchi.](https://docs.microsoft.com/rest/api/storageservices/get-block-list) È possibile sovrascrivere un file usando le API Gen2 di Data Lake Storage o le API BLOB. Ciò non influirà sulle proprietà del file.
+* Non è possibile usare entrambe le API BLOB e le API di Archiviazione data lake per scrivere nella stessa istanza di un file. Se si scrive in un file usando le API Gen2 di Data Lake Storage, i blocchi del file non saranno visibili alle chiamate all'API BLOB [Ottieni elenco blocchi.](https://docs.microsoft.com/rest/api/storageservices/get-block-list) È possibile sovrascrivere un file usando le API Gen2 di Data Lake Storage o le API BLOB. Ciò non influirà sulle proprietà del file.
 
 * Quando si usa l'operazione [Elenca BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) senza specificare un delimitatore, i risultati includeranno sia directory che BLOB. Se si sceglie di utilizzare un delimitatore,`/`utilizzare solo una barra ( ). Questo è l'unico delimitatore supportato.
 
@@ -112,11 +112,8 @@ Le applicazioni di terze parti che usano le API REST per funzionare continuerann
 
 Se [l'accesso in lettura anonimo](storage-manage-access-to-resources.md) è stato concesso a un contenitore, gli ACL non hanno alcun effetto su tale contenitore o sui file in tale contenitore.
 
-## <a name="windows-azure-storage-blob-wasb-driver"></a>Driver BLOB di Archiviazione di Windows Azure (WASB)Windows Azure Storage Blob (WASB) driver
+## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-adls-gen2"></a>Driver BLOB di Archiviazione di Windows Azure (WASB) (non supportato con ADLS Gen2)
 
-Attualmente, esistono diversi problemi associati all'utilizzo del driver WASB insieme agli account che dispongono di uno spazio dei nomi gerarchico. È consigliabile usare il driver [ABFS (Azure Blob File System)](data-lake-storage-abfs-driver.md) nei carichi di lavoro. 
+Attualmente, il driver WASB, progettato solo per l'API BLOB, rileva problemi in alcuni scenari comuni, ovvero quando si tratta di un client a un account di archiviazione abilitato per lo spazio dei nomi. Si noti che Multi-Protocol Access (MPA) NON mitigherà questi problemi, neanche. 
 
-
-
-
-
+Per il momento (e molto probabilmente nel prossimo futuro), non supporteremo i clienti che usano il driver WASB come client per un account di archiviazione abilitato allo spazio dei nomi. È invece consigliabile scegliere di usare il driver [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) nell'ambiente Hadoop. Se si sta tentando di eseguire la migrazione da un ambiente Hadoop locale con una versione precedente a Hadoop branch-3, aprire un ticket di supporto di Azure in modo che sia possibile contattare l'utente sulla strada giusta per l'utente e l'organizzazione.

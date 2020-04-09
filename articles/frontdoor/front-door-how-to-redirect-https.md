@@ -7,22 +7,22 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246858"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878001"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Creare un passaggio frontale con il reindirizzamento da HTTP a HTTPS tramite il portale di AzureCreate a Front Door with HTTP to HTTPS redirection using the Azure portal
 
-È possibile usare il portale di Azure per creare un [front door](front-door-overview.md) con un certificato per la terminazione SSL. Una regola di routing viene utilizzata per reindirizzare il traffico HTTP a HTTPS.
+È possibile usare il portale di Azure per creare una [porta frontale](front-door-overview.md) con un certificato per la terminazione TLS. Una regola di routing viene utilizzata per reindirizzare il traffico HTTP a HTTPS.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare uno sportello anteriore con una risorsa di applicazione Web esistente
-> * Aggiungere un dominio personalizzato con certificato SSLAdd a custom domain with SSL certificate 
+> * Aggiungere un dominio personalizzato con certificato TLS/SSLAdd a custom domain with TLS/SSL certificate 
 > * Reindirizzamento HTTPS della configurazione nel dominio personalizzato
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -87,7 +87,7 @@ Dopo aver aggiunto il record CNAME, la pagina dei record DNS è simile all'esemp
 ### <a name="enable-https-on-your-custom-domain"></a>Abilitare HTTPS nel dominio personalizzatoEnable HTTPS on your custom domain
 
 1. Fare clic sul dominio personalizzato aggiunto e nella sezione **Dominio personalizzato HTTPS**modificare lo stato in **Abilitato**.
-2. È possibile lasciare il tipo di **gestione certificati** impostato su _Porta anteriore gestito_ per il certificato gratuito mantenuto, gestito e ruotato automaticamente da Front Door. È anche possibile scegliere di usare il proprio certificato SSL personalizzato archiviato con l'insieme di credenziali delle chiavi di Azure.You can also choose to use your own custom SSL certificate stored with Azure Key Vault. In questa esercitazione si presuppone l'utilizzo del certificato gestito Front Door.
+2. È possibile lasciare il tipo di **gestione certificati** impostato su _Porta anteriore gestito_ per il certificato gratuito mantenuto, gestito e ruotato automaticamente da Front Door. È anche possibile scegliere di usare il proprio certificato TLS/SSL personalizzato archiviato con l'insieme di credenziali delle chiavi di Azure.You can also choose to use your own custom TLS/SSL certificate stored with Azure Key Vault. In questa esercitazione si presuppone l'utilizzo del certificato gestito Front Door.
 ![Abilitazione di HTTPS per il dominio personalizzatoEnabling HTTPS for custom domain](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
 3. Fare clic su **Aggiorna** per salvare la selezione e quindi fare clic su **Salva**.

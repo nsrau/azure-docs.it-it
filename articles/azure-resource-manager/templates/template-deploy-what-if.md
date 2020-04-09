@@ -3,29 +3,68 @@ title: Procedura di distribuzione dei modelli (anteprima)Template deployment wha
 description: Determinare quali modifiche verranno apportate alle risorse prima di distribuire un modello di Azure Resource Manager.Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: bc42585204e5cc2c3ece5293a3934fd22fe8507b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e0d0d572e08961b585a93e66e400b8c2e54bf7f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156447"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886841"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operazione di creazione di elementi di creazione di modelli ARM (anteprima)ARM template deployment what-if operation (Preview)
 
 Prima di distribuire un modello di Azure Resource Manager (ARM), è consigliabile visualizzare in anteprima le modifiche che si verificheranno. Azure Resource Manager offre l'operazione di tipo per consentire di vedere come cambieranno le risorse se si distribuisce il modello. L'operazione di creazione di un'ora non apporta alcuna modifica alle risorse esistenti. Al contrario, prevede le modifiche se viene distribuito il modello specificato.
 
 > [!NOTE]
-> L'operazione di creazione di un'ora è attualmente in anteprima. Per usarlo, è necessario [iscriversi per l'anteprima](https://aka.ms/armtemplatepreviews). Come versione di anteprima, i risultati possono talvolta mostrare che una risorsa cambierà quando in realtà non verrà apportata alcuna modifica. Stiamo lavorando per ridurre questi problemi, ma abbiamo bisogno del tuo aiuto. Si prega di [https://aka.ms/whatifissues](https://aka.ms/whatifissues)segnalare questi problemi a .
+> L'operazione di creazione di un'ora è attualmente in anteprima. Come versione di anteprima, i risultati possono talvolta mostrare che una risorsa cambierà quando in realtà non verrà apportata alcuna modifica. Stiamo lavorando per ridurre questi problemi, ma abbiamo bisogno del tuo aiuto. Si prega di [https://aka.ms/whatifissues](https://aka.ms/whatifissues)segnalare questi problemi a .
 
 È possibile usare l'operazione what-if con i comandi di PowerShell o le operazioni dell'API REST.
+
+## <a name="install-powershell-module"></a>Installare il modulo di PowerShellInstall PowerShell module
+
+Per usare what-if in PowerShell, installare una versione di anteprima del modulo Az.Resources dalla raccolta di PowerShell.To use what-if in PowerShell, install a preview version of the Az.Resources module from the PowerShell gallery.
+
+### <a name="uninstall-alpha-version"></a>Disinstallare la versione alpha
+
+Se in precedenza è stata installata una versione alfa del modulo what-if, disinstallare tale modulo. La versione alpha era disponibile solo per gli utenti che si sono iscritti per un'anteprima anticipata. Se non hai installato l'anteprima, puoi saltare questa sezione.
+
+1. Eseguire PowerShell come amministratore
+1. Controllare le versioni installate del modulo Az.Resources.
+
+   ```powershell
+   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
+   ```
+
+1. Se si dispone di una versione installata con un numero di versione nel formato **2.x.x-alpha**, disinstallare tale versione.
+
+   ```powershell
+   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
+   ```
+
+1. Annullare la registrazione del repository di tipo what-if utilizzato per installare l'anteprima.
+
+   ```powershell
+   Unregister-PSRepository -Name WhatIfRepository
+   ```
+
+### <a name="install-preview-version"></a>Installare la versione di anteprima
+
+Per installare il modulo di anteprima, utilizzare:
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
+
+Sei pronto per usare what-if.
+
+## <a name="see-results"></a>See results (Visualizza risultati)
 
 In PowerShell l'output include risultati codificati a colori che consentono di visualizzare i diversi tipi di modifiche.
 
 ![Distribuzione di tipi di creazione di tipi di what-if fullresourcepayload e tipi di modifica](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-Il testo ouptput è:
+L'output di testo è:
 
 ```powershell
 Resource and property changes are indicated with these symbols:
@@ -72,11 +111,8 @@ In alternativa, è `-Confirm` possibile utilizzare il parametro switch per visua
 
 I comandi precedenti restituiscono un riepilogo di testo che è possibile esaminare manualmente. Per ottenere un oggetto che è possibile controllare a livello di codice per le modifiche, utilizzare:To get an object that you can programmatically inspect for changes, use:
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf`per le distribuzioni di gruppi di risorse
-* `$results = Get-AzSubscriptionDeploymentWhatIf`o `$results = Get-AzDeploymentWhatIf` per le distribuzioni a livello di sottoscrizione
-
-> [!NOTE]
-> Prima del rilascio della versione 2.0.1-alpha5, è stato utilizzato il `New-AzDeploymentWhatIf` comando. Questo comando è stato `Get-AzDeploymentWhatIf` `Get-AzResourceGroupDeploymentWhatIf`sostituito `Get-AzSubscriptionDeploymentWhatIf` dai comandi , e . Se è stata utilizzata una versione precedente, è necessario aggiornare tale sintassi. Il `-ScopeType` parametro è stato rimosso.
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult`per le distribuzioni di gruppi di risorse
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult`o `$results = Get-AzDeploymentWhatIfResult` per le distribuzioni a livello di sottoscrizione
 
 ### <a name="azure-rest-api"></a>API REST di Azure
 
@@ -223,7 +259,7 @@ Alcune delle proprietà elencate come eliminate non verranno effettivamente modi
 A questo punto, è possibile valutare a livello di codice i risultati di what-if impostando il comando su una variabile.
 
 ```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIf `
+$results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```

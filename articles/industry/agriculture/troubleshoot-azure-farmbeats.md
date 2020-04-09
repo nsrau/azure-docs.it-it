@@ -5,16 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 2270ee7c850c528bd24fa2e58c2b1684acfc24d6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585304"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886484"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
 Questo articolo fornisce soluzioni ai problemi comuni di Azure FarmBeats.This article provides solutions to common Azure FarmBeats issues. Per ulteriore assistenza, contatta il farmbeatssupport@microsoft.comnostro Forum di [supporto](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) o inviaci un'e-mail all'indirizzo .
+
+> [!NOTE]
+  > Se FarmBeats è stato installato durante aprile e i processi non riescono con un messaggio di errore vuoto, l'installazione potrebbe non essere stata allocata alcuna quota batch a causa di tutte le risorse dirette verso emergenze, assistenza sanitaria e altre esigenze critiche. È necessario richiedere alle macchine virtuali di essere allocate all'account Batch.You will need to request VMs to be allocated to the Batch account.
 
 ## <a name="install-issues"></a>Problemi di installazione
 
@@ -198,7 +201,7 @@ Se l'accesso è già stato concesso e si verifica questo errore, riprovare aggio
 
   **Aggiorna nome utente Sentinel**
 
-    1. Accedere al portale di [Azure](https://portal.azure.com).
+    1. Accedere al [portale di Azure](https://portal.azure.com).
     2. Nella casella **Cerca** cercare il gruppo di risorse FarmBeats Datahub.
     3. Selezionare Storage dell'account di archiviazione > **Containers** > **file di prep-files** > **to_vm** > **config.ini**
     4. Selezionare **Modifica**
@@ -206,7 +209,7 @@ Se l'accesso è già stato concesso e si verifica questo errore, riprovare aggio
 
   **Aggiornare la password di Sentinel**
 
-    1. Accedere al portale di [Azure](https://portal.azure.com).
+    1. Accedere al [portale di Azure](https://portal.azure.com).
     2. Nella casella **Cerca** cercare il gruppo di risorse FarmBeats Datahub.
     3. Selezionare keyvault
     4. Selezionare Criteri di accesso in Impostazioni

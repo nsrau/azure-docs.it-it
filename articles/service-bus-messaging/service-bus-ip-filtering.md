@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: a20882de34cb306b767959e21327180ff284e658
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24591c20ed707d9541eece0698ecd6e6b5ddee35
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475944"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878188"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Configurare le regole del firewall IP per il bus di servizio di AzureConfigure IP firewall rules for Azure Service Bus
 Per impostazione predefinita, gli spazi dei nomi del bus di servizio sono accessibili da Internet finché la richiesta viene fornita con l'autenticazione e l'autorizzazione valide. Con il firewall IP, è possibile limitarlo ulteriormente a un set di indirizzi IPv4 o intervalli di indirizzi IPv4 nella notazione [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 Questa funzionalità è utile negli scenari in cui il bus di servizio di Azure deve essere accessibile solo da determinati siti noti. Le regole del firewall consentono di configurare le regole per accettare il traffico proveniente da indirizzi IPv4 specifici. Ad esempio, se si usa il bus di servizio con [Azure Express Route,][express-route]è possibile creare una **regola del firewall** per consentire il traffico solo dagli indirizzi IP dell'infrastruttura locale o dagli indirizzi di un gateway NAT aziendale. 
+
+> [!IMPORTANT]
+> Firewall e reti virtuali sono supportati solo nel livello **premium** del bus di servizio. Se l'aggiornamento al livello **principale** non è un'opzione, è consigliabile mantenere sicuro il token di firma di accesso condiviso (SAS) e condividere solo con gli utenti autorizzati. Per informazioni sull'autenticazione sAS, vedere [Autenticazione e autorizzazione](service-bus-authentication-and-authorization.md#shared-access-signature).
 
 ## <a name="ip-firewall-rules"></a>Regole del firewall IP
 Le regole del firewall IP vengono applicate a livello di spazio dei nomi del bus di servizio. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione proveniente da un indirizzo IP che non corrisponde a una regola di indirizzi IP consentiti nello spazio dei nomi di bus di servizio di Microsoft Azure viene rifiutato come non autorizzato. Nella risposta non viene fatto riferimento alla regola IP. Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
@@ -44,8 +47,6 @@ Questa sezione illustra come usare il portale di Azure per creare regole del fir
 ## <a name="use-resource-manager-template"></a>Usare i modelli di Resource Manager
 Questa sezione include un modello di Azure Resource Manager di esempio che crea una rete virtuale e una regola del firewall.
 
-> [!IMPORTANT]
-> Firewall e reti virtuali sono supportati solo nel livello **premium** del bus di servizio.
 
 Il modello di Resource Manager seguente consente di aggiungere una regola di rete virtuale a uno spazio dei nomi esistente del bus di servizio.
 

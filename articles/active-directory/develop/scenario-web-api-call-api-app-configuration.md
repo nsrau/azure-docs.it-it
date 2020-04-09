@@ -3,24 +3,21 @@ title: Configurare un'API Web che chiama le API Web Azure
 titleSuffix: Microsoft identity platform
 description: Scopri come creare un'API Web che chiama le API Web (configurazione del codice dell'app)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 82b5e1d9753fbb65fd81f24b06016d302457144e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4129f1a89575c9a0e7cd6a0090168df659356c1b
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76834094"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885107"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Un'API Web che chiama le API Web: Configurazione del codice
 

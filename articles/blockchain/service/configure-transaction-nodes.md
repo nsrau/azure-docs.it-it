@@ -4,12 +4,12 @@ description: Come configurare i nodi di transazione del servizio Blockchain di A
 ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
-ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252259"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876930"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurare i nodi delle transazioni del servizio Blockchain di AzureConfigure Azure Blockchain Service transaction nodes
 
@@ -17,7 +17,7 @@ I nodi di transazione vengono usati per inviare transazioni blockchain al serviz
 
 Per visualizzare i dettagli del nodo di transazione predefinito:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare al membro del servizio Azure Blockchain. Selezionare **Nodi transazione**.
 
     ![Selezionare il nodo della transazione predefinito](./media/configure-transaction-nodes/nodes.png)
@@ -40,7 +40,7 @@ Per aggiungere un nodo di transazione:
     | Nome | Nome del nodo di transazioni. Il nome viene usato per creare l'indirizzo DNS per l'endpoint del nodo di transazioni. Ad esempio: `newnode-myblockchainmember.blockchain.azure.com`. Il nome del nodo non può essere modificato una volta creato. |
     | Password | Impostare una password complessa. Usare la password per accedere all'endpoint del nodo di transazione con l'autenticazione di base.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
     Il provisioning del nuovo nodo di transazioni richiede circa 10 minuti. I nodi di transazione aggiuntivi comportano costi. Per altre informazioni sui costi, vedere Prezzi di Azure.For more information on costs, see [Azure pricing](https://aka.ms/ABSPricing).
 
@@ -54,7 +54,7 @@ Per visualizzare i dettagli dell'endpoint di un nodo di transazione:To view a tr
 
     ![Endpoint](./media/configure-transaction-nodes/endpoints.png)
 
-Gli endpoint dei nodi delle transazioni sono sicuri e richiedono l'autenticazione. È possibile connettersi a un endpoint di transazione usando l'autenticazione di Azure AD, l'autenticazione di base HTTPS e una chiave di accesso tramite HTTPS o Websocket tramite SSL.
+Gli endpoint dei nodi delle transazioni sono sicuri e richiedono l'autenticazione. È possibile connettersi a un endpoint di transazione usando l'autenticazione di Azure AD, l'autenticazione di base HTTPS e una chiave di accesso tramite HTTPS o Websocket tramite TLS.
 
 ### <a name="azure-active-directory-access-control"></a>Controllo degli accessi di Azure Active DirectoryAzure Active Directory access control
 

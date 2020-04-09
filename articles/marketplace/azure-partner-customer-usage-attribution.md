@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 9/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 348633ffc91bc25a226b05743a18d2c87533a01d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2895944dea6417949488076186135680523e19db
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280644"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874960"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -232,7 +232,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Report
 
-È possibile trovare il report per l'attribuzione dell'utilizzo dei clienti nel dashboard di analisi del Centro per i partner. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Per visualizzare il report, è necessario utilizzare le credenziali del Centro per i partner per accedere. Se si verificano problemi con report o accesso, creare una richiesta di supporto seguendo le istruzioni nella sezione Ottenere supporto.
+Puoi trovare il rapporto per l'attribuzione dell'utilizzo dei clienti nel dashboard del Centro per i partner ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Per visualizzare il report, è necessario utilizzare le credenziali del Centro per i partner per accedere. Se si verificano problemi con report o accesso, creare una richiesta di supporto seguendo le istruzioni nella sezione Ottenere supporto.
 
 Scegliere Modello monitorato nell'elenco a discesa Tipo di associazione partner per visualizzare il report.
 
@@ -267,7 +267,7 @@ Se hai bisogno di assistenza per l'onboarding del Marketplace e/o l'attribuzione
 1. Scegliere la **categoria** del problema:
 
    - Per problemi di associazione dell'utilizzo, selezionare **Altro**.
-   - Per problemi di accesso con l’Azure Marketplace CPP, selezionare **Problema di accesso**.
+   - Per problemi di accesso con Azure Marketplace, selezionare **Problema di accesso**.
 
      ![Scegliere la categoria di problema](media/marketplace-publishers-guide/lu-article-incident.png)
 
@@ -315,7 +315,7 @@ Sì, un cliente o un partner di implementazione può personalizzare il modello e
 
 **È possibile monitorare i modelli distribuiti da un repository non Microsoft, ad esempio GitHub?**
 
-Sì, se il GUID è presente quando il modello viene distribuito, viene rilevato il suo utilizzo. I partner devono disporre di un profilo nel CPP per registrare i GUID usati per la distribuzione all'esterno di Azure Marketplace.
+Sì, se il GUID è presente quando il modello viene distribuito, viene rilevato il suo utilizzo. I partner devono disporre di un profilo nel marketplace commerciale che iscrive al Centro per i partner per registrare i GUID usati per la distribuzione all'esterno di Azure Marketplace.
 
 **Il cliente riceve anche la funzione di creazione report?**
 

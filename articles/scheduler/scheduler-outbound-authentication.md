@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898505"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878970"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticazione in uscita per l'Utilità di pianificazione di Azure
 
@@ -47,8 +47,8 @@ Quando si aggiunge un'autenticazione usando il modello `ClientCertificate`, spec
 
 | Elemento | Obbligatoria | Descrizione |
 |---------|----------|-------------|
-| **authentication** (elemento padre) | Oggetto autenticazione per l'uso di un certificato client SSL. |
-| **type** | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
+| **authentication** (elemento padre) | Oggetto di autenticazione per l'utilizzo di un certificato client SSL/TLS |
+| **type** | Sì | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate`. |
 | **pfx** | Sì | Contenuto del file PFX in codifica base64. |
 | **password utente** | Sì | Password per accedere al file PFX. |
 ||| 
@@ -59,8 +59,8 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 
 | Elemento | Descrizione | 
 |---------|-------------| 
-| **authentication** (elemento padre) | Oggetto autenticazione per l'uso di un certificato client SSL. |
-| **type** | Il tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
+| **authentication** (elemento padre) | Oggetto di autenticazione per l'utilizzo di un certificato client SSL/TLS |
+| **type** | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate`. |
 | **certificatoIdentificazion personale** |Identificazione personale del certificato. |
 | **certificateSubjectName** |Nome distintivo del soggetto del certificato. |
 | **certificateExpiration** | Data di scadenza del certificato. |

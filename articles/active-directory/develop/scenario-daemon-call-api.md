@@ -2,25 +2,21 @@
 title: Chiamare un'API Web da un'app daemon - Piattaforma di identità Microsoft Azure
 description: Informazioni su come creare un'app daemon che chiama le API Web
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 338b638d6b33bcbbb5cf377643a96c71b0d314bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e440628526dada7655cc71f63fc9fff006cc5ef5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76775188"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885447"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>App Daemon che chiama API Web- chiama un'API Web dall'app
 

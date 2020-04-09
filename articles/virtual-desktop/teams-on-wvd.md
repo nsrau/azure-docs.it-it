@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 702df1bfaf0701a40e514f8a47151f96917adf38
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cfec30e56b0fd523896cbc1a7e84e92f639075a8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811589"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879055"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft Teams sul desktop virtuale di Windows
 
@@ -40,7 +40,7 @@ Per abilitare l'installazione di Teams per computer, impostare la seguente chiav
 ```shell
   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
   Type: REG_DWORD
-  Value: 0x1
+  Value: 1
 ```
 
 ### <a name="install-microsoft-teams"></a>Installare Microsoft Teams
@@ -66,4 +66,4 @@ Per abilitare l'installazione di Teams per computer, impostare la seguente chiav
       ```
 
       > [!NOTE]
-      > Se si installa Teams con l'impostazione MSI ALLUSERS, gli aggiornamenti automatici verranno disabilitati. Ti consigliamo di aggiornare Teams almeno una volta al mese.
+      > Se si installa Teams con l'impostazione MSI ALLUSER 1, gli aggiornamenti automatici verranno disabilitati. Ti consigliamo di aggiornare Teams almeno una volta al mese.

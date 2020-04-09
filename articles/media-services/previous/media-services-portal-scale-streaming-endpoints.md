@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 23eb51428dcf4961febfb592bf957bb8beeeda57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40820170bae275f090c5f898387698fc562e59ae
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61463116"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985542"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Ridimensionare gli endpoint di streaming con il portale di Azure
 ## <a name="overview"></a>Panoramica
@@ -33,7 +33,7 @@ Gli endpoint di streaming **Premium** sono ideali per i carichi di lavoro avanza
  
 Questo argomento illustra come ridimensionare un endpoint di streaming.
 
-Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](https://go.microsoft.com/fwlink/?LinkId=275107).
+Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="scale-streaming-endpoints"></a>Ridimensionare gli endpoint di streaming
 

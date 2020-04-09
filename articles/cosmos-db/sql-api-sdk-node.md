@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 181f43e060e3b4b41babeee375365a97e1d224aa
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 03f79535b3a62fbb4d0309ae86a142bd842cc308
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411281"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982889"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Node.js SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -295,14 +295,14 @@ Non sempre i cambiamenti più visibili, ma aiutano il nostro team a spedire un c
 
 ### <a name=""></a><a name="1.14.0"/>1.14.0</a>
 * Aggiunge il supporto per la coerenza di sessione.
-* Questa versione dell'SDK richiede la versione più recente dell'emulatore di Azure Cosmos DB che è possibile scaricare dalla pagina https://aka.ms/cosmosdb-emulator.
+* Questa versione SDK richiede la versione più recente di [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name=""></a><a name="1.13.0"/>1.13.0</a>
 * Query indivisibili su più partizioni.
 * Aggiunge il supporto per il collegamento a una risorsa con barra iniziale e finale (e relativi test).
 
 ### <a name=""></a><a name="1.12.2"/>1.12.2</a>
-*   Correzione della documentazione di npm.
+*    Correzione della documentazione di npm.
 
 ### <a name=""></a><a name="1.12.1"/>1.12.1</a>
 * Correzione di un bug in executeStoredProcedure per cui i documenti coinvolti contenevano caratteri Unicode speciali (LS, PS).
@@ -356,7 +356,7 @@ Non sempre i cambiamenti più visibili, ma aiutano il nostro team a spedire un c
 * Correzione del problema di hashPartitionResolver resolveForRead(): se non veniva specificata una chiave di partizione, veniva generata un'eccezione, anziché l'elenco di tutti i collegamenti registrati.
 
 ### <a name=""></a><a name="1.5.4"/>1.5.4</a>
-* Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di Azure Cosmos DB. Usare un agente dedicato per tutte le richieste della libreria.
+* Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di Azure Cosmos DB. Utilizzare un agente dedicato per tutte le richieste della libreria.
 
 ### <a name=""></a><a name="1.5.3"/>1.5.3</a>
 * Correzione del problema [n. 81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestione corretta dei trattini negli ID dei file multimediali.

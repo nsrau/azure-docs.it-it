@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c68b83726371d346019d18d0b066173f93196e6d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276127"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982056"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -63,7 +63,7 @@ Application Insights sta passando a [W3C Trace-Context](https://w3c.github.io/tr
 
 La versione più recente di Application Insights SDK supporta il protocollo Trace-Context, ma potrebbe essere necessario acconsentonoadevi esplicitamente. (Compatibilità con le versioni precedenti del protocollo di correlazione supportato da Application Insights SDK sarà mantenuta.)
 
-Il protocollo HTTP di [correlazione, denominato anche Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), è deprecato. Questo protocollo definisce due intestazioni:
+Il protocollo HTTP di [correlazione, denominato anche Request-Id](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), è deprecato. Questo protocollo definisce due intestazioni:
 
 - `Request-Id`: esegue l'ID univoco globale della chiamata.
 - `Correlation-Context`: esegue la raccolta di coppie nome-valore delle proprietà di traccia distribuite.
@@ -202,13 +202,13 @@ Questa funzione `Microsoft.ApplicationInsights.JavaScript`è in . È disabilitat
 
 La [specifica del modello di dati OpenTracing](https://opentracing.io/) e i modelli di dati di Application Insights eseguono il mapping nel modo seguente:
 
-| Application Insights                  | OpenTracing                                       |
-|------------------------------------   |-------------------------------------------------  |
-| `Request`, `PageView`                 | `Span` con `span.kind = server`                  |
-| `Dependency`                          | `Span` con `span.kind = client`                  |
-| `Id` di `Request` e `Dependency`    | `SpanId`                                          |
-| `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `Reference` di tipo `ChildOf` (l'intervallo padre)   |
+| Application Insights                   | OpenTracing                                        |
+|------------------------------------    |-------------------------------------------------    |
+| `Request`, `PageView`                  | `Span` con `span.kind = server`                    |
+| `Dependency`                           | `Span` con `span.kind = client`                    |
+| `Id` di `Request` e `Dependency`     | `SpanId`                                            |
+| `Operation_Id`                         | `TraceId`                                           |
+| `Operation_ParentId`                   | `Reference` di tipo `ChildOf` (l'intervallo padre)     |
 
 Per altre informazioni, vedere Modello di dati di telemetria di [Application Insights.For more information,](../../azure-monitor/app/data-model.md)see Application Insights telemetry data model .
 
@@ -320,19 +320,12 @@ ASP.NET Core 2.0 supporta l'estrazione delle intestazioni HTTP e l'avvio di nuov
 Application Insights SDK, a partire dalla versione 2.4.0-beta1, usa `DiagnosticSource` e `Activity` per raccogliere i dati di telemetria e associarli all'attività corrente.
 
 <a name="java-correlation"></a>
-## <a name="telemetry-correlation-in-the-java-sdk"></a>Correlazione di dati di telemetria in Java SDK
+## <a name="telemetry-correlation-in-the-java"></a>Correlazione di telemetria nel linguaggio JavaTelemetry correlation in the Java
 
-[Application Insights SDK per Java](../../azure-monitor/app/java-get-started.md) versione 2.0.0 o successiva supporta la correlazione automatica dei dati di telemetria. Viene popolato `operation_id` automaticamente per tutti i dati di telemetria (ad esempio tracce, eccezioni ed eventi personalizzati) emessi nell'ambito di una richiesta. Propaga inoltre le intestazioni di correlazione (descritte in precedenza) per le chiamate da servizio a servizio tramite HTTP, se [l'agente Java SDK](../../azure-monitor/app/java-agent.md) è configurato.
+[L'agente Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) di Application Insights e [Java SDK](../../azure-monitor/app/java-get-started.md) versione 2.0.0 o successiva supportano la correlazione automatica dei dati di telemetria. Viene popolato `operation_id` automaticamente per tutti i dati di telemetria (ad esempio tracce, eccezioni ed eventi personalizzati) emessi nell'ambito di una richiesta. Propaga inoltre le intestazioni di correlazione (descritte in precedenza) per le chiamate da servizio a servizio tramite HTTP, se [l'agente Java SDK](../../azure-monitor/app/java-agent.md) è configurato.
 
 > [!NOTE]
-> Solo le chiamate effettuate tramite Apache HttpClient sono supportate per la funzionalità di correlazione. Sia Spring RestTemplate che Feign possono essere utilizzati con Apache HttpClient sotto il cofano.
-
-Attualmente, la propagazione automatica del contesto tra le tecnologie di messaggistica (ad esempio Kafka, RabbitMQ e il bus di servizio di Azure) non è supportata. È possibile codificare manualmente tali `trackDependency` scenari `trackRequest` utilizzando i metodi e . In questi metodi, una telemetria delle dipendenze rappresenta un messaggio accodato da un producer. La richiesta rappresenta un messaggio elaborato da un consumer. In questo caso sia `operation_id` che `operation_parentId` devono essere propagati nelle proprietà del messaggio.
-
-### <a name="telemetry-correlation-in-asynchronous-java-applications"></a>Correlazione di telemetria nelle applicazioni Java asincroneTelemetry correlation in asynchronous Java applications
-
-Per informazioni su come correlare i dati di telemetria in un'applicazione di avvio a molla asincrona, vedere [Traccia distribuita in applicazioni Java asincrone](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications). In questo articolo vengono fornite indicazioni per la strumentazione [di ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) di Spring e [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html).
-
+> L'agente Java di Application Insights raccoglie automaticamente richieste e dipendenze per JMS, Kafka, Netty/Webflux e altro ancora. Per Java SDK solo le chiamate effettuate tramite Apache HttpClient sono supportate per la funzionalità di correlazione. La propagazione automatica del contesto tra le tecnologie di messaggistica (ad esempio Kafka, RabbitMQ e il bus di servizio di Azure) non è supportata nell'SDK. 
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>Nome del ruolo

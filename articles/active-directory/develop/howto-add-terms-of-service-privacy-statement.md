@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
-ms.reviwer: lenalepa, sureshja
+ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40e7a05505bc501c1c622e627a6d97cc57db1cfa
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300010"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884240"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: Configurare i termini di servizio e l'informativa sulla privacy per un'appHow to: Configure terms of service and privacy statement for an app
 
@@ -55,10 +55,10 @@ Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy s
 * [Con il codice JSON dell'oggetto app](#app-object-json)
 * [Utilizzo dell'API Microsoft Graph](#msgraph-rest-api)
 
-### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Uso del portale di AzureUsing the Azure portal
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Uso del portale di Azure
 Seguire questi passaggi nel portale di Azure.Follow these steps in the Azure portal.
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare alla sezione **Registrazioni per l'app** e selezionare l'app.
 3. Aprire il riquadro **Personalizzazione.**
 4. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.

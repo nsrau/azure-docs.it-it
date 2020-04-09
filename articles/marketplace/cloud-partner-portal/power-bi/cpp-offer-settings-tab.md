@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 637217d718e6e91a3fa29bd38d8215d0a1324825
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 1bf8abb2d8ac6c1c9d2e03ef5e4f1edce530cbdb
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745440"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985763"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Scheda Offer Settings (Impostazioni dell'offerta) per app Power BI
 
 >[!Important]
->A partire dal 30 marzo 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzureCreatePBIServiceApp) sulla creazione di app Power BI per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzureCreatePBIServiceApp) sulla creazione di app Power BI per gestire le offerte migrate.
 
 Quando apri la pagina **Nuova offerta** per le app di servizio, viene visualizzata la scheda **Impostazioni offerta.** Specificare gli identificatori primari e il nome dell'offerta in questa scheda. L'asterisco (-) indica un campo obbligatorio.
 

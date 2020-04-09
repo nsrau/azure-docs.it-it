@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898581"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878392"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
@@ -29,7 +29,7 @@ L'API REST di Utilità di pianificazione di Microsoft Azure espone e utilizza le
 
 | Entità | Descrizione |
 |--------|-------------|
-| **Lavoro** | Definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio. | 
+| **Processo** | Definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio. | 
 | **Raccolta di processi** | Contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi della raccolta. In quanto proprietario della sottoscrizione di Azure, è possibile creare raccolte di processi e raggruppare i processi in base ai limiti di utilizzo o dell'applicazione. Una raccolta processi presenta questi attributi: <p>- È vincolata a un'area. <br>- Consente di applicare quote in modo che sia possibile limitare l'utilizzo per tutti i processi in una raccolta. <br>- Le quote includono MaxJobs e MaxRecurrence. | 
 | **Cronologia dei processi** | Descrive i dettagli per l'esecuzione del processo, ad esempio, lo stato e i dettagli della risposta. |
 ||| 
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 Utilità di pianificazione di Microsoft Azure supporta più tipi di processo: 
 
-* Processi HTTP, inclusi i processi HTTPS che supportano SSL, nel caso di endpoint per un servizio o un carico di lavoro esistente
+* Processi HTTP, inclusi i processi HTTPS che supportano TLS, per quando si dispone dell'endpoint per un servizio o un carico di lavoro esistenteHTTP jobs, including HTTPS jobs that support TLS, for when you have the endpoint for an existing service or workload
 * Processi di code di archiviazione per carichi di lavoro che usano le code di archiviazione, ad esempio l'invio di messaggi alle code di archiviazione
 * Processi di coda del bus di servizio per i carichi di lavoro che usano le code del bus di servizio
 * Processi degli argomenti del bus di servizio per i carichi di lavoro che usano gli argomenti del bus di servizio

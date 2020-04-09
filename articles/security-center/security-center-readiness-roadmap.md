@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76281292"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879463"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Guida di orientamento alla preparazione del Centro sicurezza di Azure
 Questo documento fornisce una guida di orientamento alla preparazione utile per iniziare a usare il Centro sicurezza di Azure.
@@ -37,16 +37,14 @@ Video
 * [Overview of Security Center Prevention, Detection and Response Capabilities](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/) (Panoramica delle funzionalità di prevenzione, rilevamento e risposta del Centro sicurezza)
 
 ## <a name="planning-and-operations"></a>Pianificazione e gestione
+
 Per sfruttare tutti i vantaggi del Centro sicurezza, è importante sapere come i vari utenti o team dell'organizzazione usano il servizio per soddisfare le esigenze di gestione, monitoraggio, governance e risposta agli eventi imprevisti in modo sicuro.
 
 Usare le risorse seguenti per semplificare i processi di pianificazione e gestione.
 
-
 Articolo
 * [Guida alla pianificazione e alle operazioni del Centro sicurezza di AzureAzure Security Center planning and operations guide](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
-Video
-* [Protezione dei carichi di lavoro cloud con il Centro sicurezza](https://mva.microsoft.com/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=X4WqTA3jE_1106218965)
 
 ### <a name="onboarding-computers-to-security-center"></a>Onboarding di computer nel Centro sicurezza
 Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro di Azure non abilitate per il livello Standard del Centro sicurezza di Azure. Sono incluse le sottoscrizioni Azure che usano il livello Gratuito del Centro di sicurezza e le aree di lavoro che non dispongono della soluzione di sicurezza abilitata.
@@ -71,15 +69,15 @@ Articoli
 * [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
-Video   
+Video    
 * [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center) (Riduzione dei problemi di sicurezza tramite il Centro sicurezza di Azure)
 
 ### <a name="security-center-for-incident-response"></a>Centro sicurezza per la risposta agli eventi imprevisti
-Per ridurre i costi e i danni è importante implementare un piano di risposta agli eventi imprevisti prima di un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
+Per ridurre i costi e i danni, è importante disporre di un piano di risposta agli incidenti prima che si verifica un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
 
 Usare le risorse seguenti per ottenere informazioni su come incorporare il Centro sicurezza nel processo di risposta agli eventi imprevisti.
 
-Video  
+Video    
 * [Azure Security Center in Incident Response](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response) (Centro sicurezza di Azure per la risposta agli eventi imprevisti)
 * [Respond quickly to threats with next-generation security operation, and investigation](https://youtu.be/e8iFCz5RM4g) (Rispondere rapidamente alle minacce con operazioni e indagini di sicurezza di nuova generazione)
 
@@ -93,7 +91,7 @@ Le macchine virtuali di Azure possono sfruttare i vantaggi delle funzionalità d
 
 Usare le risorse seguenti per ottenere informazioni sull'uso di queste funzionalità nel Centro sicurezza.
 
-Video  
+Video    
 * [Azure Security Center – Just-in-time VM Access](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck) (Centro sicurezza di Azure - Controlli delle applicazioni adattivi)
 

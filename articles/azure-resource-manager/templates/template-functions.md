@@ -2,13 +2,13 @@
 title: Funzioni di modello
 description: Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, lavorare con stringhe e valori numerici, e recuperare informazioni sulla distribuzione.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 1d2789e59c091b4e6c39be48b83fe610a592abe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: fbd82f89ed9a97a3f376a9ed6eaa8ae3760759ff
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156260"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982379"
 ---
 # <a name="arm-template-functions"></a>Funzioni del modello ARM
 
@@ -41,8 +41,8 @@ La maggior parte delle funzioni funziona allo stesso modo quando viene distribui
 Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
 
 * [Matrice](template-functions-array.md#array)
-* [coalesce](template-functions-array.md#coalesce)
-* [concat](template-functions-array.md#concat)
+* [Coalesce](template-functions-array.md#coalesce)
+* [Concat](template-functions-array.md#concat)
 * [Contiene](template-functions-array.md#contains)
 * [createArray (matrice)](template-functions-array.md#createarray)
 * [Vuoto](template-functions-array.md#empty)
@@ -78,6 +78,13 @@ Resource Manager include numerose funzioni per l'esecuzione di confronti nei mod
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
 
+## <a name="date-functions"></a>Funzioni di data
+
+Gestione risorse fornisce le seguenti funzioni per l'utilizzo delle date.
+
+* [dateTimeAggiungi](template-functions-date.md#datetimeadd)
+* [utcNow](template-functions-date.md#utcnow)
+
 ## <a name="deployment-value-functions"></a>Funzioni dei valori della distribuzione
 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
@@ -100,7 +107,7 @@ Resource Manager fornisce le funzioni seguenti per utilizzare le condizioni logi
 * [E](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
 * [if](template-functions-logical.md#if)
-* [not](template-functions-logical.md#not)
+* [Non](template-functions-logical.md#not)
 * [O](template-functions-logical.md#or)
 
 <a id="add" aria-hidden="true" />
@@ -195,7 +202,7 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [base64](template-functions-string.md#base64)
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
-* [concat](template-functions-string.md#concat)
+* [Concat](template-functions-string.md#concat)
 * [Contiene](template-functions-string.md#contains)
 * [dataUri (informazioni in base all'](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
@@ -214,8 +221,8 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [skip](template-functions-string.md#skip)
 * [diviso](template-functions-string.md#split)
 * [Startswith](template-functions-string.md#startswith)
-* [Stringa](template-functions-string.md#string)
-* [substring](template-functions-string.md#substring)
+* [string](template-functions-string.md#string)
+* [Sottostringa](template-functions-string.md#substring)
 * [take](template-functions-string.md#take)
 * [Tolower](template-functions-string.md#tolower)
 * [Toupper](template-functions-string.md#toupper)
@@ -224,7 +231,6 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [Uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
-* [utcNow](template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

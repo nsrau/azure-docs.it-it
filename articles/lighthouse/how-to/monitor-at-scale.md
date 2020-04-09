@@ -3,12 +3,12 @@ title: Monitorare le risorse delegate su larga scalaMonitor delegated resources 
 description: Informazioni su come usare in modo efficace i log di Monitoraggio di Azure in modo scalabile tra i tenant dei clienti che stai gestendo.
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 217df3c55ab54b6569bae8cacb338764ecb7125d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a600cec524c9f715ada9da09dea35f3baa98151
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77122896"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985202"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorare le risorse delegate su larga scalaMonitor delegated resources at scale
 
@@ -28,7 +28,7 @@ Per raccogliere dati, è necessario creare aree di lavoro di Log Analytics.In or
 
 Dopo aver creato le aree di lavoro di Log Analytics, è possibile distribuire [Criteri di Azure](../../governance/policy/index.yml) tra le gerarchie dei clienti in modo che i dati di diagnostica vengano inviati all'area di lavoro appropriata in ogni tenant. I criteri esatti da distribuire possono variare a seconda dei tipi di risorse che si desidera monitorare.
 
-Per ulteriori informazioni sulla creazione di criteri, vedere [Esercitazione: Creare e gestire criteri per applicare la conformità](../../governance/policy/tutorials/create-and-manage.md). Questo [strumento di community](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/azure-diagnostics-policy-generator) fornisce uno script che consente di creare criteri per monitorare i tipi di risorse specifici scelti.
+Per ulteriori informazioni sulla creazione di criteri, vedere [Esercitazione: Creare e gestire criteri per applicare la conformità](../../governance/policy/tutorials/create-and-manage.md). Questo [strumento di community](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/azure-diagnostics-policy-generator) fornisce uno script che consente di creare criteri per monitorare i tipi di risorse specifici scelti.
 
 Dopo aver determinato i criteri da distribuire, è possibile [distribuirli alle sottoscrizioni delegate su larga scala.](policy-at-scale.md)
 

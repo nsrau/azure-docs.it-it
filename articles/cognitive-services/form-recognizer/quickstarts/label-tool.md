@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205824"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398002"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -35,6 +35,10 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurare lo strumento di etichettatura campioni
 
 Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Docker. Per configurare il contenitore Docker, seguire questa procedura. Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
+
+> [!TIP]
+> È inoltre disponibile lo strumento OCR Form Labeling Tool come progetto open source in GitHub. Si tratta di un'applicazione Web creata con React + Redux e scritta in TypeScript. Per altre informazioni o per contribuire, vedere [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+
 1. Installare prima di tutto Docker in un computer host. Questa guida illustra come usare un computer locale come host. Se si vuole usare un servizio di hosting Docker in Azure, vedere la guida pratica [Distribuire lo strumento di etichettatura di esempio](../deploy-label-tool.md). 
 
    Il computer host deve soddisfare i requisiti hardware seguenti:
@@ -46,7 +50,7 @@ Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Dock
    Installare Docker nel computer seguendo le istruzioni appropriate per il sistema operativo in uso: 
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
-   * [Linux](https://docs.docker.com/install/).
+   * [Linux](https://docs.docker.com/install/)
 
 1. Ottenere il contenitore dello strumento di etichettatura campioni con il comando `docker pull`.
     ```
@@ -185,6 +189,7 @@ Passare alla pagina delle impostazioni del progetto (icona del dispositivo di sc
 Quando si vuole riprendere il progetto, è prima di tutto necessario creare una connessione allo stesso contenitore di archiviazione BLOB. A questo scopo, ripetere la procedura descritta sopra. Quindi, passare alla pagina di impostazioni dell'applicazione (icona dell'ingranaggio) e verificare se il token di sicurezza del progetto è presente. Se non lo è, aggiungere un nuovo token di sicurezza e sovrascrivere il nome e la chiave del token del passaggio precedente. Quindi fare clic su Save settings (Salva impostazioni). 
 
 ### <a name="resume-a-project"></a>Riprendere un progetto
+
 Infine, passare alla pagina principale (icona della casa) e fare clic su Open Cloud Project (Apri progetto cloud). Selezionare quindi la connessione all'archiviazione BLOB e il file con estensione *vott* del progetto. L'applicazione caricherà tutte le impostazioni del progetto perché contiene il token di sicurezza.
 
 ## <a name="next-steps"></a>Passaggi successivi

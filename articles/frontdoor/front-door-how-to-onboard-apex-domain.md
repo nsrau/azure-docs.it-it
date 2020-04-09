@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: bb1042e15d4366923174996388eeb2fb99aef429
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74184622"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878885"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>A bordo di un dominio root o apice sulla porta anteriore
 Azure Front Door usa i record CNAME per convalidare la proprietà del dominio per l'onboarding di domini personalizzati. Inoltre, Front Door non espone l'indirizzo IP front-end associato al profilo Front Door e pertanto non è possibile eseguire il mapping del dominio apice a un indirizzo IP, se l'intento è quello di eseguire l'onboarding alla porta frontale di Azure.
@@ -26,7 +26,7 @@ Il mapping dell'apice o del dominio radice al profilo Front Door richiede fondam
 > [!NOTE]
 > Esistono anche altri provider DNS che supportano la conversione CNAME o la ricerca DNS, tuttavia, Azure Front Door consiglia di usare il DNS di Azure per i clienti per l'hosting dei domini.
 
-È possibile usare il portale di Azure per eseguire l'onboarding di un dominio apice sulla porta frontale e abilitare HTTPS su di esso associandolo a un certificato per la terminazione SSL. I domini Apex sono anche indicati come domini root o naked.
+È possibile usare il portale di Azure per eseguire l'onboarding di un dominio apice sulla porta frontale e abilitare HTTPS su di esso associandolo a un certificato per la terminazione TLS. I domini Apex sono anche indicati come domini root o naked.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -65,7 +65,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 2. Selezionare il **tipo di gestione certificati** per _'Usa certificato personale'_.
 
 > [!WARNING]
-> Il tipo di gestione dei certificati gestiti Front Door non è attualmente supportato per i domini apice o radice. L'unica opzione disponibile per abilitare HTTPS in un apice o un dominio radice per Front Door consiste nell'usare il proprio certificato SSL personalizzato ospitato in Azure Key Vault.The only option available for enabling HTTPS on an apex or root domain for Front Door is using your own custom SSL certificate hosted on Azure Key Vault.
+> Il tipo di gestione dei certificati gestiti Front Door non è attualmente supportato per i domini apice o radice. L'unica opzione disponibile per abilitare HTTPS in un apice o un dominio radice per Front Door consiste nell'usare il proprio certificato TLS/SSL personalizzato ospitato in Azure Key Vault.The only option available for enabling HTTPS on an apex or root domain for Front Door is using your own custom TLS/SSL certificate hosted on Azure Key Vault.
 
 3. Assicurarsi di disporre delle autorizzazioni appropriate per Front Door per accedere alla chiave Vault come indicato nell'interfaccia utente, prima di procedere al passaggio successivo.
 4. Scegliere un **account Key Vault** dall'abbonamento corrente, quindi selezionare la versione **segreta** e **segreta** appropriata per eseguire il mapping al certificato corretto.

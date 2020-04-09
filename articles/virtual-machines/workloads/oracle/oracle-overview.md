@@ -11,18 +11,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
-ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 101cfc9edce8f4df1ad2388c08a5bd9702dffe68
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74806610"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878222"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Panoramica delle applicazioni e delle soluzioni Oracle in AzureOverview of Oracle Applications and solutions on Azure
 
-Questo articolo introduce le funzionalità per eseguire soluzioni Oracle usando l'infrastruttura di Azure.This article introduces capabilities to run Oracle solutions using Azure infrastructure. Vedere anche introduzione dettagliate alle [immagini di macchine virtuali Oracle](oracle-vm-solutions.md) disponibili in Azure Marketplace e la funzionalità di anteprima per [interconnettere Azure con Oracle Cloud Infrastructure (OCI).](oracle-oci-overview.md)
+Questo articolo introduce le funzionalità per eseguire soluzioni Oracle usando l'infrastruttura di Azure.This article introduces capabilities to run Oracle solutions using Azure infrastructure. Vedere anche introduzione dettagliate alle [immagini di macchine virtuali Oracle](oracle-vm-solutions.md) disponibili in Azure Marketplace e la capacità di [interconnettere Azure con Oracle Cloud Infrastructure (OCI).](oracle-oci-overview.md)
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Database Oracle nell'infrastruttura di Azure
 
@@ -58,7 +58,7 @@ Eseguire applicazioni aziendali in Azure nei sistemi operativi Oracle supportati
 
 * Eseguire il backup del database Oracle usando Oracle RMAN e, facoltativamente, usare Azure [Blob Fuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) per montare un account di archiviazione BLOB di [Azure altamente redudant](https://docs.microsoft.com/azure/storage/common/storage-redundancy) e scrivere i backup RMAN per una maggiore resilienza.
 
-## <a name="integration-of-azure-with-oci-preview"></a>Integrazione di Azure con OCI (anteprima)Integration of Azure with OCI (preview)
+## <a name="integration-of-azure-with-oci"></a>Integrazione di Azure con OCI
 
 Eseguire applicazioni Oracle nell'infrastruttura di Azure, connesse ai database back-end nell'infrastruttura Oracle Cloud Infrastructure (OCI). Questa soluzione utilizza le funzionalità seguenti:This solution uses the following capabilities: 
 
@@ -67,7 +67,10 @@ Eseguire applicazioni Oracle nell'infrastruttura di Azure, connesse ai database 
 
 ### <a name="deploy-oracle-applications-on-azure"></a>Distribuire applicazioni Oracle in AzureDeploy Oracle Applications on Azure
 
-Usare i modelli Terraform per configurare l'infrastruttura di Azure e installare le applicazioni Oracle convalidate e supportate per l'esecuzione nella configurazione cross-cloud:Use Terraform templates to set up Azure infrastructure and install Oracle Applications validated and supported to run in the cross-cloud configuration:
+Usare i modelli Terraform per configurare l'infrastruttura di Azure e installare le applicazioni Oracle.Use Terraform templates to set up Azure infrastructure and install Oracle Applications. 
+
+> [!IMPORTANT]
+> Oracle certificherà queste applicazioni per l'esecuzione in Azure quando si usa la soluzione di interconnessione Azure / Oracle Cloud entro maggio 2020.
 
 * E-Business Suite
 * JD Edwards EnterpriseOne

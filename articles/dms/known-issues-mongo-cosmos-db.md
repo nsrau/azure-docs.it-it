@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae5d5f2d282c546f5172ca1c8cb0e420d3b6e96b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78256021"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878052"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Problemi noti/limitazioni di migrazione con le migrazioni da MongoDB all'API di Azure Cosmos DB per MongoDB
 
@@ -45,7 +45,7 @@ I problemi noti e le limitazioni associate alle migrazioni da MongoDB all'API di
 
 | Causa         | Risoluzione |
 | ------------- | ------------- |
-| Si tenta di eseguire la migrazione a Azure Cosmos DB da una versione non supportata di MongoDB. | Man mano che vengono rilasciate le nuove versioni di MongoDB, queste vengono testate per garantire la compatibilità con il servizio di migrazione del database di Azure e il servizio viene aggiornato periodicamente per accettare le versioni più recenti. Se è necessario eseguire la migrazione immediata, come soluzione alternativa è possibile esportare i database/raccolte in Archiviazione di Azure e il punto dell'origine nel dump risultante. Creare la chiave di accesso condiviso nel contenitore BLOB in Esplora archivi e quindi usare l'URL con informazioni sulla chiamata sas del contenitore come stringa di connessione dettagli origine.<br><br> |
+| Si tenta di eseguire la migrazione a Azure Cosmos DB da una versione non supportata di MongoDB. | Man mano che vengono rilasciate le nuove versioni di MongoDB, queste vengono testate per garantire la compatibilità con il servizio di migrazione del database di Azure e il servizio viene aggiornato periodicamente per accettare le versioni più recenti. Se è necessario eseguire la migrazione immediata, come soluzione alternativa è possibile esportare i database/raccolte in Archiviazione di Azure e quindi puntare l'origine al dump risultante. Creare la chiave di accesso condiviso nel contenitore BLOB in Esplora archivi e quindi usare l'URL con informazioni sulla chiamata sas del contenitore come stringa di connessione dettagli origine.<br><br> |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

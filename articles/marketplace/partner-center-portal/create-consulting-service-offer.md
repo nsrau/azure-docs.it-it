@@ -1,25 +1,27 @@
 ---
-title: Creare un'offerta di servizio di consulenza nel Centro per i partner - Azure MarketplaceCreate a consulting service offer in Partner Center - Azure Marketplace
-description: Informazioni su come pubblicare un'offerta di servizi di consulenza in Azure Marketplace o AppSource usando il Centro per i partner.
+title: Creare un'offerta di servizio di consulenza nel Centro per i partner - Azure MarketplaceCreate a Consulting service offer in Partner Center - Azure Marketplace
+description: Informazioni su come pubblicare un'offerta di servizio Consulting in Azure Marketplace o AppSource tramite il Centro per i partner.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: ce8df36d3417417a5f70a5385aa94d9c8c7ff0cc
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.date: 04/06/2020
+ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674280"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873821"
 ---
-# <a name="consulting-service-creation-overview"></a>Panoramica sulla creazione di servizi di consulenza
+# <a name="create-a-consulting-service-offer"></a>Crea un'offerta di servizio di consulenza
 
 > [!IMPORTANT]
 > Stiamo spostando la gestione delle offerte di servizi di consulenza dal portale per i partner cloud al Centro per i partner. Fino alla migrazione delle offerte, seguire le istruzioni nell'offerta di servizio di [consulenza di Azure e Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) per il portale Cloud Partner per gestire le offerte.
 
-Questo articolo descrive come pubblicare un'offerta di servizi di consulenza in [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [AppSource.](https://appsource.microsoft.com/) Elencare le offerte di servizi di consulenza basate su Microsoft [Dynamics 365](https://dynamics.microsoft.com/) e Power Platform in AppSource. Elencare le offerte di servizi di consulenza basate su Microsoft Azure in Azure Marketplace.
+In questo articolo viene descritto come pubblicare un'offerta del servizio Consulting in [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [AppSource.](https://appsource.microsoft.com/) Elencare le offerte del servizio di consulenza basate su Microsoft [Dynamics 365](https://dynamics.microsoft.com/) e Power Platform in AppSource. Elencare le offerte del servizio di consulenza basate su Microsoft Azure in Azure Marketplace.
+
+Per creare un'offerta di servizio di consulenza nei servizi Azure Marketplace o AppSource Consulting, è necessario innanzitutto disporre di [un account editore nel Centro per](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)i partner e l'account deve essere registrato nel programma del marketplace commerciale. Prima di creare l'offerta, esaminare i prerequisiti in Prerequisiti del [servizio di consulenza](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites).
 
 ## <a name="publishing-benefits"></a>Vantaggi della pubblicazione
 
@@ -30,58 +32,7 @@ Vantaggi della pubblicazione sul mercato commerciale:
 - Ricevi lead di alta qualità da questi mercati.
 - Fai in modo che i tuoi servizi vengano promossi dai team di settore e di televendita Microsoft
 
-## <a name="requirements"></a>Requisiti
-
-### <a name="business-requirements"></a>Requisiti aziendali
-
-Per le offerte in cui Azure è selezionato come prodotto principale, l'offerta deve elencare almeno una delle competenze seguenti completamente acquisite:
-
-- Sviluppo applicazioni
-- Integrazione di applicazioni
-- Gestione del ciclo di vita delle applicazioni
-- Piattaforma cloud
-- Analisi dei dati
-- Data center
-- Piattaforma dati
-- DevOps
-
-Per le offerte con una delle seguenti opzioni selezionate come prodotto principale, è necessario soddisfare i rispettivi requisiti di idoneità elencati o avere un'offerta di co-selling per il prodotto primario a cui è correlata l'offerta di servizi.
-
-**Applicazioni di customer Engagement**
-
-- **Si applica a:** Dynamics 365 Sales, Dynamics 365 Marketing, Servizio clienti Dynamics 365, Dynamics 365 Field Service, Risorse umane Dynamics 365
-
-- **Criteri**: Deve essere certificato Gold o Silver nella [competenza Cloud Business Applications](https://partner.microsoft.com/membership/cloud-business-applications-competency) per l'opzione Customer Engagement.
-
-**Applicazioni finanziarie e operative**
-
-- **Si applica a:** Dynamics 365 Finance, Dynamics 365 Operations, Dynamics 365 Commerce, Dynamics 365 Human Resources, Dynamics 365 Project Service Automation
-
-- **Criteri**: Deve essere certificato Gold o Silver nella [competenza Cloud Business Applications](https://partner.microsoft.com/membership/cloud-business-applications-competency) per l'opzione Unified Operations.
-
-**Dynamics 365 per Customer Insights**
-
-- **Criteri:** deve avere almeno un'implementazione in produzione riuscita di [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) con almeno cinque misure e cinque segmenti.
-
-**Dynamics 365 Business Central**
-
-- **Criteri:** devono essere certificati Gold o Silver nella [competenza Pianificazione risorse aziendale](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e servire almeno tre clienti o aver pubblicato un'applicazione Business Central in Microsoft AppSource.
-
-**Power BI**
-
-- **Criteri:** deve essere elencato nella [vetrina](https://powerbi.microsoft.com/partner-showcase/)del partner Power BI.
-
-**Power Apps**
-
-- **Criteri:** devono essere idonei per i vantaggi avanzati nel programma di partnership di [Power Apps.](https://aka.ms/PowerAppsPartner)
-
-Per informazioni dettagliate sulla riunione di questi prerequisiti, vedere [i prerequisiti](consulting-service-prerequisites.md)del servizio Consulting .
-
-### <a name="logistical-requirements"></a>Requisiti logistici
-
-Per creare un'offerta di servizi di consulenza nei servizi di consulenza Azure Marketplace o AppSource, è innanzitutto necessario disporre di [un account editore nel Centro per](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)i partner e l'account deve essere registrato nel programma del marketplace commerciale.
-
-## <a name="create-a-new-consulting-service-offer-in-partner-center"></a>Crea una nuova offerta di servizi di consulenza nel Centro per i partner
+## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
 Dopo aver rispettato i requisiti descritti in precedenza, attenersi alla seguente procedura per creare un'offerta di servizio di consulenza.
 
@@ -153,7 +104,7 @@ Questa pagina consente di impostare il prodotto principale che il servizio di co
 1. Se è stato selezionato un prodotto principale di **Azure,** selezionare fino a tre **aree di soluzione**. Questi semplificano l'individuazione dell'offerta da parte dei clienti in Azure Marketplace. Se non si è&#39;scegliere Azure, ignorare questo passaggio.
 2. Se è stato selezionato un prodotto principale _diverso_ da Azure, selezionare fino a tre **prodotti applicabili.** Questi rendono più facile per i clienti in AppSource trovare la tua offerta. Per informazioni dettagliate, vedere Linee guida per l'elenco dei servizi Microsoft [AppSource Consulting](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
 3. Seleziona fino a sei **Settori** a cui si applica la tua offerta. Questo renderà più facile per i clienti trovare la tua offerta.
-4. Aggiungi fino a tre **Competenze** che la tua azienda ha guadagnato per mostrare sulla tua offerta di servizi di consulenza. È necessaria almeno una competenza, ad eccezione di Azure Expert MSP&#39;s e Azure Networking MSP&#39;s.
+4. Aggiungi fino a tre **Competenze** che la tua azienda ha guadagnato per essere visualizzata nella tua scheda dell'offerta di servizi di consulenza. È necessaria almeno una competenza, ad eccezione di Azure Expert MSP&#39;s e Azure Networking MSP&#39;s.
 
 Seleziona **Salva bozze** prima di continuare con la sezione successiva, Offerta.
 
@@ -205,7 +156,7 @@ Per rendere la descrizione più coinvolgente, usa l'editor RTF per formattare la
 
 ### <a name="keywords"></a>Parole chiave
 
-Inserisci fino a tre parole chiave di ricerca pertinenti al tuo prodotto principale e al tuo servizio di consulenza. Questi renderanno più facile trovare la tua offerta.
+Immettere fino a tre parole chiave di ricerca rilevanti per il prodotto principale e il servizio di consulenza. Questi renderanno più facile trovare la tua offerta.
 
 ### <a name="duration"></a>Duration
 
@@ -252,7 +203,7 @@ Qui definirai elementi come prezzi, mercato e una chiave privata.
 3. **Prezzi**: Specificare se l'offerta è **gratuita** o **a pagamento.**
 
     > [!NOTE]
-    > Le offerte del servizio di consulenza sono solo per l'inserzione. Tutte le transazioni avverranno direttamente, al di fuori del mercato commerciale.
+    > Le offerte di servizi di consulenza sono solo per l'inserzione. Tutte le transazioni avverranno direttamente, al di fuori del mercato commerciale.
 
 4. Per un'offerta a pagamento, specificare il **prezzo e** la valuta e se il prezzo è **Fisso** o **Stimato**. Se Stimato, è necessario specificare nella descrizione quali fattori influenzeranno il prezzo.
 5. Selezionare **Salva bozza**.
@@ -261,7 +212,7 @@ Qui definirai elementi come prezzi, mercato e una chiave privata.
 
 Dopo aver completato tutte le sezioni obbligatorie dell'offerta, puoi inviare l'offerta per la revisione e la pubblicazione.
 
-1. Quando si è pronti a pubblicare l'offerta di servizi di consulenza, fare clic su **Rivedi e pubblica**.
+1. Quando si è pronti a pubblicare l'offerta di servizio Consulting, fare clic su **Rivedi e pubblica**.
 2. Rivedere i dettagli nella pagina di invio finale.
 3. Se necessario, scrivi una nota al team di certificazione se ritieni che uno dei dettagli della tua offerta richieda una spiegazione.
 4. Quando si è pronti, selezionare **Invia**.

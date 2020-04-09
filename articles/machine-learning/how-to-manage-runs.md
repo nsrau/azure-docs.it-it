@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c261a010a1e8f4d1be9b3883510eb38c37a15ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1b70aaef49cc2b993c873509dc935d71069efa2
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296892"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985916"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Avviare, monitorare e annullare le esecuzioni degli allenamenti in PythonStart, monitor, and cancel training runs in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -264,16 +264,41 @@ Per creare molte esecuzioni [`create_children()`](https://docs.microsoft.com/pyt
 
 ### <a name="submit-child-runs"></a>Inviare esecuzioni figlio
 
-Le esecuzioni figlio possono anche essere inviate da un'esecuzione padre. In questo modo è possibile creare gerarchie di esecuzioni padre e figlio, ognuna in esecuzione su destinazioni di calcolo diverse, connesse tramite ID di esecuzione padre comune.
+Le esecuzioni figlio possono anche essere inviate da un'esecuzione padre. In questo modo è possibile creare gerarchie di esecuzioni padre e figlio. 
 
-Utilizzare il metodo ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) per inviare un'esecuzione figlio dall'interno di un'esecuzione padre. A tale scopo nello script di esecuzione padre, ottenere il ``submit_child`` contesto di esecuzione e inviare l'esecuzione figlio utilizzando il metodo dell'istanza di contesto.
+È possibile che si desideri che l'esecuzione dell'elemento figlio utilizzi una configurazione di esecuzione diversa da quella dell'esecuzione padre. Ad esempio, è possibile utilizzare una configurazione meno potente basata sulla CPU per l'elemento padre, mentre si utilizzano configurazioni basate su GPU per i figli. Un altro desiderio comune è quello di passare ogni figlio diversi argomenti e dati. Per personalizzare un'esecuzione `RunConfiguration` figlio, passare un `ScriptRunConfig` oggetto al costruttore dell'elemento figlio. Questo esempio di codice, che `ScriptRunConfig` fa parte dello script dell'oggetto padre:This code example, which would be part of the parent object's script:
+
+- Crea `RunConfiguration` un recupero di una risorsa di calcolo denominata`"gpu-compute"`
+- Scorre i diversi valori di argomento `ScriptRunConfig` da passare agli oggetti figlio
+- Crea e invia una nuova esecuzione figlio, usando la risorsa di calcolo personalizzata e l'argomento
+- Blocchi fino a quando tutti i bambini vengono completati
 
 ```python
-## In parent run script
-parent_run = Run.get_context()
-child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
-parent_run.submit_child(child_run_config)
+# parent.py
+# This script controls the launching of child scripts
+from azureml.core import Run, ScriptRunConfig, RunConfiguration
+
+run_config_for_aml_compute = RunConfiguration()
+run_config_for_aml_compute.target = "gpu-compute"
+run_config_for_aml_compute.environment.docker.enabled = True 
+
+run = Run.get_context()
+
+child_args = ['Apple', 'Banana', 'Orange']
+for arg in child_args: 
+    run.log('Status', f'Launching {arg}')
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], run_config = run_config_for_aml_compute)
+    # Starts the run asynchronously
+    run.submit_child(child_config)
+
+# Experiment will "complete" successfully at this point. 
+# Instead of returning immediately, block until child runs complete
+
+for child in run.get_children():
+    child.wait_for_completion()
 ```
+
+Per creare molte esecuzioni figlio con configurazioni, argomenti [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) e input identici in modo efficiente, utilizzare il metodo . Poiché ogni creazione comporta una chiamata di rete, la creazione di un batch di esecuzioni è più efficiente rispetto alla creazione di una alla volta.
 
 Within a child run, you can view the parent run ID:
 

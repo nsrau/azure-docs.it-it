@@ -1,15 +1,16 @@
 ---
-title: Proteggere i pod con criteri di rete nel servizio Azure Kubernetes
+title: Proteggere il traffico pod con i criteri di reteSecure pod traffic with network policy
+titleSuffix: Azure Kubernetes Service
 description: Informazioni su come proteggere il traffico che entra e esce dai pod usando i criteri di rete di Kubernetes nel servizio Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 37b6ebd1c8b147db0a9cead4678a0b2bb4ed234d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473609"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886705"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
@@ -24,7 +25,7 @@ In questo articolo viene illustrato come installare il motore dei criteri di ret
 > [!TIP]
 > Se è stata utilizzata la funzionalità dei criteri di rete durante l'anteprima, è consigliabile [creare un nuovo cluster.](#create-an-aks-cluster-and-enable-network-policy)
 > 
-> Se si desidera continuare a utilizzare i cluster di test esistenti che hanno utilizzato i criteri di rete durante l'anteprima, aggiornare il cluster a una nuova versione di Kubernetes per la versione più recente di GA e quindi distribuire il seguente manifesto YAML per correggere il server delle metriche di arresto anomalo e Kubernetes cruscotto. Questa correzione è necessaria solo per i cluster che utilizzano il motore dei criteri di rete Calico.
+> Se si desidera continuare a utilizzare i cluster di test esistenti che utilizzano i criteri di rete durante l'anteprima, aggiornare il cluster a una nuova versione di Kubernetes per la versione GA più recente e quindi distribuire il seguente manifesto YAML per correggere il server delle metriche di arresto anomalo e il dashboard di Kubernetes. Questa correzione è necessaria solo per i cluster che utilizzano il motore dei criteri di rete Calico.
 >
 > Per una sicurezza ottimale, [esaminare il contenuto di questo manifesto YAML][calico-aks-cleanup] per comprendere cosa viene distribuito nel cluster AKS.
 >

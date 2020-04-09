@@ -11,21 +11,26 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/02/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
-ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd0b8a50d25cd8d1a66a8eb98e54ec231aa2c62f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302050"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878715"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurare un'interconnessione diretta tra Azure e Oracle Cloud InfrastructureSet up a direct interconnection between Azure and Oracle Cloud Infrastructure  
 
-Per creare [un'esperienza multi-cloud integrata](oracle-oci-overview.md) (anteprima), Microsoft e Oracle offrono l'interconnessione diretta tra Azure e Oracle Cloud Infrastructure (OCI) tramite [ExpressRoute](../../../expressroute/expressroute-introduction.md) e [FastConnect.](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) Tramite l'interconnessione ExpressRoute e FastConnect, i clienti possono riscontrare bassa latenza, velocità effettiva elevata e connettività diretta privata tra i due cloud.
+Per creare [un'esperienza multi-cloud integrata,](oracle-oci-overview.md)Microsoft e Oracle offrono l'interconnessione diretta tra Azure e Oracle Cloud Infrastructure (OCI) tramite [ExpressRoute](../../../expressroute/expressroute-introduction.md) e [FastConnect.](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) Tramite l'interconnessione ExpressRoute e FastConnect, i clienti possono riscontrare bassa latenza, velocità effettiva elevata e connettività diretta privata tra i due cloud.
 
 > [!IMPORTANT]
-> La connessione tra Microsoft Azure e OCI è nella fase di anteprima. Per stabilire la connettività a bassa latenza tra Azure e OCI, la sottoscrizione di Azure deve prima essere abilitata per questa funzionalità. È necessario iscriversi all'anteprima compilando questo breve [modulo di indagine](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. È inoltre possibile contattare il rappresentante Microsoft per essere abilitato per questa anteprima. L'accesso alla funzionalità di anteprima è soggetto a disponibilità e limitato da Microsoft a sua esclusiva discrezione. Il completamento dell'indagine non garantisce l'accesso. Questa anteprima viene fornita senza un contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per informazioni dettagliate, vedere [Le Condizioni supplementari per l'utilizzo delle](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) anteprime di Microsoft Azure.See the Supplemental Terms of Use for Microsoft Azure Previews for details. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Oracle certificherà queste applicazioni per l'esecuzione in Azure quando si usa la soluzione di interconnessione Azure / Oracle Cloud entro maggio 2020.
+> * E-Business Suite
+> * JD Edwards EnterpriseOne
+> * PeopleSoft
+> * Applicazioni Oracle Retail
+> * Oracle Hyperion Financial Management
 
 L'immagine seguente mostra una panoramica generale dell'interconnessione:
 
@@ -36,8 +41,6 @@ L'immagine seguente mostra una panoramica generale dell'interconnessione:
 * Per stabilire la connettività tra Azure e OCI, è necessario disporre di una sottoscrizione di Azure attiva e di una tenancy OCI attiva.
 
 * La connettività è possibile solo quando una posizione di peering di Azure ExpressRoute si trova in prossimità o nella stessa posizione di peering di OCI FastConnect.Connectivity is only possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. Vedere [Disponibilità dell'area](oracle-oci-overview.md#region-availability).
-
-* La sottoscrizione di Azure deve essere abilitata per questa funzionalità di anteprima.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Configurare la connettività diretta tra ExpressRoute e FastConnectConfigure direct connectivity between ExpressRoute and FastConnect
 

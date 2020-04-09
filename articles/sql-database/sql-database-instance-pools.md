@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256211"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878154"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Che cosa sono i pool di istanze del database SQL (anteprima)?
 
@@ -59,7 +59,7 @@ Nell'elenco seguente vengono forniti i principali casi d'uso in cui devono esser
 
 ## <a name="architecture-of-instance-pools"></a>Architettura dei pool di istanze
 
-I pool di istanze hanno un'architettura simile alle istanze gestite normali *(istanze singole*). Per supportare [le distribuzioni all'interno](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) di reti virtuali di Azure e per fornire isolamento e sicurezza per i clienti, i pool di istanze si basano anche su [cluster virtuali.](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) I cluster virtuali rappresentano un set dedicato di macchine virtuali isolate distribuite all'interno della subnet di rete virtuale del cliente.
+I pool di istanze hanno un'architettura simile alle istanze gestite normali *(istanze singole*). Per supportare [le distribuzioni all'interno](../virtual-network/virtual-network-for-azure-services.md) di reti virtuali di Azure e per fornire isolamento e sicurezza per i clienti, i pool di istanze si basano anche su [cluster virtuali.](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) I cluster virtuali rappresentano un set dedicato di macchine virtuali isolate distribuite all'interno della subnet di rete virtuale del cliente.
 
 La differenza principale tra i due modelli di distribuzione consiste nel fatto che i pool di istanze consentono più distribuzioni di processi di SQL Server nello stesso nodo della macchina virtuale, che sono risorse gestite tramite oggetti processo di [Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), mentre le singole istanze sono sempre sole in un nodo di macchina virtuale.
 
@@ -112,7 +112,7 @@ Le funzionalità facoltative o quelle che richiedono la scelta di valori specifi
 
 Anche se le istanze gestite all'interno dei pool dispongono di vCore e RAM dedicati, condividono il disco locale (per l'utilizzo di tempdb) e le risorse di rete. Non è probabile, ma è possibile sperimentare l'effetto *vicino rumoroso* se più istanze nel pool hanno un elevato consumo di risorse allo stesso tempo. Se si osserva questo comportamento, è consigliabile distribuire queste istanze in un pool di dimensioni maggiori o come istanze singole.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Poiché le istanze distribuite in un pool condividono la stessa macchina virtuale, è consigliabile disabilitare le funzionalità che introducono rischi di sicurezza più elevati o controllare saldamente le autorizzazioni di accesso a queste funzionalità. Ad esempio, integrazione con CLR, backup e ripristino nativi, posta elettronica del database e così via.
 

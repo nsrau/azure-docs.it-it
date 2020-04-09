@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: bf2a2385b3129ddf24ede7f6d851701186b0e33c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445702"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985644"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
-Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione si compila un'applicazione Java che genera documenti casuali che vengono importati in blocco in un contenitore Cosmos di Azure.In this tutorial, you build a Java application that generates random documents and they are bulked into an Azure Cosmos container. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
+Questa esercitazione fornisce istruzioni sull'uso della libreria Java dell'executor in blocco di Azure Cosmos DB per importare e aggiornare i documenti di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione si compila un'applicazione Java che genera documenti casuali che vengono importati in blocco in un contenitore Cosmos di Azure.In this tutorial, you build a Java application that generates random documents and they are bulked into an Azure Cosmos container. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
 
 Attualmente, la libreria dell'executor bulk è supportata solo dagli account API SQL di Azure Cosmos DB e Gremlin. In questo articolo viene descritto come utilizzare la libreria Java dell'executor bulk con gli account DELL'API SQL. Per informazioni sull'uso della libreria .NET dell'executor bulk con l'API Gremlin, vedere [Eseguire operazioni bulk nell'API Gremlin di Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
@@ -28,7 +28,7 @@ Attualmente, la libreria dell'executor bulk è supportata solo dagli account API
 
 * È possibile [provare Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e impegni. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).  
 
-* [Kit di sviluppo Java (JDK) 1.7](https://aka.ms/azure-jdks)  
+* [Kit di sviluppo Java (JDK) 1.7](/java/azure/jdk/?view=azure-java-stable)  
   - In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.  
 
   - Assicurarsi di impostare la variabile di ambiente JAVA_HOME in modo che faccia riferimento alla cartella di installazione di JDK.
@@ -51,7 +51,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Importare in blocco i dati in Azure Cosmos DB
 
-1. Le stringhe di connessione di Azure Cosmos DB vengono lette come argomenti e assegnate alle variabili definite nel file CmdLineConfiguration.java.  
+1. Le stringhe di connessione del database Cosmos di Azure vengono lette come argomenti e assegnate alle variabili definite nel file CmdLineConfiguration.java.The Azure Cosmos DB's connection strings are read as arguments and assigned to variables defined in CmdLineConfiguration.java file.  
 
 2. L'oggetto DocumentClient viene quindi inizializzato usando le istruzioni seguenti:  
 
@@ -130,7 +130,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 6. Dopo avere generato le dipendenze di destinazione, è possibile richiamare l'applicazione di importazione in blocco usando il comando seguente:  
 
    ```java
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB’s endpoint>*  -masterKey *<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
    L'utilità di importazione in blocco crea un nuovo database e una nuova raccolta con il nome del database, il nome della raccolta e i valori di velocità effettiva specificati nel file App.config. 
@@ -150,7 +150,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    updateOperations.add(descriptionUpdate);
 
    List<UpdateItem> updateItems = new ArrayList<>(cfg.getNumberOfDocumentsForEachCheckpoint());
-   IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                      
+   IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                        
     return new UpdateItem(Long.toString(prefix + j), Long.toString(prefix + j), updateOperations);
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
@@ -182,7 +182,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    |int getNumberOfDocumentsUpdated()  |   Il numero totale di documenti aggiornati correttamente rispetto ai documenti forniti alla chiamata API di aggiornamento in blocco.      |
    |double getTotalRequestUnitsConsumed() |  Le unità richiesta (UR) totali usate dalla chiamata API di aggiornamento in blocco.       |
    |Duration getTotalTimeTaken()  |   Il tempo totale impiegato dalla chiamata API di aggiornamento in blocco per completare l'esecuzione.      |
-   |Elenca\<eccezione> getErrors()   |    L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di aggiornamento in blocco non vengono inseriti.      |
+   |Elenca\<eccezione> getErrors()   |       L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di aggiornamento in blocco non vengono inseriti.      |
 
 3. Dopo avere preparato l'applicazione di aggiornamento in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 
@@ -193,7 +193,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 4. Dopo avere generato le dipendenze di destinazione, è possibile richiamare l'applicazione di aggiornamento in blocco usando il comando seguente:
 
    ```
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB’s endpoint>* -masterKey **<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
 ## <a name="performance-tips"></a>Suggerimenti per incrementare le prestazioni 
@@ -203,7 +203,7 @@ Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk 
 * Per prestazioni ottimali eseguire l'applicazione da una macchina virtuale Azure nella stessa area in cui si trova l'area di scrittura dell'account Cosmos DB.  
 * Per ottenere una velocità effettiva più elevata:  
 
-   * Impostare la dimensione dell'heap della JVM su un numero sufficientemente elevato per evitare problemi di memoria quando si gestisce un numero elevato di documenti. Dimensione heap suggerita: max (3GB, 3 * sizeof (tutti i documenti passati all'API di importazione in blocco in un unico batch)).  
+   * Impostare la dimensione dell'heap della JVM su un numero sufficientemente grande da evitare problemi di memoria nella gestione di un numero elevato di documenti. Dimensione heap suggerita: max (3GB, 3 * sizeof (tutti i documenti passati all'API di importazione in blocco in un unico batch)).  
    * Il tempo di pre-elaborazione previsto consente di ottenere una velocità effettiva maggiore quando si eseguono operazioni in blocco con un numero elevato di documenti. Per importare 10.000.000 documenti, è preferibile eseguire l'importazione in blocco 10 volte di 10 blocchi di documenti, ognuno con dimensione pari a 1.000.000, anziché importare in blocco 100 volte 100 blocchi di documenti, ognuno con dimensione pari a 100.000.  
 
 * È consigliabile creare un'istanza di un singolo oggetto DocumentBulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale che corrisponde a un contenitore Cosmos di Azure specifico.  

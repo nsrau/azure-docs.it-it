@@ -2,24 +2,21 @@
 title: Registrare un'app Web che accede agli utenti - Piattaforma di identità Microsoft Azure
 description: Informazioni su come registrare un'app Web che accede agli utenti
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f2513b1fee022199f040ba0dcf83110c0b3b1365
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701570"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881580"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>App Web che consente l'accesso agli utenti: registrazione dell'app
 
@@ -44,7 +41,7 @@ Per registrare l'applicazione, è possibile utilizzare:
 > Il portale da usare è diverso a seconda che l'applicazione venga eseguita nel cloud pubblico di Microsoft Azure o in un cloud nazionale o sovrano. Per ulteriori informazioni, vedere [Nubi nazionali](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Accedere al [portale](https://portal.azure.com) di Azure usando un account aziendale o dell'istituto di istruzione o un account Microsoft personale. In alternativa, accedere al portale di Azure preferito per il cloud nazionale.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale. In alternativa, accedere al portale di Azure preferito per il cloud nazionale.
 1. Se l'account consente di accedere a più tenant, selezionarlo nell'angolo superiore destro. Impostare quindi la sessione del portale sul tenant di Azure Active Directory (Azure AD) desiderato.
 1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory** e quindi selezionare **Registrazioni** > app**Nuova registrazione**.
 

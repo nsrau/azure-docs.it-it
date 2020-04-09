@@ -5,27 +5,25 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: ''
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 87309e20efd9d6f8bd1a659451e5a603e6b95bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76908527"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885753"
 ---
 # <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-Per garantire un livello di sicurezza superiore, Notification Hubs disattiverà il supporto per TLS versioni 1.0 e 1.1 il 30 aprile 2020. Questi protocolli meno recenti forniscono crittografia debole e sono vulnerabili agli attacchi BEAST e POODLE. Le applicazioni distribuite nei dispositivi che eseguono Android versione 5 o successiva, o iOS versione 5 o successiva, non sono interessate da questa modifica in quanto tali sistemi operativi supportano TLS 1.2 e il client e il server negozieranno la versione più alta supportata reciprocamente del protocollo al momento della connessione.
+Per garantire un livello di sicurezza superiore, Notification Hubs disabiliterà il supporto per TLS versioni 1.0 e 1.1 il 31 maggio 2020 (esteso dal 30 aprile 2020). Questi protocolli meno recenti forniscono crittografia debole e sono vulnerabili agli attacchi BEAST e POODLE. Le applicazioni distribuite nei dispositivi che eseguono Android versione 5 o successiva, o iOS versione 5 o successiva, non sono interessate da questa modifica in quanto tali sistemi operativi supportano TLS 1.2 e il client e il server negozieranno la versione più elevata supportata reciprocamente del protocollo al momento della connessione.
 
 È consigliabile esaminare tutte le applicazioni che usano hub di notifica di Azure per assicurarsi che utilizzino le librerie e gli stack TLS più applicabili che supportano TLS 1.2.
 

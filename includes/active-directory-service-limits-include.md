@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: b65feeb99bb51419e19a8e4b537515be14c54ba8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d906a3dd072770a05b818fd3ca8de359b8427728
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334942"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986622"
 ---
 Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure Active Directory (Azure AD).
 
 | Category | Limite |
 | --- | --- |
-| Directory | Un utente singolo può appartenere a un massimo di 500 directory di Azure AD come membro o guest.<br/>Un utente singolo può creare un massimo di 20 directory. |
+| Directory | Un utente singolo può appartenere a un massimo di 500 directory di Azure AD come membro o guest.<br/>Un singolo utente può creare un massimo di 200 directory. |
 | Domini | È possibile aggiungere non più di 900 nomi di dominio gestito. Se si configurano tutti i domini per la federazione con l'istanza locale di Active Directory, è possibile aggiungere non più di 450 nomi di dominio in ogni directory. |
 |Risorse |<ul><li>Un massimo di 50.000 risorse di Azure AD può essere creato in una singola directory dagli utenti dell'edizione gratuita di Azure Active Directory per impostazione predefinita. Se si dispone di almeno un dominio verificato, la quota predefinita del servizio Azure AD per l'organizzazione viene estesa a 300.000 risorse di Azure AD. Questo limite di servizio non è correlato al limite del piano tariffario di 500.000 risorse nella pagina dei prezzi di Azure AD. Per superare la quota predefinita, è necessario contattare il supporto tecnico Microsoft.</li><li>Un utente non amministratore può creare non più di 250 risorse di Azure AD. Sia le risorse attive che le risorse eliminate disponibili per il ripristino vengono conteggiate per questa quota. Solo le risorse di Azure AD eliminate eliminate che sono state eliminate meno di 30 giorni fa sono disponibili per il ripristino. Le risorse di Azure AD eliminate che non sono più disponibili per il ripristino vengono conteggiate per questa quota con un valore di un quarto per 30 giorni. Se si dispone di sviluppatori che potrebbero superare ripetutamente questa quota nel corso dei loro compiti regolari, è possibile [creare e assegnare un ruolo personalizzato](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) con l'autorizzazione per creare un numero illimitato di registrazioni di app.</li></ul> |
 | Estensioni dello schema |<ul><li>Le estensioni di tipo stringa possono contenere un massimo di 256 caratteri. </li><li>Le estensioni di tipo binario sono limitate a 256 byte.</li><li>Solo 100 valori di estensione, in *tutti i* tipi e in *tutte le* applicazioni, possono essere scritti in qualsiasi singola risorsa di Azure AD.</li><li>Solo le entità User, Group, TenantDetail, Device, Application e ServicePrincipal possono essere estese con gli attributi a valore singolo di tipo stringa o di tipo binario.</li><li>Le estensioni dello schema sono disponibili solo nella versione di anteprima dell'API Graph 1.21. All'applicazione deve essere concesso l'accesso in scrittura per registrare un'estensione.</li></ul> |

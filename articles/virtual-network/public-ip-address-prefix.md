@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/08/2020
 ms.author: anavin
-ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9604d5567e74ef470c3e798b6a3df9e48d6fde5d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75640721"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985304"
 ---
 # <a name="public-ip-address-prefix"></a>Prefisso dell'indirizzo IP pubblico
 
@@ -56,7 +56,7 @@ Quando si creano risorse di indirizzi IP pubblici, Azure assegna un indirizzo IP
 ## <a name="constraints"></a>Vincoli
 
 - Non è possibile specificare gli indirizzi IP per il prefisso. Azure alloca gli indirizzi IP per il prefisso, in base alla dimensione specificata.
-- È possibile creare un prefisso composto da un massimo di 16 indirizzi IP o un /28.You can create a prefix of up to 16 IP addresses or a /28. Per altre informazioni, consultare [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- È possibile creare un prefisso composto da un massimo di 16 indirizzi IP o un /28 per impostazione predefinita. Esaminare [i limiti di rete aumentano le richieste](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) e i limiti di [Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) per altre informazioni.
 - Una volta creato il prefisso,non è possibile modificare l'intervallo.
 - Solo gli indirizzi IP pubblici statici creati con lo SKU Standard possono essere assegnati dall'intervallo del prefisso. Per altre informazioni sugli indirizzi IP pubblici di SKU, consultare [Indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Gli indirizzi dell'intervallo possono essere assegnati solo alle risorse di Azure Resource Manager. Gli indirizzi non possono essere assegnati alle risorse nel modello di distribuzione classica.

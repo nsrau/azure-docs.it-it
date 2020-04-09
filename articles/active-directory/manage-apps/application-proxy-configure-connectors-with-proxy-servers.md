@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe3a63e119fed6825982b9de13bc78cb7da5415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481399"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877389"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -27,6 +27,7 @@ Iniziamo esaminando questi scenari di distribuzione principali:
 
 * Configurare i connettori per ignorare i proxy in uscita locali.
 * Configurare i connettori per l'uso di un proxy in uscita per accedere al proxy applicazione di Azure AD.
+* Configurare l'utilizzo di un proxy tra il connettore e l'applicazione back-end.
 
 Per ulteriori informazioni sui connettori, vedere [Informazioni sui connettori proxy di applicazione di Azure AD](application-proxy-connectors.md).
 
@@ -137,6 +138,23 @@ Il connettore effettua connessioni in uscita basate su TLS utilizzando il metodo
 #### <a name="tls-inspection"></a>Ispezione TLS
 
 Non utilizzare l'ispezione TLS per il traffico del connettore, perché causa problemi per il traffico del connettore. Il connettore utilizza un certificato per l'autenticazione al servizio proxy di applicazione e tale certificato può andare perso durante l'ispezione TLS.
+
+## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>Configurare l'utilizzo di un proxy tra il connettore e l'applicazione back-end
+L'utilizzo di un proxy di inoltro per la comunicazione verso l'applicazione back-end potrebbe essere un requisito speciale in alcuni ambienti.
+Per abilitare questa opzione, seguire i passaggi successivi:
+
+### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Passaggio 1: Aggiungere il valore del Registro di sistema necessario al server
+1. Per abilitare l'utilizzo del proxy predefinito, `UseDefaultProxyForBackendRequests = 1` aggiungere il seguente valore del Registro di sistema (DWORD) alla chiave del Registro di sistema di configurazione del connettore che si trova in "HKEY_LOCAL_MACHINE Software Microsoft Microsoft AAD App Proxy Connector".
+
+### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Passaggio 2: Configurare manualmente il server proxy utilizzando il comando netsh
+1.  Abilitare i criteri di gruppo Effettuare le impostazioni proxy per computer. Di gruppo È disponibile in: Configurazione computer, Criteri, Modelli amministrativi, Componenti di Windows e Internet Explorer. Questo deve essere impostato anziché avere questo criterio impostato su per utente.
+2.  Eseguire `gpupdate /force` sul server o riavviare il server per assicurarsi che utilizzi le impostazioni aggiornate dei criteri di gruppo.
+3.  Avviare un prompt dei comandi `control inetcpl.cpl`con privilegi elevati con diritti di amministratore e immettere .
+4.  Configurare le impostazioni proxy necessarie. 
+
+Queste impostazioni rendono il connettore usare lo stesso proxy di inoltro per la comunicazione con Azure e per l'applicazione back-end. Se il connettore alla comunicazione di Azure non richiede alcun proxy di inoltro o un proxy di inoltro diverso, è possibile configurarlo con la modifica del file ApplicationProxyConnectorService.exe.config come descritto nelle sezioni Ignora proxy in uscita o Usare il server proxy in uscita.
+
+Il servizio di aggiornamento del connettore utilizzerà anche il proxy del computer. Questo comportamento può essere modificato modificando il file ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Risolvere i problemi relativi al connettore proxy e alla connettività del servizio
 

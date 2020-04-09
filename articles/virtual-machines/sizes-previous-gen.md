@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 7f13ab3cd6ff765bc3b1bee8e8fad7e7273f6c7d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 6cf43df756e9bed0438169c9c01b868653d84b57
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673921"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985729"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 
@@ -342,7 +342,7 @@ Memorizzazione nella cache di archiviazione Premium: non supportata
 <sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
 
-# <a name="nv-series"></a>Serie NV
+## <a name="nv-series"></a>Serie NV
 **Raccomandazione di nuova dimensione**: [serie NVv3](nvv3-series.md) e [serie NVv4](nvv4-series.md)
 
 Le macchine virtuali delle serie NV sono basate su GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e sulla tecnologia NVIDIA GRID per applicazioni con accelerazione grafica per desktop e desktop virtuali con cui i clienti possono visualizzare i propri dati o le proprie simulazioni. Gli utenti possono visualizzare i flussi di lavoro con utilizzo intensivo di grafica nelle istanze NV per ottenere una funzionalità grafica di livello superiore ed eseguire anche singoli carichi di lavoro di precisione, come la codifica e il rendering. I VM della serie NV sono alimentati anche da CPU Intel Xeon E5-2690 v3 (Haswell).

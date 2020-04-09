@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'archiviazio
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 90abf2e36fd46c707904d87f00362091fe931743
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668111"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877899"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
 
@@ -40,7 +40,7 @@ La tabella seguente descrive i tipi di archiviazione disponibili e le relative f
 
 I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo del servizio Azure Kubernetes.
 
-File di Azure è attualmente disponibile nel livello di prestazioni Standard. Dischi di Azure è disponibile nei livelli di prestazioni Standard e Premium:
+Sia i file di Azure che i dischi di Azure sono disponibili nei livelli di prestazioni Standard e Premium:Both Azure Files and Azure Disks are available in Standard and Premium performance tiers:
 
 - I dischi *Premium* sono basati su dischi SSD a prestazioni elevate. Sono consigliati per tutti i carichi di lavoro di produzione.
 - I dischi *Standard* sono basati su normali dischi HDD e sono adatti per i dati di archivio o i dati a cui si accede di rado.

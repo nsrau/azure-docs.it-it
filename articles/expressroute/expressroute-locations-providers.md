@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: ce9f5730575b4ab68e293c78ea40d8deb1d2c89c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b8c8a0baba5a80c6a383e6f8f14e29b482dbc82
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278748"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878613"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -75,7 +75,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 
 
 ### <a name="global-commercial-azure"></a>Azure commerciale globale
-| **Percorso** | **Indirizzo** | **Zona** | **Aree di Azure localiLocal Azure regions** | **ER Diretto** | **Fornitori** |
+| **Posizione** | **Indirizzo** | **Zona** | **Aree di Azure localiLocal Azure regions** | **ER Diretto** | **Fornitori** |
 | --- | --- | --- | --- | --- | --- |
 | **Amsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | Europa occidentale | 10G, 100G | Reti di Aryaka, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GàANT, InterCloud, Interxion, KPN, IX Reach, Livello 3 Comunicazioni, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon, |
 | **Amsterdam2** | [Interxione AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europa occidentale | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, euNetworks, Interxion, Orange, Vodafone |
@@ -95,7 +95,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Dubai** | [PCC](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | Emirati Arabi Uniti settentrionali | n/d | Etisalat Emirati Arabi Uniti |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Emirati Arabi Uniti settentrionali | n/d | du datamena, Megaport, Orange, Orixcom |
 | **Dublino** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa settentrionale | 10G, 100G | Colt, eir, Equinix, euNetworks, Interxion, Megaport |
-| **Francoforte** | [Interxione FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Germania Centro Ovest | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, GEANT, Interxion, Megaport, Orange, Telia Carrier |
+| **Francoforte** | [Interxione FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Germania Centro Ovest | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, GEANT, Interxion, Megaport, Orange, Telia Carrier |
 | **Ginevra** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Svizzera Ovest | 10G, 100G | Equinix, Megaport |
 | **RAS di Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asia orientale | n/d | Reti Aryaka, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Hong Kong2** | [MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | n/d | 10G (in questo stato del maligno | |
@@ -149,7 +149,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 I cloud nazionali di Azure sono isolati l'uno dall'altro e da Azure commerciale globale. ExpressRoute per un cloud di Azure non può connettersi alle aree di Azure nelle altre.
 
 ### <a name="us-government-cloud"></a>Cloud del US Gov
-| **Percorso** | **Indirizzo** | **Aree di Azure localiLocal Azure regions**| **ER Diretto** | **Fornitori** |
+| **Posizione** | **Indirizzo** | **Aree di Azure localiLocal Azure regions**| **ER Diretto** | **Fornitori** |
 | --- | --- | --- | --- | --- |
 | **Atlanta** | [Equinix AT1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at1/) | n/d | 10G, 100G | Equinix |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | n/d | 10G, 100G | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -162,7 +162,7 @@ I cloud nazionali di Azure sono isolati l'uno dall'altro e da Azure commerciale 
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD East, US Gov Virginia | 10G, 100G | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>Cina
-| **Percorso** | **Fornitori** |
+| **Posizione** | **Fornitori** |
 | --- | --- |
 | **Pechino** |China Telecom |
 | **Beijing2** | China Telecom, China Unicom, GDS |
@@ -172,7 +172,7 @@ I cloud nazionali di Azure sono isolati l'uno dall'altro e da Azure commerciale 
 Per altre informazioni, vedere [ExpressRoute in CinaTo](http://www.windowsazure.cn/home/features/expressroute/) learn more, see ExpressRoute in China
 
 ### <a name="germany"></a>Germania
-| **Percorso** | **Fornitori** |
+| **Posizione** | **Fornitori** |
 | --- | --- |
 | **Berlino** |e-shelter, Megaport+, T-Systems |
 | **Francoforte** |Colt, Equinix, Interxion |
@@ -203,7 +203,7 @@ Se sei remoto e non hai connettività in fibra ottica o vuoi esplorare altre opz
 * [Viasat](http://www.directcloud.viasatbusiness.com/)
 
 ## <a name="connectivity-through-additional-service-providers"></a><a name="c1partners"></a>Connettività tramite provider di servizi aggiuntivi
-| **Percorso** | **Exchange** | **Provider di connettività** |
+| **Posizione** | **Exchange** | **Provider di connettività** |
 | --- | --- | --- |
 | **Amsterdam** | Comunicazioni Equinix, Interxion, Livello 3 | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, POST Telecom Lussemburgo, Proximus, RETN, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia Deutschland GmbH, Telia Deutschland GmbH, Telia Deutschland GmbH, Telia Deelia |
 | **Atlanta** | Equinix| Castello della Corona

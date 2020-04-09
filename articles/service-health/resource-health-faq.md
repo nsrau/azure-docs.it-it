@@ -3,12 +3,12 @@ title: Domande frequenti su Integrità risorse di Azure
 description: Panoramica su Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7459a29dca01dc186d75b4545f89068569975607
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75912776"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985032"
 ---
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
 Risposte alle domande comuni su Integrità risorse di Azure.
@@ -37,7 +37,7 @@ Lo stato di integrità è impostato su Sconosciuto quando Integrità risorse non
 ## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>Come è possibile ottenere supporto per una risorsa che non è disponibile?
 È possibile inviare una richiesta di supporto dal pannello di Integrità risorse. Se la risorsa non è disponibile a causa di eventi della piattaforma, non è necessario un contratto di supporto con Microsoft per aprire una richiesta.
 
-## <a name="does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did"></a>Integrità risorse è in grado di differenziare tra una mancata disponibilità dovuta a problemi della piattaforma e un'operazione eseguita dall'utente?
+## <a name="does-resource-health-differentiate-between-unavailability-caused-by-platform-problems-versus-something-i-did"></a>Integrità delle risorse distingue tra indisponibilità causata da problemi di piattaforma rispetto a qualcosa che ho fatto?
 Sì, quando una risorsa non è disponibile, Integrità risorse identifica la causa radice tra una delle categorie seguenti: 
 -   Azione avviata dall'utente
 -   Evento pianificato 

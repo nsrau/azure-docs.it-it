@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: e6f2ad2c5c30e3c75e8d3588e386ea14e8e3350b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a00f7c0ec76510cc521966acf98b7250e723697
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065955"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985899"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi dal vivo e output live nei servizi multimediali
 
@@ -112,8 +112,11 @@ Una volta creato l'evento live, puoi ottenere gli URL di inserimento che fornira
 * URL di reindirizzamento a microsito
 
     La modalità Vanity è preferita dalle grandi emittenti multimediali che utilizzano encoder di trasmissione hardware e non vogliono riconfigurare i propri encoder quando avviano l'evento live. Vogliono un URL di inserimento predittivo, che non cambia nel tempo.
+    
+    > [!NOTE]
+    > Nel portale di Azure l'URL di vanity è denominato "*URL di input permanente*".
 
-    Per specificare questa `vanityUrl` modalità, impostare `true` `false`su al momento della creazione (il valore predefinito è ). È inoltre necessario passare il`LiveEventInput.accessToken`proprio token di accesso ( ) al momento della creazione. Specificare il valore del token per evitare un token casuale nell'URL. Il token di accesso deve essere una stringa GUID valida (con o senza trattini). Una volta impostata, la modalità non può essere aggiornata.
+    Per specificare questa modalità `vanityUrl` `true` nell'API, impostare su al momento della creazione (il valore predefinito è `false`). È inoltre necessario passare il`LiveEventInput.accessToken`proprio token di accesso ( ) al momento della creazione. Specificare il valore del token per evitare un token casuale nell'URL. Il token di accesso deve essere una stringa GUID valida (con o senza trattini). Una volta impostata, la modalità non può essere aggiornata.
 
     Il token di accesso deve essere univoco nel data center. Se l'app deve usare un URL di vanità, è consigliabile creare sempre una nuova istanza GUID per il token di accesso (anziché riutilizzare qualsiasi GUID esistente).
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d768581b8f1a177190da08986af8b60b4861432
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744208"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884833"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architettura di Azure Synapse Analytics (precedentemente SQL DW)
 
@@ -79,8 +79,6 @@ La distribuzione è l'unità di base dell'archiviazione e dell'elaborazione di q
 Ognuna delle 60 query viene eseguita in una distribuzione dei dati. Ogni nodo di calcolo gestisce una o più delle 60 distribuzioni. Un pool SQL con risorse di calcolo massime ha una distribuzione per ogni nodo di calcolo. Un pool SQL con risorse di calcolo minime include tutte le distribuzioni in un nodo di calcolo.  
 
 ## <a name="hash-distributed-tables"></a>Tabelle con distribuzione hash
-
-Una tabella con distribuzione hash offre prestazioni di query più elevate per join e aggregazioni in tabelle di grandi dimensioni.
 
 Una tabella con distribuzione hash offre prestazioni di query più elevate per join e aggregazioni in tabelle di grandi dimensioni.
 

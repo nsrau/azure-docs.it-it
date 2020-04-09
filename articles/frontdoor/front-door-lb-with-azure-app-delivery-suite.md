@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 9f8d1959549eaddfb4a2c9ea271094db0073c788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44af14a01e7b045b7abb6a84db89a67f3dd22445
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471711"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875283"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Bilanciamento del carico con la suite per il recapito di applicazioni di Azure
 
@@ -45,7 +45,7 @@ Il client si connette direttamente al back-end. Gestione traffico di Azure rilev
 Frontdoor termina le richieste HTTP nella parte perimetrale della rete Microsoft ed esegue attivamente il probe per rilevare i cambiamenti di integrità o latenza delle applicazioni o dell'infrastruttura.  Frontdoor instrada quindi sempre il traffico al back-end (integro) più veloce e disponibile. Per altre informazioni sul servizio, vere le informazioni sull'[architettura di routing](front-door-routing-architecture.md) e sui [metodi di routing del traffico](front-door-routing-methods.md) di Frontdoor.
 
 ## <a name="regional-load-balancing"></a>Bilanciamento del carico a livello di area
-Il gateway applicazione offre un controller di recapito delle applicazioni come servizio, con numerose funzionalità di bilanciamento del carico di livello 7 per l'applicazione. Consente ai clienti di ottimizzare la produttività delle Web farm tramite l'offload della terminazione SSL con uso elevato di CPU al gateway applicazione. Altre funzionalità di routing di livello 7 includono la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione può essere configurato come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni. È completamente gestito in Azure e offre scalabilità e disponibilità elevata, oltre a un set completo di funzionalità di registrazione e diagnostica che ne migliorano la gestibilità.
+Il gateway applicazione offre un controller di recapito delle applicazioni come servizio, con numerose funzionalità di bilanciamento del carico di livello 7 per l'applicazione. Consente ai clienti di ottimizzare la produttività della Web farm eseguendo l'offload della terminazione TLS con utilizzo intensivo della CPU al gateway applicazione. Altre funzionalità di routing di livello 7 includono la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione può essere configurato come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni. È completamente gestito in Azure e offre scalabilità e disponibilità elevata, oltre a un set completo di funzionalità di registrazione e diagnostica che ne migliorano la gestibilità.
 Load Balancer è parte integrante dello stack di Azure SDN e offre servizi di bilanciamento del carico di livello 4 a elevate prestazioni e bassa latenza per tutti i protocolli UDP e TCP. Gestisce le connessioni in ingresso e in uscita. È possibile configurare endpoint pubblici e interni con carico bilanciato e definire regole per mappare le connessioni in ingresso a destinazioni pool back-end con opzioni di probe dell'integrità TCP e HTTP per gestire la disponibilità del servizio.
 
 
@@ -58,7 +58,7 @@ Quando si sceglie un servizio di bilanciamento del carico a livello globale tra 
 
 | Gestione traffico | Frontdoor di Azure |
 | --------------- | ------------------------ |
-|**Qualsiasi protocollo**: poiché Gestione traffico funziona a livello DNS, è possibile instradare qualsiasi tipo di traffico di rete: HTTP, TCP, UDP e così via. | **Accelerazione HTTP:** Con Front Door il traffico è proxyato ai margini della rete di Microsoft.  Per questo motivo, per le richieste HTTP(S) migliorano la latenza e la velocità effettiva, riducendo la latenza per la negoziazione SSL e usando connessioni ad accesso frequente da AFD all'applicazione.|
+|**Qualsiasi protocollo**: poiché Gestione traffico funziona a livello DNS, è possibile instradare qualsiasi tipo di traffico di rete: HTTP, TCP, UDP e così via. | **Accelerazione HTTP:** Con Front Door il traffico è proxyato ai margini della rete di Microsoft.  Per questo motivo, le richieste HTTP(S) vedono miglioramenti della latenza e della velocità effettiva riducendo la latenza per la negoziazione TLS e l'utilizzo di connessioni a caldo da AFD all'applicazione.|
 |**Routing locale:** Con il routing a livello DNS, il traffico va sempre da un punto all'altro.  L'instradamento dalla succursale al data center locale può avere un percorso diretto; anche sulla propria rete utilizzando Gestione traffico. | **Scalabilità indipendente**: poiché Frontdoor funziona con la richiesta HTTP, le richieste a percorsi URL diversi possono essere instradate a back-end/pool di servizi di area (microservizi) diversi, in base alle regole e all'integrità di ogni microservizio dell'applicazione.|
 |**Formato di fatturazione**: la fatturazione basata su DNS consente la scalabilità in base agli utenti e per i servizi con più utenti, con la possibilità di ridurre i costi per i casi di maggiore utilizzo. |**Sicurezza inline**: Frontdoor consente l'uso di regole, ad esempio per la limitazione della frequenza, e di elenchi di controllo di accesso in base agli IP per proteggere i back-end prima che il traffico raggiunga l'applicazione. 
 
@@ -78,7 +78,7 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 ![Architettura dettagliata della suite per il recapito di applicazioni][2] 
 
 > [!NOTE]
-> Questo esempio è solo una delle numerose configurazioni possibili dei servizi di bilanciamento del carico offerti da Azure. È possibile combinare Gestione traffico, Frontdoor, il gateway applicazione e Load Balancer per soddisfare al meglio le specifiche esigenze di bilanciamento del carico. Se, ad esempio, l'offload SSL o l'elaborazione di livello 7 non sono necessari, è possibile usare Load Balancer al posto del gateway applicazione.
+> Questo esempio è solo una delle numerose configurazioni possibili dei servizi di bilanciamento del carico offerti da Azure. È possibile combinare Gestione traffico, Frontdoor, il gateway applicazione e Load Balancer per soddisfare al meglio le specifiche esigenze di bilanciamento del carico. Ad esempio, se l'offload TLS/SSL o l'elaborazione di livello 7 non è necessaria, il servizio di bilanciamento del carico può essere utilizzato al posto del gateway applicazione.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

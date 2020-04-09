@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb0b5e37843413667e51112f52e6a69534e3425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f4a961e601949689db89f8819f0a1fe1c5a7b3a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063629"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875793"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -27,9 +27,10 @@ Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-d
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Accedere ad Azure e Azure Active Directory
-**D: Perché viene visualizzato il messaggio "Non sono state trovate sottoscrizioni" quando si prova ad accedere ad Azure AD nel portale di Azure?**
+**D: Perché viene visualizzato il "Nessuna sottoscrizione trovata" quando si tenta di accedere ad Azure AD nel portale di Azure?**
 
-**R:** Per accedere al portale di Azure, ogni utente deve avere autorizzazioni per una sottoscrizione di Azure. Se si ha una sottoscrizione a Office 365 o Azure AD a pagamento, passare a [https://aka.ms/accessAAD](https://aka.ms/accessAAD) per un passaggio di attivazione una tantum. In caso contrario sarà necessario attivare un [account Azure](https://azure.microsoft.com/pricing/free-trial/) gratuito o una sottoscrizione a pagamento.
+**R:** Per accedere al portale di Azure, ogni utente deve avere autorizzazioni per una sottoscrizione di Azure. Se non si dispone di una sottoscrizione a pagamento di Office 365 o Azure AD, sarà necessario attivare un [account Azure](https://azure.microsoft.com/free/
+) gratuito o una sottoscrizione a pagamento.
 
 Per altre informazioni, vedere:
 
@@ -133,14 +134,14 @@ Per gli account Azure AD, gli amministratori possono reimpostare le password in 
 
 
 ---
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 **D: Gli account vengono bloccati dopo un numero specifico di tentativi non riusciti o la strategia usata è più sofisticata?**
 
 La strategia usata per bloccare gli account è più sofisticata e  si basa sull'indirizzo IP della richiesta e le password immesse. La durata del blocco aumenta anche in base alla probabilità che sia in corso un attacco.  
 
-**Q: Alcune password (comuni) vengono rifiutate con messaggi indicanti che la password è stata usata molte volte; si fa riferimento alle password usate nell'istanza corrente di Active Directory?**
+**D: Alcune password (comuni) vengono rifiutate con i messaggi 'questa password è stata utilizzata per molte volte', si riferisce alle password utilizzate nell'Active Directory corrente?**
 
-Si fa riferimento alle password comuni a livello globale, ad esempio tutte le varianti di "Password" e "123456".
+Si riferisce alle password comuni a livello globale, ad esempio le varianti di "Password" e "123456".
 
 **D: Una richiesta di accesso proveniente da origini sospette (botnet, endpoint tor) sarà bloccata in un tenant B2C o è necessario un tenant della Basic Edition o della Premium Edition?**
 
@@ -157,7 +158,7 @@ Per un elenco completo delle applicazioni preintegrate, vedere il [Marketplace d
 ---
 **D: Che cosa accade se l'applicazione cercata non è disponibile nel Marketplace di Azure AD?**
 
-**R:** Azure AD Premium consente di aggiungere e configurare qualsiasi applicazione. In base alle funzionalità dell'applicazione e alle preferenze dell'utente, è possibile configurare l'accesso Single Sign-On e il provisioning automatico.  
+**R:** Azure AD Premium consente di aggiungere e configurare qualsiasi applicazione. A seconda delle funzionalità dell'applicazione e delle preferenze, è possibile configurare SSO e il provisioning automatico.  
 
 Per altre informazioni, vedere:
 
@@ -199,7 +200,7 @@ Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applic
 
 **A:** Con l'accesso condizionale di Azure AD è possibile assegnare criteri di accesso univoci per ogni applicazione. Nel criterio è possibile richiedere sempre l'autenticazione Multi-Factor Authentication o solo quando gli utenti non sono connessi alla rete locale.  
 
-Per altre informazioni, vedere [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Per altre informazioni, vedere [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](../conditional-access/overview.md).
 
 ---
 **D: Cos'è il provisioning automatico degli utenti per le app SaaS?**
@@ -211,4 +212,4 @@ Per altre informazioni, vedere Automatizzare il provisioning e il deprovisioning
 ---
 **D: È possibile configurare una connessione LDAP sicura con Azure AD?**
 
-**A:**  No. Azure AD non supporta direttamente il protocollo LDAP (Lightweight Directory Access Protocol) o LDAP sicuro. Tuttavia, è possibile abilitare l'istanza di Servizi di dominio Azure AD nel tenant di Azure AD con gruppi di sicurezza di rete configurati correttamente tramite Rete di Azure per ottenere la connettività LDAP. Per altre informazioni, vedere https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.
+**A:**  No. Azure AD non supporta direttamente il protocollo LDAP (Lightweight Directory Access Protocol) o LDAP sicuro. Tuttavia, è possibile abilitare l'istanza di Servizi di dominio Azure AD nel tenant di Azure AD con gruppi di sicurezza di rete configurati correttamente tramite Rete di Azure per ottenere la connettività LDAP. Per altre informazioni, vedere [Configurare LDAP sicuro per un dominio gestito](../../active-directory-domain-services/tutorial-configure-ldaps.md) di Servizi di dominio Azure Active DirectoryFor more information, see Configure secure LDAP for an Azure Active Directory Domain Services managed domain

@@ -5,25 +5,27 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 065bbc62d65d7e91728b10cd9f95b2e73ea03abc
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77605615"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878732"
 ---
-# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Spostare le risorse dell'app per la logica in altre sottoscrizioni, gruppi di risorse o aree di AzureMove logic app resources to other Azure subscriptions, resource groups, or regions
+# <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Spostare le risorse dell'app per la logica in altri gruppi di risorse, aree o sottoscrizioni di AzureMove logic app resources to other Azure resource groups, regions, or subscriptions
 
-Per eseguire la migrazione dell'app per la logica o delle risorse correlate a un'altra sottoscrizione, gruppo di risorse o area di Azure, è possibile completare queste attività, ad esempio il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Prima di spostare le risorse, esaminare le considerazioni seguenti:Before you move resources, review these considerations: 
+Per eseguire la migrazione dell'app per la logica o delle risorse correlate a un altro gruppo di risorse, area o sottoscrizione di Azure, è possibile completare queste attività, ad esempio il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Prima di spostare le risorse, esaminare le considerazioni seguenti:Before you move resources, review these considerations: 
 
 * È possibile spostare solo [tipi di risorse dell'app per la logica specifici](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) tra sottoscrizioni o gruppi di risorse di Azure.You can move only specific logic app resource types between Azure resource groups or subscriptions.
 
 * Controllare i limiti sul numero di risorse dell'app per la logica che è possibile avere nella sottoscrizione di Azure e in ogni area di Azure.Check the [limits](../logic-apps/logic-apps-limits-and-config.md) on the number of logic app resources that you can have in your Azure subscription and in each Azure region. Questi limiti influiscono sulla possibilità di spostare tipi di risorse specifici quando l'area rimane invariata tra sottoscrizioni o gruppi di risorse. Ad esempio, è possibile avere un solo account di integrazione di livello gratuito per ogni area di Azure in ogni sottoscrizione di Azure.For example, you can have only one Free tier integration account for each Azure region in each Azure subscription.
 
+* Quando si spostano le risorse, Azure crea nuovi ID di risorsa. Quindi, assicurarsi di utilizzare i nuovi ID e aggiornare eventuali script o strumenti associati alle risorse spostate.
+
 * Dopo aver eseguito la migrazione di app per la logica tra sottoscrizioni, gruppi di risorse o aree, è necessario ricreare o autorizzare nuovamente tutte le connessioni che richiedono l'autenticazione aperta (OAuth).
 
-* Ogni volta che si spostano le risorse, Azure crea nuovi ID di risorsa. Quindi, assicurarsi di utilizzare i nuovi ID e aggiornare eventuali script o strumenti associati alle risorse spostate.
+* È possibile spostare un ambiente del servizio di [integrazione (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) solo in un altro gruppo di risorse presente nella stessa area di Azure o nella stessa sottoscrizione di Azure.You can move an integration service environment (ISE) only to another resource group that exists in the same Azure region or Azure subscription. Non è possibile spostare un ISE in un gruppo di risorse presente in un'area di Azure o in una sottoscrizione di Azure diversa. Inoltre, dopo tale spostamento, è necessario aggiornare tutti i riferimenti a ISE nei flussi di lavoro dell'app per la logica, negli account di integrazione, nelle connessioni e così via.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,7 +55,7 @@ Per spostare una risorsa, ad esempio un'app per la logica o un account di integr
 
 ## <a name="move-resources-between-resource-groups"></a>Spostare le risorse tra gruppi di risorse
 
-Per spostare una risorsa, ad esempio un'app per la logica o un account di integrazione, in un altro gruppo di risorse di Azure, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Questi passaggi riguardano il portale di Azure, che è possibile usare quando l'area della risorsa rimane invariata. Per altri passaggi e preparazione generale, vedere [Spostare le risorse in un nuovo gruppo](../azure-resource-manager/management/move-resource-group-and-subscription.md)di risorse o in una nuova sottoscrizione.
+Per spostare una risorsa, ad esempio un'app per la logica, un account di integrazione o un ambiente del servizio di [integrazione (ISE),](connect-virtual-network-vnet-isolated-environment-overview.md)in un altro gruppo di risorse di Azure, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Questi passaggi riguardano il portale di Azure, che è possibile usare quando l'area della risorsa rimane invariata. Per altri passaggi e preparazione generale, vedere [Spostare le risorse in un nuovo gruppo](../azure-resource-manager/management/move-resource-group-and-subscription.md)di risorse o in una nuova sottoscrizione.
 
 Prima di spostare effettivamente le risorse tra gruppi, è possibile verificare se è possibile spostare correttamente la risorsa in un altro gruppo. Per ulteriori informazioni, consultate [Convalidare lo spostamento.](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move)
 

@@ -3,12 +3,12 @@ title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273267"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878953"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di AzureSupport matrix for Azure Backup
 
@@ -43,7 +43,7 @@ Nella tabella seguente vengono descritte le funzionalità degli insiemi di crede
 
 Ecco cosa è supportato se si vuole eseguire il backup dei computer locali:Here's what's supported if you want to back up on-premises machines:
 
-**Computer** | **Elementi di cui è stato eseguito il backup** | **Percorso** | **Caratteristiche**
+**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Funzionalità**
 --- | --- | --- | ---
 **Backup diretto di computer Windows con l'agente MARS** | File, cartelle, stato del sistema | Eseguire il backup nell'insieme di credenziali dei servizi di ripristino. | Eseguire il backup tre volte al giorno<br/><br/> Nessun backup in grado di riconoscere le app<br/><br/> Ripristinare file, cartella, volume
 **Backup diretto di computer Linux con l'agente MARS** | Backup non supportato
@@ -63,7 +63,7 @@ Ecco cosa è supportato se si vuole eseguire il backup dei computer locali:Here'
 
 Ecco cosa è supportato se si vuole eseguire il backup delle macchine virtuali di Azure:Here's what's supported if you want to back up Azure VMs:
 
-**Computer** | **Elementi di cui è stato eseguito il backup** | **Percorso** | **Caratteristiche**
+**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Funzionalità**
 --- | --- | --- | ---
 **Backup della macchina virtuale di Azure tramite l'estensione della macchina virtualeAzure VM backup by using VM extension** | Intera macchina virtuale | Torna all'insieme di credenziali. | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Indietro una volta al giorno.<br/><br/> Backup in grado di riconoscere le app per le macchine virtuali Windows; backup coerente con i file per le macchine virtuali Linux. È possibile configurare la coerenza delle app per i computer Linux usando script personalizzati.<br/><br/> Ripristinare la macchina virtuale o il disco.<br/><br/> Impossibile eseguire il backup di una macchina virtuale di Azure in un percorso locale.
 **Backup della macchina virtuale di Azure tramite l'agente MARSAzure VM backup by using MARS agent** | File, cartelle, stato del sistema | Torna all'insieme di credenziali. | Indietro tre volte al giorno.<br/><br/> Se si desidera eseguire il backup di file o cartelle specifici anziché dell'intera macchina virtuale, l'agente MARS può essere eseguito insieme all'estensione della macchina virtuale.
@@ -116,7 +116,7 @@ Backup di Azure supporta la crittografia per i dati in transito e inattivi.
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
 **Computer Windows locali senza DPM/MABS** | ![Sì][green] | ![Sì][green]
-**Macchine virtuali di AzureAzure VMs** | ![Sì][green] | ![Sì][green]
+**Macchine virtuali di Azure** | ![Sì][green] | ![Sì][green]
 **Macchine Windows locali o macchine virtuali di Azure con DPM** | ![Sì][green] | ![Sì][green]
 **Macchine Windows locali o macchine virtuali di Azure con MABS** | ![Sì][green] | ![Sì][green]
 
@@ -141,7 +141,7 @@ Il backup supporta la compressione del traffico di backup, come riepilogato nell
 **Tempo massimo prima della scadenza di un punto di ripristino** | Nessun limite
 **Frequenza massima di backup in DPM/MABS** | Ogni 15 minuti per SQL Server<br/><br/> Una volta all'ora per altri carichi di lavoro
 **Frequenza massima di backup in insieme di credenziali** | **Macchine Windows locali o macchine virtuali di Azure che eseguono MARS:On-premises Windows machines or Azure VMs running MARS:** Tre al giorno<br/><br/> **DPM/MABS:** Due al giorno<br/><br/> **Backup della macchina virtuale di Azure:Azure VM backup:** Uno al giorno
-**Conservazione dei punti di ripristino** | Giornaliera, settimanale, mensile, annuale
+**Conservazione del punto di ripristino** | Giornaliera, settimanale, mensile, annuale
 **Periodo massimo di conservazione** | Dipende dalla frequenza dei backup
 **Punti di ripristino su disco DPM/MABS** | 64 per i file server; 448 per i server app <br/><br/>Punti di ripristino su nastro illimitati per DPM locale
 
@@ -151,7 +151,7 @@ Backup di Azure ha aggiunto la funzionalità di ripristino tra aree per rafforza
 
 | Tipo di gestione backup | Supportato                                                    | Aree supportate |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Macchina virtuale di Azure               | Sì. Anteprima limitata pubblica Supportato per macchine virtuali crittografate e macchine virtuali con dischi inferiori a 4 TBPublic limited Preview Supported for encrypted VMs and VMs with minor than 4-TB disks | Stati Uniti centro-occidentali   |
+| Macchina virtuale di Azure               | Sì.   Supportato per macchine virtuali e macchine virtuali crittografate con dischi inferiori a 4 TB | Tutte le aree pubbliche di Azure.All Azure public regions.  |
 | Agente MARS/On locali | No                                                           | N/D               |
 | SQL /SAP HANA          | No                                                           | N/D               |
 | Afs                    | No                                                           | N/D               |

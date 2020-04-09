@@ -1,17 +1,17 @@
 ---
-title: Analisi della conservazione degli utenti per applicazioni Web con Azure Application Insights | Microsoft Docs
+title: Analizzare la conservazione degli utenti delle app Web con Azure Application InsightsAnalyze web app user retention with Azure Application Insights
 description: Quanti utenti tornano all'app?
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 37ae97d5fbc62e507f726c452999a7f6e7c989c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d9be6bc6d7f90153e2fb58aa404e281568dbdd
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670968"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892411"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analisi della conservazione degli utenti per applicazioni Web con Application Insights
 
@@ -63,7 +63,7 @@ O nel codice server di ASP.NET:
     - [Utenti, sessioni ed eventi](usage-segmentation.md)
     - [Grafici a imbuto](usage-funnels.md)
     - [Flussi degli utenti](usage-flows.md)
-    - [Cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)
 
 

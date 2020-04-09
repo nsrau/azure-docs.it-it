@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462446"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985253"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
 
@@ -104,13 +104,13 @@ Nelle implementazioni della vendite al dettaglio, quando un utente aggiunge un e
 
      Qualsiasi reparto può creare un database di Funzioni di Azure per Cosmos ascoltando il feed di modifiche e assicurarsi che non ritardino gli eventi di elaborazione degli ordini critici nel processo.
 
-In tutti questi casi d'uso, poiché la funzione ha diviso l'app stessa non è necessario creare nuove istanze dell'app ogni volta. Al contrario, Funzioni di Azure crea le singole funzioni per completare processi distinti in base alle esigenze.
+In tutti questi casi d'uso, poiché la funzione ha disaccoppiato l'app stessa, non è necessario configurare sempre nuove istanze dell'app. Al contrario, Funzioni di Azure crea le singole funzioni per completare processi distinti in base alle esigenze.
 
 ## <a name="tooling"></a>Strumenti
 
 L'integrazione nativa tra Azure Cosmos DB e Azure Functions è disponibile nel portale di Azure e in Visual Studio 2019.
 
-* Nel portale Funzioni di Azure è possibile creare un trigger. Per istruzioni sulla guida introduttiva, vedere Creare un trigger di Funzioni di Azure per il database Cosmos nel portale di Azure.For quickstart instructions, see [Create an Azure Functions trigger for Cosmos DB in the Azure portal.](https://aka.ms/cosmosdbtriggerportalfunc)
+* Nel portale Funzioni di Azure è possibile creare un trigger. Per istruzioni sulla guida introduttiva, vedere Creare un trigger di Funzioni di Azure per il database Cosmos nel portale di Azure.For quickstart instructions, see [Create an Azure Functions trigger for Cosmos DB in the Azure portal.](../azure-functions/functions-create-cosmos-db-triggered-function.md)
 * Nel portale database Cosmos di Azure è possibile aggiungere un trigger Funzioni di Azure per Cosmos DB a un'app Funzione di Azure esistente nello stesso gruppo di risorse.
 * In Visual Studio 2019 è possibile creare il trigger usando gli strumenti di Funzioni di Azure:In Visual Studio 2019, you can create the trigger using the [Azure Functions Tools:](../azure-functions/functions-develop-vs.md)
 
@@ -146,6 +146,6 @@ Se non si è certi se scegliere Flow, App per la logica, Funzioni di Azure o Pro
 
 Ora bisogna davvero collegare Funzioni di Azure e Azure Cosmos DB: 
 
-* [Creare un trigger di Funzioni di Azure per Cosmos DB nel portale di AzureCreate an Azure Functions trigger for Cosmos DB in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind) (Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB)
+* [Creare un trigger di Funzioni di Azure per Cosmos DB nel portale di AzureCreate an Azure Functions trigger for Cosmos DB in the Azure portal](../azure-functions/functions-create-cosmos-db-triggered-function.md)
+* [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](../azure-functions/functions-bindings-cosmosdb.md?tabs=csharp) (Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB)
 * [Associazioni e trigger di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md)

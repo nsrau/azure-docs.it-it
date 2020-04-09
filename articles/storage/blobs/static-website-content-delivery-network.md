@@ -6,13 +6,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 01/22/2020
-ms.openlocfilehash: 8eeff5187d27cb75b9e55eba8311dede8970bc4a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/07/2020
+ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435226"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878816"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrare un sito Web statico con la rete CDN di AzureIntegrate a static website with Azure CDN
 
@@ -26,19 +26,17 @@ Per informazioni sui prezzi della rete CDN, vedere [Prezzi della rete CDN Azure]
 
 1. Individuare l'account di archiviazione nel portale di Azure e visualizzare la panoramica dell'account.
 
-2. Scegliere **Rete CDN di Azure** dal menu **Servizio BLOB** per configurare la rete CDN di Azure.
+1. Nel menu Servizio BLOB selezionare Rete CDN di Azure per aprire la pagina Cdn di **Azure:Under** the **Blob Service** menu, select **Azure CDN** to open the Azure CDN page:
 
-    Verrà visualizzata la pagina **Rete CDN di Azure**.
+    ![Creare un endpoint della rete CDN](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 
-    ![Creare un endpoint della rete CDN](../../cdn/media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png)
+1. Nella sezione **Profilo rete CDN** specificare se creare un nuovo profilo CDN o usarne uno esistente. Un profilo CDN è una raccolta di endpoint della rete CDN che condividono un piano tariffario e un provider. Immettere quindi un nome per la rete CDN univoco all'interno della sottoscrizione.
 
-3. Nella sezione **Profilo CDN** specificare un profilo CDN nuovo o esistente. 
+1. Specificare un piano tariffario per l'endpoint CDN. Per ulteriori informazioni sui prezzi, vedere Prezzi della rete per [la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/). Per altre informazioni sulle funzionalità disponibili con ogni livello, vedere [Confrontare](../../cdn/cdn-features.md)le funzionalità del prodotto della rete CDN di Azure.For more information about the features available with each tier, see Compare Azure CDN product features .
 
-4. Specificare un piano tariffario per l'endpoint CDN. Per ulteriori informazioni sui prezzi, vedere Prezzi della rete per [la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/). Per altre informazioni sulle funzionalità disponibili con ogni livello, vedere [Confrontare](../../cdn/cdn-features.md)le funzionalità del prodotto della rete CDN di Azure.For more information about the features available with each tier, see Compare Azure CDN product features .
+1. Nel campo **Nome endpoint rete CDN** specificare un nome per l'endpoint CDN. L'endpoint della rete CDN deve essere univoco in Azure e deve essere fornito la prima parte dell'URL dell'endpoint. Il modulo convalida che il nome dell'endpoint sia univoco.
 
-5. Nel campo **Nome endpoint rete CDN** specificare un nome per l'endpoint CDN. L'endpoint CDN deve essere univoco in Azure.
-
-6. Specificare l'endpoint del sito Web statico nel campo **Nome host dell'origine**. 
+1. Specificare l'endpoint del sito Web statico nel campo **Nome host origine.** 
 
    Per trovare l'endpoint del sito Web statico, passare alle impostazioni **Sito Web statico** per l'account di archiviazione.  Copiare l'endpoint primario e incollarlo nella configurazione della rete CDN.
 
@@ -49,15 +47,15 @@ Per informazioni sui prezzi della rete CDN, vedere [Prezzi della rete CDN Azure]
 
    ![Screenshot che mostra una configurazione di esempio dell'endpoint CDN](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-7. Selezionare **Crea**, quindi attendere che venga propagato. Dopo la creazione, l'endpoint verrà visualizzato nell'elenco di endpoint.
+1. Selezionare **Crea**e quindi attendere il provisioning della rete CDN. Dopo la creazione, l'endpoint verrà visualizzato nell'elenco di endpoint. Se nel modulo sono presenti errori, accanto a tale campo viene visualizzato un punto esclamativo.
 
-8. Per verificare che l'endpoint CDN sia configurato correttamente, fare clic sull'endpoint per passare alle relative impostazioni. Nella panoramica della rete CDN per l'account di archiviazione individuare il nome host dell'endpoint e passare all'endpoint, come illustrato nell'immagine seguente. Il formato dell'endpoint CDN sarà simile a `https://staticwebsitesamples.azureedge.net`.
+1. Per verificare che l'endpoint CDN sia configurato correttamente, fare clic sull'endpoint per passare alle relative impostazioni. Nella panoramica della rete CDN per l'account di archiviazione individuare il nome host dell'endpoint e passare all'endpoint, come illustrato nell'immagine seguente. Il formato dell'endpoint CDN sarà simile a `https://staticwebsitesamples.azureedge.net`.
 
     ![Screenshot che mostra la panoramica dell'endpoint CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-9. Al termine della propagazione dell'endpoint CDN, passando all'endpoint CDN verrà visualizzato il contenuto del file index.html caricato in precedenza nel sito Web statico.
+1. Dopo il provisioning dell'endpoint della rete CDN, passando all'endpoint della rete CDN viene visualizzato il contenuto del file index.html caricato in precedenza nel sito Web statico.
 
-10. Per esaminare le impostazioni dell'origine per l'endpoint CDN, passare a **Origine** nella sezione **Impostazioni** per l'endpoint CDN. Il campo **Tipo di origine** risulterà impostato su *Origine personalizzata* e nel campo **Nome host dell'origine** verrà visualizzato l'endpoint del sito Web statico.
+1. Per esaminare le impostazioni dell'origine per l'endpoint CDN, passare a **Origine** nella sezione **Impostazioni** per l'endpoint CDN. Il campo **Tipo di origine** risulterà impostato su *Origine personalizzata* e nel campo **Nome host dell'origine** verrà visualizzato l'endpoint del sito Web statico.
 
     ![Screenshot che mostra le impostazioni dell'origine per l'endpoint CDN](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 

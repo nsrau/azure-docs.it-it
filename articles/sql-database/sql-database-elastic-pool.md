@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8139ed8f4f4799a963a051eed96dd87c4ac38aec
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256276"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981427"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL di Azure
 
@@ -224,7 +224,6 @@ Per altre informazioni, vedere [Usare il portale di Azure per creare avvisi per 
 
 - Per informazioni sui prezzi, vedere Prezzi del [pool elastico](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - Per ridimensionare i pool elastici, vedere [Ridimensionamento dei pool elastici](sql-database-elastic-pool-scale.md) e [Ridimensionare un pool elastico - codice di esempio](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-- Un video è disponibile in [Esercitazione video di Microsoft Virtual Academy sulle funzionalità di elasticità del database SQL di Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Per un'esercitazione sul SaaS con i pool elastici, vedere [Introduzione all'applicazione SaaS Wingtip](sql-database-wtp-overview.md).
 - Per informazioni sulla gestione delle risorse nei pool elastici con molti database, vedere [Gestione delle risorse in pool elastici densi.](sql-database-elastic-pool-resource-management.md)

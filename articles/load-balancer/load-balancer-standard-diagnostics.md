@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 861961bb66adc7ed9509eab973516a964cb67492
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 1d6fa75beabdc36750525310008add9594562228
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521061"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887113"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
 
@@ -69,8 +69,6 @@ Per visualizzare le metriche delle risorse di Load Balancer Standard:
 
 Per informazioni sull'API per il recupero dei valori e delle definizioni delle metriche multidimensionali, vedere la [Procedura dettagliata di API REST di Azure Monitoring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Queste metriche possono essere scritte in un account di archiviazione solo tramite l'opzione 'Tutte le metriche'. 
 
-### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Scenari di diagnostica comuni e visualizzazioni consigliate
-
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurare gli avvisi per le metriche multidimensionaliConfigure alerts for multidimensional-metrics ###
 
 Azure Standard Load Balancer supporta avvisi facilmente configurabili per metriche multidimensionali. Configurare soglie personalizzate per metriche specifiche per attivare avvisi con livelli di gravità diversi per consentire un'esperienza di monitoraggio delle risorse touchless.
@@ -82,10 +80,11 @@ Per configurare gli avvisi:
     1.  (Facoltativo) Aggiungi gruppo di azioni per la riparazione automatica
     1.  Assegnare la gravità, il nome e la descrizione degli avvisi che consentano una reazione intuitiva
 
-
   >[!NOTE]
   >Nella finestra di configurazione della condizione di avviso verrà visualizzata la serie temporale per la cronologia del segnale. È disponibile un'opzione per filtrare questa serie temporale in base a dimensioni quali IP back-end. Questo filtrerà il grafico della serie temporale, ma **non** l'avviso stesso. Non è possibile configurare avvisi per indirizzi IP back-end specifici.
-  
+
+### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Scenari di diagnostica comuni e visualizzazioni consigliate
+
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Il percorso dei dati è disponibile per il mio Load Balancer VIP?
 
 La metrica di disponibilità VIP descrive l’integrità del percorso dei dati all'interno della regione verso l'host di calcolo in cui si trovano le macchine virtuali. La metrica riflette lo stato di integrità delle infrastrutture di Azure. La metrica può essere utilizzata per:

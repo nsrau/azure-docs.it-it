@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 31587777ba22dd8b4cebf81f0ff98979bb30fade
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ec9eeb0c35d96ee777771260686178faa536e909
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410724"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877304"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione di Active Directory (Azure AD)
 
@@ -48,10 +48,6 @@ No, questo scenario non è supportato. Le impostazioni predefinite sono le segue
 ### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>L'applicazione back-end è ospitata su più server Web e richiede la persistenza della sessione utente (appiccicoso). Come è possibile ottenere la persistenza della sessione? 
 
 Per suggerimenti, vedere [Disponibilità elevata e bilanciamento del carico dei connettori e](application-proxy-high-availability-load-balancing.md)delle applicazioni del proxy di applicazione.
-
-### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>È possibile posizionare un dispositivo proxy di inoltro tra il server del connettore e il server applicazioni back-end?
-
-No, questo scenario non è supportato. Solo il connettore e i servizi di aggiornamento possono essere configurati per usare un proxy di inoltro per il traffico in uscita in Azure.Only the connector and update services can be configured to use a forward proxy for outbound traffic to Azure. Vedere [Utilizzare server proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers) locali esistenti
 
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>La terminazione TLS (ispezione o accelerazione TLS/HTTPS) sul traffico dai server del connettore ad Azure è supportata?
 

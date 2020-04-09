@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ab97fa33570ee59c918b2be776750644a7c8e3bd
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: dc433fb2ee7888a20af16e01d76d4678cf12b01b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745425"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985576"
 ---
 # <a name="power-bi-app-offer"></a>Offerta per app Power BI
 
 >[!Important]
->A partire dal 30 marzo 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzurePBIAppCreationOverview) sulla creazione di app Power BI per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzurePBIAppCreationOverview) sulla creazione di app Power BI per gestire le offerte migrate.
 
 |              |                                |
 |--------------|--------------------------------|

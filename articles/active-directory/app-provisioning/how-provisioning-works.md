@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 555fb39836054be05102f4c28167d72016805639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481501"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884886"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -67,7 +67,7 @@ Quando si configura il provisioning in un'applicazione SaaS, come mapping degli 
 
 Per il provisioning in uscita da Azure AD a un'applicazione SaaS, basarsi sulle [assegnazioni](../manage-apps/assign-user-or-group-access-portal.md) di utenti o gruppi è il modo più comune per determinare quali utenti rientrano nell'ambito per il provisioning. Poiché le assegnazioni utente vengono utilizzate anche per abilitare l'accesso Single Sign-On, lo stesso metodo può essere utilizzato per la gestione dell'accesso e del provisioning. L'ambito basato sulle assegnazioni non si applica agli scenari di provisioning in ingresso, ad esempio Workday e Successfactors.Assignment-based scoping doesn't apply to inbound provisioning scenarios such as Workday and Successfactors.
 
-* **Gruppi.** Con un piano di licenza di Azure AD Premium, è possibile usare i gruppi per assegnare l'accesso a un'applicazione SaaS.With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Quindi, quando l'ambito di provisioning è impostato su **Sincronizza solo gli utenti e**i gruppi assegnati, il servizio di provisioning di Azure AD eseguirà il provisioning o il deprovisioning degli utenti in base al fatto che siano membri di un gruppo assegnato all'applicazione. Il provisioning dell'oggetto gruppo stesso non viene eseguito a meno che l'applicazione non supporti gli oggetti gruppo.
+* **Gruppi.** Con un piano di licenza di Azure AD Premium, è possibile usare i gruppi per assegnare l'accesso a un'applicazione SaaS.With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Quindi, quando l'ambito di provisioning è impostato su **Sincronizza solo gli utenti e**i gruppi assegnati, il servizio di provisioning di Azure AD eseguirà il provisioning o il deprovisioning degli utenti in base al fatto che siano membri di un gruppo assegnato all'applicazione. Il provisioning dell'oggetto gruppo stesso non viene eseguito a meno che l'applicazione non supporti gli oggetti gruppo. Assicurarsi che i gruppi assegnati all'applicazione abbiano la proprietà "SecurityEnabled" impostata su "False".
 
 * **Gruppi dinamici.** Il servizio di provisioning degli utenti di Azure AD può leggere ed eseguire il provisioning degli utenti in [gruppi dinamici.](../users-groups-roles/groups-create-rule.md) Tieni presenti queste avvertenze e raccomandazioni:
 

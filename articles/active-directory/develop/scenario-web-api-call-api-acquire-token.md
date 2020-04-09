@@ -3,24 +3,21 @@ title: Ottenere un token per un'API Web che chiama le API Web. Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'API Web che chiama le API Web che richiedono l'acquisizione di un token per l'app.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2721837459af24f39bb15ee17d394345cbb37eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79f8eb9e804502a7c0e61c18e4998fa05db10278
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76834111"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885141"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Un'API Web che chiama le API Web: acquisire un token per l'appA web API that calls web APIs: Acquire a token for the app
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fd1f06bcb92ea97e0e9e9a6eefeac957031575a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471558"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879293"
 ---
 # <a name="routing-architecture-overview"></a>Panoramica dell'architettura di routing
 
@@ -35,7 +35,7 @@ Il routing al Frontdoor di Azure si basa su ambienti [Anycast](https://en.wikipe
 [Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) è una tecnica che serve a ridurre latenza e problemi TCP tramite la suddivisione di una connessione che comporterebbe un tempo di round trip elevato in parti più piccole.  Inserendo degli ambienti Frontdoor più vicino agli utenti finali e terminando le connessioni TCP in ambiente Frontdoor, una connessione TCP all’applicazione di back-end con un tempo di round trip (RTT) ampio è suddivisa in due connessioni TCP. La breve connessione tra l'utente finale e l'ambiente Front Door significa che la connessione viene stabilita su tre brevi round trip invece di tre lunghi round trip, risparmiando latenza.  La lunga connessione tra l’ambiente Frontdoor e il back-end può essere prestabilita e riutilizzata in più chiamate per l'utente finale, risparmiando nuovamente il tempo di connessione TCP.  L'effetto viene moltiplicato per stabilire una connessione SSL/TLS (Transport Layer Security) poiché sono presenti più round trip per la proteggere la connessione.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>Elaborazione della richiesta per la corrispondenza di una regola di gestione
-Quando una richiesta viene inserita in un ambiente Frontdoor, dopo aver stabilito connessione ed esecuzione di un certificato SSL handshake, il primo passaggio è costituito dalla corrispondenza con una regola di gestione. Questa corrispondenza consiste nel determinare tra tutte le configurazioni in Frontdoor, quali regole di gestione specifiche corrispondano alla richiesta. Per altre informazioni, vedere come Frontdoor effettua la [corrispondenza delle route](front-door-route-matching.md).
+Dopo aver stabilito una connessione ed eseguito un handshake TLS, quando una richiesta atterra su un ambiente Front Door, la corrispondenza di una regola di routing è il primo passaggio. Questa corrispondenza consiste nel determinare tra tutte le configurazioni in Frontdoor, quali regole di gestione specifiche corrispondano alla richiesta. Per altre informazioni, vedere come Frontdoor effettua la [corrispondenza delle route](front-door-route-matching.md).
 
 ## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identificazione di back-end disponibili nel pool di back-end per la regola di gestione
 Una volta che Frontdoor acquisisce una corrispondenza per una regola di gestione basata su richiesta in ingresso e in assenza di memorizzazione nella cache, il passaggio successivo è estrarre lo stato di integrità del probe per il pool di back-end associato alla route corrispondente. Per altre informazioni, vedere come Frontdoor monitora l'integrità del back-end usando [Probe di integrità](front-door-health-probes.md).

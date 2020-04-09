@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul manifesto dell'app Azure Active Directory | Microsoft Docs
+title: Informazioni sul manifesto dell'app Azure Active Directory
 description: Descrizione dettagliata del manifesto dell'app Azure Active Directory, che rappresenta una configurazione dell'identità dell'applicazione in un tenant di Azure AD e che viene usato per facilitare l'autorizzazione OAuth, per l'esperienza di consenso e altro ancora.
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.date: 03/23/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6d9a4af5ee814282589959fcf840c1061358ca18
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383940"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883475"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto dell'app Azure Active Directory
 
@@ -32,7 +32,7 @@ Il manifesto dell'applicazione contiene una definizione di tutti gli attributi d
 
 Per configurare il manifesto dell'applicazione:
 
-1. Passare al [portale di Azure](https://portal.azure.com). Cercare e selezionare il servizio **Azure Active Directory.**
+1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare il servizio **Azure Active Directory.**
 1. Selezionare **Registrazioni app**.
 1. Selezionare l'applicazione da configurare.
 1. Nella pagina **Panoramica** dell'app selezionare la sezione **Manifesto**. Si apre un editor di manifesto basato sul Web che consente di modificare il manifesto all'interno del portale. Facoltativamente è possibile selezionare **Scarica**, modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione.

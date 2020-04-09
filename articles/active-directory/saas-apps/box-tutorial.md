@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab129315f398061eaa427f05f3bd4b1cabff0dc3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 35f8172d418cb9926ba0be2de945ff559fba14cf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046780"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583096"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Box
 
@@ -87,6 +87,8 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.account.box.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `box.net`
+
+    c. Nella casella di testo **URL di risposta** digitare un URL: `https://sso.services.box.net/sp/ACS.saml2`
 
     > [!NOTE]
     > Poiché il valore di URL accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto clienti di Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
