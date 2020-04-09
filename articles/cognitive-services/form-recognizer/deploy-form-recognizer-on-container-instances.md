@@ -3,19 +3,19 @@ title: Eseguire il contenitore del sistema di riconoscimento dei moduli nelle is
 titleSuffix: Azure Cognitive Services
 description: Distribuire il contenitore Del sistema di riconoscimento dei moduli in un'istanza del contenitore di Azure e testarlo in un Web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: dapine
-ms.openlocfilehash: 9a3456eb4d30aa8d163488f558b571dd97c73bf4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: acba4d9fab784181fda5728c30831c8c1838b91f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77605109"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879531"
 ---
 # <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Distribuire il contenitore del sistema di riconoscimento dei moduli nelle istanze del contenitore di AzureDeploy the Form Recognizer container to Azure Container Instances
 

@@ -3,18 +3,18 @@ title: Eseguire l'esempio di contenitore del comando docker runRun container exa
 titleSuffix: Azure Cognitive Services
 description: Comando Esegui Docker per il contenitore Estrazione frase chiave
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
-ms.openlocfilehash: b8c3bdfc05e855139b595cd0ba7bd723cdeaee45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8ed42d5b0461b6273c2f8d84a267b65461d160ef
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "70966660"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877110"
 ---
 Per eseguire il contenitore Estrazione `docker run` frase *chiave,* eseguire il comando seguente.
 

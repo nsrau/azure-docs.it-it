@@ -3,19 +3,19 @@ title: Installare i contenitori di riconoscimento vocale - Servizio di riconosci
 titleSuffix: Azure Cognitive Services
 description: Installare ed eseguire contenitori vocali. Riconoscimento vocale trascrive in tempo reale flussi audio in testo da usare o visualizzare in applicazioni, dispositivi o strumenti. Sintesi vocale converte il testo di input in una voce sintetizzata simile a quella di un essere umano.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 2beee81bc365d00e59a62cacabacc5f5d6b62a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474782"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879020"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire contenitori del servizio di riconoscimento vocale (anteprima)Install and run Speech service containers (Preview)
 
@@ -41,7 +41,7 @@ Prima di usare i contenitori riconoscimento vocale, è necessario prerequisiti s
 
 | Obbligatoria | Scopo |
 |--|--|
-| Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica sui concetti fondamentali relativi a Docker e al contenitore, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica su Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br> |
+| Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br> |
 | Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base. |
 | Risorsa di riconoscimento vocale | Per usare questi contenitori, è necessario avere:<br><br>Una risorsa _di riconoscimento vocale_ di Azure per ottenere la chiave API associata e l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica vocale e Chiavi del portale di Azure.Both values are available on the Azure portal's **Speech** Overview and Keys pages. Entrambi sono necessari per avviare il contenitore.<br><br>**API_KEY :Una**delle due chiavi di risorsa disponibili nella pagina **Chiavi**<br><br>**ENDPOINT_URI :** l'endpoint come indicato nella pagina **Panoramica** |
 
@@ -73,7 +73,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 Nella tabella seguente viene descritta l'allocazione minima e consigliata delle risorse per ogni contenitore di riconoscimento vocale.
 
-# <a name="speech-to-text"></a>[Sintesi vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
 | Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
@@ -110,7 +110,7 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 Le immagini del contenitore per il riconoscimento vocale sono disponibili nel Registro di sistema del contenitore seguente.
 
-# <a name="speech-to-text"></a>[Sintesi vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
 | Contenitore | Archivio |
 |-----------|------------|
@@ -140,7 +140,7 @@ Le immagini del contenitore per il riconoscimento vocale sono disponibili nel Re
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Pull Docker per i contenitori Speech
 
-# <a name="speech-to-text"></a>[Sintesi vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Pull di Docker per il contenitore di sintesi vocale per il testoDocker pull for the Speech-to-text container
 
@@ -240,7 +240,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Fare riferimento alla raccolta dei [parametri](#gathering-required-parameters) `{Endpoint_URI}` obbligatori `{API_Key}` per informazioni dettagliate su come ottenere i valori e . Sono [examples](speech-container-configuration.md#example-docker-run-commands) disponibili `docker run` anche altri esempi del comando.
 
-# <a name="speech-to-text"></a>[Sintesi vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
 Per eseguire il contenitore *di sintesi* vocale, eseguire il comando seguente. `docker run`
 
@@ -423,12 +423,12 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](spe
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati illustrati concetti e flusso di lavoro per il download, l'installazione e l'esecuzione di contenitori di riconoscimento vocale. In sintesi:
 
 * Il riconoscimento vocale fornisce quattro contenitori Linux per Docker, incapsulando varie funzionalità:Speech provides four Linux containers for Docker, encapsulating various capabilities:
-  * *Sintesi vocale*
+  * *Riconoscimento vocale*
   * *Sintesi vocale personalizzata*
   * *Sintesi vocale*
   * *Sintesi vocale personalizzata*

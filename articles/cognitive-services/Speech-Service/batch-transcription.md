@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: fb39f1ec83416ee8ab2a33b514971110db0c0b17
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1f88df186526c2f9903337bb3331940be0989c3d
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668846"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892462"
 ---
 # <a name="what-is-batch-transcription"></a>Che cos'è la trascrizione batch?
 
@@ -129,7 +129,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:Use these op
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Specifica se l'analisi del sentiment deve essere applicata all'espressione. I valori `true` accettati `false` sono l'abilitazione e (il valore predefinito) per disabilitarlo.
+      Specifica se l'analisi del sentiment deve essere applicata all'espressione. I valori `true` accettati `false` sono l'abilitazione e (il valore predefinito) per disabilitarlo. Per ulteriori dettagli, vedere [Analisi del sentiment.](#sentiment-analysis)
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -218,12 +218,41 @@ Per l'audio di input mono, viene creato un file di risultati della trascrizione.
 
 Il risultato contiene i seguenti moduli:
 
-| Form        | Contenuto                                                                                                                                                  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Lexical`   | Le parole effettive riconosciute.                                                                                                                             |
-| `ITN`       | Forma inversa-testo-normalizzata del testo riconosciuto. Abbreviazioni ("medafa" a "dr smith"), vengono applicati numeri di telefono e altre trasformazioni. |
-| `MaskedITN` | Forma ITN con mascheratura volgarità applicata.                                                                                                             |
-| `Display`   | Forma di visualizzazione del testo riconosciuto. Sono incluse punteggiatura e maiuscole aggiuntive.                                                             |
+:::row:::
+   :::column span="1":::
+      **Form**
+   :::column-end:::
+   :::column span="2":::
+      **Contenuto**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Lexical`
+   :::column-end:::
+   :::column span="2":::
+      Le parole effettive riconosciute.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ITN`
+   :::column-end:::
+   :::column span="2":::
+      Forma inversa-testo-normalizzata del testo riconosciuto. Abbreviazioni ("medafa" a "dr smith"), vengono applicati numeri di telefono e altre trasformazioni.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `MaskedITN`
+   :::column-end:::
+   :::column span="2":::
+      Forma ITN con mascheratura volgarità applicata.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Display`
+   :::column-end:::
+   :::column span="2":::
+      Forma di visualizzazione del testo riconosciuto. Sono incluse punteggiatura e maiuscole aggiuntive.
+:::row-end:::
 
 ## <a name="speaker-separation-diarization"></a>Separazione degli altoparlanti (diarizzazione)
 
@@ -260,6 +289,10 @@ La funzione di valutazione stima il sentiment espresso nell'audio. Il sentiment 
 - Identificare ciò che piace ai clienti e cosa non gli piace di un prodotto o di un servizio
 
 Il sentiment viene assegnato per segmento audio in base alla forma lessicale. L'intero testo all'interno di tale segmento audio viene utilizzato per calcolare il sentiment. Non viene calcolato alcun sentiment aggregato per l'intera trascrizione. Attualmente l'analisi del sentiment è disponibile solo per la lingua inglese.
+
+> [!NOTE]
+> Ti consigliamo di usare l'API Microsoft Text Analytics. Offre funzionalità più avanzate oltre l'analisi del sentiment, come l'estrazione di frasi chiave, il rilevamento automatico della lingua e altro ancora. Per informazioni ed esempi, nella [documentazione](https://azure.microsoft.com/services/cognitive-services/text-analytics/)di Analisi del testo .
+>
 
 Un esempio di output JSON è simile al seguente:A JSON output sample looks like below:
 

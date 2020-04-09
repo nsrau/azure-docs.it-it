@@ -3,19 +3,19 @@ title: Usare Docker Compose per distribuire più contenitori
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come distribuire più contenitori di Servizi cognitivi. In questo articolo viene illustrato come orchestrare più immagini contenitore Docker utilizzando Docker Compose.This article shows you how to orchestrate multiple Docker container images by using Docker Compose.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: bfbaa03469ee04ff900a215aadd8c814efcba761
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 458cda927a6a123fcd9962efc6ab705e13f43286
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037529"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878783"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usare Docker Compose per distribuire più contenitori
 

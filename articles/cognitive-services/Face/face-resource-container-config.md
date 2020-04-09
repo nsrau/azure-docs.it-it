@@ -3,20 +3,20 @@ title: Configurare i contenitori - Faccia
 titleSuffix: Azure Cognitive Services
 description: L'ambiente di runtime del contenitore Viso si configura mediante gli argomenti del comando `docker run`. Sono disponibili sia impostazioni obbligatorie che facoltative.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: 3c78c9eb85c3a8be236be5c3a24bd877db204b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76167967"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878426"
 ---
 # <a name="configure-face-docker-containers"></a>Configurare i contenitori di Viso Docker
 

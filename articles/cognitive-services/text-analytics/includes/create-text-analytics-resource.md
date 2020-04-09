@@ -3,22 +3,22 @@ title: Creare una risorsa Analisi del testo di Servizi cognitiviCreate a Cogniti
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come creare una risorsa per Analisi del testo di Servizi cognitivi di Azure.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: d3b65174f3d161e0b8780a890f297d9d1c812b44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 6cd653909e26dc5e0484ca289a1d2ab47e20457f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74383494"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876428"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Creare una risorsa Analisi del testo di Servizi cognitiviCreate a Cognitive Services Text Analytics resource
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare **Crea una risorsa**e quindi passare all'iaeldi e l'analisi del**testo**di **Machine Learning** > .
    In alternativa, vai a [Crea analisi del testo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 1. Immettere tutte le impostazioni richieste:

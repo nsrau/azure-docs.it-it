@@ -3,18 +3,18 @@ title: Domande frequenti sui contenitori di Servizi cognitivi
 titleSuffix: Azure Cognitive Services
 description: Domande frequenti e risposte.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: dapine
-ms.openlocfilehash: 33b99d50db4384c7de818a7dd0bb8492c86bef97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73961884"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876507"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di Servizi cognitivi di AzureAzure Cognitive Services containers frequently asked questions (FAQ)
 
@@ -31,7 +31,7 @@ ms.locfileid: "73961884"
 > * [Riconoscimento modulo][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]
 > * [API servizio Voce][sp-containers]
-> * [Analisi del testo][ta-containers]
+> * [Text Analytics][ta-containers]
 
 **D: Esiste una differenza tra il cloud di Servizi cognitivi e i contenitori?**
 
@@ -94,7 +94,7 @@ I clienti devono fare riferimento al piano di supporto di [Azure](https://azure.
 
 I clienti sono liberi di esplorare il [centro informazioni](https://azure.microsoft.com/resources/knowledge-center/) di Azure per rispondere a domande e problemi di supporto.
 
-### <a name="stack-overflow"></a>Overflow dello stack
+### <a name="stack-overflow"></a>Stack Overflow
 
 > [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow) è un sito di domande e risposte per programmatori professionisti e appassionati.
 
@@ -113,7 +113,7 @@ Esplora i tag seguenti per potenziali domande e risposte in linea con le tue esi
 * [Riconoscimento modulo][fr-containers-billing]
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [API servizio Voce][sp-containers-billing]
-* [Analisi del testo][ta-containers-billing]
+* [Text Analytics][ta-containers-billing]
 
 > [!IMPORTANT]
 > I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano dati dei clienti a Microsoft.
@@ -140,7 +140,7 @@ Esplora i tag seguenti per potenziali domande e risposte in linea con le tue esi
 * [Riconoscimento modulo][fr-containers-recommendations]
 * [Language Understanding (LUIS)][lu-containers-recommendations]
 * [API servizio Voce][sp-containers-recommendations]
-* [Analisi del testo][ta-containers-recommendations]
+* [Text Analytics][ta-containers-recommendations]
  
 **D: Questi contenitori sono attualmente supportati in Windows?**
 

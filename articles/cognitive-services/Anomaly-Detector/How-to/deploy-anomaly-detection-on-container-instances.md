@@ -3,19 +3,19 @@ title: Eseguire il contenitore Anomaly Detector nelle istanze del contenitore di
 titleSuffix: Azure Cognitive Services
 description: Distribuire il contenitore Rilevatore di anomalie in un'istanza del contenitore di Azure e testarlo in un Web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
-ms.openlocfilehash: 2fba0a0d64502a30b6dfbc9f4f109bca65cca8b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: a4973254c8a53917d99daf38b0d11e5dbecbb731
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76716359"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875123"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Distribuire un contenitore Anomaly Detector nelle istanze del contenitore di AzureDeploy an Anomaly Detector container to Azure Container Instances
 

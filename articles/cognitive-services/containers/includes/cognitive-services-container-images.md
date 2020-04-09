@@ -1,19 +1,19 @@
 ---
 title: Archivi contenitori e immagini
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 description: Due tabelle che rappresentano i registri contenitore, i repository e i nomi delle immagini per tutte le offerte di servizi cognitivi.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 55a3bb5f894d3ab753cfec64687abc9c7cae53cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: a854a090af908da691e9b26f5b0714c6560fc0ba
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79082687"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876829"
 ---
 ### <a name="container-repositories-and-images"></a>Archivi contenitori e immagini
 
@@ -28,7 +28,7 @@ Microsoft Container Registry (MCR) pubblicamente disponibile contenitori "ungate
 
 | Service | Contenitore | Registro contenitori / Repository / Nome immagine |
 |--|--|--|
-| [Luis](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+| [Luis](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cogni'ive-services/luis` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Estrazione frasi chiave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Rilevamento lingua | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Analisi del sentiment | `mcr.microsoft.com/azure-cognitive-services/sentiment` |

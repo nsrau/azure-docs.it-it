@@ -3,18 +3,18 @@ title: Eseguire l'esempio di contenitore del comando docker runRun container exa
 titleSuffix: Azure Cognitive Services
 description: Comando di esecuzione Docker per il contenitore Analisi sentiment
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
-ms.openlocfilehash: f0e587fc39fa2cc6f5275ae16834372a206b37d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: e67f65d252be0ea638d3b5fa241d9413e76f1a98
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "70966679"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877050"
 ---
 Per eseguire il contenitore Analisi `docker run` *sentimenti,* eseguire il comando seguente.
 

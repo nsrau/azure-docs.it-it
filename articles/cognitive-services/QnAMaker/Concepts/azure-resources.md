@@ -3,12 +3,12 @@ title: Azure resources - QnA Maker
 description: QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Comprendere come vengono utilizzati singolarmente consente di pianificare e selezionare il piano tariffario corretto o di sapere quando modificare il piano tariffario. Comprendere come vengono utilizzati in combinazione consente di trovare e risolvere i problemi quando si verificano.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 1bd491ecbd878cb7bb05a7eaa5712c75653f2cba
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804300"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873906"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Azure resources for QnA Maker
 
@@ -49,6 +49,16 @@ La tabella seguente indica alcune linee guida generali.
 | Sperimentazione        | SKU gratuito             | Livello gratuito   | Livello gratuito    | Pubblicazione di massimo 2 Knowledge Base, dimensioni 50 MB  |
 | Ambiente di sviluppo/test   | SKU Standard         | Condiviso      | Basic        | Pubblicazione di massimo 14 Knowledge Base, dimensioni 2 GB    |
 | Ambiente di produzione | SKU Standard         | Basic       | Standard     | Pubblicazione di massimo 49 Knowledge Base, dimensioni 25 GB |
+
+## <a name="recommended-settings"></a>Impostazioni consigliate
+
+|QPS di destinazione | Servizio app | Ricerca cognitiva di Azure |
+| -------------------- | ----------- | ------------ |
+| 3             | S1, 1 Istanza   | S1, 1 Istanza    |
+| 50         | S3, 10 Istanze       | S1, 12 Istanze         |
+| 80         | S3, 10 Istanze      |  S3, 12 Istanze  |
+| 100         | P3V2, 10 Istanze  | S3, 12 istanze, 3 partizioni   |
+| Da 200 a 250         | P3V2, 20 Istanze | S3, 12 istanze, 3 partizioni    |
 
 ## <a name="when-to-change-a-pricing-tier"></a>Quando modificare un piano tariffarioWhen to change a pricing tier
 

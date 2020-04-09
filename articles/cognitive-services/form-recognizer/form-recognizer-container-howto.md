@@ -2,19 +2,19 @@
 title: Come installare ed eseguire il contenitore per il sistema di riconoscimento dei moduliHow to install and run container for Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra come usare il contenitore Riconoscimento moduli di Azure Cognitive Services per analizzare i dati di moduli e tabelle.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: dapine
-ms.openlocfilehash: c8ce4b913548429ff83e0b8aa3cb65455fc9b4c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8cfa9114c5a5e57882cb84b604c1cf71be9acc52
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474697"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878341"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Installare ed eseguire contenitori di riconoscimento moduli (anteprima)Install and run Form Recognizer containers (Preview)
 
@@ -37,7 +37,7 @@ Prima di usare i contenitori di Riconoscimento modulo, è necessario soddisfare 
 
 | Obbligatoria | Scopo |
 |----------|---------|
-| Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica sui concetti fondamentali relativi a Docker e al contenitore, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica su Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, è anche necessario configurare Docker per supportare i contenitori Linux.<br><br> |
+| Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, è anche necessario configurare Docker per supportare i contenitori Linux.<br><br> |
 | Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base. |
 | Interfaccia della riga di comando di Azure | Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) nell'host. |
 | Risorsa API Visione artificiale | Per elaborare documenti e immagini digitalizzati, è necessaria una risorsa di Visione artificiale. È possibile accedere alla funzionalità Riconosci testo come risorsa di Azure (API REST o SDK) o contenitore di *testo cognitivo-servizi-riconoscimento.* [container](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull) Si applicano le normali tariffe di fatturazione. <br><br>Passare sia la chiave API che gli endpoint per la risorsa Visione artificiale (cloud di Azure o contenitore Servizi cognitivi). Utilizzare questa chiave API e l'endpoint come **COMPUTER_VISION_API_KEY** e **COMPUTER_VISION_ENDPOINT_URI**.<br><br> Se si usa il contenitore *cognitive-services-recognize-text*, soddisfare questi requisiti:<br><br>La chiave di Visione artificiale per il contenitore Riconoscimento modulo deve essere quella specificata nel comando `docker run` di Visione artificiale per il contenitore *cognitive-services-recognize-text*.<br>L'endpoint di fatturazione deve essere quello del contenitore, ad esempio `http://localhost:5000`. Se si usano insieme i contenitori di Visione artificiale e Riconoscimento modulo nello stesso host, non sarà possibile avviarli entrambi con la porta *5000* predefinita. |
@@ -325,7 +325,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](for
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Riconoscimento modulo. In sintesi:
 

@@ -3,19 +3,19 @@ title: Usare i contenitori del servizio di riconoscimento vocale con Kubernetes 
 titleSuffix: Azure Cognitive Services
 description: Usando Kubernetes e Helm per definire le immagini del contenitore di sintesi vocale e sintesi vocale, creeremo un pacchetto Kubernetes. Questo pacchetto verrà distribuito in un cluster Kubernetes locale.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: dapine
-ms.openlocfilehash: 6ad5a843c8cc287834305e09b48cd3fafe09ca51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 3c183f6d0e2d80ed497654448a726a1562bd046c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474765"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874349"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Usare i contenitori del servizio di riconoscimento vocale con Kubernetes e Helm
 
@@ -39,7 +39,7 @@ Fare riferimento ai dettagli del computer host del [contenitore del servizio di 
 
 | Service | CPU / Contenitore | Memoria / Contenitore |
 |--|--|--|
-| **Sintesi vocale** | un decodificatore richiede un minimo di 1.150 millicore. Se `optimizedForAudioFile` l'opzione è abilitata, sono necessari 1.950 millicore. (impostazione predefinita: due decodificatori) | Obbligatorio: 2 GB<br>Limite: 4 GB |
+| **Riconoscimento vocale** | un decodificatore richiede un minimo di 1.150 millicore. Se `optimizedForAudioFile` l'opzione è abilitata, sono necessari 1.950 millicore. (impostazione predefinita: due decodificatori) | Obbligatorio: 2 GB<br>Limite: 4 GB |
 | **Sintesi vocale** | una richiesta simultanea richiede un minimo di 500 millicore. Se `optimizeForTurboMode` l'opzione è abilitata, sono necessari 1.000 millicore. (impostazione predefinita: due richieste simultanee) | Obbligatorio: 1 GB<br> Limite: 2 GB |
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Connettersi al cluster Kubernetes

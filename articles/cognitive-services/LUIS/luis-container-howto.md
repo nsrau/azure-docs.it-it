@@ -3,20 +3,20 @@ title: Docker containers - LUIS
 titleSuffix: Azure Cognitive Services
 description: Il contenitore LUIS carica un'app sottoposta a training o pubblicata in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.author: dapine
-ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: fec6b16eb7f80369904eefc407a9a9c8d6629c9a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219929"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879327"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -34,7 +34,7 @@ Per eseguire il contenitore LUIS, tenere presente i prerequisiti seguenti:
 
 |Obbligatoria|Scopo|
 |--|--|
-|Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica sui concetti fondamentali relativi a Docker e al contenitore, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica su Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
+|Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
 |Risorsa `Cognitive Services` di Azure e file [dell'app in pacchetto](luis-how-to-start-new-app.md) LUISAzure resource and LUIS packaged app file |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di Azure _di Servizi cognitivi_ e la chiave di fatturazione associata l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine Panoramica e Chiavi per la risorsa e sono necessari per avviare il contenitore. <br>* Un'app pubblicata o sottoposta a training inserita in un pacchetto come input montato per il contenitore con il relativo ID app associato. È possibile ottenere il file del pacchetto dal portale LUIS o dalle API di creazione. Se si ottiene l'app in pacchetto LUIS dalle API di [creazione,](#authoring-apis-for-package-file)sarà necessaria anche la chiave di _creazione_.<br><br>Questi requisiti vengono usati per passare gli argomenti della riga di comando per le variabili seguenti:<br><br>**AUTHORING_KEY Questa**chiave viene utilizzata per ottenere l'app in pacchetto dal servizio LUIS nel cloud e caricare di nuovo i log delle query nel cloud. Il formato è `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**APP_ID Questo**ID viene utilizzato per selezionare l'app. Il formato è `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**API_KEY Questa**chiave viene utilizzata per avviare il contenitore. È possibile trovare la chiave dell'endpoint in due posizioni. Il primo è il portale di Azure all'interno dell'elenco di chiavi delle risorse _di Servizi cognitivi._ La chiave dell'endpoint è anche disponibile nel portale di LUIS nella pagina relativa a impostazioni dell'endpoint e chiavi. Non usare la chiave di avvio.<br><br>**L'endpoint ENDPOINT_URI:** l'endpoint come indicato nella pagina Panoramica.<br><br>La [chiave di creazione e la chiave dell'endpoint](luis-boundaries.md#key-limits) hanno scopi diversi. Non usarle in modo intercambiabile. |
 
@@ -372,7 +372,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](lui
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire contenitori Language Understanding (LUIS). In sintesi:
 

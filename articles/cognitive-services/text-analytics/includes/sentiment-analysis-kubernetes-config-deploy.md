@@ -3,18 +3,18 @@ title: Sentiment Analysis Kubernetes config e distribuire i passaggi
 titleSuffix: Azure Cognitive Services
 description: Sentiment Analysis Kubernetes config e distribuire i passaggi
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: 2a99f85cf861c0c36ffac136cdf1f792b40719b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: b43299974034f55b57b86191b3556c3d5c2ee83b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78262270"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877832"
 ---
 ### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Distribuire il contenitore di analisi del sentiment in un cluster AKSDeploy the Sentiment Analysis container to an AKS cluster
 

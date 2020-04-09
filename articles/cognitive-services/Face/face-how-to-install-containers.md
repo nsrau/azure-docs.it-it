@@ -3,20 +3,20 @@ title: Installare ed eseguire contenitori - Faccia
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra come scaricare, installare ed eseguire contenitori per Face in questa procedura dettagliata.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: e467b195ab1e2124286bfef74d7d1b71a4d99dd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 74465bddb57c14af4d02c1d3bfdc46f3ac25bef3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76165990"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878545"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installare ed eseguire contenitori Face (anteprima)Install and run Face containers (Preview)
 
@@ -30,7 +30,7 @@ Prima di utilizzare i contenitori del servizio Face, è necessario soddisfare i 
 
 |Obbligatoria|Scopo|
 |--|--|
-|Motore Docker| Il motore Docker deve essere installato in un [computer host.](#the-host-computer) Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica sui concetti fondamentali relativi a Docker e al contenitore, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica su Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, Docker deve anche essere configurato per supportare i contenitori Linux.On Windows, Docker also must be configured to support Linux containers.<br><br>|
+|Motore Docker| Il motore Docker deve essere installato in un [computer host.](#the-host-computer) Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, Docker deve anche essere configurato per supportare i contenitori Linux.On Windows, Docker also must be configured to support Linux containers.<br><br>|
 |Familiarità con Docker | È necessaria una conoscenza di base dei concetti di Docker, ad esempio registri, archivi, contenitori e immagini di contenitori. È inoltre necessaria `docker` una conoscenza dei comandi di base.| 
 |Risorsa viso |Per utilizzare il contenitore, è necessario disporre di:To use the container, you must have:<br><br>Una risorsa Azure **Face,** la chiave API associata e l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine **Panoramica** e **Chiavi** per la risorsa. Sono tenuti ad avviare il contenitore.<br><br>**API_KEY :Una**delle due chiavi di risorsa disponibili nella pagina **Chiavi**<br><br>**ENDPOINT_URI :** l'endpoint come indicato nella pagina **Panoramica**
 
@@ -142,7 +142,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./f
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati illustrati i concetti e il flusso di lavoro su come scaricare, installare ed eseguire contenitori di servizi Face. In sintesi:
 
