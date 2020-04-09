@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 11b61612a261b32e2d15b5dc70005b18aa112ed4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6435535ee14450c590a79ea68c8855c29df8bd9a
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215179"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637875"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Raccogliere dati da un computer Windows in un ambiente ibrido con Monitoraggio di Azure
 
 [Monitoraggio di Azure](../overview.md) può raccogliere i dati direttamente dai computer fisici o virtuali Windows dell'ambiente in un'area di lavoro Log Analytics per l'analisi dettagliata e la correlazione. L'installazione dell'[agente di Log Analytics](../platform/log-analytics-agent.md) consente a Monitoraggio di Azure di raccogliere dati da un data center o da un altro ambiente cloud. Questa guida introduttiva mostra come configurare e raccogliere dati dal computer Windows in pochi semplici passaggi. Per informazioni sulle macchine virtuali Windows di Azure, vedere [Raccogliere dati sulle macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-Per comprendere la configurazione supportata, vedere i [sistemi operativi Windows supportati](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) e la [configurazione del firewall di rete](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+Per comprendere la configurazione supportata, vedere i [sistemi operativi Windows supportati](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) e la [configurazione del firewall di rete](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
  
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

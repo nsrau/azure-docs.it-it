@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 6/24/2019
+ms.date: 04/04/2020
 ms.author: yinhew
-ms.openlocfilehash: ba6a373f678f8d34b34a669b3fbb3b570c90ed0d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 87fe6b49ce98b3fcb2b16c6573f81aa25fac7f5c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924853"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671689"
 ---
 > [!NOTE]
 > .NET core è una multipiattaforma open source, multipiattaforma di .NET che implementa la specifica [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -26,7 +26,7 @@ Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
+> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=dotnetcore&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 

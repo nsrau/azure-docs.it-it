@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ff1d34462680ddd6be7f1a47d9a27594bcce4ff6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f7d1967c8a9585fbf5131da986595761030f0e5f
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061496"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632003"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduzione all'archiviazione BLOB di Azure
 
@@ -38,35 +38,35 @@ Un account di archiviazione offre uno spazio dei nomi univoco in Azure per i dat
 Ad esempio, se l'account di archiviazione si chiama *mystorageaccount*, l’endpoint predefinito per l’archivio BLOB è:
 
 ```
-http://mystorageaccount.blob.core.windows.net 
+http://mystorageaccount.blob.core.windows.net
 ```
 
 Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../common/storage-account-create.md). Per altre informazioni sugli account di archiviazione, vedere la [panoramica degli account di archiviazione di Azure](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="containers"></a>Contenitori
 
-Un contenitore consente di organizzare un set di BLOB, in modo simile a una directory in un file system. Un account di archiviazione può contenere un numero illimitato di contenitori, ciascuno dei quali può archiviare un numero illimitato di BLOB. 
+Un contenitore consente di organizzare un set di BLOB, in modo simile a una directory in un file system. Un account di archiviazione può contenere un numero illimitato di contenitori, ciascuno dei quali può archiviare un numero illimitato di BLOB.
 
-  > [!NOTE]
-  > Il nome del contenitore deve essere in lettere minuscole. Per altre informazioni sui contenitori di denominazione, vedere [Contenitori di denominazione e di riferimento, BLOB e metadati](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+> [!NOTE]
+> Il nome del contenitore deve essere in lettere minuscole. Per altre informazioni sui contenitori di denominazione, vedere [Contenitori di denominazione e di riferimento, BLOB e metadati](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
 ### <a name="blobs"></a>BLOB
- 
+
 Archiviazione di Azure supporta tre tipi di BLOB:
 
 - I **BLOB in blocchi** archiviano testo e dati binari, fino a circa 4,7 TB. I BLOB in blocchi sono costituiti da blocchi di dati che possono essere gestiti individualmente.
 - **I BLOB di aggiunta** sono costituiti da blocchi, analogamente ai BLOB in blocchi, ma sono ottimizzati per le operazioni di aggiunta. I BLOB di aggiunta sono ideali per scenari come la registrazione di dati delle macchine virtuali.
 - I **BLOB di pagine** archiviano file ad accesso casuale con dimensioni fino a 8 TB. I BLOB di pagine archiviano i file disco rigido virtuale (VHD) che vengono utilizzati come dischi per macchine virtuali di Azure. Per altre informazioni sui BLOB di pagine, vedere [Panoramica dei BLOB di pagine di Azure](storage-blob-pageblob-overview.md).
 
-Per altre informazioni sui diversi tipi di BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+Per altre informazioni sui diversi tipi di BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="move-data-to-blob-storage"></a>Spostare i dati nell'archivio BLOB
 
 Esistono diverse soluzioni per la migrazione dei dati esistenti nell'archivio BLOB:
 
-- **AzCopy** è uno strumento da riga di comando facile da usare per Windows e Linux che copia i dati da e verso l’archivio BLOB, tra contenitori o tra account di archiviazione. Per altre informazioni su AzCopy, vedere [Trasferire dati con AzCopy v10 (Anteprima)](../common/storage-use-azcopy-v10.md). 
-- La **libreria di spostamento dei dati di archiviazione di Azure** è una libreria .NET per lo spostamento dei dati tra i servizi di archiviazione di Azure. L'utilità AzCopy viene compilata con la libreria di spostamento dei dati. Per ulteriori informazioni, vedere la [documentazione di riferimento](/dotnet/api/microsoft.azure.storage.datamovement) per la libreria di spostamento dei dati. 
-- **Azure Data Factory** supporta la copia dei dati da e verso l'archivio BLOB tramite la chiave dell'account, una firma di accesso condiviso, un'entità servizio o identità gestite per le risorse di Azure. Per altre informazioni, vedere [Copiare dati da e verso l’archivio BLOB di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+- **AzCopy** è uno strumento da riga di comando facile da usare per Windows e Linux che copia i dati da e verso l’archivio BLOB, tra contenitori o tra account di archiviazione. Per altre informazioni su AzCopy, vedere [Trasferire dati con AzCopy v10 (Anteprima)](../common/storage-use-azcopy-v10.md).
+- La **libreria di spostamento dei dati di archiviazione di Azure** è una libreria .NET per lo spostamento dei dati tra i servizi di archiviazione di Azure. L'utilità AzCopy viene compilata con la libreria di spostamento dei dati. Per ulteriori informazioni, vedere la [documentazione di riferimento](/dotnet/api/microsoft.azure.storage.datamovement) per la libreria di spostamento dei dati.
+- **Azure Data Factory** supporta la copia dei dati da e verso l'archivio BLOB tramite la chiave dell'account, una firma di accesso condiviso, un'entità servizio o identità gestite per le risorse di Azure. Per altre informazioni, vedere [Copiare dati da e verso l’archivio BLOB di Azure usando Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 - **Blobfuse** è un driver virtuale file system per l'archivio BLOB di Azure. È possibile usare blobfuse per accedere ai dati di BLOB in blocchi esistenti nell'account di archiviazione tramite il file system di Linux. Per altre informazioni, vedere [Come montare l'archivio BLOB come file system con blobfuse](storage-how-to-mount-container-linux.md).
 - Il servizio **Azure Data Box** è disponibile per trasferire dati locali nell'archivio BLOB, quando grandi set di dati o vincoli di rete complicano il caricamento dei dati in rete. A seconda delle dimensioni dei dati, è possibile richiedere a Microsoft dispositivi [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md) o [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md). È quindi possibile copiare i dati in tali dispositivi e rispedirli a Microsoft per farli caricare nell'archivio BLOB.
 - Il **servizio di importazione/esportazione di Azure** consente di importare o esportare grandi quantità di dati nell'account di archiviazione usando i dischi rigidi forniti. Per altre informazioni, vedere [Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB](../common/storage-import-export-service.md).

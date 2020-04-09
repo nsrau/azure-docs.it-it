@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c7ec8db212a24f1f23f393e4cb0e7f4150605a56
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e3038617c6270acf9af295c910e9fd5c7dae2043
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350785"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633787"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Guida introduttiva: Ridimensionare le risorse di calcolo per il pool SQL di Synapse con Azure PowerShell
 
-È possibile ridimensionare le risorse di calcolo per il pool SQL di Synapse (data warehouse) con Azure PowerShell. [aumentandone il numero](sql-data-warehouse-manage-compute-overview.md) per ottenere prestazioni migliori o riducendolo per diminuire i costi. 
+È possibile ridimensionare le risorse di calcolo per il pool SQL di Synapse (data warehouse) con Azure PowerShell. [aumentandone il numero](sql-data-warehouse-manage-compute-overview.md) per ottenere prestazioni migliori o riducendolo per diminuire i costi.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -32,19 +32,19 @@ Questa guida di avvio rapido presuppone che l'utente abbia già un pool SQL che 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Accedere alla sottoscrizione di Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e seguire le indicazioni visualizzate.
+Accedere alla sottoscrizione di Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e seguire le indicazioni visualizzate.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Per vedere quale sottoscrizione si sta usando, eseguire [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Per vedere quale sottoscrizione si sta usando, eseguire [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Se è necessario usare una sottoscrizione diversa da quella predefinita, eseguire [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Se è necessario usare una sottoscrizione diversa da quella predefinita, eseguire [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -69,7 +69,7 @@ Seguire questa procedura per trovare le informazioni sulla posizione del data wa
 
 Nel pool SQL è possibile aumentare o ridurre le risorse di calcolo agendo sulle unità di data warehouse. Nella pagina [Creare e connettere - portale](create-data-warehouse-portal.md)**mySampleDataWarehouse** è stato creato e inizializzato con 400 unità Data Warehouse. La procedura seguente modifica le unità Data Warehouse per **mySampleDataWarehouse**.
 
-Per modificare le unità Data Warehouse, usare il cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L'esempio seguente imposta le unità di data warehouse su DW300c per il database **mySampleDataWarehouse** che è ospitato nel gruppo di risorse **resourcegroupname** del server **sqlpoolservername**.
+Per modificare le unità Data Warehouse, usare il cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). L'esempio seguente imposta le unità di data warehouse su DW300c per il database **mySampleDataWarehouse** che è ospitato nel gruppo di risorse **resourcegroupname** del server **sqlpoolservername**.
 
 ```Powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
@@ -77,7 +77,7 @@ Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySample
 
 ## <a name="check-data-warehouse-state"></a>Controllare lo stato del data warehouse
 
-Per visualizzare lo stato corrente del data warehouse, usare il cmdlet PowerShell [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase). Questo cmdlet mostra lo stato del database **mySampleDataWarehouse** nel gruppo di risorse **resourcegroupname** e nel server **sqlpoolservername.database.windows.net**.
+Per visualizzare lo stato corrente del data warehouse, usare il cmdlet PowerShell [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Questo cmdlet mostra lo stato del database **mySampleDataWarehouse** nel gruppo di risorse **resourcegroupname** e nel server **sqlpoolservername.database.windows.net**.
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
@@ -120,6 +120,7 @@ $database | Select-Object DatabaseName,Status
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Si è appreso come ridimensionare le risorse di calcolo per un pool SQL. Per altre informazioni sul pool SQL, continuare con l'esercitazione sul caricamento dei dati.
 
 > [!div class="nextstepaction"]
