@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: aa9ffc48d9b1374fa510f450bab2c66641421446
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: acb0b0e84804ecf6025e05590133dee9b0d54c48
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76773500"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478648"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Guida introduttiva: Usare le code del bus di servizio con Python
 
@@ -32,7 +32,7 @@ Per altre informazioni sulle librerie del bus di servizio di Azure per Python, v
 ## <a name="prerequisites"></a>Prerequisiti
 - Una sottoscrizione di Azure. È possibile attivare i [vantaggi per i sottoscrittori di Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Uno spazio dei nomi del bus di servizio, creato seguendo la procedura descritta in [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni](service-bus-quickstart-topics-subscriptions-portal.md). Copiare la stringa di connessione primaria dalla schermata **Criteri di accesso condiviso**, che verrà usata più avanti in questo articolo. 
-- Python 3.4x o versione successiva, con il pacchetto [Python Azure Service Bus][Python Azure Service Bus package] installato. Per altre informazioni, vedere la [Guida all'installazione di Python](/azure/python/python-sdk-azure-install). 
+- Python 3.4x o versione successiva, con il pacchetto [Python Azure Service Bus][Python Azure Service Bus package] installato. Per altre informazioni, vedere la [Guida all'installazione di Python](/azure/developer/python/azure-sdk-install). 
 
 ## <a name="create-a-queue"></a>Creare una coda
 

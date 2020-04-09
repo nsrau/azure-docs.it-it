@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 40f7de4b4feb2b312705238abd30402edb635ea9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8fbd2065ceae1aadf1dc57c78adb21b7c2848297
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73720882"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985559"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Esercitazione: Creare applicazioni per dispositivi mobili con Xamarin e Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Azure Cosmos DB offre le seguenti funzionalità principali per gli sviluppatori 
 * Alta velocità effettiva. Bastano pochi millisecondi per leggere e scrivere documenti con Azure Cosmos DB. Gli sviluppatori possono specificare la velocità effettiva di cui hanno bisogno e Azure Cosmos DB la rispetta con un contratto di servizio con disponibilità del 99,99% per tutti gli account in una singola area e tutti gli account in più aree con coerenza media e con disponibilità in lettura del 99,999% per tutti gli account di database in più aree.
 * Scalabilità senza limiti. I contenitori Azure Cosmos [aumentano al crescere dell'app](partition-data.md). È possibile iniziare con dati di piccole dimensioni e velocità effettiva di centinaia di richieste al secondo. Le raccolte o i database possono aumentare fino a petabyte di dati e velocità effettiva di grandi dimensioni con centinaia di milioni di richieste al secondo.
 * Distribuzione a livello globale. Gli utenti dell'app per dispositivi mobili viaggiano spesso in tutto il mondo. Azure Cosmos DB è un [database distribuito a livello globale](distribute-data-globally.md). Fare clic sulla mappa per rendere i dati accessibili agli utenti.
-* Autorizzazioni avanzate integrate. Con Azure Cosmos DB è possibile implementare facilmente modelli diffusi come i [dati per utente](https://aka.ms/documentdb-xamarin-todouser) o i dati condivisi fra più utenti senza codice di autorizzazione personalizzato complesso.
+* Autorizzazioni avanzate integrate. Con Azure Cosmos DB è possibile implementare facilmente modelli diffusi come i [dati per utente](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems) o i dati condivisi fra più utenti senza codice di autorizzazione personalizzato complesso.
 * Query geospaziali. Molte app per dispositivi mobili offrono oggi un'esperienza geografica contestuale. Grazie all'eccellente supporto per i [tipi geospaziali](geospatial.md), con Azure Cosmos DB è facile creare queste esperienze.
 * Allegati binari. I dati dell'app includono spesso BLOB binari. Il supporto nativo per gli allegati facilita l'uso di Azure Cosmos DB come unica risorsa per i dati dell'app.
 
@@ -83,7 +83,7 @@ Seguire questa procedura per modificare l'app dell'elenco attività e trasformar
 
   4. Modificare l'app per l'autenticazione in Resource Token Broker con Facebook e richiedere i token di risorsa per l'utente di Facebook. È quindi possibile accedere ai propri dati nella raccolta UserItems.  
 
-È possibile trovare un esempio di codice completo di questo modello in [Resource Token Broker su Github](https://aka.ms/documentdb-xamarin-todouser). Questo diagramma illustra la soluzione:
+È possibile trovare un esempio di codice completo di questo modello in [Resource Token Broker su Github](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems). Questo diagramma illustra la soluzione:
 
 ![Utenti di Azure Cosmos DB e broker delle autorizzazioni](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

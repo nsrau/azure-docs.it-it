@@ -44,11 +44,11 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Sezione Dettagli dell'istanza](./media/quick-create-portal/instance-details.png)
 
-1. In**Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. In **Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     ![Immettere il proprio nome utente e la password](./media/quick-create-portal/administrator-account.png)
 
-1. Sotto **Regole porta in ingresso**, scegliere **Consentire porte selezionate**, quindi selezionare **RDP (3389)** e **HTTP (80)** dall'elenco a discesa.
+1. Sotto **Regole porta in ingresso**, scegliere **Consenti porte selezionate**, quindi selezionare **RDP (3389)** e **HTTP (80)** dall'elenco a discesa.
 
     ![Aprire le porte per RDP e HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
