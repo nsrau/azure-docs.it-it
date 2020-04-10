@@ -278,18 +278,15 @@
         - name: Configurare i server allo stato desiderato e gestire la deviazione con la configurazione dello stato
           href: tutorial-configure-servers-desired-state.md
           displayName: 'DSC, compliance'
-        - name: Onboarding di computer per la gestione
-          href: automation-dsc-onboarding.md
-          displayName: 'DSC, state configuration'
-        - name: Compilazione di configurazioni DSC
+        - name: Compilare configurazioni DSC
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
         - name: Correggere i server DSC non conformi
           href: automation-dsc-remediate.md
           displayName: 'state configuration, DSC, remediate'
-        - name: Composizione delle configurazioni DSC con le risorse composite
+        - name: Comporre configurazioni DSC con risorse composite
           href: compose-configurationwithcompositeresources.md
-        - name: Distribuzione continua tramite Chocolatey
+        - name: Distribuzione continua con Chocolatey
           href: automation-dsc-cd-chocolatey.md
           displayName: 'dsc, state configuration'
         - name: Inoltrare i dati di report sulla configurazione dello stato ai log di Monitoraggio di Azure
@@ -297,12 +294,12 @@
           displayName: DSC
     - name: Risolvere problemi
       items:
-        - name: Onboarding
+        - name: Risolvere i problemi di onboarding
           href: troubleshoot/onboarding.md
           displayName: troubleshoot
         - name: Risolvere i problemi di State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
-          displayName: 'Desired State Configuration, troubleshoot'
+          displayName: 'state configuration, DSC, troubleshoot'
     - name: Informazioni di riferimento
       items:
         - name: Soluzioni della community

@@ -15,24 +15,27 @@
 - name: Esercitazioni
   expanded: true
   items:
-    - name: Studio e progettazione
+    - name: Studio
       items:
         - name: Finestra di progettazione (trascinamento della selezione)
           items:
-            - name: 'Progettazione: 1. Eseguire il training di un modello di regressione'
+            - name: 1. Eseguire il training di un modello di regressione
               displayName: studio
               href: tutorial-designer-automobile-price-train-score.md
-            - name: 'Progettazione: 2. Distribuire il modello'
+            - name: 2. Distribuire il modello
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
         - name: ML automatizzato (interfaccia utente)
           items:
-            - name: Creare un esperimento automatizzato di Machine Learning
+            - name: Creare esperimenti di Machine Learning automatizzato
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-first-experiment-automated-ml.md
-            - name: Prevedere la domanda con ML automatizzato (dati sul bike sharing)
+            - name: Prevedere la domanda (dati sul bike sharing)
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-automated-ml-forecast.md
+        - name: Etichettare i dati delle immagini
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: Python SDK
       items:
         - name: Creare il primo esperimento di Machine Learning
@@ -78,14 +81,14 @@
     - name: Jupyter Notebook
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Set di dati Open di Azure
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
     - name: Set di dati della finestra di progettazione
       href: sample-designer-datasets.md
+    - name: Pipeline di esempio della finestra di progettazione
+      href: samples-designer.md
     - name: Esempi end-to-end di MLOps
       href: 'https://github.com/microsoft/MLOps'
-    - name: Pipeline della finestra di progettazione
-      href: samples-designer.md
+    - name: Set di dati aperti (pubblici)
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concetti
   items:
     - name: Area di lavoro
@@ -115,10 +118,10 @@
       href: /azure/machine-learning/algorithm-cheat-sheet
     - name: Come selezionare gli algoritmi
       href: /azure/machine-learning/how-to-select-algorithms
-    - name: Funzionalità automatizzate di Machine Learning
+    - name: Funzionalità automatiche di Machine Learning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Gestire i problemi di Machine Learning
+    - name: Overfitting e sbilanciamento dei dati
       displayName: 'automl, auto ml, risks'
       href: concept-manage-ml-pitfalls.md
     - name: Istanza di calcolo
@@ -351,6 +354,8 @@
       items:
         - name: Creare pipeline di Machine Learning (Python)
           href: how-to-create-your-first-pipeline.md
+        - name: Spostamento di dati in e tra i passaggi della pipeline ML (Python)
+          href: how-to-move-data-in-out-of-pipelines.md
         - name: Pianificare una pipeline (Python)
           href: how-to-schedule-pipelines.md
         - name: Attivare una pipeline

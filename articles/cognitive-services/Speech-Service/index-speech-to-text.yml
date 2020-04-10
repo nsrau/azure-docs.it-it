@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentazione vocale
+title: Documentazione del riconoscimento vocale
 summary: La sintesi vocale del servizio di riconoscimento vocale, nota anche come riconoscimento vocale, consente la trascrizione in tempo reale e in batch dei flussi audio nel testo.
 metadata:
   title: Documentazione vocale- testo - Esercitazioni, Riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
@@ -11,22 +11,22 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: dapine
-  ms.openlocfilehash: dd42fd57d8daa00d5507405a0d5e3145b335de84
-  ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+  ms.openlocfilehash: 28bd088965364411f7943f5bf50b5d245c49668e
+  ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/30/2020
-  ms.locfileid: "80397766"
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80991365"
 landingContent:
 - title: Informazioni sulla sintesi vocale
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è la sintesi vocale in tempo reale?
+    - text: Che cos'è il riconoscimento vocale in tempo reale?
       url: speech-to-text.md
-    - text: Che cos'è la sintesi vocale batch?
+    - text: Che cos'è il riconoscimento vocale in batch?
       url: batch-transcription.md
-    - text: Nozioni di base sul riconoscimento vocale?
+    - text: Nozioni di base sul riconoscimento vocale
       url: speech-to-text-basics.md
   - linkListType: quickstart
     links:
@@ -54,7 +54,7 @@ landingContent:
       url: tutorial-tenant-model.md
   - linkListType: concept
     links:
-    - text: Preparare i dati per il riconoscimento vocale personalizzatoPrepare data for Custom Speech
+    - text: Preparare i dati per Riconoscimento vocale personalizzato
       url: how-to-custom-speech-test-and-train.md
     - text: Eseguire il training di un modello per Riconoscimento vocale personalizzato
       url: how-to-custom-speech-train-model.md

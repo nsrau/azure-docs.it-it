@@ -3,45 +3,45 @@
 - name: Panoramica
   items:
     - name: Creazione di soluzioni per la vendita al dettaglio con Azure IoT Central
-      href: overview-iot-central-retail-pnp.md
+      href: overview-iot-central-retail.md
 - name: Esercitazioni
   items:
     - name: Analisi punti vendita - Pagamento
       items:
         - name: 1 - Creare un'applicazione per la vendita al dettaglio
-          href: tutorial-in-store-analytics-create-app-pnp.md
+          href: tutorial-in-store-analytics-create-app.md
         - name: 2 - Personalizzare il dashboard dell'operatore
-          href: tutorial-in-store-analytics-customize-dashboard-pnp.md
+          href: tutorial-in-store-analytics-customize-dashboard.md
         - name: 3 - Esportare i dati e visualizzare informazioni dettagliate
-          href: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+          href: tutorial-in-store-analytics-export-data-visualize-insights.md
     - name: Gestione inventario intelligente
       items:
         - name: Creare un'applicazione per la gestione inventario intelligente
-          href: tutorial-iot-central-smart-inventory-management-pnp.md
+          href: tutorial-iot-central-smart-inventory-management.md
     - name: Logistica connessa
       items:
         - name: Creare un'applicazione per la logistica connessa
-          href: tutorial-iot-central-connected-logistics-pnp.md
+          href: tutorial-iot-central-connected-logistics.md
     - name: Centro di distribuzione digitale
       items:
         - name: Creare un'applicazione per il centro distribuzione digitale
-          href: tutorial-iot-central-digital-distribution-center-pnp.md
+          href: tutorial-iot-central-digital-distribution-center.md
     - name: Centro di micro-adempimenti
       items:
         - name: Creare un'applicazione per il centro di micro-adempimenti
-          href: tutorial-micro-fulfillment-center-pnp.md
+          href: tutorial-micro-fulfillment-center.md
 - name: Concetti
   items:
     - name: Architettura del modello di app per la logistica connessa
-      href: architecture-connected-logistics-pnp.md
+      href: architecture-connected-logistics.md
     - name: Architettura del modello di app per il centro distribuzione digitale
-      href: architecture-digital-distribution-center-pnp.md
+      href: architecture-digital-distribution-center.md
     - name: Architettura del modello di app per la gestione inventario intelligente
-      href: architecture-smart-inventory-management-pnp.md
+      href: architecture-smart-inventory-management.md
     - name: Architettura dell'analisi punti vendita
       href: store-analytics-architecture.md
     - name: Architettura del modello di app per il centro di micro-adempimenti
-      href: architecture-micro-fulfillment-center-pnp.md
+      href: architecture-micro-fulfillment-center.md
     - name: Connettività
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Che cosa i modelli di applicazione?
@@ -127,7 +127,7 @@
         - name: Acceleratori di soluzioni IoT
           href: /azure/iot-accelerators
         - name: Plug and Play IoT
-          href: /azure/iot-pnp
+          href: /azure/iot
         - name: Mappe di Azure
           href: /azure/azure-maps
         - name: Time Series Insights

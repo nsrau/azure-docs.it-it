@@ -480,6 +480,8 @@
       items:
         - name: Panoramica sul feed di modifiche
           href: change-feed.md
+        - name: Modelli di progettazione del feed di modifiche
+          href: change-feed-design-patterns.md
         - name: Lettura del feed di modifiche
           href: read-change-feed.md
         - name: Processore dei feed di modifiche
@@ -1033,6 +1035,8 @@
       items:
         - name: Monitorare Cosmos DB
           href: monitor-cosmos-db.md
+        - name: Monitorare la latenza lato server
+          href: monitor-server-side-latency.md
         - name: Monitorare con i log di diagnostica
           href: cosmosdb-monitor-resource-logs.md
         - name: Controllare i log del piano di controllo
@@ -1155,7 +1159,7 @@
     - name: Foglio informativo sulle query
       href: query-cheat-sheet.md
     - name: Playground SQL
-      href: 'https://aka.ms/cosmos-db-playground'
+      href: 'https://www.documentdb.com/sql/demo'
     - name: Domande frequenti
       href: faq.md
     - name: White paper

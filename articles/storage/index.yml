@@ -1,141 +1,149 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Hub
 title: Documentazione di Archiviazione di Azure
+summary: Archiviazione di Azure include l'archiviazione di oggetti, file, dischi, code e tabelle. Sono inoltre disponibili servizi per le soluzioni di archiviazione ibride, nonché servizi per il trasferimento, la condivisione e il backup dei dati.
+brand: azure
 metadata:
-  title: Documentazione di Archiviazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-  description: 'Archiviazione di Azure è un servizio cloud gestito da Microsoft che offre risorse di archiviazione a disponibilità, sicurezza, durabilità, scalabilità e ridondanza elevate. Archiviazione di Azure include BLOB di Azure, Azure Data Lake Storage Gen2, File di Azure, Code di Azure e Tabelle di Azure.'
-  services: storage
-  author: tamram
-  manager: twooley
+  title: Documentazione di Archiviazione di Azure
+  description: Pagina dell'hub di documentazione di Archiviazione di Azure. Collegamenti alla documentazione dei servizi per soluzioni di archiviazione nel cloud e ibride, nonché servizi per il trasferimento, la condivisione e il backup dei dati.
   ms.service: storage
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 06/27/2018
-  ms.author: tamram
-abstract:
-  description: 'Archiviazione di Azure è un servizio gestito da Microsoft che offre risorse di archiviazione cloud a disponibilità, sicurezza, durabilità, scalabilità e ridondanza elevate. Archiviazione di Azure include BLOB di Azure (oggetti), Azure Data Lake Storage Gen2, File di Azure, Code di Azure e Tabelle di Azure. Questo articolo contiene informazioni su come usare Archiviazione di Azure nelle applicazioni con esercitazioni e guide introduttive.'
-sections:
-  - title: Guide introduttive di 5 minuti
+  ms.topic: hub-page
+  author: twooley
+  ms.author: twooley
+  ms.date: 04/07/2020
+  ms.openlocfilehash: 5f599c7cc608a5e6a6246ed82c8f7b48e427dd66
+  ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80985338"
+highlightedContent:
+  items:
+  - title: Introduzione ai servizi di archiviazione principali
+    itemType: concept
+    url: /azure/storage/common/storage-introduction?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - title: Informazioni sui tipi di account di archiviazione
+    itemType: concept
+    url: /azure/storage/common/storage-account-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - title: Creare un account di archiviazione
+    itemType: how-to-guide
+    url: /azure/storage/common/storage-account-create?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - title: Informazioni sulla ridondanza dei dati
+    itemType: concept
+    url: /azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - title: Trasferire dati in Azure
+    itemType: concept
+    url: /azure/storage/common/storage-choose-data-transfer-solution?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+additionalContent:
+  sections:
+  - title: Soluzioni di archiviazione nel cloud
     items:
-      - type: paragraph
-        text: Apprendere l'uso di Archiviazione di Azure con queste guide introduttive.
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/portal.svg
-              text: Portale
-          - image:
-              src: media/index/logo_powershell.svg
-              text: PowerShell
-          - image:
-              src: media/index/cli.svg
-              text: Interfaccia della riga di comando di Azure
-          - image:
-              src: media/index/logo_net.svg
-          - image:
-              src: media/index/logo_java.svg
-          - image:
-              src: media/index/logo_python.svg
-          - image:
-              src: media/index/logo_nodejs.svg
-        rows:
-          - title: Crea account di archiviazione
-            values:
-              - href: /azure/storage/common/storage-quickstart-create-account?tabs=portal
-              - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell
-              - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-cli
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-          - title: Guide introduttive per i BLOB
-            values:
-              - href: /azure/storage/blobs/storage-quickstart-blobs-portal
-              - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
-              - href: /azure/storage/blobs/storage-quickstart-blobs-cli
-              - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
-              - href: /azure/storage/blobs/storage-quickstart-blobs-java
-              - href: /azure/storage/blobs/storage-quickstart-blobs-python
-              - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
-          - title: Data Lake Storage Gen2
-            values:
-              - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
-              - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
-              - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-  - title: Esercitazioni dettagliate
+    - title: Archiviazione di oggetti per le app
+      links:
+      - url: /azure/storage/blobs/storage-blobs-introduction
+        text: Informazioni sull'archiviazione di dati non strutturati (archiviazione BLOB)
+      - url: /rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
+        text: Informazioni su BLOB in blocchi, di accodamento e di pagine
+      - url: /azure/storage/blobs/
+        text: Altro >
+    - title: Archiviazione per l'analisi di Big Data
+      links:
+      - url: /azure/storage/blobs/data-lake-storage-introduction
+        text: Informazioni sull'archiviazione di data lake aziendali (Data Lake Storage)
+      - url: /azure/storage/blobs/data-lake-storage-data-scenarios
+        text: Informazioni sulle opzioni e sugli strumenti disponibili per l'elaborazione di Big Data
+    - title: Condivisioni file ospitate nel cloud
+      links:
+      - url: /azure/storage/files/storage-files-introduction
+        text: Usare le condivisioni file fornite dalla piattaforma principale di Archiviazione di Azure (File di Azure)
+      - url: /azure/azure-netapp-files/azure-netapp-files-introduction
+        text: Usare i volumi forniti da NetApp ONTAP (Azure NetApp Files)
+    - title: Archiviazione su disco per carichi di lavoro IaaS
+      links:
+      - url: /azure/virtual-machines/windows/managed-disks-overview
+        text: Informazioni sui volumi di archiviazione a livello di blocco per le VM di Azure
+      - url: /azure/virtual-machines/windows/disks-types
+        text: Informazioni sui tipi di disco disponibili
+      - url: /azure/virtual-machines/windows/attach-managed-disk-portal
+        text: Aggiungere un nuovo disco a una VM - Windows
+      - url: /azure/virtual-machines/linux/attach-disk-portal
+        text: Collegare un disco dati a una VM - Linux
+    - title: Archiviazione per l'accodamento messaggi asincrono
+      links:
+      - url: /azure/storage/queues/storage-queues-introduction
+        text: Informazioni sulla soluzione Archiviazione di Azure per le code (archiviazione code)
+      - url: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
+        text: Confronto tra archiviazione code e code del bus di servizio
+      - url: /azure/storage/queues/
+        text: Altro >
+    - title: Archiviazione di dati NoSQL strutturati
+      links:
+      - url: /azure/storage/tables/table-storage-overview
+        text: Archiviare dati NoSQL strutturati nel cloud (archiviazione tabelle e Cosmos DB)
+      - url: /azure/cosmos-db/table-support
+        text: Confronto tra archiviazione tabelle e API Tabella di Cosmos DB
+      - url: /azure/storage/tables/
+        text: Altro >
+  - title: Soluzioni di archiviazione ibride
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: BLOB
-            html: <p>Caricare ed elaborare i dati di immagini nel cloud</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Caricare e recuperare i dati di immagini nel cloud</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Attivare le funzioni di Azure per elaborare i BLOB</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Proteggere i dati dell'applicazione</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitorare e risolvere i problemi relativi alle risorse di archiviazione</a></li></ul><p>Progettare l'applicazione per la disponibilità elevata</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Rendere i dati dell'applicazione a disponibilità elevata</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulare un errore durante la lettura dei dati dall'area primaria</a></li></ul>
-          - title: Data Lake Storage Gen2
-            html: '<p><a href="/azure/storage/blobs/data-lake-storage-handle-data-using-databricks">Estrarre, trasformare e caricare dati tramite Azure Databricks</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">Accedere ai dati di Azure Data Lake Storage Gen2 con DataBricks usando Spark</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">Estrarre, trasformare e caricare dati usando Apache Hive in Azure HDInsight</a></p>'
-  - title: Esempi
+    - title: Espandere la condivisione file locale nel cloud
+      links:
+      - url: /azure/storage/files/storage-sync-files-planning
+        text: Sincronizzare le condivisioni file di Azure con file server Windows (Azure FileSync)
+      - url: /azure/storage/files/storage-sync-files-deployment-guide
+        text: Distribuire Sincronizzazione file di Azure
+      - url: /azure/storage/files/
+        text: Altro >
+    - title: Trasferimento dati online (da ambiente locale ad Azure)
+      links:
+      - url: /azure/databox-online/data-box-gateway-overview
+        text: Trasferire facilmente i dati in Azure (Data Box Gateway)
+      - url: /azure/databox-online/data-box-edge-overview
+        text: Elaborare localmente i dati prima del trasferimento in Azure (Azure Stack Edge)
+      - url: /azure/databox-online/
+        text: Altro >
+    - title: Memorizzazione nella cache per i carichi di lavoro HPC (High Performance Computing)
+      links:
+      - url: /azure/hpc-cache/hpc-cache-overview
+        text: Usare un servizio di memorizzazione file nella cache completamente gestito (Cache HPC di Azure)
+      - url: /azure/avere-vfxt/avere-vfxt-overview
+        text: Memorizzare nella cache il server NAS locale in Azure (Avere vFXT per Azure)
+      - url: /azure/fxt-edge-filer/fxt-overview
+        text: Distribuire un appliance locale di memorizzazione nella cache (Azure FXT Edge Filer)
+  - title: Operazioni sui dati
     items:
-      - type: paragraph
-        text: Trovare script per le attività di gestione comuni.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '.NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">BLOB</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">File</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">Code</a>'
-          - html: 'Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">BLOB</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">File</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Code</a>'
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Interfaccia della riga di comando di Azure</a>
-  - title: Sviluppare le proprie competenze con Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Introduzione ai dati in Azure
-            href: /learn/modules/intro-to-data-in-azure/
-            image:
-              src: /learn/achievements/intro-to-data-in-azure.svg
-              href: //learn/modules/intro-to-data-in-azure/
-          - title: "\_Scegliere un approccio di archiviazione dati in Azure"
-            href: /learn/modules/choose-storage-approach-in-azure/
-            image:
-              src: /learn/achievements/choose-storage-approach-in-azure.svg
-              href: /learn/modules/choose-storage-approach-in-azure/
-          - title: Creare un account di archiviazione di Azure
-            href: /learn/modules/create-azure-storage-account/
-            image:
-              src: /learn/achievements/create-azure-storage-account.svg
-              href: /learn/modules/create-azure-storage-account/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-storage">Altre risorse di apprendimento interattivo</a>
-  - title: Video di formazione gratuiti su PluralSight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Sviluppo con .NET in Azure
-            href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
-          - title: Sviluppo con Node.js in Azure
-            href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
-  - title: Riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Interfaccia della riga di comando di Azure</a></p>
-          - title: REST
-            html: '<p><a href="/rest/api/storageservices">BLOB e API code, tabelle e file</a></p><p><a href="/rest/api/storagerp">API Provider delle risorse di archiviazione</a></p><p><a href="/rest/api/storageimportexport">API Servizio di importazione/esportazione</a></p>'
+    - title: Trasferimento in blocco offline in Azure
+      links:
+      - url: /azure/databox/data-box-disk-overview
+        text: Trasferire meno di 40 TB di dati (Data Box Disk)
+      - url: /azure/databox/data-box-overview
+        text: Trasferire 40-500 TB di dati (Data Box)
+      - url: /azure/databox/data-box-heavy-overview
+        text: Trasferire più di 500 TB di dati (Data Box Heavy)
+      - url: /azure/databox/
+        text: Altro >
+    - title: Trasferire piccoli set di dati (online)
+      links:
+      - url: /azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        text: Usare lo strumento da riga di comando AzCopy
+      - url: /azure/storage/blobs/storage-quickstart-blobs-storage-explorer
+        text: Usare lo strumento Azure Storage Explorer basato su GUI
+    - title: Controllare i costi
+      links:
+      - url: /azure/storage/blobs/storage-blob-storage-tiers
+        text: Dividere i dati BLOB in livelli a costi contenuti (accesso frequente, accesso sporadico, archivio)
+    - title: Condividere i dati
+      links:
+      - url: /azure/data-share/
+        text: Condividere dati con clienti e partner (Condivisione dati di Azure)
+      - url: /azure/data-share/supported-data-stores
+        text: Archivi dati supportati per la condivisione
+      - url: /azure/data-share/
+        text: Altro >
+    - title: Dati di backup
+      links:
+      - url: /azure/backup/quick-backup-vm-portal
+        text: Eseguire il backup di VM (Backup di Azure)
+      - url: /azure/backup/tutorial-backup-azure-files
+        text: Eseguire il backup di condivisione file di Azure (anteprima)
+      - url: /azure/backup/
+        text: Altro >

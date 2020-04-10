@@ -65,7 +65,7 @@
       href: concepts-clusters-workloads.md
     - name: Accesso e identità
       href: concepts-identity.md
-    - name: Security
+    - name: Sicurezza
       href: concepts-security.md
       items: null
     - name: Rete
@@ -140,10 +140,14 @@
           href: cluster-autoscaler.md
         - name: Usare le zone di disponibilità
           href: availability-zones.md
-        - name: Usare più pool di nodi
-          href: use-multiple-node-pools.md
-        - name: Usare i pool di nodi spot (anteprima)
-          href: spot-node-pool.md
+        - name: Usare pool di nodi
+          items:
+            - name: Usare più pool di nodi
+              href: use-multiple-node-pools.md
+            - name: Usare i pool di nodi spot (anteprima)
+              href: spot-node-pool.md
+            - name: Usare i pool di nodi di sistema
+              href: use-system-pools.md
         - name: Distribuire servizio Azure Kubernetes con Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true

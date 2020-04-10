@@ -71,7 +71,11 @@
           href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: Peering
           href: virtual-network-peering-overview.md
-        - name: Rete virtuale per servizi di Azure
+    - name: Integrazione per servizi di Azure
+      items:
+        - name: Endpoint di servizio
+          href: virtual-network-service-endpoints-overview.md
+        - name: Distribuire un servizio dedicato
           href: virtual-network-for-azure-services.md
     - name: Servizi IP
       items:
@@ -83,7 +87,7 @@
           href: ipv6-overview.md
         - name: Prefisso dell'indirizzo IPv6 pubblico
           href: ipv6-public-ip-address-prefix.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Gruppi di sicurezza di rete
           href: security-overview.md
@@ -91,8 +95,6 @@
           href: application-security-groups.md
         - name: Tag di servizio
           href: service-tags-overview.md
-        - name: Endpoint di servizio
-          href: virtual-network-service-endpoints-overview.md
         - name: Criteri degli endpoint di servizio
           href: virtual-network-service-endpoint-policies-overview.md
         - name: Criteri di rete di Kubernetes
@@ -219,7 +221,7 @@
               href: manage-public-ip-address-prefix.md
             - name: Aggiungere o rimuovere indirizzi IP dalle schede di interfaccia di rete
               href: virtual-network-network-interface-addresses.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Limitare l'accesso con gruppi di sicurezza di rete
           items:

@@ -85,7 +85,7 @@
           href: deployment-tutorial-pipeline.md
     - name: Modelli avanzati
       items:
-        - name: Utilizzare il riferimento del modello
+        - name: Informazioni di riferimento sui modelli
           href: template-tutorial-use-template-reference.md
         - name: Creare più istanze
           displayName: 'iteration,copy'
@@ -291,6 +291,8 @@
           href: template-functions-array.md
         - name: Funzioni di confronto
           href: template-functions-comparison.md
+        - name: Funzioni di data
+          href: template-functions-date.md
         - name: Funzioni di distribuzione
           href: template-functions-deployment.md
         - name: Funzioni logiche

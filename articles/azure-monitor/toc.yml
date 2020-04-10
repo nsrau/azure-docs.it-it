@@ -161,8 +161,13 @@
         - name: Monitoraggio basato su codice
           items:
             - name: ASP.NET Core
-              displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
-              href: app/asp-net-core.md
+              items:
+                - name: Monitoraggio di app ASP.NET Core
+                  displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
+                  href: app/asp-net-core.md
+                - name: ILogger
+                  displayname: 'ilogger, logging, log'
+                  href: app/ilogger.md
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
@@ -172,9 +177,6 @@
             - name: Console .NET
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
-            - name: ILogger
-              displayname: 'ilogger, logging, log'
-              href: app/ilogger.md
             - name: Java
               items:
                 - name: App Web
@@ -224,6 +226,8 @@
               href: app/remove-application-insights.md
         - name: Monitoraggio senza codice
           items:
+            - name: Qualsiasi ambiente - Java (anteprima)
+              href: app/java-in-process-agent.md
             - name: Set di scalabilità e macchine virtuali di Azure
               href: app/azure-vm-vmss-apps.md
             - name: Servizio app di Azure

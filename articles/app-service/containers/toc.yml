@@ -55,6 +55,8 @@
       href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Autenticare gli utenti
       href: tutorial-auth-aad.md
+    - name: Inviare messaggi di posta elettronica/tweet
+      href: ../tutorial-send-email.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Risolvere gli errori
       href: tutorial-troubleshoot-monitor.md
 - name: Esempi
@@ -177,7 +179,7 @@
           href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Spostare le risorse
           href: '../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#checklist-before-moving-resources'
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/appservice
@@ -211,7 +213,7 @@
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Script di distribuzione
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       items:
         - name: Risolvere i problemi con Visual Studio
           href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json

@@ -88,7 +88,7 @@
       href: service-bus-outages-disasters.md
     - name: Limitazione
       href: service-bus-throttling.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Autenticazione e autorizzazione
           href: service-bus-authentication-and-authorization.md
@@ -213,6 +213,8 @@
     - name: Risolvere problemi
       items:
         - name: Guida per la risoluzione dei problemi
+          href: service-bus-troubleshooting-guide.md
+        - name: Eccezioni della messaggistica
           href: service-bus-messaging-exceptions.md
         - name: Eccezioni di Resource Manager
           href: service-bus-resource-manager-exceptions.md
