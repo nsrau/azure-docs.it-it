@@ -2,13 +2,13 @@
 title: Aggiornare i nodi del cluster per usare i dischi gestiti di AzureUpgrade cluster nodes to use Azure managed disks
 description: Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con tempi di inattività minimi o assi del cluster.
 ms.topic: how-to
-ms.date: 3/01/2020
-ms.openlocfilehash: 2bda5572eda5579bb31c3613b220885f27220d99
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 4/07/2020
+ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80758053"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991212"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Aggiornare i nodi del cluster per usare i dischi gestiti di AzureUpgrade cluster nodes to use Azure managed disks
 
@@ -27,11 +27,11 @@ Questo articolo illustra i passaggi per l'aggiornamento del tipo di nodo primari
 > [!CAUTION]
 > Si verificherà un'interruzione di questa procedura solo se si dispone di dipendenze nel DNS del cluster (ad esempio quando si accede a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). La procedura consigliata di architettura per i [servizi front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) consiste nel disporre di un tipo di servizio di [bilanciamento del carico](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) davanti ai tipi di nodo per rendere possibile lo scambio di nodi senza un'interruzione.
 
-Ecco i [modelli e i cmdlet](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) per Azure Resource Manager che useremo per completare lo scenario di aggiornamento. Le modifiche al modello verranno illustrate in Distribuire un set di [scalabilità aggiornato per il tipo di nodo primario](#deploy-an-upgraded-scale-set-for-the-primary-node-type) riportato di seguito.
+Ecco i [modelli e i cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) per Azure Resource Manager che useremo per completare lo scenario di aggiornamento. Le modifiche al modello verranno illustrate in Distribuire un set di [scalabilità aggiornato per il tipo di nodo primario](#deploy-an-upgraded-scale-set-for-the-primary-node-type) riportato di seguito.
 
 ## <a name="set-up-the-test-cluster"></a>Configurare il cluster di test
 
-È possibile configurare il cluster di test iniziale di Service Fabric.Let up the initial Service Fabric test cluster. Scaricare innanzitutto [i](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) modelli di esempio di Gestione risorse di Azure che verranno utilizzati per completare questo scenario.
+È possibile configurare il cluster di test iniziale di Service Fabric.Let up the initial Service Fabric test cluster. Scaricare innanzitutto [i](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) modelli di esempio di Gestione risorse di Azure che verranno utilizzati per completare questo scenario.
 
 Accedere quindi all'account Azure.Next, sign in to your Azure account.
 
@@ -370,6 +370,6 @@ Viene illustrato come:
 
 Vedere anche la pagina relativa alla
 
-* [Esempio: aggiornare i nodi del cluster per usare i dischi gestiti di AzureSample: Upgrade cluster nodes to use Azure managed disks](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage)
+* [Esempio: aggiornare i nodi del cluster per usare i dischi gestiti di AzureSample: Upgrade cluster nodes to use Azure managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
 
 * [Considerazioni sul ridimensionamento verticale](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

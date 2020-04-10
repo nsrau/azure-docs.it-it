@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/09/2020
 ms.author: sstein
-ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: b677fd7fe2b14e1c42443478a887ddfa2481dfbf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607542"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011447"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -27,7 +27,6 @@ In questo articolo sono elencate le funzionalità del database SQL attualmente i
 | Funzionalità | Dettagli |
 | ---| --- |
 | Nuove generazioni di hardware serie Fsv2 e serie M| Per informazioni, consultate [Generazioni di hardware.](sql-database-service-tiers-vcore.md#hardware-generations)|
-| [Collegamento privato di AzureAzure private link](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link semplifica l'architettura di rete e protegge la connessione tra gli endpoint in Azure mantenendo i dati nella rete di Azure, eliminando così l'esposizione a Internet.Private Link simplifies the network architecture and secures the connection between endpoints in Azure by keeping data on the Azure network, thus eliminating exposure to the internet. Private Link also enables you to create and render your own services on Azure. |
 | Ripristino accelerato del database con database singoli e pool elastici | Per informazioni, consultate [Ripristino accelerato del database](sql-database-accelerated-database-recovery.md).|
 |Count Distinct approssimato|Per informazioni, consultate [Conteggio approssimativo distinto](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Modalità Batch in Rowstore (sotto il livello di compatibilità 150)Batch Mode on Rowstore (under compatibility level 150)|Per informazioni, vedere [Modalità batch in Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|

@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: db4173cdaf18d827c6a3c047777f7d5e67d79b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8cd35131cfa6e919d22033a644a6479af4ee6eb4
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931131"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992029"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copiare dati da Amazon Marketplace Web Service usando Azure Data Factory
 
@@ -53,8 +53,8 @@ Per il servizio collegato di Amazon Marketplace Web Service sono supportate le p
 | accessKeyId | L'ID della chiave di accesso usato per accedere ai dati.  | Sì |
 | secretKey | La chiave di accesso usata per accedere ai dati. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
-| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
-| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
+| useHostVerification | Specifica se richiedere che il nome host nel certificato del server corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
+| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 
 **Esempio:**
 
@@ -121,7 +121,7 @@ Per copiare dati da Amazon Marketplace Web Service, impostare il tipo di origine
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AmazonMWSSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

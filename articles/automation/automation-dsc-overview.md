@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Configurazione stato di Automazione di Azure
-description: Panoramica di Configurazione stato di Automazione di Azure (DSC), dei relativi termini e dei problemi noti
+title: Panoramica della configurazione dello stato
+description: Panoramica della configurazione dello stato di automazione di Azure, dei termini e dei problemi noti
 keywords: powershell dsc, configurazione dello stato desiderato, powershell dsc azure
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 46cf0d6a12ffbc836db7bd79c0f2738a94e23085
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02e540c9ac2654be97ff247749d1ed18573cfc24
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283192"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010257"
 ---
-# <a name="azure-automation-state-configuration-overview"></a>Panoramica di Configurazione stato di Automazione di Azure
+# <a name="state-configuration-overview"></a>Panoramica della configurazione dello stato
 
 Configurazione stato di automazione di Azure è un servizio di Azure che consente di scrivere, gestire e compilare [le configurazioni](/powershell/scripting/dsc/configurations/configurations)di PowerShell Desired State Configuration (DSC). Il servizio importa anche [le risorse DSC](/powershell/scripting/dsc/resources/resources)e assegna le configurazioni ai nodi di destinazione, tutti nel cloud.
 
@@ -93,7 +93,7 @@ Si consiglia di utilizzare gli indirizzi elencati di seguito quando si definisco
 
 Se è disponibile un account di Automazione definito per un'area specifica, è possibile limitare la comunicazione a tale data center regionale. La tabella seguente indica il record DNS per ogni area:
 
-| **Regione** | **Record DNS** |
+| **Area** | **Record DNS** |
 | --- | --- |
 | Stati Uniti centro-occidentali | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Stati Uniti centro-meridionali |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |

@@ -4,12 +4,12 @@ description: Monitorare topologie di applicazioni complesse con la mappa delle a
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0823dd5d880c778f9b7a231ac14f1cbba1940927
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657381"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80989528"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 
@@ -155,7 +155,25 @@ Per le applicazioni ASP.NET `TelemetryInitializer` [Core,](asp-net-core.md#addin
 
 # <a name="java"></a>[Java](#tab/java)
 
-A partire da Application Insights Java SDK 2.5.0, `<RoleName>` è `ApplicationInsights.xml` possibile specificare il nome del ruolo cloud aggiungendo al file, ad esempio.
+**Agente Java**
+
+Per [l'agente Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) il nome del ruolo cloud viene impostato come segue:
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "roleName": "my cloud role name"
+    }
+  }
+}
+```
+
+È inoltre possibile impostare il nome ```APPLICATIONINSIGHTS_ROLE_NAME```del ruolo cloud utilizzando la variabile di ambiente .
+
+**SDK per Java**
+
+Se si usa l'SDK, a partire da Application Insights Java SDK 2.5.0, è possibile specificare il nome del ruolo cloud aggiungendo `<RoleName>` al `ApplicationInsights.xml` file, ad esempio.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>

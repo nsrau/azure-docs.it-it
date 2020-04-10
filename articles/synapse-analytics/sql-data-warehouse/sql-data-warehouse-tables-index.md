@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0d63f2c29bfdbdf320185647bd33ec30500ed874
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 8cb4af8faccb68c455928c0d3c5405ef2d3e70df
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742701"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011022"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelle di indicizzazione nel pool SQL SynapseIndexing tables in Synapse SQL pool
 
@@ -52,9 +52,9 @@ In alcuni scenari l'indice columnstore cluster potrebbe non essere la scelta ide
 
 ## <a name="heap-tables"></a>Tabelle heap
 
-Quando si atterrano temporaneamente i dati nel pool Synapse SQL, è possibile che l'utilizzo di una tabella heap velocisse. Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap è molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea](sql-data-warehouse-tables-temporary.md) risulta più veloce del caricamento di una tabella in un archivio permanente.  
+Quando si atterrano temporaneamente i dati nel pool Synapse SQL, è possibile che l'utilizzo di una tabella heap velocisse. Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap è molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea](sql-data-warehouse-tables-temporary.md) risulta più veloce del caricamento di una tabella in un archivio permanente.  Dopo il caricamento dei dati, è possibile creare indici nella tabella per velocizzare le prestazioni delle query.  
 
-Per le tabelle di ricerca di piccole dimensioni, meno di 60 milioni di righe, spesso le tabelle heap hanno senso.  Le tabelle columnstore cluster iniziano a ottenere una compressione ottimale quando sono presenti più di 60 milioni di righe.
+Le tabelle columnstore cluster iniziano a ottenere una compressione ottimale quando sono presenti più di 60 milioni di righe.  Per le tabelle di ricerca di piccole dimensioni, è consigliabile usare heap o l'indice cluster per ottenere prestazioni di query più veloci. 
 
 Per creare una tabella heap è sufficiente specificare HEAP nella clausola WITH:
 

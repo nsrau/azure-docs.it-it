@@ -3,13 +3,13 @@ title: Usare i criteri di sicurezza dei pod nel servizio Azure Kubernetes (AKS)U
 description: Informazioni su come controllare le ammissioni di pod usando PodSecurityPolicy nel servizio Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/17/2019
-ms.openlocfilehash: 74177136a7a61186ab1d273b57dbfce550a18ecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: 9e3a17e4775150247ef7924dffec68cc86a0bcac
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77914535"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998348"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima: proteggere il cluster usando i criteri di sicurezza dei pod nel servizio Azure Kubernetes (AKS)Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
@@ -103,17 +103,17 @@ NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP  
 privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-I criteri di sicurezza del pod *con privilegi* vengono applicati a qualsiasi utente autenticato nel cluster AKS. Questa assegnazione è controllata da ClusterRoles e ClusterRoleBindings.This assignment is controlled by ClusterRoles and ClusterRoleBindings. Utilizzare il comando [kubectl get clusterrolebindings][kubectl-get] e cercare *default:privileged:* binding:
+I criteri di sicurezza del pod *con privilegi* vengono applicati a qualsiasi utente autenticato nel cluster AKS. Questa assegnazione è controllata da ClusterRoles e ClusterRoleBindings.This assignment is controlled by ClusterRoles and ClusterRoleBindings. Usare il comando [kubectl get rolebindings][kubectl-get] e cercare *default:privileged:* binding nello spazio dei nomi *kube-system:*
 
 ```console
-kubectl get clusterrolebindings default:privileged -o yaml
+kubectl get rolebindings default:privileged -n kube-system -o yaml
 ```
 
 Come illustrato nel seguente output condensato, *il psp:restricted* ClusterRole viene assegnato a tutti gli utenti *di sistema:autenticati.* Questa capacità fornisce un livello di base di restrizioni senza che vengano definite le proprie politiche.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+kind: RoleBinding
 metadata:
   [...]
   name: default:privileged
@@ -125,7 +125,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
-  name: system:authenticated
+  name: system:masters
 ```
 
 È importante comprendere in che modo questi criteri predefiniti interagiscono con le richieste degli utenti per pianificare i pod prima di iniziare a creare criteri di sicurezza dei pod personalizzati. Nelle sezioni successive, programmiamo alcuni pod per vedere questi criteri predefiniti in azione.
@@ -195,7 +195,7 @@ Il pod non viene pianificato, come illustrato nell'output di esempio seguente:Th
 ```console
 $ kubectl-nonadminuser apply -f nginx-privileged.yaml
 
-Error from server (Forbidden): error when creating "nginx-privileged.yaml": pods "nginx-privileged" is forbidden: unable to validate against any pod security policy: [spec.containers[0].securityContext.privileged: Invalid value: true: Privileged containers are not allowed]
+Error from server (Forbidden): error when creating "nginx-privileged.yaml": pods "nginx-privileged" is forbidden: unable to validate against any pod security policy: []
 ```
 
 Il pod non raggiunge la fase di programmazione, quindi non ci sono risorse da eliminare prima di andare avanti.
@@ -223,44 +223,15 @@ Create il contenitore utilizzando il comando [kubectl apply][kubectl-apply] e sp
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-L'utilità di pianificazione Kubernetes accetta la richiesta del pod. Tuttavia, se guardate lo stato `kubectl get pods`del pod utilizzando , c'è un errore:
+Il pod non viene pianificato, come illustrato nell'output di esempio seguente:The pod fails to be scheduled, as shown in the following example output:
 
 ```console
-$ kubectl-nonadminuser get pods
+$ kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 
-NAME                 READY   STATUS                       RESTARTS   AGE
-nginx-unprivileged   0/1     CreateContainerConfigError   0          26s
+Error from server (Forbidden): error when creating "nginx-unprivileged.yaml": pods "nginx-unprivileged" is forbidden: unable to validate against any pod security policy: []
 ```
 
-Usate il comando [pod kubectl describe][kubectl-describe] per esaminare gli eventi per il pod. L'esempio condensato seguente mostra il contenitore e l'immagine richiedono autorizzazioni radice, anche se non sono stati richieste:The following condensed example shows the container and image require root permissions, even though we didn't request them:
-
-```console
-$ kubectl-nonadminuser describe pod nginx-unprivileged
-
-Name:               nginx-unprivileged
-Namespace:          psp-aks
-Priority:           0
-PriorityClassName:  <none>
-Node:               aks-agentpool-34777077-0/10.240.0.4
-Start Time:         Thu, 28 Mar 2019 22:05:04 +0000
-[...]
-Events:
-  Type     Reason     Age                     From                               Message
-  ----     ------     ----                    ----                               -------
-  Normal   Scheduled  7m14s                   default-scheduler                  Successfully assigned psp-aks/nginx-unprivileged to aks-agentpool-34777077-0
-  Warning  Failed     5m2s (x12 over 7m13s)   kubelet, aks-agentpool-34777077-0  Error: container has runAsNonRoot and image will run as root
-  Normal   Pulled     2m10s (x25 over 7m13s)  kubelet, aks-agentpool-34777077-0  Container image "nginx:1.14.2" already present on machine
-```
-
-Anche se non è stato richiesto alcun accesso con privilegi, l'immagine del contenitore per NGINX deve creare un'associazione per la porta *80*. Per associare le porte *1024* e successive, è necessario l'utente *root.* Quando il pod tenta di avviarsi, il criterio di sicurezza del pod *con restrizioni* nega questa richiesta.
-
-Questo esempio mostra che i criteri di sicurezza del pod predefiniti creati da AKS sono attivi e limitano le azioni che un utente può eseguire. È importante comprendere il comportamento di questi criteri predefiniti, poiché non è possibile che un pod NGINX di base venga negato.
-
-Prima di passare al passaggio successivo, eliminate questo pod di test utilizzando il comando [kubectl delete pod:][kubectl-delete]
-
-```console
-kubectl-nonadminuser delete -f nginx-unprivileged.yaml
-```
+Il pod non raggiunge la fase di programmazione, quindi non ci sono risorse da eliminare prima di andare avanti.
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Testare la creazione di un pod con un contesto utente specifico
 
@@ -287,61 +258,15 @@ Create il contenitore utilizzando il comando [kubectl apply][kubectl-apply] e sp
 kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
 ```
 
-L'utilità di pianificazione Kubernetes accetta la richiesta del pod. Tuttavia, se si esamina lo `kubectl get pods`stato del pod utilizzando , si verifica un errore diverso rispetto all'esempio precedente:
+Il pod non viene pianificato, come illustrato nell'output di esempio seguente:The pod fails to be scheduled, as shown in the following example output:
 
 ```console
-$ kubectl-nonadminuser get pods
+$ kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
 
-NAME                         READY   STATUS              RESTARTS   AGE
-nginx-unprivileged-nonroot   0/1     CrashLoopBackOff    1          3s
+Error from server (Forbidden): error when creating "nginx-unprivileged-nonroot.yaml": pods "nginx-unprivileged-nonroot" is forbidden: unable to validate against any pod security policy: []
 ```
 
-Usate il comando [pod kubectl describe][kubectl-describe] per esaminare gli eventi per il pod. L'esempio condensato seguente mostra gli eventi del pod:
-
-```console
-$ kubectl-nonadminuser describe pods nginx-unprivileged
-
-Name:               nginx-unprivileged
-Namespace:          psp-aks
-Priority:           0
-PriorityClassName:  <none>
-Node:               aks-agentpool-34777077-0/10.240.0.4
-Start Time:         Thu, 28 Mar 2019 22:05:04 +0000
-[...]
-Events:
-  Type     Reason     Age                   From                               Message
-  ----     ------     ----                  ----                               -------
-  Normal   Scheduled  2m14s                 default-scheduler                  Successfully assigned psp-aks/nginx-unprivileged-nonroot to aks-agentpool-34777077-0
-  Normal   Pulled     118s (x3 over 2m13s)  kubelet, aks-agentpool-34777077-0  Container image "nginx:1.14.2" already present on machine
-  Normal   Created    118s (x3 over 2m13s)  kubelet, aks-agentpool-34777077-0  Created container
-  Normal   Started    118s (x3 over 2m12s)  kubelet, aks-agentpool-34777077-0  Started container
-  Warning  BackOff    105s (x5 over 2m11s)  kubelet, aks-agentpool-34777077-0  Back-off restarting failed container
-```
-
-Gli eventi indicano che il contenitore è stato creato e avviato. Non c'è nulla di immediatamente ovvio sul perché il pod è in uno stato fallito. Diamo un'occhiata ai log del pod usando il comando [kubectl logs:][kubectl-logs]
-
-```console
-kubectl-nonadminuser logs nginx-unprivileged-nonroot --previous
-```
-
-L'output del log di esempio seguente indica che all'interno della configurazione NGINX stessa si verifica un errore di autorizzazioni quando il servizio tenta di avviarsi. Questo errore è nuovamente causato dalla necessità di eseguire il binding alla porta 80. Anche se la specifica del pod ha definito un account utente normale, questo account utente non è sufficiente a livello di sistema operativo per il servizio NGINX per avviare e associare alla porta con restrizioni.
-
-```console
-$ kubectl-nonadminuser logs nginx-unprivileged-nonroot --previous
-
-2019/03/28 22:38:29 [warn] 1#1: the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2
-nginx: [warn] the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2
-2019/03/28 22:38:29 [emerg] 1#1: mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
-nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
-```
-
-Anche in questo caso, è importante comprendere il comportamento dei criteri di sicurezza del pod predefiniti. Questo errore è stato un po 'più difficile da rintracciare, e ancora una volta, non ci si può aspettare un pod NGINX di base per essere negato.
-
-Prima di passare al passaggio successivo, eliminate questo pod di test utilizzando il comando [kubectl delete pod:][kubectl-delete]
-
-```console
-kubectl-nonadminuser delete -f nginx-unprivileged-nonroot.yaml
-```
+Il pod non raggiunge la fase di programmazione, quindi non ci sono risorse da eliminare prima di andare avanti.
 
 ## <a name="create-a-custom-pod-security-policy"></a>Creare criteri di sicurezza dei pod personalizzatiCreate a custom pod security policy
 
@@ -383,7 +308,7 @@ $ kubectl get psp
 
 NAME                  PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
 privileged            true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *          configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *          
 ```
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Consenti all'account utente di utilizzare i criteri di sicurezza del pod personalizzato

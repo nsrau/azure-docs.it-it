@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 9339fff820c0a0d915258ce3a0bc5371242ad50d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6aac3f1bb29ccfab0de4cb0a807ca0831a62af7e
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892837"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991553"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiare dati da Cassandra usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -69,7 +69,7 @@ Per il servizio collegato di Cassandra sono supportate le proprietà seguenti:
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per ulteriori informazioni, vedere la sezione [Prerequisiti.](#prerequisites) Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
->La connessione a Cassandra mediante SSL non è attualmente supportata.
+>Attualmente la connessione a Cassandra tramite TLS non è supportata.
 
 **Esempio:**
 
@@ -251,7 +251,7 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Una  |
+| 1 |S1 |Una |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
@@ -259,10 +259,10 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Una  |
+| 1 |Una |
 | 1 |b |
 | 1 |C |
-| 3 |Una  |
+| 3 |Una |
 | 3 |E |
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca

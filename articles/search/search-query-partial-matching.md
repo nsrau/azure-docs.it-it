@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 7f001a0d443e4ec668aedaabb7505884163bf37e
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: faafc1e12f0703c38b4e602700b1e775bf13a061
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666779"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998343"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters---azure-cognitive-search-wildcard-regex-patterns"></a>Ricerca a termine parziale e modelli con caratteri speciali - Ricerca cognitiva di Azure (caratteri jolly, espressioni, modelli)Partial term search and patterns with special characters - Azure Cognitive Search (wildcard, regex, patterns)
+# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Ricerca a termine parziale e modelli con caratteri speciali (caratteri jolly, espressioni regolari, modelli)
 
 Una *ricerca a termine parziale* si riferisce a query costituite da frammenti di termini, ad esempio la prima, l'ultima o le parti interne di una stringa. Un *modello* può essere una combinazione di frammenti, talvolta con caratteri speciali, ad esempio trattini o barre, che fanno parte della query. I casi d'uso comuni includono l'esecuzione di query per parti di un numero di telefono, URL, persone o codici prodotto o parole composte.
 
 La ricerca parziale può essere problematica se l'indice non dispone di termini nel formato richiesto per la corrispondenza dei modelli. Durante la fase di analisi del testo dell'indicizzazione, utilizzando l'analizzatore standard predefinito, i caratteri speciali vengono eliminati, le stringhe composte e composte vengono suddivise, causando l'esito negativo delle query di modello quando non viene trovata alcuna corrispondenza. Ad esempio, un `+1 (425) 703-6214`numero di `"1"`telefono `"425"` `"703"`come `"6214"`(tokenizzato come , `"3-62"` , , ) non verrà visualizzato in una query perché tale contenuto non esiste effettivamente nell'indice. 
 
-La soluzione consiste nel richiamare un analizzatore che mantiene una stringa completa, inclusi spazi e caratteri speciali, se necessario, in modo da poter supportare termini e modelli parziali. La creazione di un campo aggiuntivo per una stringa intatta, oltre a utilizzare un analizzatore di conservazione del contenuto, è la base della soluzione.
+La soluzione consiste nel richiamare un analizzatore che mantiene una stringa completa, inclusi spazi e caratteri speciali, se necessario, in modo da poter corrispondere in termini e modelli parziali. La creazione di un campo aggiuntivo per una stringa intatta, oltre a utilizzare un analizzatore di conservazione del contenuto, è la base della soluzione.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Ricerca parziale in Ricerca cognitiva di AzureWhat is partial search in Azure Cognitive Search
 
@@ -64,7 +64,7 @@ Gli analizzatori vengono assegnati in base al campo, il che significa che è pos
   "type": "Edm.String",
   "retrievable": true,
   "searchable": true,
-  "analyzer": "my_customanalyzer"
+  "analyzer": "my_custom_analyzer"
 },
 ```
 

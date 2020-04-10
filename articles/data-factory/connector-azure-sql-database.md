@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 8f5065a0f4a2a96a747a45f64e00e86f7990bfb8
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 3a16a8263c80852127ca61db3c666ebf0f7f1e4c
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437785"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011702"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data FactoryCopy and transform data in Azure SQL Database by using Azure Data Factory
 
@@ -493,7 +493,7 @@ BEGIN
 END
 ```
 
-**Opzione 2:** È inoltre possibile scegliere di [richiamare una stored procedure all'interno dell'attività](#invoke-a-stored-procedure-from-a-sql-sink)di copia. Questo approccio esegue ogni riga nella tabella di origine anziché usare l'inserimento bulk come approccio predefinito nell'attività di copia, che non è appropriato per l'upsert di grandi dimensioni.
+**Opzione 2:** È inoltre possibile scegliere di [richiamare una stored procedure all'interno dell'attività](#invoke-a-stored-procedure-from-a-sql-sink)di copia. Questo approccio esegue ogni batch `writeBatchSize` (come regolato dalla proprietà ) nella tabella di origine anziché utilizzare l'inserimento bulk come approccio predefinito nell'attività di copia.
 
 ### <a name="overwrite-the-entire-table"></a>Sovrascrivere l'intera tabella
 
@@ -508,10 +508,7 @@ I passaggi per scrivere dati con logica personalizzata sono simili a quelli desc
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Richiamare una stored procedure da un sink SQL
 
-Quando si copiano dati nel database SQL di Azure, è anche possibile configurare e richiamare una stored procedure specificata dall'utente con parametri aggiuntivi. La funzionalità della stored procedure sfrutta i parametri con valori di [tabella.](https://msdn.microsoft.com/library/bb675163.aspx)
-
-> [!TIP]
-> La chiamata di una stored procedure elabora i dati riga per riga anziché utilizzando un'operazione in blocco, che non è consigliabile per la copia su larga scala. Per altre informazioni, vedere [Procedura consigliata per il caricamento dei dati nel database SQL](#best-practice-for-loading-data-into-azure-sql-database)di Azure .Learn more from Best practice for loading data into Azure SQL Database .
+Quando si copiano dati nel database SQL di Azure, è anche possibile configurare e richiamare una stored procedure specificata dall'utente con parametri aggiuntivi in ogni batch della tabella di origine. La funzionalità della stored procedure sfrutta i parametri con valori di [tabella.](https://msdn.microsoft.com/library/bb675163.aspx)
 
 È possibile usare una stored procedure quando non si possono usare i meccanismi di copia predefiniti. Un esempio è quando si desidera applicare un'elaborazione aggiuntiva prima dell'inserimento finale dei dati di origine nella tabella di destinazione. Alcuni esempi di elaborazione aggiuntivi sono quando si desidera unire le colonne, cercare valori aggiuntivi e inserire in più di una tabella.
 

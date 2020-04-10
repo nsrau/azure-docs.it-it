@@ -5,24 +5,24 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: c8968eb72b29b004d94e25433da65d3262287147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1907eb7cde482927ee8e6b0a2522158f05c1808f
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367143"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010937"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
 I Runbook vengono eseguiti in base alla logica definita al loro interno. Se un runbook viene interrotto, viene riavviato dall'inizio. Questo comportamento richiede la scrittura di runbook che supportano il riavvio in caso di problemi temporanei.
 
-L'avvio di un runbook in Automazione di Azure crea un processo. Un processo è una singola istanza di esecuzione del runbook. Ogni processo ha accesso alle risorse di Azure effettuando una connessione alla sottoscrizione di Azure.Each job has access to Azure resources by making a connection to your Azure subscription. Il processo ha accesso alle risorse nel data center solo se tali risorse sono accessibili dal cloud pubblico.
+L'avvio di un runbook in Automazione di Azure crea un processo, ovvero una singola istanza di esecuzione del runbook. Ogni processo ha accesso alle risorse di Azure effettuando una connessione alla sottoscrizione di Azure.Each job has access to Azure resources by making a connection to your Azure subscription. Il processo ha accesso alle risorse nel data center solo se tali risorse sono accessibili dal cloud pubblico.
 
 Automazione di Azure assegna a un worker l'esecuzione di ogni processo durante l'esecuzione del runbook. I computer di lavoro sono condivisi da molti account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non si ha il controllo su quali servizi di lavoro la richiesta di lavoro.
 
 Quando si visualizza l'elenco dei runbook nel portale di Azure, viene visualizzato lo stato di ogni processo avviato per ogni runbook. Automazione di Azure archivia i log dei processi per un massimo di 30 giorni. 
 
-Nel diagramma seguente viene illustrato il ciclo di vita di un processo di runbook per runbook di [PowerShell](automation-runbook-types.md#powershell-runbooks), [Runbook grafici](automation-runbook-types.md#graphical-runbooks)e [runbook del flusso di lavoro](automation-runbook-types.md#powershell-workflow-runbooks)di PowerShell .
+Nel diagramma seguente viene illustrato il ciclo di vita di un processo di runbook per [runbook](automation-runbook-types.md#powershell-runbooks)di PowerShell , [runbook grafici](automation-runbook-types.md#graphical-runbooks)e runbook del flusso di lavoro di [PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
 
 ![Stati del processo - Flusso di lavoro PowerShell](./media/automation-runbook-execution/job-statuses.png)
 

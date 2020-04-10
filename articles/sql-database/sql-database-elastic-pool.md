@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 08/06/2019
-ms.openlocfilehash: 8139ed8f4f4799a963a051eed96dd87c4ac38aec
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/09/2020
+ms.openlocfilehash: 3252ecb030234e4c5543c07dfb4fc702f850a73e
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981427"
+ms.locfileid: "80998980"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL di Azure
 
@@ -110,9 +110,9 @@ La dimensione ottimale per un pool dipende dalle risorse di aggregazione e dalle
 - Quantità massima di risorse utilizzate da tutti i database nel pool, ovvero numero massimo di DTU o vCore in base al modello di risorse selezionato.
 - Byte di archiviazione massima utilizzati da tutti i database nel pool.
 
-Per i livelli di servizio disponibili per ogni modello di risorse, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
+Per i livelli di servizio e i limiti disponibili per ogni modello di risorsa, vedere il modello di [acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il modello di [acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
-Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzioni dettagliate consentono di stimare se un pool è più conveniente rispetto ai database singoli:
+I passaggi seguenti consentono di stimare se un pool è più conveniente rispetto ai singoli database:
 
 1. Stimare le eDTU o i vCore necessari per il pool come segue:
 
@@ -126,6 +126,10 @@ Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzion
 3. Per il modello di acquisto basato su DTU, considerare la stima di eDTU maggiore tra il Passaggio 1 e il Passaggio 2. Per il modello di acquisto basato su vCore, considerare la stima di vCore del Passaggio 1.
 4. Vedere la [pagina sui prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/) e trovare la dimensione di pool più piccola, che sia maggiore della stima del Passaggio 3.
 5. Confrontare il prezzo di pool ottenuto nel passaggio 5 con il prezzo dell'uso di dimensioni di calcolo appropriate per database singoli.
+
+> [!IMPORTANT]
+> Se il numero di database in un pool si avvicina al massimo supportato, assicurarsi di considerare [la gestione delle risorse in pool elastici densi.](sql-database-elastic-pool-resource-management.md)
+> 
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Uso di altre funzionalità del database SQL con i pool elastici
 
@@ -218,7 +222,7 @@ Per altre informazioni, vedere [Usare il portale di Azure per creare avvisi per 
 
 - [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-   Daxko/CSI utilizza pool elastici con il database SQL di Azure per accelerare il ciclo di sviluppo e migliorare i servizi e le prestazioni dei clienti.   
+   Daxko/CSI utilizza pool elastici con il database SQL di Azure per accelerare il ciclo di sviluppo e migliorare i servizi e le prestazioni dei clienti.    
 
 ## <a name="next-steps"></a>Passaggi successivi
 

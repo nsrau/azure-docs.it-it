@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: 8a00f7c0ec76510cc521966acf98b7250e723697
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985899"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010580"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi dal vivo e output live nei servizi multimediali
 
@@ -111,7 +111,7 @@ Una volta creato l'evento live, puoi ottenere gli URL di inserimento che fornira
 
 * URL di reindirizzamento a microsito
 
-    La modalità Vanity è preferita dalle grandi emittenti multimediali che utilizzano encoder di trasmissione hardware e non vogliono riconfigurare i propri encoder quando avviano l'evento live. Vogliono un URL di inserimento predittivo, che non cambia nel tempo.
+    La modalità Vanity è preferita dalle grandi emittenti multimediali che utilizzano encoder di trasmissione hardware e non vogliono riconfigurare i propri encoder quando avviano l'evento live. Queste emittenti vogliono un URL di inserimento predittivo che non cambia nel tempo.
     
     > [!NOTE]
     > Nel portale di Azure l'URL di vanity è denominato "*URL di input permanente*".

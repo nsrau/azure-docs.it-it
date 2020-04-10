@@ -4,15 +4,18 @@ description: Informazioni sui dischi ultra per le macchine virtuali di AzureLear
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: fdb005d0e8caea9c9439e6a3d9b49c261b81ae0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 474f0e14834eb62ac86f73df7071c3015d4eb98e
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74124216"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008795"
 ---
 # <a name="using-azure-ultra-disks"></a>Uso di dischi ultra di AzureUsing Azure ultra disks
+
+In questo articolo viene illustrato come distribuire e usare un disco ultra, per informazioni concettuali sui dischi ultra, vedere [Quali tipi di dischi sono disponibili in Azure?](disks-types.md#ultra-disk).
+
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

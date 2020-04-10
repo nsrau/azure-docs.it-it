@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: ec9eeb0c35d96ee777771260686178faa536e909
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877304"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990906"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione di Active Directory (Azure AD)
 
@@ -52,6 +52,9 @@ Per suggerimenti, vedere [Disponibilità elevata e bilanciamento del carico dei 
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>La terminazione TLS (ispezione o accelerazione TLS/HTTPS) sul traffico dai server del connettore ad Azure è supportata?
 
 Il connettore proxy di applicazione esegue l'autenticazione basata su certificati in Azure.The Application Proxy Connector performs certificate-based authentication to Azure. Terminazione TLS (ispezione o accelerazione TLS/HTTPS) interrompe questo metodo di autenticazione e non è supportato. Il traffico dal connettore ad Azure deve ignorare tutti i dispositivi che eseguono la terminazione TLS.  
+
+### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>È possibile posizionare un dispositivo proxy di inoltro tra i server del connettore e il server applicazioni back-end?
+Sì, questo scenario è supportato a partire dalla versione connettore 1.5.1526.0.Yes, this scenario is supported starting from the connector version 1.5.1526.0. Vedere [Utilizzo di server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md).
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>È necessario creare un account dedicato per registrare il connettore con il proxy di applicazione di Azure AD?
 

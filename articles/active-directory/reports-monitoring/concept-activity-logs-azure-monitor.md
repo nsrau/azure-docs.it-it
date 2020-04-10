@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/22/2019
+ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 595c87d2b8182c9044baeb2662e34871d9e52c52
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266546"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991246"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD activity logs in Azure Monitor
 
@@ -79,8 +79,8 @@ La tabella seguente contiene una stima del costo, a seconda delle dimensioni del
 | Categoria di log | Numero di utenti | Eventi al giorno | Volume di dati mensile (stima) | Costo mensile (stima) | Costo annuale (stima) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | Audit | 100,000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
-| Audit | 1.000 | 15.000 | 900 MB | $0,02 | $0,24 |
-| Accessi | 1.000 | 34.800 | 4 GB | $0,13 | $1,56 |
+| Audit | 1\.000 | 15.000 | 900 MB | $0,02 | $0,24 |
+| Accessi | 1\.000 | 34.800 | 4 GB | $0,13 | $1,56 |
 | Accessi | 100,000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 |
  
 
@@ -103,8 +103,8 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 | Categoria di log | Numero di utenti | Eventi al secondo | Eventi per intervallo di cinque minuti | Volume per intervallo | Messaggi per intervallo | Messaggi al mese | Costo mensile (stima) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100,000 | 18 | 5.400 | 10,8 MB | 43 | 371.520 | $10,83 |
-| Audit | 1.000 | 0,1 | 52 | 104 KB | 1 | 8.640 | $10,80 |
-| Accessi | 1.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
+| Audit | 1\.000 | 0,1 | 52 | 104 KB | 1 | 8.640 | $10,80 |
+| Accessi | 1\.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Considerazioni sui costi dei log di Monitoraggio di Azure
 
@@ -179,7 +179,7 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 **D: Quali strumenti SIEM sono attualmente supportati?** 
 
-**R**: Attualmente, Monitoraggio di Azure è supportato da [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar e [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Per altre informazioni sul funzionamento dei connettori, vedere [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**R:** **A**: Attualmente, Monitor di Azure è supportato da [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm e Logz.io. Per altre informazioni sul funzionamento dei connettori, vedere [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3e0dd6e0bb81aef340dc83288e6e5c0af0bf11c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca913a4c197e04e20c962c4a4a7a1e479a3cdf92
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867359"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990889"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint REST tramite Azure Data Factory
 
@@ -60,7 +60,7 @@ Per il servizio collegato REST sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **RestService**. | Sì |
 | url | URL di base del servizio REST. | Sì |
-| enableServerCertificateValidation | Se convalidare il certificato SSL lato server durante la connessione all'endpoint. | No<br /> (il valore predefinito è **true**) |
+| enableServerCertificateValidation | Se convalidare il certificato TLS/SSL lato server durante la connessione all'endpoint. | No<br /> (il valore predefinito è **true**) |
 | authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per ulteriori informazioni, vedere la sezione [Prerequisiti.](#prerequisites) Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No |
 

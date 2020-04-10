@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 0bfae10d3b3b491c3662385055b23cc585a6e24d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcd8e400b978b2139de7a9f53b87cf6ec04e7484
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77471160"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991995"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiare i dati da MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -65,7 +65,7 @@ Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<data
 
 | Proprietà | Descrizione | Opzioni | Obbligatoria |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Questa opzione specifica se il driver usa la crittografia SSL e verifica la connessione a MySQL. Ad esempio.`SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLMode | Questa opzione specifica se il driver utilizza la crittografia e la verifica TLS per la connessione a MySQL. Ad esempio.`SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
 | UseSystemTrustStore | Questa opzione specifica se usare o meno un certificato CA dall'archivio di attendibilità di sistema o da un file PEM specificato. ad esempio `UseSystemTrustStore=<0/1>;`| Abilitato (1) / Disabilitato (0) **(impostazione predefinita)** | No |
 
 **Esempio:**
@@ -180,7 +180,7 @@ Per copiare i dati da MySQL, nella sezione **dell'origine** dell'attività di co
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **MySqlSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

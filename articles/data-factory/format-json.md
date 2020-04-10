@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b63dcfd6ed293cab9d0107a8b6a35c7ce358d429
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260644"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011685"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON in Azure Data Factory
 
@@ -30,9 +30,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La proprietà type del dataset deve essere impostata su **Json**. | Sì      |
 | posizione         | Impostazioni di posizione dei file. Ogni connettore basato su file ha `location`il proprio tipo di posizione e le proprietà supportate in . **Vedere i dettagli nell'articolo del connettore -> sezione delle proprietà del set di dati**. | Sì      |
-| encodingName     | Tipo di codifica utilizzato per leggere/scrivere i file di test. <br>I valori consentiti sono i seguenti: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM500", "IBM500", "IBM500", "IBM500", "IBM500", "IBM5000", "IBM5000", "IBM5000", "IBM5000", "IBM500", "IBM5000", "IBM5000", "IBM507", "IBM507", "IBM500", "IBM500", "IBM500", "IBM507", "IBM557", "IBM500", "IBM500", "IBM500", "IBM500", "IBM500" IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM011145", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", ", "WINDOWS-1251", " WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
-| compressionCodec (compressionCodec) | Codec di compressione utilizzato per leggere/scrivere file di testo. <br>I valori consentiti sono **bzip2**, **gzip**, **defLATE**, **.ipDeflate**, **snappy**o **lz4**. da utilizzare quando si salva il file. <br>Nota: attualmente l'attività di copia non supporta "snappy" & "lz4".<br>Si noti che quando si utilizza l'attività di copia per decomprimere i file zipDeflate `<path specified in dataset>/<folder named as source zip file>/`e scrivere nell'archivio dati sink basato su file, i file verranno estratti nella cartella: . | No       |
-| Compressionlevel | Il rapporto di compressione. <br>I valori consentiti sono **Ottimale** o **Più veloce**.<br>- **Il più veloce:** L'operazione di compressione dovrebbe essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale**: L'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| encodingName     | Tipo di codifica utilizzato per leggere/scrivere i file di test. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
+| compressione | Gruppo di proprietà per configurare la compressione dei file. Configurare questa sezione quando si desidera eseguire la compressione/decompressione durante l'esecuzione dell'attività. | No |
+| type | Codec di compressione utilizzato per leggere/scrivere file JSON. <br>I valori consentiti sono **bzip2**, **gzip**, **defLATE**, **.ipDeflate**, **snappy**o **lz4**. da utilizzare quando si salva il file. L'impostazione predefinita non è compressa.<br>**Nota:** Attualmente l'attività di copia non supporta "snappy" & "lz4" e il flusso di dati di mapping non supporta ".ipDeflate".<br>**Si noti che** quando si utilizza l'attività di copia per decomprimere i file zipDeflate `<path specified in dataset>/<folder named as source zip file>/`e scrivere nell'archivio dati sink basato su file, i file verranno estratti nella cartella: . | No.  |
+| level | Il rapporto di compressione. <br>I valori consentiti sono **Ottimale** o **Più veloce**.<br>- **Il più veloce:** L'operazione di compressione dovrebbe essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale**: L'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 Di seguito è riportato un esempio di set di dati JSON nell'archiviazione BLOB di Azure:Below is an example of JSON dataset on Azure Blob Storage:
 
@@ -54,6 +55,7 @@ Di seguito è riportato un esempio di set di dati JSON nell'archiviazione BLOB d
             },
             "compression": {
                 "type": "gzip"
+            }
         }
     }
 }

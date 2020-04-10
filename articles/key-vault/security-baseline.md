@@ -2,24 +2,23 @@
 title: Linea di base della sicurezza di Azure per l'insieme di credenziali delle chiaviAzure Security Baseline for Key
 description: Linea di base della sicurezza di Azure per l'insieme di credenziali delle chiaviAzure Security Baseline for Key
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cc76f8c87eca059db85a68acbe4c317cf4904d39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2ba16bdc3501059266537db03d38bdda0f1f559
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79457186"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008982"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linea di base della sicurezza di Azure per l'insieme di credenziali delle chiaviAzure Security Baseline for Key
 
 La linea di base della sicurezza di Azure per l'insieme di credenziali delle chiavi contiene suggerimenti che consentono di migliorare il livello di sicurezza della distribuzione.
 
-La linea di base per questi servizi è ricavata da [Azure Security Benchmark versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce consigli su come proteggere le soluzioni cloud in Azure con le indicazioni sulle procedure consigliate.
+La linea di base per questo servizio è ricavata da [Azure Security Benchmark versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce consigli su come proteggere le soluzioni cloud in Azure con le indicazioni sulle procedure consigliate.
 
 Per altre informazioni, vedere [Panoramica delle linee di base](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)della sicurezza di Azure.For more information, see Azure Security Baselines overview .
 
@@ -29,10 +28,16 @@ Per altre informazioni, vedere [Panoramica delle linee di base](https://docs.mic
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
-**Indicazioni:** Integrare l'insieme di credenziali delle chiavi di Azure con Azure Private Link.Guidance : Integrate Azure Key Vault with Azure Private Link. Il servizio di collegamento privato di Azure consente di accedere ai servizi di Azure (ad esempio, Archiviazione chiave di Azure) e ai servizi cliente/partner ospitati di Azure su un endpoint privato nella rete virtuale.
+**Indicazioni:** Integrare l'insieme di credenziali delle chiavi di Azure con Azure Private Link.Guidance : Integrate Azure Key Vault with Azure Private Link. 
+
+Il servizio di collegamento privato di Azure consente di accedere ai servizi di Azure (ad esempio, Archiviazione chiave di Azure) e ai servizi cliente/partner ospitati di Azure su un endpoint privato nella rete virtuale.
+
 Un endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
-Come integrare Key Vault con Azure Private Link:https://docs.microsoft.com/azure/key-vault/private-link-service
+Come integrare Key Vault con Azure Private Link:
+
+https://docs.microsoft.com/azure/key-vault/private-link-service
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -41,7 +46,6 @@ Come integrare Key Vault con Azure Private Link:https://docs.microsoft.com/azure
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e schede di interfaccia di rete
 
 **Indicazioni:** usare il Centro sicurezza di Azure e seguire i consigli di protezione della rete per proteggere le risorse configurate da Key Vault in Azure.Guidance : Use Azure Security Center and follow network protection recommendations to help secure your Key Vault-configurato resources in Azure. 
-
 
 Per altre informazioni sulla sicurezza di rete fornita dal Centro sicurezza di Azure:For more information about the Network Security provided by Azure Security Center: 
 
@@ -55,6 +59,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle applicazioni Web in esecuzione nel servizio app di Azure o alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -64,7 +69,10 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 **Guida:** abilitare Azure DDoS Protection Standard nelle istanze di Azure Virtual Networks associate alle istanze di Key Vault per la protezione da attacchi denial-of-service distribuiti. Usare Azure Security Center Integrated Threat Intelligence per negare le comunicazioni con indirizzi IP Internet dannosi o inutilizzati noti.
 
  
-Gestire Azure DDoS Protection Standard https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection tramite il portale di Azure: Rilevamento delle minacce per il livello di servizio di Azure nel Centro sicurezza di Azure:Manage Azure DDoS Protection Standard using the Azure portal: Threat detection for the Azure service layer in Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+Gestire Azure DDoS Protection Standard usando il portale di Azure:Manage Azure DDoS Protection Standard using the Azure portal:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+
+Rilevamento delle minacce per il livello di servizio di Azure nel Centro sicurezza di Azure:Threat detection for the Azure service layer in Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -73,9 +81,13 @@ Gestire Azure DDoS Protection Standard https://docs.microsoft.com/azure/virtual-
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Registrare i pacchetti di rete e i registri di flusso
 
 **Indicazioni:** L'insieme di credenziali delle chiavi di Azure non usa i gruppi di sicurezza di rete (NSG) e i log di flusso per l'insieme di credenziali delle chiavi di Azure non vengono acquisiti. Usare invece Collegamento privato di Azure per proteggere le istanze dell'insieme di credenziali delle chiavi di Azure e abilitare le impostazioni di diagnostica per registrare le metriche e controllare gli eventi.
-Integrare l'insieme di credenziali delle chiavi con Azure Private Link:Integrate Key Vault with Azure Private Link:https://docs.microsoft.com/azure/key-vault/private-link-service
+
+Integrare l'insieme di credenziali delle chiavi con Azure Private Link:Integrate Key Vault with Azure Private Link:
+
+https://docs.microsoft.com/azure/key-vault/private-link-service
 
 Registrazione dell'insieme di credenziali delle chiavi di Azure:Azure Key Vault logging:https://docs.microsoft.com/azure/key-vault/key-vault-logging
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
@@ -86,11 +98,12 @@ Registrazione dell'insieme di credenziali delle chiavi di Azure:Azure Key Vault 
 
 **Linee guida:** questo requisito può essere soddisfatto configurando la protezione avanzata dalle minacce (ATP) per l'insieme di credenziali delle chiavi di Azure.Guidance: This requirement can be met by configuring advanced threat protection (ATP) for Azure Key Vault. ATP fornisce un ulteriore livello di intelligence di sicurezza. Questo strumento rileva i tentativi potenzialmente dannosi di accedere o sfruttare gli account dell'insieme di credenziali delle chiavi di Azure.This tool detects potentially harmful attempts to access or exploit Azure Key Vault accounts.
 
-
 Quando Il Centro sicurezza di Azure rileva attività anomale, visualizza avvisi. Invia inoltre un messaggio di posta elettronica all'amministratore della sottoscrizione con i dettagli delle attività sospette e consigli su come analizzare e correggere le minacce identificate.
 
+Configurare la protezione avanzata dalle minacce per l'insieme di credenziali delle chiavi di Azure:Set up advanced threat protection for Azure Key Vault:
 
-Configurare la protezione avanzata dalle minacce per l'insieme di credenziali delle chiavi di Azure:Set up advanced threat protection for Azure Key Vault:https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
+https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
+
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
@@ -101,6 +114,7 @@ Configurare la protezione avanzata dalle minacce per l'insieme di credenziali de
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle applicazioni Web in esecuzione nel servizio app di Azure o alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -109,8 +123,8 @@ Configurare la protezione avanzata dalle minacce per l'insieme di credenziali de
 
 **Indicazioni:** per le risorse che devono accedere alle istanze dell'insieme di chiavi di Azure, usare i tag del servizio di Azure per l'insieme di credenziali delle chiavi di Azure per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure.Guidance : For resources that need access to your Azure Key Vault instances, use Azure service tags for the Azure Key Vault to define network access controls on network security groups or Azure Firewall. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag del servizio (ad esempio, ApiManagement) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. Microsoft gestisce i prefissi degli indirizzi inclusi nel tag del servizio e aggiorna automaticamente il tag del servizio quando gli indirizzi cambiano.
 
-
 Panoramica dei tag di servizio di Azure:Azure service tags overview:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -118,21 +132,22 @@ Panoramica dei tag di servizio di Azure:Azure service tags overview:https://docs
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Gestire le configurazioni di sicurezza standard per i dispositivi di rete
 
-**Linee guida:** definire e implementare configurazioni di sicurezza standard per le risorse di rete associate alle istanze dell'insieme di credenziali delle chiavi di Azure con Criteri di Azure.Guidance: Define and implement standard security configurations for network resources associated with your Azure Key Vault instances with Azure Policy. Usare gli alias dei criteri di Azure negli spazi dei nomi "Microsoft.KeyVault" e "Microsoft.Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete delle istanze di Archiviazione delle chiavi di Azure.Use Azure Policy aliases in the "Microsoft.KeyVault" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Key Vault instances. È anche possibile usare le definizioni dei criteri predefinite correlate all'insieme di credenziali delle chiavi di Azure, ad esempio: Key Vault deve usare un endpoint del servizio di [rete virtualeYou](key-vault-overview-vnet-service-endpoints.md) may also make use of built-in policy definitions related to Azure Key Vault, such as: Key Vault should use a virtual network service endpoint
+**Linee guida:** definire e implementare configurazioni di sicurezza standard per le risorse di rete associate alle istanze dell'insieme di credenziali delle chiavi di Azure con Criteri di Azure.Guidance: Define and implement standard security configurations for network resources associated with your Azure Key Vault instances with Azure Policy. Usare gli alias dei criteri di Azure negli spazi dei nomi "Microsoft.KeyVault" e "Microsoft.Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete delle istanze di Archiviazione delle chiavi di Azure.Use Azure Policy aliases in the "Microsoft.KeyVault" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Key Vault instances. È anche possibile usare le definizioni dei criteri predefinite correlate all'insieme di credenziali delle chiavi di Azure, ad esempio:You may also make using of built-in policy definitions related to Azure Key Vault, such as:
 
+Gli insieme di credenziali delle chiavi devono usare un endpoint servizio di rete virtuale
 
 Esercitazione: Creare e gestire i criteri per applicare la conformità:Tutorial: Create and manage policies to enforce compliance:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-
 Esempi di criteri di Azure:Azure Policy Samples:
 
-https://docs.microsoft.com/azure/governance/policy/samples
+https://docs.microsoft.com/azure/governance/policy/samples/#networ
 
 Guida introduttiva: Definire e assegnare un blueprint nel portale:
 
 https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -142,16 +157,14 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Linee guida:** usare i tag per le risorse correlate alla sicurezza di rete e al flusso di traffico per le istanze di Azure Key Vault per fornire metadati e organizzazione logica.
 
-
 Usare una delle definizioni di criteri di Azure predefinite correlate all'assegnazione di tag, ad esempio "Richiedi tag e relativo valore" per assicurarsi che tutte le risorse vengano create con i tag e per notificare le risorse senza tag esistenti.
 
-
 È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai relativi tag.
-
 
 Usare i tag per organizzare le risorse di Azure:Use tags to organize your Azure resources:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -165,10 +178,10 @@ Visualizzare e recuperare gli eventi del log attività di Azure:View and retriev
 
 https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-
 Creare, visualizzare e gestire gli avvisi del log attività tramite Monitoraggio di Azure:Create, view, and manage activity log alerts by using Azure Monitor:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -181,6 +194,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Utilizzare origini di sincronizzazione dell'ora approvate
 
 **Orientamento**: Non applicabile; Microsoft gestisce l'origine ora usata per le risorse di Azure, ad esempio L'insieme di credenziali delle chiavi di Azure, per i timestamp nei log.
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -198,6 +212,7 @@ Guida introduttiva: Come eseguire l'onboarding di Azure Sentinel:Quickstart: How
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
+
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: Cliente
@@ -210,6 +225,7 @@ Registrazione dell'insieme di credenziali delle chiavi di Azure:Azure Key Vault 
 
 https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
+
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: Cliente
@@ -217,6 +233,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Raccogliere i registri di sicurezza dai sistemi operativi
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -228,6 +245,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 Modificare il periodo di conservazione dei dati:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Cliente
@@ -236,13 +254,18 @@ Modificare il periodo di conservazione dei dati:https://docs.microsoft.com/azure
 
 **Linee guida:** analizzare e monitorare i log per verificare il comportamento anomalo ed esaminare regolarmente i risultati per le risorse protette da Archiviazione chiavi di Azure.Guidance : Analyze and monitor logs for anomalous behavior and regularly review results for your Azure Key Vault-protected resources. Usare l'area di lavoro Log Analytics di Monitoraggio di Azure per esaminare i log ed eseguire query sui dati di log. In alternativa, è possibile abilitare e on-board i dati di Azure Sentinel o di terze parti SIEM. 
 
+Guida introduttiva: Sentinella di Azure integrata:
 
-Guida introduttiva: Sentinella di Azure integrata:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
+Introduzione a Log Analytics in Monitoraggio di Azure:Get started with Log Analytics in Azure Monitor:
 
-Introduzione a Log Analytics in Monitoraggio di Azure:Get started with Log Analytics in Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
-Introduzione alle query di log in Monitoraggio di Azure:Get started with log queries in Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+Introduzione alle query di log in Monitoraggio di Azure:Get started with log queries in Azure Monitor:
+
+https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -260,10 +283,10 @@ Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure:Mana
 
 https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
 
-
 Rispondere agli eventi con Avvisi di Monitoraggio di Azure:Respond to events with Azure Monitor Alerts:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -273,6 +296,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **Orientamento**: Non applicabile; L'insieme di credenziali delle chiavi di Azure non elabora né produce log correlati al malware.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -281,6 +305,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **Orientamento**: Non applicabile; L'insieme di credenziali delle chiavi di Azure non elabora né produce log correlati al DNS.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -288,6 +313,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: Abilitare la registrazione di controllo della riga di comando
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -301,12 +327,16 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **Linee guida:** gestire un inventario delle applicazioni registrate in Azure Active Directory, nonché di tutti gli account utente che hanno accesso a chiavi, segreti e certificati dell'insieme di credenziali delle chiavi di Azure.Guidance : Maintain an inventory of your Azure Active Directory-registered applications, as well as any user accounts that have access to your Azure Key Vault keys, secrets, and certificates. È possibile usare il portale di Azure o PowerShell per eseguire query e riconciliare l'accesso all'insieme di credenziali delle chiavi. Per visualizzare l'accesso in PowerShell, usare il comando seguente:To view access in PowerShell, use the following command:
 
-
 (Get-AzResource -ResourceId [KeyVaultResourceID]). Proprietà.AccessPolicies
 
-Registrazione di un'applicazione con Azure Active Directory:Registering an application with Azure Active Directory:https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory
+Registrazione di un'applicazione con Azure Active Directory:Registering an application with Azure Active Directory:
 
-Accesso sicuro a un insieme di credenziali delle chiavi:Secure access to a key vault:https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory
+
+Accesso sicuro a un insieme di credenziali delle chiavi:Secure access to a key vault:
+
+https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -316,6 +346,7 @@ Accesso sicuro a un insieme di credenziali delle chiavi:Secure access to a key v
 
 **Orientamento**: Non applicabile; L'insieme di credenziali delle chiavi di Azure non ha il concetto di password predefinite poiché l'autenticazione viene fornita da Active Directory e protetta con il controllo degli accessi in base al ruolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -324,10 +355,10 @@ Accesso sicuro a un insieme di credenziali delle chiavi:Secure access to a key v
 
 **Linee guida:** creare procedure operative standard per l'uso di account amministrativi dedicati che hanno accesso alle istanze dell'archivio delle chiavi di Azure.Guidance : Create standard operating procedures around the use of dedicated administrative accounts that have access to your Azure Key Vault instances. Usare Gestione identità e accessi del Centro sicurezza di Azure (attualmente in anteprima) per monitorare il numero di account amministrativi attivi.
 
-
 Monitorare l'identità e l'accesso (anteprima):
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -337,10 +368,10 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Linee guida:** usare un'entità servizio di Azure insieme a AppId, TenantID e ClientSecret per autenticare l'applicazione senza problemi e recuperare il token che verrà usato per accedere ai segreti dell'insieme di credenziali delle chiavi di Azure.Guidance: Use an Azure service principal in conjunction with the AppId, TenantID, and ClientSecret, to seamlessly authenticate your application and retrieve the token that will be used to access your Azure Key Vault secrets.
 
-
 Autenticazione da servizio a servizio in Azure Key Vault tramite .NET:Service-to-service authentication to Azure Key Vault using .NET:
 
 https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
@@ -351,15 +382,14 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **Indicazioni:** abilitare Azure Active Directory Multi-Factor Authentication e seguire i consigli di Gestione delle identità e degli accessi del Centro sicurezza di Azure (attualmente in anteprima) per proteggere le risorse abilitate per l'hub eventi.
 
-
 Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata su cloud:Planning a cloud-based Azure Multi-Factor Authentication deployment:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-
 Monitorare l'identità e l'accesso (anteprima):
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -372,6 +402,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 Workstation con accesso privilegiato:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
 Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata su cloud:Planning a cloud-based Azure Multi-Factor Authentication deployment:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
@@ -395,6 +426,7 @@ Rilevamenti dei rischi di Azure Active Directory:Azure Active Directory risk det
 Creare e gestire gruppi di azioni nel portale di Azure:Create and manage action groups in the Azure portal:https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 
+
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: Cliente
@@ -404,6 +436,7 @@ Creare e gestire gruppi di azioni nel portale di Azure:Create and manage action 
 **Guida**: Configurare la condizione di posizione di un criterio di accesso condizionale e gestire i percorsi denominati. Con le posizioni denominate, è possibile creare raggruppamenti logici di intervalli di indirizzi IP o paesi e aree geografiche. È possibile limitare l'accesso alle risorse riservate, ad esempio i segreti dell'insieme di credenziali delle chiavi, alle posizioni denominate configurate.
 
 Qual è la condizione di posizione in Azure Active Directory Conditional Access?:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** attualmente non disponibileAzure Security Center monitoring : Currently not available
@@ -416,7 +449,10 @@ Qual è la condizione di posizione in Azure Active Directory Conditional Access?
 
  
 
-Guida introduttiva: Creare un nuovo tenant in Azure Active Directory:Quickstart: Create a new tenant in Azure Active Directory:https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+Guida introduttiva: Creare un nuovo tenant in Azure Active Directory:Quickstart: Create a new tenant in Azure Active Directory:
+
+https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+
 
 **Monitoraggio del Centro sicurezza di Azure:** attualmente non disponibileAzure Security Center monitoring : Currently not available
 
@@ -426,15 +462,14 @@ Guida introduttiva: Creare un nuovo tenant in Azure Active Directory:Quickstart:
 
 **Linee guida:** esaminare i log di Azure Active Directory (AAD) per individuare gli account non aggiornati con i ruoli amministrativi di Azure Key Vault.Guidance: Review Azure Active Directory (AAD) logs to help discover stale accounts with Azure Key Vault administrative roles. Inoltre, usare le verifiche di accesso a AAD per gestire in modo efficiente le appartenenze ai gruppi, l'accesso alle applicazioni aziendali che possono essere usate per accedere a Amministratore delle chiavi di Azure e le assegnazioni di ruolo. L'accesso degli utenti deve essere esaminato regolarmente, ad esempio ogni 90 giorni per assicurarsi che solo gli utenti giusti abbiano accesso continuo.
 
-
 Report di Azure Active Directory e documentazione di monitoraggio:Azure Active Directory reports and monitoring documentation:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-
 Che cosa sono le verifiche di accesso di Azure AD?:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -447,6 +482,8 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 Integrare i log di Azure AD con i log di Monitoraggio di Azure:Integrate Azure AD logs with Azure Monitor logs:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 Migrazione dalla vecchia soluzione Key Vault:https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault#migrating-from-the-old-key-vault-solution
+
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -462,6 +499,7 @@ Procedura: configurare e abilitare i criteri di rischio:https://docs.microsoft.c
 
 Come eseguire l'onboarding di Azure Sentinel:How to onboard Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
+
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: Cliente
@@ -471,6 +509,7 @@ Come eseguire l'onboarding di Azure Sentinel:How to onboard Azure Sentinel:https
 **Orientamento**: Non applicabile; Customer Lockbox not supported for Azure Key Vault.
 
 Servizi e scenari supportati nella disponibilità generale:Supported services and scenarios in general availability:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
@@ -488,6 +527,7 @@ Servizi e scenari supportati nella disponibilità generale:Supported services an
 Usare i tag per organizzare le risorse di Azure:Use tags to organize your Azure resources:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Cliente
@@ -501,6 +541,7 @@ Dopo l'esecuzione delle regole del firewall, è possibile eseguire le operazioni
 Configurare i firewall e le reti virtuali dell'insieme di credenziali delle chiavi di Azure:Configure Azure Key Vault firewalls and virtual networks:https://docs.microsoft.com/azure/key-vault/key-vault-network-security
 
 Endpoint del servizio di rete virtuale per l'insieme di credenziali delle chiavi di Azure:Virtual network service endpoints for Azure Key Vault:https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** attualmente non disponibileAzure Security Center monitoring : Currently not available
@@ -518,6 +559,7 @@ Configurare i firewall e le reti virtuali dell'insieme di credenziali delle chia
 Registrazione dell'insieme di credenziali delle chiavi di Azure:Azure Key Vault logging:https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 
+
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: Cliente
@@ -529,6 +571,7 @@ Registrazione dell'insieme di credenziali delle chiavi di Azure:Azure Key Vault 
 Accedere all'insieme di credenziali delle chiavi di Azure tramite un firewall:Access Azure Key Vault behind a firewall:https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Microsoft
@@ -537,18 +580,19 @@ Accedere all'insieme di credenziali delle chiavi di Azure tramite un firewall:Ac
 
 **Orientamento**: Non applicabile; tutti i dati all'interno di Azure Key Vault (segreti, chiavi e certificati) sono considerati sensibili.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
 
-### <a name="46-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.6: Utilizzare uno strumento di individuazione attivo per identificare i dati sensibili
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse4.6: Usare il controllo degli accessi in base al ruolo di
 
 **Indicazioni:** accesso sicuro alla gestione e al piano dati delle istanze dell'insieme di chiavi di Azure.Guidance: Secure access to the management and data plane of your Azure Key Vault instances.
-
 
 Accesso sicuro a un insieme di credenziali delle chiavi:Secure access to a key vault:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -556,12 +600,16 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Utilizzare la prevenzione della perdita di dati basata su host per applicare il controllo degli accessi
 
-**Indicazioni:** Microsoft gestisce l'infrastruttura sottostante per L'insieme di credenziali delle chiavi di Azure e ha implementato controlli rigorosi per impedire la perdita o l'esposizione del daUse Azure Security Center del cliente per eseguire analisi di base per le risorse protette da Azure Key Vault.
+**Indicazioni:** Microsoft gestisce l'infrastruttura sottostante per L'insieme di credenziali delle chiavi di Azure e ha implementato controlli rigorosi per prevenire la perdita o l'esposizione dei dati dei clienti.
 
+Informazioni sull'insieme di credenziali delle chiavi di Azure
 
-Che cos'è Azure Key Vault?:What is Azure Key Vault?:https://docs.microsoft.com/azure/key-vault/key-vault-overview
+https://docs.microsoft.com/azure/key-vault/key-vault-overview
 
-Protezione dei dati dei clienti di Azure:Azure customer data protection:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Protezione dei dati dei clienti di Azure:Azure customer data protection:
+
+https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -571,8 +619,9 @@ Protezione dei dati dei clienti di Azure:Azure customer data protection:https://
 
 **Linee guida:** tutti gli oggetti gestiti (chiave, certificati e segreti) vengono crittografati inattivi in Archiviazione delle chiavi di Azure.Guidance: All managed objects (key, certificates, and secrets) are encrypted at rest in Azure Key Vault.
 
+Documentazione di supporto:
 
-Controlli di sicurezza per l'insieme di credenziali delle chiavi di Azure:Security controls for Azure Key Vault:https://docs.microsoft.com/azure/key-vault/key-vault-security-controls
+- [Modello di crittografia e tabella di gestione delle chiavi](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-model-and-key-management-table)
 
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
@@ -583,7 +632,10 @@ Controlli di sicurezza per l'insieme di credenziali delle chiavi di Azure:Securi
 
 **Indicazioni:** usare la soluzione Azure Key Vault Analytics in Monitoraggio di Azure per esaminare i log eventi di controllo dell'insieme di credenziali delle chiavi di Azure.Guidance : Use the Azure Key Vault Analytics solution in Azure Monitor to review Azure Key Vault audit event logs.
 
-Azure Key Vault Analytics solution in Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
+Azure Key Vault Analytics solution in Azure Monitor:
+
+https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
@@ -597,6 +649,7 @@ Azure Key Vault Analytics solution in Azure Monitor:https://docs.microsoft.com/a
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Eseguire strumenti automatici di scansione delle vulnerabilità
 
 **Linee guida:** Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che supportano l'insieme di chiavi di Azure.Guidance: Microsoft performs vulnerability management on the underlying systems that support Azure Key Vault.
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -613,6 +666,7 @@ Azure Key Vault Analytics solution in Azure Monitor:https://docs.microsoft.com/a
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Distribuire una soluzione di gestione automatica delle patch software di terze parti
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -634,6 +688,7 @@ Migliorare il punteggio sicuro nel Centro sicurezza di Azure:Improve your Secure
 
 https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Cliente
@@ -646,11 +701,17 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 **Indicazioni:** usare Azure Resource Graph per eseguire query e individuare tutte le risorse (incluse le istanze dell'insieme di chiavi di Azure) all'interno della sottoscrizione. Assicurarsi di disporre delle autorizzazioni appropriate (di lettura) nel tenant e di essere in grado di enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni.
 
-Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure Resource Graph Explorer:Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure Resource Graph Explorer:Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer:
 
-Ottenere le sottoscrizioni a cui l'account corrente può accedere.:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?https://docs.microsoft.com/azure/role-based-access-control/overview
+Ottenere le sottoscrizioni a cui l'account corrente può accedere.:
+
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
+Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?
+
+https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -659,7 +720,6 @@ Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?h
 ### <a name="62-maintain-asset-metadata"></a>6.2: Gestire i metadati delle risorse
 
 **Linee guida:** applicare tag alle risorse dell'insieme di chiavi di Azure fornendo metadati per organizzarli logicamente in una tassonomia.
-
 
 Come creare e utilizzare i tag:
 
@@ -673,18 +733,16 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Linee guida:** usare il tagging, i gruppi di gestione e sottoscrizioni separate, se appropriato, per organizzare e tenere traccia delle istanze dell'insieme di credenziali delle chiavi di Azure e delle risorse correlate. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate dalla sottoscrizione in modo tempestivo.
 
-
 Creare una sottoscrizione di Azure aggiuntiva:Create an additional Azure subscription:
 
 https://docs.microsoft.com/azure/billing/billing-create-subscription
-
 
 Creare gruppi di gestione per l'organizzazione e la gestione delle risorse:Create management groups for resource organization and management:
 
 https://docs.microsoft.com/azure/governance/management-groups/create
 
-
 Usare i tag per organizzare le risorse di Azure:Use tags to organize your Azure resources:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -703,6 +761,7 @@ Usare i tag per organizzare le risorse di Azure:Use tags to organize your Azure 
 **Linee guida:** usare i criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni dei criteri predefinite seguenti:Guidance: Use Azure policies to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Tipi di risorse non consentiti
+
 - Tipi di risorse consentiti
 
 Inoltre, usare Azure Resource Graph per eseguire query/individuare risorse all'interno delle sottoscrizioni.
@@ -710,6 +769,7 @@ Inoltre, usare Azure Resource Graph per eseguire query/individuare risorse all'i
 Esercitazione: Creare e gestire i criteri per applicare la conformità:Tutorial: Create and manage policies to enforce compliance:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure Resource Graph Explorer:Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
@@ -720,6 +780,7 @@ Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure Resou
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -728,6 +789,7 @@ Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure Resou
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata ad Azure nel suo complesso e alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -735,6 +797,7 @@ Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure Resou
 ### <a name="68-use-only-approved-applications"></a>6.8: Utilizzare solo applicazioni approvate
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -745,11 +808,13 @@ Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure Resou
 **Linee guida:** usare i criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni dei criteri predefinite seguenti:Guidance: Use Azure policies to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Tipi di risorse non consentiti
+
 - Tipi di risorse consentiti
 
 Esercitazione: Creare e gestire i criteri per applicare la conformità:Tutorial: Create and manage policies to enforce compliance:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Esempi di criteri di Azure:Azure Policy Samples:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
@@ -760,6 +825,7 @@ Esempi di criteri di Azure:Azure Policy Samples:https://docs.microsoft.com/azure
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -768,8 +834,10 @@ Esempi di criteri di Azure:Azure Policy Samples:https://docs.microsoft.com/azure
 
 **Linee guida:** usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager (ARM) configurando "Blocca accesso" per l'app "Gestione di Microsoft Azure". Ciò può impedire la creazione e le modifiche alle risorse all'interno di un ambiente ad alta sicurezza, ad esempio quelle con configurazione dell'insieme di credenziali delle chiavi.
 
+Gestire l'accesso alla gestione di Azure con accesso condizionale:Manage access to Azure management with Conditional Access:
 
-Gestire l'accesso alla gestione di Azure con accesso condizionale:Manage access to Azure management with Conditional Access:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -779,6 +847,7 @@ Gestire l'accesso alla gestione di Azure con accesso condizionale:Manage access 
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -786,6 +855,7 @@ Gestire l'accesso alla gestione di Azure con accesso condizionale:Manage access 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Separare fisicamente o logicamente le applicazioni ad alto rischio
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle applicazioni Web in esecuzione nel servizio app di Azure o alle risorse di calcolo.
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -799,7 +869,6 @@ Gestire l'accesso alla gestione di Azure con accesso condizionale:Manage access 
 
 **Linee guida:** usare gli alias di Criteri di Azure nello spazio dei nomi "Microsoft.KeyVault" per creare criteri personalizzati per controllare o applicare la configurazione delle istanze di Archiviazione chiavi di Azure.Guidance : Use Azure Policy aliases in the "Microsoft.KeyVault" namespace to create custom policies to audit or enforce the configuration of your Azure Key Vault instances. È anche possibile usare le definizioni dei criteri di Azure predefinite per l'insieme di credenziali delle chiavi di Azure, ad esempio:You may also use built-in Azure Policy definitions for Azure Key Vault such as:
 
-
 Gli oggetti Key Vault devono essere recuperabili
 
 Distribuisci le impostazioni di diagnostica per Key Vault nell'area di lavoro Log Analytics
@@ -810,18 +879,16 @@ Gli insieme di credenziali delle chiavi devono usare un endpoint servizio di ret
 
 Distribuisci le impostazioni di diagnostica per Key Vault nell'hub eventi
 
-
 Usare le raccomandazioni del Centro sicurezza di Azure come linea di base di configurazione sicura per le istanze dell'insieme di credenziali delle chiavi di Azure.Use recommendations from Azure Security Center as a secure configuration baseline for your Azure Key Vault instances.
-
 
 Come visualizzare gli alias dei criteri di Azure disponibili:How to view available Azure Policy Aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-
 Esercitazione: Creare e gestire i criteri per applicare la conformità:Tutorial: Create and manage policies to enforce compliance:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -831,6 +898,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -839,16 +907,15 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Indicazioni:** usare i criteri di Azure [nega] e [distribuzione se non esistono] per applicare impostazioni sicure tra le risorse abilitate per L'insieme di credenziali delle chiavi di Azure.Guidance : Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure Key Vault-enabled resources. 
 
-
 Esercitazione: Creare e gestire i criteri per applicare la conformità:Tutorial: Create and manage policies to enforce compliance:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
-
 
   
 Informazioni sugli effetti dei criteri di Azure:Understand Azure Policy effects: 
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -858,6 +925,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -866,11 +934,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Indicazioni:** se si usano definizioni di criteri di Azure personalizzate per le risorse abilitate per l'insieme di credenziali delle chiavi di Azure, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-
 Come archiviare il codice in DevOps di Azure:How to store code in Azure DevOps: 
 
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops 
-
 
 Azure Repos Documentation: 
 
@@ -884,6 +950,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -891,8 +958,6 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Distribuire gli strumenti di gestione della configurazione di sistema
 
 **Linee guida:** usare gli alias dei criteri di Azure nello spazio dei nomi "Microsoft.KeyVault" per creare criteri personalizzati per l'avviso, il controllo e l'applicazione delle configurazioni di sistema. Inoltre, sviluppare un processo e una pipeline per la gestione delle eccezioni dei criteri.
-
-
 
 Come configurare e gestire Criteri di Azure:How to configure and manage Azure Policy:
 
@@ -906,13 +971,14 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementare il monitoraggio automatico della configurazione per i servizi di Azure7.9: Implement automated configuration monitoring for Azure services
 
-**Indicazioni:** usare il Centro sicurezza di Azure per eseguire analisi di base per le risorse protette da Archiviazione guidata dalle chiavi di Azure.Guidance : Use Azure Security Center to perform baseline scans for your Azure Key Vault-protected resources. 
+**Linee guida:** Usare il Centro sicurezza di Azure per eseguire analisi di base per le risorse protette da Archiviazione guidata chiave di Azure 
 
   
 
@@ -928,6 +994,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 **Orientamento**: Non applicabile; questo benchmark è destinato alle risorse di calcolo.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -936,16 +1003,13 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 **Linee guida:** usare l'identità del servizio gestito insieme a Archiviazione delle chiavi di Azure per semplificare e proteggere la gestione dei segreti per le applicazioni cloud. Verificare che l'eliminazione temporanea dell'insieme di credenziali delle chiavi di Azure sia abilitata.
 
-
 Come integrare con le identità gestite di Azure:How to integrate with Azure Managed Identities:
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-
 Come creare un insieme di credenziali delle chiavi:
 
 https://docs.microsoft.com/azure/key-vault/quick-create-portal
-
 
 Come fornire l'autenticazione key Vault con un'identità gestita:How to provide Key Vault authentication with a managed identity: 
 
@@ -964,8 +1028,6 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 Come integrare con le identità gestite di Azure:How to integrate with Azure Managed Identities: 
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
-
-
 
 Come creare un insieme di credenziali delle chiavi: 
 
@@ -996,6 +1058,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo. Microsoft gestisce l'antimalware per la piattaforma sottostante.
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Non applicabile
@@ -1004,9 +1067,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Linee guida:** l'antimalware Microsoft è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, Archiviazione delle chiavi di Azure), tuttavia non viene eseguito sul contenuto dei clienti.
 
-
 Pre-scan any content being uploaded or sent to non-compute Azure resources such as Azure Key Vault. Microsoft non può accedere ai dati in questi casi.
-
 
 Informazioni su Microsoft Antimalware per i servizi cloud di Azure e le macchine virtuali:Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines:https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
@@ -1017,6 +1078,7 @@ Informazioni su Microsoft Antimalware per i servizi cloud di Azure e le macchine
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: Verificare che il software antimalware e le firme siano aggiornate
 
 **Orientamento**: Non applicabile; questa raccomandazione è destinata alle risorse di calcolo. Microsoft gestisce l'antimalware per la piattaforma sottostante.
+
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
@@ -1031,8 +1093,11 @@ Informazioni su Microsoft Antimalware per i servizi cloud di Azure e le macchine
 **Linee guida**: Garantire backup automatici regolari dei certificati, delle chiavi, degli account di archiviazione gestiti e dei segreti dell'insieme di credenziali delle chiavi, con i comandi di PowerShell seguenti:
 
 - Backup-AzKeyVaultCertificate
+
 - Backup-AzKeyVaultKey
+
 - Backup-AzKeyVaultManagedStorageAccount
+
 - Backup-AzKeyVaultSecret
 
 Facoltativamente, è possibile archiviare i backup dell'insieme di credenziali delle chiavi in Backup di Azure.Optionally, you may store your Key Vault backups within Azure Backup.
@@ -1046,6 +1111,7 @@ Come eseguire il backup degli account di archiviazione gestiti dell'insieme di c
 Come eseguire il backup dei segreti dell'insieme di credenziali delle chiavi:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
 Come abilitare Backup di Azure:How to enable Azure Backup:https://docs.microsoft.com/azure/backup
+
 
 
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
@@ -1057,8 +1123,11 @@ Come abilitare Backup di Azure:How to enable Azure Backup:https://docs.microsoft
 **Linee guida:** eseguire i backup di certificati, chiavi, account di archiviazione gestiti e segreti dell'insieme di credenziali delle chiavi, con i comandi di PowerShell seguenti:
 
 - Backup-AzKeyVaultCertificate
+
 - Backup-AzKeyVaultKey
+
 - Backup-AzKeyVaultManagedStorageAccount
+
 - Backup-AzKeyVaultSecret
 
 Facoltativamente, è possibile archiviare i backup dell'insieme di credenziali delle chiavi in Backup di Azure.Optionally, you may store your Key Vault backups within Azure Backup.
@@ -1073,6 +1142,8 @@ Come eseguire il backup dei segreti dell'insieme di credenziali delle chiavi:htt
 
 Come abilitare Backup di Azure:How to enable Azure Backup:https://docs.microsoft.com/azure/backup
 
+
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Cliente
@@ -1082,8 +1153,11 @@ Come abilitare Backup di Azure:How to enable Azure Backup:https://docs.microsoft
 **Guida:** eseguire periodicamente il ripristino dei dati dei certificati, delle chiavi, degli account di archiviazione gestiti e dei segreti dell'insieme di credenziali delle chiavi, con i comandi di PowerShell seguenti:
 
 - Restore-AzKeyVaultCertificate
+
 - Ripristina-AzKeyVaultKey
+
 - Restore-AzKeyVaultManagedStorageAccount
+
 - Restore-AzKeyVaultSecret
 
 Come ripristinare i certificati dell'insieme di credenziali delle chiavi:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
@@ -1094,6 +1168,7 @@ Come ripristinare gli account di archiviazione gestiti dell'insieme di credenzia
 
 Come ripristinare i segreti dell'insieme di credenziali delle chiavi:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
 
+
 **Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità**: Cliente
@@ -1101,7 +1176,6 @@ Come ripristinare i segreti dell'insieme di credenziali delle chiavi:https://doc
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantire la protezione dei backup e delle chiavi gestite dai clienti
 
 **Guida:** verificare che l'eliminazione temporanea sia abilitata per l'insieme di credenziali delle chiavi di Azure.Guidance : Ensure that soft delete is enabled for Azure Key Vault. L'eliminazione temporanea consente il ripristino degli insiemi di credenziali delle chiavi eliminati e degli oggetti dell'insieme di credenziali, ad esempio chiavi, segreti e certificati. 
-
 
 Come usare l'eliminazione temporanea dell'insieme di credenziali delle chiavi di Azure:How to use Azure Key Vault's Soft Delete: 
 
@@ -1119,25 +1193,17 @@ https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
 **Linee guida**: Creare una guida alla risposta agli incidenti per l'organizzazione. Assicurarsi che siano presenti piani di risposta agli incidenti scritti che definiscono tutti i ruoli del personale, nonché fasi di gestione/gestione degli incidenti dal rilevamento alla revisione post-incidente. Questi processi devono concentrarsi sulla protezione dei sistemi sensibili, ad esempio quelli che utilizzano i segreti dell'insieme di credenziali delle chiavi.
 
-
-
 Come configurare le automazioni del flusso di lavoro all'interno del Centro sicurezza di Azure:How to configure Workflow Automations within Azure Security Center: 
 
 https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide   
-
-
 
 Linee guida per creare un processo di risposta agli incidenti di sicurezza:Guidance on building your own security incident response process:  
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-
-
 Anatomia di Microsoft Security Response Center di un incidente:   
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process   
-
-
 
 Il cliente può anche sfruttare la Guida alla gestione degli incidenti di sicurezza del COMPUTER del NIST per facilitare la creazione del proprio piano di risposta agli incidenti: 
 
@@ -1151,6 +1217,7 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
 **Linee guida:** il Centro sicurezza assegna una gravità a ogni avviso per consentire di definire la priorità degli avvisi da analizzare per primi. La gravità si basa sulla sicurezza del Centro sicurezza nella ricerca o sull'analita utilizzato per emettere l'avviso, nonché il livello di probabilità che vi sia stato un intento dannoso dietro l'attività che ha portato all'avviso. Inoltre, contrassegnare chiaramente gli abbonamenti (per ex. produzione, non prod) e creare un sistema di denominazione per identificare chiaramente e classificare le risorse di Azure, in particolare quelle che elaborano dati sensibili, ad esempio i segreti dell'insieme di chiavi di Azure.Production, non-prod) and create a naming system to clearly identify and categorizement Azure resources, especially those processing sensitive data such as Azure Key Vault secrets.
 
+
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: Cliente
@@ -1158,7 +1225,6 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 ### <a name="103-test-security-response-procedures"></a>10.3: Testare le procedure di risposta alla sicurezza
 
 **Linee guida:** eseguire esercizi per testare le funzionalità di risposta agli incidenti dei sistemi a cadenza regolare per proteggere le istanze di Azure Key Vault e le risorse correlate. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
-
 
 Fare riferimento alla pubblicazione del NIST: Guida ai programmi di test, formazione ed eserciziper piani e funzionalità IT: 
 
@@ -1171,8 +1237,6 @@ https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: Fornire i dettagli di contatto degli eventi imprevisti di sicurezza e configurare le notifiche di avviso per gli incidenti di sicurezza
 
 **Linee guida:** le informazioni di contatto relative agli eventi imprevisti di protezione verranno utilizzate da Microsoft per contattare l'utente se Microsoft Security Response Center (MSRC) rileva che i dati sono stati utilizzati da una parte illegale o non autorizzata.  Esaminare gli incidenti dopo il fatto per assicurarsi che i problemi vengano risolti.
-
-
 
 Come impostare il contatto di sicurezza del centro di sicurezza di Azure:How to set the Azure Security Center Security Contact:
 
@@ -1224,11 +1288,9 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Linee guida:** non è necessario eseguire direttamente il test della penna nel servizio dell'insieme di chiavi di Azure, tuttavia è consigliabile testare le risorse di Azure che usano l'insieme di credenziali delle chiavi per garantire la sicurezza dei segreti.
 
-
 È necessario seguire le regole di coinvolgimento Microsoft per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft:
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
-
 
 Ulteriori informazioni sulla strategia di Microsoft e sull'esecuzione di Red Teaming e sui test di penetrazione dei siti in tempo reale sull'infrastruttura cloud, i servizi e le applicazioni gestiti da Microsoft sono disponibili qui: 
 

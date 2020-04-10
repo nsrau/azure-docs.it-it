@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399310"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991263"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -33,9 +33,10 @@ L'API di creazione report usa l'autenticazione [OAuth](https://docs.microsoft.co
 Per preparare l'accesso all'API di creazione report, è necessario:
 
 1. [Assegnare ruoli](#assign-roles)
-2. [Registrare un'applicazione](#register-an-application)
-3. [Concedere autorizzazioni](#grant-permissions)
-4. [Ottenere le impostazioni di configurazione](#gather-configuration-settings)
+2. [Requisiti di licenza](#license-requirements)
+3. [Registrare un'applicazione](#register-an-application)
+4. [Concedere autorizzazioni](#grant-permissions)
+5. [Ottenere le impostazioni di configurazione](#gather-configuration-settings)
 
 ## <a name="assign-roles"></a>Assegnare ruoli
 
@@ -46,6 +47,10 @@ Per accedere ai dati di creazione dei report tramite l'API, è necessario dispor
 - Amministratore della sicurezza
 
 - Amministratore globale
+
+## <a name="license-requirements"></a>Requisiti di licenza
+
+Per accedere ai report di accesso per un tenant, un tenant di Azure AD deve avere una licenza di Azure AD Premium associata. La licenza di Azure AD Premium P1 (o versione successiva) è necessaria per accedere ai report di accesso per qualsiasi tenant di Azure AD. In alternativa, se il tipo di directory è Azure AD B2C , i report di accesso sono accessibili tramite l'API senza alcun requisito di licenza aggiuntivo. 
 
 
 ## <a name="register-an-application"></a>Registrare un'applicazione

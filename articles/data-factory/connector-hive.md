@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 965864f1d2bc50ba7e5ae42e2b174a4fdc8d5c94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1854465c463d78999674080048207cfa0916da3b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929342"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992165"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiare dati da Hive usando Azure Data Factory 
 
@@ -61,10 +61,10 @@ Per il servizio collegato Hive sono supportate le proprietà seguenti:
 | username | Nome utente usato per accedere al server Hive.  | No |
 | password | Password corrispondente all'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | URL parziale corrispondente al server Hive.  | No |
-| enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è false.  | No |
-| trustedCertPath | Percorso completo del file PEM contenente i certificati CA attendibili per la verifica del server in caso di connessione tramite SSL. È possibile impostare questa proprietà solo quando si usa SSL nel runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
+| enableSsl | Specifica se le connessioni al server vengono crittografate tramite TLS. Il valore predefinito è false.  | No |
+| trustedCertPath | Percorso completo del file con estensione pem contenente certificati CA attendibili per la verifica del server durante la connessione tramite TLS. Questa proprietà può essere impostata solo quando si utilizza TLS su un iR self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
 | useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è false.  | No |
-| allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato SSL rilasciato dall'Autorità di certificazione corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è false.  | No |
+| allowHostNameCNMismatch | Specifica se richiedere che un nome di certificato TLS/SSL emesso dalla CA corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è false.  | No |
 | allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è false.  | No |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per ulteriori informazioni, vedere la sezione [Prerequisiti.](#prerequisites) Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
@@ -130,7 +130,7 @@ Per copiare dati da Hive, impostare il tipo di origine nell'attività di copia s
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **HiveSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

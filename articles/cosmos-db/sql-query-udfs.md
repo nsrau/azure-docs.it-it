@@ -1,27 +1,38 @@
 ---
 title: Funzioni definite dall'utente (UDF) in Azure Cosmos DBUser-defined functions (UDFs) in Azure Cosmos DB
 description: Informazioni sulle funzioni definite dall'utente in Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.author: tisande
+ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69614326"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011124"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funzioni definite dall'utente (UDF) in Azure Cosmos DBUser-defined functions (UDFs) in Azure Cosmos DB
 
 L'API SQL fornisce il supporto per le funzioni definite dall'utente (UDF). Con le funzioni definite dall'utente scalari, è possibile passare zero o molti argomenti e restituire un singolo risultato dell'argomento. L'API controlla ogni argomento per essere valori JSON legali.  
 
-L'API estende la sintassi SQL per supportare la logica dell'applicazione personalizzata tramite funzioni definite dall'utente. È possibile registrare funzioni definite dall'utente con l'API SQL e farvi riferimento nelle query SQL. In effetti, le UDF sono progettate espressamente per essere chiamate dalle query. Come corollario, le funzioni definite dall'utente non hanno accesso all'oggetto di contesto come altri tipi JavaScript, ad esempio stored procedure e trigger. Le query sono di sola lettura e possono essere eseguite in repliche primarie o secondarie. Le funzioni definite dall'utente, a differenza di altri tipi JavaScript, sono progettate per essere eseguite su repliche secondarie.
+## <a name="udf-use-cases"></a>Casi d'uso UDF
 
-Nell'esempio seguente viene registrato un UDF in un contenitore di elementi nel database Cosmos. Nell'esempio viene creata una `REGEX_MATCH`funzione definita dall'utente il cui nome è . Accetta due valori stringa `input` JSON `pattern`e , e controlla se il primo corrisponde al `string.match()` modello specificato nel secondo utilizzando la funzione di JavaScript.
+L'API estende la sintassi SQL per supportare la logica dell'applicazione personalizzata tramite funzioni definite dall'utente. È possibile registrare funzioni definite dall'utente con l'API SQL e farvi riferimento nelle query SQL. A differenza delle stored procedure e dei trigger, le funzioni definite dall'utente sono di sola lettura.
+
+Usando le funzioni definite dall'utente, è possibile estendere il linguaggio di query di Azure Cosmos DB. Le funzioni definite dall'utente sono un ottimo modo per esprimere logica di business complessa nella proiezione di una query.
+
+Tuttavia, si consiglia di evitare le funzioni definite dall'utente quando:However, we recommending avoiding UDFs when:
+
+- Una [funzione](sql-query-system-functions.md) di sistema equivalente esiste già in Azure Cosmos DB. Le funzioni di sistema utilizzeranno sempre meno RU rispetto alla funzione definita dall'utente equivalente.
+- La funzione definita dall'utente `WHERE` è l'unico filtro nella clausola della query. UDF non utilizzano l'indice, pertanto la valutazione della Funzione definita dall'utente richiederà il caricamento dei documenti. La combinazione di predicati di filtro aggiuntivi che utilizzano `WHERE` l'indice, in combinazione con una funzione definita dall'utente, nella clausola ridurrà il numero di documenti elaborati dalla funzione definita dall'utente.
+
+Se è necessario utilizzare più volte la stessa funzione definita dall'utente in una query, è necessario fare riferimento alla fDU in una [sottoquery,](sql-query-subquery.md#evaluate-once-and-reference-many-times)consentendo di utilizzare un'espressione JOIN per valutare la funzione definita dall'utente una sola volta, ma farvi riferimento più volte.
 
 ## <a name="examples"></a>Esempi
+
+Nell'esempio seguente viene registrato un UDF in un contenitore di elementi nel database Cosmos. Nell'esempio viene creata una `REGEX_MATCH`funzione definita dall'utente il cui nome è . Accetta due valori stringa `input` JSON `pattern`e , e controlla se il primo corrisponde al `string.match()` modello specificato nel secondo utilizzando la funzione di JavaScript.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction

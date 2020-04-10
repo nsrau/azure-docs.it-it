@@ -3,12 +3,12 @@ title: Informazioni su come controllare il contenuto delle macchine virtualiLear
 description: Informazioni su come Criteri di Azure usa l'agente di configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 889e99e94b2c81a6654fcbe7851e93c40163a0c6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9e8486af2a9b7ab9e18b8c16f08e51759d1123d7
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985321"
+ms.locfileid: "80998848"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -91,6 +91,13 @@ Windows Server Nano Server non è supportato in nessuna versione.
 
 Per comunicare con il provider di risorse Configurazione ospite in Azure, i computer richiedono l'accesso in uscita ai data center di Azure sulla porta **443.** Se si usa una rete virtuale privata in Azure che non consente il traffico in uscita, configurare le eccezioni con le regole del gruppo di sicurezza di [rete.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
 Il [tag del servizio](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" può essere utilizzato per fare riferimento al servizio di configurazione guest.
+
+## <a name="azure-managed-identity-requirements"></a>Requisiti dell'identità gestita di AzureAzure managed identity requirements
+
+I criteri **DeployIfNotExists** che aggiungono l'estensione alle macchine virtuali abilitano anche un'identità gestita assegnata dal sistema, se non ne esiste una.
+
+> [!WARNING]
+> Evitare di abilitare l'identità gestita assegnata dall'utente alle macchine virtuali nell'ambito per i criteri che abilitano l'identità gestita assegnata al sistema. L'identità assegnata all'utente verrà sostituita e potrebbe non rispondere alla macchina.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione della configurazione guest
 

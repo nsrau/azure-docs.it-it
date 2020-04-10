@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 9ef8d6a8d97b2f2c2cff62c629219efb43077c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb0e20a96bebec22dff99d89c6be0a6d294c80a1
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75754145"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992148"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiare dati da HubSpot tramite Azure Data Factory (anteprima)
 
@@ -55,8 +55,8 @@ Per il servizio collegato di HubSpot sono supportate le proprietà seguenti:
 | accessToken | Il token di accesso ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Informazioni su come ottenere il token di accesso con l'ID client e il segreto da [qui](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | refreshToken | Il token di aggiornamento ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
-| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
-| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
+| useHostVerification | Specifica se richiedere che il nome host nel certificato del server corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
+| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 
 **Esempio:**
 
@@ -123,7 +123,7 @@ Per copiare dati da HubSpot, impostare il tipo di origine nell'attività di copi
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **HubspotSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM Companies where Company_Id = xxx"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Companies where Company_Id = xxx"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

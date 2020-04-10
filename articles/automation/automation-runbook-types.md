@@ -1,51 +1,58 @@
 ---
 title: Tipi di runbook di Automazione di Azure
-description: 'Descrive i diversi tipi di runbook che è possibile usare in Automazione di Azure e fornisce considerazioni di cui tenere conto per determinare il tipo da usare. '
+description: Descrive i diversi tipi di runbook che è possibile usare in Automazione di Azure e fornisce considerazioni di cui tenere conto per determinare il tipo da usare.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6346c29210b6390f11c884ff51e0b60af89bbbb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10f9c829207dc17fa39711e273ae4fbfab3ecbcd
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278610"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010172"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipi di runbook di Automazione di Azure
 
-Automazione di Azure supporta diversi tipi di runbook, descritti brevemente nella tabella seguente.  Le sezioni seguenti forniscono altre informazioni su ogni tipo con alcune considerazioni sui casi in cui usarli.
+Il servizio di automazione dei processi di Automazione di Azure supporta diversi tipi di runbook. I tipi sono brevemente definiti nella tabella seguente e descritti in modo più dettagliato nelle sezioni seguenti. Per altre informazioni sull'ambiente di automazione dei processi, vedere Esecuzione di Runbook in Automazione di Azure.To learn about the process automation environment, see [Runbook execution in Azure Automation.](automation-runbook-execution.md)
 
 | Type | Descrizione |
 |:--- |:--- |
-| [Grafico](#graphical-runbooks)|Basato su Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. |
-| [Grafico del flusso di lavoro di PowerShell](#graphical-runbooks)|Basato su flusso di lavoro Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. |
-| [Powershell](#powershell-runbooks) |Runbook di testo basato su script di Windows PowerShell. |
-| [Flusso di lavoro PowerShell](#powershell-workflow-runbooks)|Runbook di testo basato su flusso di lavoro Windows PowerShell. |
-| [Python](#python-runbooks) |Runbook di testo basato su Python. |
+| [Grafico](#graphical-runbooks)|Runbook grafico basato su Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure.Graphical runbook based on Windows PowerShell and created and edited completely in the graphical editor in Azure portal. |
+| [Grafico del flusso di lavoro di PowerShell](#graphical-runbooks)|Runbook grafico basato sul flusso di lavoro di Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure.Graphical runbook based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
+| [PowerShell](#powershell-runbooks) |Runbook di testo basato su script di Windows PowerShell. |
+| [Flusso di lavoro PowerShell](#powershell-workflow-runbooks)|Runbook di testo basato sullo scripting del flusso di lavoro di Windows PowerShell.Text runbook based on Windows PowerShell Workflow scripting. |
+| [Python](#python-runbooks) |Runbook di testo basato su script Python. |
 
 ## <a name="graphical-runbooks"></a>Runbook grafici
 
-[Grafico](automation-runbook-types.md#graphical-runbooks) and Grafico PowerShell Workflow runbooks are created and edited with the graphical editor in the Azure portal.  È possibile esportarli in un file e quindi importarli in un altro account di automazione, ma non è possibile crearli o modificarli con un altro strumento. I runbook grafici generano codice di PowerShell, ma non è possibile visualizzare o modificare direttamente il codice. I runbook grafici non possono essere convertiti in uno dei [formati di testo](automation-runbook-types.md), né un runbook di testo può essere convertito in formato grafico. I runbook grafici possono essere convertiti in runbook grafici del flusso di lavoro di PowerShell durante l'importazione e viceversa.
+È possibile creare e modificare i runbook grafici e grafici del flusso di lavoro di PowerShell usando l'editor grafico nel portale di Azure.You can create and edit graphical and graphical PowerShell Workflow runbooks using the graphical editor in the Azure portal. Tuttavia, non è possibile creare o modificare questo tipo di runbook con un altro strumento.
+
+Un runbook grafico ha le seguenti caratteristiche principali:
+
+* Può essere esportato in un file nell'account Automation e quindi importato in un altro account Di automazione. 
+* Genera codice PowerShell. 
+* Può essere convertito in o da un runbook grafico del flusso di lavoro di PowerShell durante l'importazione. 
 
 ### <a name="advantages"></a>Vantaggi
 
-* Modello di creazione con inserimento, collegamento e configurazione visivi
-* Possibilità di analizzare il flusso dei dati attraverso il processo
-* Rappresentazione visiva dei processi di gestione
-* Inclusione di altri runbook come runbook figlio per creare flussi di lavoro di livello elevato
-* Agevolazione della programmazione modulare
+* Utilizza il modello di creazione visivo di creazione di inserimenti e collegamenti.
+* Si concentra sul modo in cui i dati passano attraverso il processo.
+* Rappresenta visivamente i processi di gestione.
+* Include altri runbook come runbook figlio per creare flussi di lavoro di alto livello.
+* Incoraggia la programmazione modulare.
 
 ### <a name="limitations"></a>Limitazioni
 
-* Impossibilità di modificare il runbook all'esterno del portale di Azure.
-* Potrebbe richiedere un'attività di codice contenente il codice di PowerShell per eseguire una logica complessa.
-* Impossibilità di visualizzare o modificare direttamente il codice di PowerShell creato dal flusso di lavoro grafico. È possibile visualizzare il codice creato in qualsiasi attività di codice.
-* Non può essere eseguito in un runbook ibrido Linux
+* Non è possibile creare o modificare all'esterno del portale di Azure.Can't be created or edited outside of the Azure portal.
+* Potrebbe essere necessaria un'attività di codice contenente codice PowerShell per eseguire logica complessa.
+* Non può essere convertito in uno dei [formati di testo,](automation-runbook-types.md)né un runbook di testo può essere convertito in formato grafico. 
+* Non consente di visualizzare o modificare direttamente il codice di PowerShell creato dal flusso di lavoro grafico. È possibile visualizzare il codice creato in qualsiasi attività di codice.
+* Non viene eseguito in un runbook worker ibrido Linux. Vedere [Automatizzare le risorse nel data center o](automation-hybrid-runbook-worker.md)nel cloud utilizzando Hybrid Runbook Worker .
 
 ## <a name="powershell-runbooks"></a>Runbook di PowerShell
 
-I runbook di PowerShell sono basati su Windows PowerShell.  È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure.  È anche possibile usare un editor di testo offline e [importare il runbook](manage-runbooks.md) in Automazione di Azure.
+I runbook di PowerShell sono basati su Windows PowerShell. È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure.  È anche possibile usare un editor di testo offline e [importare il runbook](manage-runbooks.md) in Automazione di Azure.
 
 ### <a name="advantages"></a>Vantaggi
 
@@ -86,22 +93,22 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 * Gestione nel runbook della complessità aggiuntiva del flusso di lavoro PowerShell, ad esempio gli [oggetti deserializzati](automation-powershell-workflow.md#code-changes).
 * Tempi di avvio maggiori rispetto ai runbook di PowerShell perché è necessaria la compilazione prima dell'esecuzione.
 * Possibilità di includere i runbook di PowerShell come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook, che crea un nuovo processo.
-* Non può essere eseguito in un runbook ibrido Linux
+* Impossibile eseguire in un runbook ibrido Linux.
 
 ## <a name="python-runbooks"></a>Runbook Python
 
-I runbook Python vengono compilati in Python 2.  È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure o con un qualsiasi editor di testo offline e [importare il runbook](manage-runbooks.md) in Automazione di Azure.
+I runbook Python vengono compilati in Python 2. È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure o con un qualsiasi editor di testo offline e [importare il runbook](manage-runbooks.md) in Automazione di Azure.
 
 ### <a name="advantages"></a>Vantaggi
 
 * Usare le affidabili librerie di Python.
-* Può essere eseguito in Azure o in entrambi i ruoli di lavoro Linux Hybrid Runbook.Can be ran in Azure or on both Linux Hybrid Runbook Workers. Windows Hybrid Runbook Workers sono supportati con [python2.7](https://www.python.org/downloads/release/latest/python2) installato.
+* Può essere eseguito in Azure o in entrambi i ruoli di lavoro Linux Hybrid Runbook.Can run in Azure or on both Linux Hybrid Runbook Workers. Windows Hybrid Runbook Workers sono supportati con [python2.7](https://www.python.org/downloads/release/latest/python2) installato.
 
 ### <a name="limitations"></a>Limitazioni
 
 * Conoscenza delle nozioni sulla scrittura di script di Python.
 * Al momento è supportato solo Python 2, di conseguenza le funzioni specifiche di Python 3 non verranno eseguite.
-* Per poter usare librerie di terze parti, è necessario [importare il pacchetto](python-packages.md) nell'account di Automazione.
+* Per utilizzare librerie di terze parti, è necessario [importare il pacchetto](python-packages.md) nell'account di automazione per poterlo utilizzare.
 
 ## <a name="considerations"></a>Considerazioni
 

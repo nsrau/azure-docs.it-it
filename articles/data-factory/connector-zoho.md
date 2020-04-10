@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 4a885f183dcec49ac857777ae552e97060c656f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94db1b03a57d46acdcc1edeb5ab3e635298d73c1
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930861"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991689"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copiare dati da Zoho tramite Azure Data Factory (anteprima)
 
@@ -53,8 +53,8 @@ Per il servizio collegato di Zoho sono supportate le proprietà seguenti:
 | endpoint | Endpoint del server Zoho (`crm.zoho.com/crm/private`). | Sì |
 | accessToken | Token di accesso per l'autenticazione Zoho. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
-| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
-| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
+| useHostVerification | Specifica se richiedere che il nome host nel certificato del server corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
+| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 
 **Esempio:**
 
@@ -113,7 +113,7 @@ Per copiare dati da Zoho, impostare il tipo di origine nell'attività di copia s
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **ZohoSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM Accounts"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Accounts"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

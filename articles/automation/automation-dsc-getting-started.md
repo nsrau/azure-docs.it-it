@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Configurazione stato di Automazione di Azure
+title: Introduzione alla configurazione dello stato di automazione di AzureGet started with Azure Automation State Configuration
 description: Descrizione ed esempi delle attività più comuni in Configurazione stato (DSC) di Automazione di Azure
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fce9a769dd6d88c9926913d22716666284938c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c33fbed6c547897847c79cc1260d2bdc9ec6b17
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74850959"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010325"
 ---
-# <a name="getting-started-with-azure-automation-state-configuration"></a>Introduzione a Configurazione stato di Automazione di Azure
+# <a name="get-started-with-azure-automation-state-configuration"></a>Introduzione alla configurazione dello stato di automazione di AzureGet started with Azure Automation State Configuration
 
 Questo articolo descrive come eseguire le attività più comuni in Configurazione stato di Automazione di Azure, come la creazione, l'importazione e la compilazione di configurazioni, l'onboarding di computer da gestire e la visualizzazione di report. Per una panoramica di Configurazione stato di Automazione di Azure, vedere [Panoramica di Configurazione stato di Automazione di Azure](automation-dsc-overview.md). Per la documentazione di DSC (Desired State Configuration, Configurazione dello stato desiderato), vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview).
 
@@ -67,7 +67,7 @@ Questa configurazione chiama in ogni blocco di nodi una [risorsa WindowsFeature]
 
 Successivamente, la configurazione verrà importata nell'account di automazione.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nella pagina **Account di automazione** selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Configurazioni** e quindi su **+ Aggiungi**.
@@ -81,7 +81,7 @@ Successivamente, la configurazione verrà importata nell'account di automazione.
 
 Dopo aver importato una configurazione, è possibile visualizzarla nel portale di Azure.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nella pagina **Account di automazione** selezionare **Configurazione stato (DSC)** in **Gestione configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Configurazioni** e quindi su **TestConfig**, che è il nome della configurazione importata nella procedura precedente.
@@ -96,7 +96,7 @@ Dopo aver importato una configurazione, è possibile visualizzarla nel portale d
 Per poter applicare uno stato desiderato a un nodo, è prima necessario compilare una configurazione DSC che definisce tale stato in una o più configurazioni di nodo (documenti MOF) e inserire tale configurazione DSC nel server di pull di Automation DSC. Per una descrizione più dettagliata della compilazione di configurazioni in Configurazione stato di Automazione di Azure, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md).
 Per altre informazioni sulla compilazione di configurazioni, vedere [Configurazioni DSC](/powershell/scripting/dsc/configurations/configurations).
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nella pagina **Account di automazione** selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Configurazioni** e quindi su **TestConfig**, che è il nome della configurazione precedentemente importata.
@@ -111,7 +111,7 @@ Per altre informazioni sulla compilazione di configurazioni, vedere [Configurazi
 
 Dopo avere avviato una compilazione, è possibile visualizzarla nel riquadro **Processi di compilazione** della pagina **Configurazione**. Nel riquadro **Processi di compilazione** vengono visualizzati i processi attualmente in esecuzione, completati e non riusciti. Aprendo la pagina di un processo di compilazione vengono visualizzate informazioni sul processo, inclusi gli eventuali errori o avvisi rilevati, i parametri di input usati nella configurazione e i log di compilazione.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nella pagina **Account di automazione** selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Configurazioni** e quindi su **TestConfig**, che è il nome della configurazione precedentemente importata.
@@ -125,7 +125,7 @@ Dopo avere avviato una compilazione, è possibile visualizzarla nel riquadro **P
 
 Con il completamento di un processo di compilazione vengono create una o più configurazioni di nodo. Una configurazione di nodo è un documento MOF che viene distribuito nel server di pull ed è disponibile per il pull e l'applicazione da parte di uno o più nodi. È possibile visualizzare le configurazioni dei nodi dell'account di Automazione nella pagina **Configurazione stato (DSC)**. Il nome di una configurazione del nodo presenta il formato *ConfigurationName*.*NodeName*.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nel pannello **Account di automazione** fare clic su **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Configurazioni compilate**.
@@ -138,7 +138,7 @@ Con il completamento di un processo di compilazione vengono create una o più co
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Per caricare una macchina virtuale Azure Resource Manager per la gestione con Configurazione stato di Automazione di Azure
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nel pannello **Account di automazione** fare clic su **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic su **+ Aggiungi** dalla scheda **Nodi**.
@@ -164,7 +164,7 @@ Azure avvierà il processo di caricamento della macchina virtuale. Al termine, l
 
 È possibile visualizzare l'elenco di tutti i computer caricati per la gestione nell'account di Automazione nella scheda **Nodi** della pagina **Configurazione stato (DSC)**.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nel pannello **Account di automazione** fare clic su **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Nodi**.
@@ -173,7 +173,7 @@ Azure avvierà il processo di caricamento della macchina virtuale. Al termine, l
 
 Ogni volta che Configurazione stato di Automazione di Azure esegue una verifica di coerenza su un nodo gestito, il nodo restituisce un report di stato al server di pull. È possibile visualizzare tali report nella pagina per il nodo.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nel pannello **Account di automazione** fare clic su **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Nodi.** Qui è possibile visualizzare la panoramica dello stato di configurazione e i dettagli per ogni nodo.
@@ -203,7 +203,7 @@ Dopo il caricamento di un nodo, può trascorrere tempo prima che sia disponibile
 
 È possibile assegnare un nodo in modo che usi una configurazione di nodo diversa rispetto a quella inizialmente assegnata.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nel pannello **Account di automazione** fare clic su **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Nodi**.
@@ -220,7 +220,7 @@ Dopo il caricamento di un nodo, può trascorrere tempo prima che sia disponibile
 
 Se non si vuole più che un nodo venga gestito da Automation DSC per Azure, è possibile annullarne la registrazione.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nel pannello **Account di automazione** fare clic su **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Nodi**.

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 5b532908df4b8dd58177b7e128f4e55aa96458e6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: d03b053f2aa5de4a6f7874dbf4e6ccb3a305a964
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409959"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992080"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di AzureManage usage and costs with Azure Monitor Logs
 
@@ -88,6 +88,9 @@ Per modificare il piano tariffario di Log Analytics dell'area di lavoro,
 Le sottoscrizioni che vi avevano un'area di lavoro di Log Analytics o una risorsa di Application Insights prima del 2 aprile 2018 o che sono collegate a un contratto Enterprise iniziato prima del 1 febbraio 2019 continueranno ad avere accesso per utilizzare i livelli tariffari legacy: **Gratuito** **, Autonomo (Per GB)** e **Per nodo (OMS).**  Le aree di lavoro nel piano tariffario Gratuito avranno inserimento giornaliero dei dati limitato a 500 MB (ad eccezione dei tipi di dati di sicurezza raccolti dal Centro sicurezza di Azure) e la conservazione dei dati è limitata a 7 giorni. Il piano tariffario gratuito è destinato solo ai fini della valutazione. Le aree di lavoro nei piani tariffari autonomo o Per nodo hanno una conservazione configurabile dall'utente da 30 a 730 giorni.
 
 Il piano tariffario Per nodo addebita il livello tariffario per vm monitorata (nodo) con granularità oraria. Per ogni nodo monitorato, all'area di lavoro vengono allocati 500 MB di dati al giorno che non vengono fatturati. Questa allocazione viene aggregata a livello di area di lavoro. I dati ingeriti al di sopra dell'allocazione giornaliera dei dati aggregata vengono fatturati per GB in base all'esadio dei dati. Si noti che nella fattura, il servizio sarà **Insight e Analytics** per l'utilizzo di Log Analytics se l'area di lavoro è nel piano tariffario Per nodo. 
+
+> [!TIP]
+> Se l'area di lavoro ha accesso al piano tariffario **Per nodo,** ma ci si chiede se sarebbe meno conveniente in un livello con pagamento in base al consumo, è possibile [utilizzare la query seguente](#evaluating-the-legacy-per-node-pricing-tier) per ottenere facilmente un suggerimento. 
 
 Le aree di lavoro create prima di aprile 2016 possono inoltre accedere ai piani **standard standard** e **Premium** originali con conservazione dei dati fissa rispettivamente di 30 e 365 giorni. Non è possibile creare nuove aree di lavoro nei piani tariffari **Standard** o **Premium** e, se un'area di lavoro viene spostata all'esterno di questi livelli, non può essere spostata nuovamente. 
 
@@ -434,6 +437,49 @@ Per visualizzare il numero di nodi di Automazione distinti usare la query:
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
+
+## <a name="evaluating-the-legacy-per-node-pricing-tier"></a>Valutazione del piano tariffario Per Node legacy
+
+La decisione se le aree di lavoro con accesso al piano tariffario **Per Node** legacy sono migliori in tale livello o in un livello di **prenotazione** con pagamento in base al **consumo** o capacità corrente è spesso difficile da valutare per i clienti.  Ciò comporta la comprensione del compromesso tra il costo fisso per nodo monitorato nel livello tariffario Per Node e la relativa allocazione dei dati inclusi di 500 MB/nodo/giorno e il costo del solo pagamento per i dati inseriti nel livello con pagamento in base al consumo (Per GB). 
+
+Per facilitare questa valutazione, è possibile utilizzare la query seguente per formulare un suggerimento per il piano tariffario ottimale in base ai modelli di utilizzo di un'area di lavoro.  Questa query esamina i nodi monitorati e i dati inseriti in un'area di lavoro negli ultimi 7 giorni e per ogni giorno valuta quale piano tariffario sarebbe stato ottimale. Per usare la query, è necessario specificare se l'area di lavoro usa il Centro sicurezza di Azure impostando `workspaceHasSecurityCenter` `true` su o `false`, quindi (facoltativamente) aggiornando i prezzi Per nodo e Per GB ricevuti dall'organizzazione. 
+
+```kusto
+// Set these paramaters before running query
+let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
+let PerNodePrice = 15.; // Enter your price per node / month 
+let PerGBPrice = 2.30; // Enter your price per GB 
+// ---------------------------------------
+let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
+union withsource = tt * 
+| where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
+| summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
+| join (
+    Usage 
+    | where TimeGenerated > ago(8d)
+    | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
+    | where IsBillable == true
+    | extend NonSecurityData = iff(DataType !in (SecurityDataTypes), Quantity, 0.)
+    | extend SecurityData = iff(DataType in (SecurityDataTypes), Quantity, 0.)
+    | summarize DataGB=sum(Quantity)/1000., NonSecurityDataGB=sum(NonSecurityData)/1000., SecurityDataGB=sum(SecurityData)/1000. by day=bin(StartTime, 1d)  
+) on day
+| extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
+| extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*nodesPerDay, 0.)) * PerGBPrice,
+             DataGB * PerGBPrice)
+| extend OverageGB = iff(workspaceHasSecurityCenter, 
+             max_of(DataGB - 1.0*nodesPerDay, 0.), 
+             max_of(DataGB - 0.5*nodesPerDay, 0.))
+| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
+| extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
+             iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
+| project day, nodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| project day, Recommendation // Comment this line to see details
+| sort by day asc
 ```
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Creare un avviso quando la raccolta dati è elevataCreate an alert when data collection is high

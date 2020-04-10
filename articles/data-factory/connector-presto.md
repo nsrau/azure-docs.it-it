@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 71bff5e3761d72236e6896733b96bd6e01460e52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8364468277123205d967871ab7bf2d048db64a82
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927794"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991791"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiare dati da Presto tramite Azure Data Factory (anteprima)
 
@@ -56,10 +56,10 @@ Per il servizio collegato di Presto sono supportate le proprietà seguenti:
 | authenticationType | Meccanismo di autenticazione usato per la connessione al server Presto. <br/>I valori consentiti sono: **Anonima**, **LDAP**. | Sì |
 | username | Nome utente usato per connettersi al server Presto.  | No |
 | password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è false.  | No |
-| trustedCertPath | Percorso completo del file PEM contenente i certificati CA attendibili per la verifica del server in caso di connessione tramite SSL. È possibile impostare questa proprietà solo quando si usa SSL nel runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
+| enableSsl | Specifica se le connessioni al server vengono crittografate tramite TLS. Il valore predefinito è false.  | No |
+| trustedCertPath | Percorso completo del file con estensione pem contenente certificati CA attendibili per la verifica del server durante la connessione tramite TLS. Questa proprietà può essere impostata solo quando si utilizza TLS su un iR self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
 | useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è false.  | No |
-| allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato SSL rilasciato dall'Autorità di certificazione corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è false.  | No |
+| allowHostNameCNMismatch | Specifica se richiedere che un nome di certificato TLS/SSL emesso dalla CA corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è false.  | No |
 | allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è false.  | No |
 | timeZoneID | Fuso orario locale usato dalla connessione. I valori validi per questa opzione vengono specificati nel database del fuso orario IANA. Il valore predefinito è il fuso orario di sistema.  | No |
 
@@ -128,7 +128,7 @@ Per copiare dati da Presto, impostare il tipo di origine nell'attività di copia
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **PrestoSource**. | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

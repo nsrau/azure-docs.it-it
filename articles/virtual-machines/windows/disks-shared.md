@@ -4,15 +4,15 @@ description: Informazioni sulla condivisione di dischi gestiti di Azure tra più
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: dcd21daa3c5e51c8e81b0775eea61ead6baf4662
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 712975b0a74f8ed98dd54e1acd819ca01d6884cd
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472019"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011175"
 ---
 # <a name="azure-shared-disks"></a>Dischi condivisi di AzureAzure shared disks
 

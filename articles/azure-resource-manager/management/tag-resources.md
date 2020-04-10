@@ -3,18 +3,21 @@ title: Contrassegnare risorse, gruppi di risorse e sottoscrizioni per l'organizz
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 44759db59ef7e7556c8fbfca3bbc58ef84796198
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548487"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010801"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestioneUse tags to organize your Azure resources and management hierarchy
 
 I tag vengono applicati alle risorse, ai gruppi di risorse e alle sottoscrizioni di Azure per organizzarli logicamente in una tassonomia. Ogni tag è costituito da una coppia di nome e valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
 
 Per suggerimenti su come implementare una strategia di tagging, vedere Guida alla [pianificazione della denominazione e del tagging delle risorse.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+
+> [!IMPORTANT]
+> Per i nomi dei tag non viene fatta distinzione tra maiuscole e minuscole. Per i valori dei tag viene fatta distinzione tra maiuscole e minuscole.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 

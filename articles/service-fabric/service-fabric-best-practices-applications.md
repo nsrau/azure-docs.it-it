@@ -5,12 +5,12 @@ author: markfussell
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: 876980bd6a59bace9ab4e490358964d19fa52c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56df6e28940eb15597a3d6bccca3f85e5f690f89
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586088"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991655"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Procedure consigliate per la progettazione di applicazioni di Azure Service FabricAzure Service Fabric application design best practices
 
@@ -58,8 +58,8 @@ Risparmia sui costi e migliora la disponibilità:
 ## <a name="how-to-work-with-reliable-services"></a>Come utilizzare Reliable Services
 Service Fabric Reliable Services consente di creare facilmente servizi senza stato e con stato. Per ulteriori informazioni, vedere [l'introduzione a Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
 - Rispettare sempre il token `RunAsync()` di [annullamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) nel metodo `ChangeRole()` per i servizi senza stato e con stato e il metodo per i servizi con stato. In caso contrario, Service Fabric non sa se il servizio può essere chiuso. Ad esempio, se non si rispetta il token di annullamento, possono verificarsi tempi di aggiornamento dell'applicazione molto più lunghi.
--   Aprire e chiudere [i listener](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) di comunicazione in modo tempestivo e rispettare i token di annullamento.
--   Non combinare mai il codice di sincronizzazione con il codice asincrono. Ad esempio, non `.GetAwaiter().GetResult()` usare nelle chiamate asincrone. Utilizzare async *fino* allo stack di chiamate.
+-    Aprire e chiudere [i listener](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) di comunicazione in modo tempestivo e rispettare i token di annullamento.
+-    Non combinare mai il codice di sincronizzazione con il codice asincrono. Ad esempio, non `.GetAwaiter().GetResult()` usare nelle chiamate asincrone. Utilizzare async *fino* allo stack di chiamate.
 
 ## <a name="how-to-work-with-reliable-actors"></a>Come lavorare con Reliable Actors
 Service Fabric Reliable Actors consente di creare facilmente attori virtuali con stato. Per ulteriori informazioni, vedere [l'introduzione a Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
@@ -77,7 +77,7 @@ Service Fabric Reliable Actors consente di creare facilmente attori virtuali con
 Completa l'aggiunta della [registrazione](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) delle applicazioni nelle chiamate di servizio. Ti aiuterà a diagnosticare gli scenari in cui i servizi si chiamano a vicenda. Ad esempio, quando A chiama B chiama C chiama D, la chiamata potrebbe non riuscire ovunque. Se la registrazione non è sufficiente, è difficile diagnosticare gli errori. Se i servizi registrano troppo a causa dei volumi di chiamata, assicurarsi di registrare almeno errori e avvisi.
 
 ## <a name="iot-and-messaging-applications"></a>Applicazioni IoT e di messaggistica
-Quando si leggono messaggi [dall'hub IoT](https://docs.microsoft.com/azure/iot-hub/) di Azure o dagli [hub eventi](https://docs.microsoft.com/azure/event-hubs/)di Azure , usare [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor si integra con Service Fabric Reliable Services per mantenere lo stato di lettura dalle `IEventProcessor::ProcessEventsAsync()` partizioni dell'hub eventi e invia nuovi messaggi ai servizi tramite il metodo .
+Quando si leggono messaggi [dall'hub IoT](https://docs.microsoft.com/azure/iot-hub/) di Azure o dagli [hub eventi](https://docs.microsoft.com/azure/event-hubs/)di Azure , usare [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor). ServiceFabricProcessor si integra con Service Fabric Reliable Services per mantenere lo stato di lettura dalle `IEventProcessor::ProcessEventsAsync()` partizioni dell'hub eventi e invia nuovi messaggi ai servizi tramite il metodo .
 
 
 ## <a name="design-guidance-on-azure"></a>Indicazioni sulla progettazione di AzureDesign guidance on Azure

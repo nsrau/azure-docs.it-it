@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 128b4203d34b99df8363ef19783baa4a7b608aa5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 654aeddbb305124ea00a883dbef9d8b5ad585a36
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631323"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990787"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Linee guida di progettazione per l'uso di tabelle replicate in SQL AnalyticsDesign guidance for using replicated tables in SQL Analytics
 
@@ -124,7 +124,7 @@ WHERE d.FiscalYear = 2004
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerazioni sulle prestazioni per la modifica di tabelle replicate
 
-Analisi SQL implementa una tabella replicata mantenendo una versione master della tabella. Il servizio copia la versione master in un database di distribuzione in ogni nodo di calcolo. Quando viene apportata una modifica, SQL Analytics aggiorna innanzitutto la tabella master. Esegue quindi la ricompilazione delle tabelle in ogni nodo di calcolo. La ricompilazione di una tabella replicata include la copia della tabella in ogni nodo di calcolo e quindi la compilazione degli indici.  Ad esempio una tabella replicata su DW400 ha 5 copie di dati.  Una copia master e una copia completa in ogni nodo di calcolo.  Tutti i dati vengono archiviati nei database di distribuzione. SQL Analytics usa questo modello per supportare istruzioni di modifica dei dati più veloci e operazioni di ridimensionamento flessibili.
+Analisi SQL implementa una tabella replicata mantenendo una versione master della tabella. Copia la versione master nel primo database di distribuzione in ogni nodo di calcolo. Quando viene apportata una modifica, SQL Analytics aggiorna prima la versione master, quindi ricompila le tabelle in ogni nodo di calcolo. La ricompilazione di una tabella replicata include la copia della tabella in ogni nodo di calcolo e quindi la compilazione degli indici.  Ad esempio, una tabella replicata in un DW2000c dispone di 5 copie dei dati.  Una copia master e una copia completa in ogni nodo di calcolo.  Tutti i dati vengono archiviati nei database di distribuzione. SQL Analytics usa questo modello per supportare istruzioni di modifica dei dati più veloci e operazioni di ridimensionamento flessibili.
 
 Le compilazioni sono necessarie dopo le operazioni seguenti:
 

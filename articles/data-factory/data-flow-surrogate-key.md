@@ -1,55 +1,83 @@
 ---
-title: Mapping data flow Surrogate Key Transformation
+title: Trasformazione della chiave surrogata nel mapping del flusso di datiSurrogate key transformation in mapping data flow
 description: Come usare la trasformazione chiave surrogata del flusso di dati del flusso di dati di Azure Data Factory per generare valori di chiave sequenzialiHow to use Azure Data Factory's mapping data flow Surrogate Key Transformation to generate sequential key values
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: bab48aa9079c1b8020bb828a6bb91bd244a78cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: e5ac25c002da121be3adadf0eed978dd60ba26d9
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930210"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010637"
 ---
-# <a name="mapping-data-flow-surrogate-key-transformation"></a>Mapping data flow Surrogate Key Transformation
+# <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Trasformazione della chiave surrogata nel mapping del flusso di datiSurrogate key transformation in mapping data flow 
 
+Utilizzare la trasformazione della chiave surrogata per aggiungere un valore di chiave crescente a ogni riga di dati. Ciò è utile quando si progettano tabelle delle dimensioni in un modello di dati analitici dello schema a stella. In uno schema a stella, ogni membro nelle tabelle delle dimensioni richiede una chiave univoca che sia una chiave non aziendale.
 
-
-Usare la trasformazione Chiave surrogata per aggiungere un valore di chiave arbitrario non business incrementale al set di righe del flusso di dati. Ciò è utile quando si progettano le tabelle delle dimensioni in un modello di dati analitici con schema star in cui ogni membro nelle tabelle delle dimensioni deve avere una chiave univoca non business, parte della metodologia di data warehousing Kimball.
+## <a name="configuration"></a>Configurazione
 
 ![Trasformazione chiave surrogataSurrogate Key Transform](media/data-flow/surrogate.png "Trasformazione chiave surrogataSurrogate Key Transformation")
 
-"Key Column" (Colonna chiave) è il nome che verrà assegnato alla nuova colonna chiave surrogata.
+**Colonna chiave:** Nome della colonna chiave surrogata generata.
 
-"Start Value" (Valore iniziale) è il punto di inizio del valore incrementale.
+**Valore iniziale:** Il valore di chiave più basso che verrà generato.
 
 ## <a name="increment-keys-from-existing-sources"></a>Incrementare le chiavi dalle origini esistenti
 
-Se si desidera iniziare la sequenza da un valore presente in un'origine, è possibile usare una trasformazione Colonna derivata immediatamente dopo la trasformazione Chiave surrogata e sommare i due valori:
+Per iniziare la sequenza da un valore presente in un'origine, usare una trasformazione di colonna derivata in seguito alla trasformazione della chiave surrogata per sommare i due valori:To start your sequence from a value that exists in a source, use a derived column transformation following your surrogate key transformation to add the two values together:
 
 ![SK aggiungere Max](media/data-flow/sk006.png "Trasformazione chiave surrogata Aggiungi MaxSurrogate Key Transformation Add Max")
 
-Per eseguire il seedotto del valore della chiave con il valore massimo precedente, è possibile utilizzare due tecniche:To seed the key value with the previous max, there are two techniques that you can use:
+### <a name="increment-from-existing-maximum-value"></a>Incremento dal valore massimo esistente
 
-### <a name="database-sources"></a>Origini del database
+Per eseguire il seeding del valore della chiave con il valore massimo precedente, è possibile usare due tecniche in base alla posizione dei dati di origine.
 
-Utilizzare l'opzione "Query" per selezionare MAX() dall'origine utilizzando la trasformazione Origine:
+#### <a name="database-sources"></a>Origini del database
+
+Utilizzare un'opzione di query SQL per selezionare MAX() dall'origine. Per esempio`Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
 ![Query chiave surrogata](media/data-flow/sk002.png "Query di trasformazione chiave surrogataSurrogate Key Transformation Query")
 
-### <a name="file-sources"></a>Origini file
+#### <a name="file-sources"></a>Origini file
 
-Se il valore massimo precedente è in un file, è possibile usare la trasformazione Source con una trasformazione Aggregazione e la funzione di espressione MAX() per ottenere il valore massimo precedente:
+Se il valore massimo precedente è `max()` in un file, usare la funzione nella trasformazione di aggregazione per ottenere il valore massimo precedente:If your previous max value is in a file, use the function in the aggregate transformation to get the previous max value:
 
 ![File di chiave surrogatoSurrogate Key File](media/data-flow/sk008.png "File di chiave surrogatoSurrogate Key File")
 
-In entrambi i casi, è necessario unire i nuovi dati in ingresso con l'origine che contiene il valore massimo precedente:In both cases, you must Join your incoming new data together with your source that contains the previous max value:
+In entrambi i casi, è necessario unire i nuovi dati in ingresso con l'origine che contiene il valore massimo precedente.
 
 ![Unione chiave surrogata](media/data-flow/sk004.png "Unione chiave surrogata")
+
+## <a name="data-flow-script"></a>Script del flusso di dati
+
+### <a name="syntax"></a>Sintassi
+
+```
+<incomingStream> 
+    keyGenerate(
+        output(<surrogateColumnName> as long),
+        startAt: <number>L
+    ) ~> <surrogateKeyTransformationName>
+```
+
+### <a name="example"></a>Esempio
+
+![Trasformazione chiave surrogataSurrogate Key Transform](media/data-flow/surrogate.png "Trasformazione chiave surrogataSurrogate Key Transformation")
+
+Lo script del flusso di dati per la configurazione della chiave surrogata precedente si trova nel frammento di codice riportato di seguito.
+
+```
+AggregateDayStats
+    keyGenerate(
+        output(key as long),
+        startAt: 1L
+    ) ~> SurrogateKey1
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

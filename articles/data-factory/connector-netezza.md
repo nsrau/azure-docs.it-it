@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c7e17f7c4493560bd6118b8d4837fd795a6ab0c8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 69e2a0fe63be65a2b5d51f7bd2e0885fcbfc5bbb
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422852"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991672"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiare dati da Netezza usando Azure Data Factory
 
@@ -63,8 +63,8 @@ Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<data
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| SecurityLevel | Il livello di sicurezza (SSL/TLS) che usa il driver per la connessione all'archivio dati. Esempio: `SecurityLevel=preferredSecured`. I valori supportati sono:<br/>- **Solo senza protezione** (**onlyUnSecured**): il driver non usa SSL.<br/>- **Preferibilmente senza protezione (preferredUnSecured) - Valore predefinito**: se il server consente di scegliere, il driver non usa SSL. <br/>- **Preferito protetto (preferredSecured):** Se il server fornisce una scelta, il driver utilizza SSL. <br/>- **Solo con protezione (onlySecured)**: il driver non si connette a meno che non sia disponibile una connessione SSL. | No |
-| CaCertFile | Il percorso completo per il certificato SSL usato dal server. Esempio: `CaCertFile=<cert path>;`| Sì, se SSL è abilitato |
+| SecurityLevel | Il livello di sicurezza (SSL/TLS) che usa il driver per la connessione all'archivio dati. Esempio: `SecurityLevel=preferredSecured`. I valori supportati sono:<br/>- **Solo non protetto** (**onlyUnSecured**): il driver non utilizza TLS.<br/>- **Preferito non protetto (preferredUnSecured) (impostazione predefinita):** se il server fornisce una scelta, il driver non utilizza TLS. <br/>- **Preferito protetto (preferredSecured):** Se il server fornisce una scelta, il driver utilizza TLS. <br/>- **Solo protetto (soloprotetto):** il driver non si connette a meno che non sia disponibile una connessione TLS. | No |
+| CaCertFile | Percorso completo del certificato TLS/SSL utilizzato dal server. Esempio: `CaCertFile=<cert path>;`| Sì, se TLS è abilitato |
 
 **Esempio**
 

@@ -1,18 +1,18 @@
 ---
-title: Compilazione di configurazioni in Configurazione stato di Automazione di Azure
+title: Compilare configurazioni DSC nella configurazione dello stato di automazione di AzureCompile DSC configurations in Azure Automation State Configuration
 description: Questo articolo descrive come compilare configurazioni Desired State Configuration (DSC) per l'automazione di Azure.
 services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b366777cce4dd4212a2e3ec0cdcd180e0d7164f4
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 6ce55b83f5547534e44d689adccdd952abc025d5
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757183"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010954"
 ---
-# <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilazione di configurazioni DSC in Configurazione stato di Automazione di Azure
+# <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Compilare configurazioni DSC nella configurazione dello stato di automazione di AzureCompile DSC configurations in Azure Automation State Configuration
 
 È possibile compilare le configurazioni DSC (Desired State Configuration) nella configurazione dello stato di automazione di Azure nei modi seguenti:You can compile Desired State Configuration (DSC) configurations in Azure Automation State Configuration in the following ways:
 
@@ -182,7 +182,7 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 
 ### <a name="work-with-assets-in-azure-automation-during-compilation"></a>Usare le risorse in Automazione di Azure durante la compilazioneWork with assets in Azure Automation during compilation
 
-I riferimenti agli asset sono gli stessi sia nella configurazione dello stato di automazione di Azure che nei runbook. Per altre informazioni, vedere gli argomenti seguenti: 
+I riferimenti agli asset sono gli stessi sia nella configurazione dello stato di automazione di Azure che nei runbook. Per altre informazioni, vedere gli argomenti seguenti:
 
 - [Certificati](automation-certificates.md)
 - [Connessioni](automation-connections.md)

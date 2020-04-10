@@ -5,19 +5,30 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/18/2020
+ms.date: 04/09/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 77fc6070010791bf96c944114929eba95842c9d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e53dda2c6cb293a9204f344d152daa1937aa38b
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77471696"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008346"
 ---
-Durante l'anteprima, i dischi gestiti con dischi condivisi abilitati sono soggetti alle limitazioni seguenti:
+Durante l'anteprima, l'abilitazione dei dischi condivisi è disponibile solo per un sottoinsieme di tipi di disco. Attualmente solo i dischi ultra e gli SSD premium possono abilitare i dischi condivisi. Ogni disco gestito con dischi condivisi abilitati è soggetto alle limitazioni seguenti, organizzate per tipo di disco:
 
-- Attualmente disponibile solo con SSD premium.
+### <a name="ultra-disks"></a>Dischi Ultra
+
+I dischi ultra hanno un proprio elenco separato di limitazioni, non correlate ai dischi condivisi. Per le limitazioni dei dischi ultra, vedere [Uso dei dischi ultra](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md)di Azure .
+
+Quando si condividono dischi ultra, questi hanno le seguenti limitazioni aggiuntive:
+
+- Attualmente supportato solo negli Stati Uniti occidentali.
+- Attualmente limitato al supporto di Azure Resource Manager o SDK.
+- Solo i dischi di base possono essere utilizzati con alcune versioni del cluster di failover di Windows Server, per informazioni dettagliate vedere Requisiti hardware e opzioni di archiviazione del [clustering](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements)di failover .
+
+### <a name="premium-ssds"></a>SSD Premium
+
 - Attualmente supportato solo nella regione degli Stati Uniti centro-occidentali.
 - Tutte le macchine virtuali che condividono un disco devono essere distribuite negli stessi gruppi di posizionamento di [prossimità.](../articles/virtual-machines/windows/proximity-placement-groups.md)
 - Può essere abilitato solo su dischi dati, non su dischi del sistema operativo.

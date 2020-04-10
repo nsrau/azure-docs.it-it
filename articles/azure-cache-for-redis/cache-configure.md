@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278740"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010308"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -31,7 +31,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
 È possibile visualizzare e configurare le impostazioni seguenti tramite il **menu Risorse**.
 
 * [Panoramica](#overview)
-* [Registro attività](#activity-log)
+* [Log attività](#activity-log)
 * [Controllo di accesso (IAM)](#access-control-iam)
 * [Tag](#tags)
 * [Diagnostica e risoluzione dei problemi](#diagnose-and-solve-problems)
@@ -39,7 +39,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Chiavi di accesso](#access-keys)
     * [Impostazioni avanzate](#advanced-settings)
     * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-    * [Scala](#scale)
+    * [Scalabilità](#scale)
     * [Dimensione del cluster](#cluster-size)
     * [Persistenza dei dati](#redis-data-persistence)
     * [Pianificare gli aggiornamenti](#schedule-updates)
@@ -47,11 +47,11 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Rete virtuale](#virtual-network)
     * [Firewall](#firewall)
     * [Proprietà](#properties)
-    * [Serrature](#locks)
+    * [Locks](#locks)
     * [Script di automazione](#automation-script)
 * Amministrazione
-    * [Importare dati](#importexport)
-    * [Esportare i dati](#importexport)
+    * [Importa dati](#importexport)
+    * [Esportazione dei dati](#importexport)
     * [Reboot](#reboot)
 * [Monitoraggio](#monitoring)
     * [Metriche Redis](#redis-metrics)
@@ -91,7 +91,7 @@ La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per 
 * [Chiavi di accesso](#access-keys)
 * [Impostazioni avanzate](#advanced-settings)
 * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-* [Scala](#scale)
+* [Scalabilità](#scale)
 * [Dimensione del cluster](#cluster-size)
 * [Persistenza dei dati](#redis-data-persistence)
 * [Pianificare gli aggiornamenti](#schedule-updates)
@@ -99,7 +99,7 @@ La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per 
 * [Rete virtuale](#virtual-network)
 * [Firewall](#firewall)
 * [Proprietà](#properties)
-* [Serrature](#locks)
+* [Locks](#locks)
 * [Script di automazione](#automation-script)
 
 
@@ -117,10 +117,10 @@ Le impostazioni seguenti vengono configurate nel pannello **Impostazioni avanzat
 * [Notifiche di Keyspace (impostazioni avanzate)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Porte di accesso
-Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per abilitare la porta non SSL, fare clic su **No** per **Consenti l'accesso solo tramite SSL** nel pannello **Impostazioni avanzate** e quindi fare clic su **Salva**.
+Per impostazione predefinita, l'accesso non TLS/SSL è disabilitato per le nuove cache. Per abilitare la porta non TLS, fare clic su **No** per **Consenti accesso solo tramite SSL** nel pannello Impostazioni **avanzate** e quindi fare clic su **Salva**.
 
 > [!NOTE]
-> L'accesso SSL alla cache di Azure per Redis supporta attualmente TLS 1.0, 1.1 e 1.2, ma le versioni 1.0 e 1.1 vengono ritirate a breve.  Si prega di leggere la nostra [pagina Remove TLS 1.0 e 1.1](cache-remove-tls-10-11.md) per maggiori dettagli.
+> L'accesso TLS alla cache di Azure per Redis supporta attualmente TLS 1.0, 1.1 e 1.2, ma le versioni 1.0 e 1.1 vengono ritirate a breve.  Si prega di leggere la nostra [pagina Remove TLS 1.0 e 1.1](cache-remove-tls-10-11.md) per maggiori dettagli.
 
 ![Porte di accesso di Cache Redis di Azure](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -188,7 +188,7 @@ Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e l
 | Uso della larghezza di banda di rete |[Prestazioni della cache - Larghezza di banda disponibile](cache-faq.md#cache-performance) |
 | Client connessi |[Configurazione predefinita del server Redis - maxclients](#maxclients) |
 | Carico del server |[Grafici di utilizzo - Carico server Redis](cache-how-to-monitor.md#usage-charts) |
-| Utilizzo della memoria |[Prestazioni della cache - Dimensioni](cache-faq.md#cache-performance) |
+| Utilizzo memoria |[Prestazioni della cache - Dimensioni](cache-faq.md#cache-performance) |
 
 Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il piano tariffario e [ridimensionarla.](#scale) Per altre informazioni su come scegliere un piano tariffario, vedere [Quali offerte e dimensioni della Cache Redis è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
@@ -290,8 +290,8 @@ Le impostazioni della sezione **Amministrazione** consentono di eseguire le atti
 
 ![Amministrazione](./media/cache-configure/redis-cache-administration.png)
 
-* [Importare dati](#importexport)
-* [Esportare i dati](#importexport)
+* [Importa dati](#importexport)
+* [Esportazione dei dati](#importexport)
 * [Reboot](#reboot)
 
 

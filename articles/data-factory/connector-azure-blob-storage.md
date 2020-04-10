@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 214b2868f9733dfc6790c492543fb86a832f18b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.openlocfilehash: dd13a08b3c2f63baf509efbb730032edd4eba61a
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065502"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011549"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati nell'archiviazione BLOB di Azure usando Azure Data FactoryCopy and transform data in Azure Blob storage by using Azure Data Factory
 
@@ -25,7 +25,8 @@ ms.locfileid: "80065502"
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e nell'archiviazione BLOB di Azure e usare Flusso di dati per trasformare i dati nell'archiviazione BLOB di Azure.This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Blob storage, and use Data Flow to transform data in Azure Blob storage. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+>[!TIP]
+>Per lo scenario di migrazione del data lake o del data warehouse, vedere Usare Azure Data Factory per eseguire la migrazione dei dati dal data lake o dal data warehouse ad Azure.For data lake or data warehouse migration scenario, learn more from [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure.](data-migration-guidance-overview.md)
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -64,7 +65,7 @@ Il connettore BLOB di Azure supporta i seguenti tipi di autenticazione. Vedere l
 - [Identità gestite per l'autenticazione delle risorse di Azure](#managed-identity)
 
 >[!NOTE]
->Quando si usa PolyBase per caricare i dati in SQL Data Warehouse, se l'archiviazione BLOB di origine o di gestione temporanea è configurata con l'endpoint di rete virtuale, è necessario usare l'autenticazione dell'identità gestita come richiesto da PolyBase e usare Il runtime di integrazione self-hosted con la versione 3.18 o superiore. Vedere la sezione [relativa all'autenticazione dell'identità gestita](#managed-identity) con altri prerequisiti di configurazione.
+>Quando si usa PolyBase per caricare i dati in SQL Data Warehouse, se l'archiviazione BLOB di origine o di gestione temporanea è configurata con l'endpoint di rete virtuale, è necessario usare l'autenticazione dell'identità gestita come richiesto da PolyBase e usare Runtime di integrazione self-hosted con la versione 3.18 o successiva. Vedere la sezione [relativa all'autenticazione dell'identità gestita](#managed-identity) con altri prerequisiti di configurazione.
 
 >[!NOTE]
 >Le attività HDInsights e Azure Machine Learning supportano solo l'autenticazione della chiave dell'account di archiviazione BLOB di Azure.HDInsights and Azure Machine Learning activities only support Azure Blob storage account authentication.
@@ -136,11 +137,6 @@ Una firma di accesso condiviso fornisce accesso delegato controllato alle risors
 > [!NOTE]
 >- Data Factory supporta attualmente sia le **firme di accesso condiviso del servizio** che le **firme di accesso condiviso dell'account**. Per altre informazioni sulle firme di accesso condiviso, vedere [Concedere l'accesso limitato alle risorse di Archiviazione di Azure usando le firme](../storage/common/storage-sas-overview.md)di accesso condiviso.
 >- Nella configurazione successiva dei set di dati il percorso della cartella corrisponde al percorso assoluto a partire dal livello del contenitore. È necessario configurare un set di dati allineato con il percorso nell'URI SAS.
-
-> [!TIP]
-> Per generare una firma di accesso condiviso del servizio per l'account di archiviazione, è possibile eseguire i comandi di PowerShell seguenti. Sostituire i segnaposto e concedere l'autorizzazione necessaria.
-> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Per usare l'autenticazione basata sulla firma di accesso condiviso, sono supportate le proprietà seguenti:
 

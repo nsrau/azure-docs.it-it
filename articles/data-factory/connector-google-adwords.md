@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
-ms.openlocfilehash: b01dcad71747da6b7aa770e3993cb82892ae55fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d536b706db85603624e0fa2362df7c537958f6f2
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929445"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991604"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copiare dati da Google AdWords usando Azure Data FactoryCopy data from Google AdWords using Azure Data Factory
 
@@ -55,7 +55,7 @@ Per il servizio collegato a Google AdWords sono supportate le proprietà seguent
 | clientSecret | Il segreto client dell'applicazione google usata per acquisire il token di aggiornamento. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | email | ID di posta elettronica dell'account del servizio usato per ServiceAuthentication. Può essere usato solo su runtime di integrazione self-hosted.  | No |
 | keyFilePath | Percorso completo per il file con estensione p12 usato per autenticare l'indirizzo di posta elettronica dell'account del servizio. Può essere usato solo su runtime di integrazione self-hosted.  | No |
-| trustedCertPath | Percorso completo del file PEM contenente i certificati CA attendibili per la verifica del server in caso di connessione tramite SSL. È possibile impostare questa proprietà solo quando si usa SSL nel runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
+| trustedCertPath | Percorso completo del file con estensione pem contenente certificati CA attendibili per la verifica del server durante la connessione tramite TLS. Questa proprietà può essere impostata solo quando si utilizza TLS su un iR self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
 | useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è false.  | No |
 
 **Esempio:**
@@ -134,7 +134,7 @@ Per copiare dati da Google AdWords, impostare il tipo di origine nell'attività 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà tipo dell'origine dell'attività di copia deve essere impostata su: **GoogleADWordsSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 05cee60fb1f4d43d1b4ce371aa9f22650b4782da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281301"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991502"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Spostare dati da un database Cassandra locale mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -75,7 +75,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | encryptedCredential |Credenziali crittografate dal gateway. |No |
 
 >[!NOTE]
->La connessione a Cassandra mediante SSL non è attualmente supportata.
+>Attualmente la connessione a Cassandra tramite TLS non è supportata.
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
@@ -329,17 +329,17 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 #### <a name="table-exampletable_vt_map"></a>Tabella “ExampleTable_vt_Map”:
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Una  |
+| 1 |S1 |Una |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
 #### <a name="table-exampletable_vt_stringset"></a>Tabella “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Una  |
+| 1 |Una |
 | 1 |b |
 | 1 |C |
-| 3 |Una  |
+| 3 |Una |
 | 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink

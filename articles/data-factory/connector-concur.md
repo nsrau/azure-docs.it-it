@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c3b8792039cbb5907dc9b6952fc7b1e30c0d7c55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2d9f730852503852b58a22529ba67a848e81d75
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929569"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991536"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiare dati da Concur tramite Azure Data Factory (anteprima)
 
@@ -56,8 +56,8 @@ Per il servizio collegato di Concur sono supportate le proprietà seguenti:
 | username | Nome utente usato per accedere al servizio Concur.  | Sì |
 | password | Password corrispondente al nome utente specificato nel campo username. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
-| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
-| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
+| useHostVerification | Specifica se richiedere che il nome host nel certificato del server corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
+| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 
 **Esempio:**
 
@@ -118,7 +118,7 @@ Per copiare dati da Concur, impostare il tipo di origine nell'attività di copia
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **ConcurSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM Opportunities where Id = xxx "`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Opportunities where Id = xxx "`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 1f6404da163e075b63a99a1d8474cdba4e064b06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdb2dc283287bf83410f1846aca11f233e93d01b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930890"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990849"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiare dati da Xero usando Azure Data Factory
 
@@ -55,8 +55,8 @@ Per il servizio collegato Xero sono supportate le proprietà seguenti:
 | consumerKey | Chiave utente associata all'applicazione Xero. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | privateKey | Chiave privata dal file con estensione pem generato per l'applicazione Xero privata; vedere [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key) (Creare una coppia di chiavi pubblica/privata). Si noti che **la generazione di file privatekey.pem di 512 bit** tramite `openssl genrsa -out privatekey.pem 512`; 1024 non è supportata. Includere tutto il testo dal file con estensione pem, incluse le terminazioni riga Unix (\n): vedere l'esempio seguente.<br/><br/>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
-| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
-| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
+| useHostVerification | Specifica se il nome host è necessario nel certificato del server in modo che corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
+| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 
 **Esempio:**
 
@@ -127,7 +127,7 @@ Per copiare dati da Xero, impostare il tipo di origine nell'attività di copia s
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **XeroSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM Contacts"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Contacts"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

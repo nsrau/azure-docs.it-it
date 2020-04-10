@@ -7,16 +7,16 @@ manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 03/11/2020
+ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 85457b62c905cb30ca22264eff1b6c677473f9b9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: ce2fe66888893d82debcc412bb16752914d8a190
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745293"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011107"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitoraggio dell'utilizzo delle risorse e dell'attività delle query in Azure Synapse AnalyticsMonitoring resource utilization and query activity in Azure Synapse Analytics
 
@@ -33,8 +33,8 @@ Le metriche seguenti sono disponibili nel portale di Azure per l'analisi SQL. Ta
 | Percentuale memoria       | Utilizzo della memoria (SQL Server) in tutti i nodi per il data warehouse | Avg, Min, Max   |
 | Query attive          | Numero di query attive in esecuzione nel sistema             | SUM              |
 | Query in coda          | Numero di query in coda in attesa di avviare l'esecuzione          | SUM              |
-| Connessioni riuscite  | Numero di connessioni ai dati riuscite                 | Somma, Conteggio       |
-| Connessioni non riuscite      | Numero di connessioni al data warehouse non riuscite           | Somma, Conteggio       |
+| Connessioni riuscite  | Numero di connessioni riuscite (accessi) sul database | Somma, Conteggio       |
+| Connessioni non riuscite      | Numero di connessioni non riuscite (account di accesso) nel database | Somma, Conteggio       |
 | Blocco da parte del firewall     | Numero di accessi al data warehouse bloccati     | Somma, Conteggio       |
 | Limite DWU               | Obiettivo del livello di servizio del data warehouse                | Avg, Min, Max    |
 | Percentuale DWU          | Valore massimo tra percentuale di CPU e percentuale di I/O        | Avg, Min, Max    |
@@ -42,7 +42,7 @@ Le metriche seguenti sono disponibili nel portale di Azure per l'analisi SQL. Ta
 | Percentuale dei riscontri nella cache    | (Riscontri nella cache/Mancato riscontro nella cache) * 100, dove "riscontri nella cache" è la somma di tutte le occorrenze di segmenti columnstore della cache SSD locale e "mancato riscontro nella cache" è il mancato riscontro di segmenti columnstore nella cache SSD locale sommato tra tutti i nodi | Avg, Min, Max    |
 | Percentuale della cache utilizzata   | (Cache usata/Capacità della cache) * 100, dove "cache usata" è la somma di tutti i byte nella cache SSD locale in tutti i nodi e "capacità della cache" è la somma della capacità di archiviazione della cache SSD locale in tutti i nodi | Avg, Min, Max    |
 | Percentuale di tempdb locale | Uso di tempdb locale in tutti i nodi di calcolo: i valori vengono generati ogni cinque minuti | Avg, Min, Max    |
-| Dimensioni di archiviazione dati (GB) | Dimensione totale dei dati caricati nel database. Ciò include i dati che risiedano in tabelle CCI e non CCI in cui le dimensioni delle tabelle non CCI sono misurate in base alle dimensioni totali del file di database | SUM |
+| Dimensioni di archiviazione dati (GB) | Dimensioni totali del database. Sono inclusi lo spazio utilizzato, riservato e non allocato. Lo spazio non allocato viene mantenuto per il database per ottimizzare le prestazioni di query e caricamento. | SUM |
 | Dimensioni ripristino di emergenza (GB) | Dimensioni totali del backup geografico eseguito ogni 24 ore | SUM |
 | Dimensioni archiviazione snapshot (GB)Snapshot Storage size (GB) | Dimensioni totali degli snapshot acquisiti per fornire punti di ripristino del database. Sono inclusi snapshot automatizzati e definiti dall'utente. | SUM |
 

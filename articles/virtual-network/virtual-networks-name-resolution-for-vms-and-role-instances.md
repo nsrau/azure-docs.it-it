@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
-ms.openlocfilehash: 20a5c4befaa30383c54ac9536a3fd26dce3db4d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: d7d0699718642a7eb9f85b2e8a86623092c34365
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80059977"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010563"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -185,8 +186,7 @@ Se l'inoltro delle query ad Azure non soddisfa le esigenze specifiche, sarà nec
 * Essere protetta dagli accessi provenienti da Internet per attenuare i rischi rappresentati da agenti esterni.
 
 > [!NOTE]
-> Per ottenere prestazioni ottimali, quando si usano le macchine virtuali di Azure come server DNS è necessario disabilitare IPv6. È consigliabile assegnare un [indirizzo IP pubblico](virtual-network-public-ip-address.md) a ogni macchina virtuale del server DNS. 
-> 
+> Per ottenere prestazioni ottimali, quando si usano le macchine virtuali di Azure come server DNS è necessario disabilitare IPv6.
 
 ### <a name="web-apps"></a>App Web
 Si supponga di dover eseguire la risoluzione dei nomi dall'app Web creata tramite il servizio app, collegato a una rete virtuale, nelle macchine virtuali presenti nella stessa rete virtuale. Oltre a configurare un server DNS personalizzato dotato di un server di inoltro di query ad Azure (IP virtuale 168.63.129.16), eseguire la procedura seguente:

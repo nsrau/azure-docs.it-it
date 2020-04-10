@@ -8,17 +8,17 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: de6e08534722deccb8be11248dd8af3ca2e66739
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6baf5d77b70fa6e2717b492163826f27d80fbb88
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983213"
+ms.locfileid: "80991621"
 ---
 # <a name="create-a-new-managed-service-offer"></a>Creare una nuova offerta del servizio gestitoCreate a new Managed Service offer
 
 > [!IMPORTANT]
-> Stiamo spostando la gestione delle offerte di servizi gestiti dal portale Cloud Partner al Centro per i partner. Fino a quando non viene eseguita la migrazione delle offerte, seguire le istruzioni in [Pubblicare un'offerta](../../lighthouse/how-to/publish-managed-services-offers.md) di servizio gestito in Azure Marketplace per gestire le offerte.
+> Stiamo spostando la gestione delle offerte di Managed Service dal portale per i partner cloud al Centro per i partner. Fino a quando non viene eseguita la migrazione delle offerte, seguire le istruzioni in [Pubblicare un'offerta del servizio gestito](../../lighthouse/how-to/publish-managed-services-offers.md) in Azure Marketplace per gestire le offerte nel portale Cloud Partner.
 
 Il servizio gestito offre assistenza per abilitare gli scenari [Faro di Azure.Managed Service](../../lighthouse/overview.md) offers help to enable Azure Lighthouse scenarios. Quando un cliente accetta un'offerta del servizio gestito, è quindi in grado di onboard delle risorse per la gestione delle risorse delegate di [Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md)
 

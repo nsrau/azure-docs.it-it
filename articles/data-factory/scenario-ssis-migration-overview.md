@@ -11,18 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 52629b8e2e190cc041116e6f65488480712baf01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ad5bb26959916f60973a8c0274e17eee03aa7a1
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929800"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991467"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Eseguire la migrazione dei carichi di lavoro SSIS locali a SSIS in ADFMigrate on-premises SSIS workloads to SSIS in ADF
 
 ## <a name="overview"></a>Panoramica
 
-Quando si esegue la migrazione dei carichi di lavoro del database da SQL Server in locale ai servizi di database di Azure, vale a dire il database SQL di Azure o l'istanza gestita del database SQL di Azure, i carichi di lavoro ETL in SQL Server Integration Services (SSIS) come uno dei valori primari aggiunti dovrà essere migrato anche i servizi.
+Quando si esegue la migrazione dei carichi di lavoro del database da SQL Server in locale ai servizi di database di Azure, ovvero il database SQL di Azure o l'istanza gestita del database SQL di Azure, sarà necessario eseguire anche la migrazione dei carichi di lavoro ETL in SQL Server Integration Services (SSIS) come uno dei servizi a valore aggiunto primario.
 
 Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) supporta l'esecuzione di pacchetti SSIS. Dopo aver eseguito il provisioning del runtime di integrazione Azure-SSIS, è possibile usare strumenti familiari, ad esempio SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) e utilità della riga di comando, ad esempio dtinstall/dtutil/dtexec, per distribuire ed eseguire i pacchetti in Azure.Once Azure-SSIS IR is provisioned, you can then use familiar tools, such as SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) and command-line utilities, such as dtinstall/dtutil/dtexec, to deploy and run your packages in Azure. Per altre info, vedi Panoramica di [Azure SSIS lift-and-shift.](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
 
@@ -63,7 +63,7 @@ A seconda dei tipi di [archiviazione](#four-storage-types-for-ssis-packages) dei
 | **Tipo di archiviazione del pacchetto** |Come eseguire la migrazione batch dei pacchetti SSISHow to batch-migrate SSIS packages|Come eseguire la migrazione batch dei processi SSISHow to batch-migrate SSIS jobs|
 |-|-|-|
 |Ssisdb|[Eseguire la migrazione di **SSISDBMigrate SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Eseguire la migrazione dei processi SSIS all'agente dell'istanza gestita del database SQL di AzureMigrate SSIS jobs to Azure SQL Database managed instance agent](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-azure-sql-database-managed-instance-agent)|
-|File system|Ridistribuirli in condivisioni di file/File di Azure tramite dtinstall/dtutil/copia manuale o per mantenere i file system a cui accedere tramite VNet/Self-Hosted IR. Per ulteriori informazioni, vedere [utilità dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Convertirli in pipeline/attività/trigger ADF tramite il portale script/SSMS/ADF. Per ulteriori informazioni, vedere [Funzionalità di pianificazione di SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|File system|Ridistribuirli in condivisioni di file/File di Azure tramite dtinstall/dtutil/copia manuale o per mantenere i file system a cui accedere tramite VNet/Self-Hosted IR. Per ulteriori informazioni, vedere [utilità dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Eseguire la migrazione con [SSIS Job Migration Wizard in SSMS]. (how-to-migrate-ssis-job-ssms.md) <li>Convertirli in pipeline/attività/trigger ADF tramite il portale script/SSMS/ADF. Per ulteriori informazioni, vedere [Funzionalità di pianificazione di SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Esportarli in file system/condivisioni file/file di Azure tramite SSMS/dtutil. Per ulteriori informazioni, consultate [Esportazione di pacchetti SSIS.](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service)|Convertirli in pipeline/attività/trigger ADF tramite il portale script/SSMS/ADF. Per ulteriori informazioni, vedere [Funzionalità di pianificazione di SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Archivio pacchetti|Esportarli in file system/condivisioni file/file di Azure tramite SSMS/dtutil o ridistribuirli in condivisioni file/File di Azure tramite dtinstall/dtutil/manual copy o conservarli nei file system per accedere tramite VNet/Self-Hosted IR. Per altre info, vedi Utilità dtutil. Per ulteriori informazioni, vedere [utilità dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Convertirli in pipeline/attività/trigger ADF tramite il portale script/SSMS/ADF. Per ulteriori informazioni, vedere [Funzionalità di pianificazione di SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 
@@ -72,13 +72,13 @@ A seconda dei tipi di [archiviazione](#four-storage-types-for-ssis-packages) dei
 | **Tipo di archiviazione del pacchetto** |Come eseguire la migrazione batch dei pacchetti SSISHow to batch-migrate SSIS packages|Come eseguire la migrazione batch dei processiHow to batch-migrate jobs|
 |-|-|-|
 |Ssisdb|Ridistribuire in Azure-SSISDB tramite SSDT/SSMS. Per altre informazioni, vedere Distribuzione di pacchetti SSIS in Azure.For more info, see [Deploying SSIS packages in Azure.](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)|Convertirli in pipeline/attività/trigger ADF tramite il portale script/SSMS/ADF. Per ulteriori informazioni, vedere [Funzionalità di pianificazione di SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
-|File system|Ridistribuirli in condivisioni di file/File di Azure tramite dtinstall/dtutil/copia manuale o per mantenere i file system a cui accedere tramite VNet/Self-Hosted IR. Per ulteriori informazioni, vedere [utilità dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Convertirli in pipeline/attività/trigger ADF tramite il portale script/SSMS/ADF. Per ulteriori informazioni, vedere [Funzionalità di pianificazione di SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|File system|Ridistribuirli in condivisioni di file/File di Azure tramite dtinstall/dtutil/copia manuale o per mantenere i file system a cui accedere tramite VNet/Self-Hosted IR. Per ulteriori informazioni, vedere [utilità dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Eseguire la migrazione con [SSIS Job Migration Wizard in SSMS]. (how-to-migrate-ssis-job-ssms.md) <li> Convertirli in pipeline/attività/trigger ADF tramite il portale script/SSMS/ADF. Per ulteriori informazioni, vedere [Funzionalità di pianificazione di SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Esportarli in file system/condivisioni file/file di Azure tramite SSMS/dtutil. Per ulteriori informazioni, consultate [Esportazione di pacchetti SSIS.](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service)|Convertirli in pipeline/attività/trigger ADF tramite il portale script/SSMS/ADF. Per ulteriori informazioni, vedere [Funzionalità di pianificazione di SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Archivio pacchetti|Esportarli in file system/condivisioni file/file di Azure tramite SSMS/dtutil o ridistribuirli in condivisioni file/File di Azure tramite dtinstall/dtutil/manual copy o conservarli nei file system per accedere tramite VNet/Self-Hosted IR. Per altre info, vedi Utilità dtutil. Per ulteriori informazioni, vedere [utilità dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Convertirli in pipeline/attività/trigger ADF tramite il portale script/SSMS/ADF. Per ulteriori informazioni, vedere [Funzionalità di pianificazione di SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Data Factory di AzureAzure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
 - [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview)
 - [Sollevare e trasferire i carichi di lavoro SSIS nel cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-2017)
 - [Eseguire la migrazione di pacchetti SSIS a un'istanza gestita del database SQL di Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)

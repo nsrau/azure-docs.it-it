@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ca439d1a82e3cdbe2cc0274cf63653d39048057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a05d955be88f68b3c0db1f4a29b3f6e1155aa0d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532553"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992182"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP tramite Azure Data Factory
 
@@ -68,7 +68,7 @@ Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **HttpServer**. | Sì |
 | url | URL di base del server Web. | Sì |
-| enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server quando ci si connette a un endpoint HTTP. Se il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No<br /> (il valore predefinito è **true**) |
+| enableServerCertificateValidation | Specificare se abilitare la convalida del certificato TLS/SSL del server quando ci si connette a un endpoint HTTP. Se il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No<br /> (il valore predefinito è **true**) |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Vedere le sezioni seguenti per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per ulteriori informazioni, vedere la sezione [Prerequisiti.](#prerequisites) Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 

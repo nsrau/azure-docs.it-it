@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: jingwang
-ms.openlocfilehash: b215531fdc1a1bb07b33c427623d5cd4f5f8219a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc81e66e609400c6558f00ee957ccaee715bd7fa
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252474"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991638"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiare dati da un server FTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -62,7 +62,7 @@ Per il servizio collegato di FTP sono supportate le proprietà seguenti:
 | host | Specificare il nome o indirizzo IP del server FTP. | Sì |
 | port | Specificare la porta su cui è in ascolto il server FTP.<br/>I valori consentiti sono: integer; il valore predefinito è **21**. | No |
 | enableSsl | Specificare se usare FTP su un canale SSL/TLS.<br/>I valori consentiti sono: **true** (predefinito), **false**. | No |
-| enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server quando si usa FTP sul canale SSL/TLS.<br/>I valori consentiti sono: **true** (predefinito), **false**. | No |
+| enableServerCertificateValidation | Specificare se abilitare la convalida del certificato TLS/SSL del server quando si utilizza FTP su canale SSL/TLS.<br/>I valori consentiti sono: **true** (predefinito), **false**. | No |
 | authenticationType | Specificare il tipo di autenticazione.<br/>I valori consentiti sono: **Di base**, **Anonima** | Sì |
 | userName | Specificare l'utente che ha accesso al server FTP. | No |
 | password | Specificare la password per l'utente (userName). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |

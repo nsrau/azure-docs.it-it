@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 883dbc95ee77d03aee4c3231c6ab8c03f9f7f6e4
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 02213feb507e9a032a50241fddf31714b9dfd7ee
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387836"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011072"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installare i driver GPU AMD nelle macchine virtuali della serie N che eseguono WindowsInstall AMD GPU drivers on N-series VMs running Windows
 
@@ -40,7 +40,7 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 
 2. Se si è un cliente di anteprima NVv4, arrestare la macchina virtuale e attendere che si sposti allo stato Arrestato(Deal-dalloca).
 
-3. Avviare la macchina virtuale e scaricare l'utilità [amD Cleanup](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe)più recente. Disinstallare il driver esistente eseguendo "amdcleanuputility-x64.exe". Si prega di NON utilizzare alcuna utilità di pulizia exisitng che è stato installato con il driver precedente.  
+3. Avviare la macchina virtuale e scaricare l'utilità [amD Cleanup](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe)più recente. Disinstallare il driver esistente eseguendo "amdcleanuputility-x64.exe". Si prega di NON utilizzare alcuna utilità di pulizia esistente che è stata installata con il driver precedente.  
 
 4. Scaricare e installare il driver più recente.
 
@@ -52,6 +52,12 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 <br />
 ![Proprietà del driver GPU](./media/n-series-amd-driver-setup/device-manager.png)
 
-È possibile utilizzare dxdiag per verificare le proprietà di visualizzazione della GPU, inclusa la RAM video. The following example shows a 1/8th partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
+È possibile utilizzare dxdiag per verificare le proprietà di visualizzazione della GPU, inclusa la RAM video. The following example shows a 1/2 partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
 <br />
-![Proprietà del driver GPU](./media/n-series-amd-driver-setup/dxdiag.png)
+![Proprietà del driver GPU](./media/n-series-amd-driver-setup/dxdiag-output.png)
+
+Se si esegue Windows 10 build 1903 o versione successiva, dxdiag non mostrerà alcuna informazione nella scheda 'Display'. Si prega di utilizzare l'opzione 'Salva tutte le informazioni' in basso e il file di output mostrerà le informazioni relative a AMD MI25 GPU.
+
+![Proprietà del driver GPU](./media/n-series-amd-driver-setup/dxdiag-details.png)
+
+

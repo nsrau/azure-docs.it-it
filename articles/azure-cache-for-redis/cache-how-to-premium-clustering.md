@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a0e5b0c18264e1f7a98e81bcdfd56a7159235da
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278038"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010920"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Come configurare il clustering Redis per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. In questo articolo viene descritto come configurare il clustering in un'istanza di Cache Redis di Azure Premium.
@@ -125,7 +125,7 @@ Il protocollo di clustering Redis richiede che ogni client si connetta a ogni pa
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>È possibile connettersi direttamente a singole partizioni della cache?
 Il protocollo di clustering richiede che il client stabilisca connessioni di partizione corrette. Pertanto il client deve eseguire questa operazione correttamente per l'utente. Ciò premesso, ogni partizione è costituita da una coppia di cache primaria/di replica nota complessivamente come un'istanza della cache. È possibile connettersi tramite l'utilità cli redis in queste istanze di cache nel ramo [instabile](https://redis.io/download) del repository Redis in GitHub. Questa versione implementa il supporto di base quando avviata con il passaggio `-c` . Per ulteriori informazioni, vedere [Riproduzione con il cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) attivato [https://redis.io](https://redis.io) nell'esercitazione sul cluster [Redis](https://redis.io/topics/cluster-tutorial).
 
-Per non-ssl usare i comandi seguenti.
+Per non-TLS, utilizzare i seguenti comandi.
 
     Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
     Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
@@ -133,7 +133,7 @@ Per non-ssl usare i comandi seguenti.
     ...
     Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 
-Per ssl, sostituire `1300N` con `1500N`.
+Per TLS, `1300N` `1500N`sostituire con .
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>È possibile configurare il clustering per una cache creata in precedenza?
 Sì. Assicurarsi innanzitutto che la cache sia premium, scalando se non lo è. Successivamente, dovrebbe essere possibile visualizzare le opzioni di configurazione del cluster, inclusa un'opzione per abilitare il cluster. È possibile modificare le dimensioni del cluster dopo la creazione della cache o dopo aver abilitato il clustering per la prima volta.

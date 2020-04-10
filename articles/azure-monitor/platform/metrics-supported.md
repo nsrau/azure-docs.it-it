@@ -7,19 +7,25 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 846e8da889e3913c4a8eaab7808495bbd8afad29
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 80e38893d764f35511793d8b31f596dcbf16dd42
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754656"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991893"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
 > [!NOTE]
 > Questo elenco viene generato automaticamente dall'API REST delle metriche di Azure Monitor.This list is largely auto-generated from the Azure Monitor Metrics REST API. Qualsiasi modifica apportata a questo elenco tramite Github può essere sovrascritta senza preavviso. Contattare l'autore di questo articolo per informazioni dettagliate su come effettuare aggiornamenti permanenti.
 
-Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. Di seguito è riportato un elenco completo di tutte le metriche attualmente disponibili con la pipeline delle metriche di monitoraggio di Azure. Altre metriche potrebbero essere disponibili nel portale o tramite le API legacy. L'elenco riportato di seguito include solo le metriche disponibili tramite la pipeline delle metriche di Monitoraggio di Azure consolidata. Le metriche sono organizzate per spazio dei nomi. Per un elenco dei servizi e degli spazi dei nomi che appartengono a essi, vedere Provider di risorse per i servizi di [Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) Per eseguire una query e accedere a queste metriche a livello di codice, utilizzare la versione API 2018-01-01To query for and access these metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. 
+
+Questo articolo è un elenco completo di tutte le metriche della piattaforma (ovvero raccolte automaticamente) attualmente disponibili con la pipeline metrica consolidata di Monitoraggio di Azure.This article is a complete list of all platform (that is, automatically collected) metrics currently available with Azure Monitor's consolidated metric pipeline. L'elenco è stato aggiornato il 27 marzo 2020. Le metriche modificate o aggiunte dopo questa data potrebbero non essere visualizzate di seguito. Per eseguire una query e accedere all'elenco di metriche a livello di programmazione, utilizzare la [versione api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+
+Altre metriche potrebbero essere disponibili nel portale o tramite le API legacy. Le metriche per il sistema operativo guest (guest os) che viene eseguito in Macchine virtuali di Azure, Service Fabric e Servizi cloud **NON** sono elencate di seguito. Questi devono essere raccolti attraverso uno o più agenti che funzionano su o come parte del sistema operativo. È possibile inviare le metriche dell'agente nel database delle metriche della piattaforma usando l'API [delle metriche personalizzate,](metrics-custom-overview.md) attualmente in anteprima pubblica. Quindi è possibile grafico, avviso e altrimenti utilizzare le metriche guest os come le metriche della piattaforma. Per ulteriori informazioni, vedere [Cenni](agents-overview.md)preliminari sugli agenti di monitoraggio .    
+
+Le metriche sono organizzate per spazio dei nomi. Per un elenco dei servizi e degli spazi dei nomi che appartengono a essi, vedere Provider di risorse per i servizi di [Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) 
 
 > [!NOTE]
 > L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.

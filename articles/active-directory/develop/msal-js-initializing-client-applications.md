@@ -13,12 +13,12 @@ ms.date: 04/12/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a0a2c5fc971c3f1f3283d95c5617bdf1e88a6a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd700c787a844fa7538ed198f76ed5c06af2c28
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77084034"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010155"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inizializzare le applicazioni client utilizzando MSAL.js
 In questo articolo viene descritta l'inizializzazione di Microsoft Authentication Library per JavaScript (MSAL.js) con un'istanza di un'applicazione agente utente. L'applicazione agente utente è una forma di applicazione client pubblica in cui il codice client viene eseguito in un agente utente, ad esempio un Web browser. Questi client non archiviano segreti, poiché il contesto del browser è apertamente accessibile. Per ulteriori informazioni sui tipi di applicazione client e sulle opzioni di configurazione dell'applicazione, leggere la [panoramica](msal-client-applications.md).
@@ -35,7 +35,7 @@ Prima di inizializzare un'applicazione, è necessario [registrarla con il portal
 
 È possibile utilizzare MSAL.js come segue in una semplice applicazione JavaScript/Typescript. Inizializzare il contesto di `UserAgentApplication` autenticazione MSAL eseguendo un'istanza con un oggetto di configurazione. La configurazione minima richiesta per inizializzare MSAL.js è il clientID dell'applicazione che si dovrebbe ottenere dal portale di registrazione dell'applicazione.
 
-Per i metodi di`loginRedirect` `acquireTokenRedirect`autenticazione con flussi di reindirizzamento ( `handleRedirectCallback()` e ), è necessario registrare in modo esplicito un callback per l'esito positivo o un errore tramite il metodo . Ciò è necessario poiché i flussi di reindirizzamento non restituiscono promesse come i metodi con un'esperienza pop-up fanno.
+Per i metodi di`loginRedirect` `acquireTokenRedirect`autenticazione con flussi di reindirizzamento ( e ), in MSAL.js 1.2.x o versioni precedenti, sarà necessario registrare in modo esplicito un callback per l'esito positivo o un errore tramite `handleRedirectCallback()` il metodo . Ciò è necessario poiché i flussi di reindirizzamento non restituiscono promesse come i metodi con un'esperienza pop-up fanno. Questo è diventato facoltativo in MSAL.js versione 1.3.0.This became optional in MSAL.js version 1.3.0.
 
 ```javascript
 // Configuration object constructed

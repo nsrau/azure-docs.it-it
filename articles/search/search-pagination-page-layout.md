@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: df80668f5e4a31d6247e9e9806e3de0667fd9036
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 451e83fa6ab547536a4cfd85304930e749a8247f
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656019"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998387"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Ricerca cognitiva di AzureHow to work with search results in Azure Cognitive Search
 
@@ -94,7 +94,11 @@ Un'altra opzione consiste nell'utilizzare un profilo di [punteggio personalizzat
 
 L'evidenziazione dei risultati si riferisce alla formattazione del testo (ad esempio evidenziazioni in grassetto o gialle) applicata al termine corrispondente in un risultato, rendendo più semplice individuare la corrispondenza. Le istruzioni di evidenziazione dei risultati vengono fornite nella [richiesta di query.](https://docs.microsoft.com/rest/api/searchservice/search-documents) Il motore di ricerca racchiude il `highlightPreTag` `highlightPostTag`termine corrispondente tra tag e , e il codice gestisce la risposta, ad esempio l'applicazione di un carattere in grassetto.
 
-La formattazione viene applicata alle query a termine completo. Nell'esempio seguente, i termini "sandy", "sabbia", "spiagge", "spiaggia" trovati all'interno del campo Descrizione sono contrassegnati per l'evidenziazione. Le query in base a termini parziali, ad esempio la ricerca fuzzy o la ricerca con caratteri jolly che generano l'espansione delle query nel motore, non possono utilizzare l'evidenziazione dei risultati.
+La formattazione viene applicata alle query a termine completo. Nell'esempio seguente, i termini "sandy", "sabbia", "spiagge", "spiaggia" trovati all'interno del campo Descrizione sono contrassegnati per l'evidenziazione. Le query che attivano l'espansione delle query nel motore, ad esempio la ricerca fuzzy e con caratteri jolly, hanno un supporto limitato per l'evidenziazione dei risultati.
+
+```http
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+```
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 

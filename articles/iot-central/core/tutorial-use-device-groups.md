@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 758ac037fcd224d02f62239b3408b41b50390147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77167296"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999028"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Esercitazione: Usare i gruppi di dispositivi per analizzare i dati di telemetria dei dispositiviTutorial: Use device groups to analyze device telemetry
 
@@ -29,7 +29,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessario completare gli argomenti di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo **MXChip IoT DevKit** da usare.
+Prima di iniziare, è necessario completare gli argomenti di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-simulated-device.md) per creare il modello di dispositivo **MXChip IoT DevKit** da usare.
 
 ## <a name="create-simulated-devices"></a>Creare dispositivi simulati
 

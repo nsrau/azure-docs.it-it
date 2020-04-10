@@ -12,12 +12,12 @@ ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60dca30496aa17ad7add00ca4eca914cb58fddd7
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 5d2e3f8da4a05feedb8c1ab585fabcc74edbc71a
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655970"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998754"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -48,6 +48,13 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 >
 >Fare riferimento a [questo articolo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) per altre informazioni su come aggiornare Azure AD Connect alla versione più recente.
 
+## <a name="15200"></a>1.5.20.0
+
+### <a name="release-status"></a>Stato della versione
+04/09/2020: Rilasciato per il download
+
+### <a name="fixed-issues"></a>Problemi risolti
+Questo hotfix per la creazione di correzioni di un problema con la build 1.5.18.0 se è attivata la funzionalità Di filtering di gruppo e si utilizza mS-DS-ConsistencyGuid come ancoraggio di origine.
 
 ## <a name="15180"></a>1.5.18.0
 
@@ -526,7 +533,7 @@ Type     | Nome                          | Accesso               | Si applica a
 Allow    | SYSTEM                        | Controllo completo         | Questo oggetto  |
 Allow    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
 Allow    | Domain Admins                 | Controllo completo         | Questo oggetto  |
-Allow    | Amministratori                | Controllo completo         | Questo oggetto  |
+Allow    | Administrators                | Controllo completo         | Questo oggetto  |
 Allow    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
 Allow    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
 Allow    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |

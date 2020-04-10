@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 1d6fa75beabdc36750525310008add9594562228
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 951f24ad06014f6d95f10c91e1bad8e99bbbc736
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887113"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991774"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
 
@@ -86,6 +86,7 @@ Per configurare gli avvisi:
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Scenari di diagnostica comuni e visualizzazioni consigliate
 
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Il percorso dei dati è disponibile per il mio Load Balancer VIP?
+<details><summary>Espandere</summary>
 
 La metrica di disponibilità VIP descrive l’integrità del percorso dei dati all'interno della regione verso l'host di calcolo in cui si trovano le macchine virtuali. La metrica riflette lo stato di integrità delle infrastrutture di Azure. La metrica può essere utilizzata per:
 - Monitorare la disponibilità esterna del servizio.
@@ -113,9 +114,11 @@ La disponibilità VIP avrà esito negativo per le ragioni seguenti:
 A scopo diagnostico, è possibile utilizzare la [metrica Disponibilità percorso dati insieme allo stato del probe](#vipavailabilityandhealthprobes)di integrità.
 
 Usare **Media** come aggregazione per la maggior parte degli scenari.
+</details>
 
 #### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>Le istanze di back-end per l'indirizzo VIP rispondono ai probe?
-
+<details>
+  <summary>Espandere</summary>
 La metrica relativa allo stato del probe di integrità descrive l'integrità della distribuzione dell'applicazione come configurato dall'utente quando si configura il probe di integrità di Load Balancer. Load Balancer usa lo stato del probe di integrità per determinare dove inviare nuovi flussi. I probe di integrità hanno origine da un indirizzo dell'infrastruttura di Azure e sono visibili all'interno del sistema operativo guest della macchina virtuale.
 
 Per ottenere lo stato del probe di integrità per le risorse di Load Balancer Standard:To get the health probe status for your Standard Load Balancer resources:
@@ -127,9 +130,11 @@ I probe di integrità hanno esito negativo per le ragioni seguenti:
 - Se il probe non è consentito dal gruppo di sicurezza di rete, dal firewall del sistema operativo guest della macchina virtuale o dai filtri del livello dell'applicazione.
 
 Usare **Media** come aggregazione per la maggior parte degli scenari.
+</details>
 
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Come è possibile controllare le statistiche di connessione in uscita? 
-
+<details>
+  <summary>Espandere</summary>
 La metrica relativa alle connessioni SNAT descrive il volume di quelle con esito positivo e con esito negativo (connessioni per i [flussi in uscita](https://aka.ms/lboutbound)).
 
 Un volume di connessioni non riuscite maggiore di zero indica l'esaurimento delle porte SNAT. È necessario effettuare un'analisi approfondita per determinare che cosa potrebbe causare questi errori. L'esaurimento delle porte SNAT si manifesta sotto forma di errore durante la definizione di un [flusso in uscita](https://aka.ms/lboutbound). Fare riferimento all'articolo sulle connessioni in uscita per comprendere gli scenari e i meccanismi coinvolti e scoprire come ridurre ed evitare l'esaurimento delle porte SNAT in fase di progettazione. 
@@ -140,11 +145,13 @@ Per ottenere statistiche sulle connessioni SNAT:
 
 ![Connessione SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Figura - Conteggio delle connessioni SNAT per Load Balancer*
+*Figura: conteggio delle connessioni SNAT del servizio di bilanciamento del caricoFigure: Load Balancer SNAT connection count*
+</details>
 
 
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>Come posso controllare l'utilizzo e l'allocazione delle mie porte SNAT?
-
+<details>
+  <summary>Espandere</summary>
 La metrica Utilizzo SNAT indica quanti flussi univoci vengono stabiliti tra un'origine Internet e una macchina virtuale back-end o un set di scalabilità di macchine virtuali che si trova dietro un servizio di bilanciamento del carico e non dispone di un indirizzo IP pubblico. Confrontandolo con la metrica Allocazione SNAT, è possibile determinare se il servizio è in grado di verificarsi o a rischio di esaurimento SNAT e conseguente errore del flusso in uscita. 
 
 Se le metriche indicano un rischio di errore del [flusso in uscita,](https://aka.ms/lboutbound) fare riferimento all'articolo ed eseguire le operazioni necessarie per ridurre questa operazione per garantire l'integrità del servizio.
@@ -166,20 +173,24 @@ Per visualizzare l'utilizzo e l'allocazione delle porte SNAT:
 ![Utilizzo SNAT da istanza back-end](./media/load-balancer-standard-diagnostics/snat-usage-split.png)
 
 *Figura: utilizzo delle porte TCP SNAT per istanza back-end*
+</details>
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Come è possibile verificare i tentativi di connessione in ingresso/uscita per il servizio?
-
+<details>
+  <summary>Espandere</summary>
 La metrica relativa a un pacchetto SYN descrive il volume di pacchetti SYN TCP arrivati o inviati (per i [flussi in uscita](https://aka.ms/lboutbound)) che sono associati a uno specifico front-end. Questa metrica può essere usata per comprendere i tentativi di connessione TCP al servizio.
 
 Usare **Totale** come aggregazione per la maggior parte degli scenari.
 
 ![Connessione SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Figura - Conteggio SYN per Load Balancer*
+*Figura: conteggio SYN di Load BalancerFigure: Load Balancer SYN count*
+</details>
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Come è possibile verificare il consumo di larghezza di banda di rete? 
-
+<details>
+  <summary>Espandere</summary>
 La metrica relativa ai contatori di byte e pacchetti descrive il volume di byte e pacchetti che vengono inviati o ricevuti dal servizio per ogni front-end.
 
 Usare **Totale** come aggregazione per la maggior parte degli scenari.
@@ -192,10 +203,12 @@ Per ottenere statistiche relative al conteggio di byte o pacchetti:
 
 ![Conteggio byte](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Figura - Conteggio byte per Load Balancer*
+*Figura: conteggio dei byte di Load BalancerFigure: Load Balancer byte count*
+</details>
 
 #### <a name="how-do-i-diagnose-my-load-balancer-deployment"></a><a name = "vipavailabilityandhealthprobes"></a>Come è possibile diagnosticare la distribuzione di Load Balancer?
-
+<details>
+  <summary>Espandere</summary>
 La combinazione delle metriche relative alla disponibilità VIP e ai probe di integrità su un singolo grafico consente di identificare dove si verificano e si possono risolvere i problemi. È possibile assicurarsi che Azure funzioni correttamente e usare questa conoscenza per determinare definitivamente che la configurazione o l'applicazione costituisca la causa radice.
 
 È possibile usare le metriche relative ai probe di integrità per comprendere in che modo Azure visualizza lo stato della distribuzione in base alla configurazione specificata. L'analisi dei probe di integrità costituisce sempre una valida opzione per iniziare a monitorare o determinare una causa.
@@ -211,6 +224,7 @@ In questo grafico vengono visualizzate le informazioni seguenti:
 - Lo stato del probe di integrità (disponibilità DIP), indicato dalla traccia viola, è allo 0 percento all'inizio del grafico. L'area cerchiata in verde evidenzia dove lo stato del probe di integrità (disponibilità DIP) è diventato integro e a quel punto la distribuzione del cliente è stata in grado di accettare nuovi flussi.
 
 Il grafico consente al cliente di risolvere i problemi della distribuzione in modo autonomo senza dover fare supposizioni o contattare il supporto per sapere se si stanno verificando altri problemi. Il servizio non era disponibile perché i probe di integrità hanno avuto esito negativo a causa di una configurazione errata o di un'applicazione non riuscita.
+</details>
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Stato di integrità delle risorse
 

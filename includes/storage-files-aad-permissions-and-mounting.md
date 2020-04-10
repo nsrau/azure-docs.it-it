@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 8f71c039aa6666cec1b871a158d84a6f5a2a107c
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c88f5a4dd4f2997ce01b1f6a3ae192c62f530e76
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666825"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011422"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. Assegnare le autorizzazioni di accesso a un'identità
 
-Per accedere alle risorse File di Azure con autenticazione basata sull'identità, un'identità (un utente, un gruppo o un'entità servizio) deve disporre delle autorizzazioni necessarie a livello di condivisione. Questo processo è simile alla specifica delle autorizzazioni di condivisione di Windows, in cui si specifica il tipo di accesso di un determinato utente a una condivisione file. Si consiglia di utilizzare l'autorizzazione a livello di condivisione per la gestione degli accessi di alto livello a un team o a un gruppo, quindi sfruttare le autorizzazioni NTFS per il controllo granulare dell'accesso a livello di directory/file. Le istruzioni dettagliate fornite in questa sezione spiegano come assegnare a un'identità le autorizzazioni di lettura, scrittura o eliminazione per una condivisione file. 
+Per accedere alle risorse File di Azure con autenticazione basata sull'identità, un'identità (un utente, un gruppo o un'entità servizio) deve disporre delle autorizzazioni necessarie a livello di condivisione. Questo processo è simile alla specifica delle autorizzazioni di condivisione di Windows, in cui si specifica il tipo di accesso di un determinato utente a una condivisione file. Le istruzioni dettagliate fornite in questa sezione spiegano come assegnare a un'identità le autorizzazioni di lettura, scrittura o eliminazione per una condivisione file. 
 
 Sono stati introdotti tre ruoli predefiniti di Azure per concedere autorizzazioni a livello di condivisione agli utenti:We have introduced three Azure built-in roles for granting share-level permissions to users:
 
@@ -32,6 +32,8 @@ Sono stati introdotti tre ruoli predefiniti di Azure per concedere autorizzazion
 
 > [!NOTE]
 > Ricordarsi di sincronizzare le credenziali di Active Directory con Azure AD se si prevede di usare l'AD per l'autenticazione. La sincronizzazione dell'hash delle password da AD ad Azure AD è facoltativa. L'autorizzazione a livello di condivisione verrà concessa all'identità di Azure AD sincronizzata da Active Directory.Share level permission will be granted to the Azure AD identity that is synced from AD.
+
+Si consiglia di utilizzare l'autorizzazione a livello di condivisione per la gestione degli accessi di alto livello a un gruppo di Active Directory che rappresenta un gruppo di utenti e identità, quindi sfruttare le autorizzazioni NTFS per il controllo granulare dell'accesso a livello di directory/file. 
 
 #### <a name="azure-portal"></a>Portale di Azure
 Per assegnare un ruolo Controllo degli accessi in base al ruolo a un'identità di Azure AD, usando il portale di [Azure,](https://portal.azure.com)eseguire la procedura seguente:To assign an RBAC role to an Azure AD identity, using the Azure portal , follow these steps:

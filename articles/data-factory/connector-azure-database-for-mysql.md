@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/25/2019
-ms.openlocfilehash: f5203de43a3d12c40e6cb5bbb33547769f5824c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16778000855b7859e261d8b996b081f779e579f9
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440770"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991450"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiare dati da e verso il database di Azure per MySQL usando Azure Data FactoryCopy data to and from Azure Database for MySQL using Azure Data Factory
 
@@ -55,7 +55,7 @@ Una stringa di connessione tipica è `Server=<server>.mysql.database.azure.com;P
 
 | Proprietà | Descrizione | Opzioni | Obbligatoria |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Questa opzione specifica se il driver usa la crittografia SSL e verifica la connessione a MySQL. ad esempio `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLMode | Questa opzione specifica se il driver utilizza la crittografia e la verifica TLS per la connessione a MySQL. ad esempio `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
 | UseSystemTrustStore | Questa opzione specifica se usare o meno un certificato CA dall'archivio di attendibilità di sistema o da un file PEM specificato. ad esempio `UseSystemTrustStore=<0/1>;`| Abilitato (1) / Disabilitato (0) **(impostazione predefinita)** | No |
 
 **Esempio:**
@@ -142,7 +142,7 @@ Per copiare i dati dal database di Azure per MySQL, nella sezione **dell'origine
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureMySqlSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 | queryCommandTimeout | Tempo di attesa prima del timeout della richiesta di query. Il valore predefinito è 120 minuti (02:00:00) | No |
 
 **Esempio:**

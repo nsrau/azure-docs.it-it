@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c54f864b5bd562fdc0a84b2903198704032b360
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72793437"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998494"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Usare la sintassi di ricerca "completa" Lucene (query avanzate in Ricerca cognitiva di Azure)Use the "full" Lucene search syntax (advanced queries in Azure Cognitive Search)
 
@@ -86,7 +86,7 @@ Questo primo esempio non è specifico di Lucene, ma con esso viene portato a int
 
 In breve, la query punta solo al campo *business_title* e specifica che vengano restituite solo le qualifiche professionali. Il parametro **searchFields** consente di limitare l'esecuzione della query solo al campo business_title e **select** specifica quali campi sono inclusi nella risposta.
 
-### <a name="partial-query-string"></a>Stringa di query parziale
+### <a name="search-expression"></a>Espressione di ricerca
 
 ```http
 &search=*&searchFields=business_title&$select=business_title
@@ -119,7 +119,7 @@ Si sarà notato il punteggio di ricerca nella risposta. Si ottengono punteggi un
 
 La sintassi Lucene completa supporta l'ambito di singole espressioni di ricerca in un campo specifico. In questo esempio vengono cercati i titoli di business con il termine senior, ma non junior.
 
-### <a name="partial-query-string"></a>Stringa di query parziale
+### <a name="search-expression"></a>Espressione di ricerca
 
 ```http
 $select=business_title&search=business_title:(senior NOT junior)
@@ -156,7 +156,7 @@ Il campo specificato in **fieldName:searchExpression** deve essere un campo rice
 
 La sintassi Lucene completa supporta anche la ricerca fuzzy, basata sui termini che hanno una costruzione simile. Per eseguire una ricerca fuzzy, aggiungere il simbolo tilde `~` alla fine di una parola con un parametro facoltativo, un valore compreso tra 0 e 2, che specifica la distanza di edit. Ad esempio, `blue~` o `blue~1` restituirà blue, blues e glue.
 
-### <a name="partial-query-string"></a>Stringa di query parziale
+### <a name="search-expression"></a>Espressione di ricerca
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
@@ -186,7 +186,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-4-proximity-search"></a>Esempio 4: ricerca di prossimità
 Le ricerche per prossimità vengono usate per trovare termini che si trovano vicini in un documento. Inserire un carattere tilde "~" alla fine di una frase seguito dal numero di parole che creano il limite di prossimità. Ad esempio, "hotel airport"~5 troverà i termini hotel e airport entro 5 parole di distanza una dall'altra in un documento.
 
-### <a name="partial-query-string"></a>Stringa di query parziale
+### <a name="search-expression"></a>Espressione di ricerca
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
@@ -239,7 +239,7 @@ Quando si imposta il fattore, maggiore è il fattore di aumento, maggiore è la 
 
 Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
-### <a name="partial-query-string"></a>Stringa di query parziale
+### <a name="search-expression"></a>Espressione di ricerca
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
@@ -262,7 +262,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-7-wildcard-search"></a>Esempio 7: ricerca con caratteri jolly
 È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (\*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
 
-### <a name="partial-query-string"></a>Stringa di query parziale
+### <a name="search-expression"></a>Espressione di ricerca
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:prog*

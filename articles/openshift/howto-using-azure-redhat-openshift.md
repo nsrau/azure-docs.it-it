@@ -7,17 +7,17 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, cappello rosso, cli
-ms.openlocfilehash: 423f09c135da51b8401c1933a4a271d0becd2c8f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9488ef593cf4ec8600dcb42ea4a2cefa4fcb1446
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349425"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998806"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Creare, accedere e gestire un cluster Azure Red Hat OpenShift 4.3Create, access, and manage an Azure Red Hat OpenShift 4.3 Cluster
 
 > [!IMPORTANT]
-> Si noti che Azure Red Hat OpenShift 4.3 è attualmente disponibile solo in anteprima privata negli Stati Uniti orientali. L'accettazione dell'anteprima privata è solo su invito. Assicurarsi di registrare la sottoscrizione prima di tentare di abilitare questa funzionalità: [Registrazione di Azure Red Hat OpenShift Private Preview](https://aka.ms/aro-preview-register)
+> Si noti che Azure Red Hat OpenShift 4.3 è attualmente disponibile solo in anteprima privata negli Stati Uniti orientali e negli Stati Uniti orientali 2. L'accettazione dell'anteprima privata è solo su invito. Assicurarsi di registrare la sottoscrizione prima di tentare di abilitare questa funzionalità: [Registrazione di Azure Red Hat OpenShift Private Preview](https://aka.ms/aro-preview-register)
 
 > [!NOTE]
 > Le funzionalità di anteprima sono self-service e vengono fornite come sono e come disponibili e sono escluse dal contratto di servizio (SLA) e dalla garanzia limitata. Pertanto, le funzionalità non sono destinate all'utilizzo in produzione.
@@ -65,7 +65,7 @@ L'estensione `az aro` consente di creare, accedere ed eliminare cluster Azure Re
    az -v
    ...
    Extensions:
-   aro                                0.1.0
+   aro                                0.3.0
    ...
    ```
   
@@ -108,7 +108,7 @@ Seguire questi passaggi per creare una rete virtuale contenente due subnet vuote
 4. Aggiungere due subnet vuote alla rete virtuale.
 
    ```console
-    for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
+   for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
      az network vnet subnet create \
        -g "$RESOURCEGROUP" \
        --vnet-name vnet \
@@ -141,6 +141,8 @@ az aro create \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
   --worker-subnet "$CLUSTER-worker" \
+  --cluster-resource-group "aro-$CLUSTER" \
+  --domain "$CLUSTER" \
   --pull-secret "$PULL_SECRET"
 ```
 

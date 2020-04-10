@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 58548c5cb1aa6aba6dda09d5d420b36bb8154726
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 9b0e0b39b7ac7d7834c9cdcbd79ba45b024c823a
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656405"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992012"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2 (anteprima)Use PowerShell to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
 
@@ -151,7 +151,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 > [!NOTE]
 > Utilizzare `-Force` il parametro se si desidera sovrascrivere senza richieste.
 
-In questo esempio `my-directory` viene spostata `my-directory-2` una `my-subdirectory`directory denominata in una sottodirectory denominata . In questo esempio viene inoltre applicata una umask alla sottodirectory.
+In questo esempio `my-directory` viene spostata `my-directory-2` una `my-subdirectory`directory denominata in una sottodirectory denominata . 
 
 ```powershell
 $filesystemName = "my-file-system"

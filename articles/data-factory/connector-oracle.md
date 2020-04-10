@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 68e234b9db269c30dc9f24106ae1942c01304da7
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 534e5c913685eeac92022f6694ea31b24816da5d
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422510"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011651"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -37,6 +37,7 @@ Questo connettore Oracle è supportato per le attività seguenti:This Oracle con
 In particolare, questo connettore Oracle supporta:Specifically, this Oracle connector supports:
 
 - Le seguenti versioni di un database Oracle:
+    - Oracle 19c R1 (19.1) e versioni successive
     - Oracle 18c R1 (18.1) e versioni successive
     - Oracle 12c R1 (12.1) e versioni successive
     - Oracle 11g R1 (11.1) e versioni successive
@@ -84,9 +85,9 @@ Per abilitare la crittografia sulla connessione di Oracle, sono disponibili due 
 
 -   Per utilizzare **Triple-DES Encryption (3DES) e Advanced Encryption Standard (AES)**, sul lato server Oracle, accedere a Oracle Advanced Security (OAS) e configurare le impostazioni di crittografia. Per informazioni dettagliate, vedere la [documentazione](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759)di Oracle . Il connettore Oracle Application Development Framework (ADF) negozia automaticamente il metodo di crittografia per utilizzare quello configurato in OAS quando si stabilisce una connessione a Oracle.
 
--   Per utilizzare **SSL:**
+-   Per utilizzare **TLS**:
 
-    1.  Ottenere le informazioni sul certificato SSL. Ottenere le informazioni sul certificato con codifica DER (Distinguished Encoding Rules) del certificato SSL e salvare l'output (----- Inizia certificato ... End Certificate -----) come file di testo.
+    1.  Ottenere le informazioni sul certificato TLS/SSL. Ottenere le informazioni sul certificato con codifica DER (Distinguished Encoding Rules) del certificato TLS/SSL e salvare l'output (----- Inizia certificato ... End Certificate -----) come file di testo.
 
         ```
         openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text

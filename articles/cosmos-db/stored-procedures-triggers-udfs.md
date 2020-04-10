@@ -1,18 +1,18 @@
 ---
 title: Utilizzare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DBWork with stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: Questo articolo illustra concetti quali stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 04/09/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065902"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010546"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -69,7 +69,7 @@ Le stored procedure e i trigger vengono sempre eseguiti nella replica primaria d
 
 Tutte le operazioni di Azure Cosmos DB devono essere completate entro la scadenza specificata. Questo vincolo si applica anche alle funzioni JavaScript (stored procedure, trigger e funzioni definite dall'utente). Se un'operazione non viene completata entro questo limite di tempo, viene eseguito il rollback della transazione.
 
-È possibile verificare che le funzioni JavaScript terminino entro il tempo limite oppure implementare un modello basato sulla continuazione in modo da riprendere l'esecuzione o eseguirla in batch. Per semplificare lo sviluppo delle stored procedure e dei trigger per la gestione dei limiti di tempo, tutte le funzioni nel contenitore di Azure Cosmos (ad esempio per creare, leggere, aggiornare ed eliminare gli elementi) restituiscono un valore booleano che indica se l'operazione verrà completata. Se questo valore è false, è un'indicazione che la procedura deve eseguire il wrapping dell'esecuzione perché lo script usa più tempo o velocità effettiva con provisioning rispetto al valore configurato. Il completamento delle operazioni inserite in coda precedentemente alla prima operazione di archiviazione non accettata è garantito se la stored procedure viene completata in tempo e non vengono inserite in coda altre richieste. Di conseguenza, le operazioni devono essere accodate una alla volta usando convenzioni di callback di JavaScript per gestire il flusso di controllo dello script. Poiché gli script vengono eseguiti in un ambiente lato server, sono strettamente regolati. Gli script che violano ripetutamente i limiti di esecuzione possono essere contrassegnati come inattivi e non possono essere eseguiti. Devono essere ricreati per rispettare i limiti di esecuzione.
+È possibile verificare che le funzioni JavaScript terminino entro il tempo limite oppure implementare un modello basato sulla continuazione in modo da riprendere l'esecuzione o eseguirla in batch. Per semplificare lo sviluppo delle stored procedure e dei trigger per la gestione dei limiti di tempo, tutte le funzioni nel contenitore di Azure Cosmos (ad esempio per creare, leggere, aggiornare ed eliminare gli elementi) restituiscono un valore booleano che indica se l'operazione verrà completata. Se questo valore è false, è un'indicazione che la procedura deve eseguire il wrapping dell'esecuzione perché lo script usa più tempo o velocità effettiva con provisioning rispetto al valore configurato. Il completamento delle operazioni inserite in coda precedentemente alla prima operazione di archiviazione non accettata è garantito se la stored procedure viene completata in tempo e non vengono inserite in coda altre richieste. Pertanto, le operazioni devono essere accodate una alla volta utilizzando la convenzione di callback di JavaScript per gestire il flusso di controllo dello script. Poiché gli script vengono eseguiti in un ambiente lato server, sono strettamente regolati. Gli script che violano ripetutamente i limiti di esecuzione possono essere contrassegnati come inattivi e non possono essere eseguiti. Devono essere ricreati per rispettare i limiti di esecuzione.
 
 Le funzioni JavaScript sono anche soggette alla [capacità di velocità effettiva con provisioning](request-units.md). È possibile che le funzioni JavaScript finiscano per usare un numero elevato di unità richiesta entro un breve periodo di tempo e siano soggette a velocità limitata se viene raggiunto il limite di capacità di velocità effettiva con provisioning. È importante notare che gli script usano velocità effettiva aggiuntiva oltre a quella usata per l'esecuzione delle operazioni di database, anche se queste operazioni di database sono leggermente meno costose rispetto all'esecuzione delle stesse operazioni a partire dal client.
 
@@ -90,7 +90,7 @@ Analogamente ai pre-trigger, i post-trigger, sono associati anche a un'operazion
 
 ## <a name="user-defined-functions"></a><a id="udfs"></a>Funzioni definite dall'utente
 
-Le funzioni definite dall'utente, o UDF, consentono di estendere la sintassi del linguaggio di query API SQL e implementare facilmente la logica di business. Possono essere chiamate solo all'interno di query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le funzioni definite dall'utente su repliche secondarie. Per gli esempi, vedere [Come scrivere funzioni definite dall'utente](how-to-write-stored-procedures-triggers-udfs.md#udfs).
+[Le funzioni definite dall'utente](sql-query-udfs.md) (UDF) vengono usate per estendere la sintassi del linguaggio di query dell'API SQL e implementare facilmente la logica di business personalizzata. Possono essere chiamate solo all'interno di query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le funzioni definite dall'utente su repliche secondarie. Per gli esempi, vedere [Come scrivere funzioni definite dall'utente](how-to-write-stored-procedures-triggers-udfs.md#udfs).
 
 ## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>API di query integrate nel linguaggio JavaScript
 

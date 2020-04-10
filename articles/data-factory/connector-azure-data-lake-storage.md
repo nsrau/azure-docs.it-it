@@ -11,18 +11,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
-ms.openlocfilehash: 929b9548661fe48fe90a55f0cacef234c3078cda
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a061df302680488377c3006dcef57b818a101d67
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887266"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011532"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare e trasformare i dati in Archiviazione dati di Azure Usando2 usando Azure Data FactoryCopy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) è un set di funzionalità dedicate all'analisi dei Big Data integrata nell'archiviazione BLOB di [Azure.](../storage/blobs/storage-blobs-introduction.md) È possibile utilizzarlo per interfacciarsi con i dati utilizzando sia i paradigmi di archiviazione del file system che quello di archiviazione degli oggetti.
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Azure Data Lake Storage Gen2 e usare Flusso di dati per trasformare i dati in Azure Data Lake Storage Gen2.This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Data Lake Storage Gen2, and use Data Flow to transform data in Azure Data Lake Storage Gen2. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
+
+>[!TIP]
+>Per lo scenario di migrazione del data lake o del data warehouse, vedere Usare Azure Data Factory per eseguire la migrazione dei dati dal data lake o dal data warehouse ad Azure.For data lake or data warehouse migration scenario, learn more from [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure.](data-migration-guidance-overview.md)
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 

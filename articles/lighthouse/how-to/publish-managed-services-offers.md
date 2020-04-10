@@ -1,21 +1,21 @@
 ---
-title: Pubblicare un'offerta di servizio gestito in Azure MarketplacePublish a managed service offer to Azure Marketplace
-description: Informazioni su come pubblicare un'offerta di servizio gestito che esegue l'onboarding dei clienti nella gestione risorse delegate di Azure.
+title: Pubblicare un'offerta di servizi gestiti in Azure MarketplacePublish a Managed Service offer to Azure Marketplace
+description: Informazioni su come pubblicare un'offerta del servizio gestito che offre clienti in boards alla gestione delle risorse delegate di Azure.Learn how to publish a Managed Service offer that onboards customers to Azure delegated resource management.
 ms.date: 04/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4791b1d2ae233b0cc7aad33dd5b15b6ea94b2018
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 247f711188fa10de19cece27f164fdfa71612d1b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984555"
+ms.locfileid: "80991910"
 ---
-# <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizio gestito in Azure MarketplacePublish a managed service offer to Azure Marketplace
+# <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizi gestiti in Azure MarketplacePublish a Managed Service offer to Azure Marketplace
 
 > [!IMPORTANT]
-> A partire dal 14 aprile 2020, inizieremo a spostare la gestione delle offerte del servizio gestito nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Creare nuove offerte di [servizi gestiti](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte del servizio gestito nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare una nuova offerta del servizio gestito](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) per gestire le offerte migrate.
 
-In questo articolo verrà illustrato come pubblicare un'offerta di servizio gestito pubblica o privata in [Azure Marketplace](https://azuremarketplace.microsoft.com) usando il portale [Cloud Partner.](https://cloudpartner.azure.com/) I clienti che acquistano l'offerta sono quindi in grado di onboarding di sottoscrizioni e gruppi di risorse per la gestione delle risorse delegate di [Azure.](../concepts/azure-delegated-resource-management.md)
+In questo articolo verrà illustrato come pubblicare un'offerta del servizio gestito pubblica o privata in [Azure Marketplace](https://azuremarketplace.microsoft.com) usando il portale [Cloud Partner.](https://cloudpartner.azure.com/) I clienti che acquistano l'offerta sono quindi in grado di onboarding di sottoscrizioni e gruppi di risorse per la gestione delle risorse delegate di [Azure.](../concepts/azure-delegated-resource-management.md)
 
 ## <a name="publishing-requirements"></a>Requisiti per la pubblicazione
 
@@ -28,7 +28,7 @@ L'ID MPN (Microsoft Partner Network) verrà [associato automaticamente](../../bi
 > [!NOTE]
 > Se non si vuole pubblicare un'offerta in Azure Marketplace, è possibile eseguire l'onboarding dei clienti manualmente usando i modelli di Azure Resource Manager. Per altre informazioni, vedere [Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure](onboard-customer.md).
 
-La pubblicazione di un'offerta di servizi gestiti è simile alla pubblicazione di qualsiasi altro tipo di offerta in Azure Marketplace. Per altre informazioni sul processo di pubblicazione generale, vedere Guida alla pubblicazione di [Azure Marketplace e AppSource](../../marketplace/marketplace-publishers-guide.md). È anche necessario esaminare i [criteri di certificazione del Marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies), in particolare la sezione [Servizi gestiti](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
+Publishing a Managed Service offer is similar to publishing any other type of offer to Azure Marketplace. Per altre informazioni sul processo di pubblicazione generale, vedere Guida alla pubblicazione di [Azure Marketplace e AppSource](../../marketplace/marketplace-publishers-guide.md). È anche necessario esaminare i [criteri di certificazione del Marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies), in particolare la sezione [Servizi gestiti](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
 
 Una volta che un cliente aggiunge l'offerta, sarà in grado di delegare una o più sottoscrizioni o gruppi di risorse, che verranno quindi [inpensione per](#the-customer-onboarding-process)la gestione delle risorse delegate di Azure.
 

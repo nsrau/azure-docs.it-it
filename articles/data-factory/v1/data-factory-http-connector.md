@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260423"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991570"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Spostare dati da un'origine HTTP tramite Azure Data Factory
 
@@ -55,7 +55,7 @@ La tabella seguente descrive gli elementi JSON specifici del servizio collegato 
 | type | La proprietà **type** deve essere impostata su **Http**. | Sì |
 | url | URL di base del server Web. | Sì |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni più avanti in questo articolo per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
-| enableServerCertificateValidation | Specifica se abilitare la convalida del certificato SSL del server se l'origine è un server Web HTTPS. Quando il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No<br /> (il valore predefinito è **true**) |
+| enableServerCertificateValidation | Specifica se abilitare la convalida del certificato TLS/SSL del server se l'origine è un server Web HTTPS. Quando il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No<br /> (il valore predefinito è **true**) |
 | gatewayName | Nome dell'istanza di Gateway di gestione dati da usare per la connessione a un'origine HTTP locale. | Sì, se si copiano dati da un'origine HTTP locale |
 | encryptedCredential | Credenziale crittografata per l'accesso all'endpoint HTTP. Il valore viene generato automaticamente durante la configurazione delle informazioni di autenticazione nella procedura guidata di copia o tramite la finestra di dialogo **ClickOnce**. | No<br /> (si applica solo quando si copiano dati da un server HTTP locale) |
 

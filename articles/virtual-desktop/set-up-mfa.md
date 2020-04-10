@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0b3c47e1bbe5efdc5ee303305e52a785a49d0c00
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b470f9278bdca94d1fe98c64b11b070fb36cb075
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586873"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998482"
 ---
-# <a name="set-up-azure-multi-factor-authentication"></a>Configurare Azure Multi-Factor AuthenticationSet up Azure Multi-Factor Authentication
+# <a name="set-up-azure-multi-factor-authentication"></a>Configurare Azure Multi-Factor Authentication
 
 Il client Windows per Windows Virtual Desktop è un'opzione eccellente per l'integrazione di Windows Virtual Desktop con il computer locale. Tuttavia, quando si configura l'account desktop virtuale di Windows nel client Windows, è necessario adottare alcune misure per proteggere se stessi e gli utenti.
 
@@ -32,7 +32,7 @@ Ecco cosa ti serve per iniziare:
   - Azure Active Directory Premium P1 o P2
   - Mobilità aziendale - Sicurezza E3 o E5
 - Gruppo di Azure Active Directory con gli utenti assegnati come membri del gruppo.
-- Abilitare Azure MFA per tutti gli utenti. Per ulteriori informazioni su come eseguire questa operazione, vedere Come richiedere la [verifica in due passaggi per un utente](/active-directory/authentication/howto-mfa-userstates).
+- Abilitare Azure MFA per tutti gli utenti. Per ulteriori informazioni su come eseguire questa operazione, vedere Come richiedere la [verifica in due passaggi per un utente](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 >[!NOTE]
 >L'impostazione seguente si applica anche al client Web desktop [virtuale di Windows.](https://rdweb.wvd.microsoft.com/webclient/index.html)

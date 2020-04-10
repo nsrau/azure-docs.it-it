@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: c0eb043ce040f154050ef4c3675f165dad326e32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fe6b494398337dd49bd8f0fe53b24666412a1b0
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929415"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991587"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiare dati da Google BigQuery usando Azure Data Factory
 
@@ -99,7 +99,7 @@ Impostare la proprietà "authenticationType" su **ServiceAuthentication** e spec
 |:--- |:--- |:--- |
 | email | ID di posta elettronica dell'account del servizio usato per ServiceAuthentication. Può essere usato solo sul runtime di integrazione self-hosted.  | No |
 | keyFilePath | Percorso completo per il file di chiave con estensione p12 usato per autenticare l'indirizzo di posta elettronica dell'account del servizio. | No |
-| trustedCertPath | Percorso completo del file PEM contenente i certificati CA attendibili usati per verificare il server in caso di connessione tramite SSL. Questa proprietà può essere impostata solo quando si usa SSL nel runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
+| trustedCertPath | Il percorso completo del file con estensione pem che contiene i certificati CA attendibili utilizzati per verificare il server quando ci si connette tramite TLS. Questa proprietà può essere impostata solo quando si utilizza TLS in Runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
 | useSystemTrustStore | Specifica se usare o meno un certificato CA dall'archivio di attendibilità di sistema o da un file PEM specificato. Il valore predefinito è **false**.  | No |
 
 **Esempio:**

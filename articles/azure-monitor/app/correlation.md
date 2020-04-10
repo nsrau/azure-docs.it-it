@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: c68b83726371d346019d18d0b066173f93196e6d
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6ceace1ee93fab8c0a46ed4a67850fc87a5cdad2
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982056"
+ms.locfileid: "80991229"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -129,6 +129,11 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app Java
 
+#### <a name="java-30-agent"></a>Agente Java 3.0
+
+  L'agente Java 3.0 supporta W3C e non è necessaria alcuna configurazione aggiuntiva. 
+
+#### <a name="java-sdk"></a>SDK per Java
 - **Configurazione in ingresso**
 
   - Per le app Java EE, `<TelemetryModules>` aggiungere quanto segue al tag in ApplicationInsights.xml:For Java EE apps, add the following to the tag in ApplicationInsights.xml:
@@ -320,17 +325,32 @@ ASP.NET Core 2.0 supporta l'estrazione delle intestazioni HTTP e l'avvio di nuov
 Application Insights SDK, a partire dalla versione 2.4.0-beta1, usa `DiagnosticSource` e `Activity` per raccogliere i dati di telemetria e associarli all'attività corrente.
 
 <a name="java-correlation"></a>
-## <a name="telemetry-correlation-in-the-java"></a>Correlazione di telemetria nel linguaggio JavaTelemetry correlation in the Java
+## <a name="telemetry-correlation-in-java"></a>Correlazione di telemetria in JavaTelemetry correlation in Java
 
-[L'agente Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) di Application Insights e [Java SDK](../../azure-monitor/app/java-get-started.md) versione 2.0.0 o successiva supportano la correlazione automatica dei dati di telemetria. Viene popolato `operation_id` automaticamente per tutti i dati di telemetria (ad esempio tracce, eccezioni ed eventi personalizzati) emessi nell'ambito di una richiesta. Propaga inoltre le intestazioni di correlazione (descritte in precedenza) per le chiamate da servizio a servizio tramite HTTP, se [l'agente Java SDK](../../azure-monitor/app/java-agent.md) è configurato.
+[L'agente Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) e [Java SDK](../../azure-monitor/app/java-get-started.md) versione 2.0.0 o successiva supportano la correlazione automatica dei dati di telemetria. Viene popolato `operation_id` automaticamente per tutti i dati di telemetria (ad esempio tracce, eccezioni ed eventi personalizzati) emessi nell'ambito di una richiesta. Propaga inoltre le intestazioni di correlazione (descritte in precedenza) per le chiamate da servizio a servizio tramite HTTP, se [l'agente Java SDK](../../azure-monitor/app/java-agent.md) è configurato.
 
 > [!NOTE]
 > L'agente Java di Application Insights raccoglie automaticamente richieste e dipendenze per JMS, Kafka, Netty/Webflux e altro ancora. Per Java SDK solo le chiamate effettuate tramite Apache HttpClient sono supportate per la funzionalità di correlazione. La propagazione automatica del contesto tra le tecnologie di messaggistica (ad esempio Kafka, RabbitMQ e il bus di servizio di Azure) non è supportata nell'SDK. 
 
-<a name="java-role-name"></a>
-## <a name="role-name"></a>Nome del ruolo
+> [!NOTE]
+> Per raccogliere dati di telemetria personalizzati è necessario instrumentare l'applicazione con Java 2.6 SDK. 
+
+### <a name="role-names"></a>Nomi dei ruoli
 
 È possibile personalizzare la modalità di visualizzazione dei nomi dei componenti nella [mappa dell'applicazione](../../azure-monitor/app/app-map.md). A tale scopo, è `cloud_RoleName` possibile impostare manualmente l'oggetto eseguendo una delle seguenti operazioni:
+
+- Per l'agente Java 3.0 di Application Insights, impostare il nome del ruolo cloud come segue:For Application Insights Java agent 3.0, set the cloud role name as follows:
+
+    ```json
+    {
+      "instrumentationSettings": {
+        "preview": {
+          "roleName": "my cloud role name"
+        }
+      }
+    }
+    ```
+    È inoltre possibile impostare il nome `APPLICATIONINSIGHTS_ROLE_NAME`del ruolo cloud utilizzando la variabile di ambiente .
 
 - Con Application Insights Java SDK 2.5.0 e `cloud_RoleName` versioni `<RoleName>` successive, è possibile specificare il oggetto aggiungendo al file ApplicationInsights.xml:With Application Insights Java SDK 2.5.0 and later, you can specify the by adding to your ApplicationInsights.xml file:
 

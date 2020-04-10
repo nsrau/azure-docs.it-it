@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2821ee637b2562b5287dd3d59cf943b3dcb7ef97
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278116"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010886"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
@@ -118,7 +118,7 @@ Esistono nove requisiti per le porte in uscita. Le richieste in uscita in questi
 
 #### <a name="geo-replication-peer-port-requirements"></a>Requisiti delle porte peer di replica geografica
 
-Se si usa la replica geografica tra le cache nelle reti virtuali di Azure, tenere presente che la configurazione consigliata consiste nello sbloccare le porte 15000-15999 per l'intera subnet in entrambe le direzioni in ingresso e in uscita per entrambe le cache, in modo che tutti i componenti di replica nella subnet può comunicare direttamente tra loro anche in caso di failover geografico futuro.
+Se si usa la replica geografica tra le cache nelle reti virtuali di Azure, tenere presente che la configurazione consigliata consiste nello sbloccare le porte 15000-15999 per l'intera subnet in entrambe le indicazioni in ingresso e in uscita per entrambe le cache, in modo che tutti i componenti di replica nella subnet possano comunicare direttamente tra loro anche in caso di failover geografico futuro.
 
 #### <a name="inbound-port-requirements"></a>Requisiti delle porte in ingresso
 
@@ -142,7 +142,7 @@ Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in ques
 Esistono requisiti di connettività di rete per Cache Redis di Azure che potrebbero non essere inizialmente soddisfatti in una rete virtuale. Per il corretto funzionamento se usato all'interno di una rete virtuale, Cache Redis di Azure richiede tutti gli elementi seguenti.
 
 * Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'istanza di Cache Redis di Azure, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di Archiviazione di Azure vengono risolti nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*. 
-* Connettività di rete in uscita verso *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Tale connettività è necessaria per il supporto della funzionalità SSL.
+* Connettività di rete in uscita verso *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Questa connettività è necessaria per supportare la funzionalità TLS/SSL.
 * La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Questi requisiti DNS possono essere soddisfatti garantendo che un'infrastruttura DNS valida venga configurata e mantenuta per la rete virtuale.
 * Connettività di rete in uscita agli endpoint di Monitoraggio di Azure seguenti, che vengono risolti nei domini DNS seguenti: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
 

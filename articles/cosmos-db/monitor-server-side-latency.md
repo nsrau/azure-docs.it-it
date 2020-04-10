@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 38f5778e363a16117bab482a758666ec81352afd
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 62c10a2ada9ff7d3bf7090028dd9684192517d02
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887567"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991406"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Come monitorare la latenza lato server per le operazioni in un account o un contenitore di database Cosmos di AzureHow to monitor the server-side latency for operations in an Azure Cosmos DB container or account
 
@@ -35,11 +35,11 @@ Se viene visualizzata una latenza insolitamente grande per operazioni puntuali, 
 
 1. Nel riquadro **Metriche** > **Selezionare una risorsa** > scegliere la **sottoscrizione**richiesta e il gruppo **di risorse**. Per **Tipo di risorsa**selezionare **Account di Azure Cosmos DB**, scegliere uno degli account Cosmos di Azure esistenti e selezionare **Applica**.
    
-   ![Scegliere un account Cosmos DB per visualizzare le metriche](./media/monitor-server-side-latency/select-cosmosdb-account.png)
+   ![Scegliere un account Cosmos DB per visualizzare le metriche](./media/monitor-server-side-latency/select-cosmos-db-account.png)
 
 1. Selezionare quindi la **metrica Latenza lato server** dall'elenco delle metriche disponibili. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [Metriche per categoria.](monitor-cosmos-db-reference.md) In questo esempio, selezioniamo **Latenza lato server** e **Avg** come valore di aggregazione. Oltre a questi dettagli, puoi anche selezionare **l'intervallo** di tempo e la **granularità temporale** delle metriche. Al massimo, puoi visualizzare le metriche per gli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico basato sul filtro. È possibile visualizzare il numero medio di unità richiesta utilizzate al minuto per il periodo selezionato.  
 
-   ![Scegliere la metrica Latenza lato server dal portale di AzureChoose the Server-Side Latency metric from the Azure portal](./media/monitor-server-side-latency/serverside-latency-metric.png)
+   ![Scegliere la metrica Latenza lato server dal portale di AzureChoose the Server-Side Latency metric from the Azure portal](./media/monitor-server-side-latency/server-side-latency-metric.png)
 
 ## <a name="filters-for-server-side-latency"></a>Filtri per latenza lato server
 
@@ -49,7 +49,7 @@ Per filtrare le metriche, selezionare **Aggiungi filtro** e scegliere la proprie
 
 Le metriche **Latenza lato server** per ogni operazione vengono visualizzate come illustrato nell'immagine seguente:The Server Side Latency metrics for each operation are displayed as shown in the following image:
 
-![Filtri per le metriche di latenza lato serverFilters for server-side latency metrics](./media/monitor-server-side-latency/serverside-latency-filters.png)
+![Filtri per le metriche di latenza lato serverFilters for server-side latency metrics](./media/monitor-server-side-latency/server-side-latency-filters.png)
 
 È inoltre possibile raggruppare le metriche utilizzando l'opzione **Applica divisione.**  
 

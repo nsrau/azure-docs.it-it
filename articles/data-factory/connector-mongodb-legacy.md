@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 0bdd8d454b979250b57cf657d347309b99a86ede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31588f9657a883e9c4a5600d2d164125a5f68edf
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892560"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991944"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiare i dati da MongoDB con Azure Data Factory
 
@@ -65,7 +65,7 @@ Per il servizio collegato di MongoDB sono supportate le proprietà seguenti:
 | username |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
 | password |Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì (se si usa l'autenticazione di base). |
 | authSource |Nome del database MongoDB che si vuole usare per controllare le credenziali di autenticazione. |No. Per l'autenticazione di base il valore predefinito usa l'account di amministrazione e il database specificati usando la proprietà databaseName. |
-| enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è false.  | No |
+| enableSsl | Specifica se le connessioni al server vengono crittografate tramite TLS. Il valore predefinito è false.  | No |
 | allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è false.  | No |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per ulteriori informazioni, vedere la sezione [Prerequisiti.](#prerequisites) Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 

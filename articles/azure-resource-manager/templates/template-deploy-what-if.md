@@ -3,14 +3,14 @@ title: Procedura di distribuzione dei modelli (anteprima)Template deployment wha
 description: Determinare quali modifiche verranno apportate alle risorse prima di distribuire un modello di Azure Resource Manager.Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/09/2020
 ms.author: jgao
-ms.openlocfilehash: 9e0d0d572e08961b585a93e66e400b8c2e54bf7f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886841"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010189"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operazione di creazione di elementi di creazione di modelli ARM (anteprima)ARM template deployment what-if operation (Preview)
 
@@ -24,6 +24,14 @@ Prima di distribuire un modello di Azure Resource Manager (ARM), è consigliabil
 ## <a name="install-powershell-module"></a>Installare il modulo di PowerShellInstall PowerShell module
 
 Per usare what-if in PowerShell, installare una versione di anteprima del modulo Az.Resources dalla raccolta di PowerShell.To use what-if in PowerShell, install a preview version of the Az.Resources module from the PowerShell gallery.
+
+### <a name="install-preview-version"></a>Installare la versione di anteprima
+
+Per installare il modulo di anteprima, utilizzare:
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
 
 ### <a name="uninstall-alpha-version"></a>Disinstallare la versione alpha
 
@@ -47,14 +55,6 @@ Se in precedenza è stata installata una versione alfa del modulo what-if, disin
    ```powershell
    Unregister-PSRepository -Name WhatIfRepository
    ```
-
-### <a name="install-preview-version"></a>Installare la versione di anteprima
-
-Per installare il modulo di anteprima, utilizzare:
-
-```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
-```
 
 Sei pronto per usare what-if.
 

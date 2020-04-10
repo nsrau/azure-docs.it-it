@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 17404388b2b6c3fee1c6ab666f7233a66817f642
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe186e2ba8f3cafeb4d186066ba65ae036302f70
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082860"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010512"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)
 
@@ -25,13 +25,13 @@ Un account dell'insieme di credenziali delle chiavi di Azure genera i tipi di ev
 | Nome completo dell'evento | Nome visualizzato evento | Descrizione |
 | ---------- | ----------- |---|
 | Microsoft.KeyVault.CertificateNewVersionCreated | Certificato nuova versione creata | Generato quando viene creato un nuovo certificato o una nuova versione del certificato. |
-| Microsoft.KeyVault.CertificateNearExpiry | Certificato vicino alla scadenza | Generato quando la versione corrente del certificato sta per scadere. Il valore predefinito è 30 giorni prima della data di scadenza. |
+| Microsoft.KeyVault.CertificateNearExpiry | Certificato vicino alla scadenza | Generato quando la versione corrente del certificato sta per scadere. L'evento viene attivato 30 giorni prima della data di scadenza. |
 | Microsoft.KeyVault.CertificateScadut | Il certificato è scaduto | Generato quando il certificato è scaduto. |
 | Microsoft.KeyVault.KeyNewVersionCreated | Chiave nuova versione creata | Generato quando viene creata una nuova chiave o una nuova versione della chiave. |
-| Microsoft.KeyVault.KeyNearExpiry | Chiave vicina alla scadenza | Attivato quando la versione corrente di una chiave sta per scadere. Il valore predefinito è 30 giorni prima della data di scadenza. |
+| Microsoft.KeyVault.KeyNearExpiry | Chiave vicina alla scadenza | Attivato quando la versione corrente di una chiave sta per scadere. L'evento viene attivato 30 giorni prima della data di scadenza. |
 | Microsoft.KeyVault.KeyExpired | Chiave scaduta | Attivato quando una chiave è scaduta. |
 | Microsoft.KeyVault.SecretNewVersionCreated | Segreta Nuova Versione Creata | Generato quando viene creato un nuovo segreto o una nuova versione segreta. |
-| Microsoft.KeyVault.SecretNearExpiry | Segreto vicino alla scadenza | Attivato quando la versione corrente di un segreto sta per scadere. Il valore predefinito è 30 giorni prima della data di scadenza. |
+| Microsoft.KeyVault.SecretNearExpiry | Segreto vicino alla scadenza | Attivato quando la versione corrente di un segreto sta per scadere. L'evento viene attivato 30 giorni prima della data di scadenza. |
 | Microsoft.KeyVault.SecretExpired | Segreto scaduto | Attivato quando un segreto è scaduto. |
 
 ## <a name="event-examples"></a>Esempi di eventi

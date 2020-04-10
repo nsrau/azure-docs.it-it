@@ -3,27 +3,23 @@ title: Annotazioni sulla versione per Application Insights | Documentazione Micr
 description: Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: e0e2a106b276110e13b3c68889e4d1d349ba73a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666514"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010723"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 
-Le annotazioni nei grafici di [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) mostrano dove è stata distribuita una nuova build o altri eventi significativi. Le annotazioni consentono di vedere facilmente se le modifiche hanno avuto un effetto sulle prestazioni dell'applicazione. Possono essere creati automaticamente dal sistema di compilazione [Azure Pipelines.They](https://docs.microsoft.com/azure/devops/pipelines/tasks/) can be automatically created by the Azure Pipelines build system. È anche possibile creare annotazioni da PowerShell per contrassegnare qualsiasi evento.
-
-> [!NOTE]
-> Questo articolo descrive l'**esperienza classica delle metriche** che è stata deprecata. Le annotazioni sono attualmente disponibili solo nell'esperienza classica e nelle **[cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md)**. Per altre informazioni sull'esperienza delle metriche correnti, vedere Funzionalità avanzate di Azure Metrics Explorer.To learn more about the current metrics experience, see [Advanced features of Azure Metrics Explorer.](../../azure-monitor/platform/metrics-charts.md)
-
-![Esempio di annotazioni](./media/annotations/0-example.png)
+Le annotazioni mostrano dove è stata distribuita una nuova build o altri eventi significativi. Le annotazioni consentono di vedere facilmente se le modifiche hanno avuto un effetto sulle prestazioni dell'applicazione. Possono essere creati automaticamente dal sistema di compilazione [Azure Pipelines.They](https://docs.microsoft.com/azure/devops/pipelines/tasks/) can be automatically created by the Azure Pipelines build system. È anche possibile creare annotazioni da PowerShell per contrassegnare qualsiasi evento.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Rilasciare le annotazioni con la compilazione di Azure PipelinesRelease annotations with Azure Pipelines build
 
 Le annotazioni di rilascio sono una funzionalità del servizio Pipeline di Azure basato su cloud di DevOps di Azure.Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
 ### <a name="install-the-annotations-extension-one-time"></a>Installare l'estensione Annotazioni (una volta)
+
 Per poter creare annotazioni sulla versione, è necessario installare una delle numerose estensioni DevOps di Azure disponibili in Visual Studio Marketplace.
 
 1. Accedere al progetto DevOps di Azure.Sign in to your [Azure DevOps](https://azure.microsoft.com/services/devops/) project.
@@ -74,11 +70,26 @@ Creare una chiave API separata per ogni modello di versione delle pipeline di Az
 1. Selezionare **Salva** nella finestra principale del modello di release per salvare il modello.
 
 ## <a name="view-annotations"></a>Visualizzare le annotazioni
-A questo punto, ogni volta che si usa il modello di versione per distribuire una nuova versione, viene inviata un'annotazione ad Application Insights.Now, whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. Le annotazioni vengono visualizzate nei grafici in **Esplora metriche.**
 
-Selezionare un indicatore di annotazione (freccia grigio chiaro) per aprire i dettagli sulla versione, inclusi il richiedente, il ramo del controllo del codice sorgente, la pipeline di rilascio e l'ambiente.
 
-![Selezionare un marcatore di annotazione di rilascio.](./media/annotations/8-release.png)
+   > [!NOTE]
+   > Le annotazioni di rilascio non sono attualmente disponibili nel riquadro Metriche di Application InsightsRelease annotations are not currently available in the Metrics pane of Application Insights
+
+A questo punto, ogni volta che si usa il modello di versione per distribuire una nuova versione, viene inviata un'annotazione ad Application Insights.Now, whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. Le annotazioni possono essere visualizzate nelle seguenti posizioni:
+
+Riquadro di utilizzo in cui è inoltre possibile creare manualmente le annotazioni di rilascio:The usage pane where you also have the ability to manually create release annotations:
+
+![Screenshot del grafico a barre con il numero di visite utente visualizzate in un periodo di ore. Le annotazioni di rilascio vengono visualizzate come segni di spunta verdi sopra il grafico che indicano il momento in cui si è verificata una release](./media/annotations/usage-pane.png)
+
+In qualsiasi query della cartella di lavoro basata su log in cui la visualizzazione visualizza il tempo lungo l'asse x.
+
+![Screenshot del riquadro delle cartelle di lavoro con query basata su log serie temporali con annotazioni visualizzate](./media/annotations/workbooks-annotations.png)
+
+Per abilitare le annotazioni nella cartella di lavoro, passare a **Impostazioni avanzate** e selezionare **Mostra annotazioni**.
+
+![Screenshot del menu Impostazioni avanzate con le parole che mostrano le annotazioni evidenziate con un segno di spunta accanto all'impostazione per abilitarla.](./media/annotations/workbook-show-annotations.png)
+
+Selezionare un indicatore di annotazione per aprire i dettagli sulla versione, inclusi il richiedente, il ramo del controllo del codice sorgente, la pipeline di rilascio e l'ambiente.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Creare annotazioni personalizzate da PowerShell
 È possibile usare lo script di PowerShell CreateReleaseAnnotation da GitHub per creare annotazioni da qualsiasi processo desiderato, senza usare DevOps di Azure.You can use the [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell script from GitHub to create annotations from any process you like, without using Azure DevOps. 

@@ -11,13 +11,13 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/14/2018
-ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.openlocfilehash: 532258cecd823e10057ddc3536cd24071e444581
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928490"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992063"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurare Azure-SSIS Integration Runtime con la replica geografica del Database SQL di Azure e il failover
 
@@ -51,11 +51,11 @@ Questa sezione si applica quando una delle condizioni seguenti è vera:
 
 - Azure-SSIS Integration Runtime fa riferimento all'endpoint del server primario del gruppo di failover. Questo endpoint viene modificato quando si verifica il failover.
 
-  o
+  OR
 
 - Il server di database SQL di Azure è configurato con la regola dell'endpoint servizio di rete virtuale.
 
-  o
+  OR
 
 - Il server di database è un'Istanza gestita di database SQL configurata con una rete virtuale.
 
@@ -112,9 +112,11 @@ Quando si verifica un'emergenza Di scalo ADF o Azure-SSIS nell'area corrente, è
 
 ### <a name="steps"></a>Passaggi
 
-Seguire questi passaggi per arrestare il runtime di integrazione Azure-SSIS, passare il runtime di integrazione in una nuova area e avviarlo nuovamente.
+Seguire questi passaggi per spostare il componente di rior di archiviazione Azure-SSIS in una nuova area.
+> [!NOTE]
+> Passaggio 3 (creazione di IR) deve essere eseguito tramite PowerShell.Step 3 (creation of IR) needs to be done via PowerShell. Portale di Azure segnalerà un errore che indica che SSISDB esiste già.
 
-1. Eseguire la stored procedure per rendere SSISDB collegato a ** \<new_data_factory_name\> ** o ** \<new_integration_runtime_name\>**.
+1. Eseguire la stored procedure per aggiornare i metadati in SSISDB per accettare connessioni da ** \<new_data_factory_name\> ** e ** \<new_integration_runtime_name\>**.
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'

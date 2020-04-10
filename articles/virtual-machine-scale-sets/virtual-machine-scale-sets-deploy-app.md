@@ -1,19 +1,19 @@
 ---
 title: Distribuire un'applicazione in un set di scalabilità di macchine virtuali di AzureDeploy an application to an Azure virtual machine scale set
 description: Informazioni su come distribuire applicazioni nelle istanze di macchine virtuali Linux e Windows in un set di scalabilità
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 6bc319ea50da4ff6a654b2c9ab09bbe218695533
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: e157db79f1835a8ca891dd360a99e3319565d1d4
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278110"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011464"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
 
@@ -25,16 +25,16 @@ Quando si usa una delle immagini della piattaforma Azure per creare le istanze n
 
 Per ridurre la gestione della configurazione e il tempo per eseguire il provisioning di una macchina virtuale, è possibile creare un'immagine personalizzata della macchina virtuale pronta per eseguire l'applicazione non appena viene eseguito il provisioning di un'istanza nel set di scalabilità. Per altre informazioni su come creare e usare un'immagine di VM personalizzata con un set di scalabilità, vedere le esercitazioni seguenti:
 
-- [Interfaccia della riga di comando di AzureAzure](tutorial-use-custom-image-cli.md)
+- [Interfaccia della riga di comando di Azure](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="install-an-app-with-the-custom-script-extension"></a><a name="already-provisioned"></a>Installare un'app con l'estensione dello script personalizzata
 L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. Per altre informazioni su come installare un'app con un'estensione di script personalizzata, vedere le esercitazioni seguenti:For more information on how to install an app with a Custom Script Extension, see the following tutorials:
 
-- [Interfaccia della riga di comando di AzureAzure](tutorial-install-apps-cli.md)
+- [Interfaccia della riga di comando di Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
-- [Modello di Azure Resource ManagerAzure Resource Manager template](tutorial-install-apps-template.md)
+- [Modello di Azure Resource Manager](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installare un'app su una macchina virtuale Windows con PowerShell DSC

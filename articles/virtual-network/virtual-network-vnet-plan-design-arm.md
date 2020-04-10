@@ -4,22 +4,20 @@ description: Informazioni su come pianificare le reti virtuali in base ai requis
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/16/2018
+ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 6e066d28afc4b0959b15284378cde682fbc05615
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95dd7be118e869aed02bb55918ab0cefa0d05d03
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190472"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998862"
 ---
 # <a name="plan-virtual-networks"></a>Pianificare le reti virtuali
 
@@ -66,7 +64,7 @@ Una rete virtuale può essere segmentata in una o più subnet fino a raggiungere
 - È possibile limitare l'accesso alle risorse di Azure, come ad esempio un account di archiviazione di Azure o un database SQL di Azure, per le subnet specifiche con un endpoint servizio di rete virtuale. Inoltre, è possibile negare l'accesso alle risorse da internet. È possibile creare più subnet e abilitare un endpoint del servizio per alcune subnet, ma non altro. Altre informazioni sugli [endpoint del servizio](virtual-network-service-endpoints-overview.md) e sulle risorse di Azure per cui è possibile abilitarli.
 - È possibile associare zero o un gruppo di sicurezza di rete ad ogni subnet in una rete virtuale. È possibile associare lo stesso gruppo di protezione o un altro per ogni subnet di rete. Ogni gruppo di sicurezza di rete contiene regole che consentono o negano il traffico da e verso le origini e le destinazioni. Ulteriori informazioni sui gruppi di sicurezza di [rete](#traffic-filtering).
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 È possibile filtrare il traffico di rete da e verso le risorse in una rete virtuale tramite i gruppi di sicurezza di rete e i dispositivi di rete virtuale. È possibile controllare come Azure instrada il traffico proveniente da subnet. È inoltre possibile limitare gli utenti dell'organizzazione che possono usare le risorse nelle reti virtuali.
 
