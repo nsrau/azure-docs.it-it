@@ -113,6 +113,8 @@
       items:
         - name: Che cos'è la sintesi vocale?
           href: text-to-speech.md
+        - name: Nozioni di base sulla sintesi vocale
+          href: text-to-speech-basics.md
     - name: Guida introduttiva
       items:
         - name: Sintetizzare la voce in un altoparlante
@@ -545,6 +547,8 @@
       href: sovereign-clouds.md
     - name: Prezzi e limiti
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Crittografia
