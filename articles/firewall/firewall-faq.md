@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 5ddbb58837fbda0f14a07186d5a3053055954454
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: af66da115e228efe39e4cd5dda3c494b71428676
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677441"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113565"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -172,17 +172,11 @@ No. Firewall di Azure non necessita di una subnet più grande di /26.Azure Firew
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Come è possibile aumentare la velocità effettiva del firewall?
 
-La capacità iniziale di Velocità effettiva di Firewall di Azure è da 2,5 a 3 Gbps e la scalabilità orizzontale a 30 Gbps. Scala orizzontalmente in base all'utilizzo della CPU e alla velocità effettiva. Contattare il supporto tecnico per aumentare la capacità di velocità effettiva del firewall.
+La capacità iniziale di Velocità effettiva di Firewall di Azure è da 2,5 a 3 Gbps e la scalabilità orizzontale a 30 Gbps. La scalabilità orizzontale viene scalata automaticamente in base all'utilizzo della CPU e alla velocità effettiva.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo è necessario per la scalabilità orizzontale di Firewall di Azure?
 
-La scalabilità orizzontale di Firewall di Azure richiede da cinque a sette minuti. Contattare il supporto tecnico per aumentare la capacità di velocità effettiva iniziale del firewall in caso di burst che richiedono una scalabilità automatica più rapida.
-
-Quando si testa la scalabilità automatica del firewall, tenere conto dei seguenti punti:
-
-- Le prestazioni del flusso TCP singolo sono limitate a 1,4 Gbps. Pertanto, un test delle prestazioni deve stabilire più flussi TCP.
-- Gli strumenti per le prestazioni devono stabilire continuamente nuove connessioni per connettersi con le istanze del firewall back-end con scalabilità verticale. Se il test stabilisce le connessioni una sola volta all'inizio, queste si connetteranno solo con le istanze back-end iniziali. Anche se il firewall aumenta, non si noterà alcun aumento delle prestazioni perché le connessioni sono associate alle istanze iniziali.
-
+Firewall di Azure viene gradualmente ridimensionato quando la velocità effettiva media o il consumo della CPU è pari al 60%. La scalabilità orizzontale richiede da cinque a sette minuti. Durante il test delle prestazioni, assicurarsi di eseguire test per almeno 10-15 minuti e avviare nuove connessioni per sfruttare i nodi Firewall appena creati.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Firewall di Azure consente l'accesso ad Active Directory per impostazione predefinita?
 

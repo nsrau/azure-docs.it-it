@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: faafc1e12f0703c38b4e602700b1e775bf13a061
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.date: 04/09/2020
+ms.openlocfilehash: db60a864ff29ff9eccdcfbdc0bd63587375d4bbd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998343"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114976"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Ricerca a termine parziale e modelli con caratteri speciali (caratteri jolly, espressioni regolari, modelli)
 
-Una *ricerca a termine parziale* si riferisce a query costituite da frammenti di termini, ad esempio la prima, l'ultima o le parti interne di una stringa. Un *modello* può essere una combinazione di frammenti, talvolta con caratteri speciali, ad esempio trattini o barre, che fanno parte della query. I casi d'uso comuni includono l'esecuzione di query per parti di un numero di telefono, URL, persone o codici prodotto o parole composte.
+Una ricerca a *termine parziale* si riferisce a query costituite da frammenti di termini, in cui invece di un intero termine, è possibile avere solo l'inizio, il centro o la fine del termine (talvolta indicato come query di prefisso, infisso o suffisso). Un *modello* può essere una combinazione di frammenti, spesso con caratteri speciali, ad esempio trattini o barre, che fanno parte della stringa di query. I casi d'uso comuni includono l'esecuzione di query per parti di un numero di telefono, URL, persone o codici prodotto o parole composte.
 
-La ricerca parziale può essere problematica se l'indice non dispone di termini nel formato richiesto per la corrispondenza dei modelli. Durante la fase di analisi del testo dell'indicizzazione, utilizzando l'analizzatore standard predefinito, i caratteri speciali vengono eliminati, le stringhe composte e composte vengono suddivise, causando l'esito negativo delle query di modello quando non viene trovata alcuna corrispondenza. Ad esempio, un `+1 (425) 703-6214`numero di `"1"`telefono `"425"` `"703"`come `"6214"`(tokenizzato come , `"3-62"` , , ) non verrà visualizzato in una query perché tale contenuto non esiste effettivamente nell'indice. 
+La ricerca parziale e di modelli può essere problematica se l'indice non dispone di termini nel formato previsto. Durante la fase di [analisi lessicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) dell'indicizzazione (presupponendo l'analizzatore standard predefinito), i caratteri speciali vengono eliminati, le stringhe composite e composte vengono suddivise e gli spazi vuoti vengono eliminati; tutto ciò può causare l'esito negativo delle query di modello quando non viene trovata alcuna corrispondenza. Ad esempio, un `+1 (425) 703-6214` numero di `"1"`telefono `"425"` `"703"`come `"6214"`(tokenizzato come , `"3-62"` , , ) non verrà visualizzato in una query perché tale contenuto non esiste effettivamente nell'indice. 
 
 La soluzione consiste nel richiamare un analizzatore che mantiene una stringa completa, inclusi spazi e caratteri speciali, se necessario, in modo da poter corrispondere in termini e modelli parziali. La creazione di un campo aggiuntivo per una stringa intatta, oltre a utilizzare un analizzatore di conservazione del contenuto, è la base della soluzione.
 
@@ -27,21 +27,21 @@ La soluzione consiste nel richiamare un analizzatore che mantiene una stringa co
 
 In Ricerca cognitiva di Azure la ricerca parziale e il modello sono disponibili nei moduli seguenti:In Azure Cognitive Search, partial search and pattern is available in these forms:
 
-+ [Ricerca dei](query-simple-syntax.md#prefix-search)prefissi , ad `search=cap*`esempio , corrispondente a "Cap'n Jack's Waterfront Inn" o "Gacc Capital". È possibile utilizzare la sintassi di query simply per la ricerca dei prefissi.
++ [Ricerca dei](query-simple-syntax.md#prefix-search)prefissi , ad `search=cap*`esempio , corrispondente a "Cap'n Jack's Waterfront Inn" o "Gacc Capital". È possibile utilizzare la sintassi di query semplice o la sintassi di query Lucene completa per la ricerca di prefissi.
 
-+ [Ricerca con caratteri jolly](query-lucene-syntax.md#bkmk_wildcard) o [Espressioni regolari](query-lucene-syntax.md#bkmk_regex) che cercano un modello o parti di una stringa incorporata, incluso il suffisso. I caratteri jolly e le espressioni regolari richiedono la sintassi Lucene completa. 
++ [Ricerca con caratteri jolly](query-lucene-syntax.md#bkmk_wildcard) o [Espressioni regolari](query-lucene-syntax.md#bkmk_regex) che cercano un modello o parti di una stringa incorporata. I caratteri jolly e le espressioni regolari richiedono la sintassi Lucene completa. Le query di suffisso e indice vengono formulate come espressioni regolari.
 
-  Di seguito sono riportati alcuni esempi di ricerca a termine parziale. Per una query suffisso, dato il termine "alfanumerico", è necessario utilizzare una ricerca con caratteri jolly (`search=/.*numeric.*/`) per trovare una corrispondenza. Per un termine parziale che include caratteri, ad esempio un frammento di URL, potrebbe essere necessario aggiungere caratteri di escape. In JSON, una `/` barra viene preceduta da una barra `\`rovesciata . Di conseguenza, `search=/.*microsoft.com\/azure\/.*/` è la sintassi per il frammento di URL "microsoft.com/azure/".
+  Di seguito sono riportati alcuni esempi di ricerca a termine parziale. Per una query suffisso, dato il termine "alfanumerico", è necessario utilizzare una ricerca con caratteri jolly (`search=/.*numeric.*/`) per trovare una corrispondenza. Per un termine parziale che include caratteri interni, ad esempio un frammento di URL, potrebbe essere necessario aggiungere caratteri di escape. In JSON, una `/` barra viene preceduta da una barra `\`rovesciata . Di conseguenza, `search=/.*microsoft.com\/azure\/.*/` è la sintassi per il frammento di URL "microsoft.com/azure/".
 
 Come indicato, tutto quanto sopra richiede che l'indice contenga stringhe in un formato favorevole ai criteri di ricerca, che l'analizzatore standard non fornisce. Seguendo la procedura descritta in questo articolo, è possibile assicurarsi che il contenuto necessario esista per supportare questi scenari.
 
-## <a name="solving-partial-search-problems"></a>Risoluzione di problemi di ricerca parziale
+## <a name="solving-partialpattern-search-problems"></a>Risoluzione di problemi di ricerca parziale/modello
 
-Quando è necessario eseguire la ricerca in base a modelli o caratteri speciali, è possibile eseguire l'override dell'analizzatore predefinito con un analizzatore personalizzato che opera in base a regole di tokenizzazione più semplici, mantenendo l'intera stringa. Facendo un passo indietro, l'approccio si presenta così:
+Quando è necessario eseguire la ricerca in base a frammenti o modelli o caratteri speciali, è possibile eseguire l'override dell'analizzatore predefinito con un analizzatore personalizzato che opera in base a regole di tokenizzazione più semplici, mantenendo l'intera stringa. Facendo un passo indietro, l'approccio si presenta così:
 
 + Definire un campo per archiviare una versione intatta della stringa (presupponendo che si desideri analizzare e non analizzare il testo)
-+ Scegliere un analizzatore predefinito o definire un analizzatore personalizzato per l'output di una stringa intatta
-+ Assegnare l'analizzatore al campo
++ Scegliere un analizzatore predefinito o definire un analizzatore personalizzato per restituire una stringa intatta non analizzata
++ Assegnare l'analizzatore personalizzato al campo
 + Compilare e testare l'indiceBuild and test the index
 
 > [!TIP]
@@ -222,6 +222,10 @@ Nelle sezioni precedenti è stata illustrata la logica. Questa sezione illustra 
 + [Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) è stato introdotto in [Choose an analyzer](#choose-an-analyzer). Testare alcune delle stringhe nell'indice usando una varietà di analizzatori per comprendere come vengono tokenizzati i termini.
 
 + [Cerca documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents) viene illustrato come costruire una richiesta di query, utilizzando una [sintassi semplice](query-simple-syntax.md) o [sintassi Lucene completa](query-lucene-syntax.md) per le espressioni regolari e con caratteri jolly.
+
+  Per le query a termine parziale, ad esempio l'esecuzione di query "3-6214" per trovare una corrispondenza nel valore `search=3-6214&queryType=simple`di errore "425) 703-6214", è possibile utilizzare la sintassi semplice: .
+
+  Per le query di infisso e suffisso, ad esempio l'esecuzione di query "num" o "numerico per trovare una corrispondenza su "alfanumerico", utilizzare la sintassi Lucene completa e un'espressione regolare:`search=/.*num.*/&queryType=full`
 
 ## <a name="tips-and-best-practices"></a>Suggerimenti e procedure consigliate
 

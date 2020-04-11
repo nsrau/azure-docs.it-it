@@ -3,12 +3,12 @@ title: Informazioni su come controllare il contenuto delle macchine virtualiLear
 description: Informazioni su come Criteri di Azure usa l'agente di configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9e8486af2a9b7ab9e18b8c16f08e51759d1123d7
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 4a2989badc099a199bf21f7e020ca8e6256ddaf0
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998848"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113422"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -26,32 +26,11 @@ Per controllare le impostazioni all'interno di una macchina, viene abilitata [un
 
 ### <a name="limits-set-on-the-extension"></a>Limiti impostati sull'estensione
 
-Per limitare l'estensione dall'impatto delle applicazioni in esecuzione all'interno del computer, la configurazione guest non può superare più del 5% dell'utilizzo della CPU. Questa limitazione esiste sia per le definizioni predefinite che per le definizioni personalizzate.
+Per limitare l'estensione dall'impatto delle applicazioni in esecuzione all'interno del computer, la configurazione guest non può superare più del 5% della CPU. Questa limitazione esiste sia per le definizioni predefinite che per le definizioni personalizzate.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registrare il provider di risorse della configurazione guest
 
-Prima di poter usare la configurazione guest, è necessario registrare il provider di risorse. È possibile eseguire la registrazione nel portale o con PowerShell. Il provider di risorse viene registrato automaticamente se l'assegnazione di un criterio di configurazione guest viene eseguita tramite il portale.
-
-### <a name="registration---portal"></a>Registrazione - Portale
-
-Per registrare il provider di risorse per la configurazione guest tramite il portale di Azure, seguire questa procedura:
-
-1. Avviare il portale di Azure e fare clic su **Tutti i servizi**. Cercare e selezionare **Sottoscrizioni**.
-
-1. Trovare e fare clic sulla sottoscrizione per cui si intende abilitare la configurazione guest.
-
-1. Nel menu a sinistra della pagina **Sottoscrizione** fare clic su **Provider di risorse**.
-
-1. Per filtrare o scorrere fino a individuare **Microsoft.GuestConfiguration**, quindi fare clic su **Registra** sulla stessa riga.
-
-### <a name="registration---powershell"></a>Registrazione - PowerShell
-
-Per registrare il provider di risorse per la configurazione guest tramite PowerShell, eseguire il seguente comando:
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
-```
+Prima di poter usare la configurazione guest, è necessario registrare il provider di risorse. È possibile eseguire la registrazione tramite il [portale,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)o [l'interfaccia della](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)riga di comando di Azure. Il provider di risorse viene registrato automaticamente se l'assegnazione di un criterio di configurazione guest viene eseguita tramite il portale.
 
 ## <a name="validation-tools"></a>Strumenti di convalida
 
@@ -89,7 +68,7 @@ Windows Server Nano Server non è supportato in nessuna versione.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Requisiti di rete dell'estensione di configurazione guestGuest Configuration Extension network requirements
 
-Per comunicare con il provider di risorse Configurazione ospite in Azure, i computer richiedono l'accesso in uscita ai data center di Azure sulla porta **443.** Se si usa una rete virtuale privata in Azure che non consente il traffico in uscita, configurare le eccezioni con le regole del gruppo di sicurezza di [rete.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
+Per comunicare con il provider di risorse Configurazione ospite in Azure, i computer richiedono l'accesso in uscita ai data center di Azure sulla porta **443.** Se una rete in Azure non consente il traffico in uscita, configurare le eccezioni con le regole del gruppo di [sicurezza di rete.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
 Il [tag del servizio](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" può essere utilizzato per fare riferimento al servizio di configurazione guest.
 
 ## <a name="azure-managed-identity-requirements"></a>Requisiti dell'identità gestita di AzureAzure managed identity requirements
@@ -101,7 +80,7 @@ I criteri **DeployIfNotExists** che aggiungono l'estensione alle macchine virtua
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione della configurazione guest
 
-Ogni controllo eseguito da Configurazione ospite richiede due definizioni di criteri, una definizione DeployIfNotExists e una definizione **AuditIfNotExists.Each** audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists** definition and an AuditIfNotExists definition. La definizione **DeployIfNotExists** viene utilizzata per preparare il computer con l'agente di configurazione guest e altri componenti per supportare gli strumenti di [convalida.](#validation-tools)
+Ogni controllo eseguito da Configurazione ospite richiede due definizioni di criteri, una definizione DeployIfNotExists e una definizione **AuditIfNotExists.Each** audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists** definition and an AuditIfNotExists definition. 
 
 La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elementi seguenti:
 
@@ -112,24 +91,24 @@ La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elemen
 
 Se l'assegnazione **DeployIfNotExists** è non conforme, è possibile usare [un'attività](../how-to/remediate-resources.md#create-a-remediation-task) di correzione.
 
-Quando l'assegnazione **DeployIfNotExists** è conforme, l'assegnazione dei criteri **AuditIfNotExists** utilizza gli strumenti di convalida locali per determinare se l'assegnazione di configurazione è conforme o non conforme. Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
+Quando l'assegnazione **DeployIfNotExists** è conforme, l'assegnazione dei criteri **AuditIfNotExists** determina se l'assegnazione guest è conforme o non conforme. Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
 
 Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse della configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 
 > [!NOTE]
 > Il criterio **DeployIfNotExists** è necessario affinché il criterio **AuditIfNotExists** restituisca risultati. Senza **DeployIfNotExists**, il criterio **AuditIfNotExists** mostra "0 di 0" risorse come stato.
 
-Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa integrata denominata _ \[\]Anteprima : Controllare le impostazioni di sicurezza della password all'interno_ di computer Linux e Windows contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. La logica di [definizione dei criteri](definition-structure.md#policy-rule) convalida che viene valutato solo il sistema operativo di destinazione.
+Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa integrata denominata _ \[Anteprima\]: Controlla sicurezza password all'interno_ di computer Linux e Windows contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. La logica di [definizione dei criteri](definition-structure.md#policy-rule) convalida che viene valutato solo il sistema operativo di destinazione.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Controllo delle impostazioni del sistema operativo in base alle linee di base del settore
 
-Una delle iniziative disponibili in Criteri di Azure consente di controllare le impostazioni del sistema operativo all'interno delle macchine virtuali seguendo una "linea di base" di Microsoft.One of the initiatives available in Azure Policy provides the ability to audit operating system settings inside virtual machines following a "baseline" from Microsoft. La definizione, _ \[Anteprima: controllo delle macchine virtuali Windows che non corrispondono\]alle impostazioni_ della linea di base della sicurezza di Azure include un set completo di regole di controllo in base alle impostazioni di Criteri di gruppo di Active Directory.The definition, Preview : Audit Windows VMs that do not match Azure security baseline settings includes a complete set of audit rules based on settings from Active Directory Group Policy.
+Un'iniziativa in Criteri di Azure offre la possibilità di controllare le impostazioni del sistema operativo seguendo una "linea di base". La definizione, _ \[Anteprima: controllare\]_ le macchine virtuali Windows che non corrispondono alle impostazioni della linea di base di sicurezza di Azure include un set di regole basate su Criteri di gruppo di Active Directory.The definition, Preview : Audit Windows VMs that do not match Azure security baseline settings includes a set of rules based on Active Directory Group Policy.
 
-La maggior parte delle impostazioni sono disponibili come parametri. Questa funzionalità consente di personalizzare ciò che viene controllato per allineare i criteri con i requisiti dell'organizzazione o per eseguire il mapping dei criteri a informazioni di terze parti, ad esempio gli standard normativi del settore.
+La maggior parte delle impostazioni sono disponibili come parametri. I parametri consentono di personalizzare ciò che viene controllato. Allineare la politica con i requisiti o mappare la politica a informazioni di terze parti, ad esempio gli standard normativi del settore.
 
-Alcuni parametri supportano un intervallo di valori integer. Ad esempio, il parametro Validità massima password può essere impostato utilizzando un operatore di intervallo per dare flessibilità ai proprietari delle macchine. È possibile verificare che l'impostazione di criteri di gruppo efficace che richiede agli utenti di modificare le password non deve essere più di 70 giorni, ma non dovrebbe essere inferiore a un giorno. Come descritto nel fumetto info per il parametro, per rendere questo criterio aziendale il valore di controllo effettivo, impostare il valore su "1,70".
+Alcuni parametri supportano un intervallo di valori integer. Ad esempio, l'impostazione Validità massima password potrebbe controllare l'impostazione effettiva di Criteri di gruppo. Un intervallo "1,70" confermerebbe che gli utenti sono tenuti a cambiare le password almeno ogni 70 giorni, ma non meno di un giorno.
 
-Se si assegnano i criteri usando un modello di distribuzione di Azure Resource Manager, è possibile usare un file di parametri per gestire queste impostazioni dal controllo del codice sorgente. Utilizzo di uno strumento come Git per gestire le modifiche ai criteri di controllo con commenti a ogni documento di archiviazione evidenza sul motivo per cui un'assegnazione deve essere un'eccezione al valore previsto.
+Se si assegnano i criteri usando un modello di distribuzione di Azure Resource Manager, usare un file di parametri per gestire le eccezioni. Archiviare i file in un sistema di controllo della versione, ad esempio Git. I commenti sulle modifiche apportate ai file indicano il motivo per cui un'assegnazione è un'eccezione al valore previsto.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Applicazione delle configurazioni tramite Configurazione ospite
 
@@ -162,7 +141,7 @@ Se l'operazione non riesce, la raccolta dei log client consente di diagnosticare
 
 #### <a name="windows"></a>Windows
 
-Per usare la funzionalità comando di esecuzione della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Windows, può essere utile lo script di PowerShell di esempio seguente. Per altre informazioni, vedere [Eseguire script di PowerShell nella macchina virtuale Windows con Esegui comando](../../../virtual-machines/windows/run-command.md).
+Acquisire informazioni dai file di log usando [Azure VM Run Command](../../../virtual-machines/windows/run-command.md), lo script di PowerShell di esempio seguente può essere utile.
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -173,7 +152,7 @@ Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensit
 
 #### <a name="linux"></a>Linux
 
-Per usare la funzionalità comando di esecuzione delle macchine virtuali di Azure per acquisire informazioni dai file di log nei computer Linux, può essere utile lo script Bash di esempio seguente. Per altre informazioni, vedere [Eseguire script della shell nella macchina virtuale Linux con Esegui comandoFor](../../../virtual-machines/linux/run-command.md) more information, see Run shell scripts in your Linux VM with Run Command
+Acquisire informazioni dai file di log usando [Azure VM Run Command](../../../virtual-machines/linux/run-command.md), lo script Bash di esempio seguente può essere utile.
 
 ```Bash
 linesToIncludeBeforeMatch=0
@@ -184,7 +163,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="guest-configuration-samples"></a>Esempi di configurazione guest
 
-L'origine per le iniziative predefinite Di configurazione guest dei criteri è disponibile nei seguenti percorsi:
+Gli esempi di criteri predefiniti per la configurazione ospite sono disponibili nei percorsi seguenti:Guest Configuration built-in policy samples are available in the following locations:
 
 - [Definizioni dei criteri predefinite - Configurazione guest](../samples/built-in-policies.md#guest-configuration)
 - [Iniziative integrate - Configurazione degli ospiti](../samples/built-in-initiatives.md#guest-configuration)
@@ -192,6 +171,7 @@ L'origine per le iniziative predefinite Di configurazione guest dei criteri è d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Informazioni su come visualizzare i dettagli di ogni impostazione dalla [visualizzazione di conformità della configurazione guest](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 - Esaminare esempi in [Esempi di criteri di Azure](../samples/index.md).Review examples at Azure Policy samples .
 - Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).

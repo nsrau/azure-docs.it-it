@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73612804"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113360"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)Provisioning reports in the Azure Active Directory portal (preview)
 
@@ -90,38 +90,19 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 ## <a name="filter-provisioning-activities"></a>Filtrare le attività di provisioning
 
-Per restringere i dati segnalati a un livello adatto alle attività, è possibile filtrare i dati di provisioning utilizzando i campi predefiniti seguenti. Si noti che i valori nei filtri vengono popolati dinamicamente in base al tenant. Se, ad esempio, non si dispone di eventi di creazione nel tenant, non sarà disponibile un'opzione di filtro per la creazione.
+È possibile filtrare i dati di provisioning. Alcuni valori di filtro vengono popolati dinamicamente in base al tenant. Se, ad esempio, non si dispone di eventi di creazione nel tenant, non sarà disponibile un'opzione di filtro per la creazione.
+Nella visualizzazione predefinita, è possibile selezionare i seguenti filtri:
 
 - Identità
-- Azione
-- Sistema di origine
-- Sistema di destinazione
-- Stato
 - Data
+- Stato
+- Azione
 
 
-![Filtro](./media/concept-provisioning-logs/filter.png "Filtro")
+![Filtro](./media/concept-provisioning-logs/default-filter.png "Filtro")
 
 Il filtro **Identità** consente di specificare il nome o l'identità desiderata. Questa identità può essere un utente, un gruppo, un ruolo o un altro oggetto. È possibile eseguire la ricerca in base al nome o all'ID dell'oggetto. L'ID varia in base allo scenario. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a SalesForce, l'ID origine è l'ID oggetto dell'utente in Azure AD mentre TargetID è l'ID dell'utente in Salesforce. Quando si esegue il provisioning da Workday ad Active Directory, l'ID origine è l'ID dipendente lavoratore Workday. Si noti che il nome dell'utente potrebbe non essere sempre presente nella colonna Identity. Ci sarà sempre un ID. 
 
-Il filtro Sistema di **origine** consente di specificare da dove viene eseguito il provisioning dell'identità. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a ServiceNow, il sistema di origine è Azure AD. 
-
-Il filtro Sistema di **destinazione** consente di specificare dove viene eseguito il provisioning dell'identità. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a ServiceNow, il sistema di destinazione è ServiceNow.For example, when provisioning an object from Azure AD to ServiceNow, the Target System is ServiceNow. 
-
-Il filtro **Stato** consente di selezionare:
-
-- Tutti
-- Operazione completata
-- Operazioni non riuscite
-- Operazione ignorata
-
-Il filtro **Azione** consente di filtrare:
-
-- Create 
-- Aggiornamento
-- Delete
-- Disabilitazione
-- Altri
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
@@ -135,7 +116,35 @@ I valori possibili sono:
 Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare una data di inizio e una data di fine.
 
 
-Oltre ai campi predefiniti, se selezionati, è possibile includere anche i seguenti campi nel filtro:
+Il filtro **Stato** consente di selezionare:
+
+- Tutti
+- Operazione completata
+- Operazioni non riuscite
+- Operazione ignorata
+
+
+
+Il filtro **Azione** consente di filtrare:
+
+- Create 
+- Aggiornamento
+- Delete
+- Disabilitazione
+- Altri
+
+Inoltre, per i filtri della visualizzazione predefinita, è anche possibile impostare i seguenti filtri:
+
+- ID processo
+- ID ciclo
+- Cambia ID
+- ID origine
+- ID destinazione
+- Applicazione
+
+
+![Scegliere un campo](./media/concept-provisioning-logs/add-filter.png "Scegliere un campo")
+
 
 - **ID processo:** a ogni applicazione per cui è stato abilitato il provisioning, è associato un ID processo univoco.   
 
@@ -144,8 +153,13 @@ Oltre ai campi predefiniti, se selezionati, è possibile includere anche i segue
 - **ID modifica-** Identificatore univoco per l'evento di provisioning. Puoi condividere questo ID come supporto per cercare l'evento di provisioning.   
 
 
+- **Sistema di origine:** consente di specificare da dove viene eseguito il provisioning dell'identità. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a ServiceNow, il sistema di origine è Azure AD. 
 
-  
+- Sistema di **destinazione:** consente di specificare dove viene eseguito il provisioning dell'identità. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a ServiceNow, il sistema di destinazione è ServiceNow.For example, when provisioning an object from Azure AD to ServiceNow, the Target System is ServiceNow. 
+
+- **Applicazione:** consente di visualizzare solo i record delle applicazioni con un nome visualizzato contenente una stringa specifica.
+
+ 
 
 ## <a name="provisioning-details"></a>Dettagli di provisioning 
 
@@ -161,7 +175,7 @@ I dettagli sono raggruppati in base alle seguenti categorie:
 - Riepilogo
 
 
-![Filtro](./media/concept-provisioning-logs/provisioning-tabs.png "Tabulazioni")
+![Filtro](./media/concept-provisioning-logs/provisioning-tabs.png "Schede")
 
 
 

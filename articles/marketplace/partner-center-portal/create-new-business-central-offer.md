@@ -1,22 +1,22 @@
 ---
-title: Creare una nuova offerta Dynamics 365 Business Central nel Marketplace commerciale
-description: Come creare una nuova offerta Dynamics 365 Business Central per l'inserzione o la vendita in Azure Marketplace, AppSource o tramite il programma Cloud Solution Provider (CSP) tramite il portale Di Business Commerciale nel Centro per i partner Microsoft.
+title: Creare una nuova offerta Dynamics 365 Business Central nel marketplace commerciale Microsoft
+description: Come creare una nuova offerta Dynamics 365 Business Central per l'inserzione o la vendita in Azure Marketplace, Microsoft AppSource o tramite il programma Cloud Solution Provider (CSP) tramite il portale del marketplace commerciale nel Centro per i partner Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 908d0fb9d494ec048e6b254f91ec1faf56b47c90
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.date: 04/09/2020
+ms.openlocfilehash: 9bb1059087bdf8fc4eb852be7a995febc3336713
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529411"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115272"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Creare una nuova offerta Dynamics 365 Business Central
 
-In questo argomento viene illustrato come creare una nuova offerta Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) è un sistema di pianificazione delle risorse aziendali (ERP) che gestisce un'ampia gamma di processi aziendali, tra cui finanza, operazioni, supply chain, CRM e gestione dei progetti e commercio elettronico. I pacchetti Premium supportano anche il modello di distribuzione e la produzione classici. Tutte le offerte per Dynamics 365 Business Central devono seguire il processo di certificazione.
+In questo articolo viene illustrato come creare una nuova offerta Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) è un sistema di pianificazione delle risorse aziendali (ERP) che gestisce un'ampia gamma di processi aziendali, tra cui finanza, operazioni, supply chain, CRM e gestione dei progetti e commercio elettronico. I pacchetti Premium supportano anche il modello di distribuzione e la produzione classici. Tutte le offerte per Dynamics 365 Business Central devono seguire il processo di certificazione.
 
 Per iniziare a creare offerte di Dynamics 365 Business Central, assicurati di creare prima [un account del Centro per i partner](./create-account.md) e aprire il dashboard Marketplace [commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)con la pagina **Panoramica** selezionata.
 
@@ -51,7 +51,7 @@ Elenca gratuitamente la tua offerta ai clienti fornendo un URL valido (a partire
 
 #### <a name="free-trial-listing"></a>Versione di prova gratuita (elenco)
 
-Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da *http* o *https)* in cui è possibile ottenere una versione di valutazione.  Ad esempio `https://contoso.com/trial/my-app`. L'offerta che elenca le versioni di valutazione gratuite viene creata, gestita e configurata dal servizio e non dispone di sottoscrizioni gestite da Microsoft.Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da *http* o *https)* in cui è possibile ottenere una versione di valutazione.  Ad esempio: `https://contoso.com/trial/my-app`. L'offerta che elenca le versioni di valutazione gratuite viene creata, gestita e configurata dal servizio e non dispone di sottoscrizioni gestite da Microsoft.Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento di valutazione possono essere usati solo per ottenere informazioni utente tramite Azure Active Directory (Azure AD) per automatizzare la creazione di account nell'app. Gli account Microsoft non sono supportati per l'autenticazione tramite questo token.
@@ -113,16 +113,14 @@ Fornire i propri termini e condizioni legali nel campo **Termini e condizioni.**
 
 ## <a name="offer-listing"></a>Inserzione dell'offerta
 
-La pagina Dell'offerta mostra le lingue in cui verrà elencata l'offerta. Attualmente, **English (Stati Uniti)** è l'unica opzione disponibile.
-
-Dovrai definire i dettagli del marketplace (nome dell'offerta, descrizione, immagini, ecc.) per ogni lingua/mercato. Selezionare la lingua/nome del mercato per fornire queste informazioni.
+La pagina Offerta di inserzione è dove definisci i dettagli della tua offerta (come nome, descrizione, immagini, ecc.).
 
 > [!NOTE]
-> Il contenuto dell'elenco dell'offerta (come la descrizione, i documenti, le schermate, le condizioni per l'utilizzo, ecc.) non è necessario per essere in inglese, purché la descrizione dell'offerta inizi con la frase "Questa applicazione è disponibile solo in [lingua non in lingua inglese]". È inoltre accettabile fornire un *URL di collegamento utile* per offrire contenuti in una lingua diversa da quella utilizzata nel contenuto della scheda Offerta.
+> Puoi fornire i dettagli dell'offerta in una sola lingua. Non è richiesto di essere in inglese, purché la descrizione dell'offerta inizi con la frase , "Questa applicazione è disponibile solo in [lingua non inglese]". È inoltre accettabile fornire un URL di *collegamento della Guida* per offrire contenuti in una lingua diversa da quella utilizzata nel contenuto della presentazione dell'offerta.
 
 ### <a name="name"></a>Nome
 
-Il nome che inserisci qui verrà mostrato ai clienti come titolo della tua offerta. Questo campo viene prepopolato con il testo immesso per **l'alias dell'offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e l'utente può includere simboli di marchio o copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
+Il nome che inserisci qui verrà mostrato ai clienti come titolo della tua offerta. Questo campo viene precompilato con il testo immesso per **l'alias dell'offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e l'utente può includere simboli di marchio o copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
 ### <a name="short-description"></a>Breve descrizione
 
@@ -169,23 +167,23 @@ Facoltativamente, puoi inserire fino a tre parole chiave di ricerca per aiutare 
 
 Se vuoi informare i clienti che la tua app funziona con prodotti specifici, inserisci qui fino a tre nomi di prodotto.
 
-### <a name="support-urls"></a>URL di supporto
+### <a name="helpprivacy-urls"></a>URL Guida/Privacy
 
 Questa sezione ti consente di fornire link per aiutare i clienti a comprendere meglio la tua offerta.
 
 #### <a name="help-link"></a>Collegamento alla Guida
 
-Inserisci l'URL in cui i clienti possono saperne di più sulla tua offerta.
+Inserisci l'URL in cui i clienti possono saperne di più sulla tua offerta. Il **link alla Guida** non può essere uguale all'URL del **supporto** (illustrato di seguito).
 
-#### <a name="privacy-policy-url"></a>URL dell'informativa sulla privacy
+#### <a name="privacy-policy-link"></a>Collegamento all'informativa sulla privacy
 
 Immettere l'URL dell'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'app sia conforme alle leggi e ai regolamenti sulla privacy e di fornire una valida informativa sulla privacy.
 
-### <a name="contacts"></a>Contatti
+### <a name="contact-information"></a>Informazioni sul contatto
 
 In questa sezione è necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono di un **contatto di supporto** e di un contatto **Engineering**. Queste informazioni non vengono mostrate ai clienti, ma saranno disponibili per Microsoft e possono essere fornite ai partner CSP.
 
-Nella sezione **Contatto supporto** è inoltre necessario fornire l'URL del **supporto** in cui i partner CSP possono trovare supporto per l'offerta.
+Nella sezione **Contatto supporto** è inoltre necessario fornire l'URL del **supporto** in cui i partner CSP possono trovare supporto per l'offerta. L'URL del supporto non può essere uguale al **collegamento alla Guida**.
 
 ### <a name="supporting-documents"></a>Documenti di supporto
 
@@ -193,15 +191,7 @@ Fornire qui almeno un (e fino a tre) documenti di marketing correlati, ad esempi
 
 ### <a name="marketplace-images"></a>Immagini del Marketplace
 
-In questa sezione, è possibile fornire loghi e immagini che verranno utilizzati quando si mostra l'offerta al cliente. Tutte le immagini devono essere in formato PNG.
-
-#### <a name="store-logos"></a>Loghi del Negozio
-
-Fornisci il logo della tua offerta in due formati: **Piccolo (48 x 48)** e **Grande (216 x 216)**.
-
-#### <a name="hero"></a>Banner
-
-L'immagine dell'eroe è facoltativa. Se ne fornisci uno, deve misurare 815 x 290 pixel.
+In questa sezione, è possibile fornire loghi e immagini che verranno utilizzati quando si mostra l'offerta al cliente. Tutte le immagini devono essere in formato PNG. Carica il logo della tua offerta in due dimensioni: **Piccolo (48 x 48)** e **Grande (216 x 216)**.
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 
@@ -350,7 +340,11 @@ Ricordati di **salvare** prima di passare alla sezione successiva!
 
 ### <a name="test-drive-marketplace-listings"></a>Elenchi di marketplace per test drive
 
-L'opzione **di presentazione Marketplace** disponibile nella scheda Unità di **test** visualizza le lingue in cui è disponibile il test drive. Attualmente **inglese (Stati Uniti)** è l'unica posizione disponibile. Selezionare il nome della lingua per immettere informazioni che descrivono l'esperienza di test drive.
+L'opzione **di presentazione Marketplace** disponibile nella scheda Test **drive** consente di definire i dettagli per l'esperienza di test drive.
+
+> [!NOTE]
+> Puoi fornire i dettagli dell'elenco delle unità di test in una sola lingua. Non è richiesto di essere in inglese, purché la descrizione dell'offerta inizi con la frase , "Questa applicazione è disponibile solo in [lingua non inglese]". È inoltre accettabile fornire un URL di *collegamento alla Guida* per offrire contenuto in una lingua diversa da quella utilizzata nel contenuto dell'elenco dei test.
+
 
 - **Descrizione** (obbligatorio): descrivere il test drive, ciò che verrà dimostrato, gli obiettivi per l'utente da sperimentare, le funzionalità da esplorare e tutte le informazioni pertinenti che consentono all'utente di determinare se acquistare l'offerta. In questo campo è possibile immettere fino a 3.000 caratteri di testo. 
 

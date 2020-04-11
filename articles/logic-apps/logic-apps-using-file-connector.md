@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab17137f162b893b54942d870b07a36f87d1b71d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651407"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115079"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
 
@@ -69,8 +69,8 @@ Questo articolo illustra come connettersi a un file system locale come descritto
    | -------- | -------- | ----- | ----------- |
    | **Nome connessione** | Sì | <*nome della connessione*> | Il nome da assegnare alla connessione |
    | **Cartella radice** | Sì | <*nome-cartella-radice*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>Ad esempio: `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. |
-   | **Tipo di autenticazione** | No | <*auth-type*> | Il tipo di autenticazione usato dal file system, ad esempio **Windows** |
-   | **Nome utente** | Sì | <*domain*>\\<*nome utente di* dominio> | Il nome utente per il computer in cui è presente il file system |
+   | **Tipo di autenticazione** | No | <*auth-type*> | Il tipo di autenticazione utilizzato dal file system: **Windows** |
+   | **Username** | Sì | <*domain*>\\<*nome utente di* dominio> | Il nome utente per il computer in cui è presente il file system |
    | **Password** | Sì | <*la tua password*> | La password per il computer in cui è presente il file system |
    | **Gateway** | Sì | <*nome-gateway installato*> | Il nome del gateway installato in precedenza |
    |||||

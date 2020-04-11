@@ -5,28 +5,30 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264778"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113446"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logica di elaborazione delle regole del Firewall di Azure
-È possibile configurare le regole NAT, le regole di rete e le regole delle applicazioni in Firewall di Azure.You can configure NAT rules, network rules, and applications rules on Azure Firewall. Le regole vengono elaborate in base al tipo. 
+È possibile configurare le regole NAT, le regole di rete e le regole delle applicazioni in Firewall di Azure.You can configure NAT rules, network rules, and applications rules on Azure Firewall. Le raccolte di regole vengono elaborate in base al tipo di regola in ordine di priorità, con numeri inferiori a numeri più alti da 100 a 65.000.Rule collections are processed according to the rule type in priority order, lower numbers to higher numbers from 100 to 65,000. Il nome di una raccolta regole può avere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. Deve iniziare con una lettera o un numero e terminare con una lettera, un numero o un segno di sottolineatura. La lunghezza massima del nome è 80 caratteri.
+
+È consigliabile distanziare inizialmente i numeri di priorità della raccolta di regole in 100 incrementi (100, 200, 300 e così via), in modo da avere spazio per aggiungere altre raccolte di regole, se necessario.
 
 > [!NOTE]
 > Se si abilita il filtro basato sull'intelligence sulle minacce, tali regole hanno la priorità più alta e vengono sempre elaborate per prime. Il filtro di Threat-Intelligence può negare il traffico prima dell'elaborazione delle regole configurate. Per altre informazioni, vedere Filtro basato su minacce di Firewall di Azure.For more information, see [Azure Firewall threat-based filtering](threat-intel.md).
 
-## <a name="outbound"></a>In uscita
+## <a name="outbound-connectivity"></a>Connettività in uscita
 
 ### <a name="network-rules-and-applications-rules"></a>Regole di rete e di applicazione
 
 Se si configurano le regole di rete e le regole dell'applicazione, le regole di rete vengono applicate in ordine di priorità prima delle regole dell'applicazione. L'elaborazione delle regole non avviene a ciclo continuo. Pertanto, se viene trovata una corrispondenza in una regola di rete, non vengono elaborate altre regole.  Se non è presente alcuna corrispondenza tra le regole di rete e se il protocollo è HTTP, HTTPS o MSSQL, il pacchetto viene quindi valutato dalle regole dell'applicazione in ordine di priorità. Se ancora non viene trovata alcuna corrispondenza, il pacchetto viene valutato in base alla [raccolta di regole di infrastruttura.](infrastructure-fqdns.md) Se non è ancora presente alcuna corrispondenza, il pacchetto viene rifiutato per impostazione predefinita.
 
-## <a name="inbound"></a>In ingresso
+## <a name="inbound-connectivity"></a>Connettività in ingresso
 
 ### <a name="nat-rules"></a>Regole NAT
 

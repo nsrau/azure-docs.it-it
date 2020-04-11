@@ -1,17 +1,17 @@
 ---
-title: Preparare la migrazione degli avvisi classici di Monitoraggio di Azure aggiornando le app per la logica e i runbookPrepare for Azure Monitor classic alerts migration by updating your logic apps and runbooks
+title: Le app per la logica di aggiornamento & i runbook per la migrazione degli avvisiUpdate logic apps & runbooks for alerts migration
 description: Informazioni su come modificare webhook, app per la logica e runbook per prepararsi alla migrazione volontaria.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665593"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114419"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare le app per la logica e manuali operativi per la migrazione delle regole di avviso classiche
 

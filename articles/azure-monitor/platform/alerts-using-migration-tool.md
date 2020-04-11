@@ -1,17 +1,17 @@
 ---
-title: Eseguire la migrazione degli avvisi classici in Monitoraggio di Azure usando lo strumento di migrazione volontariaMigrate your classic alerts in Azure Monitor by using the voluntary migration tool
+title: Eseguire la migrazione delle regole di avviso di Monitoraggio di AzureMigrate Azure Monitor alert rules
 description: Informazioni su come usare lo strumento di migrazione volontaria per eseguire la migrazione delle regole di avviso classiche.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 537d84639523a74cbd9403d4ad25c34a798b7061
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab5c16995a2d2bad6e44f0f9d1187ca3d66be1b6
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665103"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114260"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Usare lo strumento di migrazione volontaria per eseguire la migrazione delle regole di avviso classicheUse the voluntary migration tool to migrate your classic alert rules
 

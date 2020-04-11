@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: 4d845514965a8d60c636902660ce838926cbf3c9
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: ca4bf1b0043a2c73851eab48ff8b9b6b7a987b72
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607607"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115304"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML all'interno di una rete virtuale di AzureSecure Azure ML experimentation and inference jobs within an Azure Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,6 +43,11 @@ In questo articolo vengono inoltre fornite informazioni dettagliate sulle impost
 + Una rete virtuale e una subnet preesistenti da usare con le risorse di elaborazione.
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>Usare un account di archiviazione per l'area di lavoroUse a storage account for your workspace
+
+> [!WARNING]
+> Se si dispone di data scientist che usano la finestra di progettazione di Azure Machine Learning, riceveranno un errore durante la visualizzazione dei dati da un account di archiviazione all'interno di una rete virtuale. Il testo seguente è l'errore che ricevono:
+>
+> __Errore: impossibile profilare il set di dati. Ciò potrebbe essere dovuto al fatto che i dati vengono archiviati dietro una rete virtuale o che i dati non supportano il profilo.__
 
 Per usare un account di archiviazione di Azure per l'area di lavoro in una rete virtuale, eseguire la procedura seguente:To use an Azure storage account for the workspace in a virtual network, use the following steps:
 
@@ -510,7 +515,7 @@ Per altre informazioni sulla configurazione di una regola di rete, vedere Distri
 
 1. Per trovare il nome del Registro di sistema del contenitore di Azure per l'area di lavoro, usare uno dei metodi seguenti:
 
-    __Portale di Azure__
+    __Azure portal__
 
     Nella sezione Panoramica dell'area di lavoro, il valore __del Registro__ di sistema è collegato al Registro di sistema del contenitore di Azure.From the overview section of your workspace, the Registry value links to the Azure Container Registry.
 

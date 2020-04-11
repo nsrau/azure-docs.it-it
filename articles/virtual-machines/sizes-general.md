@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 4b36f456f70eb79cff1f615c7c136b8fe4b1b3d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22826c32dc2aee0e580ec0b2a05c7eb8f08b7570
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78226704"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115319"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali di utilizzo generico
 
@@ -32,7 +32,7 @@ Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto C
 
 - [Serie B scoppiabile](sizes-b-series-burstable.md) Le macchine virtuali sono ideali per carichi di lavoro che non richiedono le prestazioni complete della CPU in modo continuo, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre a questi clienti la possibilità di acquistare dimensioni per la VM con prestazioni baseline in relazione al prezzo, che consentono all'istanza della VM di accumulare crediti quando la VM utilizza meno prestazioni di quelle base. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline della VM, usando fino al 100% della CPU quando l'applicazione richiede prestazioni superiori per la CPU.
 
-- [Le serie Dav4 e Dasv4](dav4-dasv4-series.md) sono nuove dimensioni che utilizzano il processore AMD 2.35Ghz EPYC<sup>TM</sup> 7452 in una configurazione multi-thread con una cache L3 fino a 256 MB che dedica 8 GB di tale cache L3 a ogni 8 core aumentando le opzioni dei clienti per l'esecuzione dei carichi di lavoro di uso generale. La serie Dav4 e la serie Dasv4 hanno le stesse configurazioni di memoria e disco della serie D & Dsv3.
+- [Le serie Dav4 e Dasv4](dav4-dasv4-series.md) sono nuove dimensioni che utilizzano il processore AMD 2.35Ghz EPYC<sup>TM</sup> 7452 in una configurazione multi-thread con una cache L3 fino a 256 MB che dedica 8 MB di tale cache L3 a ogni 8 core aumentando le opzioni dei clienti per l'esecuzione dei carichi di lavoro di uso generale. La serie Dav4 e la serie Dasv4 hanno le stesse configurazioni di memoria e disco della serie D & Dsv3.
 
 - La [serie DCv2](dcv2-series.md) consente di proteggere la riservatezza e l'integrità dei dati e del codice durante l'elaborazione nel cloud pubblico. Queste macchine sono supportate dall'ultima generazione di processore Intel XEON E-2288G con tecnologia SGX. Con la tecnologia Intel Turbo Boost queste macchine possono raggiungere i 5,0 GHz. Le istanze della serie DCv2 consentono ai clienti di creare applicazioni sicure basate su enclave per proteggere il codice e i dati mentre sono in uso.
 

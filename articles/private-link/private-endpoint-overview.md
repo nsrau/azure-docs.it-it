@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: b8f55b0693b7ffdf10516cfb19b67ccc5a94dc5a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d10b6c52310da3d799a7fe78c83284960318f82e
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742901"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115237"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -113,7 +113,7 @@ L'interfaccia di rete associata all'endpoint privato contiene il set completo di
 > [!IMPORTANT]
 > Non è consigliabile eseguire l'override di una zona utilizzata attivamente per risolvere gli endpoint pubblici. Le connessioni alle risorse non saranno in grado di risolversi correttamente senza l'inoltro DNS al DNS pubblico. Per evitare problemi, creare un nome di dominio diverso o seguire il nome suggerito per ogni servizio di seguito. 
  
-Per i servizi di Azure, usare i nomi delle zone consigliate come descritto nella tabella seguente:For Azure services, use the recommended zone names as described in the following table:
+Per i servizi di Azure, usare i nomi delle zone come descritto nella tabella seguente:For Azure services, use the zone names as described in the following table:
 
 |Tipo di risorsa Collegamento privatoPrivate Link resource type   |Sottorisorsa  |Nome zona  |
 |---------|---------|---------|

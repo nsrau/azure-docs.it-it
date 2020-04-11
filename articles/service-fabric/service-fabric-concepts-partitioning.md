@@ -3,12 +3,12 @@ title: Partizionamento dei servizi di Service Fabric
 description: Illustra come partizionare i servizi con stato di Service Fabric. Le partizioni consentono di archiviare i dati nei computer locali, in modo da poter ridimensionare dati e calcolo allo stesso tempo.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258616"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115155"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partizionare Reliable Services di Service Fabric
 Questo articolo offre un'introduzione ai concetti di base del partizionamento di Reliable Services di Azure Service Fabric. Il codice sorgente usato nell'articolo è disponibile anche in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -348,9 +348,6 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
     ![Schermata del browser](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 L'intero codice sorgente dell'esempio è disponibile in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
-
-## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services e sottoprocessi di fork dell’attore
-Service Fabric non supporta servizi reliable services e di conseguenza i sottoprocessi di fork degli attori. Un esempio del motivo per cui non è supportato è che [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) non può essere usato per registrare un sottoprocesso non supportato e i token di annullamento vengono inviati solo ai processi registrati. Questo comporta diversi tipi di problemi, ad esempio errori di aggiornamento, quando i sottoprocessi non vengono chiusi dopo che il processo padre ha ricevuto un token di annullamento. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:

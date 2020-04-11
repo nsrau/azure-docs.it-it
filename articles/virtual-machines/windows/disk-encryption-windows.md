@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b51f7a8b62d7131b7bbfc77101e60fab22e1f148
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f7b6e667df95d9279ad5c44caa4ba33a17909935
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985797"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113150"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Windows
 
-Crittografia disco di Azure per macchine virtuali (VM) di Windows usa la funzionalità Bitlocker di Windows per fornire la crittografia completa del disco e del disco dati WindOS. Inoltre, fornisce la crittografia del disco di risorse effimere quando il parametro VolumeType è All.
+Crittografia disco di Azure per macchine virtuali Windows usa la funzionalità Bitlocker di Windows per fornire la crittografia completa del disco del sistema operativo e del disco dati. Inoltre, fornisce la crittografia del disco di risorse effimere quando il parametro VolumeType è All.
 
 Crittografia disco di Azure è [integrata con l'insieme](disk-encryption-key-vault.md) di credenziali delle chiavi di Azure per controllare e gestire le chiavi e i segreti di crittografia del disco. Per una panoramica del servizio, vedere Crittografia disco di [Azure per macchine virtuali Windows.](disk-encryption-overview.md)
 

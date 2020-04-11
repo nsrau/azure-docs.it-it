@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064972"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113168"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e WAN virtuale
 
@@ -47,7 +47,7 @@ Nell'architettura della rete WAN virtuale di Azure viene eseguito il provisionin
 
 È possibile stabilire una rete WAN virtuale creando un singolo hub WAN virtuale nell'area con il maggior numero di spoke (filiali, reti virtuali, utenti) e quindi connettendo gli spoke presenti in altre aree all'hub. Questa è una buona opzione quando un'impronta aziendale è per lo più in un'area con alcuni raggi remoti.  
   
-## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Connettività hub-hub
+## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Connettività hub-hub (anteprima)Hub-to-hub connectivity (Preview)
 
 Un footprint cloud aziendale può estendersi su più aree cloud ed è ottimale (in base alla latenza) per accedere al cloud da un'area più vicina al sito fisico e agli utenti. Uno dei principi fondamentali dell'architettura della rete di transito globale consiste nell'abilitare la connettività tra aree tra tutti gli endpoint di rete cloud e locali. Ciò significa che il traffico proveniente da un ramo connesso al cloud in un'area può raggiungere un'altra filiale o una rete virtuale in un'area diversa usando la connettività hub-hub abilitata da Rete globale di [Azure.](https://azure.microsoft.com/global-infrastructure/global-network/)
 

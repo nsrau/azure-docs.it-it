@@ -5,12 +5,12 @@ author: harahma
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82bc5068be651b05eb24efa3b05e46c1e7c1e24d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282393"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115046"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modello di hosting di Azure Service Fabric
 Questo articolo fornisce una panoramica dei modelli di hosting delle applicazioni offerti da Azure Service Fabric e descrive le differenze tra i modelli **Shared Process** (Processo condiviso) ed **Exclusive Process** (Processo esclusivo). Descrive l'aspetto di un'applicazione in un nodo di Service Fabric e la relazione tra le repliche (o istanze) del servizio e il processo host servizio.
@@ -168,6 +168,10 @@ Nell'attivazione di "MultiTypeServicePackage" per la replica della partizione **
 
 
 Nell'esempio precedente, si potrebbe pensare che, se "MyCodePackageA" registra sia "MyServiceTypeA" che "MyServiceTypeB" e non è presente alcun "MyCodePackageB", non è in esecuzione alcun *CodePackage* ridondante. Anche se è corretto, questo modello di applicazione non è coerente con il modello di hosting Exclusive Process (Processo esclusivo). Se l'obiettivo consiste nell'inserire ogni replica in un proprio processo dedicato, non è necessario registrare entrambi i *ServiceType* dallo stesso *CodePackage*. È invece sufficiente inserire ogni *ServiceType* nel rispettivo *ServicePackage*.
+
+### <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services e sottoprocessi di fork dell’attore
+
+Service Fabric non supporta servizi reliable services e di conseguenza i sottoprocessi di fork degli attori. Un esempio del motivo per cui non è supportato è che [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) non può essere usato per registrare un sottoprocesso non supportato e i token di annullamento vengono inviati solo ai processi registrati. Questo comporta diversi tipi di problemi, ad esempio errori di aggiornamento, quando i sottoprocessi non vengono chiusi dopo che il processo padre ha ricevuto un token di annullamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare il pacchetto di un'applicazione][a4] e prepararlo per la distribuzione.

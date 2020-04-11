@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 3/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 39ff4f42457451dfa4aae90b281d6b163c56b4cd
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 7b839df5940ab26e5c1a99a1bda1fbd2545f8cc4
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80522238"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113128"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guida al controllo del comportamento di arresto di Windows
 
@@ -58,7 +58,7 @@ Per impostare il limite di tempo di inattività della sessione RDP, è possibile
 
 ```powershell
 # The MaxIdleTime is in milliseconds; by default, this script sets MaxIdleTime to 15 minutes.
-$maxIdleTime = 15 * 60 * 90
+$maxIdleTime = 15 * 60 * 1000
 
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "MaxIdleTime" -Value $maxIdleTime -Force
 ```
@@ -79,6 +79,9 @@ In alternativa, è possibile scegliere di seguire questi passaggi manuali usando
     ![Limite sessione inattiva](../media/how-to-windows-shutdown/edit-idle-time-limit.png)
 
 1. Infine, per combinare questo comportamento con l'impostazione **di arresto automatico alla disconnessione,** è necessario seguire i passaggi descritti nell'articolo: [Abilitare l'arresto automatico delle macchine virtuali alla disconnessione](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect).
+
+> [!WARNING]
+> Dopo aver configurato questa impostazione utilizzando PowerShell per modificare l'impostazione del Registro di sistema direttamente o manualmente utilizzando l'editor Criteri di gruppo, è necessario innanzitutto riavviare la macchina virtuale per applicare le impostazioni.  Inoltre, se si configura l'impostazione utilizzando il Registro di sistema, l'editor Criteri di gruppo non sempre viene aggiornato per riflettere le modifiche apportate all'impostazione del Registro di sistema; Tuttavia, l'impostazione del Registro di sistema ha ancora effetto come previsto e la sessione RDP verrà disconnessa quando è inattiva per il periodo di tempo specificato.
 
 ## <a name="remove-windows-shutdown-command-from-start-menu"></a>Rimuovere il comando di arresto di Windows dal menu Start
 

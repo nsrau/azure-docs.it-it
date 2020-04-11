@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8608aaab7bb8b6d10e67f27678c17f20a6c243da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ce7ef15f0bf13182e4799fb640e83136d0d4695
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370868"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115032"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Guida per gli amministratori di Azure Lab Services - Administrator
 Gli amministratori IT (Information Technology) che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account lab per la propria scuola. Dopo aver configurato un account lab, gli amministratori o gli educatori creano lab della classe contenuti nell'account lab. Questo articolo offre una panoramica generale delle risorse di Azure coinvolte e le linee guida per la loro creazione.
@@ -156,6 +156,9 @@ La posizione in cui è presente un laboratorio in aula varia in base ai seguenti
        
     Quando non è presente **alcun** peered della rete virtuale e i creatori del [lab sono autorizzati a selezionare la posizione del lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), i percorsi che possono essere selezionati dall'autore del lab sono basati sulla capacità disponibile.
 
+> [!NOTE]
+> Per garantire che la capacità della macchina virtuale sia sufficiente per un'area, è importante richiedere prima la capacità tramite l'account lab o durante la creazione del lab.
+
 Una regola generale consiste nell'impostare l'area di una risorsa su una più vicina agli utenti. Per i laboratori in aula, questo significa creare il laboratorio di classe più vicino ai tuoi studenti. Per i corsi online in cui gli studenti si trovano in tutto il mondo, è necessario utilizzare il giudizio migliore per creare un laboratorio di classe che si trova in posizione centrale. In alternativa, suddividi un corso in più laboratori in aula in base all'area geografica degli studenti.
 
 ### <a name="shared-image-gallery"></a>Raccolta di immagini condivise
@@ -169,7 +172,7 @@ Quando gli amministratori o i creatori di laboratori creano un lab della classe,
 | ---- | ----- | ------ | ------------- |
 | Piccolo| <ul><li>2 core</li><li>3,5 GB di RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Questa dimensione è più adatta per la riga di comando, l'apertura del browser web, i server web a basso traffico, i database di piccole e medie dimensioni. |
 | Media | <ul><li>4 Nuclei</li><li>7 GB di RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Questa dimensione è più adatta per i database relazionali, la memorizzazione nella cache in memoria e l'analisi. |
-| Medio (virtualizzazione annidata) | <ul><li>4 Nuclei</li><li>16 GB di RAM</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Questa dimensione è più adatta per i database relazionali, la memorizzazione nella cache in memoria e l'analisi.  Questa dimensione supporta anche la virtualizzazione annidata. |
+| Medio (virtualizzazione annidata) | <ul><li>4 Nuclei</li><li>16 GB di RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Questa dimensione è più adatta per i database relazionali, la memorizzazione nella cache in memoria e l'analisi.  Questa dimensione supporta anche la virtualizzazione annidata. |
 | large | <ul><li>8 core</li><li>32 GB di RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Questa dimensione è più adatta per le applicazioni che richiedono CPU più veloci, migliori prestazioni del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni.  Questa dimensione supporta anche la virtualizzazione annidata. |
 | GPU piccolo (visualizzazione) | <ul><li>6 Nuclei</li><li>56 GB di RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Questa dimensione è più adatta per la visualizzazione remota, lo streaming, il gioco, la codifica utilizzando framework come OpenGL e DirectX. |
 | GPU piccola (Compute) | <ul><li>6 Nuclei</li><li>56 GB di RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Questa dimensione è più adatta per applicazioni ad alta intensità di computer come l'intelligenza artificiale e il Deep Learning. |

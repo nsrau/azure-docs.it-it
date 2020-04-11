@@ -1,15 +1,15 @@
 ---
-title: Panoramica degli avvisi classici in Microsoft Azure e Monitoraggio di Azure
+title: Panoramica degli avvisi classici in Monitoraggio di AzureOverview of classic alerts in Azure Monitor
 description: Gli avvisi classici sono in fase di deprecazione. Gli avvisi consentono di monitorare le metriche, gli eventi e i log delle risorse di Azure e, successivamente, inviare una notifica quando una condizione specificata viene soddisfatta.
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 098efd3075c6b099bdfc925cb4f09163f83532a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668267"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114492"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
@@ -28,20 +28,20 @@ In precedenza Monitoraggio di Azure, Application Insights, Log Analytics e Integ
  ![Opzioni di avviso nel portale di Azure](media/alerts-classic.overview/monitor-alert-screen2.png)
 
 La nuova esperienza utente degli avvisi offre i vantaggi seguenti rispetto all'esperienza degli avvisi in versione classica:
--   **Migliore sistema di notifica**: tutti gli avvisi più recenti usano gruppi di azioni, ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi. Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni.
--   **Un'esperienza** di creazione unificata: tutta la creazione di avvisi per metriche, log e log attività tra Monitoraggio di Azure, Log Analytics e Application Insights è in un'unica posizione.
--   **Visualizzazione degli avvisi di Log Analytics attivati nel portale di Azure**: è ora possibile visualizzare anche gli avvisi di Log Analytics attivati nella sottoscrizione. In precedenza, era necessario un portale separato.
--   **Separazione tra avvisi attivati e regole di avviso**: viene fatta distinzione tra regole di avviso (definizioni delle condizioni che attivano gli avvisi) e avvisi attivati (istanze di attivazione delle regole di avviso) e sono pertanto disponibili visualizzazioni separate per le attività operative e la configurazione.
--   **Flusso di lavoro migliore**: la nuova esperienza di creazione di avvisi guida l'utente nel processo di configurazione di una regola di avviso, rendendo più semplice l'identificazione delle condizioni per cui è opportuno ricevere un avviso.
--   **Consolidamento degli avvisi intelligenti** e **impostazione dello stato dell'avviso**: gli avvisi più recenti includono funzionalità di raggruppamento automatico che mostrano avvisi simili tra loro per ridurre l'overload dell'interfaccia utente. 
+- **Migliore sistema di notifica**: tutti gli avvisi più recenti usano gruppi di azioni, ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi. Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni.
+- **Un'esperienza** di creazione unificata: tutta la creazione di avvisi per metriche, log e log attività tra Monitoraggio di Azure, Log Analytics e Application Insights è in un'unica posizione.
+- **Visualizzazione degli avvisi di Log Analytics attivati nel portale di Azure**: è ora possibile visualizzare anche gli avvisi di Log Analytics attivati nella sottoscrizione. In precedenza, era necessario un portale separato.
+- **Separazione tra avvisi attivati e regole di avviso**: viene fatta distinzione tra regole di avviso (definizioni delle condizioni che attivano gli avvisi) e avvisi attivati (istanze di attivazione delle regole di avviso) e sono pertanto disponibili visualizzazioni separate per le attività operative e la configurazione.
+- **Flusso di lavoro migliore**: la nuova esperienza di creazione di avvisi guida l'utente nel processo di configurazione di una regola di avviso, rendendo più semplice l'identificazione delle condizioni per cui è opportuno ricevere un avviso.
+- **Consolidamento degli avvisi intelligenti** e **impostazione dello stato dell'avviso**: gli avvisi più recenti includono funzionalità di raggruppamento automatico che mostrano avvisi simili tra loro per ridurre l'overload dell'interfaccia utente. 
 
 Gli avvisi delle metriche più recenti presentano i seguenti vantaggi rispetto agli avvisi delle metriche classici:
--   **Latenza migliorata**: gli avvisi delle metriche più recenti possono essere eseguiti con una frequenza di un minuto. Gli avvisi metrica meno recenti sono sempre eseguibili con una frequenza di 5 minuti. Gli avvisi più recenti presentano un ritardo più breve tra il verificarsi del problema e la notifica o l'azione (da 3 a 5 minuti). Gli avvisi precedenti vanno da 5 a 15 minuti a seconda del tipo.  Gli avvisi relativi ai log presentano in genere un ritardo di 10-15 minuti a causa del tempo necessario per inserire i log, ma i metodi di elaborazione più recenti stanno riducendo questo tempo. 
--   **Supporto delle metriche multidimensionali**: è possibile inviare un avviso per le metriche multidimensionali, in modo da monitorare un segmento interessante della metrica.
--   **Maggiore controllo delle condizioni delle metriche**: è possibile definire regole di avviso più dettagliate. Gli avvisi più recenti supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche.
--   **Monitoraggio combinato di più metriche**: è possibile monitorare più metriche (attualmente un massimo di due) con una singola regola. Viene attivato un avviso se entrambe le metriche violano le rispettive soglie per il periodo di tempo specificato.
--   **Migliore sistema di notifica**: tutti gli avvisi più recenti usano [gruppi di azioni](../../azure-monitor/platform/action-groups.md), ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi.  Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni. 
--   **Metriche dai log** (anteprima pubblica): i dati di log diretti a Log Analytics possono essere ora estratti in metriche di Monitoraggio di Azure e quindi essere oggetto di avvisi come le altre metriche. Vedere [Avvisi (versione classica)](alerts-classic.overview.md) per la terminologia degli avvisi classici. 
+- **Latenza migliorata**: gli avvisi delle metriche più recenti possono essere eseguiti con una frequenza di un minuto. Gli avvisi metrica meno recenti sono sempre eseguibili con una frequenza di 5 minuti. Gli avvisi più recenti presentano un ritardo più breve tra il verificarsi del problema e la notifica o l'azione (da 3 a 5 minuti). Gli avvisi precedenti vanno da 5 a 15 minuti a seconda del tipo.  Gli avvisi relativi ai log presentano in genere un ritardo di 10-15 minuti a causa del tempo necessario per inserire i log, ma i metodi di elaborazione più recenti stanno riducendo questo tempo. 
+- **Supporto delle metriche multidimensionali**: è possibile inviare un avviso per le metriche multidimensionali, in modo da monitorare un segmento interessante della metrica.
+- **Maggiore controllo delle condizioni delle metriche**: è possibile definire regole di avviso più dettagliate. Gli avvisi più recenti supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche.
+- **Monitoraggio combinato di più metriche**: è possibile monitorare più metriche (attualmente un massimo di due) con una singola regola. Viene attivato un avviso se entrambe le metriche violano le rispettive soglie per il periodo di tempo specificato.
+- **Migliore sistema di notifica**: tutti gli avvisi più recenti usano [gruppi di azioni](../../azure-monitor/platform/action-groups.md), ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi.  Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni. 
+- **Metriche dai log** (anteprima pubblica): i dati di log diretti a Log Analytics possono essere ora estratti in metriche di Monitoraggio di Azure e quindi essere oggetto di avvisi come le altre metriche. Vedere [Avvisi (versione classica)](alerts-classic.overview.md) per la terminologia degli avvisi classici. 
 
 
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Avvisi classici sui dati di Monitoraggio di Azure

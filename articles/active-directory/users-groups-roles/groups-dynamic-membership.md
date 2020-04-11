@@ -1,5 +1,5 @@
 ---
-title: Regole per l'appartenenza a un gruppo dinamico - Azure AD Documenti Microsoft
+title: Regole per l'appartenenza a gruppi popolati dinamicamente - Azure AD Documenti Microsoft
 description: Come creare regole di appartenenza per popolare automaticamente i gruppi e informazioni di riferimento sulle regole.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253078"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114730"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -326,7 +326,7 @@ user.objectId -ne null
 Se si desidera che il gruppo escluda gli utenti guest e includa solo i membri del tenant, è possibile utilizzare la sintassi seguente:
 
 ```
-(user.objectId -ne null) -and (user.userType -eq “Member”)
+(user.objectId -ne null) -and (user.userType -eq "Member")
 ```
 
 ### <a name="create-an-all-devices-rule"></a>Creare una regola "Tutti i dispositivi"Create an "All devices" rule

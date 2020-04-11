@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f69f17dc9d0cab2491a2c7f37b5bd082cc96b2d6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985423"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115334"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -112,8 +112,8 @@ Le applicazioni di terze parti che usano le API REST per funzionare continuerann
 
 Se [l'accesso in lettura anonimo](storage-manage-access-to-resources.md) è stato concesso a un contenitore, gli ACL non hanno alcun effetto su tale contenitore o sui file in tale contenitore.
 
-## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-adls-gen2"></a>Driver BLOB di Archiviazione di Windows Azure (WASB) (non supportato con ADLS Gen2)
+## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Driver BLOB di Archiviazione di Windows Azure (WASB) (non supportato con Data Lake Storage Gen2)Windows Azure Storage Blob (WASB) driver (un supported with Data Lake Storage Gen2)
 
-Attualmente, il driver WASB, progettato solo per l'API BLOB, rileva problemi in alcuni scenari comuni, ovvero quando si tratta di un client a un account di archiviazione abilitato per lo spazio dei nomi. Si noti che Multi-Protocol Access (MPA) NON mitigherà questi problemi, neanche. 
+Attualmente, il driver WASB, che è stato progettato per funzionare solo con l'API BLOB, rileva problemi in alcuni scenari comuni. In particolare, quando si tratta di un client a un account di archiviazione gerarchico abilitato allo spazio dei nomi. L'accesso multiprotocollo su Data Lake Storage non ridurrà questi problemi. 
 
-Per il momento (e molto probabilmente nel prossimo futuro), non supporteremo i clienti che usano il driver WASB come client per un account di archiviazione abilitato allo spazio dei nomi. È invece consigliabile scegliere di usare il driver [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) nell'ambiente Hadoop. Se si sta tentando di eseguire la migrazione da un ambiente Hadoop locale con una versione precedente a Hadoop branch-3, aprire un ticket di supporto di Azure in modo che sia possibile contattare l'utente sulla strada giusta per l'utente e l'organizzazione.
+Per il momento (e molto probabilmente nel prossimo futuro), non supporteremo i clienti che utilizzano il driver WASB come client per un account di archiviazione gerarchico abilitato allo spazio dei nomi. È invece consigliabile scegliere di usare il driver [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) nell'ambiente Hadoop. Se si sta tentando di eseguire la migrazione da un ambiente Hadoop locale con una versione precedente a Hadoop branch-3, aprire un ticket di supporto di Azure in modo che sia possibile contattare l'utente sulla strada giusta per l'utente e l'organizzazione.

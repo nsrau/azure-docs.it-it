@@ -8,12 +8,12 @@ ms.date: 4/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dd24631f8e6b4f3f87438bf22654016dd7699950
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 6bc74e82dd04e5845e95bdec5c841d0264dd1d3e
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618310"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115093"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -134,25 +134,28 @@ Quando si passa da scenari di test a scenari di produzione, ricordarsi di rimuov
   * Gestire l'accesso nel registro contenitori
   * Usare tag per gestire le versioni
 
-### <a name="manage-access-to-your-container-registry-with-a-service-principal"></a>Gestire l'accesso al Registro di sistema del contenitore con un'entità servizioManage access to your container registry with a service principal
+### <a name="manage-access-to-your-container-registry"></a>Gestire l'accesso nel registro contenitori
 
 Prima di distribuire moduli nei dispositivi IoT Edge di produzione, assicurarsi di controllare l'accesso al registro contenitori in modo che gli utenti esterni non possano accedere o apportare modifiche alle immagini del contenitore. Usare un registro contenitori privato, non pubblico, per gestire le immagini del contenitore.
 
-Nelle esercitazioni e in altri documenti, viene indicato di usare nel dispositivo IoT Edge le stesse credenziali del registro contenitori usate nel computer di sviluppo. Queste istruzioni sono destinate solamente a facilitare la configurazione degli ambienti di test e di sviluppo e non devono essere seguite in uno scenario di produzione. Azure Container Registry consiglia l'autenticazione con le entità servizio quando le applicazioni o i servizi estraggono le immagini del contenitore in modo automatico o in altro modo automatico (headless), come fanno i dispositivi IoT Edge.Azure Container Registry recommends [authenticating with service principals](../container-registry/container-registry-auth-service-principal.md) when applications or services pull container images in an automated or otherwise unattended manner (headless), as IoT Edge devices do.
+Nelle esercitazioni e in altri documenti, viene indicato di usare nel dispositivo IoT Edge le stesse credenziali del registro contenitori usate nel computer di sviluppo. Queste istruzioni sono destinate solamente a facilitare la configurazione degli ambienti di test e di sviluppo e non devono essere seguite in uno scenario di produzione.
 
-Per creare un'entità servizio, eseguire i due script come descritto in [create a service principal](../container-registry/container-registry-auth-aci.md#create-a-service-principal). Questi script eseguire le attività seguenti:These scripts do the following tasks:
+Per un accesso più sicuro al Registro di sistema, è possibile scegliere tra le opzioni di [autenticazione.](../container-registry/container-registry-authentication.md) Un'autenticazione comune e consigliata consiste nell'utilizzare un'entità servizio di Active Directory adatta alle applicazioni o ai servizi per il pull delle immagini del contenitore in modo automatico o in altro modo automatico (headless), come fanno i dispositivi IoT Edge.
+
+Per creare un'entità servizio, eseguire i due script come descritto in [create a service principal](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). Questi script eseguire le attività seguenti:These scripts do the following tasks:
 
 * Il primo script crea l'entità servizio. Restituisce l'ID dell'entità servizio e la password dell'entità servizio. Archiviare questi valori in modo sicuro nei record.
 
-* Il secondo script crea assegnazioni di ruolo da concedere all'entità servizio, che può essere eseguita successivamente se necessario. È consigliabile applicare il ruolo utente `role` **acrPull** per il parametro. Per un elenco dei ruoli, vedere Autorizzazioni e ruoli del [Registro di sistema contenitore](../container-registry/container-registry-roles.md) di AzureFor a list of roles, see Azure Container Registry roles and permissions
+* Il secondo script crea assegnazioni di ruolo da concedere all'entità servizio, che può essere eseguita successivamente se necessario. È consigliabile applicare il ruolo utente `role` **acrPull** per il parametro. Per un elenco dei ruoli, vedere Autorizzazioni e ruoli del [Registro di sistema contenitore](../container-registry/container-registry-roles.md)di Azure.
 
-Per eseguire l'autenticazione tramite un'entità servizio, specificare l'ID servizio e la password ottenuti dal primo script.
+Per eseguire l'autenticazione tramite un'entità servizio, specificare l'ID servizio e la password ottenuti dal primo script. Specificare queste credenziali nel manifesto di distribuzione.
 
 * Per il nome utente o l'ID client, specificare l'ID dell'entità servizio.
 
 * Per la password o il segreto client, specificare la password dell'entità servizio.
 
-Per un esempio di avvio di un'istanza del contenitore con l'interfaccia della riga di comando di Azure, vedere [Autenticazione tramite l'entità servizio.](../container-registry/container-registry-auth-aci.md#authenticate-using-the-service-principal)
+> [!NOTE]
+> Dopo aver implementato un'autenticazione di sicurezza avanzata, disabilitare l'impostazione **utente Admin** in modo che l'accesso predefinito nome utente/password non sia più disponibile. Nel Registro di sistema del contenitore nel portale di Azure, dal menu del riquadro sinistro in **Impostazioni,** selezionare Chiavi di **accesso**.
 
 ### <a name="use-tags-to-manage-versions"></a>Usare tag per gestire le versioni
 

@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 39747ac0a7133562bed526f44e30bf4a656127c0
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 7b3a223ca504bff380afad54afda73880717814f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673599"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115376"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Playbook per la risoluzione dei requisiti di sicurezza comuni con il database SQL di Azure
 
@@ -89,14 +89,14 @@ La gestione centralizzata delle identità offre i vantaggi seguenti:
 
 - Creare un tenant di Azure AD e [creare utenti](../active-directory/fundamentals/add-users-azure-active-directory.md) per rappresentare gli utenti umani e creare [entità servizio](../active-directory/develop/app-objects-and-service-principals.md) per rappresentare app, servizi e strumenti di automazione. Service principals are equivalent to service accounts in Windows and Linux. 
 
-- Assegnare diritti di accesso alle risorse alle entità di Azure AD tramite l'assegnazione dei gruppi: creare gruppi di Azure AD, concedere l'accesso ai gruppi e aggiungere singoli membri ai gruppi. Nel database creare utenti di database indipendente che eseguono il mapping dei gruppi di Azure AD. Per assegnare autorizzazioni all'interno del database, inserire gli utenti nei ruoli del database con le autorizzazioni appropriate.
+- Assegnare diritti di accesso alle risorse alle entità di Azure AD tramite l'assegnazione dei gruppi: creare gruppi di Azure AD, concedere l'accesso ai gruppi e aggiungere singoli membri ai gruppi. Nel database creare utenti di database indipendente che eseguono il mapping dei gruppi di Azure AD. Per assegnare le autorizzazioni all'interno del database, inserire gli utenti associati ai gruppi di Azure AD nei ruoli del database con le autorizzazioni appropriate.
   - Vedere gli articoli [Configurare e gestire l'autenticazione](sql-database-aad-authentication-configure.md) di Azure Active Directory con SQL e [Usare Azure AD per l'autenticazione con SQL.](sql-database-aad-authentication.md)
   > [!NOTE]
   > In un'istanza gestita è anche possibile creare account di accesso mappati alle entità di Azure AD nel database master. Vedere [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 - L'uso dei gruppi di Azure AD semplifica la gestione delle autorizzazioni e sia il proprietario del gruppo, nonché il proprietario della risorsa può aggiungere/rimuovere membri dal gruppo. 
 
-- Creare un gruppo separato per l'amministratore di Azure AD per i server di database SQL.
+- Creare un gruppo separato per gli amministratori di Azure AD per ogni server di database SQL.
 
   - Vedere l'articolo [Effettuare il provisioning](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)di un amministratore di Azure Active Directory per il server di database SQL di Azure.See the article, Provision an Azure Active Directory administrator for your Azure SQL Database server .
 
@@ -108,7 +108,7 @@ La gestione centralizzata delle identità offre i vantaggi seguenti:
 > [!NOTE]
 > - L'autenticazione di Azure AD viene registrata nei log di controllo SQL di Azure, ma non nei log di accesso di Azure AD.
 > - Le autorizzazioni RBAC concesse in Azure non si applicano alle autorizzazioni del database SQL di Azure.RBAC RBAC permissions granted in Azure do not apply to Azure SQL DB permissions. Tali autorizzazioni devono essere create/mappate manualmente nel database SQL utilizzando le autorizzazioni SQL esistenti.
-> - Sul lato client l'autenticazione di Azure AD deve accedere a Internet o tramite la route definita dall'utente (UDR) a una rete virtuale.
+> - Sul lato client, l'autenticazione di Azure AD deve accedere a Internet o tramite la route definita dall'utente a una rete virtuale.
 > - Il token di accesso di Azure AD viene memorizzato nella cache sul lato client e la durata dipende dalla configurazione del token. Vedere l'articolo Durata dei [token configurabili in Azure Active DirectorySee the](../active-directory/develop/active-directory-configurable-token-lifetimes.md) article, Configurable token lifetimes in Azure Active Directory
 > - Per indicazioni sulla risoluzione dei problemi di autenticazione di Azure AD, vedere il blog seguente:For guidance on troubleshooting Azure AD Authentication issues, see the following blog:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
@@ -213,7 +213,7 @@ L'autenticazione SQL si riferisce all'autenticazione di un utente quando ci si c
 
 ## <a name="access-management"></a>Gestione degli accessi
 
-Access management is the process of controlling and managing authorized users' access and privileges to Azure SQL Database.
+Access management (also called Authorization) is the process of controlling and managing authorized users' access and privileges to Azure SQL Database.
 
 ### <a name="implement-principle-of-least-privilege"></a>Implementare il principio dei privilegi minimi
 
@@ -225,7 +225,7 @@ Il principio dei privilegi minimi indica che gli utenti non devono disporre di p
 
 Assegnare solo le [autorizzazioni](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) necessarie per completare le attività necessarie:
 
-- In SQL Data Plane: 
+- Nei database SQL: 
     - Utilizzare autorizzazioni granulari e ruoli del database definiti dall'utente (o ruoli del server in MI): 
         1. Creare i ruoli necessari
             - [CREA RUOLO](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
@@ -236,7 +236,7 @@ Assegnare solo le [autorizzazioni](https://docs.microsoft.com/sql/relational-dat
             - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
             - [ALTERARE IL RUOLO DEL SERVER](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
         1. Assegnare quindi le autorizzazioni ai ruoli. 
-            - [Concedere](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) 
+            - [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) 
     - Assicurarsi di non assegnare gli utenti a ruoli non necessari.
 
 - In Azure Resource Manager:
@@ -294,7 +294,7 @@ La separazione dei doveri, denominata anche Separazione dei dazi, descrive la ne
   - Creare ruoli server per attività a livello di server (creazione di nuovi account di accesso, database) in un'istanza gestita. 
   - Creare ruoli del database per le attività a livello di database.
 
-- Per alcune attività riservate, è consigliabile creare stored procedure speciali firmate da un certificato per eseguire le attività per conto degli utenti. 
+- Per alcune attività riservate, è consigliabile creare stored procedure speciali firmate da un certificato per eseguire le attività per conto degli utenti. Un importante vantaggio delle stored procedure con firma digitale è che se la procedura viene modificata, le autorizzazioni concesse alla versione precedente della procedura vengono immediatamente rimosse.
   - Esempio: [Esercitazione: firma di stored procedure con un certificatoExample: Tutorial: Signing Stored Procedures with a Certificate](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
 
 - Implementare Transparent Data Encryption (TDE) con chiavi gestite dal cliente in Azure Key Vault per abilitare la separazione dei doveri tra il proprietario dei dati e il proprietario della sicurezza. 
@@ -303,7 +303,7 @@ La separazione dei doveri, denominata anche Separazione dei dazi, descrive la ne
 - Per garantire che un amministratore di database non possa visualizzare dati considerati altamente sensibili e che possano comunque eseguire attività di amministratore di database, è possibile usare Always Encrypted con la separazione dei ruoli. 
   - Vedere gli [articoli, Panoramica della gestione delle chiavi per Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted), [Provisioning delle chiavi con separazione](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRoles)dei ruoli e Rotazione della chiave master a colonne con [separazione](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation)dei ruoli . 
 
-- Nei casi in cui non è fattibile almeno non senza grandi costi e sforzi che possono rendere il sistema quasi inutilizzabile, compromessi possono essere fatti e mitigati attraverso l'uso di controlli di compensazione come: 
+- Nei casi in cui l'uso di Always Encrypted non è fattibile, o almeno non senza grandi costi e sforzi che possono anche rendere il sistema quasi inutilizzabile, compromessi possono essere fatti e mitigati attraverso l'uso di controlli di compensazione come: 
   - Intervento umano nei processi. 
   - Audit trail: per ulteriori informazioni sul controllo, vedere [Audit critical security events](#audit-critical-security-events).
 
@@ -315,17 +315,17 @@ La separazione dei doveri, denominata anche Separazione dei dazi, descrive la ne
 
 - Utilizzare i ruoli predefiniti quando le autorizzazioni corrispondono esattamente alle autorizzazioni necessarie: se l'unione di tutte le autorizzazioni di più ruoli predefiniti ha una corrispondenza del 100%, è possibile assegnare più ruoli contemporaneamente. 
 
-- Creare e utilizzare ruoli personalizzati quando i ruoli predefiniti concedono troppe autorizzazioni o autorizzazioni insufficienti. 
+- Creare e utilizzare ruoli definiti dall'utente quando i ruoli predefiniti concedono troppe autorizzazioni o autorizzazioni insufficienti. 
 
 - Le assegnazioni di ruolo possono anche essere eseguite temporaneamente, noto anche come separazione dinamica dei doveri (DSD), all'interno dei passaggi del processo di SQL Agent in T-SQL o usando Azure PIM per i ruoli RBAC. 
 
-- Assicurarsi che gli amministratori di database non abbiano accesso alle chiavi di crittografia o agli archivi chiavi e che gli amministratori della sicurezza con accesso alle chiavi non abbiano accesso al database. 
+- Assicurarsi che gli amministratori di database non abbiano accesso alle chiavi di crittografia o agli archivi di chiavi e che gli amministratori della sicurezza con accesso alle chiavi non abbiano accesso al database a sua volta. L'uso di [Extensible Key Management (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) può rendere questa separazione più facile da ottenere. [L'insieme](https://azure.microsoft.com/services/key-vault/) di credenziali delle chiavi di Azure può essere usato per implementare EKM. 
 
 - Assicurarsi sempre di disporre di un audit trail per le azioni correlate alla sicurezza. 
 
 - È possibile recuperare la definizione dei ruoli RBAC incorporati per visualizzare le autorizzazioni utilizzate e creare un ruolo personalizzato basato su estratti e cumuli di questi tramite PowerShell.You can retrieve the definition of the built-in RBAC roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
 
-- Poiché qualsiasi membro del ruolo del database db_owner può modificare le impostazioni di sicurezza, ad esempio Transparent Data Encryption (TDE), o modificare l'SLO, questa appartenenza deve essere concessa con attenzione. Tuttavia, esistono molte attività che richiedono privilegi di db_owner. Attività come la modifica di qualsiasi impostazione del database, ad esempio la modifica delle opzioni del database. Il controllo svolge un ruolo chiave in qualsiasi soluzione.
+- Poiché qualsiasi membro del db_owner ruolo del database può modificare le impostazioni di sicurezza, ad esempio Transparent Data Encryption (TDE), o modificare l'SLO, questa appartenenza deve essere concessa con attenzione. Tuttavia, esistono molte attività che richiedono privilegi di db_owner. Attività come la modifica di qualsiasi impostazione del database, ad esempio la modifica delle opzioni del database. Il controllo svolge un ruolo chiave in qualsiasi soluzione.
 
 - Non è possibile limitare le autorizzazioni di un db_owner e quindi impedire a un account amministrativo di visualizzare i dati utente. Se sono presenti dati altamente sensibili in un database, Always Encrypted può essere utilizzato per impedire in modo sicuro db_owners o qualsiasi altro amministratore di database di visualizzarlo.
 
@@ -436,11 +436,11 @@ I criteri che determinano quali dati sono sensibili e se i dati sensibili devono
 
 - Utilizzare la crittografia deterministica se è necessario supportare i calcoli (uguaglianza) sui dati. In caso contrario, utilizzare la crittografia casuale. Evitare di usare la crittografia deterministica per set di dati a bassa entropia o set di dati con distribuzione nota pubblicamente. 
 
-- Se si è preoccupati che i dati di terze parti accedano legalmente senza il consenso dell'utente, assicurarsi che tutte le applicazioni e gli strumenti che hanno accesso alle chiavi e ai dati in testo non crittografato vengano eseguiti al di fuori di Microsoft Azure Cloud. Senza l'accesso alle chiavi, la terza parte non avrà modo di decrittografare i dati a meno che non bypassano la crittografia.
+- Se si è preoccupati che terze parti accedano legalmente ai dati senza il consenso dell'utente, assicurarsi che tutte le applicazioni e gli strumenti che hanno accesso alle chiavi e ai dati in testo non crittografato vengano eseguiti al di fuori di Microsoft Azure Cloud. Senza l'accesso alle chiavi, la terza parte non avrà modo di decrittografare i dati a meno che non bypassano la crittografia.
 
 - Always Encrypted non supporta facilmente la concessione dell'accesso temporaneo alle chiavi (e ai dati protetti). Ad esempio, se è necessario condividere le chiavi con un amministratore di database per consentire all'amministratore di database di eseguire alcune operazioni di pulizia su dati sensibili e crittografati. L'unico modo per revocare l'accesso ai dati dall'amministratore di database consiste nel ruotare sia le chiavi di crittografia delle colonne che le chiavi master della colonna che proteggono i dati, operazione costosa. 
 
-- Per accedere ai valori di testo non crittografato nelle colonne crittografate, un utente deve avere accesso alla CMK che protegge le colonne, configurata nell'archivio chiavi che contiene la chiave CMK. L'utente deve inoltre disporre delle autorizzazioni del database **VIEW ANY COLUMN MASTER KEY DEFINITION** e VIEW ANY COLUMN ENCRYPTION KEY **DEFINITION.**
+- Per accedere ai valori di testo non crittografato nelle colonne crittografate, un utente deve avere accesso alla chiave master di colonna (CMK) che protegge le colonne, configurata nell'archivio chiavi che contiene la chiave CMK. L'utente deve inoltre disporre delle autorizzazioni del database **VIEW ANY COLUMN MASTER KEY DEFINITION** e VIEW ANY COLUMN ENCRYPTION KEY **DEFINITION.**
 
 ### <a name="control-access-of-application-users-to-sensitive-data-through-encryption"></a>Controllare l'accesso degli utenti dell'applicazione ai dati sensibili tramite la crittografia
 

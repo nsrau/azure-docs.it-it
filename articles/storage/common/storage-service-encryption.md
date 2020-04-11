@@ -4,17 +4,17 @@ description: Archiviazione di Azure protegge i dati crittografandoli automaticam
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f8f6f40f8ce8297b3cbfe6b3afcbf10df4db6572
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f112a4523bc5af9ecae57e93dfb90795d3fe9c50
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409831"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113268"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia di Archiviazione di Azure per i dati inattiviAzure Storage encryption for data at rest
 
@@ -34,7 +34,7 @@ Per altre informazioni sui moduli di crittografia sottostanti la crittografia di
 
 ## <a name="about-encryption-key-management"></a>Informazioni sulla gestione delle chiavi di crittografia
 
-Per impostazione predefinita, i dati in un account di archiviazione vengono crittografati con chiavi gestite da Microsoft.By default, data in a storage account is encrypted with Microsoft-managed keys. È possibile fare affidamento sulle chiavi gestite da Microsoft per la crittografia dei dati oppure è possibile gestire la crittografia con chiavi personalizzate. Se si sceglie di gestire la crittografia con le proprie chiavi, sono disponibili due opzioni:
+I dati in un nuovo account di archiviazione vengono crittografati con chiavi gestite da Microsoft.Data in a new storage account is encrypted with Microsoft-managed keys. È possibile fare affidamento sulle chiavi gestite da Microsoft per la crittografia dei dati oppure è possibile gestire la crittografia con chiavi personalizzate. Se si sceglie di gestire la crittografia con le proprie chiavi, sono disponibili due opzioni:
 
 - È possibile specificare una chiave gestita dal cliente con l'insieme di credenziali delle chiavi di Azure da usare per crittografare e decrittografare i dati nell'archiviazione BLOB e nei file di Azure.You can specify a *customer-managed key* with Azure Key Vault to use for encrypting and decrypting data in Blob storage and in Azure Files. <sup>1,2</sup> Per altre informazioni sulle chiavi gestite dal cliente, vedere Usare chiavi gestite dal cliente con L'insieme di credenziali delle chiavi di Azure per gestire la crittografia di Archiviazione di Azure.1,2 For more information about customer-managed keys, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](encryption-customer-managed-keys.md).
 - È possibile specificare una *chiave fornita dal cliente* nelle operazioni di archiviazione BLOB. Un client che effettua una richiesta di lettura o scrittura sull'archiviazione BLOB può includere una chiave di crittografia nella richiesta di controllo granulare sulla crittografia e decrittografia dei dati BLOB. Per altre informazioni sulle chiavi fornite dal cliente, vedere Fornire una chiave di [crittografia in una richiesta di archiviazione BLOB (anteprima).](encryption-customer-provided-keys.md)
@@ -47,8 +47,7 @@ La tabella seguente confronta le opzioni di gestione delle chiavi per la crittog
 |    Servizi di Archiviazione di Azure supportatiAzure Storage services supported    |    Tutti                                                |    Archiviazione BLOB, File di Azure<sup>1,2BLOB</sup> storage, Azure Files 1,2                                                                                                               |    Archiviazione BLOB                                                                  |
 |    Memorizzazione delle chiavi                         |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure                                                                                                                              |    Archivio chiavi di Azure o qualsiasi altro archivio chiaviAzure Key Vault or any other key store                                                                 |
 |    Responsabilità di rotazione chiave         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
-|    Uso della chiave                           |    Microsoft                                          |    Azure portal, Storage Resource Provider REST API, Azure Storage management libraries, PowerShell, CLI        |    API REST di Archiviazione di Azure (archiviazione BLOB), librerie client di Archiviazione di AzureAzure Storage REST API (Blob storage), Azure Storage client libraries    |
-|    Accesso alle chiavi                          |    Solo Microsoft                                     |    Microsoft, cliente                                                                                                                    |    Solo cliente                                                                 |
+|    Controllo dei tasti                          |    Microsoft                                     |    Customer                                                                                                                    |    Customer                                                                 |
 
 <sup>1</sup> Per informazioni sulla creazione di un account che supporta l'utilizzo di chiavi gestite dal cliente con l'archiviazione delle code, vedere [Creare un account che supporti le chiavi gestite dal cliente per le code](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> Per informazioni sulla creazione di un account che supporti l'utilizzo di chiavi gestite dal cliente con archiviazione tabelle, vedere [Creare un account che supporti le chiavi gestite dal cliente per](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)le tabelle.

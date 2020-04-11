@@ -1,27 +1,27 @@
 ---
-title: Aggiungere suggerimenti e completamento automatico in una casella di ricerca
+title: Aggiungere il completamento automatico e suggerimenti in una casella di ricerca
 titleSuffix: Azure Cognitive Search
-description: Abilitare le azioni di completamento automatico delle query in Ricerca cognitiva di Azure creando strumenti suggerimenti e formulando richieste per compilare una casella di ricerca con termini o frasi completate.
+description: Abilitare le azioni di query di ricerca durante la digitazione in Ricerca cognitiva di Azure creando suggerimenti e formulando le richieste che completano automaticamente una casella di ricerca con termini o frasi completati. Puoi anche restituire le corrispondenze suggerite.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 04/10/2020
+ms.openlocfilehash: d6c1819366fede0b1e81e43bc92ed56af93b39fd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72792516"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114953"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Aggiungere suggerimenti o completamento automatico all'applicazione Ricerca cognitiva di Azure
 
 Questo articolo illustra come usare i [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) e il [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) per creare una casella di ricerca potente che supporti i comportamenti di ricerca durante la digitazione.
 
-+ I *suggerimenti* sono i risultati suggeriti generati durante la digitazione, dove ogni suggerimento è un singolo risultato dall'indice corrispondente a quanto digitato fino a quel momento. 
++ *I suggerimenti* generano risultati di ricerca durante la digitazione, in cui ogni suggerimento è un singolo risultato o un documento di ricerca dall'indice che corrisponde a quello digitato finora. 
 
-+ Il *completamento automatico* "termina" la parola o la frase che un utente sta digitando. Anziché restituire risultati, completa una query, che può quindi essere eseguita per restituire i risultati. Come per i suggerimenti, una parola o una frase completata in una query viene predicata in base a una corrispondenza nell'indice. Il servizio non offrirà query che non restituiscono risultati nell'indice.
++ *Il completamento automatico* genera query "terminando" la parola o la frase. Anziché restituire risultati, completa una query, che può quindi essere eseguita per restituire i risultati. Come per i suggerimenti, una parola o una frase completata in una query viene predicata in base a una corrispondenza nell'indice. Il servizio non offrirà query che non restituiscono risultati nell'indice.
 
 È possibile scaricare ed eseguire il codice di esempio in **DotNetHowToAutocomplete** per valutare queste funzionalità. Il codice di esempio contiene un indice predefinito popolato con i [dati demo di NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). L'indice NYCJobs contiene un [costrutto di strumento suggerimenti](index-add-suggesters.md), che è un requisito per l'utilizzo dei suggerimenti o del completamento automatico. È possibile usare l'indice preparato in un servizio sandbox o [popolare un indice personalizzato](#configure-app) utilizzando un caricatore dati nella soluzione di esempio NYCJobs. 
 
@@ -36,11 +36,11 @@ L'esercizio guida l'utente nell'esecuzione delle le attività seguenti:
 > * In C# definire i suggerimenti e le azioni di completamento automatico in HomeController.cs
 > * In JavaScript chiamare direttamente le API REST per fornire la funzionalità equivalente
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Un servizio di ricerca cognitiva di Azure è facoltativo per questo esercizio perché la soluzione usa un servizio sandbox live che ospita un indice demo di NYCJobs preparato. Se si vuole eseguire questo esempio nel proprio servizio di ricerca, vedere [Configure l'indice di NYC Jobs](#configure-app) per le istruzioni.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
+* [Visual Studio 2017,](https://visualstudio.microsoft.com/downloads/)qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
 
 * Scaricare l'[esempio DotNetHowToAutoComplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
 
@@ -315,7 +315,7 @@ Questa esempio illustra i passaggi di base per la creazione di una casella di ri
 Il passaggio successivo prevede l'integrazione dei suggerimenti e del completamento automatico nell'esperienza di ricerca. Per altre informazioni, vedere gli articoli di riferimento seguenti.
 
 > [!div class="nextstepaction"]
-> [L'API REST Completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
-> [API REST per i consigli](https://docs.microsoft.com/rest/api/searchservice/suggestions)
-> [Attributo dell'indice dei facet in un'API REST di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index)
+> [Attributo](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> di indice dei facet[dell'API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> REST per il completamento automatico[in un'API REST Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

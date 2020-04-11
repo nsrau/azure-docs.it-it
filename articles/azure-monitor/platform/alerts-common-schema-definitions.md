@@ -1,16 +1,16 @@
 ---
-title: Definizioni comuni dello schema di avviso per Monitoraggio di AzureCommon alert schema definitions for Azure Monitor
+title: Definizioni dello schema di avviso in Monitoraggio di AzureAlert schema definitions in Azure Monitor
 description: Informazioni sulle definizioni comuni dello schema di avviso per Monitoraggio di AzureUnderstanding the common alert schema definitions for Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: fda2aa905577c19e5a90772ac87c6788198c2d0b
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 62b2738324f4c728cd4b5959c04c93649c156afb
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672912"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114451"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 

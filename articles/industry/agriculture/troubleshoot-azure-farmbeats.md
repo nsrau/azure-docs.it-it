@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886484"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113502"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
 Questo articolo fornisce soluzioni ai problemi comuni di Azure FarmBeats.This article provides solutions to common Azure FarmBeats issues. Per ulteriore assistenza, contatta il farmbeatssupport@microsoft.comnostro Forum di [supporto](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) o inviaci un'e-mail all'indirizzo .
 
 > [!NOTE]
-  > Se FarmBeats è stato installato durante aprile e i processi non riescono con un messaggio di errore vuoto, l'installazione potrebbe non essere stata allocata alcuna quota batch a causa di tutte le risorse dirette verso emergenze, assistenza sanitaria e altre esigenze critiche. È necessario richiedere alle macchine virtuali di essere allocate all'account Batch.You will need to request VMs to be allocated to the Batch account.
+  > Se FarmBeats è stato installato nel corso di aprile e i processi hanno esito negativo con un messaggio di errore vuoto, all'installazione potrebbe non essere stata allocata alcuna quota batch per assegnare priorità al supporto per le organizzazioni di salute e sicurezza critiche. Vedere [qui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) per ulteriori informazioni. Per eseguire correttamente i processi, è necessario richiedere alle macchine virtuali da allocare all'account Batch.
 
 ## <a name="install-issues"></a>Problemi di installazione
 
@@ -45,7 +45,9 @@ Contattaci con i seguenti dettagli:
 - Seguire i passaggi seguenti per allegare il file di registro per l'errore di distribuzione:
 
     1. Passare al **gruppo di risorse** nel portale di Azure.Navigate to the Resource Group in the Azure portal.
+
     2. Selezionare **Distribuzioni** nella sezione **Impostazioni** sul lato sinistro.
+
     3. Per ogni distribuzione che mostra **Non riuscito**, selezionare fino ai dettagli e scaricare i dettagli della distribuzione. Allegare il file al messaggio.
 
 ## <a name="sensor-telemetry"></a>Telemetria dei sensori

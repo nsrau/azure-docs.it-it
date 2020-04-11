@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 765decb8c65254d63ef5267cbc496d2320f58f6e
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c6455930f88d02e11cb0c45d29594ae40eaad9e3
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991927"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113283"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -25,7 +25,7 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
-| Versione V10 - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | il 9 aprile 2020 | Supportato |
+| Versione V10 - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | il 9 aprile 2020 | In volo |
 | Aggiornamento cumulativo di dicembre 2019 - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 dicembre 2019 | Supportato |
 | Versione V9 - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | giovedì 2 dicembre 2019 | Supportato |
 | Versione V8 - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 ottobre 2019 | Supportato |
@@ -68,7 +68,6 @@ Le note sulla versione seguenti sono relative alla versione 10.0.0.0 dell'agente
  
 - Miglioramenti vari delle prestazioni e dell'affidabilità
     - Rilevamento delle modifiche nella condivisione file di Azure potrebbe non riuscire se la rete virtuale (VNET) e le regole del firewall sono configurate nell'account di archiviazione.
-    - Nessun limite di descrittore di protezione più di 2 KB per la sincronizzazione degli elenchi di controllo di accesso discrezionale (DACL).  
     - Riduzione del consumo di memoria associato al richiamo. 
     - Miglioramento delle prestazioni durante l'utilizzo del cmdlet [Invoke-AzStorageSyncChangeDetection.](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection)
     - Altri miglioramenti di affidabilità vari. 

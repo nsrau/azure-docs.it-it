@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 95cb29e871cce2ba600ab654d48c685b90ed027e
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: ee4d629d80ff8265d58a1d05b8dca1652ddac6fb
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80573189"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112855"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limiti di rete - Azure Resource ManagerNetworking limits - Azure Resource Manager
 I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure Resource Manager** per ogni sottoscrizione. Informazioni su come [visualizzare l'utilizzo corrente delle risorse rispetto](../articles/networking/check-usage-against-limits.md)ai limiti della sottoscrizione.
@@ -74,7 +74,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Dimensioni del pool back-end                       | 1.000 configurazioni IP, singola rete virtuale |
 | Risorse back-end <sup>per Load Balancer 1<sup> | 150                   |
 | Porte ad alta disponibilità                 | 1 per front-end interno       |
-| Regole in uscita per Load BalancerOutbound rules per Load Balancer        | 20                            |
+| Regole in uscita per Load BalancerOutbound rules per Load Balancer        | 600                           |
 | [Timeout di inattività TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minuti/30 minuti          |
 
 <sup>1 : il</sup> nome del Il limite è fino a 150 risorse, in qualsiasi combinazione di risorse di macchine virtuali autonome, risorse del set di disponibilità e risorse del set di scalabilità delle macchine virtuali.

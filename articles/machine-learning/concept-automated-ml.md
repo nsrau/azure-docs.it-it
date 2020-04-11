@@ -10,21 +10,18 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: c8864e00be9f491d87478c253286070b9334a26e
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 095561f02fdeff6688b78d69cc1becc4ee0f8901
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383192"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115203"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
 L'apprendimento automatico, noto anche come ML automatizzato, è il processo di automazione delle attività iterative e dispendiose in termini di tempo dello sviluppo di modelli di apprendimento automatico. Consente a data scientist, analisti e sviluppatori di creare modelli di Machine Learning con scalabilità elevata, efficienza e produttività, mantenendo al contempo la qualità dei modelli. Automated ML si basa su una svolta dalla nostra [divisione Microsoft Research](https://arxiv.org/abs/1705.05355).
 
 Lo sviluppo di modelli di apprendimento automatico tradizionale richiede un utilizzo intensivo delle risorse e richiede una conoscenza e un tempo di dominio significativi per produrre e confrontare decine di modelli. Con l'apprendimento automatico, accelererai il tempo necessario per ottenere modelli ML pronti per la produzione con grande facilità ed efficienza.
-
- 
-
 
 ## <a name="when-to-use-automated-ml"></a>Quando utilizzare ML automatizzato
 
@@ -139,9 +136,13 @@ L'algoritmo di [selezione dell'ensemble Caruana](http://www.niculescu-mizil.org/
 
 Scopri le [procedure](how-to-configure-auto-train.md#ensemble) per la modifica delle impostazioni predefinite dell'insieme nell'apprendimento automatico automatico.
 
-## <a name="use-with-onnx-in-c-apps"></a>Uso di ONNX nelle app di C
+## <a name="use-with-onnx"></a>Utilizzo con ONNX
 
-Con Azure Machine Learning è possibile usare la mL automatizzata per creare un modello Python e convertirlo nel formato ONNX. Il runtime di ONNX supporta Il linguaggio C, in modo da poter usare il modello compilato automaticamente nelle app di C, senza alcuna necessità di ricodifica o di qualsiasi latenza di rete introdotta dagli endpoint REST. Provare un esempio di questo flusso [in questo blocco appunti Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+Con Azure Machine Learning è possibile usare la mL automatizzata per creare un modello Python e convertirlo nel formato ONNX. Una volta che i modelli sono in formato ONNX, possono essere eseguiti su una varietà di piattaforme e dispositivi. Ulteriori informazioni [sull'accelerazione dei modelli ML con ONNX](concept-onnx.md).
+
+Scopri come convertire in formato ONNX in questo esempio di [notebook Jupyter.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) Scopri quali [algoritmi sono supportati in ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
+
+Il runtime di ONNX supporta anche C , in modo da poter usare il modello compilato automaticamente nelle app di C, senza alcuna necessità di ricodifica o di qualsiasi latenza di rete introdotta dagli endpoint REST. Ulteriori informazioni [sull'inferenza dei modelli ONNX con l'API di runtime ONNX di C.](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md) 
 
 ## <a name="automated-ml-in-azure-machine-learning"></a>ML automatizzato in Azure Machine Learning
 
@@ -162,7 +163,7 @@ Le impostazioni seguenti consentono di configurare l'esperimento mL automatizzat
 | | Python SDK| Studio
 ----|:----:|:----:
 Suddividere i dati in set di training/convalida| ✓|✓
-Supporta le attività ML: classificazione, regressione e previsione| ✓| ✓
+Supporta le attività di ML: classificazione, regressione e previsione| ✓| ✓
 Ottimizza in base alla metrica primaria| ✓| ✓
 Supporta il calcolo AML come destinazione di calcoloSupports AML compute as compute target | ✓|✓
 Configurare l'orizzonte di previsione, i ritardi di destinazione & la finestra di rotolamento|✓|✓

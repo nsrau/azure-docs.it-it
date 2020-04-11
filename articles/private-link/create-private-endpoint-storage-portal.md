@@ -7,20 +7,17 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252538"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115117"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connettersi in privato a un account di archiviazione usando un endpoint privato di Azure
 Azure Private Endpoint is the fundamental building block for Private Link in Azure. Consente alle risorse di Azure, ad esempio le macchine virtuali (VM), di comunicare privatamente con le risorse Private Link.It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
 
 In questa guida introduttiva si apprenderà come creare una macchina virtuale in una rete virtuale di Azure, un account di archiviazione con un endpoint privato tramite il portale di Azure.In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with a Private Endpoint using the Azure portal. È quindi possibile accedere in modo sicuro all'account di archiviazione dalla macchina virtuale.
-
-> [!NOTE]
-> Gli endpoint privati non sono consentiti in combinazione con gli endpoint di servizio nella stessa subnet.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -33,16 +30,16 @@ In questa sezione verranno creati la rete virtuale e la subnet per ospitare la m
 
 In questa sezione verranno creati la rete virtuale e la subnet per ospitare la macchina virtuale usata per accedere alla risorsa Private Link.
 
-In questa sezione è necessario sostituire i seguenti parametri nei passaggi con le informazioni riportate di seguito:
+In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
 
 | Parametro                   | valore                |
 |-----------------------------|----------------------|
-| **\<>nome-gruppo di risorse**  | myResourceGroup |
-| **\<>nome-rete virtualeVirtual-network-name>** | myVirtualNetwork          |
-| **\<>nome-regione**          | Stati Uniti centro-occidentali      |
-| **\<>dello spazio indirizzo IPv4**   | 10.1.0.0\16          |
-| **\<nome della>subnet**          | mySubnet        |
-| **\<>subnet-address-range** | 10.1.0.0\24          |
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | Stati Uniti centro-occidentali      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -58,7 +55,7 @@ In questa sezione è necessario sostituire i seguenti parametri nei passaggi con
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
-    | **DETTAGLI ISTANZA** |  |
+    | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
     | Region | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
@@ -68,7 +65,7 @@ In questa sezione è necessario sostituire i seguenti parametri nei passaggi con
     | Username | Immettere un nome utente a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Reimmettere la password. |
-    | **REGOLE DELLE PORTE IN INGRESSO** |  |
+    | **REGOLE PORTA IN INGRESSO** |  |
     | Porte in ingresso pubbliche | Lasciare il valore predefinito **Nessuna**. |
     | **RISPARMIA** |  |
     | Già in possesso di una licenza di Windows? | Lasciare il valore predefinito **No**. |
@@ -76,23 +73,23 @@ In questa sezione è necessario sostituire i seguenti parametri nei passaggi con
 
 1. Selezionare **Avanti: Dischi**.
 
-1. In **Create a virtual machine - Disks**, lasciare le impostazioni predefinite e selezionare **Next: Networking**.
+1. In **Crea macchina virtuale - Dischi** mantenere le impostazioni predefinite e selezionare **Avanti: Rete**.
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
-    | Rete virtuale | Lasciare il valore predefinito **MyVirtualNetwork**.  |
+    | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
-    | Subnet | Lasciare l'impostazione predefinita **mySubnet (10.1.0.0/24)**.|
+    | Subnet | Lasciare l'impostazione predefinita **mySubnet (10.1.0.0/24)** .|
     | IP pubblico | Lasciare l'impostazione predefinita **(nuovo) myVm-ip**. |
     | Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate**. |
     | Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP**.|
     ||
 
-1. Selezionare **Revisione e creazione**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione.
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione.
 
-1. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**.
+1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
 ## <a name="create-your-private-endpoint"></a>Creare l'endpoint privatoCreate your Private Endpoint
 In questa sezione verrà creato un account di archiviazione privato usando un endpoint privato. 
@@ -106,7 +103,7 @@ In questa sezione verrà creato un account di archiviazione privato usando un en
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
-    | **DETTAGLI ISTANZA** |  |
+    | **DETTAGLI DELL'ISTANZA** |  |
     | Nome dell'account di archiviazione  | Immettere *mystorageaccount*. Se il nome è già usato, creare un nome univoco. |
     | Region | Selezionare **Stati Uniti centro-occidentali**. |
     | Prestazioni| Lasciare l'impostazione predefinita **Standard**. |
@@ -127,7 +124,7 @@ In questa sezione verrà creato un account di archiviazione privato usando un en
     |Location|Selezionare **Stati Uniti centro-occidentali**.|
     |Nome|Immettere *myPrivateEndpoint*.  |
     |Sottorisorsa di archiviazione|Lasciare il **BLOB**predefinito . |
-    | **Networking** |  |
+    | **RETE** |  |
     | Rete virtuale  | Selezionare *MyVirtualNetwork* dal gruppo di risorse *myResourceGroup*. |
     | Subnet | Selezionare *mySubnet*. |
     | **INTEGRAZIONE DNS PRIVATO**|  |
@@ -135,8 +132,8 @@ In questa sezione verrà creato un account di archiviazione privato usando un en
     | Zona DNS privato  | Lasciare il valore predefinito **(Nuovo) privatelink.blob.core.windows.net**. |
     |||
 7. Selezionare **OK**. 
-8. Selezionare **Revisione e creazione**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
-9. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**. 
+8. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
+9. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**. 
 10. Passare alla risorsa dell'account di archiviazione appena creata.
 11. Selezionare **Chiavi di accesso** dal menu del contenuto a sinistra.
 12. Selezionare Copia nella stringa di connessione per key1.Select **Copy** on the connection string for key1.
@@ -158,7 +155,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     1. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
 
         > [!NOTE]
-        > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un account diverso**per specificare le credenziali immesse al momento della creazione della macchina virtuale.
+        > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
 1. Selezionare **OK**.
 
@@ -184,9 +181,9 @@ In questa sezione ci si connetterà privatamente all'account di archiviazione us
 4. Selezionare **Account di** archiviazione con il pulsante destro del mouse.
 5. Selezionare **Connetti a un archivio azure**.
 6. Selezionare **Usa una stringa**di connessione .
-7. Fare clic su **Avanti**.
+7. Selezionare **Avanti**.
 8. Immettere la stringa di connessione incollando le informazioni copiate in precedenza.
-9. Fare clic su **Avanti**.
+9. Selezionare **Avanti**.
 10. Selezionare **Connetti**.
 11. Esplorare i contenitori BLOB da mystorageaccount 
 12. (Opzionalmente) Creare cartelle e/o caricare file in *mystorageaccount*. 

@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 77ad8579f31ce900a67e2ba3ddc53a5b034b6d42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7120ba2cf71c9af5373b830d04d0b67952922887
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454670"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113513"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -252,7 +252,7 @@ Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **r
    > Le regole della rete IP non hanno alcun effetto sulle richieste provenienti dalla stessa area di Azure dell'account di archiviazione. Usare le [regole di rete virtuale](#grant-access-from-a-virtual-network) per consentire richieste della stessa area.
 
   > [!NOTE]
-  > I servizi distribuiti nella stessa area dell'account di archiviazione usano indirizzi IP privati di Azure per la comunicazione. Pertanto, non è possibile limitare l'accesso a servizi di Azure specifici in base all'intervallo di indirizzi IP in ingresso pubblico.
+  > I servizi distribuiti nella stessa area dell'account di archiviazione usano indirizzi IP privati di Azure per la comunicazione. Pertanto, non è possibile limitare l'accesso a specifici servizi di Azure in base all'intervallo di indirizzi IP in uscita pubblico.
 
 Solo gli indirizzi IPV4 sono supportati per la configurazione delle regole del firewall di archiviazione.
 
@@ -372,17 +372,17 @@ Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili...** a
 
 | Service                  | Nome provider di risorse     | Operazioni consentite                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
-| Backup di Azure             | Microsoft.RecoveryServices | Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Scopri di più](/azure/backup/backup-introduction-to-azure-backup). |
-| Azure Data Box           | Microsoft.DataBox          | Consente l'importazione di dati in Azure tramite Data Box. [Scopri di più](/azure/databox/data-box-overview). |
-| Azure DevTest Labs       | Microsoft.DevTestLab       | Creazione di immagini personalizzate e installazione di artefatti. [Scopri di più](/azure/devtest-lab/devtest-lab-overview). |
+| Backup di Azure             | Microsoft.RecoveryServices | Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](/azure/backup/backup-introduction-to-azure-backup) |
+| Azure Data Box           | Microsoft.DataBox          | Consente l'importazione di dati in Azure tramite Data Box. [Altre informazioni](/azure/databox/data-box-overview) |
+| Azure DevTest Labs       | Microsoft.DevTestLab       | Creazione di immagini personalizzate e installazione di artefatti. [Altre informazioni](/azure/devtest-lab/devtest-lab-overview) |
 | Griglia di eventi di Azure         | Microsoft.EventGrid        | Abilitare la pubblicazione di eventi di archiviazione BLOB e consentire a Griglia di eventi la pubblicazione nelle code di archiviazione. Informazioni sugli [eventi di archiviazione BLOB](/azure/event-grid/event-sources) e sulla [pubblicazione nelle code](/azure/event-grid/event-handlers). |
 | Hub eventi di Azure         | Microsoft.EventHub         | Archiviare dati con Acquisizione di Hub eventi. [Ulteriori informazioni](/azure/event-hubs/event-hubs-capture-overview). |
-| Sincronizzazione file di Azure          | Microsoft.StorageSync      | Consente di trasformare il file server locale in una cache per le condivisioni file di Azure.Enables you to transform your on-prem file server to a cache for Azure File shares. Consentire la sincronizzazione multisito, il ripristino rapido e il backup sul lato cloud. [Scopri di più](../files/storage-sync-files-planning.md) |
-| HDInsight di Azure          | Microsoft.HDInsight        | Effettuare il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight.Provision the initial contents of the default file system for a new HDInsight cluster. [Scopri di più](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
-| Esportazione importazione AzureAzure Import Export      | Microsoft.ImportExport     | Consente l'importazione di dati in Azure e l'esportazione di dati da Azure usando il servizio di importazione/esportazione. [Scopri di più](/azure/storage/common/storage-import-export-service).  |
-| Monitoraggio di Azure            | Microsoft.Insights         | Consente la scrittura dei dati di monitoraggio in un account di archiviazione protetto, inclusi i log di diagnostica delle risorse, i log di accesso e di controllo di Azure Active Directory e i log di Microsoft Intune. [Scopri di più](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log di traffico di rete. [Scopri di più](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza delle macchine virtuali IaaS di Azure quando si usano account di archiviazione di tipo cache, di origine o di destinazione abilitati per il firewall.  [Scopri di più](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Sincronizzazione file di Azure          | Microsoft.StorageSync      | Consente di trasformare il file server locale in una cache per le condivisioni file di Azure.Enables you to transform your on-prem file server to a cache for Azure File shares. Consentire la sincronizzazione multisito, il ripristino rapido e il backup sul lato cloud. [Altre informazioni](../files/storage-sync-files-planning.md) |
+| HDInsight di Azure          | Microsoft.HDInsight        | Effettuare il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight.Provision the initial contents of the default file system for a new HDInsight cluster. [Altre informazioni](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) |
+| Esportazione importazione AzureAzure Import Export      | Microsoft.ImportExport     | Consente l'importazione di dati in Azure e l'esportazione di dati da Azure usando il servizio di importazione/esportazione. [Altre informazioni](/azure/storage/common/storage-import-export-service)  |
+| Monitoraggio di Azure            | Microsoft.Insights         | Consente la scrittura dei dati di monitoraggio in un account di archiviazione protetto, inclusi i log di diagnostica delle risorse, i log di accesso e di controllo di Azure Active Directory e i log di Microsoft Intune. [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security) |
+| Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log di traffico di rete. [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza delle macchine virtuali IaaS di Azure quando si usano account di archiviazione di tipo cache, di origine o di destinazione abilitati per il firewall.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
 
 L'impostazione **Consenti servizi Microsoft attendibili...** consente inoltre a una particolare istanza dei servizi seguenti di accedere all'account di archiviazione, se si assegna in modo esplicito [un ruolo RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) [all'identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza della risorsa. In questo caso, l'ambito di accesso per l'istanza corrisponde al ruolo RBAC assegnato all'identità gestita.
 
@@ -392,10 +392,10 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente inoltre a 
 | Attività di Registro Azure Container | Microsoft.ContainerRegistry/registries | Le attività ACR possono accedere agli account di archiviazione durante la creazione di immagini del contenitore. |
 | Data factory di Azure             | Microsoft.DataFactory/factories        | Consente l'accesso agli account di archiviazione tramite il runtime ADF. |
 | Condivisione dati di Azure               | Microsoft.DataShare/accounts           | Consente l'accesso agli account di archiviazione tramite la condivisione dati. |
-| App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Scopri di più](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
-| Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono output dell'esperimento, modelli e log nell'archiviazione BLOB e leggono i dati. [Scopri di più](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
-| Azure SQL Data Warehouse       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da istanze di database SQL specifiche tramite PolyBase. [Scopri di più](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. Questa funzionalità è attualmente in anteprima. [Scopri di più](/azure/stream-analytics/blob-output-managed-identity). |
+| App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity) |
+| Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono output dell'esperimento, modelli e log nell'archiviazione BLOB e leggono i dati. [Altre informazioni](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace) | 
+| Azure SQL Data Warehouse       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da istanze di database SQL specifiche tramite PolyBase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
+| Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. Questa funzionalità è attualmente in anteprima. [Altre informazioni](/azure/stream-analytics/blob-output-managed-identity) |
 | Azure Synapse Analytics        | Microsoft.Synapse/aree di lavoro          | Consente l'accesso ai dati in Archiviazione di Azure da Synapse Analytics.Enables access to data in Azure Storage from Synapse Analytics. |
 
 

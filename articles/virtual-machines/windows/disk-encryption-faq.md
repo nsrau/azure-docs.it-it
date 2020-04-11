@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4ab59ab5b988b54333c419ced7fa852da531eaa
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8ef791759a33d08aaff068b0dd2634e5f21bb1b6
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984334"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114977"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Azure Disk Encryption for Windows virtual machines FAQ
 
@@ -64,7 +64,7 @@ Crittografia disco di Azure offre la crittografia end-to-end per il disco del si
 
 - Se i requisiti includono la crittografia di tutti i dati precedenti e la crittografia end-to-end, usare Crittografia disco di Azure.If your requirements include encrypting all of the above and end-to-end encryption, use Azure Disk Encryption. 
 - Se i requisiti includono la crittografia solo dei dati inattivi con la chiave gestita dal cliente, utilizzare la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md). Non è possibile crittografare un disco con crittografia del disco di Azure e crittografia lato server di archiviazione con chiavi gestite dal cliente.
-_ Se si utilizza uno scenario definito in [scenari non supportati per Windows](disk-encryption-windows.md#unsupported-scenarios), prendere in considerazione la crittografia [lato server con chiavi gestite dal cliente](disk-encryption.md). 
+- Se si utilizza uno scenario definito in [scenari non supportati per Windows](disk-encryption-windows.md#unsupported-scenarios), prendere in considerazione la crittografia [lato server con chiavi gestite dal cliente](disk-encryption.md). 
 - Se i criteri dell'organizzazione consentono di crittografare il contenuto con una chiave gestita da Azure, non è necessaria alcuna azione: il contenuto viene crittografato per impostazione predefinita. Per i dischi gestiti, il contenuto all'interno dell'archiviazione viene crittografato per impostazione predefinita con la crittografia lato server con chiave gestita dalla piattaforma. La chiave è gestita dal servizio Archiviazione di Azure.The key is managed by the Azure Storage service. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Come si ruotano i segreti o le chiavi di crittografia?

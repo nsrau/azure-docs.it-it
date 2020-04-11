@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55537fb923b26de4e02be35fdb817dee147584d7
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75354640"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115131"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Informazioni sulla gestione del tempo in Analisi di flusso di Azure
 
@@ -96,7 +96,7 @@ Oltre alla finestra di tolleranza per arrivo in ritardo esiste anche, all'oppost
 
 Poiché Analisi di flusso di Azure garantisce sempre la generazione di risultati completi, è possibile specificare solo l'**ora di inizio processo** come prima ora di output del processo, invece dell'ora di input. L'ora di inizio processo è necessaria per elaborare la finestra completa, invece che a partire dalla parte centrale.
 
-Analisi di flusso deriva quindi l'ora di inizio dalla specifica della query. Tuttavia, poiché il gestore eventi di input viene indicizzato solo in base all'ora di arrivo, il sistema deve convertire l'ora di inizio dell'evento in ora di arrivo. Il sistema può iniziare a elaborare gli eventi da quel punto nel gestore eventi di input. Con il limite della finestra di tolleranza per arrivo in anticipo la conversione è semplice. Corrisponde all'ora di inizio dell'evento meno i 5 minuti della finestra di tolleranza per arrivo in anticipo. In base a questo calcolo, il sistema elimina tutti gli eventi la cui ora dell'evento è superiore all'ora di arrivo di oltre 5 minuti.
+Analisi di flusso deriva quindi l'ora di inizio dalla specifica della query. Tuttavia, poiché il gestore eventi di input viene indicizzato solo in base all'ora di arrivo, il sistema deve convertire l'ora di inizio dell'evento in ora di arrivo. Il sistema può iniziare a elaborare gli eventi da quel punto nel gestore eventi di input. Con il limite della finestra di tolleranza per arrivo in anticipo la conversione è semplice. È l'ora dell'evento di partenza meno la finestra in arrivo anticipata di 5 minuti. Questo calcolo significa anche che il sistema elimina tutti gli eventi che sono visti come avere un tempo di evento 5 minuti più veloce rispetto all'ora di arrivo.
 
 Questo concetto viene usato per garantire la ripetibilità dell'elaborazione indipendentemente dal punto di inizio dell'output. Senza questo meccanismo non sarebbe possibile garantire la ripetibilità, come invece pretendono di fare molti altri sistemi di streaming.
 

@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 03/24/2020
-ms.openlocfilehash: 27abdfe28e2594c98778b51532fbd22f95bfa3ac
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b121830192a2b88185bbbbc9a92934e51b32a61c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984709"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114656"
 ---
 # <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Integrare Azure AD nel servizio Azure Kubernetes (anteprima)Integrate Azure AD in Azure Kubernetes Service (Preview)
 
@@ -98,12 +98,12 @@ Il comando precedente crea un cluster AKS a tre nodi, ma l'utente, che ha creato
 Dopo aver creato un gruppo e aggiunto se stessi (e altri) come membro, è possibile aggiornare il cluster con il gruppo di Azure AD usando il comando seguenteOnce you've created a group and added yourself (and others) as a member, you can update the cluster with the Azure AD group using the following command
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 In alternativa, se si crea prima un gruppo e si aggiungono membri, è possibile abilitare il gruppo di Azure AD in fase di creazione usando il comando seguente,
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
 Una corretta creazione di un cluster di Azure AD v2 include la sezione seguente nel corpo della risposta
