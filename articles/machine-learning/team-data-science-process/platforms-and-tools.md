@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d26dc55cfd0f2ef0bb78e4153fffe3f1cb910b73
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 3f3f06bd5a9b6a78b45a63de0684b580e662075b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474880"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256519"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
@@ -49,7 +49,7 @@ Include anche **strumenti ML e AI** come xgboost, mxnet e Vowpal Wabbit.
 
 La macchina virtuale data science è attualmente disponibile nei sistemi operativi **Windows** e **Linux CentOS**. Scegliere le dimensioni della macchina virtuale data science da usare (numero di core CPU e quantità di memoria) in base alle esigenze dei progetti di data science che si prevede di eseguirvi. 
 
-Per altre informazioni sull'edizione Windows di DSVM, vedere Microsoft Data Science Virtual Machine in Azure Marketplace.For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) on the Azure Marketplace. Per l'edizione Linux della macchina virtuale data science, vedere [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) (Macchina virtuale data science di Linux).
+Per altre informazioni sull'edizione Windows di DSVM, vedere Microsoft Data Science Virtual Machine in Azure Marketplace.For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) on the Azure Marketplace. Per l'edizione Linux della macchina virtuale data science, vedere [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) (Macchina virtuale data science di Linux).
 
 Per informazioni su come eseguire alcune delle attività comuni di data science in modo efficiente, vedere 10 operazioni che è possibile eseguire nella macchina virtuale di analisi scientifica dei datiTo learn how to execute some of the common data science tasks on the DSVM efficiently, see [10 things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md)
 

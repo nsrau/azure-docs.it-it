@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/10/2020
 ms.author: dsindona
-ms.openlocfilehash: a370b7b21d25f117e44d613d060dd8cdd060c062
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2fdf40dde287a65548f1db04d34ed3cf67d0374
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336271"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262163"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Politiche e termini del mercato commerciale
 
@@ -21,9 +21,9 @@ ms.locfileid: "80336271"
 
 Grazie per il vostro interesse per l'editoria di offerte sul mercato commerciale. Ci impegniamo a collaborare con voi per creare una ricca fonte di soluzioni cloud e una linea di soluzioni di business, che deliziano i clienti in tutto il mondo e vi aiutano a costruire il vostro business.
 
-Le offerte sul mercato devono rispettare le nostre norme e condizioni. Aggiorniamo di tanto in tanto queste norme e questi termini per garantire una buona esperienza del cliente e offrire ai partner l'opportunità di avere successo. Se hai commenti e suggerimenti sui nostri criteri o condizioni, comunicacelo commentando nel [forum di Azure Marketplace e AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+Le offerte sul mercato devono rispettare le nostre norme e condizioni. Aggiorniamo di tanto in tanto queste norme e questi termini per garantire una buona esperienza del cliente e offrire ai partner l'opportunità di avere successo. Se hai commenti e suggerimenti sui nostri criteri o condizioni, comunicacelo commentando il [forum di Azure Marketplace e Microsoft AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
-## <a name="policies-and-terms"></a>Politiche e termini
+## <a name="policies-and-terms"></a>Criteri e termini
 
 * [Criteri di certificazione del marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
@@ -35,6 +35,6 @@ Le offerte sul mercato devono rispettare le nostre norme e condizioni. Aggiornia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visita la pagina della guida alla pubblicazione di [Azure Marketplace e AppSource.](./marketplace-publishers-guide.md)
+Visita la pagina della guida alla pubblicazione del [mercato commerciale.](./marketplace-publishers-guide.md)
 
 ---

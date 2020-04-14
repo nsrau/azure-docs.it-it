@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668146"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261075"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi di metrica con soglie dinamiche in Monitoraggio di AzureMetri Alerts with Dynamic Thresholds in Azure Monitor
 
@@ -93,7 +93,8 @@ Quando viene creata una regola di avviso per la prima volta, le soglie visualizz
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quanti dati sono necessari per attivare un avviso?
 
-Se si dispone di una nuova risorsa o di dati di metrica mancanti, le soglie dinamiche non attivano avvisi prima di tre giorni o 30 campioni di dati delle metriche sono disponibili per garantire soglie accurate.
+Se si dispone di una nuova risorsa o di dati di metrica mancanti, le soglie dinamiche non attiveranno avvisi prima di tre giorni e sono disponibili almeno 30 campioni di dati delle metriche, per garantire soglie accurate.
+Per le risorse esistenti con dati di metrica sufficienti, le soglie dinamiche possono attivare immediatamente gli avvisi.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Procedure consigliate per le soglie dinamiche
 

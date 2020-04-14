@@ -5,17 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 681e71fae161100c8804f95980b9e9567dcf1863
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66e640ab199a884ebfab69cbe7db7f562d848720
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288615"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256349"
 ---
 <a name="create-or-modify-an-offer"></a>Create o modificare un'offerta
 =========================
+
+> [!NOTE]
+> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
 
 Questa chiamata crea una nuova offerta o aggiorna una specifica offerta all'interno dello spazio dei nomi del server di pubblicazione.
 
@@ -35,7 +38,7 @@ Questa chiamata crea una nuova offerta o aggiorna una specifica offerta all'inte
 <a name="header"></a>Intestazione
 ------
 
-|  **Nome**        |  **Valore**               |
+|  **Nome**        |  **valore**               |
 |  ---------       |  ----------              | 
 | Content-Type     | `application/json`       |
 | Autorizzazione    | `Bearer YOUR_TOKEN`      |

@@ -1,7 +1,7 @@
 ---
-title: Eseguire il debug e risolvere i problemi delle pipeline di Machine Learning
+title: Risolvere i problemi relativi ai & di debug relativi a pipeline di Machine OLDebug & troubleshoot ML pipelines
 titleSuffix: Azure Machine Learning
-description: Debug and troubleshoot machine learning pipelines in the Azure Machine Learning SDK for Python. Informazioni sulle insidie comuni per lo sviluppo di pipeline e suggerimenti per il debug degli script prima e durante l'esecuzione remota. Informazioni su come usare Visual Studio Code per eseguire il debug interattivo delle pipeline di Machine Learning.Learn how to use Visual Studio Code to interactively debug your machine learning pipelines.
+description: Debug your Azure Machine Learning pipelines in Python. Informazioni sulle insidie comuni per lo sviluppo di pipeline e suggerimenti per il debug degli script prima e durante l'esecuzione remota. Informazioni su come usare Visual Studio Code per eseguire il debug interattivo delle pipeline di Machine Learning.Learn how to use Visual Studio Code to interactively debug your machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388985"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257216"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Eseguire il debug e risolvere i problemi delle pipeline di Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Nelle sezioni seguenti viene fornita una panoramica delle insidie comuni durante
 
 ### <a name="testing-scripts-locally"></a>Test degli script in locale
 
-Uno degli errori più comuni in una pipeline è che uno script collegato (script di pulizia dei dati, script di assegnazione dei dati e così via) non è in esecuzione come previsto o contiene errori di runtime nel contesto di calcolo remoto che sono difficili da eseguire il debug nell'area di lavoro nel computer Azure Studio di apprendimento. 
+Uno degli errori più comuni in una pipeline è che uno script collegato (script di pulizia dei dati, script di assegnazione dei dati e così via) non è in esecuzione come previsto o contiene errori di runtime nel contesto di calcolo remoto che sono difficili da eseguire il debug nell'area di lavoro in Azure Machine Learning Studio. 
 
 Le pipeline stesse non possono essere eseguite localmente, ma l'esecuzione degli script in isolamento nel computer locale consente di eseguire il debug più velocemente perché non è necessario attendere il processo di compilazione del calcolo e dell'ambiente. A tale scopo, è necessario un lavoro di sviluppo:Some development work is required to do this:
 

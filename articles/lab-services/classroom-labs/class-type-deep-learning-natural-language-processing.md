@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 889d0d1e98f5c9947588011774d02e54f05edca1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80109394"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257760"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configurare un lab incentrato sul Deep Learning nell'elaborazione del linguaggio naturale con Azure Lab Services
 Questo articolo illustra come configurare un lab incentrato sul deep learning nell'elaborazione del linguaggio naturale (NLP) usando Azure Lab Services.This article shows you how to set up a lab focused on deep learning in natural language processing (NLP) using Azure Lab Services. L'elaborazione del linguaggio naturale è una forma di intelligenza artificiale che dota i computer di strumenti di traduzione, riconoscimento vocale e altre funzionalità di comprensione del linguaggio.  
@@ -39,7 +39,7 @@ Seguire [questa esercitazione](tutorial-setup-classroom-lab.md) per creare un nu
 | Impostazioni lab | Valore/istruzioni | 
 | ------------ | ------------------ |
 | Dimensioni della macchina virtuale (VM)Virtual machine (VM) size | GPU piccola (Compute). Questa dimensione è più adatta per applicazioni ad alta intensità di elaborazione e di rete come intelligenza artificiale e Deep Learning. |
-| Immagine della macchina virtualeVM image | [Data Science Virtual Machine per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). Questa immagine fornisce framework e strumenti di deep learning per l'apprendimento automatico e l'analisi scientifica dei dati. Per visualizzare l'elenco completo degli strumenti installati in questa immagine, vedere il seguente articolo: [Che cosa è incluso in DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
+| Immagine della macchina virtualeVM image | [Data Science Virtual Machine per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Questa immagine fornisce framework e strumenti di deep learning per l'apprendimento automatico e l'analisi scientifica dei dati. Per visualizzare l'elenco completo degli strumenti installati in questa immagine, vedere il seguente articolo: [Che cosa è incluso in DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
 | Abilitare la connessione desktop remoto | Abilita. <p>L'abilitazione di questa impostazione consentirà a insegnanti e studenti di connettersi alle proprie macchine virtuali (VM) tramite Desktop remoto (RDP).</p><p>**Importante**: RDP è già installato e configurato nell'immagine Data Science Virtual Machine for Linux. Di conseguenza, gli insegnanti/studenti possono connettersi alle macchine virtuali tramite RDP senza ulteriori passaggi. Inoltre, se è necessario connettersi al desktop grafico, in questa immagine è già installato [X2Go Server](https://wiki.x2go.org/doku.php/doc:newtox2go) nella macchina virtuale. Gli studenti devono installare il client X2Go nei computer locali e devono utilizzare il client per la connessione. Per ulteriori informazioni, vedere le seguenti guide: <ul><li>[Come accedere alla macchina virtuale per l'analisi scientifica dei dati per Linux](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)</li><li>[Connettersi alla macchina virtuale modello per installare i pacchetti RDP e GUIConnect to the template VM to install RDP and GUI packages](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)</li></ul></p>   |
 
 L'immagine Data Science Virtual Machine for Linux fornisce i framework e gli strumenti di deep learning necessari per questo tipo di classe. Di conseguenza, dopo la creazione della macchina modello, non è necessario personalizzarlo ulteriormente. Può essere pubblicato per gli studenti di utilizzare. Selezionare il pulsante **Pubblica** nella pagina del modello per pubblicare il modello nel lab.  

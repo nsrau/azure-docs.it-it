@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 0d28469820f63f63089d9b91d57ccd7fe75c8b95
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 809fbe85a9783777d5dbef86357bd5a386bd6f81
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348646"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261242"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Rimuovere TLS 1.0 e 1.1 dall'uso con la cache di Azure per RedisRemove TLS 1.0 and 1.1 from use with Azure Cache for Redis
 
@@ -51,7 +51,7 @@ La maggior parte delle applicazioni utilizza librerie client Redis per gestire l
 I client Redis .NET utilizzano la versione TLS meno recente per impostazione predefinita in .NET Framework 4.5.2 o versioni precedenti e utilizzano la versione TLS più recente in .NET Framework 4.6 o versioni successive. Se si utilizza una versione precedente di .NET Framework, è possibile abilitare manualmente TLS 1.2:
 
 * **StackExchange.Redis:** Set `ssl=true` `sslprotocols=tls12` e nella stringa di connessione.
-* **ServiceStack.Redis:** Seguire le [istruzioni di ServiceStack.Redis](https://github.com/ServiceStack/ServiceStack.Redis/pull/247).
+* **ServiceStack.Redis:** Seguire le istruzioni [di ServiceStack.Redis](https://github.com/ServiceStack/ServiceStack.Redis#servicestackredis-ssl-support) e richiede almeno ServiceStack.Redis v5.6.
 
 ### <a name="net-core"></a>.NET Core
 

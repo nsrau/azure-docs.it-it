@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2019
+ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: a5540eea91937319a6ac947b50698ccaa8b25847
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 006d4fa9ed09170a423e796e893b817e079e861b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931693"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261933"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Eseguire pacchetti di SQL Server Integration Services con l'utilità dtexec abilitata per AzureRun SQL Server Integration Services packages with the Azure-enabled dtexec utility
 Questo articolo descrive l'utilità del prompt dei comandi dtexec (AzureDTExec) abilitata per Azure.This article describes the Azure-enabled dtexec (AzureDTExec) command prompt utility. Viene usato per eseguire pacchetti di SQL Server Integration Services (SSIS) in Azure-SSIS Integration Runtime (IR) in Azure Data Factory.It's used to run SQL Server Integration Services (SSIS) packages on the Azure-SSIS Integration Runtime (IR) in Azure Data Factory.
@@ -46,19 +46,19 @@ Nella finestra AzureDTExecConfig immettere le impostazioni di configurazione com
 - **ApplicationId:** immettere l'identificatore univoco dell'app Azure AD creata con le autorizzazioni appropriate per generare pipeline nella data factory. Per altre informazioni, vedere [Creare un'app Azure AD e un'entità servizio tramite il portale](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)di Azure.For more information, see Create an Azure AD app and service principal via Azure portal.
 - **AuthenticationKey:** immettere la chiave di autenticazione per l'app Azure AD.
 - **TenantId:** immettere l'identificatore univoco del tenant di Azure AD, in cui viene creata l'app Azure AD.
-- **SubscriptionId:** immettere l'identificatore univoco della sottoscrizione di Azure, in cui è stata creata la data factory.
-- **ResourceGroup:** immettere il nome del gruppo di risorse di Azure in cui è stata creata la data factory.
 - **DataFactory:** immettere il nome della data factory in cui vengono generate pipeline univoche con l'attività Esegui pacchetto SSIS in base ai valori delle opzioni fornite quando si richiama AzureDTExec.
 - **IRName**: immettere il nome del runtime di accesso Azure-SSIS nella data factory, in cui verranno eseguiti i pacchetti specificati nel percorso UNC (Universal Naming Convention).
-- **PackageAccessDomain:** immettere le credenziali di dominio per accedere ai pacchetti nel percorso UNC specificato quando si richiama AzureDTExec.PackageAccessDomain : Enter the domain credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
-- **PackageAccessUserName:** immettere le credenziali del nome utente per accedere ai pacchetti nel percorso UNC specificato quando si richiama AzureDTExec.PackageAccessUserName : Enter the username credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
-- **PackageAccessPassword:** immettere le credenziali della password per accedere ai pacchetti nel percorso UNC specificato quando si richiama AzureDTExec.PackageAccessPassword : Enter the password credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
-- **LogPath**: Immettere il percorso UNC della cartella di log, in cui vengono scritti i file di log delle esecuzioni del pacchetto nel componente di accesso Azure-SSIS.
-- **LogLevel**: immettere l'ambito di registrazione selezionato dalle opzioni **predefinite null**, **Basic**, **Verbose**o **Performance** per le esecuzioni del pacchetto nel componente di accesso Azure-SSIS.
-- **LogAccessDomain**: immettere le credenziali di dominio per accedere alla cartella di registro nel percorso UNC quando si scrivono i file di registro, operazione necessaria quando si specifica **LogPath** e **LogLevel** non è **null**.
-- **LogAccessUserName**: immettere le credenziali del nome utente per accedere alla cartella di registro nel relativo percorso UNC quando si scrivono i file di registro, operazione necessaria quando si specifica **LogPath** e **LogLevel** non è **null**.
-- **LogAccessPassword**: Immettere le credenziali della password per accedere alla cartella di registro nel percorso UNC quando si scrivono i file di registro, operazione necessaria quando si specifica **LogPath** e **LogLevel** non è **null**.
 - **PipelineNameHashStrLen**: immettere la lunghezza delle stringhe hash da generare dai valori delle opzioni fornite quando si richiama AzureDTExec. PipelineNameHashStrLen : Enter the length of hash strings to be generated from the values of options you provide when you invoke AzureDTExec. Le stringhe vengono usate per formare nomi univoci per le pipeline di Data Factory che eseguono i pacchetti nel runtime di irrichiesta Di Azure-SSIS. Di solito una lunghezza di 32 caratteri è sufficiente.
+- **ResourceGroup:** immettere il nome del gruppo di risorse di Azure in cui è stata creata la data factory.
+- **SubscriptionId:** immettere l'identificatore univoco della sottoscrizione di Azure, in cui è stata creata la data factory.
+- **LogAccessDomain**: immettere le credenziali di dominio per accedere alla cartella di registro nel percorso UNC quando si scrivono i file di registro, operazione necessaria quando si specifica **LogPath** e **LogLevel** non è **null**.
+- **LogAccessPassword**: Immettere le credenziali della password per accedere alla cartella di registro nel percorso UNC quando si scrivono i file di registro, operazione necessaria quando si specifica **LogPath** e **LogLevel** non è **null**.
+- **LogAccessUserName**: immettere le credenziali del nome utente per accedere alla cartella di registro nel relativo percorso UNC quando si scrivono i file di registro, operazione necessaria quando si specifica **LogPath** e **LogLevel** non è **null**.
+- **LogLevel**: immettere l'ambito di registrazione selezionato dalle opzioni **predefinite null**, **Basic**, **Verbose**o **Performance** per le esecuzioni del pacchetto nel componente di accesso Azure-SSIS.
+- **LogPath**: Immettere il percorso UNC della cartella di log, in cui vengono scritti i file di log delle esecuzioni del pacchetto nel componente di accesso Azure-SSIS.
+- **PackageAccessDomain:** immettere le credenziali di dominio per accedere ai pacchetti nel percorso UNC specificato quando si richiama AzureDTExec.PackageAccessDomain : Enter the domain credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
+- **PackageAccessPassword:** immettere le credenziali della password per accedere ai pacchetti nel percorso UNC specificato quando si richiama AzureDTExec.PackageAccessPassword : Enter the password credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
+- **PackageAccessUserName:** immettere le credenziali del nome utente per accedere ai pacchetti nel percorso UNC specificato quando si richiama AzureDTExec.PackageAccessUserName : Enter the username credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
 
 Per archiviare i pacchetti e i file di log in file system o condivisioni file in locale, aggiungere il componente di integrazione azure-SSIS a una rete virtuale connessa alla rete locale in modo che possa recuperare i pacchetti e scrivere i file di log. Per altre informazioni, vedere [Aggiungere un componente di riprodotto Azure-SSIS a una rete virtuale.](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
 
@@ -92,7 +92,7 @@ La chiamata di AzureDTExec offre opzioni simili a quelle di richiamare dtexec. P
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo che le pipeline univoche con l'attività Esegui pacchetto SSIS in esse vengono generate ed eseguite dopo aver richiamato AzureDTExec, possono essere monitorate nel portale di Data Factory.After unique pipelines with the Execute SSIS Package activity in them are generated and run after you invoke AzureDTExec, they can be monitored on the Data Factory portal. Per altre informazioni, vedere [Eseguire pacchetti SSIS come attività di Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Dopo che le pipeline univoche con l'attività Esegui pacchetto SSIS in esse vengono generate ed eseguite quando si richiama AzureDTExec, è possibile monitorarle nel portale di Data Factory.After unique pipelines with the Execute SSIS Package activity in them are generated and run when you invoke AzureDTExec, they can be monitored on the Data Factory portal. You can also assign Data Factory triggers to them if you want to orchestrate/schedule them using Data Factory. Per altre informazioni, vedere [Eseguire pacchetti SSIS come attività di Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 > [!WARNING]
 > La pipeline generata deve essere usata solo da AzureDTExec.The generated pipeline is expected to be used only by AzureDTExec. Le sue proprietà o parametri potrebbero cambiare in futuro, quindi non modificarli o riutilizzarli per altri scopi. Le modifiche potrebbero interrompere AzureDTExec.Modifications might break AzureDTExec. In questo caso, eliminare la pipeline. AzureDTExec genera una nuova pipeline al successivo richiamo.

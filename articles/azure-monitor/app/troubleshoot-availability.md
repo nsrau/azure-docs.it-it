@@ -1,17 +1,17 @@
 ---
-title: Risolvere i problemi relativi ai test di disponibilità di Azure Application Insights . Documenti Microsoft
+title: Risolvere i problemi relativi ai test di disponibilità di Azure Application InsightsTroubleshoot your Azure Application Insights availability tests
 description: Risolvere i problemi relativi ai test Web in Azure Application Insights.Troubleshoot web tests in Azure Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f135aa6c0a4a55f8a42fd858572cc811e25b27c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94b00a36445b0f4284caba218f6416db726611eb
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671104"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255448"
 ---
 # <a name="troubleshooting"></a>Risoluzione dei problemi
 

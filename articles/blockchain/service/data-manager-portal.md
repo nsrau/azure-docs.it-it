@@ -4,12 +4,12 @@ description: Creare e gestire il servizio Blockchain Data Manager per Azure Bloc
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
-ms.openlocfilehash: beacef0660a253c90afb507618e8a1742f0c9d2d
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529605"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260599"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurare Blockchain Data Manager con il portale di Azure
 
@@ -28,7 +28,7 @@ Per configurare un'istanza di Blockchain Data Manager, è necessario:
 
 ## <a name="create-instance"></a>Creare un'istanza
 
-Un'istanza di Blockchain Data Manager connette e monitora un nodo della transazione del servizio Azure Blockchain. Solo gli utenti con accesso al nodo della transazione possono creare una connessione. Un'istanza acquisisce tutti i dati di blocchi e transazioni non elaborati dal nodo della transazione.
+Un'istanza di Blockchain Data Manager connette e monitora un nodo della transazione del servizio Azure Blockchain. Solo gli utenti con accesso al nodo della transazione possono creare una connessione. Un'istanza acquisisce tutti i dati di blocchi e transazioni non elaborati dal nodo della transazione. Blockchain Data Manager pubblica un messaggio **RawBlockAndTransactionMsg** che è un superset di informazioni restituite da web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) query.
 
 Una connessione in uscita invia i dati della blockchain a Griglia di eventi di Azure. Quando si crea l'istanza, viene configurata una singola connessione in uscita. Blockchain Data Manager supporta più connessioni in uscita per gli argomenti di Griglia di eventi per qualsiasi istanza di Blockchain Data Manager specificata. È possibile inviare i dati della blockchain a una o più destinazioni. Per aggiungere un'altra destinazione, è sufficiente aggiungere altre connessioni in uscita all'istanza.
 

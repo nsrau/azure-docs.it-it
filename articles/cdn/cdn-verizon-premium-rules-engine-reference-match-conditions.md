@@ -2,17 +2,17 @@
 title: Le condizioni del motore regole di Azure della rete CDN di Azure Premium Documenti Microsoft
 description: La documentazione di riferimento per la rete per la distribuzione di contenuti di Azure dal motore regole Verizon Premium soddisfa le condizioni.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: e2361590118668f2cdf22c4a29534b16790b90e4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593210"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253442"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Le condizioni del motore regole di Azure della rete CDN di Azure PremiumAzure CDN from Verizon Premium rules engine match conditions
 
@@ -519,7 +519,7 @@ La condizione Metodo di richiesta verrà soddisfatta solo quando gli asset vengo
 - POST
 - OPTIONS
 - PUT
-- Elimina
+- DELETE
 - TRACE
 - CONNECT
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: 418be090e7ff78ec0089c115c9884ffeffdda871
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4359c5581d14f4a918a49cf2b91ac58561ea93d3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284018"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257454"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -27,7 +27,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 | ---- | ----- | ----- |
 | Azioni per flusso di lavoro | 500 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
 | Livello di annidamento consentito per le azioni | 8 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
-| Flussi di lavoro per area per sottoscrizione | 1.000 | |
+| Flussi di lavoro per area per sottoscrizione | 1\.000 | |
 | Trigger per flusso di lavoro | 10 | Quando si usa la visualizzazione codice e non la finestra di progettazione |
 | Limite ambito switch-case | 25 | |
 | Variabili per flusso di lavoro | 250 | |
@@ -64,7 +64,7 @@ Per modificare il limite predefinito per la durata dell'esecuzione e la conserva
 > Per le app per la logica in Azure multi-tenant, il limite predefinito di 90 giorni corrisponde al limite massimo. È possibile solo diminuire questo valore.
 > Per le app per la logica in un ambiente del servizio di integrazione, è possibile ridurre o aumentare il limite predefinito di 90 giorni.
 
-1. Passare al [portale di Azure](https://portal.azure.com). Nella casella di ricerca del portale individuare e selezionare **App per**la logica .
+1. Accedere al [portale di Azure](https://portal.azure.com). Nella casella di ricerca del portale individuare e selezionare **App per**la logica .
 
 1. Selezionare e quindi aprire l'app per la logica in Progettazione app per la logica.
 
@@ -84,7 +84,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
-| Concorrenza di trigger | - Illimitato quando il controllo della concorrenza è disattivato <p><p>- 25 è il limite predefinito quando il controllo della concorrenza è attivato, che non può essere annullato dopo l'attivazione del controllo. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>**Nota:** quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per la [distribuzione di matrici.](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Concorrenza di trigger | - Illimitato quando il controllo della concorrenza è disattivato <p><p>- 25 è il limite predefinito quando il controllo della concorrenza è attivato, che non è possibile annullare dopo aver abilitato la concorrenza.- 25 is the default limit when the concurrency control is turned on, which you can't unundo after you enable concurrency. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>**Nota:** quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per la [distribuzione di matrici.](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Numero massimo di esecuzioni in attesa | - Senza concorrenza, il numero minimo di esecuzioni in attesa è 1, mentre il numero massimo è 50.- Without concurrency, the minimum number of waiting runs is 1, while the maximum number is 50. <p><p>- Con la concorrenza, il numero minimo di esecuzioni in attesa è 10 più il numero di esecuzioni simultanee (concorrenza trigger). È possibile modificare il numero massimo impostando un valore fino a 100 (incluso). | Questo limite descrive il numero più alto di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementi della matrice foreach | 100,000 | Questo limite descrive il numero più alto di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](logic-apps-perform-data-operations.md#filter-array-action). |
 | Concorrenza foreach | 20 è il limite predefinito quando il controllo della concorrenza è disattivato. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite indica il numero più alto di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Eseguire i cicli "for each" in modo sequenziale](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
@@ -167,6 +167,8 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 | Limite di caratteri DELL'URL della richiesta | 16.384 caratteri |
 |||
 
+<a name="retry-policy-limits"></a>
+
 #### <a name="retry-policy"></a>Criteri di ripetizione
 
 | Nome | Limite | Note |
@@ -213,7 +215,7 @@ Ogni sottoscrizione di Azure ha questi limiti di account di integrazione:Each Az
   | ISE SKU | Limiti dell'account di integrazione |
   |---------|----------------------------|
   | **Premium** | 5 totale - Solo conti [standard,](../logic-apps/logic-apps-pricing.md#integration-accounts) incluso un account Standard gratuito. Non sono ammessi account gratuiti o di base. |
-  | **Sviluppatore** | 5 totale - [Gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitato a 1 account) e [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combinato, o tutti gli account Standard. Non sono ammessi account Basic. Usare lo [SKU per sviluppatori](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) per sperimentare, eseguire lo sviluppo e il test, ma non per i test di produzione o delle prestazioni. |
+  | **Developer** | 5 totale - [Gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitato a 1 account) e [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combinato, o tutti gli account Standard. Non sono ammessi account Basic. Usare lo [SKU per sviluppatori](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) per sperimentare, eseguire lo sviluppo e il test, ma non per i test di produzione o delle prestazioni. |
   |||
 
 I costi aggiuntivi si applicano agli account di integrazione aggiunti oltre agli account di integrazione inclusi in ISE. Per informazioni sul funzionamento dei prezzi e della fatturazione per ISE, vedere il modello di determinazione dei prezzi app per la [logica.](../logic-apps/logic-apps-pricing.md#fixed-pricing) Per i prezzi, vedere [Prezzi di App per la logica.](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -230,12 +232,12 @@ Per i prezzi, vedere [Prezzi di App per la logica.](https://azure.microsoft.com/
 
 | Elemento | Gratuito | Basic | Standard |
 |----------|------|-------|----------|
-| Contratti commerciali EDI | 10 | 1 | 1.000 |
-| Partner commerciali EDI | 25 | 2 | 1.000 |
-| Mappe | 25 | 500 | 1.000 |
-| Schemi | 25 | 500 | 1.000 |
-| Assembly | 10 | 25 | 1.000 |
-| Certificati | 25 | 2 | 1.000 |
+| Contratti commerciali EDI | 10 | 1 | 1\.000 |
+| Partner commerciali EDI | 25 | 2 | 1\.000 |
+| Mappe | 25 | 500 | 1\.000 |
+| Schemi | 25 | 500 | 1\.000 |
+| Assembly | 10 | 25 | 1\.000 |
+| Certificati | 25 | 2 | 1\.000 |
 | Configurazioni batch | 5 | 1 | 50 |
 ||||
 

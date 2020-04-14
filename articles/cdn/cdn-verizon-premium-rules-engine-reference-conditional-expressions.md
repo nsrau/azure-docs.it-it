@@ -2,17 +2,17 @@
 title: Espressioni condizionali per la rete CDN di Azure - Motore regole Verizon PremiumConditional expressions for Azure CDN - Verizon Premium rules engine
 description: La documentazione di riferimento per la rete CDN di Azure dal motore regole di Verizon Premium soddisfa le condizioni e le funzionalità.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: d28bda28894477845c2a050666b3b4dd332b7d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 25b3c1a011e39adea651a6daa1d4ab9aa3a9d186
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082967"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253510"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>La rete CDN di Azure da Verizon Premium motore espressioni condizionaliAzure CDN from Verizon Premium rules engine conditional expressions
 

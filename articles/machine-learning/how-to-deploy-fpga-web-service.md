@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cb6cf49e302122849dc2402bcff008e72e15608
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 870f7b0ab0f1d7b247435cdbb74e21801b3b052a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472359"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257182"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Che cosa sono gli array gate programmabili sul campo (FPGA) e come distribuirlo
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +51,7 @@ Microsoft Azure ha realizzato l'investimento in dispositivi FPGA per il cloud pi
 FPGA in Azure supporta:FPGAAs on Azure supports:
 
 + Scenari di riconoscimento e classificazione di immagini
-+ Distribuzione di TensorFlow
++ Distribuzione tensorFlow (richiede Tensorflow 1.x)
 + Hardware Intel FPGA
 
 Questi modelli DNN sono attualmente disponibili:
@@ -115,9 +115,8 @@ Gli scenari seguenti utilizzano FPGA:
 - Python SDK per modelli con accelerazione hardware:
 
     ```bash
-    pip install --upgrade azureml-accel-models
+    pip install --upgrade azureml-accel-models[cpu]
     ```
-
 
 ## <a name="1-create-and-containerize-models"></a>1. Creare e creare modelli
 
@@ -364,7 +363,7 @@ aks_service.wait_for_deployment(show_output=True)
 #### <a name="test-the-cloud-service"></a>Testare il servizio cloudTest the cloud service
 L'immagine Docker supporta gRPC e l'API "predict" di TensorFlow.  Usare il client di esempio per chiamare nell'immagine Docker per ottenere stime dal modello.  Codice client di esempio è disponibile:Sample client code is available:
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
-- [C #](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
+- [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
 Se si desidera utilizzare TensorFlow Serving, è possibile [scaricare un client di esempio.](https://www.tensorflow.org/serving/setup)
 

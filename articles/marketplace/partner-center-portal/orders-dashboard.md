@@ -7,21 +7,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281409"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261262"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard degli ordini nell'analisi di Commercial Marketplace
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard degli ordini nell'analisi del mercato commerciale
 
 In questo articolo vengono fornite informazioni sul **dashboard Ordini** nel Centro per i partner. Questo dashboard visualizza le informazioni sugli ordini in un formato grafico e scaricabile.
 
 Per accedere al **dashboard Ordini** negli strumenti di analisi del Centro per i partner, aprire il **[dashboard Analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Commercial Marketplace.
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia dell'analisi, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)di Commercial Marketplace.
+> Per le definizioni dettagliate della terminologia dell'analisi, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)del mercato commerciale.
 
 ## <a name="orders-dashboard"></a>Dashboard Ordini
 
@@ -36,7 +36,7 @@ Il **pannello Ordini** del menu **Analizza** visualizza gli ordini correnti per 
 - [Tabella dei dettagli dell'ordine](#order-details-table)
 
 > [!NOTE]
-> Esistono differenze tra la visualizzazione dei report di analisi nel portale Cloud Partner (CPP) e il nuovo programma Commercial Marketplace nel Centro per i partner. Un modo specifico è che le **informazioni sul venditore** in CPP hanno una scheda **Ordini & Utilizzo,** che visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo. Nel Centro per i partner, la pagina **Ordini** include una scheda separata per le offerte SaaS.
+> Esistono differenze tra la visualizzazione dei report di analisi nel portale Cloud Partner (CPP) e il nuovo programma del marketplace commerciale nel Centro per i partner. Un modo specifico è che le **informazioni sul venditore** in CPP hanno una scheda **Ordini & Utilizzo,** che visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo. Nel Centro per i partner, la pagina **Ordini** include una scheda separata per le offerte SaaS.
 
 ## <a name="order-dashboard-details"></a>Dettagli dashboard ordini
 
@@ -124,10 +124,10 @@ Questi filtri vengono applicati a livello di pagina.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dei report di analisi disponibili nel Marketplace commerciale del Centro per i partner, vedere Analisi per il Marketplace commerciale nel Centro per i [partner.](./analytics.md)
-- Per i grafici, le tendenze e i valori dei dati aggregati che riepilogano l'attività del marketplace per la tua offerta, vedi [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)di Commercial Marketplace.
-- Per la macchina virtuale (VM) offerte metriche di utilizzo e fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi](./usage-dashboard.md)di Commercial Marketplace.
-- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti in Analisi di Marketplace commerciale](./customer-dashboard.md).
-- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Dashboard di download in Analisi di Marketplace commerciale](./downloads-dashboard.md).
-- Per visualizzare una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Valutazioni e recensioni del dashboard nell'analisi](./ratings-reviews.md)di Commercial Marketplace.
-- Per le domande frequenti sull'analisi di Commercial Marketplace e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)di Commercial Marketplace .
+- Per una panoramica dei report di analisi disponibili nel marketplace commerciale del Centro per i partner, vedere Analisi per il marketplace commerciale nel Centro per i [partner.](./analytics.md)
+- Per i grafici, le tendenze e i valori dei dati aggregati che riepilogano l'attività del marketplace per la tua offerta, vedi [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)del marketplace commerciale.
+- Per la macchina virtuale (VM) offre l'utilizzo e le metriche di fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi del marketplace commerciale.](./usage-dashboard.md)
+- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti nell'analisi](./customer-dashboard.md)del mercato commerciale .
+- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Dashboard download nell'analisi](./downloads-dashboard.md)del marketplace commerciale .
+- Per visualizzare una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Valutazioni e recensioni del dashboard nell'analisi](./ratings-reviews.md)del marketplace commerciale.
+- Per le domande frequenti sull'analisi del mercato commerciale e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)del mercato commerciale.

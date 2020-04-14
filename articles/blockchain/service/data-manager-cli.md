@@ -4,12 +4,12 @@ description: Creare e gestire un servizio Blockchain Data Manager per Azure Bloc
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
-ms.openlocfilehash: 5ceca96f760ab62ca7f3df9ad26139b9b4a3e5be
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529598"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254411"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurare Blockchain Data Manager con l'interfaccia della riga di comando di Azure
 
@@ -40,7 +40,7 @@ Se si preferisce installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato myResourceGroup nella posizione *eastus:The* following example creates a resource group named *myResourceGroup* in the eastus location:
+Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
@@ -48,7 +48,7 @@ az group create --name myRG --location eastus
 
 ## <a name="create-instance"></a>Creare un'istanza
 
-Un'istanza di Blockchain Data Manager esegue il monitoraggio di un nodo di transazione del servizio Blockchain di Azure.A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node. Un'istanza acquisisce tutti i dati di blocchi e transazioni non elaborati dal nodo della transazione.
+Un'istanza di Blockchain Data Manager esegue il monitoraggio di un nodo di transazione del servizio Blockchain di Azure.A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node. Un'istanza acquisisce tutti i dati di blocchi e transazioni non elaborati dal nodo della transazione. Blockchain Data Manager pubblica un messaggio **RawBlockAndTransactionMsg** che è un superset di informazioni restituite da web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) query.
 
 ``` azurecli
 az resource create \

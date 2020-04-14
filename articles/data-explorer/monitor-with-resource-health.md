@@ -7,12 +7,12 @@ ms.reviewer: prvavill
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 9b8b1b40e972d7719ef2cf495ed12cb4ed3478fd
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ee42f45d8c96e908061142b5a8e6b2e5cee21993
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479370"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262061"
 ---
 # <a name="monitor-azure-data-explorer-using-resource-health-preview"></a>Monitorare Azure Data Explorer usando Integrità risorse (anteprima)Monitor Azure Data Explorer using Resource Health (Preview)
 
@@ -44,7 +44,7 @@ Lo stato di integrità **Disponibile** indica che la risorsa di Azure Data Explo
 
 ### <a name="unavailable"></a>Non disponibile
 
-Lo stato di integrità **Non disponibile** indica che si è verificato un problema in corso con la risorsa di Azure Data Explorer che la rende non disponibile per le query e l'inserimento. Ad esempio, i nodi nella risorsa Azure Data Explorer potrebbero essere stati riavviati in modo imprevisto. Se la risorsa Di Azure Data Explorer rimane in questo stato per un periodo di tempo prolungato, contattare [il supporto]()tecnico .
+Lo stato di integrità **Non disponibile** indica che si è verificato un problema in corso con la risorsa di Azure Data Explorer che la rende non disponibile per le query e l'inserimento. Ad esempio, i nodi nella risorsa Azure Data Explorer potrebbero essere stati riavviati in modo imprevisto. Se la risorsa di Azure Data Explorer rimane in questo stato per un periodo di tempo prolungato, contattare il supporto tecnico.
 
 ![Non disponibile](media/monitor-with-resource-health/unavailable.png)
 

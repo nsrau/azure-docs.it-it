@@ -3,12 +3,12 @@ title: Backup di file e cartelle - domande comuni
 description: Risolve le domande comuni sul backup di file e cartelle con Backup di Azure.Addresses common questions about backing up files and folders with Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 55819ce7ec5196812d935a21c096c132144d78af
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421313"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254751"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
 
@@ -22,7 +22,7 @@ L'agente MARS più recente utilizzato durante il backup di computer Windows Serv
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Per quanto tempo sono valide per le credenziali dell'insieme di credenziali?
 
-Le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file delle credenziali scade, scaricare di nuovo il file dal portale di Azure.If the credentials file expires, download the file again from the Azure portal.
+Le credenziali del Vault scadono dopo 10 giorni. Se il file delle credenziali scade, scaricare di nuovo il file dal portale di Azure.If the credentials file expires, download the file again from the Azure portal.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Da quali unità è possibile eseguire il backup di file e cartelle?
 
@@ -185,7 +185,6 @@ Se si dispone della stessa passphrase (fornita durante la registrazione) del com
 | --- | --- | --- |
 | Lost |Disponibile |È possibile installare e registrare l'agente MARS su un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere Recovery Option Another location **(Opzione** > di**ripristino) In un'altra posizione** per eseguire il ripristino. Per ulteriori informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Lost |Lost |Non è possibile recuperare i dati o i dati non è disponibile |
-
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Cosa accade se si annulla un processo di ripristino in corso?
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 95f6befa7e97984ad64a3ffb2a9b91d343945cbb
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81000661"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262435"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Ricerca fuzzy per correggere errori di ortografia e errori di battitura
 
@@ -71,7 +71,7 @@ In Ricerca cognitiva di Azure, oltre al termine e alla distanza (massimo 2), non
 > [!NOTE]
 > Durante l'elaborazione delle query, le query fuzzy non vengono sottoposte a [analisi lessicale.](search-lucene-query-architecture.md#stage-2-lexical-analysis) L'input della query viene aggiunto direttamente all'albero delle query ed espanso per creare un grafico dei termini. L'unica trasformazione eseguita è l'uso di maiuscole e minuscole.
 
-## <a name="how-to-test-fuzzy-search"></a>Come testare la ricerca fuzzy
+## <a name="testing-fuzzy-search"></a>Test della ricerca fuzzy
 
 Per test semplici, è consigliabile [eseguire Esplora ricerche](search-explorer.md) o [Postman](search-get-started-postman.md) per l'iterazione su un'espressione di query. Entrambi gli strumenti sono interattivi, il che significa che è possibile passare rapidamente attraverso più varianti di un termine e valutare le risposte che tornano.
 

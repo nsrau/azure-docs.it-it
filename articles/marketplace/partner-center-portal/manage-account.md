@@ -1,22 +1,22 @@
 ---
-title: Come gestire un account Di mercato commerciale nel Centro per i partner
-description: Scopri come gestire un account Commercial Marketplace nel Centro per i partner.
+title: Come gestire un account di mercato commerciale nel Centro per i partner
+description: Scopri come gestire un account di mercato commerciale nel Centro per i partner.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 6d3952c38703d8102a45c4117e3c59e3fa464957
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50ea56a8c743636f9fdd9105e5b07a868e71d3d0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275816"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262928"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire il proprio account del marketplace commerciale nel Centro per i partner
+# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire il tuo account di mercato commerciale nel Centro per i partner
 
-Dopo aver [creato un account del Centro per](./create-account.md)i partner, è possibile gestire l'account e le offerte utilizzando il dashboard Commercial [Marketplace.](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
+Dopo aver [creato un account del Centro per](./create-account.md)i partner, è possibile gestire l'account e le offerte utilizzando il dashboard del marketplace [commerciale.](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
 
 In questo articolo, approfondiremo come gestire il tuo account del Centro per i partner, incluso come:
 
@@ -40,7 +40,7 @@ Se non è già stato fatto, l'utente (o l'amministratore dell'organizzazione) de
 
 ### <a name="open-developer-settings"></a>Aprire le impostazioni dello sviluppatore
 
-Le impostazioni dell'account si trovano nell'angolo superiore destro del [dashboard di Commercial Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace) nel Centro per i partner. Selezionare l'icona a forma di ingranaggio (nell'angolo superiore destro del dashboard) e quindi selezionare **Impostazioni sviluppatore**.
+Le impostazioni dell'account si trovano nell'angolo in alto a destra del dashboard del [marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace) nel Centro per i partner. Selezionare l'icona a forma di ingranaggio (nell'angolo superiore destro del dashboard) e quindi selezionare **Impostazioni sviluppatore**.
 
 ![Menu Impostazioni account nel Centro per i partner](./media/dashboard-developer-settings.png)
 
@@ -67,7 +67,7 @@ Nella sezione Informazioni di contatto è possibile visualizzare il **nome visua
 Un conto di pagamento è il conto bancario a cui vengono inviati i proventi dalle vendite. Questo conto bancario deve trovarsi nello stesso paese in cui hai registrato il tuo conto del Centro per i partner.
 
 Per configurare l'account di pagamento, è necessario **associare l'account Microsoft:**
-1. Vai alla [pagina Panoramica del Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) nel Centro per i partner.
+1. Vai alla [pagina di panoramica](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) del marketplace commerciale nel Centro per i partner.
 2. Nella sezione Profilo selezionare **Associa account Microsoft**.
 3. Quando richiesto, accedere con l'account Microsoft (MSA). Questo account non può essere già associato a un altro account del Centro per i partner.
 4. Per completare la configurazione dell'account di pagamento, esci completamente dal Centro per i partner, quindi accedi di nuovo con il tuo account Microsoft (anziché con il tuo account di lavoro).
@@ -114,7 +114,7 @@ Una volta che hai impostato lo stato dei proventi in attesa come **attivato**, t
 
 ### <a name="devices"></a>Dispositivi
 
-Le impostazioni di gestione dei dispositivi si applicano solo alla pubblicazione UWP. [Scopri di più](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
+Le impostazioni di gestione dei dispositivi si applicano solo alla pubblicazione UWP. [Altre informazioni](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info)
 
 ### <a name="tracking-guids"></a>GUID di rilevamento
 
@@ -126,8 +126,8 @@ Si consiglia di creare un GUID univoco per ogni canale di offerta e distribuzion
 
 Se si usa un modello per distribuire un prodotto disponibile su Azure Marketplace e su GitHub, è possibile creare e registrare 2 GUID distinti:
 
-*   Prodotto A su Azure Marketplace
-*   Prodotto A su GitHub
+*    Prodotto A su Azure Marketplace
+*    Prodotto A su GitHub
 
 La creazione di report viene effettuata in base al valore partner (ID partner Microsoft) e ai GUID. È inoltre possibile tenere traccia dei GUID a un livello più granulare allineati a ogni piano all'interno dell'offerta.
 
@@ -297,7 +297,7 @@ Agli utenti della tua azienda possono essere assegnati i ruoli e le autorizzazio
 - **Manager**
   - Può accedere a tutte le funzionalità dell'account Microsoft, ad eccezione delle impostazioni fiscali e di pagamento
   - Può gestire utenti, ruoli e account di lavoro (tenant)
-- **Sviluppatore**
+- **Developer**
   - Può gestire e pubblicare le offerte
   - Può visualizzare alcuni rapporti del publisher
 
@@ -308,7 +308,7 @@ Per altre informazioni sulla gestione di ruoli e autorizzazioni in altre aree de
 
 ## <a name="manage-tenants"></a>Gestire i tenant
 
-Un tenant di Azure Active Directory (AD), noto anche come "account di lavoro" in questa documentazione, è una rappresentazione dell'organizzazione configurata nel portale di Azure e consente di gestire un'istanza specifica dei servizi cloud Microsoft per l'interno utenti esterni. Se l'organizzazione ha sottoscritto un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365, è stato stabilito automaticamente un tenant di Azure AD.
+Un tenant di Azure Active Directory (AD), noto anche come "account di lavoro" in questa documentazione, è una rappresentazione dell'organizzazione configurata nel portale di Azure e consente di gestire un'istanza specifica dei servizi cloud Microsoft per gli utenti interni ed esterni. Se l'organizzazione ha sottoscritto un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365, è stato stabilito automaticamente un tenant di Azure AD.
 
 È possibile configurare più tenant da usare con il Centro per i partner. Qualsiasi utente con il ruolo **Manager** nell'account del Centro per i partner avrà la possibilità di aggiungere e rimuovere tenant di Azure AD dall'account.  
 

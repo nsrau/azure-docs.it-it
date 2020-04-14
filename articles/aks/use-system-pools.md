@@ -4,16 +4,19 @@ description: Informazioni su come creare e gestire pool di nodi di sistema nel s
 services: container-service
 ms.topic: article
 ms.date: 04/06/2020
-ms.openlocfilehash: ef5400f19f68fd2da45776d220e17777f58e46e6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986317"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259069"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gestire i pool di nodi di sistema nel servizio Azure Kubernetes (AKS)Manage system node pools in Azure Kubernetes Service (AKS)
 
-Nel servizio Azure Kubernetes (AKS), i nodi della stessa configurazione vengono raggruppati in pool di *nodi.* I pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. I pool di nodi di sistema e i pool di nodi utente sono due diverse modalità di pool di nodi per i cluster AKS. I pool di nodi di sistema ospitano servizi di sistema essenziali, ad esempio CoreDNS. I pool di nodi utente consentono di inserire i pod specifici dell'applicazione. Ogni cluster AKS deve contenere almeno un pool di nodi di sistema con almeno un nodo. Se si esegue un pool di nodi di sistema singolo per il cluster AKS, è consigliabile usare almeno tre nodi per il pool di nodi. 
+Nel servizio Azure Kubernetes (AKS), i nodi della stessa configurazione vengono raggruppati in pool di *nodi.* I pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. I pool di nodi di sistema e i pool di nodi utente sono due diverse modalità di pool di nodi per i cluster AKS. I pool di nodi di sistema hanno lo scopo principale di ospitare pod di sistema critici come CoreDNS e tunnelfront. I pool di nodi utente servono allo scopo principale dell'hosting dei pod dell'applicazione. Tuttavia, i pod dell'applicazione possono essere pianificati nei pool di nodi di sistema se si desidera avere un solo pool nel cluster AKS. Ogni cluster AKS deve contenere almeno un pool di nodi di sistema con almeno un nodo. 
+
+> [!Important]
+> Se si esegue un singolo pool di nodi di sistema per il cluster AKS in un ambiente di produzione, è consigliabile usare almeno tre nodi per il pool di nodi.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

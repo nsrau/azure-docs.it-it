@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ccfaa57b8e8fdea325bed908ffe8815b09d0d15
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271161"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257794"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -25,7 +25,7 @@ L'hub IoT non è un broker MQTT completo e non supporta tutti i comportamenti sp
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Tutte le comunicazioni del dispositivo con l'hub IoT devono essere protette tramite TLS/SSL. Pertanto, l'hub IoT non supporta le connessioni non protette sulla porta 1883.
+Tutte le comunicazioni del dispositivo con l'hub IoT devono essere protette tramite TLS/SSL. Pertanto, l'hub IoT non supporta le connessioni non protette tramite la porta 1883.Therefore, IoT Hub doesn't support non-secure connections over port 1883.
 
 ## <a name="connecting-to-iot-hub"></a>Connessione all'hub IoT
 
@@ -49,7 +49,7 @@ La tabella seguente contiene collegamenti a esempi di codice per ogni linguaggio
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt. Mqtt | azure-iot-device-mqtt. MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C #](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt | TransportType.Mqtt esegue il fallback a MQTT su Web Sockets se MQTT ha esito negativo. Per specificare MQTT solo su Web Sockets, utilizzare TransportType.Mqtt_WebSocket_Only |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt | TransportType.Mqtt esegue il fallback a MQTT su Web Sockets se MQTT ha esito negativo. Per specificare MQTT solo su Web Sockets, utilizzare TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Supporta MQTT per impostazione predefinita | Aggiungere `websockets=True` la chiamata per creare il clientAdd in the call to create the client |
 
 Il frammento seguente mostra come specificare il protocollo MQTT su Web Sockets quando si usa l'SDK di Azure IoT Node.js:
@@ -118,7 +118,7 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
   Per altre informazioni su come generare i token di firma di accesso condiviso, vedere la sezione sui dispositivi nell'articolo [Uso dei token di sicurezza dell'hub IoT](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Durante il test è anche possibile usare la multipiattaforma [Azure IoT Tools per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o lo strumento[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) per generare rapidamente un token di firma di accesso condiviso da copiare e incollare nel codice:
+  Durante il test, è anche possibile usare gli strumenti IoT di Azure multipiattaforma per Visual Studio Code o il comando di estensione dell'interfaccia della riga di comando az iot hub generate-sas-token per generare rapidamente un token di firma di accesso condiviso che è possibile copiare e incollare nel codice:When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI command az [iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code:
 
 ### <a name="for-azure-iot-tools"></a>Per gli strumenti IoT di AzureFor Azure IoT Tools
 
@@ -129,16 +129,6 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 3. Impostare l'**ora di scadenza** premere "Invio".
   
 4. Il token di firma di accesso condiviso viene creato e copiato negli appunti.
-
-### <a name="for-device-explorer"></a>Per Device Explorer
-
-1. Passare alla scheda **Gestione** in **Esplora dispositivi**.
-
-2. Fare clic su **SAS Token** in alto a destra.
-
-3. In **SASTokenForm** selezionare il dispositivo nell'elenco a discesa **DeviceID**. Impostare il valore **TTL**.
-
-4. Fare clic su **Generate** per creare il token.
 
    Il token SAS generato ha questa struttura:
 
@@ -359,7 +349,7 @@ La sequenza seguente descrive in che modo un dispositivo aggiorna le proprietà 
 
 3. Il servizio invia un messaggio di risposta che contiene il nuovo valore ETag per la raccolta di proprietà dichiarate sull'argomento `$iothub/twin/res/{status}/?$rid={request id}`. Questo messaggio di risposta utilizza lo stesso **ID richiesta** della richiesta.
 
-Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi valori per le proprietà segnalate. Ogni membro nel documento JSON aggiorna o aggiunge il membro corrispondente nel documento del dispositivo gemello. Un membro impostato su `null` elimina il membro dall'oggetto contenitore. Ad esempio:
+Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi valori per le proprietà segnalate. Ogni membro nel documento JSON viene aggiornato o aggiunto il membro corrispondente nel documento del dispositivo gemello. Un membro impostato su `null` elimina il membro dall'oggetto contenitore. Ad esempio:
 
 ```json
 {

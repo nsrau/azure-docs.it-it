@@ -1,6 +1,6 @@
 ---
-title: Determinare l'opzione di pubblicazione in Microsoft AppSource e Azure MarketplaceDetermine Your Publishing Option in Microsoft AppSource and Azure Marketplace
-description: Questo articolo descrive i criteri di idoneità e i requisiti di pubblicazione dei partner che cercano di comprendere come pubblicare app in Microsoft AppSource e Azure Marketplace.
+title: Determinare l'opzione di pubblicazione nel mercato commerciale
+description: Questo articolo descrive i criteri di idoneità e i requisiti di pubblicazione dei partner che cercano di capire come pubblicare le app nel marketplace commerciale.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: dsindona
 ms.service: marketplace
@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: dsindona
-ms.openlocfilehash: 4c41fcbb8766feb68db7d60d591e914a6ba0aea2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 84d5c351f3997fe5430ea1ce517c2dca13203c03
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349531"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261687"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 
 L'opzione di pubblicazione scelta per l'offerta si riferisce direttamente ai requisiti di idoneità e ai vantaggi GTM del marketplace commerciale. Ancora più importante, la selezione dell'opzione di pubblicazione e del tipo di offerta definisce il modo in cui gli utenti interagiranno con la tua offerta di mercato commerciale.
 
-Per configurare l'offerta, è necessario comprendere i seguenti concetti chiave del mercato commerciale: le opzioni di pubblicazione, i tipi di offerta e la configurazione e gli inviti all'azione che governeranno come e dove l'offerta viene presentata nel mercato commerciale Vetrine.
+Per configurare la tua offerta, devi comprendere i seguenti concetti chiave del mercato commerciale: le opzioni di pubblicazione, i tipi di offerta e la configurazione e gli inviti all'azione che governeranno come e dove la tua offerta viene presentata nelle vetrine del marketplace commerciale.
 
 ![Vetrine e opzioni di pubblicazione del marketplace commerciale Microsoft](./media/marketplace-publishers-guide/storefronts_options_table.png)
 

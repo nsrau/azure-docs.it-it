@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 595c87d2b8182c9044baeb2662e34871d9e52c52
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991246"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261024"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD activity logs in Azure Monitor
 
@@ -98,12 +98,13 @@ Gli eventi sono suddivisi in batch a intervalli di circa cinque minuti e vengono
 
 Ad esempio, circa 18 eventi al secondo si verificano di solito per un tenant di grandi dimensioni di oltre 100.000 utenti, un tasso che equivale a 5.400 eventi ogni cinque minuti. Dato che i log di controllo sono di circa 2 KB per evento, ciò equivale a 10,8 MB di dati. Vengono quindi inviati 43 messaggi all'hub eventi in quell'intervallo di cinque minuti. 
 
-La tabella seguente contiene una stima del costo mensile per un hub eventi di base negli Stati Uniti occidentali, a seconda del volume di dati degli eventi. Usare il [calcolatore prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/) per calcolare una stima accurata del volume di dati previsto per l'applicazione.
+La tabella seguente contiene i costi stimati al mese per un hub eventi di base negli Stati Uniti occidentali, a seconda del volume di dati degli eventi che possono variare da tenant a tenant in base a molti fattori, ad esempio il comportamento di accesso degli utenti e così via. Per calcolare una stima accurata del volume di dati previsto per l'applicazione, utilizzare il calcolatore dei [prezzi di Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Categoria di log | Numero di utenti | Eventi al secondo | Eventi per intervallo di cinque minuti | Volume per intervallo | Messaggi per intervallo | Messaggi al mese | Costo mensile (stima) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100,000 | 18 | 5.400 | 10,8 MB | 43 | 371.520 | $10,83 |
 | Audit | 1\.000 | 0,1 | 52 | 104 KB | 1 | 8.640 | $10,80 |
+| Accessi | 100,000 | 18000 | 5,400,000 | 10,8 GB | 42188 | 364,504,320 | 23,9 USD |  
 | Accessi | 1\.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Considerazioni sui costi dei log di Monitoraggio di Azure

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: bcacf4ff66e114f65ac75f0aadd1564875f15f62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a83f47942e986e882d99528be3f03f616c2a7e04
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501360"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257054"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Deep learning e machine learning
 
@@ -118,6 +118,6 @@ Gli articoli seguenti illustrano come usare la tecnologia di deep learning in [A
 
 - [Classificare le immagini utilizzando un modello Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
-- [Classificare le cifre scritte a mano utilizzando un modello Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+- [Classificare le cifre scritte a mano utilizzando un modello Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
 
 Inoltre, usa il [foglio trucco dell'algoritmo](../synapse-analytics/sql-data-warehouse/cheat-sheet.md) di Machine Learning per scegliere gli algoritmi per il tuo modello.

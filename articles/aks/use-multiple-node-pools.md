@@ -4,16 +4,16 @@ description: Informazioni su come creare e gestire pool di più nodi per un clus
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 26fd541552ee203216af5a08d948644d82061191
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984913"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259086"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire pool di più nodi per un cluster nel servizio Azure Kubernetes (AKS)Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
-Nel servizio Azure Kubernetes (AKS), i nodi della stessa configurazione vengono raggruppati in pool di *nodi.* Questi pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. Il numero iniziale di nodi e le relative dimensioni (SKU) viene definito quando si crea un cluster AKS, che crea un *pool di nodi predefinito.* Per supportare applicazioni con esigenze di archiviazione o di calcolo diverse, è possibile creare pool di nodi aggiuntivi. Ad esempio, usare questi pool di nodi aggiuntivi per fornire GPU per applicazioni a elevato utilizzo di elaborazione o l'accesso a storage SSD ad alte prestazioni.
+Nel servizio Azure Kubernetes (AKS), i nodi della stessa configurazione vengono raggruppati in pool di *nodi.* Questi pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. Il numero iniziale di nodi e le relative dimensioni (SKU) viene definito quando si crea un cluster AKS, che crea un [pool di nodi][use-system-pool]di sistema. Per supportare applicazioni con esigenze di archiviazione o di calcolo diverse, è possibile creare pool di *nodi utente*aggiuntivi. I pool di nodi di sistema hanno lo scopo principale di ospitare pod di sistema critici come CoreDNS e tunnelfront. I pool di nodi utente servono allo scopo principale dell'hosting dei pod dell'applicazione. Tuttavia, i pod dell'applicazione possono essere pianificati nei pool di nodi di sistema se si desidera avere un solo pool nel cluster AKS. I pool di nodi utente consentono di inserire i pod specifici dell'applicazione. Ad esempio, usare questi pool di nodi utente aggiuntivi per fornire GPU per applicazioni a elevato utilizzo di elaborazione o l'accesso a storage SSD ad alte prestazioni.
 
 > [!NOTE]
 > Questa funzionalità consente un maggiore controllo su come creare e gestire pool di più nodi. Di conseguenza, sono necessari comandi separati per la creazione/aggiornamento/eliminazione. In precedenza `az aks create` `az aks update` le operazioni del cluster tramite o utilizzavano l'API managedCluster e erano l'unica opzione per modificare il piano di controllo e un pool di nodi a nodo singolo. Questa funzionalità espone un set di operazioni separato per i pool `az aks nodepool` di agenti tramite l'API agentPool e richiede l'utilizzo del set di comandi per eseguire operazioni in un pool di singoli nodi.
@@ -29,7 +29,8 @@ In questo articolo viene illustrato come creare e gestire più pool di nodi in u
 Quando si creano e si gestiscono cluster AKS che supportano pool di più nodi, si applicano le limitazioni seguenti:The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
 * Vedere Quote, restrizioni sulle dimensioni delle [macchine virtuali e disponibilità dell'area nel servizio Azure Kubernetes (AKS).][quotas-skus-regions]
-* Non è possibile eliminare il pool di nodi di sistema, per impostazione predefinita il primo pool di nodi.
+* È possibile eliminare i pool di nodi di sistema, purché si disponga di un altro pool di nodi di sistema per prendere il suo posto nel cluster AKS.
+* I pool di sistema devono contenere almeno un nodo e i pool di nodi utente possono contenere zero o più nodi.
 * Il cluster AKS deve usare il servizio di bilanciamento del carico SKU Standard per usare pool di più nodi, la funzionalità non è supportata con i servizi di bilanciamento del carico SKU di base.
 * Il cluster AKS deve usare set di scalabilità di macchine virtuali per i nodi.
 * Il nome di un pool di nodi può contenere solo caratteri alfanumerici minuscoli e deve iniziare con una lettera minuscola. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi di Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
@@ -37,6 +38,9 @@ Quando si creano e si gestiscono cluster AKS che supportano pool di più nodi, s
 * Quando si creano pool di più nodi in fase di creazione del cluster, tutte le versioni di Kubernetes utilizzate dai pool di nodi devono corrispondere alla versione impostata per il piano di controllo. Questo può essere aggiornato dopo il provisioning del cluster utilizzando le operazioni per pool di nodi.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
+
+> [!Important]
+> Se si esegue un singolo pool di nodi di sistema per il cluster AKS in un ambiente di produzione, è consigliabile usare almeno tre nodi per il pool di nodi.
 
 Per iniziare, creare un cluster AKS con un pool a nodo singolo. L'esempio seguente usa il comando az group create per creare un gruppo di risorse denominato myResourceGroup nell'area eastus.The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. Viene quindi creato un cluster AKS denominato *myAKSCluster* usando il comando [az aks create.][az-aks-create] Una *versione --kubernetes* di *1.15.7* viene utilizzata per mostrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [versione Kubernetes supportata.][supported-versions]
 
@@ -753,6 +757,8 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+Ulteriori informazioni sui [pool di nodi][use-system-pool]di sistema .
+
 In questo articolo è stato illustrato come creare e gestire più pool di nodi in un cluster AKS. Per ulteriori informazioni su come controllare i pod tra i pool di nodi, consultate [Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in AKS.][operator-best-practices-advanced-scheduler]
 
 Per creare e utilizzare pool di nodi contenitore di Windows Server, vedere [Creare un contenitore di Windows Server in AKS][aks-windows].
@@ -788,3 +794,4 @@ Per creare e utilizzare pool di nodi contenitore di Windows Server, vedere [Crea
 [tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
+[use-system-pool]: use-system-pools.md

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442721"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259137"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Come integrare Gestione API di Azure con Azure Application Insights
 
@@ -51,7 +51,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
     ![Logger di Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> A parte, viene creata un'entità [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) nell'istanza di gestione API, contenente la chiave di strumentazione dell'istanza di Application Insights.
+> A parte, viene creata un'entità [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) nell'istanza di gestione API, contenente la chiave di strumentazione dell'istanza di Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Abilitare la registrazione di Application Insights per l'API
 
@@ -70,7 +70,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 > Sovrascrivere il valore predefinito **0** nei **primi byte del campo corpo** potrebbe ridurre in modo significativo le prestazioni delle API.
 
 > [!NOTE]
-> A parte viene creata un'entità [Diagnostica](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
+> A parte viene creata un'entità [Diagnostica](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
 
 | Nome impostazione                        | Tipo di valore                        | Descrizione                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

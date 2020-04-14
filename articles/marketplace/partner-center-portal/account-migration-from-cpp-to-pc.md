@@ -1,18 +1,18 @@
 ---
-title: Migrazione dell'account dal portale Cloud Partner al Centro per i partner - Commercial Marketplace per Azure
-description: Come eseguire la migrazione dell'account da CPP al Centro per i partner. - Mercato commerciale per Azure
+title: Migrazione degli account dal portale Cloud Partner al Centro per i partner - mercato commerciale per Azure
+description: Come eseguire la migrazione dell'account da CPP al Centro per i partner. - mercato commerciale per Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 4aa336183d25a524246a2036fb95e0a7657b84f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e17a76d5a017400287644ad2da46caa5b6636654
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279811"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262299"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migrazione degli account dal portale Cloud Partner al Centro per i partner
 
@@ -79,4 +79,4 @@ Se hai bisogno di aiuto per la pubblicazione, la certificazione o la gestione de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Gestire l'account Del Mercato commerciale nel Centro per i partner](./manage-account.md)
+- [Gestire l'account del marketplace commerciale nel Centro per i partner](./manage-account.md)

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22efb5e94049b975780c6f6ea69aa94a71cc9992
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f06480767b697dca8fe41e484c02aefc58f040bf
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279013"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261330"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
@@ -34,7 +34,7 @@ Per creare o aggiornare un account di Automazione e completare le attività desc
 * Per creare un account di automazione, l'account utente di Azure AD deve essere aggiunto a un ruolo con autorizzazioni equivalenti al ruolo Proprietario per Microsoft.To create an Automation account, your Azure AD user account must be added to a role with permissions equivalent to the Owner role for **Microsoft. Risorse di automazione.** Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
 * Nel portale di Azure, in Impostazioni**utente**di **Azure Active Directory** > **MANAGE** > , se **Registrazioni app** è impostato su **Sì**, gli utenti non amministratori nel tenant di Azure AD possono [registrare le applicazioni di Active Directory.](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) Se l'opzione **Registrazioni per l'app** è impostata su **No**, l'utente che esegue questa azione deve essere un amministratore globale in Azure AD.
 
-Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione prima dell'aggiunta al ruolo di amministratore globale/coamministratore della sottoscrizione, viene aggiunto ad Active Directory come guest. In questo scenario, viene visualizzato questo messaggio nella pagina **Aggiungi account di Automazione**: "Le autorizzazioni non sono sufficienti per creare."
+Se non si è membri dell'istanza di Active Directory della sottoscrizione prima di essere aggiunti al ruolo di amministratore globale/coamministratore della sottoscrizione, si viene aggiunti ad Active Directory come guest. In questo scenario, viene visualizzato questo messaggio nella pagina Aggiungi account di **automazione:** "Non si dispone delle autorizzazioni per creare".
 
 Gli utenti inizialmente aggiunti al ruolo di amministratore globale o coamministratore possono essere rimossi dall'istanza di Active Directory della sottoscrizione e quindi aggiunti nuovamente al ruolo utente completo in Active Directory.
 
@@ -92,7 +92,7 @@ Quando la creazione dell'account di Automazione viene completata, vengono create
 | AzureRunAsCertificate |Asset di certificato creato automaticamente quando si crea un account di Automazione o si usa lo script di PowerShell per un account esistente. Il certificato esegue l'autenticazione con Azure per poter gestire le risorse di Azure Resource Manager dai runbook. La durata di questo certificato è di un anno. |
 | AzureRunAsConnection |Asset di connessione creato automaticamente quando si crea un account di Automazione o si usa lo script di PowerShell per un account esistente. |
 
-## <a name="classic-run-as-accounts"></a>Account RunAs classici
+## <a name="create-a-classic-run-as-account"></a>Creare un account RunAs classico
 
 Gli account Run-As classici non vengono più creati, per impostazione predefinita, quando si crea un account di Automazione di Azure.Classic Run-As accounts are no longer created, by default, when you create an Azure Automation account. Se è ancora necessario un account Run-As classico, eseguire la procedura seguente.
 

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 1e559309b8e8d9768ca2f79dabfb01ec6086a961
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/10/2019
+ms.openlocfilehash: b8d7f995997b828c2323b3e6934b97354c2f8c8b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348710"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255244"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso per registrare dati e aree di lavoro in Monitoraggio di AzureManage access to log data and workspaces in Azure Monitor
 
@@ -91,7 +91,7 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 }
 ```
 
-### <a name="using-a-resource-manager-template"></a>Utilizzo di un modello di Resource ManagerUsing a Resource Manager template
+### <a name="using-a-resource-manager-template"></a>Uso di un modello di Resource Manager
 
 Per configurare la modalità di accesso in un modello di Azure Resource Manager, impostare il flag di funzionalità **enableLogAccessUsingOnlyResourcePermissions** nell'area di lavoro su uno dei valori seguenti.
 
@@ -273,7 +273,7 @@ Per creare un ruolo con accesso solo alla tabella _SecurityBaseline,_ creare un 
 
  I log personalizzati vengono creati da origini dati, ad esempio log personalizzati e API agente di raccolta dati HTTP. Il modo più semplice per identificare il tipo di log consiste nel controllare le tabelle elencate in [Registri personalizzati nello schema del log.](../log-query/get-started-portal.md#understand-the-schema)
 
- Al momento non è possibile concedere l'accesso a singoli log personalizzati, ma è possibile concedere l'accesso a tutti i log personalizzati. Per creare un ruolo con accesso a tutti i log personalizzati, creare un ruolo personalizzato utilizzando le azioni seguenti:To create a role with access to all custom logs, create a custom role using the following actions:
+ Non è possibile concedere l'accesso a singoli log personalizzati, ma è possibile concedere l'accesso a tutti i log personalizzati. Per creare un ruolo con accesso a tutti i log personalizzati, creare un ruolo personalizzato utilizzando le azioni seguenti:To create a role with access to all custom logs, create a custom role using the following actions:
 
 ```
 "Actions":  [
@@ -282,6 +282,9 @@ Per creare un ruolo con accesso solo alla tabella _SecurityBaseline,_ creare un 
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
+Un approccio alternativo per gestire l'accesso ai log personalizzati consiste nell'assegnarli a una risorsa di Azure e gestire l'accesso usando il paradigma del contesto delle risorse. Per usare questo metodo, è necessario includere l'ID risorsa specificandolo nell'intestazione [x-ms-AzureResourceId](data-collector-api.md#request-headers) quando i dati vengono ingeriti in Log Analytics tramite [l'API dell'agente](data-collector-api.md)di raccolta dati HTTP. L'ID risorsa deve essere valido e applicare regole di accesso. Dopo l'inserimento, i log sono accessibili a coloro che hanno accesso in lettura alla risorsa, come illustrato di seguito.
+
+A volte i log personalizzati provengono da origini che non sono direttamente associate a una risorsa specifica. In questo caso, creare un gruppo di risorse solo per gestire l'accesso a questi log. Il gruppo di risorse non comporta alcun costo, ma fornisce un ID risorsa valido per controllare l'accesso ai log personalizzati. Ad esempio, se un firewall specifico invia log personalizzati, creare un gruppo di risorse denominato "MyFireWallLogs" e assicurarsi che le richieste API contengano l'ID risorsa "MyFireWallLogs". I record del registro del firewall sono quindi accessibili solo agli utenti a cui è stato concesso l'accesso a MyFireWallLogs o a quelli con accesso completo all'area di lavoro.          
 
 ### <a name="considerations"></a>Considerazioni
 

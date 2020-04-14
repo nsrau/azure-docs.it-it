@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0994e1af8ca6deccbe6224625a5320fb195a10a1
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 1a026cc241eb372e15f2600e52ec53a46efb1024
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586511"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256009"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Partner di business intelligence di Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Per creare la soluzione di data warehouse completa usando il pool Synapse SQL al
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>Informazioni approfondite sull'app di visualizzazione dei dati che chiunque può usare. Con Qlik Sense, tutti i dipendenti dell'organizzazione possono creare facilmente visualizzazioni interattive e flessibili e prendere decisioni importanti. |[Pagina del prodotto](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/) |
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>SiSense è un software di business intelligence completo che include gli strumenti necessari alle aziende per analizzare e visualizzare i dati, ovvero un database analitico a prestazioni elevate, la possibilità di unire più origini, l'estrazione semplice dei dati (ETL) e la visualizzazione dei dati basata sul Web. È possibile iniziare subito ad analizzare e visualizzare set di dati di grandi dimensioni con SiSense BI and Analytics. |[Pagina del prodotto](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>L'analisi self-service di Tableau aiuta chiunque a vedere e comprendere i propri dati, attraverso molti tipi di dati, dai file flat ai database. Tableau dispone di un connettore nativo e ottimizzato per il pool Synapse SQL che supporta sia i dati in tempo reale che l'analisi in memoria. |[Pagina del prodotto](https://www.tableau.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/)<br>|
-| ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Gruppo decisionale)**<br>Targit Decision Suite offre una piattaforma di business intelligence e analisi che fornisce dashboard in tempo reale, analisi self-service, report semplici da usare, straordinarie capacità mobili e una semplice tecnologia per il rilevamento di dati in un'unica soluzione coerente. Targit offre alle aziende il coraggio di agire. |[Pagina del prodotto](https://www.targit.com/en/software/deployment/targitonazure)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
+| ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Gruppo decisionale)**<br>Targit Decision Suite offre una piattaforma di business intelligence e analisi che fornisce dashboard in tempo reale, analisi self-service, report semplici da usare, straordinarie capacità mobili e una semplice tecnologia per il rilevamento di dati in un'unica soluzione coerente. Targit offre alle aziende il coraggio di agire. |[Pagina del prodotto](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
 | ![Albacora](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Albacora**<br>Yellowfin è un fornitore di Cloud BI con il rating più alto per i report ad hoc e i dashboard di BARC; L'indagine BI. Connettiti al pool Sql Synapse, quindi crea e condividi bellissimi report e dashboard con le pluripremiate funzionalità di business intelligence collaborativa e di business intelligence sulla posizione. |[Pagina del prodotto](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->

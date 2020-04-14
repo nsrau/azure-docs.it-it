@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 18de50473e3dd6ca8ddda9575a247e00530032e8
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 11f52df683b7a85a8ad5163bbede33d786897452
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115407"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257267"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -197,7 +197,7 @@ Per informazioni sulle definizioni specifiche di queste metriche, [vedere Compre
 
 In ogni esperimento di apprendimento automatico, i dati vengono [automaticamente ridimensionati e normalizzati](concept-automated-ml.md#preprocess) per aiutare *alcuni* algoritmi sensibili alle funzionalità su scale diverse.  Tuttavia, è anche possibile abilitare la fattibilizzazione aggiuntiva, ad esempio l'imputazione, la codifica e le trasformazioni dei valori mancanti. [Scopri di più su quale fattibilizzazione è inclusa](how-to-use-automated-ml-for-ml-models.md#featurization).
 
-Quando si configurano gli esperimenti, `featurization`è possibile abilitare l'impostazione avanzata . Nella tabella seguente vengono illustrate le impostazioni [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)accettate per la featurization nella classe .
+Quando si configurano gli esperimenti, `featurization`è possibile abilitare l'impostazione avanzata . Nella tabella seguente vengono illustrate le impostazioni accettate per la featurization nella [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 |Configurazione della featurizzazione | Descrizione |
 | ------------- | ------------- |

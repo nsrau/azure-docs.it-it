@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f83cee2fb1435252f34d1a64f531b5befef66ffb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4034759dc4f20649c15236b057e348966d72409e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289693"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261161"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Azure Security Baseline for Azure Database for PostgreSQL Single Server
 
@@ -134,7 +134,7 @@ Comprendere l'utilizzo dei tag di servizio per il database di Azure per PostgreS
 
 Come configurare e gestire Criteri di Azure:How to configure and manage Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Esempi di criteri di Azure per la rete:Azure Policy samples for networking:https://docs.microsoft.com/azure/governance/policy/samples/#network
+Esempi di criteri di Azure per la rete:Azure Policy samples for networking:https://docs.microsoft.com/azure/governance/policy/samples/
 
 Come creare un blueprint di Azure:How to create an Azure Blueprint:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -908,7 +908,7 @@ Come fornire l'autenticazione key Vault con un'identità gestita:How to provide 
 
 **Linee guida:** il database di Azure per il server PostgreSQL supporta l'autenticazione di Azure Active Directory (in anteprima) per accedere ai database.  Durante la creazione del database di Azure per il server PostgreSQL, si forniscono le credenziali per un utente amministratore. Questo amministratore può essere utilizzato per creare altri utenti del database.  
 
-Per le macchine virtuali di Azure o le applicazioni Web in esecuzione nel servizio app di Azure usate per accedere al database di Azure per il server PostgreSQL, usare l'identità del servizio gestito insieme all'insieme all'insieme delle chiavi di Azure per archiviare e recuperare le credenziali per il database di Azure server PostgreSQL. Verificare che l'eliminazione temporanea dell'insieme di credenziali delle chiavi sia abilitata.
+Per le macchine virtuali di Azure o le applicazioni Web in esecuzione nel servizio app di Azure usate per accedere al database di Azure per il server PostgreSQL, usare l'identità del servizio gestito insieme all'insieme a Archiviazione delle chiavi di Azure per archiviare e recuperare le credenziali per il database di Azure per il server PostgreSQL.For Azure Virtual Machines or web applications running on Azure App Service being used to access your Azure Database for PostgreSQL server, use Managed Service Identity in conjunction with Azure Key Vault to store and retrieve credentials for Azure Database for PostgreSQL server. Verificare che l'eliminazione temporanea dell'insieme di credenziali delle chiavi sia abilitata.
 
 Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (AD). Managed Identities consente di eseguire l'autenticazione a qualsiasi servizio che supporta l'autenticazione di Azure AD, incluso Key Vault, senza credenziali nel codice.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75834304"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260922"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare valori denominati nei criteri di Gestione API di AzureHow to use named values in Azure API Management policies
 
@@ -59,7 +59,7 @@ I valori denominati possono contenere stringhe letterali ed [espressioni di crit
 
 Una volta creato il valore denominato, è possibile modificarlo facendo clic su di esso. Se si modifica il nome del valore denominato, tutti i criteri che fanno riferimento al valore denominato vengono aggiornati automaticamente per utilizzare il nuovo nome.
 
-Per informazioni sulla modifica di un valore denominato tramite l'API REST, vedere [Modificare un valore denominato tramite l'API REST.](/rest/api/apimanagement/2019-01-01/property?patch)
+Per informazioni sulla modifica di un valore denominato tramite l'API REST, vedere [Modificare un valore denominato tramite l'API REST.](/rest/api/apimanagement/2019-12-01/property?patch)
 
 ## <a name="to-delete-a-named-value"></a>Per eliminare un valore denominato
 
@@ -68,7 +68,7 @@ Per eliminare un valore denominato, fare clic su **Elimina** accanto al valore d
 > [!IMPORTANT]
 > Se il valore denominato fa riferimento a qualsiasi criterio, non sarà possibile eliminarlo correttamente finché non si rimuove il valore denominato da tutti i criteri che lo utilizzano.
 
-Per informazioni sull'eliminazione di un valore denominato tramite l'API REST, vedere [Eliminare un valore denominato tramite l'API REST.](/rest/api/apimanagement/2019-01-01/property/delete)
+Per informazioni sull'eliminazione di un valore denominato tramite l'API REST, vedere [Eliminare un valore denominato tramite l'API REST.](/rest/api/apimanagement/2019-12-01/property/delete)
 
 ## <a name="to-search-and-filter-named-values"></a>Per cercare e filtrare i valori denominati
 
