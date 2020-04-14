@@ -124,6 +124,8 @@
               href: groups-create-rule.md
             - name: Sintassi delle regole dei gruppi dinamici
               href: groups-dynamic-membership.md
+            - name: Convalidare una regola di appartenenza
+              href: groups-dynamic-rule-validation.md
             - name: Modificare il tipo di appartenenza ai gruppi
               href: groups-change-type.md
     - name: Assegnare licenze
@@ -198,7 +200,7 @@
           href: groups-troubleshooting.md
         - name: Risolvere i problemi relativi alle licenze di gruppo
           href: licensing-groups-resolve-problems.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Graph
       href: 'https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview'
