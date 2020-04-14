@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5a07f0749b59efc96b67df3ad5ed2fbf353be614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74538835"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274011"
 ---
 # <a name="learn-text-moderation-concepts"></a>Informazioni sui concetti di moderazione del testo
 
-Usare la moderazione del testo automatica e le funzioni che prevedono la [revisione umana](Review-Tool-User-Guide/human-in-the-loop.md) di Content Moderator per moderare i contenuti di testo.
+Usa la moderazione del testo assistita dal computer di Content Moderator e le funzionalità di [revisione umana](Review-Tool-User-Guide/human-in-the-loop.md) per moderare il contenuto di testo.
 
 Bloccare, approvare o revisionare il contenuto in base ai propri criteri e alle proprie soglie. Usarlo per estendere la moderazione umana degli ambienti in cui partner, dipendenti e consumer generano contenuto di testo. Tra questi vi sono chat room, forum di discussione, chatbot, cataloghi e-commerce e documenti. 
 
@@ -51,20 +51,20 @@ Se l'API rileva eventuali termini volgari in una qualsiasi delle [lingue support
 
 ## <a name="classification"></a>Classificazione
 
-La **funzione di classificazione del testo** automatica di Content Moderator supporta **solo la lingua inglese** e consente di rilevare i contenuti potenzialmente indesiderati. Il contenuto contrassegnato può essere valutato inappropriato in base al contesto. Indica la probabilità di ogni categoria e potrebbe consigliare una revisione umana. La funzione usa un modello impostato per identificare un eventuale linguaggio offensivo, dispregiativo o discriminatorio. Sono inclusi termini gergali, parole abbreviate, parole offensive e parole intenzionalmente errate per la revisione. 
+La funzione di **classificazione** del testo assistita dal computer di Content Moderator supporta solo l'inglese e consente di rilevare contenuti potenzialmente indesiderati. **English only** Il contenuto contrassegnato può essere valutato inappropriato in base al contesto. Indica la probabilità di ogni categoria e potrebbe consigliare una revisione umana. La funzione usa un modello impostato per identificare un eventuale linguaggio offensivo, dispregiativo o discriminatorio. Sono inclusi termini gergali, parole abbreviate, parole offensive e parole intenzionalmente errate per la revisione. 
 
 L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 
     "Classification": {
         "ReviewRecommended": true,
         "Category1": {
-            "Score": 1.5113095059859916E-06
+              "Score": 1.5113095059859916E-06
             },
         "Category2": {
-            "Score": 0.12747249007225037
+              "Score": 0.12747249007225037
             },
         "Category3": {
-            "Score": 0.98799997568130493
+              "Score": 0.98799997568130493
         }
     }
 
@@ -81,80 +81,51 @@ L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 La funzione dati personali rileva la potenziale presenza di queste informazioni:
 
 - Indirizzo di posta elettronica
-- Indirizzo postale degli Stati Uniti
+- Indirizzo postale USA
 - Indirizzo IP
 - Numero di telefono degli Stati Uniti
-- Numero di telefono del Regno Unito
-- Codice fiscale
 
 L'esempio seguente riporta una risposta di esempio:
 
 ```json
-"PII":{ 
-  "Email":[ 
-    { 
-      "Detected":"abcdef@abcd.com",
-      "SubType":"Regular",
-      "Text":"abcdef@abcd.com",
-      "Index":32
-    }
+"pii":{
+  "email":[
+      {
+        "detected":"abcdef@abcd.com",
+        "sub_type":"Regular",
+        "text":"abcdef@abcd.com",
+        "index":32
+      }
   ],
-  "IPA":[ 
-    { 
-      "SubType":"IPV4",
-      "Text":"255.255.255.255",
-      "Index":72
-    }
+  "ssn":[
+
   ],
-  "Phone":[ 
-    { 
-      "CountryCode":"US",
-      "Text":"4255550111",
-      "Index":56
-    },
-    { 
-      "CountryCode":"US",
-      "Text":"425 555 0111",
-      "Index":212
-    },
-    { 
-      "CountryCode":"UK",
-      "Text":"+123 456 7890",
-      "Index":208
-    },
-    { 
-      "CountryCode":"UK",
-      "Text":"0234 567 8901",
-      "Index":228
-    },
-    { 
-      "CountryCode":"UK",
-      "Text":"0456 789 0123",
-      "Index":245
-    }
+  "ipa":[
+      {
+        "sub_type":"IPV4",
+        "text":"255.255.255.255",
+        "index":72
+      }
   ],
-  "Address":[ 
-    { 
-      "Text":"1234 Main Boulevard, Panapolis WA 96555",
-      "Index":89
-    }
+  "phone":[
+      {
+        "country_code":"US",
+        "text":"6657789887",
+        "index":56
+      }
   ],
-  "SSN":[ 
-    { 
-      "Text":"999999999",
-      "Index":56
-    },
-    { 
-      "Text":"999-99-9999",
-      "Index":267
-    }
+  "address":[
+      {
+        "text":"1 Microsoft Way, Redmond, WA 98052",
+        "index":89
+      }
   ]
 }
 ```
 
 ## <a name="auto-correction"></a>Correzione automatica
 
-Si supponga che il testo di input sia ('lzay' e 'f0x' sono intenzionali):
+Supponiamo che il testo di input sia ('lzay' e 'f0x' sono intenzionali):
 
     The qu!ck brown f0x jumps over the lzay dog.
 

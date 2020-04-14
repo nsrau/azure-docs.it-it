@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 951f24ad06014f6d95f10c91e1bad8e99bbbc736
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991774"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272696"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
 
@@ -37,8 +37,8 @@ Le varie configurazioni Load Balancer Standard forniscono le seguenti metriche:
 
 | Metrica | Tipo di risorsa | Descrizione | Aggregazione consigliata |
 | --- | --- | --- | --- |
-| Disponibilità del percorso dati (disponibilità VIP)Data path availability (VIP availability)| Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.| Media |
-| Stato del probe di integrità (disponibilità DIP) | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni endpoint dell'istanza nel pool di Load Balancer. In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità. |  Media |
+| Disponibilità del percorso dati | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.| Media |
+| Stato del probe di integrità | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni endpoint dell'istanza nel pool di Load Balancer. In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità. |  Media |
 | Pacchetti SYN (sincronizzazione) | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard non termina le connessioni TCP (Transmission Control Protocol), né interagisce con i flussi di pacchetti TCP o UDP. I flussi e i relativi handshake sono sempre tra l'origine e l'istanza VM. Per risolvere meglio i problemi degli scenari del protocollo TCP, è possibile usare contatori di pacchetti SYN per determinare quanti tentativi di connessione TCP vengono eseguiti. La metrica indica il numero di pacchetti SYN TCP ricevuti.| Media |
 | Connessioni SNAT | Bilanciamento del carico pubblico |Load Balancer Standard segnala il numero di flussi in uscita mascherati per il front-end dell'indirizzo IP pubblico. Le porte Source Network Address Translation (SNAT) sono una risorsa esauribile. Questa metrica può indicare l'uso che l'applicazione fa di SNAT per i flussi originati in uscita. Vengono segnalati i contatori per i flussi SNAT con esito positivo e negativo, che è possibile usare per risolvere i problemi e comprendere l'integrità dei flussi in uscita.| Media |
 | Porte SNAT allocate | Bilanciamento del carico pubblico | Load Balancer Standard segnala il numero di porte SNAT allocate per istanza back-end | Nella media. |
@@ -85,13 +85,13 @@ Per configurare gli avvisi:
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Scenari di diagnostica comuni e visualizzazioni consigliate
 
-#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Il percorso dei dati è disponibile per il mio Load Balancer VIP?
+#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-frontend"></a>Il percorso dati è attivo e disponibile per il front-end di Load Balancer?
 <details><summary>Espandere</summary>
 
-La metrica di disponibilità VIP descrive l’integrità del percorso dei dati all'interno della regione verso l'host di calcolo in cui si trovano le macchine virtuali. La metrica riflette lo stato di integrità delle infrastrutture di Azure. La metrica può essere utilizzata per:
+La metrica di disponibilità del percorso dati descrive l'integrità del percorso dati all'interno dell'area per l'host di calcolo in cui si trovano le macchine virtuali. La metrica riflette lo stato di integrità delle infrastrutture di Azure. La metrica può essere utilizzata per:
 - Monitorare la disponibilità esterna del servizio.
 - Eseguire un approfondimento e comprendere se la piattaforma in cui viene distribuito il servizio è integra o se il sistema operativo guest o l'istanza dell'applicazione è integra.
-- Isolare se un evento è correlato al servizio o al piano dati sottostante. Non confondere questa metrica con lo stato del probe di integrità ("disponibilità DIP").
+- Isolare se un evento è correlato al servizio o al piano dati sottostante. Non confondere questa metrica con lo stato del probe di integrità ("Disponibilità dell'istanza back-end").
 
 Per ottenere la disponibilità del percorso dati per le risorse di Load Balancer Standard:To get the Data Path Availability for your Standard Load Balancer resources:
 1. Assicurarsi che sia selezionata la risorsa di Load Balancer corretta. 
@@ -107,7 +107,7 @@ La metrica viene generata da una misura attiva in banda. Un servizio di esecuzio
 
 Viene generato periodicamente un pacchetto corrispondente alla regola e al front-end di distribuzione che attraversa l'area dall'origine all'host in cui si trova una macchina virtuale nel pool back-end. L'infrastruttura di Load Balancer esegue le stesse operazioni di traslazione e bilanciamento del carico che vengono effettuate per tutto il resto del traffico. Questo probe è in banda nell'endpoint con carico bilanciato. Dopo che il probe arriva nell'host di calcolo in cui si trova una macchina virtuale integra nel pool back-end, l'host di calcolo genera una risposta al servizio di esecuzione del probe. La macchina virtuale non vede questo traffico.
 
-La disponibilità VIP avrà esito negativo per le ragioni seguenti:
+La disponibilità del percorso dati non riesce per i motivi seguenti:Datapath availability fails for the following reasons:
 - La distribuzione non ha macchine virtuali integre rimanenti nel pool back-end. 
 - Si è verificata un'interruzione dell'infrastruttura.
 
@@ -116,7 +116,7 @@ A scopo diagnostico, è possibile utilizzare la [metrica Disponibilità percorso
 Usare **Media** come aggregazione per la maggior parte degli scenari.
 </details>
 
-#### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>Le istanze di back-end per l'indirizzo VIP rispondono ai probe?
+#### <a name="are-the-backend-instances-for-my-load-balancer-responding-to-probes"></a>Le istanze back-end per il servizio di bilanciamento del carico rispondono ai probe?
 <details>
   <summary>Espandere</summary>
 La metrica relativa allo stato del probe di integrità descrive l'integrità della distribuzione dell'applicazione come configurato dall'utente quando si configura il probe di integrità di Load Balancer. Load Balancer usa lo stato del probe di integrità per determinare dove inviare nuovi flussi. I probe di integrità hanno origine da un indirizzo dell'infrastruttura di Azure e sono visibili all'interno del sistema operativo guest della macchina virtuale.
@@ -209,19 +209,19 @@ Per ottenere statistiche relative al conteggio di byte o pacchetti:
 #### <a name="how-do-i-diagnose-my-load-balancer-deployment"></a><a name = "vipavailabilityandhealthprobes"></a>Come è possibile diagnosticare la distribuzione di Load Balancer?
 <details>
   <summary>Espandere</summary>
-La combinazione delle metriche relative alla disponibilità VIP e ai probe di integrità su un singolo grafico consente di identificare dove si verificano e si possono risolvere i problemi. È possibile assicurarsi che Azure funzioni correttamente e usare questa conoscenza per determinare definitivamente che la configurazione o l'applicazione costituisca la causa radice.
+Utilizzando una combinazione delle metriche Disponibilità percorso dati e Stato sonda integrità in un singolo grafico è possibile identificare dove cercare il problema e risolvere il problema. È possibile assicurarsi che Azure funzioni correttamente e usare questa conoscenza per determinare definitivamente che la configurazione o l'applicazione costituisca la causa radice.
 
 È possibile usare le metriche relative ai probe di integrità per comprendere in che modo Azure visualizza lo stato della distribuzione in base alla configurazione specificata. L'analisi dei probe di integrità costituisce sempre una valida opzione per iniziare a monitorare o determinare una causa.
 
-È possibile eseguire un ulteriore passaggio e usare le metriche relative alla disponibilità VIP per ottenere informazioni approfondite sul modo in cui Azure visualizza l'integrità del piano dati sottostante che è responsabile per la specifica distribuzione. Quando si combinano entrambe le metriche, è possibile isolare il punto in cui potrebbe verificarsi l'errore come illustrato in questo esempio:
+È possibile fare un ulteriore passo avanti e usare la metrica di disponibilità del percorso dati per ottenere informazioni dettagliate su come Azure visualizza l'integrità del piano dati sottostante responsabile della distribuzione specifica. Quando si combinano entrambe le metriche, è possibile isolare il punto in cui potrebbe verificarsi l'errore come illustrato in questo esempio:
 
 ![Combinazione delle metriche di disponibilità del percorso dati e stato del probe di integritàCombining Data Path Availability and Health Probe Status metrics](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
 *Figura: Combinazione delle metriche di disponibilità del percorso dati e stato del probe di integritàFigure: Combining Data Path Availability and Health Probe Status metrics*
 
 In questo grafico vengono visualizzate le informazioni seguenti:
-- L'infrastruttura che ospita le macchine virtuali non era disponibile e allo 0% all'inizio del grafico. Successivamente, l'infrastruttura era integro e le macchine virtuali erano raggiungibili e più di una macchina virtuale è stata inserita nel back-end. Queste informazioni sono indicate dalla traccia blu per la disponibilità del percorso dati (disponibilità VIP), che in seguito era al 100%. 
-- Lo stato del probe di integrità (disponibilità DIP), indicato dalla traccia viola, è allo 0 percento all'inizio del grafico. L'area cerchiata in verde evidenzia dove lo stato del probe di integrità (disponibilità DIP) è diventato integro e a quel punto la distribuzione del cliente è stata in grado di accettare nuovi flussi.
+- L'infrastruttura che ospita le macchine virtuali non era disponibile e allo 0% all'inizio del grafico. Successivamente, l'infrastruttura era integro e le macchine virtuali erano raggiungibili e più di una macchina virtuale è stata inserita nel back-end. Queste informazioni sono indicate dalla traccia blu per la disponibilità del percorso dati, che è stata successivamente al 100%. 
+- Lo stato del probe di integrità, indicato dalla traccia viola, è pari allo 0% all'inizio del grafico. L'area cerchiata in verde evidenzia dove lo stato del probe di integrità è diventato integro e a quel punto la distribuzione del cliente è stata in grado di accettare nuovi flussi.
 
 Il grafico consente al cliente di risolvere i problemi della distribuzione in modo autonomo senza dover fare supposizioni o contattare il supporto per sapere se si stanno verificando altri problemi. Il servizio non era disponibile perché i probe di integrità hanno avuto esito negativo a causa di una configurazione errata o di un'applicazione non riuscita.
 </details>

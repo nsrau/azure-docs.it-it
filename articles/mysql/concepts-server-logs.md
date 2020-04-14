@@ -5,35 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269432"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271982"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lenti nel database di Azure per MySQLSlow query logs in Azure Database for MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
 
 Per altre informazioni sul log delle query lente MySQL, vedere la [sezione relativa ai log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) del manuale di riferimento per MySQL.
 
-## <a name="access-slow-query-logs"></a>Accedere ai registri delle query lente
-È possibile elencare e scaricare il database di Azure per i log delle query lente MySQL usando il portale di Azure e l'interfaccia della riga di comando di Azure.You can list and download Azure Database for MySQL slow query logs using the Azure portal, and the Azure CLI.
-
-Nel portale di Azure selezionare il server del Database di Azure per MySQL. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**.
-
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [Configurare e accedere alogi di query lenti usando l'interfaccia della riga di comando](howto-configure-server-logs-in-cli.md)di Azure.For more information on Azure CLI, see Configure and access slow query logs using Azure CLI.
-
-Analogamente, è possibile reindirizzare i log ad Monitoraggio di Azure usando i log di diagnostica. Per ulteriori informazioni, vedere [di seguito.](concepts-server-logs.md#diagnostic-logs)
-
-## <a name="log-retention"></a>Conservazione dei log
-I log sono disponibili per un massimo di sette giorni dalla data di creazione. Se le dimensioni totali dei log disponibili superano 7 GB, i file meno recenti vengono eliminati fino a quando non è disponibile dello spazio. 
-
-I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per primo.
-
 ## <a name="configure-slow-query-logging"></a>Configurare la registrazione delle query lente 
-Per impostazione predefinita il log delle query lente è disabilitato. Per abilitarlo, impostare slow_query_log su ON.
+Per impostazione predefinita il log delle query lente è disabilitato. Per attivarla, `slow_query_log` impostare su ON. Questa operazione può essere abilitata usando il portale di Azure o l'interfaccia della riga di comando di Azure.This can be enabled using the Azure portal or Azure CLI. 
 
 Altri parametri che è possibile modificare includono:
 
@@ -48,6 +34,21 @@ Altri parametri che è possibile modificare includono:
 > Se si prevede di registrare query lente per un `log_output` periodo di tempo prolungato, si consiglia di impostare su "Nessuno". Se impostato su "File", questi log vengono scritti nell'archivio del server locale e possono influire sulle prestazioni di MySQL. 
 
 Per una descrizione completa dei parametri per il log di query lente, vedere la [documentazione sul log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) per MySQL.
+
+## <a name="access-slow-query-logs"></a>Accedere ai registri delle query lente
+Sono disponibili due opzioni per accedere ai log di query lenti nel database di Azure per MySQL: archiviazione del server locale o Log di diagnostica di Monitoraggio di Azure.There are two options for accessing slow query logs in Azure Database for MySQL: local server storage or Azure Monitor Diagnostic Logs. Questo viene impostato `log_output` utilizzando il parametro.
+
+Per l'archiviazione del server locale, è possibile elencare e scaricare log di query lenti usando il portale di Azure o l'interfaccia della riga di comando di Azure.For local server storage, you can list and download slow query logs using the Azure portal or the Azure CLI. Nel portale di Azure passare al server nel portale di Azure.In the Azure portal, navigate to your server in the Azure portal. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**. Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [Configurare e accedere alogi di query lenti usando l'interfaccia della riga di comando](howto-configure-server-logs-in-cli.md)di Azure.For more information on Azure CLI, see Configure and access slow query logs using Azure CLI. 
+
+Log di diagnostica di Monitoraggio di Azure consente di reindirizzare log di query lenti ai log di monitoraggio di Azure (Log Analytics), Archiviazione di Azure o Hub eventi. Per ulteriori informazioni, vedere [di seguito.](concepts-server-logs.md#diagnostic-logs)
+
+## <a name="local-server-storage-log-retention"></a>Conservazione del log di archiviazione del server locale
+Quando si esegue la registrazione nell'archivio locale del server, i log sono disponibili per un massimo di sette giorni dalla creazione. Se le dimensioni totali dei log disponibili superano 7 GB, i file meno recenti vengono eliminati fino a quando non è disponibile dello spazio.
+
+I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per primo.
+
+> [!Note]
+> La conservazione dei log precedente non si applica ai log reindirizzati usando i log di diagnostica di Monitoraggio di Azure.The above log retention does not apply to logs that are piped using Azure Monitor Diagnostic Logs. È possibile modificare il periodo di conservazione per i sink di dati che vengono generati (ad es. Archiviazione di Azure).
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 Database di Azure per MySQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo aver abilitato i log delle query lente nel server MySQL, è possibile scegliere di generarli nei log di Monitoraggio di Azure, negli hub eventi o in Archiviazione di Azure.Once you have enabled slow query logs on your MySQL server, you can choose to have mitted them to Azure Monitor logs, Event Hubs, or Azure Storage. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/platform-logs-overview.md).

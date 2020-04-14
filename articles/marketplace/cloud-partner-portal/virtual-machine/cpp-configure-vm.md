@@ -7,17 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: b0ed430098203c5c1a0d00eb7bf17da1be0000cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f20beced7d977668d12c06375ceb8a2554c6d335
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278093"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273427"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurare la macchina virtuale ospitata in Azure
 
-Questo articolo illustra come ridimensionare, aggiornare e generalizzare una macchina virtuale (VM, Virtual Machine) ospitata in Azure.  Questa procedura è necessaria per preparare la macchina virtuale alla distribuzione da Azure Marketplace.
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo la gestione mobile delle offerte di Macchine virtuali di Azure al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare gli asset tecnici della macchina virtuale](https://aka.ms/AzureVMTechAsset) di Azure per gestire le offerte migrate.
 
+Questo articolo illustra come ridimensionare, aggiornare e generalizzare una macchina virtuale (VM, Virtual Machine) ospitata in Azure.  Questa procedura è necessaria per preparare la macchina virtuale alla distribuzione da Azure Marketplace.
 
 ## <a name="sizing-the-vhds"></a>Ridimensionamento dei dischi rigidi virtuali
 
@@ -59,7 +61,7 @@ Per altre informazioni sulle personalizzazioni di Linux, vedere [Estensioni dell
 
 Tutte le immagini in Azure Marketplace devono poter essere riutilizzate in modo generico. Per ottenere questa riusabilità, il disco rigido virtuale del sistema operativo deve essere *generalizzato*. La generalizzazione è un'operazione che rimuove tutti gli identificatori specifici di istanze e tutti i driver software da una macchina virtuale.
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 La generalizzazione dei dischi con sistema operativo Windows viene eseguita con lo [strumento sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Se in seguito si aggiorna o si riconfigura il sistema operativo, è necessario eseguire nuovamente sysprep. 
 

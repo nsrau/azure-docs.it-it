@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 326b79e1aca6fa82b3275249401c755428a8b71d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 631a20c7bf73aa2af363fdc0019ef24cccc58f9e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878562"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258593"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -327,6 +327,17 @@ L'applicazione di esempio viene eseguita correttamente quando vengono visualizza
 * Il LED sul DevKit di IoT MXChip lampeggia.
 
 ![Output di monitoraggio seriale](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
+
+> [!NOTE]
+> È possibile che si verifichi un errore durante il test in cui il LED non lampeggia, il portale di Azure non mostra i dati in ingresso dal dispositivo, ma la schermata OLED del dispositivo viene visualizzata come **In esecuzione...**. Per risolvere il problema, nel portale di Azure passare al dispositivo nell'hub IoT e inviare un messaggio al dispositivo. Se viene visualizzata la seguente risposta nel monitor seriale in codice VS, è possibile che la comunicazione diretta dal dispositivo sia bloccata a livello di router. Controllare le regole del firewall e del router configurate per i dispositivi di connessione. Assicurarsi inoltre che la porta in uscita 1833 sia aperta.
+> 
+> ERRORE: mqtt_client.c (ln 454): errore: errore di connessione all'endpoint  
+> INFO: >>>Stato connessione: disconnesso  
+> ERRORE: tlsio_mbedtls.c (ln 604): apertura I/O sottostante non riuscita  
+> ERRORE: mqtt_client.c (ln 1042): Errore: io_open non riuscita  
+> ERRORE: iothubtransport_mqtt_common.c (ln 2283): errore di connessione all'indirizzo atcsliothub.azure-devices.net.  
+> INFO: >>>Riconnettersi.  
+> INFO: Versione IoThub: 1.3.6  
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Visualizzare i dati di telemetria ricevuti dall'hub IoT di Azure
 

@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 8ae1dcbeff6e14e6f1f7cd44ae3a0a68bd379b56
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 988121effb35949cce442ba9458789105e88feec
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387343"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273444"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Domande frequenti sui problemi comuni che si verificano durante la creazione di dischi rigidi virtuali
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare domande frequenti](https://aka.ms/VHDcreationIssues) sul disco rigido virtuale per gestire le offerte migrate.
 
 Le domande frequenti seguenti sono relative a problemi comuni che si sono verificati durante la creazione di dischi rigidi virtuali e di macchine virtuali per le offerte di macchine virtuali. 
 

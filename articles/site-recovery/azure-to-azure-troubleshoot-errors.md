@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 0882eaa8b54966c7a804cf78a3928771b238e056
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 243fea8fae071368a91bf482190442f15c372fc1
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885005"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271302"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Risolvere gli errori di replica delle macchine virtuali da Azure ad AzureTroubleshoot Azure-to-Azure VM replication errors
 
-Questo articolo descrive come risolvere gli errori comuni in Azure Site Recovery durante la replica e il ripristino di macchine virtuali di Azure da un'area all'altra. Per altre informazioni sulle configurazioni supportate, vedere la [matrice di supporto per la replica delle VM di Azure](azure-to-azure-support-matrix.md).
+Questo articolo descrive come risolvere gli errori comuni in Azure Site Recovery durante la replica e il ripristino di macchine virtuali di Azure (VM) da un'area a un'altra. Per altre informazioni sulle configurazioni supportate, vedere la [matrice di supporto per la replica delle VM di Azure](azure-to-azure-support-matrix.md).
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemi di quota delle risorse di Azure (codice errore 150097)
 
@@ -169,11 +169,11 @@ Poiché SUSE Linux utilizza collegamenti simbolici, o symlinks, per gestire un e
    -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0
    ```
 
-## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Connettività in uscita per gli intervalli IP o gli URL di Site Recovery (codice errore 151037 o 151072)
+## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>URL o intervalli IP in uscita (codice di errore 151037 o 151072)
 
 Affinché la replica di Site Recovery funzioni, è necessaria la connettività in uscita a URL specifici dalla macchina virtuale. Se la macchina virtuale è protetta da un firewall o usa regole di gruppi di sicurezza di rete (NGS) per controllare la connettività in uscita, potrebbe verificarsi uno di questi problemi. Anche se continuiamo a supportare l'accesso in uscita tramite URL, l'utilizzo di un elenco Consenti di intervalli IP non è più supportato.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195"></a>Problema 1: Non è stato possibile registrare la macchina virtuale di Azure con Site Recovery (151195)
+### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>Problema 1: Impossibile registrare la macchina virtuale di Azure con Site Recovery (151195)Issue 1: Failed to register Azure VM with Site Recovery (151195)
 
 #### <a name="possible-causes"></a>Possibili cause
 
@@ -216,7 +216,7 @@ Non è possibile stabilire una connessione agli endpoint del servizio Azure Site
 
 Se si usano le regole del gruppo di sicurezza di rete di Azure/proxy del firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di usare i tag del servizio. Non è più supportato l'utilizzo di un elenco Consenti di indirizzi IP tramite gruppi di sicurezza di rete per Azure Site Recovery.We no longer support using an allow list of IP addresses via NSGs for Azure Site Recovery.
 
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: Replica da Azure ad Azure non riuscita quando il traffico di rete passa attraverso il server proxy locale (151072)Issue 4: Azure to Azure replication failed when the network traffic goes through on-premises proxy server (151072)
+### <a name="issue-4-replication-fails-when-network-traffic-uses-on-premises-proxy-server-151072"></a>Problema 4: la replica non riesce quando il traffico di rete utilizza il server proxy locale (151072)
 
 #### <a name="possible-cause"></a>Causa possibile
 
@@ -245,7 +245,7 @@ Le impostazioni proxy personalizzate non sono valide e l'agente del servizio Mob
 
 Per specificare gli [URL necessari](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o gli [intervalli IP necessari,](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)seguire le istruzioni in Informazioni sulla rete in Azure per la [replica di Azure.](azure-to-azure-about-networking.md)
 
-## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Disco non trovato nel computer (codice errore 150039)
+## <a name="disk-not-found-in-vm-error-code-150039"></a>Disco non trovato nella macchina virtuale (codice di errore 150039)Disk not found in VM (error code 150039)
 
 È necessario inizializzare un nuovo disco collegato alla VM. Se il disco non viene trovato, viene visualizzato il seguente messaggio:
 
@@ -267,7 +267,7 @@ Assicurarsi che i dischi dati siano inizializzati, quindi ripetere l'operazione.
 
 Se il problema persiste, contattare il supporto tecnico.
 
-## <a name="one-or-more-disks-are-available-for-protection-error-code-153039"></a>Uno o più dischi sono disponibili per la protezione (codice di errore 153039)
+## <a name="multiple-disks-available-for-protection-error-code-153039"></a>Più dischi disponibili per la protezione (codice di errore 153039)
 
 ### <a name="possible-causes"></a>Possibili cause
 
@@ -292,7 +292,7 @@ Per rendere nuovamente integro lo stato di replica della macchina virtuale, è p
 
    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Eliminare l'avviso relativo al nuovo disco.":::
 
-## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information-error-code-150225"></a>Rimuovere la macchina virtuale dall'insieme di credenziali completata con le informazioni (codice di errore 150225)
+## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>VM rimossa dall'insieme di credenziali completata con informazioni (codice di errore 150225)
 
 Quando Site Recovery protegge la macchina virtuale, crea collegamenti nella macchina virtuale di origine. Quando si rimuove la protezione o si disabilita la replica, Site Recovery rimuove questi collegamenti come parte del processo di pulizia. Se la macchina virtuale dispone di un blocco delle risorse, il processo di pulizia viene completato con le informazioni. Le informazioni indicano che la macchina virtuale è stata rimossa dall'insieme di credenziali di Servizi di ripristino, ma che alcuni dei collegamenti non aggiornati non sono stati puliti nel computer di origine.
 
@@ -317,7 +317,7 @@ Quando Site Recovery protegge la macchina virtuale, crea collegamenti nella macc
 1. Eseguire lo script _Cleanup-stale-asr-config-Azure-VM.ps1_. Specificare **l'ID sottoscrizione**, il gruppo di risorse **VM**e il nome della **macchina virtuale** come parametri.
 1. Se vengono richieste le credenziali di Azure, specificarle. Verificare quindi che lo script venga eseguito senza errori.
 
-## <a name="replication-cant-be-enabled-because-of-stale-resource-links-on-the-vm-error-code-150226"></a>Impossibile abilitare la replica a causa di collegamenti di risorse non aggiornati nella macchina virtuale (codice di errore 150226)Replication can't be enabled because of stale resource links on the VM (error code 150226)
+## <a name="replication-not-enabled-on-vm-with-stale-resources-error-code-150226"></a>Replica non abilitata nella macchina virtuale con risorse non aggiornate (codice di errore 150226)Replication not enabled on VM with untale resources (error code 150226)
 
 ### <a name="possible-causes"></a>Possibili cause
 
@@ -342,9 +342,9 @@ Una configurazione non aggiornata può verificarsi in una macchina virtuale di A
 1. Eseguire lo script _Cleanup-stale-asr-config-Azure-VM.ps1_. Specificare **l'ID sottoscrizione**, il gruppo di risorse **VM**e il nome della **macchina virtuale** come parametri.
 1. Se vengono richieste le credenziali di Azure, specificarle. Verificare quindi che lo script venga eseguito senza errori.
 
-## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>Impossibile visualizzare la macchina virtuale di Azure o il gruppo di risorse per la selezione nel processo di abilitazione della replica
+## <a name="cant-select-vm-or-resource-group-in-enable-replication-job"></a>Impossibile selezionare la macchina virtuale o il gruppo di risorse nel processo di abilitazione della replica
 
-### <a name="issue-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Problema 1: il gruppo di risorse e la macchina virtuale di origine si trovano in posizioni diverseIssue 1: The resource group and source virtual machine are in different locations
+### <a name="issue-1-the-resource-group-and-source-vm-are-in-different-locations"></a>Problema 1: il gruppo di risorse e la macchina virtuale di origine si trovano in posizioni diverseIssue 1: The resource group and source VM are in different locations
 
 Site Recovery richiede attualmente che il gruppo di risorse dell'area di origine e le macchine virtuali si trovano nella stessa posizione. In caso contrario, non sarà possibile trovare la macchina virtuale o il gruppo di risorse quando si tenta di applicare la protezione.
 
@@ -375,7 +375,7 @@ Potrebbe non essere possibile trovare il gruppo di risorse al momento della prot
 1. Eseguire lo script _Cleanup-stale-asr-config-Azure-VM.ps1_. Specificare **l'ID sottoscrizione**, il gruppo di risorse **VM**e il nome della **macchina virtuale** come parametri.
 1. Se vengono richieste le credenziali di Azure, specificarle. Verificare quindi che lo script venga eseguito senza errori.
 
-## <a name="unable-to-select-a-virtual-machine-for-protection"></a>Impossibile selezionare una macchina virtuale per la protezione
+## <a name="unable-to-select-a-vm-for-protection"></a>Impossibile selezionare una macchina virtuale per la protezione
 
 ### <a name="possible-cause"></a>Causa possibile
 
@@ -385,7 +385,7 @@ La macchina virtuale ha un'estensione installata in uno stato di errore o non ri
 
 Passare a**Estensioni** **impostazioni** >  **macchine virtuali** > e verificare la presenza di eventuali estensioni in uno stato di errore. Disinstallare l'estensione non riuscita e quindi riprovare a proteggere la macchina virtuale.
 
-## <a name="the-vms-provisioning-state-isnt-valid-error-code-150019"></a>Lo stato di provisioning della macchina virtuale non è valido (codice di errore 150019)The VM's provisioning state isn't valid (error code 150019)
+## <a name="vm-provisioning-state-isnt-valid-error-code-150019"></a>Lo stato di provisioning della macchina virtuale non è valido (codice di errore 150019)VM provisioning state isn't valid (error code 150019)
 
 Per abilitare la replica nella macchina virtuale, lo stato del provisioning deve essere **Succeeded**. Seguire questi passaggi per controllare lo stato del provisioning:Follow these steps to check the provisioning state:
 
@@ -400,15 +400,15 @@ Per abilitare la replica nella macchina virtuale, lo stato del provisioning deve
 - Se **provisioningState** è **Failed**, contattare il supporto tecnico con i dettagli per la risoluzione dei problemi.
 - Se **provisioningState** è **Updating**, potrebbe essere distribuita un'altra estensione. Verificare se sono presenti operazioni in corso nella macchina virtuale, attendere il completamento e quindi ritentare il processo di Site Recovery non riuscito per abilitare la replica.
 
-## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>Impossibile selezionare la macchina virtuale di destinazione (la scheda selezione rete non è disponibile)Unable to select target VM (network selection tab is unavailable)
+## <a name="unable-to-select-target-vm"></a>Impossibile selezionare la macchina virtuale di destinazione
 
-### <a name="issue-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Problema 1: la macchina virtuale è collegata a una rete già mappata a una rete di destinazioneIssue 1: Your VM is attached to a network that's already mapped to a target network
+### <a name="issue-1-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Problema 1: LA macchina virtuale è collegata a una rete già mappata a una rete di destinazioneIssue 1: VM is attached to a network that's already mapped to a target network
 
 Se la macchina virtuale di origine fa parte di una rete virtuale e un'altra macchina virtuale della stessa rete virtuale è già mappata con una rete nel gruppo di risorse di destinazione, la casella di riepilogo a discesa di selezione della rete non è disponibile (visualizzata in grigio) per impostazione predefinita.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Elenco di selezione della rete non disponibile.":::
 
-### <a name="issue-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Problema 2: In precedenza è stata protetta la macchina virtuale utilizzando Site Recovery e quindi è stata disabilitata la replicaIssue 2: You previously protected the VM by using Site Recovery, and then you disabled the replication
+### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problema 2: In precedenza è stata protetta la macchina virtuale e quindi è stata disabilitata la replicaIssue 2: You previously protected the VM and then you disabled the replication
 
 La disabilitazione della replica di una macchina virtuale non comporta l'eliminazione del mapping di rete. Il mapping deve essere eliminato dall'insieme di credenziali di Servizi di ripristino in cui la macchina virtuale è protetta. Passare **all'insieme** > di credenziali dei servizi di ripristino**Mapping di rete****dell'infrastruttura** > di Site Recovery .
 
@@ -420,9 +420,9 @@ La rete di destinazione configurata durante l'installazione del ripristino di em
 
 La modifica del mapping di rete influisce su tutte le macchine virtuali protette che utilizzano lo stesso mapping di rete.
 
-## <a name="com-or-volume-shadow-copy-service-error-error-code-151025"></a>Errore del servizio Copia Shadow del volume o COM (codice di errore 151025)
+## <a name="com-or-vss-error-code-151025"></a>COM o VSS (codice di errore 151025)
 
-Quando si verifica questo errore, viene visualizzato il seguente messaggio:
+Quando si verifica l'errore del servizio Copia Shadow del volume (VSS, Windows Pack) o del servizio Copia Shadow del volume (VSS), viene visualizzato il seguente messaggio:
 
 ```Output
 Site Recovery extension failed to install.
@@ -458,7 +458,7 @@ Il disco è inferiore alla dimensione supportata di 1024 MB.
 
 Assicurarsi che le dimensioni del disco siano all'interno dell'intervallo di dimensioni supportate, quindi ripetere l'operazione.
 
-## <a name="protection-wasnt-enabled-because-the-grub-configuration-includes-the-device-name-instead-of-the-uuid-error-code-151126"></a>La protezione non è stata abilitata perché la configurazione di GRUB include il nome del dispositivo anziché l'UUID (codice di errore 151126)
+## <a name="protection-not-enabled-when-grub-uses-device-name-error-code-151126"></a>Protezione non abilitata quando GRUB utilizza il nome del dispositivo (codice di errore 151126)
 
 ### <a name="possible-causes"></a>Possibili cause
 
@@ -493,7 +493,7 @@ Sostituire il nome di ogni dispositivo con l'UUID corrispondente:
 
 1. Riprovare la protezione.
 
-## <a name="enable-protection-failed-because-the-device-mentioned-in-the-grub-configuration-doesnt-exist-error-code-151124"></a>Abilita protezione non riuscita perché il dispositivo indicato nella configurazione GRUB non esiste (codice di errore 151124)
+## <a name="protection-failed-because-grub-device-doesnt-exist-error-code-151124"></a>Protezione non riuscita perché il dispositivo GRUB non esiste (codice di errore 151124)
 
 ### <a name="possible-cause"></a>Causa possibile
 
@@ -517,7 +517,7 @@ In ogni esempio, GRUB deve rilevare due `root` `swap` dispositivi LVM `rootvg`co
 
 Se il dispositivo LVM non esiste, crearlo o rimuovere i parametri corrispondenti dai file di configurazione GRUB. Quindi, riprovare ad abilitare la protezione.
 
-## <a name="a-site-recovery-mobility-service-update-finished-with-warnings-error-code-151083"></a>Un aggiornamento del servizio per dispositivi mobili di Site Recovery completato con avvisi (codice di errore 151083)
+## <a name="mobility-service-update-finished-with-warnings-error-code-151083"></a>Aggiornamento del servizio Mobility completato con avvisi (codice di errore 151083)Mobility service update finished with warnings (error code 151083)
 
 Il servizio Per dispositivi mobili di Site Recovery dispone di molti componenti, uno dei quali è denominato driver di filtro. Il driver del filtro viene caricato nella memoria di sistema solo durante il riavvio del sistema. Ogni volta che un aggiornamento del servizio Mobility include modifiche del driver di filtro, il computer viene aggiornato, ma viene comunque visualizzato un avviso che indica che alcune correzioni richiedono il riavvio. L'avviso viene visualizzato perché le correzioni del driver di filtro possono avere effetto solo quando viene caricato il nuovo driver di filtro, operazione che si verifica solo durante un riavvio.
 
@@ -526,7 +526,9 @@ Il servizio Per dispositivi mobili di Site Recovery dispone di molti componenti,
 >
 > Oltre al driver di filtro, i vantaggi di eventuali altri miglioramenti e correzioni nell'aggiornamento del servizio Mobility hanno effetto senza richiedere il riavvio.
 
-## <a name="protection-couldnt-be-enabled-because-the-replica-managed-disk-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>Impossibile abilitare la protezione perché il disco gestito della replica esiste già, senza tag previsti, nel gruppo di risorse di destinazione (codice di errore 150161)
+## <a name="protection-not-enabled-if-replica-managed-disk-exists"></a>Protezione non abilitata se esiste un disco gestito di replica
+
+Questo errore si verifica quando il disco gestito della replica esiste già, senza tag previsti, nel gruppo di risorse di destinazione.
 
 ### <a name="possible-cause"></a>Causa possibile
 

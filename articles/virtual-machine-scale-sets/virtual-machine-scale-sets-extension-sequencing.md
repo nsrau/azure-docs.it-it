@@ -1,18 +1,18 @@
 ---
 title: Usare la sequenza di estensioni con i set di scalabilità delle macchine virtuali di AzureUse extension sequencing with Azure virtual machine scale sets
 description: Informazioni su come eseguire la sequenziazione del provisioning delle estensioni durante la distribuzione di più estensioni in set di scalabilità di macchine virtuali.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: manayar
-ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278060"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273750"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Eseguire la sequenziazione del provisioning delle estensioni in set scalabilità di macchine virtuali
 Le estensioni di macchine virtuali di Azure offrono funzionalità come la configurazione e la gestione post-distribuzione, il monitoraggio, la sicurezza e altro ancora. In genere, le distribuzioni di produzione usano una combinazione di più estensioni configurate per le istanze di macchine virtuali per ottenere risultati desiderati.
@@ -237,7 +237,7 @@ az vmss extension set \
 ```
 
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>Non è possibile aggiungere un'estensione con dipendenze?
 1. Verificare che le estensioni specificate in provisionAfterExtensions siano definite nel modello del set di scalabilità.

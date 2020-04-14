@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cdc9f9a4503c786065b6d514f61fe17eae4ce5e
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264789"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270911"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurare l'arresto automatico per le macchine virtuali lab e di calcolo nei laboratori DevTest di AzureConfigure autoshutdown for lab and compute virtual machines in Azure DevTest Labs
 
@@ -28,7 +28,7 @@ In questo articolo viene illustrato come configurare le impostazioni di arresto 
 ## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Configurare l'arresto automatico per le macchine virtuali lab (DevTest Labs)Configure autoshutdown for lab VMs (DevTest Labs)
 Azure DevTest Labs consente di gestire i criteri (impostazioni) in ogni lab, in modo da controllare i costi e ridurre al minimo gli sprechi. Questo articolo illustra come configurare i criteri di arresto automatico per un account lab e configurare le impostazioni di arresto automatico per un lab nell'account lab. Per vedere come impostare ogni criterio del lab, vedere [Definire i criteri di lab in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-### <a name="set-auto-shut-down-policy-for-a-lab"></a>Impostare i criteri di arresto automatico per un labSet auto shut down policy for a lab
+### <a name="set-auto-shutdown-policy-for-a-lab"></a>Impostare i criteri di arresto automatico per un labSet auto shutdown policy for a lab
 I proprietari del lab possono configurare una pianificazione di arresto per tutte le macchine virtuali nel lab. In questo modo, è possibile ridurre i costi dovuti all'esecuzione di macchine virtuali che non vengono usate (inattive). È possibile applicare un criterio di arresto a tutte le macchine virtuali del lab a livello centrale, ma anche evitare agli utenti di dover configurare una pianificazione per i propri computer. Questa funzionalità consente di impostare il criterio per la pianificazione del lab, offrendo agli utenti del lab il livello di controllo desiderato. I proprietari del lab possono configurare questo criterio seguendo questa procedura:
 
 1. Nella home page del lab selezionare **Configurazione e criteri**.
@@ -42,7 +42,7 @@ Il criterio di arresto automatico consente di ridurre al minimo gli sprechi di l
 
 Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.   
 4. Selezionare **Configuration and policies** (Configurazione e criteri).
@@ -102,7 +102,7 @@ Per iniziare, creare un'app per la logica nella sottoscrizione di Azure usando i
     ![Nuovo menu dell'app per la logica](./media/devtest-lab-auto-shutdown/new-logic-app.png)
 2. Nella pagina App per la logica - Crea eseguire la procedura seguente:On the **Logic App - Create** page, follow these steps: 
     1. Immettere un **nome** per l'app per la logica.
-    2. Selezionare la **sottoscrizione di**Azure .
+    2. Selezionare la **sottoscrizione**di Azure.
     3. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente. 
     4. Selezionare un **percorso** per l'app per la logica. 
 
@@ -191,13 +191,34 @@ Per iniziare, creare un'app per la logica nella sottoscrizione di Azure usando i
 
 ## <a name="configure-autoshutdown-for-compute-vms"></a>Configurare l'arresto automatico per le macchine virtuali di calcoloConfigure autoshutdown for compute VMs
 
-1. Nella pagina **Macchina virtuale** selezionare **Arresto automatico** nel menu a sinistra. 
+1. Nella pagina **Macchina virtuale** selezionare **Arresto automatico** nel menu a sinistra nella sezione **Operazioni.** 
 2. Nella pagina **Arresto automatico** selezionare **Attivato** per abilitare questo criterio e **Disattivato** per disabilitarlo.
 3. Se si abilita questo criterio, specificare **l'ora** (e il **fuso orario)** in cui la macchina virtuale deve essere arrestata.
 4. Specificare **Sì** o **No** per l'opzione per inviare una notifica 30 minuti prima dell'ora di arresto automatico specificata. Se si sceglie **Sì**, immettere un endpoint dell'URL webhook o un indirizzo di posta elettronica che specifica dove inviare o registrare la notifica. L'utente riceve la notifica e ha la possibilità di ritardare l'arresto. Per altre informazioni, vedere la sezione [Notifiche.For](#notifications) more information, see the Notifications section. 
 9. Selezionare **Salva**.
 
     ![Configurare l'arresto automatico per una macchina virtuale di calcoloConfigure autoshutdown for a compute VM](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
+### <a name="view-activity-logs-for-auto-shutdown-updates"></a>Visualizzare i log attività per gli aggiornamenti di arresto automaticoView activity logs for auto shutdown updates
+Quando si aggiorna l'impostazione di arresto automatico, verrà visualizzata l'attività registrata nel log attività per la macchina virtuale. 
+
+1. Nel [portale di Azure](https://portal.azure.com)passare alla home page della macchina virtuale.
+2. Selezionare **Registro attività** dal menu a sinistra. 
+3. Rimuovi **risorsa: mycomputevm** dai filtri.
+3. Verificare che nel registro attività sia visualizzata l'operazione **Aggiungi o modifica pianificazioni.** Se non viene visualizzato, attendere qualche volta e aggiornare il log attività.
+
+    ![Voce del log attività](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
+4. Selezionare l'operazione **Aggiungi o modifica pianificazioni** per visualizzare le seguenti informazioni nella pagina **Riepilogo:**
+
+    - Nome dell'operazione (Aggiungere o modificare pianificazioni)
+    - Data e ora in cui è stata aggiornata l'impostazione di arresto automatico.
+    - Indirizzo di posta elettronica dell'utente che ha aggiornato l'impostazione. 
+
+        ![Riepilogo delle voci del log attività](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
+5. Passare alla scheda **Cronologia modifiche** nella pagina Aggiungi o **modifica pianificazioni** viene visualizzata la cronologia delle modifiche per l'impostazione. Nell'esempio seguente, l'ora di arresto è stata modificata dalle 19:00 alle 18:00 del 10 aprile 2020 alle 15:18:47 EST. E, l'impostazione è stata disabilitata a 15:25:09 EST. 
+
+    ![Registro attività - cronologia delle modifiche](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
+6. Per visualizzare ulteriori dettagli sull'operazione, passare alla scheda **JSON** nella pagina **Aggiungi o modifica pianificazioni.**
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come impostare tutti i criteri, vedere [Definire i criteri lab in Azure DevTest Labs.](devtest-lab-set-lab-policy.md)

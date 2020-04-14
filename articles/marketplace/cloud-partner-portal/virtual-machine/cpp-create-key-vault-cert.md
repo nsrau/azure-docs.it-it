@@ -7,20 +7,23 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: dc106ecf40367172f28c0f339bbcce8bddb50a34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278076"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274022"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Creare certificati per Azure Key Vault
 
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Certificazione dell'immagine della macchina virtuale](https://aks.ms/CertifyVMimage) di Azure per gestire le offerte migrate.
+
 Questo articolo illustra come effettuare il provisioning dei certificati autofirmati richiesti per stabilire una connettività di Gestione remota Windows (WinRM) a una macchina virtuale (VM) ospitata in Azure. Questo processo si articola in tre passaggi:
 
-1.  Creare il certificato di protezione. 
-2.  Creare l'insieme di credenziali delle chiavi per archiviare questo certificato. 
-3.  Archiviare i certificati in questo insieme di credenziali delle chiavi. 
+1.    Creare il certificato di protezione. 
+2.    Creare l'insieme di credenziali delle chiavi per archiviare questo certificato. 
+3.    Archiviare i certificati in questo insieme di credenziali delle chiavi. 
 
 È possibile usare un gruppo di risorse di Azure nuovo o esistente per questa operazione.  Il primo approccio viene usato nella spiegazione seguente.
 

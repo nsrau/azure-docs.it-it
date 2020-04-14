@@ -3,7 +3,7 @@ title: Integrazione di Microsoft Azure con l'infrastruttura cloud Oracle Documen
 description: Informazioni sulle soluzioni che integrano app Oracle in esecuzione in Microsoft Azure con database in Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: ''
-ms.openlocfilehash: b5d5ebda850163989e6ef1af94ec623d2d758f07
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 178fb805f4bfc0762ce7e4a320752e5afa00cef5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878290"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271863"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluzioni applicative Oracle che integrano Microsoft Azure e Oracle Cloud Infrastructure
 
@@ -55,6 +55,7 @@ La connettività cross-cloud è limitata alle seguenti aree:
 * Azure Italia Sud (uksouth) & OCI London (Regno Unito sud)
 * Azure Canada Central (canadacentral) & OCI Toronto (Canada sud-est)
 * Azure West Europe (westeurope) & OCI Amsterdam (Paesi Bassi nord-occidentali)
+* Azure Giappone Est (japaneast) & OCI Tokyo (Giappone est)
 
 ## <a name="networking"></a>Rete
 

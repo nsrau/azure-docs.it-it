@@ -1,5 +1,5 @@
 ---
-title: Dashboard di Marketplace Insights nell'analisi di Marketplace commerciale nel Centro per i partner
+title: Dashboard di Marketplace Insights nell'analisi del marketplace commerciale nel Centro per i partner
 description: Accedi a un riepilogo dell'analisi Web del marketplace, che consente ai publisher di misurare il coinvolgimento dei clienti nelle vetrine di AppSource e Azure Marketplace.
 author: dsindona
 ms.author: dsindona
@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: a547ced9df98298361360ecab88036599cd86027
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275850"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251708"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di Marketplace Insights nell'analisi di Marketplace commerciale
+# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di Marketplace Insights nell'analisi del marketplace commerciale
 
 Questo articolo fornisce informazioni sul dashboard di Marketplace Insights nel Centro per i partner. Questo dashboard visualizza un riepilogo dell'analisi Web del marketplace, che consente agli editori di misurare il coinvolgimento dei clienti per le rispettive pagine dei dettagli del prodotto elencate nelle vetrine del marketplace: AppSource e Azure Marketplace.
 
@@ -34,7 +34,7 @@ Per accedere al **dashboard Marketplace Insights** nel Centro per i partner, apr
 - [Tabella dei dettagli di Marketplace Insights](#marketplace-insights-details-table)
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia dell'analisi, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)di Commercial Marketplace.
+> Per le definizioni dettagliate della terminologia dell'analisi, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)del mercato commerciale.
 
 ### <a name="insights-dashboard-layout"></a>Layout del dashboard di Insights
 
@@ -134,11 +134,11 @@ Questa tabella fornisce una visualizzazione elenco delle visite alle pagine e gl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dei report di analisi disponibili nel Marketplace commerciale del Centro per i partner, vedere Analisi per il Marketplace commerciale nel Centro per i [partner.](./analytics.md)
-- Per grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per la tua offerta, vedi [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)di Commercial Marketplace.
-- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
-- Per la macchina virtuale (VM) offre l'utilizzo e le metriche di fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi](./usage-dashboard.md)di Commercial Marketplace.
-- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti nell'analisi](./customer-dashboard.md)di Commercial Marketplace .
-- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Download Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
-- Per visualizzare una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Valutazioni e recensioni del dashboard nell'analisi](./ratings-reviews.md)di Commercial Marketplace.
-- Per le domande frequenti sull'analisi di Commercial Marketplace e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)di Commercial Marketplace .
+- Per una panoramica dei report di analisi disponibili nel marketplace commerciale del Centro per i partner, vedere Analisi per il marketplace commerciale nel Centro per i [partner.](./analytics.md)
+- Per i grafici, le tendenze e i valori dei dati aggregati che riepilogano l'attività del marketplace per la tua offerta, vedi [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)del marketplace commerciale.
+- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
+- Per la macchina virtuale (VM) offre l'utilizzo e le metriche di fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi del marketplace commerciale.](./usage-dashboard.md)
+- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
+- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Download Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
+- Per visualizzare una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Valutazioni e recensioni del dashboard nell'analisi](./ratings-reviews.md)del marketplace commerciale.
+- Per le domande frequenti sull'analisi del mercato commerciale e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)del mercato commerciale.

@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 01/29/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: c5bba7296a05cfbb72698a991ece1ef298689bd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76900652"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255050"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Elenchi indirizzi attendibili gli URL del portale di Azure nel firewall o nel server proxy
 
@@ -80,13 +80,3 @@ Gli endpoint URL da elencare attendibili per il portale di Azure sono specifici 
 > Il traffico verso questi endpoint usa porte TCP standard per HTTP (80) e HTTPS (443).
 >
 >
-## <a name="next-steps"></a>Passaggi successivi
-
-Hai bisogno di indirizzi IP attendibili? Scaricare l'elenco degli intervalli IP del data center di Microsoft Azure per il cloud:
-
-* [In tutto il mondo](https://www.microsoft.com/download/details.aspx?id=56519)
-* [Governo degli Stati Uniti](https://www.microsoft.com/download/details.aspx?id=57063)
-* [Germania](https://www.microsoft.com/download/details.aspx?id=57064)
-* [Cina](https://www.microsoft.com/download/details.aspx?id=57062)
-
-Altri servizi Microsoft usano URL e indirizzi IP aggiuntivi per la connettività. Per ottimizzare la connettività di rete per i servizi di Microsoft 365, vedere [Configurare la rete per Office 365.](/office365/enterprise/set-up-network-for-office-365)

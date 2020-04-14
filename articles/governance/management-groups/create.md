@@ -3,12 +3,12 @@ title: Creare gruppi di gestione per organizzare le risorse - Governance di Azur
 description: Informazioni su come creare gruppi di gestione di Azure per gestire più risorse tramite il portale, Azure PowerShell e l'interfaccia della riga di comando di Azure.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: d9bb2e82404c0188094298f40da3346ee132eec3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a06679432d795b5b7854af8dc66b468841978e9c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436524"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273189"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creare gruppi di gestione per la gestione e l'organizzazione delle risorse
 
@@ -20,7 +20,7 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 Qualsiasi utente di Azure AD nel tenant può creare un gruppo di gestione senza l'autorizzazione di scrittura del gruppo di gestione assegnata a tale utente.  Questo nuovo gruppo di gestione sarà un elemento figlio del gruppo di gestione radice e al creatore verrà assegnata un'assegnazione di ruolo "Proprietario". Il servizio del gruppo di gestione consente questa capacità in modo che le assegnazioni di ruolo non siano necessarie a livello di radice. Nessun utente ha accesso al gruppo di gestione radice al momento della creazione.  Per evitare l'ostacolo di trovare gli amministratori globali di Azure AD per iniziare a utilizzare i gruppi di gestione, è possibile creare i gruppi di gestione iniziali a livello di radice.      
 
-È possibile creare il gruppo di gestione tramite il portale, PowerShell o l'interfaccia della riga di comando di Azure. Attualmente non è possibile usare i modelli di Resource Manager per creare gruppi di gestione.
+È possibile creare il gruppo di gestione usando il portale, un modello di Resource Manager, PowerShell o l'interfaccia della riga di comando di Azure.You can create the management group by using the portal, a [Resource Manager template,](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group)PowerShell, or Azure CLI.
 
 ### <a name="create-in-portal"></a>Creazione nel portale
 

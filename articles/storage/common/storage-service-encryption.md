@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f112a4523bc5af9ecae57e93dfb90795d3fe9c50
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ff9191c0994d4e26da69e1c4ceaf7ef6c93e9960
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113268"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253153"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia di Archiviazione di Azure per i dati inattiviAzure Storage encryption for data at rest
 
@@ -45,7 +45,7 @@ La tabella seguente confronta le opzioni di gestione delle chiavi per la crittog
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Operazioni di crittografia/decrittografia    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    Servizi di Archiviazione di Azure supportatiAzure Storage services supported    |    Tutti                                                |    Archiviazione BLOB, File di Azure<sup>1,2BLOB</sup> storage, Azure Files 1,2                                                                                                               |    Archiviazione BLOB                                                                  |
-|    Memorizzazione delle chiavi                         |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure                                                                                                                              |    Archivio chiavi di Azure o qualsiasi altro archivio chiaviAzure Key Vault or any other key store                                                                 |
+|    Memorizzazione delle chiavi                         |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure                                                                                                                              |    Archivio chiavi del cliente                                                                 |
 |    Responsabilità di rotazione chiave         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    Controllo dei tasti                          |    Microsoft                                     |    Customer                                                                                                                    |    Customer                                                                 |
 

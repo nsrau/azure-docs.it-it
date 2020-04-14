@@ -5,17 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 2a1022c6d041bf645b43dfed391a489de30b2fce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df94cba1f77ae3ea8cf595e7c651af7a69108bb6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288564"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255975"
 ---
 <a name="api-prerequisites"></a>Prerequisiti per API
 ================
+
+> [!NOTE]
+> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
 
 Esistono due risorse programmatiche necessarie per usare le API del portale Cloud Partner: un'entità servizio e un token di accesso Azure Active Directory (Azure AD).
 
@@ -41,7 +44,7 @@ Usare la procedura seguente per aggiungere l'entità servizio:
 3. Selezionare **Entità servizio** dall'elenco a discesa **Tipo** e aggiungere i dettagli seguenti:
 
 -   Un **Nome descrittivo** per l'entità servizio, ad esempio `spAccount`.
--   L'**ID applicazione**. Per trovare questo identificatore, consultare il [portale di Azure](https://portal.azure.com), fare clic su **Azure Active Directory**, scegliere **Registrazioni app**e fare clic sull'app.
+-   L'**ID applicazione**. Per trovare questo identificatore, passare al portale di [Azure](https://portal.azure.com), fare clic su **Azure Active Directory**, scegliere **Registrazioni app**e fare clic sull'app.
 -   L'**ID tenant**, noto anche come **ID directory**, per il tenant di Azure AD. È possibile trovare questo identificatore nella pagina di Azure Active Directory nel [portale di Azure](https://portal.azure.com), in **Proprietà**.
 -   L'**ID oggetto** per l'oggetto entità servizio. È possibile ottenere questo identificatore dal portale di Azure. Passare ad **Azure Active Directory**, scegliere **Registrazioni app**, fare clic sull'app e poi sul nome dell'app in **Applicazione gestita nella directory locale**. Passare quindi alla pagina **Proprietà**, per trovare l'ID oggetto. Assicurarsi di non acquisire l'ID oggetto iniziale sull'app, bensì quello presente all'interno dell'applicazione gestita.
 -   Il **Ruolo** associato all'account, viene usato per il Controllo degli accessi in base al ruolo.

@@ -5,16 +5,16 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: ce576d9825819770486197a6c39425adf6ac3208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275901"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252632"
 ---
-# <a name="customer-leads-from-your-marketplace-offer"></a>Lead cliente dall'offerta del marketplace
+# <a name="customer-leads-from-your-marketplace-offer"></a>Lead di clienti dall'offerta del marketplace
 
 I lead sono clienti interessati o distribuiscono le offerte da [Azure Marketplace](https://azuremarketplace.microsoft.com) o da [AppSource.](https://appsource.microsoft.com) Riceverai i lead dei clienti una volta che la tua offerta sarà pubblicata sul mercato. Questo articolo spiegherà:
 
@@ -133,11 +133,11 @@ La destinazione di lead BLOB di Azure non è più supportata, pertanto mancano t
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>È stato ricevuto un messaggio di posta elettronica dal Marketplace, perché non si riesce a trovare il lead nel sistema CRM?
 
-È possibile che il dominio di posta elettronica dell'utente finale sia di tipo edu. Per motivi di privacy, non passiamo i dati personali dal dominio .edu. Inviare un ticket di supporto tramite aka.ms/marketplacepublishersupport.
+È possibile che il dominio di posta elettronica dell'utente finale sia di tipo edu. Per motivi di privacy, non passiamo informazioni private identificabili dal dominio .edu. Inviare un ticket di supporto tramite aka.ms/marketplacepublishersupport.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Ho configurato Tabella di Azure come destinazione principale, come è possibile visualizzare i lead?
 
-È possibile accedere ai dati di lead archiviati nella tabella di Azure dal portale di Azure oppure scaricare e installare Azure Storage Explorer gratuitamente per visualizzare i dati delle tabelle dell'account di archiviazione di Azure.You can access the lead data stored in the Azure Table from the Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account's tables data.
+È possibile accedere ai dati di lead archiviati nella tabella di Azure dal portale di Azure oppure scaricare e installare Azure Storage Explorer gratuitamente per visualizzare i dati delle tabelle dell'account di archiviazione di Azure.You can access the lead data stored in the Azure Table from the Azure portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account's tables data.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-lead-is-sent-by-marketplace"></a>È stata configurata una tabella di Azure come destinazione dei lead. È possibile ricevere una notifica quando viene inviato un nuovo lead dal Marketplace?
 
@@ -149,13 +149,17 @@ Verificare se il modulo "web to lead" è un campo obbligatorio basato su un elen
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>C'è stato un problema con la destinazione dei lead e non si sono visti alcuni lead. È possibile riceverli tramite posta elettronica?
 
-A causa dei criteri relativi alle informazioni personali, non è possibile condividere informazioni sui lead tramite posta elettronica non protetta.
+A causa delle politiche private identificabili in materia di informazioni, non possiamo condividere le informazioni sui lead tramite e-mail non protette.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Ho configurato Tabella di Azure come destinazione principale, quanto costerà?
 
 I dati di generazione dei lead sono inferiori a 1 GB per quasi tutti gli editori. Il costo dipenderà dal numero di lead ricevuti. Se ad esempio si ricevono 1.000 lead in un mese, il costo è di circa 50 centesimi. Altre informazioni sui prezzi delle risorse di archiviazione sono disponibili [qui](https://azure.microsoft.com/pricing/details/storage/).
 
 Se la tua domanda non ha ancora una risposta, contatta il supporto tramite aka.ms/marketplacepublishersupport, quindi seleziona **"creazione dell'offerta"** - **il tuo tipo di offerta** - 'configurazione di gestione dei **lead'.** 
+
+### <a name="i-am-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-who-to-receive-these-emails"></a>Ricevo notifiche e-mail quando vengono ricevuti nuovi lead dei clienti. Come posso configurare chi ricevere queste e-mail?
+
+Accedi alla tua offerta nel Centro per i partner e vai alla pagina **Impostazione offerta** - > **Lead Management** -> **Modifica**. Aggiornare gli indirizzi di posta elettronica nel campo Indirizzo di **posta elettronica contatto.**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

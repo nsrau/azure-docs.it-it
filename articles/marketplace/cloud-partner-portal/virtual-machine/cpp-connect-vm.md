@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 2b7eb6d321a64835254b684c8faeedc53645dffe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f2652a98aa081b62ba80951212ef3a3de513593
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278059"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272662"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Connettersi alla macchina virtuale basata su Azure
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo la gestione mobile delle offerte di Macchine virtuali di Azure al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare gli asset tecnici della macchina virtuale](https://aka.ms/AzureVMTechAsset) di Azure per gestire le offerte migrate.
 
 Questo articolo illustra come connettersi ed eseguire l'accesso alle macchine virtuali create in Azure.  Dopo aver eseguito correttamente la connessione, è possibile usare la macchina virtuale come se si fosse connessi localmente al relativo server host. 
 
@@ -32,7 +35,7 @@ L'articolo seguente illustra in modo dettagliato come usare il supporto RDP di W
 
 Per connettere la macchina virtuale basata su Linux, è necessario un client SSH (Secure Shell Protocol).  In questa discussione verrà usato il terminale SHH [PuTTY](https://www.ssh.com/ssh/putty/) gratuito.
 
-1. Passare al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **Macchine virtuali**. 
+1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **Macchine virtuali**. 
 2. Selezionare la macchina virtuale a cui connettersi.  
 3. **Avviare** la macchina virtuale se non è già in esecuzione.
 4. Fare clic sul nome della macchina virtuale da aprire nella pagina **Panoramica**.

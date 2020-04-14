@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 1703853f42b52dccc80fdfadaa09b67e18a19db8
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632907"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271693"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemi comuni relativi alla verifica a due fattori e all'account aziendale o dell'istituto di istruzione
 
@@ -65,6 +65,7 @@ Assicurarsi di disporre di un segnale del dispositivo e di una connessione Inter
 Disattiva Non disturbare | Assicurati di non aver attivato la funzione **Non disturbare** per il tuo dispositivo mobile. Quando questa funzionalità è attivata, le notifiche non sono autorizzate a avvisarti sul tuo dispositivo mobile. Consultare il manuale del dispositivo mobile per istruzioni su come disattivare questa funzionalità.
 Sbloccare i numeri di telefono | Negli Stati Uniti, le chiamate vocali da Microsoft provengono dai seguenti numeri: 1 (866) 539 4191, 1 (855) 330 8653 e 1 (877) 668 6536.
 Controllare le impostazioni relative alla batteria | Questo sembra un po 'strano sulla superficie, ma se hai impostato l'ottimizzazione della batteria per fermare le applicazioni meno usate di rimanere attivi in background, il sistema di notifica è stato molto probabilmente influenzato. Per provare a risolvere il problema, disattiva l'ottimizzazione della batteria per l'app di autenticazione e l'app di messaggistica, quindi prova ad accedere di nuovo al tuo account.
+Disabilitare le app di sicurezza di terze parti | Se hai un'app che protegge i messaggi di testo o le telefonate per ridurre al minimo i chiamanti sconosciuti, potrebbero impedire la ricezione del codice di verifica. Prova a disabilitare qualsiasi app di sicurezza di terze parti sul telefono, quindi richiedi l'invio di un altro codice di verifica.
 
 ## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>Non ricevo la richiesta delle seconde informazioni di verifica
 

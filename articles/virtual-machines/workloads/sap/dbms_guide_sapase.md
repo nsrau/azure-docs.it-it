@@ -12,19 +12,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 007e8d87c670376ad334c1c4e58fd93995930b78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616241"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273206"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
 
-Questo documento illustra le numerose aree da valutare quando si distribuisce SAP ASE in IaaS di Azure. Prima di questo documento è consigliabile avere letto il documento [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP) e le altre guide disponibili nella [documentazione relativa a un carico di lavoro SAP in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Questo documento illustra SAP ASE in esecuzione su Linux e su sistemi operativi Windows. La versione minima supportata in Azure è SAP ASE 16.0 Patch Level 2.The minimum supported release on Azure is SAP ASE 16.0 Patch Level 2.  Si consiglia di distribuire la versione più recente di SAP e il livello di patch più recente.  Come minimo SAP ASE 16.3 Patch Level 7 è consigliato.  La versione più recente di SAP è disponibile in [Targeted ASE 16.0 Release Schedule and CR list Information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
+Questo documento illustra le numerose aree da valutare quando si distribuisce SAP ASE in IaaS di Azure. Prima di questo documento è consigliabile avere letto il documento [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP) e le altre guide disponibili nella [documentazione relativa a un carico di lavoro SAP in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Questo documento illustra SAP ASE in esecuzione su Linux e su sistemi operativi Windows. La versione minima supportata in Azure è SAP ASE 16.0.02 (Versione 16 Support Pack 2). Si consiglia di distribuire la versione più recente di SAP e il livello di patch più recente.  Come minimo SAP ASE 16.0.03.07 (versione 16 Support Pack 3 Patch Level 7) è consigliato.  La versione più recente di SAP è disponibile in [Targeted ASE 16.0 Release Schedule and CR list Information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
 
 Ulteriori informazioni sul supporto del rilascio con le applicazioni SAP o la posizione del supporto di installazione sono disponibili, oltre che nella matrice di disponibilità del prodotto SAP nelle seguenti posizioni:
 
@@ -80,11 +80,11 @@ Gli esempi riportati di seguito sono a scopo illustrativo e possono essere modif
 
 Un esempio di una configurazione per un server di database SAP ASE di piccole dimensioni con una dimensione del database compresa tra 50 GB e 250 GB, ad esempio SAP solution Manager, potrebbe essere simile a
 
-| Configurazione | WINDOWS | Linux | Commenti |
+| Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | E4s_v3 (4 vCPU/32 GB RAM) | E4s_v3 (4 vCPU/32 GB RAM) | --- |
 | Rete accelerata | Abilitare | Abilitare | ---|
-| Versione SAP ASE | 16.3 PL 7 o superiore | 16.3 PL 7 o superiore | --- |
+| Versione SAP ASE | 16.0.03.07 o superiore | 16.0.03.07 o superiore | --- |
 | Numero di dispositivi di dati | 4 | 4 | ---|
 | N. di dispositivi di log | 1 | 1 | --- |
 | Numero di dispositivi temporanei | 1 | 1 | altro per il carico di lavoro SAP BW |
@@ -101,11 +101,11 @@ Un esempio di una configurazione per un server di database SAP ASE di piccole di
 
 Un esempio di configurazione per un server di database SAP ASE di medie dimensioni con una dimensione del database compresa tra 250 GB e 750 GB, ad esempio un sistema SAP Business Suite più piccolo, potrebbe essere simile a un sistema SAP Business Suite più piccolo
 
-| Configurazione | WINDOWS | Linux | Commenti |
+| Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | E16s_v3 (16 vCPU/128 GB RAM) | E16s_v3 (16 vCPU/128 GB RAM) | --- |
 | Rete accelerata | Abilitare | Abilitare | ---|
-| Versione SAP ASE | 16.3 PL 7 o superiore | 16.3 PL 7 o superiore | --- |
+| Versione SAP ASE | 16.0.03.07 o superiore | 16.0.03.07 o superiore | --- |
 | Numero di dispositivi di dati | 8 | 8 | ---|
 | N. di dispositivi di log | 1 | 1 | --- |
 | Numero di dispositivi temporanei | 1 | 1 | altro per il carico di lavoro SAP BW |
@@ -121,11 +121,11 @@ Un esempio di configurazione per un server di database SAP ASE di medie dimensio
 
 Un esempio di una configurazione per un server di database SAP ASE di piccole dimensioni con una dimensione del database compresa tra 750 GB e 2000 GB, ad esempio un sistema SAP Business Suite più grande, potrebbe essere simile a un sistema SAP Business Suite
 
-| Configurazione | WINDOWS | Linux | Commenti |
+| Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | E64s_v3 (64 vCPU/432 GB RAM) | E64s_v3 (64 vCPU/432 GB RAM) | --- |
 | Rete accelerata | Abilitare | Abilitare | ---|
-| Versione SAP ASE | 16.3 PL 7 o superiore | 16.3 PL 7 o superiore | --- |
+| Versione SAP ASE | 16.0.03.07 o superiore | 16.0.03.07 o superiore | --- |
 | Numero di dispositivi di dati | 16 | 16 | ---|
 | N. di dispositivi di log | 1 | 1 | --- |
 | Numero di dispositivi temporanei | 1 | 1 | altro per il carico di lavoro SAP BW |
@@ -142,11 +142,11 @@ Un esempio di una configurazione per un server di database SAP ASE di piccole di
 
 Un esempio di una configurazione per un server di database SAP ASE di piccole dimensioni con una dimensione del database di 2 TB, ad esempio un sistema SAP Business Suite utilizzato a livello globale più grande, potrebbe essere simile a
 
-| Configurazione | WINDOWS | Linux | Commenti |
+| Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | Serie M (da 1,0 a 4,0 TB di RAM)  | Serie M (da 1,0 a 4,0 TB di RAM) | --- |
 | Rete accelerata | Abilitare | Abilitare | ---|
-| Versione SAP ASE | 16.3 PL 7 o superiore | 16.3 PL 7 o superiore | --- |
+| Versione SAP ASE | 16.0.03.07 o superiore | 16.0.03.07 o superiore | --- |
 | Numero di dispositivi di dati | 32 | 32 | ---|
 | N. di dispositivi di log | 1 | 1 | --- |
 | Numero di dispositivi temporanei | 1 | 1 | altro per il carico di lavoro SAP BW |
@@ -203,7 +203,7 @@ SAP Software provisioning Manager (SWPM) offre un'opzione per crittografare il d
 
 ## <a name="sap-ase-on-azure-deployment-checklist"></a>Elenco di controllo per la distribuzione di SAP ASE in Azure
  
-- Distribuire SAP ASE 16.3 PL7 o versione successiva
+- Distribuire SAP ASE 16.0.03.07 o versione successiva
 - Aggiornamento alla versione più recente e alle patch di FaultManager e SAPHostAgent
 - Distribuzione nel sistema operativo certificato più recente disponibile, ad esempio Windows 2019, Suse 15.1 o Redhat 7.6 o versione successiva
 - Usare macchine virtuali certificate SAP: sono consigliate sKU di macchine virtuali di Azure ad alta memoria, ad esempio Es_v3 o per sistemi x-large, sKU di VM serie M
@@ -277,7 +277,7 @@ Per altre informazioni su DBA Cockpit per SAP ASE, vedere le note SAP seguenti:
 
 
 ## <a name="useful-links-notes--whitepapers-for-sap-ase"></a>Link utili, note & whitepaper per SAP ASE
-La pagina iniziale della [documentazione di Sybase ASE 16.3 PL7](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) fornisce collegamenti a vari documenti di cui i documenti:
+La pagina iniziale di [SAP ASE 16.0.03.07 Documentation](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) fornisce collegamenti a vari documenti di cui i documenti di:
 
 - Percorso di apprendimento SAP ASE - Amministrazione & monitoraggio
 - Percorso di apprendimento SAP ASE - Installazione & aggiornamento
@@ -303,11 +303,11 @@ Altre note utili sul supporto SAP sono:
 Altre informazioni sono pubblicate su 
 
 - [Applicazioni SAP nell'azienda di server adattivi SAP](https://community.sap.com/topics/applications-on-ase)
-- [Infocenter Sybase](http://infocenter.sybase.com/help/index.jsp) 
+- [Infocenter SAP ASE](http://infocenter.sybase.com/help/index.jsp) 
+- [SAP ASE Sempre in uso con l'installazione del terzo nodo DI ripristino di emergenza](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)
 
 Una newsletter mensile viene pubblicata tramite [la nota](https://launchpad.support.sap.com/#/notes/2381575) di supporto SAP #2381575 
 
-[Sybase ASE Sempre in onda con 3a configurazione del nodo DR](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Controllare l'articolo Carichi di lavoro SAP in Azure: elenco di controllo per la pianificazione e la distribuzioneCheck the article [SAP workloads on Azure: planning and deployment checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)

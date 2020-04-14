@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 8af6b3a451d20bcc9cab3fa4adb9643f82b85e49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3e35b6d19905e3c5262dfea3e52511510c9ffe
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288819"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252783"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurare la gestione dei lead per Dynamics 365 per Customer Engagement
 
@@ -180,6 +180,7 @@ Quando si è pronti a configurare le informazioni di gestione dei lead per l'off
     ![Dettagli connessione - Destinazione lead](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
 4. Specificare **l'URL dell'istanza di Dynamics 365,** ad `https://contoso.crm4.dynamics.com`esempio .
+
 5. Selezionare il metodo di **autenticazione**, Azure Active Directory o Office 365. 
 6. Se è stato selezionato Azure Active Directory, specificare `23456052-aaaa-bbbb-8662-1234df56788f` **l'ID applicazione (client)** (esempio: ), l'ID **directory** (esempio: `12345678-8af1-4asf-1234-12234d01db47`) e **il segreto client** (esempio: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
@@ -188,6 +189,13 @@ Quando si è pronti a configurare le informazioni di gestione dei lead per l'off
 7. Se è stato selezionato Office 365, `contoso@contoso.onmicrosoft.com`specificare il nome `P@ssw0rd` **utente** (ad esempio: ) e Password (esempio: ).
 
     ![Dettagli connessione - Nome utente](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+
+8. **Email di contatto:** fornisci email alle persone della tua azienda che devono ricevere notifiche e-mail quando viene ricevuto un nuovo lead. È possibile fornire più messaggi di posta elettronica separandoli con un punto e virgola.
+9. Selezionare **OK**.
+
+Per assicurarsi di aver eseguito correttamente la connessione a una destinazione lead, fare clic sul pulsante di convalida. In caso di esito positivo, si avrà un lead di test nella destinazione del lead.
+
+![Gestione lead - Account di archiviazione dei dettagli di connessione](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 
 >[!Note]
 >È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta.

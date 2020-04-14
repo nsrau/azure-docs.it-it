@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408497"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255329"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le diverse applicazioni e servizi monitorati da Monitoraggio di Azure.This article describes the different applications and services that are monitored by Azure Monitor. 
@@ -31,7 +31,7 @@ Insights offre un'esperienza di monitoraggio personalizzata per applicazioni e s
 | [Monitoraggio di Azure per reti (anteprima)Azure Monitor for Networks (preview)](insights/network-insights-overview.md) | Fornisce una visualizzazione completa dell'integrità e delle metriche per tutte le risorse di rete. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, consentendo scenari come l'identificazione delle risorse che ospitano il sito Web, semplicemente cercando il nome del sito Web. |
 [Monitoraggio di Azure per i gruppi di risorse (anteprima)Azure Monitor for Resource Groups (preview)](insights/resource-group-insights.md) |  Valutare e diagnosticare eventuali problemi riscontrati dalle singole risorse, offrendo al conto dell'integrità e delle prestazioni dell'intero gruppo di risorse. |
 | [Monitoraggio di Azure per archiviazione (anteprima)Azure Monitor for Storage (preview)](insights/storage-insights-overview.md) | Fornisce un monitoraggio completo degli account di archiviazione di Azure offrendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di archiviazione di Azure.Provides comprehensive monitoring of your Azure Storage accounts by provides a unified view of your Azure Storage services performance, capacity, and availability. |
-| [Monitoraggio di Azure per macchine virtuali (anteprima)Azure Monitor for VMs (preview)](insights/container-insights-overview.md) | Monitora le macchine virtuali di Azure (VM) e i set di scalabilità delle macchine virtuali su larga scala su larga scala. Analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le dipendenze da altre risorse e processi esterni. |
+| [Azure Monitor for VMs](insights/container-insights-overview.md) | Monitora le macchine virtuali di Azure (VM) e i set di scalabilità delle macchine virtuali su larga scala su larga scala. Analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le dipendenze da altre risorse e processi esterni. |
 
 ### <a name="core-solutions"></a>Soluzioni di base
 
@@ -143,7 +143,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Resource Graph | No | No | No |  |
 |Gestione risorse | No | No | No |  |
 |Ricerca al dettaglio – di Bing | No | No | No |  |
-|Cerca | Sì | Sì | No |  |
+|Ricerca | Sì | Sì | No |  |
 |Bus di servizio | Sì | Sì | No |  |
 |Service Fabric | No | Sì | No | Agente necessario per monitorare il sistema operativo guest e i flussi di lavoro.  |
 |Portale di iscrizione | No | No | No |  |
@@ -174,15 +174,15 @@ The services and solutions in the following table store their data in a Log Anal
 
 | Prodotto o servizio | Descrizione |
 |:---|:---|
-| [Automazione di AzureAzure Automation](/azure/automation/) | Gestire gli aggiornamenti del sistema operativo e tenere traccia delle modifiche nei computer Windows e Linux. Vedere [Rilevamento modifiche](../automation/change-tracking.md) e [gestione degli aggiornamenti](../automation/automation-update-management.md). |
+| [Automazione di Azure](/azure/automation/) | Gestire gli aggiornamenti del sistema operativo e tenere traccia delle modifiche nei computer Windows e Linux. Vedere [Rilevamento modifiche](../automation/change-tracking.md) e [gestione degli aggiornamenti](../automation/automation-update-management.md). |
 | [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) | Classificare e facoltativamente proteggere documenti e messaggi di posta elettronica. Vedere [Creazione di report centralizzati per Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
-| [Centro sicurezza di AzureAzure Security Center](/azure/security-center/) | Raccogliere e analizzare gli eventi di sicurezza ed eseguire l'analisi delle minacce. Vedere Raccolta dei dati nel Centro sicurezza di [AzureSee Data collection in Azure Security Center](/azure/security-center/security-center-enable-data-collection) |
+| [Centro sicurezza di Azure](/azure/security-center/) | Raccogliere e analizzare gli eventi di sicurezza ed eseguire l'analisi delle minacce. Vedere Raccolta dei dati nel Centro sicurezza di [AzureSee Data collection in Azure Security Center](/azure/security-center/security-center-enable-data-collection) |
 | [Azure Sentinel](/azure/sentinel/) | Si connette a diverse fonti, tra cui Office 365 e Amazon Web Services Cloud Trail. Consultate [Connettere origini dati.](/azure/sentinel/connect-data-sources) |
 | [Analisi dell'insieme di credenziali delle chiavi](insights/azure-key-vault.md) | Analizzare i log AuditEvent dell'insieme di credenziali delle chiavi di Azure.Analyze Azure Key Vault AuditEvent logs. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Creare un'impostazione di diagnostica per inviare log a Monitoraggio di Azure.Create a diagnostic setting to send logs to Azure Monitor. Vedere [Inviare dati di log a archivi, hub eventi o analisi dei log in Intune (anteprima).](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)  |
 | Rete  | [Monitoraggio prestazioni rete:](insights/network-performance-monitor.md) consente di monitorare la connettività di rete e le prestazioni per gli endpoint di servizio e applicazione.Network Performance Monitor - Monitor network connectivity and performance to service and application endpoints.<br>[Gateway applicazione di Azure:](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) analizza i log e le metriche dal gateway applicazione di Azure.Azure Application Gateway - Analyze logs and metrics from Azure Application Gateway.<br>[Analisi del traffico:](/azure/network-watcher/traffic-analytics) analizza i log del gruppo di sicurezza di rete (NSG) di Network Watcher per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure.Traffic Analytics - Analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. |
 | [Office 365](insights/solution-office-365.md) | Monitorare l'ambiente Office 365. Versione aggiornata con onboarding migliorato disponibile tramite Azure Sentinel.Updated version with improved onboarding available through Azure Sentinel. |
-| [Analisi SQL](insights/azure-sql.md) | Monitorare le prestazioni dei database SQL di Azure, dei pool elastici e delle istanze gestite su larga scala e tra più sottoscrizioni. |
+| [Analitica SQL](insights/azure-sql.md) | Monitorare le prestazioni dei database SQL di Azure, dei pool elastici e delle istanze gestite su larga scala e tra più sottoscrizioni. |
 | [Surface Hub](insights/surface-hubs.md) | Tieni traccia dell'integrità e dell'utilizzo dei dispositivi Surface Hub. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Raccogliere dati dagli agenti di Operations Manager connettendo il gruppo di gestione ad Monitoraggio di Azure.Collect data from Operations Manager agents by connecting their management group to Azure Monitor. Vedere [Connettere Operations Manager ad Monitoraggio di AzureSee Connect Operations Manager to Azure Monitor](platform/om-agents.md)<br> Valutare il rischio e l'integrità del gruppo di gestione di System Center Operations Manager con la soluzione [di valutazione di Operations Manager.](insights/scom-assessment.md) |
 | [Sale Microsoft Teams](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gestione integrata end-to-end dei dispositivi Microsoft Teams Rooms. |

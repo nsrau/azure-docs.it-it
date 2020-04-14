@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 972bb2a804057037deedb448674abafcc175b21f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85910ee5467ecc9f4fe3c1a8bc13110b6f218e5c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314811"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272713"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Pianificare l'ambiente GA di Azure Time Series InsightsPlan your Azure Time Series Insights GA environment
 
@@ -79,9 +79,7 @@ Azure Time Series Insights ha due modalità:Azure Time Series Insights has two m
 
 ### <a name="environment-planning"></a>Pianificazione dell'ambiente
 
-La seconda area su cui concentrarsi per la pianificazione dell'ambiente Time Series Insights è la capacità in ingresso. La capacità di ingresso è un derivato dell'allocazione al minuto.
-
-Dal punto di vista della limitazione delle richieste, un pacchetto di dati in ingresso con una dimensione del pacchetto di 32 KB viene considerato come 32 eventi, ognuno di 1 KB di dimensione. La dimensione massima consentita per gli eventi è 32 KB. I pacchetti di dati di dimensioni superiori a 32 KB vengono troncati.
+La seconda area su cui concentrarsi per la pianificazione dell'ambiente Time Series Insights è la capacità in ingresso. L'archiviazione giornaliera in ingresso e la capacità degli eventi viene misurata al minuto, in blocchi da 1 KB. La dimensione massima consentita per i pacchetti è 32 KB. I pacchetti di dati di dimensioni superiori a 32 KB vengono troncati.
 
 È possibile aumentare la capacità di uno SKU S1 o S2 a 10 unità in un unico ambiente. Non è possibile eseguire la migrazione da un ambiente S1 a un S2. Non è possibile eseguire la migrazione da un ambiente S2 a un S1.
 

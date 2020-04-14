@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249737"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270826"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
 
@@ -53,9 +53,17 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
    Sì, con PowerShell. Per altre informazioni sulla distribuzione di macchine virtuali di SQL Server usando PowerShell, consultare [Come eseguire il provisioning di macchine virtuali di SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
-1. **È possibile creare un'immagine generalizzata di Azure SQL Server Marketplace della macchina virtuale di SQL Server e usarla per distribuire le macchine virtuali?**
+1. **Come è possibile generalizzare SQL Server nella macchina virtuale di Azure e usarlo per distribuire nuove macchine virtuali?**
 
-   Sì, ma è quindi necessario [registrare ogni macchina virtuale](virtual-machines-windows-sql-register-with-resource-provider.md) di SQL Server con il provider di risorse della macchina virtuale di SQL Server per gestire la macchina virtuale di SQL Server nel portale, nonché usare funzionalità quali l'applicazione automatica di patch e backup automatici. Quando si esegue la registrazione con il provider di risorse, è inoltre necessario specificare il tipo di licenza per ogni macchina virtuale di SQL Server.When registering with the resource provider, you will also need to specify the license type for each SQL Server VM. 
+   È possibile distribuire una macchina virtuale di Windows Server (senza SQL Server installato) e usare il processo [SYSprep di SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) per generalizzare SQL Server in macchina virtuale di Azure (Windows) con il supporto di installazione di SQL Server.You can deploy a Windows Server VM (without any SQL Server installed on it) and use the SQL sysprep process to generalize SQL Server on Azure VM (Windows) with the SQL Server installation media. I clienti che dispongono di [software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) possono ottenere il supporto di installazione dal Volume [Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non dispongono di software assurance possono usare il supporto di installazione di un'immagine della macchina virtuale di SQL Server di Marketplace con l'edizione desiderata.
+
+   In alternativa, usare una delle immagini di SQL Server forma un marketplace di Azure per generalizzare SQL Server nella macchina virtuale di Azure.Alternatively, use one of the SQL Server images form Azure marketplace to generalize SQL Server on Azure VM. Si noti che è necessario eliminare la seguente chiave del Registro di sistema nell'immagine di origine prima di creare la propria immagine. In caso contrario, il gonfiore della cartella bootstrap di installazione di SQL Server e/o l'estensione di SQL IaaS in stato di errore.
+
+   Percorso chiave del Registro di sistema:  
+   `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
+
+   > [!NOTE]
+   > È consigliabile registrare tutte le macchine virtuali di Azure di SQL Server, incluse quelle distribuite da immagini generalizzate personalizzate, con un provider di [ricorsi di macchine virtuali SQL](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) per soddisfare i requisiti di conformità e utilizzare funzionalità facoltative, ad esempio l'applicazione automatica di patch e backup automatici. Consente inoltre di [specificare il tipo di licenza](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) per ogni macchina virtuale di SQL Server.It will also allow you to specify the license type for each SQL Server VM.
 
 1. **È possibile usare il proprio disco rigido virtuale per distribuire una macchina virtuale di SQL Server?**
 
@@ -117,13 +125,13 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    L'istanza passiva di SQL ServerSQL Server non fornisce dati di SQL ServerSQL Server ai client né esegue carichi di lavoro di SQL Server attivi. Viene utilizzato solo per la sincronizzazione con il server primario e in caso contrario mantenere il database passivo in uno stato warm standby. Se serve dati, ad esempio report ai client che eseguono carichi di lavoro SQL Server attivi o esegue qualsiasi operazione diversa da quella specificata nei termini del prodotto, deve essere un'istanza di SQL Server con licenza a pagamento. Nell'istanza secondaria è consentita l'attività seguente: verifiche di coerenza del database o CheckDB, backup completi, backup del log delle transazioni e monitoraggio dei dati sull'utilizzo delle risorse. È inoltre possibile eseguire contemporaneamente l'istanza di ripristino di emergenza primaria e corrispondente per brevi periodi di test di ripristino di emergenza ogni 90 giorni.
    
 
-1. **Quali scenari possono utilizzare il vantaggio Distaster Recovery (DR)?**
+1. **Quali scenari possono utilizzare il vantaggio di ripristino di emergenza (DR)?**
 
    La [guida alle licenze](https://aka.ms/sql2019licenseguide) fornisce scenari in cui è possibile utilizzare il vantaggio di ripristino di emergenza. Per ulteriori informazioni, consulta le Condizioni per il prodotto e contatta i contatti di licenza o il gestore dell'account.
 
 1. **Quali sottoscrizioni supportano il vantaggio Ripristino di emergenza(DR)?**
 
-   Programmi completi che offrono diritti di sottoscrizione equivalenti di Software Assurance come supporto di benefit fisso per il vantaggio DR. Questo include. ma non è limitato a, il valore aperto (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS) e il Server e Cloud Enrollment (SCE). Fare riferimento alle [condizioni del prodotto](https://www.microsoft.com/licensing/product-licensing/products) e rivolgersi ai contatti di licenza o al responsabile di acocunt per ulteriori informazioni. 
+   Programmi completi che offrono diritti di sottoscrizione equivalenti di Software Assurance come supporto di benefit fisso per il vantaggio DR. Questo include. ma non è limitato a, il valore aperto (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS) e il Server e Cloud Enrollment (SCE). Consulta i termini del [prodotto](https://www.microsoft.com/licensing/product-licensing/products) e parla con i tuoi contatti di licenza o account manager per ulteriori informazioni. 
 
    
  ## <a name="resource-provider"></a>Provider di risorse

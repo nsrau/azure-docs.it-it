@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 567dc83e36020ef9af328f52dae89ef37b6e4908
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 156a405d93aeac27f27fe617e1a5485044309846
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277722"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273818"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Scheda Marketplace per una macchina virtuale
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di macchina virtuale](https://aka.ms/CreateAzureVMoffer) di Azure per gestire le offerte migrate.
 
 La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo di grandi dimensioni è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione clienti potenziali) e **Legal** (Legale).
 
@@ -52,7 +55,7 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 |  ---------                |     ---------------                                                          |
 | *Loghi*  |  |
 | **Piccolo\***                 | Bitmap con estensione ico, 40x40 pixel                                                      |
-| **Medio\***                | Bitmap con estensione ico, 90x90 pixel                                                      |
+| **Medium\***                | Bitmap con estensione ico, 90x90 pixel                                                      |
 | **Grande\***                 | Bitmap con estensione ico, 115x115 pixel                                                   |
 | **Ampia\***                  | Bitmap con estensione ico, 255x115 pixel                                                    |
 | **Hero** (Banner)                  | Bitmap, 815x290.  Facoltativo. Una volta caricata, tuttavia, l'icona del banner non può essere eliminata. |
@@ -61,7 +64,7 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 | **Immagine**                 | Acquisizione di schermata, 533x324 pixel                                         |
 | *Video*  |  |
 | **Nome**                  | Nome o titolo   <!-- TODO - max char length? -->                              |
-| **Link**                  | URL del video, ospitato in YouTube o Vimeo                                        |
+| **Collegamento**                  | URL del video, ospitato in YouTube o Vimeo                                        |
 | **Anteprima**             | Bitmap, 533x324                                                               |
 |   |   |
 

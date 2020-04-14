@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: dsindona
-ms.openlocfilehash: 0225069179e0d7d94a983c5161976a5c1933fac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce1e001b9cafff83a3f9bf546d6903cc4a4f450f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278196"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273495"
 ---
 # <a name="certify-your-vm-image"></a>Certificare l'immagine di macchina virtuale
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Certificazione dell'immagine della macchina virtuale](https://aks.ms/CertifyVMimage) di Azure per gestire le offerte migrate.
 
 Dopo aver creato e distribuire la macchina virtuale, è necessario testarla e inviarla per la certificazione di Azure Marketplace. Questo articolo illustra come ottenere lo *strumento di test di certificazione per Azure Certified*, come usarlo per certificare l'immagine di macchina virtuale e come caricare i risultati della verifica nel contenitore di Azure in cui è presente il disco rigido virtuale in uso. 
 

@@ -3,7 +3,7 @@ title: Dimensioni delle macchine virtuali di Azure - Memoria Documenti Microsoft
 description: Elenca le diverse dimensioni ottimizzate per la memoria disponibili per le macchine virtuali in Azure.Lists the different memory optimized sizes available for virtual machines in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-ms.openlocfilehash: 0936e3049b2bc23e2f98244f29c962f6db65b8df
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.author: mimckitt
+ms.openlocfilehash: 5a20e9c64b6ef948167333b54b16b34e84dc0e32
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115265"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273580"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per la memoria
 

@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: e8143f33aacbc68653d19ffb72e88af447f8cc40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2734bc0868584f9d02147abb953458bbcdec205e
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288853"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273104"
 ---
 # <a name="virtual-machine-support-tab"></a>Scheda Support (Supporto) di macchina virtuale
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di macchina virtuale](https://aka.ms/CreateAzureVMoffer) di Azure per gestire le offerte migrate.
 
 La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di specificare le risorse di supporto utente e tecniche della propria offerta.  La scheda è suddivisa in tre aree: **Engineering** (Progettazione), **Customer Support** (Assistenza clienti) e **Support URLs** (URL del supporto).
 

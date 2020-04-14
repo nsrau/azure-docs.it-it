@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: dsindona
-ms.openlocfilehash: 57f56a341cfc3db6a5f0664503809e6ab6cf3d3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a62af1d8d751d36150c236280077cde8f6547385
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278025"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273971"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Creare risorse tecniche per un'offerta di macchina virtuale
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo la gestione mobile delle offerte di Macchine virtuali di Azure al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare gli asset tecnici della macchina virtuale](https://aka.ms/AzureVMTechAsset) di Azure per gestire le offerte migrate.
 
 Questa sezione illustra in dettaglio la creazione e la configurazione delle risorse tecniche per un'offerta di macchina virtuale (VM, Virtual Machine) per Azure Marketplace.  Una macchina virtuale è costituita da due componenti: il disco rigido virtuale (VHD, Virtual Hard Disk) e dischi dati associati facoltativi.  
 
@@ -35,26 +38,26 @@ Un'immagine di macchina virtuale contiene un disco del sistema operativo e zero 
 ## <a name="fundamental-technical-knowledge"></a>Conoscenze tecniche fondamentali
 
 La progettazione, la creazione e il test di questi asset richiedono tempo e richiedono conoscenze tecniche sia della piattaforma Azure che delle tecnologie usate per creare l'offerta. Oltre al dominio della soluzione, il team di progettazione deve conoscere le seguenti tecnologie Microsoft: 
--   Conoscenza di base di [Servizi di Azure](https://azure.microsoft.com/services/) 
--   Capacità di [progettare applicazioni di Azure per architetture diverse](https://azure.microsoft.com/solutions/architecture/)
--   Conoscenza pratica di [Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/), [Archiviazione di Azure](https://azure.microsoft.com/services/?filter=storage) e [Rete di Azure](https://azure.microsoft.com/services/?filter=networking)
--   Conoscenza pratica di [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
--   Conoscenza pratica di [JSON](https://www.json.org/)
+-    Conoscenza di base di [Servizi di Azure](https://azure.microsoft.com/services/) 
+-    Capacità di [progettare applicazioni di Azure per architetture diverse](https://azure.microsoft.com/solutions/architecture/)
+-    Conoscenza pratica di [Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/), [Archiviazione di Azure](https://azure.microsoft.com/services/?filter=storage) e [Rete di Azure](https://azure.microsoft.com/services/?filter=networking)
+-    Conoscenza pratica di [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+-    Conoscenza pratica di [JSON](https://www.json.org/)
 
 
 ## <a name="suggested-tools"></a>Strumenti suggeriti 
 
 Per la gestione di dischi rigidi virtuali e macchine virtuali, scegliere uno o entrambi gli ambienti di script seguenti:
--   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/cli/azure)
+-    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-    [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
 
 È anche consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo in uso: 
 
--   [Esplora archivi di AzureAzure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Estensione: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+-    [Esplora archivi Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-    [Visual Studio Code](https://code.visualstudio.com/)
+    *    Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *    Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *    Estensione: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 È anche consigliabile esaminare gli strumenti disponibili nella pagina [Strumenti di sviluppo di Azure](https://azure.microsoft.com/tools/) e, se si usa Visual Studio, in [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

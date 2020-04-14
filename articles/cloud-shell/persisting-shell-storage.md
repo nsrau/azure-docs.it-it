@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: d4d59642f638e7b1221c35a4bb281923571d5066
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297595"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273291"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Rendere persistenti i file in Azure Cloud Shell
 Cloud Shell utilizza l'archiviazione dei file di Azure per mantenere i file in più sessioni. Al primo avvio Cloud Shell richiede di associare una condivisione file nuova o esistente per mantenere i file in più sessioni.
@@ -50,7 +50,7 @@ Con l'opzione Avanzate è possibile associare risorse esistenti. Quando si selez
 Al prompt di impostazione dell'archiviazione, selezionare **Mostra impostazioni avanzate** per visualizzare le opzioni aggiuntive. Il filtro di opzioni di archiviazione popolato per gli account di archiviazione con ridondanza locale, archiviazione con ridondanza della zona e archiviazione con ridondanza geografica. 
 
 > [!NOTE]
-> L'uso degli account di archiviazione con ridondanza geografica o della zona è consigliato per aumentare la resilienza per la condivisione di file di backup. Il tipo di ridondanza dipende dagli obiettivi e dalla preferenza di prezzo. [Altre informazioni sulle opzioni di replica per gli account di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+> L'uso degli account di archiviazione con ridondanza geografica o della zona è consigliato per aumentare la resilienza per la condivisione di file di backup. Il tipo di ridondanza dipende dagli obiettivi e dalla preferenza di prezzo. [Altre informazioni sulle opzioni di replica per gli account di Archiviazione di Azure](../storage/common/storage-redundancy.md).
 
 ![Impostazione del gruppo di risorse](media/persisting-shell-storage/advanced-storage.png)
 
@@ -169,5 +169,5 @@ Nota: se è necessario definire una funzione in un file e chiamarla dai cmdlet d
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Avvio rapido di Cloud Shell](quickstart.md) <br>
-[Informazioni sull'archiviazione di Microsoft Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[Informazioni sull'archiviazione di Microsoft Azure Files](../storage/files/storage-files-introduction.md) <br>
 [Informazioni sui tag di archiviazione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

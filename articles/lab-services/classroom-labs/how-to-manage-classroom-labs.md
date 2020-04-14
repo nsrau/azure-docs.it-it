@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: cc937589b2fc4f394b44cf6890a352d770751d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502028"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257743"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo descrive come creare ed eliminare un lab per le classi, nonché come visualizzare tutti i lab per le classi in un account lab. 
@@ -37,6 +37,8 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
     1. Specificare un **nome** per il lab. 
     2. Selezionare le **dimensioni delle macchine virtuali** necessarie per la classe. Per l'elenco delle dimensioni disponibili, vedere la sezione [Dimensioni della macchina virtuale.](#vm-sizes) 
     3. Selezionare **l'immagine** della macchina virtuale che si vuole usare per il lab della classe. Se si seleziona un'immagine di Linux, viene visualizzata un'opzione per abilitare la connessione Desktop remoto. Per informazioni, vedere [Abilitare Connessione desktop remoto per Linux](how-to-enable-remote-desktop-linux.md).
+
+        Se è stato eseguito l'accesso usando le credenziali del proprietario dell'account lab, verrà visualizzata un'opzione per abilitare altre immagini per il lab. Per ulteriori informazioni, consultate [Abilitare le immagini al momento della creazione del lab.](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation)
     4. Esaminare il **prezzo orario totale** visualizzato nella pagina. 
     6. Selezionare **Salva**.
 

@@ -1,20 +1,20 @@
 ---
-title: Domande frequenti e terminologia per l'analisi di Commercial Marketplace nel Centro per i partner
-description: Scopri come rispondere alle domande frequenti sull'analisi di Commercial Marketplace. Include un dizionario dei dati per la terminologia di analisi.
+title: Domande frequenti e terminologia per l'analisi del marketplace commerciale nel Centro per i partner
+description: Scopri come rispondere alle domande frequenti sull'analisi del mercato commerciale. Include un dizionario dei dati per la terminologia di analisi.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d53ae01fb302382ca5bc2d31e729e153aea6c838
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286082"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251827"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Domande frequenti e terminologia per l'analisi di Commercial Marketplace
+# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Domande frequenti e terminologia per l'analisi del mercato commerciale
 
 Questo articolo risponde alle domande frequenti sui messaggi di analisi nel Centro per i partner e fornisce anche un dizionario della terminologia di analisi.
 
@@ -29,14 +29,14 @@ In questa sezione vengono fornite le risposte alle domande frequenti sui messagg
 Perché è possibile che venga visualizzato questo messaggio:
 
 - Al momento non esistono acquisizioni per le offerte pubblicate sul mercato. Ciò può significare che le tue offerte sono in diretta sul mercato e acquisiscono visualizzazioni dai clienti nelle pagine di visualizzazione dei prodotti, ma i clienti non hanno ancora preso provvedimenti per acquistarle e distribuirle.
-- La pubblicazione dell'offerta potrebbe essere in corso e non è ancora in diretta. Solo le offerte live possono essere acquisite dai clienti. Per verificare lo stato delle offerte, vedere Panoramica nel [dashboard Analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Per ulteriori informazioni, vedere [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)di Commercial Marketplace.
+- La pubblicazione dell'offerta potrebbe essere in corso e non è ancora in diretta. Solo le offerte live possono essere acquisite dai clienti. Per verificare lo stato delle offerte, vedere Panoramica nel [dashboard Analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Per ulteriori informazioni, vedere [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)del marketplace commerciale.
 - Le tue offerte possono essere elencate come **Contattami**, che sono offerte di solo elenco e non possono essere acquistate dai clienti sul mercato. Anche se queste offerte generano lead e vengono condivise con te, gli ordini non vengono creati per queste offerte in quanto non possono essere acquistati. Per verificare il tipo di offerta, vai alla pagina di configurazione.
 
 **So di avere dati di analisi, ma viene visualizzato il messaggio seguente:**
 
 ![Nessun dato per un determinato intervallo di date](./media/analytics-faq-data-range.png)
 
-Se ricevi questo messaggio, significa che hai dati di analisi ma non ci sono dati per l'intervallo di date selezionato. Selezionare un intervallo di date o un intervallo di date personalizzato diverso per visualizzare i dati dal 2010. Per ulteriori informazioni, vedere la sezione Intervallo di date di Dashboard di [riepilogo nell'analisi](./summary-dashboard.md)di Commercial Marketplace .
+Se ricevi questo messaggio, significa che hai dati di analisi ma non ci sono dati per l'intervallo di date selezionato. Selezionare un intervallo di date o un intervallo di date personalizzato diverso per visualizzare i dati dal 2010. Per ulteriori informazioni, vedere la sezione Intervallo di date di Dashboard di [riepilogo nell'analisi](./summary-dashboard.md)del marketplace commerciale .
 
 ## <a name="dictionary-of-data-terms"></a>Dizionario dei termini dei dati
 
@@ -96,10 +96,10 @@ Se ricevi questo messaggio, significa che hai dati di analisi ma non ci sono dat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dei report di analisi disponibili nel Marketplace commerciale del Centro per i partner, vedere Analisi per il Marketplace commerciale nel Centro per i [partner.](./analytics.md)
-- Per grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per la tua offerta, vedi [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)di Commercial Marketplace.
-- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
-- Per la macchina virtuale (VM) offre l'utilizzo e le metriche di fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi](./usage-dashboard.md)di Commercial Marketplace.
-- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti nell'analisi](./customer-dashboard.md)di Commercial Marketplace .
-- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Download Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
-- Per visualizzare una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Valutazioni e recensioni del dashboard nell'analisi](./ratings-reviews.md)di Commercial Marketplace.
+- Per una panoramica dei report di analisi disponibili nel marketplace commerciale del Centro per i partner, vedere Analisi per il marketplace commerciale nel Centro per i [partner.](./analytics.md)
+- Per i grafici, le tendenze e i valori dei dati aggregati che riepilogano l'attività del marketplace per la tua offerta, vedi [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)del marketplace commerciale.
+- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
+- Per la macchina virtuale (VM) offre l'utilizzo e le metriche di fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi del marketplace commerciale.](./usage-dashboard.md)
+- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
+- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Download Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
+- Per visualizzare una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Valutazioni e recensioni del dashboard nell'analisi](./ratings-reviews.md)del marketplace commerciale.

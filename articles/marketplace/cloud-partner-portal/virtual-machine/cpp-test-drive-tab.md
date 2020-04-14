@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: d4fc8762e25825b21637b16b751d57a0dcbf369e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22538047adc17a40438359e11bff7fd20e43bcc6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288802"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273087"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Scheda Test Drive di macchina virtuale
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di macchina virtuale](https://aka.ms/CreateAzureVMoffer) di Azure per gestire le offerte migrate.
 
 La scheda **Test Drive** della pagina **Nuova offerta** consente di offrire ai potenziali clienti una dimostrazione pratica e autoguidata delle funzionalità chiave e dei vantaggi offerti dal proprio prodotto, presentandola in uno scenario standardizzato.  Test Drive è una funzionalità facoltativa per i tipi di offerta che supportano il test drive.  Richiede asset di supporto da implementare come si conviene.  Per altre informazioni, vedere l'articolo [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/) (Test Drive di Azure Marketplace).  <!--TD: Replace with migrated version of Test Drive article! -->
 

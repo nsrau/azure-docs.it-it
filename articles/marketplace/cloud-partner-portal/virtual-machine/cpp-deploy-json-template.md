@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 2db8c05d086c7b4e8537a1c17b1ca84eedb19857
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277872"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273920"
 ---
-# <a name="virtual-hard-disk-deployment-template"></a>Modello di distribuzione di disco rigido virtuale 
+# <a name="virtual-hard-disk-deployment-template"></a>Modello di distribuzione di disco rigido virtuale
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Certificazione dell'immagine della macchina virtuale](https://aks.ms/CertifyVMimage) di Azure per gestire le offerte migrate.
 
 Il modello di Azure Resource Manager seguente definisce una nuova istanza di macchina virtuale di Azure, creata da un disco rigido virtuale locale.  Questo modello viene usato nell'articolo [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md) (Distribuire una macchina virtuale di Azure da un disco rigido virtuale dell'utente). 
 

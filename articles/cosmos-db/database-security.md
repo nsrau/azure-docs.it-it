@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: c92f045f2c8d4443d596697596363bda3d0df975
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8a0ef4c5abcd4c4137a878adf6a7fff9e80c2764
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985287"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273512"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Panoramica sulla sicurezza in Azure Cosmos DB
 
@@ -66,8 +66,8 @@ La tabella seguente li illustra in dettaglio.
 |Replica globale|Azure Cosmos DB offre la distribuzione globale chiavi in mano, che consente di replicare i dati in qualsiasi data center di Azure nel mondo, semplicemente facendo clic su un pulsante. La replica globale offre una scalabilità globale e l'accesso a bassa latenza ai dati ovunque nel mondo.<br><br>Nell'ambito della sicurezza, la replica globale assicura la protezione dei dati da errori a livello di area.<br><br>Per altre informazioni, vedere [Distribuire i dati a livello globale](distribute-data-globally.md).|
 |Failover a livello di area|Se i dati sono stati replicati in più di un data center, Azure Cosmos DB esegue il rollover automatico delle operazioni, nel caso in cui un data center di un'area specifica passi alla modalità offline. È possibile creare un elenco con priorità di aree di failover usando le aree in cui i dati vengono replicati. <br><br>Per altre informazioni, vedere [Failover a livello di area in Azure Cosmos DB](high-availability.md).|
 |Replica locale|Anche in un singolo data center, Azure Cosmos DB replica automaticamente i dati per la disponibilità elevata consentendo di scegliere i [livelli di coerenza](consistency-levels.md). Questa replica garantisce un [sLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) di disponibilità del 99,99% per tutti gli account di area singola e tutti gli account a più aree con coerenza rilassata e il 99,999% di disponibilità in lettura su tutti gli account di database a più aree.|
-|Backup online automatizzati|Il backup dei database cosmo di Azure viene eseguito regolarmente e archiviato in un archivio con ridondanza geografica. <br><br>Per altre informazioni, vedere [Backup online automatico e ripristino con Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).|
-|Ripristinare i data eliminati|I backup online automatizzati possono essere usati per recuperare i dati eliminati per errore fino a circa 30 giorni dopo l'evento. <br><br>Per altre informazioni, vedere [Backup e ripristino online automatici con Database Cosmos di AzureLearn](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) more in Automatic online backup and restore with Azure Cosmos DB|
+|Backup online automatizzati|Il backup dei database cosmo di Azure viene eseguito regolarmente e archiviato in un archivio con ridondanza geografica. <br><br>Per altre informazioni, vedere [Backup online automatico e ripristino con Azure Cosmos DB](online-backup-and-restore.md).|
+|Ripristinare i data eliminati|I backup online automatizzati possono essere usati per recuperare i dati eliminati per errore fino a circa 30 giorni dopo l'evento. <br><br>Per altre informazioni, vedere [Backup e ripristino online automatici con Database Cosmos di AzureLearn](online-backup-and-restore.md) more in Automatic online backup and restore with Azure Cosmos DB|
 |Proteggere e isolare i dati sensibili|Tutti i dati nelle aree elencate nelle novità ora vengono crittografati.<br><br>I dati personali e altri dati riservati possono essere isolati in contenitori specifici e l'accesso in lettura/scrittura o in sola lettura può essere limitato a utenti specifici.|
 |Monitorare gli attacchi|Usando [la registrazione di controllo e i log attività](logging.md), è possibile monitorare l'account per identificare attività normali e anomale. È possibile visualizzare quali operazioni sono state eseguite sulle risorse, chi ha avviato l'operazione, quando si è verificata l'operazione, lo stato dell'operazione e molto altro come mostrato nella schermata sotto a questa tabella.|
 |Rispondere agli attacchi|Dopo avere contattato il supporto di Azure per segnalare un potenziale attacco, viene avviato un processo di risposta all'evento imprevisto in 5 fasi. L'obiettivo del processo in 5 fasi è quello di ripristinare la normale sicurezza del servizio e le normali operazioni il più rapidamente possibile dopo il rilevamento di un problema e l'avvio di un indagine.<br><br>Per altre informazioni, vedere [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) (Risposta della sicurezza di Microsoft Azure nel cloud).|

@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ecd0ffd76650efff3a4c9f877522cba6f28d080
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275945"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271115"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -28,6 +28,8 @@ I prezzi per [Azure Application Insights][start] sono un modello con pagamento i
 
 È prevista una tariffa aggiuntiva per i [test Web in più passi](../../azure-monitor/app/availability-multistep.md). I test Web in più passi sono test Web che eseguono una sequenza di azioni. Non è prevista una tariffa separata per i *test del ping* di una singola pagina. I dati di telemetria dei test del ping e dei test in più passi vengono addebitai allo stesso costo di altri dati di telemetria provenienti dall'app.
 
+L'opzione Application Insights per [abilitare gli avvisi sulle dimensioni metriche personalizzate](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) può anche generare costi aggiuntivi perché ciò può comportare la creazione di metriche di pre-aggregazione aggiuntive. [Altre informazioni] sulle metriche basate su log e preaggregate in Application Insights e sui prezzi per le metriche personalizzate di Monitoraggio di Azure.[Learn more] about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
+
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Stima dei costi per la gestione dell'applicazione
 
 Se non si usa ancora Application Insights, è possibile usare il [calcolatore](https://azure.microsoft.com/pricing/calculator/?service=monitor) dei prezzi di Monitoraggio di Azure per stimare il costo dell'uso di Application Insights.If you're not yet using Application Insights, you can use the Azure Monitor pricing calculator to estimate the cost of using Application Insights. Iniziare immettendo "Monitor di Azure" nella casella di ricerca e facendo clic sul riquadro di Monitoraggio di Azure risultante. Scorrere la pagina verso il basso fino a Monitoraggio di Azure e selezionare Application Insights dall'elenco a discesa Tipo.Scroll down the page to Azure Monitor, and select Application Insights from the Type dropdown.  Qui è possibile immettere il numero di GB di dati che si prevede di raccogliere al mese, quindi la domanda è la quantità di dati che Application Insights raccoglierà il monitoraggio dell'applicazione.
@@ -42,7 +44,7 @@ Per gli SDK che non supportano il [campionamento](https://docs.microsoft.com/azu
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Scopri da cosa raccolgono clienti simili
 
-Nel calcolatore dei prezzi di monitoraggio di Azure per Application Insights, se si abilita la funzionalità "Stima del volume di dati in base all'attività dell'applicazione", è possibile fornire input sull'applicazione (richieste al mese e visualizzazioni di pagina al mese, nel caso in cui raccogliere dati di telemetria lato client), e quindi la calcolatrice vi dirà la quantità mediana e 90esimo percentile di dati raccolti da applicazioni simili. Queste applicazioni comprendono la gamma di configurazione di Application Insights (ad esempio alcune hanno il [campionamento](../../azure-monitor/app/sampling.md)predefinito, alcune non hanno campionamento e così via), quindi è comunque possibile controllare per ridurre il volume dei dati che si ingerisce molto al di sotto del livello mediano tramite campionamento. Ma questo è un punto di partenza per capire cosa stanno vedendo altri clienti simili.
+Nel calcolatore dei prezzi di monitoraggio di Azure per Application Insights, se si abilita la funzionalità "Stima del volume di dati in base all'attività dell'applicazione", è possibile fornire input sull'applicazione (richieste al mese e visualizzazioni di pagina al mese, nel caso in cui si raccoglieranno dati di telemetria lato client), quindi il calcolatore indicherà la quantità mediana e il novantasimo percentile di dati raccolti da applicazioni simili. Queste applicazioni comprendono la gamma di configurazione di Application Insights (ad esempio alcune hanno il [campionamento](../../azure-monitor/app/sampling.md)predefinito, alcune non hanno campionamento e così via), quindi è comunque possibile controllare per ridurre il volume dei dati che si ingerisce molto al di sotto del livello mediano tramite campionamento. Ma questo è un punto di partenza per capire cosa stanno vedendo altri clienti simili.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Comprendere l'utilizzo e stimare i costi
 
@@ -176,7 +178,7 @@ Per [modificare il limite giornaliero tramite Azure Resource Manager,](../../azu
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Creare avvisi per il limite giornaliero
 
-Il limite giornaliero giornaliero di Application Insights crea un evento nell'attività di Azure quando i volumi di dati ingeriti raggiunge il livello di avviso o il livello di limite giornaliero.  È possibile creare un avviso in base a [questi eventi del log attività.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal) I nomi dei segnali per questi eventi sono:
+Il limite massimo giornaliero di Application Insights crea un evento nel log attività di Azure quando i volumi di dati ingeriti raggiunge il livello di avviso o il livello di limite giornaliero.  È possibile creare un avviso in base a [questi eventi del log attività.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal) I nomi dei segnali per questi eventi sono:
 
 * Raggiunta la soglia di avviso del limite giornaliero del componente Application Insights
 
@@ -216,7 +218,7 @@ Per modificare la conservazione, dalla risorsa Application Insights passare alla
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-005.png)
 
-La conservazione può anche essere impostata a `retentionInDays` livello di codice utilizzando [PowerShell](powershell.md#set-the-data-retention) utilizzando il parametro . Inoltre, se si imposta la conservazione dei dati su 30 giorni, `immediatePurgeDataOn30Days` è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro , che può essere utile per gli scenari correlati alla conformità. Questa funzionalità di eliminazione viene esposta solo tramite Azure Resource Manager e deve essere usata con estrema attenzione. Il tempo di reimpostazione giornaliero per il limite `dailyQuotaResetTime` del volume di dati può essere configurato usando Azure Resource Manager per impostare il parametro.
+La conservazione può anche essere impostata a `retentionInDays` livello di codice utilizzando [PowerShell](powershell.md#set-the-data-retention) utilizzando il parametro . Quando la conservazione viene abbassata, è presente un periodo di prova di diversi giorni prima che i dati meno recenti vengano rimossi. Se si imposta la conservazione dei dati su 30 giorni, `immediatePurgeDataOn30Days` è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro , che può essere utile per gli scenari correlati alla conformità. Questa funzionalità di eliminazione viene esposta solo tramite Azure Resource Manager e deve essere usata con estrema attenzione. Il tempo di reimpostazione giornaliero per il limite `dailyQuotaResetTime` del volume di dati può essere configurato usando Azure Resource Manager per impostare il parametro.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Costi di trasferimento dei dati tramite Application InsightsData
 
@@ -228,7 +230,7 @@ L'invio di dati ad Application Insights potrebbe comportare costi di larghezza d
 
 ## <a name="disable-daily-cap-e-mails"></a>Disabilitare i messaggi di posta elettronica relativi al limite di utilizzo giornaliero
 
-Per disabilitare i messaggi di posta elettronica relativi al limite di utilizzo giornaliero, nella sezione **Configura** della risorsa di Application Insights, dal riquadro **Utilizzo e costi stimati**, selezionare **Limite di utilizzo giornaliero**. Sono disponibili impostazioni per inviare messaggi di posta elettronica quando si raggiunge il limite e anche quando si raggiunge un limite di avviso modificabile. Se si desidera disattivare tutte le e-mail relative al volume del limite giornaliero deselezionare entrambe le caselle.
+Per disabilitare i messaggi di posta elettronica relativi al limite di utilizzo giornaliero, nella sezione **Configura** della risorsa di Application Insights, dal riquadro **Utilizzo e costi stimati**, selezionare **Limite di utilizzo giornaliero**. Sono disponibili impostazioni per inviare messaggi di posta elettronica quando si raggiunge il limite e anche quando si raggiunge un limite di avviso modificabile. Se si desidera disabilitare tutte le e-mail relative al volume del limite giornaliero, deselezionare entrambe le caselle.
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>Piano tariffario Legacy Enterprise (Per Node)
 
@@ -288,7 +290,7 @@ Poiché questo livello è applicabile solo ai clienti con una sottoscrizione di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Campionamento](../../azure-monitor/app/sampling.md)
+* [campionamento](../../azure-monitor/app/sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties

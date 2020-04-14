@@ -5,35 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 2c07e5eeedd2e4f42ec7b165bf161e142421df58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527895"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272084"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Log delle query lenti nel database di Azure per MariaDBSlow query logs in Azure Database for MariaDB
 Nel Database di Azure per MariaDB, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
 
 Per altre informazioni sul log delle query lente, vedere la documentazione MariaDB per il [log delle query lente](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-slow-query-logs"></a>Accedere ai registri delle query lente
-È possibile elencare e scaricare i log di query lente del database di Azure per MariaDB usando il portale di Azure e l'interfaccia della riga di comando di Azure.You can list and download Azure Database for MariaDB slow query logs using the Azure portal, and the Azure CLI.
-
-Nel portale di Azure, selezionare il server Database di Azure per MariaDB. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**.
-
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-cli.md).
-
-Analogamente, è possibile reindirizzare i log ad Monitoraggio di Azure usando i log di diagnostica. Per ulteriori informazioni, vedere [di seguito.](concepts-server-logs.md#diagnostic-logs)
-
-## <a name="log-retention"></a>Conservazione dei log
-I log sono disponibili per un massimo di sette giorni dalla data di creazione. Se le dimensioni totali dei log disponibili superano 7 GB, i file meno recenti vengono eliminati fino a quando non è disponibile dello spazio.
-
-I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per primo.
-
 ## <a name="configure-slow-query-logging"></a>Configurare la registrazione delle query lente
-Per impostazione predefinita il log delle query lente è disabilitato. Per abilitarlo, impostare slow_query_log su ON.
+Per impostazione predefinita il log delle query lente è disabilitato. Per attivarla, `slow_query_log` impostare su ON. Questa operazione può essere abilitata usando il portale di Azure o l'interfaccia della riga di comando di Azure.This can be enabled using the Azure portal or Azure CLI. 
 
 Altri parametri che è possibile modificare includono:
 
@@ -48,6 +34,21 @@ Altri parametri che è possibile modificare includono:
 > Se si prevede di registrare query lente per un `log_output` periodo di tempo prolungato, si consiglia di impostare su "Nessuno". Se impostato su "File", questi registri vengono scritti nell'archivio del server locale e possono influire sulle prestazioni di MariaDB. 
 
 Vedere [documentazione riguardante il log delle query lente](https://mariadb.com/kb/en/library/slow-query-log-overview/) di MariaDB per una descrizione completa dei parametri del log delle query lente.
+
+## <a name="access-slow-query-logs"></a>Accedere ai registri delle query lente
+Sono disponibili due opzioni per accedere ai log di query lenti nel database di Azure per MariaDB: archiviazione del server locale o Log di diagnostica di Monitoraggio di Azure.There are two options for accessing slow query logs in Azure Database for MariaDB: local server storage or Azure Monitor Diagnostic Logs. Questo viene impostato `log_output` utilizzando il parametro.
+
+Per l'archiviazione del server locale, è possibile elencare e scaricare log di query lenti usando il portale di Azure o l'interfaccia della riga di comando di Azure.For local server storage, you can list and download slow query logs using the Azure portal or the Azure CLI. Nel portale di Azure passare al server nel portale di Azure.In the Azure portal, navigate to your server in the Azure portal. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**. Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-cli.md). 
+
+Log di diagnostica di Monitoraggio di Azure consente di reindirizzare log di query lenti ai log di monitoraggio di Azure (Log Analytics), Archiviazione di Azure o Hub eventi. Per ulteriori informazioni, vedere [di seguito.](concepts-server-logs.md#diagnostic-logs)
+
+## <a name="local-server-storage-log-retention"></a>Conservazione del log di archiviazione del server locale
+Quando si esegue la registrazione nell'archivio locale del server, i log sono disponibili per un massimo di sette giorni dalla creazione. Se le dimensioni totali dei log disponibili superano 7 GB, i file meno recenti vengono eliminati fino a quando non è disponibile dello spazio.
+
+I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per primo.
+
+> [!Note]
+> La conservazione dei log precedente non si applica ai log reindirizzati usando i log di diagnostica di Monitoraggio di Azure.The above log retention does not apply to logs that are piped using Azure Monitor Diagnostic Logs. È possibile modificare il periodo di conservazione per i sink di dati che vengono generati (ad es. Archiviazione di Azure).
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 Azure Database for MariaDB is integrated with Azure Monitor Diagnostic Logs. Dopo aver abilitato i log di query lenti nel server MariaDB, è possibile scegliere di generarli nei log di Monitoraggio di Azure, nelle hub eventi o in Archiviazione di Azure.Once you have enabled slow query logs on your MariaDB server, you can choose to it mitted to Azure Monitor logs, Event Hubs, or Azure Storage. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/platform-logs-overview.md).
@@ -81,6 +82,9 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `server_id_s` | ID del server |
 | `thread_id_s` | ID del thread |
 | `\_ResourceId` | URI della risorsa |
+
+> [!Note]
+> Per `sql_text`, il log verrà troncato se supera i 2048 caratteri.
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Analizzare i log nei log di Monitoraggio di AzureAnalyze logs in Azure Monitor Logs
 

@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: bc1cf7a839307e65bd91eb29531663141e521472
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278042"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273988"
 ---
 # <a name="create-virtual-machine-offer"></a>Creare l'offerta di una macchina virtuale
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di macchina virtuale](https://aka.ms/CreateAzureVMoffer) di Azure per gestire le offerte migrate.
 
 Questa sezione elenca i passaggi necessari per creare una nuova richiesta di offerta di macchina virtuale (VM, Virtual Machine) per Azure Marketplace.  Ogni offerta viene visualizzata come entità a sé stante in Azure Marketplace ed è associata a uno o più SKU.  Un'offerta di macchina virtuale è composta dai gruppi di risorse e servizi di supporto seguenti: 
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 89bdd209315445519c35f3ef2c2f1ad2555106ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 1e67637d36eaba55e4c6baaf6f775fc7b79fcd14
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531397"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270597"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurare e accedere alogi di query lenti dal portale di AzureConfigure and access slow query logs from the Azure portal
 
@@ -23,7 +23,7 @@ I passaggi descritti in questo articolo richiedono la creazione di Database di A
 ## <a name="configure-logging"></a>Configurare la registrazione
 Configurare l'accesso al log di query lente. 
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Selezionare il server del Database di Azure per MariaDB.
 
@@ -32,11 +32,15 @@ Configurare l'accesso al log di query lente.
 
 4. Per visualizzare i parametri del server, selezionare **Fare clic qui per abilitare i registri e configurare i parametri del registro**.
 
-5. Modificare i parametri da regolare, inclusa l'attivazione **slow_query_log** su **ON**. Tutte le modifiche apportate in questa sessione vengono evidenziate in viola. 
+5. Attivare **slow_query_log su** **ON**.
 
-   Dopo aver modificato i parametri, selezionare **Salva**. In alternativa, è possibile annullare le modifiche.
+6. Selezionare la posizione in cui eseguire l'output dei registri utilizzando **log_output**. Per inviare i log sia all'archiviazione locale che ai log di diagnostica di Monitoraggio di Azure, selezionare **File**. 
 
-   ![Schermata delle opzioni Dei parametri del server](./media/howto-configure-server-logs-portal/3-save-discard.png)
+7. Modificare eventuali altri parametri necessari. 
+
+8. Selezionare **Salva**. 
+
+   :::image type="content" source="./media/howto-configure-server-logs-portal/3-save-discard.png" alt-text="Screenshot dei parametri del log di query lento e salvataggio.":::
 
 Dalla pagina **Parametri server** è possibile tornare all'elenco dei registri chiudendo la pagina.
 

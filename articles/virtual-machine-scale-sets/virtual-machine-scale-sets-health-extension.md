@@ -1,18 +1,18 @@
 ---
 title: Usare l'estensione dell'integrità dell'applicazione con i set di scalabilità delle macchine virtuali di AzureUse Application Health extension with Azure virtual machine scale sets
 description: Informazioni su come usare l'estensione Integrità applicazione per monitorare l'integrità delle applicazioni distribuite nei set di scalabilità di macchine virtuali.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: manayar
-ms.openlocfilehash: 37d93b04e6755512eac6c2a168bd2a04f8ac298f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76275885"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273733"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso dell'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure
 Il monitoraggio dell'integrità delle applicazioni è un elemento importante per la gestione e l'aggiornamento della distribuzione. I set di scalabilità di macchine virtuali di Azure supportano gli [aggiornamenti in sequenza](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model), inclusi gli [aggiornamenti automatici dell'immagine del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), che si basano sul monitoraggio dell'integrità delle singole istanze per l'aggiornamento della distribuzione.
@@ -163,7 +163,7 @@ Contenuto del file extension.json.
 ```
 
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 L'output dell'esecuzione dell'estensione viene registrato nei file presenti nelle directory seguenti:
 
 ```Windows

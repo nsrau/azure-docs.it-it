@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 272188b50fe59435031a4a2fb9c252f3f358bb6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535732"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270894"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creare un contenitore di profili FSLogix per un pool host usando I file di Rete di AzureCreate an FSLogix profile container for a host pool using Azure NetApp Files
 
@@ -45,7 +45,7 @@ Prima di poter creare un contenitore di profili FSLogix per un pool host, è nec
 
 Per iniziare, è necessario configurare un account File NetApp di Azure.To get started, you need to set up an Azure NetApp Files account.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Assicurati che il tuo account disponga delle autorizzazioni di collaboratore o amministratore.
+1. Accedere al [portale di Azure](https://portal.azure.com). Assicurati che il tuo account disponga delle autorizzazioni di collaboratore o amministratore.
 
 2. Selezionare **l'icona di Azure Cloud Shell** a destra della barra di ricerca per aprire Azure Cloud Shell.
 
@@ -117,9 +117,6 @@ Dopo di che, è necessario aggiungere una connessione di Active Directory.
     - Per **Prefisso server SMB (account computer),** immettere la stringa che si desidera aggiungere al nome dell'account computer.
     - In **Nome utente**immettere il nome dell'account con le autorizzazioni per eseguire l'aggiunta al dominio.
     - In **Password**immettere la password dell'account.
-
-  >[!NOTE]
-  >È consigliabile verificare che l'account computer creato in [Partecipa a una connessione](create-fslogix-profile-container.md#join-an-active-directory-connection) ad Active Directory sia presente nel controller di dominio in **Computer** o **nell'unità organizzativa pertinente dell'organizzazione.**
 
 ## <a name="create-a-new-volume"></a>Creare un nuovo volume
 

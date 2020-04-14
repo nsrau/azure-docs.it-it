@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 195f4b5057c0e2d644ab44cc4c32e97c8662d36d
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4219bb471b92e7ddae72c50403f635498c90080d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422788"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251691"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurare la protezione avanzata dalle minacce per Archiviazione di AzureConfigure advanced threat protection for Azure Storage
 
@@ -23,10 +23,16 @@ La protezione avanzata dalle minacce per Archiviazione di Azure offre un ulterio
 
 Gli avvisi di sicurezza vengono attivati quando si verificano anomalie nell'attività. Questi avvisi di sicurezza sono integrati con il [Centro sicurezza](https://azure.microsoft.com/services/security-center/)di Azure e vengono inoltre inviati tramite posta elettronica agli amministratori della sottoscrizione, con dettagli sulle attività sospette e consigli su come analizzare e correggere le minacce.
 
-> [!NOTE]
-> La protezione avanzata dalle minacce per Archiviazione di Azure è attualmente disponibile solo per l'archiviazione BLOB. Questo servizio è disponibile nei cloud degli enti pubblici degli Stati Uniti, ma non in altre aree cloud sovrane o governative di Azure.This service is available in US government clouds, but no other sovereign or Azure government cloud regions. Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la pagina dei prezzi del Centro sicurezza di Azure.For pricing details, including a free 30 day [trial,](https://azure.microsoft.com/pricing/details/security-center/)see the Azure Security Center pricing page .
+Il servizio inviera i log di diagnostica delle richieste di lettura, scrittura ed eliminazione nell'archivio BLOB per il rilevamento delle minacce. Per analizzare gli avvisi relativi alla protezione avanzata dalle minacce, è possibile visualizzare l'attività di archiviazione correlata usando la registrazione di Analisi archiviazione. Per altre informazioni, vedere **Configurare la registrazione** in Monitorare un account di archiviazione nel portale di Azure.For more information, see Configure logging in [Monitor a storage account in the Azure portal.](storage-monitor-storage-account.md#configure-logging)
 
-La protezione avanzata dalle minacce per Archiviazione di Azure invii i log di diagnostica delle richieste di lettura, scrittura ed eliminazione all'archiviazione BLOB per il rilevamento delle minacce. Per analizzare gli avvisi relativi alla protezione avanzata dalle minacce, è possibile visualizzare l'attività di archiviazione correlata usando la registrazione di Analisi archiviazione. Per altre informazioni, vedere **Configurare la registrazione** in Monitorare un account di archiviazione nel portale di Azure.For more information, see Configure logging in [Monitor a storage account in the Azure portal.](storage-monitor-storage-account.md#configure-logging)
+## <a name="availability"></a>Disponibilità
+
+La protezione avanzata dalle minacce per Archiviazione di Azure è attualmente disponibile solo per [L'archiviazione BLOB.](https://azure.microsoft.com/services/storage/blobs/) 
+
+Questo servizio è disponibile in tutti i cloud pubblici e nei cloud degli enti pubblici degli Stati Uniti, ma non in altre aree cloud sovrane o governative di Azure.This service is available in all public clouds and US government clouds, but no other sovereign or Azure government cloud regions.
+
+Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la pagina dei prezzi del Centro sicurezza di Azure.For pricing details, including a free 30 day [trial,](https://azure.microsoft.com/pricing/details/security-center/)see the Azure Security Center pricing page .
+
 
 ## <a name="set-up-advanced-threat-protection"></a>Configurare la protezione avanzata dalle minacce
 
@@ -42,7 +48,7 @@ La protezione avanzata dalle minacce per Archiviazione di Azure invii i log di d
 
     ![Attivare la protezione avanzata dalle minacce di Archiviazione di Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="azure-security-center"></a>[Centro sicurezza di AzureAzure Security Center](#tab/azure-security-center)
+### <a name="azure-security-center"></a>[Centro sicurezza di Azure](#tab/azure-security-center)
 
 Quando si sottoscrive il livello Standard nel Centro sicurezza di Azure, la protezione avanzata dalle minacce viene configurata automaticamente in tutti gli account di archiviazione. È possibile abilitare o disabilitare la protezione avanzata dalle minacce per gli account di archiviazione in una sottoscrizione specifica come segue:You can enable or disable advanced threat protection for your storage accounts under a specific subscription as follows:
 

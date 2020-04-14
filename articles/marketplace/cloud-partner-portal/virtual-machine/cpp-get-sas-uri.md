@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 6fe15fb18d8865911363a4696e44dd7fe1d90c09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fdbc2a11bd963057b465a629757f2be51ae4061
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277804"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273852"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Ottenere l'URI di firma di accesso condiviso per l'immagine di macchina virtuale
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Ottenere l'URI della firma di [accesso condiviso per l'immagine della macchina virtuale](https://aka.ms/GetSASURI) per gestire le offerte migrate.
 
 Durante il processo di pubblicazione è necessario specificare un URI (Uniform Resource Identifier) per ogni disco rigido virtuale associato agli SKU. Microsoft deve accedere a tali VHD durante il processo di certificazione. Questo articolo illustra come generare un URI di firma di accesso condiviso per ogni disco rigido virtuale. L'URI viene immesso nella scheda **SKU** nel portale Cloud Partner.
 

@@ -3,7 +3,7 @@ title: Creare un endpoint della rete CDN di Azure | Microsoft Docs
 description: Questo articolo illustra come creare un nuovo endpoint della rete per la distribuzione di contenuti di Azure (rete CDN), incluse le impostazioni avanzate.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: afd9599dd1e396dea6975c397688e4b97371fd6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a130a433c68d0d5cc8c26eae4b81ff264eb0ca2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593944"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254016"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creare un endpoint della rete CDN di Azure
 Questo articolo descrive tutte le impostazioni per la creazione di un endpoint della [rete per la distribuzione di contenuti (CDN) di Azure](cdn-overview.md) in un profilo della rete CDN esistente. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti. Per informazioni introduttive sulla creazione di un profilo e di un endpoint, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).

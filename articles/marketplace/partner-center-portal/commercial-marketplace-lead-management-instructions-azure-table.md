@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: f511a60b533d6d1e0b1ae8847d0ee0fb6be3500c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a36c411b9ababc42adb51d82a316df4252c01e24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288836"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252015"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configurare la gestione dei lead usando una tabella di AzureConfigure lead management using an Azure Table
 
@@ -66,12 +66,12 @@ Usare questo esempio come guida per creare un semplice flusso per l’invio auto
 
    ![I miei flussi - programmati - dal vuoto](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-5.  Nella finestra *Crea flusso pianificato* in Ripeti *ogni* selezionare "1" per intervallo e "ora" per frequenza. Inoltre, assegnare un nome al flusso. Selezionare **Crea**.
+5.    Nella finestra *Crea flusso pianificato* in Ripeti *ogni* selezionare "1" per intervallo e "ora" per frequenza. Inoltre, assegnare un nome al flusso. Selezionare **Create** (Crea).
 
-    >[!Note]
-    >Anche se in questo esempio viene utilizzato un intervallo di 1 ora, è possibile selezionare l'intervallo e la frequenza più adatti alle esigenze aziendali.
+>[!Note]
+>Anche se in questo esempio viene utilizzato un intervallo di 1 ora, è possibile selezionare l'intervallo e la frequenza più adatti alle esigenze aziendali.
 
-    ![Creare un flusso pianificato.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
+![Creare un flusso pianificato.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 6. Selezionare **+ nuovo passaggio**.
 7. Nella finestra *Scegliere un'azione* cercare "ottieni l'ora passata" e quindi selezionare **Ottieni ora passata** in Azioni.
@@ -92,23 +92,17 @@ Nel set successivo di passaggi, ci si connetterà alla tabella di Azure e si imp
 
 9. Dopo il passaggio Superato, selezionare **Nuovo passaggio**, quindi cercare "Ottieni entità" nella finestra *Scegli un'azione.*
 10. In **Azioni**selezionare **Ottieni entità (Archiviazione tabelle di Azure).**
-11. Nella finestra Archiviazione tabelle di Azure fornire informazioni per i campi seguenti e selezionare Crea:In the **Azure Table Storage** window, provide information for the following fields and select **Create**:
+11.    Nella finestra Archiviazione tabelle di Azure fornire informazioni per i campi seguenti e selezionare Crea:In the **Azure Table Storage** window, provide information for the following fields and select **Create**:
+* *Nome connessione:* specificare un nome significativo per la connessione che si sta stabilendo tra questo flusso e la tabella di Azure.Connection Name - provide a meaningful name for the connection you are establishing between this flow and the Azure Table.
+* *Nome account di archiviazione:* specificare il nome dell'account di archiviazione per la tabella di Azure.Storage Account Name - provide the name of the storage account for your Azure table. È possibile trovare questo nella pagina **Chiavi** di accesso dell'account di archiviazione.
+* *Chiave di archiviazione condivisa:* fornire il valore chiave per l'account di archiviazione per la tabella di Azure.Shared Storage Key - provide the key value for your store account for your Azure table. È possibile trovare questo nella pagina **Chiavi** di accesso dell'account di archiviazione.
+    ![Archiviazione tabelle di Azure.Azure Table storage.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-    * *Nome connessione:* specificare un nome significativo per la connessione che si sta stabilendo tra questo flusso e la tabella di Azure.Connection Name - provide a meaningful name for the connection you are establishing between this flow and the Azure Table.
-    * *Nome account di archiviazione:* specificare il nome dell'account di archiviazione per la tabella di Azure.Storage Account Name - provide the name of the storage account for your Azure table. È possibile trovare questo nella pagina **Chiavi** di accesso dell'account di archiviazione.
-    * *Chiave di archiviazione condivisa:* fornire il valore chiave per l'account di archiviazione per la tabella di Azure.Shared Storage Key - provide the key value for your store account for your Azure table. È possibile trovare questo nella pagina **Chiavi** di accesso dell'account di archiviazione.
+Dopo aver fatto clic su Crea verrà visualizzata una finestra *Ottieni entità.* Qui selezionare **Mostra opzioni avanzate** e fornire informazioni per i seguenti campi:
+* *Tabella:* selezionare il nome dell'archiviazione tabelle di Azure (dal passaggio 6 delle istruzioni su come configurare una tabella di Azure). La schermata successiva mostra il messaggio di richiesta quando la tabella "marketplaceleads" è selezionata per questo esempio.
+    ![Tabella di Azure ottenere le entità.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        ![Archiviazione tabelle di Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
-
-    Dopo aver fatto clic su Crea verrà visualizzata una finestra *Ottieni entità.* Qui selezionare **Mostra opzioni avanzate** e fornire informazioni per i seguenti campi:
-
-       * *Tabella:* selezionare il nome dell'archiviazione tabelle di Azure (dal passaggio 6 delle istruzioni su come configurare una tabella di Azure). La schermata successiva mostra il messaggio di richiesta quando la tabella "marketplaceleads" è selezionata per questo esempio.
-
-            ![Tabella di Azure ottenere le entità.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
-
-        * *Filtro query* - Selezionare questo campo e incollare questa funzione nel campo:`Timestamp gt datetime'@{body('Get_past_time')}'`
-
-            ![Entità get tabella di Azure - Accodamento filtro.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
+* *Query filtro:* selezionare questo campo e `Timestamp gt datetime'@{body('Get_past_time')}'` ![incollare questa funzione nel campo: Azure Table get entities - Filter Query (Query filtro).](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 12. Dopo aver completato la configurazione della connessione alla tabella di Azure, selezionare **Nuovo passaggio** per aggiungere una condizione per eseguire l'analisi della tabella di Azure alla ricerca di nuovi lead. 
 
@@ -178,7 +172,10 @@ Quando si è pronti a configurare le informazioni di gestione dei lead per l'off
 1. Accedi alla pagina **Configurazione offerta** per la tua offerta.
 2. Selezionare **Connetti** nella sezione Gestione lead.
 3. Nella finestra popup Dettagli connessione selezionare **Tabella di Azure** come Destinazione **lead**e incollare la stringa di connessione dell'account di archiviazione di Azure creato seguendo i passaggi precedenti nel campo Stringa di **connessione dell'account di archiviazione.**
-4. Selezionare **Salva**. 
+4. **Email di contatto:** fornisci email alle persone della tua azienda che devono ricevere notifiche e-mail quando viene ricevuto un nuovo lead. È possibile fornire più messaggi di posta elettronica separandoli con un punto e virgola.
+5. Selezionare **Ok**.
+
+Per assicurarsi di aver eseguito correttamente la connessione a una destinazione lead, fare clic sul pulsante di convalida. In caso di esito positivo, si avrà un lead di test nella destinazione del lead.
 
 >[!Note]
 >È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta.

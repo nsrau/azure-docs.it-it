@@ -3,7 +3,7 @@ title: Panoramica di uno scenario di ripristino di emergenza di Oracle nell'ambi
 description: Scenario di ripristino di emergenza per un'istanza di Database Oracle 12c nell'ambiente Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
-ms.openlocfilehash: f6f678f91e74ea9b0b68127c1786fee745508b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: daberry
+ms.openlocfilehash: 527c4cfdad3fc371bddd42388aa432c27a2877df
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70101469"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272968"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Ripristino di emergenza per un'istanza di Database Oracle 12c in un ambiente Azure
 

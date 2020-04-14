@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: dsindona
-ms.openlocfilehash: 5263d24c411ef8de4187c2fd750013374d779f04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f13e4066137e0d76612040d9f6e5ff3d0aa399c8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277940"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273903"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuire una macchina virtuale dai VHD
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo la gestione mobile delle offerte di Macchine virtuali di Azure al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare gli asset tecnici della macchina virtuale](https://aka.ms/AzureVMTechAsset) di Azure per gestire le offerte migrate.
 
 Questa sezione illustra come distribuire una macchina virtuale (VM) da un Azure distribuito disco rigido virtuale (VHD).  Elenca gli strumenti necessari e indica come usarli per creare un'immagine di macchina virtuale dell'utente e quindi distribuirla in Azure usando script di PowerShell.
 

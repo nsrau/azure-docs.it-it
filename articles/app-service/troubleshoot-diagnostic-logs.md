@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f22d5b2140e42f5f4b8ef5787d22b4be399c7e8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280469"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272526"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -26,9 +26,9 @@ L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com)
 |Type|Piattaforma|Location|Descrizione|
 |-|-|-|-|
 | Registrazione di applicazioni | Windows, Linux | File system del servizio app e/o BLOB di Archiviazione di AzureApp Service file system and/or Azure Storage blobs | Registra i messaggi generati dal codice dell'applicazione. I messaggi possono essere generati dal framework Web scelto o dal codice dell'applicazione direttamente utilizzando il modello di registrazione standard del linguaggio. A ogni messaggio viene assegnata una delle seguenti categorie: **Critical**, **Error**, **Warning**, **Info**, **Debug**e **Trace**. È possibile selezionare la modalità di dettaglio della registrazione impostando il livello di gravità quando si abilita la registrazione dell'applicazione.|
-| Registrazione del server Web| WINDOWS | File system del servizio app o BLOB di Archiviazione di AzureApp Service file system or Azure Storage blobs| Dati delle richieste HTTP non elaborati nel formato di [file di registro esteso W3C](/windows/desktop/Http/w3c-logging). Ogni messaggio di log include dati quali il metodo HTTP, l'URI della risorsa, l'IP del client, la porta client, l'agente utente, il codice di risposta e così via. |
-| Messaggi di errore dettagliati| WINDOWS | File system del servizio app | Copie delle pagine di errore *htm* che sarebbero state inviate al browser client. Per motivi di sicurezza, le pagine di errore dettagliate non devono essere inviate ai client nell'ambiente di produzione, ma il servizio app può salvare la pagina di errore ogni volta che si verifica un errore dell'applicazione con codice HTTP 400 o superiore. La pagina può contenere informazioni che consentono di determinare il motivo per cui il server restituisce il codice di errore. |
-| Traccia delle richieste non riuscite | WINDOWS | File system del servizio app | Informazioni di analisi dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richiesta e il tempo impiegato in ogni componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP. Viene generata una cartella per ogni richiesta non riuscita, che contiene il file di log XML, e il foglio di stile XSL con cui visualizzare il file di log. |
+| Registrazione del server Web| Windows | File system del servizio app o BLOB di Archiviazione di AzureApp Service file system or Azure Storage blobs| Dati delle richieste HTTP non elaborati nel formato di [file di registro esteso W3C](/windows/desktop/Http/w3c-logging). Ogni messaggio di log include dati quali il metodo HTTP, l'URI della risorsa, l'IP del client, la porta client, l'agente utente, il codice di risposta e così via. |
+| Messaggi di errore dettagliati| Windows | File system del servizio app | Copie delle pagine di errore *htm* che sarebbero state inviate al browser client. Per motivi di sicurezza, le pagine di errore dettagliate non devono essere inviate ai client nell'ambiente di produzione, ma il servizio app può salvare la pagina di errore ogni volta che si verifica un errore dell'applicazione con codice HTTP 400 o superiore. La pagina può contenere informazioni che consentono di determinare il motivo per cui il server restituisce il codice di errore. |
+| Traccia delle richieste non riuscite | Windows | File system del servizio app | Informazioni di analisi dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richiesta e il tempo impiegato in ogni componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP. Viene generata una cartella per ogni richiesta non riuscita, che contiene il file di log XML, e il foglio di stile XSL con cui visualizzare il file di log. |
 | Registrazione della distribuzione | Windows, Linux | File system del servizio app | Registri per la pubblicazione di contenuto in un'app. La registrazione della distribuzione avviene automaticamente e non sono disponibili impostazioni configurabili per la registrazione della distribuzione. Consente di determinare il motivo per cui una distribuzione non è riuscita. Ad esempio, se si utilizza uno script di [distribuzione personalizzato,](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)è possibile utilizzare la registrazione della distribuzione per determinare il motivo per cui lo script non riesce. |
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Selezionare il **livello**o il livello di dettagli da registrare. La tabella seg
 
 | Level | Categorie incluse |
 |-|-|
-|**Disabili** | nessuno |
+|**Disabled** | nessuno |
 |**Errore** | Errore, Errore critico |
 |**Avviso** | Avviso, Errore, Errore critico|
 |**Informazioni** | Informazioni, Avviso, Errore, Errore critico|
@@ -188,7 +188,7 @@ Nella tabella seguente vengono illustrati i tipi di log e le descrizioni support
 | AppServiceHTTPLogs | Sì | Sì | Web Server Logs |
 | AppServiceEnvironmentPlatformLogs | Sì | Sì | Ambiente del servizio app: scalabilità, modifiche alla configurazione e log di stato|
 | AppServiceAuditLogs | Sì | Sì | Attività di accesso tramite FTP e Kudu |
-| AppServiceFileAuditLogs | TBA | Sì | Modifiche ai file tramite FTP e Kudu |
+| AppServiceFileAuditLogs | Sì | TBD | Modifiche ai file tramite FTP e Kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Log applicazioni |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Passaggi successivi

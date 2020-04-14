@@ -4,14 +4,14 @@ description: Informazioni su come configurare Azure Private Link per accedere a 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 9a6a1560e169c51256c198868dc7293a020189f4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4b49d2aa61587d0156755bdd5c47b3eeb90090a5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421431"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270690"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurare Azure Private Link per un account Azure CosmosConfigure Azure Private Link for an Azure Cosmos account
 
@@ -72,8 +72,8 @@ Usare la procedura seguente per creare un endpoint privato per un account Azure 
     |Zona DNS privato |Selezionare **privatelink.documents.azure.com**. <br><br/> La zona DNS privata viene determinata automaticamente. Non è possibile modificarlo tramite il portale di Azure.You can't change it by using the Azure portal.|
     |||
 
-1. Selezionare **Revisione e creazione**. Nella pagina **Revisione e creazione** Azure viene convalidata la configurazione.
-1. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**.
+1. Selezionare **Rivedi e crea**. Nella pagina **Revisione e creazione** Azure viene convalidata la configurazione.
+1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
 Dopo aver approvato Private Link per un account Cosmos di Azure, nel portale di Azure l'opzione **Tutte le reti** nel riquadro Firewall e reti **virtuali** non è disponibile.
 
@@ -624,6 +624,10 @@ Le situazioni e i risultati seguenti sono possibili quando si utilizza Private L
 * Se si configura il traffico pubblico o un endpoint del servizio e si creano endpoint privati, i diversi tipi di traffico in ingresso vengono autorizzati in base al tipo corrispondente di regola del firewall.
 
 * Se non si configura alcun endpoint di servizio o traffico pubblico e si creano endpoint privati, l'account Cosmos di Azure è accessibile solo tramite gli endpoint privati. Se non si configura il traffico pubblico o un endpoint del servizio, dopo che tutti gli endpoint privati approvati vengono rifiutati o eliminati, l'account viene aperto all'intera rete.
+
+## <a name="blocking-public-network-access-during-account-creation"></a>Blocco dell'accesso alla rete pubblica durante la creazione dell'account
+
+Come descritto nella sezione precedente e a meno che non siano state impostate regole firewall specifiche, l'aggiunta di un endpoint privato rende accessibile l'account Azure Cosmos solo tramite endpoint privati. Ciò significa che l'account Cosmos di Azure può essere raggiunto dal traffico pubblico dopo che è stato creato e prima che venga aggiunto un endpoint privato. Per assicurarsi che l'accesso alla rete pubblica sia disabilitato anche `publicNetworkAccess` prima `Disabled` della creazione di endpoint privati, è possibile impostare il flag su durante la creazione dell'account. Vedere questo modello di [Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) per un esempio che illustra come usare questo flag.
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Aggiornare un endpoint privato quando si aggiunge o rimuove un'areaUpdate a private endpoint when you add or remove a region
 

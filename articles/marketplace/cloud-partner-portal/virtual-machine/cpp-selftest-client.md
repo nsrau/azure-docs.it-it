@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
-ms.openlocfilehash: fb568400cb60f108303909353bfa703e98ab6157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af42476f9d04f7f2bfc275c731b02aa5a9b8ecf6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286422"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273155"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creare un client di verifica automatica per la convalida preliminare dell'immagine di una macchina virtuale di Azure
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Certificazione dell'immagine della macchina virtuale](https://aks.ms/CertifyVMimage) di Azure per gestire le offerte migrate.
 
 Usare questo articolo come guida per la creazione di un servizio client che utilizza l'API di verifica automatica. È possibile usare l'API di verifica automatica per preconvalidare una macchina virtuale e assicurarsi che soddisfi i requisiti di pubblicazione di Azure Marketplace più recenti. Il servizio client consente di testare una macchina virtuale prima di inviare l'offerta per la certificazione Microsoft.
 
@@ -219,7 +222,7 @@ La schermata seguente mostra i risultati JSON dalla chiamata di curl.
 
 Seguire questa procedura per scegliere il tenant di Azure AD in cui si vuole creare l'applicazione.
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nella barra dei menu superiore selezionare l'account e nell'elenco Directory scegliere il tenant di Active Directory in cui registrare l'applicazione. In alternativa, selezionare l'icona **Directory e sottoscrizione** per visualizzare il filtro sottoscrizioni globali. La schermata seguente illustra un esempio di questo filtro.
 
    ![Selezionare il filtro delle sottoscrizioni](./media/stclient-subscription-filter.png)
@@ -249,7 +252,7 @@ Seguire questa procedura per registrare l'app client.
    - **Tipo di applicazione** - Seleziona **app Web/API**
    - **URL di accesso** - Digitare "https:\//isvapp.azurewebsites.net/selftest-vm"
 
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 5. In **Registrazioni app** oppure **App registrata** copiare l'**ID applicazione**.
 
    ![Ottenere l'ID dell'applicazione](./media/stclient-app-id.png)
@@ -269,7 +272,7 @@ Seguire questa procedura per registrare l'app client.
     ![Abilitare l'accesso all'API per l'app](./media/stclient-enable-api-access.png)
 
 14. Fare clic su **Seleziona**.
-15. Selezionare **Fatto**.
+15. Selezionare **Operazione completata**.
 16. In **Impostazioni** selezionare **Proprietà**.
 17. In **Proprietà** scorrere verso il basso fino a **Multi-tenant**. Selezionare **Sì**.
 

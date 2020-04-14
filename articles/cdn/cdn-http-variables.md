@@ -3,7 +3,7 @@ title: Variabili HTTP per il motore regole della rete CDN di Azure | Microsoft D
 description: Le variabili HTTP consentono di recuperare i metadati di richiesta e di risposta HTTP.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: magattus
-ms.openlocfilehash: 53ad0c516547e17801bd57c2fd6b0d1704383797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: b9ced5d4a81effcd73e0243d09bb83ed0fe7667c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593824"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253697"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variabili HTTP per il motore regole della rete CDN di Azure
 Le variabili HTTP forniscono gli strumenti per recuperare i metadati di richiesta e di risposta HTTP. Questi metadati possono essere quindi usati per modificare in modo dinamico una richiesta o una risposta. L'uso di variabili HTTP è limitato alle funzionalità del motore regole seguenti:
@@ -192,7 +192,7 @@ La tabella seguente illustra il funzionamento di questa sintassi.
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Dal momento che la variabile inizia con il criterio, è stato sostituito. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Dal momento che la variabile non termina con il criterio, non è stata apportata alcuna modifica.|
 
-### <a name="find-and-replace"></a>Ricerca e sostituzione
+### <a name="find-and-replace"></a>Trova e sostituisci
 La sintassi di ricerca e sostituzione è descritta nella tabella seguente.
 
 | Sintassi | Azione |

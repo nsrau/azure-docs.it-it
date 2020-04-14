@@ -8,18 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: 7a2e03b8dacbf6c3ff20e02c804804b671e86d97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1521581316d559eb4e67bafba0061c31cc666b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513882"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272951"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificare automaticamente la lingua parlata con il modello di identificazione della lingua
 
-Video Indexer supporta l'identificazione automatica della lingua (LID), che è il processo di identificazione automatica del contenuto linguistico vocale dall'audio e l'invio del file multimediale da trascrivere nella lingua preferita dominante. Attualmente LID supporta inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese (brasiliano). 
+Video Indexer supporta l'identificazione automatica della lingua (LID), che è il processo di identificazione automatica del contenuto linguistico vocale dall'audio e l'invio del file multimediale da trascrivere nella lingua preferita dominante. 
+
+Attualmente LID supporta: inglese, spagnolo, francese, tedesco, italiano, mandarino chines, giapponese, russo e portoghese (brasiliano). 
+
+Assicurati di leggere la sezione [Linee guida e limitazioni](#guidelines-and-limitations) di seguito.
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Scelta dell'identificazione automatica della lingua sull'indicizzazione
 
@@ -49,7 +53,10 @@ Il linguaggio dominante del modello `sourceLanguage` è disponibile nelle inform
 
 ## <a name="guidelines-and-limitations"></a>Linee guida e limitazioni
 
-* Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese brasiliano.
+* LID (Automatic Language Identification) supporta le seguenti lingue: 
+
+    Inglese, spagnolo, francese, tedesco, italiano, mandarino Chines, giapponese, russo e portoghese (brasiliano).
+* Anche se Video Indexer supporta l'arabo (Standard moderno e Levante), l'hindi e il coreano, queste lingue non sono supportate in LID.
 * Se l'audio contiene lingue diverse dall'elenco supportato sopra, il risultato è imprevisto.
 * Se Video Indexer non è in grado`>0.6`di identificare la lingua con una confidenza sufficientemente elevata ( ), la lingua di fallback è l'inglese.
 * Non è disponibile alcun supporto corrente per i file con audio in lingue miste. Se l'audio contiene lingue miste, il risultato è imprevisto. 
