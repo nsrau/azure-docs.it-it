@@ -18,9 +18,9 @@
     - name: Gestire il controllo degli accessi in base al ruolo
       href: automation-role-based-access-control.md
       displayName: RBAC
-    - name: Configurare Azure AD in Automazione di Azure per l'autenticazione in Azure
+    - name: Usare Azure AD per l'autenticazione in Azure
       href: automation-use-azure-ad.md
-    - name: Gestire i servizi di Office 365 con Automazione di Azure
+    - name: Gestire i servizi di Office 365
       href: manage-office-365.md
     - name: Configurare l'autenticazione con AWS
       href: automation-config-aws-account.md
@@ -42,6 +42,9 @@
           displayName: troubleshoot
 - name: Automazione dei processi
   items:
+    - name: Esecuzione di runbook in Automazione di Azure
+      href: automation-runbook-execution.md
+      displayName: 'fair share, activity log'
     - name: Panoramica di Hybrid Runbook Workers
       href: automation-hybrid-runbook-worker.md
     - name: raccolta di runbook
@@ -111,9 +114,6 @@
             - name: Output del Runbook
               href: automation-runbook-output-and-messages.md
               displayName: 'message streams, progress records, preference'
-            - name: Tenere traccia di un processo del runbook
-              href: automation-runbook-execution.md
-              displayName: 'fair share, activity log'
             - name: Gestione degli errori nei runbook grafici
               href: automation-runbook-graphical-error-handling.md
         - name: ruolo di lavoro ibrido per runbook

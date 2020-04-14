@@ -17,7 +17,11 @@
 - name: Concetti
   items:
     - name: Lavorare in remoto
-      href: work-remotely-support.md
+      items:
+        - name: Supporto per il lavoro remoto
+          href: ../networking/working-remotely-support.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Connettività ibrida per gli utenti remoti
+          href: work-remotely-support.md
     - name: Modelli di connettività
       href: expressroute-connectivity-models.md
     - name: Circuiti e peering

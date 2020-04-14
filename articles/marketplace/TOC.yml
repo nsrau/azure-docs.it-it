@@ -1,11 +1,11 @@
-- name: Documentazione di Azure Marketplace e AppSource
+- name: Documentazione del marketplace commerciale
   href: index.yml
   items:
-    - name: Roadmap di Azure Marketplace e AppSource
+    - name: Roadmap del marketplace commerciale
       href: ./marketplace-roadmap.md
-    - name: Informative e condizioni di Azure Marketplace
+    - name: Informative e condizioni del marketplace commerciale
       href: ./policies-terms.md
-    - name: Panoramica e vantaggi di Azure Marketplace e AppSource
+    - name: Panoramica e vantaggi del marketplace commerciale
       href: ./marketplace-publishers-guide.md
       items:
         - name: 'Un marketplace, due vetrine'
@@ -15,7 +15,7 @@
           items:
             - name: Lead management (Gestione di clienti potenziali)
               href: ./lead-management-for-cloud-marketplace.md
-            - name: Esecuzione di transazioni in Azure Marketplace
+            - name: Esecuzione di transazioni nel marketplace commerciale
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
             - name: Offerte private
               href: ./private-offers.md
@@ -66,7 +66,7 @@
               href: ./preferred-solutions.md
             - name: Soluzioni integrate
               href: ./integrated-solutions.md
-        - name: Supporto per Azure Marketplace e AppSource
+        - name: Supporto per il marketplace commerciale
           href: ./support-azure-marketplace.md
           items:
             - name: Domande frequenti su Marketplace
@@ -78,6 +78,8 @@
   items:
     - name: Migrazione dal portale Cloud Partner al Centro per i partner
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
+    - name: Domande frequenti sulla migrazione
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
     - name: Presentazione del portale
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -427,12 +429,10 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Ottenere assistenza
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-- name: Portale di Commercial Marketplace nel Centro per i partner
+- name: Marketplace commerciale in Partner Center
   items:
-    - name: Panoramica
-      items:
-        - name: Informazioni su Commercial Marketplace
-          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Panoramica del marketplace commerciale
+      href: ./partner-center-portal/commercial-marketplace-overview.md
     - name: Gestione degli account
       items:
         - name: Creare un nuovo account del Centro per i partner
@@ -453,6 +453,30 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API per l'onboarding
               href: ./partner-center-portal/azure-app-apis.md
+        - name: Offerte di Contenitore di Azure
+          items:
+            - name: Preparare asset tecnici
+              href: ./partner-center-portal/create-azure-container-technical-assets.md
+            - name: Creare un'offerta di Contenitore di Azure
+              href: ./partner-center-portal/create-azure-container-offer.md
+        - name: Offerta di macchina virtuale
+          items:
+            - name: Creare un'offerta di macchina virtuale di Azure
+              href: ./partner-center-portal/azure-vm-create-offer.md
+            - name: Creare l'asset tecnico delle macchine virtuali di Azure
+              items:
+                - name: Creare l'asset tecnico delle macchine virtuali di Azure
+                  href: ./partner-center-portal/create-azure-vm-technical-asset.md
+                - name: Domande frequenti sull'asset tecnico delle macchine virtuali di Azure
+                  href: ./partner-center-portal/common-issues-during-vhd-creation.md
+                - name: Certificare l'immagine delle macchine virtuali di Azure
+                  href: ./partner-center-portal/azure-vm-image-certification.md
+                - name: URI della firma di accesso condiviso
+                  items:
+                    - name: Ottenere l'URI di firma di accesso condiviso
+                      href: ./partner-center-portal/get-sas-uri.md
+                    - name: Domande frequenti sull'URI della firma di accesso condiviso
+                      href: ./partner-center-portal/common-sas-uri-issues.md
         - name: Servizi di consulenza
           items:
             - name: Prerequisiti
@@ -539,7 +563,7 @@
       href: ./partner-center-portal/support.md
     - name: Analisi del Centro per i Partner
       items:
-        - name: Analisi per il marketplace commerciale
+        - name: Analytics per il marketplace commerciale
           href: ./partner-center-portal/analytics.md
         - name: Dashboard Riepilogo
           href: ./partner-center-portal/summary-dashboard.md

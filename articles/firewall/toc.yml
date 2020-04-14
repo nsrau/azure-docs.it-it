@@ -20,6 +20,9 @@
     - name: Eseguire la distribuzione con gruppi IP
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
+    - name: Eseguire la distribuzione con più indirizzi
+      displayName: Resource Manager
+      href: quick-create-multiple-ip-template.md
 - name: Esempi
   items:
     - name: Azure PowerShell

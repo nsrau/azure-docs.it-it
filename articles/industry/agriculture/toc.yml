@@ -29,19 +29,23 @@
       href: manage-farms-in-azure-farmbeats.md
     - name: Recuperare dati dai sensori
       href: get-sensor-data-from-sensor-partner.md
+    - name: Recuperare dati meteo
+      href: get-weather-data-from-weather-partner.md
     - name: Generare mappe
       href: generate-maps-in-azure-farmbeats.md
     - name: Configurare regole e gestire avvisi
       href: configure-rules-alerts-in-azure-farmbeats.md
     - name: Ottenere immagini da drone
       href: get-drone-imagery-in-azure-farmbeats.md
+    - name: Ripristino di emergenza
+      href: disaster-recovery-for-farmbeats.md
 - name: Risolvere problemi
   items:
     - name: Risoluzione dei problemi di Azure FarmBeats
       href: troubleshoot-azure-farmbeats.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
-    - name: Riferimento
+    - name: Informazioni di riferimento
       href: references-for-azure-farmbeats.md
     - name: API REST
       href: rest-api-in-azure-farmbeats.md

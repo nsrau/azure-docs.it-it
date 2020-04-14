@@ -63,6 +63,8 @@
               href: add-users-administrator.md
             - name: Aggiunta di utenti B2B da parte di information worker
               href: add-users-information-worker.md
+            - name: Invitare utenti interni a usare la collaborazione B2B
+              href: invite-internal-users.md
             - name: Federazione Google
               href: google-federation.md
             - name: Autenticazione con passcode monouso
@@ -99,7 +101,7 @@
           href: auditing-and-reporting.md
         - name: Risoluzione dei problemi di B2B
           href: troubleshoot.md
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: API di gestione degli inviti
           href: customize-invitation-api.md
