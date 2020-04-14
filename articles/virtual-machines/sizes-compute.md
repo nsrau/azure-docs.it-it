@@ -3,7 +3,7 @@ title: Dimensioni delle macchine virtuali di Azure - Ottimizzazione del calcolo 
 description: Elenca le diverse dimensioni ottimizzate per il calcolo disponibili per le macchine virtuali in Azure.Lists the different compute optimized sizes available for virtual machines in Azure. Elenca le informazioni sul numero di vCPU, dischi dati e schede di interfaccia di rete, nonché la velocità effettiva di archiviazione e la larghezza di banda di rete per le dimensioni in questa serie.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-ms.openlocfilehash: d709d621341ef14ec158ed5af1c2df4297d66b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: e08d593f641c42f9ad605fda013206e70a34e52f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77493631"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269636"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per il calcolo
 
@@ -31,7 +31,7 @@ Con un prezzo di listino orario più basso, la serie Fsv2 presenta il migliore r
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-- [Finalità generale](sizes-general.md)
+- [Scopo generico](sizes-general.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)
