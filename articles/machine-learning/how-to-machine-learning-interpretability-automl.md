@@ -1,5 +1,5 @@
 ---
-title: Interpretazione dei modelli nel Machine Learning automatizzato
+title: Esplicabilità nell'apprendimento automatico automatizzato
 titleSuffix: Azure Machine Learning
 description: Informazioni su come ottenere spiegazioni su come il modello di Machine L automatizzato determina l'importanza delle funzionalità ed esegue stime quando si usa Azure Machine Learning SDK.
 services: machine-learning
@@ -8,20 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
 ms.date: 03/11/2020
-ms.openlocfilehash: e2465a2df3fab736c8f118911da14ef23c8aec86
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ecf7cde1a7f804ef1c43b21ac5c1d2a488660590
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437287"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257165"
 ---
-# <a name="model-interpretability-in-automated-machine-learning"></a>Interpretazione dei modelli nel Machine Learning automatizzato
+# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretazionità: spiegazioni dei modelli nell'apprendimento automatico
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning. L'mL automatizzato consente di comprendere l'importanza delle funzionalità ingegnerizzate. 
+In this article, you learn how to get explanations for automated machine learning (ML) in Azure Machine Learning. L'mL automatizzato consente di comprendere l'importanza delle funzionalità ingegnerizzate. 
 
 Tutte le versioni SDK successive alla `model_explainability=True` 1.0.85 sono impostate per impostazione predefinita. Nella versione SDK 1.0.85 e versioni `model_explainability=True` precedenti `AutoMLConfig` gli utenti devono impostare nell'oggetto per utilizzare l'interpretazione del modello. 
 

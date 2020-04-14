@@ -3,7 +3,7 @@ title: Failover tra più endpoint della rete CDN di Azure con Gestione traffico
 description: Informazioni su come configurare Gestione traffico di Azure con gli endpoint della rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 8d44e53520481e4ada5c2f16f0c56a4a6a724ec1
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 3d4f77a0fb9b8005729a6e9d35f254eb522b690e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892479"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259851"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure
 

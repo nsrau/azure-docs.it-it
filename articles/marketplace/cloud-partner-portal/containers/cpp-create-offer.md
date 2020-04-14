@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: d2a18d0fee4352cd88e4c64ab99a7dfc1b08ed75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25d678ad7b8c2b786239b294de873bc1d98fa5cb
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280083"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270333"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Creare una nuova offerta di un contenitore nel portale Cloud Partner
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Contenitore di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di contenitore](https://aka.ms/CreateContainerOffer) di Azure per gestire le offerte migrate.
 
 Questo articolo descrive come creare e pubblicare una voce di offerta di un contenitore per Azure Marketplace. Ogni offerta viene visualizzata come entità a sé stante in Azure Marketplace ed è associata a uno o più SKU.  L'offerta di un contenitore è composta dai gruppi di asset e servizi di supporto seguenti:
 

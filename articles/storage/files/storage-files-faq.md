@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: c6062ec008a7a12c720cf28c2d79531e805ebba0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9398820c88120400d97fbaf8cb0da100c2bdbf81
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984436"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261755"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -217,7 +217,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="ad-aad-smb-files"></a>
 **Come è possibile verificare se è stata abilitata l'autenticazione di Active Directory nell'account di archiviazione e nelle informazioni sul dominio di Active Directory?**
 
-    È possibile fare riferimento alle istruzioni fornite qui per verificare se l'autenticazione di Azure Files AD è abilitata nell'account di archiviazione e recuperare le informazioni sul dominio di Active Directory.You can refer to the instructions provided [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
+    È possibile fare riferimento alle istruzioni fornite qui per verificare se l'autenticazione di Azure Files AD è abilitata nell'account di archiviazione e recuperare le informazioni sul dominio di Active Directory.You can refer to the instructions provided [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
     
 * <a id="encryption-at-rest"></a>
 **Come è possibile garantire che la condivisione file di Azure usi la crittografia dei dati inattivi?**  

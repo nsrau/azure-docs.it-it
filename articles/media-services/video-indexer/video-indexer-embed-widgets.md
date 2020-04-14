@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 6ed5c509cf310b743e4ef52f411dfa34e5db09c1
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411620"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262911"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporare widget Dell'indicizzatore video nelle app
 
@@ -74,7 +74,7 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 6. Aggiungi il codice alla tua app.
 
 > [!NOTE]
-> In caso di problemi con la condivisione degli URL video, aggiungi il `location` parametro al link. Il parametro deve essere impostato sulle aree di [Azure in cui è presente l'indicizzatore video.](regions.md) Ad esempio `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> In caso di problemi con la condivisione degli URL video, aggiungi il `location` parametro al link. Il parametro deve essere impostato sulle aree di [Azure in cui è presente l'indicizzatore video.](regions.md) Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Incorporamento di contenuto privato
 
@@ -265,7 +265,7 @@ Per impostazione predefinita, il lettore inizierà a riprodurre il video. è pos
 
 ## <a name="code-samples"></a>Esempi di codice
 
-Vedere il repository degli esempi di codice che contiene esempi per l'API dell'indicizzatore video e widget:See the [code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) repo that contains samples for Video Indexer API and Widgets:
+Vedere il repository degli esempi di codice che contiene esempi per l'API dell'indicizzatore video e widget:See the [code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) repo that contains samples for Video Indexer API and Widgets:
 
 | File/cartella                       | Descrizione                                |
 |-----------------------------------|--------------------------------------------|

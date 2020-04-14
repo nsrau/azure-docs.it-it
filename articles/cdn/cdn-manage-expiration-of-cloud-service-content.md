@@ -3,7 +3,7 @@ title: Gestire la scadenza di contenuti Web nella rete CDN di Azure | Microsoft 
 description: Informazioni su come gestire la scadenza del contenuto di app Web o servizi cloud di Azure, ASP.NET o IIS nella rete CDN di Azure.
 services: cdn
 documentationcenter: .NET
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: magattus
-ms.openlocfilehash: a701c332659181081184906a73826b7137d8c49c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 4598e6cee6ffbaaeb2a99727842fcd17fe0046c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593707"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260565"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
 > [!div class="op_single_selector"]
 > * [Contenuto Web di Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Archiviazione BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Archiviazione BLOB di AzureAzure Blob storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
 I file provenienti da server Web di origine accessibili pubblicamente possono essere memorizzati nella cache della rete per la distribuzione di contenuti (CDN) di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'intestazione `Cache-Control` nella risposta HTTP del server di origine. Questo articolo descrive come impostare le intestazioni `Cache-Control` per la funzionalità App Web di Servizio app di Microsoft Azure, Servizi cloud di Azure, applicazioni ASP.NET e siti Internet Information Services (IIS), che hanno tutti una configurazione simile. È possibile impostare l'intestazione `Cache-Control` usando i file di configurazione o a livello di codice. 

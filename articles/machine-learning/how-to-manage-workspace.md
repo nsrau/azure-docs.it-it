@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297054"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269730"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creare e gestire aree di lavoro di Azure Machine Learning nel portale di AzureCreate and manage Azure Machine Learning workspaces in the Azure portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ In questo articolo verranno create, visualizzate ed eliminate [**le aree**](conc
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
-Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando le credenziali della sottoscrizione di Azure. 
 
@@ -90,6 +90,8 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Trovare un'area di lavoro
 
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+
 1. Nel campo di ricerca superiore digitare **Machine Learning**.  
 
 1. Selezionare **Machine Learning**.
@@ -102,9 +104,9 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 ## <a name="delete-a-workspace"></a>Eliminazione di un'area di lavoro
 
-Usare il pulsante Elimina nella parte superiore dell'area di lavoro da eliminare.
+Nel [portale di Azure](https://portal.azure.com/)selezionare **Elimina** nella parte superiore dell'area di lavoro che si vuole eliminare.
 
-  ![Pulsante Elimina](./media/how-to-manage-workspace/delete-workspace.png)
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Eliminare l'area di lavoro":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

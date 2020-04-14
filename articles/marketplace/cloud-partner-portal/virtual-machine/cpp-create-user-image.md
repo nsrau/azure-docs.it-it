@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 49db8c6717cd26886c3b49f8c99fdd2b08e8713d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bbee7f53cb9a61b72bdbbd941a3a0401f5b913b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278008"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273954"
 ---
 # <a name="create-a-user-vm-image"></a>Creare un'immagine di macchina virtuale degli utenti
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo la gestione mobile delle offerte di Macchine virtuali di Azure al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare gli asset tecnici della macchina virtuale](https://aka.ms/AzureVMTechAsset) di Azure per gestire le offerte migrate.
 
 Questo articolo illustra i due passaggi generali necessari per creare un'immagine non gestita da un disco rigido virtuale generalizzato.  Vengono inoltre forniti i riferimenti per ogni passaggio: acquisire l'immagine e generalizzare l'immagine.
 

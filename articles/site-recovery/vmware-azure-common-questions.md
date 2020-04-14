@@ -3,12 +3,12 @@ title: Domande comuni sul ripristino di emergenza di VMware con Azure Site Recov
 description: Risposte alle domande comuni sul ripristino di emergenza delle macchine virtuali VMware locali in Azure tramite Azure Site Recovery.Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ae16138ae44262f53a8f9948d6287f0acf621244
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240033"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259511"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti sulla replica da VMware ad Azure
 
@@ -46,7 +46,7 @@ L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie
 
 Sì, i clienti di Microsoft Software Assurance possono usare il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) per risparmiare sui costi di licenza per i computer Windows Server di cui viene eseguita la migrazione ad Azure o usare Azure per il ripristino di emergenza.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="what-access-to-vmware-servers-does-site-recovery-need"></a>Di quale accesso ai server VMware è necessario Site Recovery?
 
@@ -96,7 +96,7 @@ I programmi di installazione si trovano nella cartella %ProgramData%
 In ogni macchina virtuale che si vuole replicare, installare il servizio in uno dei diversi metodi:On each VM that you want to replicate, install the service by one of several methods:
 
 - [Installazione push](vmware-physical-mobility-service-overview.md#push-installation)
-- [Installazione manuale](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) dall'interfaccia utente o da PowerShellManual installation from the UI or PowerShell
+- [Installazione manuale](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) dall'interfaccia utente o da PowerShellManual installation from the UI or PowerShell
 - Distribuzione tramite uno strumento di distribuzione come [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## <a name="managed-disks"></a>Dischi gestiti
@@ -198,7 +198,7 @@ Site Recovery segue il modello di supporto N-4. [Ulteriori informazioni](https:/
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>È necessario riavviare i computer di origine per ogni aggiornamento?
 
-Un riavvio è consigliato ma non obbligatorio per ogni aggiornamento. [Scopri di più](https://aka.ms/asr_vmware_upgrades).
+Un riavvio è consigliato ma non obbligatorio per ogni aggiornamento. [Altre informazioni](https://aka.ms/asr_vmware_upgrades)
 
 ## <a name="configuration-server"></a>Server di configurazione
 
@@ -326,7 +326,7 @@ Per VMware in Azure, il punto di ripristino meno recente che è possibile usare 
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Come si accede alle macchine virtuali di Azure dopo il failover?
 
-Dopo il failover, è possibile accedere alle macchine virtuali di Azure tramite una connessione Internet sicura, tramite una VPN da sito a sito o tramite Azure ExpressRoute.After failover, you can access Azure VMs over a secure internet connection, over a site-to-site VPN, or over Azure ExpressRoute. Per connettersi, è necessario preparare diverse cose. [Scopri di più](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Dopo il failover, è possibile accedere alle macchine virtuali di Azure tramite una connessione Internet sicura, tramite una VPN da sito a sito o tramite Azure ExpressRoute.After failover, you can access Azure VMs over a secure internet connection, over a site-to-site VPN, or over Azure ExpressRoute. Per connettersi, è necessario preparare diverse cose. [Altre informazioni](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>I dati con failover sono resilienti?
 
@@ -338,7 +338,7 @@ Azure è progettato nell'ottica della resilienza. Site Recovery viene progettato
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>È possibile eseguire il failback in una posizione diversa?
 
-Sì. Se è stato eseguito il failover in Azure, è possibile eseguire il failback in un percorso diverso se quello originale non è disponibile. [Scopri di più](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Sì. Se è stato eseguito il failover in Azure, è possibile eseguire il failback in un percorso diverso se quello originale non è disponibile. [Altre informazioni](concepts-types-of-failback.md#alternate-location-recovery-alr)
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-with-private-peering-to-fail-back"></a>Perché è necessaria una VPN o ExpressRoute con peering privato per eseguire il failback?
 
@@ -349,13 +349,13 @@ Quando si esegue il failback da Azure, i dati di Azure vengono copiati nella mac
 
 ### <a name="can-i-set-up-replication-with-scripting"></a>È possibile configurare la replica con lo scripting?
 
-Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API Rest, PowerShell o Azure SDK. [Scopri di più](vmware-azure-disaster-recovery-powershell.md).
+Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API Rest, PowerShell o Azure SDK. [Altre informazioni](vmware-azure-disaster-recovery-powershell.md)
 
 ## <a name="performance-and-capacity"></a>Prestazioni e capacità
 
 ### <a name="can-i-throttle-replication-bandwidth"></a>È possibile limitare la larghezza di banda per la replica?
 
-Sì. [Scopri di più](site-recovery-plan-capacity-vmware.md).
+Sì. [Altre informazioni](site-recovery-plan-capacity-vmware.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

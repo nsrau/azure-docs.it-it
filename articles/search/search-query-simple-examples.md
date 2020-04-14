@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3a801af7b97954510139a009a6d1344b281cf056
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656412"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261806"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creare una query semplice in Ricerca cognitiva di AzureCreate a simple query in Azure Cognitive Search
 
 In Ricerca cognitiva di Azure la [sintassi](query-simple-syntax.md) di query semplice richiama il parser di query predefinito per l'esecuzione di query di ricerca full-text su un indice. Questo parser è veloce e gestisce scenari comuni, tra cui la ricerca full-text, la ricerca filtrata e in base a facet e la ricerca geografica. 
 
-In questo articolo vengono utilizzati esempi per illustrare la sintassi semplice.
+In questo articolo vengono utilizzati esempi per illustrare `search=` la sintassi semplice, popolando il parametro di un'operazione [di ricerca dei documenti.](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 
 Una sintassi di query alternativa è [Full Lucene](query-lucene-syntax.md), che supporta strutture di query più complesse, ad esempio la ricerca fuzzy e con caratteri jolly, che può richiedere più tempo per l'elaborazione. Per ulteriori informazioni ed esempi che illustrano la sintassi completa, vedere [Usare la sintassi Lucene completa.](search-query-lucene-examples.md)
 

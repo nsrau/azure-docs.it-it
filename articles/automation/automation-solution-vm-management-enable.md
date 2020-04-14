@@ -5,22 +5,22 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f4b0805e2a9247aff881a9e34b0bd1cd4c6ca27
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 7b619d3c9b4b334e637d6a1c456256cb33ad5134
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550409"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261381"
 ---
 # <a name="enable-azure-startstop-vms-solution"></a>Abilitare la soluzione Start/Stop VMs di AzureEnable Azure Start/Stop VMs solution
 
 Eseguire la procedura seguente per aggiungere la soluzione Start/Stop VMs durante le ore non orari a un account di automazione nuovo o esistente e all'area di lavoro di Log Analytics collegata. Dopo aver completato il processo di onboarding, configurare le variabili per personalizzare la soluzione.
 
 >[!NOTE]
->Per usare questa soluzione con le macchine virtuali classiche, è necessario un account RunAs classico, che non viene creato per impostazione predefinita. Per istruzioni sulla creazione di un account RunAs classico, vedere [Account RunAs classici](automation-create-standalone-account.md#classic-run-as-accounts).
+>Per usare questa soluzione con le macchine virtuali classiche, è necessario un account RunAs classico, che non viene creato per impostazione predefinita. Per istruzioni sulla creazione di un account RunAs classico, consultate [Creare un account RunAs classico.](automation-create-standalone-account.md#create-a-classic-run-as-account)
 >
 
-## <a name="enable-solution"></a>Abilita soluzione
+## <a name="enable-solution"></a>Abilitare la soluzione
 
 1. Accedere al [portale](https://portal.azure.com)di Azure .
 

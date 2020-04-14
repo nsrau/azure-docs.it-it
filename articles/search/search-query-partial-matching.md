@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: db60a864ff29ff9eccdcfbdc0bd63587375d4bbd
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114976"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262877"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Ricerca a termine parziale e modelli con caratteri speciali (caratteri jolly, espressioni regolari, modelli)
 
@@ -22,6 +22,9 @@ Una ricerca a *termine parziale* si riferisce a query costituite da frammenti di
 La ricerca parziale e di modelli può essere problematica se l'indice non dispone di termini nel formato previsto. Durante la fase di [analisi lessicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) dell'indicizzazione (presupponendo l'analizzatore standard predefinito), i caratteri speciali vengono eliminati, le stringhe composite e composte vengono suddivise e gli spazi vuoti vengono eliminati; tutto ciò può causare l'esito negativo delle query di modello quando non viene trovata alcuna corrispondenza. Ad esempio, un `+1 (425) 703-6214` numero di `"1"`telefono `"425"` `"703"`come `"6214"`(tokenizzato come , `"3-62"` , , ) non verrà visualizzato in una query perché tale contenuto non esiste effettivamente nell'indice. 
 
 La soluzione consiste nel richiamare un analizzatore che mantiene una stringa completa, inclusi spazi e caratteri speciali, se necessario, in modo da poter corrispondere in termini e modelli parziali. La creazione di un campo aggiuntivo per una stringa intatta, oltre a utilizzare un analizzatore di conservazione del contenuto, è la base della soluzione.
+
+> [!TIP]
+> Hai familiarità con le API REST e Postman? [Scaricare la raccolta](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) di esempi di query per eseguire query su termini parziali e caratteri speciali descritti in questo articolo.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Ricerca parziale in Ricerca cognitiva di AzureWhat is partial search in Azure Cognitive Search
 
@@ -74,6 +77,7 @@ Quando si sceglie un analizzatore che produce token a termine completo, gli anal
 
 | Analizzatore | Comportamenti |
 |----------|-----------|
+| [analizzatori del linguaggio](index-add-language-analyzers.md) | Mantiene i trattini in parole composte o stringhe, mutazioni vocaliche e forme verbali. Se i modelli di query includono trattini, l'utilizzo di un analizzatore del linguaggio potrebbe essere sufficiente. |
 | [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Il contenuto dell'intero campo viene tokenizzato come un singolo termine. |
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa solo gli spazi vuoti. I termini che includono trattini o altri caratteri vengono considerati come un singolo token. |
 | [analizzatore personalizzato](index-add-custom-analyzers.md) | (scelta consigliata) La creazione di un analizzatore personalizzato consente di specificare sia il tokenizer che il filtro token. Gli analizzatori precedenti devono essere utilizzati così come sono. Un analizzatore personalizzato consente di scegliere i tokenizer e i filtri token da usare. <br><br>Una combinazione consigliata è il [tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) con parole chiave con un [filtro token minuscolo.](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html) Di per sé, [l'analizzatore](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) di parole chiave predefinito non minuscola alcun testo maiuscolo, che può causare l'esito negativo delle query. Un analizzatore personalizzato fornisce un meccanismo per l'aggiunta del filtro token minuscolo. |
@@ -151,7 +155,9 @@ Sia che si stia valutando gli analizzatori o si eseguo con una configurazione sp
 
 ### <a name="use-built-in-analyzers"></a>Usare analizzatori incorporatiUse built-in analyzers
 
-Gli analizzatori predefiniti o incorporati possono essere `analyzer` specificati per nome in una proprietà di una definizione di campo, senza alcuna configurazione aggiuntiva nell'indice. Nell'esempio seguente viene illustrato `whitespace` come impostare l'analizzatore su un campo. Per ulteriori informazioni sugli analizzatori predefiniti disponibili, vedere [Elenco analizzatori predefiniti](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Gli analizzatori predefiniti o incorporati possono essere `analyzer` specificati per nome in una proprietà di una definizione di campo, senza alcuna configurazione aggiuntiva nell'indice. Nell'esempio seguente viene illustrato `whitespace` come impostare l'analizzatore su un campo. 
+
+Per altri scenari e per ulteriori informazioni su altri analizzatori incorporati, vedere [Elenco analizzatori predefiniti](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: f7177a95bdd585ff2822c9ac8c94a85d12f9259b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cfe450972acda3affbea6cbe3d262bc4b1956dc9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69900356"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262860"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Trasferimento dei dati per set di dati di grandi dimensioni con larghezza di banda da rete da moderata a elevata
  
@@ -73,7 +73,7 @@ Se si usa il trasferimento dei dati offline, usare la tabella seguente per conos
 |    Crittografia                       |    AES a 128 bit                  |    AES a 256 bit                                   |    AES a 256 bit                           |    AES a 128 bit                         |
 |    Hardware                         |     Fornito da Microsoft          |    Fornito da Microsoft                            |    Fornito da Microsoft                    |    Fornito dal cliente                   |
 |    interfaccia di rete                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    Integrazione dei partner              |    Alcuni                         |    [alto](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [alto](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Alcuni                                |
+|    Integrazione dei partner              |    Alcuni                         |    [alto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [alto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Alcuni                                |
 |    Spedizione                         |    Gestita da Microsoft            |    Gestita da Microsoft                             |    Gestita da Microsoft                     |    Gestita dal cliente                    |
 | Uso quando i dati vengono spostati         |Entro un confine commerciale|Entro un confine commerciale|Entro un confine commerciale|Oltre i confini geografici, ad esempio dagli USA all'UE|
 |    Prezzi                          |    [Prezzi](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prezzi](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |

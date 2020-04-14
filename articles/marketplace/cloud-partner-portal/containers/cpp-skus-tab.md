@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: adbe3d4c498c8f4e4968ca903f78c34aedca9a4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c5cf218632c720fd042cc5f5d4ed95d5096b5b5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279998"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270197"
 ---
 # <a name="container-skus-tab"></a>Scheda SKU del contenitore
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Contenitore di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di contenitore](https://aka.ms/CreateContainerOffer) di Azure per gestire le offerte migrate.
 
 La scheda **SKU** della pagina **Nuova offerta** consente di creare uno o più SKU e di associarli alla nuova offerta.  È possibile usare vari SKU per differenziare una soluzione per set di funzionalità, modelli di fatturazione o altre caratteristiche.
 

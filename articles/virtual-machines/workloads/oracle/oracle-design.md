@@ -3,7 +3,7 @@ title: Progettare e implementare un database Oracle in Azure | Microsoft Docs
 description: Progettare e implementare un database Oracle nell'ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
-ms.openlocfilehash: c2c2d1a9affe13d485bfeef52c781ed259b53bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 41e1720dfeaa98a9d0bc2227c58083ce769b06e0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70100120"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263404"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
@@ -52,8 +52,8 @@ La tabella seguente elenca alcune differenze tra un'implementazione locale e un'
 > | **Manutenzione pianificata** |Applicazione di patch/aggiornamenti|[Set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (applicazione di patch/aggiornamenti gestita da Azure) |
 > | **Risorsa** |Dedicated  |Condivisa con altri client|
 > | **Regioni** |Data center |[Coppie di aree](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Archiviazione** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Scala** |Scalabilità verticale |Scalabilità orizzontale|
+> | **Storage** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Scalabilità** |Scalabilità verticale |Scalabilità orizzontale|
 
 
 ### <a name="requirements"></a>Requisiti
@@ -211,7 +211,7 @@ Per ottimizzare la velocità effettiva, è consigliabile iniziare con **None** p
 
 Dopo avere salvato l'impostazione del disco dati, non è possibile modificare l'impostazione della cache host, a meno che l'unità a livello di sistema operativo non venga smontata e quindi rimontata dopo avere apportato la modifica.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo consiste nel proteggere la rete. Di seguito sono elencati alcuni suggerimenti:
 

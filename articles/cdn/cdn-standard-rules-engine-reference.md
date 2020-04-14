@@ -2,19 +2,19 @@
 title: Informazioni di riferimento sul motore di regole standard per la rete CDN di Azure Documenti Microsoft
 description: Documentazione di riferimento per le condizioni di corrispondenza e le azioni nel motore delle regole standard per la rete per la distribuzione di contenuti di Azure .COM.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: aa401150ee7a0f02e809ad702b8247e18081c8a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 6d4fa4451c3db3d6f2a506eabd5676d18b0219f4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171570"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259902"
 ---
-# <a name="standard-rules-engine-reference-for-azure-cdn"></a>Standard rules engine reference for Azure CDN
+# <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informazioni di riferimento sul motore regole standard per la rete CDN di Azure
 
 Nel [motore regole standard](cdn-standard-rules-engine.md) per la rete per la distribuzione di contenuti di Azure una regola è costituita da una o più condizioni di corrispondenza e da un'azione. Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza e delle funzionalità disponibili nel motore regole Standard per la rete CDN di Azure.This article provides detailed descriptions of the match conditions and features that are available in the Standard rules engine for Azure CDN.
 

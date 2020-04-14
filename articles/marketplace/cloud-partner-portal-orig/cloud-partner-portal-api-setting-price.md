@@ -5,17 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: b96dcfa6a140d5c16208fd8183003a7462b1aa56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 487e66b39bc63363497cb3497d32158efd0c6c8a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280440"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255890"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prezzi per le offerte di macchine virtuali
 ==================================
+
+> [!NOTE]
+> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
 
 Esistono tre modi per specificare i prezzi per le offerte di macchine virtuali: prezzi core personalizzati, prezzi per core e fogli di calcolo dei prezzi.
 
@@ -111,7 +114,7 @@ Gli editori di macchine virtuali sono stati notificati il 2 luglio 2019 dell'agg
 
 La tabella seguente illustra le diverse aree che è possibile specificare per i prezzi core personalizzati e i codici di valuta corrispondenti.
 
-| **Regione** | **Nome**             | **Codice valuta** |
+| **Area** | **Nome**             | **Codice valuta** |
 |------------|----------------------|-------------------|
 | DZ         | Algeria              | DZD               |
 | AR         | Argentina            | ARS               |

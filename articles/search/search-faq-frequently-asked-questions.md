@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fee74cb6ec5acd5fa0f171eab9769a833f04ad66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72792904"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262452"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Ricerca cognitiva di Azure - domande frequenti (FAQ)Azure Cognitive Search - frequently asked questions (FAQ)
 
@@ -24,16 +24,6 @@ ms.locfileid: "72792904"
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>In che modo Ricerca cognitiva di Azure è diversa dalla ricerca full-text nel sistema DBMS?
 
 Ricerca cognitiva di Azure supporta più origini dati, [l'analisi linguistica per molte lingue,](https://docs.microsoft.com/rest/api/searchservice/language-support) [l'analisi personalizzata per input di dati interessanti e insoliti,](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)i controlli di classificazione della ricerca tramite i profili di [punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e le funzionalità dell'esperienza utente, ad esempio typeahead, evidenziazione dei risultati e esplorazione in base a facet. Include anche altre funzionalità, come i sinonimi e la sintassi di query avanzata, ma queste non sono in genere funzionalità di differenziazione del servizio.
-
-### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Qual è la differenza tra Ricerca cognitiva di Azure ed Elasticsearch?
-
-Quando si confrontano le tecnologie di ricerca, i clienti spesso chiedono informazioni specifiche su come Ricerca cognitiva di Azure confronta con Elasticsearch.When comparing search technologies, customers frequently ask for specifics on how Azure Cognitive Search compares with Elasticsearch. I clienti che scelgono Ricerca cognitiva di Azure su Elasticsearch per i progetti di applicazioni di ricerca in genere lo fanno perché abbiamo semplificato un'attività chiave o hanno bisogno dell'integrazione incorporata con altre tecnologie Microsoft:
-
-+ Ricerca cognitiva di Azure è un servizio cloud completamente gestito con contratti di servizio (SLA) del 99,9% quando viene eseguito il provisioning con ridondanza sufficiente (2 repliche per l'accesso in lettura e tre repliche per la lettura/scrittura).
-+ I [processori del linguaggio naturale](https://docs.microsoft.com/rest/api/searchservice/language-support) Microsoft offrono funzioni di analisi linguistica all'avanguardia.  
-+ [Gli indicizzatori](search-indexer-overview.md) di Ricerca cognitiva di Azure possono eseguire la ricerca per indicizzazione in un'ampia gamma di origini dati di Azure per l'indicizzazione iniziale e incrementale.
-+ Se si desidera una risposta rapida alle fluttuazioni nei volumi di query o di indicizzazione, è possibile usare i [dispositivi di scorrimento](search-manage.md#scale-up-or-down) nel portale di Azure o eseguire uno [script di PowerShell](search-manage-powershell.md), evitando direttamente la gestione delle partizioni.  
-+ Le [funzionalità di assegnazione di punteggi e di ottimizzazione](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) forniscono i mezzi per influenzare i punteggi della classificazione delle ricerche, oltre a ciò che il semplice motore di ricerca può offrire.
 
 ### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>È possibile sospendere il servizio Ricerca cognitiva di Azure e interrompere la fatturazione?
 
@@ -91,7 +81,7 @@ La maggior parte delle query di ricerca con caratteri jolly, ad esempio prefisso
 
 Per impostazione predefinita, ai risultati della ricerca vengono assegnati dei punteggi in base alle [proprietà statistiche dei termini corrispondenti](search-lucene-query-architecture.md#stage-4-scoring) e i risultati vengono ordinati dal punteggio più alto a quello più basso nel set dei risultati. Alcuni tipi di query (con carattere jolly, prefisso, regex) tuttavia contribuiscono sempre con un punteggio costante al punteggio complessivo del documento. Questo comportamento dipende dalla progettazione. Ricerca cognitiva di Azure impone un punteggio costante per consentire l'inserimento nei risultati delle corrispondenze trovate tramite l'espansione delle query, senza influire sulla classificazione.
 
-Si supponga ad esempio che un input "viaggi*" in una ricerca con caratteri jolly produca corrispondenze come "viaggio", "viaggiatore" e "viaggiare". Data la natura di questi risultati, non è possibile dedurre ragionevolmente quali termini risultino più utili rispetto ad altri. Per questo motivo, verranno ignorate le frequenze di termini durante l'assegnazione dei punteggi dei risultati nelle query di tipo con caratteri jolly, prefisso e regex. Ai risultati della ricerca basati su un input parziale viene assegnato un punteggio costante per evitare la distorsione verso risultati potenzialmente imprevisti.
+Si supponga, ad esempio, che un input di "tour" in una ricerca con caratteri jolly produca corrispondenze in "tour", "tourettes" e "tourmaline". Data la natura di questi risultati, non è possibile dedurre ragionevolmente quali termini risultino più utili rispetto ad altri. Per questo motivo, verranno ignorate le frequenze di termini durante l'assegnazione dei punteggi dei risultati nelle query di tipo con caratteri jolly, prefisso e regex. Ai risultati della ricerca basati su un input parziale viene assegnato un punteggio costante per evitare la distorsione verso risultati potenzialmente imprevisti.
 
 ## <a name="design-patterns"></a>Modelli di progettazione
 

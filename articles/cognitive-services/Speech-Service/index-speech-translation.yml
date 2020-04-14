@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentazione sulla traduzione vocale
+title: Documentazione della traduzione vocale
 summary: La traduzione vocale dal servizio di riconoscimento vocale consente la traduzione vocale e di sintesi vocale in tempo reale e multilingue dei flussi audio
 metadata:
   title: Documentazione sulla traduzione vocale - Esercitazioni, riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
@@ -9,14 +9,14 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 04/13/2020
   ms.author: dapine
-  ms.openlocfilehash: 75f620d5210f5ba0dc61ac1c5be2f30aa23dea9c
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.openlocfilehash: 346965e4bd8384be93716894a52960b20539d1c3
+  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415326"
+  ms.lasthandoff: 04/13/2020
+  ms.locfileid: "81259043"
 landingContent:
 - title: Informazioni sulla traduzione vocale
   linkLists:
@@ -24,11 +24,13 @@ landingContent:
     links:
     - text: Che cos'è la traduzione vocale?
       url: speech-translation.md
+    - text: Nozioni di base sulla traduzione vocale
+      url: speech-translation-basics.md
   - linkListType: quickstart
     links:
     - text: Tradurre la voce in testo
       url: quickstarts/translate-speech-to-text.md
-    - text: Tradurre il riconoscimento vocale in più lingue di destinazione
+    - text: Tradurre la voce in più lingue di destinazione
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - text: Tradurre la voce in voce
       url: quickstarts/translate-speech-to-speech.md
@@ -42,7 +44,7 @@ landingContent:
     links:
     - text: Tradurre e sintetizzare il testo con le API REST
       url: ../translator/tutorial-build-flask-app-translation-synthesis.md
-- title: Riferimento
+- title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
     links:

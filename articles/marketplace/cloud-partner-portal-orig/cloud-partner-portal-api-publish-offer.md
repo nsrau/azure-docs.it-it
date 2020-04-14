@@ -5,23 +5,25 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 4163bf5727c327d559b81db42f99684aa0cc8d5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 960d5facb53f20719045c5fdbe2179f549aca3f2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280525"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255941"
 ---
-<a name="publish-an-offer"></a>Pubblicare un'offerta
-================
+# <a name="publish-an-offer"></a>Pubblicare un'offerta
+
+> [!NOTE]
+> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
 
 Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√≤ richiedere molto tempo.
 
   `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/publish?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parametri URI
+## <a name="uri-parameters"></a>Parametri URI
 --------------
 
 |  **Nome**      |    **Descrizione**                               |  **Tipo di dati** |
@@ -31,18 +33,17 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 |  api-version   | Versione pi√π recente dell'API                        |   Data         |
 |  |  |
 
-
-<a name="header"></a>Intestazione
+## <a name="header"></a>Intestazione
 ------
 
-|  **Nome**        |    **Valore**          |
+|  **Nome**        |    **valore**          |
 |  --------        |    ---------          |
 |  Content-Type    | `application/json`    |
 |  Autorizzazione   |  `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
-<a name="body-example"></a>Esempio di corpo
+## <a name="body-example"></a>Esempio di corpo
 ------------
 
 ### <a name="request"></a>Richiesta
@@ -66,14 +67,20 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 
 ### <a name="response"></a>Risposta
 
-   `Operation-Location: /api/operations/contoso$56615b67-2185-49fe-80d2-c4ddf77bb2e8$2$preview?api-version=2017-10-31`
+#### <a name="migrated-offers"></a>Offerte migrate
+
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### <a name="non-migrated-offers"></a>Offerte non migrate
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 
 ### <a name="response-header"></a>Intestazione di risposta
 
-|  **Nome**             |    **Valore**                                                                 |
+|  **Nome**             |    **valore**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Operation-Location    | URL su cui √® possibile eseguire una query che consente di determinare lo stato corrente dell'operazione.    |
+| Location    | Percorso relativo per recuperare lo stato dell'operazione     |
 |  |  |
 
 

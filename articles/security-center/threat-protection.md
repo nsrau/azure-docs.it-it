@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 395f4b5481fcf2028d6bfe736e58c3174a0c80b2
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: fdf22e4d981549b876a14aed2b0a1d7e0c76e40e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435337"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263455"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protezione dalle minacce nel Centro sicurezza di Azure
 
@@ -159,19 +159,20 @@ Per altre informazioni, vedere:
 
 
 
-
 ## <a name="threat-protection-for-azure-storage"></a>Protezione dalle minacce per Archiviazione di Azure<a name="azure-storage"></a>
 
-> [!NOTE]
-> Questo servizio è disponibile nei cloud degli enti pubblici degli Stati Uniti, ma non in altre aree cloud sovrane o governative di Azure.This service is available in US government clouds, but no other sovereign or Azure government cloud regions.
+Advanced Threat Protection for Storage rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Questo livello di protezione consente di affrontare le minacce senza richiedere di essere esperti di sicurezza e consente di gestire i sistemi di monitoraggio della sicurezza.
 
-Advanced Threat Protection for Storage (attualmente disponibile solo per l'archiviazione BLOB) rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Questo livello di protezione consente di affrontare le minacce senza richiedere di essere esperti di sicurezza e consente di gestire i sistemi di monitoraggio della sicurezza.
+La protezione avanzata dalle minacce per Archiviazione di Azure è attualmente disponibile solo per [L'archiviazione BLOB.](https://azure.microsoft.com/services/storage/blobs/) 
+
+Questo servizio è disponibile in tutti i cloud pubblici e nei cloud degli enti pubblici degli Stati Uniti, ma non in altre aree cloud sovrane o governative di Azure.This service is available in all public clouds and US government clouds, but no other sovereign or Azure government cloud regions.
+
+Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la pagina dei prezzi del Centro sicurezza di Azure.For pricing details, including a free 30 day [trial,](https://azure.microsoft.com/pricing/details/security-center/)see the Azure Security Center pricing page .
 
 Per altre informazioni, vedere:
 
 * [Come abilitare Advanced Threat Protection per Archiviazione di AzureHow to enable Advanced Threat Protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Elenco di avvisi di protezione dalle minacce per Archiviazione di AzureThe list of threat protection alerts for Azure Storage](alerts-reference.md#alerts-azurestorage)
-
 
 > [!TIP]
 > È possibile simulare gli avvisi di Archiviazione di Azure seguendo le istruzioni in questo post di [blog.](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131)

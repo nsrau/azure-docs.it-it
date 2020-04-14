@@ -3,7 +3,7 @@ title: Aggiungere il monitoraggio della diagnostica & a una macchina virtuale di
 description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione di diagnostica di Azure.Use an Azure Resource Manager template to create a new Windows virtual machine with Azure diagnostics extension.
 services: virtual-machines-windows
 documentationcenter: ''
-author: sbtron
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2017
-ms.author: saurabh
+ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073833"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258831"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
 L'estensione di Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Azure Resource Manager. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](../windows/template-description.md#extensions) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  

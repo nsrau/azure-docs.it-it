@@ -3,8 +3,8 @@ title: Configurazione GRUB proattiva della console seriale di Azure Documenti Mi
 description: Configurare GRUB tra varie distribuzioni consentendo l'accesso in modalità di ripristino e utente singolo nelle macchine virtuali di Azure.Configure GRUB across various distributions allowing single user and recovery mode access in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
-author: vilibert
-manager: spogge
+author: mimckitt
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
-ms.author: vilibert
-ms.openlocfilehash: a154ab4742f0d0d7acae0376bcf894bc2b62b4cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 573bd0797e63fc512e59b0e0882c718e4569111c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74186929"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262894"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantire in modo proattivo l'accesso a GRUB e sysrq potrebbe farti risparmiare un sacco di tempo di inattività
 
@@ -98,7 +98,7 @@ In questo articolo, esamineremo varie distribuzioni Linux e documentare le confi
 La chiave sysrq è abilitata su alcune distribuzioni Linux più recenti per impostazione predefinita, anche se in altre potrebbe essere configurata per accettare valori solo per determinate funzioni SysRq.
 Nelle distribuzioni più vecchie, potrebbe essere disabilitato completamente.
 
-La funzionalità SysRq è utile per riavviare una macchina virtuale bloccata o in crash direttamente dalla console seriale di Azure, utile anche per accedere al menu GRUB, in alternativa, riavviare una macchina virtuale da un'altra finestra del portale o sessione ssh potrebbe eliminare la connessione alla console corrente in scadenza così Scad Scad Timeouts a cui vengono utilizzati per visualizzare il menu GRUB.
+La funzionalità SysRq è utile per riavviare una macchina virtuale bloccata o in modo anomalo direttamente dalla console seriale di Azure, utile anche per accedere al menu GRUB, in alternativa, il riavvio di una macchina virtuale da un'altra finestra del portale o sessione ssh potrebbe eliminare la connessione alla console corrente, in scadenza ai timeout GRUB in cui vengono utilizzati per visualizzare il menu GRUB.
 La macchina virtuale deve essere configurata per accettare un valore pari a 1 per il parametro del kernel, che abilita tutte le funzioni di sysrq o 128, che consente il riavvio/spegnimento
 
 

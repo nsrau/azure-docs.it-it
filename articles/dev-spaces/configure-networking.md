@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Descrive i requisiti di rete per l'esecuzione di Azure Dev Spaces nei servizi di Azure Kubernetes
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, container, CNI, kubenet, SDN, network
-ms.openlocfilehash: 82d046aa36fe9caf6337aa7f58ca0db525062283
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e344576caf276ae7cb5fe00395c84810a4e7d32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240563"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262044"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurare la rete per i vani di sviluppo di Azure in topologie di rete diverseConfigure networking for Azure Dev Spaces in different network topologies
 
@@ -20,9 +20,9 @@ Azure Dev Spaces viene eseguito nei cluster del servizio Azure Kubernetes con la
 
 ## <a name="virtual-network-or-subnet-configurations"></a>Configurazioni di rete virtuale o subnetVirtual network or subnet configurations
 
-Il cluster AKS potrebbe avere una configurazione di rete virtuale o subnet diversa per limitare il traffico in ingresso o in uscita per il cluster AKS. Ad esempio, il cluster potrebbe essere protetto da un firewall, ad esempio Firewall di Azure, oppure è possibile usare gruppi di sicurezza di rete o ruoli personalizzati per limitare il traffico di rete.
+Il cluster AKS potrebbe avere una configurazione di rete virtuale o subnet diversa per limitare il traffico in ingresso o in uscita per il cluster AKS. Ad esempio, il cluster potrebbe essere protetto da un firewall, ad esempio Firewall di Azure, oppure è possibile usare gruppi di sicurezza di rete o ruoli personalizzati per limitare il traffico di rete. È possibile trovare una configurazione di rete di esempio nel [repository di esempio Azure Dev Spaces in GitHub][sample-repo].
 
-Gli spazi di sviluppo di Azure hanno determinati requisiti per il traffico di rete *in ingresso e in uscita,* nonché per il traffico solo in *ingresso.* Se si usano Azure Dev Spaces in un cluster AKS con una configurazione di rete virtuale o subnet che limita il traffico per il cluster AKS, è necessario seguire solo i seguenti requisiti di ingresso e di traffico in ingresso e in uscita per consentire a Azure Dev Spaces di funzioni noto correttamente.
+Gli spazi di sviluppo di Azure hanno determinati requisiti per il traffico di rete *in ingresso e in uscita,* nonché per il traffico solo in *ingresso.* Se si usano Azure Dev Spaces in un cluster AKS con una configurazione di rete virtuale o subnet che limita il traffico per il cluster AKS, è necessario seguire solo i requisiti di ingresso e di traffico in ingresso e in uscita seguenti per il corretto funzionamento degli spazi di sviluppo di Azure.
 
 ### <a name="ingress-and-egress-network-traffic-requirements"></a>Requisiti per il traffico di rete in ingresso e in uscita
 
@@ -76,7 +76,7 @@ Azure Dev Spaces ha la possibilità di esporre gli endpoint per i servizi in ese
 Per configurare l'opzione dell'endpoint, usare *-e* o *--endpoint* quando si abilita Azure Dev Spaces nel cluster. Ad esempio:
 
 > [!NOTE]
-> L'opzione endpoint richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.2.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][azure-cli-install]you need to install or upgrade, see Install Azure CLI.
+> L'opzione endpoint richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.2.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
@@ -109,4 +109,5 @@ Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più c
 [endpoint-options]: #using-different-endpoint-options
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
+[sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [team-quickstart]: quickstart-team-development.md

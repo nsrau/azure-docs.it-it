@@ -9,38 +9,38 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: f097479b67a7b48eca4a2710db3bd7eed6ddc982
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11469d992e0f5669cd3fc1e3864627dd0b8ae23d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77013684"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263345"
 ---
 Di seguito sono riepilogati i limiti chiave in Disponibilità generale.
 
 ### <a name="sku-ingress-rates-and-capacities"></a>Frequenze e capacità di ingresso SKU
 
-Le velocità e le capacità in ingresso degli SKU S1 e S2 offrono flessibilità durante la configurazione di un nuovo ambiente Time Series Insights.
+Le velocità e le capacità in ingresso degli SKU S1 e S2 offrono flessibilità durante la configurazione di un nuovo ambiente Time Series Insights. La capacità SKU indica la frequenza di ingresso giornaliera in base al numero di eventi o byte archiviati, a seconda dell'evento che si presenta per primo. Si noti che l'ingresso viene misurato *al minuto*e **la limitazione viene** applicata utilizzando l'algoritmo del bucket di token. L'ingresso è misurato in blocchi da 1 KB. Ad esempio, un evento effettivo da 0,8 KB verrebbe misurato come un evento e un evento da 2,6 KB viene conteggiato come tre eventi.
 
 | Capacità SKU SKU | Tasso di ingresso | Capacità massima di storage
 | --- | --- | --- |
-| 1 | 1 GB (1 milione di eventi) | 30 GB (30 milioni di eventi) al mese |
-| 10 | 10 GB (10 milioni di eventi) | 300 GB (300 milioni di eventi) al mese |
+| 1 | 1 GB (1 milione di eventi) al giorno | 30 GB (30 milioni di eventi) al mese |
+| 10 | 10 GB (10 milioni di eventi) al giorno | 300 GB (300 milioni di eventi) al mese |
 
 | Capacità SKU S2 | Tasso di ingresso | Capacità massima di storage
 | --- | --- | --- |
-| 1 | 10 GB (10 milioni di eventi) | 300 GB (300 milioni di eventi) al mese |
-| 10 | 100 GB (100 milioni di eventi) | 3 TB (3 miliardi di eventi) al mese |
+| 1 | 10 GB (10 milioni di eventi) al giorno | 300 GB (300 milioni di eventi) al mese |
+| 10 | 100 GB (100 milioni di eventi) al giorno | 3 TB (3 miliardi di eventi) al mese |
 
 > [!NOTE]
 > La capacità ha una scalabilità lineare, pertanto uno SKU S1 con capacità 2 supporta una velocità in ingresso di 2 GB (2 milioni) di eventi al giorno e 60 GB (60 milioni) di eventi al mese.
 
 Gli ambienti SKU S2 supportano un numero notevolmente maggiore di eventi al mese e hanno una capacità di ingresso significativamente maggiore.
 
-| SKU  | Numero di eventi al mese  | Dimensioni evento al mese  | Numero di eventi al minuto | Dimensioni evento al minuto  |
+| SKU  | Numero di eventi al mese  | Numero di eventi al minuto | Dimensioni evento al minuto  |
 |---------|---------|---------|---------|---------|
-| S1     |   30 milioni     |  30 GB     |  720    |  720 KB   |
- |S2     |   300 milioni    |   300 GB   | 7.200   | 7.200 KB  |
+| S1     |   30 milioni   |  720    |  720 KB   |
+ |S2     |   300 milioni   | 7.200   | 7.200 KB  |
 
 ### <a name="property-limits"></a>Limiti di proprietà
 

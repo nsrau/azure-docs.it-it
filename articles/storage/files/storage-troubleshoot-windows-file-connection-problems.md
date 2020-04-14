@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17ecc80fee3b024c334b8d36533663f1f3cebe4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3237fe7d87ad058f255d1c77cb6d814bcd1c292e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136906"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262248"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -50,7 +50,7 @@ Se gli utenti accedono alla condivisione file di Azure usando l'autenticazione d
 
 ### <a name="solution-for-cause-3"></a>Soluzione per la causa 3
 
-Per aggiornare le autorizzazioni a livello di condivisione, vedere Assegnare autorizzazioni di [accesso a un'identità.](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#assign-access-permissions-to-an-identity)
+Per aggiornare le autorizzazioni a livello di condivisione, vedere Assegnare autorizzazioni di [accesso a un'identità.](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity)
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Errore 53, Errore 67 o Errore 87 quando si prova a montare o smontare una condivisione file di Azure

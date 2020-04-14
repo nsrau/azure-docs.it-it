@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/2/2020
-ms.openlocfilehash: 99b614de87c666d1cb1fb8a34eaafadf6fa82849
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632561"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263472"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Creare utenti in Database di Azure per MySQL
 
@@ -92,4 +92,4 @@ Dopo aver creato il database di Azure per il server MySQL, è possibile usare il
 
 Aprire il firewall per gli indirizzi IP dei computer dei nuovi utenti per consentire loro di connettersi: [Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure](howto-manage-firewall-using-portal.md) o l'[interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).
 
-Per altre informazioni sulla gestione degli account utente, vedere la documentazione di MySQL per la [gestione degli account utente](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), la [sintassi di GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) e i [privilegi](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+Per altre informazioni sulla gestione degli account utente, vedere la documentazione di MySQL per la [gestione degli account utente](https://dev.mysql.com/doc/refman/5.7/en/access-control.html), la [sintassi di GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) e i [privilegi](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

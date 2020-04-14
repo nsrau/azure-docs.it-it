@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: bd6c375231facc3d7afb35df74210d26b5f50ba8
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 9d2f4b02dd2b009e96abb65d4c42ef3a281e6ce1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387785"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262826"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Confronto tra AppSource e Azure Marketplace
 Le vetrine di [Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) soddisfano esigenze specifiche dei clienti e consentono di rivolgersi ai clienti in base al ruolo. Permettono infatti di offrire la soluzione o il servizio più adatto in base al tipo di cliente.
@@ -35,5 +35,5 @@ Le tabelle seguenti descrivono i vantaggi che è possibile conseguire usando una
 | **Presentazione contestuale ai clienti** | È possibile rendere disponibile la propria soluzione all'interno del portale di Azure per ricerche contestuali. Usare le opzioni di pubblicazione Macchina virtuale e App di Azure: Modello di soluzione. | Consente di raggiungere più clienti tramite l'esperienza in-app per prodotti Microsoft, ad esempio Dynamics 365, Power BI e Office 365. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-*   Rivedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](./marketplace-publishers-guide.md).
+*   Consulta la [guida alla pubblicazione](./marketplace-publishers-guide.md)del mercato commerciale .
 

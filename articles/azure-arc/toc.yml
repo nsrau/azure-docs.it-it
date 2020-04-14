@@ -1,21 +1,23 @@
 - name: Documentazione di Azure Arc
   href: index.yml
 - name: Panoramica
-  expanded: true
   items:
     - name: Che cos'è Azure Arc per server?
       href: ./servers/overview.md
-- name: Connessione ad Azure Arc
-  expanded: true
+- name: Guide pratiche
   items:
-    - name: Connettere i computer ad Azure Arc dal portale di Azure
-      href: ./servers/onboard-portal.md
-    - name: Connettere i computer su larga scala usando un'entità servizio
-      href: ./servers/onboard-service-principal.md
-    - name: Connettere i computer ad Azure Arc con PowerShell DSC
-      href: ./servers/onboard-dsc.md
-- name: Gestire l'agente
-  href: ./servers/manage-agent.md
+    - name: Connessione ad Azure Arc
+      items:
+        - name: Connettere i computer ad Azure Arc dal portale di Azure
+          href: ./servers/onboard-portal.md
+        - name: Connettere i computer su larga scala usando un'entità servizio
+          href: ./servers/onboard-service-principal.md
+        - name: Connettere i computer ad Azure Arc con PowerShell DSC
+          href: ./servers/onboard-dsc.md
+    - name: Gestione
+      items:
+        - name: Gestire l'agente
+          href: ./servers/manage-agent.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure Connected Machine Agent

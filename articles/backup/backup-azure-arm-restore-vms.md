@@ -4,12 +4,12 @@ description: Ripristinare una macchina virtuale di Azure da un punto di ripristi
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 3c3c8a7bd47ae03a013ddfadffabaa16fd04412b
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: b9cdb187aa3b8750bead8e81ad6d0ee50dcb3d6c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677555"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254921"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati della macchina virtuale di Azure nel portale di AzureHow to restore Azure VM data in Azure portal
 
@@ -28,8 +28,6 @@ Backup di Azure offre diversi modi per ripristinare una macchina virtuale.
 
 > [!NOTE]
 > È anche possibile ripristinare file e cartelle specifici in una macchina virtuale di Azure. [Altre informazioni](backup-azure-restore-files-from-vm.md)
->
-> Se si esegue la [versione più recente](backup-instant-restore-capability.md) di Backup di Azure per macchine virtuali di Azure (noto come Ripristino istantaneo), gli snapshot possono essere conservati fino a un massimo di sette giorni ed è possibile ripristinare una macchina virtuale dagli snapshot prima che i dati di backup vengano inviati all'insieme di credenziali. Se si vuole ripristinare una macchina virtuale da un backup degli ultimi sette giorni, è più rapido effettuare il ripristino dallo snapshot anziché dall'insieme di credenziali.
 
 ## <a name="storage-accounts"></a>Account di archiviazione
 

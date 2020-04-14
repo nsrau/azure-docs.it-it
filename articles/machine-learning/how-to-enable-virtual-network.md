@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: ca4bf1b0043a2c73851eab48ff8b9b6b7a987b72
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ea65956a73874b717ecab25d83ed25b59f2ada55
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115304"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257250"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML all'interno di una rete virtuale di AzureSecure Azure ML experimentation and inference jobs within an Azure Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -546,7 +546,7 @@ Per altre informazioni sulla configurazione di una regola di rete, vedere Distri
     > [!IMPORTANT]
     > L'account di archiviazione, il cluster di calcolo e il Registro contenitori di Azure devono trovarsi tutti nella stessa subnet della rete virtuale.
     
-    Per ulteriori informazioni, consultate il riferimento al metodo [update().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-)
+    Per ulteriori informazioni, consultate il riferimento al metodo [update().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-)
 
 1. Se si usa Private Link per l'area di lavoro di Azure Machine Learning e si inserisce il Registro di sistema del contenitore di Azure per l'area di lavoro in una rete virtuale, è necessario applicare anche il modello di Azure Resource Manager seguente. Questo modello consente all'area di lavoro di comunicare con ACR tramite il collegamento privato.
 

@@ -2,7 +2,7 @@
 title: Architetture di riferimento per i database Oracle in Azure Documenti Microsoft
 description: Architetture di riferimento per l'esecuzione di database Oracle Enterprise Edition in macchine virtuali di Microsoft Azure.
 services: virtual-machines-linux
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: ''
 ms.service: virtual-machines
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 235482f5d44877e5c4e47aed4d7eaf2baea5c3fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dc677ded1e13a64c082d49140fa0de69c0ed9d4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75560335"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263268"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architetture di riferimento per Oracle Database Enterprise Edition in AzureReference architectures for Oracle Database Enterprise Edition on Azure
 
@@ -177,7 +177,7 @@ Il diagramma seguente è un'architettura di riferimento per Oracle Sharding con 
 
 ![Oracle Database Sharding con zone di disponibilità con Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_dg_sh_az.png)
 
-Mentre il partizionamento di partizionamento gestito dal sistema è il più semplice da configurare e gestire, il partizionamento di partizionamento generale definito dall'utente o il partizionamento generale composito è adatto per scenari in cui i dati e l'applicazione sono distribuiti geograficamente o in scenari in cui è necessario avere il controllo sulla replica di ogni frammento. 
+Mentre il partizionamento di partizionamento gestito dal sistema è il più semplice da configurare e gestire, il partizionamento di partizione definito dall'utente o il partizionamento generale composito è adatto per scenari in cui i dati e l'applicazione sono distribuiti geograficamente o in scenari in cui è necessario avere il controllo sulla replica di ogni partizione. 
 
 Nell'architettura precedente, il partizionamento orizzontale composito viene usato per distribuire geograficamente i dati e scalare orizzontalmente i livelli applicazione. Il partizionamento su base composito è una combinazione di partizionamento di partizionamento e partizionamento di sistema gestite dall'utente e offre pertanto il vantaggio di entrambi i metodi. Nello scenario precedente, i dati vengono prima partizionati su più spazi di partizioni separati per area. Quindi, i dati vengono ulteriormente partizionati dall'hash coerente tra più partizioni nello spazio partizione. Ogni shardspace contiene più gruppi di partizioni. Ogni gruppo di partizioni ha più partizioni ed è una "unità" di replica, in questo caso. Ogni gruppo shardgroup contiene tutti i dati nello spazio partizioni. I frammenti A1 e B1 sono gruppi di partizioni primari, mentre i gruppi di partizioni A2 e B2 sono in standby. È possibile scegliere di fare in modo che le singole partizioni siano l'unità di replica anziché un gruppo di partizioni.
 

@@ -1,5 +1,5 @@
 ---
-title: Creare una nuova offerta App di Azure nel Marketplace commercialeCreate a new Azure Apps offer in the Commercial Marketplace
+title: Creare una nuova offerta di app di Azure nel marketplace commercialeCreate a new Azure Apps offer in the commerciale marketplace
 description: Come creare una nuova offerta di app di Azure per l'elenco o la vendita in Azure Marketplace, AppSource o tramite il programma Cloud Solution Provider (CSP) tramite il portale Commercial Marketplace nel Centro per i partner Microsoft.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 0ff1bbd976273a7d0cbfb22effebdf45c84d2f41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 260193b3c71e29a32e0589f50864ffcca2e9a67c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277240"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262265"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -68,7 +68,7 @@ Rivedere la documentazione seguente relativa all'applicazione di Azure, che incl
 
 * Esempi:
 
-    * [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     * [Soluzioni di applicazioni gestite](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
@@ -89,11 +89,11 @@ Il team tecnico deve avere il livello di conoscenza delle tecnologie Microsoft s
 Per la gestione dell'applicazione di Azure scegliere uno o entrambi gli ambienti di scripting seguenti:
 
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/cli/azure)
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
 
 È consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo:
 
-* [Esplora archivi di AzureAzure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Esplora archivi Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Visual Studio Code](https://code.visualstudio.com/) con le estensioni seguenti:
     * Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -103,7 +103,7 @@ Per la gestione dell'applicazione di Azure scegliere uno o entrambi gli ambienti
 
 ## <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
-Prima di poter creare un'offerta per le applicazioni di Azure, è necessario [creare un account del Centro per](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) i partner e aprire il dashboard Commercial [Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)con la scheda **Panoramica** selezionata.
+Prima di poter creare un'offerta per le applicazioni di Azure, è necessario [creare un account del Centro per](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) i partner e aprire il dashboard del marketplace [commerciale,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)con la scheda **Panoramica** selezionata.
 
 >[!Note]
 >Una volta pubblicata un'offerta, le modifiche apportate all'offerta effettuata nel Centro per i partner verranno aggiornate nel sistema e nelle vetrine dopo la ripubblicazione.  Assicurati di inviare l'offerta per la pubblicazione dopo aver apportato le modifiche.

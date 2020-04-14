@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ed7686bbef7dc1342528475226d11b8b8b8fb640
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: f4c3330b23b8b724cdbf5d7e09eec8a8dd5b8cfa
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668597"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258984"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Lucene query syntax in Azure Cognitive Search
 
@@ -33,7 +33,7 @@ ms.locfileid: "80668597"
 > [!NOTE]
 > La sintassi Lucene completa viene utilizzata per le espressioni di query passate nel parametro **di ricerca** dell'API [Cerca documenti,](https://docs.microsoft.com/rest/api/searchservice/search-documents) da non confondere con la [sintassi OData](query-odata-filter-orderby-syntax.md) utilizzata per il parametro [$filter](search-filters.md) di tale API. Queste diverse sintassi hanno regole specifiche per la costruzione di query, l'escizzazione di stringhe e così via.
 
-## <a name="how-to-invoke-full-parsing"></a>Come richiamare l'analisi completa
+## <a name="invoke-full-parsing"></a>Richiamare l'analisi completaInvoke full parsing
 
 Impostare il parametro di ricerca `queryType` per specificare il parser da usare. I valori validi includono `simple|full`, con `simple` come impostazione predefinita e `full` per Lucene. 
 
@@ -66,7 +66,8 @@ Per altri esempi, vedere Esempi di sintassi di [query Lucene per la creazione di
 >  Ricerca cognitiva di Azure supporta anche [la sintassi](query-simple-syntax.md)simple Query, un linguaggio di query semplice e affidabile che può essere usato per la ricerca semplice di parole chiave.  
 
 ##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Nozioni fondamentali sulla sintassi  
- Le nozioni fondamentali seguenti sulla sintassi si applicano a tutte le query che usano la sintassi Lucene.  
+
+i seguenti nozioni fondamentali sulla sintassi si applicano a tutte le query che utilizzano la sintassi Lucene.  
 
 ### <a name="operator-evaluation-in-context"></a>Valutazione degli operatori nel contesto
 
@@ -80,26 +81,32 @@ L'esempio precedente è relativo alla tilde (~), ma lo stesso principio si appli
 
 ### <a name="escaping-special-characters"></a>Escape dei caratteri speciali
 
- I caratteri speciali devono essere preceduti da un carattere di escape per poter essere usati come parte del testo di ricerca. Per usare i caratteri di escape, anteporre la barra rovesciata (\\). I caratteri speciali che devono essere preceduti da un carattere di escape includono i seguenti:  
-`+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
+Per utilizzare uno qualsiasi degli operatori di ricerca come parte del testo di ricerca,`\`eseguire l'escape del carattere anteponendolo a una singola barra rovesciata ( ). Ad esempio, per una `https://`ricerca `://` con caratteri jolly in , `search=https\:\/\/*`dove fa parte della stringa di query, è necessario specificare . Allo stesso modo, un modello di `\+1 \(800\) 642\-7676`numero di telefono di escape potrebbe essere simile a questo .
 
- Ad esempio, per eseguire l'escape di un carattere jolly, utilizzare \\ \*.
+I caratteri speciali che richiedono l'escattività includono quanto segue:  
+`+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`  
+
+> [!NOTE]  
+> Anche se l'espozione tiene insieme i token, [l'analisi lessicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) durante l'indicizzazione può eliminarli. Ad esempio, l'analizzatore Lucene standard interromperà le parole su trattini, spazi vuoti e altri caratteri. Se sono necessari caratteri speciali nella stringa di query, potrebbe essere necessario un analizzatore che li mantiene nell'indice. Alcune opzioni includono [analizzatori del linguaggio](index-add-language-analyzers.md)naturale Microsoft , che conservano le parole sillabate, o un analizzatore personalizzato per modelli più complessi. Per ulteriori informazioni, consultate [Termini parziali, modelli e caratteri speciali.](search-query-partial-matching.md)
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codifica dei caratteri riservati e non sicuri negli URL
 
- Assicurarsi che tutti i caratteri riservati e non sicuri siano codificati in un URL. "#", ad esempio, è un carattere non sicuro perché è un identificatore di frammento/ancoraggio in un URL. Il carattere deve essere codificato al `%23`, se usato in un URL. '&' e ''' sono esempi di caratteri riservati quando delimitiano i parametri e specificano i valori in Ricerca cognitiva di Azure.'&' and '' are examples of reserved characters as they delimit parameters and specify values in Azure Cognitive Search. Per ulteriori informazioni, vedere [RFC1738: URL (Uniform Resource Locator).](https://www.ietf.org/rfc/rfc1738.txt)
+Assicurarsi che tutti i caratteri riservati e non sicuri siano codificati in un URL. Ad esempio, ''' è un carattere non sicuro perché è un identificatore di frammento/ancoraggio in un URL. Il carattere deve essere codificato al `%23`, se usato in un URL. '&' e ''' sono esempi di caratteri riservati quando delimitiano i parametri e specificano i valori in Ricerca cognitiva di Azure.'&' and '' are examples of reserved characters as they delimit parameters and specify values in Azure Cognitive Search. Per ulteriori informazioni, vedere [RFC1738: URL (Uniform Resource Locator).](https://www.ietf.org/rfc/rfc1738.txt)
 
- I caratteri non sicuri sono ``" ` < > # % { } | \ ^ ~ [ ]``. I caratteri riservati sono `; / ? : @ = + &`.
+I caratteri non sicuri sono ``" ` < > # % { } | \ ^ ~ [ ]``. I caratteri riservati sono `; / ? : @ = + &`.
 
-### <a name="precedence-operators-grouping-and-field-grouping"></a>Operatori di precedenza: raggruppamento e raggruppamento di campi  
+###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Limiti delle dimensioni delle query
+
+ Esiste un limite alle dimensioni delle query che è possibile inviare a Ricerca cognitiva di Azure.There is a limit to the size of queries that you can send to Azure Cognitive Search. In particolare, è possibile avere al massimo 1024 clausole (espressioni separate da AND, OR e così via). È previsto anche un limite di circa 32 KB per la dimensione di ogni singolo termine di una query. Se l'applicazione genera query di ricerca a livello di codice, è consigliabile progettarla in modo che non generi query di dimensioni illimitate.  
+
+### <a name="precedence-operators-grouping"></a>Operatori di precedenza (raggruppamento)
+
  È possibile usare le parentesi per creare sottoquery, inclusi gli operatori nell'istruzione tra parentesi. Ad esempio, `motel+(wifi||luxury)` cercherà i documenti contenenti i termini "motel" e "wifi" o "luxury" (oppure entrambi).
 
 Il raggruppamento di campi è simile, ma definisce un singolo campo come ambito del raggruppamento. Ad esempio, `hotelAmenities:(gym+(wifi||pool))` cerca "gym" e "wifi" oppure "gym" e "pool" nel campo "hotelAmenities".  
 
-### <a name="searchmode-parameter-considerations"></a>Considerazioni sul parametro SearchMode  
- L'impatto `searchMode` delle query, come descritto in Sintassi di [query semplice in Ricerca cognitiva](query-simple-syntax.md)di Azure , si applica ugualmente alla sintassi di query Lucene. In particolare, `searchMode` insieme agli operatori NOT può restituire risultati di query che potrebbero sembrare insoliti se non è chiaro quali siano le implicazioni dell'impostazione del parametro. Se si mantiene l'impostazione predefinita `searchMode=any` e si usa un operatore NOT, l'operazione viene calcolata come azione OR e quindi "New York" NOT "Seattle" restituisce tutte le città diverse da Seattle.  
+##  <a name="boolean-search"></a><a name="bkmk_boolean"></a>Ricerca booleana
 
-##  <a name="boolean-operators-and-or-not"></a><a name="bkmk_boolean"></a>Operatori booleani (AND, OR, NOT) 
  Specificare sempre gli operatori booleani di testo (AND, OR, NOT) in lettere tutte maiuscole.  
 
 ### <a name="or-operator-or-or-"></a>Operatore OR `OR` o `||`
@@ -110,22 +117,20 @@ L'operatore OR è un carattere barra verticale o pipe. Ad esempio, `wifi || luxu
 
 L'operatore AND è una e commerciale o un segno più. Ad esempio, `wifi && luxury` cercherà i documenti contenenti sia "wifi" che "luxury". Il segno più (+) viene usato per i termini obbligatori. Ad esempio, `+wifi +luxury` stabilisce che entrambi i termini devono essere presenti nel campo di un singolo documento.
 
-
 ### <a name="not-operator-not--or--"></a>Operatore NOT `NOT`, `!` o `-`
 
-L'operatore NOT è un punto esclamativo o il segno meno. Ad esempio, `wifi !luxury` cercherà i documenti che contengono il termine "wifi" e/o non contengono "luxury". L'opzione `searchMode` controlla se un termine con l'operatore NOT è associato tramite l'operatore AND o OR agli altri termini nella query in assenza di un operatore + o ||. Si ricordi che `searchMode` può essere impostato su `any` (impostazione predefinita) o su `all`.
+L'operatore NOT è un segno meno. Ad esempio, `wifi –luxury` verrà eseguita `wifi` la ricerca di documenti `luxury`con il termine e/o non con .
 
-L'uso di `searchMode=any` aumenta il livello di richiamo delle query includendo più risultati e per impostazione predefinita il segno - verrà interpretato come "OR NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine *wifi* o quelli non contenenti il termine *luxury*.
+Il parametro **searchMode** in una richiesta di query controlla se un termine con l'operatore NOT `+` è `|` ANDed o OR con altri termini nella query (presupponendo che non vi sia o operatore negli altri termini). I valori validi sono `any` o `all`.
 
-L'uso di `searchMode=all` aumenta il livello di precisione delle query includendo meno risultati e per impostazione predefinita il segno - verrà interpretato come "AND NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` e quelli non contenenti il termine `luxury`. Si tratta di un comportamento verosimilmente più intuitivo per l'operatore -. Valutare quindi l'opportunità di scegliere `searchMode=all` invece di `searchMode=any` se si vuole ottimizzare il livello di precisione delle ricerche invece che quello di richiamo *e* gli utenti usano spesso l'operatore `-` nelle ricerche.
+`searchMode=any`aumenta il richiamo delle query includendo `-` più risultati e per impostazione predefinita verrà interpretato come "OR NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` o quelli non contenenti il termine `luxury`.
 
-##  <a name="query-size-limitations"></a><a name="bkmk_querysizelimits"></a> Limitazioni relative alla dimensione delle query  
- Esiste un limite alle dimensioni delle query che è possibile inviare a Ricerca cognitiva di Azure.There is a limit to the size of queries that you can send to Azure Cognitive Search. In particolare, è possibile avere al massimo 1024 clausole (espressioni separate da AND, OR e così via). È previsto anche un limite di circa 32 KB per la dimensione di ogni singolo termine di una query. Se l'applicazione genera query di ricerca a livello di codice, è consigliabile progettarla in modo che non generi query di dimensioni illimitate.  
+`searchMode=all`aumenta la precisione delle query includendo un numero inferiore di risultati e, per impostazione predefinita, - verrà interpretato come "AND NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` e quelli non contenenti il termine "luxury". Si tratta di un comportamento verosimilmente più intuitivo per l'operatore `-`. Pertanto, è `searchMode=all` consigliabile `searchMode=any` utilizzare anziché se si desidera ottimizzare le ricerche `-` per la precisione anziché il richiamo *e* gli utenti utilizzano spesso l'operatore nelle ricerche.
 
-##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Punteggio delle query con caratteri jolly e regex
- Ricerca cognitiva di Azure usa il punteggio basato sulla frequenza ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) per le query di testo. Per le query con caratteri jolly e regex, in cui l'ambito dei termini può essere potenzialmente ampio, il fattore frequenza viene tuttavia ignorato per evitare che la classificazione privilegi le corrispondenze con termini più rari. Tutte le corrispondenze vengono trattate equamente per le ricerche con caratteri jolly e regex.
+Quando si decide **un'impostazione searchMode,** considerare i modelli di interazione dell'utente per le query in varie applicazioni. È più probabile che gli utenti che cercano informazioni includano un operatore in una query, a differenza dei siti di e-commerce con strutture di spostamento più incorporate.
 
-##  <a name="fielded-search"></a><a name="bkmk_fields"></a>Ricerca su campo  
+##  <a name="fielded-search"></a><a name="bkmk_fields"></a>Ricerca su campo
+
 È possibile definire un'operazione `fieldName:searchExpression` di ricerca campiata con la sintassi, in cui l'espressione di ricerca può essere una singola parola o una frase o un'espressione più complessa tra parentesi, facoltativamente con operatori booleani. Ecco alcuni esempi:  
 
 - genre:jazz NOT history  
@@ -139,20 +144,22 @@ Il campo specificato in `fieldName:searchExpression` deve essere un campo `searc
 > [!NOTE]
 > Quando si utilizzano espressioni di ricerca campiate, non è necessario utilizzare il `searchFields` parametro perché ogni espressione di ricerca campiata ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile utilizzare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti hanno come ambito un campo specifico e il resto può essere applicato a diversi campi. Ad esempio, `search=genre:jazz NOT history&searchFields=description` la `jazz` query corrisponderebbe solo al `genre` `NOT history` campo, `description` mentre corrisponderebbe al campo. Il nome del `fieldName:searchExpression` campo fornito in `searchFields` ha sempre la precedenza sul parametro, `genre` motivo per cui in questo esempio non è necessario includere nel `searchFields` parametro.
 
-##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Ricerca fuzzy  
- Una ricerca fuzzy trova le corrispondenze in termini che hanno una costruzione simile. Secondo la [documentazione di Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), le ricerche fuzzy si basano sulla [distanza di Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Le ricerche fuzzy possono espandere un termine fino a un massimo di 50 termini che soddisfano i criteri di distanza. 
+##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Ricerca fuzzy
+
+Una ricerca fuzzy trova corrispondenze in termini che hanno una costruzione simile, espandendo un termine fino a un massimo di 50 termini che soddisfano i criteri di distanza di due o meno. Per ulteriori informazioni, consultate [Ricerca fuzzy.](search-query-fuzzy.md)
 
  Per eseguire una ricerca fuzzy, usare il carattere tilde "~" alla fine di una singola parola con un parametro facoltativo, un numero compreso tra 0 e 2 (impostazione predefinita), che specifica il numero minimo di operazioni di modifica o "edit distance". Ad esempio, "blue~" o "blue~1" restituirà "blue", "blues" e "glue".
 
  La ricerca fuzzy può essere applicata solo ai termini, non alle frasi, ma puoi aggiungere la tilde a ogni termine singolarmente in un nome o frase multiparte. Ad esempio, "Unviersty" di "Wshington" corrisponderebbe all'Università di Washington.
  
+##  <a name="proximity-search"></a><a name="bkmk_proximity"></a>Ricerca di prossimità
 
-##  <a name="proximity-search"></a><a name="bkmk_proximity"></a>Ricerca di prossimità  
- Le ricerche per prossimità vengono usate per trovare termini che si trovano vicini in un documento. Inserire un carattere tilde "~" alla fine di una frase seguito dal numero di parole che creano il limite di prossimità. Ad esempio, `"hotel airport"~5` troverà i termini "hotel" e "airport" entro 5 parole di distanza una dall'altra in un documento.  
+Le ricerche per prossimità vengono usate per trovare termini che si trovano vicini in un documento. Inserire un carattere tilde "~" alla fine di una frase seguito dal numero di parole che creano il limite di prossimità. Ad esempio, `"hotel airport"~5` troverà i termini "hotel" e "airport" entro 5 parole di distanza una dall'altra in un documento.  
 
 
-##  <a name="term-boosting"></a><a name="bkmk_termboost"></a>Incremento dei termini  
- Questa definizione si riferisce alla termine si riferisce alla classificazione più alta di un documento se contiene il termine con aumento di priorità, rispetto a documenti che non contengono il termine. Questo comportamento è diverso dall'assegnazione di punteggi ai profili, perché questo metodo assegna priorità ad alcuni campi, invece che a termini specifici.  
+##  <a name="term-boosting"></a><a name="bkmk_termboost"></a>Incremento dei termini
+
+Questa definizione si riferisce alla termine si riferisce alla classificazione più alta di un documento se contiene il termine con aumento di priorità, rispetto a documenti che non contengono il termine. Questo comportamento è diverso dall'assegnazione di punteggi ai profili, perché questo metodo assegna priorità ad alcuni campi, invece che a termini specifici.  
 
 L'esempio seguente illustra le differenze. Si supponga che esista un profilo di punteggio che migliora le corrispondenze in un determinato campo, ad esempio *genre* (genere) nell'[esempio musicstoreindex](index-add-scoring-profiles.md#bkmk_ex). L'aumento di priorità di un termine si usa per assegnare a determinati termini di ricerca una priorità maggiore rispetto ad altri. Ad esempio, `rock^2 electronic` aumenta la priorità nell'indice dei documenti che contengono tali termini di ricerca nel campo genre rispetto a quelli con altri campi ricercabili. Inoltre, i documenti che contengono il termine di ricerca *rock* verranno classificati con una priorità superiore rispetto all'altro termine di ricerca *electronic* come risultato del valore di priorità del termine (2).  
 
@@ -166,7 +173,8 @@ L'esempio seguente illustra le differenze. Si supponga che esista un profilo di 
 Alcuni strumenti e lingue impongono requisiti aggiuntivi per i caratteri di escape. Per JSON, le stringhe che includono una barra vengono precedute `search=/.* <string-placeholder>.*/` da una barra `microsoft.com\/azure\/` rovesciata: "microsoft.com/azure/" diventa `search=/.*microsoft.com\/azure\/.*/` dove imposta l'espressione regolare ed è la stringa con una barra di escape.
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Ricerca con caratteri jolly  
- È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
+
+È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
 
 La ricerca del prefisso utilizza anche il carattere asterisco (`*`). Ad esempio, un'espressione di query di `search=note*` restituisce "notebook" o "notepad". La sintassi Lucene completa non è necessaria per la ricerca dei prefissi. La sintassi semplice supporta questo scenario.
 
@@ -175,8 +183,14 @@ La ricerca `*` di `?` suffissi, dove o precede la stringa, richiede una sintassi
 > [!NOTE]  
 > Durante l'analisi delle query, le query formulate come espressioni prefisso, suffisso, carattere jolly o regolare vengono passate così com'è all'albero delle query, ignorando [l'analisi lessicale.](search-lucene-query-architecture.md#stage-2-lexical-analysis) Le corrispondenze verranno trovate solo se l'indice contiene le stringhe nel formato specificato dalla query. Nella maggior parte dei casi, è necessario un analizzatore alternativo durante l'indicizzazione che mantiene l'integrità delle stringhe in modo che i criteri di ricerca parziali e i criteri di ricerca abbiano esito positivo. Per altre informazioni, vedere [Ricerca a termine parziale nelle query di Ricerca cognitiva](search-query-partial-matching.md)di Azure.For more information, see Partial term search in Azure Cognitive Search queries .
 
-## <a name="see-also"></a>Vedere anche  
+##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Punteggio delle query con caratteri jolly e regex
 
+Ricerca cognitiva di Azure usa il punteggio basato sulla frequenza ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) per le query di testo. Per le query con caratteri jolly e regex, in cui l'ambito dei termini può essere potenzialmente ampio, il fattore frequenza viene tuttavia ignorato per evitare che la classificazione privilegi le corrispondenze con termini più rari. Tutte le corrispondenze vengono trattate equamente per le ricerche con caratteri jolly e regex.
+
+## <a name="see-also"></a>Vedere anche
+
++ [Esempi di query per la ricerca semplice](search-query-simple-examples.md)
++ [Esempi di query per la ricerca completa Lucene](search-query-lucene-examples.md)
 + [ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Sintassi delle espressioni OData per filtri e ordinamento](query-odata-filter-orderby-syntax.md)   
 + [Sintassi di query semplice in Ricerca cognitiva di AzureSimple query syntax in Azure Cognitive Search](query-simple-syntax.md)   

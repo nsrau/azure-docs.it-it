@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 9b59181f7c1b24a7bc00ab579bbe67a70f499c92
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 087cdafe8b819e4929e1608ed7e00be2c1169414
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755385"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263104"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurare la gestione dei clienti potenziali per Salesforce
 
@@ -64,11 +64,15 @@ Quando si è pronti a configurare le informazioni di gestione dei lead per l'off
 
 1. Nella finestra popup Dettagli connessione selezionare **Salesforce** per **Destinazione** `oid` lead e incollare il modulo da Web a lead creato seguendo i passaggi precedenti nel campo **Identificatore organizzazione.**
 
-1. Selezionare **Salva**. 
+1. **Email di contatto:** fornisci email alle persone della tua azienda che devono ricevere notifiche e-mail quando viene ricevuto un nuovo lead. È possibile fornire più messaggi di posta elettronica separandoli con un punto e virgola.
 
-    >[!Note]
-    >È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta.
+1. Selezionare **Ok**.
 
-    ![Dettagli connessione - Scegli una destinazione lead](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+Per assicurarsi di aver eseguito correttamente la connessione a una destinazione lead, fare clic sul pulsante di convalida. In caso di esito positivo, si avrà un lead di test nella destinazione del lead.
 
-    ![Dettagli connessione - Scegli una destinazione lead](./media/commercial-marketplace-lead-management-instructions-salesforce/connection-details.png)
+>[!Note]
+>È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta.
+
+![Dettagli connessione - Scegli una destinazione lead](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+
+![Dettagli connessione - Scegli una destinazione lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)

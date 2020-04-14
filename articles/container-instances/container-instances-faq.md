@@ -3,13 +3,13 @@ title: Domande frequenti
 description: Risposte per le domande frequenti relative al servizio Istanze del contenitore di AzureAnswers for frequently asked questions related to the Azure Container Instances service
 author: dkkapur
 ms.topic: article
-ms.date: 01/07/2020
-ms.openlocfilehash: 4a3fb4c1818d86f7fe2913790fd9e573c630cbfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: 8730dcb24af61730d7f93ea37a53cf87435eb9f9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247176"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261619"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Domande frequenti sulle istanze del contenitore di AzureFrequently asked questions about Azure Container Instances
 
@@ -43,9 +43,9 @@ Per [ulteriori informazioni](container-instances-troubleshooting.md#container-ta
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Immagini di base di Windows Server 2019 e client (anteprima)Windows Server 2019 and client base images (preview)
 
-* [Nano](https://hub.docker.com/_/microsoft-windows-nanoserver)Server `1809`: ,`10.0.17763.x`
-* [Windows Server](https://hub.docker.com/_/microsoft-windows-servercore) `ltsc2019`Core `1809`: , ,`10.0.17763.x`
-* [Windows](https://hub.docker.com/_/microsoft-windows) `1809`: ,`10.0.17763.x` 
+* [Nano](https://hub.docker.com/_/microsoft-windows-nanoserver)Server `1809` `10.0.17763.914` : , o versioni precedenti
+* [Windows Server](https://hub.docker.com/_/microsoft-windows-servercore) `ltsc2019`Core `1809` `10.0.17763.914` : , , o versioni precedenti
+* [Windows](https://hub.docker.com/_/microsoft-windows) `1809`: `10.0.17763.914` , o versioni precedenti
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Quale livello di immagine .NET o .NET Core è necessario usare nel contenitore? 
 

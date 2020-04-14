@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 7ce7ef15f0bf13182e4799fb640e83136d0d4695
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 55e319ba8aecb9205c00dda4a400e37f7c010649
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115032"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257777"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Guida per gli amministratori di Azure Lab Services - Administrator
 Gli amministratori IT (Information Technology) che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account lab per la propria scuola. Dopo aver configurato un account lab, gli amministratori o gli educatori creano lab della classe contenuti nell'account lab. Questo articolo offre una panoramica generale delle risorse di Azure coinvolte e le linee guida per la loro creazione.
@@ -59,7 +59,7 @@ Nell'elenco seguente vengono evidenziati gli scenari in cui possono essere utili
     
     Quando si configura un account lab, si impostano i criteri che si applicano a *tutti i* lab della classe con l'account lab, ad esempio:
     - Rete virtuale di Azure con risorse condivise a cui il lab della classe può accedere. Ad esempio, è possibile disporre di un set di lab della classe che devono accedere a un set di dati condivisi all'interno di una rete virtuale.
-    - Le immagini delle macchine virtuali (VM) che i laboratori della classe possono usare per creare macchine virtuali. Ad esempio, potresti avere un set di laboratori per classi che devono accedere all'immagine [data science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) Marketplace. 
+    - Le immagini delle macchine virtuali (VM) che i laboratori della classe possono usare per creare macchine virtuali. Ad esempio, potresti avere un set di laboratori per classi che devono accedere all'immagine [data science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Marketplace. 
     
     Se si dispone di laboratori in aula con requisiti di criteri univoci l'uno dall'altro, potrebbe essere utile creare account lab separati per gestire questi laboratori di classe separatamente.
 

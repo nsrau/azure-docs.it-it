@@ -1,17 +1,17 @@
 ---
 title: SQL keywords for Azure Cosmos DB
 description: Informazioni sulle parole chiave SQL per il database Cosmos di Azure.Learn about SQL keywords for Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: mjbrown
-ms.openlocfilehash: f2da2695ec20eac9dd2636104d3314427e60d541
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.author: tisande
+ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498547"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261568"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Parole chiave in Azure Cosmos DBKeywords in Azure Cosmos DB
 
@@ -131,7 +131,7 @@ L'API SQL fornisce il supporto per [l'iterazione su matrici JSON](sql-query-obje
 
 Se si include la `IN` chiave di partizione nel filtro, la query verrà automaticamente filtrata solo per le partizioni pertinenti.
 
-## <a name="top"></a>Torna all'inizio
+## <a name="top"></a>TOP
 
 La parola chiave `N` TOP restituisce il primo numero di risultati della query in un ordine indefinito. Come procedura consigliata, utilizzare `ORDER BY` TOP con la `N` clausola per limitare i risultati al primo numero di valori ordinati. La combinazione di queste due clausole è l'unico modo per indicare in modo prevedibile quali righe si attivano TOP.
 

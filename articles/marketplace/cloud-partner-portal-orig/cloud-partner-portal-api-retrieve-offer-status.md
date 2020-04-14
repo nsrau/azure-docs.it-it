@@ -5,24 +5,25 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cf6ca27101a08ff58f32dcd31413256762490a2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280508"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255915"
 ---
-<a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta 
-=====================
+# <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta
+
+> [!NOTE]
+> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
 
 Recupera lo stato corrente dell'offerta.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parametri URI
---------------
+## <a name="uri-parameters"></a>Parametri URI
 
 |  **Nome**       |   **Descrizione**                            |  **Tipo di dati** |
 |  -------------  |  ------------------------------------------  |  ------------  |
@@ -32,8 +33,8 @@ Recupera lo stato corrente dell'offerta.
 |  |  |
 
 
-<a name="header"></a>Intestazione
-------
+## <a name="header"></a>Intestazione
+
 
 |  Nome           |  valore               |
 |  -------------  | -------------------  |
@@ -41,9 +42,8 @@ Recupera lo stato corrente dell'offerta.
 |  Autorizzazione  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
+## <a name="body-example"></a>Esempio di corpo
 
-<a name="body-example"></a>Esempio di corpo
-------------
 
 ### <a name="response"></a>Risposta
 
@@ -115,8 +115,7 @@ Recupera lo stato corrente dell'offerta.
       ],
       "previewLinks": [],
       liveLinks": [],
-      "notificationEmails": "jdoe@contoso.com"
-  } 
+  }
 ```
 
 
@@ -136,9 +135,8 @@ Recupera lo stato corrente dell'offerta.
 |  processPercentage    | Percentuale di completamento del passaggio                                                              |
 |  previewLinks         | *Non attualmente implementato*                                                                    |
 |  liveLinks            | *Non attualmente implementato*                                                                    |
-|  notificationEmails   | Elenco delimitato da virgole degli indirizzi e-mail a cui inviare una notifica dello stato di avanzamento dell'operazione        |
+|  notificationEmails   | Deprecato per le offerte migrate al Centro per i partner. Le e-mail di notifica per le offerte migrate verranno inviate all'e-mail specificata nelle informazioni di contatto del venditore in Impostazioni account.<br><br>Per le offerte non migrate, l'elenco delimitato da virgole di indirizzi di posta elettronica per ricevere una notifica dello stato di avanzamento dell'operazione        |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Codici di stato della risposta
 
@@ -148,7 +146,6 @@ Recupera lo stato corrente dell'offerta.
 |  400     | `Bad/Malformed request` - Il corpo della risposta di errore può contenere altre informazioni.                 |
 |  404     | `Not found` - L'entità specificata è inesistente.                                                |
 |  |  |
-
 
 ### <a name="offer-status"></a>Stato dell'offerta
 
@@ -162,7 +159,6 @@ Recupera lo stato corrente dell'offerta.
 |  Cancellati                    | Invio dell'offerta annullato.                           |
 |  Operazione non riuscita                      | Invio dell'offerta non riuscito.                                 |
 |  |  |
-
 
 ### <a name="step-status"></a>Stato del passaggio
 

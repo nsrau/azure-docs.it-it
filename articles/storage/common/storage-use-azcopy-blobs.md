@@ -4,20 +4,23 @@ description: Questo articolo contiene una raccolta di comandi di esempio AzCopy 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73685f124f93bb541f33b3b70727d90ce22b3cdd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933583"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263438"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire dati con AzCopy e l'archiviazione BLOBTransfer data with AzCopy and Blob storage
 
 AzCopy è un'utilità della riga di comando che è possibile usare per copiare dati in, da o tra account di archiviazione. Questo articolo contiene comandi di esempio che funzionano con l'archiviazione BLOB.
+
+> [!TIP]
+> Gli esempi in questo articolo racchiudono gli argomenti di percorso tra virgolette singole (''). Utilizzare le virgolette singole in tutte le shell dei comandi, ad eccezione della shell dei comandi di Windows (cmd.exe). Se si utilizza una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti di percorso tra virgolette doppie ("") anziché virgolette singole ('').
 
 ## <a name="get-started"></a>Introduzione
 
@@ -28,12 +31,9 @@ Vedere l'articolo Introduzione a [AzCopy](storage-use-azcopy-v10.md) per scarica
 >
 > Se si preferisce usare un token di firma di accesso condiviso per autorizzare l'accesso ai dati BLOB, è possibile aggiungerlo all'URL della risorsa in ogni comando AzCopy.If you'd prefer use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command.
 >
-> Ad esempio `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Ad esempio: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Creare un contenitore
-
-> [!TIP]
-> Gli esempi in questa sezione racchiudono gli argomenti di percorso tra virgolette singole (''). Utilizzare le virgolette singole in tutte le shell dei comandi, ad eccezione della shell dei comandi di Windows (cmd.exe). Se si utilizza una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti di percorso tra virgolette doppie ("") anziché virgolette singole ('').
 
 È possibile utilizzare il comando [azcopy make](storage-ref-azcopy-make.md) per creare un contenitore. Negli esempi di questa sezione `mycontainer`viene creato un contenitore denominato .
 
@@ -57,10 +57,16 @@ Questa sezione contiene gli esempi seguenti:
 > * Caricare il contenuto di una directory 
 > * Caricare file specifici
 
-Per documenti di riferimento dettagliati, consultate [copia azcopy](storage-ref-azcopy-copy.md).
-
 > [!TIP]
-> Gli esempi in questa sezione racchiudono gli argomenti di percorso tra virgolette singole (''). Utilizzare le virgolette singole in tutte le shell dei comandi, ad eccezione della shell dei comandi di Windows (cmd.exe). Se si utilizza una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti di percorso tra virgolette doppie ("") anziché virgolette singole ('').
+> È possibile modificare l'operazione di caricamento utilizzando flag facoltativi. Ecco alcuni esempi.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Caricare i file come Aggiungi BLOB o BLOB di pagine.|**--blob-tipo**=\[BlockBlob\|\|PageBlob AppendBlob\]|
+> |Caricare in un livello di accesso specifico (ad esempio il livello di archiviazione).|**--block-blob-tier**=\[Nessuno\|\|Hot\|Cool Archive\]|
+> |Decomprimere automaticamente i file.|**--decomprimere**=\[gzip\|sgonfiare\]|
+> 
+> Per un elenco completo, vedere [opzioni](storage-ref-azcopy-copy.md#options).
 
 ### <a name="upload-a-file"></a>Caricare un file
 
@@ -71,10 +77,6 @@ Per documenti di riferimento dettagliati, consultate [copia azcopy](storage-ref-
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
 È inoltre possibile caricare un file utilizzando un carattere jolly (-) in qualsiasi punto del percorso o del nome del file. Ad esempio: `'C:\myDirectory\*.txt'` `C:\my*\*.txt`, o .
-
-> [!NOTE]
-> AzCopy per impostazione predefinita carica i dati come BLOB in blocchi. Per caricare i file come BLOB di accodamento o BLOB di pagine, usare il flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
-> AzCopy per impostazione predefinita carica i dati per ereditare il livello di accesso all'account. Per caricare file in un [livello](../blobs/storage-blob-storage-tiers.md) `--block-blob-tier=[Hot|Cool|Archive]`di accesso specifico, utilizzare il flag .
 
 ### <a name="upload-a-directory"></a>Caricare una directory
 
@@ -152,13 +154,19 @@ Questa sezione contiene gli esempi seguenti:
 > * Scaricare il contenuto di una directory
 > * Scaricare file specifici
 
+> [!TIP]
+> È possibile modificare l'operazione di download utilizzando flag facoltativi. Ecco alcuni esempi.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Decomprimere automaticamente i file.|**--decomprimere**=\[gzip\|sgonfiare\]|
+> |Specificare il livello di dettaglio delle voci di registro relative alla copia.|**--log-livello**=\[\|AVVISO\|\|ERRORE INFO NONE\]|
+> |Specificare se e come sovrascrivere i file e i BLOB in conflitto nella destinazione.|**--overwrite**=\[\|true\|false ifSourceNewer\|prompt\]|
+> 
+> Per un elenco completo, vedere [opzioni](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > Se `Content-md5` il valore della proprietà di un BLOB contiene un hash, AzCopy calcola un hash MD5 per `Content-md5` i dati scaricati e verifica che l'hash MD5 archiviato nella proprietà del BLOB corrisponda all'hash calcolato. Se questi valori non corrispondono, il download non riesce a meno che non si esegua l'override di questo comportamento aggiungendo `--check-md5=NoCheck` o `--check-md5=LogOnly` al comando di copia.
-
-Per documenti di riferimento dettagliati, consultate [copia azcopy](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> Gli esempi in questa sezione racchiudono gli argomenti di percorso tra virgolette singole (''). Utilizzare le virgolette singole in tutte le shell dei comandi, ad eccezione della shell dei comandi di Windows (cmd.exe). Se si utilizza una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti di percorso tra virgolette doppie ("") anziché virgolette singole ('').
 
 ### <a name="download-a-file"></a>Scaricare un file
 
@@ -245,12 +253,18 @@ Questa sezione contiene gli esempi seguenti:
 > * Copiare un contenitore in un altro account di archiviazioneCopy a container to another storage account
 > * Copiare tutti i contenitori, le directory e i file in un altro account di archiviazioneCopy all containers, directories, and files to another storage account
 
-Per documenti di riferimento dettagliati, consultate [copia azcopy](storage-ref-azcopy-copy.md).
+Questi esempi funzionano anche con gli account che hanno uno spazio dei nomi gerarchico. [L'accesso multiprotocollo su Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) consente`blob.core.windows.net`di utilizzare la stessa sintassi URL ( ) in tali account.
 
 > [!TIP]
-> Gli esempi in questa sezione racchiudono gli argomenti di percorso tra virgolette singole (''). Utilizzare le virgolette singole in tutte le shell dei comandi, ad eccezione della shell dei comandi di Windows (cmd.exe). Se si utilizza una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti di percorso tra virgolette doppie ("") anziché virgolette singole ('').
-
- Questi esempi funzionano anche con gli account che hanno uno spazio dei nomi gerarchico. [L'accesso multiprotocollo su Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) consente`blob.core.windows.net`di utilizzare la stessa sintassi URL ( ) in tali account. 
+> È possibile modificare l'operazione di copia utilizzando flag facoltativi. Ecco alcuni esempi.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Copiare i file come Accoda BLOB o BLOB di pagine.|**--blob-tipo**=\[BlockBlob\|\|PageBlob AppendBlob\]|
+> |Copiare in un livello di accesso specifico, ad esempio il livello di archiviazione.|**--block-blob-tier**=\[Nessuno\|\|Hot\|Cool Archive\]|
+> |Decomprimere automaticamente i file.|**--decomprimere**=\[gzip\|sgonfiare\]|
+> 
+> Per un elenco completo, vedere [opzioni](storage-ref-azcopy-copy.md#options).
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copiare un BLOB in un altro account di archiviazioneCopy a blob to another storage account
 
@@ -306,10 +320,16 @@ Se si `--delete-destination` imposta `true` il flag su AzCopy elimina i file sen
 > [!NOTE]
 > Per evitare eliminazioni accidentali, assicurarsi di abilitare la funzionalità di [eliminazione temporanea](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) prima di utilizzare il `--delete-destination=prompt|true` flag.
 
-Per documenti di riferimento dettagliati, consultate [sincronizzazione azcopy](storage-ref-azcopy-sync.md).
-
 > [!TIP]
-> Gli esempi in questa sezione racchiudono gli argomenti di percorso tra virgolette singole (''). Utilizzare le virgolette singole in tutte le shell dei comandi, ad eccezione della shell dei comandi di Windows (cmd.exe). Se si utilizza una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti di percorso tra virgolette doppie ("") anziché virgolette singole ('').
+> È possibile modificare l'operazione di sincronizzazione utilizzando flag facoltativi. Ecco alcuni esempi.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Specificare il modo in cui gli egli heheM devono essere convalidati durante il download.|**--check-md5**=\[NoCheck\|\|LogOnly\|FailIfDifferent FailIfDifferentOrMissing\]|
+> |Escludere i file in base a un modello.|**--exclude-percorso**|
+> |Specificare il livello di dettaglio delle voci di log relative alla sincronizzazione.|**--log-livello**=\[\|AVVISO\|\|ERRORE INFO NONE\]|
+> 
+> Per un elenco completo, vedere [opzioni](storage-ref-azcopy-sync.md#options).
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Aggiornare un contenitore con le modifiche apportate a un file system localeUpdate a container with changes to a local file system
 

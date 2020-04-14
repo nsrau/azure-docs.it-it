@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 371c2186d44469a22b138255fb513761a9be4437
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 222f5647248d27c3bdfabd0feaeb66dd9f543652
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478229"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257726"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurare un laboratorio per insegnare la scienza dei dati con Python e Jupyter Notebooks
 
@@ -37,7 +37,7 @@ Abilitare le impostazioni descritte nella tabella seguente per l'account lab. Pe
 | Immagine del Marketplace | Abilitare l'immagine [data science virtual - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) per l'uso all'interno dell'account lab. |
 
 >[!TIP]
->Questo articolo si concentrerà sulla configurazione di un computer modello che utilizza il sistema operativo Windows Server.  È anche possibile configurare una classe di data science con python e blocchi appunti di Jupyter usando immagini [data science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) da Azure Marketplace.
+>Questo articolo si concentrerà sulla configurazione di un computer modello che utilizza il sistema operativo Windows Server.  È anche possibile configurare una classe di data science con python e blocchi appunti di Jupyter usando immagini [data science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) da Azure Marketplace.
 
 ### <a name="lab-settings"></a>Impostazioni lab
 

@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 Python SDK per file & Acl
 description: Utilizzare Python gestire le directory e gli elenchi di controllo di accesso (ACL) di file e directory negli account di archiviazione con spazio dei nomi gerarchico (HNS) abilitato.
 author: normesta
 ms.service: storage
-ms.date: 03/20/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a00713df2cdda626a76cc648826f7e56df214232
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: a79f3110206a01b9b974952f0ec0d299644be11f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668716"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262350"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
@@ -32,7 +32,7 @@ Questo articolo illustra come usare Python per creare e gestire directory, file 
 Installare la libreria client di Archiviazione di Azure Data Lake per Python usando [pip](https://pypi.org/project/pip/).
 
 ```
-pip install azure-storage-file-datalake --pre
+pip install azure-storage-file-datalake
 ```
 
 Aggiungere queste istruzioni import all'inizio del file di codice.

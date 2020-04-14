@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/10/2020
-ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31a5195038ef25acadc08e2acbedf8471b25833c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086335"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261415"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Usare l'identità gestita per autenticare il processo di Analisi di flusso di Azure in Power BIUse Managed Identity to authenticate your Azure Stream Analytics job to Power BI
 
@@ -160,7 +160,7 @@ Ora che il processo di Analisi di flusso è stato creato, può essere concesso l
 ### <a name="use-the-power-bi-ui"></a>Usare l'interfaccia utente di Power BIUse the Power BI UI
 
    > [!Note]
-   > Per aggiungere il processo Analisi di flusso all'area di lavoro di Power BI tramite l'interfaccia utente, è inoltre necessario abilitare l'accesso all'entità servizio nelle **impostazioni dello sviluppatore** nel portale di amministrazione di Power BI. Per altre informazioni, vedere [Introduzione a un'entità servizio.](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal)
+   > Per aggiungere il processo Analisi di flusso all'area di lavoro di Power BI tramite l'interfaccia utente, è inoltre necessario abilitare l'accesso all'entità servizio nelle **impostazioni dello sviluppatore** nel portale di amministrazione di Power BI. Per altre informazioni, vedere [Introduzione a un'entità servizio.](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
 
 1. Passare alle impostazioni di accesso dell'area di lavoro. Per ulteriori informazioni, vedere questo articolo: [Concedere l'accesso all'area di lavoro.](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace)
 

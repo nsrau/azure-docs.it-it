@@ -3,7 +3,7 @@ title: 'Controllare il comportamento di memorizzazione nella cache con stringhe 
 description: La funzionalità di memorizzazione nella cache con stringhe di query della rete CDN di Azure controlla il modo in cui i file vengono memorizzati nella cache quando una richiesta Web contiene una stringa di query. Questo articolo descrive la memorizzazione nella cache con stringhe di query nei prodotti di rete CDN Standard di Azure.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: magattus
-ms.openlocfilehash: 6471241527dd9b594eaaca20ebc75cacb27f8f72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: a0df9cecc4ccd09db3f6b07fa6fd4c5283753aa2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083036"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260208"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Standard
 > [!div class="op_single_selector"]

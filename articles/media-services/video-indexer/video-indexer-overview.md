@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/02/2020
+ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bea9e375e00d6fc0f6c33aa1bcc766773db2059
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163591"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269942"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
@@ -70,9 +70,9 @@ L'elenco seguente mostra le informazioni dettagliate che puoi recuperare dai tuo
 
 ### <a name="audio-insights"></a>Informazioni dettagliate sui contenuti audio
 
-* **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese brasiliano. Se la lingua non può essere identificata con fiducia, Video Indexer presuppone che la lingua parlata sia l'inglese. Per ulteriori informazioni, vedere Modello di [identificazione del linguaggio](language-identification-model.md).
+* **Trascrizione audio**: Converte il parlato in testo in 12 lingue e consente le estensioni. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, mandarino Chines, giapponese, arabo, russo, portoghese brasiliano, hindi e coreano.
+* **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, mandarino Chines, giapponese, russo e portoghese brasiliano. Se la lingua non può essere identificata con fiducia, Video Indexer presuppone che la lingua parlata sia l'inglese. Per ulteriori informazioni, vedere Modello di [identificazione del linguaggio](language-identification-model.md).
 * **Identificazione e trascrizione vocale multilingue** (anteprima): identifica automaticamente la lingua parlata in segmenti diversi dall'audio. Invia ogni segmento del file multimediale da trascrivere e quindi combina la trascrizione a una trascrizione unificata. Per ulteriori informazioni, consultate [Identificare e trascrivere automaticamente il contenuto multilingue.](multi-language-identification-transcription.md)
-* **Trascrizione audio**: Converte il parlato in testo in 12 lingue e consente le estensioni. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, arabo, russo, portoghese brasiliano, hindi e coreano.
 * **Sottotitoli codificati**: consente di creare sottotitoli in tre formati: VTT, TTML, SRT.
 * **Elaborazione a due canali**: Rileva automaticamente la trascrizione separata e si unisce a una singola sequenza temporale.
 * **Riduzione del rumore**: Cancella l'audio della telefonia o le registrazioni rumorose (in base ai filtri Skype).

@@ -3,7 +3,7 @@ title: Gestire la rete CDN di Azure con PowerShell | Microsoft Docs
 description: Informazioni su come usare i cmdlet di Azure PowerShell per gestire la rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2019
-ms.author: magattus
-ms.openlocfilehash: 476779eff41cb9ce1c0a9c79430813ce9a39e91f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 22602a1ea64e3dbca34d0c366cf6aa0dc6f35662
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74286652"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260548"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gestire la rete CDN di Azure con PowerShell
 PowerShell offre uno dei metodi più flessibili per gestire i profili e gli endpoint della rete CDN.  È possibile usare PowerShell in modo interattivo o scrivendo script per automatizzare le attività di gestione.  Questa esercitazione illustra alcune delle attività più comuni che è possibile eseguire con PowerShell per gestire i profili e gli endpoint della rete CDN di Azure.

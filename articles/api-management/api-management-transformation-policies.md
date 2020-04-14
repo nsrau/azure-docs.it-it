@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803246"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260905"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -73,7 +73,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |json-to-xml|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -117,7 +117,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |xml-to-json|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -153,7 +153,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |find-and-replace|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -214,7 +214,7 @@ o
 ```
 
 > [!NOTE]
-> Le entità back-end possono essere gestite tramite [l'API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) di gestione e [PowerShell.](https://www.powershellgallery.com/packages?q=apimanagement)
+> Le entità back-end possono essere gestite tramite [l'API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) di gestione e [PowerShell.](https://www.powershellgallery.com/packages?q=apimanagement)
 
 ### <a name="example"></a>Esempio
 
@@ -264,12 +264,12 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 |----------|-----------------|--------------|
 |set-backend-service|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |base-url|Nuovo URL di base del servizio back-end.|Uno `base-url` di `backend-id` o deve essere presente.|N/D|
-|backend-id|Identificatore del back-end verso cui avviene il routing. Le entità back-end vengono gestite tramite [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) e [PowerShell.](https://www.powershellgallery.com/packages?q=apimanagement)|Uno `base-url` di `backend-id` o deve essere presente.|N/D|
+|backend-id|Identificatore del back-end verso cui avviene il routing. Le entità back-end vengono gestite tramite [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) e [PowerShell.](https://www.powershellgallery.com/packages?q=apimanagement)|Uno `base-url` di `backend-id` o deve essere presente.|N/D|
 |sf-partition-key|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Usato per risolvere una partizione specifica dal servizio di risoluzione del nome.|No|N/D|
 |sf-replica-type|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Controlla se la richiesta deve passare alla replica primaria o secondaria di una partizione. |No|N/D|
 |sf-resolve-condition|Applicabile solo quando il back-end è un servizio di Service Fabric. Condizione che identifica se la chiamata al back-end di Service Fabric deve essere ripetuta con una nuova risoluzione.|No|N/D|
@@ -513,7 +513,7 @@ OriginalUrl.
 |Nome|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
 |set-header|Elemento radice.|Sì|
-|Valore|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
+|value|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
 
 ### <a name="properties"></a>Proprietà
 
@@ -568,7 +568,7 @@ OriginalUrl.
 |Nome|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento radice.|Sì|
-|Valore|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
+|value|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
 
 ### <a name="properties"></a>Proprietà
 
@@ -648,7 +648,7 @@ OriginalUrl.
 |----------|-----------------|--------------|
 |rewrite-uri|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Attributo|Descrizione|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|

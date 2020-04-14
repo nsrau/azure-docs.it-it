@@ -1,22 +1,22 @@
 ---
-title: Creare un account Mercato commerciale nel Centro per i partner
-description: Scopri come creare un account Mercato commerciale nel Centro per i partner.
+title: Creare un account marketplace commerciale nel Centro per i partner
+description: Scopri come creare un account di mercato commerciale nel Centro per i partner.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 03/10/2020
-ms.openlocfilehash: 82caf46905c0b76deae524d8b172d70b436361d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c635d285f83e8e9c4c5547a9ee983686c507819
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281358"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261738"
 ---
-# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Mercato commerciale nel Centro per i partner
+# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account marketplace commerciale nel Centro per i partner
 
-Per pubblicare le offerte in [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [AppSource,](https://appsource.microsoft.com/)è necessario creare un account nel programma Commercial Marketplace nel Centro per i partner. In questo articolo verrà illustrato come creare un account del Centro per i partner e come aggiungere nuovi publisher al programma Commercial Marketplace.
+Per pubblicare le offerte in [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [Microsoft AppSource,](https://appsource.microsoft.com/)è necessario creare un account nel programma del marketplace commerciale nel Centro per i partner. In questo articolo verrà illustrato come creare un account del Centro per i partner e come aggiungere nuovi publisher al programma Commercial Marketplace.
 
 >[!IMPORTANT]
 >Se si dispone di un account nel [portale Cloud Partner (CPP)](https://cloudpartner.azure.com) che è stato spostato nel Centro per i partner, non è necessario creare un nuovo account. Per altre informazioni, vedere [Server di pubblicazione che si spostano da CPP.](#publishers-moving-from-cpp)
@@ -75,7 +75,7 @@ Dopo aver confermato le informazioni del profilo dell'editore, accettare i termi
 
 Una volta effettuata l'iscrizione, viene eseguito il passaggio alla pagina Panoramica del marketplace commerciale. **Commercial Marketplace** viene visualizzato nella barra di navigazione a sinistra. Se selezioni **Impostazioni programmi** > impostazioni**partner,** > **Programs**vedrai che Commercial Marketplace è elencato come registrato.
 
-Grazie per aver creato un account Commercial Marketplace nel Centro per i partner! Per assistenza, vedere [Panoramica del marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [Aggiungere nuovi editori al programma Commercial Marketplace.](#add-new-publishers-to-the-commercial-marketplace-program)
+Grazie per aver creato un account Commercial Marketplace nel Centro per i partner! Per assistenza, vedere [Panoramica](./commercial-marketplace-overview.md)del marketplace commerciale . Per informazioni sull'aggiunta di editori, vedere [Aggiungere nuovi editori al marketplace commerciale.](#add-new-publishers-to-the-commercial-marketplace-program)
 
 ## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>Creare un account usando le registrazioni esistenti del Centro per i partner Microsoft
 
@@ -119,7 +119,7 @@ Dopo aver effettuato l'accesso, segui questi passaggi per completare la configur
 
 Una volta effettuata l'iscrizione, viene eseguito il passaggio alla pagina Panoramica del marketplace commerciale. **Commercial Marketplace** viene visualizzato nella barra di navigazione a sinistra. Se selezioni **Impostazioni programmi** > impostazioni**partner,** > **Programs**vedrai che Commercial Marketplace è elencato come registrato.
 
-Grazie per aver creato un account nel Centro per i partner! Per assistenza, vedere [Panoramica del marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [Aggiungere nuovi editori al programma Commercial Marketplace.](#add-new-publishers-to-the-commercial-marketplace-program)
+Grazie per aver creato un account nel Centro per i partner! Per assistenza, vedere [Panoramica](./commercial-marketplace-overview.md)del marketplace commerciale . Per informazioni sull'aggiunta di editori, vedere [Aggiungere nuovi editori al marketplace commerciale.](#add-new-publishers-to-the-commercial-marketplace-program)
 
 ### <a name="enrolled-in-a-developer-program"></a>Iscrizione a un programma per sviluppatori
 
@@ -143,13 +143,13 @@ Dopo aver effettuato l'accesso, segui questi passaggi per completare la configur
 
 Una volta effettuata l'iscrizione, viene eseguito il passaggio alla pagina Panoramica del marketplace commerciale. **Commercial Marketplace** viene visualizzato nella barra di navigazione a sinistra. Se si seleziona **Impostazioni** > **programmi****impostazioni** > per gli sviluppatori, verrà visualizzato che Commercial Marketplace è registrato come registrato.
 
-Grazie per aver creato un account nel Centro per i partner! Per assistenza, vedere [Panoramica del marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [Aggiungere nuovi editori al programma Commercial Marketplace.](#add-new-publishers-to-the-commercial-marketplace-program)
+Grazie per aver creato un account nel Centro per i partner! Per assistenza, vedere [Panoramica](./commercial-marketplace-overview.md)del marketplace commerciale . Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al marketplace commerciale.](#add-new-publishers-to-the-commercial-marketplace-program)
 
 ## <a name="publishers-moving-from-cpp"></a>Editori che si spostano da CPP
 
 Se l'account è stato migrato dal [portale Cloud Partner (CPP),](https://cloudpartner.azure.com)non è necessario creare un nuovo account del Centro per i partner. Dovresti aver ricevuto un link personalizzato al tuo nuovo account del Centro per i partner tramite e-mail e in una notifica banner dopo aver effettuato l'accesso al tuo account CPP esistente.
 
-Dopo aver abilitato il nuovo account del Centro per i partner visitando questo collegamento personalizzato, puoi tornare al tuo account visitando il [dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) nel Centro per i partner.
+Dopo aver abilitato il nuovo account del Centro per i partner visitando questo collegamento personalizzato, è possibile tornare al proprio account visitando il dashboard del [marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) nel Centro per i partner.
 
 Il contratto di pubblicazione e le informazioni del profilo aziendale verranno migrati nel nuovo account del Centro per i partner, insieme a tutte le informazioni del profilo di pagamento dell'account configurate in precedenza, agli account utente e alle autorizzazioni e alle offerte attive associate al tuo account CPP.
 
@@ -170,7 +170,7 @@ Un altro utente dello stesso tenant di Azure Active Directory può aggiungere un
 4. Scegliere l'ID MPN che si desidera associare al server di pubblicazione.
 5. Aggiornare i **dettagli dell'autore** nel modulo.
 
-   1. **Nome editore:** il nome che verrà visualizzato in Azure Marketplace o AppSource con l'offerta.
+   1. **Publisher Name (Nome editore):** il nome che verrà visualizzato nel mercato commerciale con l'offerta.
    1. **PublisherID**: Identificatore utilizzato dal Centro per i partner per identificare in modo univoco il server di pubblicazione. L'impostazione predefinita per questo `PublisherID` campo viene mappata a un oggetto esistente e univoco nel sistema, che non può essere riutilizzato e pertanto questo campo deve essere aggiornato.
    1. **Informazioni di contatto**: Aggiornare le informazioni di contatto quando necessario.
 
@@ -178,4 +178,4 @@ Dopo aver completato il processo, è possibile gestire l'editore appena creato a
 
 ## <a name="next-step"></a>Passaggio successivo
 
-- [Gestire l'account Del Mercato commerciale nel Centro per i partner](./manage-account.md)
+- [Gestire l'account del marketplace commerciale nel Centro per i partner](./manage-account.md)

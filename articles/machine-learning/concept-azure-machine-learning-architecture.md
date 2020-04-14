@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f779781eee81bf85f6420e5bae6b0feb62680b8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f1d23f11cf73680a8861c9f1ac6cbd40ad497a4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064180"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257335"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funzionamento di Azure Machine Learning: Architettura e concettiHow Azure Machine Learning works: Architecture and concepts
 
@@ -27,7 +27,7 @@ Informazioni sull'architettura, i concetti e il flusso di lavoro per Azure Machi
 
 Il flusso di lavoro del modello di apprendimento automatico segue in genere questa sequenza:The machine learning model workflow generally follows this sequence:
 
-1. **Treno**
+1. **Eseguire il training**
     + Sviluppare script di training per l'apprendimento automatico in **Python**, **R**o con la finestra di progettazione visiva.
     + Creare e configurare una **destinazione di calcolo**.
     + **Inviare gli script** a una destinazione di calcolo configurata per l'esecuzione in tale ambiente. Durante il training, gli script possono leggere o scrivere nei **datastore**. I log e l'output prodotti durante il training vengono salvati come **esecuzioni** **nell'area di lavoro** e raggruppati in base a **esperimenti.**
@@ -58,12 +58,12 @@ Usare questi strumenti per Azure Machine Learning:Use these tools for Azure Mach
 * [Attività](#activities)
 * [Area di lavoro](#workspaces)
     * [Sperimentazioni](#experiments)
-        * [Esegui](#runs) 
+        * [Correre](#runs) 
             * [Configurazione di esecuzione](#run-configurations)
             * [Snapshot](#snapshots)
             * [Tracciamento Git](#github-tracking-and-integration)
             * [Registrazione](#logging)
-    * [condutture ML](#ml-pipelines)
+    * [Pipeline di apprendimento automatico](#ml-pipelines)
     * [Modelli](#models)
         * [Ambienti](#environments)
         * [Script di training](#training-scripts)
@@ -187,7 +187,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 * [Treno modelli ML con stimatori](how-to-train-ml-models.md).
 * [Addestrare](how-to-train-pytorch.md)i modelli di deep learning Pytorch su larga scala con Azure Machine Learning .
 * [Addestrare e registrare i modelli TensorFlow su larga scala con Azure Machine Learning](how-to-train-tensorflow.md).
-* [Eseguire il training e la registrazione di modelli Chainer su larga scala con Azure Machine Learning](how-to-train-chainer.md).
+* [Eseguire il training e la registrazione di modelli Chainer su larga scala con Azure Machine Learning](how-to-train-ml-models.md).
 
 ### <a name="endpoints"></a>Endpoint
 
@@ -238,6 +238,6 @@ Ulteriori informazioni sulle destinazioni di [calcolo disponibili per](concept-c
 
 Per iniziare a usare Azure Machine Learning, vedere:To get started with Azure Machine Learning, see:
 
-* [Cos'è Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [Informazioni su Azure Machine Learning](overview-what-is-azure-ml.md)
 * [Creare un'area di lavoro di Azure Machine LearningCreate an Azure Machine Learning workspace](how-to-manage-workspace.md)
 * [Esercitazione (parte 1): Eseguire il training di un modelloTutorial (Part 1): Train a model](tutorial-train-models-with-aml.md)

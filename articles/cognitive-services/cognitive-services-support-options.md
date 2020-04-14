@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 5f9ad827fa947e645f7eb4850f90a73c61a45cd3
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637119"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258429"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Opzioni di supporto e feedback di Servizi cognitivi di AzureAzure Cognitive Services support and feedback options
 
@@ -59,10 +59,7 @@ Dove `{search keywords}` si trova il contesto della ricerca. Considerare l'utili
 
 Se non riesci a trovare una risposta al tuo problema con la casella di ricerca in Overflow dello Stack, invia una nuova domanda. Stack Overflow è il canale da scegliere per le domande correlate allo sviluppo. È dove i membri della comunità Stack Overflow e i membri del team Microsoft sono direttamente coinvolti nell'aiutarti a risolvere i tuoi problemi.
 
- Quando si formula la domanda, usare uno dei tag seguenti:
-
- - [Microsoft cognitivo](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
- - [Servizi cognitivi di Azure](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
+Pubblica una domanda [qui](https://go.microsoft.com/fwlink/?linkid=2126464). Utilizza il tag appropriato per la tua domanda, quindi siamo sicuri di vedere la domanda.
 
 > [!TIP]
 > I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:
@@ -86,7 +83,7 @@ Le note sulla versione di Servizi cognitivi vengono aggiornate man mano che veng
  - [Language Understanding (LUIS)](LUIS/whats-new.md)
  - [Servizi Voce](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
- - [Text Analytics](text-analytics/whats-new.md)
+ - [Analisi del testo](text-analytics/whats-new.md)
  - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Blog di Azure

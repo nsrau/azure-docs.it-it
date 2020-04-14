@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 245a0b18187ff1c1b226e94b03374f2c071e51c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314828"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263387"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorare e ridurre la limitazione per evitare la latenza in Azure Time Series Insights
 
@@ -30,7 +30,7 @@ Quando la quantità di dati in ingresso è superiore alla configurazione dell'am
 - Aggiunta di un'origine eventi contenente dati meno recenti che potrebbero superare la velocità in ingresso assegnata, imponendo a Time Series Insights di recuperare.
 - Aggiunta di più origini eventi a un ambiente con conseguente picco a causa degli eventi aggiuntivi, che potrebbero superare la capacità dell'ambiente.
 - Push di grandi quantità di dati cronologici a un'origine eventi, che potrebbe determinare un ritardo imponendo a Time Series Insights di recuperare.
-- Aggiunta di dati di riferimento alla telemetria, che determina un aumento delle dimensioni degli eventi. Dal punto di vista della limitazione, un pacchetto di dati in ingresso di dimensioni pari a 32 KB viene considerato come 32 eventi, ognuno di 1 KB di dimensioni. Le dimensioni massime degli eventi consentite sono 32 KB e i pacchetti di dati di dimensioni superiori a 32 KB vengono troncati.
+- Aggiunta di dati di riferimento alla telemetria, che determina un aumento delle dimensioni degli eventi. La dimensione massima consentita per i pacchetti è 32 KB; i pacchetti di dati superiori a 32 KB vengono troncati.
 
 ## <a name="video"></a>Video
 
@@ -66,7 +66,7 @@ Gli avvisi consentono di diagnosticare e ridurre i problemi di latenza che si ve
    |**Ingress Received Message Time Lag (Tempo di ritardo messaggi ricevuti in ingresso) **    |  Differenza in secondi tra l'ora in cui il messaggio viene accodato nell'origine eventi e l'ora di elaborazione in ingresso.      |
    |**Ingress Received Message Count Lag (Ritardo numero di messaggi ricevuti in ingresso) **    |  Differenza tra il numero di sequenza dell'ultimo messaggio accodato nella partizione di origine eventi e il numero di sequenza del messaggio elaborato in ingresso.      |
 
-   Selezionare **Fatto**.
+   Selezionare **Operazione completata**.
 
 1. Dopo aver configurato la logica di segnale desiderata, esaminare visivamente la regola di avviso scelta.
 

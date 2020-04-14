@@ -1,18 +1,18 @@
 ---
 title: Aggiornamenti automatici delle immagini del sistema operativo con i set di scalabilità delle macchine virtuali di AzureAutomatic OS image upgrades with Azure virtual machine scale sets
 description: Informazioni su come aggiornare automaticamente l'immagine del sistema operativo nelle istanze di macchine virtuali in un set di scalabilitàLearn how to automatically upgrade the OS image on VM instances in a scale set
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.author: manayar
-ms.openlocfilehash: 6d550e8e960cb8e212702796467c91d1cd1ebb23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: b1e5ad60041e9d3b902a06a4875206fa061c73e6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235186"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269908"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 

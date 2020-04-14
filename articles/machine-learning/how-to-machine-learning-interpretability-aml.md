@@ -1,5 +1,5 @@
 ---
-title: Modella l'interpretabilità per le esecuzioni locali e remote
+title: Spiegare i modelli e le previsioni di apprendimento automaticoExplain machine learning models and predictions
 titleSuffix: Azure Machine Learning
 description: Informazioni su come ottenere spiegazioni su come il modello di apprendimento automatico determina l'importanza delle funzionalità ed esegue stime quando si usa Azure Machine Learning SDK.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: 1ff42149ccb629a0a7094e6dfede422d4dd7f61f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.date: 04/12/2020
+ms.openlocfilehash: c1282ed16c9e3b92e7d5ec3f9969bee6fc3d917f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632037"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257202"
 ---
-# <a name="model-interpretability-for-local-and-remote-runs"></a>Modella l'interpretabilità per le esecuzioni locali e remote
+# <a name="explain-machine-learning-models-and-predictions"></a>Spiegare i modelli e le previsioni di apprendimento automaticoExplain machine learning models and predictions
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -30,7 +30,6 @@ In questa guida alle procedure si apprenderà a usare il pacchetto di interpreta
 
 * Spiegare il comportamento per l'intero modello e le stime individuali in Azure.Explain the behavior for the entire model and individual predictions in Azure.
 
- 
 * Utilizzare un dashboard di visualizzazione per interagire con le spiegazioni del modello.
 
 * Distribuire uno che esplica insieme al modello per osservare le spiegazioni durante l'inferenza.

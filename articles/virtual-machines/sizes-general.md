@@ -3,7 +3,7 @@ title: Dimensioni delle macchine virtuali di Azure - Scopo generale Documenti Mi
 description: Elenca le diverse dimensioni generiche disponibili per le macchine virtuali in Azure. Elenca le informazioni sul numero di vCPU, dischi dati e schede di interfaccia di rete, nonché la velocità effettiva di archiviazione e la larghezza di banda di rete per le dimensioni in questa serie.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
-ms.author: jonbeck
-ms.openlocfilehash: 22826c32dc2aee0e580ec0b2a05c7eb8f08b7570
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.author: mimckitt
+ms.openlocfilehash: fc263eb6fbe6c6402aaf529229bb7025f070b8d9
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115319"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269670"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali di utilizzo generico
 

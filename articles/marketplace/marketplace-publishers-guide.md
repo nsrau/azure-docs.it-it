@@ -1,20 +1,20 @@
 ---
-title: Guida alla pubblicazione per Azure Marketplace e AppSource
-description: Presentazione delle opportunità offerte da Azure Marketplace e Microsoft AppSource agli editori di app e servizi.
+title: Guida alla pubblicazione del mercato commerciale
+description: Una panoramica del mercato commerciale per gli editori di app e servizi.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: 368cb4fdce23e695c074b4893dcdc314c974dd54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288394"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261993"
 ---
-# <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guida alla pubblicazione per Azure Marketplace e AppSource
+# <a name="commercial-marketplace-publishing-guide"></a>Guida alla pubblicazione del mercato commerciale
 
 La guida alla pubblicazione per Marketplace è stata progettata per aiutare i nuovi editori e quelli già operativi a comprendere come usare le vetrine di [Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) per rafforzare la crescita della propria azienda in partnership con Microsoft pubblicando inserzioni relative ad applicazioni e servizi.
 
@@ -62,7 +62,7 @@ Le nuove inserzioni in Marketplace possono usufruire di un'ampia gamma di vantag
 
 *   Co-selling: è possibile avviare o accelerare il passaggio alla fase di vendita in collaborazione con Microsoft tramite Marketplace. Accedere a programmi e supporto per promuovere le vendite congiunte con Microsoft Teams.
 
-Dopo che l'editore ha [inviato la propria soluzione](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) a Marketplace, il team di onboarding contatterà l'editore per offrire il proprio supporto nell'esperienza di pubblicazione.  Per ulteriori [informazioni, vedere come creare un account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) del Centro per i partner.
+Dopo che l'editore ha [inviato la propria soluzione](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) a Marketplace, il team di onboarding contatterà l'editore per offrire il proprio supporto nell'esperienza di pubblicazione.  Per ulteriori [informazioni, vedere come creare un account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) del Centro per i partner.
 
 Scopri di più sui vantaggi del tuo [mercato commerciale.](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)
 

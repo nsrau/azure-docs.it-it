@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dsindona
-ms.openlocfilehash: db2300ae827677f8902e420b136acec3da694c8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0453117ee2984e0b8ebee60145353584a02a359a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280015"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270129"
 ---
 # <a name="container-publishing-prerequisites"></a>Prerequisiti per la pubblicazione di un contenitore
+
+> [!IMPORTANT]
+> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Contenitore di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di contenitore](https://aka.ms/CreateContainerOffer) di Azure per gestire le offerte migrate.
 
 Questo articolo descrive i prerequisiti per la pubblicazione dell'offerta di un contenitore in Azure Marketplace.  Se non è già stato fatto, è necessario consultare la Guida alla [pubblicazione dell'offerta di contenitori](../../marketplace-containers.md).
 

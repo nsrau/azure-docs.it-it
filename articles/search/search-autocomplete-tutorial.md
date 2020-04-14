@@ -8,57 +8,63 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d6c1819366fede0b1e81e43bc92ed56af93b39fd
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 8b64a583c11e794c30e1de12eb66941874a25462
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114953"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262222"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Aggiungere suggerimenti o completamento automatico all'applicazione Ricerca cognitiva di Azure
 
-Questo articolo illustra come usare i [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) e il [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) per creare una casella di ricerca potente che supporti i comportamenti di ricerca durante la digitazione.
+In questo esempio viene illustrata una casella di ricerca che supporta i comportamenti di ricerca durante la digitazione. Ci sono due caratteristiche, che è possibile utilizzare insieme o separatamente:
 
 + *I suggerimenti* generano risultati di ricerca durante la digitazione, in cui ogni suggerimento è un singolo risultato o un documento di ricerca dall'indice che corrisponde a quello digitato finora. 
 
 + *Il completamento automatico* genera query "terminando" la parola o la frase. Anziché restituire risultati, completa una query, che può quindi essere eseguita per restituire i risultati. Come per i suggerimenti, una parola o una frase completata in una query viene predicata in base a una corrispondenza nell'indice. Il servizio non offrirà query che non restituiscono risultati nell'indice.
 
-È possibile scaricare ed eseguire il codice di esempio in **DotNetHowToAutocomplete** per valutare queste funzionalità. Il codice di esempio contiene un indice predefinito popolato con i [dati demo di NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). L'indice NYCJobs contiene un [costrutto di strumento suggerimenti](index-add-suggesters.md), che è un requisito per l'utilizzo dei suggerimenti o del completamento automatico. È possibile usare l'indice preparato in un servizio sandbox o [popolare un indice personalizzato](#configure-app) utilizzando un caricatore dati nella soluzione di esempio NYCJobs. 
+Il codice di esempio illustra sia i suggerimenti che il completamento automatico, sia nelle versioni in linguaggio C e JavaScript. 
 
-Nell'esempio **DotNetHowToAutocomplete** vengono illustrati sia i suggerimenti sia il completamento automatico, nelle versioni dei linguaggi C# e JavaScript. Gli sviluppatori C# possono eseguire un'applicazione basata su MVC ASP.NET che usa [.NET SDK di Ricerca cognitiva di Azure](https://aka.ms/search-sdk). La logica per eseguire chiamate alle query di completamento automatico e suggerite è disponibile nel file HomeController.cs. Gli sviluppatori JavaScript troveranno la logica di query equivalente nel file IndexJavaScript.cshtml, che include le chiamate dirette all'[API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/). 
+Gli sviluppatori C# possono eseguire un'applicazione basata su MVC ASP.NET che usa [.NET SDK di Ricerca cognitiva di Azure](https://aka.ms/search-sdk). La logica per eseguire chiamate alle query di completamento automatico e suggerite è disponibile nel file HomeController.cs. 
+
+Gli sviluppatori JavaScript troveranno la logica di query equivalente nel file IndexJavaScript.cshtml, che include le chiamate dirette all'[API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/). 
 
 Per entrambe le versioni dei linguaggi, l'esperienza utente front-end è basata sulle librerie di [jQuery](https://jqueryui.com/autocomplete/) e [XDSoft](https://xdsoft.net/jqplugins/autocomplete/). Queste librerie vengono usate per compilare la casella di ricerca che supporta i suggerimenti e il completamento automatico. Gli input raccolti nella casella di ricerca sono abbinati a suggerimenti e azioni di completamento automatico, ad esempio quelli definiti in HomeController.cs o IndexJavaScript.cshtml.
 
-L'esercizio guida l'utente nell'esecuzione delle le attività seguenti:
-
-> [!div class="checklist"]
-> * Implementare una casella di input di ricerca in JavaScript e inviare le richieste per corrispondenze suggerite o termini completati automaticamente
-> * In C# definire i suggerimenti e le azioni di completamento automatico in HomeController.cs
-> * In JavaScript chiamare direttamente le API REST per fornire la funzionalità equivalente
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un servizio di ricerca cognitiva di Azure è facoltativo per questo esercizio perché la soluzione usa un servizio sandbox live che ospita un indice demo di NYCJobs preparato. Se si vuole eseguire questo esempio nel proprio servizio di ricerca, vedere [Configure l'indice di NYC Jobs](#configure-app) per le istruzioni.
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
-* [Visual Studio 2017,](https://visualstudio.microsoft.com/downloads/)qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
+Un servizio Ricerca cognitiva di Azure è facoltativo per questo esercizio perché la soluzione usa un servizio ospitato e l'indice demo di NYCJobs.An Azure Cognitive Search service is optional for this exercise because the solution uses a hosted service and NYCJobs demo index. Se si desidera creare questo indice nel proprio servizio di ricerca, vedere [Creare l'indice NYC Jobs](#configure-app) per istruzioni. In caso contrario, puoi usare il servizio e l'indice esistenti per eseguire il backup di un'app client JavaScript.
 
-* Scaricare l'[esempio DotNetHowToAutoComplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
+<!-- The sample is comprehensive, covering suggestions, autocomplete, faceted navigation, and client-side caching. Review the readme and comments for a full description of what the sample offers. -->
 
-L'esempio è completo e include suggerimenti, completamento automatico, esplorazione in base a facet e memorizzazione nella cache sul lato client. Per una descrizione completa di quanto offerto dall'esempio, vedere il file Leggimi e i commenti.
+## <a name="download-files"></a>Scaricare i file
+
+Il codice di esempio per gli sviluppatori di C e JavaScript è disponibile nella [cartella DotNetHowToAutoComplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) del repository GitHub di **Azure-Samples/search-dotnet-getting-started.**
+
+L'esempio è destinato a un servizio di ricerca demo esistente e a un indice predefinito popolato con [dati dimostrativi di NYCJobs.](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) L'indice NYCJobs contiene un [costrutto di strumento suggerimenti](index-add-suggesters.md), che è un requisito per l'utilizzo dei suggerimenti o del completamento automatico.
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
-1. Aprire **AutocompleteTutorial.sln** in Visual Studio. La soluzione contiene un progetto MVC ASP.NET con una connessione all'indice demo di NYC Jobs.
+1. Aprire **AutocompleteTutorial.sln** in Visual Studio. La soluzione contiene un ASP.NET progetto MVC con una connessione a un indice e un servizio di ricerca esistente.
 
-2. Premi F5 per far partire il progetto e caricare la pagina nel browser che preferisci.
+1. Aggiornare i pacchetti NuGet:
+
+   1. In Esplora soluzioni fare clic con il pulsante destro del mouse **su DotNetHowToAutoComplete** e **scegliere Gestisci pacchetti NuGet**.  
+   1. Selezionare la scheda **Aggiornamenti,** selezionare tutti i pacchetti e fare clic su **Aggiorna**. Accettare eventuali contratti di licenza. Potrebbe essere necessario più di un passaggio per aggiornare tutti i pacchetti.
+
+1. Premere F5 per eseguire il progetto e caricare la pagina in un browser.
 
 Nella parte superiore, vedrai un'opzione per la selezione di C# o JavaScript. L'opzione C# chiama la classe HomeController dal browser e usa .NET SDK di Ricerca cognitiva di Azure per recuperare i risultati. 
 
 L'opzione JavaScript chiama l'API REST di Ricerca cognitiva di Azure direttamente dal browser. Questa opzione ha in genere prestazioni nettamente migliori perché esclude i controller dal flusso. È possibile scegliere l'opzione adatta alle proprie esigenze e preferenze linguistiche. Nella pagina sono disponibili alcuni esempi di completamento automatico con istruzioni per ognuno. Ogni esempio presenta un testo di esempio consigliato che è possibile provare.  
 
+![Pagina di avvio di esempio](media/search-autocomplete-tutorial/startup-page.png "Pagina di avvio di esempio in localhostSample startup page in localhost")
+
 Prova a digitare alcune lettere in ciascuna casella di ricerca per scoprire cosa succede.
 
-## <a name="search-box"></a>Casella Cerca
+## <a name="query-inputs"></a>Input di query
 
 Per entrambe le versioni C# e JavaScript, l'implementazione della casella di ricerca è esattamente la stessa. 
 
@@ -287,7 +293,7 @@ Alla riga 148 è possibile trovare uno script che chiama `autocompleteUri`. La p
 
 <a name="configure-app"></a>
 
-## <a name="configure-nycjobs-to-run-on-your-service"></a>Configurare NYCJobs per l'esecuzione nel servizio
+## <a name="create-an-nycjobs-index"></a>Creare un indice NYCJobsCreate an NYCJobs index
 
 Fino ad adesso, è stato usato l'indice demo di NYCJobs ospitato. Per una visibilità completa su tutto il codice, incluso l'indice, seguire queste istruzioni per creare e caricare l'indice nel proprio servizio di ricerca.
 
@@ -318,4 +324,3 @@ Il passaggio successivo prevede l'integrazione dei suggerimenti e del completame
 > [Attributo](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
 > di indice dei facet[dell'API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
 > REST per il completamento automatico[in un'API REST Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)
-
