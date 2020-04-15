@@ -3,12 +3,12 @@ title: Come creare criteri di configurazione guest per WindowsHow to create Gues
 description: Informazioni su come creare criteri di configurazione guest dei criteri di Azure per Windows.Learn how to create an Azure Policy Guest Configuration policy for Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 24069ff6518c4244026378e48216d4568fffeb8a
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365473"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313987"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di configurazione guest per WindowsHow to create Guest Configuration policies for Windows
 
@@ -39,7 +39,7 @@ Sistemi operativi in cui è installato il modulo:
 
 - Linux
 - macOS
-- WINDOWS
+- Windows
 
 Il modulo delle risorse Configurazione ospite richiede il software seguente:The Guest Configuration resource module requires the following software:
 
@@ -73,7 +73,11 @@ Per una panoramica dei concetti e della terminologia di DSC, vedere Panoramica d
 
 ### <a name="how-guest-configuration-modules-differ-from-windows-powershell-dsc-modules"></a>Differenze tra i moduli di configurazione guest e i moduli DSC di Windows PowerShell
 
-Quando Configurazione ospite controlla un computer, viene prima eseguito `Test-TargetResource` per determinare se si trova nello stato corretto. Il valore booleano restituito dalla funzione determina se lo stato di Azure Resource Manager per l'assegnazione Guest deve essere conforme/non conforme. Successivamente, il `Get-TargetResource` provider viene eseguito per restituire lo stato corrente di ogni impostazione in modo che siano disponibili sia i dettagli sul motivo per cui un computer non è conforme, sia per verificare che lo stato corrente sia conforme.
+Quando Configurazione ospite controlla una macchina:When Guest Configuration audits a machine:
+
+1. L'agente `Test-TargetResource` viene prima eseguito per determinare se la configurazione è nello stato corretto.
+1. Il valore booleano restituito dalla funzione determina se lo stato di Azure Resource Manager per l'assegnazione Guest deve essere conforme/non conforme.
+1. Il provider `Get-TargetResource` viene eseguito per restituire lo stato corrente di ogni impostazione in modo che siano disponibili dettagli sia sul motivo per cui un computer non è conforme e per verificare che lo stato corrente sia conforme.
 
 ### <a name="get-targetresource-requirements"></a>Requisiti di Get-TargetResource
 
@@ -102,6 +106,25 @@ return @{
     reasons = $reasons
 }
 ```
+
+Il Reasons proprietà deve inoltre essere aggiunto al MOF dello schema per la risorsa come classe incorporata.
+
+```mof
+[ClassVersion("1.0.0.0")] 
+class Reason
+{
+    [Read] String Phrase;
+    [Read] String Code;
+};
+
+[ClassVersion("1.0.0.0"), FriendlyName("ResourceName")]
+class ResourceName : OMI_BaseResource
+{
+    [Key, Description("Example description")] String Example;
+    [Read, EmbeddedInstance("Reason")] String Reasons[];
+};
+```
+
 ### <a name="configuration-requirements"></a>Requisiti di configurazione
 
 Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file .zip per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione guest nel modello di Resource Manager devono essere uguali.
@@ -134,7 +157,7 @@ Gli esempi includono i repository GitHub, un repository di Azure o l'archiviazio
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Procedura dettagliata, creazione di un criterio di controllo della configurazione Guest personalizzato per Windows
 
-Creare una configurazione DSC. Nell'esempio di script di PowerShell seguente viene creata una configurazione denominata **AuditBitLocker**, viene importato il modulo di risorsa **PsDscResources** e viene utilizzata la `Service` risorsa per il controllo di un servizio in esecuzione. Lo script di configurazione può essere eseguito da un computer Windows o macOS.
+Creare una configurazione DSC per controllare le impostazioni. Nell'esempio di script di PowerShell seguente viene creata una configurazione denominata **AuditBitLocker**, viene importato il modulo di risorsa **PsDscResources** e viene utilizzata la `Service` risorsa per il controllo di un servizio in esecuzione. Lo script di configurazione può essere eseguito da un computer Windows o macOS.
 
 ```powershell
 # Define the DSC configuration and import GuestConfiguration
@@ -160,7 +183,7 @@ Il `Node AuditBitlocker` comando non è tecnicamente richiesto, `AuditBitlocker.
 
 Una volta compilato il file MOF, i file di supporto devono essere inclusi nel pacchetto. Il pacchetto completato viene usato da Configurazione ospite per creare le definizioni dei criteri di Azure.The completed package is used by Guest Configuration to create the Azure Policy definitions.
 
-Il `New-GuestConfigurationPackage` cmdlet crea il pacchetto. Parametri del `New-GuestConfigurationPackage` cmdlet durante la creazione di contenuto di Windows:
+Il `New-GuestConfigurationPackage` cmdlet crea il pacchetto. I moduli necessari per la configurazione `$Env:PSModulePath`devono essere disponibili in . Parametri del `New-GuestConfigurationPackage` cmdlet durante la creazione di contenuto di Windows:
 
 - **Nome**: Nome pacchetto di configurazione guest.
 - **Configurazione**: percorso completo del documento di configurazione DSC compilato.
@@ -176,7 +199,7 @@ New-GuestConfigurationPackage `
 
 Dopo aver creato il pacchetto di configurazione ma prima di pubblicarlo in Azure, è possibile testare il pacchetto dalla workstation o dall'ambiente CI/CD. Il cmdlet `Test-GuestConfigurationPackage` GuestConfiguration include nell'ambiente di sviluppo lo stesso agente usato nei computer di Azure.The GuestConfiguration cmdlet includes the same agent in your development environment as is used inside Azure machines. Utilizzando questa soluzione, è possibile eseguire il test di integrazione in locale prima del rilascio in ambienti cloud fatturati.
 
-Poiché l'agente sta effettivamente valutando l'ambiente locale, nella maggior parte dei casi è necessario eseguire il cmdlet Test- sulla stessa piattaforma del sistema operativo che si prevede di controllare.
+Poiché l'agente sta effettivamente valutando l'ambiente locale, nella maggior parte dei casi è necessario eseguire il cmdlet Test- sulla stessa piattaforma del sistema operativo che si prevede di controllare. Il test utilizzerà solo i moduli inclusi nel pacchetto di contenuto.
 
 Parametri del `Test-GuestConfigurationPackage` cmdlet:
 

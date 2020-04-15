@@ -1,6 +1,6 @@
 ---
-title: Gestire la conservazione di backup a lungo termine
-description: Informazioni su come archiviare i backup automatizzati nella risorsa di archiviazione di SQL Azure e quindi ripristinarli
+title: 'Database singolo: gestire la conservazione dei backup a lungo termine'
+description: Informazioni su come archiviare e ripristinare backup automatici per un database SQL di Azure singolo o database in pool nell'archiviazione di Azure (fino a 10 anni) usando il portale di Azure e PowerShell
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 08/21/2019
-ms.openlocfilehash: a560f4f1399792a7b150b37c3c048ccc0079b98d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74420798"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380929"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
@@ -186,7 +186,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> L'eliminazione di un backup con conservazione a lungo termine non è reversibile. Per eliminare un backup LTR dopo l'eliminazione del server, è necessario disporre dell'autorizzazione ambito sottoscrizione. È possibile impostare le notifiche su ogni eliminazione in Monitoraggio di Azure filtrando in base all'operazione di eliminazione di un backup con conservazione a lungo termine. Il log attività contiene informazioni su chi ha effettuato la richiesta e sul momento in cui è stata effettuata. Per istruzioni dettagliate, vedere [Creare gli avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
+> L'eliminazione di un backup con conservazione a lungo termine non è reversibile. Per eliminare un backup LTR dopo l'eliminazione del server, è necessario disporre dell'autorizzazione ambito sottoscrizione. È possibile impostare notifiche su ogni eliminazione in Monitoraggio di Azure filtrando l'operazione 'Elimina un backup di conservazione a lungo termine'. Il log attività contiene informazioni su chi ha effettuato la richiesta e sul momento in cui è stata effettuata. Per istruzioni dettagliate, vedere [Creare gli avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
 
 ### <a name="restore-from-ltr-backups"></a>Eseguire il ripristino dai backup con conservazione a lungo termine
 

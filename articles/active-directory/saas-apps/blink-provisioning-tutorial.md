@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b19052b8a71b582b47308c41d170f50352d643e2
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 314445275f99898913bd91eb8abc2a5acdab098a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618350"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381007"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Esercitazione: Configurare Blink per il provisioning automatico degli utentiTutorial: Configure Blink for automatic user provisioning
 
@@ -121,7 +121,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
 9. Esaminare gli attributi utente sincronizzati da Azure AD a Blink nella sezione **Mapping attributi.** Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare gli account utente in Blink per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente lampeggiante](media/blink-provisioning-tutorial/User_attributes.png)
+    ![Attributi utente lampeggiante](media/blink-provisioning-tutorial/user-attributes.png)
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

@@ -4,12 +4,12 @@ description: Questo articolo illustra il monitoraggio dei runbook di automazione
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: 9bd028157b33817898ef69f9e47cb8b5d9b8f381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75367094"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310550"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitoraggio dei runbook con avvisi di metrica
 
@@ -23,7 +23,7 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 Gli avvisi consentono di definire una condizione per monitorare e un'azione da intraprendere quando viene soddisfatta tale condizione.
 
-Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**. L'ambito per la destinazione è già definito per l'account di Automazione.
+Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**. L'ambito per la destinazione è già definito per l'account di Automazione.The scope for the target is already defined to your Automation account.
 
 ### <a name="configure-alert-criteria"></a>Configurare i criteri di avviso
 
@@ -77,7 +77,7 @@ Una volta che la metrica non è più al di fuori della soglia definita, l'avviso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Continuare l'articolo seguente per informazioni su altri metodi con cui è possibile integrare gli avvisi nell'Account di automazione.
+Passare al seguente articolo per informazioni su altri modi in cui è possibile integrare gli avvisi nell'account di Automazione.
 
 > [!div class="nextstepaction"]
 > [Usare un avviso per attivare un runbook di Automazione di Azure](automation-create-alert-triggered-runbook.md)

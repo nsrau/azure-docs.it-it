@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 6de51c23bd6358a6f54fe3baf9e9b256047d4ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abd7940551f7a8182364475b0cf50b60afb5e1b7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064901"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313801"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure
 
@@ -25,6 +25,22 @@ L'integrazione di Hub eventi con gli [endpoint del servizio della rete virtuale]
 Una volta configurato per essere associato ad almeno un endpoint del servizio subnet di rete virtuale, il rispettivo spazio dei nomi Hub eventi non accetta più traffico da qualsiasi luogo, ma subnet autorizzate nelle reti virtuali. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi di Hub eventi a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica. 
 
 Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi di Hub eventi corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici. Esiste un'eccezione a questo comportamento. L'abilitazione di un endpoint `denyall` del servizio, per impostazione predefinita, abilita la regola nel [firewall IP](event-hubs-ip-filtering.md) associato alla rete virtuale. È possibile aggiungere indirizzi IP specifici nel firewall IP per abilitare l'accesso all'endpoint pubblico dell'hub eventi. 
+
+>[!WARNING]
+> L'implementazione dell'integrazione delle reti virtuali può impedire l'interazione da parte di altri servizi Azure con l'Hub eventi di Azure.
+>
+> I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
+>
+> Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
+> - Analisi di flusso di Azure
+> - Integrazione con Griglia di eventi di Azure
+> - Route dell'hub IoT di Azure
+> - Azure IoT Device Explorer
+>
+> I seguenti servizi Microsoft devono essere in una rete virtuale
+> - App Web di Azure
+> - Funzioni di Azure
+
 
 > [!IMPORTANT]
 > Le reti virtuali sono supportate nei livelli **standard** e **dedicato** di Hub eventi. Non è supportato nel livello **di base.**

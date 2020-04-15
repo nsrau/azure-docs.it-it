@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075266"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312595"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sulla configurazione dell'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-arm.md)
+Informazioni su come configurare la ripartizione del carico di lavoro TLS visitando: [Configurare l'offload TLS](application-gateway-ssl-arm.md)
 

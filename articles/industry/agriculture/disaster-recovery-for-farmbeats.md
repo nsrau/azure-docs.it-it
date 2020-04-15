@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: fbda28ce588aad5f6bc0d89de60069c4220fa523
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d64735e683ba1133e7d381a68611d204c4068026
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266175"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313094"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Ripristino di emergenza per FarmBeatsDisaster recovery for FarmBeats
 
@@ -34,7 +34,7 @@ FarmBeats archivia i dati in tre servizi di Azure di prima parte, che sono **Arc
 
 ## <a name="restore-service-from-online-backup"></a>Ripristinare il servizio dal backup online
 
-È possibile avviare il failover e ripristinare i dati archiviati per i quali, ognuno degli archivi dati sopra menzionati per la distribuzione di FarmBeats. Dopo aver ripristinato i dati per Archiviazione di Azure e Cosmos DB, creare un'altra distribuzione FarmBeats nell'area accoppiata di Azure e quindi configurare la nuova distribuzione per usare i dati degli archivi dati ripristinati (ad esempio Archiviazione di Azure e Cosmos DB) usando i passaggi seguenti:Once you've rerecupero the data for Azure storage and Cosmos DB, create another FarmBeats deployment in the Azure paired region and then configure the new deployment to use data from restored data stores (it e. Azure Storage and Cosmos DB) by using the below steps:
+È possibile avviare il failover e ripristinare i dati archiviati per i quali, ognuno degli archivi dati sopra indicati per la distribuzione di FarmBeats. Dopo aver ripristinato i dati per Archiviazione di Azure e Cosmos DB, creare un'altra distribuzione FarmBeats nell'area accoppiata di Azure e quindi configurare la nuova distribuzione per usare i dati degli archivi dati ripristinati (ad esempio Archiviazione di Azure e Cosmos DB) usando i passaggi seguenti:Once you've rerecupero the data for Azure storage and Cosmos DB, create another FarmBeats deployment in the Azure paired region and then configure the new deployment to use data from restored data stores (it e. Azure Storage and Cosmos DB) by using the below steps:
 
 1. [Configurare Cosmos DB](#configure-cosmos-db)
 2. [Configurare l'account di archiviazioneConfigure Storage Account](#configure-storage-account)
@@ -45,18 +45,18 @@ FarmBeats archivia i dati in tre servizi di Azure di prima parte, che sono **Arc
 Copiare la chiave di accesso del database Cosmos ripristinato e aggiornare il nuovo Vault della chiave FarmBeats Datahub.
 
 
-  ![Ripristino di emergenza](./media/disaster-recovery-for-farmbeats/keyvault-secrets.png)
+  ![Ripristino di emergenza](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > Copiare l'URL del database Cosmos ripristinato e aggiornarlo nella nuova configurazione del servizio app FarmBeats Datahub. È ora possibile eliminare l'account Cosmos DB nella nuova distribuzione di FarmBeats.You can now delete Cosmos DB account in the new FarmBeats deployment.
 
-  ![Ripristino di emergenza](./media/disaster-recovery-for-farmbeats/northeu-ehub-api-configuration.png)
+  ![Ripristino di emergenza](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>Configurare l'account di archiviazioneConfigure Storage Account
 
 Copiare la chiave di accesso dell'account di archiviazione ripristinato e aggiornarla nel nuovo archivio chiavi FarmBeats Datahub.
 
-![Ripristino di emergenza](./media/disaster-recovery-for-farmbeats/keyvault-7udqm-secrets.png)
+![Ripristino di emergenza](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Assicurarsi di aggiornare il nome dell'account di archiviazione nel nuovo file di configurazione della macchina virtuale FarmBeats Batch.Ensure to Update Storage Account name in the new FarmBeats Batch VM config file.

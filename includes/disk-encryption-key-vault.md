@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: f2133524f57576c4646de9d4bf7f37b573a77e6d
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 6f7f319d2ebb4cd39933addf04f249df02d7819f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80813781"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314106"
 ---
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Creare un insieme di credenziali delle chiavi usando il comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) Azure CLI, il comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure Powershell, il portale di [Azure](https://portal.azure.com)o un modello di [Resource Manager.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 
 >[!WARNING]
-> Per garantire che i segreti di crittografia non superino i limiti regionali, Crittografia disco di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali siano co-localizzate nella stessa area e nella stessa sottoscrizione. Creare e usare un insieme di credenziali delle chiavi che si trova nella stessa area delle macchine virtuali da crittografare. 
+> L'insieme di credenziali delle chiavi e le macchine virtuali devono essere nella stessa sottoscrizione. Inoltre, per garantire che i segreti di crittografia non superino i limiti regionali, Crittografia disco di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali siano co-localizzate nella stessa area. Creare e usare un insieme di credenziali delle chiavi nella stessa sottoscrizione e nella stessa area delle macchine virtuali da crittografare. 
 
 Ogni insieme di credenziali delle chiavi deve avere un nome univoco. Negli esempi seguenti sostituire <your-unique-keyvault-name> con il nome dell'insieme di credenziali delle chiavi in uso.
 

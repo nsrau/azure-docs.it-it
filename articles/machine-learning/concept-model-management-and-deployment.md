@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: f5aaf8adf33d27f8ebb99c8ca3a873d958632a4f
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616838"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314301"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione, distribuzione e monitoraggio dei modelli con Azure Machine Learning
 
@@ -124,6 +124,16 @@ Per distribuire il modello come servizio Web, è necessario fornire gli elementi
 
 Per ulteriori informazioni, vedere [Distribuire modelli](how-to-deploy-and-where.md).
 
+#### <a name="controlled-rollout"></a>Implementazione controllata
+
+Quando si esegue la distribuzione nel servizio Azure Kubernetes, è possibile usare l'implementazione controllata per abilitare gli scenari seguenti:When deploying to Azure Kubernetes Service, you can use controlled rollout to enable the following scenarios:
+
+* Creare più versioni di un endpoint per una distribuzioneCreate multiple versions of an endpoint for a deployment
+* Eseguire test A/B instradando il traffico a versioni diverse dell'endpoint.
+* Passare da una versione all'altra dell'endpoint aggiornando la percentuale di traffico nella configurazione dell'endpoint.
+
+Per ulteriori informazioni, vedere [Implementazione controllata dei modelli ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+
 #### <a name="iot-edge-devices"></a>Dispositivi IoT Edge
 
 È possibile usare i modelli con i dispositivi IoT tramite i **moduli di Azure IoT Edge.** I moduli IoT Edge vengono distribuiti in un dispositivo hardware, che consente l'inferenza, o il punteggio del modello, nel dispositivo.
@@ -136,12 +146,20 @@ Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'a
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Acquisire i dati di governance necessari per acquisire il ciclo di vita di ML end-to-end
 
-Azure ML offre la possibilità di tenere traccia dell'audit trail end-to-end di tutti gli asset di ML. In particolare:
+Azure ML offre la possibilità di tenere traccia dell'audit trail end-to-end di tutti gli asset di ML usando i metadati.
 
 - Azure ML [si integra con Git](how-to-set-up-training-targets.md#gitintegration) per tenere traccia delle informazioni su quale repository/branch / commit del codice proviene.
-- I set di dati di [Azure ML](how-to-create-register-datasets.md) consentono di tenere traccia, profilare e versione i dati. 
+- I set di dati di [Azure ML](how-to-create-register-datasets.md) consentono di tenere traccia, profilare e versione i dati.
+- [L'interpretazione](how-to-machine-learning-interpretability.md) consente di spiegare i modelli, soddisfare la conformità alle normative e comprendere come i modelli arrivano a un risultato per un determinato input.
 - La cronologia di esecuzione di Azure ML archivia uno snapshot del codice, dei dati e dei calcoli usati per eseguire il training di un modello.
 - Il Registro di sistema del modello di Azure ML acquisisce tutti i metadati associati al modello (quale esperimento ne ha eseguito il training, dove viene distribuito, se le distribuzioni sono integre).
+- [L'integrazione con Griglia di eventi](concept-event-grid-integration.md) di Azure consente di agire sugli eventi nel ciclo di vita di ML. Ad esempio, eventi di registrazione, distribuzione, deriva dei dati e training (esecuzione) ad esempio.
+
+> [!TIP]
+> Mentre alcune informazioni su modelli e dataset vengono acquisite automaticamente, è possibile aggiungere informazioni aggiuntive utilizzando __i tag__. Quando si cercano modelli e set di dati registrati nell'area di lavoro, è possibile utilizzare i tag come filtro.
+>
+> L'associazione di un set di dati a un modello registrato è un passaggio facoltativo. Per informazioni su come fare riferimento a un dataset durante la registrazione di un modello, vedere il riferimento alla classe [Model.For](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) information on referencing a dataset when registering a model, see the Model class reference.
+
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifica, automatizza e avvisa gli eventi nel ciclo di vita di ML
 Azure ML pubblica gli eventi chiave in Azure EventGrid, che possono essere usati per notificare e automatizzare gli eventi nel ciclo di vita di ML. Per ulteriori informazioni, consultare [questo documento](how-to-use-event-grid.md).
@@ -157,7 +175,7 @@ Per altre informazioni, vedere [Come abilitare la raccolta dei dati dei modelli]
 
 ## <a name="retrain-your-model-on-new-data"></a>Riqualificare il modello sui nuovi dati
 
-Spesso, ti consigliamo di aggiornare il modello, o anche riqualificarlo da zero, come si ricevono nuove informazioni. A volte, la ricezione di nuovi dati è una parte prevista del dominio. Altre volte, come descritto in Rilevare la deriva dei [dati (anteprima) sui set di dati](how-to-monitor-datasets.md), le prestazioni del modello possono peggiorare di fronte a elementi quali modifiche a un particolare sensore, modifiche naturali dei dati come effetti stagionali o caratteristiche che si spostano nella loro relazione con altre caratteristiche. 
+Spesso, ti consigliamo di convalidare il modello, aggiornarlo o anche riqualificarlo da zero, come si ricevono nuove informazioni. A volte, la ricezione di nuovi dati è una parte prevista del dominio. Altre volte, come descritto in Rilevare la deriva dei [dati (anteprima) sui set di dati](how-to-monitor-datasets.md), le prestazioni del modello possono peggiorare di fronte a elementi quali modifiche a un particolare sensore, modifiche naturali dei dati come effetti stagionali o caratteristiche che si spostano nella loro relazione con altre caratteristiche. 
 
 Non esiste una risposta universale a "Come faccio a sapere se devo riqualificarmi?" ma gli strumenti di monitoraggio e eventi di Azure ML precedentemente discussi sono buoni punti di partenza per l'automazione. Una volta che hai deciso di riqualificare, dovresti: 
 

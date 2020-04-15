@@ -3,12 +3,12 @@ title: Supporto per la migrazione di VMware in Azure MigrateSupport for VMware m
 description: Informazioni sul supporto per la migrazione delle macchine virtuali VMware in Azure Migrate.Learn about support for VMware VM migration in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 9d8dc4dadc975a0fb69ea207f6062b72231460ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269510"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314006"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione VMwareSupport matrix for VMware migration
 
@@ -31,7 +31,7 @@ Leggere [questo articolo](server-migrate-overview.md) per capire quale metodo si
 
 ## <a name="agentless-vmware-servers"></a>Server Agentless-VMware
 
-**Vmware** | **Dettagli**
+**VMware** | **Dettagli**
 --- | ---
 **VMware vCenter Server** | Versione 5.5, 6.0, 6.5 o 6.7.
 **VMware vSphere ESXI host** | Versione 5.5, 6.0, 6.5 o 6.7.
@@ -47,7 +47,7 @@ Leggere [questo articolo](server-migrate-overview.md) per capire quale metodo si
 **Modifiche necessarie per AzureRequired changes for Azure** | Alcune macchine virtuali potrebbero richiedere alcune modifiche per la corretta esecuzione in Azure. Azure Migrate apporta automaticamente queste modifiche per i sistemi operativi seguenti:Azure Migrate makes these changes automatically for the following operating systems:<br/> - Red Hat Enterprise Linux 6.5, 7.0<br/> - CentOS 6,5</br> - SUSE Linux Enterprise Server 12 SP1<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> Per altri sistemi operativi, è necessario apportare le modifiche manualmente prima della migrazione. Gli articoli pertinenti contengono istruzioni su come eseguire questa operazione.
 **Avvio Linux** | Se /boot si trova in una partizione dedicata, deve risiedere sul disco del sistema operativo e non essere distribuito su più dischi.<br/> Se /boot fa parte della partizione radice (/), la partizione '/' deve trovarsi sul disco del sistema operativo e non estendersi su altri dischi.
 **Stivale UEFI** | Le macchine virtuali con avvio UEFI non sono supportate per la migrazione.
-**Dimensioni disco** | Disco oS da 2 TB; 4 TB per i dischi dati.
+**Dimensioni disco** | Disco oS da 2 TB; 8 TB per i dischi dati.
 **Limiti del disco** |  Fino a 60 dischi per macchina virtuale.
 **Dischi/volumi crittografati** | Le macchine virtuali con dischi/volumi crittografati non sono supportate per la migrazione.
 **Cluster di dischi condivisi** | Non supportato.
@@ -150,7 +150,7 @@ VHD condiviso | Non supportato. | Il controllo ha esito negativo se non supporta
 Disco FC | Non supportato. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportato. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
-Connettersi dopo la migrazione di Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:To connect to Azure VMs running Windows after migration:<br/> - Prima che la migrazione abiliti RDP nella macchina virtuale locale.- Before migration enables RDP on the on-premises VM. Assicurarsi che le regole TCP e UDP vengano aggiunte per il profilo **pubblico** e che RDP sia consentito in **Windows Firewall** > **Allowed Apps**per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire RDP in **Windows Firewall** -> **Allowed apps and features** for Domain **and Private** networks. Verificare inoltre che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Scopri di più](prepare-for-migration.md). |
+Connettersi dopo la migrazione di Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:To connect to Azure VMs running Windows after migration:<br/> - Prima che la migrazione abiliti RDP nella macchina virtuale locale.- Before migration enables RDP on the on-premises VM. Assicurarsi che le regole TCP e UDP vengano aggiunte per il profilo **pubblico** e che RDP sia consentito in **Windows Firewall** > **Allowed Apps**per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire RDP in **Windows Firewall** -> **Allowed apps and features** for Domain **and Private** networks. Verificare inoltre che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](prepare-for-migration.md) |
 Connessione dopo la migrazione Linux | To connect to Azure VMs after migration using SSH:<br/> Prima della migrazione, nel computer locale, verificare che il servizio Secure Shell sia impostato su Avvia e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale di cui è stato eseguito il failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 
 

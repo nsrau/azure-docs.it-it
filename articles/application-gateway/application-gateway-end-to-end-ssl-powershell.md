@@ -1,26 +1,26 @@
 ---
-title: Configurare SSL end-to-end con il gateway applicazione di Azure
-description: Questo articolo descrive come configurare SSL end-to-end con un gateway applicazione di Azure tramite PowerShell
+title: Configurare TLS end-to-end con il gateway applicazione di AzureConfigure end-to-end TLS with Azure Application Gateway
+description: Questo articolo descrive come configurare TLS end-to-end con il gateway applicazione di Azure usando PowerShellThis article describes how to configure end-to-end TLS with Azure Application Gateway by using PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 7ba273cddb6cf41872c4db1c34560c104b992787
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72286458"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312507"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurare SSL end-to-end usando un gateway applicazione con PowerShell
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configurare TLS end-to-end tramite il gateway applicazione con PowerShellConfigure end to end TLS by using Application Gateway with PowerShell
 
 ## <a name="overview"></a>Panoramica
 
-Il gateway applicazione di Azure supporta la crittografia end-to-end del traffico. Il gateway applicazione termina la connessione SSL nel gateway applicazione stesso. Il gateway applica quindi le regole di gestione al traffico, crittografa di nuovo il pacchetto e inoltra il pacchetto al server back-end appropriato in base alle regole di routing definite. Eventuali risposte dal server Web subiscono lo stesso processo in ritorno verso l'utente finale.
+Il gateway applicazione di Azure supporta la crittografia end-to-end del traffico. Il gateway applicazione termina la connessione TLS/SSL nel gateway applicazione. Il gateway applica quindi le regole di gestione al traffico, crittografa di nuovo il pacchetto e inoltra il pacchetto al server back-end appropriato in base alle regole di routing definite. Eventuali risposte dal server Web subiscono lo stesso processo in ritorno verso l'utente finale.
 
-Il gateway applicazione supporta la definizione di opzioni SSL personalizzate. Il gateway applicazione supporta anche queste versioni del protocollo: **TLSv1.0**, **TLSv1.1** e **TLSv1.2**, oltre alla definizione dei pacchetti di crittografia da usare e l'ordine di preferenza. Per altre informazioni sulle opzioni SSL configurabili, vedere [Panoramica dei criteri SSL](application-gateway-SSL-policy-overview.md).
+Il gateway applicazione supporta la definizione di opzioni TLS personalizzate. Il gateway applicazione supporta anche queste versioni del protocollo: **TLSv1.0**, **TLSv1.1** e **TLSv1.2**, oltre alla definizione dei pacchetti di crittografia da usare e l'ordine di preferenza. Per ulteriori informazioni sulle opzioni TLS configurabili, vedere [panoramica](application-gateway-SSL-policy-overview.md)dei criteri TLS .
 
 > [!NOTE]
 > SSL 2.0 e SSL 3.0 sono disabilitati per impostazione predefinita e non possono essere abilitati. Sono considerati non sicuri e non possono essere usati con il gateway applicazione.
@@ -29,22 +29,22 @@ Il gateway applicazione supporta la definizione di opzioni SSL personalizzate. I
 
 ## <a name="scenario"></a>Scenario
 
-Questo scenario mostra come creare un gateway applicazione usando SSL end-to-end con PowerShell.
+In this scenario, you learn how to create an application gateway by using end-to-end TLS with PowerShell.
 
 Questo scenario illustrerà come:
 
 * Creare un gruppo di risorse denominato **appgw-rg**.
 * Creare una rete virtuale denominata **appgwvnet** con uno spazio di indirizzi di **10.0.0.0/16**.
 * Creare due subnet denominate **appgwsubnet** e **appsubnet**.
-* Creare un piccolo gateway applicazione che supporti la crittografia SSL end-to-end, che limita le versioni del protocollo SSL e i pacchetti di crittografia.
+* Creare un gateway applicazione di piccole dimensioni che supporta la crittografia TLS end-to-end che limita le versioni del protocollo TLS e le suite di crittografia.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per configurare SSL end-to-end con un gateway applicazione, sono necessari un certificato per il gateway e i certificati per i server back-end. Il certificato del gateway viene usato per derivare una chiave simmetrica in base alla specifica del protocollo SSL. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato del gateway deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
+Per configurare TLS end-to-end con un gateway applicazione, è necessario un certificato per il gateway e i certificati sono necessari per i server back-end. Il certificato del gateway viene utilizzato per derivare una chiave simmetrica in base alla specifica del protocollo TLS. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato del gateway deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
 
-Per la crittografia SSL end-to-end, il back-end deve essere esplicitamente consentito dal gateway applicazione. È necessario caricare il certificato pubblico dei server back-end nel gateway applicazione. L'aggiunta del certificato garantisce che il gateway applicazione comunichi solo con istanze di back-end note, proteggendo ulteriormente la comunicazione end-to-end.
+Per la crittografia TLS end-to-end, il back-end deve essere esplicitamente consentito dal gateway applicazione. È necessario caricare il certificato pubblico dei server back-end nel gateway applicazione. L'aggiunta del certificato garantisce che il gateway applicazione comunichi solo con istanze di back-end note, proteggendo ulteriormente la comunicazione end-to-end.
 
 Questo processo di configurazione viene descritto nelle sezioni seguenti.
 
@@ -154,20 +154,20 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    ```
 
    > [!NOTE]
-   > Questo esempio configura il certificato usato per la connessione SSL. Il certificato deve essere in formato PFX e la password deve contenere da 4 a 12 caratteri.
+   > In questo esempio viene configurato il certificato utilizzato per la connessione TLS. Il certificato deve essere in formato PFX e la password deve contenere da 4 a 12 caratteri.
 
-6. Creare il listener HTTP per il gateway applicazione. Assegnare la configurazione IP, la porta e il certificato SSL del front-end da usare.
+6. Creare il listener HTTP per il gateway applicazione. Assegnare la configurazione IP front-end, la porta e il certificato TLS/SSL da utilizzare.
 
    ```powershell
    $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-7. Caricare il certificato da usare per le risorse del pool back-end abilitate per SSL.
+7. Caricare il certificato da utilizzare nelle risorse del pool back-end abilitato tls.
 
    > [!NOTE]
-   > Il probe predefinito ottiene la chiave pubblica dall'associazione SSL *predefinita* nell'indirizzo IP del back-end e confronta il valore della chiave pubblica ricevuta con il valore della chiave pubblica specificata qui. 
+   > Il probe predefinito ottiene la chiave pubblica dall'associazione TLS *predefinita* nell'indirizzo IP del back-end e confronta il valore della chiave pubblica che riceve con il valore di chiave pubblica fornito qui. 
    > 
-   > Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nel back-end, la chiave pubblica recuperata potrebbe non corrispondere al sito previsto in cui viene trasferito il traffico. In caso di dubbi, visitare la pagina all'indirizzo https://127.0.0.1/ nei server back-end per determinare il certificato usato per l'associazione SSL *predefinita*. In questa sezione usare la chiave pubblica ottenuta da tale richiesta. Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nelle associazioni HTTPS e non si ricevono una risposta e un certificato da una richiesta manuale del browser all'indirizzo https://127.0.0.1/ nei server back-end, è necessario configurare un'associazione SSL predefinita nei server. In caso contrario, i probe hanno esito negativo e il back-end non è consentito.
+   > Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nel back-end, la chiave pubblica recuperata potrebbe non corrispondere al sito previsto in cui viene trasferito il traffico. In caso di dubbi, https://127.0.0.1/ visitare i server back-end per verificare quale certificato viene utilizzato per l'associazione TLS *predefinita.* In questa sezione usare la chiave pubblica ottenuta da tale richiesta. Se si utilizzano intestazioni host e SNI su binding HTTPS e non si ricevono una risposta e un certificato da una richiesta manuale del browser nei https://127.0.0.1/ server back-end, è necessario impostare un binding TLS predefinito su essi. In caso contrario, i probe hanno esito negativo e il back-end non è consentito.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -176,7 +176,7 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    > [!NOTE]
    > Il certificato fornito nel passaggio precedente deve essere la chiave pubblica del certificato con estensione pfx presente nel back-end. Esportare il certificato (non il certificato radice) installato nel server back-end in formato CER e usarlo in questo passaggio. Questo passaggio mostra come aggiungere il back-end all'elenco elementi consentiti con il gateway applicazione.
 
-   Se si usa lo SKU v2 di gateway applicazione, creare un certificato radice attendibile anziché un certificato di autenticazione. Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
+   Se si usa lo SKU v2 di gateway applicazione, creare un certificato radice attendibile anziché un certificato di autenticazione. Per altre informazioni, vedere [Panoramica di TLS end-to-end con Gateway applicazione:For](ssl-overview.md#end-to-end-tls-with-the-v2-sku)more information, see Overview of end to end TLS with Application Gateway :
 
    ```powershell
    $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
@@ -209,7 +209,7 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
     > [!NOTE]
     > A scopo di test si può scegliere 1 come numero di istanze. È importante tenere presente che qualsiasi numero di istanze inferiore a due non è coperto dal contratto di servizio ed è quindi sconsigliato. È opportuno usare gateway Small a scopo di sviluppo/test e non per la produzione.
 
-11. Configurare i criteri SSL da usare nel gateway applicazione. Il gateway applicazione supporta la funzionalità di impostazione di una versione minima per le versioni del protocollo SSL.
+11. Configurare il criterio TLS da utilizzare nel gateway applicazione. Il gateway applicazione supporta la possibilità di impostare una versione minima per le versioni del protocollo TLS.
 
     I valori seguenti rappresentano un elenco di versioni del protocollo che è possibile definire:
 
@@ -247,7 +247,7 @@ Utilizzare questa procedura per applicare un nuovo certificato se il certificato
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Aggiungere la nuova risorsa certificato dal file CER, che contiene la chiave pubblica del certificato e può anche essere lo stesso certificato aggiunto al listener per la terminazione SSL nel gateway applicazione.
+2. Aggiungere la nuova risorsa certificato dal file CER, che contiene la chiave pubblica del certificato e può anche essere lo stesso certificato aggiunto al listener per la terminazione TLS nel gateway applicazione.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
@@ -300,9 +300,9 @@ Utilizzare questa procedura per rimuovere un certificato scaduto inutilizzato da
    ```
 
    
-## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Limitare le versioni del protocollo SSL in un gateway applicazione esistente
+## <a name="limit-tls-protocol-versions-on-an-existing-application-gateway"></a>Limitare le versioni del protocollo TLS in un gateway applicazione esistenteLimit TLS protocol versions on an existing application gateway
 
-I passaggi precedenti descrivono la creazione di un'applicazione con SSL end-to-end e la disabilitazione di alcune versioni del protocollo SSL. Nell'esempio seguente alcuni criteri SSL vengono disabilitati su un gateway applicazione esistente.
+I passaggi precedenti sono stati illustrati nella creazione di un'applicazione con TLS end-to-end e la disabilitazione di determinate versioni del protocollo TLS. Nell'esempio seguente vengono disabilitati alcuni criteri TLS in un gateway applicazione esistente.
 
 1. Recuperare il gateway applicazione da aggiornare.
 
@@ -310,14 +310,14 @@ I passaggi precedenti descrivono la creazione di un'applicazione con SSL end-to-
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Definire un criterio SSL. Nell'esempio seguente, **TLSv1.0** e **TLSv1.1** sono disabilitati e le suite di crittografia **\_TLS ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, TLS **\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**e TLS **\_RSA\_WITH\_AES\_128\_GCM\_SHA256** sono gli unici consentiti.
+2. Definire un criterio TLS. Nell'esempio seguente, **TLSv1.0** e **TLSv1.1** sono disabilitati e le suite di crittografia **\_TLS ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, TLS **\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**e TLS **\_RSA\_WITH\_AES\_128\_GCM\_SHA256** sono gli unici consentiti.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-3. Infine, aggiornare il gateway. Questo ultimo passaggio rappresenta un'attività a esecuzione prolungata. Al termine, SSL end-to-end è configurato nel gateway applicazione.
+3. Infine, aggiornare il gateway. Questo ultimo passaggio rappresenta un'attività a esecuzione prolungata. Al termine, TLS end-to-end viene configurato nel gateway applicazione.
 
    ```powershell
    $gw | Set-AzApplicationGateway

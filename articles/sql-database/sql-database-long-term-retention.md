@@ -1,6 +1,6 @@
 ---
-title: Backup dell'archivio per un massimo di 10 anni
-description: Informazioni sul supporto dell'archiviazione dei backup completi del database per un massimo di 10 anni da parte di database SQL di Azure.
+title: Conservazione del backup a lungo termine
+description: Informazioni su come il database SQL di Azure supporta l'archiviazione di backup completi del database per un massimo di 10 anni tramite i criteri di conservazione a lungo termine.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,20 +11,22 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d015eea21bcfa499d6751e024a882a7316b7f1a5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77499970"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380751"
 ---
-# <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Archiviare i backup del database SQL di Azure per un massimo di 10 anni
+# <a name="azure-sql-database-long-term-retention"></a>Conservazione a lungo termine del database SQL di Azure
 
-Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup del database oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL di Azure. Utilizzando la funzionalità di conservazione a lungo termine (LTR), è possibile archiviare i backup completi del database SQL specificati nell'archivio BLOB di Azure con archiviazione con ridondanza geografica di accesso in lettura per un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database. Per altre informazioni sulla ridondanza di Archiviazione di Azure, vedere [Ridondanza di Archiviazione di Azure.For](../storage/common/storage-redundancy.md)more information about Azure Storage redundancy, see Azure Storage redundancy .
+Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup del database oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL di Azure. Utilizzando la funzionalità di conservazione a lungo termine (LTR), è possibile archiviare i backup completi del database SQL specificati nell'archivio BLOB di Azure con archiviazione con ridondanza geografica di accesso in lettura per un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database. Per altre informazioni sulla ridondanza di Archiviazione di Azure, vedere [Ridondanza di Archiviazione di Azure.For](../storage/common/storage-redundancy.md)more information about Azure Storage redundancy, see Azure Storage redundancy . 
+
+La conservazione a lungo termine può essere abilitata per i database singoli e in pool ed è in anteprima pubblica limitata per le istanze gestite del database SQL di Azure.Long time retention can be enabled for single and pooled databases, and is in limited public preview for Azure SQL Database managed instances. 
 
 > [!NOTE]
-> È possibile abilitare la conservazione a lungo termine per database singoli e in pool. Non è ancora disponibile per database dell'istanza in Istanze gestite. È possibile usare processi di SQL Agent per pianificare [backup dei database di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) come alternativa alla conservazione a lungo termine oltre 35 giorni.
-> 
+> È possibile usare processi di SQL Agent per pianificare [backup dei database di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) come alternativa alla conservazione a lungo termine oltre 35 giorni.
+
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Funzionamento della conservazione a lungo termine del database SQL
 
@@ -74,6 +76,16 @@ Se si utilizzano gruppi di replica geografica o di failover attivi come soluzion
 
 > [!NOTE]
 > Quando il database primario originale esegue il ripristino da un'interruzione che ha causato il failover, diventerà un nuovo database secondario. Pertanto, la creazione del backup non riprenderà e i criteri di conservazione a lungo termine esistenti non saranno attivi fino a quando il database diventerà nuovamente primario. 
+
+## <a name="managed-instance-support"></a>Supporto di istanza gestita
+
+L'utilizzo della conservazione dei backup a lungo termine con un'istanza gestita di un database SQL di Azure presenta le limitazioni seguenti:Using long-term backup retention with an Azure SQL Database managed instances has the following limitations:
+
+- **Anteprima pubblica limitata:** questa anteprima è disponibile solo per gli abbonamenti EA e CSP ed è soggetta a disponibilità limitata.  
+- [**Solo PowerShell:**](sql-database-managed-instance-long-term-backup-retention-configure.md) attualmente non è supportato il portale di Azure.Only PowerShell- There is currently no Azure portal support. LTR must be enabled using PowerShell. 
+
+Per richiedere la registrazione, creare un ticket di supporto di [Azure](https://azure.microsoft.com/support/create-ticket/) nell'argomento di supporto **Backup, ripristino e continuità aziendale/Conservazione**backup a lungo termine .
+
 
 ## <a name="configure-long-term-backup-retention"></a>Configurare la conservazione del backup a lungo termine
 

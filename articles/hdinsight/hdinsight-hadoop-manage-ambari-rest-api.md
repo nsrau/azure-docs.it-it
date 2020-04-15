@@ -1,19 +1,19 @@
 ---
 title: Monitorare e gestire Hadoop con l'API REST Ambari - Azure HDInsight
-description: Informazioni sull'uso di Ambari per monitorare e gestire i cluster Hadoop in Azure HDInsight. In questo documento si apprenderà come usare l'API REST Ambari inclusa nei cluster HDInsight.
+description: Informazioni sull'uso di Ambari per monitorare e gestire i cluster Hadoop in Azure HDInsight. In questo documento verrà illustrato come usare l'API REST Ambari inclusa nei cluster HDInsight.In this document, you'll learn how to use the Ambari REST API included with HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/07/2019
-ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 317d12f6d5dee92d998266d4e9b6d52e6ef9c7a5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272396"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381390"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Apache Ambari
 
@@ -21,21 +21,21 @@ ms.locfileid: "79272396"
 
 Informazioni sull'uso dell'API REST Apache Ambari per gestire e monitorare i cluster Apache Hadoop in Azure HDInsight.
 
-## <a name="what-is-apache-ambari"></a><a id="whatis"></a>Cos'è Apache Ambari
+## <a name="what-is-apache-ambari"></a>Cos'è Apache Ambari
 
 [Apache Ambari](https://ambari.apache.org) semplifica la gestione e il monitoraggio dei cluster Hadoop fornendo un'interfaccia utente Web di facile utilizzo supportata dalle [API REST.](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)  Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati su Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster Hadoop in HDInsight**. Vedere [Introduzione a HDInsight su Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Hadoop in HDInsight.A Hadoop cluster on HDInsight. Vedere [Introduzione a HDInsight su Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Bash su Ubuntu su Windows 10**.  Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).  Gli esempi, con alcune lievi modifiche, possono funzionare su un prompt dei comandi di Windows.The examples, with some slight modifications, can work on a Windows Command prompt.  In alternativa, è possibile utilizzare Windows PowerShell.Alternatively, you can use Windows PowerShell.
+* Bash su Ubuntu su Windows 10.  Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).  Gli esempi, con alcune lievi modifiche, possono funzionare su un prompt dei comandi di Windows.The examples, with some slight modifications, can work on a Windows Command prompt.  In alternativa, è possibile utilizzare Windows PowerShell.
 
-* **jq**, un processore JSON della riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* jq, un processore JSON da riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-* **Windows PowerShell**.  In alternativa, è possibile utilizzare [Bash](https://www.gnu.org/software/bash/).
+* Windows PowerShell.  Oppure è possibile utilizzare [Bash](https://www.gnu.org/software/bash/).
 
-## <a name="base-uri-for-ambari-rest-api"></a>URI di base per l'API REST Ambari
+## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Identificatore di risorsa uniforme di base per l'API Ambari Rest
 
  L'URI (Uniform Resource Identifier) di base per l'API REST Ambari in HDInsight è `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, dove `CLUSTERNAME` è il nome del cluster.  Per i nomi dei cluster negli URI viene fatta **distinzione tra maiuscole e minuscole.**  Mentre il nome del cluster nella parte del nome di`CLUSTERNAME.azurehdinsight.net`dominio completo (FQDN) dell'URI ( ) non fa distinzione tra maiuscole e minuscole, tra le altre occorrenze nell'URI viene fatta distinzione tra maiuscole e minuscole.
 
@@ -48,6 +48,7 @@ Per i cluster Enterprise Security `admin`Package, anziché `username@domain.onmi
 ## <a name="examples"></a>Esempi
 
 ### <a name="setup-preserve-credentials"></a>Installazione (Mantieni credenziali)
+
 Conservare le credenziali per evitare di reimmetterle per ogni esempio.  Il nome del cluster verrà mantenuto in un passaggio separato.
 
 **A. Bash**  
@@ -64,7 +65,8 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
 ### <a name="identify-correctly-cased-cluster-name"></a>Identificare il nome del cluster con maiuscole e minuscole correttoIdentify correctly cased cluster name
-L'uso effettivo di maiuscole e minuscole nel nome del cluster può differire dal previsto, a seconda della modalità di creazione del cluster.  I passaggi qui mostreranno la combinazione di maiuscole e minuscole effettiva e quindi lo memorizzeranno in una variabile per tutti gli esempi successivi.
+
+Le maiuscole e minuscole effettive del nome del cluster potrebbero essere diverse da quelle previste.  I passaggi qui mostreranno la combinazione di maiuscole e minuscole effettiva e quindi la memorizzeranno in una variabile per tutti gli esempi successivi.
 
 Modificare gli script `CLUSTERNAME` seguenti per sostituirli con il nome del cluster. Quindi immettere il comando. Il nome del cluster per il nome di dominio completo non fa distinzione tra maiuscole e minuscole.
 
@@ -99,9 +101,9 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```
 
-### <a name="get-the-fqdn-of-cluster-nodes"></a><a name="example-get-the-fqdn-of-cluster-nodes"></a>Ottenere il nome di dominio completo dei nodi del clusterGet the FQDN of cluster nodes
+### <a name="get-the-fqdn-of-cluster-nodes"></a>Ottenere il nome di dominio completo dei nodi del cluster
 
-Quando si usa HDInsight, potrebbe essere necessario conoscere il nome di dominio completo di un nodo del cluster. È possibile recuperare con facilità l'FQDN per i diversi nodi del cluster usando gli esempi seguenti:
+Potrebbe essere necessario conoscere il nome di dominio completo (FQDN) di un nodo del cluster. È possibile recuperare con facilità l'FQDN per i diversi nodi del cluster usando gli esempi seguenti:
 
 **Tutti i nodi**  
 
@@ -159,13 +161,13 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-### <a name="get-the-internal-ip-address-of-cluster-nodes"></a><a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Ottenere l'indirizzo IP interno dei nodi del clusterGet the internal IP address of cluster nodes
+### <a name="get-the-internal-ip-address-of-cluster-nodes"></a>Ottenere l'indirizzo IP interno dei nodi del cluster
 
-Gli indirizzi IP restituiti dagli esempi in questa sezione non sono direttamente accessibili tramite Internet. Sono accessibili solo all'interno della rete virtuale di Azure che contiene il cluster HDInsight.
+Gli indirizzi IP restituiti dagli esempi in questa sezione non sono direttamente accessibili tramite Internet. Sono accessibili solo all'interno della rete virtuale di Azure che contiene il cluster HDInsight.They's only accessible within the Azure Virtual Network that contains the HDInsight cluster.
 
 Per altre informazioni sull'uso di HDInsight e delle reti virtuali, vedere [Pianificare una rete virtuale per HDInsight.For](hdinsight-plan-virtual-network-deployment.md)more information on working with HDInsight and virtual networks, see Plan a virtual network for HDInsight .
 
-Per trovare l'indirizzo IP, è necessario conoscere il nome di dominio completo (FQDN) interno dei nodi del cluster. Quando è stato ottenuto l'FQDN è possibile ottenere l'indirizzo IP dell'host. Negli esempi seguenti per prima cosa viene effettuata una query in Ambari per ottenere l'FQDN di tutti i nodi host, poi viene effettuata un'altra query in Ambari per ottenere l'indirizzo IP di ogni host.
+Per trovare l'indirizzo IP, è necessario conoscere il nome di dominio completo (FQDN) interno dei nodi del cluster. Quando è stato ottenuto l'FQDN è possibile ottenere l'indirizzo IP dell'host. Gli esempi seguenti eseguono prima una query su Ambari per il nome di dominio completo di tutti i nodi host. Quindi interroga Ambari per l'indirizzo IP di ogni host.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" | jq -r '.items[].Hosts.host_name')
@@ -183,7 +185,7 @@ foreach($item in $respObj.items) {
     $hostName = [string]$item.Hosts.host_name
     $hostInfoResp = Invoke-WebRequest -Uri "$uri/$hostName" `
         -Credential $creds -UseBasicParsing
-    $hostInfoObj = ConvertFrom-Json $hostInfoResp 
+    $hostInfoObj = ConvertFrom-Json $hostInfoResp
     $hostIp = $hostInfoObj.Hosts.ip
     "$hostName <--> $hostIp"
 }
@@ -191,7 +193,7 @@ foreach($item in $respObj.items) {
 
 ### <a name="get-the-default-storage"></a>Ottenere l'archiviazione predefinita
 
-Quando si crea un cluster HDInsight è necessario usare un account di Archiviazione di Azure oppure Data Lake Storage come risorsa di archiviazione predefinita per il cluster. È possibile usare Ambari per recuperare queste informazioni dopo la creazione del cluster, ad esempio se si desidera leggere o scrivere dati nel contenitore all'esterno di HDInsight.
+I cluster HDInsight devono usare un account di archiviazione di Azure o archiviazione data lake come risorsa di archiviazione predefinita. È possibile usare Ambari per recuperare queste informazioni dopo la creazione del cluster, ad esempio se si desidera leggere o scrivere dati nel contenitore all'esterno di HDInsight.
 
 Negli esempi seguenti viene recuperata la configurazione di archiviazione predefinita dal cluster:
 
@@ -253,7 +255,7 @@ Il valore restituito è simile a uno degli esempi seguenti:
 > [!NOTE]  
 > Il cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) fornito da [Azure PowerShell](/powershell/azure/overview) restituisce anche le informazioni di archiviazione per il cluster.
 
-### <a name="get-all-configurations"></a><a name="get-all-configurations"></a>Ottieni tutte le configurazioni
+### <a name="get-all-configurations"></a>Ottieni tutte le configurazioni
 
 Consente di ottenere le configurazioni disponibili per il cluster.
 
@@ -267,7 +269,7 @@ $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v
 $respObj.Content
 ```
 
-L'esempio restituisce un documento JSON contenente la configurazione corrente, identificata dal valore *tag*, per i componenti installati nel cluster. L'esempio di seguito rappresenta un estratto dei dati restituiti da un tipo di cluster Spark.
+In questo esempio viene restituito un documento JSON contenente la configurazione corrente per i componenti installati. Vedere il valore del *tag.* L'esempio di seguito rappresenta un estratto dei dati restituiti da un tipo di cluster Spark.
 
 ```json
 "jupyter-site" : {
@@ -286,7 +288,7 @@ L'esempio restituisce un documento JSON contenente la configurazione corrente, i
 
 ### <a name="get-configuration-for-specific-component"></a>Ottenere la configurazione per un componente specificoGet configuration for specific component
 
-Consente di ottenere la configurazione del componente a cui si è interessati. Nell'esempio seguente, sostituire `INITIAL` con il valore del tag restituito dalla richiesta precedente.
+Ottenere la configurazione per il componente che ti interessa. Nell'esempio seguente, sostituire `INITIAL` con il valore del tag restituito dalla richiesta precedente.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL"
@@ -305,10 +307,11 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
 1. Creare `newconfig.json`.  
    Modifica, quindi immettere i comandi seguenti:
 
-   * Sostituire `livy2-conf` con il componente desiderato.
+   * Sostituire `livy2-conf` con il nuovo componente.
    * Sostituire `INITIAL` con il `tag` valore effettivo recuperato per da [Recupera tutte le configurazioni](#get-all-configurations).
 
-     **A. Bash**  
+     **A. Bash**
+
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
@@ -326,11 +329,11 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
      $resp.Content | C:\HD\jq\jq-win64 --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
      ```
 
-     Jq viene usato per trasformare i dati recuperati da HDInsight in un nuovo modello di configurazione. In particolare, questi esempi eseguono le azioni seguenti:
+     Jq viene usato per trasformare i dati recuperati da HDInsight in un nuovo modello di configurazione. In particolare, questi esempi eseguire le azioni seguenti:Specifically, these examples do the following actions:
 
    * Crea un valore univoco contenente la stringa "version" e la data, che viene archiviato in `newtag`.
 
-   * Crea un documento radice per la nuova configurazione desiderata.
+   * Crea un documento radice per la nuova configurazione.
 
    * Ottiene i contenuti della matrice `.items[]` e li aggiunge sotto l'elemento **desired_config**.
 
@@ -382,11 +385,11 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
     $resp.Content
     ```  
 
-    Questi comandi inviano il contenuto del file **newconfig.json** al cluster come nuova configurazione desiderata. La richiesta restituisce un documento JSON. L'elemento **versionTag** di questo documento deve corrispondere alla versione inviata, mentre l'oggetto **configs** conterrà le modifiche di configurazione richieste.
+    Questi comandi inviano il contenuto del file **newconfig.json** al cluster come nuova configurazione. La richiesta restituisce un documento JSON. L'elemento **versionTag** di questo documento deve corrispondere alla versione inviata, mentre l'oggetto **configs** conterrà le modifiche di configurazione richieste.
 
 ### <a name="restart-a-service-component"></a>Riavviare un componente del servizio
 
-A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Spark indicherà che è necessario il riavvio per rendere effettiva la nuova configurazione. Usare la procedura seguente per riavviare il servizio.
+A questo punto, l'interfaccia utente Web di Ambari indica che il servizio Spark deve essere riavviato prima che la nuova configurazione abbia effetto. Usare la procedura seguente per riavviare il servizio.
 
 1. Utilizzare quanto segue per abilitare la modalità di manutenzione per il servizio Spark2:
 

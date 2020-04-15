@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul Centro sicurezza di Azure per le configurazioni locali degli agenti per C . Documenti Microsoft
+title: Configurazione locale dell'agente di sicurezza (C)Security agent local configuration (C)
 description: Informazioni sul Centro sicurezza di Azure per le configurazioni locali degli agenti per C.Learn about Azure Security Center for agent local configurations for C.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,26 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2725a824da26dafcbc215e4c302ec38ad4b5a699
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68600540"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311699"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Informazioni sul file LocalConfiguration.json - Agente C
 
 Il Security Agent di Azure Security Center per IoT usa le configurazioni di un file di configurazione locale.
 L'agente di sicurezza legge la configurazione una sola volta, all'avvio dell'agente.
 La configurazione trovata nel file di configurazione locale contiene la configurazione di autenticazione e altre configurazioni correlate all'agente.
-Il file contiene le configurazioni in coppie "Chiave-Valore" in notazione JSON e le configurazioni vengono popolate quando viene installato l'agente. 
+Il file contiene le configurazioni in coppie "Chiave-Valore" in notazione JSON e le configurazioni vengono popolate quando viene installato l'agente.
 
 Per impostazione predefinita, il file si trova in: /var/ASCIoTAgent/LocalConfiguration.json
 
-Le modifiche apportate al file di configurazione vengono apportate al riavvio dell'agente. 
+Le modifiche apportate al file di configurazione vengono apportate al riavvio dell'agente.
 
 ## <a name="security-agent-configurations-for-c"></a>Configurazioni degli agent di sicurezza per CSecurity agent configurations for C
-| Nome della configurazione | Valori possibili | Dettagli | 
+
+| Nome della configurazione | Valori possibili | Dettagli |
 |:-----------|:---------------|:--------|
 | AgentId | GUID | Identificatore univoco dell'agente |
 | TriggerdEventsIntervalTriggerdEventsInterval | Stringa ISO8601 | Intervallo dell'utilità di pianificazione per la raccolta di eventi attivati |
@@ -53,6 +54,7 @@ Le modifiche apportate al file di configurazione vengono apportate al riavvio de
 | DiagnosticEventMinimumSeverity (Severitità di DiagnosticaEventMinimum | 0 <numero < | messaggi di log uguali e superiori a questa gravità verranno inviati come eventi di diagnostica (0 è il livello più basso) |
 
 ## <a name="security-agent-configurations-code-example"></a>Esempio di codice di configurazione dell'agente di sicurezza
+
 ```JSON
 {
     "Configuration" : {
@@ -79,6 +81,7 @@ Le modifiche apportate al file di configurazione vengono apportate al riavvio de
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Leggi la [panoramica](overview.md) del Centro sicurezza di Azure per il servizio IoT
 - Altre informazioni sul Centro sicurezza di Azure per l'architettura IoTLearn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Abilitare il Centro sicurezza di Azure per il servizio IoTEnable the Azure Security Center for IoT [service](quickstart-onboard-iot-hub.md)

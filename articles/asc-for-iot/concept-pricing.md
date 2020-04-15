@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul Centro sicurezza di Azure per i costi IoT Documenti Microsoft
+title: Prezzi e costi associati
 description: Informazioni sui costi associati al Centro sicurezza di Azure per l'IoT e su come controllarli.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe117cf8d05ba3392b71858acf94d1fc88c1a527
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71348512"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311573"
 ---
 # <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
 
@@ -34,13 +34,11 @@ Il modello di determinazione dei prezzi del Centro sicurezza di Azure per IoT è
 
 - Costo per messaggio: funzionalità di sicurezza avanzate basate sui messaggi di sicurezza provenienti da dispositivi IoT Edge o leaf.
 
-
 Per ulteriori informazioni, consultate Prezzi del [Centro sicurezza.](https://azure.microsoft.com/pricing/details/security-center/)
 
 ## <a name="associated-costs"></a>Costi associati
 
 Il Centro sicurezza di Azure per l'IoT ha costi associati, che non fanno parte dei prezzi diretti:Azure Security Center for IoT has associated costs, which are not part of the direct pricing:
-
 
 - Costi di archiviazione di Log AnalyticsLog Analytics storage costs
 
@@ -50,9 +48,9 @@ Per modificare le impostazioni:
 
 1. Aprire l'hub IoT.
 
-2. In **Sicurezza**fare clic su **Panoramica**.
+1. In **Sicurezza**fare clic su **Panoramica**.
 
-3. Fare clic su **Impostazioni**.
+1. Fare clic su **Impostazioni**.
 
 Nella tabella seguente viene fornito un riepilogo dei costi associati e delle implicazioni di ciascuna opzione.
 
@@ -64,8 +62,8 @@ Nella tabella seguente viene fornito un riepilogo dei costi associati e delle im
 |
 
 >[!Important]
-> La disattivazione ha gravi implicazioni per il Centro sicurezza di Azure per la disponibilità delle funzionalità di sicurezza IoT.Opting out has severe implications to Azure Security Center for IoT security feature availability. 
-  
+> La disattivazione ha gravi implicazioni per il Centro sicurezza di Azure per la disponibilità delle funzionalità di sicurezza IoT.Opting out has severe implications to Azure Security Center for IoT security feature availability.
+
 | Rifiuto esplicito | Implicazioni |
 | --- | --- |
 | _Raccolta di metadati gemella_ | Disabilitare [gli avvisi personalizzati](quickstart-create-custom-alerts.md) |
@@ -74,7 +72,6 @@ Nella tabella seguente viene fornito un riepilogo dei costi associati e delle im
 | _Archiviare gli eventi di sicurezza dei dispositivi non elaboratiStore raw device security events_ | I dettagli sulle raccomandazioni di base del sistema operativo del dispositivo non sono disponibiliDetails on device OS baseline recommendations are not available |
 | | I dettagli sulle indagini di [allerta](concept-security-alerts.md) e [raccomandazione](concept-recommendations.md) non sono disponibili |
 |
-
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 070b7c5e0fef7d50f84271190432a65d29699bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d59a508d03730a51e793a5e30e2c99a91af77ce8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128631"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380178"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiviare i log e la creazione di report sulla gestione dei diritti di Azure AD in Monitoraggio di AzureArchive logs and reporting on Azure AD entitlement management in Azure Monitor
 
@@ -49,6 +49,38 @@ L'archiviazione dei log di controllo di Azure AD richiede la creazione di Monito
 1. Selezionare **Utilizzo e costi stimati** e fare clic su **Conservazione dati**. Modificare il dispositivo di scorrimento sul numero di giorni in cui si desidera mantenere i dati per soddisfare i requisiti di controllo.
 
     ![Riquadro Aree di lavoro di Log Analytics](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
+
+1. Successivamente, per visualizzare l'intervallo di date conservate nell'area di lavoro, è possibile utilizzare la cartella di lavoro Intervallo di date *log archiviati:*  
+    
+    1. Selezionare **Azure Active Directory,** quindi fare clic su **Cartelle di lavoro**. 
+    
+    1. Espandere la sezione **Risoluzione dei**problemi di Azure Active Directory e fare clic su Intervallo di date **log archiviati**. 
+
+
+## <a name="view-events-for-an-access-package"></a>Visualizzare gli eventi per un pacchetto di accessoView events for an access package  
+
+Per visualizzare gli eventi per un pacchetto di accesso, è necessario avere accesso all'area di lavoro di monitoraggio di Azure sottostante (vedere [Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) per informazioni) e in uno dei ruoli seguenti:To view events for an access package, you must have access to the underlying Azure monitor workspace (see Manage access to log data and workspaces in Azure Monitor for information) and in one of the following roles: 
+
+- Amministratore globale  
+- Amministratore della sicurezza  
+- Ruolo con autorizzazioni di lettura per la sicurezza  
+- Lettore di report  
+- Amministratore di applicazioni  
+
+Utilizzare la procedura seguente per visualizzare gli eventi: 
+
+1. Nel portale di Azure selezionare **Azure Active Directory,** quindi fare clic su **Cartelle di lavoro**. Se si dispone di una sola sottoscrizione, andare al passaggio 3.If you have only one subscription, move on to step 3. 
+
+1. Se si dispone di più sottoscrizioni, selezionare la sottoscrizione che contiene l'area di lavoro.  
+
+1. Selezionare la cartella di lavoro denominata *Access Package Activity*. 
+
+1. Nella cartella di lavoro selezionare un intervallo di tempo (modificare in **Tutti** se non è sicuro) e selezionare un ID pacchetto di accesso dall'elenco a discesa di tutti i pacchetti di accesso che hanno avuto attività durante tale intervallo di tempo. Verranno visualizzati gli eventi correlati al pacchetto di accesso che si è verificato durante l'intervallo di tempo selezionato.  
+
+    ![Visualizzare gli eventi del pacchetto di accessoView access package events](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
+
+    Ogni riga include l'ora, l'ID del pacchetto di accesso, il nome dell'operazione, l'ID oggetto, l'UPN e il nome visualizzato dell'utente che ha avviato l'operazione.  Dettagli aggiuntivi sono inclusi in JSON.   
+
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Creare query personalizzate di Monitoraggio di Azure usando il portale di AzureCreate custom Azure Monitor queries using the Azure portal
 È possibile creare query personalizzate sugli eventi di controllo di Azure AD, inclusi gli eventi di gestione dei diritti.  
@@ -86,6 +118,7 @@ Per altre informazioni sulle colonne archiviate per gli eventi di controllo in M
 Assicurarsi che l'utente o l'entità servizio che eseguirà l'autenticazione in Azure AD si trovi nel ruolo di Azure appropriato nell'area di lavoro di Log Analytics.Sure sure you, the user or service principal that will authenticate to Azure AD, are in the appropriate Azure role in the Log Analytics workspace. The role options are either Log Analytics Reader or the Log Analytics Contributor. Se si è già in uno di questi ruoli, passare a Recuperare log analytics ID con una sottoscrizione di Azure.If you're already in one of those roles, then skip to [Retrieve Log Analytics ID with one Azure subscription](#retrieve-log-analytics-id-with-one-azure-subscription).
 
 Per impostare l'assegnazione di ruolo e creare una query, eseguire la procedura seguente:
+
 1. Nel portale di Azure individuare l'area di [lavoro Log Analytics.](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
 )
 
@@ -117,7 +150,7 @@ $wks = Get-AzOperationalInsightsWorkspace
 
  [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) opera in una sottoscrizione alla volta. Pertanto, se si dispone di più sottoscrizioni di Azure, è consigliabile assicurarsi di connettersi a quella con l'area di lavoro Log Analytics con i log di Azure AD. 
  
- I cmdlet seguenti visualizzano un elenco di sottoscrizioni e individuare l'ID della sottoscrizione con l'area di lavoro di Log Analytics:
+ I cmdlet seguenti visualizzano un elenco di sottoscrizioni e individuano l'ID della sottoscrizione con l'area di lavoro Di Log Analytics:
  
 ```azurepowershell
 Connect-AzAccount
@@ -128,7 +161,7 @@ $subs | ft
 È possibile rieseguire l'autenticazione e associare la `Connect-AzAccount –Subscription $subs[0].id`sessione di PowerShell a tale sottoscrizione utilizzando un comando, ad esempio . Per altre informazioni su come eseguire l'autenticazione in Azure da PowerShell, incluso in modo non interattivo, vedere Accedere con Azure PowerShell.To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell.](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 )
 
-Se nella sottoscrizione sono presenti più aree di lavoro di Log Analytics, il cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) restituisce l'elenco delle aree di lavoro. È quindi possibile trovare quello con i log di Azure AD. Il `CustomerId` campo restituito da questo cmdlet è uguale al valore dell'"ID area di lavoro" visualizzato nel portale di Azure nella panoramica dell'area di lavoro di Log Analytics.The field returned by this cmdlet is the same as the value of the "Workspace id" displayed in the Azure portal in the Log Analytics workspace overview.
+Se nella sottoscrizione sono presenti più aree di lavoro di Log Analytics, il cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) restituisce l'elenco delle aree di lavoro. È quindi possibile trovare quello con i log di Azure AD. Il `CustomerId` campo restituito da questo cmdlet è uguale al valore dell'"ID area di lavoro" visualizzato nel portale di Azure nella panoramica dell'area di lavoro di Log Analytics.The field returned by this cmdlet is the same as the value of the "Workspace Id" displayed in the Azure portal in the Log Analytics workspace overview.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
@@ -150,7 +183,7 @@ $aResponse.Results |ft
 È inoltre possibile recuperare gli eventi di gestione dei diritti usando una query come:You can also retrieve entitlement management events using a query like:
 
 ```azurepowershell
-$bQuery = = 'AuditLogs | where Category == "EntitlementManagement"'
+$bQuery = 'AuditLogs | where Category == "EntitlementManagement"'
 $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -Query $Query
 $bResponse.Results |ft 
 ```

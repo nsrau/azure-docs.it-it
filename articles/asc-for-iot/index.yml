@@ -2,7 +2,7 @@
 title: Documentazione del Centro sicurezza di Azure per IoT
 summary: Il Centro sicurezza di Azure per IoT è un servizio di sicurezza cloud basato su Azure che offre protezione completa dalle minacce per i dispositivi IoT.
 metadata:
-  title: Documentazione del Centro sicurezza di Azure per IoT
+  title: Documentazione
   description: Informazioni sul Centro sicurezza di Azure per IoT, un servizio di sicurezza cloud basato su Azure che offre protezione completa dalle minacce per i dispositivi IoT.
   services: service
   ms.service: asc-for-iot
@@ -11,12 +11,12 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/23/2019
-  ms.openlocfilehash: 251cb6efab940993c6242bc921855d9a4a98819f
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: f5b399ad604918f7644b90e7b5f852bb27c46be0
+  ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74554149"
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81310977"
 landingContent:
 - title: Informazioni sul Centro sicurezza di Azure per IoT
   linkLists:

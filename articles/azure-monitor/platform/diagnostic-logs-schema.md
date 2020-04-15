@@ -4,12 +4,12 @@ description: Comprendere i servizi supportati e lo schema di eventi per i log de
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8abd8767d9bb7e3c4336f6600b94f6b3f4ea48f1
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248814"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380511"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servizi, schemi e categorie supportati per i log delle risorse di AzureSupported services, schemas, and categories for Azure Resource Logs
 
@@ -29,17 +29,17 @@ Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`)
 | TenantId | Obbligatorio per i log di tenant | L'ID tenant del tenant di Active Directory associato a questo evento. Questa proprietà viene utilizzata solo per i log a livello di tenant, non viene visualizzata nei log a livello di risorsa. |
 | operationName | Obbligatoria | Il nome dell'operazione rappresentata da questo evento. Se l'evento rappresenta un'operazione RBAC, si tratta del nome di operazione RBAC (ad es. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Tipicamente modellate sotto forma di operazione di Resource Manager, anche se non sono effettivamente operazioni documentate di Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Facoltativo | La versione api associata all'operazione, se operationName è stato eseguito utilizzando un'API (ad es. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se non esiste un'API corrispondente a questa operazione, la versione rappresenta la versione di tale operazione nel caso in cui le proprietà associate all'operazione cambino in futuro. |
-| category | Obbligatoria | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Tipiche categorie di log sono "Controllo" "Operativo" "Esecuzione" e "Richiesta". |
+| category | Obbligatoria | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Le categorie di log tipiche sono "Audit" "Operational" "Execution" e "Request". |
 | resultType | Facoltativo | Lo stato dell'evento. I valori tipici includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
 | resultSignature | Facoltativo | Lo stato secondario dell'evento. Se questa operazione corrisponde a una chiamata API REST, questo è il codice di stato HTTP della chiamata REST corrispondente. |
-| resultDescription | Facoltativo | Il testo statico che descrive questa operazione, ad es. "Recupera file di archiviazione". |
+| resultDescription | Facoltativo | Il testo statico che descrive questa operazione, ad es. "Ottieni file di archiviazione." |
 | durationMs | Facoltativo | La durata dell'operazione in millisecondi. |
 | callerIpAddress | Facoltativo | L'indirizzo IP del chiamante, se l'operazione corrisponde a una chiamata API proveniente da un'entità con un indirizzo IP accessibile al pubblico. |
 | correlationId | Facoltativo | Un GUID utilizzato per raggruppare un set di eventi correlati. In genere, se due eventi hanno lo stesso operationName ma due diversi stati (ad es. "Started" e "Succeeded"), condividono lo stesso ID di correlazione. Ciò può anche rappresentare altre relazioni tra gli eventi. |
 | identity | Facoltativo | Un blob JSON che descrive l'identità dell'utente o dell'applicazione che ha eseguito l'operazione. In genere includerà l'autorizzazione e le attestazioni / token JWT da Active Directory. |
 | Level | Facoltativo | Il livello di gravità dell'evento. Deve essere di tipo Informativo, Avviso, Errore o Critico. |
-| posizione | Facoltativo | L'area della risorsa che emette l'evento, ad es. "Stati Uniti orientali" o "Francia meridionale" |
-| properties | Facoltativo | Eventuali proprietà estese relative a questa particolare categoria di eventi. Tutte le proprietà personali/uniche devono essere inserite all'interno di questa "Parte B" dello schema. |
+| posizione | Facoltativo | L'area della risorsa che emette l'evento, ad es. "Stati Uniti orientali" o "Francia sud" |
+| properties | Facoltativo | Eventuali proprietà estese relative a questa particolare categoria di eventi. Tutte le proprietà personalizzate/univoche devono essere inserite in questa "Parte B" dello schema. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>Schemi specifici del servizio per i log delle risorseService-specific schemas for resource logs
 Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e della categoria di log. Questo elenco mostra tutti i servizi che rendono disponibili i log delle risorse e i collegamenti allo schema specifico del servizio e della categoria, se disponibili.
@@ -54,7 +54,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 | Azure Batch |[Registrazione batch di AzureAzure Batch logging](../../batch/batch-diagnostics.md) |
 | Database di Azure per MySQL | [Log di diagnostica di database di Azure per MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Database di Azure per PostgreSQL | [Database di Azure per i log PostgreSQLAzure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Esplora dati di Azure | [Log di Azure Data ExplorerAzure Data Explorer logs](../../data-explorer/using-diagnostic-logs.md) |
+| Esplora dati di Azure | [Log di Azure Data ExplorerAzure Data Explorer logs](/azure/data-explorer/using-diagnostic-logs) |
 | Servizi cognitivi | [Registrazione per servizi cognitivi di AzureLogging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Registro Container | [Registrazione per il Registro di sistema del contenitore di AzureLogging for Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Rete per la distribuzione di contenuti (CDN) | [Azure Logs for CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -66,7 +66,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 | Express Route | Lo schema non è disponibile. |
 | Firewall di Azure | Lo schema non è disponibile. |
 | Hub IoT | [Operazioni dell'hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-logging.md) |
+| Key Vault |[Registrazione dell'insieme di credenziali delle chiavi di AzureAzure Key Vault Logging](../../key-vault/key-vault-logging.md) |
 | Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Analisi dei log per il servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |

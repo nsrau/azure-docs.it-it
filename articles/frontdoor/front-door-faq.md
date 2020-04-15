@@ -3,20 +3,20 @@ title: Porta frontale di Azure - Domande frequenti
 description: In questa pagina vengono fornite le risposte alle domande frequenti su Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: sohamnchatterjee
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 0fe5d245d629c731a47ca5441afd2a3388a22de4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/13/2020
+ms.author: sohamnc
+ms.openlocfilehash: e2785baab27f5bfc996b57607816062195a19b2b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878018"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313763"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per la porta anteriore di Azure
 
@@ -159,7 +159,11 @@ Per l'opzione Certificato gestito Porta anteriore, i certificati vengono ruotati
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Quali sono le suite di crittografia correnti supportate da Azure Front Door?
 
-Di seguito sono riportati i gruppi di crittografia correnti supportati da Azure Front Door:
+Per TLS1.2 sono supportati i seguenti pacchetti di crittografia
+
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+
+Quando si utilizzano domini personalizzati con TLS1.0/1.1 abilitato, sono supportati i seguenti pacchetti di crittografia:
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 085933f9a74ee37779ce63ce499d89ea53a9f7d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198940"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381404"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight
 
@@ -33,7 +33,7 @@ I nodi in un cluster HDInsight vengono implementati con macchine virtuali di Azu
 
 Per garantire un'alta disponibilità dei servizi Hadoop, HDInsight fornisce due nodi head. Entrambi i nodi head sono contemporaneamente attivi e in esecuzione all'interno del cluster HDInsight. Alcuni servizi, ad esempio Apache HDFS o Apache Hadoop YARN, sono "attivi" in qualsiasi momento soltanto in un nodo head. Altri servizi come HiveServer2 o Hive Metastore sono attivi su entrambi i nodi head allo tesso tempo.
 
-Per ottenere i nomi host per diversi tipi di nodo nel cluster, utilizzare [l'API REST di Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+Per ottenere i nomi host per diversi tipi di nodo nel cluster, utilizzare [l'API REST di Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Non associare il valore numerico con il fatto che un nodo sia primario o secondario. Il valore numerico serve solo per specificare un nome univoco per ogni nodo.

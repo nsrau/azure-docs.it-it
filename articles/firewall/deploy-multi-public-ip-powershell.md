@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: ad54b60d8f15e36636f887015d97967740123669
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21f645e64c9944ed102f538710ea6facc26c7e83
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74195873"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314039"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Distribuire un Firewall di Azure con più indirizzi IP pubblici usando Azure PowerShell
 
@@ -102,4 +102,4 @@ $azFw | Set-AzFirewall
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
+* [Guida introduttiva: Creare un firewall di Azure con più indirizzi IP pubblici - modello Resource Manager](quick-create-multiple-ip-template.md)

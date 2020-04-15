@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 1b807908c9fb54ecf15de6d44a04760659196a31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb1af86e04c0b4ba0b59398161fa111fd8065042
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75980980"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310059"
 ---
 # <a name="diagnostic-logs-for-azure-web-application-firewall"></a>Log di diagnostica per Il firewall delle applicazioni Web di AzureDiagnostic logs for Azure Web Application Firewall
 
@@ -101,7 +101,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 |receivedBytes     | Dimensione del pacchetto ricevuto, espressa in byte.        |
 |sentBytes| Dimensione del pacchetto inviato, espressa in byte.|
 |timeTaken| Periodo di tempo in millisecondi impiegato per l'elaborazione di una richiesta e l'invio della risposta. Questo valore corrisponde all'intervallo di tempo intercorso dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al termine dell'operazione di invio della risposta. È importante notare che il campo Tempo impiegato include in genere il tempo della trasmissione in rete dei pacchetti di richiesta e risposta. |
-|sslEnabled| Indica se la comunicazione con i pool back-end ha usato SSL. I valori validi sono on e off.|
+|sslEnabled| Se la comunicazione con i pool back-end utilizzava TLS/SSL. I valori validi sono on e off.|
 |host| Nome host con cui la richiesta è stata inviata al server back-end. Se viene eseguito l'override del nome host back-end, questo nome lo rifletterà.|
 |originalHost| Nome host con cui la richiesta è stata ricevuta dal gateway applicazione dal client.|
 ```json
@@ -144,9 +144,9 @@ Per il gateway applicazione e WAF v2, i registri mostrano ulteriori informazioni
 |receivedBytes     | Dimensione del pacchetto ricevuto, espressa in byte.        |
 |sentBytes| Dimensione del pacchetto inviato, espressa in byte.|
 |timeTaken| Periodo di tempo in millisecondi impiegato per l'elaborazione di una richiesta e l'invio della risposta. Questo valore corrisponde all'intervallo di tempo intercorso dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al termine dell'operazione di invio della risposta. È importante notare che il campo Tempo impiegato include in genere il tempo della trasmissione in rete dei pacchetti di richiesta e risposta. |
-|sslEnabled| Indica se la comunicazione con i pool back-end ha usato SSL. I valori validi sono on e off.|
-|sslCipher| Suite di crittografia utilizzata per la comunicazione SSL (se SSL è abilitato).|
-|sslProtocol| Protocollo SSL in uso (se SSL è abilitato).|
+|sslEnabled| Se la comunicazione con i pool back-end ha utilizzato TLS. I valori validi sono on e off.|
+|sslCipher| Suite di crittografia utilizzata per la comunicazione TLS (se TLS è abilitato).|
+|sslProtocol| Protocollo TLS in uso (se TLS è abilitato).|
 |serverRouted (in modo inquestoendo)| Il server back-end a cui il gateway applicazione instrada la richiesta.|
 |serverStatus| Codice di stato HTTP del server back-end.|
 |serverResponseLatency (Latenzaserver)| Latenza della risposta dal server back-end.|

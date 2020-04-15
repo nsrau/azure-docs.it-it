@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 9d32b66b7e3ab27012ee671ba8d70735dce73884
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: f09f5010c18f5ea064b02f0fbbae107bf473e1f8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274276"
+ms.locfileid: "81313675"
 ---
 # <a name="how-to-manually-fix-servicenow-sync-problems"></a>Come risolvere manualmente i problemi di sincronizzazione di ServiceNow
 
-Monitoraggio di Azure può connettersi a provider di gestione dei servizi IT (ITSM) di terze parti. ServiceNow è uno di questi provider. 
+Monitoraggio di Azure può connettersi a provider di gestione dei servizi IT (ITSM) di terze parti. ServiceNow è uno di questi provider.
 
 For security reasons, you may need to refresh the authentication token used for your connection with ServiceNow.
-Utilizzare il processo di sincronizzazione seguente per riattivare la connessione e aggiornare il token: 
+Utilizzare il processo di sincronizzazione seguente per riattivare la connessione e aggiornare il token:
 
 
 1. Cerca la soluzione nel banner di ricerca in alto, quindi seleziona le soluzioni pertinenti

@@ -1,5 +1,5 @@
 ---
-title: Configurare la terminazione SSL con i certificati dell'insieme di credenziali delle chiavi - PowerShellConfigure SSL termination with Key Vault certificates - PowerShell
+title: Configurare la terminazione TLS con i certificati dell'insieme di credenziali delle chiavi - PowerShellConfigure TLS termination with Key Vault certificates - PowerShell
 titleSuffix: Azure Application Gateway
 description: Informazioni su come integrare il gateway applicazione di Azure con l'insieme delle chiavi per i certificati server collegati ai listener abilitati per HTTPS.
 services: application-gateway
@@ -8,20 +8,20 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 15e10d34120ab5475f241235bbebeb0c7689ca14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1979f759f5a1b037adfd7b67a7be50cbba0f596f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371218"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312206"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurare la terminazione SSL con i certificati dell'insieme di chiavi tramite Azure PowerShellConfigure SSL termination with Key Vault certificates by using Azure PowerShell
+# <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurare la terminazione TLS con i certificati dell'insieme di chiavi tramite Azure PowerShellConfigure TLS termination with Key Vault certificates by using Azure PowerShell
 
-[L'insieme](../key-vault/key-vault-overview.md) di credenziali delle chiavi di Azure è un archivio segreto gestito dalla piattaforma che è possibile usare per proteggere segreti, chiavi e certificati SSL. Il gateway applicazione di Azure supporta l'integrazione con Key Vault per i certificati server collegati a listener abilitati per HTTPS. Questo supporto è limitato allo SKU del gateway applicazione v2.
+[L'insieme](../key-vault/key-vault-overview.md) di credenziali delle chiavi di Azure è un archivio segreto gestito dalla piattaforma che è possibile usare per proteggere segreti, chiavi e certificati TLS/SSL. Il gateway applicazione di Azure supporta l'integrazione con Key Vault per i certificati server collegati a listener abilitati per HTTPS. Questo supporto è limitato allo SKU del gateway applicazione v2.
 
-Per ulteriori informazioni, vedere [Terminazione SSL con i certificati dell'insieme](key-vault-certs.md)di credenziali delle chiavi .
+Per ulteriori informazioni, vedere [Terminazione TLS con certificati dell'insieme](key-vault-certs.md)di credenziali delle chiavi .
 
-Questo articolo illustra come usare uno script di Azure PowerShell per integrare l'insieme di credenziali delle chiavi con il gateway applicazione per i certificati di terminazione SSL.
+Questo articolo illustra come usare uno script di Azure PowerShell per integrare l'insieme di credenziali delle chiavi con il gateway applicazione per i certificati di terminazione TLS/SSL.
 
 Questo articolo richiede la versione 1.0.0 o successiva del modulo di Azure PowerShell.This article requires Azure PowerShell module version 1.0.0 or later. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questo articolo, è inoltre `Connect-AzAccount`necessario creare una connessione con Azure eseguendo .
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> Il flag -EnableSoftDelete deve essere utilizzato per il corretto funzionamento della terminazione SSL. Se si sta configurando l'eliminazione temporanea dell'insieme di credenziali delle chiavi [tramite il portale](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior), il periodo di conservazione deve essere mantenuto a 90 giorni, il valore predefinito. Il gateway applicazione non supporta ancora un periodo di conservazione diverso. 
+> Il flag -EnableSoftDelete deve essere utilizzato per il corretto funzionamento della terminazione TLS. Se si sta configurando l'eliminazione temporanea dell'insieme di credenziali delle chiavi [tramite il portale](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior), il periodo di conservazione deve essere mantenuto a 90 giorni, il valore predefinito. Il gateway applicazione non supporta ancora un periodo di conservazione diverso. 
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
@@ -102,7 +102,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Puntare il certificato SSL all'insieme di credenziali delle chiavi
+### <a name="point-the-tlsssl-certificate-to-your-key-vault"></a>Puntare il certificato TLS/SSL all'insieme di credenziali delle chiavi
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -144,4 +144,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Ulteriori informazioni sulla terminazione SSL](ssl-overview.md)
+[Ulteriori informazioni sulla terminazione TLS](ssl-overview.md)
