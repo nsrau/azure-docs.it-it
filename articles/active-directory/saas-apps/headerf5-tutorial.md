@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad6b7150a43a286a4bec39a0482e08f50d95c06
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 352f52a2a6d84d352bb46e09f104efde303307f5
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77048073"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478059"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
 
@@ -132,8 +132,8 @@ Configurare e testare l'accesso SSO di Azure AD con F5 usando un utente di test 
 Per configurare e testare l'accesso SSO di Azure AD con F5, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di F5](#configure-f5-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di F5](#create-f5-test-user)** : per avere una controparte di B.Simon in F5 collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -281,7 +281,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="advanced-configuration"></a>Configurazione avanzata
 
-Usare questa sezione se non è possibile usare la configurazione guidata oppure se si intende aggiungere/modificare parametri aggiuntivi. Sarà necessario specificare un certificato SSL per il nome host dell'applicazione.
+Usare questa sezione se non è possibile usare la configurazione guidata oppure se si intende aggiungere/modificare parametri aggiuntivi. Sarà necessario specificare un certificato TLS/SSL per il nome host dell'applicazione.
 
 1. Passare a **System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (Sistema > Gestione certificati > Traffico gestione certificati > Elenco certificati SSL). Nell'angolo a destra selezionare **Import** (Importa). L'opzione **Import Type** (Tipo di importazione) sarà impostata su **PKCS 12(IIS)** . Specificare un valore in **Key Name** (Nome chiave ), a cui verrà fatto riferimento più avanti nella configurazione, quindi specificare il file PFX. Specificare la **password** per il file PFX. Fare clic su **Importa**.
 
@@ -298,7 +298,7 @@ Usare questa sezione se non è possibile usare la configurazione guidata oppure 
  
     ![Configurazione di F5 (Header Based)](./media/headerf5-tutorial/configure18.png)
 
-1. In questo caso l'app HeaderApp2 verrà pubblicata esternamente come HTTPS. In **How should the BIG-IP system handle SSL Traffic?** (In che modo il sistema BIG-IP gestirà il traffico SSL?) specificare **Terminate SSL from Client, Plaintext to servers (SSL Offload)** (Termina SSL da client, testo non crittografato in server (offload SSL)). Specificare il certificato e la chiave in Which SSL certificate do you want to use? (Quale certificato SSL si vuole usare) e in **Which SSL private key do you want to use?** (Quale chiave privata SSL si vuole usare?). Specificare l'indirizzo IP del server virtuale in **What IP Address do you want to use for the Virtual Server?** (Quale indirizzo IP si vuole usare per il server virtuale?). 
+1. In questo caso l'app HeaderApp2 verrà pubblicata esternamente come HTTPS. In **How should the BIG-IP system handle SSL Traffic?** (In che modo il sistema BIG-IP gestirà il traffico SSL?) specificare **Terminate SSL from Client, Plaintext to servers (SSL Offload)** (Termina SSL da client, testo non crittografato in server (offload SSL)). Specificare il certificato e la chiave in **Which SSL certificate do you want to use?** (Quale certificato SSL si vuole usare) e in **Which SSL private key do you want to use?** (Quale chiave privata SSL si vuole usare?). Specificare l'indirizzo IP del server virtuale in **What IP Address do you want to use for the Virtual Server?** (Quale indirizzo IP si vuole usare per il server virtuale?). 
 
     * **Specificare altri dettagli**
 

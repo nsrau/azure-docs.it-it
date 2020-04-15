@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f1c884edf6841b65495cd31ed4c7d6e63aedd9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 07ea6824975d0cb3f4b909db41188c490bbba6d2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977921"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477950"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Esercitazione: Integrazione dell'accesso Single Sign-On di Azure Active Directory con Citrix NetScaler (autenticazione basata su intestazione)
 
@@ -82,7 +82,7 @@ Per configurare e testare l'accesso SSO di Azure AD con Citrix NetScaler, comple
 
 1. [Configurare l'accesso Single Sign-On di Citrix NetScaler](#configure-citrix-netscaler-sso): per configurare le impostazioni di Single Sign-On sul lato applicazione.
 
-    * [Creare un utente di test di Citrix NetScaler](#create-a-citrix-netscaler-test-user): per avere una controparte di B.Simon in Citrix NetScaler collegata alla rappresentazione dell'utente in Azure AD.
+    * [Creare l'utente di test di Citrix NetScaler](#create-a-citrix-netscaler-test-user): per avere una controparte di B.Simon in Citrix NetScaler collegata alla rappresentazione dell'utente in Azure AD.
 
 1. [Testare l'accesso Single Sign-On](#test-sso): per verificare se la configurazione funziona.
 
@@ -109,7 +109,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD usando il portale di Azure, c
     * Nella casella di testo **URL di accesso** immettere un URL nel formato seguente: `https://<Your FQDN>/CitrixAuthService/AuthService.asmx`.
 
     > [!NOTE]
-    > * Gli URL usati in questa sezione non sono valori reali. Aggiornarli con i valori effettivi di identificatore, URL di risposta e URL di accesso. Per ottenere questi valori, contattare il [team del supporto clienti di Citrix NetScaler](https://www.citrix.com/contact/technical-support.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > * Gli URL usati in questa sezione non sono valori reali. Aggiornarli con i valori effettivi di identificatore, URL di risposta e URL di accesso. Per ottenere questi valori, contattare il [team di supporto clienti di Citrix NetScaler](https://www.citrix.com/contact/technical-support.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
     > * Per configurare l'accesso SSO, gli URL devono essere accessibili da siti Web pubblici. È necessario abilitare il firewall o altre impostazioni di sicurezza sul lato Citrix NetScaler per consentire ad Azure AD di pubblicare il token all'URL configurato.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare l'**URL dei metadati di federazione dell'app**, quindi copiarlo e salvarlo nel Blocco note.
@@ -244,7 +244,7 @@ Per associare il servizio di bilanciamento del carico al server virtuale:
 
 ### <a name="bind-the-certificate"></a>Associare il certificato
 
-Per pubblicare questo servizio come SSL, associare il certificato del server e quindi testare l'applicazione:
+Per pubblicare questo servizio come TLS, associare il certificato del server e quindi testare l'applicazione:
 
 1. In **Certificate** (Certificato) selezionare **No Server Certificate** (Nessun certificato server).
 
@@ -431,7 +431,7 @@ Per associare un criterio di riscrittura a un server virtuale usando l'interfacc
 
     ![Configurazione di Citrix NetScaler - Headers Collection visualizzata tramite URL](./media/header-citrix-netscaler-tutorial/header11.png)
 
-### <a name="create-a-citrix-netscaler-test-user"></a>Creare un utente di test di Citrix NetScaler
+### <a name="create-a-citrix-netscaler-test-user"></a>Creare l'utente di test di Citrix NetScaler
 
 In questa sezione viene creato un utente di nome B.Simon in Citrix NetScaler. Citrix NetScaler supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. In questa sezione non è necessario alcun intervento da parte dell'utente. Se non esiste già un utente in Citrix NetScaler, ne viene creato uno nuovo dopo l'autenticazione.
 

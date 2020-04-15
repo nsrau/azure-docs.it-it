@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456fc2a736b3213a14e5704f89a808c120c45b33
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1848610250e696807acef118384f43d2a51442ca
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158671"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984487"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Esercitazione: Integrare Bynder con Azure Active Directory
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-bynder-from-the-gallery"></a>Aggiunta di Bynder dalla raccolta
 
-Per configurare l'integrazione di Bynder in Azure AD, è necessario aggiungere Bynder dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Bynder in Azure AD, è necessario aggiungere Bynder dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -84,13 +84,25 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<company name>.getbynder.com`
+    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
+    
+    Per un dominio predefinito: `https://<company name>.getbynder.com`
+    
+    Per un dominio personalizzato: `https;//<subdomain>.<domain>.com`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
+    
+     Per un dominio predefinito: `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    
+    Per un dominio personalizzato: `https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
 
 1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<company name>.getbynder.com/login/`
+    Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
+    
+     Per un dominio predefinito: `https://<company name>.getbynder.com/login/`
+    
+     Per un dominio personalizzato: ` https://<subdomain>.<domain>.com/login/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Bynder](https://www.bynder.com/en/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -140,7 +152,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bynder.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni, selezionare **Bynder**.
+1. Nell'elenco delle applicazioni selezionare **Bynder**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -164,7 +176,7 @@ In questa sezione viene creato un utente di nome Britta Simon in Bynder. Bynder 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Bynder nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Bynder per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Bynder nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Bynder per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
