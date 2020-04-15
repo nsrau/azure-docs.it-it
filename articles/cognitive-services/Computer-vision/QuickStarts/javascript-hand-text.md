@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8c3f5dae62aef6c8e8ec1eeaeb712ebff67397c9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cca5680d307874a565dec47f643bf9320192c270
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77566183"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656094"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-javascript"></a>Guida introduttiva: Estrarre testo stampato e scritto a mano usando l'API REST Visione artificiale 2.0 e 2.1 e JavaScript
 
@@ -45,7 +45,7 @@ Rispetto a Visione artificiale 2.0 e 2.1, l'anteprima pubblica di Visione artifi
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
-È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
+È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Salvare la chiave di sottoscrizione e l'URL dell'endpoint in una posizione temporanea.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
@@ -53,12 +53,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per creare ed eseguire l'esempio, seguire questa procedura:
 
-1. Copiare il codice seguente in un editor di testo.
+1. Creare un file denominato _get-text.html_, aprirlo in un editor di testo e copiarvi il codice riportato di seguito.
 1. Facoltativamente, sostituire il valore dell'attributo `value` relativo al controllo `inputImage` con l'URL di un'altra immagine da cui si vuole estrarre il testo.
-1. Salvare il codice in un file con estensione `.html`. Ad esempio: `get-text.html`.
 1. Aprire una finestra del browser.
 1. Trascinare e rilasciare il file nella finestra del browser.
-1. Quando nel browser viene visualizzata la pagina Web, scegliere il pulsante **Read image** (Leggi immagine).
+1. Quando la pagina Web viene visualizzata nel browser, incollare la chiave di sottoscrizione e l'URL dell'endpoint nelle caselle di input appropriate.
+1. Selezionare il pulsante **Read image** (Leggi immagine).
 
 ```html
 <!DOCTYPE html>
@@ -75,9 +75,8 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
         // *** Update or verify the following values. ***
         // **********************************************
 
-        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
-        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
-        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        var subscriptionKey = document.getElementById("subscriptionKey").value;
+        var endpoint = document.getElementById("endpointUrl").value;
         
         var uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
 
@@ -170,6 +169,13 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 <h1>Read text from image:</h1>
 Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
+<br><br>
+Subscription key: 
+<input type="text" name="subscriptionKey" id="subscriptionKey"
+    value="" /> 
+Endpoint URL:
+<input type="text" name="endpointUrl" id="endpointUrl"
+    value="" />
 <br><br>
 Image to read:
 <input type="text" name="inputImage" id="inputImage"

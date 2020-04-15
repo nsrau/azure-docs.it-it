@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 1/16/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: 5707a99b329915b35131fe793b0dfabd02348677
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4159bf27c39087926d982552c49c606f3484de77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77912529"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885906"
 ---
 # <a name="tutorial-integrated-devops-for-iaas-and-paas-on-azure"></a>Esercitazione: DevOps integrato per IaaS e PaaS in Azure
 
@@ -37,52 +37,79 @@ Indipendentemente dalle risorse usate dall'app (macchine virtuali, app Web, Kube
  
  
 ## <a name="iaas---configure-cicd"></a>IaaS - Configurare CI/CD 
-Azure Pipelines offre un set completo di strumenti di automazione CI/CD per le distribuzioni in macchine virtuali. È possibile configurare una pipeline di recapito continuo per una macchina virtuale di Azure direttamente dal portale di Azure. Questo documento contiene i passaggi associati alla configurazione di una pipeline CI/CD per eseguire distribuzioni in più macchine virtuali tramite il portale di Azure. Configurare CI/CD su macchine virtuali.
+Azure Pipelines offre un set completo di strumenti di automazione CI/CD per le distribuzioni in macchine virtuali. È possibile configurare una pipeline di recapito continuo per una macchina virtuale di Azure direttamente dal portale di Azure. Questo documento contiene i passaggi associati alla configurazione di una pipeline CI/CD per eseguire distribuzioni in più macchine virtuali tramite il portale di Azure. 
 
-Le macchine virtuali possono essere aggiunte come destinazioni a un [gruppo di distribuzione](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) e possono essere destinate ad aggiornamenti in sequenza in più computer. Le visualizzazioni della cronologia delle distribuzioni all'interno dei gruppi di distribuzione forniscono la tracciabilità dalla macchina virtuale alla pipeline e quindi al commit. 
+
+**Configurare CI/CD su macchine virtuali**
+
+Le macchine virtuali possono essere aggiunte come destinazioni in un [gruppo di distribuzione](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) ed essere specificate come destinazione per un'operazione di aggiornamento di più computer. In base ai requisiti, è possibile scegliere una qualsiasi delle strategie di distribuzione predefinite, _Rolling_ (In sequenza), _Canary_ o _Blue-Green_ (Blu-verde), oppure personalizzarle ulteriormente. Dopo la distribuzione, le visualizzazioni della cronologia di distribuzione all'interno dei gruppi di distribuzione offrono la tracciabilità dalla VM alla pipeline e quindi al commit. 
  
-**Aggiornamenti in sequenza**: una distribuzione in sequenza sostituisce le istanze della versione precedente di un'applicazione con le istanze della nuova versione dell'applicazione in un set fisso di macchine virtuali (set in sequenza) in ogni iterazione. Di seguito viene illustrato in dettaglio come configurare un aggiornamento in sequenza su macchine virtuali.  
+**Distribuzioni in sequenza**: una distribuzione in sequenza sostituisce le istanze della versione precedente di un'applicazione con le istanze della nuova versione dell'applicazione in un set fisso di macchine virtuali (set in sequenza) in ogni iterazione. Di seguito viene illustrato in dettaglio come configurare un aggiornamento in sequenza su macchine virtuali.  
 È possibile configurare gli aggiornamenti in sequenza nelle proprie "**macchine virtuali**" all'interno del portale di Azure usando l'opzione di recapito continuo. 
 
 Ecco la procedura dettagliata. 
 1. Accedere al portale di Azure e passare a una macchina virtuale. 
 2. Nel riquadro sinistro della VM passare al menu  **Recapito continuo** , quindi fare clic su  **Configura**. 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azdevops-configure.png) 
-3. Nel pannello di configurazione fare clic su "Organizzazione di Azure DevOps" per selezionare un account esistente o crearne uno. Selezionare quindi il progetto in cui si vuole configurare la pipeline.  
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azdevops-project.png) 
-4. Un gruppo di distribuzione è un set logico di computer di destinazione della distribuzione che rappresentano gli ambienti fisici, ad esempio "Dev", "Test", "UAT" e "Production". È possibile creare un nuovo gruppo di distribuzione o selezionarne uno esistente. Facoltativamente, è possibile contrassegnare il computer con il tag del ruolo, ad esempio "Web", "DB" e così via.  
-5. Fare clic su **OK** nella finestra di dialogo per configurare la pipeline di recapito continuo. 
-6. Al termine, si avrà una pipeline di recapito continuo configurata per la distribuzione nella macchina virtuale.  
-   ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-pipeline.png)
-7. Si noterà che la distribuzione nella macchina virtuale è in corso. È possibile fare clic sul collegamento per passare alla pipeline. Fare clic su **Versione-1** per visualizzare la distribuzione. In alternativa, è possibile fare clic su **Modifica** per modificare la definizione della pipeline di versione. 
-8. Se occorre configurare più VM, ripetere i passaggi da 2 a 5 per le altre VM da aggiungere al gruppo di distribuzione. 
-9. Al termine, fare clic sulla definizione della pipeline, passare all'organizzazione di Azure DevOps e fare clic su **Modifica** per modificare la pipeline di versione. 
-   ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-edit-pipeline.png)
-10. Fare clic sul collegamento **1 processo, 1 attività** nella fase **sviluppo**. Fare clic sulla fase **Distribuzione**.  
-   ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azdevops-deployment-group.png)
-11. Come si può vedere nel riquadro di configurazione, per impostazione predefinita la pipeline è configurata in modo da eseguire un aggiornamento in sequenza in tutte le destinazioni in parallelo. È possibile configurare le distribuzioni in modo che vengano eseguite una alla volta o in termini di percentuale usando il dispositivo di scorrimento.  
-  
-  
-**Canary** riduce il rischio con una lenta implementazione delle modifiche a un sottoinsieme limitato di utenti. Man mano che si acquisisce maggiore familiarità con la nuova versione, è possibile iniziare a rilasciarla a più server dell'infrastruttura e indirizzarvi più utenti. È possibile configurare le distribuzioni canary nelle proprie "**macchine virtuali**" con il portale di Azure usando l'opzione di recapito continuo. Ecco la procedura dettagliata. 
-1. Accedere al portale di Azure e passare a una macchina virtuale 
-2. Seguire i passaggi da 2 a 5 descritti nella sezione precedente per aggiungere più macchine virtuali al gruppo di distribuzione. 
-3. Aggiungere un tag personalizzato alle VM che devono far parte delle distribuzioni canary, ad esempio "canary".
-4. Una volta configurata la pipeline per le VM, fare clic sulla pipeline, avviare l'organizzazione di Azure DevOps, selezionare **Modifica** per modificare la pipeline e passare alla fase di **sviluppo**. Aggiungere un tag al filtro "canary". 
-5. Aggiungere un'altra fase del gruppo di distribuzione e configurarla con i tag per fare riferimento alle macchine virtuali rimanenti nel gruppo di distribuzione.  
-6. Si può anche configurare un passaggio di convalida manuale che accetti o rifiuti le distribuzioni canary. 
-   ![AzDevOps_Canary](media/tutorial-devops-azure-pipelines-classic/azdevops-canary-deploy.png)
 
-Il tipo **blu-verde** riduce il tempo di inattività della distribuzione con ambienti di standby identici. Uno degli ambienti è attivo in qualsiasi momento. Mentre si prepara una nuova versione, si esegue la fase finale di test nell'ambiente verde. Una volta che il software è in esecuzione nell'ambiente verde, commutare il traffico in modo che tutte le richieste in ingresso vengano indirizzate all'ambiente verde. L'ambiente blu è ora inattivo.
+   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
+3. Nel pannello di configurazione fare clic su "Organizzazione di Azure DevOps" per selezionare un account esistente o crearne uno. Selezionare quindi il progetto in cui si vuole configurare la pipeline.  
+
+
+   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
+4. Un gruppo di distribuzione è un set logico di computer di destinazione della distribuzione che rappresentano gli ambienti fisici, ad esempio "Dev", "Test", "UAT" e "Production". È possibile creare un nuovo gruppo di distribuzione o selezionarne uno esistente. 
+5. Selezionare la pipeline di compilazione che pubblica il pacchetto da distribuire nella macchina virtuale. Si noti che il pacchetto pubblicato deve includere uno script di distribuzione _deploy.ps1_ o _deploy.sh_ nella cartella _deployscripts_ nella radice del pacchetto. Questo script di distribuzione verrà eseguito dalla pipeline Azure DevOps in fase di esecuzione.
+6. Selezionare la strategia di distribuzione desiderata. In questo caso selezionare "Rolling" (In sequenza).
+7. Facoltativamente, è possibile assegnare al computer un tag relativo al ruolo, ad esempio "Web", "DB" e così via. Ciò consentirà di specificare come destinazione solo le VM con un determinato ruolo.
+8. Fare clic su **OK** nella finestra di dialogo per configurare la pipeline di recapito continuo. 
+9. Al termine, si avrà una pipeline di recapito continuo configurata per la distribuzione nella macchina virtuale.  
+
+
+   ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
+10. Si noterà che la distribuzione nella macchina virtuale è in corso. È possibile fare clic sul collegamento per passare alla pipeline. Fare clic su **Versione-1** per visualizzare la distribuzione. In alternativa, è possibile fare clic su **Modifica** per modificare la definizione della pipeline di versione. 
+11. Se è necessario configurare più VM, ripetere i passaggi da 2 a 4 per le altre VM da aggiungere al gruppo di distribuzione. Si noti che se si seleziona un gruppo di distribuzione per cui esiste già un'esecuzione della pipeline, la VM verrà aggiunta al gruppo di distribuzione senza che vengano create nuove pipeline. 
+12. Al termine, fare clic sulla definizione della pipeline, passare all'organizzazione di Azure DevOps e fare clic su **Modifica** per modificare la pipeline di versione. 
+   ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
+13. Fare clic sul collegamento **1 processo, 1 attività** nella fase **sviluppo**. Fare clic sulla fase **Distribuzione**.
+   ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
+14. Nel riquadro di configurazione sulla destra è possibile specificare il numero di computer da distribuire in parallelo in ogni iterazione. Se si vuole eseguire la distribuzione in più computer contemporaneamente, è possibile specificarlo in termini di percentuale usando il dispositivo di scorrimento.  
+
+15. Per impostazione predefinita, l'attività Execute Deploy Script (Esegui script di distribuzione) eseguirà lo script di distribuzione _deploy.ps1_ o _deploy.sh_ che si trova nella cartella _deployscripts_ nella directory radice del pacchetto pubblicato.
+  
+**Distribuzioni canary**: una distribuzione canary riduce il rischio con una lenta implementazione delle modifiche in un sottoinsieme limitato di utenti. Man mano che si acquisisce maggiore familiarità con la nuova versione, è possibile iniziare a rilasciarla a più server dell'infrastruttura e indirizzarvi più utenti. È possibile configurare le distribuzioni canary nelle proprie "**macchine virtuali**" con il portale di Azure usando l'opzione di recapito continuo. Ecco la procedura dettagliata. 
+1. Accedere al portale di Azure e passare a una macchina virtuale 
+2. Seguire i passaggi da 2 a 7 descritti nella sezione **Distribuzioni in sequenza** per aggiungere più VM al gruppo di distribuzione. Nell'elenco a discesa per la strategia di distribuzione selezionare "Canary".
+![AzDevOps_configure_canary](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
+
+3. Aggiungere il tag "canary" alle VM da includere nelle distribuzioni canary e il tag "prod" alle VM incluse nelle distribuzioni dopo il completamento della distribuzione canary.
+4. Al termine, si avrà una pipeline di recapito continuo configurata per la distribuzione nella macchina virtuale.
+![AzDevOps_canary_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
+
+
+5. Come descritto nella sezione **Distribuzioni in sequenza**, è possibile fare clic su **Modifica** per la pipeline di versione in Azure DevOps per visualizzare la configurazione della pipeline. La pipeline è costituita da 3 fasi: la prima riguarda il gruppo di distribuzione ed esegue la distribuzione nelle VM con tag _canary_. La seconda fase sospende la pipeline e attende l'intervento manuale per riprendere l'esecuzione. Quando l'utente è soddisfatto della stabilità della distribuzione canary, può riprendere l'esecuzione della pipeline. Verrà quindi eseguita la terza fase che effettua la distribuzione nelle VM con tag _prod_. ![AzDevOps_canary_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
+
+
+
+**Distribuzioni di tipo blu-verde**: una distribuzione di tipo blu-verde riduce il tempo di inattività con un ambiente di standby identico. Uno degli ambienti è attivo in qualsiasi momento. Mentre si prepara una nuova versione, si esegue la fase finale di test nell'ambiente verde. Una volta che il software è in esecuzione nell'ambiente verde, commutare il traffico in modo che tutte le richieste in ingresso vengano indirizzate all'ambiente verde. L'ambiente blu è ora inattivo.
 È possibile configurare le distribuzioni di tipo blu-verde nelle proprie "**macchine virtuali**" tramite il portale di Azure usando l'opzione di recapito continuo. 
 
-Ecco la procedura dettagliata. 
+Ecco la procedura dettagliata.
 
 1. Accedere al portale di Azure e passare a una macchina virtuale 
-2. Seguire i passaggi da 2 a 5 descritti nella sezione **Aggiornamenti in sequenza** per aggiungere più macchine virtuali al gruppo di distribuzione. Aggiungere un tag personalizzato alle VM che devono far parte delle distribuzioni di tipo blu-verde, ad esempio "blu" o "verde" per le macchine virtuali che devono avere il ruolo di standby. 
-3. Una volta configurata la pipeline per le VM, fare clic sulla pipeline, avviare l'organizzazione di Azure DevOps, selezionare **Modifica** per modificare la pipeline e quindi passare alla fase di **sviluppo**. Aggiungere un tag al filtro "verde". 
-4. Aggiungere una fase senza agente, configurarla con un passaggio di convalida manuale e un passaggio di richiamo dell'API REST per scambiare i tag. 
-   ![AzDevOps_BlueGreen](media/tutorial-devops-azure-pipelines-classic/azdevops-blue-green-deploy.png)
- 
+2. Seguire i passaggi da 2 a 7 descritti nella sezione **Distribuzioni in sequenza** per aggiungere più VM al gruppo di distribuzione. Aggiungere il tag "blu" o "verde" alle VM da includere nelle distribuzioni di tipo blu-verde. Se la VM è destinata a un ruolo di standby, è necessario assegnarle il tag "verde".
+![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
+
+4. Al termine, si avrà una pipeline di recapito continuo configurata per la distribuzione nella macchina virtuale.
+![AzDevOps_bluegreen_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+
+5. Come illustrato nella sezione **Distribuzioni in sequenza**, è possibile fare clic su **Modifica** per la pipeline di versione in Azure DevOps per visualizzare la configurazione della pipeline. La pipeline è costituita da 3 fasi: la prima riguarda il gruppo di distribuzione ed esegue la distribuzione nelle VM con tag _verde_ (VM di standby). La seconda fase sospende la pipeline e attende l'intervento manuale per riprendere l'esecuzione. Quando l'utente è soddisfatto della stabilità della distribuzione, può reindirizzare il traffico alle VM con tag _verde_ e riprendere l'esecuzione della pipeline, che scambierà quindi i tag _blu_ e _verde_ nelle VM. In questo modo, le VM con la versione meno recente dell'applicazione saranno contrassegnate con il tag _verde_ e alla successiva esecuzione della pipeline verrà eseguita la distribuzione in tali VM.
+![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+
+6. Si noti che per questa strategia di distribuzione è necessario che siano presenti almeno una VM con tag "blu" e una con tag "verde". Prima di riprendere l'esecuzione della pipeline nel passaggio dell'intervento manuale verificare che sia presente almeno una VM con tag _blu_.
+
+
+
+
+
  
 ## <a name="azure-devops-project"></a>Progetto DevOps di Azure 
 Imparare a usare Azure in modo efficace è più facile che mai.

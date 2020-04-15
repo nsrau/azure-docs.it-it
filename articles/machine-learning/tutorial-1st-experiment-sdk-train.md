@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c8f259d2d4df46470a042c3f65ac1b8e1f66b1dd
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222368"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546046"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
 
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 > [!div class="checklist"]
 > * Connettere l'area di lavoro e creare un esperimento
 > * Caricare i dati ed eseguire il training di modelli scikit-learn
-> * Visualizzare i risultati del training nel portale
+> * Visualizzare i risultati del training in Studio
 > * Recuperare il modello migliore
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -124,32 +124,33 @@ Il codice precedente effettua le operazioni seguenti:
 
 1. Per ogni valore alfa di iperparametro nella matrice `alphas` viene creata una nuova esecuzione all'interno dell'esperimento. Il valore alfa viene registrato per distinguere ogni singola esecuzione.
 1. In ogni esecuzione viene creata un'istanza di un modello ridge che viene sottoposto a training e usato per eseguire previsioni. Viene calcolata la radice dell'errore quadratico medio per i valori effettivi rispetto a quelli previsti, che viene quindi registrata nell'esecuzione. A questo punto, all'esecuzione sono associati metadati sia per il valore alfa sia per l'accuratezza della radice dell'errore quadratico medio.
-1. Il modello per ogni esecuzione viene quindi serializzato e caricato nell'esecuzione. In questo modo è possibile scaricare il file del modello dall'esecuzione nel portale.
+1. Il modello per ogni esecuzione viene quindi serializzato e caricato nell'esecuzione. In questo modo è possibile scaricare il file del modello dall'esecuzione in Studio.
 1. Alla fine di ogni iterazione, l'esecuzione viene completata chiamando `run.complete()`.
 
-Al termine del training, chiamare la variabile `experiment` per recuperare un collegamento all'esperimento nel portale.
+Al termine del training, chiamare la variabile `experiment` per recuperare un collegamento all'esperimento in Studio.
 
 ```python
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nome</th><th>Area di lavoro</th><th>Pagina report</th><th>Pagina documentazione</th></tr><tr><td>diabetes-experiment</td><td>nome-area-lavoro</td><td>Collegamento al portale di Azure</td><td>Collegamento alla documentazione</td></tr></table>
+<table style="width:100%"><tr><th>Nome</th><th>Area di lavoro</th><th>Pagina report</th><th>Pagina documentazione</th></tr><tr><td>diabetes-experiment</td><td>nome-area-lavoro</td><td>Collegamento ad Azure Machine Learning Studio</td><td>Collegamento alla documentazione</td></tr></table>
 
-## <a name="view-training-results-in-portal"></a>Visualizzare i risultati del training nel portale
+## <a name="view-training-results-in-studio"></a>Visualizzare i risultati del training in Studio
 
-Seguendo il **collegamento al portale di Azure** si passa alla pagina principale dell'esperimento, in cui vengono visualizzate tutte le singole esecuzioni dell'esperimento. Tutti i valori per cui è stata personalizzata la registrazione (in questo caso, `alpha_value` e `rmse`) diventano campi per ogni esecuzione e sono disponibili anche per i grafici e i riquadri nella parte superiore della pagina dell'esperimento. Per aggiungere una metrica registrata a un grafico o un riquadro, passare il puntatore del mouse su di esso, fare clic sul pulsante di modifica e trovare la metrica per cui è stata personalizzata la registrazione.
+Seguendo il **collegamento ad Azure Machine Learning Studio** si passa alla pagina principale dell'esperimento, in cui vengono visualizzate tutte le singole esecuzioni dell'esperimento. Tutti i valori per cui è stata personalizzata la registrazione (in questo caso, `alpha_value` e `rmse`) diventano campi per ogni esecuzione e sono disponibili anche per i grafici e i riquadri nella parte superiore della pagina dell'esperimento. Per aggiungere una metrica registrata a un grafico o un riquadro, passare il puntatore del mouse su di esso, fare clic sul pulsante di modifica e trovare la metrica per cui è stata personalizzata la registrazione.
 
 In caso di training di modelli su vasta scala, con centinaia e migliaia di esecuzioni separate, questa pagina semplifica la visualizzazione di ogni modello sottoposto a training, in particolare di come è stato eseguito il training e di come le metriche univoche usate sono cambiate nel tempo.
 
-![Pagina principale dell'esperimento nel portale](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Pagina principale dell'esperimento in Studio":::
 
-Facendo clic sul collegamento con il numero di un'esecuzione nella colonna `RUN NUMBER` si passa alla pagina relativa a ogni singola esecuzione. La scheda **Dettagli** predefinita mostra informazioni più dettagliate su ogni esecuzione. Passare alla scheda **Output** per visualizzare il file con estensione `.pkl` per il modello che è stato caricato nell'esecuzione durante ogni iterazione del training. In questa scheda è possibile scaricare il file del modello, per non doverne ripetere manualmente il training.
 
-![Pagina dei dettagli dell'esecuzione nel portale](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+Selezionare il collegamento con il numero di un'esecuzione nella colonna `RUN NUMBER` per visualizzare la pagina relativa a una singola esecuzione. La scheda **Dettagli** predefinita mostra informazioni più dettagliate su ogni esecuzione. Passare alla scheda **Outputs + logs** (Output e log) per visualizzare il file con estensione `.pkl` per il modello che è stato caricato nell'esecuzione durante ogni iterazione del training. In questa scheda è possibile scaricare il file del modello, per non doverne ripetere manualmente il training.
+
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Pagina dei dettagli dell'esecuzione in Studio":::
 
 ## <a name="get-the-best-model"></a>Recuperare il modello migliore
 
-Oltre che dall'esperimento nel portale, è possibile scaricare i file di modello anche a livello di codice. Il codice seguente scorre ogni esecuzione nell'esperimento e accede sia alle metriche registrate che ai dettagli (contenenti run_id) dell'esecuzione. Viene così tenuta traccia dell'esecuzione migliore, in questo caso l'esecuzione con la radice dell'errore quadratico medio più bassa.
+Oltre che dall'esperimento in Studio, è possibile scaricare i file di modello anche a livello di codice. Il codice seguente scorre ogni esecuzione nell'esperimento e accede sia alle metriche registrate che ai dettagli (contenenti run_id) dell'esecuzione. Viene così tenuta traccia dell'esecuzione migliore, in questo caso l'esecuzione con la radice dell'errore quadratico medio più bassa.
 
 ```python
 minimum_rmse_runid = None
@@ -214,7 +215,7 @@ In questa esercitazione sono state completate le attività seguenti:
 > [!div class="checklist"]
 > * Connessione dell'area di lavoro e creazione di un esperimento
 > * Caricamento dei dati e training di modelli scikit-learn
-> * Visualizzazione dei risultati del training nel portale e recupero dei modelli
+> * Visualizzazione dei risultati del training in Studio e recupero dei modelli
 
 [Distribuire il modello](tutorial-deploy-models-with-aml.md) con Azure Machine Learning.
 Scoprire come sviluppare esperimenti di [Machine Learning automatizzato](tutorial-auto-train-models.md).

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 00c6b09662d19fb50d3b0bffc1148fb225da7def
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 1d77acf9f076bbb9a4f4da5c592a0443b8585299
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74973850"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656114"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e JavaScript in Visione artificiale
 
@@ -26,18 +26,18 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
+È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Salvare la chiave di sottoscrizione e l'URL dell'endpoint in una posizione temporanea.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
 Per creare ed eseguire l'esempio, seguire questa procedura:
 
-1. Copiare il codice seguente in un editor di testo.
+1. Creare un file denominato _analyze-image.html_, aprirlo in un editor di testo e copiarvi il codice riportato di seguito.
 1. Facoltativamente, sostituire il valore dell'attributo `value` relativo al controllo `inputImage` con l'URL di un'altra immagine da analizzare.
-1. Salvare il codice in un file con estensione `.html`. Ad esempio: `analyze-image.html`.
 1. Aprire una finestra del browser.
 1. Trascinare e rilasciare il file nella finestra del browser.
-1. Quando nel browser viene visualizzata la pagina Web, scegliere il pulsante **Analyze Image** (Analizza immagine).
+1. Quando la pagina Web viene visualizzata nel browser, incollare la chiave di sottoscrizione e l'URL dell'endpoint nelle caselle di input appropriate.
+1. Selezionare il pulsante **Analyze Image** (Analizza immagine).
 
 ```html
 <!DOCTYPE html>
@@ -54,9 +54,8 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
         // *** Update or verify the following values. ***
         // **********************************************
 
-        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
-        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
-        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        var subscriptionKey = document.getElementById("subscriptionKey").value;
+        var endpoint = document.getElementById("endpointUrl").value;
         
         var uriBase = endpoint + "vision/v2.1/analyze";
 
@@ -106,6 +105,13 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 
 <h1>Analyze image:</h1>
 Enter the URL to an image, then click the <strong>Analyze image</strong> button.
+<br><br>
+Subscription key: 
+<input type="text" name="subscriptionKey" id="subscriptionKey"
+    value="" /> 
+Endpoint URL:
+<input type="text" name="endpointUrl" id="endpointUrl"
+    value="" />
 <br><br>
 Image to analyze:
 <input type="text" name="inputImage" id="inputImage"

@@ -1,21 +1,21 @@
 ---
-title: "Esercitazione: Come caricare un'immagine - Ricerca visiva Bing"
+title: "Esercitazione: Come caricare un'immagine con l'API Ricerca visiva Bing"
 titleSuffix: Azure Cognitive Services
-description: Suddivide il processo di caricamento di un'immagine in Bing per ottenere informazioni dettagliate sull'immagine stessa nonché il processo di analisi e di visualizzazione della risposta.
+description: Informazioni su come caricare un'immagine in Bing, ottenere informazioni dettagliate su di essa e visualizzare la risposta.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2020
 ms.author: scottwhi
-ms.openlocfilehash: 84a8219221525400a9d3241c2f183d24344c2f6a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ecd1ab5e613bb326b65f6aa50f3f85172bc334ac
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689170"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477929"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Esercitazione: Caricare immagini nell'API Ricerca visiva Bing
 
@@ -69,7 +69,7 @@ Aggiungere un tag `<script>` al tag `<head>` per contenere il codice JavaScript 
 
 Per consentire all'utente di selezionare un'immagine da caricare, l'applicazione usa il tag `<input>` con l'attributo del tipo impostato su `file`. Nell'interfaccia utente deve essere chiaro che l'applicazione usa Bing per ottenere i risultati della ricerca.
 
-Aggiungere il tag `<div>` seguenti alla sezione `requestSection` `<div>`. L'input accetta un unico file per ogni tipo di immagine, ad esempio file con estensione jpg, gif, png. L'evento `onchange` specifica il gestore chiamato quando un utente seleziona un file.
+Aggiungere l'elemento `<div>` seguente a `requestSection` `<div>`. L'input accetta un unico file per ogni tipo di immagine, ad esempio file con estensione jpg, gif, png. L'evento `onchange` specifica il gestore chiamato quando un utente seleziona un file.
 
 Il tag `<output>` consente di visualizzare un'anteprima dell'immagine selezionata:
 
