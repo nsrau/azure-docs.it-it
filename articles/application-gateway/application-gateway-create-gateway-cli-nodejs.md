@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed7bbbf55956d655115b94c8ac46432b3e36c49b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62095983"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312636"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creare un gateway applicazione con l'interfaccia della riga di comando di Azure
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata sui cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati e supporto per più siti.
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione ha le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata su cookie e TLS (Transport Layer Security), precedentemente noto come SSL (Secure Sockets Layer), offload, probe di integrità personalizzati e supporto per più siti.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Prerequisito: installare l'interfaccia della riga di comando di Azure
 
@@ -135,7 +135,7 @@ Se l'applicazione Web è già stata definita con il pool back-end nei passaggi p
 
 Per informazioni su come creare probe di integrità personalizzati, vedere [Creare un probe personalizzato per un gateway applicazione con il portale](application-gateway-create-probe-portal.md)
 
-Per informazioni su come configurare l'offload SSL ed evitare costose attività di decrittografia SSL nei server Web, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-arm.md)
+Scopri come configurare la ripartizione TLS e togliere la costosa decrittografia TLS dai tuoi server web visitando [Configure TLS Offload](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 1a4ae0701174278203023c156a86aad8feb1ca4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: d68f7dc6368c2b3de7f26f2946c5fb47237a820d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240629"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313922"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
 
@@ -27,8 +27,6 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure.
-
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Un [contenitore di archiviazione](../storage/blobs/storage-quickstart-blobs-portal.md)esistente.  
@@ -41,7 +39,7 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 
 * Se si usa C, Visual Studio deve essere la versione 2013 o successiva.
 
-* [Schema URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'account di archiviazione. Corrisponde a `wasb://` per Archiviazione di Azure, a `abfs://` per Azure Data Lake Storage Gen2 e a `adl://` per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`. Vedere anche l'articolo sul [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
+* [Schema URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'account di archiviazione. Questo schema `wasb://` è per `abfs://` Archiviazione di Azure, per `adl://` Azure Data Lake Storage Gen2 o per Azure Data Lake Storage Gen1.This scheme would be for Azure Storage, for Azure Data Lake Storage Gen2 or for Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`. Vedere anche l'articolo sul [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
 
 * Un cluster HDInsight esistente a cui aggiungere una firma di accesso condiviso. In caso contrario, è possibile usare Azure PowerShell per creare un cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
 
@@ -56,11 +54,11 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 
 Esistono due tipi di firme di accesso condiviso:
 
-* Ad hoc: l'ora di inizio, la scadenza e le autorizzazioni per la firma di accesso condiviso vengono tutte specificate nell'URI corrispondente.
+* `Ad hoc`: l'ora di inizio, l'ora di scadenza e le autorizzazioni per la sAS sono tutte specificate nell'URI di accesso condiviso.
 
-* Criteri di accesso archiviati: i criteri di accesso archiviati vengono definiti per un contenitore di risorse, ovvero un contenitore BLOB. I criteri di accesso archiviati possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati.
+* `Stored access policy`: i criteri di accesso archiviati vengono definiti in un contenitore di risorse, ad esempio un contenitore BLOB. I criteri di accesso archiviati possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati.
 
-La differenza tra le due forme è importante un unico scenario chiave, la revoca. Una firma di accesso condiviso è un URL, pertanto chiunque la ottiene può utilizzarla indipendentemente da chi l'ha richiesta per iniziare. Se la firma di accesso condiviso è stata pubblicata e resa pubblica, può essere usata da chiunque in tutto il mondo. Una forma di accesso condiviso rimane valida finché non si verifica una delle quattro condizioni seguenti:
+La differenza tra le due forme è importante un unico scenario chiave, la revoca. Una chiamata di chiamata in condiviso è un URL, pertanto chiunque ottenga la chiamata di condivisore può usarla. Non importa chi l'ha richiesta per cominciare. Se la firma di accesso condiviso è stata pubblicata e resa pubblica, può essere usata da chiunque in tutto il mondo. Una forma di accesso condiviso rimane valida finché non si verifica una delle quattro condizioni seguenti:
 
 1. Viene raggiunta la scadenza specificata nella firma.
 
@@ -82,7 +80,7 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni su
 
 ## <a name="create-a-stored-policy-and-sas"></a>Creare criteri e sAS archiviatiCreate a stored policy and SAS
 
-Salvare il token di firma di accesso condiviso prodotto alla fine di ogni metodo. Il token sarà simile al seguente:The token will look similar to the following:
+Salvare il token di firma di accesso condiviso prodotto alla fine di ogni metodo. Il token sarà simile al seguente output:
 
 ```output
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
@@ -205,7 +203,7 @@ Aprire `SASToken.py` il file `storage_account_name` `storage_account_key`e `stor
 
 Potrebbe essere necessario `pip install --upgrade azure-storage` eseguire se viene `ImportError: No module named azure.storage`visualizzato il messaggio di errore .
 
-### <a name="using-c"></a>Uso di C#
+### <a name="using-c"></a>Utilizzo di C\#
 
 1. Aprire la soluzione in Visual Studio.
 
@@ -213,21 +211,20 @@ Potrebbe essere necessario `pip install --upgrade azure-storage` eseguire se vie
 
 3. Selezionare **Impostazioni** e aggiungere i valori per le voci seguenti:
 
-   * StorageConnectionString: stringa di connessione per l'account di archiviazione per cui si vuole creare un criterio archiviato e una firma di accesso condiviso. Il formato deve essere `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, dove `myaccount` è il nome dell'account di archiviazione e `mykey` è la chiave dell'account di archiviazione.
-
-   * ContainerName: contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.
-
-   * SASPolicyName: nome da usare per i criteri archiviati da creare.
-
-   * FileToUpload: percorso di un file caricato nel contenitore.
+    |Elemento |Descrizione |
+    |---|---|
+    |StorageConnectionString|stringa di connessione per l'account di archiviazione per cui si vogliono creare criteri archiviati e una firma di accesso condiviso. Il formato deve essere `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, dove `myaccount` è il nome dell'account di archiviazione e `mykey` è la chiave dell'account di archiviazione.|
+    |ContainerName|contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.|
+    |SASPolicyName|nome da usare per i criteri archiviati da creare.|
+    |FileToUpload|percorso di un file caricato nel contenitore.|
 
 4. Eseguire il progetto. Salvare il token dei criteri di firma di accesso condiviso, il nome dell'account di archiviazione e il nome del contenitore. Questi valori vengono usati quando si associa l'account di archiviazione al cluster HDInsight.
 
 ## <a name="use-the-sas-with-hdinsight"></a>Usare la firma di accesso condiviso con HDInsight
 
-Quando si crea un cluster HDInsight è necessario specificare un account di archiviazione primario e, facoltativamente, è possibile specificare account di archiviazione aggiuntivi. Entrambi i metodi di aggiunta di risorse di archiviazione richiedono l'accesso completo agli account di archiviazione e ai contenitori usati.
+Quando si crea un cluster HDInsight, è necessario specificare un account di archiviazione primario. È inoltre possibile specificare account di archiviazione aggiuntivi. Entrambi i metodi di aggiunta di risorse di archiviazione richiedono l'accesso completo agli account di archiviazione e ai contenitori usati.
 
-Per usare una firma di accesso condiviso allo scopo di limitare l'accesso a un contenitore, aggiungere una voce personalizzata alla configurazione del **core-site** per il cluster. È possibile aggiungere la voce durante la creazione del cluster usando PowerShell o dopo la creazione del cluster usando Ambari.You can add the entry during cluster creation using PowerShell or after cluster creation using Ambari.
+Utilizzare una firma di accesso condiviso per limitare l'accesso al contenitore. Aggiungere una voce personalizzata alla configurazione **del sito principale** per il cluster. È possibile aggiungere la voce durante la creazione del cluster usando PowerShell o dopo la creazione del cluster usando Ambari.You can add the entry during cluster creation using PowerShell or after cluster creation using Ambari.
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Creare un cluster che usa la firma di accesso condiviso
 

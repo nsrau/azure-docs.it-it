@@ -4,12 +4,12 @@ description: Esempi di utilizzo del provider di ILogger di Azure Application Ins
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0f40c1c1a8ee7f20c769a62e9746da43face4cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33effe9cfec6d766d573617ff03b58564e5b34d1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276377"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313652"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider per i log iLogger di .NET Core
 
@@ -213,7 +213,7 @@ Le versioni di Microsoft.ApplicationInsights.AspNet SDK precedenti alla 2.7.1 su
 - In ASP.NET Core (2.0 e versioni successive), il modo consigliato per [abilitare i provider](https://github.com/aspnet/Announcements/issues/255) di registrazione consiste nell'usare i metodi di estensione in ILoggingBuilder nel **Program.cs** stesso.
 
 > [!Note]
-> Il nuovo provider è disponibile per le applicazioni destinate a NETSTANDARD2.0 o versione successiva. Se l'applicazione è destinata a versioni precedenti di .NET Core, ad esempio .NET Core 1.1, o se è destinata a .NET Framework, continuare a usare il provider precedente.
+> Il nuovo provider è disponibile per le applicazioni destinate a NETSTANDARD2.0 o versione successiva. Da [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versione 2.14.0 in poi, è disponibile un nuovo provider anche per le applicazioni destinate a .NET Framework NET461 o versione successiva. Se l'applicazione è destinata a versioni precedenti di .NET Core, ad esempio .NET Core 1.1, o se è destinata a .NET Framework minore di NET46, continuare a usare il provider precedente.
 
 ## <a name="console-application"></a>Applicazione console
 

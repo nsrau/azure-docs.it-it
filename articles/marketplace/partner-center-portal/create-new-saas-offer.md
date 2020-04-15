@@ -1,22 +1,22 @@
 ---
-title: Crea una nuova offerta SaaS nel Mercato Commerciale
-description: Come creare una nuova offerta Software as a Service (SaaS) per l'elenco o la vendita in Azure Marketplace, AppSource o tramite il programma Cloud Solution Provider (CSP) tramite il portale Commercial Marketplace nel Centro per i partner Microsoft.
+title: Creare una nuova offerta SaaS per il marketplace commerciale Microsoft
+description: Come creare una nuova offerta Software as a Service (SaaS) per l'elenco o la vendita in Microsoft AppSource, Azure Marketplace o tramite il programma Cloud Solution Provider (CSP) utilizzando il programma Microsoft Commercial Marketplace in Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 3f2201db4b78ba61ba15608a676a8b9f8f5e612a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: 45559978f710549088d75d0f0706b798ebad3821
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286201"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314079"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
-Per iniziare a creare offerte Software as a Service (SaaS), assicurarsi di [creare prima un account del Centro per](./create-account.md) i partner e aprire il dashboard Commercial [Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)con la scheda **Panoramica** selezionata.
+Per iniziare a creare offerte Software as a Service (SaaS), assicurarsi di creare prima [un account del Centro per](./create-account.md) i partner e aprire il dashboard Commercial [Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)con la scheda **Panoramica** selezionata.
 
 ![Dashboard Marketplace commerciale nel Centro per i partner](./media/new-offer-overview.png)
 
@@ -43,7 +43,7 @@ Esempio: test-offer-1
 
 <br>Esempio: Offerta di test 1&#8482;
 
-Selezionare **Crea**.  Viene creata una pagina **Panoramica offerta** per questa offerta.  
+Selezionare **Create** (Crea).  Viene creata una pagina **Panoramica offerta** per questa offerta.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -82,6 +82,7 @@ Per elencare le offerte Software as a Service (SaaS) con Commercial Marketplace 
 - Per requisiti più ampi, vedere la Guida alla [pubblicazione dell'offerta SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 #### <a name="saas-pricing-and-billing-options"></a>Prezzi e opzioni di fatturazione saaS
+
 Con le soluzioni SaaS in esecuzione nella sottoscrizione di Azure dell'editore, le tariffe di licenza pagate dai clienti includono il costo dell'infrastruttura in cui viene distribuito il software. L'utilizzo dell'infrastruttura di Azure viene gestito e fatturato direttamente all'utente, il partner. I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente. Gli editori devono raggruppare i costi di utilizzo dell'infrastruttura di Azure nei prezzi delle licenze software. 
 
 SaaS offre supporto per la fatturazione mensile o annuale in base a una tariffa fissa, per utente o spese di consumo utilizzando il servizio di fatturazione a consumo. Il mercato commerciale di Microsoft opera su un modello di agenzia, in base al quale gli editori impostano i prezzi, Microsoft fattura i clienti e Microsoft paga le entrate all'editore trattenendo una commissione di agenzia.
@@ -109,16 +110,19 @@ Promuovi la tua attività con Microsoft creando una presentazione sul marketplac
 
 - **Come vuoi che i potenziali clienti interagiscano con questa offerta?**
 
-##### <a name="get-it-now-free"></a>Scaricalo ora (gratuito)
+#### <a name="get-it-now-free"></a>Scaricalo ora (gratuito)
+
 Elencare l'offerta ai clienti gratuitamente fornendo un URL valido (a partire da *http* o *https)* in cui è possibile ottenere una versione di valutazione tramite [l'autenticazione con un clic tramite Azure Active Directory (Azure AD).](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)  Ad esempio: `https://contoso.com/saas-app`
 
-##### <a name="free-trial-listing"></a>Versione di prova gratuita (elenco)
-Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da *http* o *https*), in cui è possibile ottenere una versione di valutazione [tramite l'autenticazione con un clic tramite Azure Active Directory (Azure AD).](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)  Ad esempio `https://contoso.com/trial/saas-app`. L'offerta che elenca le versioni di valutazione gratuite viene creata, gestita e configurata dal servizio e non dispone di sottoscrizioni gestite da Microsoft.Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+#### <a name="free-trial-listing"></a>Versione di prova gratuita (elenco)
+
+Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da *http* o *https*), in cui è possibile ottenere una versione di valutazione [tramite l'autenticazione con un clic tramite Azure Active Directory (Azure AD).](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)  Ad esempio: `https://contoso.com/trial/saas-app`. L'offerta che elenca le versioni di valutazione gratuite viene creata, gestita e configurata dal servizio e non dispone di sottoscrizioni gestite da Microsoft.Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento di valutazione possono essere usati solo per ottenere informazioni utente tramite Azure AD per automatizzare la creazione di account nell'app. Gli account Microsoft (MSA) non sono supportati per l'autenticazione tramite questo token.
 
-##### <a name="contact-me"></a>Contact me (Contattami)
+#### <a name="contact-me"></a>Contact me (Contattami)
+
 Raccogliere le informazioni di contatto del cliente collegando il sistema CRM (Customer Relationship Management). Al cliente verrà chiesto il permesso di condividere le proprie informazioni. Questi dettagli del cliente, insieme al nome dell'offerta, all'ID e all'origine del marketplace in cui hanno trovato l'offerta, verranno inviati al sistema CRM configurato. Per ulteriori informazioni sulla configurazione di CRM, vedere [Connect lead management](#connect-lead-management).
 
 ## <a name="example-marketplace-offer-listing"></a>Elenco di offerte di esempio del marketplace
@@ -127,16 +131,16 @@ Raccogliere le informazioni di contatto del cliente collegando il sistema CRM (C
 
 ## <a name="enable-a-test-drive"></a>Abilitare un test drive
 
-Un test drive è un ottimo modo per mostrare la tua offerta ai potenziali clienti dando loro la possibilità di "provare prima di acquistare", con conseguente aumento della conversione e la generazione di lead altamente qualificati. [Ulteriori informazioni sui test drive.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+Un test drive è un ottimo modo per mostrare la tua offerta ai potenziali clienti dando loro la possibilità di "provare prima di acquistare", con conseguente aumento della conversione e la generazione di lead altamente qualificati. Per ulteriori informazioni, consulta [Consentire ai clienti di testare l'offerta.](./test-drive.md)
 
 - **Abilitare un test drive** (casella di controllo)
 
 Abilitando il test drive, verrà chiesto di configurare un ambiente dimostrativo in cui i clienti possono provare l'offerta per un periodo di tempo fisso. 
 
-#### <a name="test-drive-resources"></a>Risorse del test drive
-- [Procedure consigliate tecniche per test Drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Procedure consigliate per il marketing dei test](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Panoramica del test Su un cercapersone](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+### <a name="test-drive-resources"></a>Risorse del test drive
+
+- [Test Drive best practice](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)- di marketing[Test Drive best practice tecniche](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Panoramica di Test Drive (download PDF)](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
 
 ## <a name="connect-lead-management"></a>Gestione dei lead di Connect
 
@@ -299,7 +303,7 @@ La scheda **Anteprima** consente di definire un pubblico di **anteprima** limita
 
 - **Definire un pubblico di anteprima: aggiungi un singolo indirizzo e-mail di account AAD/MSA per riga, insieme a una descrizione facoltativa.**
 
-Aggiungere manualmente fino a dieci (10) indirizzi di posta elettronica o venti (20) se si carica un file CSV, per gli account Microsoft Account (MSA) o Azure Active Directory esistenti per facilitare la convalida dell'offerta prima della pubblicazione dal vivo. Aggiungendo questi account, si definisce un gruppo di destinatari a cui sarà consentito l'accesso in anteprima all'offerta prima che venga pubblicata nei marketplace. Se la tua offerta è già attiva, puoi comunque definire un pubblico di anteprima per testare eventuali modifiche o aggiornamenti alla tua offerta.
+Aggiungere fino a 10 indirizzi di posta elettronica manualmente o 20 se si carica un file CSV, per gli account Microsoft (MSA) o Azure Active Directory esistenti per facilitare la convalida dell'offerta prima della pubblicazione dal vivo. Aggiungendo questi account, si definisce un gruppo di destinatari a cui sarà consentito l'accesso in anteprima all'offerta prima che venga pubblicata nei marketplace. Se la tua offerta è già attiva, puoi comunque definire un pubblico di anteprima per testare eventuali modifiche o aggiornamenti alla tua offerta.
 
 > [!NOTE]
 > Il pubblico di anteprima è diverso da un pubblico privato. Un pubblico di anteprima può accedere alla tua offerta _prima_ di essere pubblicato in diretta nei marketplace. Puoi anche scegliere di creare un piano e renderlo disponibile solo a un pubblico privato. Nella scheda **dell'elenco dei piani,** puoi definire un pubblico privato con la casella di controllo **Questo è un piano privato.** È quindi possibile definire un gruppo di destinatari privato composto da un massimo di 20.000 clienti usando gli ID tenant di Azure.You can then define a private audience of up to 20,000 customers using Azure Tenant IDs.
@@ -359,12 +363,12 @@ Le offerte SaaS tramite il mercato commerciale consentono di fornire una version
 >[!Note]
 >Se il cliente sceglie di convertire in un piano senza prove gratuite, la conversione avverrà, ma la prova gratuita andrà persa immediatamente.  Inoltre, una volta che un cliente inizia a pagare per un piano, non può più ottenere la prova gratuita sullo stesso abbonamento di nuovo, anche se si converte in uno SKU che supporta le versioni di valutazione gratuite.
 
-La possibilità di configurare una versione di valutazione gratuita è disponibile per ogni piano dell'offerta. Basta passare a Prezzi e disponibilità per ogni offerta e selezionare la casella per consentire una prova di un mese.
+La possibilità di configurare una versione di valutazione gratuita è disponibile per ogni piano dell'offerta. Accedi a Prezzi e disponibilità per ogni offerta e seleziona la casella per consentire una versione di valutazione di un mese.
 
 ![Casella di controllo di prova gratuita di un mese](./media/free-trial-enable.png)
 
 >[!Note]
->Una volta che l'offerta transazionale è stata pubblicata con una versione di prova gratuita, non può essere disabilitata per tale piano. Assicurarsi che questa impostazione sia corretta per la prima pubblicazione per evitare di dover ricreare il piano.
+>Una volta che l'offerta transazionale è stata pubblicata con una versione di valutazione gratuita, non può essere disabilitata per tale piano. Assicurarsi che questa impostazione sia corretta per la prima pubblicazione per evitare di dover ricreare il piano.
 
 Per ottenere informazioni sulle sottoscrizioni dei clienti che attualmente `isFreeTrial`partecipano a una versione di valutazione gratuita, utilizzare la nuova proprietà API , che verrà contrassegnata come true o false. Per altre informazioni, vedere [l'API SaaS Get Subscription](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
@@ -377,7 +381,7 @@ Per ottenere informazioni sulle sottoscrizioni dei clienti che attualmente `isFr
 
 Ogni piano deve essere disponibile in almeno un mercato. Seleziona la casella di controllo per qualsiasi località di mercato in cui desideri rendere disponibile questo piano. Una casella di ricerca e un pulsante per la selezione dei paesi "Tassa rimessi", in cui Microsoft rimette le vendite e l'imposta sull'utente per conto dell'utente, sono inclusi.
 
-Se hai già impostato i prezzi per il tuo piano in Dollari USA (USD) e aggiungi un'altra posizione di mercato, il prezzo per il nuovo mercato verrà calcolato in base ai tassi di cambio correnti. Si dovrebbe sempre rivedere il prezzo per ogni mercato prima della pubblicazione. I prezzi possono essere rivisti utilizzando il collegamento "Prezzi all'esportazione (xlsx)" dopo aver salvato le modifiche.
+Se hai già impostato i prezzi per il tuo piano in Dollari USA (USD) e aggiungi un'altra posizione di mercato, il prezzo per il nuovo mercato verrà calcolato in base ai tassi di cambio correnti. Rivedere il prezzo per ogni mercato prima della pubblicazione. I prezzi possono essere rivisti utilizzando il collegamento "Prezzi all'esportazione (xlsx)" dopo aver salvato le modifiche.
 
 #### <a name="pricing"></a>Prezzi
 
@@ -418,7 +422,7 @@ Seleziona questa casella per rendere il tuo piano privato e visibile solo al pub
 
 Assegnare il gruppo di destinatari che avrà accesso a questo piano privato. Ad accedono viene assegnato tramite ID tenant con la possibilità di includere una descrizione di ogni ID tenant assegnato. È possibile aggiungere un massimo di 10 ID tenant o 20.000 ID tenant clienti se si importa un file di foglio di calcolo con estensione csv.
 
-Un tenant è una rappresentazione di un'organizzazione, con un ID rappresentato come GUID (Globally Unique Identifier, un numero intero a 128 bit utilizzato per identificare le risorse). È un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft, come l'iscrizione ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD. Per controllare il tenant, accedere al portale di Azure con l'account che si vuole usare per gestire l'applicazione. Se si dispone già di un tenant, verrà effettuata automaticamente la connessione e si vedrà il nome del tenant direttamente sotto il nome dell'account. Se si passa il puntatore sul nome dell'account nella parte superiore destra del portale di Azure, verranno visualizzati il nome utente, l'indirizzo di posta elettronica, un ID di directory/tenant (GUID) e il dominio. Se l'account è associato a più tenant, è possibile selezionare il nome dell'account per aprire un menu che consente di spostarsi tra i tenant. Ogni tenant ha un proprio ID. È inoltre possibile cercare l'ID tenant dell'organizzazione [https://www.whatismytenantid.com](https://www.whatismytenantid.com)utilizzando un URL del nome di dominio all'indirizzo: .
+Un tenant è una rappresentazione di un'organizzazione, con un ID rappresentato come GUID (Globally Unique Identifier, un numero intero a 128 bit utilizzato per identificare le risorse). Si tratta di un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve quando l'organizzazione o lo sviluppatore di app crea una relazione con Microsoft, ad esempio quando si effettua l'iscrizione ad Azure, Microsoft Intune o Microsoft 365.It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, for example, when signing up for Azure, Microsoft Intune or Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD. Per controllare il tenant, accedere al portale di Azure con l'account che si vuole usare per gestire l'applicazione. Se si dispone già di un tenant, verrà effettuata automaticamente la connessione e si vedrà il nome del tenant direttamente sotto il nome dell'account. Se si passa il puntatore sul nome dell'account nella parte superiore destra del portale di Azure, verranno visualizzati il nome utente, l'indirizzo di posta elettronica, un ID di directory/tenant (GUID) e il dominio. Se l'account è associato a più tenant, è possibile selezionare il nome dell'account per aprire un menu che consente di spostarsi tra i tenant. Ogni tenant ha un proprio ID. È inoltre possibile cercare l'ID tenant dell'organizzazione [https://www.whatismytenantid.com](https://www.whatismytenantid.com)utilizzando un URL del nome di dominio all'indirizzo: .
 
 Mentre SaaS offre l'uso di ID tenant per definire un gruppo di destinatari privato, altri tipi di offerta possono usare gli ID sottoscrizione di Azure (rappresentati anche come GUID).
 
@@ -429,10 +433,6 @@ Mentre SaaS offre l'uso di ID tenant per definire un gruppo di destinatari priva
 
 ![Elenco di esempio del piano del marketplace con note](./media/marketplace-plan.svg)
 
-## <a name="test-drive"></a>Test drive
-
-[!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
-
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Pubblico rivenditore Cloud Solution Provider (CSP)
 
 L'opzione per rendere disponibile la tua offerta nel programma CSP consente ai Cloud Solution Provider di vendere il tuo prodotto come parte di una soluzione integrata ai loro clienti. Per ulteriori informazioni, vedere [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
@@ -441,7 +441,7 @@ L'opzione per rendere disponibile la tua offerta nel programma CSP consente ai C
 
 Dopo aver completato tutte le sezioni richieste dell'offerta, selezionare **Pubblica** nell'angolo in alto a destra del portale. Si verrà reindirizzati alla pagina **Revisione e pubblicazione.**
 
-#### <a name="submit-offer-to-preview"></a>Invia l'offerta all'anteprima
+### <a name="submit-offer-to-preview"></a>Invia l'offerta all'anteprima
 
 Se è la prima volta che pubblichi questa offerta, puoi:
 

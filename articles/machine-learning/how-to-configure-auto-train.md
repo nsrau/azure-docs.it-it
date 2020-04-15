@@ -1,5 +1,5 @@
 ---
-title: Creare esperimenti di Machine Learning automatizzato
+title: Creare esperimenti di ML automatizzato
 titleSuffix: Azure Machine Learning
 description: L'apprendimento automatico automatizzato seleziona un algoritmo per l'utente e genera un modello pronto per la distribuzione. Informazioni sulle opzioni che è possibile usare per configurare esperimenti di apprendimento automatico.
 author: cartacioS
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11f52df683b7a85a8ad5163bbede33d786897452
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c8997f5cd1bed06fab8ca90e7b1cdfcb3e5ec6b3
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257267"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313770"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -453,7 +453,7 @@ Per comprendere i valori di algoritmi/iperparametri di scalabilità per una pipe
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
 ```
 
-Per ulteriori dettagli, usare questa funzione di supporto illustrata in [questo blocco appunti di esempio.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification/auto-ml-classification.ipynb)
+Per ottenere ulteriori dettagli, usare questa funzione di supporto:To get more details, use this helper function: 
 
 ```python
 from pprint import pprint
@@ -473,7 +473,7 @@ def print_model(model, prefix=""):
             print()
 
 
-print_model(fitted_model)
+print_model(model)
 ```
 
 L'output di esempio seguente è per una pipeline che usa un algoritmo specifico (LogisticRegression with RobustScalar, in questo caso).

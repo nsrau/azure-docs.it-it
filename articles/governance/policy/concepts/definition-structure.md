@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono utilizzate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 017878c4c47a5645ea8815580d2176c7a2ff5d66
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638086"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314007"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -252,11 +252,13 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+Per **less**, **lessOrEquals**, **greater**e **greaterOrEquals**, se il tipo di proprietà non corrisponde al tipo di condizione, viene generato un errore. I confronti tra `InvariantCultureIgnoreCase`stringhe vengono effettuati utilizzando .
 
 Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
 Il valore non deve contenere più di un carattere jolly `*`.
@@ -322,7 +324,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>valore
+### <a name="value"></a>Valore
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.

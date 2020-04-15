@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/03/2020
-ms.openlocfilehash: 0cadf3930008868fe223e6e1024a2d14d17d8131
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e53164d1e25f8a8d0a14d21c0544d95cf912fe9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657113"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313948"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
 
@@ -63,7 +63,7 @@ HDInsight supporta inoltre i metastore personalizzati, che sono consigliati per 
 
 Creare o avere un database SQL di Azure esistente prima di configurare un metastore Hive personalizzato per un cluster HDInsight.Create or have an existing Azure SQL Database before setting up a custom Hive metastore for a HDInsight cluster.  Per altre informazioni, vedere Guida introduttiva: Creare un singolo database nel database SQL di Azure.For more information, see [Quickstart: Create a single database in Azure SQL DB.](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)
 
-Configurare le regole del firewall del database SQL di Azure per consentire ai servizi e alle risorse di Azure di accedere al server. Abilitare questa opzione nel portale di Azure selezionando **Imposta firewall server**. Selezionare quindi ON sotto **Consenti ai servizi e alle risorse** di Azure di accedere a questo server per il database o il database del database SQL di Azure.Then select **ON** underneath Allow Azure services and resources to access this server for the Azure SQL Database server or database. Per altre informazioni, vedere [Creare e gestire le regole del firewall IPFor more information,](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) see Create and manage IP firewall rules
+Durante la creazione del cluster, il servizio HDInsight deve connettersi al metastore esterno e verificare le credenziali. Configurare le regole del firewall del database SQL di Azure per consentire ai servizi e alle risorse di Azure di accedere al server. Abilitare questa opzione nel portale di Azure selezionando **Imposta firewall server**. Selezionare quindi No sotto Nega accesso alla rete pubblica e Sì sotto **Consenti ai servizi e alle risorse** di Azure di accedere a questo server per il database o il database del database SQL di Azure.Then select **No** underneath Deny public **network access**, and **Yes** underneath Allow Azure services and resources to access this server for the Azure SQL Database server or database. Per altre informazioni, vedere [Creare e gestire le regole del firewall IPFor more information,](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) see Create and manage IP firewall rules
 
 ![pulsante Imposta firewall server](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 

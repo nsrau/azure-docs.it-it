@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6482040f0d50f08f04ea87384a99af556f694075
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 913bc16f7408acebb0e65359e8845ce0f6a3a2f4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478806"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314260"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
 > [!div class="op_single_selector"]
 > * [Posizioni per provider](expressroute-locations.md)
-> * [Provider per località](expressroute-locations-providers.md)
+> * [Provider per posizione](expressroute-locations-providers.md)
 
 
 Le tabelle in questo articolo forniscono informazioni sulla copertura geografica e le posizioni di ExpressRoute, sui provider di connettività ExpressRoute e sui provider di connettività ExpressRoute System Integrator (SIs).
@@ -94,7 +94,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **Cina Mobile International** |Supportato |Supportato | Singapore |
 | **China Telecom Global** |Supportato |Supportato |RAS di Hong Kong |
 | **Cina Unicom Globale** |Supportato |Supportato | Singapore2 |
-| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Supportato |Supportato |Chicago, Dallas, Montreal, Toronto, Washington DC |
+| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Supportato |Supportato |Chicago, Dallas, Montreal, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Supportato |Supportato |Amsterdam, Amsterdam2, Chicago, Dublino, Francoforte, Londra, Londra2, Newport, New York, Osaka, Parigi, Silicon Valley, Silicon Valley2, Singapore2, Tokyo, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Supportato |Supportato |Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supportato |Supportato |Chicago, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington D.C., Washington DC2 |

@@ -5,44 +5,57 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 04/06/2020
 ms.reviewer: sngun
-ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cdaa9699b15000359c438bcc410e300415b759a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445559"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379953"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni 
+# <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni
 
 I database distribuiti che si basano sulla replica per la disponibilità elevata, la bassa latenza o entrambe devono attuare dei compromessi. Tali compromessi sono tra la coerenza di lettura e la disponibilità, latenza e velocità effettiva.
 
-Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte. Questo approccio include più opzioni rispetto ai due estremi della coerenza assoluta ed eventuale. È possibile scegliere tra cinque modelli ben definiti nella gamma della coerenza. Dal più forte al più debole, i modelli sono:
+Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte. Questo approccio include più opzioni rispetto ai due estremi della coerenza assoluta ed eventuale. È possibile scegliere tra cinque livelli ben definiti nello spettro di coerenza. Dal più forte al più debole, i livelli sono:
 
 - *Forte*
 - *Stantio delimitato*
-- *Sessione*
+- *sessione*
 - *Prefisso coerente*
 - *Eventuale*
 
-Ogni modello prevede compromessi di disponibilità e prestazioni  ed è supportato da un contratto di servizio completo.
+Ogni livello offre compromessi di disponibilità e prestazioni ed è supportato da contratti di servizio completi.
 
 ## <a name="consistency-levels-and-latency"></a>Livelli di coerenza e latenza
 
-La latenza di lettura per tutti i livelli di coerenza è sempre minore ai 10 millisecondi al 99° percentile. Questa latenza di lettura è supportata dal contratto di servizio. La latenza di lettura media, al 50° percentile, è in genere uguale o inferiore ai 2 millisecondi. Gli account di Azure Cosmos che si estendono su più aree e sono configurati con coerenza assoluta costituiscono un'eccezione a questa garanzia.
+La latenza di lettura per tutti i livelli di coerenza è sempre minore ai 10 millisecondi al 99° percentile. Questa latenza di lettura è supportata dal contratto di servizio. La latenza media di lettura, al 50esimo percentile, è in genere di 4 millisecondi o meno.
 
-La latenza di scrittura per tutti i livelli di coerenza è sempre garantita per essere inferiore a 10 millisecondi al 99esimo percentile. Questa latenza di scrittura è supportata dal contratto di servizio. La latenza di scrittura media, al 50° percentile, è in genere uguale o inferiore ai 5 millisecondi.
+La latenza di scrittura per tutti i livelli di coerenza è sempre garantita per essere inferiore a 10 millisecondi al 99esimo percentile. Questa latenza di scrittura è supportata dal contratto di servizio. La latenza di scrittura media, al 50° percentile, è in genere uguale o inferiore ai 5 millisecondi. Gli account di Azure Cosmos che si estendono su più aree e sono configurati con coerenza assoluta costituiscono un'eccezione a questa garanzia.
 
-Per gli account Cosmos di Azure configurati con una forte coerenza con più di un'area, la latenza di scrittura è garantita per essere inferiore a due volte il tempo di andata e ritorno (RTT) tra una delle due aree più lontane, più 10 millisecondi al 99esimo percentile.
+### <a name="write-latency-and-strong-consistency"></a>Latenza di scrittura e coerenza forte
 
-La latenza RTT esatta è una funzione della velocità della luce e la topologia di rete di Azure. La rete di Azure non fornisce nessun contratto di servizio di latenza per il tempo RTT tra due aree di Azure. Per l'account Azure Cosmos, le latenze di replica vengono visualizzate nel portale di Azure. È possibile usare il portale di Azure (passare al pannello Metriche) per monitorare le latenze di replica tra le varie aree associate all'account Cosmos di Azure.You can use the Azure portal (go to the Metrics blade) to monitor the replication latencies between various regions that are associated with your Azure Cosmos account.
+Per gli account Cosmos di Azure configurati con una forte coerenza con più di un'area, la latenza di scrittura è pari a due volte il tempo di andata e ritorno (RTT) tra una delle due aree più lontane, più 10 millisecondi al 99esimo percentile. Un'elevata rtT di rete tra le aree si tradurrà in una latenza più elevata per le richieste Cosmos DB poiché una forte coerenza completa un'operazione solo dopo aver verificato che sia stata impegnata in tutte le aree all'interno di un account.
+
+La latenza RTT esatta è una funzione della velocità della luce e la topologia di rete di Azure. La rete di Azure non fornisce nessun contratto di servizio di latenza per il tempo RTT tra due aree di Azure. Per l'account Azure Cosmos, le latenze di replica vengono visualizzate nel portale di Azure. È possibile usare il portale di Azure (passare al pannello Metriche, selezionare la scheda Coerenza) per monitorare le latenze di replica tra le varie aree associate all'account Cosmos di Azure.You can use the Azure portal (go to the Metrics blade, select Consistency tab) to monitor the replication latencies between various regions that are associated with your Azure Cosmos account.
+
+> [!IMPORTANT]
+> La coerenza elevata per gli account con aree che si estendono per più di 8000 chilometri è bloccata per impostazione predefinita a causa dell'elevata latenza di scrittura. Per abilitare questa funzionalità, contattare il supporto tecnico.
 
 ## <a name="consistency-levels-and-throughput"></a>Livelli di coerenza e velocità effettiva
 
-- Per la stessa quantità di unità di richieste, i livelli di coerenza sessione, prefisso coerente e finale forniscono una velocità effettiva di lettura quasi due volte maggiore in confronto ai livelli assoluto e con decadimento ristretto.
+- Per una situazione di verifica avanzata e limitata, le letture vengono eseguite su due repliche in un set di quattro repliche (quorum di minoranza) per garantire la coerenza. Sessione, prefisso coerente ed eventuale eseguire letture di repliche singole. Il risultato è che, per lo stesso numero di unità di richiesta, la velocità effettiva di lettura per una stantia forte e limitata è la metà degli altri livelli di coerenza.
 
 - Per un determinato tipo di operazione di scrittura (come inserimento, sostituzione, upsert ed eliminazione), la velocità effettiva di scrittura per le unità di richieste è identica per tutti i livelli di coerenza.
+
+|**Livello di coerenza**|**Letture quorum**|**Scritture quorum**|
+|--|--|--|
+|**Forte**|Minoranza locale|Maggioranza globale|
+|**Decadimento ristretto**|Minoranza locale|Maggioranza locale|
+|**sessione**|Replica singola (tramite token di sessione)|Maggioranza locale|
+|**Coerenza del prefisso**|Replica singola|Maggioranza locale|
+|**Eventuale**|Replica singola|Maggioranza locale|
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Livelli di coerenza e durabilità dei dati
 

@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 9bdf7360ce00637b0eed3de7a3349da8656a3ed0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72991346"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314167"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Usare il tunneling SSH per accedere all'interfaccia utente Web di Apache Ambari, JobHistory, NameNode, Apache Oozie e altre interfacce utenteUse SSH tunneling to access Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, and other UIs
 
-I cluster HDInsight offrono accesso all'interfaccia utente Web di Apache Ambari in Internet, ma alcune funzionalità richiedono un tunnel SSH. Ad esempio, l'interfaccia utente Web per il servizio Apache Oozie non è accessibile tramite Internet senza un tunnel SSh.
+I cluster HDInsight forniscono l'accesso all'interfaccia utente Web di Apache Ambari tramite Internet. Alcune funzionalità richiedono un tunnel SSH. Ad esempio, l'interfaccia utente Web di Apache Oozie non è accessibile tramite Internet senza un tunnel SSH.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Perché usare un tunnel SSH
 
@@ -31,7 +31,7 @@ Le interfacce utente Web seguenti richiedono un tunnel SSH:
 * Interfaccia utente Web di Oozie
 * HBase Master e l'interfaccia utente di Log
 
-Se si usano azioni script per personalizzare il cluster, tutti i servizi o le utilità installate che espongono un servizio Web richiedono un tunnel SSH. Ad esempio, se si installa Hue utilizzando un'azione di Script, è necessario utilizzare un tunnel SSH per accedere all'interfaccia utente web di Hue.
+I servizi installati con le azioni di script che espongono un servizio Web richiederanno un tunnel SSH. La tonalità installata con l'azione script richiede un tunnel SSH per accedere all'interfaccia utente Web.
 
 > [!IMPORTANT]  
 > Se si ha accesso diretto a HDInsight tramite una rete virtuale, non è necessario usare tunnel SSH. Per un esempio di accesso diretto a HDInsight tramite una rete virtuale, vedere il documento [Connettere HDInsight alla rete locale](connect-on-premises-network.md).
@@ -64,14 +64,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 Questo comando crea una connessione che instrada il traffico alla porta locale 9876 al cluster su SSH. Le opzioni disponibili sono le seguenti:
 
-* **D 9876**: la porta locale che instrada il traffico attraverso il tunnel.
-* **C** : comprime tutti i dati, in quanto il traffico Web è costituito prevalentemente da testo.
-* **2** : forza SSH a tentare solo il protocollo versione 2.
-* **q** : modalità non interattiva.
-* **T** - Disabilitare l'allocazione pseudo-tty, dal momento che si sta solo inoltrando una porta.
-* **n** - Impedisci la lettura di STDIN, dal momento che stai solo inoltrando una porta.
-* **N** - Non eseguire un comando remoto, poiché si sta solo inoltrando una porta.
-* **f** : effettua l'esecuzione in background.
+    |Opzione |Descrizione |
+    |---|---|
+    |D 9876|Il porto locale che instrada il traffico attraverso il tunnel.|
+    |C|Comprimere tutti i dati, perché il traffico web è per lo più testo.|
+    |2|Forzare SSH a provare solo la versione 2 del protocollo.|
+    |q|Modalità non interattiva.|
+    |T|Disabilitare l'allocazione pseudo-tty, dal momento che si sta solo inoltrando una porta.|
+    |n|Impedisci la lettura di STDIN, dal momento che stai solo inoltrando una porta.|
+    |N|Non eseguire un comando remoto, poiché si sta solo inoltrando una porta.|
+    |f|Eseguire in background.|
 
 Al termine del comando, il traffico inviato alla porta 9876 nel computer locale viene instradato al nodo head del cluster.
 
@@ -85,7 +87,7 @@ Al termine del comando, il traffico inviato alla porta 9876 nel computer locale 
 
 1. Se non si ha già una sessione salvata, immettere le informazioni di connessione:
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Nome host (o indirizzo IP)|Indirizzo SSH per il cluster HDInsight. Ad esempio, **mycluster-ssh.azurehdinsight.net**.|
     |Porta|22|
@@ -99,7 +101,7 @@ Al termine del comando, il traffico inviato alla porta 9876 nel computer locale 
 
 1. Fornire le seguenti informazioni nel modulo **Options controlling SSH port forwarding** :
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Porta di origine|La porta sul client che si desidera inoltrare. Ad esempio, **9876**.|
     |Destination|Indirizzo SSH per il cluster HDInsight. Ad esempio, **mycluster-ssh.azurehdinsight.net**.|

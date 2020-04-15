@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 7e05458214732a1835dd73b85dad871683ef5bbe
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: acfca3f41cc8bf69572843c3f035a67e8df9e0fe
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743132"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313603"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Note sulla versione di Azure Synapse AnalyticsAzure Synapse Analytics release notes
 
@@ -40,18 +40,13 @@ Utilizzare la versione identificata per verificare quale versione è stata appli
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
-## <a name="march-2020"></a>Marzo 2020
-
-| Miglioramenti al servizio                                         | Dettagli                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) - SQL Server Data Tools (SSDT)Visual Studio 16.6 Preview 2 - SQL Server Data Tools (SSDT)** | Questa versione include i seguenti miglioramenti e correzioni: </br> </br> - Risolto un problema a causa del quale la modifica di una tabella a cui fa riferimento una vista materializzata (MV) determina la generazione di istruzioni Alter View che non sono supportate per i videoveicoli<br/><br/> - Implementata una modifica per garantire che l'operazione di confronto dello Schema non ha esito negativo quando gli oggetti di sicurezza a livello di riga sono presenti nel database o nel progetto. Gli oggetti di sicurezza a livello di riga non sono attualmente supportati per SSDT.  <br/><br/> - La soglia di timeout di Esplora oggetti di SQL Server è stata aumentata per evitare timeout quando si elenca un numero elevato di oggetti nel database- SQL Server Object Explorer timeout threshold has been increased to avoid timeouts when listing a large number of objects in the database<br/><br/> - Ottimizzato il modo in cui Esplora oggetti di SQL Server recupera l'elenco di oggetti di database per ridurre l'instabilità e migliorare le prestazioni durante il popolamento di Esplora oggetti |
-
-## <a name="february-2020"></a>Febbraio 2020
+## <a name="april-2020"></a>Aprile 2020
 
 | Miglioramenti al servizio | Dettagli |
 | --- | --- |
 |**Livello di compatibilità del database (anteprima)Database compatibility level (Preview)**| Con questa versione, gli utenti possono ora impostare il livello di compatibilità di un database per ottenere il linguaggio Transact-SQLTransact-SQL e i comportamenti di elaborazione delle query di una versione specifica del motore Synapse SQL. Per ulteriori informazioni, vedere [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Sp_describe_undeclared_parameters**| Consentire agli utenti di visualizzare i metadati relativi ai parametri non dichiarati in un batch Transact-SQLTransact-SQL . Per ulteriori informazioni, vedere [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) - SQL Server Data Tools (SSDT)Visual Studio 16.6 Preview 2 - SQL Server Data Tools (SSDT)** | Questa versione include i seguenti miglioramenti e correzioni per SSDT: </br> </br> - Risolto un problema a causa del quale la modifica di una tabella a cui fa riferimento una vista materializzata (MV) determina la generazione di istruzioni Alter View che non sono supportate per i videoveicoli<br/><br/> - Implementata una modifica per garantire che l'operazione di confronto dello Schema non ha esito negativo quando gli oggetti di sicurezza a livello di riga sono presenti nel database o nel progetto. Gli oggetti di sicurezza a livello di riga non sono attualmente supportati per SSDT.  <br/><br/> - La soglia di timeout di Esplora oggetti di SQL Server è stata aumentata per evitare timeout quando si elenca un numero elevato di oggetti nel database- SQL Server Object Explorer timeout threshold has been increased to avoid timeouts when listing a large number of objects in the database<br/><br/> - Ottimizzato il modo in cui Esplora oggetti di SQL Server recupera l'elenco di oggetti di database per ridurre l'instabilità e migliorare le prestazioni durante il popolamento di Esplora oggetti |
 
 ## <a name="january-2020"></a>Gennaio 2020
 

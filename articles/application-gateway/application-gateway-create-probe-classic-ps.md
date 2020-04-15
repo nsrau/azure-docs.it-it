@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e01a1cad98ded9d7ce8683b6adf38b5d53959774
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966805"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312548"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -200,7 +200,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare l'offload SSL (Secure Sockets Layer), vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
+Se si desidera configurare Transport Layer Security (TLS), precedentemente noto come offload SSL (Secure Sockets Layer), vedere [Configurare un gateway applicazione per l'offload TLS.](application-gateway-ssl.md)
 
 Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 

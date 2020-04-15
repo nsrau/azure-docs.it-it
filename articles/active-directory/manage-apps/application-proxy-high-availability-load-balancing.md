@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3202c2fbfedfce0b0b52be94b1e0d165a6e72546
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 992075378737552e890bd2d6fed3c519e6c62aa7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481314"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312941"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Disponibilità elevata e bilanciamento del carico dei connettori e delle applicazioni del proxy di applicazioneHigh availability and load balancing of your Application Proxy connectors and applications
 
@@ -40,16 +40,12 @@ I connettori stabiliscono le connessioni in base ai principi per la disponibilit
 1. Un utente in un dispositivo client tenta di accedere a un'applicazione locale pubblicata tramite il proxy di applicazione.
 2. La richiesta passa tramite un servizio di bilanciamento del carico di Azure per determinare quale istanza del servizio proxy di applicazione deve accettare la richiesta. Per ogni area, sono disponibili decine di istanze per accettare la richiesta. Questo metodo consente di distribuire in modo uniforme il traffico tra le istanze del servizio.
 3. La richiesta viene inviata al [bus](https://docs.microsoft.com/azure/service-bus-messaging/)di servizio .
-4. Il bus di servizio verifica se la connessione in precedenza utilizzava un connettore esistente nel gruppo di connettori. In tal caso, riutilizza la connessione. Se nessun connettore è ancora associato alla connessione, sceglie un connettore disponibile in modo casuale a cui segnalare. Il connettore preleva quindi la richiesta dal bus di servizio.
-
+4. Il bus di servizio segnala a un connettore disponibile. Il connettore preleva quindi la richiesta dal bus di servizio.
    - Nel passaggio 2, le richieste passano a istanze del servizio proxy di applicazione diverse, pertanto è più probabile che le connessioni vengano effettuate con connettori diversi. Di conseguenza, i connettori vengono utilizzati quasi in modo uniforme all'interno del gruppo.
-
-   - Una connessione viene ristabilita solo se la connessione viene interrotta o si verifica un periodo di inattività di 10 minuti. Ad esempio, la connessione potrebbe essere interrotta quando un computer o il servizio connettore viene riavviato o si verifica un'interruzione della rete.
-
 5. Il connettore passa la richiesta al server back-end dell'applicazione. Quindi l'applicazione invia la risposta al connettore.
 6. Il connettore completa la risposta aprendo una connessione in uscita all'istanza del servizio da cui proveniva la richiesta. Quindi questa connessione viene immediatamente chiusa. Per impostazione predefinita, ogni connettore è limitato a 200 connessioni in uscita simultanee.
 7. La risposta viene quindi passata al client dall'istanza del servizio.
-8. Le richieste successive dalla stessa connessione ripetere i passaggi precedenti fino a quando la connessione non viene interrotta o è inattiva per 10 minuti.
+8. Le richieste successive dalla stessa connessione ripetono i passaggi precedenti.
 
 Un'applicazione ha spesso molte risorse e apre più connessioni quando viene caricata. Ogni connessione passa attraverso i passaggi precedenti per essere allocata a un'istanza del servizio, selezionare un nuovo connettore disponibile se la connessione non è ancora precedentemente associata a un connettore.
 

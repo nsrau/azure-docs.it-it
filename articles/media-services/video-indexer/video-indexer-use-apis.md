@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/13/2020
 ms.author: juliako
-ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82bdb177cf4d9c400d1b13ba7178658089950557
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245850"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314343"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
@@ -142,9 +142,9 @@ var videoUrl = "VIDEO_URL"; // replace with the video URL
 // as an alternative to specifying video URL, you can upload a file.
 // remove the videoUrl parameter from the query string below and add the following lines:
   //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-  //byte[] buffer =newbyte[video.Length];
+  //byte[] buffer = new byte[video.Length];
   //video.Read(buffer, 0, buffer.Length);
-  //content.Add(newByteArrayContent(buffer));
+  //content.Add(new ByteArrayContent(buffer));
 
 var uploadRequestResult = client.PostAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}", content).Result;
 var uploadResult = uploadRequestResult.Content.ReadAsStringAsync().Result;
@@ -215,5 +215,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esaminare i dettagli del codice JSON di outputExamine details of the output JSON](video-indexer-output-json-v2.md)
-- Consulta il [codice di esempio](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) che illustra aspetti importanti del caricamento e dell'indicizzazione di un video. Seguendo il codice vi darà una buona idea di come utilizzare la nostra API per le funzionalità di base. Assicurati di leggere i commenti in linea e notare i nostri consigli sulle best practice.
+- Consulta il [codice di esempio](https://github.com/Azure-Samples/media-services-video-indexer) che illustra aspetti importanti del caricamento e dell'indicizzazione di un video. Seguendo il codice vi darà una buona idea di come utilizzare la nostra API per le funzionalità di base. Assicurati di leggere i commenti in linea e notare i nostri consigli sulle best practice.
 

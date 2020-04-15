@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 9fbde84c499ba5b086ce812de63602c626b416b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 406dcdb419dba2e8044a173f4c05028abbaba3da
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74179324"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312413"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creare un gateway applicazione con un servizio di bilanciamento del carico interno
 
-Un gateway applicazione di Azure può essere configurato con un indirizzo VIP con connessione Internet o con un endpoint interno non esposto a Internet, detto anche endpoint del dispositivo di bilanciamento del carico interno (ILB). Configurare il gateway con un ILB è utile per le applicazioni line-of-business interne non esposte a Internet. È utile anche per servizi e livelli in un'applicazione a più livelli posti entro un limite di sicurezza non esposto a Internet, ma che richiedono la distribuzione del carico round robin, la persistenza delle sessioni o la terminazione Secure Sockets Layer (SSL).
+Un gateway applicazione di Azure può essere configurato con un indirizzo VIP con connessione Internet o con un endpoint interno non esposto a Internet, detto anche endpoint del dispositivo di bilanciamento del carico interno (ILB). Configurare il gateway con un ILB è utile per le applicazioni line-of-business interne non esposte a Internet. È utile anche per i servizi e i livelli all'interno di un'applicazione multilivello che si trova in un limite di sicurezza che non è esposto a Internet ma che richiede comunque la distribuzione del carico round robin, la persistenza della sessione o la protezione TLS (Transport Layer Security), precedentemente nota come Secure Sockets Layer (SSL), terminazione.
 
 In questo articolo verrà illustrata la procedura per configurare un gateway applicazione con un ILB.
 

@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 11/27/2019
+ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c5d0efe8e662544dc69356c6b17dd7eca6f3a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75b127f8429650d46af9f171ed7ff03692f1499e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74786453"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379912"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Agente di autenticazione pass-through Azure AD: cronologia delle versioniAzure AD Pass-through Authentication agent: Version release history 
  
@@ -27,6 +27,14 @@ Di seguito sono riportati gli argomenti correlati:
 
 - [Accesso utente con l'autenticazione pass-through di Azure ADUser sign-in with Azure AD Pass-through Authentication](how-to-connect-pta.md) 
 - [Installazione dell'agente di autenticazione pass-through di Azure ADAzure AD Pass-through Authentication agent installation](how-to-connect-pta-quick-start.md) 
+
+## <a name="1517420"></a>1.5.1742.0
+### <a name="release-status"></a>Stato rilascio: 
+04/09/2020: Rilasciato per il download
+
+### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
+
+- Aggiunto il supporto per il targeting di ambienti cloud al momento dell'installazione. Il pacchetto può essere aggiunto a un determinato ambiente cloud.
 
 
 

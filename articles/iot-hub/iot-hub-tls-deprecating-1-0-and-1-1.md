@@ -1,22 +1,26 @@
 ---
-title: Deprecazione di TLS 1.0 e 1.1 nell'hub IoT e nel servizio di provisioning dei dispositivi (DPS) Documenti Microsoft
-description: Linee guida per la deprecazione di TLS 1.0 e 1.1 e le crittografie supportate nell'hub IoT e DPS.
-author: rezasherafat
-ms.author: rezas
+title: Deprecazione di TLS 1.0 e 1.1 nell'hub IoT Documenti Microsoft
+description: Linee guida per la deprecazione di TLS 1.0 e 1.1 e le crittografie supportate nell'hub IoT.
+author: jlian
+ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: d61ca8fe7c6f5e7cc400714d7c31a0a7e50b8a88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: a887dd4df44ba58b0e6646ffb1c10eb21edf3e69
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402799"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381306"
 ---
-# <a name="deprecation-of-tls-10-and-11-in-iot-hub-and-device-provisioning-service"></a>Deprecazione di TLS 1.0 e 1.1 nel servizio IoT Hub and Device Provisioning
+# <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>Deprecazione di TLS 1.0 e 1.1 nell'hub IoT
 
-Per fornire la crittografia best-in-class, L'Hub IoT e il servizio di provisioning dei dispositivi (DPS) passano a Transport Layer Security (TLS) 1.2 come meccanismo di crittografia preferito per i dispositivi e i servizi IoT. 
+Per fornire la crittografia best-in-class, l'hub IoT si sta spostando a Transport Layer Security (TLS) 1.2 come meccanismo di crittografia preferito per i dispositivi e i servizi IoT. 
+
+## <a name="timeline"></a>Sequenza temporale
+
+L'hub IoT continuerà a supportare TLS 1.0/1.1 fino a nuovo avviso. Tuttavia, è consigliabile che tutti i clienti migrano a TLS 1.2 il prima possibile.
 
 ## <a name="supported-ciphers"></a>Cifrari supportati
 
@@ -26,7 +30,6 @@ La sequenza temporale per la disponibilità di varie crittografie utilizzate nel
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (saranno sostenuti nella seconda metà del 2020)
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (saranno sostenuti nella seconda metà del 2020)
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (saranno sostenuti nella seconda metà del 2020)
-
 
 ## <a name="customer-feedback"></a>Commenti e suggerimenti degli utenti
 

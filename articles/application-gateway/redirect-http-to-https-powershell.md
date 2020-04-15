@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ca742483bc8977327003ee18e9716ef9c43ebfe3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d905be7c4a922a1a7eb3d1318be28da896e8a7e9
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77251720"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312015"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite Azure PowerShell
 
-È possibile usare Azure PowerShell per creare un [gateway applicazione](overview.md) con un certificato per la terminazione SSL. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali. 
+È possibile usare Azure PowerShell per creare un gateway applicazione con un certificato per la terminazione TLS/SSL.You can use the Azure PowerShell to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
