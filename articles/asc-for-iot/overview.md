@@ -1,5 +1,5 @@
 ---
-title: Che cos'è il Centro sicurezza di Azure per l'IoT Documenti Microsoft
+title: Panoramica del servizio
 description: Scopri di più sul Centro sicurezza di Azure per le funzionalità e i servizi IoT e scopri come il Centro sicurezza di Azure per IoT offre una sicurezza IoT completa.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1c85f0205f568f065a7959a9b33890b2117e45a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4601de6ee495def43d1267131193762ea482d2a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462225"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310928"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introduzione al Centro sicurezza di Azure per IoT
 
-Unifica la gestione della sicurezza e abilita il rilevamento e l'analisi end-to-end delle minacce tra carichi di lavoro cloud ibridi e la tua soluzione IoT di Azure.Unifiy security management and enable end-to-end threat detection and analysis across hybrid cloud workloads and your Azure IoT solution. 
+Unifica la gestione della sicurezza e abilita il rilevamento e l'analisi end-to-end delle minacce tra carichi di lavoro cloud ibridi e la tua soluzione IoT di Azure.Unifiy security management and enable end-to-end threat detection and analysis across hybrid cloud workloads and your Azure IoT solution.
 
 ## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteggi l'intera soluzione IoT dai dispositivi IoT al cloud di Azure
 
 Scegli tra la nostra soluzione senza agente senza soluzione di continuità o sfrutta la sicurezza completa basata su agenti, il Centro sicurezza di Azure per l'IoT fornisce la prevenzione e l'analisi delle minacce per ogni dispositivo, IoT Edge e Hub IoT, attraverso le tue risorse IoT.
 
-Poiché miliardi di nuovi dispositivi sono connessi a Internet e integrati nella nostra vita quotidiana e nelle nostre aziende, i team delle operazioni di sicurezza devono garantire che le loro strategie di sicurezza si evolvano abbastanza rapidamente da coprire ogni nuova superficie di attacco. Come qualsiasi altro sistema, per proteggere in modo completo la tua soluzione IoT, richiede protezione in ogni fase dell'implementazione. 
+Poiché miliardi di nuovi dispositivi sono connessi a Internet e integrati nella nostra vita quotidiana e nelle nostre aziende, i team delle operazioni di sicurezza devono garantire che le loro strategie di sicurezza si evolvano abbastanza rapidamente da coprire ogni nuova superficie di attacco. Come qualsiasi altro sistema, per proteggere in modo completo la tua soluzione IoT, richiede protezione in ogni fase dell'implementazione.
 
-Il Centro sicurezza di Azure per IoT semplifica la protezione dei carichi di lavoro ibridi offrendo visibilità e controllo unificati, la prevenzione adattiva delle minacce e il rilevamento e la risposta intelligenti delle minacce tra carichi di lavoro in esecuzione in edge, in locale, in Azure e in altri Nuvole. 
+Il Centro sicurezza di Azure per IoT semplifica la protezione dei carichi di lavoro ibridi offrendo visibilità e controllo unificati, la prevenzione adattiva delle minacce e il rilevamento e la risposta intelligenti delle minacce tra carichi di lavoro in esecuzione in edge, in locale, in Azure e in altri cloud.
 
 ![Centro sicurezza di Azure per IoT: architettura](./media/architecture/azure-iot-security-architecture.png)
 
 ### <a name="unified-visibility-and-control"></a>Visibilità e controllo unificati
 
-Ottieni una visione unificata della sicurezza in tutti i carichi di lavoro locali e cloud, inclusa la soluzione IoT di Azure.Get a unified view of security across all of your on-premises and cloud workloads, including your Azure IoT solution. Aggiorna nuovi dispositivi e applica criteri di sicurezza nei tuoi carichi di lavoro (dispositivi foglia, dispositivi Microsoft Edge, hub IoT) per garantire la conformità agli standard di sicurezza e una maggiore sicurezza. 
+Ottieni una visione unificata della sicurezza in tutti i carichi di lavoro locali e cloud, inclusa la soluzione IoT di Azure.Get a unified view of security across all of your on-premises and cloud workloads, including your Azure IoT solution. Aggiorna nuovi dispositivi e applica criteri di sicurezza nei tuoi carichi di lavoro (dispositivi foglia, dispositivi Microsoft Edge, hub IoT) per garantire la conformità agli standard di sicurezza e una maggiore sicurezza.
 
 ### <a name="adaptive-threat-prevention"></a>Prevenzione delle minacce adattiva
 
@@ -51,10 +51,9 @@ Usa l'analisi avanzata e Microsoft Intelligent Security Graph per ottenere un va
 
 In this overview, you learned about the features and services of Azure Security Center for IoT. Per altre informazioni sull'architettura IoT del Centro sicurezza di Azure per l'architettura IoT, sui prerequisiti e su come iniziare, vedere gli articoli seguenti:To learn more about Azure Security Center for IoT architecture, prerequisites, and learn how to get started, see the following articles:
 
-- [Architettura](architecture.md)
+- [Architecture](architecture.md)
 - [Prerequisiti del servizio](service-prerequisites.md)
 - [Introduzione](getting-started.md)
 - [Definisci la tua soluzione](quickstart-configure-your-solution.md)
 - [Azure Security Center for IoT FAQ](resources-frequently-asked-questions.md)
 - [Centro sicurezza di Azure per gli avvisi IoTAzure Security Center for IoT alerts](concept-security-alerts.md)
-

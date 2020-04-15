@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f06480767b697dca8fe41e484c02aefc58f040bf
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3a885f071c89ff6d9bb79d908b19c9451b4ed735
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261330"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383311"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
@@ -94,9 +94,9 @@ Quando la creazione dell'account di Automazione viene completata, vengono create
 
 ## <a name="create-a-classic-run-as-account"></a>Creare un account RunAs classico
 
-Gli account Run-As classici non vengono più creati, per impostazione predefinita, quando si crea un account di Automazione di Azure.Classic Run-As accounts are no longer created, by default, when you create an Azure Automation account. Se è ancora necessario un account Run-As classico, eseguire la procedura seguente.
+Gli account RunAs classici non vengono più creati per impostazione predefinita quando si crea un account di Automazione di Azure.Classic RunAs accounts are no longer created by default when you create an Azure Automation account. Se hai ancora bisogno di un account RunAs classico:
 
-1. Nella pagina **Account di automazione** selezionare **Account RunAs** in **Impostazioni account**.
+1. Dall'account Di automazione, selezionare **Account RunAs** in **Impostazioni account**.
 2. Selezionare **Account RunAs classico di Azure**.
 3. Fare clic su **Crea** per procedere con la creazione dell'account RunAs classico.
 
@@ -105,5 +105,6 @@ Gli account Run-As classici non vengono più creati, per impostazione predefinit
 * Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure.To](automation-graphical-authoring-intro.md)learn more about graphical authoring, see Graphical authoring in Azure Automation .
 * Per iniziare a usare i runbook di PowerShell, vedere il mio primo runbook di [PowerShell.](automation-first-runbook-textual-powershell.md)
 * Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere [Il mio primo runbook del flusso di lavoro](automation-first-runbook-textual.md)di PowerShell .
-* Per iniziare con i runbook Python2, vedere [Il mio primo runbook Python2](automation-first-runbook-textual-python2.md).
-
+* Per iniziare con i runbook di Python 2, vedere [Il mio primo runbook Python2](automation-first-runbook-textual-python2.md).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

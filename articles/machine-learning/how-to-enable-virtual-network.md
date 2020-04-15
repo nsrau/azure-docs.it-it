@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: ea65956a73874b717ecab25d83ed25b59f2ada55
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f70c24c91e048270696b244bb9775cb24f0ef30d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257250"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383483"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML all'interno di una rete virtuale di AzureSecure Azure ML experimentation and inference jobs within an Azure Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -484,6 +484,21 @@ Il contenuto `body.json` del file a cui fa riferimento il comando è simile al s
 > Attualmente, non è possibile configurare il servizio di bilanciamento del carico quando si esegue un'operazione di __collegamento__ in un cluster esistente. È innanzitutto necessario collegare il cluster e quindi eseguire un'operazione di aggiornamento per modificare il servizio di bilanciamento del carico.
 
 Per altre informazioni sull'uso del servizio di bilanciamento del carico interno con AKS, vedere Usare il servizio di bilanciamento del carico interno con il servizio [Azure Kubernetes.](/azure/aks/internal-lb)
+
+## <a name="use-azure-container-instances-aci"></a>Usare le istanze del contenitore di AzureUse Azure Container Instances (ACI)
+
+Le istanze del contenitore di Azure vengono create dinamicamente quando si distribuisce un modello. Per abilitare Azure Machine Learning per creare ACI all'interno della rete virtuale, è necessario abilitare la delega della __subnet__ per la subnet usata dalla distribuzione.
+
+Per usare ACI in una rete virtuale nell'area di lavoro, eseguire la procedura seguente:To use ACI in a virtual network to your workspace, use the following steps:
+
+1. Per abilitare la delega della subnet nella rete virtuale, usare le informazioni contenute nell'articolo [Aggiungere o rimuovere una delega di subnet.](../virtual-network/manage-subnet-delegation.md) È possibile abilitare la delega durante la creazione di una rete virtuale o aggiungerla a una rete esistente.
+
+    > [!IMPORTANT]
+    > Quando si abilita `Microsoft.ContainerInstance/containerGroups` la delega, utilizzare come __subnet delegata per il__ valore del servizio.
+
+2. Distribuire il modello utilizzando [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), utilizzare i `vnet_name` parametri e `subnet_name` . Impostare questi parametri sul nome della rete virtuale e sulla subnet in cui è stata abilitata la delega.
+
+
 
 ## <a name="use-azure-firewall"></a>Usare Firewall di AzureUse Azure Firewall
 

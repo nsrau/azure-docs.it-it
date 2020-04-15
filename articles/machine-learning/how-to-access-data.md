@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668653"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383449"
 ---
 # <a name="connect-to-azure-storage-services"></a>Connettersi ai servizi di archiviazione di AzureConnect to Azure storage services
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -73,7 +73,7 @@ Databricks è supportato solo per [databricks pipelineStep](https://docs.microso
 Quando si crea un'area di lavoro, un contenitore BLOB di Azure e una condivisione file di Azure vengono registrati automaticamente nell'area di lavoro. Sono denominati `workspaceblobstore` `workspacefilestore`e , rispettivamente. `workspaceblobstore`viene usato per archiviare gli elementi dell'area di lavoro e i log dell'esperimento di apprendimento automatico. `workspacefilestore`viene utilizzato per archiviare i blocchi appunti e gli script R autorizzati tramite [l'istanza](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files)di calcolo . Il `workspaceblobstore` contenitore viene impostato come archivio dati predefinito.
 
 > [!IMPORTANT]
-> La finestra di progettazione di Azure Machine Learning (anteprima) creerà automaticamente un archivio dati denominato **azureml_globaldatasets** quando si apre un esempio nella home page della finestra di progettazione. Questo archivio dati contiene solo set di dati di esempio. Si prega **di non** utilizzare questo archivio dati per qualsiasi accesso ai dati riservati!
+> La finestra di progettazione di Azure Machine Learning (anteprima) creerà automaticamente un archivio dati denominato **azureml_globaldatasets** quando si apre un esempio nella home page della finestra di progettazione. Questo archivio dati contiene solo set di dati di esempio. Si prega **di non** utilizzare questo archivio dati per qualsiasi accesso ai dati riservati.
 > ![Archivio dati creato automaticamente per set di dati di progettazioneAuto-created datastore for designer sample datasets](media/how-to-access-data/datastore-designer-sample.png)
 
 <a name="access"></a>
@@ -94,7 +94,7 @@ Tutti i metodi di [`Datastore`](https://docs.microsoft.com/python/api/azureml-co
 È possibile trovare le informazioni necessarie `register()` per popolare il metodo nel portale di [Azure](https://portal.azure.com).
 Selezionare **Account di archiviazione** nel riquadro sinistro e scegliere l'account di archiviazione da registrare. La pagina **Panoramica** fornisce informazioni quali il nome dell'account, il contenitore e il nome della condivisione file. 
 
-* Per gli elementi di autenticazione, ad esempio la chiave dell'account o il token di firma di accesso condiviso, passare a Chiavi account nel riquadro Impostazioni.For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane. 
+* Per gli elementi di autenticazione, ad esempio la chiave dell'account o il token di firma di accesso condiviso, passare a Chiavi di accesso nel riquadro **Impostazioni.For** **authentication items,** like account key or SAS token, go to Access keys on the Settings pane. 
 
 * Per gli elementi dell'entità servizio, ad esempio l'ID tenant e l'ID client, passare alle **registrazioni dell'app** e selezionare l'app da usare. La pagina **Panoramica** corrispondente conterrà questi elementi.
 
@@ -107,13 +107,13 @@ Gli esempi seguenti illustrano come registrare un contenitore BLOB di Azure, una
 
 Per registrare un contenitore BLOB [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)di Azure come archivio dati, usare .
 
-Il codice seguente crea `blob_datastore_name` e registra `ws` l'archivio dati nell'area di lavoro. Questo archivio dati `my-container-name` accede al `my-account-name` contenitore BLOB nell'account di archiviazione usando la chiave dell'account fornita.
+Il codice seguente crea `blob_datastore_name` e registra `ws` l'archivio dati nell'area di lavoro. Questo archivio dati `my-container-name` accede al `my-account-name` contenitore BLOB nell'account di archiviazione usando la chiave di accesso dell'account fornita.
 
 ```Python
 blob_datastore_name='azblobsdk' # Name of the datastore to workspace
 container_name=os.getenv("BLOB_CONTAINER", "<my-container-name>") # Name of Azure blob container
 account_name=os.getenv("BLOB_ACCOUNTNAME", "<my-account-name>") # Storage account name
-account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account access key
 
 blob_datastore = Datastore.register_azure_blob_container(workspace=ws, 
                                                          datastore_name=blob_datastore_name, 
@@ -126,13 +126,13 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 Per registrare una condivisione file [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)di Azure come archivio dati, usare . 
 
-Il codice seguente crea `file_datastore_name` e registra `ws` l'archivio dati nell'area di lavoro. Questo archivio dati `my-fileshare-name` accede alla `my-account-name` condivisione file nell'account di archiviazione usando la chiave dell'account fornita.
+Il codice seguente crea `file_datastore_name` e registra `ws` l'archivio dati nell'area di lavoro. Questo archivio dati `my-fileshare-name` accede alla `my-account-name` condivisione file nell'account di archiviazione usando la chiave di accesso dell'account fornita.
 
 ```Python
 file_datastore_name='azfilesharesdk' # Name of the datastore to workspace
 file_share_name=os.getenv("FILE_SHARE_CONTAINER", "<my-fileshare-name>") # Name of Azure file share container
 account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage account name
-account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account access key
 
 file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      datastore_name=file_datastore_name, 
@@ -181,7 +181,7 @@ Creare un nuovo archivio dati in pochi passaggi in Azure Machine Learning Studio
   
 È possibile trovare le informazioni necessarie per popolare il modulo nel portale di [Azure.](https://portal.azure.com) Selezionare **Account di archiviazione** nel riquadro sinistro e scegliere l'account di archiviazione da registrare. La pagina **Panoramica** fornisce informazioni quali il nome dell'account, il contenitore e il nome della condivisione file. 
 
-* Per gli elementi di autenticazione, ad esempio la chiave dell'account o il token di firma di accesso condiviso, passare a Chiavi account nel riquadro Impostazioni.For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane. 
+* Per gli elementi di autenticazione, ad esempio la chiave dell'account o il token di firma di accesso condiviso, passare a Chiavi di accesso nel riquadro **Impostazioni.For** **authentication items,** like account key or SAS token, go to Access keys on the Settings pane. 
 
 * Per gli elementi dell'entità servizio, ad esempio l'ID tenant e l'ID client, passare alle **registrazioni dell'app** e selezionare l'app da usare. La pagina **Panoramica** corrispondente conterrà questi elementi. 
 

@@ -1,26 +1,20 @@
 ---
 title: Impostazioni dell'applicazione - LUIS
-titleSuffix: Azure Cognitive Services
 description: Le impostazioni delle applicazioni per le app per la comprensione della lingua di Servizi cognitivi di Azure vengono archiviate nell'app e nel portale.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/12/2019
-ms.author: diberry
-ms.openlocfilehash: d1ead09f6248a6ad14646371aa70b42b57cf8e3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78270811"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382194"
 ---
 # <a name="application-settings"></a>Impostazioni dell'applicazione
 
 Queste impostazioni dell'applicazione vengono archiviate nell'app [esportata](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e [aggiornate](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con le API REST. La modifica delle impostazioni della versione dell'app reimposta lo stato di formazione dell'app su non addestrato.
+
+Scopri [i concetti](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) di segni diacritici e punteggiatura.
 
 |Impostazione|Valore predefinito|Note|
 |--|--|--|
@@ -183,3 +177,7 @@ La punteggiatura seguente viene `NormalizePunctuation` rimossa con è impostata 
 |`}`|
 |`+`|
 |`¡`|
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Scopri [i concetti](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) di segni diacritici e punteggiatura.

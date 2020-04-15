@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/14/2020
 ms.author: sstein
-ms.openlocfilehash: b677fd7fe2b14e1c42443478a887ddfa2481dfbf
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 7d922aa0727ad28054d050a29039951d3f04985f
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011447"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383377"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -49,6 +49,7 @@ In questo articolo sono elencate le funzionalità del database SQL attualmente i
 | <a href="https://aka.ms/managed-instance-aadlogins">Entità server di Azure AD a livello di istanza (account di accesso)Instance-level Azure SERVER principals (logins)</a> | Creare account di accesso a livello di server utilizzando l'istruzione <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER.</a> |
 | [Replica transazionale](sql-database-managed-instance-transactional-replication.md) | Replicare le modifiche dalle tabelle in altri database inseriti in istanze gestite, database singoli o istanze di SQL Server oppure aggiornare le tabelle quando alcune righe vengono modificate in altre istanze gestite o istanze di SQL Server.Replica the changes from your tables into other databases placed on Managed Instances, Single Databases, or SQL Server instances, or update your tables when some rows are changed in other Managed Instances or SQL Server instance. Per informazioni, vedere Configurare la [replica in un database dell'istanza gestita del database SQL](replication-with-sql-database-managed-instance.md)di Azure.For information, see Configure replication in an Azure SQL Database managed instance database . |
 | Introduzione al rilevamento delle minacce |Per informazioni, vedere [Configurare il rilevamento delle minacce nell'istanza gestita del database SQL](sql-database-managed-instance-threat-detection.md)di Azure.For information, see Configure threat detection in Azure SQL Database managed instance .|
+| Conservazione del backup a lungo termine | Per informazioni, vedere [Configurare la conservazione del backup a lungo termine nell'istanza gestita del database SQL](sql-database-managed-instance-long-term-backup-retention-configure.md)di Azure.For information, see Configure long-term back up retention in Azure SQL Database managed instance . | 
 
 ---
 
@@ -167,7 +168,7 @@ Le finestre di dialogo di Service Broker tra database interromperanno il recapit
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>L'impersonificazione dei tipi di accesso di Azure AD non è supportata
 
 La rappresentazione `EXECUTE AS USER` `EXECUTE AS LOGIN` tramite o delle seguenti entità AAD non è supportata:
--   Utenti AAD con alias. In questo caso `15517`viene restituito il seguente errore.
+-    Utenti AAD con alias. In questo caso `15517`viene restituito il seguente errore.
 - Account di accesso e utenti di AAD basati su applicazioni AAD o entità servizio. In questo caso `15517` vengono restituiti `15406`i seguenti errori e .
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametro non supportato in sp_send_db_mail

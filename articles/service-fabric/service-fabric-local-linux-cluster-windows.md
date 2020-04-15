@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: 806e77a928d25e30aed24147525f74507bc32795
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f60b9d9b919a72250038ede2a2bd53278df79cb
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75462989"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309010"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurazione di un cluster Linux di Service Fabric sul computer di sviluppo Windows
 
@@ -45,7 +45,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
 2. In una nuova directory creare un file denominato `Dockerfile` per creare l'immagine di Service Fabric:
 
     ```Dockerfile
-    FROM microsoft/service-fabric-onebox
+    FROM mcr.microsoft.com/service-fabric/onebox:latest
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh
     #Generate the local
@@ -86,7 +86,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >
     >Se l'applicazione è in ascolto su determinate porte, le porte devono essere specificate usando tag `-p` aggiuntivi. Se ad esempio l'applicazione è in ascolto sulla porta 8080, aggiungere il tag `-p` seguente:
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
 5. L'avvio del cluster richiederà un breve periodo di tempo, è possibile visualizzare i [http://localhost:19080](http://localhost:19080)log utilizzando il comando seguente o passare al dashboard per visualizzare l'integrità dei cluster:

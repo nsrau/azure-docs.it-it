@@ -1,14 +1,14 @@
 ---
 title: Aggiornare un'assegnazione esistente dal portale
 description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione di blueprint esistente dal portale in Azure Blueprints.Learn about the mechanism for updating an existing blueprint assignment from the portal in Azure Blueprints.
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264661"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381801"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -22,22 +22,22 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
-1. Selezionare **Blueprint assegnati** dalla pagina a sinistra.
+1. Selezionare **Progetti assegnati** nella pagina a sinistra.
 
 1. Nell'elenco dei progetti fare clic sull'assegnazione del progetto Quindi fare clic sul pulsante **Aggiorna assegnazione** OPPURE fare clic con il pulsante destro del mouse sull'assegnazione del blueprint e selezionare **Aggiorna assegnazione**.
 
-   ![Aggiornare un'assegnazione di blueprint esistente](../media/update-existing-assignments/update-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Aggiornare un'assegnazione di blueprint esistente" border="false":::
 
 1. La pagina **Assegna blueprint** verrà caricata precompilata con tutti i valori dell'assegnazione originale.
    È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, fare clic su **Assegna**.
 
 1. Nella pagina dei dettagli dell'assegnazione aggiornata, vedere il nuovo stato. In questo esempio, è stato aggiunto il parametro **Blocco** all'assegnazione.
 
-   ![Aggiornamento di un'assegnazione di blueprint esistente - modalità di blocco modificata](../media/update-existing-assignments/updated-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Aggiornamento di un'assegnazione di blueprint esistente - modalità di blocco modificata" border="false":::
 
 1. Esplorare i dettagli relativi ad altre operazioni di **assegnazione** utilizzando l'elenco a discesa. La tabella degli aggiornamenti delle **risorse gestite** in base all'operazione di assegnazione selezionata.
 
-   ![Operazioni di assegnazione di un'assegnazione di blueprint](../media/update-existing-assignments/assignment-operations.png)
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Operazioni di assegnazione di un'assegnazione di blueprint" border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regole per l'aggiornamento delle assegnazioni
 

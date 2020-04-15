@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280534"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382910"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integrazione di Azure Active Directory per Azure Red Hat OpenShift
 
@@ -25,13 +25,13 @@ Nel [portale](https://portal.azure.com)di Azure verificare che il tenant venga v
 
 ![Screenshot del portale con tenant](./media/howto-create-tenant/tenant-callout.png) elencato in alto a destra Se viene visualizzato il tenant errato, fare clic sul proprio nome utente in alto a destra, quindi fare clic su **Cambia directory**e selezionare il tenant corretto dall'elenco **Tutte le directory.**
 
-Creare un nuovo utente amministratore globale di Azure Active Directory per accedere al cluster Azure Red Hat OpenShift.Create a new Azure Active Directory global administrator user to sign in to your Azure Red Hat OpenShift cluster.
+Creare un nuovo utente 'Proprietario' di Azure Active Directory per accedere al cluster Azure Red Hat OpenShift.Create a new Azure Active Directory 'Owner' user to sign in to your Azure Red Hat OpenShift cluster.
 
 1. Passare al pannello [Utenti-Tutti gli utenti.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)
 2. Fare clic su **Nuovo utente** per aprire il riquadro **Utente.**
 3. Immettere un **Nome** per l'utente.
 4. Creare un **nome utente** basato sul nome `.onmicrosoft.com` del tenant creato, con aggiunta alla fine. Ad esempio: `yourUserName@yourTenantName.onmicrosoft.com`. Annotare questo nome utente. Sarà necessario per accedere al cluster.
-5. Fare clic su **Ruolo directory** per aprire il riquadro del ruolo di directory e selezionare **Amministratore globale** e quindi fare clic su **OK** nella parte inferiore del riquadro.
+5. Fare clic su **Ruolo directory** per aprire il riquadro del ruolo di directory e selezionare **Proprietario** e quindi fare clic su **OK** nella parte inferiore del riquadro.
 6. Nel riquadro **Utente** fare clic su **Mostra password** e registrare la password temporanea. Dopo aver eseguito l'accesso per la prima volta, ti verrà richiesto di reimpostarlo.
 7. Nella parte inferiore del riquadro fare clic su **Crea** per creare l'utente.
 
@@ -123,4 +123,4 @@ Se sono stati soddisfatti tutti i prerequisiti di [Azure Red Hat OpenShift,](how
 
 Prova il tutorial:
 > [!div class="nextstepaction"]
-> [Creare un cluster di Azure Red Hat OpenShift](tutorial-create-cluster.md)
+> [Creare un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md)

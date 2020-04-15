@@ -1,27 +1,27 @@
 ---
-title: Configurare i criteri SSL tramite PowerShellConfigure SSL policy using PowerShell
+title: Configurare i criteri TLS tramite PowerShellConfigure TLS policy using PowerShell
 titleSuffix: Azure Application Gateway
-description: Questo articolo contiene istruzioni per configurare i criteri SSL nel gateway applicazione di Azure
+description: Questo articolo fornisce istruzioni per configurare i criteri TLS nel gateway applicazione di AzureThis article provides instructions to configure TLS Policy on Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3804059fdd818f10663d14bde72da2c6773fa53f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075241"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312686"
 ---
-# <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione
+# <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare le versioni dei criteri TLS e le suite di crittografia nel gateway applicazioneConfigure TLS policy versions and cipher suites on Application Gateway
 
-Questo articolo illustra come configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione. È possibile scegliere da un elenco di criteri predefiniti contenenti diverse configurazioni dei pacchetti di crittografia abilitati e delle versioni dei criteri SSL. Si possono anche definire [criteri SSL personalizzati](#configure-a-custom-ssl-policy) in base ai propri requisiti.
+Informazioni su come configurare le versioni dei criteri TLS/SSL e le suite di crittografia nel gateway applicazione. È possibile selezionare da un elenco di criteri predefiniti che contengono configurazioni diverse di versioni dei criteri TLS e suite di crittografia abilitate. È inoltre possibile definire un [criterio TLS personalizzato](#configure-a-custom-tls-policy) in base alle proprie esigenze.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-available-ssl-options"></a>Recuperare le opzioni SSL disponibili
+## <a name="get-available-tls-options"></a>Ottenere le opzioni TLS disponibiliGet available TLS options
 
 Il cmdlet `Get-AzApplicationGatewayAvailableSslOptions` offre un elenco dei criteri predefiniti, dei pacchetti di crittografia disponibili e delle versioni del protocollo configurabili. L'esempio seguente illustra un esempio di output ottenuto eseguendo il cmdlet.
 
@@ -71,9 +71,9 @@ AvailableProtocols:
     TLSv1_2
 ```
 
-## <a name="list-pre-defined-ssl-policies"></a>Visualizzare un elenco dei criteri SSL predefiniti
+## <a name="list-pre-defined-tls-policies"></a>Elencare i criteri TLS predefinitiList pre-defined TLS Policies
 
-Il gateway applicazione include tre criteri predefiniti utilizzabili. Il cmdlet `Get-AzApplicationGatewaySslPredefinedPolicy` recupera tali criteri. Ognuno include versioni del protocollo e pacchetti di crittografia abilitati diversi. Questi criteri predefiniti possono essere usati per configurare rapidamente i criteri SSL nel gateway applicazione. Per impostazione predefinita, se non vengono definiti criteri SSL specifici è selezionato il criterio **AppGwSslPolicy20150501**.
+Il gateway applicazione include tre criteri predefiniti utilizzabili. Il cmdlet `Get-AzApplicationGatewaySslPredefinedPolicy` recupera tali criteri. Ognuno include versioni del protocollo e pacchetti di crittografia abilitati diversi. Questi criteri predefiniti possono essere utilizzati per configurare rapidamente un criterio TLS nel gateway applicazione. Per impostazione predefinita **AppGwSslPolicy20150501** è selezionato se non è definito alcun criterio TLS specifico.
 
 Di seguito è riportato un esempio di esecuzione di `Get-AzApplicationGatewaySslPredefinedPolicy`.
 
@@ -106,37 +106,37 @@ CipherSuites:
 ...
 ```
 
-## <a name="configure-a-custom-ssl-policy"></a>Configurare criteri SSL personalizzati
+## <a name="configure-a-custom-tls-policy"></a>Configurare un criterio TLS personalizzato
 
-Quando si configura un criterio SSL personalizzato, si passano i parametri seguenti: PolicyType, MinProtocolVersion, CipherSuite e ApplicationGateway. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione. 
+Quando si configura un criterio TLS personalizzato, si passano i parametri seguenti: PolicyType, MinProtocolVersion, CipherSuite e ApplicationGateway. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione. 
 
-L'esempio seguente imposta criteri SSL personalizzati in un gateway applicazione. Imposta la versione minima del protocollo su `TLSv1_1` e abilita i pacchetti di crittografia seguenti:
+Nell'esempio seguente viene impostato un criterio TLS personalizzato in un gateway applicazione. Imposta la versione minima del protocollo su `TLSv1_1` e abilita i pacchetti di crittografia seguenti:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> TLS_RSA_WITH_AES_256_CBC_SHA256 deve essere selezionato quando si configura un criterio SSL personalizzato. Il gateway applicazione utilizza questa suite di crittografia per la gestione back-end. È possibile utilizzare questo in combinazione con qualsiasi altra suite, ma questo deve essere selezionato pure. 
+> TLS_RSA_WITH_AES_256_CBC_SHA256 deve essere selezionato durante la configurazione di un criterio TLS personalizzato. Il gateway applicazione utilizza questa suite di crittografia per la gestione back-end. È possibile utilizzare questo in combinazione con qualsiasi altra suite, ma questo deve essere selezionato pure. 
 
 ```powershell
 # get an application gateway resource
 $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroup AdatumAppGatewayRG
 
-# set the SSL policy on the application gateway
+# set the TLS policy on the application gateway
 Set-AzApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custom -MinProtocolVersion TLSv1_1 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 
-# validate the SSL policy locally
+# validate the TLS policy locally
 Get-AzApplicationGatewaySslPolicy -ApplicationGateway $gw
 
-# update the gateway with validated SSL policy
+# update the gateway with validated TLS policy
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Creare un gateway applicazione con criteri SSL personalizzati
+## <a name="create-an-application-gateway-with-a-pre-defined-tls-policy"></a>Creare un gateway applicazione con un criterio TLS predefinitoCreate an application gateway with a pre-defined TLS policy
 
-Quando si configura un criterio SSL predefinito, si passano i parametri seguenti: PolicyType, PolicyName e ApplicationGateway. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione.
+Quando si configura un criterio TLS predefinito, si passano i parametri seguenti: PolicyType, PolicyName e ApplicationGateway. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione.
 
-L'esempio seguente crea un nuovo gateway applicazione con criteri SSL predefiniti.
+Nell'esempio seguente viene creato un nuovo gateway applicazione con criteri TLS predefiniti.
 
 ```powershell
 # Create a resource group
@@ -163,10 +163,10 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddres
 # Define the backend http settings to be used.
 $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-# Create a new port for SSL
+# Create a new port for TLS
 $fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
-# Upload an existing pfx certificate for SSL offload
+# Upload an existing pfx certificate for TLS offload
 $password = ConvertTo-SecureString -String "P@ssw0rd" -AsPlainText -Force
 $cert = New-AzApplicationGatewaySslCertificate -Name cert01 -CertificateFile C:\folder\contoso.pfx -Password $password
 
@@ -182,16 +182,16 @@ $rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic 
 # Define the size of the application gateway
 $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-# Configure the SSL policy to use a different pre-defined policy
+# Configure the TLS policy to use a different pre-defined policy
 $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
 
 # Create the application gateway.
 $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Aggiornare un gateway applicazione con criteri SSL predefiniti
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Aggiornare un gateway applicazione esistente con un criterio TLS predefinitoUpdate an existing application gateway with a pre-defined TLS policy
 
-Per impostare un criterio SSL personalizzato, passare i parametri seguenti: **PolicyType**, **MinProtocolVersion**, **CipherSuite** e **ApplicationGateway**. Per impostare un criterio SSL predefinito, passare i parametri seguenti: **PolicyType**, **PolicyName** e **ApplicationGateway**. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione.
+Per impostare criteri TLS personalizzati, passare i parametri seguenti: **PolicyType**, **MinProtocolVersion**, **CipherSuite**e **ApplicationGateway**. Per impostare un criterio TLS predefinito, passare i seguenti parametri: **PolicyType**, **PolicyName**e **ApplicationGateway**. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione.
 
 Nell'esempio seguente sono disponibili esempi di codice sia per il criterio personalizzato che per il criterio predefinito. Rimuovere il commento dal criterio che si vuole usare.
 
@@ -204,14 +204,14 @@ $AppGw = get-Azapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
 # Choose either custom policy or predefined policy and uncomment the one you want to use.
 
-# SSL Custom Policy
+# TLS Custom Policy
 # Set-AzApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
 
-# SSL Predefined Policy
+# TLS Predefined Policy
 # Set-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
 
 # Update AppGW
-# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+# The TLS policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
 $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 ```
 

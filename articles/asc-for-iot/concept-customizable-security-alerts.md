@@ -1,5 +1,5 @@
 ---
-title: Guida agli avvisi di sicurezza personalizzabile per il Centro sicurezza di Azure per ioT Documenti Microsoft
+title: Avvisi di sicurezza personalizzabili
 description: Informazioni sugli avvisi di sicurezza personalizzabili e sulla correzione consigliata tramite il Centro sicurezza di Azure per le funzionalità e il servizio IoT.Learn about customizable security alerts and recommended remediation using Azure Security Center for IoT features and service.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,24 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299574"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311627"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Avvisi di sicurezza del Centro sicurezza di Azure per IoT
 
 Il Centro sicurezza di Azure per l'IoT analizza continuamente la soluzione IoT usando analisi avanzate e informazioni sulle minacce per avvisare l'utente di attività dannose.
 
-Ti invitiamo a creare avvisi personalizzati in base alla tua conoscenza del comportamento previsto del dispositivo per garantire che gli avvisi fungano da indicatori più efficienti di potenziale compromesso nella distribuzione e nel paesaggio dell'organizzazione. 
+Ti invitiamo a creare avvisi personalizzati in base alla tua conoscenza del comportamento previsto del dispositivo per garantire che gli avvisi fungano da indicatori più efficienti di potenziale compromesso nella distribuzione e nel paesaggio dell'organizzazione.
 
 L'elenco seguente di avvisi del Centro sicurezza di Azure per IoT è definibile dall'utente in base al comportamento previsto dell'hub IoT e/o del dispositivo. Per ulteriori informazioni su come personalizzare ogni avviso, vedere [Creare avvisi personalizzati.](quickstart-create-custom-alerts.md)
 
-## <a name="iot-hub-alerts-available-for-customization"></a>Avvisi dell'hub IoT disponibili per la personalizzazione 
-
-
+## <a name="iot-hub-alerts-available-for-customization"></a>Avvisi dell'hub IoT disponibili per la personalizzazione
 
 | Gravità | Nome avviso | Origine dati | Descrizione | Correzione consigliata|
 |---|---|---|---|---|
@@ -51,7 +49,7 @@ L'elenco seguente di avvisi del Centro sicurezza di Azure per IoT è definibile 
 | Basso      | Avviso personalizzato: il numero di operazioni non autorizzate non rientra nell'intervallo consentito  | Hub IoT     | La quantità di operazioni non autorizzate in una finestra temporale specifica non rientra nell'intervallo attualmente configurato e consentito.|
 |
 
-## <a name="agent-alerts-available-for-customization"></a>Avvisi agente disponibili per la personalizzazione 
+## <a name="agent-alerts-available-for-customization"></a>Avvisi agente disponibili per la personalizzazione
 
 | Gravità | Nome avviso | Origine dati | Descrizione | Correzione consigliata|
 |---|---|---|---|---|

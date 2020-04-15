@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 01/30/2020
+ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 072c7bd5b5b292ca4f0e53c59fcb7e9771331a94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77031732"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383819"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regole personalizzate per Web Application Firewall v2 nel gateway applicazione di AzureCustom rules for Web Application Firewall v2 on Azure Application Gateway
 
@@ -125,7 +125,7 @@ Descrive il campo della raccolta matchVariable. Ad esempio, se matchVariable è 
 Deve essere uno dei seguenti operatori:
 
 - IPMatch - utilizzato solo quando Match Variable è *RemoteAddr*
-- Uguale a: l'input è uguale a MatchValue
+- Uguale: l'input è uguale a MatchValue
 - Contiene
 - LessThan
 - GreaterThan

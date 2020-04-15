@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0f024bac535ed792d8480c991e470cf5d85932b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2afeae937d56a84c39167ad55a57c86f2623e52d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247423"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382713"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -50,18 +50,25 @@ Le interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garan
 
 - È possibile che gli account in area singola perdano disponibilità in caso di interruzione a livello di area. È sempre consigliabile configurare **almeno due aree** (preferibilmente, almeno due aree di scrittura) con il tuo account Cosmos per garantire la disponibilità elevata in ogni momento.
 
-- **Account con più aree con un'area di scrittura singola (interruzione dell'area di scrittura):Multi-region accounts with a single-write region (write region outage):**
-  - Durante un'interruzione dell'area di scrittura, l'account Cosmos promuoverà automaticamente un'area secondaria a nuova area di scrittura primaria quando **l'abilitazione** del failover automatico viene configurata nell'account Cosmos di Azure.During a write region outage, the Cosmos account will automatically promote a secondary region to be the new primary write region when enable automatic failover is configured on the Azure Cosmos account. Se abilitato, il failover verrà eseguito in un'altra area nell'ordine di priorità dell'area specificato.
-  - I clienti possono anche scegliere di utilizzare il **failover manuale** e monitorare l'URL dell'endpoint di scrittura Cosmos da soli utilizzando un agente creato da soli. Per i clienti con esigenze di monitoraggio dello stato complesse e sofisticate, questo può fornire un RTO ridotto in caso di errore nell'area di scrittura.
-  - Quando l'area interessata in precedenza è di nuovo online, tutti i dati di scrittura non replicati in caso di errore dell'area vengono resi disponibili tramite il [feed Conflitti.](how-to-manage-conflicts.md#read-from-conflict-feed) Le applicazioni possono leggere il feed dei conflitti, risolvere i conflitti in base alla logica specifica dell'applicazione e scrivere i dati aggiornati nel contenitore Cosmos di Azure in base alle esigenze.
-  - Una volta che viene ripristinata l'area di scrittura interessata in precedenza, diventa automaticamente disponibile come area di lettura. È possibile tornare all'area ripristinata come area di scrittura. È possibile cambiare area usando l'interfaccia della riga di comando di Azure o il portale di [Azure.](how-to-manage-database-account.md#manual-failover) Non vi sono **dati o perdita** di disponibilità prima, durante o dopo il passaggio all'area di scrittura e l'applicazione continua a essere a disponibilità elevata.
+### <a name="multi-region-accounts-with-a-single-write-region-write-region-outage"></a>Account in più aree con un'area a scrittura singola (interruzione dell'area di scrittura)Multi-region accounts with a single-write region (write region outage)
 
-- **Account con più aree con un'area di scrittura singola (interruzione dell'area di lettura):Multi-region accounts with a single-write region (read region outage):**
-  - durante un'interruzione del servizio in un'area di lettura, questi account mantengono la disponibilità elevata per le letture e le scritture.
-  - L'area interessata viene disconnessa automaticamente e verrà contrassegnata come non in linea. Gli [SDK di Azure Cosmos DB](sql-api-sdk-dotnet.md) reindirizzeranno le chiamate di lettura alla successiva area disponibile nell'elenco delle aree preferite.
-  - Se nessuna delle aree presenti nell'elenco è disponibile, viene eseguito il fallback automatico delle chiamate all'area di scrittura corrente.
-  - Non sono necessarie modifiche nel codice dell'applicazione per gestire le interruzioni di lettura a livello di area. Quando alla fine l'area interessata è in di nuovo online, l'area di lettura interessata in precedenza viene sincronizzata automaticamente con l'area di scrittura corrente ed è disponibile anche in questo caso per servire le richieste di lettura.
-  - Le letture successive vengono reindirizzate all'area ripristinata senza richiedere alcuna modifica del codice dell'applicazione. Durante il failover e il rejoin di un'area precedentemente non riuscita, la coerenza di lettura garantisce che Cosmos DB continui a essere rispettata.
+- Durante un'interruzione dell'area di scrittura, l'account Cosmos promuoverà automaticamente un'area secondaria a nuova area di scrittura primaria quando **l'abilitazione** del failover automatico viene configurata nell'account Cosmos di Azure.During a write region outage, the Cosmos account will automatically promote a secondary region to be the new primary write region when enable automatic failover is configured on the Azure Cosmos account. Se abilitato, il failover verrà eseguito in un'altra area nell'ordine di priorità dell'area specificato.
+- Quando l'area interessata in precedenza è di nuovo online, tutti i dati di scrittura che non sono stati replicati in caso di errore dell'area vengono resi disponibili tramite il [feed conflitti.](how-to-manage-conflicts.md#read-from-conflict-feed) Le applicazioni possono leggere il feed dei conflitti, risolvere i conflitti in base alla logica specifica dell'applicazione e scrivere i dati aggiornati nel contenitore Cosmos di Azure in base alle esigenze.
+- Una volta che viene ripristinata l'area di scrittura interessata in precedenza, diventa automaticamente disponibile come area di lettura. È possibile tornare all'area ripristinata come area di scrittura. È possibile passare da un'area all'altra usando [PowerShell, l'interfaccia della riga di comando di Azure o](how-to-manage-database-account.md#manual-failover)il portale di Azure. Non vi sono **dati o perdita** di disponibilità prima, durante o dopo il passaggio all'area di scrittura e l'applicazione continua a essere a disponibilità elevata.
+
+> [!IMPORTANT]
+> È consigliabile configurare gli account Cosmos di Azure usati per i carichi di lavoro di produzione per abilitare il **failover automatico.** Il failover manuale richiede la connettività tra l'area di scrittura secondaria e primaria per completare una verifica di coerenza per garantire che non si verifichino perdite di dati durante il failover. Se l'area primaria non è disponibile, questa verifica di coerenza non può essere completata e il failover manuale non avrà esito positivo, con conseguente perdita di disponibilità della scrittura.
+
+### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Account in più aree geografiche con un'area a scrittura singola (interruzione dell'area di lettura)Multi-region accounts with a single-write region (read region outage)
+
+- Durante un'interruzione dell'area di lettura, gli account Cosmos che utilizzano qualsiasi livello di coerenza o coerenza elevata con tre o più aree di lettura rimarranno altamente disponibili per le letture e le scritture.
+- L'area interessata viene disconnessa automaticamente e verrà contrassegnata come non in linea. Gli [SDK di Azure Cosmos DB](sql-api-sdk-dotnet.md) reindirizzeranno le chiamate di lettura alla successiva area disponibile nell'elenco delle aree preferite.
+- Se nessuna delle aree presenti nell'elenco è disponibile, viene eseguito il fallback automatico delle chiamate all'area di scrittura corrente.
+- Non sono necessarie modifiche nel codice dell'applicazione per gestire le interruzioni di lettura a livello di area. Quando l'area di lettura interessata è di nuovo online, verrà sincronizzata automaticamente con l'area di scrittura corrente e sarà nuovamente disponibile per gestire le richieste di lettura.
+- Le letture successive vengono reindirizzate all'area ripristinata senza richiedere alcuna modifica del codice dell'applicazione. Durante il failover e il rejoin di un'area precedentemente non riuscita, la coerenza di lettura garantisce che Cosmos DB continui a essere rispettata.
+
+> [!IMPORTANT]
+> Gli account di Azure Cosmos che usano una coerenza elevata con due o meno aree di lettura perderanno la disponibilità di scrittura durante un'interruzione dell'area di lettura, ma manterranno la disponibilità di lettura per le aree rimanenti.
 
 - Anche in un evento raro e sfortunato quando l'area di Azure è permanentemente irrecuperabile, non si verifica alcuna perdita di dati se l'account Cosmos in più aree è configurato con coerenza *forte.* In caso di area di scrittura permanentemente irrecuperabile, un account Cosmos in più aree configurato con coerenza di stantio delimitato, la finestra di potenziale perdita di dati è limitata alla finestra di stantio (*K* o *T*) in cui k -100.000 viene aggiornato e t.5 minuti. Per la sessione, il prefisso coerente e i livelli di coerenza finale, la finestra di potenziale perdita di dati è limitata a un massimo di 15 minuti. Per altre informazioni sugli obiettivi RTO e RPO per Azure Cosmos DB, vedere Livelli di [coerenza e durata dei datiFor](consistency-levels-tradeoffs.md#rto) more information on RTO and RPO targets for Azure Cosmos DB, see Consistency levels and data durability
 
@@ -112,12 +119,12 @@ Nella tabella seguente sono riepilogate le funzionalità di disponibilità eleva
 > [!NOTE]
 > Per abilitare il supporto della zona di disponibilità per un account Cosmos di Azure in più aree, l'account deve avere le scritture multimaster abilitate.
 
-È possibile abilitare la ridondanza delle aree quando si aggiunge un'area ad account di Azure Cosmos nuovi o esistenti. Per abilitare la ridondanza delle zone `isZoneRedundant` nell'account Cosmos di Azure, è necessario impostare `true` il flag su per una posizione specifica. È possibile impostare questo flag all'interno della proprietà locations. Ad esempio, il frammento di PowerShell seguente abilita la ridondanza di zona per l'area "Southeast Asia":
+È possibile abilitare la ridondanza delle aree quando si aggiunge un'area ad account di Azure Cosmos nuovi o esistenti. Per abilitare la ridondanza delle zone `isZoneRedundant` nell'account Cosmos di Azure, è necessario impostare `true` il flag su per una posizione specifica. È possibile impostare questo flag all'interno della proprietà locations. Ad esempio, il frammento di PowerShell seguente abilita la ridondanza delle zone per l'area "Southeast Asia":
 
 ```powershell
 $locations = @(
     @{ "locationName"="Southeast Asia"; "failoverPriority"=0; "isZoneRedundant"= "true" },
-    @{ "locationName"="East US"; "failoverPriority"=1 }
+    @{ "locationName"="East US"; "failoverPriority"=1; "isZoneRedundant"= "true" }
 )
 ```
 
@@ -143,7 +150,7 @@ az cosmosdb create \
 
 - Per gli account Cosmos in più aree configurati con un'area a scrittura singola, abilitare il [failover automatico tramite l'interfaccia della riga di comando di Azure o il portale](how-to-manage-database-account.md#automatic-failover)di Azure. Dopo aver abilitato il failover automatico, quando si verifica un'emergenza a livello di aera Cosmos DB esegue automaticamente il failover dell'account.  
 
-- Anche se l'account Cosmos è a disponibilità elevata, l'applicazione potrebbe non essere correttamente progettata per garantire disponibilità elevata. Per testare la disponibilità elevata end-to-end dell'applicazione, come parte dei test dell'applicazione o delle esercitazioni di ripristino di emergenza, disabilitare temporaneamente il failover automatico per l'account, richiamare il [failover manuale tramite l'interfaccia della riga di comando di Azure o il portale](how-to-manage-database-account.md#manual-failover)di Azure, quindi monitorare il failover dell'applicazione. Al termine, è possibile eseguire il failback nell'area primaria e ripristinare il failover automatico per l'account.
+- Anche se l'account Cosmos di Azure è a disponibilità elevata, l'applicazione potrebbe non essere progettata correttamente per rimanere a disponibilità elevata. Per testare la disponibilità elevata end-to-end dell'applicazione, come parte dei test dell'applicazione o delle esercitazioni di ripristino di emergenza, disabilitare temporaneamente il failover automatico per l'account, richiamare il [failover manuale tramite PowerShell, l'interfaccia della riga di comando di Azure o il portale](how-to-manage-database-account.md#manual-failover)di Azure , quindi monitorare il failover dell'applicazione. Al termine, è possibile eseguire il failback nell'area primaria e ripristinare il failover automatico per l'account.
 
 - All'interno di un ambiente di database distribuito a livello globale, esiste una relazione diretta tra il livello di coerenza e la durata dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO). Per l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per Azure Cosmos DB, vedere [Livelli di coerenza e durabilità dei dati](consistency-levels-tradeoffs.md#rto)
 

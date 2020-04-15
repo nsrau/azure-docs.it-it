@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 12/12/2019
+ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: c88f5a4dd4f2997ce01b1f6a3ae192c62f530e76
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: b6a8bc083b589463b67f2e25e262b15456355d05
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011422"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383858"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. Assegnare le autorizzazioni di accesso a un'identità
 
@@ -98,7 +98,7 @@ Per ulteriori informazioni sull'utilizzo dei icacl per impostare le autorizzazio
 
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>Montare una condivisione file dal prompt dei comandi
 
-Usare il comando di Windows **net use** per montare la condivisione file di Azure. Ricordarsi di sostituire i valori segnaposto nell'esempio seguente con valori personalizzati. Per altre informazioni sul montaggio di condivisioni file, vedere Usare una condivisione file di [Azure con Windows.](../articles/storage/files/storage-how-to-use-files-windows.md)
+Usare il comando di Windows **net use** per montare la condivisione file di Azure. Ricordarsi di sostituire i valori segnaposto nell'esempio seguente con valori personalizzati. Per altre informazioni sul montaggio di condivisioni file, vedere Usare una condivisione file di [Azure con Windows.](../articles/storage/files/storage-how-to-use-files-windows.md) 
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -123,7 +123,7 @@ Accedere alla macchina virtuale usando l'identità di Azure AD a cui sono state 
 
 ![Screenshot che mostra la schermata di accesso ad Azure AD per l'autenticazione utente](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Usare il comando seguente per montare la condivisione file di Azure.Use the following command to mount the Azure file share. Ricordarsi di sostituire i valori segnaposto con valori personalizzati. Poiché è stato autenticato, non è necessario fornire la chiave dell'account di archiviazione, le credenziali di Active Directory o le credenziali di Azure AD. L'esperienza Single Sign-On è supportata per l'autenticazione con SERVIZI di dominio Active Directory o Azure AD.
+Usare il comando seguente per montare la condivisione file di Azure.Use the following command to mount the Azure file share. Ricordarsi di sostituire i valori segnaposto con valori personalizzati. Poiché è stato autenticato, non è necessario fornire la chiave dell'account di archiviazione, le credenziali di Active Directory o le credenziali di Azure AD. L'esperienza Single Sign-On è supportata per l'autenticazione con SERVIZI di dominio Active Directory o Azure AD. Se si verificano problemi durante l'installazione con le credenziali di Active Directory, vedere Risolvere i problemi relativi [ai file](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) di Azure in Windows per indicazioni sulla diagnostica automatica.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>

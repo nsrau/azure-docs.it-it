@@ -3,12 +3,12 @@ title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco in Azure Blueprints per proteggere le risorse durante l'assegnazione di un blueprint.
 ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9c4e2f4c6fd8f5fb574002217ca71d1e7d130ff7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676757"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383600"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -103,7 +103,7 @@ Quando l'assegnazione viene rimossa, i blocchi creati da Azure Blueprints vengon
 
 In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto viene applicata un'azione di [negazione assegnazioni](../../../role-based-access-control/deny-assignments.md) durante l'assegnazione di un progetto se per l'assegnazione è stata selezionata l'opzione **Sola lettura** o **Non eliminare**. L'azione di negazione viene aggiunta dall'identità gestita dell'assegnazione del progetto e può essere rimossa dalle risorse artefatto solo dalla stessa identità gestita. Questa misura di sicurezza applica il meccanismo di blocco e impedisce la rimozione del blocco del blueprint all'esterno di Azure Blueprints.This security measure enforces the locking mechanism and prevents removing the blueprint lock outside Azure Blueprints.
 
-![Blueprint rifiuta assegnazione nel gruppo di risorse](../media/resource-locking/blueprint-deny-assignment.png)
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Blueprint rifiuta assegnazione nel gruppo di risorse" border="false":::
 
 Le proprietà di [negazione assegnazione](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) di ogni modalità sono le seguenti:
 

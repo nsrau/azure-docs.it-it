@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2c33fbed6c547897847c79cc1260d2bdc9ec6b17
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: eb285d15814f1105462c414541657d43b5371d98
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010325"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383232"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Introduzione alla configurazione dello stato di automazione di AzureGet started with Azure Automation State Configuration
 
@@ -59,7 +59,7 @@ Verrà creata una [configurazione DSC](/powershell/scripting/dsc/configurations/
         }
     }
     ```
-1. Salvare il file come `TestConfig.ps1`.
+1. Salvare il file con il nome **TestConfig.ps1**.
 
 Questa configurazione chiama in ogni blocco di nodi una [risorsa WindowsFeature](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource)che assicura la presenza o l'assenza della funzionalità **Web-Server** .
 
@@ -105,7 +105,7 @@ Per altre informazioni sulla compilazione di configurazioni, vedere [Configurazi
    ![Screenshot della pagina Configurazione TestConfig con pulsante Compila evidenziato](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
-> Quando si compila una configurazione in Automazione di Azure, tutti i documenti MOF delle configurazioni di nodo creati vengono distribuiti automaticamente nel server di pull.
+> Quando si compila una configurazione in Automazione di Azure, vengono distribuiti automaticamente tutti i file MOF di configurazione del nodo creati nel server di pull.
 
 ## <a name="viewing-a-compilation-job"></a>Visualizzazione di un processo di compilazione
 
@@ -123,7 +123,7 @@ Dopo avere avviato una compilazione, è possibile visualizzarla nel riquadro **P
 
 ## <a name="viewing-node-configurations"></a>Visualizzazione delle configurazioni di nodo
 
-Con il completamento di un processo di compilazione vengono create una o più configurazioni di nodo. Una configurazione di nodo è un documento MOF che viene distribuito nel server di pull ed è disponibile per il pull e l'applicazione da parte di uno o più nodi. È possibile visualizzare le configurazioni dei nodi dell'account di Automazione nella pagina **Configurazione stato (DSC)**. Il nome di una configurazione del nodo presenta il formato *ConfigurationName*.*NodeName*.
+Con il completamento di un processo di compilazione vengono create una o più configurazioni di nodo. Una configurazione di nodo è un documento MOF che viene distribuito nel server di pull ed è disponibile per il pull e l'applicazione da parte di uno o più nodi. È possibile visualizzare le configurazioni dei nodi nell'account di automazione nella pagina **Configurazione stato (DSC).** Una configurazione di nodo ha `ConfigurationName.NodeName`un nome con il modulo .
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
@@ -134,7 +134,7 @@ Con il completamento di un processo di compilazione vengono create una o più co
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration"></a>Onboarding di una macchina virtuale di Azure per la gestione con Configurazione stato di Automazione di Azure
 
-È possibile usare Configurazione stato di Automazione di Azure per gestire macchine virtuali di Azure (sia classiche sia Resource Manager), macchine virtuali locali, computer Linux, macchine virtuali AWS e computer fisici locali. In questo articolo viene descritto il caricamento solo delle macchine virtuali di Azure Resource Manager. Per informazioni sull'onboarding di altri tipi di computer, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md).
+È possibile usare La configurazione dello stato di automazione di Azure per gestire le macchine virtuali di Azure (sia classica che Gestione risorse), le macchine virtuali locali, le macchine Linux, le macchine virtuali AWS e le macchine fisiche locali. In questo articolo viene descritto il caricamento solo delle macchine virtuali di Azure Resource Manager. Per informazioni sull'onboarding di altri tipi di computer, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md).
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Per caricare una macchina virtuale Azure Resource Manager per la gestione con Configurazione stato di Automazione di Azure
 

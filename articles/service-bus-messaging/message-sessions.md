@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 4df6396d156c3fe1b75e3cac3d3f4aad7f23553a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e22641e9d4f9959c26cd2043ea2acd7e260e0f0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77660666"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314052"
 ---
 # <a name="message-sessions"></a>Sessioni di messaggistica
 Le sessioni del bus di servizio di Microsoft Azure consentono la gestione congiunta e ordinata di sequenze non vincolate di messaggi correlati. Le sessioni possono essere usate nei modelli FIFO (first in, first out) e richiesta-risposta. In questo articolo viene illustrato come utilizzare le sessioni per implementare questi modelli quando si usa il bus di servizio. 
@@ -68,7 +68,7 @@ Il blocco di sessione mantenuto dal ricevitore di sessione comprende i blocchi d
 
 ### <a name="message-session-state"></a>Stato della sessione di messaggi
 
-Quando i flussi di lavoro vengono elaborati in sistemi cloud ad alta scalabilità e disponibilità elevata, il gestore del flusso di lavoro associato a una determinata sessione deve essere in grado di eseguire il ripristino da errori imprevisti e può riprendere il lavoro parzialmente completato su un processo o un computer diverso da dove è iniziato il lavoro.
+Quando i flussi di lavoro vengono elaborati in sistemi cloud ad alta scalabilità e disponibilità elevata, il gestore del flusso di lavoro associato a una determinata sessione deve essere in grado di eseguire il ripristino da errori imprevisti e può riprendere il lavoro parzialmente completato in un processo o in un computer diverso da cui è iniziato il lavoro.
 
 La funzionalità di stato della sessione consente un'annotazione definita dall'applicazione di una sessione di messaggi all'interno del broker, in modo che lo stato di elaborazione registrato rispetto alla sessione diventi immediatamente disponibile quando la sessione viene acquisita da un nuovo elaboratore.
 
@@ -78,7 +78,7 @@ Le API per la gestione dello stato della sessione, [SetState](/dotnet/api/micros
 
 Lo stato della sessione rimane finché non viene cancellato (restituendo **null**), anche se vengono utilizzati tutti i messaggi in una sessione.
 
-Tutte le sessioni esistenti in una coda o una sottoscrizione possono essere enumerate con il metodo **SessionBrowser** nell'API Java e con [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) in [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) e [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) nel client .NET.
+Tutte le sessioni esistenti in una coda o sottoscrizione possono essere enumerate con il **metodo SessionBrowser** nell'API Java e con [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) nel [client QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) e [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) nel client .NET Framework.
 
 Lo stato della sessione conservato in una coda o in una sottoscrizione viene conteggiato per il raggiungimento della quota di archiviazione dell'entità. Quando un'applicazione finisce di usare una sessione, è quindi consigliabile che esegua la pulizia dello stato conservato, per evitare costi di gestione esterni.
 

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 51c191a7815bb64243e2324e150c00c2dcb7ec4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705327"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312086"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite il portale di Azure
 
-È possibile usare il portale di Azure per creare un [gateway applicazione](overview.md) con un certificato per la terminazione SSL. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
+È possibile usare il portale di Azure per creare un [gateway applicazione](overview.md) con un certificato per la terminazione TLS. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -146,7 +146,7 @@ In questo esempio viene creato un set di scalabilità di macchine virtuali per f
 12. In **Rete** assicurarsi che **Scegliere le opzioni di bilanciamento del carico** sia impostato su **Gateway applicazione**.
 13. Assicurarsi che **Gateway applicazione** sia impostato su **myAppGateway**.
 14. Assicurarsi che **Subnet** sia impostato su **myBackendSubnet**.
-15. Selezionare **Crea**.
+15. Selezionare **Create** (Crea).
 
 ### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Associare il set di scalabilità al pool back-end appropriato
 

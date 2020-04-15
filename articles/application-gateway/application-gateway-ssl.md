@@ -1,28 +1,28 @@
 ---
-title: Offload SSL tramite PowerShell - Gateway applicazione di Azure
-description: Questo articolo contiene istruzioni per la creazione di un gateway applicazione con offload SSL tramite il modello di distribuzione classica di Azure.
+title: Offload TLS tramite PowerShell - Gateway applicazione di Azure
+description: Questo articolo fornisce istruzioni per creare un gateway applicazione con offload TLS usando il modello di distribuzione classica di AzureThis article provides instructions to create an application gateway with TLS offload by using the Azure classic deployment model
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ead16b61784b8073d50b7e0e6079805a1e48e9b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047911"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312334"
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurare un gateway applicazione per l'offload SSL tramite il modello di distribuzione classica
+# <a name="configure-an-application-gateway-for-tls-offload-by-using-the-classic-deployment-model"></a>Configurare un gateway applicazione per l'offload TLS usando il modello di distribuzione classicaConfigure an application gateway for TLS offload by using the classic deployment model
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-ssl-portal.md)
+> * [Azure portal](application-gateway-ssl-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [PowerShell classico per Azure](application-gateway-ssl.md)
-> * [Interfaccia della riga di comando di AzureAzure](application-gateway-ssl-cli.md)
+> * [Interfaccia della riga di comando di Azure](application-gateway-ssl-cli.md)
 
-Il gateway applicazione di Azure può essere configurato per terminare la sessione Secure Sockets Layer (SSL) nel gateway ed evitare costose attività di decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
+Il gateway applicazione di Azure può essere configurato per terminare la sessione TLS (Transport Layer Security), precedentemente nota come SSL (Secure Sockets Layer), nel gateway per evitare costose attività di decrittografia TLS nella Web farm. L'offload TLS semplifica inoltre l'installazione e la gestione del server front-end dell'applicazione Web.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -30,10 +30,10 @@ Il gateway applicazione di Azure può essere configurato per terminare la sessio
 2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. È necessario che i server configurati per l'uso del gateway applicazione esistano oppure che i relativi endpoint siano stati creati nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
 
-Per configurare l'offload SSL in un gateway applicazione, completare i passaggi seguenti nell'ordine elencato:
+Per configurare l'offload TLS in un gateway applicazione, completare i passaggi seguenti nell'ordine indicato:
 
 1. [Creare un gateway applicazioneCreate an application gateway](#create-an-application-gateway)
-2. [Caricare i certificati SSL](#upload-ssl-certificates)
+2. [Caricare certificati TLS/SSL](#upload-tlsssl-certificates)
 3. [Configurare il gateway](#configure-the-gateway)
 4. [Definire la configurazione del gateway](#set-the-gateway-configuration)
 5. [Avviare il gateway](#start-the-gateway)
@@ -55,7 +55,7 @@ In questo esempio **Description**, **InstanceCount** e **GatewaySize** sono para
 Get-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="upload-ssl-certificates"></a>Caricare i certificati SSL
+## <a name="upload-tlsssl-certificates"></a>Caricare certificati TLS/SSL
 
 Immettere `Add-AzureApplicationGatewaySslCertificate` per caricare il certificato del server in formato pfx nel gateway applicazione. Il nome del certificato è un nome scelto dall'utente e deve essere univoco all'interno del gateway applicazione. Il certificato viene identificato da questo nome in tutte le operazioni di gestione del certificato nel gateway applicazione.
 
@@ -95,12 +95,12 @@ I valori possibili sono:
 * **Pool di server back-end**: elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP o VIP pubblici.
 * **Impostazioni del pool di server back-end**: ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 * **Porta front-end:** questa porta è la porta pubblica aperta nel gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-* **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura un offload SSL).
+* **Listener**: Il listener ha una porta front-end, un protocollo (Http o Https; questi valori fanno distinzione tra maiuscole e minuscole) e il nome del certificato TLS/SSL (se si configura un offload TLS).
 * **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui indirizzare il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
 
 **Note aggiuntive sulla configurazione**
 
-Per la configurazione dei certificati SSL, il protocollo in **HttpListener** deve essere sostituito con **Https** (distinzione tra maiuscole e minuscole). Aggiungere l'elemento **SslCert** a **HttpListener** con il valore impostato sullo stesso nome usato nella sezione sul [caricamento dei certificati SSL](#upload-ssl-certificates). La porta front-end deve essere aggiornata a **443**.
+Per la configurazione dei certificati TLS/SSL, il protocollo in **HttpListener** deve essere modificato in **Https** (con distinzione tra maiuscole e minuscole). Aggiungere l'elemento **SslCert** a **HttpListener** con il valore impostato sullo stesso nome utilizzato nella sezione [Caricare certificati TLS/SSL.](#upload-tlsssl-certificates) La porta front-end deve essere aggiornata a **443**.
 
 **Per abilitare l'affinità basata sui cookie**: è possibile configurare un gateway applicazione per fare in modo che una richiesta proveniente da una sessione client sia sempre diretta alla stessa macchina virtuale nella Web farm. A tale scopo, aggiungere un cookie di sessione che consenta al gateway di indirizzare il traffico in modo appropriato. Per abilitare l'affinità basata sui cookie, impostare **CookieBasedAffinity** su **Enabled** nell'elemento **BackendHttpSettings**.
 

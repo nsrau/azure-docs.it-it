@@ -1,5 +1,5 @@
 ---
-title: Guida alla risoluzione dei problemi relativi al Security Agent di Azure Security Center for IoT Linux Documenti Microsoft
+title: Risolvere i problemi di avvio dell'agente di sicurezza (Linux)Troubleshoot security agent start-up (Linux)
 description: Risolvere i problemi di utilizzo del Centro sicurezza di Azure per gli agenti di sicurezza IoT per Linux.Troubleshoot working with Azure Security Center for IoT security agents for Linux.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f3bd4be3ef927f73643146a457bc551ef86a450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 935a99dd34b0a4e3d4970e8d91f9332d2bc1489a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68600566"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310561"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guida alla risoluzione dei problemi dell'agente di sicurezza (Linux)
 
@@ -29,56 +29,70 @@ In questo articolo viene illustrato come risolvere potenziali problemi nel proce
 Il Centro sicurezza di Azure per l'agente IoT viene avviato automaticamente immediatamente dopo l'installazione. Il processo di avvio dell'agente include la lettura della configurazione locale, la connessione all'hub IoT di Azure e il recupero della configurazione duplice remota. Un errore in uno di questi passaggi può causare l'errore dell'agente di sicurezza.
 
 In questa guida alla risoluzione dei problemi imparerai a:
+
 > [!div class="checklist"]
 > * Verificare se l'agente di sicurezza è in esecuzione
 > * Errori relativi ai security agentGet security agent errors
-> * Comprendere e correggere gli errori dei security agentUnderstand and remediate security agent errors 
+> * Comprendere e correggere gli errori dei security agentUnderstand and remediate security agent errors
 
 ## <a name="validate-if-the-security-agent-is-running"></a>Verificare se l'agente di sicurezza è in esecuzione
 
-1. Per la convalida è che l'agente di sicurezza è in esecuzione, attendere alcuni minuti dopo l'installazione dell'agente ed eseguire il comando seguente. 
+1. Per la convalida è che l'agente di sicurezza è in esecuzione, attendere alcuni minuti dopo l'installazione dell'agente ed eseguire il comando seguente.
      <br>
 
     **Agente C**
+
     ```bash
     grep "ASC for IoT Agent initialized" /var/log/syslog
     ```
+
     **Agente di C**
+
     ```bash
     grep "Agent is initialized!" /var/log/syslog
     ```
-2. Se il comando restituisce una riga vuota, l'agente di sicurezza non è stato in grado di avviare correttamente.    
 
-## <a name="force-stop-the-security-agent"></a>Arrestare forzatamente l'agente di sicurezza 
+1. Se il comando restituisce una riga vuota, l'agente di sicurezza non è stato in grado di avviare correttamente.
+
+## <a name="force-stop-the-security-agent"></a>Arrestare forzatamente l'agente di sicurezza
+
 Nei casi in cui l'agente di sicurezza non è in grado di avviare, arrestare l'agente con il comando seguente, quindi passare alla tabella di errore riportata di seguito:
 
 ```bash
 systemctl stop ASCIoTAgent.service
 ```
+
 ## <a name="get-security-agent-errors"></a>Errori relativi ai security agentGet security agent errors
+
 1. Recuperare gli errori del security agent eseguendo il comando seguente:
+
     ```bash
     grep ASCIoTAgent /var/log/syslog
     ```
-2. Il comando get security agent error recupera tutti i log creati dal Centro sicurezza di Azure per l'agente IoT.The get security agent error command retrieves all logs created by the Azure Security Center for IoT agent. Utilizzare la tabella seguente per comprendere gli errori ed eseguire la procedura corretta per la correzione. 
+
+1. Il comando get security agent error recupera tutti i log creati dal Centro sicurezza di Azure per l'agente IoT.The get security agent error command retrieves all logs created by the Azure Security Center for IoT agent. Utilizzare la tabella seguente per comprendere gli errori ed eseguire la procedura corretta per la correzione.
 
 > [!Note]
-> I log degli errori vengono visualizzati in ordine cronologico. Assicurarsi di prendere nota del timestamp di ogni errore per facilitare la correzione. 
+> I log degli errori vengono visualizzati in ordine cronologico. Assicurarsi di prendere nota del timestamp di ogni errore per facilitare la correzione.
 
 ## <a name="restart-the-agent"></a>Riavviare l'agente
 
-1. Dopo aver individuato e risolto un errore del Security Agent, provare a riavviare l'agente eseguendo il comando seguente. 
+1. Dopo aver individuato e risolto un errore del Security Agent, provare a riavviare l'agente eseguendo il comando seguente.
+
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
-1. Ripetere il processo precedente per recuperare gli errori di arresto e recuperare se l'agente continua a non riuscire il processo di avvio. 
+
+1. Ripetere il processo precedente per recuperare gli errori di arresto e recuperare se l'agente continua a non riuscire il processo di avvio.
 
 ## <a name="understand-security-agent-errors"></a>Comprendere gli errori dei security agentUnderstand security agent errors
 
-La maggior parte degli errori del Security Agent vengono visualizzati nel seguente formato: 
+La maggior parte degli errori del Security Agent vengono visualizzati nel seguente formato:
+
 ```
 Azure Security Center for IoT agent encountered an error! Error in: {Error Code}, reason: {Error sub code}, extra details: {error specific details}
 ```
+
 | Codice di errore | Sottocodice di errore | Dettagli errore | Correzione C | Correzione C # |
 |:-----------|:---------------|:--------|:------------|:------------|
 | Configurazione locale | Configurazione mancante | Manca una configurazione nel file di configurazione locale. Il messaggio di errore deve indicare quale chiave è mancante. | Aggiungere la chiave mancante al file /var/LocalConfiguration.json, vedere il [riferimento cs-localconfig](azure-iot-security-local-configuration-c.md) per i dettagli.| Aggiungere la chiave mancante per il file General.config, vedere il riferimento di [c-localconfig](azure-iot-security-local-configuration-csharp.md) per i dettagli. |
@@ -95,14 +109,17 @@ Azure Security Center for IoT agent encountered an error! Error in: {Error Code}
 |
 
 ## <a name="restart-the-agent"></a>Riavviare l'agente
+
 1. Dopo aver individuato e risolto un errore del Security Agent, riavviare l'agente eseguendo il comando seguente:
 
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
-2. Se necessario, ripetere i processi precedenti per forzare l'arresto dell'agente e recuperare gli errori se l'agente continua a non riuscire il processo di avvio. 
+
+1. Se necessario, ripetere i processi precedenti per forzare l'arresto dell'agente e recuperare gli errori se l'agente continua a non riuscire il processo di avvio.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Leggi la [panoramica](overview.md) del Centro sicurezza di Azure per il servizio IoT
 - Altre informazioni sul Centro sicurezza di Azure per l'architettura IoTLearn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Abilitare il Centro sicurezza di Azure per il servizio IoTEnable the Azure Security Center for IoT [service](quickstart-onboard-iot-hub.md)

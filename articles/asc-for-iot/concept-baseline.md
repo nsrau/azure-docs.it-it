@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul Centro sicurezza di Azure per la linea di base IoT Documenti Microsoft
+title: Controlli di base e personalizzati
 description: Informazioni sul concetto di Centro sicurezza di Azure per la linea di base IoT.Learn about the concept of Azure Security Center for IoT baseline.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72176607"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311649"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Centro sicurezza di Azure per la linea di base IoT e controlli personalizzatiAzure Security Center for IoT baseline and custom checks
 
@@ -28,11 +28,11 @@ Questo articolo illustra il Centro sicurezza di Azure per la linea di base IoT e
 
 ## <a name="baseline"></a>Di base
 
-Una linea di base stabilisce un comportamento standard per ogni dispositivo e semplifica la definizione di comportamenti insoliti o deviazioni dalle norme previste.  
+Una linea di base stabilisce un comportamento standard per ogni dispositivo e semplifica la definizione di comportamenti insoliti o deviazioni dalle norme previste.
 
 ## <a name="baseline-custom-checks"></a>Controlli personalizzati della previsione
 
-I controlli personalizzati della previsione stabiliscono un elenco personalizzato di controlli per ogni linea di base del dispositivo usando **l'identità del modulo gemello** del dispositivo. 
+I controlli personalizzati della previsione stabiliscono un elenco personalizzato di controlli per ogni linea di base del dispositivo usando **l'identità del modulo gemello** del dispositivo.
 
 ## <a name="setting-baseline-properties"></a>Impostazione delle proprietà della linea di base
 

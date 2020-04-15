@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c56e6729307a1cad998a060202f51cb8f29bf94a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 16fa33999a38b21fd2016c986dd2db81f7d84051
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548313"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383756"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -2392,7 +2392,7 @@ Servizio di Azure: [gestione dei costiAzure](../cost-management-billing/index.ym
 > | Azione | Microsoft.Consumption/reservationSummaries/read | Elenca il riepilogo di utilizzo per le istanze riservate per ordine di prenotazione o gruppi di gestione. I dati di riepilogo sono a livello mensile o giornaliero. |
 > |  | **prenotazioneTransazioni** |  |
 > | Azione | Microsoft.Consumption/reservationTransactions/read | Elenca la cronologia delle transazioni per le istanze riservate per gruppi di gestione. |
-> |  | **tag** |  |
+> |  | **Tag** |  |
 > | Azione | Microsoft.Consumption/tags/read | Elenca i tag per EA e sottoscrizioni. |
 > |  | **Inquilini** |  |
 > | Azione | Microsoft.Consumption/tenants/register/action | Registra l'azione per l'ambito di Microsoft.Consumption da parte di un tenant. |
@@ -5040,7 +5040,7 @@ Servizio di Azure: [Monitoraggio di AzureAzure](../azure-monitor/index.yml) serv
 > | Azione | Microsoft.Insights/Webtests/MetricDefinitions/Read | Lettura delle definizioni della metrica un test Web |
 > |  | **Test Web/Metriche** |  |
 > | Azione | Microsoft.Insights/Webtests/Metrics/Read | Lettura della metrica di un test Web |
-> |  | **Cartelle di lavoro** |  |
+> |  | **Workbooks** |  |
 > | Azione | Microsoft.Insights/Cartelle di lavoro/Scrittura | Creare o aggiornare una cartella di lavoro |
 > | Azione | Microsoft.Insights/Cartelle di lavoro/Elimina | Eliminare una cartella di lavoro |
 > | Azione | Microsoft.Insights/Cartelle di lavoro/Lettura | Leggere una cartella di lavoro |
@@ -5180,7 +5180,7 @@ Servizio di Azure: [Key VaultAzure](../key-vault/index.yml) service: Key Vault
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
-Servizio di Azure: [Azure Data ExplorerAzure](../data-explorer/index.yml) service: Azure Data Explorer
+Servizio di Azure: [Azure Data ExplorerAzure](/azure/data-explorer/) service: Azure Data Explorer
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo di azione | Operazione | Descrizione |
@@ -5409,7 +5409,7 @@ Servizio di Azure: [app per la logicaAzure](../logic-apps/index.yml) service: Lo
 > | Azione | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | Recupera i gruppi di operazioni consigliate per il flusso di lavoro. |
 > |  | **Operazioni** |  |
 > | Azione | Microsoft.Logic/operations/read | Ottiene l'operazione. |
-> |  | **flussi di lavoro** |  |
+> |  | **Workflow** |  |
 > | Azione | Microsoft.Logic/workflows/read | Esegue la lettura del flusso di lavoro. |
 > | Azione | Microsoft.Logic/workflows/write | Crea un flusso di lavoro o ne aggiorna uno esistente. |
 > | Azione | Microsoft.Logic/workflows/delete | Elimina il flusso di lavoro. |
@@ -8324,7 +8324,7 @@ Servizio di Azure: [Azure Resource ManagerAzure](../azure-resource-manager/index
 > | Azione | Microsoft.Resources/subscriptions/tagNames/tagValues/read | Ottiene o elenca i valori delle categorie della sottoscrizione. |
 > | Azione | Microsoft.Resources/subscriptions/tagNames/tagValues/write | Aggiunge un valore di categoria della sottoscrizione. |
 > | Azione | Microsoft.Resources/subscriptions/tagNames/tagValues/delete | Elimina un valore di categoria della sottoscrizione. |
-> |  | **tag** |  |
+> |  | **Tag** |  |
 > | Azione | Microsoft.Resources/tag/lettura | Ottiene tutti i tag in una risorsa. |
 > | Azione | Microsoft.Resources/tag/scrittura | Aggiorna i tag di una risorsa sostituendo o unendo i tag esistenti con un nuovo set di tag o rimuovendo i tag esistenti. |
 > | Azione | Microsoft.Resources/tag/delete | Rimuove tutti i tag di una risorsa. |

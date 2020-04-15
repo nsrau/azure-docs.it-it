@@ -5,16 +5,19 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75366701"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383331"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
 
 È possibile usare [Monitoraggio di Azure](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) per monitorare metriche e log di livello base per la maggior parte dei servizi in Azure. È possibile chiamare i runbook di Automazione di Azure tramite [gruppi di azioni](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) o avvisi classici per automatizzare le attività in base agli avvisi. Questo articolo illustra come configurare ed eseguire un runbook usando gli avvisi.
+
+>[!NOTE]
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per istruzioni sull'installazione del modulo Az nel ruolo di lavoro ibrido per runbook, vedere [Installare il modulo di Azure PowerShell.For](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)Az module installation instructions on your Hybrid Runbook Worker, see Install the Azure PowerShell Module . Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando Come aggiornare i moduli di [Azure PowerShell in Automazione di Azure.](automation-update-azure-modules.md)
 
 ## <a name="alert-types"></a>Tipi di avviso
 
@@ -45,14 +48,14 @@ Come descritto nella sezione precedente, ogni tipo di avviso ha uno schema diver
 
 Questo esempio usa un avviso generato da una macchina virtuale. Recupera i dati della macchina virtuale dal payload e usa le informazioni per arrestare la macchina virtuale. La connessione deve essere configurata nell'account di Automazione in cui è eseguito il runbook. Quando si usano gli avvisi per attivare i runbook, è importante controllare lo stato dell'avviso nel runbook che viene attivato. Il runbook viene attivato ogni volta che lo stato dell'avviso cambia. Gli avvisi hanno più stati e i due più comuni sono `Activated` e `Resolved`. Cercare questo stato nella logica del runbook per assicurarsi che il runbook non venga eseguito più volte. L'esempio in questo articolo illustra come cercare solo gli avvisi con stato `Activated`.
 
-Il runbook usa [l'account RunAs](automation-create-runas-account.md) **di AzureRunAsConnection** per eseguire l'autenticazione con Azure per eseguire l'azione di gestione sulla macchina virtuale.
+Il runbook `AzureRunAsConnection` usa l'account [RunAs](automation-create-runas-account.md) per eseguire l'autenticazione con Azure per eseguire l'azione di gestione nella macchina virtuale.
 
 Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponsetoVMAlert**. È possibile modificare lo script di PowerShell e usarlo con molte risorse diverse.
 
 1. Accedere all'account di Automazione di Azure.
 2. In **Automazione processi** selezionare **Runbook**.
 3. Nella parte superiore dell'elenco di runbook, selezionare **+ Crea un runbook**.
-4. Nella pagina **Aggiungi runbook** immettere **Stop-AzureVmInResponsetoVMAlert** come nome del runbook. Per il tipo di runbook selezionare **PowerShell**. Scegliere quindi **Create** (Crea).  
+4. Nella pagina **Aggiungi runbook** immettere **Stop-AzureVmInResponsetoVMAlert** come nome del runbook. Per il tipo di runbook selezionare **PowerShell**. Selezionare quindi **Crea**.  
 5. Copiare l'esempio di PowerShell seguente nella pagina **Modifica**.
 
     ```powershell-interactive
@@ -139,13 +142,13 @@ Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponseto
                     throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
                 }
                 Write-Verbose "Authenticating to Azure with service principal." -Verbose
-                Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+                Add-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
                 Write-Verbose "Setting subscription to work against: $SubId" -Verbose
-                Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+                Set-AzContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
                 # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
-                Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
+                Stop-AzVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
                 # [OutputType(PSAzureOperationResponse")]
             }
             else {
@@ -170,7 +173,7 @@ Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponseto
 
 Gli avvisi usano gruppi di azioni, ovvero raccolte di azioni attivate dall'avviso. I runbook sono solo una delle molte azioni disponibili con i gruppi di azioni.
 
-1. Nell'account di automazione selezionare **Avvisi** in **Monitoraggio**.
+1. Nell'account Di automazione selezionare **Avvisi** in **Monitoraggio**.
 1. Selezionare **+ Nuova regola di avviso**.
 1. Fare clic su **Seleziona** in **Risorsa**. Nella pagina **Selezionare una risorsa** selezionare la macchina virtuale di cui eseguire l'avviso e fare clic su **Fine**.
 1. Fare clic su **Aggiungi condizione** in **Condizione**. Selezionare il segnale che si desidera utilizzare, ad esempio **Percentuale CPU,** e fare clic su **Fine**.
@@ -195,3 +198,5 @@ Gli avvisi usano gruppi di azioni, ovvero raccolte di azioni attivate dall'avvis
 * Per informazioni dettagliate sulle diverse modalità di avvio dei runbook, vedere [Avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md).
 * Per informazioni su come creare un avviso del log attività, vedere [Creare avvisi del log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Per informazioni su come creare un avviso quasi in tempo reale, vedere [Creare una regola di avviso con il portale di Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

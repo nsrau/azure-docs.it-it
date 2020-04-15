@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/14/2020
 ms.author: aahi
-ms.openlocfilehash: 4d597b872cf31a823f314d9f3c67c9f45201c542
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258474"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383090"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori del servizio di riconoscimento vocale
 
@@ -379,7 +379,7 @@ Il documento dice di esporre una porta diversa, che faccio, ma il contenitore LU
 <b>Come è possibile ottenere API non batch &lt;per gestire l'audio lungo 15 secondi?</b>
 </summary>
 
-**Risposta:** Questa modalità è in modalità interattiva. Se si utilizza dettatura o conversazione che non è un problema.
+**Risposta:** `RecognizeOnce()` in modalità interattiva elabora solo fino a 15 secondi di audio, poiché la modalità è destinata al comando vocale in cui si prevede che le espressioni siano brevi. Se si `StartContinuousRecognition()` utilizza per dettatura o conversazione, non vi è alcun limite di 15 secondi.
 
 
 <br>

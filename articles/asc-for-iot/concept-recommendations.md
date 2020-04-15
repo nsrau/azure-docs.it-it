@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui consigli per la sicurezza di Azure Per ioT Documenti Microsoft
+title: Suggerimenti per la sicurezza
 description: Informazioni sul concetto di consigli per la sicurezza e su come vengono usati nel Centro sicurezza di Azure per l'IoT.Learn about the concept of security recommendations and how they are used in Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,22 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: a8de821abcedf6bb9a331852a2c0af9b6439667a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 213595ac69efc90ec855b2891641e1f00bd1ba92
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78303580"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311554"
 ---
 # <a name="security-recommendations"></a>Suggerimenti per la sicurezza
 
-Il Centro sicurezza di Azure per IoT analizza le risorse e i dispositivi IoT di Azure e fornisce consigli sulla sicurezza per ridurre la superficie di attacco. Le raccomandazioni di sicurezza sono attuose e mirano ad aiutare i clienti nel rispetto delle best practice di sicurezza.
+Il Centro sicurezza di Azure per IoT analizza le risorse e i dispositivi IoT di Azure e fornisce consigli sulla sicurezza per ridurre la superficie di attacco.
+Le raccomandazioni di sicurezza sono attuose e mirano ad aiutare i clienti nel rispetto delle best practice di sicurezza.
 
 In questo articolo troverai un elenco di consigli che possono essere attivati sul tuo hub IoT e/o sui dispositivi IoT.
 
 ## <a name="recommendations-for-iot-devices"></a>Raccomandazioni per i dispositivi IoT
 
-I consigli sui dispositivi forniscono informazioni dettagliate e suggerimenti per migliorare la sicurezza dei dispositivi. 
+I consigli sui dispositivi forniscono informazioni dettagliate e suggerimenti per migliorare la sicurezza dei dispositivi.
 
 | Gravità | Nome                                                      | origine dati | Descrizione                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ Consigli operativi forniscono informazioni dettagliate e suggerimenti per miglio
 
 ## <a name="recommendations-for-iot-hub"></a>Raccomandazioni per l'hub IoT
 
-Gli avvisi di raccomandazione forniscono informazioni dettagliate e suggerimenti per le azioni volte a migliorare la sicurezza dell'ambiente.  
+Gli avvisi di raccomandazione forniscono informazioni dettagliate e suggerimenti per le azioni volte a migliorare la sicurezza dell'ambiente.
 
 | Gravità | Nome                                                     | origine dati | Descrizione                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

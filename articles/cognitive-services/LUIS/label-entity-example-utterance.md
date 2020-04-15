@@ -1,21 +1,14 @@
 ---
 title: Etichettare un'entità in un'espressione di esempio
-titleSuffix: Azure Cognitive Services
 description: Informazioni su come etichettare un'entità basata su apprendimento automatico con sottocomponenti in un'espressione di esempio in una pagina dei dettagli delle finalità del portale LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.author: diberry
-ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898365"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382410"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etichettare un'entità basata su apprendimento automatico in un'espressione di esempio
 
@@ -87,6 +80,10 @@ I ruoli entità vengono etichettati usando il pannello di entità.
 1. Una volta aperto il pannello di entità, selezionare l'entità nell'elenco.
 1. Passare a **Entity Inspector** (Controllo entità) e selezionare un ruolo esistente o crearne uno nuovo.
 1. Nel testo dell'espressione di esempio, etichettare il testo con il ruolo dell'entità.
+
+## <a name="labeling-for-punctuation"></a>Etichettatura per la punteggiatura
+
+Non è necessario etichettare per la punteggiatura. Usare [le impostazioni dell'applicazione](luis-reference-application-settings.md) per controllare se la punteggiatura influisce sulle stime delle espressioni.
 
 ## <a name="unlabel-entities"></a>Rimuovere l'etichettatura delle entità
 

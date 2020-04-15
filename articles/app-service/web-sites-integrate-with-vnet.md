@@ -1,22 +1,22 @@
 ---
-title: Integrare le app con la rete virtuale di AzureIntegrate apps with Azure Virtual Network
-description: Integrare le app nel servizio app di Azure con le reti virtuali di Azure.Integrate apps in Azure App Service with Azure virtual networks.
+title: Integrare l'app con la rete virtuale di AzureIntegrate app with Azure Virtual Network
+description: Integra l'app nel servizio app di Azure con le reti virtuali di Azure.Integrate app in Azure App Service with Azure virtual networks.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 02/27/2020
+ms.date: 04/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a1a9739c444db2e41d55b8876011c066f2e71ca3
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: cb5747c6780da134dfb2f5ab088348b848c5f04a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421380"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312829"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare l'app con una rete virtuale di AzureIntegrate your app with an Azure virtual network
 
-Questo articolo descrive la funzionalità di integrazione della rete virtuale del servizio app di Azure e come configurarla con le app nel servizio app di Azure.This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Con Rete virtuale di Azure è possibile inserire molte delle risorse di Azure in una rete instradabile su Internet.With [Azure Virtual Network][VNETOverview], you can place many of your Azure resources in a non-internet-routable network.
+Questo articolo descrive la funzionalità di integrazione della rete virtuale del servizio app di Azure e come configurarla con le app nel servizio app di Azure.This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Con Rete virtuale di [Azure,][VNETOverview] è possibile inserire molte delle risorse di Azure in una rete non instradabile.With Azure Virtual Network (VNets), you can place many of your Azure resources in a non-internet-routable network.
 
 Il servizio app di Azure presenta due varianti:Azure App Service has two variations:
 
@@ -30,19 +30,19 @@ Il servizio app di Azure presenta due varianti:Azure App Service has two variati
 
    ![Selezionare integrazione vNet][1]
 
-1. L'elenco a discesa contiene tutte le reti virtuali di Azure Resource Manager nella sottoscrizione nella stessa area. Sotto c'è un elenco delle reti virtuali di Resource Manager in tutte le altre aree. Selezionare la rete virtuale con cui si vuole eseguire l'integrazione.
+1. L'elenco a discesa contiene tutte le reti virtuali di Azure Resource Manager nella sottoscrizione nella stessa area. Sotto c'è un elenco delle reti virtuali di Resource Manager in tutte le altre aree. Selezionare la rete virtuale con cui si desidera eseguire l'integrazione.
 
    ![Selezionare la rete virtuale][2]
 
    * Se la rete virtuale si trova nella stessa area, creare una nuova subnet o selezionare una subnet preesistente vuota.
-   * Per selezionare una rete virtuale in un'altra area, è necessario disporre di un gateway di rete virtuale con il punto abilitato al sito.
+   * Per selezionare una rete virtuale in un'altra area, è necessario disporre di un gateway della rete virtuale con l'abilitazione del punto al sito.
    * Per eseguire l'integrazione con una rete virtuale classica, anziché selezionare l'elenco a discesa **Rete virtuale,** selezionare **Fare clic qui per connettersi a una rete virtuale classica.** Selezionare la rete virtuale classica desiderata. La rete virtuale di destinazione deve avere già un gateway di rete virtuale con abilitato da punto a sito.
 
     ![Selezionare la rete virtuale classica][3]
 
-Durante l'integrazione, l'app viene riavviata. Al termine dell'integrazione, verranno visualizzati i dettagli sulla rete virtuale con cui si è integrati.
+Durante l'integrazione, l'app viene riavviata. Al termine dell'integrazione, vedrai i dettagli sulla rete virtuale con cui sei integrato.
 
-Dopo aver integrato l'app con la rete virtuale, usa lo stesso server DNS con cui è configurata la rete virtuale, a meno che non si tratti di zone private DNS di Azure.After your app is integrated with your virtual network, it is uses the same DNS server that your virtual network is configured with, unless it's Azure DNS Private zones. Attualmente, non è possibile usare l'integrazione della rete virtuale con le zone private DNS di Azure.Currently, you can't use VNet Integration with Azure DNS Private zones.
+Dopo aver integrato l'app con la rete virtuale, usa lo stesso server DNS con cui è configurata la rete virtuale, a meno che non si tratti di zone private DNS di Azure.After your app is integrated with your VNet, it is using the same DNS server that Your VNet is configured with, unless it's Azure DNS Private zones. Attualmente, non è possibile usare l'integrazione della rete virtuale con le zone private DNS di Azure.Currently, you can't use VNet Integration with Azure DNS Private zones.
 
 ## <a name="regional-vnet-integration"></a>Integrazione della rete virtuale regionale
 
@@ -50,11 +50,11 @@ Dopo aver integrato l'app con la rete virtuale, usa lo stesso server DNS con cui
 
 ### <a name="how-regional-vnet-integration-works"></a>Funzionamento dell'integrazione regionale della rete virtuale
 
-Le app nel servizio app sono ospitate nei ruoli di lavoro. I piani di business Basic e higher pricing sono piani di hosting dedicati in cui non sono in esecuzione carichi di lavoro di altri clienti sugli stessi lavoratori. L'integrazione regionale della rete virtuale funziona montando le interfacce virtuali con gli indirizzi nella subnet delegata. Poiché l'indirizzo del mittente si trova nella rete virtuale, può accedere alla maggior parte degli elementi all'accesso o tramite la rete virtuale come farebbe una macchina virtuale nella rete virtuale. L'implementazione di rete è diversa dall'esecuzione di una macchina virtuale nella rete virtuale. Ecco perché alcune funzionalità di rete non sono ancora disponibili per questa funzionalità.
+Le app nel servizio app sono ospitate nei ruoli di lavoro. I piani di business Basic e higher pricing sono piani di hosting dedicati in cui non sono in esecuzione carichi di lavoro di altri clienti sugli stessi lavoratori. L'integrazione regionale della rete virtuale funziona montando le interfacce virtuali con gli indirizzi nella subnet delegata. Poiché l'indirizzo da si trova nella rete virtuale, può accedere alla maggior parte degli elementi in o tramite la rete virtuale come una macchina virtuale nella rete virtuale. L'implementazione di rete è diversa dall'esecuzione di una macchina virtuale nella rete virtuale. Ecco perché alcune funzionalità di rete non sono ancora disponibili per questa funzionalità.
 
 ![Funzionamento dell'integrazione regionale della rete virtuale][5]
 
-Quando l'integrazione della rete virtuale regionale è abilitata, l'app effettua chiamate in uscita verso Internet tramite gli stessi canali di consueto. Gli indirizzi in uscita elencati nel portale delle proprietà dell'app sono gli indirizzi ancora usati dall'app. Le modifiche apportate all'app sono le chiamate ai servizi protetti dall'endpoint del servizio o gli indirizzi RFC 1918 nella rete virtuale. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1, tutto il traffico in uscita può essere inviato alla rete virtuale.
+Quando l'integrazione della rete virtuale regionale è abilitata, l'app effettua chiamate in uscita verso Internet tramite gli stessi canali di consueto. Gli indirizzi in uscita elencati nel portale delle proprietà dell'app sono gli indirizzi ancora usati dall'app. Le modifiche apportate all'app sono le chiamate ai servizi protetti dall'endpoint del servizio o gli indirizzi RFC 1918 nella rete virtuale. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1, tutto il traffico in uscita può essere inviato nella rete virtuale.
 
 La funzionalità supporta una sola interfaccia virtuale per worker. Un'interfaccia virtuale per lavoratore indica un'integrazione della rete virtuale regionale per ogni piano di servizio app. Tutte le app nello stesso piano di servizio app possono usare la stessa integrazione della rete virtuale. Se è necessaria un'app per connettersi a una rete virtuale aggiuntiva, è necessario creare un altro piano di servizio app. L'interfaccia virtuale utilizzata non è una risorsa a cui i clienti hanno accesso diretto.
 
@@ -62,27 +62,27 @@ A causa della natura del funzionamento di questa tecnologia, il traffico usato c
 
 ## <a name="gateway-required-vnet-integration"></a>Integrazione della rete virtuale richiesta dal gateway
 
-Integrazione rete virtuale richiesta dal gateway supporta la connessione a una rete virtuale in un'altra area o a una rete virtuale classica. Integrazione della rete virtuale richiesta dal gateway:
+Integrazione della rete virtuale richiesta dal gateway supporta la connessione a una rete virtuale in un'altra area o a una rete virtuale classica. Integrazione della rete virtuale richiesta dal gateway:
 
 * Consente a un'app di connettersi a una sola rete virtuale alla volta.
 * Consente l'installazione di un massimo di cinque reti virtuali all'interno di un piano di servizio app.
-* Consente di utilizzare la stessa rete virtuale da più app in un piano di servizio app senza influire sul numero totale che può essere usato da un piano di servizio app. Se si dispone di sei app che usano la stessa rete virtuale nello stesso piano di servizio app, viene conteggiata come una rete virtuale in uso.
+* Consente che la stessa rete virtuale possa essere usata da più app in un piano di servizio app senza influire sul numero totale che può essere usato da un piano di servizio app. Se si dispone di sei app che usano la stessa rete virtuale nello stesso piano di servizio app, viene conteggiata come una rete virtuale in uso.
 * Supporta un servizio di servizio del 99,9% a causa del servizio di sla sul gateway.
-* Consente alle app di usare il DNS con cui è configurata la rete virtuale.
+* Consente alle app di utilizzare il DNS con cui è configurata la rete virtuale.
 * Richiede un gateway basato su route di rete virtuale configurato con una VPN da punto a sito SSTP prima che possa essere connesso a un'app.
 
 Non è possibile usare l'integrazione della rete virtuale richiesta dal gateway:You can't use gateway-required VNet Integration:
 
 * Con le app Linux.
-* With a virtual network connected with Azure ExpressRoute.
+* With a VNet connected with Azure ExpressRoute.
 * Per accedere alle risorse protette dell'endpoint del servizio.
 * Con un gateway di coesistenza che supporta sia ExpressRoute che VPN da punto a sito o da sito a sito.
 
-### <a name="set-up-a-gateway-in-your-virtual-network"></a>Configurare un gateway nella rete virtualeSet up a gateway in your virtual network ###
+### <a name="set-up-a-gateway-in-your-azure-virtual-network"></a>Configurare un gateway nella rete virtuale di AzureSet up a gateway in your Azure virtual network ###
 
 Per creare un gateway:
 
-1. [Creare una subnet gateway][creategatewaysubnet] nella rete virtuale.  
+1. [Creare una subnet del gateway][creategatewaysubnet] nella rete virtuale.  
 
 1. [Creare il gateway VPN][creategateway]. Selezionare un tipo di VPN basato su route.
 
@@ -98,12 +98,12 @@ L'integrazione della rete virtuale richiesta dal gateway si basa sulla tecnologi
 
 ### <a name="access-on-premises-resources"></a>Accedere alle risorse locali
 
-Le app possono accedere alle risorse locali integrandosi con reti virtuali con connessioni da sito a sito. Se si usa l'integrazione della rete virtuale richiesta dal gateway, aggiornare le route del gateway VPN locali con i blocchi di indirizzi da punto a sito. Quando la connessione VPN da sito a sito viene configurata per la prima volta, gli script usati per la configurazione devono configurare le route in modo appropriato. Se gli indirizzi da punto a sito vengono aggiunti dopo aver creato la VPN da sito a sito, è necessario aggiornare le route manualmente. I dettagli su come eseguire questa operazione variano per gateway e non sono descritti qui. Non è possibile configurare BGP con una connessione VPN da sito a sito.
+Le app possono accedere alle risorse locali grazie all'integrazione con le reti virtuali che dispongono di connessioni da sito a sito. Se si usa l'integrazione della rete virtuale richiesta dal gateway, aggiornare le route del gateway VPN locali con i blocchi di indirizzi da punto a sito. Quando la connessione VPN da sito a sito viene configurata per la prima volta, gli script usati per la configurazione devono configurare le route in modo appropriato. Se gli indirizzi da punto a sito vengono aggiunti dopo aver creato la VPN da sito a sito, è necessario aggiornare le route manualmente. I dettagli su come eseguire questa operazione variano per gateway e non sono descritti qui. Non è possibile configurare BGP con una connessione VPN da sito a sito.
 
-Non è necessaria alcuna configurazione aggiuntiva per la funzionalità di integrazione della rete virtuale regionale da raggiungere attraverso la rete virtuale alle risorse locali. È sufficiente connettere la rete virtuale alle risorse locali usando ExpressRoute o una VPN da sito a sito.
+Non è necessaria alcuna configurazione aggiuntiva per la funzionalità di integrazione della rete virtuale regionale per raggiungere attraverso la rete virtuale alle risorse locali. È sufficiente connettere la rete virtuale alle risorse locali usando ExpressRoute o una VPN da sito a sito.
 
 > [!NOTE]
-> La funzionalità di integrazione della rete virtuale richiesta dal gateway non integra un'app con una rete virtuale con un gateway ExpressRoute.The gateway-required VNet Integration feature doesn't integrate an app with a virtual network that has an ExpressRoute gateway. Anche se il gateway ExpressRoute è configurato in modalità di [coesistenza,][VPNERCoex]l'integrazione della rete virtuale non funziona. Se è necessario accedere alle risorse tramite una connessione ExpressRoute, usare la funzionalità di integrazione della rete virtuale regionale o un ambiente del [servizio][ASE]app, che viene eseguito nella rete virtuale.
+> La funzionalità di integrazione della rete virtuale richiesta dal gateway non integra un'app con una rete virtuale con un gateway ExpressRoute.The gateway-required VNet Integration feature doesn't integrate an app with a VNet that has an ExpressRoute gateway. Anche se il gateway ExpressRoute è configurato in modalità di [coesistenza,][VPNERCoex]l'integrazione della rete virtuale non funziona. Se è necessario accedere alle risorse tramite una connessione ExpressRoute, usare la funzionalità di integrazione della rete virtuale regionale o un ambiente del [servizio][ASE]app, che viene eseguito nella rete virtuale.
 > 
 > 
 
@@ -114,18 +114,18 @@ Se si usa il peering con l'integrazione regionale della rete virtuale, non è ne
 Se si usa l'integrazione della rete virtuale richiesta dal gateway con il peering, è necessario configurare alcuni elementi aggiuntivi. Per configurare il peering per interagire con l'app:
 
 1. Aggiungere una connessione di peering nella rete virtuale a cui si connette l'app. Quando si aggiunge la connessione di peering, abilitare Consenti accesso alla **rete virtuale** e selezionare Consenti traffico **inoltrato** e Consenti transito **gateway**.
-1. Aggiungere una connessione di peering nella rete virtuale di cui viene eseguito il peering alla rete virtuale a cui si è connessi. Quando si aggiunge la connessione di peering nella rete virtuale di destinazione, abilitare Consenti accesso alla **rete virtuale** e selezionare Consenti traffico **inoltrato** e Consenti gateway **remoti**.
-1. Passare all'interfaccia utente di**Networking** > **integrazione della rete di** reti del **piano** > di servizio app nel portale. Selezionare la rete virtuale a cui si connette l'app. Nella sezione routing aggiungere l'intervallo di indirizzi della rete virtuale sottoposta a peering con la rete virtuale a cui è connessa l'app.
+1. Aggiungere una connessione peering nella rete virtuale di cui si sta peerando la rete virtuale a cui si è connessi. Quando si aggiunge la connessione di peering nella rete virtuale di destinazione, abilitare Consenti accesso alla **rete virtuale** e selezionare Consenti traffico **inoltrato** e Consenti gateway **remoti**.
+1. Passare all'interfaccia utente di**Networking** > **integrazione della rete di** reti del **piano** > di servizio app nel portale. Selezionare la rete virtuale a cui si connette l'app. Nella sezione routing aggiungi l'intervallo di indirizzi della rete virtuale sottoposta a peering con la rete virtuale a cui è connessa l'app.
 
 ## <a name="manage-vnet-integration"></a>Gestire l'integrazione della rete virtuale
 
-La connessione e la disconnessione con una rete virtuale sono a livello di app. Le operazioni che possono influire sull'integrazione della rete virtuale tra più app sono a livello di piano di servizio app. Dal portale di**integrazione della rete** > **rete** > della rete, è possibile ottenere informazioni dettagliate sulla rete virtuale. È possibile visualizzare informazioni simili a livello di piano di servizio app nel portale di**Networking** > **integrazione della rete di** reti di servizio **app.** > 
+La connessione e la disconnessione con una rete virtuale sono a livello di app. Le operazioni che possono influire sull'integrazione della rete virtuale tra più app sono a livello di piano di servizio app. Dal portale di**integrazione** della rete > di **rete,** > è possibile ottenere informazioni dettagliate sulla rete virtuale. È possibile visualizzare informazioni simili a livello di piano di servizio app nel portale di**Networking** > **integrazione della rete di** reti di servizio **app.** > 
 
-L'unica operazione che puoi eseguire nella visualizzazione dell'app dell'istanza di integrazione della rete virtuale consiste nel disconnettere l'app dalla rete virtuale a cui è attualmente connessa. Per disconnettere l'app da una rete virtuale, selezionare **Disconnetti**. L'app viene riavviata quando ci si disconnette da una rete virtuale. La disconnessione non modifica la rete virtuale. La subnet o il gateway non viene rimosso. Se si vuole eliminare la rete virtuale, disconnettere prima l'app dalla rete virtuale ed eliminare le risorse in essa in essa in essa in essa in essa inessa, ad esempio i gateway.
+L'unica operazione che puoi eseguire nella visualizzazione dell'app dell'istanza di integrazione della rete virtuale consiste nel disconnettere l'app dalla rete virtuale a cui è attualmente connessa. Per disconnettere l'app da una rete virtuale, selezionare **Disconnetti**. L'app viene riavviata quando ci si disconnette da una rete virtuale. La disconnessione non modifica la rete virtuale. La subnet o il gateway non viene rimosso. Se si desidera eliminare la rete virtuale, disconnettere prima l'app dalla rete virtuale ed eliminare le risorse in essa in essa in essa in essa inessa, ad esempio i gateway.
 
-L'interfaccia utente di integrazione della rete virtuale del piano di servizio app mostra tutte le integrazioni di rete virtuale usate dalle app nel piano di servizio app. Per visualizzare i dettagli su ogni rete virtuale, selezionare la rete virtuale a cui si è interessati. Esistono due azioni che è possibile eseguire qui per l'integrazione della rete virtuale richiesta dal gateway:There are two actions you can perform here for gateway-required VNet Integration:
+L'interfaccia utente di integrazione della rete virtuale del piano di servizio app mostra tutte le integrazioni della rete virtuale usate dalle app nel piano di servizio app. Per visualizzare i dettagli su ogni rete virtuale, selezionare la rete virtuale a cui si è interessati. Esistono due azioni che è possibile eseguire qui per l'integrazione della rete virtuale richiesta dal gateway:There are two actions you can perform here for gateway-required VNet Integration:
 
-* **Rete di sincronizzazione**: L'operazione di rete di sincronizzazione viene utilizzata solo per la funzionalità di integrazione della rete virtuale dipendente dal gateway. L'esecuzione di un'operazione di sincronizzazione della rete garantisce che i certificati e le informazioni di rete siano sincronizzati. Se si aggiunge o si modifica il DNS della rete virtuale, eseguire un'operazione di sincronizzazione della rete. Questa operazione riavvia tutte le app che usano questa rete virtuale.
+* **Rete di sincronizzazione**: L'operazione di rete di sincronizzazione viene utilizzata solo per la funzionalità di integrazione della rete virtuale dipendente dal gateway. L'esecuzione di un'operazione di sincronizzazione della rete garantisce che i certificati e le informazioni di rete siano sincronizzati. Se si aggiunge o si modifica il DNS della rete virtuale, eseguire un'operazione di sincronizzazione della rete. Questa operazione riavvia tutte le app che utilizzano questa rete virtuale.
 * **Aggiungi route:** l'aggiunta di route determina il traffico in uscita nella rete virtuale.
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Routing dell'integrazione della rete virtuale richiesta dal gateway

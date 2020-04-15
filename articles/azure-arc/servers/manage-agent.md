@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/01/2020
+ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8bcf59ee863bb2fd2a3213480372ad215c2fc00d
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 5ad2127b4cb9da3ca83aa04bd1885908a88dba62
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528580"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81308964"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente di macchine connesse
 
@@ -113,6 +113,78 @@ Le azioni del comando [yum,](https://access.redhat.com/articles/yum-cheat-sheet)
 
 Le azioni del comando [zypper,](https://en.opensuse.org/Portal:Zypper) ad esempio l'installazione `/var/log/zypper.log` e la rimozione dei pacchetti, vengono registrate nel file di registro. 
 
+## <a name="about-the-azcmagent-tool"></a>Informazioni sullo strumento Azcmagent
+
+Lo strumento Azcmagent (Azcmagent.exe) viene usato per configurare L'agente computer connesso di Azure Arc per i server (anteprima) durante l'installazione o per modificare la configurazione iniziale dell'agente dopo l'installazione. Azcmagent.exe fornisce parametri della riga di comando per personalizzare l'agente e visualizzarne lo stato:
+
+* **Connetti** - Per connettere il computer ad Azure Arc
+
+* **Disconnetti** - Per disconnettere la macchina da Azure Arc
+
+* **Riconnetti** - Per riconnettere un computer disconnesso ad Azure ArcReconnect - To reconnect a disconnected machine to Azure Arc
+
+* **Mostra:** consente di visualizzare lo stato dell'agente e le relative proprietà di configurazione (nome del gruppo di risorse, ID sottoscrizione, versione e così via), che consentono di risolvere un problema con l'agente.
+
+* **-h o --help** - Mostra i parametri disponibili della riga di comando
+
+    Ad esempio, per visualizzare informazioni dettagliate sul `azcmagent reconnect -h`parametro **Reconnect,** digitare . 
+
+* **-v o --verbose** - Abilita registrazione dettagliata
+
+È possibile eseguire un'operazione **Connect**, **Disconnect**e **Reconnect** manualmente durante l'accesso interattivo oppure automatizzare l'utilizzo della stessa entità servizio utilizzata per l'onboarding di più agenti o con un token di [accesso](../../active-directory/develop/access-tokens.md)alla piattaforma di identità Microsoft. Se non è stata usata un'entità servizio per registrare la macchina con Azure Arc per i server (anteprima), vedere [l'articolo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) seguente per creare un'entità servizio.
+
+### <a name="connect"></a>Connessione
+
+Questo parametro specifica una risorsa in Azure Resource Manager che rappresenta la creazione del computer in Azure.This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. La risorsa si trova nella sottoscrizione e nel gruppo di risorse specificato e `--location` i dati relativi al computer vengono archiviati nell'area di Azure specificata dall'impostazione. Il nome della risorsa predefinita è il nome host del computer, se non specificato.
+
+Un certificato corrispondente all'identità assegnata dal sistema del computer viene quindi scaricato e archiviato in locale. Al termine di questo passaggio, il servizio metadati computer connesso di Azure e l'agente di configurazione guest iniziano la sincronizzazione con Azure Arc per i server (anteprima).
+
+Per connettersi usando un'entità servizio, eseguire il comando seguente:To connect using a service principal, run the following command:
+
+`azcmagent connect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+Per connettersi utilizzando un token di accesso, eseguire il comando seguente:To connect using an access token, run the following command:
+
+`azcmagent connect --access-token <> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+Per connettersi con le credenziali con privilegi elevati di accesso (interattivo), eseguire il comando seguente:
+
+`azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+### <a name="disconnect"></a>Disconnetti
+
+Questo parametro specifica una risorsa in Azure Resource Manager che rappresenta l'eliminazione del computer in Azure.This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. Non elimina l'agente dalla macchina, questa operazione deve essere eseguita come passaggio separato. Dopo la disconnessione del computer, se si vuole registrarlo nuovamente `azcmagent connect` con Azure Arc per i server (anteprima), usare pertanto viene creata una nuova risorsa in Azure.After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use so a new resource is created for it in Azure.
+
+Per disconnettersi usando un'entità servizio, eseguire il comando seguente:To disconnect using a service principal, run the following command:
+
+`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+
+Per disconnettersi utilizzando un token di accesso, eseguire il comando seguente:To disconnect using an access token, run the following command:
+
+`azcmagent disconnect --access-token <accessToken>`
+
+Per disconnettersi con le credenziali con privilegi elevati connessi (interattivo), eseguire il comando seguente:
+
+`azcmagent disconnect --tenant-id <tenantID>`
+
+### <a name="reconnect"></a>Riconnetti
+
+Questo parametro riconnette il computer già registrato o connesso con Azure Arc per i server (anteprima). Ciò può essere necessario se la macchina è stata spenta, almeno 45 giorni, affinché il suo certificato scada. Questo parametro usa le opzioni di autenticazione fornite per recuperare le nuove credenziali corrispondenti alla risorsa di Azure Resource Manager che rappresenta il computer.
+
+Questo comando richiede privilegi più elevati rispetto al ruolo [di onboarding del computer connesso](overview.md#required-permissions) ad Azure.This command requires higher privileges than the Azure Connected Machine Onboarding role.
+
+Per riconnettersi usando un'entità servizio, eseguire il comando seguente:To reconnect using a service principal, run the following command:
+
+`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+
+Per riconnettersi utilizzando un token di accesso, eseguire il comando seguente:To reconnect using an access token, run the following command:
+
+`azcmagent reconnect --access-token <accessToken>`
+
+Per riconnettersi con le credenziali con accesso con privilegi elevati (interattivo), eseguire il comando seguente:
+
+`azcmagent reconnect --tenant-id <tenantID>`
+
 ## <a name="remove-the-agent"></a>Rimuovere l'agente
 
 Eseguire uno dei seguenti metodi per disinstallare l'agente Windows o Linux Connected Machine dalla macchina. La rimozione dell'agente non annulla la registrazione della macchina con Arc per i server (anteprima), si tratta di un processo separato che viene eseguito quando non è più necessario gestire il computer in Azure.Removing the agent does not unregister the machine with Arc for servers (preview), this is a separate process you perform when you no longer need to manage the machine in Azure.
@@ -184,7 +256,7 @@ Per disinstallare l'agente Linux, il comando da utilizzare dipende dal sistema o
 
 ## <a name="unregister-machine"></a>Annulla registrazione macchina
 
-Se si prevede di interrompere la gestione della macchina con i servizi di supporto in Azure, eseguire la procedura seguente per annullare la registrazione del computer con Arc per i server (anteprima). È possibile eseguire questo passaggio prima o dopo aver rimosso l'agente computer connesso dalla macchina.
+Se si prevede di interrompere la gestione della macchina con i servizi di supporto in Azure, eseguire la procedura seguente per annullare la registrazione del computer con Arc per i server (anteprima). È possibile eseguire questi passaggi prima o dopo aver rimosso l'agente computer connesso dalla macchina.
 
 1. Aprire Azure Arc per server (anteprima) passando al [portale di Azure](https://aka.ms/hybridmachineportal).
 

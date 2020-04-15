@@ -3,12 +3,12 @@ title: Configurare l'ambiente di sviluppo in LinuxSet up your development enviro
 description: Installare il runtime e l'SDK e creare un cluster di sviluppo locale in Linux. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1048e1ccf6b9bc921daa3014ab8003fd53473461
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258434"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309123"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -20,7 +20,7 @@ ms.locfileid: "79258434"
 
 Per distribuire ed eseguire [applicazioni di Azure Service Fabric](service-fabric-application-model.md) in un computer di sviluppo Linux, installare il runtime e l'SDK comune. È anche possibile installare SDK facoltativi per lo sviluppo Java e .NET Core. 
 
-I passaggi illustrati in questo articolo presuppongono che venga eseguita l'installazione in modalità nativa in Linux o che venga usata un'immagine del contenitore OneBox di Service Fabric, `microsoft/service-fabric-onebox`.
+I passaggi illustrati in questo articolo presuppongono che venga eseguita l'installazione in modalità nativa in Linux o che venga usata un'immagine del contenitore OneBox di Service Fabric, `mcr.microsoft.com/service-fabric/onebox:latest`.
 
 L'installazione del runtime di Service Fabric e dell'SDK nel sottosistema di Windows per Linux non è supportata. È possibile gestire le entità di Service Fabric ospitate in altre posizioni nel cloud o in locale con l'interfaccia della riga di comando di Azure Service Fabric supportata. Per informazioni su come installare l'interfaccia della riga di comando, vedere [Configurare l'interfaccia della riga di comando di Service Fabric](./service-fabric-cli.md).
 

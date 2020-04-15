@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63271567e70955f6dfb0b10a5c882b6dce9545ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74932489"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309201"
 ---
 # <a name="blocking-legacy-authentication"></a>Blocco dell'autenticazione legacy
  
@@ -31,11 +31,11 @@ Oggi, la maggior parte di tutti i tentativi di accesso compromettenti proviene d
 
 Prima di poter bloccare l'autenticazione legacy nella directory, devi prima capire se gli utenti dispongono di app che usano l'autenticazione legacy e come influisce sulla directory complessiva. I log di accesso di Azure AD possono essere usati per capire se si usa l'autenticazione legacy.
 
-1. Passare al portale di Azure > Azure Active Directory > gli accessi.
-1. Aggiungere la colonna App client se non viene visualizzata facendo clic su Colonne >'app client.
-1. Filtra per app client > selezionare tutte le opzioni Altro client presentate e fare clic su Applica.
-1. Filtra per Stato > Operazione riuscita e fai clic su Applica. 
-1. Se necessario, espandi l'intervallo di date utilizzando il filtro Data.
+1. Passare al **portale** >di Azure Ad Azure **Access-ins** **Azure Active Directory** >di Azure .
+1. Aggiungere la colonna **App client** se non viene visualizzata facendo clic su **Colonne** > **Client App**.
+1. Filtra **per app**   client> controllare tutte le opzioni dei client di **autenticazione legacy** presentate.
+1. Filtra per **Stato** > **riuscito**. 
+1. Se necessario, espandi l'intervallo di date utilizzando il filtro **Data.**
 
 Il filtro mostrerà solo i tentativi di accesso riusciti effettuati dai protocolli di autenticazione legacy selezionati. Cliccando su ogni singolo tentativo di accesso ti mostrerà ulteriori dettagli. La colonna App client o il campo App client nella scheda Informazioni di base dopo aver selezionato una singola riga di dati indicherà quale protocollo di autenticazione legacy è stato utilizzato. Questi registri indicheranno quali utenti dipendono ancora dall'autenticazione legacy e quali applicazioni utilizzano protocolli legacy per effettuare richieste di autenticazione. Per gli utenti che non vengono visualizzati in questi log e vengono confermati di non utilizzare l'autenticazione legacy, implementare un criterio di accesso condizionale o abilitare il criterio di base: bloccare l'autenticazione legacy solo per questi utenti.
 
@@ -62,7 +62,7 @@ Se si usano client Windows di Office 2013 o versioni precedenti, è consigliabil
 
 Office 2010 non supporta l'autenticazione moderna. Sarà necessario aggiornare tutti gli utenti con Office 2010 a una versione più recente di Office. È consigliabile eseguire l'aggiornamento a Office 2016 o versione successiva, in quanto blocca l'autenticazione legacy per impostazione predefinita.
 
-Se si usa MacOS, è consigliabile eseguire l'aggiornamento a Office per Mac 2016 o versione successiva. Se si utilizza il client di posta nativo, è necessario disporre di MacOS versione 10.14 o successiva su tutti i dispositivi.
+Se si usa macOS, è consigliabile eseguire l'aggiornamento a Office per Mac 2016 o versione successiva. Se si utilizza il client di posta nativo, è necessario disporre di macOS versione 10.14 o successiva su tutti i dispositivi.
 
 ### <a name="step-3-exchange-and-sharepoint"></a>Passaggio 3: Exchange e SharePoint
 

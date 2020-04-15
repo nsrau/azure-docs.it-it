@@ -6,26 +6,28 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 602be49ef0c60274f1cd016c4f8e870cf033ec7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e556e21238db5de7dddce13ea912dae30723fe8c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75866903"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383667"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usare il portale di Azure per accedere ai dati BLOB o codaUse the Azure portal to access blob or queue data
 
 Quando si accede ai dati BLOB o coda tramite il portale di [Azure,](https://portal.azure.com)il portale effettua richieste ad Archiviazione di Azure sotto le coperte. Una richiesta ad Archiviazione di Azure può essere autorizzata usando l'account Azure AD o la chiave di accesso dell'account di archiviazione. Il portale indica il metodo in uso e consente di passare da uno dei due metodi se si dispone delle autorizzazioni appropriate.  
 
+È anche possibile specificare come autorizzare un'operazione di caricamento di singoli BLOB nel portale di Azure.You can also specify how to authorize an individual blob upload operation in the Azure portal. Per impostazione predefinita, il portale usa il metodo già usato per autorizzare un'operazione di caricamento del BLOB, ma è possibile modificare questa impostazione quando si carica un BLOB.
+
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Autorizzazioni necessarie per accedere ai dati BLOB o coda
 
 A seconda di come si vuole autorizzare l'accesso ai dati BLOB o coda nel portale di Azure, sono necessarie autorizzazioni specifiche. Nella maggior parte dei casi, queste autorizzazioni vengono fornite tramite il controllo degli accessi in base al ruolo. Per ulteriori informazioni sul controllo degli accessi in base al ruolo, vedere [Che cos'è](../../role-based-access-control/overview.md)il controllo degli accessi in base al ruolo?
 
-### <a name="account-access-key"></a>Chiave di accesso dell'account
+### <a name="use-the-account-access-key"></a>Utilizzare la chiave di accesso dell'account
 
 Per accedere ai dati BLOB e coda con la chiave di accesso dell'account, è necessario disporre di un ruolo RBAC assegnato che include l'azione RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Questo ruolo RBAC può essere un ruolo predefinito o personalizzato. I ruoli predefiniti che supportano **Microsoft.Storage/storageAccounts/listkeys/action** includono:Built-in roles that support Microsoft.Storage/storageAccounts/listkeys/action include:
 
@@ -36,9 +38,9 @@ Per accedere ai dati BLOB e coda con la chiave di accesso dell'account, è neces
 Quando si tenta di accedere ai dati BLOB o coda nel portale di Azure, il portale controlla innanzitutto se è stato assegnato un ruolo con **Microsoft.Storage/storageAccounts/listkeys/action**. Se è stato assegnato un ruolo con questa azione, il portale usa la chiave account per l'accesso ai dati BLOB e coda. Se non è stato assegnato un ruolo con questa azione, il portale tenta di accedere ai dati usando l'account Azure AD.
 
 > [!NOTE]
-> I ruoli di amministratore della sottoscrizione classica Amministratore del servizio e Coamministratore includono l'equivalente del ruolo Proprietario di Azure Resource Manager.The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. Il ruolo **Proprietario** include tutte le azioni, incluse **Microsoft.Storage/storageAccounts/listkeys/action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati BLOB e coda con la chiave dell'account. Per ulteriori informazioni, vedere Ruoli di [amministratore della sottoscrizione classica](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> I ruoli di amministratore della sottoscrizione classica Amministratore del servizio e Coamministratore includono l'equivalente del ruolo Proprietario di Azure Resource Manager.The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. Il ruolo **Proprietario** include tutte le azioni, incluse **Microsoft.Storage/storageAccounts/listkeys/action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati BLOB e coda con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
-### <a name="azure-ad-account"></a>Account Azure AD
+### <a name="use-your-azure-ad-account"></a>Usare l'account Azure ADUse your Azure AD account
 
 Per accedere ai dati BLOB o coda dal portale di Azure usando l'account Azure AD, entrambe le istruzioni seguenti devono essere vere:
 
@@ -54,7 +56,7 @@ I ruoli predefiniti che supportano l'accesso ai dati blob o coda includono:The b
 - [Lettore di dati BLOB di archiviazione:](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)autorizzazioni di sola lettura per i BLOB.
 - [Storage Queue Data Contributor :](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)autorizzazioni di lettura/scrittura/eliminazione per le code.
 - [Lettore dati coda di](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader)archiviazione: autorizzazioni di sola lettura per le code.
-    
+
 I ruoli personalizzati possono supportare diverse combinazioni delle stesse autorizzazioni fornite dai ruoli predefiniti. Per altre informazioni sulla creazione di ruoli RBAC personalizzati, vedere Ruoli personalizzati per le risorse di Azure e Informazioni sulle definizioni dei ruoli per le risorse di Azure.For more information about creating custom RBAC roles, see [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md) and Understand role definitions for Azure [resources.](../../role-based-access-control/role-definitions.md)
 
 L'elenco delle code con un ruolo di amministratore della sottoscrizione classica non è supportato. Per elencare le code, è necessario che un utente abbia assegnato loro il ruolo **Lettore** risorse di Azure, il ruolo **Lettore dati coda di archiviazione** o il ruolo **Collaboratore dati coda di archiviazione.**
@@ -74,7 +76,7 @@ Quando si passa a un contenitore o a una coda, il portale di Azure indica se si 
 
 Gli esempi in questa sezione mostrano l'accesso a un contenitore e ai relativi BLOB, ma il portale visualizza lo stesso messaggio quando si accede a una coda e ai relativi messaggi o si elencano le code.
 
-### <a name="account-access-key"></a>Chiave di accesso dell'account
+### <a name="authenticate-with-the-account-access-key"></a>Eseguire l'autenticazione con la chiave di accesso dell'accountAuthenticate with the account access key
 
 Se si esegue l'autenticazione utilizzando la chiave di accesso dell'account, nel portale verrà visualizzato Chiave di **accesso** specificata come metodo di autenticazione:
 
@@ -86,7 +88,7 @@ Per passare all'uso dell'account Azure AD, fare clic sul collegamento evidenziat
 
 Si noti che nessun BLOB viene visualizzato nell'elenco se l'account Azure AD non dispone delle autorizzazioni per visualizzarli. Fare clic sul collegamento **Passa per accedere alla chiave** per utilizzare nuovamente la chiave di accesso per l'autenticazione.
 
-### <a name="azure-ad-account"></a>Account Azure AD
+### <a name="authenticate-with-your-azure-ad-account"></a>Eseguire l'autenticazione con l'account Azure ADAuthenticate with your Azure AD account
 
 Se si esegue l'autenticazione usando l'account Azure AD, verrà visualizzato **L'account utente** di Azure AD specificato come metodo di autenticazione nel portale:If you are authenticating using your Azure AD account, you'll see Azure AD User Account specified as the authentication method in the portal:
 
@@ -97,6 +99,19 @@ Per passare all'utilizzo del tasto di scelta dell'account, fare clic sul collega
 ![Errore visualizzato se non si dispone dell'accesso alla chiave dell'account](media/storage-access-blobs-queues-portal/auth-error-access-key.png)
 
 Si noti che nessun BLOB viene visualizzato nell'elenco se non si ha accesso alle chiavi dell'account. Fare clic sul collegamento **Passa all'account utente** di Azure AD per usare nuovamente l'account Azure AD per l'autenticazione.
+
+## <a name="specify-how-to-authorize-a-blob-upload-operation"></a>Specificare come autorizzare un'operazione di caricamento BLOBSpecify how to authorize a blob upload operation
+
+Quando si carica un BLOB dal portale di Azure, è possibile specificare se autenticare e autorizzare l'operazione con la chiave di accesso dell'account o con le credenziali di Azure AD. Per impostazione predefinita, il portale utilizza il metodo di autenticazione corrente, come illustrato in Determinare il metodo di [autenticazione corrente.](#determine-the-current-authentication-method)
+
+Per specificare come autorizzare un'operazione di caricamento BLOB, eseguire la procedura seguente:To specify how to authorize a blob upload operation, follow these steps:
+
+1. Nel portale di Azure passare al contenitore in cui si vuole caricare un BLOB.
+1. Fare clic sul pulsante **Carica**.
+1. Espandere la sezione **Avanzate** per visualizzare le proprietà avanzate per il BLOB.
+1. Nel campo Tipo di **autenticazione** indicare se si vuole autorizzare l'operazione di caricamento usando l'account Azure AD o la chiave di accesso dell'account, come illustrato nell'immagine seguente:In the Authentication Type field, indicate whether you want to authorize the upload operation by using your Azure AD account or with the account access key, as shown in the following image:
+
+    :::image type="content" source="media/storage-access-blobs-queues-portal/auth-blob-upload.png" alt-text="Screenshot che mostra come modificare il metodo di autorizzazione durante il caricamento del BLOB":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

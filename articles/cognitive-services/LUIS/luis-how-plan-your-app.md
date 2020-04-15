@@ -1,22 +1,14 @@
 ---
 title: Pianificare l'app - LUIS
-titleSuffix: Azure Cognitive Services
 description: Definire le finalità e le entità dell'app e quindi creare i relativi piani in Language Understanding Intelligent Service (LUIS).
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.author: diberry
-ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74326784"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382300"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Pianificare lo schema dell'app LUIS con il dominio dell'oggetto e l'estrazione dei dati
 
@@ -44,7 +36,7 @@ Se non è necessario identificare le intenzioni generali dell'utente, `None` agg
 
 ## <a name="create-example-utterances-for-each-intent"></a>Creare espressioni di esempio per ogni finalità
 
-Per iniziare, evitare di creare troppe espressioni per ogni finalità. Dopo aver determinato le finalità, creare da 15 a 30 espressioni di esempio per finalità. Ogni espressione deve essere diversa dalle espressioni fornite in precedenza. Una buona varietà nelle espressioni include il conteggio complessivo delle parole, la scelta delle parole, il tempo verbale e la punteggiatura.
+Per iniziare, evitare di creare troppe espressioni per ogni finalità. Dopo aver determinato le finalità, creare da 15 a 30 espressioni di esempio per finalità. Ogni espressione deve essere diversa dalle espressioni fornite in precedenza. Una buona varietà nelle espressioni include il conteggio complessivo delle parole, la scelta delle parole, il tempo verbale e la [punteggiatura](luis-reference-application-settings.md#punctuation-normalization).
 
 Per ulteriori informazioni, vedere [Understanding good utterances for LUIS apps](luis-concept-utterance.md).
 

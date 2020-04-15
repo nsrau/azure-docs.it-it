@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: e0c1a93ef663762bec199abc5aa7eabbc821168d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654954"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382878"
 ---
 # <a name="availability-alerts"></a>Avvisi di disponibilità
 
@@ -33,6 +33,9 @@ Gli avvisi vengono ora abilitati automaticamente per impostazione predefinita, m
 2. Impostare il livello di gravità desiderato, la descrizione della regola ed, elemento ancora più importante, il gruppo di azioni con le preferenze di notifica che si vogliono usare per questa regola di avviso.
 
    ![Modifica dopo il salvataggio](./media/availability-alerts/set-action-group.png)
+
+> [!NOTE]
+> Gli avvisi di disponibilità creati tramite questa esperienza sono basati sullo stato. Ciò significa che quando i criteri di avviso vengono soddisfatti viene generato un singolo avviso quando il sito viene rilevato come non disponibile. Se il sito è ancora inattivo alla successiva valutazione dei criteri di avviso, questo non genererà un nuovo avviso. Quindi, se il tuo sito è stato inattivo per un'ora e hai configurato un avviso e-mail, riceverai solo un'e-mail quando il sito si è spento e un successivo messaggio di posta elettronica quando il sito è stato di nuovo attivo. Non riceverai avvisi continui che ti ricordano che il sito non era ancora disponibile.
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Inviare avvisi per X di Y località con segnalazione di errori
 

@@ -1,5 +1,5 @@
 ---
-title: Panoramica della configurazione dello stato
+title: 'Panoramica di Configurazione stato di Automazione di Azure '
 description: Panoramica della configurazione dello stato di automazione di Azure, dei termini e dei problemi noti
 keywords: powershell dsc, configurazione dello stato desiderato, powershell dsc azure
 services: automation
@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 02e540c9ac2654be97ff247749d1ed18573cfc24
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: afceb11180662416aa4953b8b58ef03ffaa70eec
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010257"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383194"
 ---
 # <a name="state-configuration-overview"></a>Panoramica della configurazione dello stato
 
@@ -123,6 +123,7 @@ Per gli utenti di ExpressRoute è importante sottolineare che questo file viene 
 - Per iniziare a usare DSC in Configurazione dello stato di automazione di Azure, vedere Introduzione alla configurazione dello stato di automazione di Azure.To get started using DSC in Azure Automation [State Configuration,](automation-dsc-getting-started.md)see Getting started with Azure Automation State Configuration .
 - Per informazioni su come eseguire l'onboarding dei nodi, vedere [Onboarding di macchine per la gestione da parte](automation-dsc-onboarding.md)della configurazione dello stato di automazione di Azure .
 - Per informazioni sulla compilazione di configurazioni DSC in modo da poterle assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione dello stato](automation-dsc-compile.md)di automazione di Azure.To learn about compiling DSC configurations so that you can assign them to target nodes, see Compilazioning configurations in Azure Automation State Configuration .
-- Per informazioni di riferimento sui cmdlet di PowerShell, vedere Cmdlet per la configurazione dello stato di [automazione di Azure.](/powershell/module/azurerm.automation/#automation)
+- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - Per informazioni sui prezzi, vedere Prezzi per la configurazione dello stato di automazione di Azure.For pricing [information,](https://azure.microsoft.com/pricing/details/automation/)see Azure Automation State Configuration pricing .
 - Per un esempio di utilizzo della configurazione dello stato di automazione di Azure in una pipeline di distribuzione continua, vedere [Distribuzione continua tramite Configurazione stato](automation-dsc-cd-chocolatey.md)di automazione di Azure e Chocolatey .

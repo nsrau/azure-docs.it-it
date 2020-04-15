@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 706a8c554dafbf792471729929d6e6484dfa35ae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 12dd17045715a24d1e5151b30a5e7706b0e58717
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266084"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383791"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Creare un'offerta di macchina virtuale di AzureCreate an Azure virtual machine offer
 
@@ -116,9 +116,9 @@ Selezionare **Salva bozza** prima di continuare.
 
 Questa pagina ti consente di definire le categorie e i settori utilizzati per raggruppare la tua offerta sul marketplace, la versione dell'app e i contratti legali che supportano la tua offerta.
 
-### <a name="category"></a>Category
+### <a name="categories"></a>Categorie
 
-Selezionare un minimo di una e un massimo di tre categorie. Queste categorie vengono utilizzate per inserire l'offerta nelle aree di ricerca del marketplace appropriate. Nella descrizione dell'offerta, spiega come la tua offerta supporta queste categorie. Le offerte di macchine virtuali vengono visualizzate nella categoria **Calcolo** in Azure Marketplace.Virtual machine offers appear under the Compute category in Azure Marketplace.
+Selezionare un minimo di una e un massimo di cinque categorie. Queste categorie vengono utilizzate per inserire l'offerta nelle aree di ricerca del marketplace appropriate. Nella descrizione dell'offerta, spiega come la tua offerta supporta queste categorie. Le offerte di macchine virtuali vengono visualizzate nella categoria **Calcolo** in Azure Marketplace.Virtual machine offers appear under the Compute category in Azure Marketplace.
 
 ### <a name="legal"></a>Note legali
 
@@ -234,7 +234,6 @@ Fornisci il sito web di supporto dove i clienti possono contattare il tuo team d
 
 - Sito Web di supporto globale di AzureAzure Global support website
 - Sito Web di supporto per Azure per enti pubblici Azure per enti pubbliciAzure
-- E così via
 
 ### <a name="partner-support-contact"></a>Contatto per l'assistenza clienti
 
@@ -389,6 +388,8 @@ Ogni piano deve essere disponibile in almeno un mercato. Selezionare la casella 
 
 Se hai già impostato i prezzi per il tuo piano in Dollari USA (USD) e aggiungi un'altra posizione di mercato, il prezzo per il nuovo mercato verrà calcolato in base ai tassi di cambio correnti. Controlla sempre il prezzo per ogni mercato prima della pubblicazione. Esaminare i prezzi utilizzando il collegamento **Prezzi di esportazione (xlsx)** dopo aver salvato le modifiche.
 
+Quando si rimuove un mercato, i clienti di tale mercato utilizzando distribuzioni attive non saranno in grado di creare nuove distribuzioni o aumentare le distribuzioni esistenti. Le distribuzioni esistenti non saranno interessate.
+
 #### <a name="pricing"></a>Prezzi
 
 **Modello di licenza:** selezionare un **piano fatturato mensile basato sull'utilizzo** per configurare i prezzi per questo piano o **Portare la propria licenza** per consentire ai clienti di utilizzare questo piano con la licenza esistente.
@@ -421,7 +422,7 @@ Gruppo di destinatari con restrizioni (ID sottoscrizione di Azure): assegnare il
 
 #### <a name="hide-plan"></a>Nascondi piano
 
-Se la macchina virtuale deve essere usata solo indirettamente quando viene fatto riferimento tramite un altro modello di soluzione o un'altra applicazione gestita, selezionare questa casella per pubblicare la macchina virtuale o l'offerta, ma nasconderla ai clienti alla ricerca e all'esplorazione direttamente.
+Se la macchina virtuale deve essere usata solo indirettamente quando viene fatto riferimento tramite un altro modello di soluzione o un'altra applicazione gestita, selezionare questa casella per pubblicare la macchina virtuale ma nasconderla ai clienti per cercarla e cercarla direttamente.
 
 > [!NOTE]
 > I piani nascosti non supportano i collegamenti di anteprima.
@@ -430,7 +431,7 @@ Selezionare **Salva bozza** prima di continuare.
 
 ### <a name="technical-configuration"></a>Configurazione tecnica
 
-Fornire le immagini e altre proprietà tecniche associate a questo piano.
+Fornire le immagini e altre proprietà tecniche associate a questo piano. Per informazioni dettagliate, vedere [Creare un asset tecnico di Azure VM.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets)
 
 > [!NOTE]
 > Questa scheda non viene visualizzata se questo piano è stato configurato per riutilizzare i pacchetti di un altro piano nella scheda **Impostazione piano.**
@@ -459,7 +460,7 @@ Opzione di distribuzione del **disco:** selezionare il tipo di distribuzione su 
 
 #### <a name="vm-images"></a>VM Images (Immagini di VM)
 
-Specificare una versione su disco e l'URI di accesso condiviso per le immagini della macchina virtuale. Aggiungere fino a 16 dischi dati per ogni immagine della macchina virtuale. Fornisci solo una nuova versione dell'immagine per piano in un determinato invio. Dopo la pubblicazione di un'immagine, non è possibile modificarla, ma è possibile eliminarla. L'eliminazione di una versione impedirà agli utenti di distribuire una nuova istanza della versione eliminata.
+Specificare una versione su disco e l'URI di accesso condiviso per le immagini della macchina virtuale. Aggiungere fino a 16 dischi dati per ogni immagine della macchina virtuale. Fornisci solo una nuova versione dell'immagine per piano in un determinato invio. Dopo la pubblicazione di un'immagine, non è possibile modificarla, ma è possibile eliminarla. L'eliminazione di una versione impedirà agli utenti nuovi ed esistenti di distribuire una nuova istanza della versione eliminata.
 
 - **La versione disco** è la versione dell'immagine che stai fornendo.
 - **L'URI di** accesso condiviso è il percorso in Archiviazione di Azure in cui è stato archiviato il disco rigido virtuale del sistema operativo.

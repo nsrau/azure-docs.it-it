@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0547f254a64cecc7072ee9ff79eb50204b34bc17
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548859"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311933"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generare un certificato autofirmato del gateway applicazione di Azure con una CA radice personalizzataGenerate an Azure Application Gateway self-signed certificate with a custom root CA
 
-Lo SKU del gateway applicazione v2 introduce l'utilizzo di certificati radice attendibili per consentire i server back-end. In questo modo vengono rimossi i certificati di autenticazione necessari nello SKU v1. Il *certificato radice* è un X.509 con codifica Base 64(. CER) formatta il certificato radice dal server dei certificati back-end. Identifica l'autorità di certificazione (CA) radice che ha emesso il certificato server e il certificato server viene quindi utilizzato per la comunicazione SSL.
+Lo SKU del gateway applicazione v2 introduce l'utilizzo di certificati radice attendibili per consentire i server back-end. In questo modo vengono rimossi i certificati di autenticazione necessari nello SKU v1. Il *certificato radice* è un X.509 con codifica Base 64(. CER) formatta il certificato radice dal server dei certificati back-end. Identifica l'autorità di certificazione (CA) radice che ha emesso il certificato server e il certificato del server viene quindi utilizzato per la comunicazione TLS/SSL.
 
-Il gateway applicazione considera attendibile il certificato del sito Web per impostazione predefinita se è firmato da un'autorità di certificazione nota, ad esempio GoDaddy o DigiCert. In tal caso non è necessario caricare in modo esplicito il certificato radice. Per ulteriori informazioni, vedere [Panoramica della terminazione SSL e end-to-end di SSL con il gateway applicazione](ssl-overview.md). Tuttavia, se si dispone di un ambiente di sviluppo/test e non si desidera acquistare un certificato firmato ca verificato, è possibile creare una CA personalizzata e creare un certificato autofirmato con esso. 
+Il gateway applicazione considera attendibile il certificato del sito Web per impostazione predefinita se è firmato da un'autorità di certificazione nota, ad esempio GoDaddy o DigiCert. In tal caso non è necessario caricare in modo esplicito il certificato radice. Per ulteriori informazioni, vedere [Panoramica della terminazione TLS e TLS end-to-end con Gateway applicazione](ssl-overview.md). Tuttavia, se si dispone di un ambiente di sviluppo/test e non si desidera acquistare un certificato firmato ca verificato, è possibile creare una CA personalizzata e creare un certificato autofirmato con esso. 
 
 > [!NOTE]
 > I certificati autofirmati non sono considerati attendibili per impostazione predefinita e possono essere difficili da gestire. Inoltre, possono utilizzare suite di hash e cifrature obsolete che potrebbero non essere complesse. Per una maggiore sicurezza, acquistare un certificato firmato da un'autorità di certificazione nota.
@@ -125,15 +125,15 @@ La CSR è una chiave pubblica assegnata a un'autorità di certificazione quando 
    - fabrikam.crt
    - fabrikam.key
 
-## <a name="configure-the-certificate-in-your-web-servers-ssl-settings"></a>Configurare il certificato nelle impostazioni SSL del server Web
+## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>Configurare il certificato nelle impostazioni TLS del server Web
 
-Nel server Web configurare SSL utilizzando i file fabrikam.crt e fabrikam.key. Se il server Web non accetta due file, è possibile combinarli in un singolo file con estensione pem o pfx utilizzando i comandi OpenSSL.
+Nel server Web configurare TLS utilizzando i file fabrikam.crt e fabrikam.key. Se il server Web non accetta due file, è possibile combinarli in un singolo file con estensione pem o pfx utilizzando i comandi OpenSSL.
 
 ### <a name="iis"></a>IIS
 
 Per istruzioni su come importare i certificati e caricarli come certificato server in IIS, vedere [HOW TO: Install Imported Certificates on a Web Server in Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-Per istruzioni sull'associazione SSL, vedere [Configurazione di SSL in IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+Per istruzioni sull'associazione TLS, vedere [Configurazione di SSL in IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### <a name="apache"></a>Apache
 
@@ -151,9 +151,9 @@ La configurazione seguente è un esempio di host virtuale configurato per SSL in
 
 ### <a name="nginx"></a>NGINX
 
-La configurazione seguente è un esempio di [blocco del server NGINX](https://nginx.org/docs/http/configuring_https_servers.html) con configurazione SSL:The following configuration is an example NGINX server block with SSL configuration:
+La configurazione seguente è un blocco server NGINX di esempio con configurazione TLS:The following configuration is an example [NGINX server block](https://nginx.org/docs/http/configuring_https_servers.html) with TLS configuration:
 
-![NGINX con SSL](media/self-signed-certificates/nginx-ssl.png)
+![NGINX con TLS](media/self-signed-certificates/nginx-ssl.png)
 
 ## <a name="access-the-server-to-verify-the-configuration"></a>Accedere al server per verificare la configurazione
 
@@ -232,7 +232,7 @@ $probe = Get-AzApplicationGatewayProbeConfig `
 
 ## Add the configuration to the HTTP Setting and don't forget to set the "hostname" field
 ## to the domain name of the server certificate as this will be set as the SNI header and
-## will be used to verify the backend server's certificate. Note that SSL handshake will
+## will be used to verify the backend server's certificate. Note that TLS handshake will
 ## fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
 
 Add-AzApplicationGatewayBackendHttpSettings `
@@ -272,5 +272,5 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su SSL, nel gateway applicazione, vedere [Panoramica della terminazione SSL e ssl end-to-end con gateway applicazione](ssl-overview.md).
+Per ulteriori informazioni su SSL, in Gateway applicazione, vedere [Panoramica della terminazione TLS e End-to-End TLS con Gateway applicazione](ssl-overview.md).
 

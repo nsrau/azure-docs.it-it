@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: d31b7531e00199ea63c7b057dacff1b67d7cedc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528932"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382958"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurare e accedere ai log di controllo nel portale di AzureConfigure and access audit logs in the Azure portal
 
@@ -30,7 +30,7 @@ Per proseguire con questa guida, si richiedono:
 
 Abilitare e configurare la registrazione di controllo.
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Selezionare il server del Database di Azure per MariaDB.
 
@@ -69,4 +69,5 @@ Abilitare e configurare la registrazione di controllo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui log di [controllo](concepts-audit-logs.md) nel database di Azure per MariaDB.
+- Altre informazioni sui log di controllo nel database di Azure per MariaDBLearn more about [audit logs](concepts-audit-logs.md) in Azure Database for MariaDB
+- Informazioni su come configurare i log di controllo nell'interfaccia della riga di comando di [AzureLearn](howto-configure-audit-logs-cli.md) how to configure audit logs in the Azure CLI

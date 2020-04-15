@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: d9691a6fd5c320242b9677776cbd08be4f800921
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544514"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312462"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -28,11 +28,11 @@ Il gateway applicazione di Azure fornisce un controller di distribuzione delle a
 
 ### <a name="what-features-does-application-gateway-support"></a>Quali funzionalità supporta il gateway applicazione?
 
-Il gateway applicazione supporta la scalabilità automatica, la ripartizione del carico di lavoro SSL e SSL end-to-end, un Web Application Firewall (WAF), l'affinità di sessione basata su cookie, il routing basato su percorso URL, l'hosting multisito e altre funzionalità. Per un elenco completo delle funzionalità supportate, vedere [Cos'è il gateway applicazione di Azure?](application-gateway-introduction.md)
+Il gateway applicazione supporta la scalabilità automatica, l'offload TLS e TLS end-to-end, un Web Application Firewall (WAF), l'affinità di sessione basata su cookie, il routing basato sul percorso URL, l'hosting multisito e altre funzionalità. Per un elenco completo delle funzionalità supportate, vedere [Cos'è il gateway applicazione di Azure?](application-gateway-introduction.md)
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>Differenze tra Gateway applicazione e Azure Load Balancer?
 
-Il gateway applicazione è un servizio di bilanciamento del carico di livello 7, ovvero funziona solo con il traffico Web (HTTP, HTTPS, WebSocket e HTTP/2). Supporta funzionalità quali terminazione SSL, affinità di sessione basata su cookie e round robin per il bilanciamento del carico del traffico. Load Balancer bilancia il carico del traffico al livello 4 (TCP o UDP).
+Il gateway applicazione è un servizio di bilanciamento del carico di livello 7, ovvero funziona solo con il traffico Web (HTTP, HTTPS, WebSocket e HTTP/2). Supporta funzionalità quali la terminazione TLS, l'affinità di sessione basata su cookie e il round robin per il bilanciamento del carico del traffico. Load Balancer bilancia il carico del traffico al livello 4 (TCP o UDP).
 
 ### <a name="what-protocols-does-application-gateway-support"></a>Quali protocolli supporta il gateway applicazione?
 
@@ -98,7 +98,7 @@ Una singola subnet non può supportare insieme Standard_v2 e il gateway applicaz
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>Il gateway applicazione v2 supporta le route definite dall'utente (UDR)?
 
-Sì, ma solo scenari specifici. Per ulteriori informazioni, vedere [Panoramica](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)della configurazione del gateway applicazione .
+Sì, ma solo scenari specifici. Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Il gateway applicazione supporta le intestazioni x-forwarded-for?
 
@@ -216,7 +216,7 @@ No.
 
 Il gateway applicazione v2 non supporta attualmente IPv6. Può operare in una rete virtuale dual stack utilizzando solo IPv4, ma la subnet del gateway deve essere solo IPv4. Il gateway applicazione v1 non supporta le reti virtuali dual stack. 
 
-## <a name="configuration---ssl"></a>Configurazione - SSL
+## <a name="configuration---tls"></a>Configurazione - TLS
 
 ### <a name="what-certificates-does-application-gateway-support"></a>Quali certificati supporta noto da Gateway applicazione?
 
@@ -255,13 +255,13 @@ Il gateway applicazione supporta i seguenti pacchetti di crittografia.
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-Per informazioni su come personalizzare le opzioni SSL, vedere [Configurare le versioni dei criteri SSL e i pacchetti](application-gateway-configure-ssl-policy-powershell.md)di crittografia nel gateway applicazione .
+Per informazioni su come personalizzare le opzioni TLS, vedere [Configurare le versioni](application-gateway-configure-ssl-policy-powershell.md)dei criteri TLS e i pacchetti di crittografia nel gateway applicazione .
 
 ### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>Il gateway applicazione supporta la ricrittografia del traffico verso il back-end?
 
-Sì. Il gateway applicazione supporta l'offload SSL e SSL end-to-end, che ricrittografano il traffico verso il back-end.
+Sì. Il gateway applicazione supporta l'offload TLS e il TLS end-to-end, che ricrittografano il traffico verso il back-end.
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>È possibile configurare i criteri SSL per controllare le versioni del protocollo SSL?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>È possibile configurare i criteri TLS per controllare le versioni del protocollo TLS?
 
 Sì. È possibile configurare il gateway applicazione per negare TLS1.0, TLS1.1 e TLS1.2. Per impostazione predefinita, SSL 2.0 e 3.0 sono già disabilitati e non sono configurabili.
 
@@ -278,9 +278,9 @@ Sì. Nel gateway applicazione è possibile [configurare i pacchetti](application
 
 Il gateway applicazione usa SHA256 per la gestione back-end.
 
-### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>Quanti certificati SSL sono supportati da Gateway applicazione?
+### <a name="how-many-tlsssl-certificates-does-application-gateway-support"></a>Quanti certificati TLS/SSL supportano il gateway applicazione?
 
-Il gateway applicazione supporta fino a 100 certificati SSL.
+Il gateway applicazione supporta fino a 100 certificati TLS/SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>Quanti certificati di autenticazione per la ricrittografia back-end supporta il gateway applicazione?
 
@@ -288,7 +288,7 @@ Il gateway applicazione supporta fino a 100 certificati di autenticazione.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Il gateway applicazione si integra in modo nativo con l'insieme di chiavi di Azure?
 
-Sì, lo SKU del gateway applicazione v2 supporta l'insieme di credenziali delle chiavi. Per ulteriori informazioni, vedere [Terminazione SSL con i certificati dell'insieme](key-vault-certs.md)di credenziali delle chiavi .
+Sì, lo SKU del gateway applicazione v2 supporta l'insieme di credenziali delle chiavi. Per ulteriori informazioni, vedere [Terminazione TLS con certificati dell'insieme](key-vault-certs.md)di credenziali delle chiavi .
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Come si configurano i listener HTTPS per i siti .com e .net? 
 
@@ -338,7 +338,7 @@ Sì. È possibile abilitare la protezione DDoS nella rete virtuale in cui viene 
 
 ### <a name="what-is-an-ingress-controller"></a>Che cos'è un controller di ingresso?
 
-Kubernetes consente `deployment` la `service` creazione di e risorsa per esporre un gruppo di baccelli internamente nel cluster. Per esporre lo stesso servizio [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) esternamente, viene definita una risorsa che fornisce il bilanciamento del carico, la terminazione SSL e l'hosting virtuale basato sui nomi.
+Kubernetes consente `deployment` la `service` creazione di e risorsa per esporre un gruppo di baccelli internamente nel cluster. Per esporre lo stesso servizio [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) esternamente, viene definita una risorsa che fornisce il bilanciamento del carico, la terminazione TLS e l'hosting virtuale basato sui nomi.
 Per soddisfare `Ingress` questa risorsa, è necessario un controller di `Ingress` ingresso che rimane in ascolto di eventuali modifiche alle risorse e configura i criteri di bilanciamento del carico.
 
 Il controller di ingresso del gateway applicazione consente di usare il [gateway applicazione](https://azure.microsoft.com/services/application-gateway/) di Azure come ingresso per un servizio [Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) noto anche come cluster AKS.

@@ -1,28 +1,20 @@
 ---
 title: Punteggi di stima - LUIS
-titleSuffix: Azure Cognitive Services
 description: Un punteggio di stima indica il grado di probabilità del servizio API LUIS per i risultati della stima, in base a un'espressione utente.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74280816"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382369"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>I punteggi di stima indicano l'accuratezza delle stime per la finalità e le entità
 
 Un punteggio di stima indica il grado di attendibilità di LUIS per i risultati della stima di un'espressione utente.
 
-Un punteggio di stima è compreso tra zero (0) e uno (1). Un esempio di punteggio LUIS altamente attendibile è 0,99. Un esempio di punteggio poco attendibile è 0,01. 
+Un punteggio di stima è compreso tra zero (0) e uno (1). Un esempio di punteggio LUIS altamente attendibile è 0,99. Un esempio di punteggio poco attendibile è 0,01.
 
 |Valore del punteggio|Attendibilità|
 |--|--|
@@ -33,11 +25,11 @@ Un punteggio di stima è compreso tra zero (0) e uno (1). Un esempio di punteggi
 
 ## <a name="top-scoring-intent"></a>Finalità con punteggio elevato
 
-La stima di ogni espressione restituisce una finalità con punteggio elevato. Questa stima è un confronto numerico dei punteggi di stima. 
+La stima di ogni espressione restituisce una finalità con punteggio elevato. Questa stima è un confronto numerico dei punteggi di stima.
 
 ## <a name="proximity-of-scores-to-each-other"></a>Vicinanza di punteggi tra loro
 
-I primi 2 punteggi possono avere una differenza molto piccola tra di loro. LUIS non indica questa prossimità se non restituire il punteggio più alto.  
+I primi 2 punteggi possono avere una differenza molto piccola tra di loro. LUIS non indica questa prossimità se non restituire il punteggio più alto.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Restituire un punteggio di stima per tutte le finalità
 
@@ -74,9 +66,11 @@ I punteggi di stima possono usare la notazione esponenziale, dove _appare_ sopra
 |--|--|
 |9,910309E-07|0,0000009910309|
 
-## <a name="punctuation"></a>Punteggiatura
+<a name="punctuation"></a>
 
-[Ulteriori informazioni](luis-concept-utterance.md#punctuation-marks) su come utilizzare o ignorare la punteggiatura. 
+## <a name="application-settings"></a>Impostazioni dell'applicazione
+
+Usa [le impostazioni dell'applicazione](luis-reference-application-settings.md) per controllare il modo in cui i segni diacritici e la punteggiatura influiscono sui punteggi di stima.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

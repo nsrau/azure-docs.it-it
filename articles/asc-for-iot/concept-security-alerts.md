@@ -1,5 +1,5 @@
 ---
-title: Guida agli avvisi di sicurezza per il Centro sicurezza di Azure per l'IoT Documenti Microsoft
+title: Elenco di avvisi personalizzati & predefinito
 description: Informazioni sugli avvisi di sicurezza e sulle correzioni consigliate usando il Centro sicurezza di Azure per le funzionalità e il servizio IoT.Learn about security alerts and recommended remediation using Azure Security Center for IoT features and service.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 7a319baeba3d34f3d3056ce9b42f2e733b5a874f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74a6adbd2415cfcf7d5d48cff01d189cfd8b73a5
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78296134"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311479"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Avvisi di sicurezza del Centro sicurezza di Azure per IoT
 
@@ -32,11 +32,9 @@ In questo articolo troverai un elenco di avvisi incorporati che possono essere a
 Oltre agli avvisi predefiniti, Centro sicurezza di Azure per IoT consente di definire avvisi personalizzati in base al comportamento previsto dell'hub IoT e/o del dispositivo.
 Per ulteriori dettagli, vedere [Avvisi personalizzabili](concept-customizable-security-alerts.md).
 
-
-
 ## <a name="built-in-alerts-for-iot-devices"></a>Avvisi integrati per i dispositivi IoT
 
-| Nome | Gravità | origine dati | Descrizione | Passaggi di correzione suggeriti|                  
+| Nome | Gravità | origine dati | Descrizione | Passaggi di correzione suggeriti|
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |**Gravità elevata**|  |  |  |
 |   Riga di comando binaria   | Alto | Agente | È stato rilevato il file binario LA Linux chiamato/eseguito dalla riga di comando. Questo processo può essere un'attività legittima o un'indicazione che il dispositivo è compromesso.|   Esaminare il comando con l'utente che lo ha eseguito e verificare se questo è qualcosa che legittimamente previsto per l'esecuzione sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni. |
@@ -52,7 +50,7 @@ Per ulteriori dettagli, vedere [Avvisi personalizzabili](concept-customizable-se
 |  Comportamento simile a Fairware ransomware rilevato  | Media | Agente       | Esecuzione di comandi rm -rf applicati a posizioni sospette rilevate mediante l'analisi dei dati dell'host. Poiché rm -rf elimina in modo ricorsivo i file, in genere viene utilizzato solo su cartelle discrete. In questo caso, viene utilizzato in una posizione che potrebbe rimuovere una grande quantità di dati. Fairware ransomware è noto per eseguire i comandi rm -rf in questa cartella. |Revisione con l'utente che ha eseguito il comando questa era attività legittima che si prevede di vedere sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.
 |  Rilevato comportamento simile al ransomware  | Media | Agente       | Esecuzione di file simili a ransomware noti che possono impedire agli utenti di accedere al loro sistema, o file personali, e può richiedere il pagamento del riscatto per riottenere l'accesso.|Esaminare con l'utente che ha eseguito il comando se si trattava di attività legittime che si prevede di visualizzare sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.
 |   Rilevato immagine del contenitore del minatore di monete crittografiche | Media                   | Agente       | Rilevamento di contenitori in esecuzione di immagini di data mining di valuta digitale note. |  1. Se questo comportamento non è previsto, eliminare l'immagine del contenitore pertinente.<br> 2. Assicurarsi che il daemon Docker non sia accessibile tramite un socket TCP non sicuro.<br> 3. Riassegnare l'avviso al team di sicurezza delle informazioni.|
-|  Immagine del minatore di monete crittografiche  | Media| Agente       | Esecuzione di un processo normalmente associato al mining di valuta digitale rilevato.| Verificare con l'utente che ha eseguito il comando se si trattava di attività legittime sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.| 
+|  Immagine del minatore di monete crittografiche  | Media| Agente       | Esecuzione di un processo normalmente associato al mining di valuta digitale rilevato.| Verificare con l'utente che ha eseguito il comando se si trattava di attività legittime sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.|
 |   Rilevato utilizzo sospetto del comando nohup | Media | Agente       | Rilevato utilizzo sospetto del comando nohup sull'host. Attori dannosi comunemente eseguire il comando nohup da una directory temporanea, consentendo in modo efficace i loro eseguibili per l'esecuzione in background. Vedere questo comando eseguito sui file che si trovano in una directory temporanea non è previsto o comportamento consueto. |Esaminare con l'utente che ha eseguito il comando se si trattava di attività legittime che si prevede di visualizzare sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.
 |   Rilevato utilizzo sospetto del comando useradd  | Media      | Agente       | Uso sospetto del comando useradd rilevato sul dispositivo. |Esaminare con l'utente che ha eseguito il comando se si trattava di attività legittime che si prevede di visualizzare sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.
 |  Edesposto Docker daemon dal socket TCP  | Media | Agente | I registri macchina indicano che il daemon Docker (dockerd) espone un socket TCP. Per impostazione predefinita, la configurazione di Docker non utilizza la crittografia o l'autenticazione quando è abilitato un socket TCP. La configurazione Docker predefinita consente l'accesso completo al daemon Docker da parte di chiunque abbia accesso alla porta pertinente.|Esaminare con l'utente che ha eseguito il comando se si trattava di attività legittime che si prevede di visualizzare sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.
@@ -60,7 +58,7 @@ Per ulteriori dettagli, vedere [Avvisi personalizzabili](concept-customizable-se
 |  Rilevato download di file da un'origine dannosa nota   | Media  | Agente       |  Download di un file da un'origine malware nota rilevata.|Esaminare con l'utente che ha eseguito il comando se si trattava di attività legittime che si prevede di visualizzare sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.
 |   htaccess accesso ai file rilevato | Media                       | Agente       | L'analisi dei dati host ha rilevato una possibile manipolazione di un file htaccess. Htaccess è un potente file di configurazione che consente di apportare più modifiche a un server Web che esegue il software Web Apache, incluse le funzionalità di reindirizzamento di base e funzioni più avanzate, ad esempio la protezione con password di base. Gli attori malintenzionati spesso modificano i file htaccess su macchine compromesse per ottenere la persistenza. |Verificare che si tratti di un'attività legittima prevista nell'host. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.|
 |  Strumento di attacco noto  | Media                                   | Agente       | Uno strumento spesso associato a utenti malintenzionati che attaccano altre macchine in qualche modo è stato rilevato. |Esaminare con l'utente che ha eseguito il comando se si trattava di attività legittime che si prevede di visualizzare sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.|
-|  L'agente IoT ha tentato e non è riuscito ad analizzare la configurazione del modulo gemello | Media  | Agente       | L'agente di sicurezza di Azure per IoT non è riuscito ad analizzare la configurazione del modulo gemello a causa di mancate corrispondenze tra tipi nell'oggetto di configurazione|Convalidare la configurazione del modulo gemello rispetto allo schema di configurazione dell'agente IoT, correggere tutte le mancate corrispondenze. 
+|  L'agente IoT ha tentato e non è riuscito ad analizzare la configurazione del modulo gemello | Media  | Agente       | L'agente di sicurezza di Azure per IoT non è riuscito ad analizzare la configurazione del modulo gemello a causa di mancate corrispondenze tra tipi nell'oggetto di configurazione|Convalidare la configurazione del modulo gemello rispetto allo schema di configurazione dell'agente IoT, correggere tutte le mancate corrispondenze.
 |  Rilevata ricognizione host locale  | Media | Agente       | Esecuzione di un comando normalmente associato alla ricognizione bot Linux comune rilevato. |Esaminare la riga di comando sospetta per verificare che sia stata eseguita da un utente legittimo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.
 |  Mancata corrispondenza tra l'interprete di script e l'estensione del file  | Media | Agente       | Mancata corrispondenza tra l'interprete di script e l'estensione del file di script fornito come input rilevato. Questo tipo di mancata corrispondenza è in genere associato alle esecuzioni di script utente malintenzionato. |Esaminare con l'utente che ha eseguito il comando se si trattava di attività legittime che si prevede di visualizzare sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.
 |  Possibile backdoor rilevata  | Media | Agente |Un file sospetto è stato scaricato e quindi eseguito su un host nella sottoscrizione. Questo tipo di attività è comunemente associato con l'installazione di una backdoor. |Esaminare con l'utente che ha eseguito il comando se si trattava di attività legittime che si prevede di visualizzare sul dispositivo. In caso contrario, riassegnare l'avviso al team di sicurezza delle informazioni.

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: c7c27f00b9f8b4fdcd8f735f842edb8f66803c6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c0c0ab84e60335f58ac075459b95cfabb9135ac
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278008"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311953"
 ---
 # <a name="renew-application-gateway-certificates"></a>Rinnovare i certificati del gateway applicazione
 
-A un certo punto, è necessario rinnovare i certificati se è stato configurato il gateway dell'applicazione per la crittografia SSL.
+A un certo punto, sarà necessario rinnovare i certificati se è stato configurato il gateway applicazione per la crittografia TLS/SSL.
 
 È possibile rinnovare un certificato associato a un listener che usa il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure:
 
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare l'offload SSL con un gateway applicazione di Azure, vedere [Configurare un gateway applicazione per l'offload SSL con il portale](application-gateway-ssl-portal.md)
+Per informazioni su come configurare la ripartizione TLS con il gateway applicazione di Azure, vedere [Configurare l'offload TLSTo](application-gateway-ssl-portal.md) learn how to configure TLS Offloading with Azure Application Gateway, see Configure TLS Offload

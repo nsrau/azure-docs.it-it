@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26656b6dafd91d47c05c2d1f923e53f4ba790cf8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942887"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309923"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registrazione combinata delle informazioni di sicurezza (anteprima)Combined security information registration (preview)
 
@@ -139,7 +139,7 @@ Un utente che in precedenza ha impostato almeno un metodo che [https://aka.ms/my
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Forzare gli utenti a registrare nuovamente i metodi di autenticazione](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[Forzare gli utenti a registrare nuovamente i metodi di autenticazione](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
 
 [Abilitare la registrazione combinata nel tenantEnable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 

@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d98d6fef896f9288be88824a62fa1c8179217f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276894"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382531"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -33,7 +33,7 @@ Una distribuzione di Funzioni di Azure è in genere costituita da queste risorse
 | Un componente [di Application InsightsAn Application Insights](../azure-monitor/app/app-insights-overview.md) component | Facoltativo    | [Microsoft.Insights/componenti](/azure/templates/microsoft.insights/components)         |   |
 | Un [piano di hosting](./functions-scale.md)                                             | Facoltativo<sup>1</sup>    | [Microsoft.Web/serverfarm](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1 : il</sup> nome del Un piano di hosting è necessario solo quando si sceglie di eseguire l'app per le funzioni in un [piano Premium](./functions-premium-plan.md) (in anteprima) o in un piano di [servizio app.](../app-service/overview-hosting-plans.md)
+<sup>1 : il</sup> nome del Un piano di hosting è necessario solo quando si sceglie di eseguire l'app per le funzioni in un [piano Premium](./functions-premium-plan.md) o in un piano di [servizio app.](../app-service/overview-hosting-plans.md)
 
 > [!TIP]
 > Anche se non è obbligatorio, è consigliabile configurare Application Insights per l'app.
@@ -111,7 +111,7 @@ Inoltre, la chiave di strumentazione deve essere `APPINSIGHTS_INSTRUMENTATIONKEY
 
 La definizione del piano di hosting varia e può essere una delle seguenti:
 * [Piano di consumo](#consumption) (predefinito)
-* [Piano Premium](#premium) (in anteprima)
+* [Piano Premium](#premium)
 * [Piano di servizio app](#app-service-plan)
 
 ### <a name="function-app"></a>App per le funzioni
@@ -212,7 +212,7 @@ Se si definisce in modo esplicito il `serverFarmId` piano di consumo, sarà nece
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-#### <a name="windows"></a>WINDOWS
+#### <a name="windows"></a>Windows
 
 In Windows, un piano Consumo richiede due `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` `WEBSITE_CONTENTSHARE`impostazioni aggiuntive nella configurazione del sito: e . Queste proprietà consentono di configurare l'account di archiviazione e il percorso in cui vengono archiviati il codice dell'app per le funzioni e la configurazione.
 
@@ -647,10 +647,10 @@ Un'app per le funzioni contiene numerose risorse figlio che possono essere usate
 
 Il modello può essere distribuito in uno dei modi seguenti:
 
-* [Powershell](../azure-resource-manager/templates/deploy-powershell.md)
-* [Interfaccia della riga di comando di AzureAzure](../azure-resource-manager/templates/deploy-cli.md)
-* [Portale di Azure](../azure-resource-manager/templates/deploy-portal.md)
-* [REST API](../azure-resource-manager/templates/deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [API REST](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Pulsante Deploy to Azure per la distribuzione in Azure
 

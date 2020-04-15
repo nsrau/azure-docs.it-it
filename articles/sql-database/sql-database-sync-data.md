@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 1ee2efbb8aebfc2f1a94c89edef6166898946d8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80afbeb5668d43ac7bb0b12fadb88a93c68e0ddb
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74422535"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383707"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -40,7 +40,7 @@ La sincronizzazione dei dati non è la soluzione preferita per gli scenari segue
 | Ripristino di emergenza | [Backup con ridondanza geografica di Azure](sql-database-automated-backups.md) |
 | Scalabilità in lettura | [Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)](sql-database-read-scale-out.md) |
 | ETL (da OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
-| Migrazione da SQL Server locale al database SQL di Azure | [Servizio di migrazione del database di AzureAzure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| Migrazione da SQL Server locale al database SQL di Azure | [Servizio Migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/) |
 |||
 
 ## <a name="overview-of-sql-data-sync"></a>Panoramica di Sincronizzazione dati SQL
@@ -78,7 +78,7 @@ Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 | | Sincronizzazione dei dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
-| Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo o in pool di Database SQL di Azure<br/>- Alti costi di manutenzione |
+| Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibile pubblicare dal database SQL di Azure singolo database o database in pool<br/>-    Alti costi di manutenzione |
 
 ## <a name="get-started-with-sql-data-sync"></a>Introduzione alla sincronizzazione dati SQL
 

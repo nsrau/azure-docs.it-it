@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Risposte ad alcune delle domande comuni su Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: f3ac6ec3c3ddbe8ff508befba2eb4a8423e66f07
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 1fd176084cd0737a290e037ed19af510fcab3e78
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998728"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382004"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Domande frequenti su Azure Dev Spaces
 
@@ -79,7 +79,7 @@ Quando si usa Visual Studio per preparare il progetto, è possibile abilitare l'
 
 ## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>È possibile usare le identità gestite con pod con Azure Dev Spaces?
 
-Attualmente, Azure Dev Spaces non supporta l'uso di [identità gestite di pod][aks-pod-managed-id] nei cluster AKS con Azure Dev Spaces abilitato. Se sono state installate identità gestite da pod e si desidera disinstallarle, è possibile trovare ulteriori dettagli nelle note di [disinstallazione.][aks-pod-managed-id-uninstall]
+Sì, è possibile usare [le identità gestite][aks-pod-managed-id] del pod nei cluster AKS con gli spazi di sviluppo di Azure abilitati, ma esistono [passaggi di configurazione aggiuntivi][dev-spaces-pod-managed-id-steps] dopo aver abilitato gli spazi di sviluppo di Azure nel cluster con identità gestite dal pod. Se sono state installate identità gestite da pod e si desidera disinstallarle, è possibile trovare ulteriori dettagli nelle note di [disinstallazione.][aks-pod-managed-id-uninstall]
 
 ## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>È possibile usare Azure Dev Spaces con più microservizi in un'applicazione?
 
@@ -98,6 +98,7 @@ In Visual Studio, it is possible to configure .NET Core solutions for debugging 
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
+[dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
 [dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller

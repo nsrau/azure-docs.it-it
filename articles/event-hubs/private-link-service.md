@@ -7,19 +7,19 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: cff1b3b79b34d3f0bed27a2ea50799185958a8ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcc360bbe4dd58200993b9377317ccb608b3529d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477850"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383638"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integrare hub eventi di Azure con Azure Private Link (anteprima)Integrate Azure Event Hubs with Azure Private Link (Preview)
 Il servizio di collegamento privato di Azure consente di accedere ai servizi di Azure (ad esempio, Hub eventi di Azure, Archiviazione di Azure e database Cosmos di Azure) e ai servizi cliente/partner ospitati di Azure su un **endpoint privato** nella rete virtuale.
 
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
-Per altre informazioni, vedere [Che cos'è Azure Private Link?](../private-link/private-link-overview.md)
+Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
 > [!NOTE]
 > Questa funzionalità è supportata solo con il livello **dedicato.** Per ulteriori informazioni sul livello dedicato, vedere [Panoramica degli hub eventi dedicati](event-hubs-dedicated-overview.md). 
@@ -45,7 +45,7 @@ L'endpoint privato usa un indirizzo IP privato nella rete virtuale.
 ### <a name="steps"></a>Passaggi
 Se si dispone già di uno spazio dei nomi Hub eventi, è possibile creare una connessione di collegamento privato attenendosi alla seguente procedura:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Nella barra di ricerca digitare hub **eventi**.
 3. Selezionare **lo spazio dei nomi** dall'elenco a cui si desidera aggiungere un endpoint privato.
 4. Selezionare la scheda **Rete** in **Impostazioni**.
@@ -153,6 +153,32 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 
 ```
 
+### <a name="configure-the-private-dns-zone"></a>Configurare la zona DNS privata
+Creare una zona DNS privata per il dominio Hub eventi e creare un collegamento di associazione con la rete virtuale:Create a private DNS zone for Event Hubs domain and create an association link with the virtual network:
+
+```azurepowershell-interactive
+$zone = New-AzPrivateDnsZone -ResourceGroupName $rgName `
+                            -Name "privatelink.servicebus.windows.net" 
+ 
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $rgName `
+                                            -ZoneName "privatelink.servicebus.windows.net" `
+                                            -Name "mylink" `
+                                            -VirtualNetworkId $virtualNetwork.Id  
+ 
+$networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
+ 
+foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
+    foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
+        Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
+        $recordName = $fqdn.split('.',2)[0] 
+        $dnsZone = $fqdn.split('.',2)[1] 
+        New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.servicebus.windows.net"  `
+                                -ResourceGroupName $rgName -Ttl 600 `
+                                -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
+    } 
+}
+```
+
 ## <a name="manage-private-endpoints-using-azure-portal"></a>Gestire gli endpoint privati tramite il portale di AzureManage private endpoints using Azure portal
 
 Quando si crea un endpoint privato, la connessione deve essere approvata. Se la risorsa per la quale si sta creando un endpoint privato si trova nella directory, è possibile approvare la richiesta di connessione purché si disponga di autorizzazioni sufficienti. Se ci si connette a una risorsa di Azure in un'altra directory, è necessario attendere che il proprietario della risorsa approvi la richiesta di connessione.
@@ -240,13 +266,13 @@ Aliases:  <your-event-hub-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitazioni e considerazioni di progettazione
 
-**Prezzi**: Per informazioni sui prezzi, vedere Prezzi di [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
+**Pricing** (Prezzi): per informazioni sui prezzi, vedere [Prezzi di Collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitazioni:** l'endpoint privato per gli hub eventi di Azure è in anteprima pubblica. Questa funzionalità è disponibile in tutte le aree pubbliche di Azure.
 
 **Numero massimo di endpoint privati per spazio dei nomi Hub eventi: 120.Maximum number of private endpoints per Event Hubs namespace**: 120.
 
-Per altre informazioni, vedere [Servizio Di Azure Private Link: LimitazioniFor](../private-link/private-link-service-overview.md#limitations) more, see Azure Private Link service: Limitations
+Per altre informazioni, vedere [Servizio Collegamento privato di Azure: Limitazioni](../private-link/private-link-service-overview.md#limitations)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

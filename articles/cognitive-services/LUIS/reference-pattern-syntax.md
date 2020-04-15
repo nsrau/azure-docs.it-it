@@ -1,25 +1,19 @@
 ---
 title: Informazioni di riferimento sulla sintassi del modello - LUISPattern syntax reference - LUIS
-titleSuffix: Azure Cognitive Services
 description: Creare entità per estrarre i dati chiave dalle espressioni utente nelle app LUIS (Language Understanding). I dati estratti vengono utilizzati dall'applicazione client.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/09/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219731"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382154"
 ---
 # <a name="pattern-syntax"></a>Sintassi dei criteri
 
-La sintassi dei criteri è un modello per un'espressione. Il modello deve contenere parole ed entità che si vuole far corrispondere, nonché le parole e la punteggiatura che si vuole ignorare. **Non** si tratta di un'espressione regolare.
+La sintassi dei criteri è un modello per un'espressione. Il modello deve contenere parole ed entità di cui si desidera trovare la corrispondenza, nonché parole e [punteggiatura](luis-reference-application-settings.md#punctuation-normalization) che si desidera ignorare. **Non** si tratta di un'espressione regolare.
 
 > [!CAUTION]
 > I modelli includono solo gli elementi padre di entità appresi dal computer, non i sottocomponenti.
@@ -38,7 +32,7 @@ La sintassi del modello supporta la sintassi seguente:Pattern syntax supports th
 
 ## <a name="nesting-syntax-in-patterns"></a>Nidificazione della sintassi nei modelli
 
-La sintassi **facoltativa,** con parentesi quadre, può essere nidificata su due livelli. Ad esempio `[[this]is] a new form`. Questo esempio consente le espressioni seguenti:This example allows for the following utterances:
+La sintassi **facoltativa,** con parentesi quadre, può essere nidificata su due livelli. Ad esempio: `[[this]is] a new form`. Questo esempio consente le espressioni seguenti:This example allows for the following utterances:
 
 |Esempio di espressione facoltativa annidataNested optional utterance example|Spiegazione|
 |--|--|
@@ -46,7 +40,7 @@ La sintassi **facoltativa,** con parentesi quadre, può essere nidificata su due
 |è una nuova forma|corrisponde a una parola facoltativa esterna e a parole non facoltative nel modello|
 |un nuovo modulo|corrisponde solo alle parole richieste|
 
-La sintassi di **raggruppamento,** racchiusa tra parentesi, può essere nidificata su due livelli. Ad esempio `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Questa funzione consente di trovare una corrispondenza tra le tre entità.
+La sintassi di **raggruppamento,** racchiusa tra parentesi, può essere nidificata su due livelli. Ad esempio: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Questa funzione consente di trovare una corrispondenza tra le tre entità.
 
 Se Entity1 è una posizione con ruoli quali origine (Seattle) e destinazione (Cairo) e Entità 2 è un nome di edificio noto da un'entità di elenco (RedWest-C), le espressioni seguenti verrebbero mappate a questo modello:If Entity1 is a Location with roles such as origin (Seattle) and destination (Cairo) and Entity 2 is a known building name from a list entity (RedWest-C), the following utterances would map to this pattern:
 

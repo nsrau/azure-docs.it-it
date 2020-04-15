@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfec30e56b0fd523896cbc1a7e84e92f639075a8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 15a4c9b16b102310fd02f8db3a4fb93cff84882b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879055"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314063"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft Teams sul desktop virtuale di Windows
 
@@ -67,3 +67,7 @@ Per abilitare l'installazione di Teams per computer, impostare la seguente chiav
 
       > [!NOTE]
       > Se si installa Teams con l'impostazione MSI ALLUSER 1, gli aggiornamenti automatici verranno disabilitati. Ti consigliamo di aggiornare Teams almeno una volta al mese.
+      
+### <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizzare le proprietà di Remote Desktop Protocol per un pool host
+La personalizzazione delle proprietà RDP (Remote Desktop Protocol) di un pool host, ad esempio l'esperienza con più monitor, l'abilitazione del reindirizzamento di microfoni e audio, consente di offrire agli utenti un'esperienza ottimale in base alle proprie esigenze. È possibile personalizzare le proprietà RDP in Windows Virtual Desktop utilizzando il parametro **-CustomRdpProperty** nel cmdlet **Set-RdsHostPool.**
+Vedere [le impostazioni dei file RDP supportati](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) per un elenco completo delle proprietà supportate e dei relativi valori predefiniti.

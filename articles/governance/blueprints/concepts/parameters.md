@@ -1,14 +1,14 @@
 ---
 title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come utilizzarli per creare blueprint sicuri e dinamici.
-ms.date: 03/12/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677574"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383609"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -28,8 +28,7 @@ I parametri possono essere creati nel progetto stesso tramite l'API REST. Questi
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Uso dei parametri secureString e secureObject
 
-Anche se gli _artefatti_ di un modello di Resource Manager supportano parametri di tipo **secureString** e **secureObject**, Azure Blueprint richiede che ognuno di essi sia connesso ad Azure Key Vault.
-Questa misura di sicurezza impedisce la rischiosa prassi di archiviare i segreti insieme al progetto e incoraggia l'impiego di modelli sicuri. Progetti di Azure supporta questa misura di protezione, rilevamento l'inclusione dei parametri sicuro in un _artefatto_ del modello di Resource Manager. Il servizio richiede quindi, durante l'assegnazione, le seguenti proprietà di Key Vault per ogni parametro sicuro rilevato:
+Anche se gli _artefatti_ di un modello di Resource Manager supportano parametri di tipo **secureString** e **secureObject**, Azure Blueprint richiede che ognuno di essi sia connesso ad Azure Key Vault. Questa misura di sicurezza impedisce la rischiosa prassi di archiviare i segreti insieme al progetto e incoraggia l'impiego di modelli sicuri. Progetti di Azure supporta questa misura di protezione, rilevamento l'inclusione dei parametri sicuro in un _artefatto_ del modello di Resource Manager. Il servizio richiede quindi, durante l'assegnazione, le seguenti proprietà di Key Vault per ogni parametro sicuro rilevato:
 
 - ID risorsa dell'insieme di credenziali delle chiavi
 - Nome del segreto dell'insieme di credenziali delle chiavi
@@ -62,11 +61,11 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 1. Gli artefatti aggiunti al progetto che hanno opzioni dei parametri mostrano l'indicazione **X di Y parametri popolati** nella colonna **Parametri**. Fare clic sulla riga dell'artefatto per modificarne i parametri.
 
-   ![Parametri del blueprint in una definizione di blueprint](../media/parameters/parameter-column.png)
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parametri del blueprint in una definizione di blueprint" border="false":::
 
 1. La pagina **Modifica artefatto** mostra le opzioni del valore appropriate per l'artefatto selezionato. Ogni parametro dell'artefatto ha un titolo, una casella del valore e una casella di controllo. Deselezionare la casella di controllo per renderlo un **parametro statico**. Nell'esempio seguente, solo _Località_ è un **parametro statico** perché la casella è deselezionata, mentre è selezionata in _Nome gruppo di risorse_.
 
-   ![Parametri statici del blueprint in un elemento del blueprint](../media/parameters/static-parameter.png)
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Parametri statici del blueprint in un elemento del blueprint" border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Impostazione dei parametri statici dall'API REST
 
@@ -177,7 +176,7 @@ L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro
 
 1. Nella pagina **Assegna blueprint** individuare la sezione **Parametri artefatto.** Ogni artefatto con almeno un **parametro dinamico** mostra l'artefatto e le opzioni di configurazione. Immettere i valori richiesti per i parametri prima di assegnare il progetto. Nell'esempio seguente, _Nome_ è un **parametro dinamico** che deve essere definito per completare l'assegnazione del progetto.
 
-   ![Parametro dinamico del blueprint durante l'assegnazione del blueprint](../media/parameters/dynamic-parameter.png)
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Parametro dinamico del blueprint durante l'assegnazione del blueprint" border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Impostazione dei parametri dinamici dall'API REST
 

@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul modulo di sicurezza di Azure per IoT per IoT Edge Documenti Microsoft
+title: Modulo di sicurezza per IoT Edge
 description: Comprendere l'architettura e le funzionalità del modulo di sicurezza del Centro sicurezza di Azure per IoT per IoT Edge.Understand the architecture and capabilities of Azure Security Center for IoT security module for IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0eb68f517c4c5b04dd4f92dd1a804dcf5ad24362
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71315899"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310635"
 ---
 # <a name="azure-iot-edge-security-module"></a>Modulo di sicurezza Azure IoT EdgeAzure IoT Edge security module
 
@@ -36,7 +36,7 @@ Per ulteriori informazioni, vedere [Configurare l'agente.](how-to-agent-configur
 Il modulo di sicurezza di Azure Security Center for IoT per IoT Edge offre le funzionalità seguenti:Azure Security Center for IoT security module for IoT Edge offers the following features:
 
 - Raccoglie gli eventi di sicurezza non elaborati dal sistema operativo sottostante (Linux) e dai sistemi IoT Edge Container.
-  
+
   Per altre informazioni sugli agenti di sicurezza disponibili, vedere Centro sicurezza di Azure per la [configurazione dell'agente IoT.See Azure Security Center for IoT agent configuration](how-to-agent-configuration.md) to learn more about available security data collectors.
 
 - Analisi dei manifesti di distribuzione di IoT Edge.
@@ -52,7 +52,7 @@ La modalità privilegiata è necessaria per consentire al modulo di monitorare i
 
 ## <a name="module-supported-platforms"></a>Piattaforme supportate da moduli
 
-Azure Security Center for IoT security module for IoT Edge is currently only available for Linux. 
+Azure Security Center for IoT security module for IoT Edge is currently only available for Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

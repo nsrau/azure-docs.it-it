@@ -62,7 +62,7 @@
       href: sql-database-features.md
     - name: Guida pratica
       href: sql-database-howto.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Panoramica della sicurezza
           href: sql-database-security-overview.md
@@ -708,6 +708,8 @@
               href: sql-database-managed-instance-configure-vm.md
             - name: Connessione da punto a sito
               href: sql-database-managed-instance-configure-p2s.md
+            - name: Conservazione del backup a lungo termine
+              href: sql-database-managed-instance-long-term-backup-retention-configure.md
         - name: Caricare dati
           items:
             - name: Ripristinare il backup del database

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 4/3/2020
-ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657074"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310130"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 
@@ -138,6 +138,8 @@ L'autoreposizione viene attivata se una delle seguenti condizioni è vera in qua
 |Sincronizzazione dati SQL|Sincronizzazione tra database hub e membro che viene eseguita secondo un calendario configurabile o manualmente|
 |Modifica di alcuni metadati del database|Aggiunta di nuovi tag di database.<br>Modifica di max vCores, min vCore s o ritardo di autopause.|
 |SQL Server Management Studio (SSMS)|Utilizzando le versioni di SSMS precedenti alla 18.1 e l'apertura di una nuova finestra di query per qualsiasi database nel server riprenderà qualsiasi database in pausa automatica nello stesso server. Questo comportamento non si verifica se si utilizza SSMS versione 18.1 o successiva.|
+
+Il monitoraggio, la gestione o altre soluzioni che eseguono una qualsiasi delle operazioni elencate in precedenza attiveranno la ripresa automatica.
 
 L'autoreposizione viene attivata anche durante la distribuzione di alcuni aggiornamenti del servizio che richiedono che il database sia online.
 

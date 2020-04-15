@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 49b41715d95a5f210e6e70faf09aa016d1478728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75e5a28f7ec56750432e74ee48ba68491a5e481
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158762"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310295"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
 
@@ -74,7 +74,7 @@ The following table summarizes the usage of tiles in Azure IoT Central:
 | Contenuto | Dashboard del set di applicazioni e dispositivi |I riquadri supportati per il contrassegno sono riquadri selezionabili che visualizzano testo di intestazione e descrizione. È anche possibile usare questo riquadro come riquadro di collegamento per consentire a un utente di passare a un URL correlato all'applicazione.|
 | Immagine | Dashboard del set di applicazioni e dispositivi |I riquadri immagine visualizzano un'immagine personalizzata e possono essere selezionabili. Usare un riquadro immagine per aggiungere elementi grafici a un dashboard e, facoltativamente, consentire a un utente di passare a un URL pertinente all'applicazione.|
 | Etichetta | Dashboard dell'applicazione |I riquadri etichetta visualizzano testo personalizzato in un dashboard. È possibile scegliere la dimensione del testo. Usare un riquadro di etichette per aggiungere informazioni pertinenti al dashboard, ad esempio descrizioni, dettagli di contatto o Guida.|
-| Mappa | Dashboard del set di applicazioni e dispositivi |I riquadri della mappa visualizzano la posizione e lo stato di un dispositivo su una mappa. Ad esempio, è possibile visualizzare dove si trova un dispositivo e se la ventola è accesa.|
+| Mappa | Dashboard di applicazioni e dispositivi |I riquadri della mappa visualizzano la posizione di un dispositivo su una mappa. Puoi anche visualizzare fino a 100 punti della cronologia delle posizioni di un dispositivo. Ad esempio, è possibile visualizzare un percorso campionato in cui un dispositivo è stato nella settimana precedente.|
 | Grafico a linee | Dashboard di applicazioni e dispositivi |I riquadri del grafico a linee visualizzano un grafico di misurazione aggregata per un dispositivo per un periodo di tempo. Ad esempio, è possibile visualizzare un grafico a linee che mostra la temperatura media e la pressione di un dispositivo per l'ultima ora.|
 | Grafico a barre | Dashboard di applicazioni e dispositivi |I riquadri dei grafici a barre visualizzano un grafico di misure aggregate per un dispositivo per un periodo di tempo. Ad esempio, è possibile visualizzare un grafico a barre che mostra la temperatura media e la pressione di un dispositivo per l'ultima ora.|
 | Grafico a torta | Dashboard del set di applicazioni e dispositivi |I riquadri del grafico a torta visualizzano un grafico delle misure di aggregazione per un dispositivo per un periodo di tempo.|

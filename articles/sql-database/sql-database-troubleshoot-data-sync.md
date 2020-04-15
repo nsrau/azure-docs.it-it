@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 8e223d0c6243bfddc1e5a56867c4c69de5e2a62e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6ea604446cb9d56bb699685d24c81992bcac3a2
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822445"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382901"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Risolvere i problemi della sincronizzazione dati SQL
 
@@ -110,7 +110,7 @@ Questo messaggio di errore indica che si è verificato uno dei due problemi segu
 -  Potrebbe essere presente una clausola WHERE nell'istruzione CREATE INDEX. La sincronizzazione dati non gestisce questa condizione. Per risolvere il problema, rimuovere la clausola WHERE o apportare manualmente le modifiche a tutti i database. 
  
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a><a name="sync-circ"></a> In che modo la sincronizzazione dati gestisce i riferimenti circolari? In altre parole, quando vengono sincronizzati gli stessi dati in più gruppi di sincronizzazione e pertanto continuano a cambiare?
-La sincronizzazione dati non gestisce i riferimenti circolari. Si consiglia di evitarli. 
+La sincronizzazione dei dati non gestisce i riferimenti circolari. Si consiglia di evitarli. 
 
 ## <a name="client-agent-issues"></a>Problemi relativi all'agente client
 

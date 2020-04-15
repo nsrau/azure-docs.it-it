@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 4c265cb0cdc665ef52f4dc6e69440e83c22db449
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f0eada5184f2c8e36b0deb5a9d27a8a9230776d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77460978"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382755"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiare dati in o da Azure Data Explorer tramite Azure Data FactoryCopy data to or from Azure Data Explorer by using Azure Data Factory
 
-Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati in o da [Azure Data Explorer.](../data-explorer/data-explorer-overview.md) Si basa sull'articolo [panoramica dell'attività](copy-activity-overview.md) di copia, che offre una panoramica generale dell'attività di copia.
+Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati in o da [Azure Data Explorer.](/azure/data-explorer/data-explorer-overview) Si basa sull'articolo [panoramica dell'attività](copy-activity-overview.md) di copia, che offre una panoramica generale dell'attività di copia.
 
 >[!TIP]
->Per l'integrazione generale di Azure Data Factory e Azure Data Explorer, vedere [Integrare Azure Data Explorer con Azure Data Factory.](../data-explorer/data-factory-integration.md)
+>Per l'integrazione generale di Azure Data Factory e Azure Data Explorer, vedere [Integrare Azure Data Explorer con Azure Data Factory.](/azure/data-explorer/data-factory-integration)
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -47,7 +47,7 @@ Con il connettore Azure Data Explorer è possibile eseguire le operazioni seguen
 ## <a name="getting-started"></a>Introduzione
 
 >[!TIP]
->Per una procedura dettagliata del connettore di Azure Data Explorer, vedere [Copiare dati in/da Azure Data Explorer usando Azure Data Factory](../data-explorer/data-factory-load-data.md) e Copia bulk da un database ad Azure Data Explorer.For a walkthrough of Azure Data Explorer connector, see Copy data to/from Azure Data Explorer using Azure Data Factory and [Bulk copy from a database to Azure Data Explorer.](../data-explorer/data-factory-template.md)
+>Per una procedura dettagliata del connettore di Azure Data Explorer, vedere [Copiare dati in/da Azure Data Explorer usando Azure Data Factory](/azure/data-explorer/data-factory-load-data) e Copia bulk da un database ad Azure Data Explorer.For a walkthrough of Azure Data Explorer connector, see Copy data to/from Azure Data Explorer using Azure Data Factory and [Bulk copy from a database to Azure Data Explorer.](/azure/data-explorer/data-factory-template)
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -63,7 +63,7 @@ Il connettore di Azure Data Explorer usa l'autenticazione dell'entità servizio.
     - Chiave applicazione
     - ID tenant
 
-2. Concedere all'entità servizio le autorizzazioni corrette in Esplora dati di Azure.Grant the service principal the correct permissions in Azure Data Explorer. Per informazioni dettagliate su ruoli e autorizzazioni e sulla gestione delle autorizzazioni, vedere Gestire le autorizzazioni del database di [Azure Data Explorer.See Manage Azure Data Explorer database permissions](../data-explorer/manage-database-permissions.md) for detailed information about roles and permissions and about managing permissions. In generale, è necessario:
+2. Concedere all'entità servizio le autorizzazioni corrette in Esplora dati di Azure.Grant the service principal the correct permissions in Azure Data Explorer. Per informazioni dettagliate su ruoli e autorizzazioni e sulla gestione delle autorizzazioni, vedere Gestire le autorizzazioni del database di [Azure Data Explorer.See Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) for detailed information about roles and permissions and about managing permissions. In generale, è necessario:
 
     - **Come origine**, concedere almeno il ruolo **visualizzatore database** al database
     - **As sink**, concedere almeno il ruolo **Database in** gestore di database

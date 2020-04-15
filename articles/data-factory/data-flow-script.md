@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 92421125ecb5f4336922c6e6b4508fcdaf92be6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: 251507c5740af69bd0818391dd2e8f857338b6cf
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246399"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313921"
 ---
 # <a name="data-flow-script-dfs"></a>Script flusso di dati (DFS)
 
@@ -139,6 +139,11 @@ derive1 sink(allowSchemaDrift: true,
 ```
 
 ## <a name="script-snippets"></a>Frammenti di script
+
+I frammenti di script sono codice condistibile di Script flusso di dati che è possibile usare per condividere tra flussi di dati. Questo video seguente illustra come usare i frammenti di script e usare Lo script del flusso di dati per copiare e incollare parti dello script dietro i grafici del flusso di dati:This video below talks about how to use script snippets and using Data Flow Script to copy and paste portions of the script behind your data flow graphs:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+
 
 ### <a name="aggregated-summary-stats"></a>Statistiche di riepilogo aggregate
 Aggiungere una trasformazione Aggregazione al flusso di dati denominata "SummaryStats" e quindi incollare questo codice seguente per la funzione di aggregazione nello script, sostituendo summaryStats esistente. Questo fornirà un modello generico per le statistiche di riepilogo del profilo dati.

@@ -7,20 +7,23 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 04/14/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8cee874106598c7d81b923d7dd32ba91902d9326
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745179"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383634"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Convertire le classi di risorse in gruppi di carico di lavoroConvert Resource Classes to Workload Groups
 
 I gruppi di carico di lavoro forniscono un meccanismo per isolare e contenere le risorse di sistema.  Inoltre, i gruppi di carico di lavoro consentono di impostare le regole di esecuzione per le richieste in esecuzione in essi.  Una regola di esecuzione del timeout delle query consente di annullare le query di runaway senza l'intervento dell'utente.  Questo articolo illustra come accettare una classe di risorse esistente e creare un gruppo di carico di lavoro con una configurazione simile.  Inoltre, viene aggiunta una regola di timeout di query facoltativa.
+
+> [!NOTE]
+> Vedere la sezione Combinazione di assegnazioni di classi di [risorse con classificatori](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) nel documento concettuale [Classificazione del carico](sql-data-warehouse-workload-classification.md) di lavoro per istruzioni sull'uso contemporaneamente di gruppi di carico di lavoro e classi di risorse.
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Informazioni sulla configurazione della classe di risorse esistenteUnderstanding the existing resource class configuration
 
@@ -86,4 +89,6 @@ SELECT request_id, [label], classifier_name, group_name, command
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Isolamento del carico di lavoroWorkload Isolation](sql-data-warehouse-workload-isolation.md)
-- [Creazione di un collegamento al gruppo del carico di lavoroHow-To Create a Workload Group-link](quickstart-configure-workload-isolation-tsql.md)
+- [Creazione di un gruppo di carico di lavoroHow-To Create a Workload Group](quickstart-configure-workload-isolation-tsql.md)
+- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)

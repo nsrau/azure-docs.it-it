@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9f7819974e3548baf5e10f0bf9a2d656d9412beb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 754d1b80236d138693987cccee7a218ccd96b16b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76987972"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383876"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Query data from the Azure Time Series Insights GA environment using C #
 

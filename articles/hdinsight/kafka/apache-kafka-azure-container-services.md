@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 6abb4f632535f1bda7e9f337f111ba372a624f2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239611"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383052"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usare il servizio Azure Kubernetes con Apache Kafka in HDInsight
 
@@ -26,7 +26,7 @@ Informazioni su come usare il servizio Azure Kubernetes con [Apache Kafka](https
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Una sottoscrizione di Azure.
 
 Questo documento presuppone che si abbia familiarità con la creazione e l'uso dei servizi di Azure seguenti:
@@ -77,7 +77,7 @@ Se non si ha già un cluster del servizio Azure Container, vedere uno dei docume
 
 1. Creare la rete utilizzando le seguenti linee guida per determinate proprietà:
 
-    |Proprietà | valore |
+    |Proprietà | Valore |
     |---|---|
     |Spazio degli indirizzi|È necessario utilizzare uno spazio di indirizzi che non si sovrapponga a quello utilizzato dalla rete cluster AKS.|
     |Location|Usare per la rete virtuale la stessa __posizione__ usata per il cluster del servizio Azure Container.|
@@ -90,7 +90,7 @@ Se non si ha già un cluster del servizio Azure Container, vedere uno dei docume
 
 1. Selezionare __+ Aggiungi__ e usare i valori seguenti per popolare il modulo:
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Nome del peering \<da questa> VN alla rete virtuale remota|immettere un nome univoco per questa configurazione peering.|
     |Rete virtuale|selezionare la rete virtuale per il **cluster AKS**.|
@@ -163,7 +163,7 @@ A questo punto, Kafka e il servizio Azure Kubernetes sono in comunicazione trami
     * `var topic = 'mytopic'`: sostituire `mytopic` con il nome dell'argomento Kafka usato da questa applicazione.
     * `var brokerHost = '176.16.0.13:9092`: sostituire `176.16.0.13` con l'indirizzo IP interno di uno degli host broker per il cluster.
 
-        Per trovare l'indirizzo IP interno degli host broker (nodi di lavoro) nel cluster, vedere il documento [API REST Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes). Selezionare l'indirizzo IP di una delle voci in cui il nome di dominio inizia con `wn`.
+        Per trovare l'indirizzo IP interno degli host broker (nodi di lavoro) nel cluster, vedere il documento [API REST Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes). Selezionare l'indirizzo IP di una delle voci in cui il nome di dominio inizia con `wn`.
 
 4. Da una riga di comando nella directory `src` installare le dipendenze e usare Docker to per compilare un'immagine per la distribuzione:
 

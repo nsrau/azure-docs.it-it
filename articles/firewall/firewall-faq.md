@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: af66da115e228efe39e4cd5dda3c494b71428676
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ea94e452b463fffc1800e09fa1302abacdf015cc
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113565"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383063"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -72,9 +72,9 @@ Web application firewall (WAF) è una funzionalità del gateway applicazione che
 
 Il servizio Firewall di Azure si integra con la funzionalità dei gruppi sicurezza di rete offrendo una migliore sicurezza di rete con strategie di difesa avanzate. I gruppi di sicurezza di rete forniscono un filtraggio del traffico distribuito a livello di rete per limitare il traffico verso le risorse all'interno delle reti virtuali in ogni sottoscrizione. Firewall di Azure è un firewall di rete centralizzato con stato completo, distribuito come servizio, che fornisce protezione a livello di rete e di applicazione in diverse sottoscrizioni e reti virtuali.
 
-## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>I gruppi di sicurezza di rete sono supportati nella subnet di Firewall di Azure?
+## <a name="are-network-security-groups-nsgs-supported-on-the-azurefirewallsubnet"></a>I gruppi di sicurezza di rete sono supportati in AzureFirewallSubnet?
 
-Firewall di Azure è un servizio gestito con più livelli di protezione, inclusa la protezione della piattaforma con gruppi di protezione rete (non visualizzabili).  I gruppi di sicurezza di rete a livello di subnet non sono necessari nella subnet di Firewall di Azure e sono disabilitati per garantire l'assenza di interruzioni del servizio.
+Firewall di Azure è un servizio gestito con più livelli di protezione, inclusa la protezione della piattaforma con gruppi di protezione rete (non visualizzabili).  I gruppi di sicurezza di rete a livello di subnet non sono necessari in AzureFirewallSubnet e sono disabilitati per garantire l'assenza di interruzioni del servizio.
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Come si configura Firewall di Azure con gli endpoint di servizio?
 

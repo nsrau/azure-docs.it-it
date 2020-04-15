@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.date: 04/14/2020
+ms.openlocfilehash: 18f8b0732e4af0229ff225d9c3b423e27bf342a8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409849"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382790"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida all'ottimizzazione e alle prestazioni dei flussi di dati di mapping
 
@@ -31,13 +31,13 @@ Durante la progettazione dei flussi di dati di mapping, è possibile unit testar
 
  È possibile usare queste informazioni per stimare le prestazioni del flusso di dati su origini dati di dimensioni diverse. Per ulteriori informazioni, vedere [Monitoraggio dei flussi](concepts-data-flow-monitoring.md)di dati di mapping .
 
-![Monitoraggio dei flussi di dati](media/data-flow/mon003.png "Monitoraggio flusso di dati 3")
+![Monitoraggio del flusso di dati](media/data-flow/mon003.png "Monitoraggio flusso di dati 3")
 
  Per le esecuzioni di debug della pipeline, per un cluster a caldo è necessario circa un minuto di tempo di configurazione del cluster. Se si sta inizializzando il runtime di integrazione di Azure predefinito, il tempo di rotazione potrebbe richiedere circa 5 minuti.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumento delle dimensioni di calcolo in Azure Integration Runtime
 
-Un runtime di integrazione con più core aumenta il numero di nodi negli ambienti di calcolo Spark e fornisce maggiore potenza di elaborazione per leggere, scrivere e trasformare i dati.
+Un runtime di integrazione con più core aumenta il numero di nodi negli ambienti di calcolo Spark e fornisce maggiore potenza di elaborazione per leggere, scrivere e trasformare i dati. Flussi di dati ADF utilizza Spark per il motore di calcolo. L'ambiente Spark funziona molto bene sulle risorse ottimizzate per la memoria.
 * Provare un cluster **ottimizzato per** il calcolo se si desidera che la velocità di elaborazione sia superiore alla velocità di input.
 * Provare un cluster **ottimizzato per** la memoria se si desidera memorizzare nella cache più dati in memoria. La memoria ottimizzata ha un prezzo-punto più alto per core rispetto a Compute Optimized, ma probabilmente si tradurrà in velocità di trasformazione più elevate.
 
@@ -49,7 +49,11 @@ Per altre informazioni su come creare un runtime di integrazione, vedere [Runtim
 
 Per impostazione predefinita, l'attivazione del debug usa il runtime di integrazione di Azure predefinito creato automaticamente per ogni data factory. Questo livello di messaggistica di archiviazione predefinito è impostato per otto core, quattro per un nodo driver e quattro per un nodo di lavoro, usando le proprietà di calcolo generali. Durante il test con dati di dimensioni maggiori, è possibile aumentare le dimensioni del cluster di debug creando un catalogo di termini di Azure con configurazioni più grandi e scegliere questo nuovo catalogo dei messaggi di ricambio di Azure quando si attiva il debug. Ciò indicherà ad ADF di usare questo sistema di controllo visivo di Azure per l'anteprima dei dati e il debug della pipeline con i flussi di dati.
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Ottimizzazione per il database SQL di Azure e il data warehouse SQL di AzureOptimizing for Azure SQL Database and Azure SQL Data Warehouse
+### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Ridurre il tempo di avvio del calcolo del cluster con TTL
+
+In Proprietà flusso di dati è presente una proprietà nel ricorso di Azure che consente di gestire un pool di risorse di elaborazione del cluster per la factory. Con questo pool è possibile inviare in sequenza le attività del flusso di dati per l'esecuzione. Una volta stabilito il pool, ogni processo successivo richiederà 1-2 minuti affinché il cluster Spark su richiesta esegua il processo. La configurazione iniziale del pool di risorse richiederà circa 6 minuti. Specificare la quantità di tempo per cui si desidera gestire il pool di risorse nell'impostazione TTL (Time-To-Live).
+
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Ottimizzazione per il database SQL di Azure e Azure SQL Data Warehouse SynapseOptimizing for Azure SQL Database and Azure SQL Data Warehouse Synapse
 
 ### <a name="partitioning-on-source"></a>Partizionamento nell'origine
 

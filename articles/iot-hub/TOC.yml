@@ -85,8 +85,6 @@
   items:
     - name: Supporto TLS
       href: iot-hub-tls-support.md
-    - name: Deprecazione di TLS 1.0 e 1.1
-      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Reti virtuali supportate
       href: virtual-network-support.md
     - name: Panoramica degli arricchimenti dei messaggi
@@ -170,7 +168,7 @@
           href: iot-hub-amqp-support.md
         - name: Glossario
           href: iot-hub-devguide-glossary.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Consigli
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
@@ -444,6 +442,8 @@
           href: iot-hub-operations-monitoring.md
         - name: Eseguire la migrazione alle impostazioni di diagnostica
           href: iot-hub-migrate-to-diagnostics-settings.md
+        - name: Deprecazione di TLS 1.0 e 1.1
+          href: iot-hub-tls-deprecating-1-0-and-1-1.md
 - name: Risorse
   items:
     - name: Opzioni di supporto tecnico e assistenza

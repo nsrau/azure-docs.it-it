@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: efa2885ce0534c5d78bb08bbf24da59850f6ea22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075185"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312310"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Supporto del gateway applicazione per back-end multi-tenant, ad esempio il servizio app
 
@@ -30,9 +30,9 @@ Il gateway applicazione offre una funzionalità che consente agli utenti di eseg
 
 La possibilità di specificare una sostituzione host è definita nelle [impostazioni HTTP](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) e può essere applicata a qualsiasi pool back-end durante la creazione della regola. Sono supportati i due modi seguenti per eseguire l'override dell'intestazione host e dell'estensione SNI per i back-end multi-tenant:
 
-- La possibilità di impostare il nome host su un valore fisso immesso in modo esplicito nelle impostazioni HTTP. Questa funzionalità garantisce che l'intestazione host venga sostituita a questo valore per tutto il traffico verso il pool back-end in cui vengono applicate le impostazioni HTTP specifiche. Quando si usa SSL end-to-end, il nome host sostituito viene usato nell'estensione SNI. Questa funzionalità supporta gli scenari in cui la farm di un pool back-end prevede un'intestazione host diversa dall'intestazione host in ingresso del cliente.
+- La possibilità di impostare il nome host su un valore fisso immesso in modo esplicito nelle impostazioni HTTP. Questa funzionalità garantisce che l'intestazione host venga sostituita a questo valore per tutto il traffico verso il pool back-end in cui vengono applicate le impostazioni HTTP specifiche. Quando si utilizza TLS end-to-end, questo nome host sottoposto a override viene utilizzato nell'estensione SNI. Questa funzionalità supporta gli scenari in cui la farm di un pool back-end prevede un'intestazione host diversa dall'intestazione host in ingresso del cliente.
 
-- È possibile derivare il nome host dall'indirizzo IP o dal nome di dominio completo dei membri del pool back-end. Le impostazioni HTTP forniscono inoltre un'opzione per selezionare dinamicamente il nome host dall'FQDN di un membro del pool back-end se configurate con l'opzione per derivare il nome host da un singolo membro del pool back-end. Quando si usa SSL end-to-end, il nome host è derivato dal nome di dominio completo e viene usato nell'estensione SNI. Questa funzionalità supporta gli scenari in cui un pool back-end può avere due o più servizi PaaS multi-tenant, come App Web di Azure e l'intestazione host della richiesta per ogni membro contiene il nome host derivato dal rispettivo nome di dominio completo. Per l'implementazione di questo scenario, viene utilizzata un'opzione nelle impostazioni HTTP denominata [Seleziona nome host dall'indirizzo back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) che sostituirà dinamicamente l'intestazione host nella richiesta originale a quella indicata nel pool back-end.  Ad esempio, se l'FQDN del pool back-end contiene "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", l'intestazione host della richiesta originale contoso.com verrà sostituita a contoso11.azurewebsites.net o contoso22.azurewebsites.net quando la richiesta viene inviata al server back-end appropriato. 
+- È possibile derivare il nome host dall'indirizzo IP o dal nome di dominio completo dei membri del pool back-end. Le impostazioni HTTP forniscono inoltre un'opzione per selezionare dinamicamente il nome host dall'FQDN di un membro del pool back-end se configurate con l'opzione per derivare il nome host da un singolo membro del pool back-end. Quando si usa TLS end-to-end, questo nome host viene derivato dal nome di dominio completo e viene utilizzato nell'estensione SNI. Questa funzionalità supporta gli scenari in cui un pool back-end può avere due o più servizi PaaS multi-tenant, come App Web di Azure e l'intestazione host della richiesta per ogni membro contiene il nome host derivato dal rispettivo nome di dominio completo. Per l'implementazione di questo scenario, viene utilizzata un'opzione nelle impostazioni HTTP denominata [Seleziona nome host dall'indirizzo back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) che sostituirà dinamicamente l'intestazione host nella richiesta originale a quella indicata nel pool back-end.  Ad esempio, se l'FQDN del pool back-end contiene "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", l'intestazione host della richiesta originale contoso.com verrà sostituita a contoso11.azurewebsites.net o contoso22.azurewebsites.net quando la richiesta viene inviata al server back-end appropriato. 
 
   ![Scenario con app Web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -40,11 +40,11 @@ Con questa funzionalità, i clienti specificano le opzioni nelle impostazioni HT
 
 ## <a name="special-considerations"></a>Considerazioni speciali
 
-### <a name="ssl-termination-and-end-to-end-ssl-with-multi-tenant-services"></a>Terminazione SSL e SSL end-to-end con servizi multi-tenant
+### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>Terminazione TLS e TLS end-to-end con servizi multi-tenant
 
-Con i servizi multi-tenant sono supportati sia la terminazione SSL che la crittografia SSL end-to-end. Per la terminazione SSL nel gateway applicazione, il certificato SSL continua a essere richiesto di essere aggiunto al listener del gateway dell'applicazione. Tuttavia, in caso di SSL end-to-end, i servizi di Azure attendibili, ad esempio le app Web del servizio app di Azure, non richiedono la whitelist dei back-end nel gateway applicazione. Pertanto, non è necessario aggiungere alcun certificato di autenticazione. 
+Sia la terminazione TLS che la crittografia TLS end-to-end sono supportate con i servizi multi-tenant. Per la terminazione TLS nel gateway applicazione, il certificato TLS continua a essere necessario per essere aggiunto al listener del gateway dell'applicazione. Tuttavia, in caso di TLS end-to-end, i servizi di Azure attendibili, ad esempio le app Web del servizio app di Azure, non richiedono la whitelisting dei back-end nel gateway applicazione. Pertanto, non è necessario aggiungere alcun certificato di autenticazione. 
 
-![SSL end-to-end](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
+![TLS end-to-end](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 
 Si noti che nell'immagine precedente non è necessario aggiungere certificati di autenticazione quando il servizio app è selezionato come back-end.
 

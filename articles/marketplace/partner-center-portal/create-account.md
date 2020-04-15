@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 03/10/2020
-ms.openlocfilehash: 4c635d285f83e8e9c4c5547a9ee983686c507819
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/14/2020
+ms.openlocfilehash: d62d05cdbda86af3c3a38757877624e87f6d1719
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261738"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383767"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account marketplace commerciale nel Centro per i partner
 
@@ -100,7 +100,7 @@ Assicurati di tenere a portata di mano le informazioni del tuo account.
 
 Se sei già iscritto al Microsoft Partner Network, usa questa sezione per creare il tuo account direttamente dal Centro per i partner.
 
-Accedere al Centro per i [partner con](https://partner.microsoft.com/) l'account Microsoft Partner Network in modo da collegare il dominio dell'account di posta elettronica aziendale al nuovo account del Centro per i partner. Associando questi account, i dipendenti dell'azienda possono accedere al Centro per i partner con i nomi utente e le password dell'account aziendale.
+Accedere al Centro per i [partner con](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) l'account Microsoft Partner Network in modo da collegare il dominio dell'account di posta elettronica aziendale al nuovo account del Centro per i partner. Associando questi account, i dipendenti dell'azienda possono accedere al Centro per i partner con i nomi utente e le password dell'account aziendale.
 
 >[!NOTE]
 >Per verificare se la società dispone già di un account di lavoro del Centro per i partner, come creare un nuovo account di lavoro o come impostare più account di lavoro da utilizzare con il Centro per i partner, visitare Account aziendale e Centro per i [partner.](./company-work-accounts.md)
@@ -130,7 +130,7 @@ Se sei già iscritto a un programma per sviluppatori del Centro per i partner, u
 >
 >Gli account individuali sono per i singoli sviluppatori che lavorano da soli. Gli account aziendali sono destinati a organizzazioni e aziende. Gli account aziendali consentono di inviare app con funzionalità aggiuntive. Abbiamo bisogno di una maggiore verifica per gli account aziendali dopo la registrazione per confermare che sei autorizzato a configurare l'account per la tua azienda. Queste verifiche possono richiedere da pochi giorni a un paio di settimane e spesso includono una telefonata alla tua azienda. Entrambi i tipi di account consentono di inviare app, componenti aggiuntivi e servizi. Per ulteriori informazioni, consulta [Tipi di account, località e commissioni](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
-Accedi al [Centro per](https://partner.microsoft.com/) i partner con il tuo account Microsoft Partner Center per iscriverti al programma Commercial Marketplace con lo stesso account. Iscrivendoti a Commercial Marketplace utilizzando lo stesso account, puoi visualizzare sia le iscrizioni ai programmi esistenti che il Marketplace commerciale nel menu di navigazione a sinistra del Centro per i partner.
+Accedi al [Centro per](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) i partner con il tuo account Microsoft Partner Center per iscriverti al programma Commercial Marketplace con lo stesso account. Iscrivendoti a Commercial Marketplace utilizzando lo stesso account, puoi visualizzare sia le iscrizioni ai programmi esistenti che il Marketplace commerciale nel menu di navigazione a sinistra del Centro per i partner.
 
 Dopo aver effettuato l'accesso, segui questi passaggi per completare la configurazione dell'account:
 

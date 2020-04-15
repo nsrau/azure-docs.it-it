@@ -18,7 +18,3 @@
       items:
         - name: Gestire l'agente
           href: ./servers/manage-agent.md
-- name: Informazioni di riferimento
-  items:
-    - name: Interfaccia della riga di comando di Azure Connected Machine Agent
-      href: ./servers/azcmagent-reference.md

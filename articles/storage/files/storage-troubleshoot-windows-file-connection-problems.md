@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3237fe7d87ad058f255d1c77cb6d814bcd1c292e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262248"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383899"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -324,6 +324,30 @@ Errore 'Errore di sistema 1359 si è verificato. Un errore interno' si verifica 
 Attualmente, è possibile ridistribuire il dominio AAD utilizzando un nuovo nome DNS di dominio che si applica con le regole seguenti:
 - I nomi non possono iniziare con un carattere numerico.
 - I nomi devono avere una lunghezza compresa tra 3 e 63 caratteri.
+
+## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Impossibile montare i file di Azure con le credenziali di Active Directory 
+
+### <a name="self-diagnostics-steps"></a>Passaggi di autodiagnosi
+In primo luogo, assicurarsi di aver seguito tutti e quattro i passaggi per [abilitare l'autenticazione](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable)di Azure Files AD .
+
+In secondo luogo, provare a montare la condivisione file di Azure con la [chiave dell'account](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)di archiviazione. Se non è stato possibile montare, scaricare [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) per convalidare l'ambiente in esecuzione del client, rilevare la configurazione client incompatibile che causerebbe un errore di accesso per File di Azure, fornisce indicazioni prescrittive sulla correzione automatica e raccolta delle tracce di diagnostica.
+
+In terzo luogo, è possibile eseguire il cmdlet Debug-AzStorageAccountAuth per eseguire un set di controlli di base sulla configurazione di Active Directory con l'utente connesso a Active Directory. Questo cmdlet è supportato in [AzFilesHybrid v0.1.2.](https://github.com/Azure-Samples/azure-files-samples/releases) È necessario eseguire questo cmdlet con un utente di Active Directory che dispone dell'autorizzazione di proprietario per l'account di archiviazione di destinazione.  
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+Il cmdlet esegue questi controlli di seguito in sequenza e fornisce indicazioni per gli errori:
+1. CheckPort445Connectivity: verificare che la porta 445 sia aperta per la connessione SMB
+2. CheckDomainJoined: verificare che il computer client sia aggiunto ad Active Directory
+3. CheckADObject: verificare che l'utente connesso disponga di una rappresentazione valida nel dominio di Active Directory a cui è associato l'account di archiviazioneCheckADObject: confirm that the logged on user has a valid representation in the AD domain that the storage account is associated with
+4. CheckGetKerberosTicket: tentare di ottenere un ticket Kerberos per connettersi all'account di archiviazione 
+5. CheckADObjectPasswordIsCorrect: verificare che la password configurata nell'identità di Active Directory che rappresenta l'account di archiviazione corrisponda a quella della chiave del cordolo dell'account di archiviazioneCheckADObjectPasswordIsCorrect: ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb key
+6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD
+
+Stiamo lavorando attivamente sull'estensione di questo cmdlet di diagnostica per fornire una migliore guida alla risoluzione dei problemi.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

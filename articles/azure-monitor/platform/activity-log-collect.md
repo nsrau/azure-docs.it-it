@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/24/2020
-ms.openlocfilehash: 4265f6050b237cb40afeddfc228ade9be06be039
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.date: 04/14/2020
+ms.openlocfilehash: 098aeaa06a26c57744402722aa3eacc51ea85fb7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396807"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382861"
 ---
 # <a name="collect-and-analyze-azure-activity-log-in-azure-monitor"></a>Raccogliere e analizzare il log attività di Azure in Monitoraggio di AzureCollect and analyze Azure Activity log in Azure Monitor
 Il log attività di Azure è un log della piattaforma che fornisce informazioni dettagliate sugli eventi a livello di sottoscrizione che si sono verificati in Azure.The [Azure Activity log](platform-logs-overview.md) is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. Sebbene sia possibile visualizzare il log attività nel portale di Azure, è consigliabile configurarlo per l'invio a un'area di lavoro di Log Analytics per abilitare funzionalità aggiuntive di Monitoraggio di Azure.While you can view the Activity log in the Azure portal, you should configure it to send to a Log Analytics workspace to enable additional features of Azure Monitor. Questo articolo descrive come eseguire questa configurazione e come inviare il log attività agli hub di eventi e archiviazione di Azure.This article describes how to perform this configuration and how to send the Activity log to Azure storage and event hubs.
@@ -25,7 +25,8 @@ La raccolta del log attività in un'area di lavoro di Log Analytics offre i vant
 - Archiviare le voci del log attività per più di 90 giorni.
 - Consolidare le voci di log da più sottoscrizioni e tenant di Azure in un'unica posizione per l'analisi insieme.
 
-
+> [!IMPORTANT]
+> La raccolta dei log tra tenant richiede [Azure Lighthouse](/azure/lighthouse).
 
 ## <a name="collecting-activity-log"></a>Raccolta del registro attività
 Il log attività viene raccolto automaticamente per la visualizzazione nel portale di [Azure.](activity-log-view.md) Per raccoglierlo in un'area di lavoro di Log Analytics o per inviarle hub di archiviazione o eventi di Azure, creare [un'impostazione di diagnostica.](diagnostic-settings.md) Si tratta dello stesso metodo utilizzato dai log delle risorse che lo rende coerente per tutti i log della [piattaforma.](platform-logs-overview.md)  

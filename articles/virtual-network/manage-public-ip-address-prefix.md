@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f0c2d9757f3652b0f83b8c36d89c855f7a92fdd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65952692"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383862"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creare, modificare o eliminare un prefisso dell'indirizzo IP pubblico
 
@@ -41,7 +41,7 @@ I prefissi di indirizzi IP pubblici prevedono un addebito. Per informazioni dett
 ## <a name="create-a-public-ip-address-prefix"></a>Creare un prefisso di indirizzo IP pubblico
 
 1. Nell'angolo superiore sinistro del portale selezionare **+ Crea una risorsa**.
-2. Immettere *prefisso di indirizzo ip pubblico* nella casella *Cerca nel Marketplace*. Selezionare il **prefisso di indirizzo IP pubblico** visualizzato nei risultati della ricerca.
+2. Immettere il *prefisso IP pubblico* nella casella *Cerca nel Marketplace.* Selezionare il **prefisso di indirizzo IP pubblico** visualizzato nei risultati della ricerca.
 3. In **prefisso di indirizzo IP pubblico**, selezionare **Creare**.
 4. In **Creare prefisso di indirizzo IP pubblico** immettere o selezionare i valori per le seguenti impostazioni, quindi selezionare **Creare**:
 
@@ -53,7 +53,7 @@ I prefissi di indirizzi IP pubblici prevedono un addebito. Per informazioni dett
    |Region|Sì|Deve trovarsi nella stessa [area](https://azure.microsoft.com/regions)degli indirizzi IP pubblici che vengono poi assegnati nell'intervallo.|
    |Dimensione prefisso|Sì| Le dimensioni del prefisso necessario. Indirizzi IP A/28 o 16 è il valore predefinito.
 
-**Comandi**
+**Comandi:**
 
 |Strumento|Comando|
 |---|---|
@@ -89,7 +89,7 @@ In alternativa, è possibile utilizzare i comandi CLI e PS riportati di seguito 
    - **Vista**: la sezione **Panoramica** mostra le impostazioni chiave per il prefisso dell'indirizzo IP pubblico, ad esempio prefisso.
    - **Elimina**: per eliminare il prefisso dell'indirizzo IP pubblico, selezionare **Elimina** nella sezione **Panoramica**. Se gli indirizzi all'interno del prefisso sono associati a risorse di indirizzo IP pubblico, è innanzitutto necessario eliminare le risorse di indirizzo IP pubblico. Vedere [eliminare un indirizzo IP pubblico](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
-**Comandi**
+**Comandi:**
 
 |Strumento|Comando|
 |---|---|

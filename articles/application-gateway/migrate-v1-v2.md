@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 96f3825288846e86771ef3907eb4da4e58630df3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475182"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312041"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Eseguire la migrazione del gateway applicazione di Azure e del firewall applicazione Web dalla versione 1 alla v2Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 
@@ -36,7 +36,7 @@ In questo articolo viene illustrata la migrazione della configurazione. La migra
 
 * Il nuovo gateway v2 ha nuovi indirizzi IP pubblici e privati. Non è possibile spostare senza problemi gli indirizzi IP associati al gateway v1 esistente nella versione 2. Tuttavia, è possibile allocare un indirizzo IP pubblico o privato esistente (non allocato) al nuovo gateway v2.
 * È necessario fornire uno spazio di indirizzi IP per un'altra subnet all'interno della rete virtuale in cui si trova il gateway v1. Lo script non può creare il gateway v2 in subnet esistenti che dispongono già di un gateway v1. Tuttavia, se la subnet esistente dispone già di un gateway v2, potrebbe comunque funzionare a condizione che sia disponibile spazio di indirizzi IP sufficiente.
-* Per eseguire la migrazione di una configurazione SSL, è necessario specificare tutti i certificati SSL utilizzati nel gateway v1.
+* Per eseguire la migrazione di una configurazione TLS/SSL, è necessario specificare tutti i certificati TLS/SSL utilizzati nel gateway v1.
 * Se la modalità FIPS è abilitata per il gateway V1, non verrà eseguita la migrazione al nuovo gateway v2. La modalità FIPS non è supportata nella versione 2.
 * V2 non supporta IPv6, pertanto i gateway v1 abilitati per IPv6 non vengono migrati. Se si esegue lo script, potrebbe non essere completato.
 * Se il gateway v1 ha solo un indirizzo IP privato, lo script crea un indirizzo IP pubblico e un indirizzo IP privato per il nuovo gateway v2. I gateway v2 attualmente non supportano solo indirizzi IP privati.
@@ -101,7 +101,7 @@ Per eseguire lo script:
 
    * **subnetAddressRange: [String]: Obbligatorio** - Si tratta dello spazio di indirizzi IP allocato (o che si desidera allocare) per una nuova subnet contenente il nuovo gateway v2. Questo deve essere specificato nella notazione CIDR. Ad esempio: 10.0.0.0/24. Non è necessario creare questa subnet in anticipo. Lo script lo crea automaticamente se non esiste.
    * **appgwName: [Stringa]: Facoltativo**. Si tratta di una stringa specificata da utilizzare come nome per il nuovo gateway Standard_v2 o WAF_v2. Se questo parametro non viene fornito, il nome del gateway v1 esistente verrà utilizzato con il suffisso *_v2* aggiunto.
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: facoltativo**.  Un elenco delimitato da virgole di oggetti PSApplicationGatewaySslCertificate creati per rappresentare i certificati SSL dal gateway v1 deve essere caricato nel nuovo gateway v2. Per ognuno dei certificati SSL configurati per il gateway Standard v1 o WAF v1, `New-AzApplicationGatewaySslCertificate` è possibile creare un nuovo oggetto PSApplicationGatewaySslCertificate tramite il comando illustrato di seguito. È necessario il percorso del file del certificato SSL e la password.
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: facoltativo**.  Un elenco delimitato da virgole di oggetti PSApplicationGatewaySslCertificate creati per rappresentare i certificati TLS/SSL dal gateway v1 deve essere caricato nel nuovo gateway v2. Per ognuno dei certificati TLS/SSL configurati per il gateway Standard v1 o WAF v1, `New-AzApplicationGatewaySslCertificate` è possibile creare un nuovo oggetto PSApplicationGatewaySslCertificate tramite il comando illustrato di seguito. È necessario il percorso del file di certificato TLS/SSL e la password.
 
      Questo parametro è facoltativo solo se non si dispone di listener HTTPS configurati per il gateway v1 o WAF. Se si dispone di almeno una configurazione del listener HTTPS, è necessario specificare questo parametro.
 
