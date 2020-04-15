@@ -8,8 +8,11 @@
   items:
     - name: Creare un server - Portale
       href: analysis-services-create-server.md
-    - name: 'creare un server: PowerShell'
+    - name: Creare un server - PowerShell
       href: analysis-services-create-powershell.md
+    - name: Creare un server - Modello di Resource Manager
+      displayName: Resource Manager
+      href: analysis-services-create-template.md
     - name: Configurare il firewall del server - Portale
       href: analysis-services-qs-firewall.md
 - name: Esercitazioni
@@ -76,7 +79,7 @@
           href: analysis-services-refresh-logic-app.md
         - name: Eseguire l'aggiornamento con Automazione di Azure
           href: analysis-services-refresh-azure-automation.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Gestire gli utenti di database
           href: analysis-services-database-users.md
@@ -90,7 +93,7 @@
           href: analysis-services-connect-pbi.md
         - name: Creare un file con estensione odc
           href: analysis-services-odc.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: PowerShell
       href: analysis-services-powershell.md

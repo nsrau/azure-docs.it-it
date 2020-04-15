@@ -3,12 +3,12 @@ title: Indice degli esempi di progetto
 description: Indice di esempi di conformità e standard per la distribuzione di ambienti, criteri ed elementi di base di Cloud Adoptions Framework con Azure Blueprints.
 ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 703c383f41cd833fb47ca489682258158f9fe179
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 745b16f8aff8fe003ec65449cdf3dc0d629ba6ff
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "78196825"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383519"
 ---
 # <a name="azure-blueprints-samples"></a>Esempi di Azure Blueprints
 
@@ -38,7 +38,7 @@ La tabella seguente include collegamenti a esempi per Azure Blueprints. Ogni ese
 
 ## <a name="samples-strategy"></a>Strategia degli esempi
 
-![Strategia dei progetti di esempio](../media/blueprint-samples-strategy.png)
+:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Strategia dei progetti di esempio" border="false":::
 
 I progetti per la definizione della base di Cloud Adoption Framework e la zona di destinazione per la migrazione di Cloud Adoption Framework presuppongono che il cliente prepari una sottoscrizione singola pulita in cui eseguire la migrazione di carichi di lavoro e asset locali ad Azure
 (area A e B nella figura).  

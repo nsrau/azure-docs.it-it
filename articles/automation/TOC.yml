@@ -22,7 +22,7 @@
       href: automation-use-azure-ad.md
     - name: Gestire i servizi di Office 365
       href: manage-office-365.md
-    - name: Configurare l'autenticazione con AWS
+    - name: Autenticare i runbook di Automazione di Azure con Amazon Web Services
       href: automation-config-aws-account.md
     - name: Crittografare gli asset protetti in Automazione di Azure
       href: automation-secure-asset-encryption.md

@@ -74,6 +74,8 @@
           href: security-info-setup-text-msg.md
         - name: Configurare chiamate telefoniche
           href: security-info-setup-phone-number.md
+        - name: Configurare l'accesso tramite SMS
+          href: sms-sign-in-explainer.md
         - name: Configurare una chiave di sicurezza
           href: security-info-setup-security-key.md
         - name: Configurare la posta elettronica

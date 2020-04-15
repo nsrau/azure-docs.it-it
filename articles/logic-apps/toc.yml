@@ -83,10 +83,12 @@
           href: logic-apps-author-definitions.md
         - name: Gestire i tipi di contenuti
           href: logic-apps-content-type.md
-        - name: Gestire errori ed eccezioni
+        - name: Gestire le eccezioni
           href: logic-apps-exception-handling.md
         - name: Gestire messaggi di grandi dimensioni
           href: logic-apps-handle-large-messages.md
+        - name: Gestire i problemi di limitazione della larghezza di banda della rete o gli errori 429
+          href: handle-throttling-problems-429-errors.md
         - name: Sicurezza
           items:
             - name: Migliorare la sicurezza per le app per la logica
@@ -105,8 +107,6 @@
               href: logic-apps-custom-api-host-deploy-call.md
         - name: Risolvere gli errori
           href: logic-apps-diagnosing-failures.md
-        - name: Gestire gli errori 429 o i problemi di limitazione della larghezza di banda della rete
-          href: handle-throttling-problems-429-errors.md
     - name: Accedere alle reti virtuali di Azure
       items:
         - name: Creare un ambiente del servizio di integrazione - Portale di Azure

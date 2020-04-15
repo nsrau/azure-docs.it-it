@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto di definizione della base di Cloud Adoption Framework
 description: Panoramica e architettura del progetto di esempio di definizione della base di Cloud Adoption Framework (CAF) per Azure.
-ms.date: 08/20/2019
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: a5616667ae909b63f406e399a23bdf568089bf52
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75562562"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383583"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Panoramica del progetto di esempio di definizione della base di Microsoft Cloud Adoption Framework per Azure
 
@@ -18,7 +18,7 @@ Il progetto di definizione della base di Microsoft Cloud Adoption Framework (CAF
 
 Il progetto di esempio di definizione della base di Cloud Adoption Framework distribuisce le risorse dell'infrastruttura consigliate in Azure che possono essere usate dalle organizzazioni per predisporre i controlli di base necessari per gestire l'ambiente cloud. Con questo esempio verranno distribuite e imposte risorse, criteri e modelli che permetteranno a un'organizzazione di iniziare a usare Azure in modo sicuro.
 
-![Definizione della base di Microsoft Cloud Adoption Framework: l'immagine illustra gli elementi installati previsti dalle linee guida di Cloud Adoption Framework per la creazione di una base iniziale da usare con Azure](../../media/caf-blueprints/caf-foundation-architecture.png)
+:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Definizione della base di Microsoft Cloud Adoption Framework: l'immagine illustra gli elementi installati previsti dalle linee guida di Cloud Adoption Framework per la creazione di una base iniziale da usare con Azure" border="false":::
 
 Questa implementazione include diversi servizi di Azure usati per offrire una base sicura, completamente monitorata e pronta per l'azienda. L'ambiente è costituito da:
 

@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto Servizi condivisi ISO 27001
 description: Panoramica e architettura del progetto di esempio Servizi condivisi ISO 27001. Questo esempio di progetto consente ai clienti di valutare specifici controlli ISO 27001.
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75922550"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381580"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Panoramica del progetto di esempio Servizi condivisi ISO 27001
 
@@ -21,7 +21,7 @@ Il progetto [Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27
 Il progetto di esempio Servizi condivisi ISO 27001 distribuisce un'infrastruttura di base in Azure che può essere usata dalle organizzazioni per ospitare più carichi di lavoro basati su data center virtuale.
 Per data center virtuale si intende è un set consolidato di architetture di riferimento, strumenti di automazione e modelli di engagement usato da Microsoft con i principali clienti aziendali. Il progetto di esempio Servizi condivisi si basa su un ambiente di data center virtuale Azure completamente nativo illustrato di seguito.
 
-![Struttura del progetto di esempio Servizi condivisi ISO 27001](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="Struttura del progetto di esempio Servizi condivisi ISO 27001" border="false":::
 
 Questo ambiente è costituito da diversi servizi di Azure usati per offrire un'infrastruttura di servizi condivisi di livello aziendale sicura e completamente monitorata, basata sugli standard ISO 27001. L'ambiente è costituito da:
 

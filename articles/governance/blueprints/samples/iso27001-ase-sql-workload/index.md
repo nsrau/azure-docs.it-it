@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto Carico di lavoro dell'ambiente del se
 description: Panoramica e architettura del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: d77029b93b1e77bdba85c5dd5608cbdc5d6543a5
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75920780"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381739"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Panoramica del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001
 
@@ -24,7 +24,7 @@ Sono disponibili due progetti di esempio ISO 27001, questo e il progetto di esem
 
 Il progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001 distribuisce una piattaforma sotto forma di ambiente Web basato su servizi. È possibile usare l'ambiente per ospitare più applicazioni Web, API Web e istanze di database SQL conformi agli standard ISO 27001. Questo progetto di esempio dipende da quello [Servizi condivisi ISO 27001](../iso27001-shared/index.md).
 
-![Struttura del progetto di esempio Carico di lavoro dell'ambiente del servizio app di Azure/SQL ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png" alt-text="Struttura del progetto di esempio Carico di lavoro dell'ambiente del servizio app di Azure/SQL ISO 27001" border="false":::
 
 Questo ambiente è costituito da diversi servizi di Azure usati per offrire un'infrastruttura di carico di lavoro di livello aziendale sicura e completamente monitorata, basata sugli standard ISO 27001. L'ambiente è costituito da:
 

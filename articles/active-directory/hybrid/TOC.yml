@@ -336,6 +336,8 @@
       href: reference-connect-faq.md
     - name: Domande frequenti su Azure AD Connect Health
       href: reference-connect-health-faq.md
+    - name: Considerazioni sulle identità ibride per Azure per enti pubblici
+      href: reference-connect-government-cloud.md
     - name: Privacy dell'utente in Azure AD Connect
       href: reference-connect-user-privacy.md
     - name: Privacy dell'utente in Azure AD Connect Health
