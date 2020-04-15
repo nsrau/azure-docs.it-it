@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e14b669aadeec4c6a7245be8940051ec604059b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79409559"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879429"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura
 
-Dopo che l'amministratore del progetto ha [creato un progetto di etichettatura](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, è possibile usare lo strumento di etichettatura per preparare rapidamente i dati per un progetto di Machine Learning. L'articolo illustra:
+Dopo che l'amministratore di progetto ha [creato un progetto di etichettatura](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, è possibile usare lo strumento di etichettatura (anteprima pubblica) per preparare rapidamente i dati per un progetto di Machine Learning. L'articolo illustra:
 
 > [!div class="checklist"]
 > * Come accedere ai progetti di etichettatura
@@ -45,7 +45,9 @@ Passare a **Visualizza istruzioni dettagliate**. Queste istruzioni sono specific
 
 In tutte le attività di etichettatura scegliere uno o più tag appropriati nel set specificato dall'amministratore del progetto. È possibile selezionare i primi nove tag usando i tasti numerici della tastiera.  
 
-Nelle attività di classificazione delle immagini è possibile scegliere di visualizzare più immagini simultaneamente. Usare le icone sopra l'area dell'immagine per selezionare il layout. Per selezionare tutte le immagini visualizzate simultaneamente, usare **Seleziona tutto**. Per selezionare singole immagini, usare il pulsante di selezione circolare nell'angolo in alto a destra dell'immagine. È necessario selezionare almeno un'immagine per applicare un tag. Se si selezionano più immagini, il tag selezionato verrà applicato a tutte.
+Nelle attività di classificazione delle immagini è possibile scegliere di visualizzare più immagini simultaneamente. Usare le icone sopra l'area dell'immagine per selezionare il layout. 
+
+Per selezionare tutte le immagini visualizzate simultaneamente, usare **Seleziona tutto**. Per selezionare singole immagini, usare il pulsante di selezione circolare nell'angolo in alto a destra dell'immagine. È necessario selezionare almeno un'immagine per applicare un tag. Se si selezionano più immagini, il tag selezionato verrà applicato a tutte.
 
 In questo caso è stato scelto un layout 2x2 e si sta per applicare il tag "Mammal" alle immagini dell'orso e dell'orca. All'immagine con lo squalo è già stato aggiunto il tag "Pesce cartilagineo", mentre per l'iguana non è stato ancora aggiunto alcun tag.
 
