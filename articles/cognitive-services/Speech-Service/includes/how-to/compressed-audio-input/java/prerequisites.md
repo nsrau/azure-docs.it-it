@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: 5cbd1a0d18045a24d4de68f6c48323244d49b2b4
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.author: trbye
+ms.openlocfilehash: ccc7fcd748323e05f21edcfff1535085d2cdbdc7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409651"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422360"
 ---
 La gestione dell'audio compresso viene implementata utilizzando [GStreamer](https://gstreamer.freedesktop.org). Per motivi di licenza, i file binari GStreamer non vengono compilati e collegati a Speech SDK. Al contrario, è necessario utilizzare i file binari predefiniti per Android.Instead, you'll need to use the prebuilt binaries for Android. Per scaricare le librerie predefinite, vedere [Installazione per lo sviluppo android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 

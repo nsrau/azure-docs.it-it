@@ -18,8 +18,6 @@
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Esercitazioni
   items:
-    - name: Preparare un'app Java Spring per la distribuzione
-      href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: Configurare il server di configurazione
       href: spring-cloud-tutorial-config-server.md
     - name: Ridimensionare manualmente l'applicazione
@@ -44,6 +42,8 @@
       href: disaster-recovery.md
 - name: Guide pratiche
   items:
+    - name: Preparare un'app Java Spring per la distribuzione
+      href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: 'Come avviare, arrestare ed eliminare un''applicazione Azure Spring Cloud'
       href: spring-cloud-howto-start-stop-delete.md
     - name: Come configurare un ambiente di staging
@@ -66,7 +66,7 @@
       href: spring-cloud-github-actions-key-vault.md
     - name: CI/CD con Jenkins
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Plug-in dell'interfaccia della riga di comando di Azure
       href: spring-cloud-cli-reference.md

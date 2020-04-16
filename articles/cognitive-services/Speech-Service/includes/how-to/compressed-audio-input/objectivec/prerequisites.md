@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: 28f6ef7248fada8286bbe90c868cd9f947f0435d
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.author: trbye
+ms.openlocfilehash: 7106e139108681e1908b20d2daac5e619a63555d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409587"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421691"
 ---
 La gestione dell'audio compresso viene implementata utilizzando [GStreamer](https://gstreamer.freedesktop.org). Per motivi di licenza, i file binari GStreamer non vengono compilati e collegati a Speech SDK. Al contrario, una libreria wrapper contenente queste funzioni deve essere compilata e fornita con le app usando l'SDK.
 
