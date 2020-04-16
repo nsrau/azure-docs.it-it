@@ -3,19 +3,19 @@ title: Riconoscimento vocale direct Line - Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Panoramica delle funzionalità, delle funzionalità e delle restrizioni per gli assistenti vocali che utilizzano Direct Line Speech con Speech Software Development Kit (SDK).
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: 714cdefa7100160a510d1922a2547ae53692d76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367806"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402399"
 ---
 # <a name="what-is-direct-line-speech"></a>Che cos'è Direct Line Speech?
 
@@ -35,9 +35,9 @@ Per una guida completa e dettagliata sulla creazione di un semplice assistente v
 
 Offriamo anche guide introduttive progettate per farti eseguire il codice e imparare rapidamente le API. Questa tabella include un elenco di guide introduttive dell'assistente vocale organizzate per lingua e piattaforma.
 
-| Guida introduttiva | Piattaforma | API (riferimento) |
+| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
 |------------|----------|---------------|
-| C,, UWP | WINDOWS | [Sfoglia](https://aka.ms/csspeech/csharpref) |
+| C,, UWP | Windows | [Sfoglia](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Sfoglia](https://aka.ms/csspeech/javaref) |
 | Java | Android | [Sfoglia](https://aka.ms/csspeech/javaref) |
 
@@ -60,7 +60,7 @@ Direct Line Speech e le relative funzionalità per gli assistenti vocali sono un
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
 * [Speech SDK](speech-sdk-reference.md)
-* [Servizio bot di AzureAzure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Servizio Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

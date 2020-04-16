@@ -3,19 +3,19 @@ title: Informazioni su Speech SDK - Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Il Kit di sviluppo software di riconoscimento vocale (SDK) espone molte delle funzionalità del servizio di riconoscimento vocale, semplificando lo sviluppo di applicazioni abilitate per il riconoscimento vocale.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 440944033e4b6a8fb29cf9ace6ad784b91316526
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.author: trbye
+ms.openlocfilehash: f663c9af8c352d0170c633fe76b3fbc5268aad1e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668746"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400006"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 

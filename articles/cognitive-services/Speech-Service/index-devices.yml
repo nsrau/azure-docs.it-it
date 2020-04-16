@@ -1,28 +1,28 @@
 ### YamlMime:Landing
-title: Documentazione sui dispositivi vocali
+title: Documentazione dei dispositivi vocali
 summary: Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
 metadata:
   title: Documentazione relativa ai dispositivi di riconoscimento vocale - Esercitazioni, riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: dapine
-  ms.openlocfilehash: 5fc9e045162c03585f20e0b06a01524480070050
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: 76bb63654778a08244e2207839e12812b7227dff
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415360"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401372"
 landingContent:
 - title: Informazioni sull'SDK dei dispositivi di riconoscimento vocale
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è l'SDK dei dispositivi di riconoscimento vocale?
+    - text: Che cos'è Speech Devices SDK?
       url: speech-devices-sdk.md
   - linkListType: quickstart
     links:
@@ -40,7 +40,7 @@ landingContent:
       url: speech-devices-sdk-microphone.md
     - text: Configurare il kit Roobo v1
       url: speech-devices-sdk-roobo-v1.md
-- title: Riferimento
+- title: Informazioni di riferimento
   linkLists:
   - linkListType: whats-new
     links:
@@ -48,5 +48,5 @@ landingContent:
       url: devices-sdk-release-notes.md
   - linkListType: reference
     links:
-    - text: Risolvere i problemi
+    - text: Risolvere problemi
       url: speech-devices-sdk-troubleshooting.md

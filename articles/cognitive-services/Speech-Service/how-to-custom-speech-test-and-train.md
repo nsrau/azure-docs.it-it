@@ -3,21 +3,21 @@ title: Preparare i dati per il riconoscimento vocale personalizzato - Servizio d
 titleSuffix: Azure Cognitive Services
 description: Quando si verifica l'accuratezza del riconoscimento vocale Microsoft o della formazione dei modelli personalizzati, sono necessari dati audio e di testo. In questa pagina vengono illustrati i tipi di dati, come utilizzarli e gestirli.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: d6e377ca4f33c0160267b23daaaaef5e07c271bb
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398689"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402134"
 ---
-# <a name="prepare-data-for-custom-speech"></a>Preparare i dati per il riconoscimento vocale personalizzatoPrepare data for Custom Speech
+# <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
 Quando si verifica l'accuratezza del riconoscimento vocale Microsoft o della formazione dei modelli personalizzati, sono necessari dati audio e di testo. In questa pagina vengono illustrati i tipi di dati, come utilizzarli e gestirli.
 

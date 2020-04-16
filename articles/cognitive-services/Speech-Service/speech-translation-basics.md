@@ -3,20 +3,20 @@ title: Nozioni di base sulla traduzione vocale - Servizio vocale
 titleSuffix: Azure Cognitive Services
 description: Scopri come usare l'SDK di riconoscimento vocale per tradurre il riconoscimento vocale. In questo articolo imparerai a conoscere la costruzione di oggetti, i formati di input audio supportati e le opzioni di configurazione per la traduzione vocale.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 966407a1e88856c041ae453cfa1bf0ecf55da9d1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 04ece5ccf91056af02bd450eb760534b82de5959
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266592"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399660"
 ---
 # <a name="learn-the-basics-of-speech-translation"></a>Apprendere le nozioni di base della traduzione vocale
 

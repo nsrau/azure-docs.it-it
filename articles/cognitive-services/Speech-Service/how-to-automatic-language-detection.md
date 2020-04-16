@@ -3,20 +3,20 @@ title: Come utilizzare il rilevamento automatico della lingua per la sintesi voc
 titleSuffix: Azure Cognitive Services
 description: Speech SDK supporta il rilevamento automatico della lingua per la sintesi vocale. Quando si utilizza questa funzionalità, l'audio fornito viene confrontato con un elenco fornito di lingue e viene determinata la corrispondenza più probabile. Il valore restituito può quindi essere utilizzato per selezionare il modello di linguaggio utilizzato per la sintesi vocale.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 5592fc3e50db892c6abb09fc2516b8e1c03f0f03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239593"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402200"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Rilevamento automatico della lingua per la sintesi vocale
 

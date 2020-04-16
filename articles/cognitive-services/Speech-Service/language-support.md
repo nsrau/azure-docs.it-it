@@ -3,20 +3,20 @@ title: Supporto linguistico - Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Il servizio di riconoscimento vocale supporta numerose lingue per la conversione da testo a testo e da testo a voce, insieme alla traduzione vocale. Questo articolo fornisce un elenco completo del supporto linguistico in base alla funzionalità del servizio.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.author: dapine
+ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: d01ab60790311649e424a98d5a08c6af0bca90f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a876349af2bd53a46737dda82961afe442bae05
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336049"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401075"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Supporto della lingua e della voce per il servizio di riconoscimento vocale
 

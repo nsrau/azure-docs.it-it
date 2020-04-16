@@ -3,19 +3,19 @@ title: Sintesi vocale - Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: La funzionalità di sintesi vocale del servizio di riconoscimento vocale consente alle applicazioni, agli strumenti o ai dispositivi di convertire il testo in sintesi di tipo naturale. Scegli voci preimpostate o crea la tua voce personalizzata.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7c7574ee4e9f75b9b650ff63a10666c5e379fca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131570"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399510"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
@@ -43,7 +43,7 @@ La sintesi vocale del servizio di riconoscimento vocale consente alle applicazio
 
 Il servizio di sintesi vocale è disponibile tramite [Speech SDK.](speech-sdk.md) Sono disponibili diversi scenari comuni come guide introduttive, in varie lingue e piattaforme:There are several common scenarios available as quickstarts, in various languages and platforms:
 
-* [Sintetizzare la voce in un file audio](quickstarts/text-to-speech-audio-file.md)
+* [Sintesi vocale in un file audio](quickstarts/text-to-speech-audio-file.md)
 * [Sintesi vocale in un altoparlante](quickstarts/text-to-speech.md)
 * [Sintetizzare in modo asincrono l'audio in formato lungo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 
@@ -77,7 +77,7 @@ Per informazioni dettagliate, vedere [Prezzi](https://azure.microsoft.com/pricin
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
 - [Speech SDK](speech-sdk.md)
-- [API REST: sintesi vocale](rest-text-to-speech.md)
+- [API REST: Sintesi vocale](rest-text-to-speech.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

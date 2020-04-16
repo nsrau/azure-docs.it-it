@@ -3,12 +3,12 @@ title: Configurare un servizio QnA Maker - QnA Maker
 description: Prima di poter creare una Knowledge Base di QnA Maker, è necessario configurare un servizio QnA Maker in Azure. Qualsiasi utente autorizzato a creare nuove risorse in una sottoscrizione può configurare un servizio QnA Maker.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 8ec57f441ba58227e45398c35c7931dc75fa658f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131718"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402979"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestire le risorse di QnA MakerManage QnA Maker resources
 
@@ -89,7 +89,7 @@ Le chiavi endpoint possono essere gestite dal [portale di QnA Maker](https://qna
     >[!NOTE]
     >Aggiorna le chiavi se pensi che siano state compromesse. Questa operazione può richiedere modifiche corrispondenti al codice del bot o dell'applicazione client.
 
-### <a name="upgrade-qna-maker-sku"></a>Upgrade QnA Maker SKU
+## <a name="upgrade-qna-maker-sku"></a>Upgrade QnA Maker SKU
 
 Quando si desidera avere più domande e risposte nella Knowledge Base, oltre il livello corrente, aggiornare il livello di prezzo del servizio QnA Maker.When you want to have more questions and answers in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing.
 
@@ -103,7 +103,7 @@ Per aggiornare lo SKU di gestione di QnA Maker:
 
     ![Prezzi di QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-### <a name="upgrade-app-service"></a>Aggiornare il servizio app
+## <a name="upgrade-app-service"></a>Aggiornare il servizio app
 
  Quando la Knowledge Base deve soddisfare più richieste dall'app client, aggiornare il livello dei prezzi del servizio app.
 
@@ -113,7 +113,7 @@ Passare alla risorsa del servizio app nel portale di Azure e selezionare l'opzio
 
 ![Scala del servizio app QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-cognitive-search-service"></a>Aggiornare il servizio Ricerca cognitiva di AzureUpgrade the Azure Cognitive Search service
+## <a name="upgrade-the-azure-cognitive-search-service"></a>Aggiornare il servizio Ricerca cognitiva di AzureUpgrade the Azure Cognitive Search service
 
 Se si prevede di avere molte basi di conoscenza, aggiornare il piano tariffario del servizio Ricerca cognitiva di Azure.If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
 
@@ -197,7 +197,7 @@ Il servizio app, che serve il runtime di stima QnA Maker per una Knowledge Base 
 
 Per mantenere caricata l'app dell'endpoint di stima anche in funzione, imposta l'inattività su sempre attiva.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare e selezionare il servizio app della risorsa QnA Maker. Avrà lo stesso nome della risorsa QnA Maker, ma avrà un **tipo** diverso di servizio app.
 1. Trovare **Impostazioni,** quindi selezionare **Configurazione**.
 1. Nel riquadro Configurazione selezionare **Impostazioni generali**, quindi **Sempre attivato**e selezionare **Attivato** come valore.

@@ -1,25 +1,25 @@
 ---
 title: Moderazione video con revisione umana - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Usare la moderazione video con supporto di computer e strumenti di revisione umana per moderare contenuti non appropriati
+description: Utilizzare la moderazione video assistita da computer e lo strumento Di revisione per moderare i contenuti inappropriati
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72754163"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404245"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderazione video con revisione umana
 
-Utilizza la [moderazione video](video-moderation-api.md) assistita dal moderatore dei contenuti e lo strumento di [revisione umana](Review-Tool-User-Guide/human-in-the-loop.md) per moderare video e trascrizioni per contenuti per adulti (espliciti) e racy (suggestivi) per ottenere i migliori risultati per la tua attività.
+Utilizza [lo strumento](Review-Tool-User-Guide/human-in-the-loop.md) di [moderazione video](video-moderation-api.md) e revisione assistita dal moderatore dei contenuti per moderare video e trascrizioni per adulti (espliciti) e (suggestivi) per ottenere i migliori risultati per la tua attività.
 
 ## <a name="video-trained-classifier-preview"></a>Classificatore con riconoscimento di video (anteprima)
 

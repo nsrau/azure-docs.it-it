@@ -10,19 +10,25 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a72e5055a3b0f858a732ec28eeab511b09dd450c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76264204"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400155"
 ---
 # <a name="scenario-availability"></a>Disponibilità dello scenarioScenario Availability
 
 Speech SDK offre molti scenari in un'ampia gamma di linguaggi e ambienti di programmazione. Non tutti gli scenari sono ancora disponibili in tutti i linguaggi di programmazione o in tutti gli ambienti. Di seguito è elencata la disponibilità di ogni scenario.
 
 - **Contenitori Speech-Recognition (SR), Phrase List, Intent, Translation e On-premises**
-  - Tutti i linguaggi/ambienti di programmazione in cui è presente un collegamento a freccia <img src="media/index/link.jpg" height="15" width="15"></img> nella tabella delle guide rapide [qui](https://aka.ms/csspeech).
+  - Linux & di C/Windows & macOS
+  - C'è (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
+  - Java (Jre e Android)
+  - JavaScript (Brower e NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
 - **Sintesi vocale (TTS)**
   - Linux di & di Windows
   - Unità di & & & di C/Windows/Windows
@@ -45,7 +51,7 @@ Speech SDK offre molti scenari in un'ampia gamma di linguaggi e ambienti di prog
   - Linux di & di Windows
   - C'è (Framework & .NET Core)/Windows & UWP & Linux
   - Java/Windows & Linux & Android (SDK dispositivi vocali)
-- **Conversazione multi-dispositivo**
+- **Conversazione per più dispositivi**
   - Windows/Windows
   - C'è (Framework & .NET Core)/Windows
 - **Trascrizione del Call Center**

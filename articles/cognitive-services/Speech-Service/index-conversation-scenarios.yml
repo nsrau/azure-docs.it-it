@@ -1,22 +1,22 @@
 ### YamlMime:Landing
-title: Documentazione relativa agli scenari di conversazione
+title: Documentazione degli scenari di conversazione
 summary: Esplora i vari scenari di conversazione. Informazioni su come usare la trascrizione di conversazione o la conversazione multidispositivo in scenari di riunione e la trascrizione in scenari di Call Center.
 metadata:
   title: Documentazione relativa agli scenari di conversazione - Esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure Documenti Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/16/2020
-  ms.author: dapine
-  ms.openlocfilehash: 75254b0b0b3afb391006a422300c0d4cb9d27fdb
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: 1766174d053b480674da26ef3e915bcf3fdf280a
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79479689"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401467"
 landingContent:
 - title: Informazioni sulla trascrizione delle conversazioni (scenario di riunione)
   linkLists:
@@ -44,9 +44,9 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Gestire gli scenari del servizio clienti
+    - text: Gestire scenari di call center
       url: call-center-transcription.md
-- title: Riferimento
+- title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
     links:

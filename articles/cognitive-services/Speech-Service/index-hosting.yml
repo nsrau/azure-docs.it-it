@@ -1,40 +1,40 @@
 ### YamlMime:Landing
-title: Documentazione di hosting
+title: Documentazione dell'hosting
 summary: I contenitori del servizio di riconoscimento vocale sono disponibili per gli scenari di sintesi vocale e sintesi vocale, che comprendono modelli standard o personalizzati.
 metadata:
   title: Documentazione di hosting - Esercitazioni, riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/23/2020
-  ms.author: dapine
-  ms.openlocfilehash: c342b797dfe21fe4ffbd1bb9bc112e9726cdec42
-  ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+  ms.author: trbye
+  ms.openlocfilehash: 640c1b8e9c51059bc4c296ef93a4e6dd54ea7a42
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/01/2020
-  ms.locfileid: "80529466"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401505"
 landingContent:
 - title: Informazioni sull'hosting
   linkLists:
   - linkListType: concept
     links:
-    - text: Installare ed eseguire contenitori di riconoscimento vocale
+    - text: Installare ed eseguire i contenitori Voce
       url: speech-container-howto.md
-    - text: Contenitori di parole con Kubernetes e Helm
+    - text: Contenitori Voce con Kubernetes e Helm
       url: speech-container-howto-on-premises.md
-    - text: Contenitori di riconoscimento vocale nelle istanze dei contenitori di AzureSpeech containers on Azure container instances
+    - text: Contenitori Voce in istanze di contenitori di Azure
       url: deploy-speech-on-container-instances.md
 - title: Creare e configurare
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Creare una risorsa Voce di Azure
+    - text: Creare una risorsa di riconoscimento vocale di AzureCreate an Azure Speech resource
       url: get-started.md#new-resource
-    - text: Configurare i contenitori vocali
+    - text: Configurare i contenitori Voce
       url: speech-container-configuration.md
 - title: Informazioni di riferimento
   linkLists:

@@ -1,25 +1,25 @@
 ---
 title: Moderazione immagine - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Usare la moderazione automatica delle immagini di Content Moderator e lo strumento di revisione con intervento umano per moderare le immagini spinte e per adulti.
+description: Usa la moderazione delle immagini assistita dal computer di Content Moderator e lo strumento di revisione umano nel ciclo per moderare le immagini per i contenuti per adulti e per adulti.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73044109"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404256"
 ---
 # <a name="learn-image-moderation-concepts"></a>Informazioni sui concetti di moderazione delle immagini
 
-Usare la moderazione automatica delle immagini di Content Moderator e lo [strumento di revisione con intervento umano](Review-Tool-User-Guide/human-in-the-loop.md) per moderare le immagini spinte e per adulti. Analizzare le immagini per trovare i contenuti di testo, estrarre il testo e rilevare i caratteri tipografici. È possibile abbinare le immagini agli elenchi personalizzati e intraprendere altre azioni.
+Usa la moderazione delle immagini assistita dal computer di Content Moderator e [lo strumento di revisione umano nel ciclo](Review-Tool-User-Guide/human-in-the-loop.md) per moderare le immagini per i contenuti per adulti e per adulti. Analizzare le immagini per trovare i contenuti di testo, estrarre il testo e rilevare i caratteri tipografici. È possibile abbinare le immagini agli elenchi personalizzati e intraprendere altre azioni.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Valutazione dei contenuti spinti e per adulti
 
@@ -139,9 +139,9 @@ Esempio di estratto:
     ....
     }
 
-## <a name="human-review-tool"></a>Strumento di revisione umana
+## <a name="review-tool"></a>Strumento di revisione
 
-Per i casi più complessi, usare lo [strumento di revisione](Review-Tool-User-Guide/human-in-the-loop.md) di Content Moderator e la relativa API per visualizzare i risultati e il contenuto della moderazione nella revisione per i moderatori umani. Revisionano i tag assegnati automaticamente e confermano le loro decisioni finali.
+Per casi più sfumati, usa [lo strumento](Review-Tool-User-Guide/human-in-the-loop.md) Content Moderator Review e la relativa API per visualizzare i risultati della moderazione e il contenuto nella revisione per i moderatori umani. Revisionano i tag assegnati automaticamente e confermano le loro decisioni finali.
 
 ![Revisione di immagini per moderatori umani](images/moderation-reviews-quickstart-dotnet.PNG)
 

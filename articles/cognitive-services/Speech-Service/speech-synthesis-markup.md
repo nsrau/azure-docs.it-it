@@ -3,19 +3,19 @@ title: Speech Synthesis Markup Language (SSML) - Servizio di riconoscimento voca
 titleSuffix: Azure Cognitive Services
 description: Uso di Speech Synthesis Markup Language per controllare la pronuncia e la prosodia nella sintesi vocale.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7d5dd79399b15ade90173a55aeb71dacbc61fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365818"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399827"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con Speech Synthesis Markup Language (SSML)
 
@@ -109,7 +109,7 @@ All'interno dell'elemento, `speak` è possibile specificare più voci per l'outp
 
 A seconda del linguaggio Speech SDK, la `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` proprietà verrà impostata su `false` un'istanza dell'oggetto. `SpeechConfig`
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
@@ -145,7 +145,7 @@ speech_config.set_property_by_name(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
@@ -162,7 +162,7 @@ Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/objective
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
 ```
 
-# <a name="swift"></a>[Repentino](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
@@ -196,7 +196,6 @@ Per impostazione predefinita, il servizio di sintesi vocale sintetizza il testo 
 Attualmente, le regolazioni di stile di parlare sono supportate per queste voci neurali:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
-* `pt-BR-FranciscaNeural`
 
 Le modifiche vengono applicate a livello di frase e lo stile varia in base alla voce. Se uno stile non è supportato, il servizio restituirà il riconoscimento vocale nello stile di linguaggio neutro predefinito.
 
@@ -214,18 +213,17 @@ Le modifiche vengono applicate a livello di frase e lo stile varia in base alla 
 
 Utilizzare questa tabella per determinare quali stili di parlare sono supportati per ogni voce neurale.
 
-| Chiamata vocale | Style | Descrizione |
-|-------|------|-------------|
-| `en-US-AriaNeural` | `style="newscast"` | Esprime un tono formale e professionale per narrare le notizie |
-| | `style="customerservice"` | Esprime un tono cordiale e utile per l'assistenza clienti |
-| | `style="chat"` | Esprime un tono informale e rilassato |
-| | `style="cheerful"` | Esprime un tono positivo e felice |
-| | `style="empathetic"` | Esprime un senso di cura e comprensione |
-| `zh-CN-XiaoxiaoNeural` | `style="newscast"` | Esprime un tono formale e professionale per narrare le notizie |
-| | `style="customerservice"` | Esprime un tono cordiale e utile per l'assistenza clienti |
-| | `style="assistant"` | Esprime un tono caldo e rilassato per gli assistenti digitali  |
-| | `style="lyrical"` | Esprime emozioni in modo melodico e sentimentale |
-| `pt-BR-FranciscaNeural` | `style="cheerful"` | Esprime un tono positivo e felice |
+| Chiamata vocale                   | Style                     | Descrizione                                                 |
+|-------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-AriaNeural`      | `style="newscast"`        | Esprime un tono formale e professionale per narrare le notizie |
+|                         | `style="customerservice"` | Esprime un tono cordiale e utile per l'assistenza clienti  |
+|                         | `style="chat"`            | Esprime un tono informale e rilassato                         |
+|                         | `style="cheerful"`        | Esprime un tono positivo e felice                         |
+|                         | `style="empathetic"`      | Esprime un senso di cura e comprensione               |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Esprime un tono formale e professionale per narrare le notizie |
+|                         | `style="customerservice"` | Esprime un tono cordiale e utile per l'assistenza clienti  |
+|                         | `style="assistant"`       | Esprime un tono caldo e rilassato per gli assistenti digitali    |
+|                         | `style="lyrical"`         | Esprime emozioni in modo melodico e sentimentale         |
 
 **Esempio**
 
@@ -263,15 +261,14 @@ Utilizzare `break` l'elemento per inserire pause (o interruzioni) tra le parole 
 | `strength` | Specifica la durata relativa di una pausa utilizzando uno dei seguenti valori:<ul><li>none</li><li>x-debole</li><li>Debole</li><li>medio (predefinito)</li><li>complessa</li><li>X-forte</li></ul> | Facoltativo |
 | `time` | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori `2s` validi sono e`500` | Facoltativo |
 
-| Forza | Descrizione |
-|----------|-------------|
-| Nessuno, o se nessun valore fornito | 0 ms |
-| x-debole | 250 ms |
-| Debole | 500 ms |
-| media | 750 ms |
-| complessa | 1000 ms |
-| X-forte | 1250 ms |
-
+| Forza                      | Descrizione |
+|-------------------------------|-------------|
+| Nessuno, o se nessun valore fornito | 0 ms        |
+| x-debole                        | 250 ms      |
+| Debole                          | 500 ms      |
+| media                        | 750 ms      |
+| complessa                        | 1000 ms     |
+| X-forte                      | 1250 ms     |
 
 **Esempio**
 
@@ -334,7 +331,7 @@ Gli alfabeti fonetici sono composti da telefoni, che sono costituiti da lettere,
 | `alphabet` | Specifica l'alfabeto fonetico da utilizzare per sintetizzare `ph` la pronuncia della stringa nell'attributo. La stringa che specifica l'alfabeto deve essere specificata in lettere minuscole. Di seguito sono riportati i possibili alfabeti che è possibile specificare.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonetico internazionale</a></li><li>`sapi`&ndash; [Alfabeto fonetico del servizio vocale](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; Set di telefoni universali</li></ul><br>L'alfabeto si `phoneme` applica solo all'elemento nell'elemento. | Facoltativo |
 | `ph` | Stringa contenente telefoni che specificano la pronuncia `phoneme` della parola nell'elemento. Se la stringa specificata contiene telefoni non riconosciuti, il servizio di sintesi vocale (TTS) rifiuta l'intero documento SSML e non produce alcun output vocale specificato nel documento. | Obbligatorio se si utilizzano fonemi. |
 
-**Esempi**
+**esempi**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -372,11 +369,11 @@ A volte la parola TTS non è in grado di pronunciare con precisione una parola, 
 
 **Attributi**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
-|-----------|-------------|---------------------|
-| `uri` | Indirizzo del documento PLS esterno. | Obbligatorio. |
+| Attributo | Descrizione                               | Obbligatoria / Facoltativa |
+|-----------|-------------------------------------------|---------------------|
+| `uri`     | Indirizzo del documento PLS esterno. | Obbligatorio.           |
 
-**Utilizzo**
+**Uso**
 
 Passaggio 1: Definire un lessico personalizzatoStep 1: Define custom lexicon 
 
@@ -574,7 +571,7 @@ Di seguito sono riportati `interpret-as` i `format` tipi di contenuto supportati
 | `telephone` | | Il testo viene pronunciato come numero di telefono. L'attributo `format` può contenere cifre che rappresentano un codice paese. Ad esempio, "1" per gli Stati Uniti o "39" per l'Italia. Il motore di sintesi vocale può utilizzare queste informazioni per guidare la sua pronuncia di un numero di telefono. Il numero di telefono può anche includere il codice del paese e, in tal caso, ha la precedenza sul codice del paese nel `format`file . Il motore di sintesi vocale pronuncia:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Come "Il mio numero è prefisso otto otto otto cinque cinque cinque uno due due due." |
 | `time` | hms12, hms24 | Il testo è pronunciato come un tempo. L'attributo `format` specifica se l'ora viene specificata utilizzando un orologio a 12 ore (hms12) o un orologio a 24 ore (hms24). Utilizzare i due punti per separare i numeri che rappresentano ore, minuti e secondi. Di seguito sono riportati esempi di tempo validi: 12:35, 1:14:32, 08:15 e 02:50:45. Il motore di sintesi vocale pronuncia:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Come "Il treno parte alle quattro A M." |
 
-**Utilizzo**
+**Uso**
 
 L'elemento `say-as` può contenere solo testo.
 
@@ -614,9 +611,9 @@ Qualsiasi audio incluso nel documento SSML deve soddisfare i seguenti requisiti:
 
 **Attributi**
 
-| Attributo | Descrizione | Obbligatoria / Facoltativa |
-|-----------|-------------|---------------------|
-| `src` | Specifica la posizione/URL del file audio. | Obbligatorio se si utilizza l'elemento audio nel documento SSML. |
+| Attributo | Descrizione                                   | Obbligatoria / Facoltativa                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `src`     | Specifica la posizione/URL del file audio. | Obbligatorio se si utilizza l'elemento audio nel documento SSML. |
 
 **Esempio**
 

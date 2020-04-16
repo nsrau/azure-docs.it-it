@@ -740,6 +740,8 @@
           href: insights/containers.md
     - name: Monitorare altre risorse
       items:
+        - name: Key Vault
+          href: insights/key-vault-insights-overview.md
         - name: Archiviazione
           items:
             - name: Monitoraggio di Azure per Archiviazione
@@ -1079,7 +1081,7 @@
               href: platform/itsmc-resync-servicenow.md
     - name: Automatizzare
       items:
-        - name: Scalabilità automatica
+        - name: Autoscale
           items:
             - name: Panoramica
               href: platform/autoscale-overview.md
