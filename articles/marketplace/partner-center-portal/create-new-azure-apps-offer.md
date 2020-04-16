@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 260193b3c71e29a32e0589f50864ffcca2e9a67c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6b7ca1f10744bf38137c57d94d796655946c31b3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262265"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390358"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -58,7 +58,7 @@ Rivedere la documentazione seguente relativa all'applicazione di Azure, che incl
 
     * [Modelli di guida introduttiva di AzureAzure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     * [Modelli di avvio rapido di Azure in GitHub](https://github.com/azure/azure-quickstart-templates)
-    * [Pubblicare una definizione di applicazione](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+    * [Pubblicare una definizione di applicazione](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Distribuire un'app del catalogo di servizi](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
 * Esercitazioni:
@@ -172,7 +172,7 @@ Dovrai definire i dettagli del marketplace (nome dell'offerta, descrizione, imma
 
 Il nome che inserisci qui verrà mostrato ai clienti come titolo della tua offerta. Questo campo viene prepopolato con il testo immesso per **l'alias dell'offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e l'utente può includere simboli di marchio o copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 Fornisci una breve descrizione dell'offerta (fino a 100 caratteri), che può essere utilizzata nei risultati di ricerca del marketplace.
 
@@ -312,7 +312,7 @@ Nella scheda **Elenco dei piani** vengono visualizzate le informazioni sull'elen
 
 Precompilato in base al tuo nome a cui hai assegnato il piano al momento della creazione.  Questo nome verrà visualizzato come titolo di questo "Piano software" visualizzato nel marketplace.  Può contenere fino a 100 caratteri.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 Fornire un breve riepilogo del piano software.  Può contenere fino a 100 caratteri.
 

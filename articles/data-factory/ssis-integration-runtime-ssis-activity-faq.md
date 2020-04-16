@@ -11,14 +11,16 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187470"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414679"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Risolvere i problemi di esecuzione del pacchetto nel runtime di integrazione SSISTroubleshoot package execution in the SSIS integration runtime
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Questo articolo include gli errori più comuni che possono essere rilevati durante l'esecuzione di pacchetti di SQL Server Integration Services (SSIS) nel runtime di integrazione SSIS. Descrive le potenziali cause e azioni per risolvere gli errori.
 
@@ -144,7 +146,7 @@ Assicurarsi che il runtime di integrazione Self-Hosted sia installato e avviato.
 
 Assicurarsi che il provider corrispondente utilizzato dai connettori OLE DB nel pacchetto sia installato correttamente nel computer runtime di integrazione self-hosted. Per ulteriori dettagli, vedere [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
-### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Messaggio di errore: "Errore dell'attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: Esecuzione del pacchetto non riuscita., Output: "OperationErrorMessages": "Errore: System.IO.FileLoadException: Impossibile caricare il file o l'assembly 'Microsoft.WindowsAzure.Storage, Version ...., Culture, neutro, PublicKeyToken 31bf3856ad364e35' o una delle relative dipendenze. La definizione del manifesto dell'assembly individuato non corrisponde al riferimento all'assembly." ..."
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Messaggio di errore: "Errore dell'attività di gestione temporanea: Errore: CodiceErrore: 2906, ErrorMessage: Esecuzione del pacchetto non riuscita., Output: "OperationErrorMessages": "Errore: System.IO.FileLoadException: Impossibile caricare il file o l'assembly 'Microsoft.WindowsAzure.Storage, Version ...., Culture ,neutral, PublicKeyToken '31bf3856ad364e35' o una delle relative dipendenze. La definizione del manifesto dell'assembly individuato non corrisponde al riferimento all'assembly." ..."
 
 Una causa potenziale è che il runtime di integrazione self-hosted non è installato o aggiornato correttamente. Suggerire di scaricare e reinstallare il runtime di integrazione Self-hosted più recente. Ulteriori dettagli sono disponibili in Creare e configurare un runtime di [integrazione self-hosted](create-self-hosted-integration-runtime.md#installation-best-practices)
 

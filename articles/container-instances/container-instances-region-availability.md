@@ -4,12 +4,12 @@ description: Disponibilità delle risorse di calcolo e memoria per il servizio I
 ms.topic: article
 ms.date: 02/19/2020
 ms.author: danlep
-ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c84ab7833f7c90d5d4b3c340c268fd9f75e20da9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247137"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399395"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilità di risorse per Istanze di Azure Container nelle aree di Azure
 
@@ -18,7 +18,7 @@ Questo articolo descrive in dettaglio la disponibilità di risorse di calcolo, m
 I valori presentati sono le risorse massime disponibili per distribuzione di un [gruppo di contenitori](container-instances-container-groups.md). I valori sono aggiornati al momento della pubblicazione. 
 
 > [!NOTE]
-> I gruppi di contenitori con questi limiti di risorse dipendono dell'area di distribuzione. Quando un'area ha un carico elevato, può verificarsi un errore durante la distribuzione delle istanze. Per mitigare tale errore di distribuzione, provare a distribuire le istanze con impostazioni di risorsa inferiori oppure provare a eseguire la distribuzione in un secondo momento.
+> I gruppi di contenitori con questi limiti di risorse dipendono dell'area di distribuzione. Quando un'area ha un carico elevato, può verificarsi un errore durante la distribuzione delle istanze. Per ridurre tale errore di distribuzione, provare a distribuire istanze con impostazioni delle risorse inferiori oppure provare la distribuzione in un secondo momento o in un'area diversa con le risorse disponibili.
 
 Per informazioni su quote e altri limiti nelle distribuzioni, vedere [Quote e limiti per Istanze di Azure Container](container-instances-quotas.md).
 
@@ -31,9 +31,9 @@ Le aree seguenti e le risorse massime sono disponibili per i gruppi di contenito
 | Brasile Meridionale, Canada Centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Nord Europa, Stati Uniti centro-meridionali, Sud-Est asiatico, India meridionale, Regno Unito sud, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 | Linux | 4 | 16 | 50 |
 | Australia orientale, Giappone orientale | Linux | 2 | 8 | 50 |
 | Stati Uniti centro-settentrionali | Linux | 2 | 3,5 | 50 |
-| Brasile Sud, Giappone Est, Europa Occidentale | WINDOWS | 4 | 16 | 20 |
-| Stati Uniti orientali, Stati Uniti occidentali | WINDOWS | 4 | 14 | 20 |
-| Australia Orientale, Canada Centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Nord Europa, Stati Uniti centro-meridionali, Sud-est asiatico, India meridionale, Regno Unito meridionale, Stati Uniti occidentali 2 | WINDOWS | 2 | 3,5 | 20 |
+| Brasile Sud, Giappone Est, Europa Occidentale | Windows | 4 | 16 | 20 |
+| Stati Uniti orientali, Stati Uniti occidentali | Windows | 4 | 14 | 20 |
+| Australia Orientale, Canada Centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Nord Europa, Stati Uniti centro-meridionali, Sud-est asiatico, India meridionale, Regno Unito meridionale, Stati Uniti occidentali 2 | Windows | 2 | 3,5 | 20 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilità - Distribuzioni di Windows Server 2019 LTSC, 1809 (anteprima)
 
@@ -41,8 +41,8 @@ Le aree seguenti e le risorse massime sono disponibili per i gruppi di contenito
 
 | Regioni | OS | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
-| Australia Orientale, Brasile Meridionale, Canada Centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Giappone orientale, Stati Uniti centro-settentrionali, Nord Europa, Stati Uniti centro-meridionali, Sud-Est asiatico, India meridionale, Regno Unito Sud, Europa occidentale | WINDOWS | 4 | 16 | 20 |
-| Stati Uniti Orientali 2, Stati Uniti Occidentali 2 | WINDOWS | 2 | 3,5 | 20 |
+| Australia Orientale, Brasile Meridionale, Canada Centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Giappone orientale, Stati Uniti centro-settentrionali, Nord Europa, Stati Uniti centro-meridionali, Sud-Est asiatico, India meridionale, Regno Unito Sud, Europa occidentale | Windows | 4 | 16 | 20 |
+| Stati Uniti Orientali 2, Stati Uniti Occidentali 2 | Windows | 2 | 3,5 | 20 |
 
 
 ## <a name="availability---virtual-network-deployment"></a>Disponibilità - Distribuzione della rete virtualeAvailability - Virtual network deployment

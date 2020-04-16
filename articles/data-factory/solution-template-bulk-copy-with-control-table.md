@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6d634d9a32ae1728e1122d863ddabd94f73ee27
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439970"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414837"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copia di massa da un database con una tabella di controllo
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Per copiare dati da un data warehouse in Oracle Server, Netezza, Teradata o SQL Server in Azure SQL Data Warehouse, è necessario caricare enormi quantità di dati da più tabelle. In genere, i dati devono essere partizionati in ogni tabella in modo che sia possibile caricare righe con più thread in parallelo da una singola tabella. In questo articolo viene descritto un modello da utilizzare in questi scenari.
 

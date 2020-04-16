@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4840b135587ae776cfb80258ce513a48a79efa43
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 7a6fc2bd5cb6f5c7ae5bef9e9741fae92518d885
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383344"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392383"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
@@ -89,7 +89,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-È possibile utilizzare lo script per creare l'asset di connessione perché quando si crea l'account `AzureServicePrincipal` di `AzureRunAsConnection` automazione, include automaticamente diversi moduli globali per impostazione predefinita insieme al tipo di connessione per creare l'asset di connessione. È un fattore importante da tenere presente, poiché se si tenta di creare un nuovo asset di connessione a un servizio o a un'applicazione con un metodo di autenticazione diverso, la creazione avrà esito negativo in quanto il tipo di connessione non è già definito nell'account di Automazione. Per ulteriori informazioni su come creare un tipo di connessione personalizzato per il modulo o personalizzato da [PowerShell Gallery](https://www.powershellgallery.com), vedere Moduli di [integrazione](automation-integration-modules.md)
+È possibile utilizzare lo script per creare l'asset di connessione perché quando si crea l'account `AzureServicePrincipal` di `AzureRunAsConnection` automazione, include automaticamente diversi moduli globali per impostazione predefinita insieme al tipo di connessione per creare l'asset di connessione. È un fattore importante da tenere presente, poiché se si tenta di creare un nuovo asset di connessione a un servizio o a un'applicazione con un metodo di autenticazione diverso, la creazione avrà esito negativo in quanto il tipo di connessione non è già definito nell'account di Automazione. Per ulteriori informazioni su come creare un tipo di connessione personalizzato per il modulo o personalizzato da [PowerShell Gallery](https://www.powershellgallery.com), vedere Moduli di [integrazione](automation-integration-modules.md).
 
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Uso di una connessione in un Runbook o in una configurazione DSC
 
@@ -113,7 +113,7 @@ Per aggiungere `Get-AutomationConnection` un'attività a un runbook grafico, far
 
 ![Aggiunta all'area di disegno](media/automation-connections/connection-add-canvas.png)
 
-La figura seguente mostra un esempio dell'uso di una connessione in un Runbook grafico. Si tratta dello stesso esempio mostrato in precedenza per l'autenticazione usando l'account RunAs con un Runbook testuale. In questo `Constant value` esempio viene `Get RunAs Connection` utilizzato il set di dati per l'attività che utilizza un oggetto connessione per l'autenticazione. Un [collegamento alla pipeline](automation-graphical-authoring-intro.md#links-and-workflow) `ServicePrincipalCertificate` viene utilizzato in questo caso poiché il set di parametri prevede un singolo oggetto.
+La figura seguente mostra un esempio dell'uso di una connessione in un Runbook grafico. Questo è lo stesso esempio illustrato in precedenza per l'autenticazione tramite l'account RunAs con un runbook testuale. In questo `Constant value` esempio viene `Get RunAs Connection` utilizzato il set di dati per l'attività che utilizza un oggetto connessione per l'autenticazione. Un [collegamento alla pipeline](automation-graphical-authoring-intro.md#links-and-workflow) `ServicePrincipalCertificate` viene utilizzato in questo caso poiché il set di parametri prevede un singolo oggetto.
 
 ![Recupero delle connessioni](media/automation-connections/automation-get-connection-object.png)
 

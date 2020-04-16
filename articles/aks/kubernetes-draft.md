@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: 820af2d8ddf03997eea559fbc5270e84f30a805a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 2d69676121fcb26f7d2f796e6de42435447084cd
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632885"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392742"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Guida introduttiva: Sviluppare il servizio Azure Kubernetes (AKS) con Draft
 
@@ -22,7 +22,7 @@ In questo articolo viene illustrato come utilizzare Draft per creare un pacchett
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
+* Una sottoscrizione di Azure. Se non si dispone di una sottoscrizione di Azure, è possibile creare un [account gratuito.](https://azure.microsoft.com/free)
 * [L'interfaccia della riga di comando di Azure installata](/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Docker installato e configurato. Docker offre pacchetti che consentono di configurare Docker in un sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 * [Helm v2 installato][helm-install].
@@ -102,7 +102,7 @@ Se si usa Azure Cloud Shell, `kubectl` è già installato. È anche possibile in
 az aks install-cli
 ```
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][]. L'esempio seguente ottiene le credenziali per il cluster AKS denominato *MyAKS* nel *MyResourceGroup*:
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az servizio Azure Kubernetes get-credentials][]. L'esempio seguente ottiene le credenziali per il cluster AKS denominato *MyAKS* nel *MyResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
@@ -306,7 +306,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete].
+> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete]. Se è stata utilizzata un'identità gestita, l'identità viene gestita dalla piattaforma e non richiede la rimozione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

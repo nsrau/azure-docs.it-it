@@ -9,16 +9,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f04955fb910a6159dc09ac40a87a398e67d59d6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260813"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414123"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapping dello schema nell'attività di copia
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo descrive come l'attività di copia di Azure Data Factory esegue il mapping dello schema e del tipo di dati dai dati di origine ai dati sink durante l'esecuzione della copia dei dati.
 
@@ -278,11 +279,7 @@ L'attività di copia esegue il mapping dei tipi di origine ai tipi sink con il m
 1. Conversione dai tipi di origine nativi ai tipi di dati provvisori di Azure Data Factory
 2. Conversione dai tipi di dati provvisori di Azure Data Factory al tipo di sink nativo
 
-È possibile trovare il mapping dal tipo nativo al tipo provvisorio nella sezione "Mapping dei tipi di dati" di ogni argomento sui connettori.
-
-### <a name="supported-data-types"></a>Tipi di dati supportati
-
-Data Factory supporta i seguenti tipi di dati intermedi: è possibile specificare i valori seguenti durante la configurazione delle informazioni sul tipo nella configurazione della struttura del set di dati:Data Factory supports the following interim data types: You can specify below values when configuring type information in [dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) configuration:
+L'attività di copia supporta i seguenti tipi di dati provvisori: 
 
 * Byte[]
 * Boolean

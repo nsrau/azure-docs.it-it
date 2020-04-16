@@ -3,12 +3,12 @@ title: Modificare le impostazioni del cluster di Azure Service FabricChange Azur
 description: Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 3eb558c7d0745ada43696fd4189a7ac663867849
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c2e280af814a3e10ad84c5ba07fc376868fcd851
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80753992"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416253"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -644,7 +644,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |RunAsAccountType|stringa, il valore predefinito è "" |Dinamico|Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|stringa, il valore predefinito è "" |Dinamico|Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 | **Parametro** | **Valori consentiti** |**Criteri di aggiornamento**| **Linee guida o breve descrizione** |
 | --- | --- | --- | --- |
 |AADCertEndpointFormat|stringa, il valore predefinito è ""|Statico|Formato endpoint del certificato AAD, versione commerciale di Azure predefinita,\/specificata{0}per l'ambiente non predefinito, ad esempio Azure per enti pubblici "https: /login.microsoftonline.us/ /federationmetadata/2007-06/federationmetadata.xml"AAD Cert Endpoint Format, default Azure Commercial, specified for non-default environment such as Azure Government "https: /login.microsoftonline.us/ /federationmetadata/2007-06/federationmetadata.xml" |

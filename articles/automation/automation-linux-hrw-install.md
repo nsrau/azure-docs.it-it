@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9dc4dce5a7af49529924881321b1a5080293a585
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278766"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405619"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -30,9 +30,27 @@ La funzionalità ruolo di lavoro ibrido per runbook supporta le distribuzioni se
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS e 18.04 (x86/x64)
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
+## <a name="supported-runbook-types"></a>Tipi di runbook supportati
+
+I ruoli di lavoro ibridi per runbook di Linux non supportano il set completo di tipi di runbook in Automazione di Azure.
+
+I tipi di runbook seguenti possono essere usati in un ruolo di lavoro ibrido di Linux:
+
+* Python 2
+* PowerShell
+
+  > [!NOTE]
+  > I runbook di PowerShell richiedono che PowerShell Core sia installato nel computer Linux. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.
+
+I tipi di runbook seguenti non possono essere usati in un ruolo di lavoro ibrido di Linux:
+
+* Flusso di lavoro PowerShell
+* Grafico
+* Grafico del flusso di lavoro di PowerShell
+
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>Installazione di un ruolo di lavoro ibrido per runbook di Linux
 
-La procedura per installare e configurare manualmente un ruolo di lavoro ibrido per runbook in un computer Linux è semplice. È necessario abilitare la soluzione **Ruolo di lavoro ibrido per runbook di Automazione** nell'area di lavoro Log Analytics di Azure e quindi eseguire un set di comandi per registrare il computer come ruolo di lavoro e aggiungerlo a un gruppo.
+Per installare e configurare un ruolo di lavoro ibrido per runbook nel computer Linux, seguire un processo manuale semplice. È necessario abilitare la soluzione Ruolo di lavoro ibrido per runbook di Automazione nell'area di lavoro Log Analytics di Azure e quindi eseguire un set di comandi per registrare il computer come ruolo di lavoro e aggiungerlo a un gruppo.
 
 I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seguenti:
 
@@ -56,9 +74,9 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seg
 
 Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è collegato l'account di Automazione. Prendere anche nota della chiave primaria per l'account di Automazione. È possibile trovare entrambi nel portale di Azure, selezionando l'account di Automazione, **Area di lavoro** per l'ID dell'area di lavoro e selezionando **Chiavi** per la chiave primaria. Per informazioni sulle porte e sugli indirizzi necessari per il ruolo di lavoro ibrido per runbook, vedere [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
 
-1. Abilitare la soluzione **Ruolo di lavoro ibrido per runbook di Automazione** in Azure usando uno dei metodi seguenti:
+1. Abilitare la soluzione Ruolo di lavoro ibrido per runbook di Automazione in Azure usando uno dei metodi seguenti:
 
-   * Aggiungere la soluzione **Automation Hybrid Worker** alla sottoscrizione usando la procedura descritta in Add Azure Monitor logs solutions to your [workspace](../log-analytics/log-analytics-add-solutions.md).
+   * Aggiungere la soluzione Automation Hybrid Worker alla sottoscrizione usando la procedura descritta in [Add Azure Monitor logs solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
    * Eseguire il cmdlet seguente:
 
         ```azurepowershell-interactive
@@ -79,36 +97,18 @@ Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è col
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
    ```
 
-1. Dopo il completamento del comando, nella pagina **Gruppi di ruoli di lavoro ibridi** nel portale di Azure vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo nell'elenco della pagina **Gruppi di ruoli di lavoro ibridi** e selezionare il riquadro **Ruoli di lavoro per runbook**. Nella pagina **Ruoli di lavoro per runbook** sono elencati i membri del gruppo.
+1. Dopo il completamento del comando, nella pagina Gruppi di ruoli di lavoro ibridi nel portale di Azure vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo nell'elenco della pagina Gruppi di ruoli di lavoro ibridi e selezionare il riquadro **Ruoli di lavoro per runbook**. Nella pagina Ruoli di lavoro per runbook sono elencati i membri del gruppo.
 
 > [!NOTE]
-> Se si usa l'estensione della macchina virtuale di Monitoraggio `autoUpgradeMinorVersion` di Azure per Linux per una macchina virtuale di Azure, è consigliabile impostare su false poiché l'aggiornamento automatico delle versioni può causare problemi al ruolo di lavoro ibrido per runbook. Per informazioni su come aggiornare l'estensione manualmente, vedere [Distribuzione dell'interfaccia della riga di comando ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)di Azure.To learn how to upgrade the extension manually, see Azure CLI deployment .
+> Se si usa l'estensione della macchina virtuale di Monitoraggio `autoUpgradeMinorVersion` di Azure per Linux per una macchina virtuale di Azure, è consigliabile impostare su false poiché le versioni di aggiornamento automatico possono causare problemi al ruolo di lavoro ibrido per runbook. Per informazioni su come aggiornare l'estensione manualmente, vedere [Distribuzione dell'interfaccia della riga di comando](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)di Azure.To learn how to upgrade the extension manually, see Azure CLI deployment .
 
 ## <a name="turning-off-signature-validation"></a>Disattivazione della convalida della firma
 
-Per impostazione predefinita, i ruoli di lavoro ibridi per runbook di Linux richiedono la convalida della firma. Se si esegue un runbook non firmato su un ruolo di lavoro, viene visualizzato un errore che indica "Convalida firma non riuscita". Per disattivare la convalida della firma, eseguire il comando seguente. Sostituire il secondo parametro con l'ID dell'area di lavoro di log analytics.
+Per impostazione predefinita, i ruoli di lavoro ibridi per runbook di Linux richiedono la convalida della firma. Se si esegue un runbook non firmato `Signature validation failed` su un worker, viene visualizzato un errore. Per disattivare la convalida della firma, eseguire il comando seguente. Sostituire il secondo parametro con l'ID dell'area di lavoro Log Analytics.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
  ```
-
-## <a name="supported-runbook-types"></a>Tipi di runbook supportati
-
-I ruoli di lavoro ibridi per runbook di Linux non supportano il set completo di tipi di runbook in Automazione di Azure.
-
-I tipi di runbook seguenti possono essere usati in un ruolo di lavoro ibrido di Linux:
-
-* Python 2
-* PowerShell
-
-  > [!NOTE]
-  > I runbook di PowerShell richiedono che PowerShell Core sia installato nel computer Linux. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.
-
-I tipi di runbook seguenti non possono essere usati in un ruolo di lavoro ibrido di Linux:
-
-* Flusso di lavoro PowerShell
-* Grafico
-* Grafico del flusso di lavoro di PowerShell
 
 ## <a name="next-steps"></a>Passaggi successivi
 

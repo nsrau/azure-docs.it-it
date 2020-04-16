@@ -1,38 +1,36 @@
 ---
 title: Azure Security Control - Penetration Tests and Red Team Exercises
-description: Test di penetrazione del controllo di sicurezza ed esercizi del team rosso
+description: Azure Security Control Penetration Tests and Red Team Exercises
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/14/2020
 ms.author: mbaldwin
-ms.custom: security-recommendations
-ms.openlocfilehash: 952103d517e03230cdfa4e7531e27bb2d5f53a07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: security-benchmark
+ms.openlocfilehash: fe9c672e53ea0f46328320daf75f65fd77f5db29
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934315"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408287"
 ---
 # <a name="security-control-penetration-tests-and-red-team-exercises"></a>Controllo di sicurezza: test di penetrazione ed esercizi di squadra rosso
 
 Testare la forza complessiva della difesa di un'organizzazione (la tecnologia, i processi e le persone) simulando gli obiettivi e le azioni di un utente malintenzionato.
 
-## <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza entro 60 giorni
+## <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
 | ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
-| 11.1 | 20.1-20.8 | Condiviso |
+| 11.1 | 20.1, 20.2, 20.3, 20.4, 20.5, 20.6, 20.7, 20.8 | Condiviso |
 
-Seguire le regole di coinvolgimento Microsoft per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft:
+Seguire le regole di coinvolgimento Microsoft per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft di Red Teaming e test di penetrazione dei siti in tempo reale con infrastruttura, servizi e applicazioni gestiti da Microsoft.
 
-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+- [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-Ulteriori informazioni sulla strategia di Microsoft e sull'esecuzione di Red Teaming e sui test di penetrazione dei siti in tempo reale sull'infrastruttura cloud, i servizi e le applicazioni gestiti da Microsoft sono disponibili qui:
+- [Teaming rosso di Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sui controlli di sicurezza di [AzureRead](overview.md) more about Azure Security Controls
+- Tornare alla panoramica del benchmark di [sicurezza di AzureReturn](overview.md) to the Azure Security Benchmark overview

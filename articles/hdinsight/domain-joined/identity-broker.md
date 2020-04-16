@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: f14cbef2ab568962601b3a407fa979e8f982598d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 508eac08284f91821223a78cafdfee7b4c9c540b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75483011"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410871"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Usare ID Broker (anteprima) per la gestione delle credenzialiUse ID Broker (preview) for credential management
 
@@ -38,7 +38,7 @@ ID Broker consente di accedere ai cluster ESP utilizzando Multi-Factor Authentic
 
 Per creare un cluster ESP con ID Broker abilitato, attenersi alla seguente procedura:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Seguire i passaggi di creazione di base per un cluster ESP. Per ulteriori informazioni, vedere [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Selezionare **Abilita HDInsight ID Broker**.
 
@@ -55,6 +55,14 @@ Il plug-in IntelliJ HDInsight è stato aggiornato per supportare OAuth.The HDIns
 Dopo aver abilitato ID Broker, sarà comunque necessario un hash della password archiviato in Azure AD DS per scenari SSH con account di dominio. Per SSH a una macchina virtuale aggiunta `kinit` a un dominio o per eseguire il comando, è necessario fornire una password. 
 
 SSH authentication requires the hash to be available in Azure AD DS. Se si desidera utilizzare SSH solo per scenari amministrativi, è possibile creare un account solo cloud e utilizzarlo per SSH nel cluster. Altri utenti possono comunque usare gli strumenti Ambari o HDInsight (ad esempio il plug-in IntelliJ) senza avere l'hash della password disponibile in Servizi di dominio Active Directory di Azure.Other users can still use Ambari or HDInsight tools (such as the IntelliJ plug-in) without have the password hash available in Azure AD DS.
+
+## <a name="clinets-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clinets che usano OAuth per connettersi al gateway HDInsight con la configurazione di ID Broker
+
+Nella configurazione del broker ID, le app personalizzate e i client che si connettono al gateway possono essere aggiornati per acquisire prima il token OAuth richiesto. È possibile seguire i passaggi in questo [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) per acquisire il token con le seguenti informazioni:
+
+*   URI delle risorse OAuth:https://hib.azurehdinsight.net 
+* AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
+*   Autorizzazione: (nome: Cluster.ReadWrite, id:8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

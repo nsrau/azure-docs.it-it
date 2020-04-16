@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: 127db8a484b9624586dea70c44af3bc84b3fc84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 100f95c20743f70bb4a9f2ac7e74853eab80f3e9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73673779"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414476"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Questo articolo fornisce informazioni sui trigger di pianificazione e sulla procedura per creare, avviare e monitorare un trigger di pianificazione. Per altri tipi di trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
 
 Quando si crea un trigger di pianificazione, si specifica una pianificazione (data di inizio, ricorrenza, data di fine e così via) per il trigger e si associa a una pipeline. Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono attivare una singola pipeline. Un singolo trigger può attivare più pipeline.
@@ -401,4 +403,4 @@ Gli esempi presumono che il valore **interval** sia 1 e che il valore **frequenc
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni dettagliate sui trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#triggers).
+Per informazioni dettagliate sui trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#trigger-execution).

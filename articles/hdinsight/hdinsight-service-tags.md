@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/10/2020
-ms.openlocfilehash: 34ec05a8362f5947cb61924b19c6b1a52e5d91a4
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437682"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410861"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Tag del servizio NSG per Azure HDInsight
 
-I tag del servizio Azure HDInsight per i gruppi di sicurezza di rete (NSG) sono gruppi di indirizzi IP per i servizi di integrità e gestione. Questi gruppi consentono di ridurre al minimo la complessità per la creazione di regole di sicurezza. [I tag di](../virtual-network/security-overview.md#service-tags) servizio forniscono un metodo alternativo per consentire il traffico in ingresso da indirizzi IP specifici senza immettere ognuno degli [indirizzi IP](hdinsight-management-ip-addresses.md) di gestione nei gruppi di sicurezza di rete.
+I tag del servizio Azure HDInsight per i gruppi di sicurezza di rete (NSG) sono gruppi di indirizzi IP per i servizi di integrità e gestione. Questi gruppi consentono di ridurre al minimo la complessità per la creazione di regole di sicurezza. [I tag di](../virtual-network/security-overview.md#service-tags) servizio consentono il traffico in ingresso da indirizzi IP specifici senza immettere ognuno degli [indirizzi IP](hdinsight-management-ip-addresses.md) di gestione nei gruppi di sicurezza di rete.
 
 Il servizio HDInsight gestisce questi tag del servizio. Non è possibile creare un tag di servizio personalizzato o modificare un tag esistente. Microsoft gestisce i prefissi degli indirizzi che corrispondono al tag del servizio e aggiorna automaticamente il tag del servizio quando gli indirizzi cambiano.
 
@@ -46,13 +46,13 @@ Questo tag contiene gli indirizzi IP dei servizi di integrità e gestione per tu
 
 ## <a name="use-regional-hdinsight-service-tags"></a>Usare i tag del servizio HDInsight regionaliUse regional HDInsight service tags
 
-Se l'opzione dei tag globali non funziona perché sono necessarie autorizzazioni più restrittive, è possibile consentire solo i tag di servizio applicabili alla propria area geografica. Possono essere presenti uno, due o tre tag di servizio applicabili, a seconda dell'area in cui viene creato il cluster.
+Se l'opzione dei tag globali non funziona perché sono necessarie autorizzazioni più restrittive, è possibile consentire solo i tag di servizio applicabili per la propria area geografica. A seconda dell'area in cui è stato creato il cluster, possono essere presenti più tag di servizio.
 
 Per scoprire quali tag di servizio aggiungere per la propria regione, leggere le sezioni seguenti dell'articolo.
 
 ### <a name="use-a-single-regional-service-tag"></a>Utilizzare un singolo tag di servizio regionaleUse a single regional service tag
 
-Se si preferisce utilizzare i tag del servizio regionale e il cluster si trova in una delle aree elencate in questa tabella, è sufficiente aggiungere un singolo tag del servizio regionale al gruppo di sicurezza di rete.
+Se il cluster si trova in un'area elencata in questa tabella, è sufficiente aggiungere un singolo tag del servizio regionale al gruppo di sicurezza di rete.
 
 | Country | Region | Tag di servizio |
 | ---- | ---- | ---- |
@@ -80,13 +80,13 @@ Se si preferisce utilizzare i tag del servizio regionale e il cluster si trova i
 
 ### <a name="use-multiple-regional-service-tags"></a>Usare più tag di servizio regionaleUse multiple regional service tags
 
-Se si preferisce utilizzare i tag del servizio regionale ma l'area in cui viene creato il cluster non è stata elencata nella tabella precedente, è necessario consentire più tag di servizio regionali. La necessità di utilizzarne più di uno è dovuta alle differenze nella disposizione dei fornitori di risorse per le varie aree.
+Se l'area in cui è stato creato il cluster non è elencata nella tabella precedente, è necessario consentire più tag del servizio regionale. La necessità di utilizzarne più di uno è a causa delle differenze nella disposizione dei fornitori di risorse per le varie aree.
 
 Le restanti aree sono suddivise in gruppi in base ai tag del servizio regionale che utilizzano.
 
 #### <a name="group-1"></a>Gruppo 1
 
-Se il cluster viene creato in una delle aree `HDInsight.WestUS` nella `HDInsight.EastUS` tabella seguente, consentire i tag del servizio e, oltre al tag del servizio regionale, elencato. Le aree in questa sezione richiedono tre tag di servizio.
+Se il cluster viene creato in una delle aree `HDInsight.WestUS` della `HDInsight.EastUS`tabella seguente, consentire i tag del servizio e . Inoltre, il tag del servizio regionale elencato. Le aree in questa sezione richiedono tre tag di servizio.
 
 Ad esempio, se il cluster `East US 2` viene creato nell'area, è necessario aggiungere i tag di servizio seguenti al gruppo di sicurezza di rete:For example, if your cluster is created in the region, you'll need to add the following service tags to your network security group:
 

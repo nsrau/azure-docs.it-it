@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: makromer
-ms.openlocfilehash: 3fe3403ad06d82ba5ccd33d2718bf0e5eff64490
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73166538"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414365"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Gestire le righe di errore di troncamento SQL nei flussi di dati di mapping di Data FactoryHandle SQL truncation error rows in Data Factory mapping data flows
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Uno scenario comune in Data Factory quando si usano i flussi di dati di mapping consiste nello scrivere i dati trasformati in un database SQL di Azure.A common scenario in Data Factory when using mapping data flows, is to write your transformed data to an Azure SQL database. In questo scenario, una condizione di errore comune che è necessario impedire è possibile troncamento della colonna. Seguire questi passaggi per fornire la registrazione delle colonne che non rientrano in una colonna di stringa di destinazione, consentendo al flusso di dati di continuare in tali scenari.
 

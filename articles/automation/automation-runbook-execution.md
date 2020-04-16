@@ -3,14 +3,14 @@ title: Esecuzione di runbook in Automazione di Azure
 description: Descrive i dettagli dell'elaborazione di un runbook in Automazione di Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/04/2019
+ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: de01a7a76a5d225770c273c67f864c83226ecd07
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a7dd9de1f2ae41b20d94cf31de48e92fbb71ca6a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261313"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405632"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -22,7 +22,7 @@ L'avvio di un runbook in Automazione di Azure crea un processo, ovvero una singo
 
 Automazione di Azure assegna a un worker l'esecuzione di ogni processo durante l'esecuzione del runbook. I computer di lavoro sono condivisi da molti account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non è possibile controllare quali servizi di lavoro le richieste di lavoro.
 
-Quando si visualizza l'elenco dei runbook nel portale di Azure, viene visualizzato lo stato di ogni processo avviato per ogni runbook. Automazione di Azure archivia i log dei processi per un massimo di 30 giorni. 
+Quando si visualizza l'elenco dei runbook nel portale di Azure, viene visualizzato lo stato di ogni processo avviato per ogni runbook. Automazione di Azure archivia i log dei processi per un massimo di 30 giorni.
 
 Nel diagramma seguente viene illustrato il ciclo di vita di un processo di runbook per [i runbook](automation-runbook-types.md#powershell-runbooks)di PowerShell , i [runbook del flusso di lavoro](automation-runbook-types.md#powershell-workflow-runbooks)di PowerShell e i [runbook grafici.](automation-runbook-types.md#graphical-runbooks)
 
@@ -35,7 +35,7 @@ Nel diagramma seguente viene illustrato il ciclo di vita di un processo di runbo
 
 ## <a name="where-to-run-your-runbooks"></a>Posizione di esecuzione dei runbook
 
-I runbook in Automazione di Azure possono essere eseguiti in una sandbox di Azure o in un ruolo di lavoro ibrido per [runbook.](automation-hybrid-runbook-worker.md) È possibile eseguire facilmente la maggior parte dei runbook in una sandbox di Azure, ovvero un ambiente condiviso che può usare più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox.
+I runbook in Automazione di Azure possono essere eseguiti in una sandbox di Azure o in un ruolo di lavoro ibrido per [runbook.](automation-hybrid-runbook-worker.md) Quando i runbook sono progettati per autenticare ed eseguire sulle risorse in Azure, vengono eseguiti in una sandbox di Azure, ovvero un ambiente condiviso che possono usare più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox.
 
 >[!NOTE]
 >L'ambiente sandbox di Azure non supporta le operazioni interattive. Richiede inoltre l'utilizzo di file MOF locali per i runbook che effettuano chiamate Win32.
@@ -44,21 +44,21 @@ I runbook in Automazione di Azure possono essere eseguiti in una sandbox di Azur
 
 Nella tabella seguente sono elencate alcune attività di esecuzione del runbook con l'ambiente di esecuzione consigliato elencato per ognuna di esse.
 
-|Attività|Scelta migliore|Note|
+|Attività|Recommendation|Note|
 |---|---|---|
 |Integrazione con le risorse di Azure|Sandbox di Azure|Ospitato in Azure, l'autenticazione è più semplice. Se si usa un ruolo di lavoro ibrido per runbook in una macchina virtuale di Azure, è possibile usare le identità gestite per le risorse di Azure.If you're using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources.](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Ottenere prestazioni ottimali per gestire le risorse di AzureObtain optimal performance to manage Azure resources|Sandbox di Azure|Lo script viene eseguito nello stesso ambiente, con una latenza inferiore.|
 |Ridurre al minimo i costi operativi|Sandbox di Azure|Non è presente alcun sovraccarico di calcolo e non è necessario una macchina virtuale.|
-|Esegui script a esecuzione prolungata|ruolo di lavoro ibrido per runbook|I Sandbox di Azure hanno [limitazioni sulle risorse.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
-|Interagire con i servizi locali|ruolo di lavoro ibrido per runbook|Può avere accesso diretto alla macchina host.|
+|Esegui script a esecuzione prolungata|ruolo di lavoro ibrido per runbook|I Sandbox di Azure hanno [limiti di risorse.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
+|Interagire con i servizi locali|ruolo di lavoro ibrido per runbook|Può accedere direttamente al computer host o alle risorse in altri ambienti cloud o nell'ambiente locale. |
 |Richiedere software ed eseguibili di terze parti|ruolo di lavoro ibrido per runbook|È possibile gestire il sistema operativo e installare il software.|
 |Monitorare un file o una cartella con un runbook|ruolo di lavoro ibrido per runbook|Usare [un'attività Watcher](automation-watchers-tutorial.md) in un ruolo di lavoro ibrido per runbook.|
-|Eseguire uno script a elevato utilizzo di risorseRun a resource-intensive script|ruolo di lavoro ibrido per runbook| I Sandbox di Azure hanno [limitazioni sulle risorse.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
-|Utilizzare i moduli con requisiti specifici| ruolo di lavoro ibrido per runbook|Ad esempio:</br> WinSCP - dipendenza da winscp.exe </br> IISAdministration - dipendenza dall'abilitazione di IIS.|
+|Eseguire uno script a elevato utilizzo di risorseRun a resource-intensive script|ruolo di lavoro ibrido per runbook| I Sandbox di Azure hanno [limiti di risorse.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
+|Utilizzare i moduli con requisiti specifici| ruolo di lavoro ibrido per runbook|Ad esempio:</br> WinSCP - dipendenza da winscp.exe </br> Amministrazione IIS - dipendenza dall'abilitazione o dalla gestione di IIS.|
 |Installare un modulo con un programma di installazione|ruolo di lavoro ibrido per runbook|I moduli per sandbox devono supportare la copia.|
-|Usare runbook o moduli che richiedono una versione di .NET Framework diversa dalla versione 4.7.2Use runbooks or modules that require .NET Framework version different from 4.7.2|ruolo di lavoro ibrido per runbook|Sandbox di automazione hanno .NET Framework 4.7.2 e non c'è modo di aggiornare la versione.|
+|Usare runbook o moduli che richiedono una versione di .NET Framework diversa dalla versione 4.7.2Use runbooks or modules that require .NET Framework version different from 4.7.2|ruolo di lavoro ibrido per runbook|Le sandbox di automazione supportano .NET Framework 4.7.2 e l'aggiornamento a una versione diversa non è supportato.|
 |Eseguire script che richiedono l'elevazione dei privilegiRun scripts that require elevation|ruolo di lavoro ibrido per runbook|Le sandbox non consentono l'elevazione. Con un ruolo di lavoro ibrido per runbook, è possibile disattivare il controllo dell'account utente e usare [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) quando si esegue il comando che richiede l'elevazione dei privilegi.|
-|Eseguire script che richiedono l'accesso a Strumentazione gestione Windows (WMI)|ruolo di lavoro ibrido per runbook|I processi in esecuzione in sandbox nel cloud non possono accedere a WMI. |
+|Eseguire script che richiedono l'accesso a Strumentazione gestione Windows (WMI)|ruolo di lavoro ibrido per runbook|I processi in esecuzione in sandbox nel cloud non possono accedere al provider WMI. |
 
 ## <a name="runbook-behavior"></a>Comportamento dei runbook
 
@@ -75,7 +75,7 @@ $vmExists = Get-AzResource -Name $vmName -ResourceGroupName $resourceGroupName
 if(!$vmExists)
     {
     Write-Output "VM $vmName does not exist, creating"
-    New-AzureRMVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
+    New-AzVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
     }
 else
     {
@@ -278,7 +278,7 @@ Per visualizzare i processi per un runbook, seguire questa procedura.
 
 ### <a name="retrieving-job-status-using-powershell"></a>Recupero dello stato del processo tramite PowerShellRetrieving job status using PowerShell
 
-Utilizzare `Get-AzAutomationJob` il cmdlet per recuperare i processi creati per un runbook e i dettagli di un determinato processo. Se si avvia un runbook `Start-AzAutomationRunbook`con PowerShell usando PowerShell, viene restituito il processo risultante. Utilizzare [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) per recuperare l'output del processo.
+Utilizzare il cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) per recuperare i processi creati per un runbook e i dettagli di un determinato processo. Se si avvia un runbook `Start-AzAutomationRunbook`con PowerShell usando PowerShell, viene restituito il processo risultante. Utilizzare [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) per recuperare l'output del processo.
 
 Nell'esempio seguente viene ottenuto l'ultimo processo per un runbook di esempio e ne vengono visualizzati lo stato, i valori forniti per i parametri del runbook e l'output del processo.
 
@@ -356,3 +356,5 @@ L'utilizzo di runbook figlio riduce la quantità totale di tempo per il completa
 * Per informazioni su come usare un runbook, vedere [Gestire i runbook in Automazione di Azure.To](manage-runbooks.md)find out how to work with a runbook, see Manage runbooks in Azure Automation.
 * Per altre informazioni sui metodi che possono essere usati per avviare un runbook in Automazione di Azure, vedere [Avvio di un runbook in Automazione di Azure.To](automation-starting-a-runbook.md)learn more about the methods that can be used to start a runbook in Azure Automation, see Starting a runbook in Azure Automation.
 * Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la documentazione di [PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

@@ -7,18 +7,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265064"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393454"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concetti di Griglia di eventi di Azure
 
 Questo articolo illustra i concetti principali di Griglia di eventi di Azure.
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 
 Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema. Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco. Ogni evento ha anche informazioni specifiche rilevanti solo per il tipo di evento specifico. Un evento di creazione di un nuovo file in Archiviazione di Azure, ad esempio, contiene i dettagli sul file, quale il valore `lastTimeModified`. In alternativa, un evento di Hub eventi include l'URL del file di acquisizione. 
 
@@ -35,7 +35,7 @@ Un editore è un utente o un'organizzazione che decide di inviare eventi a Grigl
 
 Un'origine evento è la posizione in cui si verifica l'evento. Ogni origine evento è correlata a uno o più tipi di evento. Archiviazione di Azure è ad esempio l'origine degli eventi di creazione di BLOB. Hub IoT è l'origine evento per gli eventi creati da dispositivo. L'applicazione è l'origine evento per gli eventi personalizzati definiti dall'utente. Le origini evento sono responsabili dell'invio degli eventi in Griglia di eventi.
 
-Per informazioni sull'implementazione di una delle origini di Griglia di eventi supportate, vedere [Event sources in Azure Event Grid](event-sources.md) (Origini eventi in Griglia di eventi di Azure).
+Per informazioni sull'implementazione di una delle origini di Griglia di eventi supportate, vedere [Event sources in Azure Event Grid](overview.md#event-sources) (Origini eventi in Griglia di eventi di Azure).
 
 ## <a name="topics"></a>Argomenti
 
@@ -70,7 +70,7 @@ Dal punto di vista di Griglia di eventi, un gestore eventi è la posizione in cu
 
 Per informazioni sull'implementazione di una delle origini di Griglia di eventi supportate, vedere [Event handlers in Azure Event Grid](event-handlers.md) (Gestori di eventi in Griglia di eventi di Azure).
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 Griglia di eventi fornisce la sicurezza per la sottoscrizione e la pubblicazione degli argomenti. Quando si esegue la sottoscrizione, è necessario possedere le autorizzazioni appropriate per la risorsa o l'argomento di Griglia di eventi. Quando si esegue la pubblicazione, è necessario avere un token di firma di accesso condiviso o l'autenticazione con chiave per l'argomento. Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
 

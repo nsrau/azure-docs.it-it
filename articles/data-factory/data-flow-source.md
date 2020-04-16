@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4f1369aa850a244128da470aee81b2efc2e09be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023515"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413200"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Trasformazione dell'origine nel mapping del flusso di datiSource transformation in mapping data flow 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Una trasformazione origine configura l'origine dati per il flusso di dati. Quando si progettano flussi di dati, il primo passaggio sarà sempre la configurazione di una trasformazione di origine. Per aggiungere un'origine, fare clic sulla casella **Aggiungi origine** nell'area di disegno del flusso di dati.
 

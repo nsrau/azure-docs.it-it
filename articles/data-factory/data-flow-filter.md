@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: 84b935d1646ea4f13d5926fc68797fd8efd03dea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3460c789909c6acd0537ef89a9ec8509bf6e135d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930363"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413739"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Trasformazione del filtro nel mapping del flusso di datiFilter transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Il filtro trasforma consente il filtraggio delle righe in base a una condizione. Il flusso di output include tutte le righe che corrispondono alla condizione di filtro. La trasformazione del filtro è simile a una clausola WHERE in SQL.
 

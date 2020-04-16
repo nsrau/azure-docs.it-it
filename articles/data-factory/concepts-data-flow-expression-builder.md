@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 196d917d31eb08af80587bba30d9f7e67bf8cbea
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c28305cc55fcc561863670a15480782ce63e75b4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991706"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415522"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Creare espressioni nel mapping del flusso di datiBuild expressions in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Nel mapping del flusso di dati, molte proprietà di trasformazione vengono immesse come espressioni. Queste espressioni sono costituite da valori di colonna, parametri, funzioni, operatori e valori letterali che restituiscono un tipo di dati Spark in fase di esecuzione.
 

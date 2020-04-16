@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a042897ecbe35935c1832a53f523eb0597ebafc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6fd8a0c3688e5056c7941d334da8caee9f21ba82
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654251"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407273"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticazione basata su certificati di Azure Active Directory in iOS
 
@@ -27,7 +27,7 @@ I dispositivi iOS possono usare l'autenticazione basata sui certificati per eseg
 
 La configurazione di questa funzionalità elimina la necessità di immettere una combinazione di nome utente e password in determinate applicazioni di posta e applicazioni Microsoft Office sul dispositivo mobile.
 
-Questo argomento indica i requisiti e gli scenari supportati per la configurazione dell'autenticazione basata su certificati su un dispositivo iOS (Android) per gli utenti dei tenant nei piani di Office 365 Enterprise, Business, Education, US Government, China e Germany.
+In questo argomento vengono forniti i requisiti e gli scenari supportati per la configurazione di CBA in un dispositivo iOS per gli utenti di tenant nei piani Office 365 Enterprise, Business, Education, US Government, Cina e Germania.
 
 Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Government Defense e Federal.
 

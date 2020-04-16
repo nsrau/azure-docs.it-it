@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6bd360b2075c337e3ed3d69d84368d16571a9335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcef0574e16e0b4d28755716c32670b00c65af14
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536055"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406096"
 ---
 # <a name="my-first-graphical-runbook"></a>Il primo runbook grafico
 
 > [!div class="op_single_selector"]
 > * [Grafico](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
@@ -100,7 +100,7 @@ Il runbook creato è ancora in modalità Bozza. È necessario pubblicarlo prima 
 1. Fare clic su **Tutti i log** per aprire il riquadro Flussi relativo al processo del runbook. Si dovrebbe `Hello World` vedere solo nel flusso di output. 
 
     Si noti che il riquadro Flussi può mostrare altri flussi per un processo del runbook, ad esempio flussi Verbose ed Error, se il runbook scrive in essi.
-1. Chiudere il riquadro Flussi e il riquadro Processo per tornare alla pagina **MyFirstRunbook-Graphical.**
+1. Chiudere il riquadro Flussi e il riquadro Processo per tornare alla pagina MyFirstRunbook-Graphical.
 1. Per visualizzare tutti i processi per il runbook, selezionare **Processi** in **Risorse**. Nella pagina Processi sono elencati tutti i processi creati dal runbook. Verrà visualizzato un solo processo nell'elenco, poiché il processo è stato eseguito una sola volta.
 1. Fare clic sul nome del processo per aprire lo stesso riquadro Processo visualizzato all'avvio del runbook. Utilizzare questo riquadro per visualizzare i dettagli di qualsiasi processo creato per il runbook.
 
@@ -126,7 +126,7 @@ Ora che si dispone di una variabile per contenere l'ID sottoscrizione, è possib
 >[!NOTE]
 >Per i runbook `Add-AzAccount` `Add-AzureRMAccount` di PowerShell `Connect-AzAccount`e sono alias per . Si noti che questi alias non sono disponibili per i runbook grafici. Un runbook grafico `Connect-AzAccount`può usare solo se stesso.
 
-1. Passare al runbook e selezionare **Modifica** nella pagina **MyFirstRunbook-Graphical.**
+1. Passare al runbook e selezionare **Modifica** nella pagina MyFirstRunbook-Graphical.
 1. Non hai più `Write Hello World to output` bisogno della voce. Basta fare clic sui solipsi e selezionare **Elimina**.
 1. Nel controllo Libreria espandere **ASSETS**, quindi **Connessioni**. Aggiungi `AzureRunAsConnection` all'area di disegno selezionando **Aggiungi all'area di disegno**.
 1. Rinominare `AzureRunAsConnection` con `Get Run As Connection`.
@@ -185,7 +185,7 @@ A questo punto `Start-AzVM` è necessario aggiungere un'attività per avviare un
 
 Il runbook avvia attualmente la macchina virtuale nel `Start-AzVM` gruppo di risorse specificato per il cmdlet. Il runbook sarà più utile se si specifica sia il nome che il gruppo di risorse all'avvio del runbook. Aggiungiamo parametri di input al runbook per fornire tale funzionalità.
 
-1. Aprire l'editor grafico facendo clic su **Modifica** nel riquadro **MyFirstRunbook-Graphical** (MyFirstRunbook-Grafico).
+1. Aprire l'editor grafico facendo clic su **Modifica** nella pagina MyFirstRunbook-Graphical.
 1. Selezionare **Input e output** e quindi **Aggiungi input** per aprire il riquadro Parametro di input del runbook.
 1. Effettuare le seguenti impostazioni nei campi specificati e quindi fare clic su **OK**.
    * **Nome** -- `VMName`specificare .
@@ -243,7 +243,7 @@ Il runbook avvia attualmente la macchina virtuale nel `Start-AzVM` gruppo di ris
 1. Per il `Write-Output` primo controllo, fare clic su **Parametri** e modificare il valore **etichetta** in **Notifica VM avviata**.
 1. Per **InputObject**, modificare **Origine dati** in Espressione di **PowerShell**e digitare l'espressione `$VMName successfully started.`.
 1. Nel secondo `Write-Output` controllo fare clic su **Parametri** e modificare il valore **dell'etichetta** in **Notifica avvio macchina virtuale non riuscito**.
-1. Per **InputObject**, modificare **Origine dati** in Espressione di **PowerShell**e digitare l'espressione `$VMName could not start.`.
+1. Per **InputObject**, modificare **Origine dati** in Espressione di **PowerShell**e digitare l'espressione `$VMName could not start`.
 1. Creare collegamenti `Start-AzVM` `Notify VM Started` da `Notify VM Start Failed`e .
 1. Selezionare il `Notify VM Started` collegamento a e modificare **Applica condizione** su true.
 1. Per **l'espressione** `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`Condizione digitare . Questo `Write-Output` controllo ora viene eseguito solo se la macchina virtuale viene avviata correttamente.
@@ -259,3 +259,5 @@ Il runbook avvia attualmente la macchina virtuale nel `Start-AzVM` gruppo di ris
 * Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure.To](automation-graphical-authoring-intro.md)learn more about graphical authoring, see Graphical authoring in Azure Automation .
 * Per iniziare a usare i runbook di PowerShell, vedere il mio primo runbook di [PowerShell.](automation-first-runbook-textual-powershell.md)
 * Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere [Il mio primo runbook del flusso di lavoro](automation-first-runbook-textual.md)di PowerShell .
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

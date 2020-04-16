@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 27503defa23b2a35e767156139228aa2e177652f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255329"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405175"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le diverse applicazioni e servizi monitorati da Monitoraggio di Azure.This article describes the different applications and services that are monitored by Azure Monitor. 
@@ -205,7 +205,6 @@ Sono disponibili altre soluzioni per il monitoraggio di applicazioni e servizi d
 | [Valutazioni su richiesta](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Valuta e ottimizza la disponibilità, la sicurezza e le prestazioni degli ambienti tecnologici Microsoft locali, ibridi e cloud. |
 | [Controllo di integrità SQL](insights/sql-assessment.md) | Valutare il rischio e l'integrità degli ambienti SQL Server.  |
 | [Trasferimento dati](insights/wire-data.md) | Dati di rete e prestazioni consolidati raccolti da computer connessi a Windows e connessi a Linux con l'agente Log Analytics. |
-
 
 ## <a name="third-party-integration"></a>Integrazione con terze parti
 

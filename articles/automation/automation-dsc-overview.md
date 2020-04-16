@@ -1,27 +1,27 @@
 ---
 title: 'Panoramica di Configurazione stato di Automazione di Azure '
-description: Panoramica della configurazione dello stato di automazione di Azure, dei termini e dei problemi noti
+description: Questo articolo è una panoramica della configurazione dello stato di automazione di Azure, dei termini e dei problemi noti.
 keywords: powershell dsc, configurazione dello stato desiderato, powershell dsc azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/06/2018
+ms.date: 04/15/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afceb11180662416aa4953b8b58ef03ffaa70eec
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1166f5a1d7586c54255120a656b060c93f842fd9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383194"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406191"
 ---
 # <a name="state-configuration-overview"></a>Panoramica della configurazione dello stato
 
-Configurazione stato di automazione di Azure è un servizio di Azure che consente di scrivere, gestire e compilare [le configurazioni](/powershell/scripting/dsc/configurations/configurations)di PowerShell Desired State Configuration (DSC). Il servizio importa anche [le risorse DSC](/powershell/scripting/dsc/resources/resources)e assegna le configurazioni ai nodi di destinazione, tutti nel cloud.
+Configurazione stato di automazione di Azure è un servizio di Azure che consente di scrivere, gestire e compilare [le configurazioni](/powershell/scripting/dsc/configurations/configurations)di PowerShell Desired State Configuration (DSC). Il servizio importa anche le [risorse DSC](/powershell/scripting/dsc/resources/resources) e assegna le configurazioni ai nodi di destinazione, tutti nel cloud.
 
-## <a name="why-use-azure-automation-state-configuration"></a>Perché usare Configurazione stato di Automazione di Azure
+## <a name="why-use-azure-automation-state-configuration"></a>Perché usare il servizio State Configuration di Automazione di Azure?
 
 Configurazione stato di Automazione di Azure offre diversi vantaggi rispetto all'uso di DSC all'esterno di Azure.
 
@@ -29,19 +29,19 @@ Configurazione stato di Automazione di Azure offre diversi vantaggi rispetto all
 
 La configurazione dello stato di automazione di Azure offre un server di pull DSC simile al servizio [DSC-Service delle funzionalità](/powershell/scripting/dsc/pull-server/pullserver)di Windows. I nodi di destinazione possono ricevere automaticamente le configurazioni, conformarsi allo stato desiderato e creare report sulla conformità. Il server di pull predefinito in Automazione di Azure elimina la necessità di configurare e gestire un proprio server di pull. Automazione di Azure può avere come destinazione macchine virtuali o computer fisici Windows o Linux, nel cloud o locali.
 
-### <a name="management-of-all-your-dsc-artifacts"></a>Gestione di tutti gli elementi DSC
+### <a name="manage-all-your-dsc-artifacts"></a>Gestire tutti gli elementi DSCManage all your DSC artifacts
 
 La configurazione dello stato di automazione di Azure porta lo stesso livello di gestione alla configurazione dello stato desiderato di PowerShell offerta per gli script di PowerShell.Azure Automation State Configuration brings the same management layer to [PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) as it offers for PowerShell scripting. Dal portale di Azure o da PowerShell è possibile gestire tutte le configurazioni, le risorse e i nodi di destinazione di DSC.
 
 ![Screenshot della pagina di accesso di Automazione di Azure](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-of-reporting-data-into-azure-monitor-logs"></a>Importazione di dati di report nei log di Monitoraggio di AzureImport of reporting data into Azure Monitor logs
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importare i dati dei report nei log di Monitoraggio di AzureImport reporting data into Azure Monitor Logs
 
-I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro Log Analytics. Vedere Inoltrare i dati dei report di Configurazione stato di automazione di Azure ai log di [Monitoraggio di Azure.See Forward Azure Automation State Configuration reporting data to Azure Monitor logs](automation-dsc-diagnostics.md).
+I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro Log Analytics. Per altre informazioni, vedere Inoltrare i dati dei report della configurazione dello stato di automazione di [Azure ai](automation-dsc-diagnostics.md)log di monitoraggio di Azure.For more information, see Forward Azure Automation State Configuration reporting data to Azure Monitor Logs .
 
-## <a name="prerequisites-for-using-azure-automation-state-configuration"></a>Prerequisiti per l'uso della configurazione dello stato di automazione di AzurePrerequisites for using Azure Automation State Configuration
+## <a name="prerequisites"></a>Prerequisiti
 
-Quando si usa La configurazione dello stato di automazione di Azure per DSC, considerare i requisiti seguenti.
+Quando si usa la configurazione dello stato di automazione di Azure per DSC, considerare i requisiti seguenti.
 
 ### <a name="operating-system-requirements"></a>Requisiti del sistema operativo
 
@@ -57,13 +57,13 @@ Per i nodi che eseguono Windows, sono supportate le seguenti versioni:
 - Windows 7
 
 >[!NOTE]
->Lo SKU del prodotto autonomo [di Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) non contiene un'implementazione di DSC. Pertanto non può essere gestito da PowerShell DSC o Azure Automation State Configuration.
+>Poiché lo SKU del prodotto autonomo [di Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) non contiene un'implementazione di DSC, non può essere gestito da PowerShell DSC o Azure Automation State Configuration.
 
 Per i nodi che eseguono Linux, l'estensione DSC Linux supporta tutte le distribuzioni Linux elencate in [Distribuzioni Linux supportate](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### <a name="dsc-requirements"></a>Requisiti DSC
 
-Per tutti i nodi Windows in esecuzione in Azure, [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) viene installato durante l'onboarding. Per i nodi che eseguono Windows Server 2012 e Windows 7, [Gestione remota Windows](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) è abilitato.
+Per tutti i nodi Windows in esecuzione in Azure, [Windows Management Framework 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) viene installato durante l'onboarding. Per i nodi che eseguono Windows Server 2012 e Windows 7, [Gestione remota Windows](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) è abilitato.
 
 Per tutti i nodi Linux in esecuzione in Azure, [PowerShell DSC per Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) viene installato durante l'onboarding.
 
@@ -76,20 +76,20 @@ Se i nodi si trovano in una rete privata, sono necessari la porta e gli URL segu
 * URL globale del Gov Virginia degli Stati Uniti:**.azure-automation.us**
 * Servizio agente: **\<https://\>workspaceId .agentsvc.azure-automation.net**
 
-Se si utilizzano risorse DSC che comunicano tra i nodi, ad esempio le [risorse WaitFor](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), è necessario consentire anche il traffico tra i nodi. Vedere la documentazione per ogni risorsa DSC per comprendere questi requisiti di rete.
+Se si utilizzano risorse DSC che comunicano tra i nodi, ad esempio le [risorse WaitFor](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), è necessario consentire anche la comunicazione tra i nodi. Per comprendere questi requisiti di rete, vedere la documentazione per ogni risorsa DSC.
 
 #### <a name="proxy-support"></a>Supporto proxy
 
-Il supporto proxy per l'agente DSC è disponibile in Windows versione 1809 e successive. Questa opzione viene abilitata `ProxyURL` impostando `ProxyCredential` i valori per e nello script di [metaconfigurazione](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) utilizzato per registrare i nodi.
+Il supporto proxy per l'agente DSC è disponibile in Windows versione 1809 e successive. Per abilitare questa opzione, `ProxyURL` `ProxyCredential` impostare i valori per e nello script di [metaconfigurazione](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) utilizzato per registrare i nodi.
 
 >[!NOTE]
->Azure Automation State Configuration does not provide DSC proxy support for previous versions of Windows.
+>Azure Automation State Configuration doesn't provide DSC proxy support for earlier versions of Windows.
 
-Per i nodi Linux, l'agente DSC supporta il proxy e utilizza la `http_proxy` variabile per determinare l'URL.
+Per i nodi Linux, l'agente DSC `http_proxy` supporta un server proxy e utilizza la variabile per specificare l'URL.
 
 #### <a name="azure-automation-state-configuration-network-ranges-and-namespace"></a>Intervalli e spazio dei nomi di rete di Configurazione stato di automazione di AzureAzure Automation State Configuration intervalli e spazio dei nomi
 
-Si consiglia di utilizzare gli indirizzi elencati di seguito quando si definiscono le eccezioni. Per gli indirizzi IP, è possibile scaricare gli [intervalli IP del data center di Microsoft Azure.](https://www.microsoft.com/download/details.aspx?id=41653) Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
+Quando si definiscono eccezioni, è consigliabile utilizzare gli indirizzi IP elencati nella tabella seguente. Per gli indirizzi IP, è possibile scaricare il file XML [degli intervalli IP del data center](https://www.microsoft.com/download/details.aspx?id=41653) di Microsoft Azure dall'Area download Microsoft. Questo file contiene gli intervalli attualmente distribuiti ed eventuali modifiche imminenti agli intervalli IP. Viene aggiornato settimanalmente.
 
 Se è disponibile un account di Automazione definito per un'area specifica, è possibile limitare la comunicazione a tale data center regionale. La tabella seguente indica il record DNS per ogni area:
 
@@ -109,21 +109,18 @@ Se è disponibile un account di Automazione definito per un'area specifica, è p
 | Regno Unito meridionale | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
-Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il file XML degli [indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) dall'Area download Microsoft.
-
 > [!NOTE]
 > Il file XML degli indirizzi IP dei data center di Azure elenca gli intervalli di indirizzi IP usati nei data center di Microsoft Azure. Il file include gli intervalli per le risorse di calcolo, SQL e di archiviazione.
 >
->Viene pubblicata una versione aggiornata del file ogni settimana. Il file include gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana. È consigliabile scaricare il nuovo file XML ogni settimana Aggiornare quindi il sito per identificare correttamente i servizi in esecuzione in Azure.Then update your site to correctly identify services running in Azure. 
+>Viene pubblicata una versione aggiornata del file ogni settimana. Il file include gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana. È consigliabile scaricare un nuovo file XML ogni settimana. È quindi possibile aggiornare il sito per identificare correttamente i servizi in esecuzione in Azure.Then, you can update your site to correctly identify services running in Azure. 
 
-Per gli utenti di ExpressRoute è importante sottolineare che questo file viene usato per aggiornare l'annuncio BGP (Border Gateway Protocol) dello spazio di Azure la prima settimana del mese.
+Se si è un utente di Azure ExpressRoute, si noti che questo file viene usato per aggiornare l'annuncio BGP (Border Gateway Protocol) dello spazio di Azure nella prima settimana di ogni mese.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare a usare DSC in Configurazione dello stato di automazione di Azure, vedere Introduzione alla configurazione dello stato di automazione di Azure.To get started using DSC in Azure Automation [State Configuration,](automation-dsc-getting-started.md)see Getting started with Azure Automation State Configuration .
-- Per informazioni su come eseguire l'onboarding dei nodi, vedere [Onboarding di macchine per la gestione da parte](automation-dsc-onboarding.md)della configurazione dello stato di automazione di Azure .
-- Per informazioni sulla compilazione di configurazioni DSC in modo da poterle assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione dello stato](automation-dsc-compile.md)di automazione di Azure.To learn about compiling DSC configurations so that you can assign them to target nodes, see Compilazioning configurations in Azure Automation State Configuration .
-- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Per iniziare a usare DSC in Configurazione stato di automazione di Azure, vedere Introduzione alla configurazione dello stato di automazione di Azure.To get started using DSC in Azure Automation [State Configuration,](automation-dsc-getting-started.md)see Get started with Azure Automation State Configuration .
+- Per informazioni su come eseguire l'onboarding dei nodi, vedere [Eseguire l'onboarding di computer per la gestione in base](automation-dsc-onboarding.md)alla configurazione dello stato di automazione di Azure .
+- Per informazioni sulla compilazione di configurazioni DSC in modo da poterle assegnare ai nodi di destinazione, vedere Compilazione delle [configurazioni in Configurazione dello stato](automation-dsc-compile.md)di automazione di Azure.To learn about compiling DSC configurations so that you can assign them to target nodes, see Compile configurations in Azure Automation State Configuration .
+- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Per informazioni sui prezzi, vedere Prezzi per la configurazione dello stato di automazione di Azure.For pricing [information,](https://azure.microsoft.com/pricing/details/automation/)see Azure Automation State Configuration pricing .
-- Per un esempio di utilizzo della configurazione dello stato di automazione di Azure in una pipeline di distribuzione continua, vedere [Distribuzione continua tramite Configurazione stato](automation-dsc-cd-chocolatey.md)di automazione di Azure e Chocolatey .
+- Per un esempio di utilizzo della configurazione dello stato di automazione di Azure in una pipeline di distribuzione continua, vedere Distribuzione continua nelle macchine virtuali con Configurazione dello stato di automazione di [Azure e Chocolatey](automation-dsc-cd-chocolatey.md).

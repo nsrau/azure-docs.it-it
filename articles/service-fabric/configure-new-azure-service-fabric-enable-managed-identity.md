@@ -4,14 +4,14 @@ description: Ecco come abilitare il supporto delle identità gestite in un nuovo
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0e35d2192fdcdb294b349105f3f0158564cec86b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76930472"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415661"
 ---
-# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster-preview"></a>Configurare il supporto delle identità gestite per un nuovo cluster di Service Fabric (anteprima)Configure managed identity support for a new Service Fabric cluster (preview)
+# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Configurare il supporto delle identità gestite per un nuovo cluster di Service FabricConfigure managed identity support for a new Service Fabric cluster
 
 Per usare [le identità gestite per le risorse](../active-directory/managed-identities-azure-resources/overview.md) di Azure nelle applicazioni di Service Fabric, abilitare innanzitutto il servizio token di *identità gestita* nel cluster. Questo servizio è responsabile dell'autenticazione delle applicazioni di Service Fabric che usano le identità gestite e dell'ottenimento dei token di accesso per loro conto. Una volta abilitato il servizio, è possibile visualizzarlo in Service Fabric Explorer nella sezione **Sistema** nel riquadro sinistro, in esecuzione sotto il nome **fabric:/System/ManagedIdentityTokenService** accanto ad altri servizi di sistema.
 

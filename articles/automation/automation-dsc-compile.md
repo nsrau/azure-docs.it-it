@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3145c7db064432e443aae5dcd503905b865ffe46
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f7558745442ac26fc33a063ff66fe170d08487ac
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383262"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392079"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Compilare configurazioni DSC nella configurazione dello stato di automazione di AzureCompile DSC configurations in Azure Automation State Configuration
 
@@ -130,12 +130,12 @@ La funzionalità **Risorse composite** consente di usare le configurazioni DSC c
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Gestire ConfigurationData durante la compilazione delle configurazioni in Automazione di AzureManage ConfigurationData when compiling configurations in Azure Automation
 
-**ConfigurationData** consente di separare la configurazione strutturale dalla configurazione specifica di qualsiasi ambiente mentre si usa PowerShell DSC. Per ulteriori informazioni, vedere Separazione di ["Cosa" da "Dove" in PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
+`ConfigurationData`è un parametro DSC incorporato che consente di separare la configurazione strutturale da qualsiasi configurazione specifica dell'ambiente durante l'utilizzo di PowerShell DSC. Per ulteriori informazioni, vedere Separazione di ["Cosa" da "Dove" in PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
 
 > [!NOTE]
-> Durante la compilazione nella configurazione dello stato di automazione di Azure, è possibile usare ConfigurationData in Azure PowerShell ma non nel portale di Azure.When compiling in Azure Automation State Configuration, you can use **ConfigurationData** in Azure PowerShell but not in the Azure portal.
+> Durante la compilazione nella configurazione dello `ConfigurationData` stato di automazione di Azure, è possibile usare Azure PowerShell ma non nel portale di Azure.When compiling in Azure Automation State Configuration, you can use in Azure PowerShell but not in the Azure portal.
 
-La configurazione DSC di esempio `$ConfigurationData` seguente `$AllNodes` usa **ConfigurationData** tramite le parole chiave e . È inoltre necessario il [modulo xWebAdministration](https://www.powershellgallery.com/packages/xWebAdministration/) per questo esempio.
+L'esempio seguente viene `ConfigurationData` utilizzata `$ConfigurationData` dalla `$AllNodes` configurazione DSC tramite le parole chiave e . È inoltre necessario il [modulo xWebAdministration](https://www.powershellgallery.com/packages/xWebAdministration/) per questo esempio.
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -198,7 +198,7 @@ Le configurazioni DSC in Automazione di Azure possono fare riferimento agli asse
 
 Per garantire la sicurezza delle credenziali nelle configurazioni dei nodi (documenti di configurazione MOF), è necessario crittografare le credenziali nel file MOF delle configurazioni dei nodi. Attualmente è necessario concedere a PowerShell DSC l'autorizzazione per restituire le credenziali in testo normale durante la generazione MOF di configurazione del nodo. PowerShell DSC non è a conoscenza del fatto che Automazione di Azure crittografa l'intero file MOF dopo la generazione tramite un processo di compilazione.
 
-È possibile indicare a PowerShell DSC che è possibile che le credenziali vengano emesse in testo normale nei MOF di configurazione del nodo generato usando i dati di configurazione. È necessario `PSDscAllowPlainTextPassword = $true` passare tramite **ConfigurationData** per ogni nome di blocco del nodo visualizzato nella configurazione DSC e le credenziali.
+È possibile indicare a PowerShell DSC che è possibile che le credenziali vengano emesse in testo normale nei MOF di configurazione del nodo generato usando i dati di configurazione. È necessario `PSDscAllowPlainTextPassword = $true` `ConfigurationData` passare via per ogni nome di blocco di nodo che viene visualizzato nella configurazione DSC e utilizza le credenziali.
 
 L'esempio seguente mostra una configurazione DSC che usa un asset credenziali di Automazione.
 
@@ -262,9 +262,9 @@ Il processo di compilazione delle configurazioni DSC in Windows PowerShell è in
 
 ### <a name="import-a-node-configuration-in-the-azure-portal"></a>Importare una configurazione di nodo nel portale di AzureImport a node configuration in the Azure portal
 
-1. Dall'account di automazione selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
+1. Nell'account di Automazione fare clic su **Configurazione stato (DSC)** in **Gestione configurazione**.
 1. Nella pagina Configurazione stato (DSC) fare clic sulla scheda **Configurazioni,** quindi fare clic su **Aggiungi**.
-1. Nella pagina Importa fare clic sull'icona della cartella accanto alla casella di testo File di **configurazione** nodo per cercare un file di configurazione del nodo (MOF) nel computer locale.
+1. Nella pagina Importa fare clic sull'icona della cartella accanto al campo File di **configurazione** nodo per cercare un file MOF di configurazione del nodo nel computer locale.
 
    ![Cercare il file locale](./media/automation-dsc-compile/import-browse.png)
 

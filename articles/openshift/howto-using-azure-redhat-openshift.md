@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, cappello rosso, cli
-ms.openlocfilehash: 9488ef593cf4ec8600dcb42ea4a2cefa4fcb1446
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f909c5870be6e394e457ad8f44ea5a253054ffe6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998806"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398886"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Creare, accedere e gestire un cluster Azure Red Hat OpenShift 4.3Create, access, and manage an Azure Red Hat OpenShift 4.3 Cluster
 
@@ -68,7 +68,19 @@ L'estensione `az aro` consente di creare, accedere ed eliminare cluster Azure Re
    aro                                0.3.0
    ...
    ```
-  
+
+### <a name="get-a-red-hat-pull-secret-optional"></a>Ottieni un segreto di pull Red Hat (opzionale)
+
+Un segreto di pull Red Hat consente al cluster di accedere ai registri dei contenitori Red Hat e al contenuto aggiuntivo. L'utilizzo di un segreto pull è facoltativo ma consigliato.
+
+Per ottenere il tuo segreto pull:
+
+1. Passare a https://cloud.redhat.com/openshift/install/azure/aro-provisioned.
+1. Accedi al tuo account Red Hat o crea un nuovo account Red Hat utilizzando l'email aziendale; accettare i termini e le condizioni.
+1. Selezionare **Scarica segreto pull**.
+
+Salvare il file *pull-secret.txt* in un luogo sicuro; verrà utilizzato ogni volta che si crea un cluster.
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Creare una rete virtuale contenente due subnet vuoteCreate a virtual network containing two empty subnets
 
 Seguire questi passaggi per creare una rete virtuale contenente due subnet vuote.
@@ -79,15 +91,7 @@ Seguire questi passaggi per creare una rete virtuale contenente due subnet vuote
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
-   PULL_SECRET="<optional-pull-secret>"
    ```
-   >[!NOTE]
-   > Il segreto pull facoltativo consente al cluster di accedere ai registri dei contenitori Red Hat insieme a contenuto aggiuntivo.
-   >
-   > Accedere al segreto di https://cloud.redhat.com/openshift/install/azure/installer-provisioned pull passando a e facendo clic su *Copia segreto pull*.
-   >
-   > Dovrai accedere al tuo account Red Hat o creare un nuovo account Red Hat con la tua email aziendale e accettare i termini e le condizioni.
- 
 
 2. Creare un gruppo di risorse per il cluster.
 
@@ -143,7 +147,7 @@ az aro create \
   --worker-subnet "$CLUSTER-worker" \
   --cluster-resource-group "aro-$CLUSTER" \
   --domain "$CLUSTER" \
-  --pull-secret "$PULL_SECRET"
+  --pull-secret @pull-secret.txt
 ```
 
 >[!NOTE]

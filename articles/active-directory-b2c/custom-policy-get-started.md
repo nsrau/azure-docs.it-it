@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc87628d8b47435012c3d20ec2e72ac186983555
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 856bd6c2a3546a438293e89a0b576e1392d9c6a5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189328"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407283"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ ms.locfileid: "78189328"
 
 ## <a name="add-signing-and-encryption-keys"></a>Aggiungere le chiavi di firma e di crittografia
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare l'icona **Directory - Sottoscrizione** nella barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant B2C di Azure AD.
 1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 1. Nella pagina panoramica, in **Criteri**, selezionare **Framework di esperienza identità**.
@@ -44,7 +44,7 @@ ms.locfileid: "78189328"
 1. In **Nome** immettere `TokenSigningKeyContainer`. È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
 1. Per **Tipo di chiave** selezionare **RSA**.
 1. Per **Uso chiave** selezionare **Firma**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="create-the-encryption-key"></a>Creazione della chiave di crittografia
 
@@ -53,7 +53,7 @@ ms.locfileid: "78189328"
 1. In **Nome** immettere `TokenEncryptionKeyContainer`. È possibile che il prefisso `B2C_1A`_ venga aggiunto automaticamente.
 1. Per **Tipo di chiave** selezionare **RSA**.
 1. In **Uso chiave**selezionare **Crittografia**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="create-the-facebook-key"></a>Creazione della chiave Facebook
 
@@ -64,7 +64,7 @@ Aggiungi il [segreto](identity-provider-facebook.md) dell'app dell'app di Facebo
 1. Per **Nome** immettere `FacebookSecret`. È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
 1. In **Segreto**, inserisci app *Secret* dell'applicazione Facebook da developers.facebook.com. Questo valore è il segreto, non l'ID applicazione.
 1. Per **Uso chiave** selezionare **Firma**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="register-identity-experience-framework-applications"></a>Registrare le applicazioni del framework dell'esperienza di gestione delle identità
 
@@ -78,14 +78,14 @@ Per registrare un'applicazione nel tenant B2C di Azure AD, è possibile usare l'
 
 #### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 1. Nel menu Panoramica di **Azure Active Directory,** in **Gestisci,** selezionare **Registrazioni app (legacy).**
 1. Selezionare **Registrazione nuova applicazione**.
 1. Per **Nome** immettere `IdentityExperienceFramework`.
 1. Per **Tipo di applicazione** scegliere **App Web/API**.
 1. Per **URL di accesso** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il nome di dominio del tenant di Azure AD B2C. Tutti gli URL dovrebbero ora usare [b2clogin.com](b2clogin.md).
-1. Selezionare **Crea**. Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
+1. Selezionare **Create** (Crea). Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
 
 #### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
@@ -116,8 +116,8 @@ Esporre quindi l'API aggiungendo un ambito:Next, expose the API by adding a scop
 1. In **Registrazioni app (legacy)** selezionare **Nuova registrazione applicazione**.
 1. Per **Nome** immettere `ProxyIdentityExperienceFramework`.
 1. Per **Tipo di applicazione** scegliere **Nativo**.
-1. Per **URI di reindirizzamento** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il tenant di Azure AD B2C.
-1. Selezionare **Crea**. Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
+1. Per URI di `myapp://auth` **reindirizzamento**, immettere .
+1. Selezionare **Create** (Crea). Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
 1. Selezionare **Impostazioni**, quindi **Autorizzazioni necessarie**e infine **Aggiungi**.
 1. Scegliere **Seleziona un'API**, cercare e selezionare **IdentityExperienceFramework**, quindi fare clic su **Seleziona**.
 1. Selezionare la casella di controllo accanto a **Accesso a IdentityExperienceFramework**, fare clic su **Seleziona** e quindi su **Operazione completata**.
@@ -129,7 +129,7 @@ Esporre quindi l'API aggiungendo un ambito:Next, expose the API by adding a scop
 1. Per **Nome** immettere `ProxyIdentityExperienceFramework`.
 1. In **Tipi di account supportati**selezionare Account solo nella directory **dell'organizzazione.**
 1. In **URI di reindirizzamento** usare l'elenco a discesa per selezionare **Client pubblico/nativo (per dispositivi mobili e desktop)**.
-1. Per **URI di reindirizzamento** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il tenant di Azure AD B2C.
+1. Per URI di `myapp://auth` **reindirizzamento**, immettere .
 1. In **Autorizzazioni**, selezionare la casella di controllo *Concedere il consenso amministratore alle autorizzazioni OpenID e offline_access*.
 1. Selezionare **Registra**.
 1. Prendere nota del valore di **ID applicazione (client)**, che sarà necessario in un passaggio successivo.

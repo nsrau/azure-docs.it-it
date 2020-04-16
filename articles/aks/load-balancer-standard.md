@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 17e474de9c221126d67cc2982ba11c6ff75e7aa3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c1d2c0e48394fbde1b595ae4b405d84f437dc5e4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668502"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392821"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico SKU Standard nel servizio Kubernetes di AzureUse a Standard SKU load balancer in Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 Questo articolo presuppone che si disponga di un cluster AKS con il servizio di bilanciamento del carico di Azure SKU *standard.* Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-L'entità servizio cluster AKS deve inoltre disporre dell'autorizzazione per gestire le risorse di rete se si usa una subnet o un gruppo di risorse esistente. In generale, assegnare il ruolo *Collaboratore di rete* all'entità servizio nelle risorse delegate. Per altre informazioni sulle autorizzazioni, vedere [Delegare l'accesso AKS ad altre risorse][aks-sp]di Azure.For more information on permissions, see Delegate AKS access to other Azure resources.
+L'entità servizio cluster AKS deve inoltre disporre dell'autorizzazione per gestire le risorse di rete se si usa una subnet o un gruppo di risorse esistente. In generale, assegnare il ruolo *Collaboratore di rete* all'entità servizio nelle risorse delegate. Anziché un'entità servizio, è anche possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni. Per ulteriori informazioni, vedere [Utilizzare le identità gestite](use-managed-identity.md). Per altre informazioni sulle autorizzazioni, vedere [Delegare l'accesso AKS ad altre risorse][aks-sp]di Azure.For more information on permissions, see Delegate AKS access to other Azure resources.
 
 ### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Passaggio da un bilanciamento del carico SKU di base a uno SKU Standard
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 6de6f23fe9564b28a5d436ac00999dbb3e9183e1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548971"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415133"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Sicurezza e privacy dei dati in Ricerca cognitiva di AzureSecurity and data privacy in Azure Cognitive Search
 
@@ -31,7 +31,6 @@ Ricerca cognitiva di Azure è certificata per gli standard seguenti, come [annun
 + [Codice GxP (21 parte 11 della FDA)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS livello 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [Dati non riservati (DLM) IRAP in Australia](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 La conformità agli standard si applica alle funzionalità disponibili a livello generale. Le funzionalità di anteprima sono certificate quando avviene la transizione all'ambito della disponibilità generale e non devono essere usate in soluzioni con requisiti di standard restrittivi. La certificazione della conformità è documentata in [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Panoramica della conformità di Microsoft Azure) e nel [Trust Center](https://www.microsoft.com/en-us/trustcenter). 
 

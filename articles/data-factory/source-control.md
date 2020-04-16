@@ -11,14 +11,15 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 6645c2672e15c562216b4347f779ef3634a2f124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2108f2f9098fe6da8ee4666b30605bed14164484
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130861"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414711"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data FactorySource control in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 L'esperienza dell'interfaccia utente di Azure Data Factory (UX) ha due esperienze disponibili per la creazione visiva:The Azure Data Factory user interface experience (UX) has two experiences available for visual authoring:
 
@@ -137,11 +138,11 @@ Entrambi i metodi aprono il riquadro di configurazione delle impostazioni del re
 
 Il riquadro di configurazione mostra le seguenti impostazioni del repository GitHub:
 
-| **Impostazione** | **Descrizione**  | **Valore**  |
+| **Impostazione** | **Descrizione**  | **valore**  |
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice Azure Repos. | GitHub |
 | **Use GitHub Enterprise** (Usa GitHub Enterprise) | Casella di controllo per selezionare GitHub Enterprise | non selezionato (impostazione predefinita) |
-| **GitHub Enterprise URL** (URL GitHub Enterprise) | L'URL radice gitHub Enterprise (deve essere HTTPS per il server GitHub Enterprise locale). Ad esempio https://github.mydomain.com. Obbligatorio solo se è selezionata l'opzione **Usa GitHub EnterpriseRequired** only if Use GitHub Enterprise is selected | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise URL** (URL GitHub Enterprise) | L'URL radice gitHub Enterprise (deve essere HTTPS per il server GitHub Enterprise locale). Ad esempio: https://github.mydomain.com. Obbligatorio solo se è selezionata l'opzione **Usa GitHub EnterpriseRequired** only if Use GitHub Enterprise is selected | `<your GitHub enterprise url>` |                                                           
 | **Account GitHub** | Nome dell'account GitHub. Questo nome è reperibile da https:\//github.com/ . Se si passa a questa pagina, viene chiesto di immettere le credenziali OAuth di GitHub per l'account GitHub. | `<your GitHub account name>` |
 | **Nome repository**  | Nome del repository del codice GitHub. Gli account GitHub contengono repository Git per la gestione del codice sorgente. È possibile creare un nuovo repository o usarne uno esistente già presente nell'account. | `<your repository name>` |
 | **Ramo di collaborazione** | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, è master. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch>` |
@@ -161,7 +162,7 @@ Il riquadro di configurazione mostra le seguenti impostazioni del repository Git
 
 ## <a name="switch-to-a-different-git-repo"></a>Cambiare repository Git
 
-Per passare a un repository Git diverso, fare clic sull'icona **Impostazioni repository Git** nell'angolo superiore destro della pagina Panoramica di Data Factory. Se l'icona non è visibile, cancellare la cache del browser locale. Selezionare l'icona per rimuovere l'associazione al repository corrente.
+Per passare a un repository Git diverso, fare clic sull'icona **Impostazioni repository Git** nell'angolo superiore destro della pagina Panoramica di Data Factory. Se non riesci a visualizzare l'icona, cancella la cache del browser locale. Selezionare l'icona per rimuovere l'associazione al repository corrente.
 
 ![Icona GIT](media/author-visually/remove-repo.png)
 
@@ -218,9 +219,9 @@ Verrà aperto un riquadro laterale in cui si conferma che il ramo di pubblicazio
 -   **Controllo del codice sorgente**. Man mano che i carichi di lavoro della data factory assumono un'importanza cruciale, può essere opportuno integrare la factory con GIT per sfruttare alcuni vantaggi del controllo del codice sorgente, come i seguenti:
     -   Possibilità di controllare le modifiche e tenerne traccia.
     -   Possibilità di annullare le modifiche che hanno introdotto bug.
--   **Salvataggi parziali**. Quando si apportano numerose modifiche nella factory, si noterà che nella normale modalità LIVE non è possibile salvare le modifiche come bozza perché non si è pronti o non si vogliono perdere le modifiche in caso di arresto anomalo del computer. Grazie all'integrazione con GIT, è possibile continuare a salvare le modifiche in modo incrementale ed eseguire la pubblicazione nella factory solo quando si è pronti. GIT funziona come un punto di gestione temporanea finché le modifiche non sono state testate e risultano soddisfacenti.
+-   **Salvataggi parziali**. Come si fanno un sacco di modifiche nella vostra fabbrica, vi renderete conto che nella normale modalità LIVE, non è possibile salvare le modifiche come bozza, perché non si è pronti, o non si vuole perdere le modifiche nel caso in cui il computer si blocca. Grazie all'integrazione con GIT, è possibile continuare a salvare le modifiche in modo incrementale ed eseguire la pubblicazione nella factory solo quando si è pronti. GIT funziona come un punto di gestione temporanea finché le modifiche non sono state testate e risultano soddisfacenti.
 -   **Collaborazione e controllo**. Se più membri del team partecipano alla stessa factory, può essere opportuno offrire loro l'opportunità di collaborare tramite un processo di revisione del codice. È anche possibile configurare la factory in modo che non tutti i collaboratori abbiano le autorizzazioni per eseguire distribuzioni nella factory. I membri del team potrebbero essere autorizzati solo ad apportare modifiche tramite GIT, mentre solo determinati utenti potrebbero disporre dell'autorizzazione a "pubblicare" le modifiche nella factory.
--   **Visualizzazione delle differenze**. In modalità GIT è possibile visualizzare un diff del payload che sta per essere pubblicato nella factory. Il diff mostra tutte le risorse o le entità che sono state modificate, aggiunte o eliminate dall'ultima pubblicazione nella factory. In base a questo diff, è possibile proseguire con la pubblicazione o tornare indietro e controllare le modifiche prima di riprendere il processo.
+-   **Visualizzazione delle differenze**. In modalità Git, si arriva a vedere una bella diff del carico utile che sta per essere pubblicato in fabbrica. Il diff mostra tutte le risorse o le entità che sono state modificate, aggiunte o eliminate dall'ultima pubblicazione nella factory. In base a questo diff, è possibile proseguire con la pubblicazione o tornare indietro e controllare le modifiche prima di riprendere il processo.
 -   **Integrazione continua/Distribuzione continua più efficaci**. Se si usa la modalità GIT, è possibile configurare la pipeline di versione in modo che venga attivata automaticamente non appena vengono apportate modifiche nella factory di sviluppo. È anche possibile personalizzare le proprietà nella factory che sono disponibili come parametri nel modello di Resource Manager. Ciò può essere utile per mantenere come parametri solo il set di proprietà richiesto e impostare tutto il resto come hardcoded.
 -   **Prestazioni migliori**. Una fabbrica media carica dieci volte più velocemente in modalità Git rispetto alla normale modalità LIVE, perché le risorse vengono scaricate tramite Git.
 
@@ -231,7 +232,7 @@ Verrà aperto un riquadro laterale in cui si conferma che il ramo di pubblicazio
 In genere non si desidera che ogni membro del team disponga delle autorizzazioni per aggiornare la factory. Si consigliano le seguenti impostazioni di autorizzazione:
 
 *   Tutti i membri del team devono avere le autorizzazioni di accesso in lettura alla data factory.
-*   Solo un gruppo selezionato di persone dovrebbe essere autorizzato a pubblicare in fabbrica. A tale scopo, devono disporre del ruolo di **collaboratore** di Data Factory nella factory. Per altre informazioni sulle autorizzazioni, vedere Ruoli e autorizzazioni per Azure Data Factory.For more information on permissions, see [Roles and permissions for Azure Data Factory.](concepts-roles-permissions.md)
+*   Solo un gruppo selezionato di persone dovrebbe essere autorizzato a pubblicare in fabbrica. A tale scopo, devono disporre del ruolo di **collaboratore** di Data Factory nel gruppo di risorse in cui si trova la factory. Per altre informazioni sulle autorizzazioni, vedere Ruoli e autorizzazioni per Azure Data Factory.For more information on permissions, see [Roles and permissions for Azure Data Factory.](concepts-roles-permissions.md)
    
 Si consiglia di non consentire le archiviazioni dirette nel ramo di collaborazione. Questa restrizione consente di evitare bug man mano che ogni archiviazione passerà attraverso un processo di revisione delle richieste pull descritto in [Creazione di rami di funzionalità](source-control.md#creating-feature-branches).
 

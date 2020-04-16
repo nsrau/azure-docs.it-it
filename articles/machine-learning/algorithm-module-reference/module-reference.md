@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 02/22/2020
-ms.openlocfilehash: c24c7ce1d47a4734d79d7e17e9fb4b3a2d4d70e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fcfc7c15f94d7b569629e53534d731126172260
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064153"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399052"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Riferimento & modulo per la finestra di progettazione di Azure Machine Learning (anteprima)Algorithm to module reference for Azure Machine Learning designer (preview)
 
@@ -24,7 +24,7 @@ Ogni modulo rappresenta un set di codice che può essere eseguito in modo indipe
 
 Per informazioni sulla scelta degli algoritmi, vedere 
 * [Come selezionare gli algoritmi](../how-to-select-algorithms.md)
-* [Azure Machine Learning Algorithm Cheat Sheet](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md)
+* [Azure Machine Learning Algorithm Cheat Sheet](../algorithm-cheat-sheet.md)
 
 > [!TIP]
 > In qualsiasi pipeline nella finestra di progettazione, è possibile ottenere informazioni su un modulo specifico. Selezionare il modulo e quindi fare clic sul collegamento **more help** (altre informazioni) nel riquadro **Quick Help** (Guida rapida).
@@ -34,7 +34,7 @@ Per informazioni sulla scelta degli algoritmi, vedere
 
 | Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
-| Input e output dei dati | Spostare i dati dalle origini cloud nella pipeline. Scrivere i risultati o i dati intermedi in Archiviazione di Azure, un database SQL o Hive, durante l'esecuzione di una pipeline o usare l'archiviazione cloud per scambiare dati tra pipeline.  | [Immettere i dati manualmente](enter-data-manually.md) <br/> [Esportazione dei dati](export-data.md) <br/> [Importa dati](import-data.md) |
+| Input e output dei dati | Spostare i dati dalle origini cloud nella pipeline. Scrivere i risultati o i dati intermedi in Archiviazione di Azure, un database SQL o Hive, durante l'esecuzione di una pipeline o usare l'archiviazione cloud per scambiare dati tra pipeline.  | [Immettere i dati manualmente](enter-data-manually.md) <br/> [Esportazione dei dati](export-data.md) <br/> [Importazione dei dati](import-data.md) |
 | Trasformazione dei dati | Operazioni su dati specifici dell'apprendimento automatico, ad esempio la normalizzazione o il binning dei dati, la riduzione della dimensionalità e la conversione dei dati tra vari formati di file.| [Aggiungere colonne](add-columns.md) <br/> [Aggiungi righe](add-rows.md) <br/> [Applicare operazioni matematiche](apply-math-operation.md) <br/> [Applicare la trasformazione SQL](apply-sql-transformation.md) <br/> [Pulire i dati mancanti](clean-missing-data.md) <br/> [Ritagliare valori](clip-values.md) <br/> [Eseguire la conversione in CSV](convert-to-csv.md) <br/> [Eseguire la conversione in set di dati](convert-to-dataset.md) <br/> [Eseguire la conversione in valori di indicatori](convert-to-indicator-values.md) <br/> [Modificare i metadati](edit-metadata.md) <br/> [Unire dati](join-data.md) <br/> [Normalizzare i dati](normalize-data.md) <br/> [Creare partizioni ed eseguire campionamenti](partition-and-sample.md)  <br/> [Rimuovere righe duplicate](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Select Columns Transform](select-columns-transform.md) <br/> [Select Columns in Dataset](select-columns-in-dataset.md) <br/> [Dividere dati](split-data.md) |
 | Selezione caratteristiche | Selezionare un sottoinsieme di funzioni utili e pertinenti da utilizzare nella creazione di un modello analitico. | [Filter Based Feature Selection](filter-based-feature-selection.md) <br/> [Permutation Feature Importance](permutation-feature-importance.md) |
 | Funzioni di statistiche | Fornire un'ampia gamma di metodi statistici relativi all'analisi scientifica dei dati. | [Riepilogare i dati](summarize-data.md)|

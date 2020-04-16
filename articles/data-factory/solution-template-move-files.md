@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941924"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414753"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Spostare file con Azure Data FactoryMove files with Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In questo articolo viene descritto un modello di soluzione che è possibile utilizzare per spostare i file da una cartella a un'altra tra archivi basati su file. Uno degli scenari comuni di utilizzo di questo modello: i file vengono continuamente rilasciati in una cartella di destinazione dell'archivio di origine. Creando un trigger di pianificazione, la pipeline ADF può spostare periodicamente i file dall'archivio di origine all'archivio di destinazione.  Il modo in cui la pipeline ADF raggiunge "spostamento di file" è ottenere i file dalla cartella di destinazione, copiare ognuno di essi in un'altra cartella nell'archivio di destinazione e quindi eliminare gli stessi file dalla cartella di destinazione nell'archivio di origine.
 

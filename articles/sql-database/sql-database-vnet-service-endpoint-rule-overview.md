@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124756"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414388"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usare endpoint servizio e regole di rete virtuale per server di database
 
@@ -64,6 +64,7 @@ I ruoli di amministratore di rete e amministratore di database hanno più funzio
 
 > [!NOTE]
 > In alcuni casi il database SQL di Azure e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
+>
 > - Entrambe le sottoscrizioni devono essere nello stesso tenant di Azure Active Directory.
 > - L'utente ha le autorizzazioni necessarie per avviare le operazioni, ad esempio abilitare gli endpoint di servizio e aggiungere una subnet della rete virtuale al server specificato.
 > - Entrambe le sottoscrizioni devono avere registrato il provider di Microsoft.Sql.
@@ -134,7 +135,7 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
    > [!NOTE]
    > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Per problemi noti con Azure Data Lake Storage Gen2, fare riferimento a questa [guida](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-    
+
 1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo **Collaboratore dati BLOB di archiviazione** al gruppo SQL Server di Azure che ospita il data warehouse SQL di Azure registrato con Azure Active Directory (AAD) come nel passaggio 1.
 
    > [!NOTE]
@@ -235,7 +236,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 ## <a name="azure-portal-steps"></a>Procedure del portale di Azure
 
-1. Accedere al [portale][http-azure-portal-link-ref-477t]di Azure .
+1. Accedere al [portale di Azure][http-azure-portal-link-ref-477t].
 
 2. Cercare e selezionare **SERVER SQL**, quindi selezionare il server. In **Sicurezza**selezionare **Firewall e reti virtuali.**
 
@@ -264,6 +265,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 > [!NOTE]
 > Le regole presentano gli stati seguenti:
+>
 > - **Pronta:** indica che l'operazione avviata è riuscita.
 > - **Non riuscita:** indica che l'operazione avviata non è riuscita.
 > - **Eliminata:** si applica solo alle operazioni di eliminazione e indica che la regola è stata eliminata e non viene più applicata.

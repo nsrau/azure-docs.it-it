@@ -5,12 +5,12 @@ description: Informazioni su come proteggere il traffico che entra e esce dai po
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886705"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392618"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
@@ -82,6 +82,8 @@ Lo script di esempio seguente:
 * Assegna autorizzazioni di *Collaboratore* per l'entità servizio del cluster del servizio Azure Kubernetes nella rete virtuale.
 * Crea un cluster AKS nella rete virtuale definita e abilita i criteri di rete.
     * Viene usata l'opzione dei criteri di rete *di Azure.The azure* network policy option is used. Per utilizzare Calico come opzione dei `--network-policy calico` criteri di rete, utilizzare il parametro . Nota: Il Calico `--network-plugin azure` può `--network-plugin kubenet`essere utilizzato con uno o .
+
+Si noti che invece di usare un'entità servizio, è possibile usare un'identità gestita per le autorizzazioni. Per ulteriori informazioni, vedere [Utilizzare le identità gestite](use-managed-identity.md).
 
 Specificare la propria *SP_PASSWORD* protetta. È possibile sostituire *le* RESOURCE_GROUP_NAME e *le* CLUSTER_NAME variabili:
 

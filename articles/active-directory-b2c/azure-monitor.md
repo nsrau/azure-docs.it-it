@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78190059"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392886"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C with Azure Monitor
 
@@ -84,8 +84,8 @@ Per eseguire l'onboarding del tenant di Azure AD **(cliente**), creare un modell
 
 Scaricare i file di modello e parametri di Azure Resource Manager:Download the Azure Resource Manager template and parameter files:
 
-- [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
 Successivamente, aggiornare il file dei parametri con i valori registrati in precedenza. Il frammento JSON seguente mostra un esempio di un file di parametri del modello di Azure Resource Manager.The following JSON snippet shows an example of an Azure Resource Manager template parameters file. Per `authorizations.value.roleDefinitionId`, utilizzare il valore del [ruolo](../role-based-access-control/built-in-roles.md) `b24988ac-6180-42a0-ab88-20f7382dd24c`predefinito per il ruolo *Collaboratore*, .
 
@@ -213,7 +213,7 @@ Le impostazioni di diagnostica definiscono dove devono essere inviati i log e le
 
 - [Account di archiviazione di AzureAzure storage account](../azure-monitor/platform/resource-logs-collect-storage.md)
 - [Soluzioni hub eventi.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-- [Area di lavoro di Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Area di lavoro Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
 Se non è già stato fatto, creare un'istanza del tipo di destinazione scelto nel gruppo di risorse specificato nel [modello di Azure Resource Manager.](#create-an-azure-resource-manager-template)
 
@@ -223,7 +223,7 @@ Se non è già stato fatto, creare un'istanza del tipo di destinazione scelto ne
 
 Per configurare le impostazioni di monitoraggio per i log attività B2C di Azure AD:To configure monitoring settings for Azure AD B2C activity logs:
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare l'icona **Directory - Sottoscrizione** nella barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant B2C di Azure AD.
 1. Selezionare **Azure Active Directory**
 1. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.

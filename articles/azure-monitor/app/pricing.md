@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9ecd0ffd76650efff3a4c9f877522cba6f28d080
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271115"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405381"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -28,7 +28,7 @@ I prezzi per [Azure Application Insights][start] sono un modello con pagamento i
 
 È prevista una tariffa aggiuntiva per i [test Web in più passi](../../azure-monitor/app/availability-multistep.md). I test Web in più passi sono test Web che eseguono una sequenza di azioni. Non è prevista una tariffa separata per i *test del ping* di una singola pagina. I dati di telemetria dei test del ping e dei test in più passi vengono addebitai allo stesso costo di altri dati di telemetria provenienti dall'app.
 
-L'opzione Application Insights per [abilitare gli avvisi sulle dimensioni metriche personalizzate](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) può anche generare costi aggiuntivi perché ciò può comportare la creazione di metriche di pre-aggregazione aggiuntive. [Altre informazioni] sulle metriche basate su log e preaggregate in Application Insights e sui prezzi per le metriche personalizzate di Monitoraggio di Azure.[Learn more] about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
+L'opzione Application Insights per [abilitare gli avvisi sulle dimensioni metriche personalizzate](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) può anche generare costi aggiuntivi perché ciò può comportare la creazione di metriche di pre-aggregazione aggiuntive. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) sulle metriche basate su log e preaggregate in Application Insights e sui prezzi per le metriche personalizzate di Monitoraggio di Azure.Learn more about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Stima dei costi per la gestione dell'applicazione
 
@@ -218,7 +218,9 @@ Per modificare la conservazione, dalla risorsa Application Insights passare alla
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-005.png)
 
-La conservazione può anche essere impostata a `retentionInDays` livello di codice utilizzando [PowerShell](powershell.md#set-the-data-retention) utilizzando il parametro . Quando la conservazione viene abbassata, è presente un periodo di prova di diversi giorni prima che i dati meno recenti vengano rimossi. Se si imposta la conservazione dei dati su 30 giorni, `immediatePurgeDataOn30Days` è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro , che può essere utile per gli scenari correlati alla conformità. Questa funzionalità di eliminazione viene esposta solo tramite Azure Resource Manager e deve essere usata con estrema attenzione. Il tempo di reimpostazione giornaliero per il limite `dailyQuotaResetTime` del volume di dati può essere configurato usando Azure Resource Manager per impostare il parametro.
+Quando la conservazione viene abbassata, è presente un periodo di prova di diversi giorni prima che i dati meno recenti vengano rimossi.
+
+La conservazione può anche essere impostata a `retentionInDays` livello di codice utilizzando [PowerShell](powershell.md#set-the-data-retention) utilizzando il parametro . Se si imposta la conservazione dei dati su 30 giorni, `immediatePurgeDataOn30Days` è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro , che può essere utile per gli scenari correlati alla conformità. Questa funzionalità di eliminazione viene esposta solo tramite Azure Resource Manager e deve essere usata con estrema attenzione. Il tempo di reimpostazione giornaliero per il limite `dailyQuotaResetTime` del volume di dati può essere configurato usando Azure Resource Manager per impostare il parametro.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Costi di trasferimento dei dati tramite Application InsightsData
 

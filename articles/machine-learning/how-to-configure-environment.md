@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5f46f5af723e1245afbc6bca90d25ae9036d646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472427"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399004"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Ulteriori informazioni sulle istanze di [calcolo](concept-compute-instance.md).
 
 Per interrompere le spese di calcolo, [arrestare l'istanza di calcolo.](tutorial-1st-experiment-sdk-train.md#clean-up-resources)
 
-## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Macchina virtuale di data science
 
 La Data Science Virtual Machine (DSVM) è un'immagine di macchina virtuale personalizzata. È stata progettata per operazioni di data science che sono preconfigurate con:
 
@@ -201,7 +201,7 @@ Quando si usa un computer locale (che potrebbe anche essere una macchina virtual
     pip install <new package>
     ```
 
-### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Notebook di Jupyter
+### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter Notebook
 
 I notebook di Jupyter fanno parte del [progetto Jupyter](https://jupyter.org/). Forniscono un'esperienza di codifica interattiva in cui si creano documenti che combinano codice attivo con testi narrativi e grafica. Anche i notebook di Jupyter sono un'ottima soluzione per condividere i risultati con altri utenti perché è possibile salvare l'output delle sezioni di codice nel documento. È possibile installare Jupyter Notebook in un'ampia gamma di piattaforme.
 
@@ -288,7 +288,7 @@ Usare queste impostazioni:
 | Impostazione |Si applica a| valore |
 |----|---|---|
 | Nome cluster |always| nomecluster |
-| Databricks Runtime |always|Runtime non ML 6.0 (scala 2.11, spark 2.4.3) |
+| Databricks Runtime |always|Runtime non ML 6.5 (scala 2.11, spark 2.4.3) |
 | Versione Python |always| 3 |
 | Ruoli di lavoro |always| almeno 2 |
 | Worker node VM types (Tipi di VM dei nodi di ruolo di lavoro) <br>(determina il numero massimo di iterazioni simultanee) |Funzionalità automatiche di Machine Learning<br>only| È preferibile una macchina virtuale ottimizzata per la memoria |

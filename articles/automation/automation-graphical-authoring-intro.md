@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 09afca7eaf385795baf9c4a3c94232622527e357
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf8ced05066923c94e80628651d8983560601d69
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500984"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406045"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creazione grafica in Automazione di Azure
 
@@ -395,7 +395,7 @@ L'attività `Connect-AzAccount`successiva, , aggiunge l'account RunAs autenticat
 >[!NOTE]
 >Per i runbook `Add-AzAccount` `Add-AzureRMAccount` di PowerShell `Connect-AzAccount`e sono alias per . Si noti che questi alias non sono disponibili per i runbook grafici. Un runbook grafico `Connect-AzAccount` può usare solo se stesso.
 
-Per i campi parametro **APPLICATIONID**, **CERTIFICATETHUMBPRINT**e **TENANTID**, specificare il nome della proprietà per il percorso Field, poiché l'attività restituisce un oggetto con più proprietà. In caso contrario, quando viene eseguito il runbook, non riesce durante il tentativo di autenticazione. Questi sono i requisiti minimi necessari per l'autenticazione del runbook con l'account RunAs.
+Per i campi parametro **APPLICATIONID**, **CERTIFICATETHUMBPRINT**e **TENANTID**, specificare il nome della proprietà per il percorso del campo, poiché l'attività restituisce un oggetto con più proprietà. In caso contrario, quando viene eseguito il runbook, non riesce durante il tentativo di autenticazione. Questi sono i requisiti minimi necessari per l'autenticazione del runbook con l'account RunAs.
 
 Alcuni sottoscrittori creano un account di automazione usando un account utente di Azure AD per gestire la distribuzione classica di Azure o per le risorse di Azure Resource Manager.Some subscribers create an Automation account using an [Azure AD user account](automation-create-aduser-account.md) to manage Azure classic deployment or for Azure Resource Manager resources. Per mantenere la compatibilità con le versioni precedenti per questi `Add-AzureAccount` sottoscrittori, il meccanismo di autenticazione da utilizzare nel runbook è il cmdlet con un [asset delle credenziali.](automation-credentials.md) L'asset rappresenta un utente di Active Directory con accesso all'account Azure.The asset represents an Active Directory user with access to the Azure account.
 
@@ -441,3 +441,5 @@ Pubblicare un runbook grafico aprendo il runbook per la modifica e facendo clic 
 * Per iniziare a utilizzare i runbook grafici, vedere [Il mio primo runbook grafico](automation-first-runbook-graphical.md).
 * Per altre informazioni sui tipi di runbook e sui relativi vantaggi e limitazioni, vedere [Tipi di runbook di Automazione di Azure.](automation-runbook-types.md)
 * Per informazioni su come eseguire l'autenticazione usando l'account RunAs di [automazione, vedere Configurare l'account RunAs](automation-sec-configure-azure-runas-account.md)di Azure.
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

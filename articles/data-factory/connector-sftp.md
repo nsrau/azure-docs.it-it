@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/02/2020
-ms.openlocfilehash: 06428d4a9c4a4178212d16d42b8b3adffb5c9718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d29f73716b04699e0cd250396df7f7d744d4c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250294"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415236"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Copiare dati da e nel server SFTP usando Azure Data FactoryCopy data from and to SFTP server using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-sftp-connector.md)
 > * [Versione corrente](connector-sftp.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In questo articolo viene descritto come copiare dati da e nel server SFTP. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
@@ -287,7 +288,7 @@ Le seguenti proprietà sono supportate per SFTP nelle `storeSettings` impostazio
 | type                     | La proprietà `storeSettings` type in deve essere impostata su **SftpWriteSettings**. | Sì      |
 | copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (impostazione predefinita):</b>mantiene la gerarchia di file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: Unisce tutti i file dalla cartella di origine in un unico file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
 | maxConcurrentConnections | Numero di connessioni per la connessione simultanea all'archivio dati. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
-| useTempFileRename (utilizzareTempFileRename) | Indicare se caricare in file temporanei e rinominare o scrivere direttamente nella cartella o nel percorso del file di destinazione. Per impostazione predefinita, ADF prima scrivere nei file temporanei, quindi eseguire la ridenominazione dei file al completamento del caricamento, al fine di 1) evitare la scrittura in conflitto con conseguente file danneggiato se si dispone di altri processi di scrittura nello stesso file e 2) assicurarsi che la versione originale del file esista durante l'intero trasferimento. Se il server SFTP non supporta l'operazione di ridenominazione, disattivare questa opzione e assicurarsi di non disporre di scrittura simultanea nel file di destinazione. Vedere il suggerimento per la risoluzione dei problemi riportata di seguito. | No. Il valore predefinito è true. |
+| useTempFileRename (utilizzareTempFileRename) | Indicare se caricare in file temporanei e rinominare o scrivere direttamente nella cartella o nel percorso del file di destinazione. Per impostazione predefinita, ADF prima scrivere nei file temporanei poi fare la ridenominazione del file al completamento del caricamento, al fine di 1) evitare la scrittura conflitto con conseguente file danneggiato se si dispone di altri processi di scrittura nello stesso file, e 2) assicurarsi che la versione originale del file esiste durante l'intero trasferimento. Se il server SFTP non supporta l'operazione di ridenominazione, disattivare questa opzione e assicurarsi di non disporre di scrittura simultanea nel file di destinazione. Vedere il suggerimento per la risoluzione dei problemi riportata di seguito. | No. Il valore predefinito è true. |
 | operationTimeout (Timeout) | Tempo di attesa prima del timeout di ogni richiesta di scrittura al server SFTP. Il valore predefinito è 60 min (01:00:00).|No |
 
 >[!TIP]

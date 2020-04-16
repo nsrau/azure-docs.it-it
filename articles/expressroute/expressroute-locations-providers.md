@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0133322eab9a554cf28c0a90fbadf9afe6fbcd64
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 3b45c20e2d3e8829913c9e566516f85866ee80d4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314275"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390311"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -95,7 +95,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Dubai** | [PCC](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | Emirati Arabi Uniti settentrionali | n/d | Etisalat Emirati Arabi Uniti |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Emirati Arabi Uniti settentrionali | n/d | du datamena, Megaport, Orange, Orixcom |
 | **Dublino** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa settentrionale | 10G, 100G | Colt, eir, Equinix, euNetworks, Interxion, Megaport |
-| **Francoforte** | [Interxione FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Germania Centro Ovest | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, GEANT, Interxion, Megaport, Orange, Telia Carrier |
+| **Francoforte** | [Interxione FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Germania Centro Ovest | 10G, 100G | AT&T NetBond, CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, GEANT, Interxion, Megaport, Orange, Telia Carrier |
 | **Ginevra** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Svizzera Ovest | 10G, 100G | Equinix, Megaport |
 | **RAS di Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asia orientale | n/d | Reti Aryaka, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Hong Kong2** | [MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | n/d | 10G (in questo stato del maligno | |
@@ -128,7 +128,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Silicon Valley** | [Equinix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | Stati Uniti occidentali | 10G, 100G | Reti Aryaka, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Comcast, Coresite, Equinix, InterCloud, Internet2, IX Reach, Packet, PacketFabric, Livello 3 Comunicazioni, Megaport, Orange, Sprint, Tata Communications, Telia Carrier, Verizon, |
 | **Silicon Valley2** | [Sito centrale SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 1 | Stati Uniti occidentali | 10G, 100G | Colt | 
 | **Singapore** | [Equinix SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | 2 | Asia sud-orientale | 10G, 100G | Reti Aryaka, AT&T NetBond, British Telecom, China Mobile International, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
-| **Singapore2** | [Interruttore globale Tai Seng](https://www.globalswitch.com/locations/singapore-data-centres/) | 2 | Asia sud-orientale | 10G, 100G | Cina Unicom Globale, Colt, Epsilon Global Communications, Megaport, SingTel |
+| **Singapore2** | [Interruttore globale Tai Seng](https://www.globalswitch.com/locations/singapore-data-centres/) | 2 | Asia sud-orientale | 10G, 100G | Cina Unicom Global, Colt, Epsilon Global Communications, Megaport, PCCW Global Limited, SingTel |
 | **Stavanger** | [Montagna verde DC1](https://greenmountain.no/dc1-stavanger/) | 1 | Norvegia Ovest | 10G, 100G | |
 | **Stoccolma** | [Equinix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | n/d | 10G (in questo stato del maligno | Equinix, Telia Carrier |
 | **Sydney** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | Australia orientale | 10G, 100G | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, COMUNICAZIONI NTT, Optus, Orange, Spark N'N, Telstra Corporation, TPG Telecom, Verizon, Vocus Group N.N. |

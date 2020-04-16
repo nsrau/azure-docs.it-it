@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a75b71d43b072d366ef2fcb15bf4c901680d48fb
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: badd8ba676ef25c33a5034bb04d616faeb4ef1b0
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383224"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392106"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Inoltrare i dati dei report di Configurazione stato di automazione di Azure ai log di Monitoraggio di AzureForward Azure Automation State Configuration reporting data to Azure Monitor logs
 
@@ -87,6 +87,7 @@ Viene visualizzato il riquadro Ricerca log con un'area di query con ambito alla 
 | where OperationName contains 'DSCNodeStatusData'
 | where ResultType != 'Compliant'
 ```
+
 Dettagli filtro:
 
 * Filtrare `DscNodeStatusData` per restituire le operazioni per ogni nodo di configurazione dello stato.
@@ -104,7 +105,7 @@ Per creare una regola di avviso, iniziare creando una ricerca nel log per i reco
 1. Nella pagina Panoramica dell'area di lavoro di Log Analytics fare clic su **Registri**.
 1. Creare una query di ricerca log per l'avviso digitando la ricerca seguente nel campo della query:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Se sono stati configurati log da più account di Automazione o sottoscrizioni nell'area di lavoro, è possibile raggruppare gli avvisi per sottoscrizione o account di Automazione. Derivare il nome `Resource` dell'account di automazione dal campo nella ricerca dei record **DscNodeStatusData.**
+   Se sono stati configurati log da più account di Automazione o sottoscrizioni nell'area di lavoro, è possibile raggruppare gli avvisi per sottoscrizione o account di Automazione. Derivare il nome `Resource` dell'account di `DscNodeStatusData` automazione dal campo nella ricerca dei record.
 1. Per aprire la schermata **Crea regola,** fare clic su **Nuova regola** di avviso nella parte superiore della pagina. 
 
 Per ulteriori informazioni sulle opzioni per configurare l'avviso, vedere [Creare una regola](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)di avviso .
@@ -128,46 +129,46 @@ Questa query visualizza un grafico dello stato del nodo nel tempo.
 
 Diagnostica di automazione di Azure creare due categorie di record nei log di Monitoraggio di Azure:Azure Automation diagnostics create two categories of records in Azure Monitor logs:
 
-* Dati sullo stato del nodo (**DscNodeStatusData**)
-* Dati sullo stato delle risorse (**DscResourceStatusData**)
+* Dati sullo`DscNodeStatusData`stato del nodo ( )
+* Dati sullo`DscResourceStatusData`stato delle risorse ( )
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
 | Proprietà | Descrizione |
 | --- | --- |
 | TimeGenerated |Data e ora dell'esecuzione del controllo della conformità. |
-| OperationName |DscNodeStatusData.DscNodeStatusData. |
-| ResultType |Indica se il nodo è conforme. |
+| OperationName |`DscNodeStatusData`. |
+| ResultType |Valore che indica se il nodo è conforme. |
 | NodeName_s |Nome del nodo gestito. |
-| NodeComplianceStatus_s |Indica se il nodo è conforme. |
-| DscReportStatus |Indica se il controllo della conformità è stato eseguito correttamente. |
-| ConfigurationMode | Indica la modalità di applicazione della configurazione al nodo. I valori possibili sono: <ul><li>`ApplyOnly`: DSC applica la configurazione e non esegue altre operazioni a meno che non venga eseguito il push di una nuova configurazione nel nodo di destinazione o quando una nuova configurazione viene estratta da un server. Dopo l'applicazione iniziale di una nuova configurazione, DSC non verifica la deviazione da uno stato configurato in precedenza. DSC tenta di applicare la configurazione `ApplyOnly` fino a quando non ha esito positivo prima che il valore abbia effetto. </li><li>`ApplyAndMonitor`: valore predefinito. Gestione configurazione locale applica qualsiasi nuova configurazione. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log. DSC tenta di applicare la configurazione `ApplyAndMonitor` fino a quando non ha esito positivo prima che il valore abbia effetto.</li><li>`ApplyAndAutoCorrect`: DSC applica tutte le nuove configurazioni. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log e quindi applica di nuovo la configurazione corrente.</li></ul> |
+| NodeComplianceStatus_s |Valore di stato che specifica se il nodo è conforme. |
+| DscReportStatus |Valore di stato che indica se il controllo di conformità è stato eseguito correttamente. |
+| ConfigurationMode | Modalità utilizzata per applicare la configurazione al nodo. I valori possibili sono: <ul><li>`ApplyOnly`: DSC applica la configurazione e non esegue altre operazioni a meno che non venga eseguito il push di una nuova configurazione nel nodo di destinazione o quando una nuova configurazione viene estratta da un server. Dopo l'applicazione iniziale di una nuova configurazione, DSC non verifica la deviazione da uno stato configurato in precedenza. DSC tenta di applicare la configurazione `ApplyOnly` fino a quando non ha esito positivo prima che il valore abbia effetto. </li><li>`ApplyAndMonitor`: valore predefinito. Gestione configurazione locale applica qualsiasi nuova configurazione. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log. DSC tenta di applicare la configurazione `ApplyAndMonitor` fino a quando non ha esito positivo prima che il valore abbia effetto.</li><li>`ApplyAndAutoCorrect`: DSC applica tutte le nuove configurazioni. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log e quindi applica di nuovo la configurazione corrente.</li></ul> |
 | HostName_s | Nome del nodo gestito. |
 | IPAddress | Indirizzo IPv4 del nodo gestito. |
-| Category | Stato dscNodeStatus. |
+| Category | `DscNodeStatus`. |
 | Risorsa | Nome dell'account di Automazione di Azure. |
-| Tenant_g | GUID che identifica il tenant del chiamante. |
-| NodeId_g |GUID che identifica il nodo gestito. |
-| DscReportId_g |GUID che identifica il report. |
-| LastSeenTime_t |Data e ora dell'ultima visualizzazione del report. |
-| ReportStartTime_t |Data e ora dell'avvio del report. |
-| ReportEndTime_t |Data e ora del completamento del report. |
-| NumberOfResources_d |Numero di risorse DSC chiamate nella configurazione applicata al nodo. |
-| SourceSystem | In che modo i log di Monitoraggio di Azure hanno raccolto i dati. Sempre "Azure" per la diagnostica di Azure.Always "Azure" for Azure diagnostics. |
-| ResourceId |Identificatore dell'account di Automazione di Azure.Identifier of the Azure Automation account. |
-| ResultDescription | Descrizione per questa operazione. |
+| Tenant_g | GUID che identifica il tenant per il chiamante. |
+| NodeId_g | GUID che identifica il nodo gestito. |
+| DscReportId_g | GUID che identifica il report. |
+| LastSeenTime_t | Data e ora dell'ultima visualizzazione del report. |
+| ReportStartTime_t | Data e ora dell'avvio del report. |
+| ReportEndTime_t | Data e ora del completamento del report. |
+| NumberOfResources_d | Numero di risorse DSC chiamate nella configurazione applicata al nodo. |
+| SourceSystem | Sistema di origine che identifica il modo in cui i log di Monitoraggio di Azure hanno raccolto i dati. Sempre `Azure` per la diagnostica di Azure.Always for Azure diagnostics. |
+| ResourceId |Identificatore di risorsa dell'account di Automazione di Azure. |
+| ResultDescription | Descrizione della risorsa per questa operazione. |
 | SubscriptionId | ID sottoscrizione di Azure (GUID) per l'account di automazione. |
-| ResourceGroup | Nome del gruppo di risorse dell'account di Automazione. |
+| ResourceGroup | Nome del gruppo di risorse per l'account di automazione. |
 | ResourceProvider | Microsoft. Automazione. |
 | ResourceType | CHE SI |
-| CorrelationId |GUID che è l'identificatore di correlazione del report di conformità. |
+| CorrelationId | GUID che è l'identificatore di correlazione del report di conformità. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
 | Proprietà | Descrizione |
 | --- | --- |
 | TimeGenerated |Data e ora dell'esecuzione del controllo della conformità. |
-| OperationName |DscResourceStatusData.DscResourceStatusData.|
+| OperationName |`DscResourceStatusData`.|
 | ResultType |Indica se la risorsa è conforme. |
 | NodeName_s |Nome del nodo gestito. |
 | Category | Stato dscNodeStatus. |
@@ -185,10 +186,10 @@ Diagnostica di automazione di Azure creare due categorie di record nei log di Mo
 | ErrorMessage_s |Messaggio di errore in caso di esito negativo della risorsa. |
 | DscResourceDuration_d |Durata, in secondi, dell'esecuzione della risorsa DSC. |
 | SourceSystem | In che modo i log di Monitoraggio di Azure hanno raccolto i dati. Sempre `Azure` per la diagnostica di Azure.Always for Azure diagnostics. |
-| ResourceId |Specifica l'account di Automazione di Azure. |
+| ResourceId |Identificatore dell'account di Automazione di Azure. |
 | ResultDescription | Descrizione per questa operazione. |
 | SubscriptionId | ID sottoscrizione di Azure (GUID) per l'account di automazione. |
-| ResourceGroup | Nome del gruppo di risorse dell'account di Automazione. |
+| ResourceGroup | Nome del gruppo di risorse per l'account di automazione. |
 | ResourceProvider | Microsoft. Automazione. |
 | ResourceType | CHE SI |
 | CorrelationId |GUID che è l'ID di correlazione del report di conformità. |

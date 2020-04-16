@@ -5,12 +5,12 @@ description: Informazioni su come creare e usare un servizio di bilanciamento de
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 4decd66a558b031f1aaaf9c64556dae545ed05d3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 9c2966215d07c4ddf052d30a5757a2deee2e0b5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668419"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392784"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 È inoltre necessaria l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-L'entità servizio cluster AKS deve disporre dell'autorizzazione per gestire le risorse di rete se si usa una subnet o un gruppo di risorse esistente. In generale, assegnare il ruolo *Collaboratore di rete* all'entità servizio nelle risorse delegate. Per altre informazioni sulle autorizzazioni, vedere [Delegare l'accesso AKS ad altre risorse][aks-sp]di Azure.For more information on permissions, see Delegate AKS access to other Azure resources.
+L'entità servizio cluster AKS deve disporre dell'autorizzazione per gestire le risorse di rete se si usa una subnet o un gruppo di risorse esistente. In generale, assegnare il ruolo *Collaboratore di rete* all'entità servizio nelle risorse delegate. Anziché un'entità servizio, è possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni. Per ulteriori informazioni, vedere [Utilizzare le identità gestite](use-managed-identity.md). Per altre informazioni sulle autorizzazioni, vedere [Delegare l'accesso AKS ad altre risorse][aks-sp]di Azure.For more information on permissions, see Delegate AKS access to other Azure resources.
 
 ## <a name="create-an-internal-load-balancer"></a>Creare un bilanciamento del carico interno
 

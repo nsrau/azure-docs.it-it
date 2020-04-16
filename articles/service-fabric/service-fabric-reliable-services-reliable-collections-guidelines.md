@@ -2,13 +2,13 @@
 title: Linee guida per le raccolte affidabili
 description: Linee guida e consigli per l'uso di raccolte Reliable Collection di Service Fabric in un'applicazione di Azure Service Fabric.Guidelines and Recommendations for using Service Fabric Reliable Collections in an Azure Service Fabric application.
 ms.topic: conceptual
-ms.date: 12/10/2017
-ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645481"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398532"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric
 Questa sezione fornisce le linee guida per l'uso di Reliable State Manager e Reliable Collections. L'obiettivo è quello di aiutare gli utenti a evitare errori comuni.
@@ -20,7 +20,7 @@ Le linee guida sono organizzate come semplici consigli*su cosa fare* , *prendere
 * Non usare `TimeSpan.MaxValue` per i timeout. I timeout devono essere usati per rilevare i deadlock.
 * Non usare una transazione dopo che ne è stato eseguito il commit, è stata interrotta o eliminata.
 * Non usare un'enumerazione all'esterno dell'ambito di transazione nella quale è stata creata.
-* Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
+* Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione perché può causare deadlock.
 * Non creare uno `IReliableStateManager.GetOrAddAsync` stato affidabile con e utilizzare lo stato reliable nella stessa transazione. Ciò comporta un InvalidOperationException.This results in an InvalidOperationException.
 * Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze su `IComparable<TKey>` per l'unione di checkpoint e righe.
 * Usare il blocco di aggiornamento durante la lettura di un elemento con l'intenzione di aggiornarlo in modo da evitare una determinata classe di deadlock.
@@ -41,7 +41,19 @@ Occorre tenere presente i concetti seguenti:
   Le letture della replica primaria sono sempre stabili: non sono mai elaborate in modo non corretto.
 * La sicurezza e la privacy dei dati resi persistenti tramite l'applicazione in una raccolta affidabile sono decisioni dell'utente e sono soggette a misure di protezione fornite dalla gestione dell'archiviazione, ad esempio la crittografia del disco del sistema operativo potrebbe essere usata per proteggere i dati inattivi.  
 
-### <a name="next-steps"></a>Passaggi successivi
+## <a name="volatile-reliable-collections"></a>Raccolte affidabili volatili
+Quando si decide di utilizzare raccolte affidabili volatili, considerare quanto segue:
+
+* ```ReliableDictionary```ha supporto volatile
+* ```ReliableQueue```ha supporto volatile
+* ```ReliableConcurrentQueue```NON ha supporto volatile
+* I servizi persistenti NON possono essere resi volatili. La ```HasPersistedState``` modifica ```false``` del flag in richiede la ricreazione dell'intero servizio da zero
+* I servizi volatili NON POSSONO essere resi persistenti. La ```HasPersistedState``` modifica ```true``` del flag in richiede la ricreazione dell'intero servizio da zero
+* ```HasPersistedState```è una configurazione a livello di servizio. Ciò significa che **TUTTE le** raccolte verranno rese persistenti o volatili. Non è possibile combinare raccolte volatili e persistenti
+* La perdita del quorum di una partizione volatile comporta una perdita completa dei datiQuorum loss of a volatile partition results in complete data loss
+* Backup e ripristino NON sono disponibili per i servizi volatili
+
+## <a name="next-steps"></a>Passaggi successivi
 * [Lavorare con le raccolte Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transazioni e blocchi](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestione dei dati
@@ -50,5 +62,5 @@ Occorre tenere presente i concetti seguenti:
   * [Serializzazione e aggiornamento](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration (Configurazione di Reliable State Manager)](service-fabric-reliable-services-configuration.md)
 * Altro
-  * [Guida introduttiva di Reliable Services](service-fabric-reliable-services-quick-start.md)
+  * [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md)
   * [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

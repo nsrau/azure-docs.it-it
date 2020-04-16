@@ -11,14 +11,16 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0324044d93f12f6ac6ec96ff1a31be8ee02ada41
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941857"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414705"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Risolvere i problemi relativi alla gestione del runtime di integrazione SSIS in Azure Data FactoryTroubleshoot SSIS Integration Runtime management in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Questo articolo fornisce indicazioni per la risoluzione dei problemi di gestione in Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), noto anche come Runtime di integrazione SSIS.
 

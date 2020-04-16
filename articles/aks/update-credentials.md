@@ -5,18 +5,20 @@ description: Informazioni su come aggiornare o reimpostare le credenziali dell'e
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 0203321af32bcc2ae70b726737b85870d08be86f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886756"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392621"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aggiornare o ruotare le credenziali per il servizio Azure Kubernetes (AKS)Update or rotate the credentials for Azure Kubernetes Service (AKS)
 
 Per impostazione predefinita, i cluster del servizio Azure Kubernetes vengono creati con un'entità servizio che dispone di una data di scadenza di un anno. Se la data di scadenza è prossima, è possibile reimpostare le credenziali per estendere l'entità servizio per un ulteriore periodo di tempo. È anche possibile aggiornare, o alternare, le credenziali come parte di criteri di sicurezza definiti. Questo articolo illustra come aggiornare le credenziali per un cluster del servizio Azure Kubernetes.
 
-È anche possibile che [il cluster AKS sia integrato con Azure Active Directory][aad-integration]e utilizzarlo come provider di autenticazione per il cluster. In tal caso si diselettronicaranno altre 2 identità create per il cluster, l'app AAD Server e l'app client AAD, è anche possibile reimpostare tali credenziali. 
+È anche possibile che [il cluster AKS sia integrato con Azure Active Directory][aad-integration]e utilizzarlo come provider di autenticazione per il cluster. In tal caso si diselettronicaranno altre 2 identità create per il cluster, l'app AAD Server e l'app client AAD, è anche possibile reimpostare tali credenziali.
+
+In alternativa, è possibile usare un'identità gestita per le autorizzazioni anziché un'entità servizio. Le identità gestite sono più facili da gestire rispetto alle entità servizio e non richiedono aggiornamenti o rotazioni. Per ulteriori informazioni, vedere [Utilizzare le identità gestite](use-managed-identity.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

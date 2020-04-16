@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255509"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393694"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio
 
@@ -141,7 +141,7 @@ In questa sezione vengono illustrati gli scenari seguenti usando il portale di A
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Modificare il livello di accesso all'account predefinito di un account per utilizzo generico v2 o di archiviazione BLOB
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure cercare e selezionare **Tutte le risorse**.
 
@@ -169,7 +169,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Modificare il livello di un BLOB in un account di archiviazione GPv2 o BLOBChange the tier of a blob in a GPv2 or Blob storage account
 # <a name="portal"></a>[Portale](#tab/azure-portal)
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure cercare e selezionare **Tutte le risorse**.
 
@@ -199,7 +199,7 @@ $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountN
 $ctx = $storageAccount.Context
 
 #Select the blob from a container
-$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
 #Change the blob’s access tier to archive
 $blob.ICloudBlob.SetStandardBlobTier("Archive")
@@ -234,7 +234,7 @@ Sì. L'attributo **Livello di accesso** impostato a livello di account è il liv
 
 **È possibile modificare il livello di accesso predefinito dell'account di archiviazione BLOB o GPv2?**
 
-Sì, è possibile modificare il livello di account predefinito impostando l'attributo Livello di **accesso** nell'account di archiviazione. La modifica del livello di account si applica a tutti gli oggetti archiviati nell'account che non dispongono di un set di livelli esplicito (ad esempio, **Hot (deded)** o **Cool (inferito)**). L'alternare il livello di account da caldo a freddo comporta operazioni di scrittura (per 10.000) per tutti i BLOB senza un set di soli in account GPv2 e passare da cool a hot comporta sia operazioni di lettura (per 10.000) che costi di recupero dati (per GB) per tutti i BLOB nell'archiviazione BLOB e gPv2.
+Sì, è possibile modificare il livello di account predefinito impostando l'attributo Livello di **accesso** nell'account di archiviazione. La modifica del livello di account si applica a tutti gli oggetti archiviati nell'account che non dispongono di un set di livelli esplicito (ad esempio, **Hot (deded)** o **Cool (inferito)**). L'alternanza del livello di account da caldo a freddo comporta operazioni di scrittura (per 10.000) per tutti i BLOB senza un set di livelli solo negli account GPv2 e l'alternanza da sporche a operazioni di lettura (per 10.000) e costi di recupero dati (per GB) per tutti i BLOB negli account BLOB e GPv2.
 
 **È possibile impostare il livello di accesso all'account predefinito per l'archiviazione?**
 

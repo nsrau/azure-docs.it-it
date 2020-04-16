@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9dadc107c6907f1ccb28a876270e577f10395
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d60f1101fc858e9dcaa22162be97417544e13693
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977302"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405052"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Guida introduttiva: Generare un'anteprima con l'API REST di Visione artificiale e cURL
 
@@ -28,23 +28,6 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 - È necessario avere [cURL](https://curl.haxx.se/windows).
 - È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave.
-
-## <a name="get-thumbnail-request"></a>Richiesta di generazione di un'anteprima
-
-Con il [metodo Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), è possibile generare un'anteprima di un'immagine.
-
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente in un editor.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Sostituire `<File>` con il percorso e il nome del file per salvare l'anteprima.
-1. Modificare l'URL della richiesta (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, modificare l'immagine (`{\"url\":\"...`) da analizzare.
-1. Aprire un prompt dei comandi in un computer in cui è installato cURL.
-1. Incollare il codice nella finestra ed eseguire il comando.
-
->[!NOTE]
->Usare lo stesso percorso nella chiamata REST usto per ottenere le chiavi di sottoscrizione. Se ad esempio si sono ottenute le chiavi di sottoscrizione da westus, sostituire "westcentralus" nell'URL riportato di seguito con "westus".
 
 ## <a name="create-and-run-the-sample-command"></a>Creare ed eseguire il comando di esempio
 

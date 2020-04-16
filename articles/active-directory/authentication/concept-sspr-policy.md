@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba4dae66b5adcea6cc33e61d8cf88946e29546e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051182"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393044"
 ---
 # <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Criteri e restrizioni di reimpostazione della password self-service in Azure Active Directory
 
@@ -160,16 +160,6 @@ Per iniziare, [scaricare e installare il modulo Azure AD PowerShell](https://doc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli articoli seguenti offrono altre informazioni sull'uso della reimpostazione della password con Azure AD:
+Per iniziare a usare SSPR, vedere [Esercitazione: Consentire agli utenti di sbloccare l'account o reimpostare le password usando la reimpostazione della password self-service](tutorial-enable-sspr.md)di Azure Active Directory.
 
-* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
-* [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
-* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).
-* [Hai una domanda di licenza?](concept-sspr-licensing.md)
-* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
-* [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
-* [Panoramica del writeback delle password](howto-sspr-writeback.md)
-* [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
-* [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Credo che qualcosa sia rotto. Come si risolvono i problemi relativi a SSPR?](active-directory-passwords-troubleshoot.md)
-* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
+Se l'utente o gli utenti hanno problemi con SSPR, vedere Risolvere i problemi relativi alla [reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)

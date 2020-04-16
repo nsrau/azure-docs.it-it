@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 243fea8fae071368a91bf482190442f15c372fc1
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271302"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390412"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Risolvere gli errori di replica delle macchine virtuali da Azure ad AzureTroubleshoot Azure-to-Azure VM replication errors
 
@@ -404,21 +404,20 @@ Per abilitare la replica nella macchina virtuale, lo stato del provisioning deve
 
 ### <a name="issue-1-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Problema 1: LA macchina virtuale è collegata a una rete già mappata a una rete di destinazioneIssue 1: VM is attached to a network that's already mapped to a target network
 
-Se la macchina virtuale di origine fa parte di una rete virtuale e un'altra macchina virtuale della stessa rete virtuale è già mappata con una rete nel gruppo di risorse di destinazione, la casella di riepilogo a discesa di selezione della rete non è disponibile (visualizzata in grigio) per impostazione predefinita.
+Durante la configurazione del ripristino di emergenza, se la macchina virtuale di origine fa parte di una rete virtuale e un'altra macchina virtuale della stessa rete virtuale è già mappata con una rete nel gruppo di risorse di destinazione, la casella di riepilogo a discesa di selezione della rete non è disponibile (viene visualizzata in grigio) per impostazione predefinita.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Elenco di selezione della rete non disponibile.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problema 2: In precedenza è stata protetta la macchina virtuale e quindi è stata disabilitata la replicaIssue 2: You previously protected the VM and then you disabled the replication
 
-La disabilitazione della replica di una macchina virtuale non comporta l'eliminazione del mapping di rete. Il mapping deve essere eliminato dall'insieme di credenziali di Servizi di ripristino in cui la macchina virtuale è protetta. Passare **all'insieme** > di credenziali dei servizi di ripristino**Mapping di rete****dell'infrastruttura** > di Site Recovery .
+La disabilitazione della replica di una macchina virtuale non comporta l'eliminazione del mapping di rete. Il mapping deve essere eliminato dall'insieme di credenziali di Servizi di ripristino in cui la macchina virtuale è protetta. Selezionare l'insieme di **credenziali di Servizi di ripristino** e passare a **Gestisci** > **infrastruttura** > di Site Recovery**per macchine** > virtuali di Azure**Mapping di rete**.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Eliminare il mapping di rete.":::
 
-La rete di destinazione configurata durante l'installazione del ripristino di emergenza può essere modificata dopo l'installazione iniziale e dopo la protezione della macchina virtuale:The target network that was configured during the disaster recovery setup can be changed after the initial setup, and after the VM is protected:
+La rete di destinazione configurata durante l'installazione del ripristino di emergenza può essere modificata dopo l'installazione iniziale e dopo la protezione della macchina virtuale. Per modificare il **mapping di rete,** selezionare il nome di rete:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modificare il mapping di rete.":::
 
-La modifica del mapping di rete influisce su tutte le macchine virtuali protette che utilizzano lo stesso mapping di rete.
 
 ## <a name="com-or-vss-error-code-151025"></a>COM o VSS (codice di errore 151025)
 

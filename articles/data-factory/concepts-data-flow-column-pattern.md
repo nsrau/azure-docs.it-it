@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: bfb4eeef482c4944e75b7805642bc93c23195208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e1c0eb1c4f1fc74e56db8f83f1bab6406ec5306
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065529"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415545"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilizzo di modelli di colonna nel mapping del flusso di datiUsing column patterns in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Diverse trasformazioni del flusso di dati di mapping consentono di fare riferimento a colonne modello in base a modelli anziché a nomi di colonna hardcoded. Questa corrispondenza è nota come modelli di *colonna*. È possibile definire modelli che corrispondono alle colonne in base al nome, al tipo di dati, al flusso o alla posizione anziché richiedere nomi di campo esatti. Esistono due scenari in cui i modelli di colonna sono utili:There are two scenarios where column patterns are useful:
 

@@ -3,14 +3,14 @@ title: Distribuire un'app Service Fabric con MI assegnato dal sistemaDeploy a Se
 description: Questo articolo illustra come assegnare un'identità gestita assegnata dal sistema a un'applicazione azure Service Fabric
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614826"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415644"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Distribuire l'applicazione Service Fabric con l'identità gestita assegnata dal sistema (anteprima)Deploy Service Fabric application with system-assigned managed identity (preview)
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Distribuire l'applicazione Service Fabric con l'identità gestita assegnata dal sistemaDeploy Service Fabric application with system-assigned managed identity
 
 Per accedere alla funzionalità di identità gestita per le applicazioni di Azure Service Fabric, è innanzitutto necessario abilitare il servizio token di identità gestita nel cluster. Questo servizio è responsabile dell'autenticazione delle applicazioni di Service Fabric che usano le identità gestite e dell'ottenimento dei token di accesso per loro conto. Una volta abilitato il servizio, è possibile visualizzarlo in Service Fabric Explorer nella sezione **Sistema** nel riquadro sinistro, in esecuzione sotto il nome **fabric:/System/ManagedIdentityTokenService** accanto ad altri servizi di sistema.
 

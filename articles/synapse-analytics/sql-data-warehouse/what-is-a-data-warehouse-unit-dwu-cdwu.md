@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62cf1f369cbde372e82e7c3ffe26473f09668bc7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742550"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408059"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unità data warehouse (DKU)
 
@@ -32,7 +32,7 @@ Una modifica al livello di servizio altera il numero di DKU disponibili per il s
 
 Per migliorare le prestazioni, è possibile aumentare il numero di unità del data warehouse. Per una riduzione delle prestazioni, ridurre le unità del data warehouse. I costi di archiviazione e calcolo vengono fatturati separatamente, pertanto la modifica delle unità Data Warehouse non influisce sui costi di archiviazione.
 
-Le prestazioni per le unità del data warehouse si basano su queste metriche del carico di lavoro:Performance for data warehouse units is based on these workload metrics:
+Le prestazioni per le unità Data Warehouse sono basate su queste metriche per il carico di lavoro del data warehouse:
 
 - Velocità con cui una query del pool SQL standard può eseguire la scansione di un numero elevato di righe e quindi eseguire un'aggregazione complessa. Questa è un'operazione con uso intensivo di I/O e CPU.
 - Velocità con cui il pool SQL può creare dati dai BLOB di Archiviazione di Azure o da Azure Data Lake.How fast the SQL pool can ingest data from Azure Storage Blobs or Azure Data Lake. Questa è un'operazione con uso intensivo di rete e CPU.
@@ -46,21 +46,37 @@ L'aumento delle DWU:
 
 ## <a name="service-level-objective"></a>Obiettivo del livello di servizio
 
+L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per la seconda generazione sono misurati in unità di calcolo data warehouse (DWU a elevato utilizzo di calcolo), ad esempio DW2000c. I livelli di servizio di prima generazione sono misurati in DWU, ad esempio DW2000.
+
 L'obiettivo del livello di servizio (SLO, Service Level Objective) è l'impostazione di scalabilità che determina il costo e il livello di prestazioni del pool SQL. I livelli di servizio per il pool SQL Gen2 sono misurati in unità di data warehouse (DWU), ad esempio DW2000c.
 
-In T-SQL l'impostazione SERVICE_OBJECTIVE determina il livello di servizio per il pool SQL.
+> [!NOTE]
+> Azure SQL Data Warehouse Gen2 ha di recente aggiunto funzionalità di scalabilità aggiuntive per supportare livelli di calcolo minimo di 100 DWU a elevato utilizzo di calcolo. I data warehouse esistenti attualmente su Gen1 che richiedono i livelli di calcolo più bassi possono ora eseguire l'aggiornamento a Gen2 nelle aree attualmente disponibili senza costi aggiuntivi.  Se la propria area non è ancora supportata, è comunque possibile eseguire l'aggiornamento a un'area supportata. Per altre informazioni, vedere [Aggiornamento a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+
+In T-SQL l'impostazione SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per il pool SQL.
 
 ```sql
 CREATE DATABASE mySQLDW
-( EDITION = 'Datawarehouse'
+(Edition = 'Datawarehouse'
  ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
 
-## <a name="capacity-limits"></a>Limiti di capacità
+## <a name="performance-tiers-and-data-warehouse-units"></a>Livelli di prestazioni e unità Data Warehouse
+
+Ogni livello di prestazioni usa un'unità di misura leggermente diversa per le unità Data Warehouse. Questa differenza si rispecchia nella fattura, dato che l'unità di scala ha una corrispondenza diretta nella fatturazione.
+
+- I data warehouse di prima generazione sono misurati in unità data warehouse (DWU a elevato utilizzo di calcolo).
+- I data warehouse di seconda generazione sono misurati in unità di calcolo data warehouse (DWU a elevato utilizzo di calcolo).
+
+Sia le unità DWU che le unità cDWU supportano l'aumento o la riduzione delle risorse di calcolo, oltre alla sospensione delle operazioni di calcolo quando non è necessario usare il data warehouse. Queste operazioni sono tutte su richiesta. La seconda generazione usa anche una cache basata su disco locale nei nodi di calcolo per migliorare le prestazioni. Quando si ridimensiona o si sospende il sistema, la cache viene invalidata ed è quindi necessario un periodo di aggiornamento della cache prima di ottenere prestazioni ottimali.  
 
 Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](sql-data-warehouse-service-capacity-limits.md#workload-management).
+
+## <a name="capacity-limits"></a>Limiti di capacità
+
+Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Quante unità di data warehouse sono necessarie
 
@@ -115,17 +131,17 @@ Per modificare i DKU:
 
 3. Fare clic su **Salva**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
-### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Per modificare le DKU, utilizzare il cmdlet [PowerShell Set-AzSqlDatabase.](/powershell/module/az.sql/set-azsqldatabase) Nell'esempio seguente l'obiettivo del livello di servizio viene impostato su DW1000c per il database MySQLDW ospitato nel server MyServer.
+Per modificare le DKU, utilizzare il cmdlet [PowerShell Set-AzSqlDatabase.](/powershell/module/az.sql/set-azsqldatabase) L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Per altre informazioni, vedere i [cmdlet di PowerShell per SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
+Per altre informazioni, vedere i [cmdlet di PowerShell per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -152,12 +168,12 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000c
+        "requestedServiceObjectiveName": DW1000
     }
 }
 ```
 
-Per altri esempi di API REST, vedere [API REST per SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
+Per altri esempi di API REST, vedere [API REST per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="check-status-of-dwu-changes"></a>Controllare lo stato delle modifiche alle DWU
 
@@ -170,14 +186,13 @@ Non è possibile verificare lo stato del database per le operazioni di scalabili
 Per controllare lo stato delle modifiche alle DWU:
 
 1. Connettersi al database master associato al server di database SQL logico.
+2. Inviare la query seguente per controllare lo stato del database.
 
-1. Inviare la query seguente per controllare lo stato del database.
-
-    ```sql
-    SELECT    *
-    FROM      sys.databases
-    ;
-    ```
+```sql
+SELECT    *
+FROM      sys.databases
+;
+```
 
 1. Inviare la query seguente per controllare lo stato dell'operazione.
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad2032497b4b01476389428f5a2ef4a3961a1c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481246"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406724"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy
 
@@ -45,7 +45,7 @@ Questo articolo offre le informazioni necessarie per configurare la pubblicazion
 
 > http(s)://*.\<domain\>
 
-Ad esempio `http(s)://*.adventure-works.com`.
+Ad esempio: `http(s)://*.adventure-works.com`.
 
 Anche se gli URL interni ed esterni possono usare domini diversi, la procedura consigliata è quella di usare lo stesso dominio. Quando si pubblica l'applicazione, viene visualizzato un errore se uno degli URL non contiene un carattere jolly.
 
@@ -116,7 +116,7 @@ L'applicazione con carattere jolly è rappresentata con un solo riquadro nel [pa
 
 ### <a name="kerberos-constrained-delegation"></a>Delega vincolata Kerberos
 
-Per le applicazioni che usano la [delega vincolata Kerberos (KCD) come metodo SSO](application-proxy-configure-single-sign-on-with-kcd.md) può essere necessario un carattere jolly anche per il nome dell'entità servizio elencato per il metodo SSO. Ad esempio, il nome dell'entità servizio può essere `HTTP/*.adventure-works.com`. È comunque necessario configurare i singoli nomi dell'entità servizio nei server back-end (ad esempio, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Per le applicazioni che usano la [delega vincolata Kerberos (KCD) come metodo SSO](application-proxy-configure-single-sign-on-with-kcd.md) può essere necessario un carattere jolly anche per il nome dell'entità servizio elencato per il metodo SSO. Ad esempio, il nome dell'entità servizio può essere `HTTP/*.adventure-works.com`. È comunque necessario configurare i singoli nomi dell'entità servizio nei server back-end (ad esempio, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 ## <a name="scenario-1-general-wildcard-application"></a>Scenario 1: Applicazione con carattere jolly generica
 

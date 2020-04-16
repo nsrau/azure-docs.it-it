@@ -4,16 +4,16 @@ description: Creare certificati di test e scoprire come installarli in un dispos
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2020
+ms.date: 04/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5afb9b7a6ba1ffb99df064c9f92780dc820b2e8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 364846f6cef196f6cefa7872af48f262b387db4f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535987"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393827"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creare certificati dimostrativi per testare le funzionalità dei dispositivi perimetrali IoTCreate demo certificates to test IoT Edge device features
 
@@ -153,7 +153,7 @@ Se si desidera più certificati CA radice, assicurarsi di gestirli in cartelle s
 
 Prima di procedere con i passaggi descritti in questa sezione, seguire i passaggi nella sezione [Configurare gli script](#set-up-scripts) per preparare una directory di lavoro con gli script demo di generazione dei certificati.
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 1. Passare alla directory di lavoro in cui sono stati inseriti gli script di generazione dei certificati.
 
@@ -191,7 +191,7 @@ I certificati CA per dispositivi vengono visualizzati nella sezione **Certificat
 
 Prima di procedere con i passaggi descritti in questa sezione, seguire i passaggi descritti nelle sezioni [Configurare gli script](#set-up-scripts) e Creare il [certificato della CA radice.](#create-root-ca-certificate)
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 1. Passare alla directory di lavoro contenente gli script di generazione del certificato e il certificato della CA radice.
 
@@ -237,7 +237,7 @@ I certificati di identità del dispositivo vengono visualizzati nella sezione **
 
 Prima di procedere con i passaggi descritti in questa sezione, seguire i passaggi descritti nelle sezioni [Configurare gli script](#set-up-scripts) e Creare il [certificato della CA radice.](#create-root-ca-certificate)
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 Creare il certificato di identità del dispositivo IoT Edge e la chiave privata con il comando seguente:
 
@@ -247,8 +247,9 @@ New-CACertsEdgeDeviceIdentity "<name>"
 
 Il nome passato a questo comando sarà l'ID del dispositivo IoT Edge nell'hub IoT.
 
-Il comando new device identity crea diversi file di certificati e chiavi, tra cui due che verranno utilizzati durante la creazione di una singola registrazione in DPS e l'installazione del runtime di IoT Edge:The new device identity command creates several certificate and key files, including two that you'll use when creating an individual enrollment in DPS and installing the IoT Edge runtime:
+Il comando new device identity crea diversi file di certificati e chiavi, inclusi tre che verranno utilizzati durante la creazione di una singola registrazione in DPS e l'installazione del runtime di IoT Edge:The new device identity command creates several certificate and key files, including three that you'll use when creating an individual enrollment in DPS and installing the IoT Edge runtime:
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
@@ -262,8 +263,9 @@ Creare il certificato di identità del dispositivo IoT Edge e la chiave privata 
 
 Il nome passato a questo comando sarà l'ID del dispositivo IoT Edge nell'hub IoT.
 
-Lo script crea diversi file di certificati e di chiave, inclusi due che verranno utilizzati durante la creazione di una singola registrazione in DPS e l'installazione del runtime di IoT Edge:
+Lo script crea diversi file di certificati e di chiave, inclusi tre che verranno utilizzati durante la creazione di una singola registrazione in DPS e l'installazione del runtime di IoT Edge:
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
@@ -286,7 +288,7 @@ Quando si autentica un dispositivo IoT con certificati autofirmati, è necessari
 Quindi, si recupera un'impronta digitale esadecimale dai certificati da fornire all'hub IoT.
 Il dispositivo IoT necessita anche di una copia dei relativi certificati del dispositivo in modo che possa eseguire l'autenticazione con l'hub IoT.Your IoT device also needs a copy of its device certificates so that it can authenticate with IoT Hub.
 
-#### <a name="windows"></a>WINDOWS
+#### <a name="windows"></a>Windows
 
 1. Passare alla directory di lavoro contenente gli script di generazione del certificato e il certificato della CA radice.
 
@@ -354,7 +356,7 @@ Infine, si usa lo stesso certificato CA radice per creare certificati del dispos
 
 I certificati in questa sezione sono per la procedura descritta in Configurare la [sicurezza X.509 nell'hub IoT](../iot-hub/iot-hub-security-x509-get-started.md)di Azure.
 
-#### <a name="windows"></a>WINDOWS
+#### <a name="windows"></a>Windows
 
 1. Caricare il file del certificato della `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`CA radice dalla directory di lavoro, , nell'hub IoT.
 

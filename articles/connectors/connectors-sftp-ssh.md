@@ -4,16 +4,16 @@ description: Automatizzare le attività che monitorano, creano, gestiscono, invi
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/7/2020
+ms.date: 04/13/2020
 tags: connectors
-ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128403"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393626"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -147,6 +147,16 @@ Se la chiave privata è in formato PuTTY, che utilizza l'estensione ppk (PuTTY P
 
 1. Salvare il file della `.pem` chiave privata con l'estensione del nome file.
 
+## <a name="considerations"></a>Considerazioni
+
+In questa sezione vengono descritte le considerazioni da esaminare per i trigger e le azioni del connettore.
+
+<a name="create-file"></a>
+
+### <a name="create-file"></a>Crea file
+
+Per creare un file sul server SFTP, è possibile utilizzare l'azione **Crea file** SFTP-SSH. Quando questa azione crea il file, il servizio App per la logica chiama automaticamente anche il server SFTP per ottenere i metadati del file. Tuttavia, se si sposta il file appena creato prima che il servizio `404` App per `'A reference was made to a file or folder which does not exist'`la logica possa effettuare la chiamata per ottenere i metadati, viene visualizzato un messaggio di errore, . Per ignorare la lettura dei metadati del file dopo la creazione del file, attenersi alla procedura per [aggiungere e impostare la proprietà **Get all file metadata** su **No**](#file-does-not-exist).
+
 <a name="connect"></a>
 
 ## <a name="connect-to-sftp-with-ssh"></a>Connettersi a SFTP con SSH
@@ -211,9 +221,27 @@ Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene ag
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - Azione SSH: Ottenere il contenuto usando il percorso
+### <a name="sftp---ssh-action-get-file-content-using-path"></a>SFTP - Azione SSH: Ottenere il contenuto del file utilizzando il percorso
 
-Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto.
+Questa azione ottiene il contenuto da un file su un server SFTP specificando il percorso del file. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto.
+
+<a name="troubleshooting-errors"></a>
+
+## <a name="troubleshoot-errors"></a>Risolvere gli errori
+
+In questa sezione vengono descritte le possibili soluzioni a errori o problemi comuni.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Errore 404: "È stato fatto un riferimento a un file o a una cartella che non esiste"
+
+Questo errore può verificarsi quando l'app per la logica crea un nuovo file nel server SFTP tramite l'azione **Crea file** SFTP-SSH, ma il file appena creato viene quindi spostato immediatamente prima che il servizio App per la logica possa ottenere i metadati del file. Quando l'app per la logica esegue l'azione **Crea file,** il servizio App per la logica chiama automaticamente anche il server SFTP per ottenere i metadati del file. Tuttavia, se il file viene spostato, il servizio App per `404` la logica non riesce più a trovare il file in modo da ottenere il messaggio di errore.
+
+Se non è possibile evitare o ritardare lo spostamento del file, è possibile ignorare la lettura dei metadati del file dopo la creazione del file attenendosi alla seguente procedura:
+
+1. Nell'azione **Crea file** aprire l'elenco **Aggiungi nuovo parametro,** selezionare la proprietà **Ottieni tutti i metadati** del file e impostare il valore su **No**.
+
+1. Se questi metadati del file sono necessari in un secondo momento, è possibile utilizzare l'azione **Ottieni metadati file.**
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 

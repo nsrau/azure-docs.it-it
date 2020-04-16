@@ -2,13 +2,13 @@
 title: Argomenti avanzati sull'aggiornamento delle applicazioni
 description: Questo articolo illustra alcuni degli argomenti avanzati relativi all'aggiornamento di un'applicazione di Service Fabric.
 ms.topic: conceptual
-ms.date: 1/28/2020
-ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 03/11/2020
+ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422803"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414492"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento dell'applicazione Service Fabric: argomenti avanzatiService Fabric application upgrade: Advanced topics
 
@@ -18,7 +18,7 @@ Se si aggiunge un nuovo tipo di servizio a un'applicazione pubblicata nel corso 
 
 Analogamente, i tipi di servizio possono essere rimossi da un'applicazione durante un aggiornamento. Tuttavia, prima di procedere con l'aggiornamento è necessario rimuovere tutte le istanze del tipo di servizio da rimuovere (vedere [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evitare l'eliminazione delle connessioni durante i tempi di inattività pianificati del servizio senza stato (anteprima)Avoid connection drops during stateless service planned downtime (preview)
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evitare l'eliminazione delle connessioni durante i tempi di inattività pianificati del servizio senza statoAvoid connection drops during stateless service planned downtime
 
 Per i tempi di inattività pianificati dell'istanza senza stato, ad esempio l'aggiornamento dell'applicazione/cluster o la disattivazione del nodo, le connessioni possono essere eliminate a causa della rimozione dell'endpoint esposto dopo l'arresto dell'istanza, con conseguente chiusura forzata delle connessioni.
 

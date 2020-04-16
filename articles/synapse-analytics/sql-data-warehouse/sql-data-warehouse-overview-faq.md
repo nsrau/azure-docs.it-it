@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: dcefe6a6144c9a8f9c6ab7daf5b34b2d81a73c3f
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 260086d186f7e2b2d6f76c437057f5fbc8af39b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743007"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416083"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Domande frequenti su Azure Synapse Analytics (in precedenza SQL DW)
 
@@ -48,7 +48,7 @@ In primo luogo, scegliere in base al titolo di conformità. Espandere quindi Azu
 
 Q. È possibile connettere Power BI?
 
-R.  Sì. Anche se Power BI supporta query dirette con Azure Synapse, non è destinato a un numero elevato di utenti o dati in tempo reale. Per ottimizzare ulteriormente le prestazioni di Power BI, è consigliabile usare Power BI in Azure Analysis Services o Analysis Service IaaS.To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
+R. Sì. Anche se Power BI supporta query dirette con Azure Synapse, non è destinato a un numero elevato di utenti o dati in tempo reale. Per ottimizzare ulteriormente le prestazioni di Power BI, è consigliabile usare Power BI in Azure Analysis Services o Analysis Service IaaS.To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
 
 Q. Quali sono i limiti di capacità del pool SQL Synapse?
 
@@ -92,7 +92,7 @@ R. Sì. La maggior parte delle funzionalità REST che possono essere usate con i
 
 Q. Quali driver client sono supportati?
 
-R. Il supporto dei driver per il pool Synapse SQL è disponibile nella pagina [Stringhe di connessione](sql-data-warehouse-connection-strings.md)
+R. Il supporto dei driver per il pool Synapse SQL è disponibile nella pagina [Stringhe di connessione](../sql/connection-strings.md)
 
 D: Quali formati di file sono supportati da PolyBase?
 

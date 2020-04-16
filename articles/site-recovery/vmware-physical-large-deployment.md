@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256939"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409777"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su larga scala per le macchine virtuali/server fisici VMwareSet up disaster recovery at scale for VMware VMs/physical servers
 
@@ -95,7 +95,7 @@ I limiti indicano il numero di failover supportati da Site Recovery entro un'ora
 
 Che cosa significa rispetto? Per avviare una macchina virtuale di Azure, Azure richiede che alcuni driver siano nello stato di avvio e che servizi come DHCP siano impostati per l'avvio automatico.
 - Le macchine conformi avranno già queste impostazioni in atto.
-- Per i computer che eseguono Windows, è possibile verificare in modo proattivo la conformità e renderli conformi se necessario. [Scopri di più](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- Per i computer che eseguono Windows, è possibile verificare in modo proattivo la conformità e renderli conformi se necessario. [Altre informazioni](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010)
 - Le macchine Linux vengono rese conformi solo al momento del failover.
 
 **La macchina è conforme ad Azure?** | **Limiti delle macchine virtuali di Azure (failover del disco gestito)Azure VM limits (managed disk failover)**
@@ -210,9 +210,9 @@ In an event of disaster, you might need to fail over a large number of machines/
 Per eseguire un failover su larga scala, è consigliabile eseguire le operazioni seguenti:To run a large-scale failover, we recommend the following:
 
 1. Creare piani di ripristino per il failover del carico di lavoro.
-    - Ogni piano di ripristino può attivare il failover di un massimo di 50 computer.
+    - Ogni piano di ripristino può attivare il failover di un massimo di 100 computer.
     - [Ulteriori informazioni](recovery-plan-overview.md) sui piani di ripristino.
-2. Aggiungere script di runbook di Automazione di Azure ai piani di ripristino per automatizzare eventuali attività manuali in Azure.Add Azure Automation runbook scripts to recovery plans, to automate any manual tasks on Azure. Le attività tipiche includono la configurazione dei servizi di bilanciamento del carico, l'aggiornamento del DNS e così via. [Scopri di più](site-recovery-runbook-automation.md)
+2. Aggiungere script di runbook di Automazione di Azure ai piani di ripristino per automatizzare eventuali attività manuali in Azure.Add Azure Automation runbook scripts to recovery plans, to automate any manual tasks on Azure. Le attività tipiche includono la configurazione dei servizi di bilanciamento del carico, l'aggiornamento del DNS e così via. [Altre informazioni](site-recovery-runbook-automation.md)
 2. Prima del failover, preparare i computer Windows in modo che siano conformi all'ambiente Azure.Before failover, prepare Windows machines so that they comply with the Azure environment. [I limiti](#plan-azure-subscriptions-and-quotas) di failover sono superiori per i computer conformi. [Ulteriori informazioni](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sui runbook.
 4.  Attivare il failover con il cmdlet [PowerShell Start-AzRecoveryServicesAsrPlannedFailoverJob,](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) insieme a un piano di ripristino.
 

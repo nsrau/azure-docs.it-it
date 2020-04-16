@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/25/2020
 ms.author: juliako
-ms.openlocfilehash: d4a206bbddedfe9f23a943df27c6ac4b5fe17e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3733a641bc116b57556c5ad4f5750bec69e10e9b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251349"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393739"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
 
 Questo articolo illustra gli schemi e le proprietà degli eventi di Servizi multimediali.
 
-Per un elenco di esercitazioni e script di esempio, vedere [Origine evento di Servizi multimediali](../../event-grid/event-sources.md#azure-subscriptions).
+Per un elenco di esercitazioni e script di esempio, vedere [Origine evento di Servizi multimediali](../../event-grid/event-schema-subscriptions.md).
 
 ## <a name="job-related-event-types"></a>Tipi di evento correlati al processo
 
@@ -674,4 +674,4 @@ Un evento presenta i seguenti dati di primo livello:
 
 - [EventGrid .NET SDK che include gli eventi per Servizi multimediali](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definizioni degli eventi di Servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Codici di errore Eventi live](live-event-error-codes.md)
+- [Codici errore di eventi live](live-event-error-codes.md)

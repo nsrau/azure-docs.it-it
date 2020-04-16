@@ -11,15 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: 9a1923057bc318869f491791520aacb4d0d17591
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/15/2020
+ms.openlocfilehash: ecfdf2a11f31c18064be9a607f2bb3938d26e661
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346630"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414905"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurare un componente di ri-/o self-hosted come proxy per un componente di gestione Azure-SSIS in Azure Data FactoryConfigure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Questo articolo descrive come eseguire pacchetti di SQL Server Integration Services (SSIS) in un runtime di integrazione Azure-SSIS (Azure-SSIS IR) in Azure Data Factory con un runtime di integrazione self-hosted (iR self-hosted) configurato come proxy. 
 
@@ -52,7 +54,7 @@ Infine, si scarica e si installa la versione più recente del runtime di integra
 
 Se non è già stato fatto, creare un servizio collegato all'archiviazione BLOB di Azure nella stessa data factory in cui è configurato il componente di accesso Azure-SSIS. A tale scopo, vedere [Creare un servizio collegato a Azure data factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service). Assicurarsi di eseguire le operazioni seguenti:
 - Per **Archivio dati**selezionare **Archiviazione BLOB**di Azure .  
-- Per Connetti tramite il runtime di **integrazione,** selezionare **AutoResolveIntegrationRuntime** (non il runtime di integrazione Azure-SSIS né il runtime di integrazione self-hosted), perché viene usato il runtime di accesso di Azure predefinito per recuperare le credenziali di accesso per l'archiviazione BLOB di Azure  
+- Per Connetti tramite runtime di **integrazione,** selezionare AutoResolveIntegrationRuntime (non il runtime di integrazione Azure-SSIS né il runtime di integrazione self-hosted), perché viene usato il runtime di accesso di Azure predefinito per recuperare le credenziali di accesso per l'archiviazione BLOB di Azure.For Connect via integration runtime , select **AutoResolveIntegrationRuntime** (not your Azure-SSIS IR nor nor your self-hosted IR), because we use the default Azure IR to fetch access credentials for your Azure Blob Storage.
 - Per **Metodo di autenticazione**, selezionare **Chiave account**, URI server di chiamata di **accesso**condiviso o **Entità servizio**.  
 
     >[!TIP]
@@ -171,7 +173,7 @@ Se è necessario utilizzare la crittografia avanzata/protocollo di rete più sic
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- Attualmente sono supportate solo le attività del flusso di dati con origini ODBC (Open Database Connectivity)/OLEDB/Flat File. 
+- Attualmente sono supportate solo le attività del flusso di dati con origini ODBC (Open Database Connectivity)/OLEDB/Flat File o destinazione OLEDB. 
 - Solo i servizi di archiviazione BLOB di Azure configurati con *la chiave account,* l'URI della firma di *accesso condiviso*o l'autenticazione *dell'entità servizio* sono attualmente supportati.
 - *ParameterMapping* nell'origine OLEDB non è ancora supportato. Come soluzione alternativa, utilizzare *il comando SQL da variabile* come *AccessMode* e utilizzare *Expression* per inserire le variabili/parametri in un comando SQL. Come illustrazione, vedere il pacchetto *ParameterMappingSample.dtsx* che è disponibile nella cartella *SelfHostedIRProxy/Limitations* del contenitore di anteprima pubblica. Usando Azure Storage Explorer, è possibile connettersi al contenitore di anteprima pubblica immettendo l'URI di accesso condiviso precedente.
 

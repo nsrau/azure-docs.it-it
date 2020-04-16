@@ -1,30 +1,30 @@
 ---
-title: Schema di eventi degli hub eventi di Griglia di eventi di Azure
+title: Hub eventi di Azure come origine griglia di eventiAzure Event Hubs as Event Grid source
 description: Descrive le proprietà disponibili per gli eventi degli hub eventi con Griglia di eventi di Azure
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561829"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393347"
 ---
-# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Schema di eventi di Griglia di eventi di Azure per gli hub eventi
+# <a name="azure-event-hubs-as-an-event-grid-source"></a>Hub eventi di Azure come origine griglia di eventiAzure Event Hubs as an Event Grid source
 
 Questo articolo illustra le proprietà e lo schema per gli eventi degli hub eventi.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
-Per un elenco di esercitazioni e script di esempio, vedere [Origine evento di Hub eventi](event-sources.md#event-hubs).
+## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
 
 ### <a name="available-event-types"></a>Tipi di evento disponibili
 
 Hub eventi genera il tipo di evento **Microsoft.EventHub.CaptureFileCreated** quando viene creato un file di acquisizione.
 
-## <a name="example-event"></a>Evento di esempio
+### <a name="example-event"></a>Evento di esempio
 
 Questo evento di esempio mostra lo schema di un evento di hub eventi generato quando la funzionalità di acquisizione archivia un file: 
 
@@ -53,7 +53,7 @@ Questo evento di esempio mostra lo schema di un evento di hub eventi generato qu
 ]
 ```
 
-## <a name="event-properties"></a>Proprietà degli eventi
+### <a name="event-properties"></a>Proprietà degli eventi
 
 Un evento presenta i seguenti dati di primo livello:
 
@@ -81,6 +81,12 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | lastSequenceNumber | integer | Ultimo numero di sequenza nella coda. |
 | firstEnqueueTime | string | Primo orario nella coda. |
 | lastEnqueueTime | string | Ultimo orario nella coda. |
+
+## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+
+|Titolo  |Descrizione  |
+|---------|---------|
+| [Esercitazione: trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md) | Quando Hub eventi crea un file di Acquisizione, Griglia di eventi invia un evento a un'app per le funzioni. L'app recupera il file di Acquisizione ed esegue la migrazione dei dati a un data warehouse. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

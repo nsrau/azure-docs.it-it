@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 423706c391e8d8c2c609798d9f50e5a22f5c39bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1f11a1ff25117c07e61475e7e83fc0c170cd552
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260683"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414643"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formati di file e codec di compressione supportati in Azure Data Factory (legacy)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *Questo articolo si applica ai connettori seguenti: [Amazon S3](connector-amazon-simple-storage-service.md), Blob di [Azure](connector-azure-blob-storage.md), Azure Data Lake [Storage Gen1](connector-azure-data-lake-store.md), Azure Data Lake Storage [Gen2](connector-azure-data-lake-storage.md), [Archiviazione file di Azure](connector-azure-file-storage.md), File [System](connector-file-system.md), [FTP](connector-ftp.md), Google [Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)e [SFTP](connector-sftp.md).*
 
@@ -34,7 +36,7 @@ Se si vuole leggere da un file di testo o scrivere in un file di testo, impostar
 | --- | --- | --- | --- |
 | columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che potrebbe non esistere nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è **virgola (',')**. <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
 | rowDelimiter |carattere usato per separare le righe in un file. |È consentito un solo carattere. Il valore **predefinito** è uno dei seguenti valori letti: **["r"n", "'r",'n']** e **"'r'n"** in scrittura. |No |
-| escapeChar |carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire "$" come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No |
+| escapeChar |carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Esempio: se si dispone di una virgola (',') come delimitatore di colonna, ma si desidera avere il carattere virgola nel testo (ad esempio: "Ciao, mondo"), è possibile definire ' s' come carattere di escape e utilizzare la stringa "Ciao, mondo" nell'origine. |No |
 | quoteChar |carattere usato per inserire un valore stringa tra virgolette. I delimitatori di riga e colonna all'interno delle virgolette sono considerati come parte del valore della stringa. Questa proprietà è applicabile ai set di dati di input e di output.<br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No |
 | nullValue |uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **di default** sono **""N" e "NULL"** in lettura e **"N"** in scrittura. |No |
 | encodingName |specifica il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
@@ -530,7 +532,7 @@ Per analizzare i file Avro o scrivere i dati in formato Avro, impostare la propr
 }
 ```
 
-Per usare il formato Avro in una tabella Hive, fare riferimento all' [esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Per utilizzare il formato Avro in una tabella Hive, è possibile fare riferimento [all'esercitazione di Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 Tenere presente quanto segue:
 

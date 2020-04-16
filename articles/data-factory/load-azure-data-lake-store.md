@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/17/2018
-ms.openlocfilehash: 1325910877d1e030b3bf4114e16d0f81ecea8cf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b1b19814709451bdbbea97462c459149484e71f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443985"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415855"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Caricare dati in Azure Data Lake Storage Gen1 tramite Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (in precedenza noto come Azure Data Lake Store) è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. Data Lake Storage Gen1 consente di acquisire dati di qualsiasi dimensione, tipo e velocità di inserimento. I dati vengono acquisiti in una singola posizione per le analisi esplorative e operative.
 
@@ -38,7 +40,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Sottoscrizione di Azure: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Account Azure Data Lake Storage Gen1: se non si dispone di un account Azure Data Lake Storage Gen1, vedere le istruzioni in [Creare un account Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
 * Amazon S3: in questo articolo viene illustrato come copiare i dati da Amazon S3. È possibile usare altri archivi dati seguendo una procedura simile.
 
@@ -58,7 +60,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
     * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Data Lake Storage Gen1, Archiviazione di Azure, il database SQL di Azure e così via.
 
-3. Selezionare **Crea**.
+3. Selezionare **Create** (Crea).
 4. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente: 
    
    ![Home page di Data factory](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
@@ -88,7 +90,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
    
       ![Specificare l'account di Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
-   4. Si noterà una nuova connessione. Fare clic su **Avanti**.
+   4. Si noterà una nuova connessione. Selezionare **Avanti**.
    
    ![Specificare l'account di Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
    
@@ -108,7 +110,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 
    1. Selezionare l'account Data Lake Storage Gen1 per il **nome dell'account Data Lake Storage**.
    2. Specificare il **Tenant** e scegliere Fine.
-   3. Fare clic su **Avanti**.
+   3. Selezionare **Avanti**.
    
    > [!IMPORTANT]
    > In questa procedura dettagliata si usa un'identità gestita delle risorse di Azure per autenticare l'account Data Lake Storage Gen1. Assicurarsi di concedere le autorizzazioni appropriate all'entità del servizio gestita in Data Lake Storage Gen1 seguendo [queste istruzioni](connector-azure-data-lake-store.md#managed-identity).

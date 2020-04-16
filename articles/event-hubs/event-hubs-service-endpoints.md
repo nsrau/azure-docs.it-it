@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: abd7940551f7a8182364475b0cf50b60afb5e1b7
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313801"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390275"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure
 
@@ -32,6 +32,7 @@ Il risultato è una relazione privata e isolata tra i carichi di lavoro associat
 > I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
 >
 > Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
+> - Monitoraggio di Azure (impostazione diagnostica)Azure Monitor (diagnostic setting)
 > - Analisi di flusso di Azure
 > - Integrazione con Griglia di eventi di Azure
 > - Route dell'hub IoT di Azure

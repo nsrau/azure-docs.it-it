@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 4f39ff5726c23db32c7b039335f406641ee090cb
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754252"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411191"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurare Il collegamento privato di Azure per un'area di lavoro di Azure Machine Learning (anteprima)Configure Azure Private Link for an Azure Machine Learning workspace (Preview)
 
@@ -47,8 +47,7 @@ Quando si distribuisce un modello, è necessario fornire le informazioni seguent
 * Edizione area di lavoro (Basic o Enterprise)
 * Se le impostazioni di riservatezza elevata per l'area di lavoro devono essere abilitate
 * Se la crittografia per l'area di lavoro con una chiave gestita dal cliente deve essere abilitata e i valori associati per la chiave
-* Nome e subnet della rete virtualeVirtual Network name and subnet
-* Nome della subnet
+* Nome rete virtuale e subnet, modello creerà nuova rete virtuale e subnet
 
 Dopo l'invio di un modello e il completamento del provisioning, il gruppo di risorse che contiene l'area di lavoro conterrà tre nuovi tipi di elemento correlati a Private Link:Once a template has been been submitted and provisioning completes, the resource group that contains your workspace will contain three new artifact types related to Private Link:
 

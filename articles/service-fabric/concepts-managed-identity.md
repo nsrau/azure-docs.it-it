@@ -4,14 +4,14 @@ description: Informazioni sull'uso delle identità gestite per Azure con Service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76986751"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415104"
 ---
-# <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Uso di identità gestite per Azure con Service Fabric (anteprima)Using Managed identities for Azure with Service Fabric (Preview)
+# <a name="using-managed-identities-for-azure-with-service-fabric"></a>Uso di identità gestite per Azure con Service FabricUsing Managed identities for Azure with Service Fabric
 
 Una sfida comune quando si creano applicazioni cloud è come gestire in modo sicuro le credenziali nel codice per l'autenticazione a vari servizi senza salvarle in locale in una workstation di sviluppo o nel controllo del codice sorgente. *Le identità gestite per Azure* risolvono questo problema per tutte le risorse in Azure Active Directory (Azure AD) fornendo loro identità gestite automaticamente in Azure AD. È possibile usare l'identità di un servizio per eseguire l'autenticazione a qualsiasi servizio che supporta l'autenticazione di Azure AD, incluso l'insieme di credenziali delle chiavi, senza credenziali archiviate nel codice.
 
@@ -33,7 +33,7 @@ Le identità gestite per Azure si basano su diversi concetti chiave:Managed iden
 Sono disponibili due tipi di identità gestite:
 
 - **Un'identità gestita assegnata dal sistema** viene abilitata direttamente in un'istanza del servizio di Azure.A System-assigned managed identity is enabled directly on an Azure service instance.  Il ciclo di vita di un'identità assegnata dal sistema è univoco per l'istanza del servizio Azure in cui è abilitata.
-- **Un'identità gestita assegnata dall'utente** viene creata come risorsa autonoma di Azure.A user-assigned managed identity is created as a standalone Azure resource. L'identità può essere assegnata a una o più istanze del servizio di Azure e viene gestita separatamente dai cicli di vita di tali istanze.
+- Un'**identità gestita assegnata dall'utente** viene creata come risorsa di Azure autonoma. L'identità può essere assegnata a una o più istanze del servizio di Azure e viene gestita separatamente dai cicli di vita di tali istanze.
 
 Per comprendere meglio la differenza tra i tipi di identità gestiti, vedere [Come funzionano le identità gestite per le risorse](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) di Azure?
 
@@ -47,7 +47,7 @@ Le identità gestite per Service Fabric sono supportate solo nei cluster di Serv
 
 L'identità assegnata dal sistema di un'applicazione è univoca per tale applicazione. un'identità assegnata dall'utente è una risorsa autonoma che può essere assegnata a più applicazioni. All'interno di un'applicazione, una singola identità (assegnata dal sistema o dall'utente) può essere assegnata a più servizi dell'applicazione, ma a ogni singolo servizio può essere assegnata una sola identità. Infine, a un servizio deve essere assegnata un'identità in modo esplicito per avere accesso a questa funzionalità. In effetti, il mapping delle identità di un'applicazione ai relativi servizi costitutivi consente l'isolamento all'uso dell'applicazione: un servizio può utilizzare solo l'identità mappata a essa.  
 
-Attualmente, per questa funzionalità di anteprima sono supportati i seguenti scenari:
+Attualmente, per questa funzionalità sono supportati i seguenti scenari:
 
 - Distribuire una nuova applicazione con uno o più servizi e una o più identità assegnateDeploy a new application with one or more services and one or more assigned identities
 
@@ -57,12 +57,7 @@ Gli scenari seguenti non sono supportati o non sono consigliati. Notare che ques
 
 - Rimuovere o modificare le identità assegnate a un'applicazione; Se è necessario apportare modifiche, inviare distribuzioni separate per aggiungere prima una nuova assegnazione di identità e quindi per rimuoverne una assegnata in precedenza. La rimozione di un'identità da un'applicazione esistente può avere effetti indesiderati, tra cui lasciare l'applicazione in uno stato non aggiornabile. È sicuro eliminare completamente l'applicazione se è necessaria la rimozione di un'identità; Si noti che questo eliminerà l'identità assegnata dal sistema (se definita) associata all'applicazione e rimuoverà tutte le associazioni con le identità assegnate dall'utente assegnate all'applicazione.
 
-- Il supporto di Service Fabric per le identità gestite non è attualmente integrato in [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); l'integrazione sarà realizzata entro la fine del periodo di anteprima per la funzionalità di identità gestita.
-
->
-> [!NOTE]
->
-> Questa funzionalità è in anteprima. Può essere soggetto a modifiche frequenti e non adatto per le distribuzioni di produzione.
+- Il supporto di Service Fabric per le identità gestite non è attualmente integrato in [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

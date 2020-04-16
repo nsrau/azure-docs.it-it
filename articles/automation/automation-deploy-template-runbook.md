@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powershell, runbook, json, automazione di azure
-ms.openlocfilehash: 575f954b346edb7d682e3fd0b432a257486bbfbb
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 2a6652c988eb77a1c5c7dbf800586b1c5fb756c4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383291"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392199"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuire un modello di Azure Resource Manager in un runbook PowerShell di Automazione di Azure
 
@@ -108,15 +108,15 @@ Connect-AzAccount
 $key = Get-AzStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
 
 # Create an Azure Storage context using the first access key
-$context = New-AzureStorageContext -StorageAccountName 'MyStorageAccount' -StorageAccountKey $key[0].value
+$context = New-AzStorageContext -StorageAccountName 'MyStorageAccount' -StorageAccountKey $key[0].value
 
 # Create a file share named 'resource-templates' in your Azure Storage account
-$fileShare = New-AzureStorageShare -Name 'resource-templates' -Context $context
+$fileShare = New-AzStorageShare -Name 'resource-templates' -Context $context
 
 # Add the TemplateTest.json file to the new file share
 # "TemplatePath" is the path where you saved the TemplateTest.json file
 $templateFile = 'C:\TemplatePath'
-Set-AzureStorageFileContent -ShareName $fileShare.Name -Context $context -Source $templateFile
+Set-AzStorageFileContent -ShareName $fileShare.Name -Context $context -Source $templateFile
 ```
 
 ## <a name="create-the-powershell-runbook-script"></a>Creare lo script del runbook PowerShell
@@ -158,9 +158,9 @@ $Parameters = @{
     }
 
 # Create a new context
-$Context = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$Context = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-Get-AzureStorageFileContent -ShareName 'resource-templates' -Context $Context -path 'TemplateTest.json' -Destination 'C:\Temp'
+Get-AzStorageFileContent -ShareName 'resource-templates' -Context $Context -path 'TemplateTest.json' -Destination 'C:\Temp'
 
 $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 
@@ -172,8 +172,7 @@ Salvare il file in locale come **DeployTemplate.ps1**.
 
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importare e pubblicare il runbook nell'account di Automazione di Azure
 
-Si userà ora PowerShell per importare il runbook nell'account di Automazione di Azure e pubblicarlo.
-Per informazioni su come importare e pubblicare un runbook nel portale di Azure, vedere [Gestire runbook in Automazione di Azure](manage-runbooks.md).
+Si userà ora PowerShell per importare il runbook nell'account di Automazione di Azure e pubblicarlo. Per informazioni su come importare e pubblicare un runbook nel portale di Azure, vedere [Gestire runbook in Automazione di Azure](manage-runbooks.md).
 
 Per importare DeployTemplate.ps1 nell'account di automazione come runbook di PowerShell, eseguire i comandi di PowerShell seguenti:To import **DeployTemplate.ps1** into your Automation account as a PowerShell runbook, run the following PowerShell commands:
 
@@ -235,7 +234,7 @@ Il runbook ottiene il modello di Resource Manager e lo usa per distribuire un nu
 Get-AzStorageAccount
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 L'operazione è terminata. Ora è possibile usare Automazione di Azure e Archiviazione di Azure con i modelli di Resource Manager per distribuire tutte le risorse di Azure.Now you can use Azure Automation and Azure Storage with Resource Manager templates to deploy all your Azure resources.
 

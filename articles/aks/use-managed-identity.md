@@ -5,18 +5,18 @@ services: container-service
 author: saudas
 manager: saudas
 ms.topic: article
-ms.date: 03/10/2019
+ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 85efc6d9d203ca06c5f7566376993b4c13950788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a150e2f197f24db5da331195290d11ad925c47e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369962"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392643"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usare le identità gestite nel servizio Kubernetes di AzureUse managed identities in Azure Kubernetes Service
 
-Attualmente, un cluster di servizio (AKS) di Azure (in particolare, il provider cloud Kubernetes) richiede *un'entità servizio* per creare risorse aggiuntive come servizi di bilanciamento del carico e dischi gestiti in Azure.Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernetes cloud provider) requires a service principal to create additional resources like load balancers and managed disks in Azure. È necessario fornire un'entità servizio o AKS ne crea una per conto dell'utente. Le entità servizio hanno in genere una data di scadenza. Alla fine i cluster raggiungono uno stato in cui l'entità servizio deve essere rinnovata per mantenere il cluster funzionante. La gestione delle entità servizio aggiunge complessità.
+Attualmente, un cluster del servizio Azure Kubernetes (AKS) (in particolare, il provider cloud Kubernetes) richiede e identità per creare risorse aggiuntive come servizi di bilanciamento del carico e dischi gestiti in Azure, questa identità può essere *un'identità gestita* o *un'entità servizio*. Se si utilizza [un'entità servizio](kubernetes-service-principal.md), è necessario specificarne una o AKS ne crea una per conto dell'utente. Se si utilizza l'identità gestita, questa verrà creata automaticamente da AKS. I cluster che utilizzano entità servizio raggiungono infine uno stato in cui l'entità servizio deve essere rinnovata per mantenere il funzionamento del cluster. La gestione delle entità servizio aggiunge complessità ed è per questo che è più semplice usare le identità gestite. Gli stessi requisiti di autorizzazione si applicano sia alle entità servizio che alle identità gestite.
 
 *Le identità gestite* sono essenzialmente un wrapper per le entità servizio e semplificano la gestione. Per altre informazioni, vedere Identità gestite per le risorse di Azure.To learn more, read about [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 

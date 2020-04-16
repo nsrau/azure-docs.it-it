@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cd2b530375beb3e8fa1f79e004f4f1ac7fd4d0bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443916"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415808"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Caricare dati da Office 365 tramite Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Questo articolo illustra come usare Data Factory per _caricare dati da Office 365 in un archivio BLOB di Azure_. È possibile seguire una procedura simile per copiare i dati in Azure Data Lake Gen1 o Gen2. Fare riferimento all'[articolo sul connettore di Office 365](connector-office-365.md) per informazioni generali sull'operazione di copia di dati da Office 365.
 
@@ -38,7 +40,7 @@ Questo articolo illustra come usare Data Factory per _caricare dati da Office 36
     * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Azure Data Lake Store, Archiviazione di Azure, il database SQL di Azure e così via.
 
-3. Selezionare **Crea**.
+3. Selezionare **Create** (Crea).
 4. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente:
    
    ![Home page di Data factory](./media/load-office-365-data/data-factory-home-page.png)
@@ -97,7 +99,7 @@ Questo articolo illustra come usare Data Factory per _caricare dati da Office 36
 
 5. Passare alla **scheda Connessione** della finestra Proprietà. Selezionare + Nuovo accanto alla casella di testo **Servizio collegato**.
 
-6. Nella finestra Nuovo servizio collegato immettere "AzureStorageLinkedService" come nome, selezionare "Service Principal" dall'elenco a discesa dei metodi di autenticazione, immettere l'endpoint del servizio, il tenant, l'ID entità servizio e la chiave dell'entità servizio, quindi selezionare Salva in distribuire il servizio collegato.  Fare riferimento [qui](connector-azure-blob-storage.md#service-principal-authentication) per informazioni su come configurare l'autenticazione dell'entità servizio per Archiviazione BLOB di Azure.
+6. Nella finestra Nuovo servizio collegato immettere "AzureStorageLinkedService" come nome, selezionare "Service Principal" dall'elenco a discesa dei metodi di autenticazione, immettere l'endpoint del servizio, il tenant, l'ID entità servizio e la chiave dell'entità servizio, quindi selezionare Salva per distribuire il servizio collegato.  Fare riferimento [qui](connector-azure-blob-storage.md#service-principal-authentication) per informazioni su come configurare l'autenticazione dell'entità servizio per Archiviazione BLOB di Azure.
 
     ![Nuovo servizio collegato BLOB](./media/load-office-365-data/configure-blob-linked-service.png)
 

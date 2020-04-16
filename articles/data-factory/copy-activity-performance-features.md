@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/09/2020
-ms.openlocfilehash: d37b4648c0a37f16fe5c9d8794bd78417c5780ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd7844340553809e1429097a9dda70f6bdb3e075
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257887"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414197"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Funzionalità di ottimizzazione delle prestazioni dell'attività di copia
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo descrive le funzionalità di ottimizzazione delle prestazioni dell'attività di copia che è possibile sfruttare in Azure Data Factory.This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory.
 
@@ -134,7 +136,7 @@ Quando si attiva la funzionalità di staging, i dati vengono prima copiati dall'
 
 ![copia di staging](media/copy-activity-performance/staged-copy.png)
 
-Quando si attiva lo spostamento dei dati utilizzando un archivio di gestione temporanea, è possibile specificare se si desidera comprimere i dati prima di spostare i dati dall'archivio dati di origine a un archivio dati provvisorio o di gestione temporanea e quindi decompressi prima di spostare i dati da un archivio provvisorio o di gestione temporanea all'archivio dati sink.
+Quando si attiva lo spostamento dei dati utilizzando un archivio di gestione temporanea, è possibile specificare se si desidera comprimere i dati prima di spostare i dati dall'archivio dati di origine a un archivio dati provvisorio o di gestione temporanea e quindi decomprimerlo prima di spostare i dati da un archivio dati provvisorio o di gestione temporanea all'archivio dati sink.
 
 Attualmente, non è possibile copiare i dati tra due archivi dati connessi tramite ir self-hosted diversi, né con né con né con copia in fasi. Per questo scenario, è possibile configurare due attività di copia concatenate in modo esplicito per copiare dall'origine all'area di gestione temporanea e quindi dalla gestione temporanea al sink.
 
@@ -187,7 +189,7 @@ Ecco una definizione di esempio di un'attività di copia con le proprietà descr
 L'addebito viene effettuato in base a due passaggi: durata della copia e tipo di copia.
 
 * Quando si usa la gestione temporanea durante una copia cloud, ovvero la copia dei dati da un archivio dati cloud in un altro archivio dati cloud, entrambe le fasi autorizzate dal runtime di integrazione di Azure, viene addebitato il pulsante [somma della durata della copia per il passaggio 1 e il passaggio 2] x [prezzo unitario della copia cloud].
-* Quando si usa la gestione temporanea durante una copia ibrida, ovvero la copia dei dati da un archivio dati locale a un archivio dati cloud, una fase consentita da un runtime di integrazione self-hosted, viene addebitato [durata copia ibrida] x [prezzo unitario della copia ibrida] - [durata copia cloud]. x [prezzo unitario copia cloud].
+* Quando si usa la gestione temporanea durante una copia ibrida, ovvero la copia dei dati da un archivio dati locale a un archivio dati cloud, una fase consentita da un runtime di integrazione self-hosted, viene addebitato [durata copia ibrida] x [prezzo unitario della copia ibrida] - [durata copia cloud] x [prezzo unitario della copia cloud].
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli altri articoli sull'attività di copia:See the other copy activity articles:

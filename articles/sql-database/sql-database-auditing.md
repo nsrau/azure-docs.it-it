@@ -1,5 +1,5 @@
 ---
-title: Controllo SQL di AzureAzure SQL Auditing
+title: Controllo di Azure SQL
 description: Usare il controllo del database SQL di Azure per tenere traccia degli eventi del database in un log di controllo.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 682735e1189333c2455863b8fde8e57d815111ba
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387700"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411853"
 ---
-# <a name="azure-sql-auditing"></a>Controllo SQL di AzureAzure SQL Auditing
+# <a name="azure-sql-auditing"></a>Controllo di Azure SQL
 
 Il controllo per [il database SQL di](sql-database-technical-overview.md) Azure e Analisi [synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) di Azure tiene traccia degli eventi del database e li scrive in un log di controllo nell'account di archiviazione di Azure, nell'area di lavoro log di Log Analytics o negli hub eventi. 
 
@@ -77,11 +77,11 @@ I criteri di controllo predefinito includono tutte le azioni e il set di gruppi 
 Il servizio di controllo del database SQL di Azure archivia 4000 caratteri di dati per i campi di tipo carattere in un record di controllo. Quando i valori **statement** o **data_sensitivity_information** restituiti da un'azione controllabile contengono più di 4000 caratteri, i dati oltre i primi 4000 caratteri verranno **troncati e non controllati**.
 Nella sezione seguente è descritta la configurazione del controllo mediante il portale di Azure.
 
-1. Passare al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare a **Controllo** nell'intestazione Sicurezza nel riquadro del database SQL o del server.
 3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nella pagina relativa al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e ai nuovi database creati in questo server.
 
-    ![Riquadro di spostamento][2]
+    ![Riquadro di spostamento](./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png)
 
 4. Se si preferisce abilitare il controllo a livello di database, impostare **Controllo** su **ATTIVA**. Se il controllo del server è abilitato, il controllo configurato del database coesisterà con il controllo del server.
 
@@ -94,7 +94,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I registri precedenti al periodo di conservazione vengono eliminati.
 
 - Il valore predefinito per il periodo di conservazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **Conservazione (giorni)** nelle **impostazioni di archiviazione** durante la configurazione dell'account di archiviazione per il controllo.
-  - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai registri scritti dopo la modifica del valore di conservazione (i registri scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono mantenuti, anche dopo conservazione è abilitata).
+  - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i registri scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono mantenuti, anche dopo l'abilitazione della conservazione).
 
   ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
@@ -164,7 +164,7 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
 
 - Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore della pagina **Controllo** del database fare clic su **Visualizza log di controllo**.
 
-    ![Riquadro di spostamento][7]
+    ![Riquadro di spostamento](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
 
     Verrà aperto **Record di controllo**, da cui sarà possibile visualizzare i log.
 
@@ -172,14 +172,14 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
   - È possibile passare da un record di controllo all'altro creato dai *criteri di controllo del server * e dai *criteri di controllo del database* attivando o disattivando **Origine controllo**.
   - È possibile visualizzare solo i record di controllo correlati a SQL injection selezionando la casella di controllo **Visualizza solo i record di controllo per SQL injection**.
 
-       ![Riquadro di spostamento][8]
+       ![Riquadro di spostamento]( ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png)
 
 - Usare la funzione di sistema **sys.fn_get_audit_file** (T-SQL) per tornare ai dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Usare **Unisci file di controllo** in SQL Server Management Studio (a partire da SSMS 17):
     1. Scegliere **File** > **Apri** > file di**controllo file**di controllo unione dal menu SSMS .
 
-        ![Riquadro di spostamento][9]
+        ![Riquadro di spostamento](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. Verrà visualizzata la finestra di dialogo **Aggiunti file di controllo**. Selezionare una delle opzioni **Aggiungi** per scegliere se unire i file di controllo da un disco locale oppure importarli da Archiviazione di Azure. È necessario specificare i dettagli e la chiave dell'account di Archiviazione di Azure.
 
     3. Dopo aver aggiunto tutti i file da unire, fare clic su **OK** per completare l'operazione di unione.
@@ -220,10 +220,10 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 1. Aprire **Dettagli archiviazione**. Nella casella **Chiave di accesso alle risorse di archiviazione** selezionare **Secondaria** e fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore della pagina di configurazione del controllo.
 
-    ![Riquadro di spostamento][5]
+    ![Riquadro di spostamento](./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png)
 2. Passare alla pagina di configurazione dell'archiviazione e rigenerare la chiave di accesso primaria.
 
-    ![Riquadro di spostamento][6]
+    ![Riquadro di spostamento](./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png)
 3. Tornare alla pagina di configurazione del controllo, modificare la chiave di accesso alle risorse di archiviazione da secondaria a primaria e quindi fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore della pagina di configurazione del controllo.
 4. Tornare alla pagina di configurazione dell'archiviazione e rigenerare la chiave di accesso secondaria (in preparazione al successivo ciclo di aggiornamento della chiave).
 
@@ -268,15 +268,3 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 
 > [!NOTE]
 > Gli esempi collegati si trovano in un archivio pubblico esterno e vengono forniti "così com'è", senza garanzia e non sono supportati in alcun programma/servizio di supporto Microsoft.
-
-<!--Image references-->
-[1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
-[2]: ./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png
-[3]: ./media/sql-database-auditing-get-started/3_auditing_get_started_turn_on.png
-[4]: ./media/sql-database-auditing-get-started/4_auditing_get_started_storage_details.png
-[5]: ./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png
-[6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png
-[7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
-[8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
-[9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png 

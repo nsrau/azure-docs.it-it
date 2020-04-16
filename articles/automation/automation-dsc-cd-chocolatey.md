@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 706ab128af4379a56223ff65fb12f29d37b524f7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 0c61a431b985e494148500ed0a7aeb106534ed2c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383267"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392111"
 ---
 # <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Fornire una distribuzione continua alle macchine virtuali usando la configurazione dello stato di automazione e ChocolateyProvide continuous deployment to virtual machines using Automation State Configuration and Chocolatey
 
@@ -95,7 +95,7 @@ Passare alla risorsa desiderata e fare clic sul pulsante "Distribuisci in automa
 
 Un'altra tecnica aggiunta di recente al portale di Azure consente di estrarre nuovi moduli o aggiornare i moduli esistenti. Fare clic sulla risorsa account di automazione, sul riquadro Asset e infine nel riquadro Moduli. L'icona Sfoglia galleria consente di visualizzare l'elenco dei moduli nella raccolta, eseguire il drill-down nei dettagli e infine importare nell'account di automazione. Questo è un ottimo modo per mantenere aggiornati i moduli periodicamente. La funzionalità di importazione verifica le dipendenze con altri moduli per garantire che rimangano sincronizzati.
 
-In alternativa, è disponibile l'approccio manuale. Questo approccio viene usato una sola volta per risorsa, a meno che non si desideri aggiornarlo in un secondo momento. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere Creazione di moduli di [integrazione per l'automazione](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)di Azure.For more information on authoring PowerShell integration modules, see Authoring Integration Modules for Azure Automation.
+È inoltre disponibile un approccio manuale, usato una sola volta per risorsa, a meno che non si desideri aggiornarlo in un secondo momento. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere Creazione di moduli di [integrazione per l'automazione](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)di Azure.For more information on authoring PowerShell integration modules, see Authoring Integration Modules for Azure Automation.
 
 >[!NOTE]
 >The folder structure of a PowerShell integration module for a Windows computer is a little different from the folder structure expected by the Azure Automation. 
@@ -121,7 +121,7 @@ In alternativa, è disponibile l'approccio manuale. Questo approccio viene usato
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 L'esempio incluso implementa questi passaggi per cChoco e xNetworking. 
@@ -196,18 +196,18 @@ Questi passaggi comportano l'inserimento di una nuova configurazione di nodo den
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>Passaggio 5: Creare e gestire i metadati del pacchettoStep 5: Create and maintain package metadata
 
-Per ogni pacchetto inserito nel repository di pacchetti, è necessario un Nuspec che lo descriva.
-Questo Nuspec deve essere compilato e archiviato nel server NuGet. Questo processo è descritto [qui](https://docs.nuget.org/create/creating-and-publishing-a-package). È possibile usare MyGet.org come server NuGet. Il servizio è a pagamento, ma viene offerto gratuitamente uno SKU di avvio. In NuGet.org, troverai le istruzioni per installare il tuo server NuGet per i tuoi pacchetti privati.
+Per ogni pacchetto inserito nel repository dei pacchetti, è necessario un Nuspec che lo descriva. Deve essere compilato e archiviato nel server NuGet. Questo processo è descritto [qui](https://docs.nuget.org/create/creating-and-publishing-a-package). 
+
+È possibile utilizzare **MyGet.org** come server NuGet.You can use MyGet.org as a NuGet server. È possibile acquistare questo servizio, ma è uno SKU di avviamento gratuito. In [NuGet](https://www.nuget.org/)troverai le istruzioni per installare il tuo server NuGet per i tuoi pacchetti privati.
 
 ## <a name="step-6-tie-it-all-together"></a>Fase 6: Legare tutto insieme
 
-Ogni volta che una versione supera il QA e viene approvata per la distribuzione, il pacchetto viene creato e nuspec e nupkg vengono aggiornati e distribuiti al server NuGet. Anche la configurazione (passaggio 4 precedente) deve essere aggiornata per concordare con il nuovo numero di versione. Deve quindi essere inviato al server di pull e compilato.
+Ogni volta che una versione supera il QA e viene approvata per la distribuzione, il pacchetto viene creato e nuspec e nupkg vengono aggiornati e distribuiti al server NuGet. Anche la configurazione (passaggio 4) deve essere aggiornata per concordare con il nuovo numero di versione. Deve quindi essere inviato al server di pull e compilato.
 
 A questo punto, le macchine virtuali che dipendono da tale configurazione devono effettuare l'aggiornamento e installarlo. Ognuno di questi aggiornamenti è semplice: solo una riga o due di PowerShell.Each of these updates is simple - just a line or two of PowerShell. Per DevOps di Azure, alcuni di essi sono incapsulati in attività di compilazione che possono essere concatenate in una compilazione. Per altre informazioni dettagliate, vedere questo [articolo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery). Questo [repository GitHub](https://github.com/Microsoft/vso-agent-tasks) descrive in dettaglio le attività di compilazione disponibili.
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Panoramica della piattaforma DSC di Automazione di Azure](automation-dsc-overview.md)
-* [Cmdlet di Automation DSC per Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Panoramica di DSC di Automazione di AzureAzure Automation DSC overview](automation-dsc-overview.md)
 * [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

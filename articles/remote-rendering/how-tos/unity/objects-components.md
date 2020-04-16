@@ -5,16 +5,16 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 872f0e60943a674e5febf269dcb5b09fd08d77c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681155"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409862"
 ---
-# <a name="interact-with-unity-game-objects-and-components"></a>Interagisci con i componenti e gli oggetti di gioco di Unity
+# <a name="interact-with-unity-game-objects-and-components"></a>Interagire con gli oggetti e i componenti di gioco Unity
 
-Il rendering remoto di Azure (ARR) è ottimizzato per un numero elevato di oggetti (vedere [Limiti](../../reference/limits.md)). Sebbene sia possibile gestire gerarchie grandi e complesse nell'host, replicarle tutte in Unity su dispositivi a basso consumo non è fattibile.
+Il rendering remoto di Azure (ARR) è ottimizzato per un numero elevato di oggetti (vedere [Limitazioni).](../../reference/limits.md) Sebbene sia possibile gestire gerarchie grandi e complesse nell'host, replicarle tutte in Unity su dispositivi a basso consumo non è fattibile.
 
 Pertanto, quando un modello viene caricato nell'host, il rendering remoto di Azure rispecchia le informazioni sulla struttura del modello nel dispositivo client (che incorrerà nel traffico di rete), ma non replica gli oggetti e i componenti in Unity.Therefore, when a model is loaded on the host, Azure Remote Rendering mirrors the information about the model structure on the client device (which will incur network traffic), but does not replicate the objects and components in Unity. Al contrario, si aspetta di richiedere manualmente gli oggetti e i componenti del gioco Unity necessari, in modo da limitare l'overhead a ciò che è effettivamente necessario. In questo modo si ha un maggiore controllo sulle prestazioni lato client.
 
@@ -121,5 +121,5 @@ if (cutplane != null)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare il rendering remoto per Unity](unity-setup.md)
+* [Configurare Rendering remoto per Unity](unity-setup.md)
 * [Esercitazione: Utilizzo di entità remote in UnityTutorial: Working with remote entities in Unity](../../tutorials/unity/working-with-remote-entities.md)

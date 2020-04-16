@@ -1,24 +1,26 @@
 ---
-title: Azure Event Grid event schema for Azure Key Vault
+title: Archivio chiavi di Azure come origine griglia di eventiAzure Key Vault as Event Grid source
 description: Descrive le proprietà e lo schema forniti per gli eventi dell'insieme di credenziali delle chiavi di Azure con Griglia di eventi di AzureDescribes the properties and schema provided for Azure Key Vault events with Azure Event Grid
 services: event-grid
-author: msmbaldwin
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/25/2019
-ms.author: mbaldwin
-ms.openlocfilehash: fe186e2ba8f3cafeb4d186066ba65ae036302f70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010512"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393306"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)
+# <a name="azure-key-vault-as-event-grid-source"></a>Archivio chiavi di Azure come origine griglia di eventiAzure Key Vault as Event Grid source
 
 Questo articolo fornisce le proprietà e lo schema per gli eventi in [Azure Key Vault,](../key-vault/index.yml)attualmente in anteprima. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
-## <a name="available-event-types"></a>Tipi di evento disponibili
+## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
+
+### <a name="available-event-types"></a>Tipi di evento disponibili
 
 Un account dell'insieme di credenziali delle chiavi di Azure genera i tipi di evento seguenti:An Azure Key Vault account generates the following event types:
 
@@ -34,7 +36,7 @@ Un account dell'insieme di credenziali delle chiavi di Azure genera i tipi di ev
 | Microsoft.KeyVault.SecretNearExpiry | Segreto vicino alla scadenza | Attivato quando la versione corrente di un segreto sta per scadere. L'evento viene attivato 30 giorni prima della data di scadenza. |
 | Microsoft.KeyVault.SecretExpired | Segreto scaduto | Attivato quando un segreto è scaduto. |
 
-## <a name="event-examples"></a>Esempi di eventi
+### <a name="event-examples"></a>Esempi di eventi
 
 Nell'esempio seguente viene illustrato lo schema per **Microsoft.KeyVault.SecretNewVersionCreated**:
 
@@ -61,7 +63,7 @@ Nell'esempio seguente viene illustrato lo schema per **Microsoft.KeyVault.Secret
 ]
 ```
 
-## <a name="event-properties"></a>Proprietà degli eventi
+### <a name="event-properties"></a>Proprietà degli eventi
 
 Un evento presenta i seguenti dati di primo livello:
 
@@ -74,6 +76,12 @@ Un evento presenta i seguenti dati di primo livello:
 | version | string | Versione dell'oggetto che ha attivato questo evento |
 | nbf | d'acquisto | La data di non-prima in secondi dal 1970-01-01T00:00:00 dell'oggetto che ha attivato questo evento |
 | exp | d'acquisto | La data di scadenza in secondi a partire dal 1970-01-01T00:00:00 dell'oggetto che ha attivato l'evento |
+
+## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+|Titolo  |Descrizione  |
+|---------|---------|
+| [Monitoraggio degli eventi dell'insieme di credenziali delle chiavi con Griglia di eventi di AzureMonitoring Key Vault events with Azure Event Grid](../key-vault/event-grid-overview.md) | Panoramica dell'integrazione dell'insieme di credenziali delle chiavi con Griglia di eventi. |
+| [Esercitazione: Creare e monitorare gli eventi dell'insieme di credenziali delle chiavi con Griglia di eventiTutorial: Create and monitor Key Vault events with Event Grid](../key-vault/event-grid-tutorial.md) | Scopri come impostare le notifiche di Griglia di eventi per Key Vault. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

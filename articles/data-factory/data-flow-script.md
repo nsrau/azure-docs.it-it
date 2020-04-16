@@ -7,14 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/13/2020
-ms.openlocfilehash: 251507c5740af69bd0818391dd2e8f857338b6cf
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e0042960c25d58b72bc0ab884de5a2db62e566d9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313921"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413439"
 ---
 # <a name="data-flow-script-dfs"></a>Script flusso di dati (DFS)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Lo script del flusso di dati (DFS) è il metadati sottostante, simile a un linguaggio di codifica, utilizzato per eseguire le trasformazioni incluse in un flusso di dati di mapping. Ogni trasformazione è rappresentata da una serie di proprietà che forniscono le informazioni necessarie per eseguire correttamente il processo. Lo script è visibile e modificabile da ADF facendo clic sul pulsante "script" nella barra multifunzione superiore dell'interfaccia utente del browser.
 

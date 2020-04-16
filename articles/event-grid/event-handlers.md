@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73118823aec9b8d4bd872986b13f19496240c0b9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265051"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393450"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestori eventi di Griglia di eventi di Azure
 
@@ -52,8 +52,6 @@ Hub eventi può fungere da gestore dell'evento o da origine evento. L'articolo s
 |---------|---------|
 | [Guida introduttiva: Instradare eventi personalizzati a Hub eventi di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi](custom-event-to-eventhub.md) | Invia un evento personalizzato a un hub eventi per l'elaborazione da un'applicazione. |
 | [Modello di Resource Manager: argomento personalizzato ed endpoint di Hub eventi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Un modello di Resource Manager che crea una sottoscrizione per l'argomento personalizzato. Invia eventi in Hub eventi di Azure. |
-
-Per esempi di Hub eventi come origine, vedere [origine Hub eventi](event-sources.md#event-hubs).
 
 ## <a name="hybrid-connections"></a>connessioni ibride
 

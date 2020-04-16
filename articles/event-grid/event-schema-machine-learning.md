@@ -1,26 +1,26 @@
 ---
-title: Schema di eventi di Azure Event Grid Machine LearningAzure Event Grid Machine Learning event schema
+title: Azure Machine Learning come origine griglia di eventiAzure Machine Learning as Event Grid source
 description: Descrive le proprietà fornite per gli eventi dell'area di lavoro di Machine Learning con Griglia di eventi di AzureDescribes the properties that are provided for Machine Learning Workspace events with Azure Event Grid
 services: event-grid
-author: jenns
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/18/2019
-ms.author: jenns
-ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79202145"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393268"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Azure Event Grid event schema for Azure Machine Learning
+# <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning come origine griglia di eventiAzure Machine Learning as an Event Grid source
 
 Questo articolo fornisce le proprietà e lo schema per gli eventi dell'area di lavoro di Machine Learning.This article provides the properties and schema for machine learning workspace events. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
-Per un elenco di script ed esercitazioni di esempio, vedere [Origine evento Di AzureML.](event-sources.md#azure-machine-learning)
+## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
 
-## <a name="available-event-types"></a>Tipi di evento disponibili
+### <a name="available-event-types"></a>Tipi di evento disponibili
 
 Azure Machine Learning genera i tipi di evento seguenti:Azure Machine Learning emits the following event types:
 
@@ -32,7 +32,7 @@ Azure Machine Learning genera i tipi di evento seguenti:Azure Machine Learning e
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Generato quando un monitoraggio della deriva del set di dati rileva la deriva. |
 | Microsoft.MachineLearningServices.RunStatusChanged | Generato quando lo stato di esecuzione diventa 'failed'. |
 
-## <a name="the-contents-of-an-event-response"></a>Il contenuto di una risposta all'evento
+### <a name="the-contents-of-an-event-response"></a>Il contenuto di una risposta all'evento
 
 Quando viene attivato un evento, il servizio Griglia di eventi invia i dati relativi a tale evento all'endpoint di sottoscrizione.
 
@@ -186,10 +186,7 @@ Questa sezione contiene un esempio dell'aspetto di tali dati per ogni evento.
 }]
 ```
 
-
-
-
-## <a name="event-properties"></a>Proprietà degli eventi
+### <a name="event-properties"></a>Proprietà degli eventi
 
 Un evento presenta i seguenti dati di primo livello:
 
@@ -260,6 +257,11 @@ L'oggetto dati ha le seguenti proprietà per ogni tipo di evento:
 | Tag Di Esecuzione | object | I tag dell'esecuzione completata. |
 | Proprietà RunProperties | object | Proprietà dell'esecuzione completata. |
 | RunStatus (Stato esecuzione) | string | Stato dell'esecuzione. |
+
+## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+| Titolo | Descrizione |
+| ----- | ----- |
+| [Usare gli eventi di Azure Machine LearningConsume Azure Machine Learning events](../machine-learning/concept-event-grid-integration.md) | Panoramica dell'integrazione di Azure Machine Learning con Griglia di eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

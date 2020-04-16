@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466e1ce0efbdec3f5475634f3857d02554d93d98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d773e6302edf0b799e6dfccc702750a9cc74f60
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049138"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406692"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemi di installazione del connettore dell'agente proxy dell'applicazione
 
@@ -50,20 +50,69 @@ Quando l'installazione di un connettore non riesce, la causa principale riguarda
 
 3.  Aprire un browser (scheda separata) e passare alla pagina Web `https://login.microsoftonline.com`, quindi assicurarsi di poter accedere a tale pagina.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Verificare che il computer e i componenti di back-end supportino il certificato di attendibilità proxy dell'applicazione
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Verificare il supporto dei componenti computer e back-end per il certificato di attendibilità del proxy di applicazione
 
-**Obiettivo:** verificare che il computer di connessione, il proxy e il firewall di back-end possano supportare il certificato creato dal connettore per l'attendibilità futura.
+**Obiettivo:** Verificare che il computer del connettore, il proxy back-end e il firewall siano in grado di supportare il certificato creato dal connettore per l'attendibilità futura e che il certificato sia valido.
 
 >[!NOTE]
 >Il connettore tenta di creare un certificato SHA512 supportato da TLS1.2. Se il computer o il firewall e il proxy back-end non supportano TLS1.2, l'installazione non riesce.
 >
 >
 
-**Per risolvere il problema:**
+**Esaminare i prerequisiti necessari:**
 
 1.  Verificare che il computer supporti TLS1.2: tutte le versioni di Windows successive alla 2012 R2 dovrebbero supportare TLS 1.2. Se la versione del computer di connessione è 2012 R2 o precedente, assicurarsi che vi siano installate le Knowledge Base seguenti: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Contattare l'amministratore di rete e chiedere di verificare che il proxy e il firewall di back-end non blocchino SHA512 per il traffico in uscita.
+
+**Per verificare il certificato client:**
+
+Verificare l'identificazione personale del certificato client corrente. L'archivio certificati si trova in %ProgramData%.
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<ConnectorTrustSettingsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CloudProxyTrust>
+    <Thumbprint>4905CC64B2D81BBED60962ECC5DCF63F643CCD55</Thumbprint>
+    <IsInUserStore>false</IsInUserStore>
+  </CloudProxyTrust>
+</ConnectorTrustSettingsFile>
+```
+
+Ecco i possibili valori e significati **di IsInUserStore:**
+
+- **false** - Il certificato client è stato creato durante l'installazione o la registrazione avviata dal comando Register-AppProxyConnector. Viene archiviato nel contenitore personale nell'archivio certificati del computer locale. 
+
+Seguire i passaggi per verificare il certificato:
+
+1. Eseguire **certlm.msc**
+2. Nella console di gestione espandere il contenitore Personale e fare clic su Certificati
+3. Individuare il certificato emesso da **connectorregistrationca.msappproxy.net**
+
+- **true** - Il certificato rinnovato automaticamente viene archiviato nel contenitore personale nell'archivio certificati utente del servizio di rete. 
+
+Seguire i passaggi per verificare il certificato:
+
+1. Scarica [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Estrarre [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) dal pacchetto ed eseguire **psexec -i -u "nt authority-network service" cmd.exe** da un prompt dei comandi con privilegi elevati.
+3. Eseguire **certmgr.msc** nel prompt dei comandi appena visualizzato
+2. Nella console di gestione espandere il contenitore Personale e fare clic su Certificati
+3. Individuare il certificato emesso da connectorregistrationca.msappproxy.ne
+
+**Per rinnovare il certificato client:**
+
+Se un connettore non viene connesso al servizio per molti mesi, i relativi certificati potrebbero non essere più aggiornati. L'errore del rinnovo del certificato comporta un certificato scaduto. In questo modo il servizio connettore smette di funzionare. L'evento 1000 viene registrato nel registro amministrativo del connettore:
+
+"Registrazione del connettore non riuscita: il certificato di attendibilità del connettore è scaduto. Eseguire il cmdlet di PowerShell Register-AppProxyConnector nel computer in cui il connettore è in esecuzione per registrare nuovamente il connettore."
+
+In questo caso, disinstallare e reinstallare il connettore per attivare la registrazione oppure eseguire i seguenti comandi di PowerShell:
+
+```
+Import-module AppProxyPSModule
+Register-AppProxyConnector
+```
+
+Per altre informazioni sul comando Register-AppProxyConnector, vedere Creare uno script di installazione automatica per il connettore del proxy di applicazione di Azure ADTo learn more about the Register-AppProxyConnector command, please see [Create an unattended installation script for the Azure AD Application Proxy connector](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verificare che il connettore venga installato da un utente con il ruolo di amministratore
 

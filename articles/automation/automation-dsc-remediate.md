@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: dfe62c54bfb10d70f1dbf19daec90eec68e66431
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: cc5884e1f70bdccee4e7a113e6e3ee2d6604b50a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383150"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406078"
 ---
 # <a name="remediate-noncompliant-dsc-servers"></a>Correggere i server DSC non conformi
 
@@ -37,7 +37,8 @@ Update-DscConfiguration -Wait -Verbose
 
 Funzionalità simili non è attualmente disponibile per i server Linux.Similar functionality isn't currently available for Linux servers.
 L'unica opzione è ripetere il processo di registrazione.
-Per i nodi di Azure, è possibile correggere la deriva dal portale di Azure o usando i cmdlet del modulo Az.For Azure nodes, you can correct drift from the Azure portal or using Az module cmdlets. I dettagli su questo processo sono documentati in [Onboarding di macchine per la gestione da Azure Automation State Configuration](automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal).
+
+Per i nodi di Azure, è possibile correggere la deriva dal portale di Azure o usando i cmdlet del modulo Az.For Azure nodes, you can correct drift from the Azure portal or using Az module cmdlets. I dettagli su questo processo sono documentati in [Onboarding di macchine per la gestione da Azure Automation State Configuration](automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal).
 Per i nodi ibridi, è possibile correggere la deriva utilizzando gli script Python inclusi.
 Vedere [PowerShell DSC per Linux repository](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 

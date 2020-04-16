@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945385"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414403"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e del data warehouseAzure SQL Database and Data Warehouse network access controls
 
@@ -29,7 +29,7 @@ ms.locfileid: "78945385"
 
 Quando si crea un nuovo sql Server di Azure dal portale di [Azure,](sql-database-single-database-get-started.md)il risultato è un endpoint pubblico nel formato *yourservername.database.windows.net*.
 
-È possibile utilizzare i seguenti controlli di accesso alla rete per consentire selettivamente l'accesso al database SQl tramite l'endpoint pubblico:You can use the following network access controls to selectively allow access to the SQl Database via the public endpoint:
+È possibile usare i seguenti controlli di accesso di rete per consentire selettivamente l'accesso al database SQL tramite l'endpoint pubblico:You can use the following network access controls to selectively allow access to the SQL Database via the public endpoint:
 - Consenti servizi di Azure: se impostato su ON, altre risorse all'interno del limite di Azure, ad esempio una macchina virtuale di Azure, possono accedere al database SQLAllow Azure Services: When set to ON, other resources within the Azure boundary, for example an Azure Virtual Machine, can access SQL Database
 
 - Regole del firewall IP: utilizzare questa funzionalità per consentire in modo esplicito le connessioni da un indirizzo IP specifico, ad esempio da computer locali
@@ -59,10 +59,10 @@ Se impostato su **ON** Azure SQL Server consente comunicazioni da tutte le risor
 In molti casi, l'impostazione **ON** è più permissiva di quella che la maggior parte dei clienti desidera. È possibile che si desideri impostare questa impostazione **su OFF** e sostituirla con regole firewall IP più restrittive o regole del firewall della rete virtuale. Questa operazione influisce sulle funzionalità seguenti eseguite nelle macchine virtuali in Azure che non fanno parte della rete virtuale e quindi si connettono al database SQL tramite un indirizzo IP di Azure.Doing so affects the following features that run on VMs in Azure that not part of your VNet and then connect to Sql Database via an Azure IP address.
 
 ### <a name="import-export-service"></a>Servizio Importazione/Esportazione di Azure
-Il servizio di esportazione dell'importazione non funziona **Consenti ai servizi di Azure** di accedere al server impostato su OFF. Tuttavia, è possibile aggirare il problema [eseguendo manualmente sqlpackage.exe da una macchina virtuale di Azure o eseguendo l'esportazione](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direttamente nel codice usando l'API DACFx.However you can work around the problem by manually running sqlpackage.exe from an Azure VM or performing the export directly in your code by using the DACFx API.
+Il servizio di esportazione dell'importazione non funziona quando **L'opzione Consenti accesso ai servizi** di Azure è impostata su **OFF**. Tuttavia, è possibile aggirare il problema [eseguendo manualmente sqlpackage.exe da una macchina virtuale di Azure o eseguendo l'esportazione](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direttamente nel codice usando l'API DACFx.However you can work around the problem by manually running sqlpackage.exe from an Azure VM or performing the export directly in your code by using the DACFx API.
 
 ### <a name="data-sync"></a>Sincronizzazione dei dati
-Per usare la funzionalità di sincronizzazione dei dati con **Consenti ai servizi di Azure** di accedere al server impostato su OFF, è necessario creare singole voci delle regole del firewall per aggiungere indirizzi [IP](sql-database-server-level-firewall-rule.md) dal tag del **servizio Sql** per l'area che ospita il database **Hub.**
+Per usare la funzionalità di sincronizzazione dei dati con **Consenti accesso ai servizi** di Azure impostato su **OFF,** è necessario creare singole voci delle regole del firewall per [aggiungere indirizzi IP](sql-database-server-level-firewall-rule.md) dal tag del servizio **Sql** per l'area che ospita il database **Hub.**
 Aggiungere queste regole del firewall a livello di server ai server logici che ospitano i database **Hub** e **Member** (che possono trovarsi in aree diverse)
 
 Usare lo script di PowerShell seguente per generare gli indirizzi IP corrispondenti al tag di servizio Sql per l'area Stati Uniti occidentaliUse the following PowerShell script to generate the IP addresses corresponding to Sql service tag for West US region

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 231b0d77dc441e70dc0ec8de313291bb6b4f9292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aedb3df69821d1436b03b2eb1f12873b624d426e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79261398"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414166"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guida alle prestazioni e alla scalabilità dell'attività di copia
 
@@ -25,7 +25,9 @@ ms.locfileid: "79261398"
 > * [Versione 1](v1/data-factory-copy-activity-performance.md)
 > * [Versione corrente](copy-activity-performance.md)
 
-Sia che si desideri eseguire una migrazione dei dati su larga scala da data lake o enterprise data warehouse (EDW) ad Azure o che si desideri inserire dati su larga scala da origini diverse in Azure per l'analisi dei Big Data, è fondamentale ottenere prestazioni ottimali e Scalabilità.  Azure Data Factory offre un meccanismo performante, resiliente ed economico per l'inserimento dei dati su larga scala, il che lo rende ideale per gli ingegneri di dati che desiderano creare pipeline di inserimento dati altamente performanti e scalabili.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Sia che si desideri eseguire una migrazione dei dati su larga scala da data lake o enterprise data warehouse (EDW) ad Azure o che si desideri inserire dati su larga scala da origini diverse in Azure per l'analisi dei Big Data, è fondamentale ottenere prestazioni e scalabilità ottimali.  Azure Data Factory offre un meccanismo performante, resiliente ed economico per l'inserimento dei dati su larga scala, il che lo rende ideale per gli ingegneri di dati che desiderano creare pipeline di inserimento dati altamente performanti e scalabili.
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
@@ -101,19 +103,19 @@ Azure Data Factory offre le funzionalità di ottimizzazione delle prestazioni se
 
 ### <a name="data-integration-units"></a>Unità di integrazione dati
 
-A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. L'unità di [integrazione](concepts-integration-runtime.md#azure-integration-runtime)dei dati si applica solo al runtime di integrazione di Azure, ma non al runtime di [integrazione self-hosted.](concepts-integration-runtime.md#self-hosted-integration-runtime) [Scopri di più](copy-activity-performance-features.md#data-integration-units).
+A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. L'unità di [integrazione](concepts-integration-runtime.md#azure-integration-runtime)dei dati si applica solo al runtime di integrazione di Azure, ma non al runtime di [integrazione self-hosted.](concepts-integration-runtime.md#self-hosted-integration-runtime) [Altre informazioni](copy-activity-performance-features.md#data-integration-units)
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>Scalabilità del runtime di integrazione self-hosted
 
-Per ospitare l'aumento del carico di lavoro simultaneo o per ottenere prestazioni più elevate, è possibile aumentare o ridurre il runtime di integrazione self-hosted. [Scopri di più](copy-activity-performance-features.md#self-hosted-integration-runtime-scalability).
+Per ospitare l'aumento del carico di lavoro simultaneo o per ottenere prestazioni più elevate, è possibile aumentare o ridurre il runtime di integrazione self-hosted. [Altre informazioni](copy-activity-performance-features.md#self-hosted-integration-runtime-scalability)
 
 ### <a name="parallel-copy"></a>Copia parallela
 
-È possibile impostare una copia parallela per indicare il parallelismo che si desidera venga utilizzato dall'attività di copia. È possibile considerare questa proprietà come il numero massimo di thread all'interno dell'attività di copia che leggono dall'origine o scrivere negli archivi dati sink in parallelo. [Scopri di più](copy-activity-performance-features.md#parallel-copy).
+È possibile impostare una copia parallela per indicare il parallelismo che si desidera venga utilizzato dall'attività di copia. È possibile considerare questa proprietà come il numero massimo di thread all'interno dell'attività di copia che leggono dall'origine o scrivere negli archivi dati sink in parallelo. [Altre informazioni](copy-activity-performance-features.md#parallel-copy)
 
 ### <a name="staged-copy"></a>copia di staging
 
-Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare un archivio BLOB come archivio di staging provvisorio. [Scopri di più](copy-activity-performance-features.md#staged-copy).
+Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare un archivio BLOB come archivio di staging provvisorio. [Altre informazioni](copy-activity-performance-features.md#staged-copy)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli altri articoli sull'attività di copia:See the other copy activity articles:

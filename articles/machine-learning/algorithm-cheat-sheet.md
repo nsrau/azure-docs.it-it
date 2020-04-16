@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Algoritmo Cheat Foglio
+title: Machine Learning Algorithm Cheat Sheet - Designer
 titleSuffix: Azure Machine Learning
 description: Un foglio di trucco dell'algoritmo di Machine Learning stampabile consente di scegliere l'algoritmo giusto per il modello predittivo in Progettazione Azure Machine Learning.A printable Machine Learning Algorithm Cheat Sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning designer.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: accc4766f25f5d58ba2f31c153fe1c5d23413170
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78328618"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399073"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Foglio trucco algoritmo di Machine Learning per la finestra di progettazione di Azure Machine LearningMachine Learning Algorithm Cheat Sheet for Azure Machine Learning designer
 
-Il **foglio informativo sugli algoritmi di Azure Machine Learning** aiuta a scegliere il giusto algoritmo per un modello di analisi predittiva.
+Azure **Machine Learning Algorithm Cheat Sheet** ti aiuta a scegliere l'algoritmo giusto dalla finestra di progettazione per un modello di analisi predittiva.
 
 Azure Machine Learning dispone di un'ampia libreria di algoritmi delle famiglie ***di classificazione,*** ***sistemi di raccomandazione,*** ***clustering,*** ***rilevamento anomalie,*** ***regressione***e ***analisi del testo.*** Ognuno è progettato per risolvere un tipo diverso di problema di Machine Learning.
 
@@ -38,7 +38,7 @@ I consigli offerti in questo foglio informativo sugli algoritmi sono regole empi
 
 Ogni algoritmo di apprendimento automatico ha il proprio stile o bias induttivo. Per un problema specifico, diversi algoritmi possono essere appropriati e un algoritmo può essere più adatto di altri. Non è sempre possibile, tuttavia, conoscere in anticipo la soluzione ottimale. In casi simili, nel foglio informativo sono elencati insieme diversi algoritmi. Una strategia appropriata può essere quella di provare un algoritmo e quindi provarne altri se i risultati del primo non sono soddisfacenti. 
 
-Per altre informazioni sugli algoritmi in Azure Machine Learning, vedere Informazioni di riferimento [sull'algoritmo e](algorithm-module-reference/module-reference.md)sui moduli .
+Per altre informazioni sugli algoritmi nella finestra di progettazione di Azure Machine Learning, vedere Informazioni di riferimento [sull'algoritmo e](algorithm-module-reference/module-reference.md)sui moduli .
 
 ## <a name="kinds-of-machine-learning"></a>Tipi di apprendimento automatico
 

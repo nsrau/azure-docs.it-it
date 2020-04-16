@@ -1,29 +1,30 @@
 ---
-title: Schema di eventi di archiviazione BLOB per Griglia di eventi di Azure
+title: Archiviazione BLOB di Azure come origine griglia di eventiAzure Blob Storage as Event Grid source
 description: Descrive le proprietà disponibili per gli eventi di archiviazione BLOB con Griglia di eventi di Azure
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 71aa937536f35c9af44adb5822ce7a2bb8f3a9eb
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: cfc6e4790b67137b423cc90d93874d4914f81251
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756014"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393383"
 ---
-# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schema di eventi di Griglia di eventi di Azure per l'archiviazione BLOB
+# <a name="azure-blob-storage-as-an-event-grid-source"></a>Archiviazione BLOB di Azure come origine Griglia di eventiAzure Blob Storage as an Event Grid source
 
-Questo articolo illustra le proprietà e lo schema per gli eventi di archiviazione BLOB.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Questo articolo illustra le proprietà e lo schema per gli eventi di archiviazione BLOB.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Fornisce inoltre un elenco di guide introduttive ed esercitazioni per usare Archiviazione BLOB di Azure come origine eventi.
 
-Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi di archiviazione](event-sources.md#storage).
 
 >[!NOTE]
 > Solo gli account di archiviazione di tipo **StorageV2 (uso generale v2),** **BlockBlobStorage**e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)***non* supporta l'integrazione con Griglia di eventi.
 
-## <a name="list-of-events-for-blob-rest-apis"></a>Elenco di eventi per le API REST BLOB
+## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
+
+### <a name="list-of-events-for-blob-rest-apis"></a>Elenco di eventi per le API REST BLOB
 
 Questi eventi vengono attivati quando un client crea, sostituisce o elimina un BLOB chiamando le API REST BLOB.
 
@@ -35,7 +36,7 @@ Questi eventi vengono attivati quando un client crea, sostituisce o elimina un B
 > [!NOTE]
 > Se si desidera assicurarsi che l'evento **Microsoft.Storage.BlobCreated** venga attivato solo quando viene `CopyBlob` `PutBlob`eseguito `PutBlockList` il commit completo di un BLOB di blocchi, filtrare l'evento per le chiamate all'API REST e , e . Queste chiamate API attivano l'evento **Microsoft.Storage.BlobCreated** solo dopo il commit completo dei dati in un BLOB di blocchi. Per informazioni su come creare un filtro, vedere [Filtrare gli eventi per Griglia di eventi.](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)
 
-## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Elenco degli eventi per le API REST di Azure Data Lake Storage Gen 2
+### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Elenco degli eventi per le API REST di Azure Data Lake Storage Gen 2
 
 Questi eventi vengono attivati se si abilita uno spazio dei nomi gerarchico nell'account di archiviazione e i client chiamano le API REST di Azure Data Lake Storage Gen2. Per altre informazioni su Azure Data Lake Storage Gen2, vedere [Introduzione ad Azure Data Lake Storage Gen2.](../storage/blobs/data-lake-storage-introduction.md)
 
@@ -53,7 +54,7 @@ Questi eventi vengono attivati se si abilita uno spazio dei nomi gerarchico nell
 
 <a id="example-event" />
 
-## <a name="the-contents-of-an-event-response"></a>Il contenuto di una risposta all'evento
+### <a name="the-contents-of-an-event-response"></a>Il contenuto di una risposta all'evento
 
 Quando viene attivato un evento, il servizio Griglia di eventi invia i dati relativi a tale evento all'endpoint di sottoscrizione.
 
@@ -288,7 +289,7 @@ Se l'account di archiviazione BLOB ha uno spazio dei nomi gerarchico, i dati son
 }]
 ```
 
-## <a name="event-properties"></a>Proprietà degli eventi
+### <a name="event-properties"></a>Proprietà degli eventi
 
 Un evento presenta i seguenti dati di primo livello:
 
@@ -321,6 +322,17 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | ricorsiva | string | `True`per eseguire l'operazione su tutte le directory figlio; in `False`caso contrario. <br>Viene visualizzato solo per gli eventi attivati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico. |
 | sequencer | string | Valore stringa opaca che rappresenta la sequenza logica di eventi per qualsiasi nome di BLOB specifico.  Gli utenti possono usare il confronto tra stringhe standard per comprendere la sequenza relativa di due eventi sullo stesso nome di BLOB. |
 | storageDiagnostics | object | Dati di diagnostica occasionalmente inclusi dal servizio Archiviazione di Azure. Quando è presente, questa proprietà deve essere ignorata dai consumer di eventi. |
+
+## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+|Titolo  |Descrizione  |
+|---------|---------|
+| [Guida introduttiva: indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con l'interfaccia della riga di comando di Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di archiviazione BLOB a un webhook. |
+| [Guida introduttiva: indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare PowerShell per inviare gli eventi di archiviazione BLOB a un webhook. |
+| [Guida introduttiva: creare e instradare eventi di archiviazione BLOB con il portale di Azure](blob-event-quickstart-portal.md) | Illustra come usare il portale per inviare gli eventi di archiviazione BLOB a un webhook. |
+| [Interfaccia della riga di comando di Azure: sottoscrivere eventi per un account di archiviazione BLOB](./scripts/event-grid-cli-blob.md) | Script di esempio che esegue la sottoscrizione a un evento per un account di archiviazione BLOB. Invia l'evento a un webhook. |
+| [PowerShell: sottoscrivere eventi per un account di archiviazione BLOB](./scripts/event-grid-powershell-blob.md) | Script di esempio che esegue la sottoscrizione a un evento per un account di archiviazione BLOB. Invia l'evento a un webhook. |
+| [Modello di Resource Manager: creare un archivio e una sottoscrizione BLOB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Consente di distribuire un account di archiviazione BLOB di Azure e di sottoscrivere eventi per quell'account di archiviazione. Invia eventi a un webhook. |
+| [Panoramica: reazione a eventi di Archiviazione BLOB di Azure](../storage/blobs/storage-blob-event-overview.md) | Panoramica dell'integrazione dell'archivio BLOB con Griglia di eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

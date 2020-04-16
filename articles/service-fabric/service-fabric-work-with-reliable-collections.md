@@ -2,16 +2,16 @@
 title: Lavorare con le raccolte Reliable Collections
 description: Informazioni sulle procedure consigliate per l'uso di raccolte affidabili in un'applicazione di Azure Service Fabric.Learn the best practices for working with Reliable Collections within an Azure Service Fabric application.
 ms.topic: conceptual
-ms.date: 02/22/2019
-ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645974"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409798"
 ---
 # <a name="working-with-reliable-collections"></a>Lavorare con le raccolte Reliable Collections
-Service Fabric offre un modello di programmazione con stato disponibile per gli sviluppatori .NET tramite Reliable Collections. In particolare, Service Fabric offre classi ReliableDictionary e ReliableQueue. Quando si usano queste classi, lo stato è partizionato (per la scalabilità), replicato (per la disponibilità) e le transazioni vengono eseguite all'interno di una partizione (per la semantica ACID). Di seguito viene descritto l'uso tipico di un oggetto ReliableDictionary per osservarne le azioni.
+Service Fabric offre un modello di programmazione con stato disponibile per gli sviluppatori .NET tramite Reliable Collections. In particolare, Service Fabric offre classi ReliableDictionary e ReliableQueue. Quando si usano queste classi, lo stato è partizionato (per la scalabilità), replicato (per la disponibilità) e le transazioni vengono eseguite all'interno di una partizione (per la semantica ACID). Diamo un'occhiata a un tipico utilizzo di un oggetto dizionario affidabile e vediamo cosa sta effettivamente facendo.
 
 ```csharp
 try
@@ -38,20 +38,33 @@ catch (TimeoutException)
 }
 ```
 
-Tutte le operazioni sugli oggetti ReliableDictionary (ad eccezione di ClearAsync che non è annullabile) richiedono un oggetto ITransaction. Questo oggetto è associato a tutte le modifiche che si tenta di apportare a qualsiasi oggetto ReliableDictionary e/o ReliableQueue all'interno di una singola partizione. Acquisire un oggetto ITransaction chiamando il metodo CreateTransaction della partizione "StateManager".
+Tutte le operazioni sugli oggetti ReliableDictionary (ad eccezione di ClearAsync che non è annullabile) richiedono un oggetto ITransaction. Questo oggetto è associato a tutte le modifiche che si sta tentando di apportare a qualsiasi dizionario affidabile e/o oggetti coda affidabili all'interno di una singola partizione. Si acquisisce un oggetto ITransaction chiamando il metodo CreateTransaction di StateManager della partizione.
 
-Nel codice precedente, l'oggetto ITransaction viene passato al metodo AddAsync dell'oggetto ReliableDictionary. Internamente, i metodi di dizionario che accettano una chiave acquisiscono un blocco di lettura/scrittura associato alla chiave. Se il metodo modifica il valore della chiave, il metodo acquisisce un blocco di scrittura sulla chiave; se il metodo legge solo dal valore della chiave, allora acquisisce un blocco di lettura sulla chiave. Poiché AddAsync modifica il valore della chiave sul nuovo valore ottenuto, viene acquisito il blocco di scrittura della chiave. Pertanto, se due (o più) thread tentano di aggiungere i valori alla stessa chiave nello stesso momento, un thread acquisirà il blocco di scrittura e gli altri verranno bloccati. Per impostazione predefinita, i metodi si interrompono fino a 4 secondi per acquisire il blocco; dopo 4 secondi, i metodi generano un'eccezione TimeoutException. Se si preferisce, esistono overload del metodo che consentono di superare un valore di timeout esplicito.
+Nel codice precedente, il ITransaction oggetto viene passato al metodo AddAsync di un dizionario affidabile. Internamente, i metodi di dizionario che accettano una chiave acquisiscono un blocco di lettura/scrittura associato alla chiave. Se il metodo modifica il valore della chiave, il metodo accetta un blocco di scrittura sulla chiave e se il metodo legge solo dal valore della chiave, viene eseguito un blocco di lettura sulla chiave. Poiché AddAsync modifica il valore della chiave per il nuovo valore passato, viene eseguito il blocco di scrittura della chiave. Pertanto, se due (o più) thread tentano di aggiungere i valori alla stessa chiave nello stesso momento, un thread acquisirà il blocco di scrittura e gli altri verranno bloccati. Per impostazione predefinita, i metodi si interrompono fino a 4 secondi per acquisire il blocco; dopo 4 secondi, i metodi generano un'eccezione TimeoutException. Esistono overload del metodo che consentono di passare un valore di timeout esplicito, se si preferisce.
 
-In genere, si scrive il codice per reagire a un'eccezione TimeoutException rilevandola e tentando di effettuare nuovamente l'intera operazione (come illustrato nel codice precedente). In questo codice semplice, si sta chiamando ogni volta Task.Delay oltre i 100 millisecondi. In realtà, potrebbe essere più opportuno usare un tipo di ritardo backoff esponenziale.
+In genere, si scrive il codice per reagire a un'eccezione TimeoutException rilevandola e tentando di effettuare nuovamente l'intera operazione (come illustrato nel codice precedente). Nel mio semplice codice, sto solo chiamando Task.Delay passando 100 millisecondi ogni volta. In realtà, potrebbe essere più opportuno usare un tipo di ritardo backoff esponenziale.
 
 Una volta acquisito il blocco, AddAsync aggiunge i riferimenti dell'oggetto valore e chiave a un dizionario interno temporaneo associato all'oggetto ITransaction. Questa operazione viene eseguita per fornire la semantica di autolettura delle proprie scritture. Vale a dire che, dopo aver chiamato AddAsync, una chiamata successiva a TryGetValueAsync (usando lo stesso oggetto ITransaction) restituirà il valore anche se non si è eseguito il commit della transazione. Successivamente, AddAsync serializza gli oggetti di chiave e valore in array di byte e aggiunge gli array a un file di log sul nodo locale. Infine, AddAsync invia gli array di byte di tutte le repliche secondarie in modo che abbiano le stesse informazioni chiave/valore. Anche se le informazioni chiave/valore sono stato scritte in un file di log, le informazioni non vengono considerate parte del dizionario fino a quando non è stato eseguito il commit della transazione a cui sono associate.
 
 Nel codice precedente, la chiamata a CommitAsync esegue il commit di tutte le operazioni della transazione. In particolare, aggiunge informazioni di commit al file di log sul nodo locale e invia anche il record di commit a tutte le repliche secondarie. Una volta ricevuta la risposta da un quorum (maggioranza) delle repliche, tutte le modifiche ai dati vengono considerate permanenti e i blocchi associati alle chiavi modificate tramite l'oggetto ITransaction vengono rilasciati in modo che altri thread/transazioni possano modificare le stesse chiavi e i relativi valori.
 
-Se CommitAsync non viene chiamato (in genere a causa di un'eccezione generata), l'oggetto ITransaction viene eliminato. Quando viene eliminato un oggetto ITransaction su cui non è stato eseguito il commit, Service Fabric aggiunge informazioni sull'interruzione al file di log del nodo locale e non è necessario inviare alcun elemento alle repliche secondarie. A quel punto, i blocchi associati alle chiavi modificate tramite la transazione vengono rilasciati.
+Se CommitAsync non viene chiamato (in genere a causa di un'eccezione generata), l'oggetto ITransaction viene eliminato. Quando si elimina un oggetto ITransaction di cui non è stato eseguito il commit, Service Fabric aggiunge informazioni di interruzione al file di log del nodo locale e non è necessario inviare nulla a una delle repliche secondarie. A quel punto, i blocchi associati alle chiavi modificate tramite la transazione vengono rilasciati.
+
+## <a name="volatile-reliable-collections"></a>Raccolte affidabili volatili 
+In alcuni carichi di lavoro, ad esempio una cache replicata, è possibile tollerare la perdita di dati occasionale. Evitare la persistenza dei dati su disco può consentire latenze e velocità effettiva migliori durante la scrittura in dizionari affidabili. Il compromesso per una mancanza di persistenza è che se si verifica la perdita del quorum, si verificherà la perdita completa dei dati. Poiché la perdita del quorum è un evento raro, l'aumento delle prestazioni può valere la rara possibilità di perdita di dati per tali carichi di lavoro.
+
+Attualmente, il supporto volatile è disponibile solo per Reliable Dictionaries e Reliable Queues e non ReliableConcurrentQueues. Consultare l'elenco degli [avvertenze](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) per informare la decisione sull'utilizzo di raccolte volatili.
+
+Per abilitare il supporto volatile ```HasPersistedState``` nel servizio, ```false```impostare il flag nella dichiarazione del tipo di servizio su , in questo modo:
+```xml
+<StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
+```
+
+>[!NOTE]
+>I servizi persistenti esistenti non possono essere resi volatili e viceversa. Se si desidera eseguire questa operazione, è necessario eliminare il servizio esistente e quindi distribuire il servizio con il flag aggiornato. Ciò significa che è necessario essere disposti a incorrere ```HasPersistedState``` in perdita completa dei dati se si desidera modificare il flag. 
 
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>Inconvenienti comuni e come evitarli
-Dopo averne appreso il funzionamento interno, ecco alcuni casi di uso improprio delle Reliable Collections. Osserviamo il seguente codice:
+Ora che hai compreso come funzionano le collezioni affidabili internamente, diamo un'occhiata ad alcuni usi impropri comuni su di loro. Osserviamo il seguente codice:
 
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
@@ -60,7 +73,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
 
-   // The line below updates the property’s value in memory only; the
+   // The line below updates the property's value in memory only; the
    // new value is NOT serialized, logged, & sent to secondary replicas.
    user.LastLogin = DateTime.UtcNow;  // Corruption!
 
@@ -68,7 +81,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 }
 ```
 
-Quando si usa un normale dizionario .NET, è possibile aggiungere una coppia chiave/valore al dizionario e quindi modificare il valore di una proprietà (ad esempio LastLogin). Tuttavia, questo codice non funziona correttamente con un ReliableDictionary. Come visto in precedenza, la chiamata ad AddAsync serializza gli oggetti chiave/valore agli array di byte, salva gli array in un file locale e invia gli array anche alle repliche secondarie. Se successivamente si modifica una proprietà, questa operazione modifica il valore della proprietà solo nella memoria, senza influire sul file locale o sui dati inviati alle repliche. Se il processo si arresta in modo anomalo, il contenuto della memoria viene eliminato. Quando viene avviato un nuovo processo o un'altra replica diventa primaria, è disponibile il valore della proprietà.
+Quando si usa un normale dizionario .NET, è possibile aggiungere una coppia chiave/valore al dizionario e quindi modificare il valore di una proprietà (ad esempio LastLogin). Tuttavia, questo codice non funziona correttamente con un ReliableDictionary. Come visto in precedenza, la chiamata ad AddAsync serializza gli oggetti chiave/valore agli array di byte, salva gli array in un file locale e invia gli array anche alle repliche secondarie. Se in seguito si modifica una proprietà, il valore della proprietà viene modificato solo in memoria; non influisce sul file locale o sui dati inviati alle repliche. Se il processo si blocca, ciò che è in memoria viene gettato via. Quando viene avviato un nuovo processo o un'altra replica diventa primaria, è disponibile il valore della proprietà.
 
 Non è possibile sottolineare a sufficienza quanto sia semplice effettuare l'errore descritto in alto. Sarà possibile apprendere l'errore solo se/quando il processo si interrompe. Il modo corretto per scrivere il codice è semplicemente invertire le due righe:
 
@@ -87,13 +100,13 @@ Ecco un altro esempio che mostra un errore comune:
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
    if (user.HasValue)
    {
-      // The line below updates the property’s value in memory only; the
+      // The line below updates the property's value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
       await tx.CommitAsync();
@@ -101,7 +114,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 }
 ```
 
-Anche qui, con i dizionari regolari .NET, il codice indicato in alto funziona correttamente ed è un modello comune: lo sviluppatore usa una chiave per cercare un valore. Se il valore esiste, lo sviluppatore modifica un valore della proprietà. Con le raccolte Reliable Collections, tuttavia, questo codice presenta lo stesso problema già illustrato: **non SI DEVE modificare un oggetto dopo averlo assegnato a una raccolta Reliable Collections.**
+Anche qui, con i dizionari regolari .NET, il codice indicato in alto funziona correttamente ed è un modello comune: lo sviluppatore usa una chiave per cercare un valore. Se il valore esiste, lo sviluppatore modifica il valore di una proprietà. Con le raccolte Reliable Collections, tuttavia, questo codice presenta lo stesso problema già illustrato: **non SI DEVE modificare un oggetto dopo averlo assegnato a una raccolta Reliable Collections.**
 
 Il modo corretto per aggiornare un valore in una raccolta Reliable Collections è fare riferimento al valore esistente e tenere in considerazione l'oggetto a cui fa riferimento tramite il riferimento non modificabile. Creare quindi un nuovo oggetto come copia esatta dell'oggetto originale. A questo punto, è possibile modificare lo stato di questo nuovo oggetto e scrivere il nuovo oggetto nella raccolta in modo che venga serializzato in array di byte, aggiunto al file locale e inviato alle repliche. Dopo aver eseguito il commit delle modifiche, gli oggetti interni alla memoria, il file locale e tutte le repliche hanno lo stesso stato. Tutto è in posizione.
 
@@ -110,7 +123,7 @@ Il codice seguente illustra il modo corretto per aggiornare un valore in una rac
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -124,7 +137,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
       // In the new object, modify any properties you desire
       updatedUser.LastLogin = DateTime.UtcNow;
 
-      // Update the key’s value to the updateUser info
+      // Update the key's value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
       await tx.CommitAsync();
    }
@@ -132,13 +145,13 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definire tipi di dati non modificabili per evitare errori del programmatore
-Idealmente, il compilatore dovrebbe segnalare gli errori quando si crea inavvertitamente codice che modifica lo stato di un oggetto considerato non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). È anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione possono spesso influire negativamente sulle prestazioni. Tuttavia, se si intende usare le proprietà della raccolta, è consigliabile l'uso di libreria di raccolte .NET non modificabili ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Questa libreria è disponibile https://nuget.orgper il download da . Ti consigliamo inoltre di sigillare le classi e rendere i campi di sola lettura quando possibile.
+Idealmente, vorremmo che il compilatore segnalasse gli errori quando si produce accidentalmente codice che modifica lo stato di un oggetto che si suppone consideri non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). È anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione possono spesso influire negativamente sulle prestazioni. Tuttavia, se si desidera utilizzare le proprietà della raccolta, è consigliabile utilizzare . Libreria di raccolte non modificabili di NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Questa libreria è disponibile https://nuget.orgper il download da . Ti consigliamo inoltre di sigillare le classi e rendere i campi di sola lettura quando possibile.
 
 Il tipo UserInfo riportato di seguito mostra come definire un tipo non modificabile sfruttando i consigli indicati in precedenza.
 
 ```csharp
 [DataContract]
-// If you don’t seal, you must ensure that any derived classes are also immutable
+// If you don't seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo
 {
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
@@ -190,12 +203,12 @@ public struct ItemId
 ```
 
 ## <a name="schema-versioning-upgrades"></a>Controllo delle versioni dello schema (aggiornamenti)
-Internamente, le raccolte Reliable Collections serializzano gli oggetti usando DataContractSerializer di .NET. Gli oggetti serializzati sono persistenti sul disco locale della replica primaria e vengono anche trasmessi alle repliche secondarie. Con l'evoluzione del servizio, è probabile che si desideri modificare il tipo di dati (schema) richiesti dal servizio. Eseguire il controllo delle versioni dei dati con estrema attenzione. Innanzitutto, si deve essere sempre in grado di deserializzare i dati precedenti. In particolare, ciò significa che il codice di deserializzazione deve essere infinitamente compatibile con le versioni precedenti: la versione 333 del codice del servizio deve essere in grado di operare sui dati inseriti in una raccolta Reliable Collections dalla versione 1 del codice del servizio 5 anni fa.
+Internamente, Reliable Collections serializza gli oggetti utilizzando . DataContractSerializer di NET. Gli oggetti serializzati vengono resi persistenti nel disco locale della replica primaria e vengono trasmessi anche alle repliche secondarie. Man mano che il servizio matura, è probabile che si desideri modificare il tipo di dati (schema) richiesto dal servizio. Eseguire il controllo delle versioni dei dati con estrema attenzione. Innanzitutto, si deve essere sempre in grado di deserializzare i dati precedenti. In particolare, ciò significa che il codice di deserializzazione deve essere infinitamente compatibile con le versioni precedenti: la versione 333 del codice del servizio deve essere in grado di operare sui dati inseriti in una raccolta Reliable Collections dalla versione 1 del codice del servizio 5 anni fa.
 
-Il codice del servizio viene aggiornato un dominio di aggiornamento alla volta. Pertanto, durante un aggiornamento, vengono eseguite contemporaneamente due diverse versioni del codice del servizio. È necessario evitare che la nuova versione del codice del servizio usi il nuovo schema dal momento che le versioni precedenti del codice del servizio potrebbero non essere in grado di gestire il nuovo schema. Quando possibile, progettare ogni versione del servizio in modo che sia compatibile con la versione immediatamente successiva. In particolare, questo significa che la V1 del codice del servizio deve essere in grado di ignorare tutti gli elementi dello schema che non gestisce in modo esplicito. Deve tuttavia essere in grado di salvare i dati che non conosce in modo esplicito e riscriverli in caso di aggiornamento di un valore o di una chiave del dizionario.
+Il codice del servizio viene aggiornato un dominio di aggiornamento alla volta. Pertanto, durante un aggiornamento, vengono eseguite contemporaneamente due diverse versioni del codice del servizio. È necessario evitare che la nuova versione del codice del servizio usi il nuovo schema dal momento che le versioni precedenti del codice del servizio potrebbero non essere in grado di gestire il nuovo schema. Quando possibile, progettare ogni versione del servizio in modo che sia compatibile con la versione immediatamente successiva. In particolare, questo significa che la V1 del codice del servizio deve essere in grado di ignorare tutti gli elementi dello schema che non gestisce in modo esplicito. Tuttavia, deve essere in grado di salvare tutti i dati che non conosce in modo esplicito e scriverlo nuovamente quando si aggiorna una chiave o un valore del dizionario.
 
 > [!WARNING]
-> Sebbene sia possibile modificare lo schema di una chiave, è necessario assicurarsi che il codice hash e l'algoritmo di uguaglianza della chiave siano stabili. Se si modifica il funzionamento di questi algoritmi, non sarà più possibile cercare la chiave all'interno del ReliableDictionary.
+> Sebbene sia possibile modificare lo schema di una chiave, è necessario assicurarsi che il codice hash della chiave e gli algoritmi di uguale siano stabili. Se si modifica il funzionamento di questi algoritmi, non sarà più possibile cercare la chiave all'interno del ReliableDictionary.
 > Le stringhe .NET possono essere utilizzate come chiave, ma utilizzano la stringa stessa come chiave, non utilizzare il risultato di String.GetHashCode come chiave.
 
 In alternativa, è possibile eseguire un aggiornamento noto come aggiornamento a due fasi. Con un aggiornamento in due fasi, si aggiorna il servizio da V1 a V2: V2 contiene il codice che sa come gestire la nuova modifica dello schema, ma questo codice non viene eseguito. Quando il codice V2 legge i dati V1, opera su di esso e scrive i dati V1. Quindi, al termine dell'aggiornamento di tutti i domini di aggiornamento, è possibile in qualche modo segnalare alle istanze V2 in esecuzione che l'aggiornamento è stato completato. (Un modo per segnalare questo è quello di implementare un aggiornamento della configurazione; questo è ciò che rende questo un aggiornamento in due fasi.) A questo punto, le istanze V2 possono leggere i dati V1, convertirlo in dati V2, operare su di esso e scriverlo come dati V2. Quando altre istanze leggono i dati V2, non è necessario convertirli: possono operano su di essi e scrivere dati V2.

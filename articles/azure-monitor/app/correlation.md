@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 6ceace1ee93fab8c0a46ed4a67850fc87a5cdad2
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 2e862410e2bf12e09e1a6388bbb6f7105b5b2edf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991229"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405257"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -314,7 +314,7 @@ Nel corso del tempo, .NET ha definito diversi modi per correlare i log di teleme
 
 Ma questi metodi non abilitava il supporto automatico della traccia distribuita. `DiagnosticSource`supporta la correlazione automatica tra macchine. Le librerie `DiagnosticSource` .NET supportano e consentono la propagazione automatica tra computer del contesto di correlazione tramite il trasporto, ad esempio HTTP.
 
-La Guida per `DiagnosticSource` [l'utente](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) di Attività in spiega le nozioni di base delle attività di monitoraggio.
+La Guida per `DiagnosticSource` [l'utente](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) di Attività in spiega le nozioni di base delle attività di monitoraggio.
 
 ASP.NET Core 2.0 supporta l'estrazione delle intestazioni HTTP e l'avvio di nuove attività.
 

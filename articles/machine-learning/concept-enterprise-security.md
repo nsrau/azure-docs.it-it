@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756560"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414636"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -243,9 +243,9 @@ I databrick di Azure possono essere usati nelle pipeline di Azure Machine Learni
 
 ### <a name="encryption-in-transit"></a>Crittografia in transito
 
-È possibile usare TLS per proteggere le comunicazioni interne tra i microservizi di Azure Machine Learning e per proteggere le chiamate esterne all'endpoint di assegnazione del punteggio. Tutto l'accesso ad Archiviazione di Azure avviene anche tramite un canale sicuro.
+Azure Machine Learning usa TLS per proteggere le comunicazioni interne tra vari microservizi di Azure Machine Learning.Azure Machine Learning uses TLS to secure internal communication between various Azure Machine Learning microservices. Tutto l'accesso ad Archiviazione di Azure avviene anche tramite un canale sicuro.
 
-Per altre informazioni, vedere [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning.For](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)more information, see Use TLS to secure a web service through Azure Machine Learning .
+Per proteggere le chiamate esterne all'endpoint di punteggio, Azure Machine Learning usa TLS. Per altre informazioni, vedere [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning.For](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)more information, see Use TLS to secure a web service through Azure Machine Learning .
 
 ### <a name="using-azure-key-vault"></a>Uso di Azure Key Vault
 

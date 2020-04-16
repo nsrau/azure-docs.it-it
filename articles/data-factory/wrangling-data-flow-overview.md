@@ -7,14 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77048351"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408996"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Che cosa sono i flussi di dati wrangling?
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Le organizzazioni devono eseguire la preparazione e il wrangling dei dati per un'analisi accurata di dati complessi che continuano a crescere ogni giorno. La preparazione dei dati è necessaria in modo che le organizzazioni possano utilizzare i dati in vari processi aziendali e ridurre il time-to-value.
 
@@ -42,7 +44,7 @@ Analizza visivamente i tuoi dati in modo privo di codice per rimuovere eventuali
 
 | Connettore | Formato dati | Tipo di autenticazione |
 | -- | -- | --|
-| [Archiviazione BLOB di AzureAzure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Chiave account |
+| [Archiviazione BLOB di Azure](connector-azure-blob-storage.md) | CSV, Parquet | Chiave account |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entità servizio |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Chiave account, entità servizio |
 | [Database SQL di Azure](connector-azure-sql-database.md) | - | Autenticazione SQL |

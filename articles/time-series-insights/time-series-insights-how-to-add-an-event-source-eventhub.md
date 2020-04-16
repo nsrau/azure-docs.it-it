@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3b06289ba6ce98d4307a8255981ecdba069fdfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021ac5fccf4d694895ab9941bd46dd2388f49af9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905402"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407464"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Aggiungere un'origine evento di un hub eventi all'ambiente Time Series Insights
 
@@ -50,11 +50,11 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 1. Nella pagina **Gruppi di consumer** immettere un nuovo valore univoco per **Nome**.  Usare questo nome al momento della creazione di una nuova origine evento nell'ambiente Time Series Insights.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="add-a-new-event-source"></a>Aggiungere una nuova origine evento
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Individuare l'ambiente Time Series Insights esistente. Nel menu a sinistra selezionare **Tutte le risorse** e quindi selezionare l'ambiente Time Series Insights.
 
@@ -107,7 +107,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 1. Aggiungere il nome del gruppo di consumer di Time Series Insights dedicato aggiunto all'hub eventi.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
    Dopo aver creato l'origine evento, Time Series Insights avvia automaticamente lo streaming dei dati nell'ambiente.
 

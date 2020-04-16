@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e8ddcaf6a5c9ab51147e540e2426ef8c4a1fdd3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383331"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392378"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
 
@@ -35,8 +35,8 @@ Quando un avviso chiama un runbook, la chiamata effettiva è una richiesta HTTP 
 |Avviso  |Descrizione|Schema del payload  |
 |---------|---------|---------|
 |[Avviso comune](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Lo schema di avviso comune che standardizza l'esperienza di consumo per le notifiche di avviso in Azure oggi.|Schema comune del payload degli avvisiCommon alert payload schema|
-|[Avviso del log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Invia una notifica quando qualsiasi nuovo evento nel log attività di Azure soddisfa condizioni specifiche. Ad esempio, quando si verifica un'operazione `Delete VM` in **myProductionResourceGroup** o quando viene visualizzato un nuovo evento di integrità dei servizi di Azure con uno stato **Attivo**.| [Schema payload avviso log attività](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Avvisi delle metriche quasi in tempo reale](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Invia una notifica più velocemente rispetto agli avvisi delle metriche quando una o più metriche a livello di piattaforma soddisfano le condizioni specificate. Ad esempio, quando il valore per **% CPU** in una macchina virtuale è maggiore di **90**e il valore per **Rete in ingresso** è maggiore di **500 MB** per gli ultimi 5 minuti.| [Schema payload avvisi metriche quasi in tempo reale](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Avviso del log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Invia una notifica quando qualsiasi nuovo evento nel log attività di Azure soddisfa condizioni specifiche. Ad esempio, quando si verifica un'operazione `Delete VM` in **myProductionResourceGroup** o quando viene visualizzato un nuovo evento di integrità dei servizi di Azure con uno stato Attivo.| [Schema payload avviso log attività](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[Avvisi delle metriche quasi in tempo reale](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Invia una notifica più velocemente rispetto agli avvisi delle metriche quando una o più metriche a livello di piattaforma soddisfano le condizioni specificate. Ad esempio, quando il valore per **la cpu %** in una macchina virtuale è maggiore di 90 e il valore per Rete **in** è maggiore di 500 MB per gli ultimi 5 minuti.| [Schema payload avvisi metriche quasi in tempo reale](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Poiché i dati forniti da ogni tipo di avviso sono diversi, ogni tipo di avviso deve essere gestito in modo diverso. Nella sezione seguente viene illustrato come creare un runbook per gestire i diversi tipi di avvisi.
 
@@ -44,11 +44,11 @@ Poiché i dati forniti da ogni tipo di avviso sono diversi, ogni tipo di avviso 
 
 Per usare l'Automazione di Azure con gli avvisi, è necessario un runbook con la logica per gestire il payload JSON dell'avviso passato al runbook. Il seguente runbook di esempio deve essere chiamato da un avviso di Azure.
 
-Come descritto nella sezione precedente, ogni tipo di avviso ha uno schema diverso. Lo script accetta i dati webhook nel parametro di input runbook `WebhookData` da un avviso. Quindi, lo script valuta il payload JSON per determinare il tipo di avviso usato.
+Come descritto nella sezione precedente, ogni tipo di avviso ha uno schema diverso. Lo script accetta i dati webhook `WebhookData` da un avviso nel parametro di input del runbook. Quindi, lo script valuta il payload JSON per determinare quale tipo di avviso viene usato.
 
-Questo esempio usa un avviso generato da una macchina virtuale. Recupera i dati della macchina virtuale dal payload e usa le informazioni per arrestare la macchina virtuale. La connessione deve essere configurata nell'account di Automazione in cui è eseguito il runbook. Quando si usano gli avvisi per attivare i runbook, è importante controllare lo stato dell'avviso nel runbook che viene attivato. Il runbook viene attivato ogni volta che lo stato dell'avviso cambia. Gli avvisi hanno più stati e i due più comuni sono `Activated` e `Resolved`. Cercare questo stato nella logica del runbook per assicurarsi che il runbook non venga eseguito più volte. L'esempio in questo articolo illustra come cercare solo gli avvisi con stato `Activated`.
+Questo esempio usa un avviso generato da una macchina virtuale. Recupera i dati della macchina virtuale dal payload e usa le informazioni per arrestare la macchina virtuale. La connessione deve essere configurata nell'account di Automazione in cui è eseguito il runbook. Quando si usano gli avvisi per attivare i runbook, è importante controllare lo stato degli avvisi nel runbook attivato. Il runbook viene attivato ogni volta che l'avviso cambia stato. Gli avvisi hanno più stati, con i due più comuni attivati e risolti. Verificare lo stato nella logica del runbook per assicurarsi che il runbook non venga eseguito più di una volta. Nell'esempio riportato in questo articolo viene illustrato come cercare gli avvisi con stato Attivato solo.
 
-Il runbook `AzureRunAsConnection` usa l'account [RunAs](automation-create-runas-account.md) per eseguire l'autenticazione con Azure per eseguire l'azione di gestione nella macchina virtuale.
+Il runbook usa `AzureRunAsConnection` [l'account RunAs](automation-create-runas-account.md) dell'asset di connessione per eseguire l'autenticazione con Azure per eseguire l'azione di gestione sulla macchina virtuale.
 
 Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponsetoVMAlert**. È possibile modificare lo script di PowerShell e usarlo con molte risorse diverse.
 

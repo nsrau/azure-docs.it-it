@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/24/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5a1cad3179063f75a5d9a19567624180b5793a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b103437ab30c05ddab88b7a8a723cd2b4b1d5f6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367262"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405897"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Il primo runbook del flusso di lavoro PowerShell
 
 > [!div class="op_single_selector"]
 > * [Grafico](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
@@ -79,7 +79,7 @@ Prima di pubblicare il runbook per renderlo disponibile nell'ambiente di produzi
 1. Fare clic su **Avvia** per avviare il test, testando l'unica opzione abilitata.
 1. Si noti che viene creato un [processo del runbook](automation-runbook-execution.md) e il relativo stato viene visualizzato nel riquadro.
 
-   Lo stato del `Queued`processo inizia come , a indicare che il processo è in attesa che un ruolo di lavoro del runbook nel cloud diventi disponibile. Lo stato `Starting` cambia quando un lavoratore rivendica il processo. Infine, lo `Running` stato diventa quando il runbook inizia effettivamente a essere eseguito.
+   Lo stato del processo inizia come In coda, a indicare che il processo è in attesa della disponibilità di un ruolo di lavoro del runbook nel cloud. Lo stato diventa Inizio quando un lavoratore rivendica il processo. Infine, lo stato diventa In esecuzione quando inizia l'esecuzione del runbook.
 
 1. Al termine del processo del runbook, nel riquadro Test viene visualizzato l'output. In questo caso, `Hello World`viene visualizzato .
 
@@ -107,7 +107,7 @@ Il runbook che hai creato è ancora in modalità Bozza. È necessario pubblicarl
 
    ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-1. Una volta visualizzato `Completed`lo stato del runbook , fare clic su **Output**. Viene aperta la pagina Output, `Hello World` in cui è possibile visualizzare il messaggio.
+1. Quando lo stato del runbook è Completato, fare clic su **Output**. Viene aperta la pagina Output, `Hello World` in cui è possibile visualizzare il messaggio.
 
    ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
@@ -117,7 +117,7 @@ Il runbook che hai creato è ancora in modalità Bozza. È necessario pubblicarl
 
    ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. Chiudere il riquadro Flussi e il riquadro Processo per tornare alla pagina **MyFirstRunbook.**
+1. Chiudere il riquadro Flussi e il riquadro Processo per tornare alla pagina MyFirstRunbook.
 1. Fare clic su **Processi** in **Risorse** per aprire la pagina Processi per questo runbook. Questa pagina elenca tutti i processi creati dal runbook. Dovrebbe essere elencato un solo processo, poiché il processo è stato eseguito una sola volta.
 
    ![Processi](media/automation-first-runbook-textual/runbook-control-job-tile.png)
@@ -126,12 +126,12 @@ Il runbook che hai creato è ancora in modalità Bozza. È necessario pubblicarl
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Passaggio 5: Aggiungere l'autenticazione per gestire le risorse di Azure
 
-Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure. Non può farlo a meno che non si autentica utilizzando le credenziali per la sottoscrizione. L'autenticazione utilizza il `Connect-AzAccount` cmdlet.
+Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure. Non può farlo a meno che non si autentica utilizzando le credenziali per la sottoscrizione. L'autenticazione utilizza il cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0)
 
 >[!NOTE]
 >Per i runbook `Add-AzAccount` `Add-AzureRMAccount` di PowerShell `Connect-AzAccount`e sono alias per . È possibile utilizzare questi cmdlet [oppure aggiornare i moduli](automation-update-azure-modules.md) nell'account di automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli anche se è stato appena creato un nuovo account di automazione.
 
-1. Passare alla pagina **MyFirstRunbook-Workflow** e aprire l'editor di testo facendo clic su **Modifica**.
+1. Passare alla pagina MyFirstRunbook-Workflow e aprire l'editor di testo facendo clic su **Modifica**.
 2. Eliminare `Write-Output` la riga.
 3. Posizionare il cursore su una riga vuota tra parentesi graffe.
 4. Digitare o copiare e incollare il codice seguente, che gestisce l'autenticazione con l'account RunAs di automazione.
@@ -213,6 +213,8 @@ Il runbook avvia attualmente la macchina virtuale hardcoded nel runbook. Sarà p
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere Documenti di [PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 * Per iniziare a utilizzare i runbook grafici, vedere [Il mio primo runbook grafico](automation-first-runbook-graphical.md).
 * Per iniziare a usare i runbook di PowerShell, vedere il mio primo runbook di [PowerShell.](automation-first-runbook-textual-powershell.md)
 * Per altre informazioni sui tipi di runbook e sui relativi vantaggi e limitazioni, vedere [Tipi di runbook di Automazione di Azure.To](automation-runbook-types.md)learn more about runbook types and their advantages and limitations, see Azure Automation runbook types .

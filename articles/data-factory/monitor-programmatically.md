@@ -10,14 +10,17 @@ ms.date: 01/16/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 43a31d588ff6616d7200d9773883ce5da570b100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d416a4a2bace2aeced6961d4959b0478feb0e650
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927366"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398817"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorare a livello di codice una data factory di Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Informazioni su come monitorare una pipeline in una data factory con diversi Software Development Kit (SDK). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

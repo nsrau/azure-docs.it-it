@@ -3,17 +3,17 @@ title: Entità servizio per servizio Azure Kubernetes
 description: Creare e gestire un'entità servizio di Azure Active Directory per un cluster nel servizio Azure Kubernetes
 services: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 523f08ddbf22e175af5b0604b04d4a2460ffd634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259422"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392731"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
-Per l'interazione con le API di Azure, un cluster servizio Azure Kubernetes richiede un'[entità servizio di Azure Active Directory (AD)][aad-service-principal]. L'entità servizio è necessaria per creare e gestire in modo dinamico altre risorse quali il bilanciamento del carico o un Registro Azure Container.
+Per interagire con le API di Azure, un cluster AKS richiede [un'entità servizio di Azure Active Directory (AD)][aad-service-principal] o un'identità [gestita.](use-managed-identity.md) Un'entità servizio o un'identità gestita è necessaria per creare e gestire dinamicamente altre risorse di Azure, ad esempio un servizio di bilanciamento del carico di Azure o un registro del contenitore (ACR).
 
 Questo articolo illustra come creare e usare un'entità servizio per i cluster servizio Azure Kubernetes.
 
@@ -140,7 +140,7 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 The service principal credentials for an AKS cluster are cached by the Azure CLI. Se queste credenziali sono scadute, si verificano errori durante la distribuzione dei cluster AKS. Il seguente messaggio di errore quando si esegue [az aks creare][az-aks-create] può indicare un problema con le credenziali dell'entità servizio memorizzati nella cache:
 

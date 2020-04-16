@@ -1,38 +1,66 @@
 ---
-title: Mapping della trasformazione Ordinamento flusso di dati
+title: Trasformazione di ordinamento nel mapping del flusso di dati
 description: Trasformazione Ordinamento dati mapping di Azure Data FactoryAzure Data Factory Mapping Data Sort
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/08/2018
-ms.openlocfilehash: c09439c5f54ae4b0884e9e25ae9a5a488f935bac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 381c6573dff1b3f1638af9090a535d9a1e59b2b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930218"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413177"
 ---
-# <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory Data Flow Sort Transformations
+# <a name="sort-transformation-in-mapping-data-flow"></a>Trasformazione di ordinamento nel mapping del flusso di dati
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+La trasformazione di ordinamento consente di ordinare le righe in ingresso nel flusso di dati corrente. È possibile scegliere singole colonne e ordinarle in ordine crescente o decrescente.
+
+> [!NOTE]
+> Il mapping dei flussi di dati viene eseguito su cluster di spark che distribuiscono dati tra più nodi e partizioni. Se si sceglie di ripartizionare i dati in una trasformazione successiva, è possibile che l'ordinamento venga perso a causa del rimescolamento dei dati.
+
+## <a name="configuration"></a>Configurazione
 
 ![Impostazioni di ordinamento](media/data-flow/sort.png "Ordina")
 
-La trasformazione Ordinamento consente di ordinare le righe in ingresso nel flusso di dati corrente. Le righe in uscita dalla trasformazione Ordinamento seguiranno poi le regole di ordinamento impostate. È possibile scegliere singole colonne e disporle in ordine crescente o decrescente, usando l'indicatore freccia accanto a ogni campo. Se è necessario modificare la colonna prima di applicare l'ordinamento, fare clic su "Computed Columns" (Colonne calcolate) per avviare l'editor espressioni. Si avrà così l'opportunità di creare un'espressione per l'operazione di ordinamento invece di limitarsi a selezionare semplicemente una colonna per l'ordinamento.
+**Senza distinzione tra maiuscole e minuscole:** Se si desidera ignorare o meno la distinzione tra maiuscole e minuscole durante l'ordinamento di campi stringa o di testo
 
-## <a name="case-insensitive"></a>Non fa distinzione tra maiuscole e minuscole
-È possibile attivare "Case insensitive" (Senza distinzione tra maiuscole e minuscole) se si vuole ignorare la combinazione di maiuscole/minuscole quando si ordinano i campi stringa o di testo.
+**Ordina solo all'interno delle partizioni:** Quando i flussi di dati vengono eseguiti su spark, ogni flusso di dati è suddiviso in partizioni. Questa impostazione ordina i dati solo all'interno delle partizioni in ingresso anziché ordinare l'intero flusso di dati. 
 
-"Sort Only Within Partitions" (Ordina solo all'interno delle partizioni) sfrutta il partizionamento dei dati Spark. Ordinando i dati in ingresso solo all'interno di ogni partizione, i flussi di dati possono ordinare i dati partizionati invece dell'intero flusso di dati.
+**Condizioni di ordinamento:** Scegliere le colonne in base alle quali eseguire l'ordinamento e in quale ordine viene eseguito l'ordinamento. L'ordine determina la priorità di ordinamento. Scegliere se i valori Null verranno visualizzati all'inizio o alla fine del flusso di dati.
 
-È possibile ridisporre tutte le condizioni di ordinamento nella trasformazione Ordinamento. Pertanto, se è necessario spostare una colonna più in alto nella precedenza di ordinamento, selezionare tale riga con il mouse e trascinarla più in alto o più in basso nell'elenco di ordinamento.
+### <a name="computed-columns"></a>Colonne calcolate
 
-Effetti del partizionamento sull'ordinamento
+Per modificare o estrarre un valore di colonna prima di applicare l'ordinamento, passare il mouse sulla colonna e selezionare "colonna calcolata". Verrà aperto il generatore di espressioni per creare un'espressione per l'operazione di ordinamento anziché utilizzare un valore di colonna.
 
-ADF Data Flow viene eseguito su cluster Spark di Big Data con dati distribuiti tra più nodi e partizioni. È importante tenere presente questo aspetto durante la progettazione del flusso di dati, se si dipende dalla trasformazione Ordinamento per mantenere i dati nello stesso ordine. Se si sceglie di ripartizionare i dati in una trasformazione successiva, si potrebbe perdere l'ordinamento a causa di tale rimaneggiamento dei dati.
+## <a name="data-flow-script"></a>Script del flusso di dati
+
+### <a name="syntax"></a>Sintassi
+
+```
+<incomingStream>
+    sort(
+        desc(<sortColumn1>, { true | false }),
+        asc(<sortColumn2>, { true | false }),
+        ...
+    ) ~> <sortTransformationName<>
+```
+
+### <a name="example"></a>Esempio
+
+![Impostazioni di ordinamento](media/data-flow/sort.png "Ordina")
+
+Lo script del flusso di dati per la configurazione di ordinamento precedente si trova nel frammento di codice seguente.
+
+```
+BasketballStats sort(desc(PTS, true),
+    asc(Age, true)) ~> Sort1
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

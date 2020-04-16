@@ -10,18 +10,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: dd13a08b3c2f63baf509efbb730032edd4eba61a
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: b04ff409c95980a1569a2709a475dd8ec74d59b3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011549"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415475"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati nell'archiviazione BLOB di Azure usando Azure Data FactoryCopy and transform data in Azure Blob storage by using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-azure-blob-connector.md)
 > * [Versione corrente](connector-azure-blob-storage.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e nell'archiviazione BLOB di Azure e usare Flusso di dati per trasformare i dati nell'archiviazione BLOB di Azure.This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Blob storage, and use Data Flow to transform data in Azure Blob storage. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 

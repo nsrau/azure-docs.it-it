@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: d0c60f5738bf634f9d43d6d4f0d78c1239b7ff3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650695"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391701"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Visualizzare l'elemento di definizione nelle applicazioni gestite di AzureView definition artifact in Azure Managed Applications
 
@@ -20,7 +20,7 @@ In questo articolo viene fornita una panoramica dell'elemento di definizione del
 
 ## <a name="view-definition-artifact"></a>Artefatto di definizione delle visualizzazioni
 
-L'elemento di definizione della visualizzazione deve essere denominato **viewDefinition.json** e inserito allo stesso livello di **createUiDefinition.json** e **mainTemplate.json** nel pacchetto .zip che crea una definizione di applicazione gestita. Per informazioni su come creare il pacchetto .zip e pubblicare una definizione di applicazione gestita, vedere Pubblicare una definizione di [applicazione gestita di AzureTo](publish-managed-app-definition-quickstart.md) learn how to create the .zip package and publish a managed application definition, see Publish an Azure Managed Application definition
+L'elemento di definizione della visualizzazione deve essere denominato **viewDefinition.json** e inserito allo stesso livello di **createUiDefinition.json** e **mainTemplate.json** nel pacchetto .zip che crea una definizione di applicazione gestita. Per informazioni su come creare il pacchetto .zip e pubblicare una definizione di applicazione gestita, vedere Pubblicare una definizione di [applicazione gestita di AzureTo](publish-service-catalog-app.md) learn how to create the .zip package and publish a managed application definition, see Publish an Azure Managed Application definition
 
 ## <a name="view-definition-schema"></a>Schema di definizione della vista
 

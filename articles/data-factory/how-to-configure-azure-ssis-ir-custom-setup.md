@@ -11,15 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: d6252b7a0ecce553bc3a1519055375fd4cd034f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 3aabf68b6763e5815a03021cb02683d509c26190
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336196"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415061"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalizzare la configurazione per un runtime di integrazione Azure-SSISCustomize the setup for an Azure-SSIS Integration Runtime
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 L'installazione personalizzata per un runtime di integrazione di Azure-SQL Server Integration Services (Azure-SSIS IR) fornisce un'interfaccia per aggiungere i propri passaggi durante l'installazione o la riconfigurazione del runtime di integrazione Azure-SSIS. 
 
@@ -32,7 +34,7 @@ Utilizzando l'installazione personalizzata, è possibile modificare la configura
 È possibile installare sia componenti gratuiti, senza licenza e componenti con licenza a pagamento con configurazioni personalizzate rapide e standard. Se si è un fornitore di software indipendente (ISV), vedere Sviluppare componenti a pagamento o con licenza per un runtime di accesso [Azure-SSIS](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
-> Poiché i nodi della serie v2 di un componente di gestione delle dimensioni di Azure-SSIS non sono adatti per l'installazione personalizzata, usare invece i nodi della serie v3.Because v2-series nodes of an Azure-SSIS IR are not suitable for custom setup, use v3-series nodes instead. Se si utilizzano già nodi di serie v2, passare ai nodi della serie v3 il prima possibile.
+> Per trarre vantaggio da miglioramenti futuri, è consigliabile usare serie di nodi v3 o versioni successive per il componente di rigenerazione Azure-SSIS con l'installazione personalizzata.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 

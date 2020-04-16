@@ -2,13 +2,13 @@
 title: Introduzione alle raccolte affidabiliIntroduction to Reliable Collections
 description: I servizi con stato di Service Fabric forniscono raccolte Reliable Collections che consentono di sviluppare applicazioni cloud a disponibilità elevata, scalabili e a bassa latenza.
 ms.topic: conceptual
-ms.date: 1/3/2019
-ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 3/10/2020
+ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75609724"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398438"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduzione alle Reliable Collections nei servizi con stato di Service Fabric
 
@@ -24,10 +24,9 @@ La differenza principale tra le raccolte Reliable Collections e altre tecnologie
 Le raccolte Reliable Collections possono essere considerate l'evoluzione naturale delle classi **System.Collections** , ovvero un nuovo set di raccolte progettate per le applicazioni per il cloud e più computer che non aumentano le complessità per gli sviluppatori. Come tali, le raccolte Reliable Collections sono:
 
 * Replicate: le modifiche apportate allo stato vengono replicate per assicurare disponibilità elevata.
-* Persistenti: i dati vengono resi persistenti sul disco per assicurarne la durabilità in caso di guasti su larga scala, ad esempio l'interruzione dell'alimentazione in un data center.
-* Poiché le scritture sono persistenti e replicate, non è possibile creare una raccolta ReliableDictionary o ReliableQueue volatile o un'altra raccolta affidabile che salva i dati in modo permanente solo in memoria.
 * Asincrone: le API sono asincrone per assicurare che i thread non vengano bloccati durante le operazioni di IO.
 * Transazionali: le API utilizzano l'astrazione delle transazioni per consentire all'utente di gestire facilmente più raccolte Reliable Collections all'interno di un servizio.
+* Persistenza o volatile: i dati possono essere resi persistenti su disco per garantire la durabilità in base a interruzioni su larga scala (ad esempio, un'interruzione dell'alimentazione del data center). Alcune raccolte Reliable Collections supportano inoltre una modalità volatile (con [Avvertats](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)) in cui tutti i dati vengono mantenuti in memoria, ad esempio una cache in memoria replicata.
 
 Le raccolte Reliable Collections offrono garanzie predefinite di coerenza assoluta, per facilitare la definizione della logica relativa allo stato delle applicazioni.
 La coerenza assoluta è ottenuta assicurando che i commit delle transazioni siano completati solo dopo che l'intera transazione è stata registrata su un quorum di repliche di maggioranza, inclusa quella primaria.
@@ -57,5 +56,5 @@ Attualmente **Microsoft.ServiceFabric.Data.Collections** include tre raccolte:
   * [Serializzazione e aggiornamento](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration (Configurazione di Reliable State Manager)](service-fabric-reliable-services-configuration.md)
 * Altro
-  * [Guida introduttiva di Reliable Services](service-fabric-reliable-services-quick-start.md)
+  * [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md)
   * [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

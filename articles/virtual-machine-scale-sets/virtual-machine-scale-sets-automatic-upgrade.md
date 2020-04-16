@@ -5,14 +5,14 @@ author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: b1e5ad60041e9d3b902a06a4875206fa061c73e6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81269908"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393783"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 
@@ -109,7 +109,7 @@ GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/M
 Dopo aver registrato la funzionalità per la sottoscrizione, completare il processo di consenso esplicito propagando la modifica nel provider di risorse di calcolo.
 
 ```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-10-01`
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -168,7 +168,7 @@ Per configurare l'aggiornamento automatico dell'immagine del sistema operativo, 
 L'esempio seguente descrive come impostare gli aggiornamenti automatici del sistema operativo in un modello del set di scalabilità:
 
 ```
-PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2018-10-01`
+PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2019-12-01`
 ```
 
 ```json
@@ -247,7 +247,7 @@ Esistono diversi modi per distribuire l'estensione Integrità applicazione nei s
 L'esempio seguente usa [l'API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) per controllare lo stato del set di scalabilità denominato myScaleSet nel gruppo di risorse denominato myResourceGroup:The following example uses REST API to check the status for the scale set named *myScaleSet* in the resource group named *myResourceGroup:*
 
 ```
-GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
 ```
 
 La chiamata GET restituisce proprietà simili all'output dell'esempio seguente:
@@ -307,7 +307,7 @@ az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSe
 
 ### <a name="rest-api"></a>API REST
 ```
-GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -332,7 +332,7 @@ Per i casi specifici in cui non si desidera attendere che l'agente di orchestraz
 Usare la chiamata all'API [Avvia aggiornamento sistema](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) operativo per avviare un aggiornamento in sequenza per spostare tutte le istanze del set di scalabilità delle macchine virtuali alla versione più recente del sistema operativo di scalabilità del sistema operativo di macchine disponibili. Le istanze che eseguono già l'ultima versione disponibile del sistema operativo non sono interessate. L'esempio seguente descrive in dettaglio come avviare un aggiornamento del sistema operativo in sequenza in un set di scalabilità denominato *myScaleSet* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```
-POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell

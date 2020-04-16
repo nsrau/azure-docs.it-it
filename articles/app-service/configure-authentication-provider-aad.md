@@ -3,14 +3,14 @@ title: Configurare l'autenticazione di Azure AD
 description: Informazioni su come configurare l'autenticazione di Azure Active Directory come provider di identità per il servizio app o l'app Funzioni di Azure.Learn how to configure Azure Active Directory authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632582"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392569"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso di Azure ADConfigure your App Service or Azure Functions app to use Azure AD login
 
@@ -19,8 +19,7 @@ ms.locfileid: "80632582"
 Questo articolo illustra come configurare il servizio app di Azure o funzioni di Azure per usare Azure Active Directory (Azure AD) come provider di autenticazione.
 
 > [!NOTE]
-> Al momento, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluso [MSAL)](../active-directory/develop/msal-overview.md)non è supportato per il servizio app di Azure e funzioni di Azure.At this time, Azure Active Directory v2.0 (including MSAL ) is not supported for Azure App Service and Azure Functions. Si prega di controllare di nuovo per gli aggiornamenti.
->
+> Il flusso delle impostazioni rapide configura la registrazione di un'applicazione AAD V1. Se si desidera utilizzare [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluso [MSAL](../active-directory/develop/msal-overview.md)), seguire le istruzioni di [configurazione avanzate](#advanced).
 
 Segui queste procedure consigliate per la configurazione dell'app e dell'autenticazione:
 
@@ -101,7 +100,7 @@ Eseguire la procedura seguente:
     |Campo|Descrizione|
     |-|-|
     |ID client| Utilizzare **l'ID applicazione (client)** della registrazione dell'app. |
-    |URL autorità emittente| Usare `https://login.microsoftonline.com/<tenant-id>`e sostituire * \<>id-tenant* con l'ID **directory (tenant)** della registrazione dell'app. Questo valore viene usato per reindirizzare gli utenti al tenant di Azure AD corretto, nonché per scaricare i metadati appropriati per determinare, ad esempio, le chiavi di firma del token appropriate e il valore dell'attestazione dell'autorità emittente di token. |
+    |URL autorità emittente| Usare `https://login.microsoftonline.com/<tenant-id>/v2.0`e sostituire * \<>id-tenant* con l'ID **directory (tenant)** della registrazione dell'app. Questo valore viene usato per reindirizzare gli utenti al tenant di Azure AD corretto, nonché per scaricare i metadati appropriati per determinare, ad esempio, le chiavi di firma del token appropriate e il valore dell'attestazione dell'autorità emittente di token. La `/v2.0` sezione può essere omessa per le applicazioni che utilizzano AAD v1. |
     |Segreto client (facoltativo)| Usa il segreto client generato nella registrazione dell'app.|
     |Gruppi di destinatari di token consentiti| Se si tratta di un'app cloud o server e si desidera consentire i token di autenticazione da un'app Web, aggiungere qui **l'URI ID applicazione** dell'app Web. **L'ID client** configurato viene *sempre* considerato implicitamente come un gruppo di destinatari consentito. |
 

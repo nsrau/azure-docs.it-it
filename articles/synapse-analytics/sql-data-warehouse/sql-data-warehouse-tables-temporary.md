@@ -10,13 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 64490bbd44066389186a59e851045b6becbe7acc
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632474"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408034"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Tabelle temporanee nel pool SQL Synapse
 Questo articolo contiene le linee guida fondamentali per l'uso delle tabelle temporanee ed evidenzia i principi delle tabelle temporanee a livello di sessione. 
@@ -30,7 +29,14 @@ Le tabelle temporanee sono visibili solo alla sessione in cui sono state create 
 
 Le tabelle temporanee offrono un miglioramento delle prestazioni, perché i loro risultati vengono scritti in locale anziché nell'archiviazione remota.
 
-## <a name="create-a-temporary-table"></a>Creazione di una tabella temporanea
+Le tabelle temporanee sono utili durante l'elaborazione dei dati, in particolare durante la trasformazione in cui i risultati intermedi sono temporanei. Con SQL Analytics, le tabelle temporanee esistono a livello di sessione.  Sono visibili solo alla sessione in cui sono stati creati. Di conseguenza, vengono eliminati automaticamente quando la sessione si disconnette. 
+
+## <a name="temporary-tables-in-sql-pool"></a>Tabelle temporanee nel pool SQL
+
+Nella risorsa del pool SQL, le tabelle temporanee offrono un vantaggio in termini di prestazioni perché i risultati vengono scritti nell'archiviazione locale anziché remota.
+
+### <a name="create-a-temporary-table"></a>Creazione di una tabella temporanea
+
 Le tabelle temporanee vengono create aggiungendo un prefisso al nome di una tabella con `#`.  Ad esempio:
 
 ```sql
@@ -89,7 +95,7 @@ GROUP BY
 ,        st.[has_filter]
 )
 ;
-``` 
+```
 
 > [!NOTE]
 > `CTAS` è un comando efficace e offre l'ulteriore vantaggio di essere efficiente nell'uso dello spazio dei log delle transazioni. 
@@ -226,5 +232,6 @@ Il pool SQL impone un paio di limitazioni durante l'implementazione di tabelle t
 Inoltre, le viste non possono essere create su tabelle temporanee.  Le tabelle temporanee possono essere create solo con la distribuzione hash o round robin.  La distribuzione di tabelle temporanee replicata non è supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sullo sviluppo di tabelle, vedere [Panoramica delle tabelle](sql-data-warehouse-tables-overview.md).
+
+Per altre informazioni sullo sviluppo di tabelle, vedere l'articolo Progettazione di tabelle usando le risorse di [SQL Analytics.To](sql-data-warehouse-tables-overview.md) learn more about developing tables, see the Designing tables using the SQL Analytics resources article.
 

@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un cluster Linux di Service Fabric
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: f5788f07dd4a4f03a95efaea4b741cd64c930ac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251776"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411015"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -31,8 +31,17 @@ Le procedure seguenti creano un cluster di Service Fabric a sette nodi. Per calc
 
 Scaricare i file del modello di Resource Manager seguenti:
 
+Per Ubuntu 16.04 LTS:
+
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
+
+Per Ubuntu 18.04 LTS:
+
+* [AzureDeploy.json][template2]
+* [AzureDeploy.Parameters.json][parameters2]
+
+La differenza tra i due modelli è l'attributo **vmImageSku** impostato su "18.04-LTS" e **typeHandlerVersion** di ogni nodo impostato su 1.1.
 
 Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Il file [AzureDeploy.json][template] distribuisce un numero di risorse, incluse le risorse seguenti.
 
@@ -42,7 +51,7 @@ Nella risorsa **Microsoft.ServiceFabric/clusters** viene distribuito un cluster 
 
 * tre tipi di nodi
 * Cinque nodi del tipo di nodo primario (configurabile nei parametri del modello), un nodo di ognuno degli altri tipi di nodi
-* Sistema operativo Ubuntu 16.04 LTS (configurabile nei parametri del modello)
+* OS: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurabile nei parametri del modello)
 * Protezione con certificato (configurabile nei parametri del modello)
 * [Servizio DNS](service-fabric-dnsservice.md) abilitato
 * [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronzo (configurabile nei parametri del modello)
@@ -70,7 +79,7 @@ Se sono necessarie altre porte dell'applicazione, si dovrà modificare la risors
 
 ## <a name="set-template-parameters"></a>Impostare i parametri del modello
 
-Nel file dei parametri [AzureDeploy.Parameters][parameters] vengono dichiarati molti valori usati per distribuire il cluster e le risorse associate. Di seguito sono riportati alcuni dei parametri che potrebbe essere necessario modificare per la propria distribuzione:
+Il file **AzureDeploy.Parameters** dichiara molti valori usati per distribuire il cluster e le risorse associate. Di seguito sono riportati alcuni dei parametri che potrebbe essere necessario modificare per la propria distribuzione:
 
 |Parametro|Valore di esempio|Note|
 |---|---||
@@ -86,7 +95,7 @@ Nel file dei parametri [AzureDeploy.Parameters][parameters] vengono dichiarati m
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuire la rete virtuale e il cluster
 
-Configurare quindi la topologia di rete e distribuire il cluster di Service Fabric. Il modello di Resource Manager [AzureDeploy.json][template] crea una rete virtuale e una subnet per Service Fabric. Il modello distribuisce anche un cluster in cui è abilitata la sicurezza basata su certificati.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA). Per proteggere i cluster di test è possibile usare un certificato autofirmato.
+Configurare quindi la topologia di rete e distribuire il cluster di Service Fabric. Il modello di Resource Manager **AzureDeploy.json** crea una rete virtuale e una subnet per Service Fabric. Il modello distribuisce anche un cluster in cui è abilitata la sicurezza basata su certificati.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA). Per proteggere i cluster di test è possibile usare un certificato autofirmato.
 
 Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire i certificati. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per l'uso dei nomi comuni del certificato per la gestione dei certificati, vedere [Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
@@ -163,3 +172,5 @@ Il modello in questo articolo distribuisce un cluster che usa l'identificazione 
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.json
+[parameters2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.Parameters.json

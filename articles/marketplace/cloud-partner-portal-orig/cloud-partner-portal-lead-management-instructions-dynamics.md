@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
-ms.openlocfilehash: 524ae203a311d538431205bf8c6498de45aeb4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d64c8460f5653f28b96396025f29ea13af15c8c3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416313"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurare la gestione dei lead per Dynamics CRM online
 
@@ -63,7 +63,7 @@ Usare la procedura seguente per configurare Azure Active Directory per Dynamics 
 4.  Immettere il nome dell'applicazione.
 5.  Per Tipo selezionare **App/API Web**.
 6.  Specificare un URL. Questo campo è necessario per creare un'applicazione, ma non lo è per i lead.
-7. Selezionare **Crea**.
+7. Selezionare **Create** (Crea).
 8.  Dopo aver registrato l'applicazione, selezionare **Proprietà** e quindi **copiare l'ID applicazione**. Queste informazioni di connessione verranno utilizzate nel portale Cloud Partner.You'll use this connection information in the Cloud Partner Portal.
 9.  In Proprietà, impostare l'applicazione come Multi-tenant e quindi selezionare **Salva**.
 
@@ -142,4 +142,4 @@ Il passaggio finale consente all'utente creato di scrivere i lead.
 Completare la configurazione di Dynamics CRM per la gestione dei lead aggiungendo le informazioni sull'account generato al portale Cloud Partner. Ad esempio:
 
 -   **Azure Active Directory** - **ID applicazione** (esempio: *23456052-aaaa-bbbb-8662-1234df56788f*), **ID directory** (esempio: *12345678-8af1-4asf-1234-12234d01db47*) e **Chiave applicazione ** (esempio: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Office 365** - **URL** (esempio: *https://contoso.crm4.dynamics.com*), **Nome utente** (esempio: *contoso\@contoso.onmicrosoft.com*) e **Password** (esempio: *P\@ssw0rd*).
+-   **Url** di **Office 365** - (esempio: **`https://contoso.crm4.dynamics.com`** **`contoso\@contoso.onmicrosoft.com`**), Nome **utente** (esempio: ) e **Password** (ad esempio: *P\@ssw0rd*).

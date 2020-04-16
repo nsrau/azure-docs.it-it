@@ -4,14 +4,14 @@ description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure nec
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6af3d7ab1fdd35391c9a189162c57dfb259f2d4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276621"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405345"
 ---
-# <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
+# <a name="azure-functions-developer-guide"></a>Guida per sviluppatori di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
 
 Questo articolo presuppone che sia già stato letto [Panoramica di Funzioni di Azure](functions-overview.md).
@@ -78,7 +78,7 @@ Quando si verificano rapidamente più eventi di trigger di quanti il runtime del
 ## <a name="repositories"></a>Repository
 Il codice di Funzioni di Azure è open source e archiviato in repository GitHub:
 
-* [Funzioni di AzureAzure Functions](https://github.com/Azure/Azure-Functions)
+* [Funzioni di Azure](https://github.com/Azure/Azure-Functions)
 * [Host Funzioni di AzureAzure Functions host](https://github.com/Azure/azure-functions-host/)
 * [portale di Funzioni di Azure](https://github.com/azure/azure-functions-ux)
 * [Modelli di Funzioni di Azure](https://github.com/azure/azure-functions-templates)

@@ -9,14 +9,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 34972e70039fef17161bdef66f64278cbabf908f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130809"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81412951"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Questo articolo risponde ad alcune domande frequenti su Azure Data Factory.  
 
 ## <a name="what-is-azure-data-factory"></a>Che cos'è Azure Data Factory? 
@@ -155,7 +158,7 @@ Per informazioni dettagliate sui prezzi di Azure Data Factory, vedere [Dettagli 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Come è possibile avere sempre a disposizione le informazioni più aggiornate su Data Factory?
 Per le informazioni più aggiornate su Azure Data Factory, andare ai siti seguenti:
 
-- [Blog (in lingua)](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Home page della documentazione](/azure/data-factory)
 - [Home page prodotti](https://azure.microsoft.com/services/data-factory/)
 

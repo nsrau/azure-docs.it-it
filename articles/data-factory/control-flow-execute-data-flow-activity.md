@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 03/16/2020
-ms.openlocfilehash: 115cb3e499117457629e130b6432a1cbc2224edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32088dd712cd0c70fc01de48add17a0b6a828dc8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79463051"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415322"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data Flow activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Usare l'attività Flusso di dati per trasformare e spostare i dati tramite il mapping dei flussi di dati. Se non si ha familiarità con i flussi di dati, vedere Panoramica del [mapping dei flussi](concepts-data-flow-overview.md) di datiIf you're new to data flows, see Mapping Data Flow overview
 
@@ -160,9 +162,9 @@ Per ottenere il numero di righe lette da un'origine denominata `@activity('dataf
 Vedere le attività del flusso di controllo supportate da Data Factory:See control flow activities supported by Data Factory: 
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
-- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)
 - [Attività Until](control-flow-until-activity.md)

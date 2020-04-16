@@ -8,14 +8,16 @@ ms.topic: troubleshooting
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 9f3a13a097d7cce87aead4ec2d76ce7cbbb1a206
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62ad337646cf3fc0bbe4305dccad5adb56f8ee15
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75778227"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410235"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Risolvere i problemi dei connettori di Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra i metodi di risoluzione dei problemi comuni per i connettori in Azure Data Factory.This article explores common troubleshooting methods for connectors in Azure Data Factory.
   

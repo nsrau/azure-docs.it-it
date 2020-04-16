@@ -5,75 +5,81 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 04/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65768358"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407202"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
-I messaggi di posta elettronica di invito sono strumenti fondamentali per entrare in contatto con i partner e introdurli alla funzionalità di collaborazione B2B di Azure AD. È possibile usarli per aumentare l'attendibilità del destinatario. È possibile aggiungere elementi di legittimità e riprova sociale al messaggio di posta elettronica, per assicurarsi che il destinatario scelga di selezionare con tranquillità il pulsante **Get Started** (Inizia) per accettare l'invito. L'attendibilità è uno strumento fondamentale per ridurre i problemi di condivisione. Il messaggio di posta elettronica deva anche avere un aspetto accattivante.
+I messaggi di posta elettronica di invito sono strumenti fondamentali per entrare in contatto con i partner e introdurli alla funzionalità di collaborazione B2B di Azure AD. Anche se non è necessario inviare un messaggio di posta elettronica per invitare qualcuno utilizzando la [collaborazione B2B,](add-user-without-invite.md)in questo modo fornisce all'utente tutte le informazioni necessarie per prendere una decisione sull'accettazione dell'invito. Fornisce anche loro un link a cui possono sempre fare riferimento in futuro quando hanno bisogno di tornare alle tue risorse.
 
 ![Screenshot che mostra il messaggio di posta elettronica di invito B2B](media/invitation-email-elements/invitation-email.png)
 
+> [!NOTE]
+> Questo nuovo modello di messaggio di posta elettronica è ancora in fase di implementazione in tutti i tenant, pertanto alcuni tenant usano ancora una progettazione precedente. Entro la fine di maggio 2020, gli inviti di tutti i tenant utilizzeranno questo modello.
+
 ## <a name="explaining-the-email"></a>Descrizione del messaggio di posta elettronica
+
 Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di seguito ne vengono descritti alcuni elementi.
 
 ### <a name="subject"></a>Oggetto
-Il contenuto dell'oggetto del messaggio di posta elettronica è basato su questo modello: Ti invitiamo all'organizzazione &lt;nometenant&gt;
+
+L'oggetto dell'e-mail segue questo modello:
+
+&lt;nome&gt; utente vi ha invitato ad accedere alle applicazioni all'interno della loro organizzazione.
 
 ### <a name="from-address"></a>Indirizzo del mittente.
-Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn.  È consigliabile chiarire chi è il mittente dell'invito e a quale azienda appartiene, oltre a mettere in evidenza che il messaggio proviene da un indirizzo di posta elettronica Microsoft. Il formato è: <invites@microsoft.com> Microsoft &lt;Invitations o&gt; &lt;Display&gt; name of <invites@microsoft.com>inviter from tenantname (tramite Microsoft) .
+
+Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn. Questo modello dovrebbe chiarire che anche invites@microsoft.comse il messaggio di posta elettronica proviene da , l'invito proviene da un'altra organizzazione. Il formato è: <invites@microsoft.com> Inviti Microsoft o &lt;Inviti&gt; <invites@microsoft.com>Microsoft per conto di nometenant . 
 
 ### <a name="reply-to"></a>Rispondi a
+
 Se disponibile, viene impostato l'indirizzo di posta elettronica del mittente dell'invito. Un'eventuale risposta all'invito viene quindi inviata al mittente.
 
-### <a name="branding"></a>Personalizzazione
-Nei messaggi di posta elettronica di invito vengono usate le informazioni personalizzate distintive dell'azienda eventualmente impostate per il tenant. Se si vogliono sfruttare i vantaggi offerti da questa funzionalità, [qui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) sono disponibili i dettagli su come configurarla. Il logo banner viene visualizzato nel messaggio di posta elettronica. Per ottenere risultati ottimali, seguire le istruzioni relative a qualità e dimensioni dell'immagine, disponibili [qui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal). Il nome dell'azienda viene anche visualizzato nella chiamata all'azione.
+### <a name="phishing-warning"></a>Avviso di phishing
 
-### <a name="call-to-action"></a>Chiamata all'azione
-La chiamata all'azione è costituita da due parti: la spiegazione del motivo per cui il destinatario ha ricevuto il messaggio e l'indicazione delle successive azioni richieste al destinatario.
-- La sezione relativa al "motivo" può essere basata sul seguente modello: Hai ricevuto l'invito per accedere alle applicazioni nell'organizzazione &lt;nometenant&gt;
+L'e-mail inizia con un breve avviso per l'utente sul phishing, avvisandolo che dovrebbero accettare solo gli inviti che si aspettano. È buona norma assicurarsi che i partner che stai invitando non saranno sorpresi dal tuo invito menzionandolo a loro in anticipo.
 
-- La sezione relativa alle "successive azioni richieste al destinatario" è indicata dalla presenza del pulsante **Get Started** (Inizia). Se per aggiungere il destinatario non è stato necessario inviare inviti, questo pulsante non viene visualizzato.
+![Immagine dell'avviso di phishing nell'e-mail](media/invitation-email-elements/phishing-warning.png)
 
 ### <a name="inviters-information"></a>Informazioni sul mittente dell'invito
-Il nome visualizzato del mittente dell'invito è incluso nel messaggio di posta elettronica. Nel messaggio di invito verrà inclusa anche l'immagine del profilo per l'account di Azure AD, qualora sia stata impostata. Entrambi consentono di rendere il messaggio di posta elettronica più attendibile per il destinatario.
 
-Se non è ancora stata impostata un'immagine del profilo, al posto dell'immagine viene visualizzata un'icona con le iniziali del mittente dell'invito:
+Il messaggio di posta elettronica include informazioni sull'invitante e sull'organizzazione da cui invia l'invito. Sono inclusi il nome e l'indirizzo di posta elettronica del mittente, nonché il nome e il dominio primario associati all'organizzazione. Tutte queste informazioni dovrebbero aiutare l'invitato a prendere una decisione informata sull'accettazione dell'invito.
 
-  ![Screenshot che mostra l'invito con le iniziali dell'invito visualizzate](media/invitation-email-elements/inviters-initials.png)
+![Immagine delle informazioni dell'invitante nell'e-mail](media/invitation-email-elements/inviters-information.png)
 
-### <a name="body"></a>Corpo
-Il corpo contiene il messaggio digitato dal mittente dell'invito quando [viene invitato un utente guest alla directory, al gruppo o all'app](add-users-administrator.md) oppure [usando l'API di invito](customize-invitation-api.md). Si tratta di un'area di testo, che quindi non supporta l'elaborazione dei tag HTML per motivi di sicurezza.
+### <a name="invitation-message"></a>Messaggio d'invito
 
-  ![Screenshot che mostra il corpo dell'e-mail di invito](media/invitation-email-elements/invitation-email-body.png)
+Se l'invito include un messaggio come parte dell'invito quando [invita un utente guest alla directory, al gruppo o all'app](add-users-administrator.md) oppure quando [utilizza l'API](customize-invitation-api.md)di invito, il messaggio viene evidenziato nella sezione principale del messaggio di posta elettronica. Sono inclusi anche il nome e l'immagine del profilo dell'invitato, se ne hanno impostato uno. Il messaggio stesso è un'area di testo, quindi per motivi di sicurezza, non elabora i tag HTML.
+
+![Immagine del messaggio di invito nell'e-mail](media/invitation-email-elements/invitation-message.png)
+
+### <a name="accept-button-and-redirect-url"></a>Pulsante Accetta e URL di reindirizzamento
+
+La sezione successiva dell'e-mail contiene informazioni su dove verrà portato l'invitato dopo aver accettato l'invito, nonché un pulsante per farlo.  In futuro, l'invitato potrà sempre utilizzare questo collegamento per tornare direttamente alle risorse.
+
+![Immagine del pulsante di accettazione e reindirizzamento dell'URL nell'e-mail](media/invitation-email-elements/accept-button.png)
 
 ### <a name="footer-section"></a>Sezione piè di pagina
-Il piè di pagina contiene il marchio aziendale di Microsoft e indica al destinatario se il messaggio di posta elettronica è stato inviato da un alias non monitorato. 
 
-Casi speciali:
+Il piè di pagina contiene ulteriori informazioni sull'invito inviato. C'è sempre un'opzione per l'invitato per bloccare gli inviti futuri. Se l'organizzazione ha [impostato un'informativa sulla privacy](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), il collegamento all'istruzione viene visualizzato qui.  In caso contrario, una nota indica che l'organizzazione non ha impostato un'informativa sulla privacy.
 
-- Il mittente dell'invito non dispone di un indirizzo di posta elettronica nella tenancy di invito
-
-  ![Screenshot quando un invito non ha posta elettronica nella tenancy invitante](media/invitation-email-elements/inviter-no-email.png)
-
-
-- Il destinatario non deve riscattare l'invito
-
-  ![Screenshot quando il destinatario non deve riscattare l'invito](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
-
+![Immagine della sezione del piè di pagina nell'e-mail](media/invitation-email-elements/footer-section.png)
+ 
 ## <a name="how-the-language-is-determined"></a>Come viene determinata la lingua
-La lingua presentata all'utente guest nel messaggio di posta elettronica di invito è determinata dalle impostazioni seguenti. Queste impostazioni sono elencate in base all'ordine di precedenza. Se un'impostazione non è configurata, viene usata l'impostazione successiva per determinare la lingua. 
+
+La lingua presentata all'utente guest nel messaggio di posta elettronica di invito è determinata dalle impostazioni seguenti. Queste impostazioni sono elencate in base all'ordine di precedenza. Se un'impostazione non è configurata, viene usata l'impostazione successiva per determinare la lingua.
+
 - Proprietà **messageLanguage** dell'oggetto [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se viene usata l'API di creazione dell'invito
 -   Proprietà **preferredLanguage** specificata nell'[oggetto utente](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) del guest
 -   **Lingua delle notifiche** impostata nelle proprietà del tenant principale dell'utente guest (solo per i tenant di Azure AD)

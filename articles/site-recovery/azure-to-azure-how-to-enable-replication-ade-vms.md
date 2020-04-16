@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772228"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408629"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicare le macchine virtuali abilitate per Crittografia dischi di Azure in un'altra area di AzureReplicate Azure Disk Encryption-enabled virtual machines to another Azure region
 
 Questo articolo descrive come replicare le macchine virtuali di Azure con Azure Disk Encryption (ADE) abilitato, da un'area di Azure a un'altra.
 
 >[!NOTE]
-> Site Recovery supporta attualmente ADE, con e senza Azure Active Directory (AAD) per le macchine virtuali che eseguono sistemi operativi Windows e Linux.Site Recovery currently supports ADE, with and without Azure Active Directory (AAD) for VMs running Windows and Linux operating systems.  Per i computer che eseguono ADE 1.1 (senza AAD), le macchine virtuali devono utilizzare dischi gestiti. Le macchine virtuali con dischi non gestiti non sono supportate. Se si passa da ADE 0.1 (con AAD) a 1.1, è necessario disabilitare la replica e abilitare la replica per una macchina virtuale dopo aver abilitato 1.1.
+> Site Recovery supporta attualmente ADE, con e senza Azure Active Directory (AAD) per le macchine virtuali che eseguono sistemi operativi Windows. Per i sistemi operativi Linux, supportiamo solo ADE senza AAD. Inoltre, per le macchine che eseguono ADE 1.1 (senza AAD), le macchine virtuali devono utilizzare dischi gestiti. Le macchine virtuali con dischi non gestiti non sono supportate. Se si passa da ADE 0.1 (con AAD) a 1.1, è necessario disabilitare la replica e abilitare la replica per una macchina virtuale dopo aver abilitato 1.1.
 
 
 ## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Autorizzazioni utente necessarie
@@ -99,7 +99,7 @@ Per questo esempio, l'area primaria di Azure è l'Asia orientale e l'area second
     - **Account di archiviazione cache:** Site Recovery richiede un account di archiviazione aggiuntivo denominato *cache storage* nell'area di origine. Tutte le modifiche nelle macchine virtuali di origine vengono rilevate e inviate all'account di archiviazione della cache. Vengono quindi replicati nel percorso di destinazione.
     - **Set di disponibilità:** per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione. Il nome ha il suffisso "asr". Se esiste già un set di disponibilità creato da Site Recovery, viene riutilizzato.
     - **Vault chiave di crittografia del disco:** per impostazione predefinita, Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione. Ha un suffisso "asr" basato sulle chiavi di crittografia del disco della macchina virtuale di origine. Se esiste già un insieme di credenziali delle chiavi creato da Azure Site Recovery, viene riutilizzato.
-    - **Insiemi**di credenziali delle chiavi di crittografia: per impostazione predefinita, Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione. Il nome ha un suffisso "asr" basato sulle chiavi di crittografia della chiave della macchina virtuale di origine. Se esiste già un insieme di credenziali delle chiavi creato da Azure Site Recovery, viene riutilizzato.
+    - **Insieme di credenziali delle chiavi di crittografia della chiave**: Per impostazione predefinita, Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione. Il nome ha un suffisso "asr" basato sulle chiavi di crittografia della chiave della macchina virtuale di origine. Se esiste già un insieme di credenziali delle chiavi creato da Azure Site Recovery, viene riutilizzato.
     - **Criteri di replica:** definisce le impostazioni per la cronologia di conservazione dei punti di ripristino e la frequenza degli snapshot coerente con le app. Per impostazione predefinita, Site Recovery crea un nuovo criterio di replica con impostazioni predefinite di *24 ore* per la conservazione dei punti di ripristino e *60 minuti* per la frequenza degli snapshot coerente con l'app.
 
 ## <a name="customize-target-resources"></a>Personalizzare le risorse di destinazione

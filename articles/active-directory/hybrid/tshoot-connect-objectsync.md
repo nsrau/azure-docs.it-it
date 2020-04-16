@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64919128"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407009"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione degli oggetti con la sincronizzazione di Azure AD Connect
 Questo articolo include la procedura per la risoluzione dei problemi relativi alla sincronizzazione degli oggetti tramite l'attività di risoluzione dei problemi. Per informazioni sulla risoluzione dei problemi in Connect di Azure Active Directory (Azure AD), guardare [questo breve video](https://aka.ms/AADCTSVideo).
@@ -61,11 +61,6 @@ La parte restante di questa sezione descrive i risultati specifici restituiti da
 Se il nome dell'entità utente o l'ID di accesso alternativo non viene verificato nel tenant di Azure AD, Azure Active Directory sostituisce i suffissi del nome dell'entità utente con il nome di dominio predefinito "onmicrosoft.com".
 
 ![Azure AD replaces UPN](media/tshoot-connect-objectsync/objsynch2.png)
-
-### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Modifica del suffisso dl nome dell'entità utente da un dominio federato a un altro dominio federato
-Azure Active Directory non consente la sincronizzazione del suffisso del nome dell'entità utente o dell'ID di accesso alternativo da un dominio federato a un altro dominio federato. Questo approccio si applica ai domini verificati nel tenant di Azure AD e con tipo di autenticazione impostato su Federato.
-
-![Nessuna sincronizzazione UPN da un dominio federato a un altro](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>La funzionalità DirSync 'SynchronizeUpnForManagedUsers' del tenant di Azure AD è disabilitata
 Se la funzionalità DirSync 'SynchronizeUpnForManagedUsers' del tenant di Azure AD è disabilitata, Azure Active Directory non consente aggiornamenti alla sincronizzazione per il nome dell'entità utente o l'ID di accesso alternativo per account utente con licenza e autenticazione gestita.

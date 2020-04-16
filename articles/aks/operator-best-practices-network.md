@@ -5,12 +5,12 @@ description: Informazioni sulle procedure consigliate per l'operatore del cluste
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: c8aee9967e09d2ae8bec3ee170756d8d22de0fe4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668214"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392722"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
@@ -43,7 +43,7 @@ Quando si usano le funzionalità di rete Azure CNI, la risorsa di rete virtuale 
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Per altre informazioni sulla delega dell'entità servizio del servizio Azure Kubernetes, vedere [Delegare l'accesso ad altre risorse di Azure][sp-delegation].
+Per altre informazioni sulla delega dell'entità servizio del servizio Azure Kubernetes, vedere [Delegare l'accesso ad altre risorse di Azure][sp-delegation]. Anziché un'entità servizio, è anche possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni. Per ulteriori informazioni, vedere [Utilizzare le identità gestite](use-managed-identity.md).
 
 Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire gli eventi di scalabilità orizzontale o gli aggiornamenti del cluster, sono inoltre necessari indirizzi IP aggiuntivi disponibili per l'utilizzo nella subnet assegnata. Questo spazio di indirizzi aggiuntivo è particolarmente importante se si utilizzano contenitori di Windows Server (attualmente in anteprima in AKS), poiché tali pool di nodi richiedono un aggiornamento per applicare le patch di sicurezza più recenti. Per ulteriori informazioni sui nodi di Windows Server, vedere Aggiornare un pool di [nodi in AKS][nodepool-upgrade].
 

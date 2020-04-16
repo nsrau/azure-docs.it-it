@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583521"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414011"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limiti di capacità di Azure Synapse Analytics (in precedenza SQL DW)
 
@@ -31,7 +31,7 @@ Valori massimi consentiti per vari componenti di Azure Synapse.
 | Connessione del database |Numero massimo di sessioni aperte simultanee |1024<br/><br/>Il numero di sessioni aperte simultanee varia in base alla DWU selezionata. DWU600c e superiore supportano un massimo di 1024 sessioni aperte. DWU500c e inferiore, supportano un limite massimo simultaneo di sessioni aperte di 512. Si noti che vi sono limiti nel numero di query che è possibile eseguire contemporaneamente. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione. |
 | Connessione del database |Memoria massima per le istruzioni preparate |20 MB |
 | [Gestione dei carichi di lavoro](resource-classes-for-workload-management.md) |Numero massimo di query simultanee |128<br/><br/>  Verrà eseguito un massimo di 128 query simultanee e verranno accodate le query rimanenti.<br/><br/>Il numero di query simultanee può diminuire quando gli utenti vengono assegnati a classi di risorse più elevate o quando l'impostazione [dell'unità](memory-concurrency-limits.md) di data warehouse viene ridotta. Per alcune query, come le query DMV, l'esecuzione è sempre consentita e non influisce sul limite di query simultanee. Per altre informazioni sull'esecuzione di query simultanee, vedere l'articolo sui [valori massimi di concorrenza](memory-concurrency-limits.md). |
-| [Tempdb](sql-data-warehouse-tables-temporary.md) |GB massimi |399 GB per DW100c. Pertanto, in DWU1000c, tempdb viene dimensionato a 3,99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |GB massimi |399 GB per DW100c. Pertanto, in DWU1000c, tempdb viene dimensionato a 3,99 TB. |
 ||||
 
 ## <a name="database-objects"></a>Oggetti di database
@@ -42,7 +42,7 @@ Valori massimi consentiti per vari componenti di Azure Synapse.
 | Tabella |Dimensioni massime |Dimensioni illimitate per le tabelle columnstore. <br>60 TB per le tabelle rowstore compresse su disco. |
 | Tabella |Tabelle per ogni database | 100,000 |
 | Tabella |Colonne per ogni tabella |1024 colonne |
-| Tabella |Byte per colonna |Dipende dalla colonna [tipo di dati](sql-data-warehouse-tables-data-types.md). Per i tipi di dati carattere, MAX Limit può archiviare fino a 2 GB nell'archiviazione fuori pagina (overflow di riga).  I caratteri non Unicode, ad esempio il limite char o varchar, sono 8000 in una pagina di dati, mentre i caratteri Unicode come il limite nchar o nvarchar sono 4000 in una pagina di dati.  Usare le dimensioni di archiviazione delle pagine di dati per migliorare le prestazioni. |
+| Tabella |Byte per colonna |Dipende dalla colonna [tipo di dati](sql-data-warehouse-tables-data-types.md). Il limite è 8000 per i tipi di dati char, 4000 per nvarchar o 2 GB per i tipi di dati MAX. |
 | Tabella |Byte per riga, dimensioni definite |8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina. Analogamente a SQL ServerSQL Server, è supportato l'archiviazione di overflow delle righe, che consente di eseguire il push delle colonne di **lunghezza variabile** all'esta dalla riga. Quando le righe di lunghezza variabile vengono inviate all'esterno delle righe, viene archiviata nel record principale solo una radice 24 byte. Per altre informazioni, vedere [Dati di overflow della riga che superano 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabella |Partizioni per tabella |15.000<br/><br/>Per prestazioni elevate, è consigliabile ridurre al minimo il numero di partizioni necessarie garantendo al tempo stesso il supporto dei requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano. |
 | Tabella |Caratteri per valore limite della partizione. |4000 |
@@ -54,7 +54,7 @@ Valori massimi consentiti per vari componenti di Azure Synapse.
 | Statistiche |Colonne per oggetto statistiche. |32 |
 | Statistiche |Statistiche create per le colonne per tabella. |30.000 |
 | Stored procedure |Livello massimo di annidamento. |8 |
-| Visualizza |Colonne per ogni vista |1.024 |
+| Visualizzazione |Colonne per ogni vista |1.024 |
 ||||
 
 ## <a name="loads"></a>Operazioni di caricamento

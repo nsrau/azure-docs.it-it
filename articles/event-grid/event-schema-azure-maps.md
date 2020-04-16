@@ -1,24 +1,26 @@
 ---
-title: Schema di eventi di Mappe di Azure di Griglia di eventi di Azure
+title: Mappe di Azure come origine griglia di eventiAzure Maps as Event Grid source
 description: Descrive le proprietà e lo schema disponibili per gli eventi di Mappe di Azure con Griglia di eventi di Azure
 services: event-grid
-author: femila
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 02/08/2019
-ms.author: femila
-ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77486360"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393412"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Schema di eventi di Griglia di eventi di Azure per Mappe di Azure
+# <a name="azure-maps-as-an-event-grid-source"></a>Mappe di Azure come origine della griglia di eventiAzure Maps as an Event Grid source
 
-Questo articolo illustra le proprietà e lo schema per gli eventi di Mappe di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/event-schema).
+Questo articolo illustra le proprietà e lo schema per gli eventi di Mappe di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/event-schema). Fornisce inoltre un elenco di guide introduttive ed esercitazioni per usare Azure Maps come origine eventi.
 
-## <a name="available-event-types"></a>Tipi di evento disponibili
+## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
+
+### <a name="available-event-types"></a>Tipi di evento disponibili
 
 Un account di Mappe di Azure genera i tipi di eventi seguenti:
 
@@ -28,7 +30,7 @@ Un account di Mappe di Azure genera i tipi di eventi seguenti:
 | Microsoft.Maps.GeofenceExited | Generato quando le coordinate ricevute sono state spostate dall'interno all'esterno di un determinato recinto virtuale |
 | Microsoft.Maps.GeofenceResult | Generato ogni volta che una query di geofencing restituisce un risultato, indipendentemente dallo stato |
 
-## <a name="event-examples"></a>Esempi di eventi
+### <a name="event-examples"></a>Esempi di eventi
 
 L'esempio seguente illustra lo schema di un evento **GeofenceEntered**
 
@@ -98,7 +100,7 @@ L'esempio seguente illustra lo schema di **GeofenceResult**
 }
 ```
 
-## <a name="event-properties"></a>Proprietà degli eventi
+### <a name="event-properties"></a>Proprietà degli eventi
 
 Un evento presenta i seguenti dati di primo livello:
 
@@ -162,6 +164,12 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | geometries | geometries[] |Elenca le geometrie del recinto che contengono la posizione della coordinata o si sovrappongono a searchBuffer intorno alla posizione. |
 | invalidPeriodGeofenceGeometryId | string[]  | Elenca gli ID delle geometrie del recinto virtuale che sono inclusi in un periodo non valido rispetto all'ora utente nella richiesta. |
 | isEventPublished | boolean | True se almeno un evento viene pubblicato nel sottoscrittore di eventi di Mappe di Azure, false non viene pubblicato alcun evento nel sottoscrittore di eventi di Mappe di Azure. |
+
+## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+|Titolo  |Descrizione  |
+|---------|---------|
+| [Reagire agli eventi di Mappe di Azure con Griglia di eventi](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Panoramica dell'integrazione di Mappe di Azure con Griglia di eventi. |
+| [Esercitazione: Impostare un geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Questa esercitazione illustra i passaggi di base per la configurazione di un recinto virtuale con Mappe di Azure. Si usa Griglia di eventi di Azure per trasmettere i risultati del recinto virtuale e configurare una notifica in base ai risultati del recinto virtuale stesso. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

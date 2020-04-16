@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272149"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390215"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura della rete virtuale di Azure HDInsightAzure HDInsight virtual network architecture
 
@@ -30,11 +30,11 @@ I cluster di Azure HDInsight hanno tipi diversi di macchine virtuali o nodi. Ogn
 | Nodo perimetrale del server R | Il nodo perimetrale R Server rappresenta il nodo in cui è possibile eseguire SSH ed eseguire applicazioni coordinate per l'esecuzione tra le risorse del cluster. Un nodo perimetrale non partecipa all'analisi dei dati all'interno del cluster. Questo nodo ospita anche R Studio Server, consentendo di eseguire l'applicazione R utilizzando un browser. |
 | Nodo Area | Per il tipo di cluster HBase, il nodo dell'area (noto anche come nodo di dati) esegue il server di area. I server di area gestiscono e gestiscono una parte dei dati gestiti da HBase. I nodi region possono essere aggiunti o rimossi dal cluster per scalare le capacità di elaborazione e gestire i costi.|
 | Nodo Nimbus | Per il tipo di cluster Storm, il nodo Nimbus fornisce una funzionalità simile al nodo Head. Il nodo Nimbus assegna le attività ad altri nodi di un cluster tramite il gestore dello zoo, che coordina l'esecuzione delle topologie Storm. |
-| Nodo Supervisore | Per il tipo di cluster Storm, il nodo supervisore esegue le istruzioni fornite dal nodo Nimbus per eseguire l'elaborazione desiderata. |
+| Nodo Supervisore | Per il tipo di cluster Storm, il nodo supervisore esegue le istruzioni fornite dal nodo Nimbus per eseguire l'elaborazione. |
 
 ## <a name="resource-naming-conventions"></a>Convenzioni di denominazione delle risorse
 
-Utilizzare i nomi di dominio completi (FQDN) quando si indirizzano i nodi del cluster. È possibile ottenere i nomi FQDN per vari tipi di nodo nel cluster utilizzando [l'API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). 
+Utilizzare i nomi di dominio completi (FQDN) per l'indirizzamento dei nodi nel cluster. È possibile ottenere i nomi FQDN per vari tipi di nodo nel cluster utilizzando [l'API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Questi FQDN saranno nel `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`formato .
 
@@ -48,7 +48,7 @@ The following diagram shows the placement of HDInsight nodes and network resourc
 
 ![Diagramma delle entità HDInsight create in Azure custom VNET](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
-Le risorse predefinite presenti quando HDInsight viene distribuito in una rete virtuale di Azure includono i tipi di nodo del cluster menzionati nella tabella precedente, nonché i dispositivi di rete che supportano la comunicazione tra la rete virtuale e le reti esterne.
+Le risorse predefinite in una rete virtuale di Azure includono i tipi di nodo del cluster menzionati nella tabella precedente. E dispositivi di rete che supportano la comunicazione tra la rete virtuale e le reti esterne.
 
 La tabella seguente riepiloga i nove nodi del cluster creati quando HDInsight viene distribuito in una rete virtuale di Azure personalizzata.
 
@@ -64,7 +64,7 @@ The following network resources present are automatically created inside the vir
 | Risorsa di rete | Numero presente | Dettagli |
 | --- | --- | --- |
 |Bilanciamento del carico | three | |
-|Interfacce di rete | Nove | Questo valore è basato su un cluster normale, in cui ogni nodo ha la propria interfaccia di rete. Le nove interfacce sono per i due nodi head, tre nodi zookeeper, due nodi di lavoro e due nodi gateway menzionati nella tabella precedente. |
+|Interfacce di rete | Nove | Questo valore è basato su un cluster normale, in cui ogni nodo ha la propria interfaccia di rete. Le nove interfacce sono per: due nodi head, tre nodi zookeeper, due nodi di lavoro e due nodi gateway menzionati nella tabella precedente. |
 |Indirizzi IP pubblici | two |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>Endpoint per la connessione a HDInsightEndpoints for connecting to HDInsight
@@ -73,7 +73,7 @@ The following network resources present are automatically created inside the vir
 
 - Un endpoint HTTPS all'esterno `CLUSTERNAME.azurehdinsight.net`della rete virtuale in .
 - Un endpoint SSH per la connessione `CLUSTERNAME-ssh.azurehdinsight.net`diretta al nodo head in corrispondenza di .
-- Un endpoint HTTPS all'interno della rete `CLUSTERNAME-int.azurehdinsight.net`virtuale . Si noti il "-int" in questo URL. Questo endpoint verrà risolto in un indirizzo IP privato in tale rete virtuale e non è accessibile da Internet pubblico.
+- Un endpoint HTTPS all'interno della rete `CLUSTERNAME-int.azurehdinsight.net`virtuale . Si noti il "`-int`" in questo URL. Questo endpoint verrà risolto in un indirizzo IP privato in tale rete virtuale e non è accessibile da Internet pubblico.
 
 A questi tre endpoint viene assegnato un servizio di bilanciamento del carico.
 

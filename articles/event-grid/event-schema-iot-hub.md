@@ -1,29 +1,27 @@
 ---
-title: Schema di Griglia di eventi di Azure per l'hub IoT | Microsoft Docs
+title: Hub IoT di Azure come origine griglia di eventiAzure IoT Hub as Event Grid source
 description: Questo articolo illustra le proprietà e lo schema per gli eventi dell'hub IoT di Azure. Elenca i tipi di evento disponibili, un evento di esempio e le proprietà dell'evento.
 services: iot-hub
 documentationcenter: ''
-author: kgremban
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/21/2020
-ms.author: kgremban
-ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513032"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393319"
 ---
-# <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schema di eventi di Griglia di eventi di Azure per l'hub IoT
-
+# <a name="azure-iot-hub-as-an-event-grid-source"></a>Hub IoT di Azure come origine griglia di eventiAzure IoT Hub as an Event Grid source
 Questo articolo illustra le proprietà e lo schema per gli eventi dell'hub IoT di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). 
 
-Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi Hub IoT](event-sources.md#iot-hub).
+## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
 
-## <a name="available-event-types"></a>Tipi di evento disponibili
+### <a name="available-event-types"></a>Tipi di evento disponibili
 
 L'hub IoT genera i tipi di eventi seguenti:
 
@@ -37,7 +35,7 @@ L'hub IoT genera i tipi di eventi seguenti:
 
 Tutti gli eventi del dispositivo, ad eccezione degli eventi di telemetria del dispositivo, sono in genere disponibili in tutte le aree supportate da Griglia di eventi. L'evento di telemetria del dispositivo è in anteprima pubblica ed è disponibile in tutte le aree ad eccezione di Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici,](../azure-government/documentation-government-welcome.md) [Azure China 21Vianet](/azure/china/china-welcome)e [Azure Germania.](https://azure.microsoft.com/global-infrastructure/germany/)
 
-## <a name="example-event"></a>Evento di esempio
+### <a name="example-event"></a>Evento di esempio
 
 Lo schema per gli eventi DeviceConnected e DeviceDisconnected ha la stessa struttura. Questo evento di esempio illustra lo schema di un evento generato quando un dispositivo viene connesso a un hub IoT:
 
@@ -205,6 +203,13 @@ Per gli eventi **Device Created** e **Device Deleted** dell'hub IoT, l'oggetto d
 | desired | object | Parte delle proprietà che può essere scritta solo dal back-end dell'applicazione e letta dal dispositivo. | 
 | reported | object | Parte delle proprietà che può essere scritta solo dal dispositivo e letta dal back-end dell'applicazione. |
 | lastUpdated | string | Timestamp ISO8601 dell'ultimo aggiornamento delle proprietà del dispositivo gemello. | 
+
+## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+|Titolo  |Descrizione  |
+|---------|---------|
+| [Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica](publish-iot-hub-events-to-logic-apps.md) | Un'app per la logica invia una notifica tramite posta elettronica ogni volta che un dispositivo viene aggiunto all'hub IoT. |
+| [Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni](../iot-hub/iot-hub-event-grid.md) | Panoramica dell'integrazione dell'hub IoT con Griglia di eventi. |
+| [Ordinare eventi correlati a dispositivi connessi e disconnessi](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Illustra come ordinare gli eventi dello stato di connessione del dispositivo. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

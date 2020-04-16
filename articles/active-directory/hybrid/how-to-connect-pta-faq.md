@@ -16,12 +16,12 @@ ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59bf7ae5914f5cc886d95f25b36abccfdf09c4a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331278"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406888"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
@@ -121,7 +121,7 @@ Se si esegue la migrazione da AD FS (o da altre tecnologia federative) per l'aut
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>È possibile usare l'autenticazione pass-through in un ambiente Active Directory a più foreste?
 
-Sì. Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste di Active Directory e se il routing del suffisso del nome è configurato correttamente.
+Sì. Gli ambienti a più foreste sono supportati se sono presenti trust tra foreste (bidirezionali) tra le foreste di Active Directory e se il routing dei suffissi nome è configurato correttamente.
 
 ## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>L'autenticazione pass-through fornisce bilanciamento del carico su più agenti di autenticazione?
 

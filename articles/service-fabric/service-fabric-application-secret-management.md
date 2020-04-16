@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259058"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414520"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gestire i segreti crittografati nelle applicazioni di Service Fabric
 Questa guida descrive la procedura di gestione dei segreti in un'applicazione di Service Fabric. I segreti possono essere informazioni riservate, ad esempio le stringhe di connessione di archiviazione, le password o altri valori che non devono essere gestiti in testo normale.
@@ -57,6 +57,11 @@ I segreti devono essere inclusi anche nell'applicazione Service Fabric specifica
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> All'attivazione di un'applicazione che specifica un oggetto SecretsCertificate, Service Fabric troverà il certificato corrispondente e concederà l'identità in esecuzione dell'applicazione con autorizzazioni complete per la chiave privata del certificato. Service Fabric monitorerà inoltre il certificato per le modifiche e riapplica le autorizzazioni di conseguenza. Per rilevare le modifiche per i certificati dichiarati dal nome comune, Service Fabric esegue un'attività periodica che trova tutti i certificati corrispondenti e lo confronta con un elenco di identificazioni personale memorizzate nella cache. Quando viene rilevata una nuova identificazione personale, significa che un certificato da tale soggetto è stato rinnovato. L'attività viene eseguita una volta al minuto in ogni nodo del cluster.
+>
+> Mentre il SecretsCertificate consente dichiarazioni basate su oggetto, si noti che le impostazioni crittografate sono associate alla coppia di chiavi che è stato utilizzato per crittografare l'impostazione sul client. È necessario assicurarsi che il certificato di crittografia originale (o un equivalente) corrisponda alla dichiarazione basata sul soggetto e che sia installato, inclusa la chiave privata corrispondente, in ogni nodo del cluster che potrebbe ospitare l'applicazione. Tutti i certificati validi per l'ora che corrispondono alla dichiarazione basata sul soggetto e compilati dalla stessa coppia di chiavi del certificato di crittografia originale sono considerati equivalenti.
+>
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Inserire i segreti dell'applicazione nelle istanze dell'applicazione
 Idealmente, la distribuzione in ambienti diversi dovrebbe essere il più possibile automatizzata. Questo può essere ottenuto tramite l'esecuzione della crittografia dei segreti in un ambiente di compilazione e l'uso dei segreti crittografati come parametri durante la creazione delle istanze dell'applicazione.

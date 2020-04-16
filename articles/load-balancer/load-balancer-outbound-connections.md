@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f8f21405a79a6fcf70adef9815ba06a229d6954d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886977"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393113"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -168,7 +168,7 @@ Nella tabella seguente sono riportate le preallocazioni delle porte SNAT per i l
 | 801-1.000 | 32 |
 
 >[!NOTE]
-> Quando si usa Load Balancer Standard con [più front-end](load-balancer-multivip-overview.md), ogni indirizzo IP front-end moltiplica il numero di porte SNAT disponibili nella tabella precedente. Ad esempio, un pool back-end di 50 macchine virtuali con 2 regole di bilanciamento del carico, ognuna con indirizzo IP front-end distinti, userà 2048 porte SNAT (2 x 1024) per ogni configurazione IP. Vedere i dettagli per [più front-end](#multife).
+> Quando si usa Load Balancer Standard con [più front-end](load-balancer-multivip-overview.md), ogni indirizzo IP front-end moltiplica il numero di porte SNAT disponibili nella tabella precedente. Ad esempio, un pool back-end di 50 macchine virtuali con 2 regole di bilanciamento del carico, ognuna con un indirizzo IP front-end separato, utilizzerà 2048 (2x 1024) porte SNAT per regola. Vedere i dettagli per [più front-end](#multife).
 
 Ricordare che il numero di porte SNAT disponibili non viene convertito direttamente in un numero di flussi. È possibile riutilizzare una singola porta SNAT per più destinazioni univoche. Le porte vengono usate solo se è necessario per rendere univoci i flussi. Per indicazioni sulla progettazione e la mitigazione, vedere la sezione su [come gestire questa risorsa soggetta a esaurimento](#snatexhaust) e la sezione che descrive [PAT](#pat).
 

@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce2fe66888893d82debcc412bb16752914d8a190
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: d38c0df45da3a751a456846813543a4ce5de98eb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011107"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416205"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitoraggio dell'utilizzo delle risorse e dell'attività delle query in Azure Synapse AnalyticsMonitoring resource utilization and query activity in Azure Synapse Analytics
 
@@ -56,14 +56,14 @@ Aspetti da considerare quando si visualizzano le metriche e si impostano gli avv
 
 Per un'esperienza a livello di codice durante il monitoraggio di SQL Analytics tramite T-SQL, il servizio fornisce un set di viste a gestione dinamica (DMV). Queste viste sono utili durante la risoluzione dei problemi e l'identificazione dei colli di bottiglia nelle prestazioni con il carico di lavoro.
 
-Per visualizzare l'elenco delle DMV fornite da SQL Analytics, fare riferimento a questa [documentazione.](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs)
+Per visualizzare l'elenco delle DMV applicabili a Synapse SQL, fare riferimento a questa [documentazione](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
 
-## <a name="metrics-and-diagnostics-logging"></a>Metriche e registrazione diagnostica
+## <a name="metrics-and-diagnostics-logging"></a>Metriche e registrazione diagnostica 
 
 Sia le metriche che i log possono essere esportati in Monitoraggio di Azure, in particolare nel componente log di Monitoraggio di [Azure,](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e possono essere utilizzati a livello di programmazione tramite query di [log.](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) La latenza del log per ANALISI SQL è di circa 10-15 minuti. Per ulteriori informazioni sui fattori che influiscono sulla latenza, vedere la documentazione seguente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le seguenti guide introduttive descrivono scenari e casi d'uso comuni in cui avviene il monitoraggio e la gestione del data warehouse:
+Nella guida alle procedure seguente vengono descritti scenari comuni e casi d'uso durante il monitoraggio e la gestione del data warehouse:
 
 - [Monitorare il carico di lavoro del data warehouse con viste a gestione dinamica](sql-data-warehouse-manage-monitor.md)

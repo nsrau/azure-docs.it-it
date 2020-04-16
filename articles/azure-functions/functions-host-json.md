@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878248"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405493"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
 
@@ -141,7 +141,7 @@ Controlla le opzioni per Application Insights, incluse le opzioni di [campioname
 Per la struttura JSON completa, vedere il [file host.json di esempio](#sample-hostjson-file)precedente.
 
 > [!NOTE]
-> Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights. Per evitare il `samplingExcludedTypes: "Request"` campionamento del log, aggiungere al `applicationInsights` valore.
+> Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights. Per evitare il `excludedTypes: "Request"` campionamento del log, aggiungere al `samplingSettings` valore.
 
 | Proprietà | Predefinito | Descrizione |
 | --------- | --------- | --------- | 
@@ -166,8 +166,8 @@ Per la struttura JSON completa, vedere il [file host.json di esempio](#sample-ho
 | minSamplingPercentualE | 0,1 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale minima di campionamento consentita. |
 | maxSamplingPercentage | 0,1 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale massima di campionamento consentita. |
 | movingMediaRatio (tasso mobileMediaRatio) | 1.0 | Nel calcolo della media mobile, peso assegnato al valore più recente. Usare un valore uguale o inferiore a 1. I valori più bassi rendono l'algoritmo meno reattivo alle modifiche improvvise. |
-| excludedTypes | Null | Elenco delimitato da punti e virgola di tipi che non si desidera campionare. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. Tutte le istanze dei tipi specificati vengono trasmesse; i tipi non specificati vengono campionati. |
-| includedTipi | Null | Elenco delimitato da punti e virgola di tipi che si desidera campionare; un elenco vuoto implica tutti i tipi. Tipo elencato nei `excludedTypes` tipi di sostituzione elencati di seguito. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. Tutte le istanze dei tipi specificati vengono trasmesse; i tipi non specificati vengono campionati. |
+| excludedTypes | Null | Elenco delimitato da punti e virgola di tipi che non si desidera campionare. I tipi `Dependency`riconosciuti sono: `Event`, `Exception`, , `PageView`, `Request`e `Trace`. Tutte le istanze dei tipi specificati vengono trasmesse; i tipi non specificati vengono campionati. |
+| includedTipi | Null | Elenco delimitato da punti e virgola di tipi che si desidera campionare; un elenco vuoto implica tutti i tipi. Tipo elencato nei `excludedTypes` tipi di sostituzione elencati di seguito. I tipi `Dependency`riconosciuti sono: `Event`, `Exception`, , `PageView`, `Request`e `Trace`. Le istanze dei tipi specificati vengono campionate; i tipi non specificati o impliciti vengono trasmessi senza campionamento. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>ApplicationInsights.httpAutoCollectionOptions
 

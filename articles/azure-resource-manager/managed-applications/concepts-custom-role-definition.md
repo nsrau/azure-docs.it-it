@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
-ms.openlocfilehash: 88e42fd9626276f6c77b46b33c138407f91d06ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650760"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391835"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Elemento di definizione dei ruoli personalizzato nelle applicazioni gestite di AzureCustom role definition artifact in Azure Managed Applications
 
@@ -20,7 +20,7 @@ In questo articolo viene fornita una panoramica dell'elemento di definizione dei
 
 ## <a name="custom-role-definition-artifact"></a>Elemento di definizione dei ruoli personalizzati
 
-È necessario denominare l'elemento di definizione del ruolo personalizzato customRoleDefinition.json.You need to name the custom role definition artifact customRoleDefinition.json. Posizionarlo allo stesso livello di createUiDefinition.json e mainTemplate.json nel pacchetto .zip che crea una definizione di applicazione gestita. Per informazioni su come creare il pacchetto .zip e pubblicare una definizione di applicazione gestita, vedere [Pubblicare una definizione di applicazione gestita.](publish-managed-app-definition-quickstart.md)
+È necessario denominare l'elemento di definizione del ruolo personalizzato customRoleDefinition.json.You need to name the custom role definition artifact customRoleDefinition.json. Posizionarlo allo stesso livello di createUiDefinition.json e mainTemplate.json nel pacchetto .zip che crea una definizione di applicazione gestita. Per informazioni su come creare il pacchetto .zip e pubblicare una definizione di applicazione gestita, vedere [Pubblicare una definizione di applicazione gestita.](publish-service-catalog-app.md)
 
 ## <a name="custom-role-definition-schema"></a>Schema di definizione del ruolo personalizzato
 

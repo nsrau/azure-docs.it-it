@@ -4,19 +4,19 @@ description: Viene descritto come usare l'API REST di Azure Analysis Services pe
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273709"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406278"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
-È possibile eseguire operazioni di aggiornamento asincrono dei dati sui modelli tabulari di Azure Analysis Services usando qualsiasi linguaggio di programmazione che supporta le chiamate REST. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
+Usando qualsiasi linguaggio di programmazione che supporta le chiamate REST, è possibile eseguire operazioni asincrone di aggiornamento dei dati nei modelli tabulari di Azure Analysis Services.By using any programming language that supports REST calls, you can perform asynchronous data-refresh operations on your Azure Analysis Services tabular models. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
 
 Le operazioni di aggiornamento dei dati possono richiedere del tempo a seconda di una serie di fattori, tra cui il volume di dati, il livello di ottimizzazione tramite partizioni e così via. Queste operazioni sono state tradizionalmente richiamate con metodi esistenti, ad esempio l'utilizzo di [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
 
@@ -208,8 +208,8 @@ Ecco un esempio di codice C# adatto per iniziare, [RestApiSample su GitHub](http
 
 ### <a name="to-use-the-code-sample"></a>Per usare l'esempio di codice
 
-1.  Clonare o scaricare il repository. Aprire la soluzione RestApiSample.
-2.  Trovare la riga **client.BaseAddress = …** e inserire l'[URL di base](#base-url).
+1.    Clonare o scaricare il repository. Aprire la soluzione RestApiSample.
+2.    Trovare la riga **client.BaseAddress = …** e inserire l'[URL di base](#base-url).
 
 L'esempio di codice usa l'autenticazione [dell'entità servizio.](#service-principal)
 
@@ -217,14 +217,14 @@ L'esempio di codice usa l'autenticazione [dell'entità servizio.](#service-princ
 
 Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md) per altre informazioni su come configurare un'entità servizio e assegnare le autorizzazioni necessarie in Azure Analysis Services. Dopo aver completato i passaggi, eseguire i passaggi aggiuntivi seguenti:
 
-1.  Nell'esempio di codice trovare **string authority = …** e sostituire **common** con l'ID tenant dell'organizzazione.
-2.  Aggiungere o rimuovere il commento in modo che la classe ClientCredential venga usata per creare un'istanza dell'oggetto cred. Assicurarsi che l'accesso ai valori \<App ID> e \<App Key> sia eseguito in modo sicuro o usare l'autenticazione basata su certificato per le entità servizio.
-3.  Eseguire l'esempio.
+1.    Nell'esempio di codice, trovare **string authority - ...**, sostituire **common** con l'ID tenant dell'organizzazione.
+2.    Aggiungere o rimuovere il commento in modo che la classe ClientCredential venga usata per creare un'istanza dell'oggetto cred. Assicurarsi che l'accesso ai valori \<App ID> e \<App Key> sia eseguito in modo sicuro o usare l'autenticazione basata su certificato per le entità servizio.
+3.    Eseguire l'esempio.
 
 
 ## <a name="see-also"></a>Vedere anche
 
 [Campioni](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

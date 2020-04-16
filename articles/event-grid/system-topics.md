@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 35025bf1592f1293b9326d643f76322b4af590c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46bceeb31fa38068c6c4f9f3a86ed556ad39effb
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501201"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393160"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Argomenti di sistema in Griglia di eventi di AzureSystem topics in Azure Event Grid
 Il servizio Griglia di eventi di Azure crea argomenti di sistema quando si crea una prima sottoscrizione di eventi per un'origine eventi di Azure.The Azure Event Grid service creates system topics when you create a first event subscription for an Azure event source. Attualmente, Griglia di eventi non crea argomenti di sistema per le origini degli argomenti create prima del 15 marzo 2020. Per tutte le origini degli argomenti create in data o dopo tale data, Griglia di eventi crea automaticamente gli argomenti di sistema. Questo articolo descrive gli argomenti di sistema in Griglia di eventi di Azure.This article describes **system topics** in Azure Event Grid.
@@ -38,5 +38,5 @@ Quando si tenta di eliminare il gruppo di risorse con l'account di archiviazione
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti: 
 
-- [Argomenti personalizzati](event-sources.md#custom-topics)
+- [Argomenti personalizzati](custom-topics.md)
 - [Domini](event-domains.md)

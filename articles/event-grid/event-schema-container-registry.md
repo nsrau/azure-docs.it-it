@@ -1,25 +1,27 @@
 ---
-title: Schema di eventi del Registro contenitori della Griglia di eventi di Azure
+title: Registro di sistema del contenitore di Azure come origine griglia di eventiAzure Container Registry as Event Grid source
 description: Descrive le proprietà fornite per gli eventi del Registro di sistema del contenitore con Griglia di eventi di AzureDescribes the properties that are provided for Container Registry events with Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
-ms.topic: reference
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60345465"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393354"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Schema di eventi di Griglia di eventi di Azure per il Registro contenitori
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Registro di sistema del contenitore di Azure come origine griglia di eventiAzure Container Registry as an Event Grid source
 
 Questo articolo illustra le proprietà e lo schema per gli eventi del Registro contenitori.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
-## <a name="available-event-types"></a>Tipi di evento disponibili
+## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
+
+### <a name="available-event-types"></a>Tipi di evento disponibili
 
 Azure Container Registry genera i tipi di evento seguenti:Azure Container Registry emits the following event types:
 
@@ -30,7 +32,7 @@ Azure Container Registry genera i tipi di evento seguenti:Azure Container Regist
 | Microsoft.ContainerRegistry.ChartPushed | Generato quando viene inserito un grafico Helm. |
 | Microsoft.ContainerRegistry.ChartDeleted | Generato quando un grafico Helm viene eliminato. |
 
-## <a name="example-event"></a>Evento di esempio
+### <a name="example-event"></a>Evento di esempio
 
 L'esempio seguente illustra lo schema di esecuzione del push di un'immagine: 
 
@@ -151,7 +153,7 @@ Lo schema per un evento grafico eliminato è simile allo schema per un evento el
 }]
 ```
 
-## <a name="event-properties"></a>Proprietà degli eventi
+### <a name="event-properties"></a>Proprietà degli eventi
 
 Un evento presenta i seguenti dati di primo livello:
 
@@ -198,6 +200,12 @@ Di seguito sono elencate le proprietà dell'oggetto della richiesta:
 | host | string | Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host http nelle richieste in ingresso. |
 | method | string | Metodo di richiesta che ha generato l'evento. |
 | userAgent | string | Intestazione agente utente della richiesta. |
+
+## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+|Titolo |Descrizione  |
+|---------|---------|
+| [Guida introduttiva: inviare eventi del registro contenitori](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di Registro Azure Container. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

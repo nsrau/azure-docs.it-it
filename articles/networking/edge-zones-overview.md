@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: 2f2311adc231eac4260e26f0d5d1f2115f43d2eb
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: aaa849633591bfd34a9fca026c820ec2f9137844
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618707"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410844"
 ---
 # <a name="about-azure-edge-zones---preview"></a>Informazioni sulle aree perimetrali di Azure - Anteprima
 
@@ -38,7 +38,7 @@ Le zone perimetrali di Azure sono disponibili in tre offerte discrete:Azure Edge
 
 ![Aree perimetrali](./media/edge-zones-overview/edge-zones.png "Aree perimetrali")
 
-Le zone perimetrali di Azure sono estensioni con footprint ridotto di Azure collocate in centri di popolamento che si trovano lontano dalle aree di Azure.Azure Edge zones small footprint extensions of Azure placed in population centers that are distant from Azure regions. Le aree perimetrali di Azure supportano macchine virtuali, contenitori e un set selezionato di servizi di Azure che consentono di eseguire applicazioni sensibili alla latenza e con utilizzo intensivo della velocità effettiva vicino agli utenti finali. Le aree perimetrali di Azure fanno parte della rete globale Microsoft e offrono connettività sicura, affidabile e a larghezza di banda elevata tra le applicazioni in esecuzione nella zona perimetrale vicino all'utente e il set completo di servizi di Azure in esecuzione all'interno delle aree di Azure. Le zone perimetrali di Azure sono di proprietà e gestite da Microsoft e consentono di usare lo stesso set di strumenti e portale di Azure per gestire e distribuire i servizi nelle aree perimetrali.
+Le zone perimetrali di Azure sono estensioni con footprint ridotto di Azure collocate in centri di popolamento che si trovano lontano dalle aree di Azure.Azure Edge zones small footprint extensions of Azure placed in population centers that are distant from Azure regions. Le aree perimetrali di Azure supportano macchine virtuali, contenitori e un set selezionato di servizi di Azure che consentono di eseguire applicazioni sensibili alla latenza e con utilizzo intensivo della velocità effettiva vicine agli utenti finali. Le aree perimetrali di Azure fanno parte della rete globale Microsoft e offrono connettività sicura, affidabile e a larghezza di banda elevata tra le applicazioni in esecuzione nella zona perimetrale vicino all'utente e il set completo di servizi di Azure in esecuzione all'interno delle aree di Azure. Le zone perimetrali di Azure sono di proprietà e gestite da Microsoft e consentono di usare lo stesso set di strumenti e portale di Azure per gestire e distribuire i servizi nelle aree perimetrali.
 
 I casi d'uso tipici includono:
 

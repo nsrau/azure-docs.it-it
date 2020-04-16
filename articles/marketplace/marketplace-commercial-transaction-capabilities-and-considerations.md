@@ -1,40 +1,41 @@
 ---
-title: Funzionalità e considerazioni sulle transazioni ‎commerciali del marketplace | Azure
-description: Questo articolo illustra le considerazioni relative a prezzi, fatturazione e proventi delle transazioni per un tipo di offerta.
-services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
+title: Funzionalità di transazione del marketplace commerciale Microsoft
+description: In questo articolo vengono descritte le considerazioni relative a prezzi, fatturazione, fatturazione e pagamento per l'opzione di transazione Microsoft Commercial Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: de93a3c48e0b0aceb447e54e11190f487d1aa2d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 768fa9ca2080fc9a58fb321e62d8d61a608f9564
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279828"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415266"
 ---
-# <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funzionalità e considerazioni sulle transazioni commerciali del marketplace
+# <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del mercato commerciale
 
-In questo articolo vengono trattati i seguenti argomenti relativi al commercio per il mercato commerciale
+In questo articolo vengono trattati i seguenti argomenti relativi al commercio per il marketplace commerciale Microsoft:
 
-* Opzioni di pubblicazione nel marketplace
+* Responsabilità delle transazioni per diverse opzioni di pubblicazione
 * Panoramica generale sulle transazioni
 * Modelli di fatturazione delle transazioni
 * Requisiti delle transazioni
 
-## <a name="marketplace-publishing-options"></a>Opzioni di pubblicazione nel marketplace
+## <a name="transactions-by-publishing-option"></a>Opzione Transazioni per pubblicazione
 
-Le seguenti opzioni di pubblicazione sono disponibili per gli editori del mercato commerciale.
+L'editore o Microsoft è responsabile della gestione delle transazioni di licenza software per le offerte nel mercato commerciale. L'opzione di pubblicazione scelta per l'offerta determinerà chi gestisce la transazione. Vedere [Determinare l'opzione](./determine-your-listing-type.md#choose-a-publishing-option) di pubblicazione per la disponibilità e le spiegazioni di ogni opzione di pubblicazione.
 
-### <a name="list--trial-publishing-options"></a>Opzioni di pubblicazione di inserzioni e valutazioni
+### <a name="list-trial-and-byol-publishing-options"></a>Opzioni di pubblicazione di elenchi, versioni di valutazione e BYOL
 
-Gli editori possono sfruttare le opzioni di pubblicazione di liste, versioni di prova e BYOL per scopi promozionali e di acquisizione degli utenti. Con queste opzioni, Microsoft non partecipa direttamente alle transazioni di licenza software dell'editore e non vi è alcuna commissione di transazione associata. Gli editori sono responsabili del supporto di tutti gli aspetti della transazione della licenza software, inclusi, a titolo esemplificativo: ordine, evasione dell'ordine, misurazione, fatturazione, pagamento e raccolta. Con le opzioni di pubblicazione di inserzioni e valutazioni, gli editori trattengono il 100% dei costi di licenza del software dell'editore pagati dal cliente. 
+Gli editori con funzionalità di commercio esistenti possono scegliere le opzioni di pubblicazione byOL (bring list, trial e bring your own License) per scopi promozionali e di acquisizione degli utenti. Con queste opzioni, Microsoft non partecipa direttamente alle transazioni di licenza software dell'editore e non vi è alcuna commissione di transazione associata. Gli editori sono responsabili del supporto di tutti gli aspetti della transazione della licenza software, inclusi, a titolo esemplificativo: ordine, evasione dell'ordine, misurazione, fatturazione, pagamento e raccolta. Con le opzioni di pubblicazione di inserzioni e valutazioni, gli editori trattengono il 100% dei costi di licenza del software dell'editore pagati dal cliente.
 
 ### <a name="transact-publishing-option"></a>Opzione di pubblicazione delle transazioni
 
-Oltre alle opzioni di pubblicazione di elenchi e prove, l'opzione di pubblicazione delle transazioni è disponibile per gli editori. Ciò sfrutta le funzionalità di commercio disponibili a livello globale di Microsoft e consente a Microsoft di ospitare transazioni del marketplace cloud per conto dell'editore.
+L'opzione di pubblicazione delle transazioni sfrutta le funzionalità di commercio Microsoft e offre un'esperienza end-to-end, dall'individuazione e valutazione all'acquisto e all'implementazione. Le offerte Transact vengono fatturate in base a una sottoscrizione Microsoft esistente o a una carta di credito, consentendo a Microsoft di ospitare transazioni del marketplace cloud per conto dell'editore.
+
+L'opzione Transact viene scelta quando si crea una nuova offerta nel Centro per i partner. Nella pagina **Configurazione offerta** in **Dettagli configurazione**selezionare "Sì, desidero vendere tramite Microsoft e fare in modo che Microsoft ospiti transazioni per conto personale". Questa opzione verrà visualizzata solo se la transazione è disponibile per il tipo di offerta.
 
 ## <a name="transact-general-overview"></a>Panoramica generale sulle transazioni
 
@@ -42,43 +43,39 @@ Quando si usa l'opzione di pubblicazione delle transazioni, Microsoft consente l
 
 L'opzione Pubblicazione transact è attualmente supportata per i tipi di offerta seguenti: Macchine virtuali, Applicazioni di Azure e App SaaS.
 
-
-![[Gestione di offerte aziendali in Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
-
 ### <a name="billing-infrastructure-costs"></a>Fatturazione dei costi per l'infrastruttura
 
-**Per macchine virtuali e applicazioni Azure**
+**Per macchine virtuali e applicazioni di AzureFor Virtual Machines and Azure Applications**
 
-Per le macchine virtuali e le applicazioni di Azure, le tariffe di utilizzo dell'infrastruttura di Azure vengono fatturate alla sottoscrizione di Azure del cliente.  Le tariffe di utilizzo dell'infrastruttura sono valutate e presentate separatamente dalle spese di licenza del fornitore di software sulla fattura del cliente.
+Per le macchine virtuali e le applicazioni di Azure, le tariffe di utilizzo dell'infrastruttura di Azure vengono fatturate alla sottoscrizione di Azure del cliente. Le tariffe di utilizzo dell'infrastruttura sono valutate e presentate separatamente dalle spese di licenza del fornitore di software sulla fattura del cliente.
 
 **Per le app SaaS**
 
-Per le app SaaS, l'editore deve contabilizzare i costi di utilizzo dell'infrastruttura di Azure e i costi di licenza software sotto un'unica voce di costo,  È rappresentato come una tariffa fissa per il cliente. L'utilizzo dell'infrastruttura di Azure viene gestita e fatturata direttamente al partner.  I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente.  Gli editori scelgono in genere di accorpare i costi di utilizzo dell'infrastruttura di Azure nei prezzi di licenza software.  I costi di licenza software non vengono calcolati in base al consumo.
+Per le app SaaS, l'editore deve contabilizzare i costi di utilizzo dell'infrastruttura di Azure e i costi di licenza software sotto un'unica voce di costo,  È rappresentato come una tariffa fissa per il cliente. L'utilizzo dell'infrastruttura di Azure viene gestita e fatturata direttamente al partner. I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente. Gli editori scelgono in genere di accorpare i costi di utilizzo dell'infrastruttura di Azure nei prezzi di licenza software. I costi di licenza software non vengono calcolati in base al consumo.
 
 ## <a name="transact-billing-models"></a>Modelli di fatturazione delle transazioni
 
 A seconda dell'opzione di transazione utilizzata, i costi di licenza software dell'editore possono essere presentati come segue:  
 
-* Gratuito: non sono previsti addebiti per le licenze software. 
+* Gratuito: non sono previsti addebiti per le licenze software.
 
-* Bring Your Own License (BYOL): eventuali addebiti applicabili per le licenze software vengono gestiti direttamente tra l'editore e il cliente. Microsoft gestisce solo i costi di utilizzo dell'infrastruttura di Azure (solo macchine virtuali e applicazioni Azure).
+* Bring Your Own License (BYOL): eventuali addebiti applicabili per le licenze software vengono gestiti direttamente tra l'editore e il cliente. Microsoft gestisce solo i costi di utilizzo dell'infrastruttura di Azure Questo vale solo per le macchine virtuali e le applicazioni di Azure.This applies to Virtual Machines and Azure Applications only.
 
-* Pagamento in base al consumo: i costi di licenza software vengono presentati come tariffa oraria, per singolo core (vCPU), basata sull'infrastruttura di Azure usata. Si applica solo alle macchine virtuali e alle applicazioni Azure.
+* Pagamento in base al consumo: i costi di licenza software vengono presentati come tariffa oraria, per singolo core (vCPU), basata sull'infrastruttura di Azure usata. Questo vale solo per le macchine virtuali e le applicazioni di Azure.This applies to Virtual Machines and Azure Applications only.
 
-* Prezzi dell'abbonamento: le tariffe di licenza software sono presentate come una tariffa mensile o annuale, ricorrente fatturata come tariffa forfettaria o per posto. Questo vale solo per le app SaaS e le applicazioni di Azure - App gestite.
+* Prezzi dell'abbonamento: le tariffe di licenza software sono presentate come una tariffa mensile o annuale, ricorrente fatturata come tariffa forfettaria o per posto. Questo vale per le app SaaS e le applicazioni di Azure - Solo app gestite.
 
 * Versione di valutazione gratuita del software: non sono previsti addebiti per le licenze software per 30 o 90 giorni.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Prezzi gratuiti e Bring Your Own License (BYOL)
 
-Quando si pubblica un'offerta di transazione gratuita o Bring Your Own License, Microsoft non svolge alcun ruolo nell'agevolazione delle transazioni di vendita per i costi di licenza software. Come per le opzioni di pubblicazione di inserzione e valutazione, l'editore trattiene il 100% dei costi di licenza software. 
+Quando si pubblica un'offerta di transazione gratuita o Bring Your Own License, Microsoft non svolge alcun ruolo nell'agevolazione delle transazioni di vendita per i costi di licenza software. Come per le opzioni di pubblicazione di inserzione e valutazione, l'editore trattiene il 100% dei costi di licenza software.
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Prezzi con pagamento a consumo e delle sottoscrizioni (basati sul sito)
 
 Quando si pubblica un'offerta di transazione di sottoscrizione o con pagamento in base al consumo, Microsoft fornisce la tecnologia e i servizi per elaborare gli acquisti, i resi e i chargeback di licenza software. In questo scenario l'editore autorizza Microsoft ad agire in veste di agente per questi scopi. L'editore consente a Microsoft di agevolare le transazioni delle licenze software, mantenendone la designazione di venditore, provider, distributore e licenziante.
 
-Microsoft consente ai clienti di ordinare, concedere in licenza e utilizzare il software editore, in base ai termini e alle condizioni del Marketplace commerciale di Microsoft e del contratto di licenza per l'utente finale dell'editore. Gli editori devono fornire il contratto di licenza per l'utente finale o selezionare il [contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract) durante la creazione dell'offerta.
-
+Microsoft consente ai clienti di ordinare, concedere in licenza e utilizzare il software editore, in base ai termini e alle condizioni del Marketplace commerciale di Microsoft e del contratto di licenza per l'utente finale dell'editore. Gli editori devono fornire il contratto di licenza per l'utente finale o selezionare il [contratto standard](./standard-contract.md) durante la creazione dell'offerta.
 
 ### <a name="free-software-trials"></a>Versioni di valutazione gratuite del software
 
@@ -93,7 +90,7 @@ Questa opzione consente prezzi superiori o inferiori rispetto all'offerta dispon
 
 ### <a name="examples"></a>Esempi
 
-**Pagamento in base al tuo pagamento** 
+**Pagamento in base al consumo** 
 
 * Se si abilita l'opzione con pagamento in base al consumo, la struttura dei costi è la seguente.
 
@@ -204,7 +201,7 @@ Quando vengono scelti modelli di determinazione prezzi con pagamento in base al 
 
 * I clienti effettuano in genere gli acquisti tramite il contratto Enterprise Agreement o un contratto con pagamento in base al consumo abilitato per le carte di credito. Il tipo di contratto determina le date di fatturazione, riscossione e pagamento.
 
->[!NOTE] 
+>[!NOTE]
 >Tutti i report e le informazioni dettagliate per l'opzione di pubblicazione delle transazioni sono disponibili tramite la sezione Insights del portale per i partner cloud o della sezione Analisi del Centro per i partner.
 
 #### <a name="billing-questions-and-support"></a>Domande sulla fatturazione e supporto
@@ -219,15 +216,14 @@ In questa sezione vengono analizzati i requisiti delle transazioni per i diversi
 
 ### <a name="requirements-for-all-offer-types"></a>Requisiti per tutti i tipi di offerte
 
-- Per l'opzione di pubblicazione delle transazioni sono necessari un account Microsoft e informazioni finanziarie, indipendentemente dal modello di determinazione dei prezzi dell'offerta.
-- Le informazioni finanziarie obbligatorie includono il conto di pagamento e il profilo fiscale.
+* Per l'opzione di pubblicazione delle transazioni sono necessari un account Microsoft e informazioni finanziarie, indipendentemente dal modello di determinazione dei prezzi dell'offerta.
+* Le informazioni finanziarie obbligatorie includono il conto di pagamento e il profilo fiscale.
 
-Per ulteriori informazioni sulla configurazione di questi account, vedere [Gestire l'account del Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
-
+Per ulteriori informazioni sull'impostazione di questi account, vedere [Gestire l'account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)del marketplace commerciale nel Centro per i partner.
 
 ### <a name="requirements-for-specific-offer-types"></a>Requisiti per tipi di offerte specifici
 
-L'opzione di pubblicazione delle transazioni è disponibile solo per l'uso con i tipi di offerte del marketplace seguenti: 
+L'opzione di pubblicazione delle transazioni è disponibile solo per l'uso con i tipi di offerte del marketplace seguenti:
 
 **Macchina virtuale** 
 

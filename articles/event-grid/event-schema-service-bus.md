@@ -1,27 +1,26 @@
 ---
-title: Schema di eventi del bus di servizio di Griglia di eventi di Azure
+title: Bus di servizio di Azure come origine griglia di eventiAzure Service Bus as Event Grid source
 description: Descrive le proprietà disponibili per gli eventi del bus di servizio con Griglia di eventi di Azure
 services: event-grid
 author: banisadr
-manager: darosa
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: babanisa
-ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561762"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393249"
 ---
-# <a name="azure-event-grid-event-schema-for-service-bus"></a>Schema di eventi di Griglia di eventi di Azure per il bus di servizio
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Bus di servizio di Azure come origine griglia di eventiAzure Service Bus as an Event Grid source
 
 Questo articolo illustra le proprietà e lo schema per gli eventi del bus di servizio.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
-Per un elenco di esercitazioni e script di esempio, vedere [Origine evento di bus di servizio](event-sources.md#service-bus).
+## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
 
-## <a name="available-event-types"></a>Tipi di evento disponibili
+### <a name="available-event-types"></a>Tipi di evento disponibili
 
 Il bus di servizio genera i tipi di eventi seguenti:
 
@@ -30,7 +29,7 @@ Il bus di servizio genera i tipi di eventi seguenti:
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Generato quando in una coda o una sottoscrizione sono presenti messaggi attivi e nessun ricevitore è in ascolto. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Generato quando in una coda di messaggi non recapitabili sono presenti messaggi attivi e non ci sono listener attivi. |
 
-## <a name="example-event"></a>Evento di esempio
+### <a name="example-event"></a>Evento di esempio
 
 L'esempio seguente illustra lo schema di un evento con messaggi attivi e nessun listener:
 
@@ -76,7 +75,7 @@ Lo schema per un evento con coda di messaggi non recapitabili è simile:
 }]
 ```
 
-## <a name="event-properties"></a>Proprietà degli eventi
+### <a name="event-properties"></a>Proprietà degli eventi
 
 Un evento presenta i seguenti dati di primo livello:
 
@@ -101,6 +100,12 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | queueName | string | Coda con messaggi attivi in caso di sottoscrizione di una coda. Valore null se si usano argomenti/sottoscrizioni. |
 | topicName | string | Argomento a cui appartiene la sottoscrizione del bus di servizio con messaggi attivi. Valore null se si usa una coda. |
 | subscriptionName | string | Sottoscrizione del bus di servizio con messaggi attivi. Valore null se si usa una coda. |
+
+## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+|Titolo  |Descrizione  |
+|---------|---------|
+| [Esercitazione: esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Griglia di eventi invia i messaggi dall'argomento del bus di servizio all'app per le funzioni e all'app per la logica. |
+| [Integrazione tra bus di servizio di Azure Azure Azure Service Bus to Event Grid integration](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Panoramica dell'integrazione del bus di servizio con Griglia di eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

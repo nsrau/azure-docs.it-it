@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 6e0c98cffef06fb6d6345fc2b23bbc22715909b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3432f981df3f666d6276eee4564ef33000faa6b1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370186"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410884"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurare il traffico di rete in uscita per i cluster Azure HDInsight tramite FirewallConfigure outbound network traffic for Azure HDInsight clusters using Firewall
 
@@ -221,7 +221,7 @@ Le istruzioni precedenti consentono di configurare Firewall di Azure per limitar
 #### <a name="fqdn-httphttps-dependencies"></a>Dipendenze HTTP/HTTPS con nome di dominio completo
 
 > [!Important]
-> L'elenco seguente fornisce solo alcuni degli FQDN più importanti. È possibile ottenere l'elenco completo dei nomi di dominio completi per la configurazione dell'nVA [in questo file.](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json)
+> L'elenco seguente fornisce solo alcuni degli FQDN più importanti. È possibile ottenere FQDN aggiuntivi (per lo più Archiviazione di Azure e Bus di servizio di Azure) per la configurazione dell'account utente [in questo file.](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json)
 
 | **Endpoint**                                                          |
 |---|

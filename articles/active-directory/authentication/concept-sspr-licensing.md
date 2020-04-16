@@ -1,74 +1,61 @@
 ---
 title: Assegnare la licenza per la reimpostazione della password self-service - Azure Active Directory
-description: Requisiti di licenza per la reimpostazione password self-service di Azure AD
+description: Informazioni sulla differenza dei requisiti di licenza per la reimpostazione della password self-service di Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 04/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598f3bd8500a59cd41cc4126915e6cccbd4fb2f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45ca11af061e37cf4f804ce2d7ceed72a9448294
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848562"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393070"
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisiti di licenza per la reimpostazione password self-service di Azure AD
+# <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisiti di licenza per la reimpostazione della password self-service di Azure Active Directory
 
-Azure Active Directory (Azure AD) è disponibile in diverse edizioni: Gratuito, Premium P1 e Premium P2. Sono diverse le funzionalità che costituiscono la reimpostazione della password self-service, tra cui la modifica, la reimpostazione, lo sblocco e il writeback, tutte disponibili nelle diverse edizioni di Azure AD. Questo articolo tenta di spiegarne le differenze. Informazioni dettagliate sulle funzionalità incluse in ogni edizione di Azure AD sono disponibili nella pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Per ridurre le chiamate all'help desk e la perdita di produttività quando un utente non riesce ad accedere al proprio dispositivo o a un'applicazione, è possibile abilitare gli account utente in Azure Active Directory (Azure AD) per la reimpostazione della password self-service (SSPR). Le funzionalità che costituiscono SSPR includono la modifica della password, la reimpostazione, lo sblocco e il writeback in una directory locale. Le funzionalità SSPR di base sono disponibili per gli utenti di Office 365 e di Azure AD senza alcun costo.
+
+In questo articolo vengono descritti in dettaglio i diversi modi in cui la reimpostazione della password self-service può essere concessa in licenza e utilizzata. Per informazioni dettagliate sui prezzi e la fatturazione, vedere la pagina dei prezzi di [Azure AD.](https://azure.microsoft.com/pricing/details/active-directory/)
 
 ## <a name="compare-editions-and-features"></a>Confrontare le edizioni e le funzionalità
 
-La licenza per la reimpostazione della password self-service di Azure AD viene concessa a livello di singolo utente e, per mantenere la conformità, le organizzazioni devono assegnare ai propri utenti le licenze appropriate.
+SSPR è concesso in licenza per utente. Per mantenere la conformità, le organizzazioni devono assegnare la licenza appropriata ai propri utenti.
 
-* Modifica delle password self-service per gli utenti cloud
-   * Sono un **utente solo cloud** e ricordo la password.
-      * Vorrei **modificare** la mia password con una nuova.
-   * Questa funzionalità è inclusa in tutte le edizioni di Azure AD.
+Nella tabella seguente vengono descritti i diversi scenari SSPR per la modifica della password, la reimpostazione o il writeback locale e gli SKU che forniscono la funzionalità.
 
-* Reimpostazione delle password self-service per gli utenti cloud
-   * Sono un **utente solo cloud** e non ricordo la password.
-      * Vorrei **reimpostare** la mia password con una che ricordo più facilmente.
-   * Questa funzionalità è inclusa in Azure AD Premium P1 o P2, Microsoft 365 Business o Office 365.
-
-* Reimpostazione/modifica/sblocco **con writeback in locale** delle password in modalità self-service
-   * Sono un **utente ibrido**, il mio account utente di Active Directory locale è sincronizzato con il mio account di Azure AD tramite Azure AD Connect. Vorrei modificare la mia password, ho dimenticato la password o è stata bloccata.
-      * Vorrei modificare la mia password o reimpostarla con una che ricordo più facilmente oppure vorrei sbloccare il mio account **e** sincronizzare la modifica con Active Directory locale.
-   * Questa funzionalità è inclusa in Azure AD Premium P1 o P2, o Microsoft 365 Business.
+| Funzionalità | Azure AD Free | Office 365 Business Premium | Microsoft 365 Business | Azure AD Premium P1 o P2 |
+| --- |:---:|:---:|:---:|:---:|
+| **Modifica della password utente solo cloud**<br />Quando un utente in Azure AD conosce la password e vuole cambiarla in qualcosa di nuovo. | ● | ● | ● | ● |
+| **Reimpostazione della password utente solo cloud**<br />Quando un utente in Azure AD ha dimenticato la password e deve reimpostarla. | | ● | ● | ● |
+| **Modifica o reimpostazione della password utente ibrida con writeback in alternativa**<br />Quando un utente in Azure AD sincronizzato da una directory locale con Azure AD Connect desidera modificare o reimpostare la password e scrivere la nuova password in locale. | | | ● | ● |
 
 > [!WARNING]
-> I piani di licenza Office 365 autonomi *non supportano "Reimpostazione/modifica/sblocco con writeback in locale delle password in modalità self-service"* e richiedono un piano che includa Azure AD Premium P1, Premium P2 o Microsoft 365 Business per l'uso della funzionalità.
->
+> I piani di licenza autonomi di Office 365 non supportano SSPR con il writeback locale. Questi piani di licenza di Office 365 richiedono Azure AD Premium P1, Premium P2 o Microsoft 365 Business affinché questa funzionalità funzioni.
 
-Informazioni aggiuntive sulle licenze, ad esempio i costi, sono disponibili nelle pagine seguenti:
+Per ulteriori informazioni sulle licenze, inclusi i costi, vedere le pagine seguenti:
 
-* [Sito sui prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Caratteristiche e funzionalità di Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
-* [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
+* [Mobilità aziendale - Sicurezza](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Descrizione del servizio Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
+* [Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Abilitare le licenze per gruppi o per utente
 
-Azure AD ora supporta licenze basate sui gruppi. Gli amministratori possono assegnare le licenze in blocco a un gruppo di utenti, anziché assegnarle loro singolarmente. Per altre informazioni, vedere [Assegnare, verificare e risolvere i problemi relativi alle licenze](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Azure AD supporta le licenze basate su gruppo. Gli amministratori possono assegnare le licenze in blocco a un gruppo di utenti, anziché assegnarle loro singolarmente. Per altre informazioni, vedere [Assegnare, verificare e risolvere i problemi relativi alle licenze](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Prima di poter assegnare una licenza a un utente, l'amministratore deve specificare la proprietà **Posizione di utilizzo** dell'utente. L'assegnazione delle licenze può essere eseguita nella sezione Impostazioni**profilo utente** > nel portale di Azure.Assignment of licenses can be done under the **User** > Profile**Settings** section in the Azure portal. *Quando si usa l'assegnazione di licenze ai gruppi, tutti gli utenti per cui non è specificata un percorso d'uso ereditano il percorso della directory.*
+Alcuni servizi Microsoft non sono disponibili in tutte le località. Prima di poter assegnare una licenza a un utente, l'amministratore deve specificare la proprietà **Posizione di utilizzo** dell'utente. L'assegnazione delle licenze può essere eseguita nella sezione Impostazioni**profilo utente** > nel portale di Azure.Assignment of licenses can be done under the **User** > Profile**Settings** section in the Azure portal. *Quando si usa l'assegnazione di licenze ai gruppi, tutti gli utenti per cui non è specificata un percorso d'uso ereditano il percorso della directory.*
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
-* [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registrati per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
-* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
-* [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
-* [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
-* [Panoramica del writeback delle password](howto-sspr-writeback.md)
-* [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
-* [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Credo che qualcosa sia rotto. Come si risolvono i problemi relativi a SSPR?](active-directory-passwords-troubleshoot.md)
-* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
+Per iniziare a usare SSPR, completare l'esercitazione seguente:To get started with SSPR, complete the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Esercitazione: Abilitare la reimpostazione della password self-service (SSPR)Tutorial: Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)

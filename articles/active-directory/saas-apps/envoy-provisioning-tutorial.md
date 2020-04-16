@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Configurare l'inviato per il provisioning automatico degli utenti con Azure Active Directory . Documenti Microsoft"
-description: Informazioni su come configurare Azure Active Directory per il provisioning e il deprovisioning automatico degli account utente in Envoy.Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Envoy.
+description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Envoy.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -14,77 +14,79 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: jeedes
-ms.openlocfilehash: 30faae80f1af4ff63924a76b26a03b8fe354a7df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: Zhchia
+ms.openlocfilehash: 68e17ba1dd5981e565e56d6c8137f77d33ad755b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77058026"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393512"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Esercitazione: Configurare l'inviato per il provisioning automatico degli utentiTutorial: Configure Envoy for automatic user provisioning
 
-L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in Envoy e Azure Active Directory (Azure AD) per configurare Azure AD per il provisioning e il deprovisioning automatico di utenti e/o gruppi in Envoy.
+Questa esercitazione descrive i passaggi da eseguire sia in Envoy che in Azure Active Directory (Azure AD) per configurare il provisioning automatico degli utenti. Quando si configura la configurazione, Azure AD esegue automaticamente il provisioning e il provisioning di utenti e gruppi in [Envoy](https://envoy.com/pricing/) usando il servizio di provisioning di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
-> [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
->
-> Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Microsoft Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="capabilities-supported"></a>Funzionalità supportate
+> [!div class="checklist"]
+> * Creare utenti in Envoy
+> * Rimuovere gli utenti in Envoy quando non richiedono più l'accesso
+> * Mantenere sincronizzati gli attributi utente tra Azure AD e Envoy
+> * Effettuare il provisioning di gruppi e appartenenze ai gruppi in Envoy
+> * [Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/envoy-tutorial) a Envoy (consigliato)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* Un tenant di Azure AD
-* [Un inquilino inviato](https://envoy.com/pricing/)
+* [Un tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* Un account utente in Azure AD con [autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning (ad esempio Amministratore applicazioni, Amministratore applicazione cloud, Proprietario applicazione o Amministratore globale). 
+* [Un inquilino inviato](https://envoy.com/pricing/).
 * Un account utente in Envoy con autorizzazioni di amministratore.
 
-## <a name="add-envoy-from-the-gallery"></a>Aggiungi Envoy dalla galleria
+## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
+1. Informazioni sul funzionamento del servizio di [provisioning.](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+2. Determinare chi riverrà [nell'ambito del provisioning.](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)
+3. Determinare i dati [di cui eseguire il mapping tra Azure AD e Envoy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Prima di configurare Envoy per il provisioning automatico degli utenti con Azure AD, è necessario aggiungere Envoy dalla raccolta di applicazioni di Azure AD all'elenco delle applicazioni SaaS gestite.
+## <a name="step-2-configure-envoy-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Envoy per supportare il provisioning con Azure ADConfigure Envoy to support provisioning with Azure AD
 
-**Per aggiungere l'inviato dalla raccolta di applicazioni di Azure AD, eseguire la procedura seguente:To add Envoy from the Azure AD application gallery, perform the following steps:**
+1. Accedi alla Console [di amministrazione dell'inviato](https://dashboard.envoy.com/login). Fare clic su **Integrazioni**.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**nel riquadro di spostamento sinistro.
+    ![Integrazioni dell'inviato](media/envoy-provisioning-tutorial/envoy01.png)
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+2. Fare clic su **Installa** per **l'integrazione SCIM di Microsoft Azure**.
 
-2. Passare a **Applicazioni aziendali**, quindi selezionare Tutte **le applicazioni**.
+    ![Installazione dell'inviato](media/envoy-provisioning-tutorial/envoy02.png)
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+3. Fare clic su **Salva** per **sincronizzare tutti gli utenti**. 
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
+    ![Salvataggio dell'inviato](media/envoy-provisioning-tutorial/envoy03.png)
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+4. Copiare **il TOKEN OAUTH BEARER**. Questo valore verrà immesso nel campo **Token segreto** nella scheda di provisioning dell'applicazione Envoy nel portale di Azure.This value will be entered in the Secret Token field in the provisioning tab of your Envoy application in the Azure portal.
+    
+    ![Envoy OAUTH](media/envoy-provisioning-tutorial/envoy04.png)
 
-4. Nella casella di ricerca immettere **Envoy**, selezionare **Envoy** nel pannello dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+## <a name="step-3-add-envoy-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere un inviato dalla raccolta di applicazioni di Azure ADAdd Envoy from the Azure AD application gallery
 
-    ![Envoy nell'elenco risultati](common/search-new-app.png)
+Aggiungere Envoy dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Envoy.Add Envoy from the Azure AD application gallery to start managing provisioning to Envoy. Se in precedenza è stato configurato Envoy per SSO è possibile utilizzare la stessa applicazione. Tuttavia, è consigliabile creare un'app separata durante il test iniziale dell'integrazione. Ulteriori informazioni sull'aggiunta di un'applicazione dalla raccolta [sono disponibili qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## <a name="assigning-users-to-envoy"></a>Assegnazione di utenti a Envoy
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire chi riverrà nell'ambito del provisioning 
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare quali utenti devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning automatico degli utenti, vengono sincronizzati solo gli utenti e/o i gruppi assegnati a un'applicazione in Azure AD.
+Il servizio di provisioning di Azure AD consente di definire l'ambito degli utenti in base all'assegnazione all'applicazione e o in base agli attributi dell'utente/gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning nell'app in base all'assegnazione, è possibile usare la [procedura](../manage-apps/assign-user-or-group-access-portal.md) seguente per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning in base esclusivamente agli attributi dell'utente o del gruppo, è possibile utilizzare un filtro di ambito come descritto [di seguito.](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 
 
-Prima di configurare e abilitare il provisioning automatico degli utenti, è necessario decidere quali utenti e/o gruppi in Azure AD devono accedere a Envoy. Una volta deciso, è possibile assegnare questi utenti e/o gruppi a Envoy seguendo le istruzioni qui:
+* Quando si assegnano utenti e gruppi a Envoy, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non effettivamente autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
 
-* [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
+* Inizia in piccolo. Esegui test con un piccolo set di utenti e gruppi prima di distribuirlo a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi.](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 
 
-### <a name="important-tips-for-assigning-users-to-envoy"></a>Suggerimenti importanti per l'assegnazione degli utenti a Envoy
 
-* È consigliabile assegnare un singolo utente di Azure AD a Envoy per testare la configurazione del provisioning automatico degli utenti. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+## <a name="step-5-configure-automatic-user-provisioning-to-envoy"></a>Passaggio 5. Configurare il provisioning automatico degli utenti su Envoy 
 
-* Quando si assegna un utente a Envoy, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido (se disponibile) nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** sono esclusi dal provisioning.
-
-## <a name="configuring-automatic-user-provisioning-to-envoy"></a>Configurazione del provisioning automatico degli utenti in Envoy 
-
-Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Envoy in base alle assegnazioni di utenti e/o gruppi in Azure AD.
-
-> [!TIP]
-> È inoltre possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Envoy, seguendo le istruzioni fornite [nell'esercitazione sul single sign-on di Envoy](envoy-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TestApp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-envoy-in-azure-ad"></a>Per configurare il provisioning automatico degli utenti per L'inviato in Azure AD:To configure automatic user provisioning for Envoy in Azure AD:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -100,74 +102,80 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **Credenziali di** `https://app.envoy.com/scim/v2` amministratore immettere **l'input**in URL tenant. Per recuperare il **token segreto** dell'account dell'inviato, seguire la procedura dettagliata come descritto nel passaggio 6.
+5. Nella sezione **Credenziali di** `https://app.envoy.com/scim/v2` amministratore immettere **l'input**in URL tenant. Immettere il valore **OAUTH BEARER TOKEN** recuperato in precedenza in **Secret Token**. Fare clic su Test connessione per verificare che Azure AD possa connettersi a Envoy.Click **Test Connection** to ensure Azure AD can connect to Envoy. Se la connessione non riesce, verificare che l'account Dell'inviato disponga delle autorizzazioni di amministratore e riprovare.
 
-6. Accedi alla Console [di amministrazione dell'inviato](https://dashboard.envoy.com/login). Fare clic su **Integrazioni**.
+   ![provisioning](./media/envoy-tutorial/provisioning.png)
 
-    ![Integrazioni dell'inviato](media/envoy-provisioning-tutorial/envoy01.png)
-
-    Fare clic su **Installa** per **l'integrazione SCIM di Microsoft Azure**.
-
-    ![Installazione dell'inviato](media/envoy-provisioning-tutorial/envoy02.png)
-
-    Fare clic su **Salva** per **sincronizzare tutti gli utenti**. 
-
-    ![Salvataggio dell'inviato](media/envoy-provisioning-tutorial/envoy03.png)
-
-    Recuperare il token segreto popolato.
-    
-    ![Envoy OAUTH](media/envoy-provisioning-tutorial/envoy04.png)
-
-7. Dopo aver popolato i campi visualizzati nel passaggio 5, fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Envoy. Se la connessione non riesce, verificare che l'account Dell'inviato disponga delle autorizzazioni di amministratore e riprovare.
-
-    ![token](common/provisioning-testconnection-tenanturltoken.png)
-
-8. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
+6. Nel campo **E-mail** di notifica immettere l'indirizzo di posta elettronica di una persona o di un gruppo che deve ricevere le notifiche di errore di provisioning e selezionare la casella di controllo Invia una **notifica tramite posta elettronica quando si verifica un errore.**
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-9. Fare clic su **Salva**.
+7. Selezionare **Salva**.
 
-10. Nella sezione **Mapping** selezionare Sincronizza utenti di **Azure Active Directory da presentare.**
-    
-    ![Attributi utente dell'inviato](media/envoy-provisioning-tutorial/envoy-user-mappings.png)
-    
-11. Esaminare gli attributi utente sincronizzati da Azure AD a Envoy nella sezione **Mapping attributi.** Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare gli account utente in Envoy per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+8. Nella sezione **Mapping** selezionare Sincronizza utenti di **Azure Active Directory da presentare.**
 
-    ![Attributi utente dell'inviato](media/envoy-provisioning-tutorial/envoy-user-attribute.png)
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Envoy nella sezione **Mapping degli** attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare gli account utente in Envoy per le operazioni di aggiornamento. Se si sceglie di modificare l'attributo di [destinazione corrispondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)è necessario assicurarsi che l'API Envoy supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-12. Nella sezione **Mapping** selezionare Sincronizza gruppi di **Azure Active Directory con envoy**.
+   |Attributo|Type|
+   |---|---|
+   |userName|string|
+   |externalId|string|
+   |displayName|string|
+   |title|string|
+   |emails[type eq "work"].value|string|
+   |preferredLanguage|string|
+   |department|string|
+   |addresses[tipo eq "lavoro"].country|string|
+   |addresses[tipo eq "lavoro"].località|string|
+   |addresses[digitare eq "lavoro"].regione|string|
+   |addresses[type eq "work"].postalCode|string|
+   |addresses[tipo eq "lavoro"].formato|string|
+   |addresses[type eq "work"].streetAddress|string|
+   |name.givenName|string|
+   |name.familyName|string|
+   |nome.formattato|string|
+   |phoneNumbers[type eq "mobile"].value|string|
+   |phoneNumbers[type eq "work"].value|string|
+   |locale|string|
 
-    ![Mapping utenti dell'inviato](media/envoy-provisioning-tutorial/envoy-group-mapping.png)
+10. Nella sezione **Mapping** selezionare Sincronizza gruppi di **Azure Active Directory con envoy**.
 
-13. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Envoy nella sezione **Mapping attributi.** Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare i gruppi in Envoy per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Envoy nella sezione **Mapping degli** attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare i gruppi in Envoy per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Mapping utenti dell'inviato](media/envoy-provisioning-tutorial/envoy-group-attributes.png)
-    
-14. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+      |Attributo|Type|
+      |---|---|
+      |displayName|string|
+      |externalId|string|
+      |Membri di|Informazioni di riferimento|
 
-15. Per abilitare il servizio di provisioning di Azure AD per L'inviato, modificare lo stato di provisioning **su Attivato** nella sezione Impostazioni.To enable the Azure AD provisioning service for Envoy, change the **Provisioning Status** to On in the **Settings** section.
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Per abilitare il servizio di provisioning di Azure AD per L'inviato, modificare lo stato di provisioning **su Attivato** nella sezione Impostazioni.To enable the Azure AD provisioning service for Envoy, change the **Provisioning Status** to On in the **Settings** section.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-16. Definire gli utenti e/o i gruppi di cui si desidera eseguire il provisioning in Envoy scegliendo i valori desiderati in **Ambito** nella sezione **Impostazioni.**
+14. Definire gli utenti e/o i gruppi di cui si desidera eseguire il provisioning in Envoy scegliendo i valori desiderati in **Ambito** nella sezione **Impostazioni.**
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-17. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
+15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e seguire i collegamenti al report attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD in Envoy.You can use the Synchronization Details section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Envoy.
+Questa operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni.** L'esecuzione del ciclo iniziale richiede più tempo rispetto ai cicli successivi, che si verificano approssimativamente ogni 40 minuti, purché sia in esecuzione il servizio di provisioning di Azure AD. 
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
+## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
+Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:Once you've configured provisioning, use the following resources to monitor your deployment:
+
+* Utilizzare i registri di [provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare quali utenti sono stati sottoposti a provisioning con successo o meno
+* Controllare la barra di [avanzamento](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e la sua vicinanza al completamento
+* Se la configurazione di provisioning sembra essere in uno stato non integro, l'applicazione andrà in quarantena. Ulteriori informazioni sugli stati di quarantena [sono disponibili qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)

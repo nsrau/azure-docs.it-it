@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b097ce3781a77a8c5e8a94b9c2bf0977f3efcfd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481331"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406839"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -153,12 +153,17 @@ Per garantire un servizio sicuro, i connettori devono eseguire l'autenticazione 
 
 I certificati utilizzati sono specifici per il servizio proxy applicazione. Vengono creati durante la registrazione iniziale e rinnovati automaticamente dai connettori ogni due mesi.
 
+Dopo il primo rinnovo del certificato, il servizio Connettore proxy di applicazione di Azure AD (servizio di rete) non dispone dell'autorizzazione per rimuovere il certificato precedente dall'archivio del computer locale. Se il certificato è scaduto o non verrà più utilizzato dal servizio, è possibile eliminarlo in modo sicuro.
+
+Per evitare problemi con il rinnovo del certificato, assicurarsi che la comunicazione di rete dal connettore verso le [destinazioni documentate](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) sia abilitata.
+
 Se un connettore non viene connesso al servizio per molti mesi, i relativi certificati potrebbero non essere più aggiornati. In questo caso, disinstallare e reinstallare il connettore per attivare la registrazione. È possibile eseguire i seguenti comandi di PowerShell:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
+Per ulteriori informazioni su come verificare il certificato e risolvere i problemi, vedere Verificare il supporto dei [componenti del computer e del back-end per](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate)il certificato di attendibilità del proxy di applicazione .
 
 ## <a name="under-the-hood"></a>dietro le quinte
 

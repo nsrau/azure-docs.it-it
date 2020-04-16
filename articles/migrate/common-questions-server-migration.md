@@ -3,12 +3,12 @@ title: Azure Migrate Server Migration FAQ
 description: Risposte alle domande comuni sull'uso della migrazione del server di azure per eseguire la migrazione dei computer.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 507cc8088bf54b1a4f4483673ec5332efcdd36c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc78d2087dcaad2922ca6b6d9c090a8decdb6e84
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127809"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393802"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrazione server di azure di migrazione: domande comuniAzure Migrate Server Migration: Common questions
 
@@ -93,8 +93,12 @@ La migrazione di computer come se fossero server fisici è utile in diversi scen
 - To migrate VMs that are currently running in private clouds to Azure
 - Se si desidera eseguire la migrazione di macchine virtuali in esecuzione in cloud pubblici come Amazon Web Services (AWS) o Google Cloud Platform (GCP) in Azure.
 
+## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Ho distribuito due (o più) appliance per individuare le macchine virtuali nel server vCenter. Tuttavia, quando si tenta di eseguire la migrazione delle macchine virtuali, vengono visualizzate solo le macchine virtuali corrispondenti a una delle appliance.
+
+Anche se questo può essere un buon caso d'uso, attualmente non lo supportiamo. La distribuzione di due (o più) appliance per individuare lo stesso set di macchine virtuali causa un problema di servizio in cui la proprietà della macchina virtuale continua a passare tra le due appliance. Questo è il motivo per cui vengono visualizzate e scompaiono le macchine virtuali. In questi casi, per risolvere il problema, è necessario eliminare un accessorio ed eseguire un aggiornamento hardware.
+
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>È necessario VMware vCenter per eseguire la migrazione delle macchine virtuali VMware?
-Per [eseguire la migrazione delle macchine virtuali VMware](server-migrate-overview.md) tramite la migrazione basata su agenti o senza agente Di VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da vCenter Server. Se non si dispone di vCenter Server, è possibile eseguire la migrazione delle macchine virtuali VMware eseguendo ne esegue la migrazione come server fisici. [Scopri di più](migrate-support-matrix-physical-migration.md).
+Per [eseguire la migrazione delle macchine virtuali VMware](server-migrate-overview.md) tramite la migrazione basata su agenti o senza agente Di VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da vCenter Server. Se non si dispone di vCenter Server, è possibile eseguire la migrazione delle macchine virtuali VMware eseguendo ne esegue la migrazione come server fisici. [Altre informazioni](migrate-support-matrix-physical-migration.md)
  
 ## <a name="next-steps"></a>Passaggi successivi
 

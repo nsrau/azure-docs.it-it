@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e4470ce5ac69390cf8d361577b9ebf0013e4e51
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278870"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405797"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
 
@@ -22,21 +22,21 @@ Questa funzionalità è illustrata nell'immagine seguente:
 
 Ogni computer di lavoro runbook ibrido è un membro di un gruppo di computer di lavoro runbook ibridi che è possibile specificare quando si installa l'agente. Un gruppo può includere un solo agente, ma è possibile installarvi più agenti per garantire una disponibilità elevata. Ogni computer può ospitare un componente di lavoro ibrido che reporting a un account di automazione.
 
-Quando si avvia un runbook in un ruolo di lavoro ibrido per runbook, è necessario specificare il gruppo in cui verrà eseguito. Ogni ruolo di lavoro del gruppo esegue il polling di Automazione di Azure per vedere se sono disponibili processi. Se è disponibile un processo, il primo ruolo di lavoro che raggiunge il processo lo ottiene. Il tempo di elaborazione della coda processi dipende dal profilo hardware e dal carico del ruolo di lavoro ibrido. Non è possibile scegliere un computer di lavoro specifico. I ruoli di lavoro ibridi per runbook mancano di molti dei limiti presenti invece in sandbox di Azure, ad esempio non hanno gli stessi limiti di spazio su disco, memoria o socket di rete. I ruoli di lavoro ibridi per runbook sono limitati soltanto dalle risorse del ruolo di lavoro ibrido per runbook stesso. Inoltre, a differenza dai sandbox di Azure, i ruoli di lavoro ibridi per runbook non hanno il limite di tempo di [condivisione equa](automation-runbook-execution.md#fair-share) di 180 minuti. Per altre informazioni sui limiti del servizio per i sandbox di Azure e i ruoli di lavoro ibridi per runbook, vedere la pagina sui [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) del processo.
+Quando si avvia un runbook in un ruolo di lavoro ibrido per runbook, è necessario specificare il gruppo in cui verrà eseguito. Ogni ruolo di lavoro del gruppo esegue il polling di Automazione di Azure per vedere se sono disponibili processi. Se è disponibile un processo, il primo ruolo di lavoro che raggiunge il processo lo ottiene. Il tempo di elaborazione della coda processi dipende dal profilo hardware e dal carico del ruolo di lavoro ibrido. Non è possibile scegliere un computer di lavoro specifico. I ruoli di lavoro ibridi per runbook mancano di molti dei limiti presenti invece in sandbox di Azure, ad esempio non hanno gli stessi limiti di spazio su disco, memoria o socket di rete. I ruoli di lavoro ibridi per runbook sono limitati soltanto dalle risorse del ruolo di lavoro ibrido per runbook stesso. Inoltre, i ruoli di lavoro per runbook ibridi non condividono il limite di tempo di 180 minuti per la [condivisione equa](automation-runbook-execution.md#fair-share) di Azure.In addition, Hybrid Runbook Workers do not share the 180-minute fair share time limit that Azure sandboxes have. Per altre informazioni sui limiti del servizio per le Sandbox di Azure e i ruoli di lavoro per runbook ibridi, vedere [i limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)dei processi.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Installare un ruolo di lavoro ibrido per runbook
 
-Il processo per installare un ruolo di lavoro ibrido per runbook dipende del sistema operativo. La tabella seguente contiene collegamenti ai metodi che è possibile usare per l'installazione.
-
-Per installare e configurare un ruolo di lavoro ibrido per runbook di Windows, è possibile usare due metodi. Il metodo consigliato consiste nell'usare un runbook di Automazione per automatizzare completamente il processo necessario di configurazione di un computer Windows. Il secondo metodo prevede l'esecuzione di una procedura dettagliata per installare e configurare il ruolo manualmente. Per i computer Linux si esegue uno script Python per installare l'agente nel computer.
+Il processo di installazione di un ruolo di lavoro ibrido per runbook dipende dal sistema operativo. La tabella seguente definisce i tipi di distribuzione.
 
 |OS  |Tipi distribuzione  |
 |---------|---------|
-|WINDOWS     | [Powershell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuale](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuale](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
+Il metodo di installazione consigliato consiste nell'utilizzare un runbook di automazione per automatizzare completamente il processo di configurazione di un computer Windows.The recommended installation method is to use an Automation runbook to completely automate the process of configuring a Windows computer. Il secondo metodo consiste nel seguire una procedura dettagliata per installare e configurare manualmente il ruolo. Per i computer Linux si esegue uno script Python per installare l'agente nel computer.
+
 > [!NOTE]
-> Per gestire la configurazione dei server che supportano il ruolo di lavoro ibrido per runbook con DSC (Desired State Configuration), è necessario aggiungerli come nodi DSC. Per informazioni sul caricamento dei server per la gestione con DSC, vedere [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
+> Per gestire la configurazione dei server che supportano il ruolo di lavoro ibrido runbook con DSC (Desired State Configuration), è necessario aggiungere i server come nodi DSC. Per informazioni sul caricamento dei server per la gestione con DSC, vedere [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
 >
 >Se si abilita la [soluzione Gestione aggiornamenti](automation-update-management.md), qualsiasi computer connesso all'area di lavoro Azure Log Analytics viene automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione. Tuttavia, il computer non viene registrato con i gruppi di ruoli di lavoro ibridi già definiti nell'account di Automazione. È possibile aggiungere il computer a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
@@ -44,44 +44,38 @@ Prima di iniziare la distribuzione di un ruolo di lavoro ibrido per runbook, riv
 
 È possibile aggiungere il computer a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
-## <a name="remove-a-hybrid-runbook-worker"></a>Rimuovere un ruolo di lavoro ibrido per runbook
+## <a name="a-nameremove-a-hybrid-runbook-workerremove-a-hybrid-runbook-worker-from-an-on-premises-computer"></a><a name="remove-a-hybrid-runbook-worker">Rimuovere un ruolo di lavoro ibrido per runbook da un computer localeRemove a Hybrid Runbook Worker from an on-premises computer
 
-È possibile rimuovere uno o più ruoli di lavoro ibridi per runbook da un gruppo o è possibile rimuovere il gruppo, a seconda dei requisiti. Per rimuovere un ruolo di lavoro ibrido per runbook da un computer locale, usare la procedura seguente:
+È possibile rimuovere un ruolo di lavoro ibrido per runbook da un computer locale come descritto in questa sezione per Windows e Linux.You can remove a Hybrid Runbook Worker from an on-premises computer as described in this section for Windows and Linux.
+
+### <a name="remove-the-worker-on-windows"></a>Rimuovere il worker in Windows
 
 1. Nel portale di Azure passare all'account di Automazione.
-2. In **Impostazioni Account** selezionare **Chiavi** e prendere nota dei valori di **URL** e **Chiave di accesso primaria**. Queste informazioni saranno necessarie per il passaggio successivo.
+2. In **Impostazioni Account** selezionare **Chiavi** e prendere nota dei valori di **URL** e **Chiave di accesso primaria**.
 
-### <a name="windows"></a>WINDOWS
-
-Aprire una sessione di PowerShell in modalità amministratore ed eseguire il comando seguente. Per un log dettagliato del processo di rimozione, usare l'opzione **-Verbose** .
-
-```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
-```
-
-Per rimuovere le macchine non aggiornate dal gruppo di ruoli di lavoro ibridi, usare il parametro facoltativo `machineName`.
+3. Aprire una sessione di PowerShell in modalità amministratore ed eseguire il comando seguente con i valori di URL e chiave di accesso primaria. Utilizzare `Verbose` il parametro per un registro dettagliato del processo di rimozione. Per rimuovere le macchine non aggiornate dal gruppo di ruoli di lavoro ibridi, usare il parametro facoltativo `machineName`.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
 ```
 
-### <a name="linux"></a>Linux
+### <a name="remove-the-worker-on-linux"></a>Rimuovere il worker su Linux
 
-È possibile usare il comando `ls /var/opt/microsoft/omsagent` in ruolo di lavoro ibrido per runbook per ottenere l'ID area di lavoro. È presente una cartella nella directory in cui il nome della cartella è l'ID dell'area di lavoro.
+È possibile utilizzare `ls /var/opt/microsoft/omsagent` il comando in Hybrid Runbook Worker per ottenere l'ID dell'area di lavoro. Viene creata una cartella denominata con l'ID dell'area di lavoro.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
 ```
 
 > [!NOTE]
-> Questo codice non rimuove Microsoft Monitoring Agent dal computer, ma solo la funzionalità e la configurazione del ruolo di lavoro ibrido per runbook.
+> Questo codice non rimuove Microsoft Monitoring Agent dal computer. Rimuove solo la funzionalità e la configurazione del ruolo di lavoro ibrido per runbook.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Rimuovere un gruppo di ruoli di lavoro ibridi
 
-Per rimuovere un gruppo, è innanzitutto necessario rimuovere il ruolo di lavoro ibrido per runbook da ogni computer membro del gruppo usando la procedura descritta in precedenza. Quindi usare la procedura seguente per rimuovere il gruppo:
+Per rimuovere un gruppo di lavoro ibrido per runbook, è innanzitutto necessario rimuovere il ruolo di lavoro ibrido per runbook da ogni computer membro del gruppo. Quindi utilizzare la procedura seguente per rimuovere il gruppo:
 
 1. Nel portale di Azure aprire l'account di automazione.
-2. In **Automazione processo**selezionare **Gruppi di lavoro ibridi**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
+2. Selezionare **Gruppi di ruoli di lavoro ibridi** in **Automazione processo**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
 
    ![Pagina Proprietà](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
@@ -108,11 +102,11 @@ La porta e gli URL seguenti sono necessari affinché il ruolo di lavoro ibrido p
 * URL globale di US Gov Virginia: *.azure-automation.us
 * Servizio agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-È consigliabile usare gli indirizzi elencati quando si definiscono eccezioni. Per gli indirizzi IP è possibile scaricare gli [intervalli di indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
+È consigliabile usare gli indirizzi elencati quando si definiscono eccezioni. Per gli indirizzi IP, è possibile scaricare gli [intervalli IP del data center di Microsoft Azure.](https://www.microsoft.com/en-us/download/details.aspx?id=56519) Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
 
 Se è disponibile un account di Automazione definito per un'area specifica, è possibile limitare la comunicazione a tale data center regionale. La tabella seguente indica il record DNS per ogni area:
 
-| **Regione** | **Record DNS** |
+| **Area** | **Record DNS** |
 | --- | --- |
 | Stati Uniti centro-occidentali | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Stati Uniti centro-meridionali |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
@@ -152,5 +146,4 @@ Oltre agli indirizzi e alle porte standard che il ruolo di lavoro ibrido per run
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su come configurare i runbook per automatizzare i processi nel centro dati locale o un altro ambiente cloud, vedere [Eseguire runbook in un ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md).
-* Per informazioni su come risolvere i problemi del ruolo di lavoro ibrido per runbook, vedere [Troubleshooting Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general) (Risoluzione dei problemi dei ruoli di lavoro ibridi per runbook)
-
+* Per informazioni su come risolvere i problemi relativi ai ruoli di lavoro per runbook ibridi, vedere Risoluzione dei problemi relativi ai ruoli di lavoro [per runbook ibridi.](troubleshoot/hybrid-runbook-worker.md#general)

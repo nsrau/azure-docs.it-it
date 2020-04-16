@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: jingwang
-ms.openlocfilehash: b73cd73a18d286f221c7be2c624719e1d23d7c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ce1b85394a7bb604841f7fb941bdebf12c0bca2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153829"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414161"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Conservare metadati e ACL usando l'attività di copia in Azure Data FactoryPreserve metadata and ACLs using copy activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Quando si usa l'attività di copia di Azure Data Factory per copiare i dati dall'origine al sink, negli scenari seguenti è anche possibile mantenere i metadati e gli ACL.
 

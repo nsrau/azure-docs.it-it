@@ -4,12 +4,12 @@ description: Informazioni su come creare rapidamente un cluster Kubernetes, dist
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 8d2a91f63815e7ba4bcbe4084b80a06fa7779099
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 2aecebcc45cb24c9ab3a594aa4d74b1584c7ffa7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886722"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392668"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima- Creare un contenitore di Windows Server in un cluster del servizio Azure Kubernetes (AKS) usando l'interfaccia della riga di comando di AzurePreview - Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure CLI
 
@@ -176,7 +176,7 @@ Per gestire un cluster Kubernetes, usare [kubectl][kubectl], il client da riga d
 az aks install-cli
 ```
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az servizio Azure Kubernetes get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -302,7 +302,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete].
+> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete]. Se è stata utilizzata un'identità gestita, l'identità viene gestita dalla piattaforma e non richiede la rimozione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

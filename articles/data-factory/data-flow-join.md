@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/02/2020
-ms.openlocfilehash: 32100e9cad86f12dc8111ee8a0282a515540a4db
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0c0e35f7f06afd0cafa4a1e353b7eda84ed226f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346617"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413660"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Creare una trasformazione di join nel mapping del flusso di datiJoin transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Usare la trasformazione Join per combinare i dati di due origini o flussi in un flusso di dati di mapping. Il flusso di output includerà tutte le colonne di entrambe le origini corrispondenti in base a una condizione di join. 
 

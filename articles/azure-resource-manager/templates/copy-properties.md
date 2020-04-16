@@ -2,13 +2,13 @@
 title: Definire più istanze di una proprietàDefine multiple instances of a property
 description: Usare l'operazione di copia in un modello di Azure Resource Manager per eseguire più iterazioni durante la creazione di una proprietà in una risorsa.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258108"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391330"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iterazione delle proprietà nei modelli ARMProperty iteration in ARM templates
 
@@ -30,7 +30,9 @@ L'elemento copy ha il seguente formato generale:
 ]
 ```
 
-Per **nome**, specificare il nome della proprietà della risorsa che si desidera creare. La proprietà **count** specifica il numero di iterazioni desiderato per la proprietà.
+Per **nome**, specificare il nome della proprietà della risorsa che si desidera creare.
+
+La proprietà **count** specifica il numero di iterazioni desiderato per la proprietà.
 
 La proprietà **input** specifica le proprietà che si desidera ripetere. Creare una matrice di elementi costruiti dal valore nella proprietà **di input.**
 
@@ -78,11 +80,7 @@ Nell'esempio seguente viene illustrato come applicare `copy` alla proprietà dat
 }
 ```
 
-Si noti che quando si usa `copyIndex` all'interno di un'iterazione di proprietà, è necessario specificare il nome dell'iterazione.
-
-> [!NOTE]
-> L'iterazione della proprietà supporta anche un argomento di offset. L'offset deve venire dopo il nome dell'iterazione, ad esempio copyIndex('dataDisks', 1).
->
+Si noti che quando si usa `copyIndex` all'interno di un'iterazione di proprietà, è necessario specificare il nome dell'iterazione. L'iterazione della proprietà supporta anche un argomento di offset. L'offset deve venire dopo il nome dell'iterazione, ad esempio copyIndex('dataDisks', 1).
 
 Resource Manager espande la matrice `copy` durante la distribuzione. Il nome della matrice diventa il nome della proprietà. I valori di input diventano le proprietà dell'oggetto. Il modello distribuito diventa:
 
@@ -111,6 +109,66 @@ Resource Manager espande la matrice `copy` durante la distribuzione. Il nome del
         }
       ],
       ...
+```
+
+L'operazione di copia è utile quando si lavora con le matrici in quanto è possibile iterare ogni elemento della matrice. Usare la funzione `length` nella matrice per specificare il conteggio per le iterazioni e `copyIndex` per recuperare l'indice corrente nella matrice.
+
+Il modello di esempio seguente crea un gruppo di failover per i database passati come matrice.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "primaryServerName": {
+            "type": "string"
+        },
+        "secondaryServerName": {
+            "type": "string"
+        },
+        "databaseNames": {
+            "type": "array",
+            "defaultValue": [
+                "mydb1",
+                "mydb2",
+                "mydb3"
+            ]
+        }
+    },
+    "variables": {
+        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/failoverGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('failoverName')]",
+            "properties": {
+                "readWriteEndpoint": {
+                    "failoverPolicy": "Automatic",
+                    "failoverWithDataLossGracePeriodMinutes": 60
+                },
+                "readOnlyEndpoint": {
+                    "failoverPolicy": "Disabled"
+                },
+                "partnerServers": [
+                    {
+                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+                    }
+                ],
+                "copy": [
+                    {
+                        "name": "databases",
+                        "count": "[length(parameters('databaseNames'))]",
+                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
 ```
 
 L'elemento di copia è una matrice, pertanto è possibile specificare più di una proprietà per una risorsa.

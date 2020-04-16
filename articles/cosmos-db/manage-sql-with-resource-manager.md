@@ -1,17 +1,17 @@
 ---
 title: Creare e gestire Azure Cosmos DB con i modelli di Resource ManagerCreate and manage Azure Cosmos DB with Resource Manager templates
 description: Usare i modelli di Azure Resource Manager per creare e configurare il database Cosmos di Azure per l'API SQL (Core)Use Azure Resource Manager templates to create and configure Azure Cosmos DB for SQL (Core) API
-author: TheovanKraay
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: thvankra
-ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.author: mjbrown
+ms.openlocfilehash: 3514b3e77781010fd56b43229f87854ea2d591e8
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251843"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390896"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Gestire le risorse API SQL (Core) del database di Azure Cosmos con i modelli di Azure Resource ManagerManage Azure Cosmos DB SQL (Core) API resources with Azure Resource Manager templates
 

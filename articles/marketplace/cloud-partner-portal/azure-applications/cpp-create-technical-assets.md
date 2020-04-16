@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 041b2133ed63a906d3fea3ab67890a0057151b9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59f9fecb3d949d9cdf48719e6329b066d9eb3fc5
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285266"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393526"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Preparare gli asset tecnici dell'applicazione di Azure
 
@@ -32,7 +32,7 @@ Rivedere la documentazione seguente relativa all'applicazione di Azure, che incl
 
   - [Modelli di guida introduttiva di AzureAzure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
   - [Modelli di avvio rapido di Azure in GitHub](https://github.com/azure/azure-quickstart-templates)
-  - [Pubblicare una definizione di applicazione](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+  - [Pubblicare una definizione di applicazione](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Distribuire un'app del catalogo di servizi](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
   
@@ -43,7 +43,7 @@ Rivedere la documentazione seguente relativa all'applicazione di Azure, che incl
 
   - Esempi:
 
-    - [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     - [Soluzioni di applicazioni gestite](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
@@ -64,11 +64,11 @@ Il team tecnico deve avere il livello di conoscenza delle tecnologie Microsoft s
 Per la gestione dell'applicazione di Azure scegliere uno o entrambi gli ambienti di scripting seguenti:
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-- [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/cli/azure)
+- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
 
 È consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo:
 
-- [Esplora archivi di AzureAzure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+- [Esplora archivi Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/) con le estensioni seguenti:
 
   - Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

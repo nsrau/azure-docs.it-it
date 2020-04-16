@@ -1,17 +1,17 @@
 ---
 title: Modelli di Azure Resource Manager per Azure Cosmos DB
 description: Usare i modelli di Azure Resource Manager per creare e configurare il database Cosmos di Azure.Use Azure Resource Manager templates to create and configure Azure Cosmos DB.
-author: TheovanKraay
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.author: thvankra
-ms.openlocfilehash: 7b08ca98f25b079d831033b9393effd4ee4b65e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.author: mjbrown
+ms.openlocfilehash: 1c4f1a1920d98052231eaa3a7d5c0454441c88ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73961847"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390871"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modelli di Azure Resource Manager per Azure Cosmos DB
 
@@ -23,6 +23,7 @@ Le tabelle seguenti includono collegamenti ai modelli di Azure Resource Manager 
 |---|---|
 |[Creare un account, un database e un contenitore Azure Cosmos DB](manage-sql-with-resource-manager.md#create-resource) | Questo modello crea un account API SQL (Core) in due aree con due contenitori con velocità effettiva del database condivisa e un contenitore con velocità effettiva dedicata. La velocità effettiva può essere aggiornata inviando nuovamente il modello con il valore della proprietà della velocità effettiva aggiornata. |
 |[Creare un account Cosmos di Azure, un database e un contenitore con una stored procedure, trigger e UDFCreate an Azure Cosmos account, database and container with a stored procedure, trigger and UDF](manage-sql-with-resource-manager.md#create-sproc) | Questo modello crea un account API SQL (Core) in due aree con una stored procedure, trigger e UDF per un contenitore. |
+|[Creare un endpoint privato per un account Cosmos di Azure esistenteCreate a private endpoint for an existing Azure Cosmos account](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Questo modello crea un endpoint privato per un account API SQL Cosmos di Azure esistente in una rete virtuale esistente. |
 
 ## <a name="mongodb-api"></a>API di MongoDB
 

@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440177"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415847"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data FactoryCopy data from SAP Business Warehouse by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare Azure Data Factory per copiare dati da SAP Business Warehouse (BW) tramite Open Hub ad Azure Data Lake Storage Gen2.This article shows how to use Azure Data Factory to copy data from SAP Business Warehouse (BW) via Open Hub to Azure Data Lake Storage Gen2. È possibile utilizzare un processo simile per copiare i dati in altri [archivi dati sink supportati.](copy-activity-overview.md#supported-data-stores-and-formats)
 
@@ -68,7 +69,7 @@ Nel portale di Azure accedere alla data factory. Selezionare **Crea & Monitor** 
 
    3. Selezionare **Verifica connessione** per convalidare le impostazioni e quindi selezionare **Fine**.
 
-   4. Viene creata una nuova connessione. Fare clic su **Avanti**.
+   4. Viene creata una nuova connessione. Selezionare **Avanti**.
 
 5. Nella pagina **Selezione destinazioni hub aperte** sfogliare le destinazioni Hub aperte disponibili in SAP BW. Selezionare la FUNZIONE OHD da cui copiare i dati, quindi scegliere **Avanti**.
 
@@ -76,7 +77,7 @@ Nel portale di Azure accedere alla data factory. Selezionare **Crea & Monitor** 
 
 6. Specificare un filtro, se necessario. Se l'ORD contiene solo dati di un singolo processo di trasferimento dati (DTP) con un singolo ID richiesta oppure si è certi che il DTP sia terminato e si desidera copiare i dati, deselezionare la casella di controllo **Escludi ultima richiesta.**
 
-   Per altre informazioni su queste impostazioni, vedere la sezione [Configurazioni SAP BW Open Hub Destination](#sap-bw-open-hub-destination-configurations) di questo articolo. Selezionare **Convalida** per verificare quali dati verranno restituiti. Quindi selezionare **Avanti**.
+   Per altre informazioni su queste impostazioni, vedere la sezione [Configurazioni SAP BW Open Hub Destination](#sap-bw-open-hub-destination-configurations) di questo articolo. Selezionare **Convalida** per verificare quali dati verranno restituiti. Fare quindi clic su **Avanti**.
 
    ![Configurare il filtro Sap BW Open Hub](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -87,9 +88,9 @@ Nel portale di Azure accedere alla data factory. Selezionare **Crea & Monitor** 
    ![Creare una pagina del servizio collegato ADLS Gen2Create an ADLS Gen2 linked service page](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Selezionare l'account con supporto per Data Lake Storage Gen2 dall'elenco a discesa **Nome.**
-   2. Selezionare **Fine** per creare la connessione. Quindi selezionare **Avanti**.
+   2. Selezionare **Fine** per creare la connessione. Fare quindi clic su **Avanti**.
 
-9. Nella pagina **Scegliere il file o la cartella** di output immettere **copyfromopenhub** come nome della cartella di output. Quindi selezionare **Avanti**.
+9. Nella pagina **Scegliere il file o la cartella** di output immettere **copyfromopenhub** come nome della cartella di output. Fare quindi clic su **Avanti**.
 
    ![Pagina Scegli cartella di output](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -97,11 +98,11 @@ Nel portale di Azure accedere alla data factory. Selezionare **Crea & Monitor** 
 
     ![Specificare la pagina del formato sink](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Nella pagina **Impostazioni** espandere **Impostazioni prestazioni**. Immettere un valore per **Grado di parallelismo della copia,** ad esempio 5, per caricare da SAP BW in parallelo. Quindi selezionare **Avanti**.
+11. Nella pagina **Impostazioni** espandere **Impostazioni prestazioni**. Immettere un valore per **Grado di parallelismo della copia,** ad esempio 5, per caricare da SAP BW in parallelo. Fare quindi clic su **Avanti**.
 
     ![Configurare le impostazioni di copia](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Nella pagina **Riepilogo** esaminare le impostazioni. Quindi selezionare **Avanti**.
+12. Nella pagina **Riepilogo** esaminare le impostazioni. Fare quindi clic su **Avanti**.
 
 13. Nella pagina **Distribuzione** selezionare **Monitoraggio** per monitorare la pipeline.
 
