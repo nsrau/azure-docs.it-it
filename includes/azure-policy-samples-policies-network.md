@@ -2,18 +2,18 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 04/03/2020
 ms.author: dacoulte
-ms.openlocfilehash: f64f09d89bc76d625ec09763ccac6df171f5954e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ecca4208d8c3d471e3ff4d1fc951888dcf18255d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79381727"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758117"
 ---
 |Nome |Descrizione |Effetto/i |Versione |GitHub |
 |---|---|---|---|---|
-|[È necessario applicare un criterio IPSec/IKE personalizzato a tutte le connessioni del gateway di rete virtuale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Questo criterio garantisce che tutte le connessioni del gateway di rete virtuale di Azure usino un criterio IPSec (Internet Protocol Security)/IKE (Internet Key Exchange) personalizzato. Per i livelli di attendibilità delle chiavi e gli algoritmi supportati, vedere https://aka.ms/AA62kb0 |Audit, Disabled |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
+|[È necessario applicare un criterio IPSec/IKE personalizzato a tutte le connessioni del gateway di rete virtuale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Questo criterio garantisce che tutte le connessioni del gateway di rete virtuale di Azure usino un criterio IPSec (Internet Protocol Security)/IKE (Internet Key Exchange) personalizzato. Per i livelli di attendibilità delle chiavi e gli algoritmi supportati, vedere [https://aka.ms/AA62kb0](https://aka.ms/AA62kb0). |Audit, Disabled |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
 |[Il servizio app deve usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Questo criterio controlla i servizi app che non sono configurati per usare un endpoint servizio di rete virtuale. |AuditIfNotExists, Disabled |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json)
 |[I gateway VPN di Azure non devono usare lo SKU 'Basic'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345b6c3-24bd-4c93-9bbb-7e5e49a17b78) |Questo criterio garantisce che i gateway VPN non usino lo SKU 'Basic'. |Audit, Disabled |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_BasicSKU_Audit.json)
 |[I Registri Azure Container devono usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78) |Questo criterio controlla i Registri Azure Container che non sono configurati per usare un endpoint servizio di rete virtuale. |Audit, Disabled |1.0.0-preview |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ContainerRegistry_Audit.json)

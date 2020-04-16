@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Connettere un'app MongoDB Node.js ad Azure Cosmos DB"
+title: "Guida di avvio rapido: Connettere un'app MongoDB Node.js ad Azure Cosmos DB"
 description: Questo Avvio rapido illustra come connettere un'app MongoDB esistente scritta in Node. js ad Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -9,14 +9,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 7e3e9e6c76d67db03ea812a4832e98f4449c9aba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: de4a9324cd1cfaccec6dcca6a8dfc057d37275c0
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77061659"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619247"
 ---
-# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Guida introduttiva: Eseguire la migrazione di un'app Web Node.js MongoDB esistente ad Azure Cosmos DB 
+# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Guida di avvio rapido: Eseguire la migrazione di un'app Web Node.js MongoDB esistente ad Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -230,7 +230,7 @@ Nell'oggetto `db` sostituire il valore di `uri` come mostrato nell'esempio segue
 ```
 
 > [!NOTE] 
-> L'opzione `ssl=true` è importante perché [Cosmos DB richiede l'SSL](connect-mongodb-account.md#connection-string-requirements). 
+> L'opzione `ssl=true` è importante in considerazione dei requisiti di Cosmos DB. Per altre informazioni, vedere [Requisiti della stringa di connessione](connect-mongodb-account.md#connection-string-requirements).
 >
 >
 

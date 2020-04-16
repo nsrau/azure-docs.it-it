@@ -4,14 +4,14 @@ description: In questa esercitazione si apprenderà come usare PowerShell per ag
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a21de9d76a010b01da95b050a521178d8808bbdf
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78252741"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756082"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: aggiornare il runtime di un cluster di Service Fabric in Azure
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: Aggiornare il runtime di un cluster di Service Fabric in Azure
 
 Questa esercitazione, che costituisce la quarta parte di una serie, illustra come aggiornare il runtime di Service Fabric in un cluster di Azure Service Fabric. Questa parte dell'esercitazione è scritta per cluster di Service Fabric in esecuzione in Azure e non si applica a cluster di Service Fabric autonomi.
 
@@ -37,7 +37,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -95,7 +95,7 @@ Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 
 È possibile effettuare il monitoraggio dello stato dell'aggiornamento con PowerShell o con l'interfaccia della riga di comando di Azure Service Fabric (sfctl).
 
-Prima connettersi al cluster con il certificato SSL creato nella prima parte dell'esercitazione. Usare il cmdlet `Connect-ServiceFabricCluster` o `sfctl cluster upgrade-status`.
+Prima connettersi al cluster con il certificato TLS/SSL creato nella prima parte dell'esercitazione. Usare il cmdlet `Connect-ServiceFabricCluster` o `sfctl cluster upgrade-status`.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"

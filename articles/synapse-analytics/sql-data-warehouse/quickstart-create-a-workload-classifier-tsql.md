@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un classificatore del carico di lavoro - T-SQL'
+title: 'Guida di avvio rapido: Creare un classificatore del carico di lavoro - T-SQL'
 description: Usare T-SQL per creare un classificatore di carico di lavoro con priorità alta.
 services: synapse-analytics
 author: ronortloff
@@ -11,21 +11,21 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9d41aa3447caebfeeffc05c36b5073f57c3e16cd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: bcac6af9efd18ef8abeea7d82961fd8f2fe70ba3
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350814"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633758"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Guida introduttiva: Creare un classificatore di carico di lavoro con T-SQL
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Guida di avvio rapido: Creare un classificatore di carico di lavoro con T-SQL
 
-In questa Guida introduttiva si creerà rapidamente un classificatore di carico di lavoro con priorità alta per il direttore generale dell'organizzazione. Il classificatore di carico di lavoro consentirà alle query del direttore generale di avere la precedenza su quelle con priorità inferiore nella coda.
+In questa Guida di avvio rapido si creerà rapidamente un classificatore di carico di lavoro con priorità alta per il direttore generale dell'organizzazione. Il classificatore di carico di lavoro consentirà alle query del direttore generale di avere la precedenza su quelle con priorità inferiore nella coda.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 > [!NOTE]
-> La creazione di un'istanza di SQL Analytics in Azure Synapse Analytics può risultare in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creazione di un'istanza del pool SQL Synapse in Azure Synapse Analytics può tradursi in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
@@ -39,7 +39,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-login-for-theceo"></a>Creare un accesso per IlCEO
 
-Creare un account di accesso con autenticazione di SQL Server nel database `master` con l’istruzione [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql) per “IlCEO”.
+Creare un account di accesso con autenticazione di SQL Server nel database `master` con l’istruzione [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per “IlCEO”.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'TheCEO')
@@ -51,7 +51,7 @@ END
 
 ## <a name="create-user"></a>Create user
 
-[Creare l'utente](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest) "TheCEO" in mySampleDataWarehouse
+[Creare l'utente](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) "TheCEO" in mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -63,7 +63,7 @@ END
 
 ## <a name="create-a-workload-classifier"></a>Creare un classificatore del carico di lavoro
 
-Creare un [classificatore di carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) per "TheCEO" con priorità alta.
+Creare un [classificatore di carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per "TheCEO" con priorità alta.
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];
@@ -108,6 +108,6 @@ Seguire questa procedura per pulire le risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- È stato creato un classificatore di carico di lavoro. Eseguire alcune query come IlCEO per verificarne le prestazioni. Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.
-- Per altre informazioni sulla gestione dei carichi di lavoro di SQL Analytics, vedere [Priorità del carico di lavoro](sql-data-warehouse-workload-importance.md) e [Classificazione del carico di lavoro](sql-data-warehouse-workload-classification.md).
+- È stato creato un classificatore di carico di lavoro. Eseguire alcune query come IlCEO per verificarne le prestazioni. Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per visualizzare le query e la loro priorità.
+- Per altre informazioni sulla gestione dei carichi di lavoro di SQL Synapse, vedere [Priorità del carico di lavoro](sql-data-warehouse-workload-importance.md) e [Classificazione del carico di lavoro](sql-data-warehouse-workload-classification.md).
 - Vedere gli articoli sulle procedure per [configurare la priorità del carico di lavoro](sql-data-warehouse-how-to-configure-workload-importance.md) e per [gestire e monitorare la priorità del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

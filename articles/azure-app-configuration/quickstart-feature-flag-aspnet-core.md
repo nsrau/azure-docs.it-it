@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: d8582dfc796fe3e87b8bdc5be763dddfb5d0176b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b3579d12981e2b0add916a280bac7b4f9392d8ba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80245413"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803144"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida di avvio rapido: Aggiungere i flag di funzionalità a un'app ASP.NET Core
 
@@ -126,13 +126,13 @@ Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo
 
     È possibile accedere a questo segreto con l'API Configurazione app. Con tale API è possibile usare i due punti (:) nel nome di configurazione in tutte le piattaforme supportate. Vedere la [configurazione in base all'ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. Aggiornare il metodo `CreateWebHostBuilder` per usare Configurazione app effettuando una chiamata al metodo `config.AddAzureAppConfiguration()`.
-    
+1. In *Program.cs* aggiornare il metodo `CreateWebHostBuilder` in modo da usare Configurazione app chiamando il metodo `config.AddAzureAppConfiguration()`.
+
     > [!IMPORTANT]
     > `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.0.  Selezionare la sintassi corretta in base all'ambiente.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-    
+
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
@@ -148,7 +148,7 @@ Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo
     ```
 
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-    
+
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -188,12 +188,12 @@ Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo
         services.AddControllersWithViews();
         services.AddFeatureManagement();
     }
-    ```
+
     ---
 
-1. Aggiornare il metodo `Configure` per aggiungere un middleware e consentire l'aggiornamento dei valori dei flag di funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
-    
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+
+    #### [.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {

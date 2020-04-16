@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3218a2de890124915d62afa86fd5f3dca1e72b2e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1bef4e5f4129ddc8300d61d609392ce0b07b74b8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80063090"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656243"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -47,7 +47,7 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |  | Azure Data Lake Storage Gen2        |  Tutte le aree pubbliche      | GA <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
 |  |  database SQL di Azure         | Tutte le aree pubbliche      |   GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |  |Azure Synapse Analytics (SQL Data Warehouse)| Tutte le aree pubbliche |GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|  |Azure Cosmos DB|  STATI UNITI ORIENTALI, STATI UNITI ORIENTALI 2, STATI UNITI OCCIDENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRALI, STATI UNITI CENTRO-SETTENTRIONALI, STATI UNITI CENTRO-OCCIDENTALI, STATI UNITI CENTRO-SETTENTRIONALI, EUROPA SETTENTRIONALE, EUROPA OCCIDENTALE  |GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |Azure Cosmos DB|  Tutte le aree pubbliche |GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  |  Database di Azure per PostgreSQL - Server singolo         | Tutte le aree pubbliche      |   GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  |  Database di Azure per MySQL         | Tutte le aree pubbliche      |   GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  |  Database di Azure per MariaDB         | Tutte le aree pubbliche      |   GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
@@ -60,8 +60,9 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |  |Hub eventi di Azure | Tutte le aree pubbliche      |   Anteprima    |
 |  |Bus di servizio di Azure | Tutte le aree pubbliche      |   Anteprima   |
 |  |Servizio di inoltro di Azure | Tutte le aree pubbliche      |   Anteprima   |
-|  |Griglia di eventi di Azure| Tutte le aree pubbliche      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/event-grid/network-security)   |
+|  |Griglia di eventi di Azure| STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/event-grid/network-security)   |
 |  |App Web di Azure | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Machine Learning | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 
 Per le notifiche più aggiornate, vedere la [pagina degli aggiornamenti relativi a Rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

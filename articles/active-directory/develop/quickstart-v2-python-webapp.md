@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 34f0fb57b4432a8153f2cbaa8cb60edbb9a6f494
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0affae56ef6998efe4bb370287ff3688f83f3878
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78271074"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873957"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web Python
+# <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Guida di avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Python
 
 Questa guida di avvio rapido descrive come integrare un'app Web Python con Microsoft Identity Platform. L'app consentirà l'accesso di un utente, otterrà un token di accesso per chiamare l'API Microsoft Graph e creerà una richiesta all'API Microsoft Graph.
 
@@ -35,14 +35,13 @@ Ecco i prerequisiti per eseguire questo esempio:
 
 > [!div renderon="docs"]
 >
-> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida di avvio rapido
 >
 > Per avviare l'applicazione della guida di avvio rapido sono disponibili due opzioni: rapida (Opzione 1) e manuale (Opzione 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 >
-> 1. Passare a [Registrazioni app nel portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
-> 1. Selezionare **Nuova registrazione**.
+> 1. Passare a [Registrazioni app nel portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs).
 > 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione.
 >
@@ -59,8 +58,11 @@ Ecco i prerequisiti per eseguire questo esempio:
 > 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 >      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `python-webapp`.
 >      - In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
->      - Nell'elenco a discesa nella sezione **URI di reindirizzamento** selezionare la piattaforma **Web** e quindi impostare il valore su `http://localhost:5000/getAToken`.
->      - Selezionare **Registra**. Nella pagina **Panoramica** dell'app prendere nota del valore del campo **ID applicazione (client)** per uso successivo.
+>      - Selezionare **Registra**.
+>      - Nella pagina **Panoramica** dell'app prendere nota del valore del campo **ID applicazione (client)** per uso successivo.
+> 1. Selezionare **Autenticazione** dal menu e quindi aggiungere le informazioni seguenti:
+>    - Aggiungere la configurazione della piattaforma **Web**. Aggiungere `http://localhost:5000/getAToken` come valore di **URI di reindirizzamento**.
+>    - Selezionare **Salva**.
 > 1. Nel menu a sinistra scegliere **Certificati e segreti** e fare clic su **Nuovo segreto client** nella sezione **Segreti client**:
 >
 >      - Digitare una descrizione della chiave, ad esempio app secret.
@@ -99,13 +101,17 @@ Ecco i prerequisiti per eseguire questo esempio:
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Scaricare il codice di esempio](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > `Enter_the_Supported_Account_Info_Here`
+
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-application"></a>Passaggio 3: Configurare l'applicazione
-> 
+>
 > 1. Estrarre il file con estensione zip in una cartella locale vicina alla cartella radice, ad esempio **C:\Azure-Samples**
 > 1. Se si usa un IDE (Integrated Development Environment), aprire l'esempio al suo interno.
 > 1. Aprire il file **app_config.py**, presente nella cartella radice e sostituirne il contenuto con il frammento di codice seguente:
-> 
+>
 > ```python
 > CLIENT_ID = "Enter_the_Application_Id_here"
 > CLIENT_SECRET = "Enter_the_Client_Secret_Here"
@@ -135,7 +141,7 @@ Ecco i prerequisiti per eseguire questo esempio:
     python app.py
     ```
    > [!IMPORTANT]
-   > Questa applicazione della guida introduttiva usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni sull'uso di un certificato, vedere [queste istruzioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+   > Questa applicazione della guida di avvio rapido usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni sull'uso di un certificato, vedere [queste istruzioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## <a name="more-information"></a>Ulteriori informazioni
 

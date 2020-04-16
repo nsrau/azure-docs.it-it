@@ -4,12 +4,12 @@ description: In questa esercitazione si apprenderà come usare PowerShell per di
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75551719"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756046"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster di Service Fabric che esegue Windows in una rete virtuale di Azure
 
@@ -156,7 +156,7 @@ Nel file dei parametri [azuredeploy.parameters.json][parameters] vengono dichiar
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Configurare l'autenticazione client di Azure Active Directory
 Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azure, la raccomandazione per l'autenticazione reciproca client-nodo è:
 * Usare Azure Active Directory per l'identità del client.
-* Usare un certificato per l'identità del server e la crittografia SSL della comunicazione HTTP.
+* Usare un certificato per l'identità del server e la crittografia TLS della comunicazione HTTP.
 
 È necessario configurare Azure Active Directory (Azure AD) per autenticare i client per un cluster di Service Fabric prima di [creare il cluster](#createvaultandcert). Azure AD consente alle organizzazioni (note come tenant) di gestire l'accesso degli utenti alle applicazioni. 
 

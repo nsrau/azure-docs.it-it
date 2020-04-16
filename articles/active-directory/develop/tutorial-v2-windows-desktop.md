@@ -1,26 +1,22 @@
 ---
-title: Introduzione all'uso di Microsoft Identity Platform con un'app Windows Desktop | Microsoft Docs
+title: Introduzione all'uso di Microsoft Identity Platform con un'app Windows Desktop
 description: Informazioni su come un'applicazione .NET per Windows Desktop (XAML) può ottenere un token di accesso e chiamare un'API protetta da Microsoft Identity Platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa09d06af4706af3ae120f62a897c0bc632fb657
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129917"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990940"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chiamare l'API Microsoft Graph da un'app Windows Desktop
 
@@ -89,14 +85,14 @@ Per creare l'applicazione, eseguire le operazioni seguenti:
 
 È possibile registrare l'applicazione in uno dei due modi descritti di seguito.
 
-### <a name="option-1-express-mode"></a>Opzione 1: Modalità rapida
+### <a name="option-1-express-mode"></a>Opzione 1: modalità Rapida
 
 È possibile registrare rapidamente l'applicazione seguendo questa procedura:
 1. Passare alla [registrazione delle applicazioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
 
-### <a name="option-2-advanced-mode"></a>Opzione 2: Modalità avanzata
+### <a name="option-2-advanced-mode"></a>Opzione 2: modalità Avanzata
 
 Per registrare l'applicazione e aggiungere le relative informazioni di registrazione alla soluzione, seguire questa procedura:
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
@@ -109,7 +105,7 @@ Per registrare l'applicazione e aggiungere le relative informazioni di registraz
 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
    1. Nella sezione **URI di reindirizzamento**, nell'elenco URI di reindirizzamento:
    1. Nella colonna **TIPO** selezionare **Client pubblico (per dispositivi mobili e desktop)** .
-   1. Immettere **nella colonna**URI DI REINDIRIZZAMENTO`https://login.microsoftonline.com/common/oauth2/nativeclient`
+   1. Immettere `https://login.microsoftonline.com/common/oauth2/nativeclient` nella colonna **URI DI REINDIRIZZAMENTO**
 1. Selezionare **Registra**.
 1. Passare a Visual Studio, aprire il file *App.xaml.cs* e quindi sostituire `Enter_the_Application_Id_here` nel frammento di codice seguente con l'ID applicazione appena registrato e copiato.
 
@@ -379,8 +375,3 @@ Oltre al token di accesso che viene usato per chiamare l'API Microsoft Graph, do
 <!--end-collapse-->
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
-
-Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
-
-> [!div class="nextstepaction"]
-> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

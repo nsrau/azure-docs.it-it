@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b28de7af16053093cd0108224188cdd615fce55
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73686342"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435511"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Esercitazione: Protezione delle risorse con Centro sicurezza di Azure
 Centro sicurezza di Azure limita l'esposizione a minacce usando i controlli di accesso e delle applicazioni per bloccare le attività dannose. L'accesso JIT (Just-in-Time) alle macchine virtuali riduce l'esposizione agli attacchi grazie alla possibilità di negare l'accesso permanente alle macchine virtuali. In alternativa, è possibile fornire l'accesso controllato alle macchine virtuali solo quando è necessario. I controlli delle applicazioni adattivi consentono di applicare la protezione avanzata delle macchine virtuali contro il malware controllando quali applicazioni possono essere eseguite nelle macchine virtuali. Il Centro sicurezza usa Machine Learning per analizzare i processi in esecuzione nella macchina virtuale e, grazie a questa funzionalità intelligente, aiuta ad applicare regole di inserimento nell'elenco elementi consentiti.
@@ -30,8 +30,8 @@ In questa esercitazione si apprenderà come:
 > * Configurare i criteri di accesso JIT alle macchine virtuali
 > * Configurazione dei criteri di controllo delle applicazioni
 
-## <a name="prerequisites"></a>Prerequisites
-Per esaminare le funzionalità descritte in questa esercitazione è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). La [Guida introduttiva per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.
+## <a name="prerequisites"></a>Prerequisiti
+Per esaminare le funzionalità descritte in questa esercitazione è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). La [Guida di avvio rapido per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.
 
 ## <a name="manage-vm-access"></a>Gestire l'accesso alle macchine virtuali
 L'accesso JIT alle macchine virtuali può essere usato per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e al tempo stesso offrendo un facile accesso per connettersi alle macchine virtuali quando necessario.
@@ -110,7 +110,7 @@ Se si vuole disabilitare il provisioning automatico:
 4. Selezionare **Salva**.
 
 >[!NOTE]
-> La disabilitazione del provisioning automatico non rimuove Microsoft Monitoring Agent dalle macchine virtuali di Azure in cui è stato eseguito il provisioning dell'agente. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
+> La disabilitazione del provisioning automatico non implica la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure in cui è stato eseguito il provisioning dell'agente. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -123,7 +123,7 @@ In questa esercitazione è stato descritto come limitare l'esposizione a minacce
 Passare all'esercitazione successiva per informazioni su come rispondere agli eventi imprevisti relativi alla sicurezza.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Respond to security incidents](tutorial-security-incident.md) (Esercitazione: Rispondere agli eventi imprevisti della sicurezza)
+> [Esercitazione: Rispondere agli eventi imprevisti relativi alla sicurezza](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

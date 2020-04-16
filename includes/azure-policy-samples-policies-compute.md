@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 04/03/2020
 ms.author: dacoulte
-ms.openlocfilehash: 1acbcdf1aeed383591626c083f3335d9d7cf61c1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e65d24b30cecdbabefabc652c7c864205414d5a6
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79381795"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758570"
 ---
 |Nome |Descrizione |Effetto/i |Versione |GitHub |
 |---|---|---|---|---|
 |[SKU di macchine virtuali consentiti](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcccc23c7-8427-4f53-ad12-b6a63eb452b3) |Questo criterio consente di specificare un set di SKU di macchine virtuali che possono essere distribuiti dall'organizzazione. |Nega |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSkusAllowed_Deny.json)
-|[Controlla macchine virtuali in cui non è configurato il ripristino di emergenza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Controlla le macchine virtuali in cui non è configurato il ripristino di emergenza. Per altre informazioni sul ripristino di emergenza, vedere https://aka.ms/asr-doc. |auditIfNotExists |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json)
+|[Controlla macchine virtuali in cui non è configurato il ripristino di emergenza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Controlla le macchine virtuali in cui non è configurato il ripristino di emergenza. Per altre informazioni sul ripristino di emergenza, vedere [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |auditIfNotExists |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json)
 |[Controlla macchine virtuali che non usano dischi gestiti](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06a78e20-9358-41c9-923c-fb736d382a4d) |Questo criterio controlla le macchine virtuali che non usano dischi gestiti |controllo |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json)
 |[Distribuisci estensione IaaSAntimalware Microsoft predefinita per Windows Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2835b622-407b-4114-9198-6f7064cbe0dc) |Questo criterio distribuisce un'estensione IaaSAntimalware Microsoft con una configurazione predefinita quando in una macchina virtuale non è configurata l'estensione antimalware. |deployIfNotExists |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMAntimalwareExtension_Deploy.json)
 |[È consigliabile abilitare i log di diagnostica nei set di scalabilità di macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) |È consigliabile abilitare i log per poter ricreare la traccia delle attività quando sono necessarie indagini in caso di evento imprevisto o compromissione. |AuditIfNotExists, Disabled |1.0.0 |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ServiceFabric_and_VMSS_AuditVMSSDiagnostics.json)

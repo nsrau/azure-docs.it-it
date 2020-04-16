@@ -1,27 +1,27 @@
 ---
-title: Guida introduttiva di Azure - Creare un account di Automazione di Azure | Microsoft Docs
+title: Guida di avvio rapido di Azure - Creare un account di Automazione di Azure | Microsoft Docs
 description: Informazioni su come creare un account di Automazione di Azure ed eseguire un runbook
 services: automation
 ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: a2d15dd520db16012f530d2ac6188a4642c89795
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 92b49197cc18133c9b67222a90546776f050163b
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75421651"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437916"
 ---
 # <a name="create-an-azure-automation-account"></a>Creare un account di Automazione di Azure
 
-È possibile creare account di Automazione di Azure tramite Azure. Questo metodo fornisce un'interfaccia utente basata sul browser per la creazione e la configurazione degli account di Automazione e delle risorse correlate. Questa guida introduttiva illustra la creazione di un account di Automazione e l'esecuzione di un runbook nell'account.
+È possibile creare account di Automazione di Azure tramite Azure. Questo metodo fornisce un'interfaccia utente basata sul browser per la creazione e la configurazione degli account di Automazione e delle risorse correlate. Questa guida di avvio rapido illustra la creazione di un account di Automazione e l'esecuzione di un runbook nell'account.
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere ad Azure all'indirizzo https://portal.azure.com
+[Accedere ad Azure](https://portal.azure.com)
 
 ## <a name="create-automation-account"></a>Creare l'account di Automazione
 
@@ -60,8 +60,8 @@ Eseguire uno dei runbook di esercitazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato distribuito un account di Automazione, è stato avviato il processo di un runbook e sono stati visualizzati i risultati del processo. Per altre informazioni su Automazione di Azure, passare alla guida introduttiva sulla creazione del primo runbook.
+In questa guida di avvio rapido è stato distribuito un account di Automazione, è stato avviato il processo di un runbook e sono stati visualizzati i risultati del processo. Per altre informazioni su Automazione di Azure, passare alla guida di avvio rapido sulla creazione del primo runbook.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva di Automazione - Creare un runbook](./automation-quickstart-create-runbook.md)
+> [Guida di avvio rapido di Automazione - Creare un runbook](./automation-quickstart-create-runbook.md)
 

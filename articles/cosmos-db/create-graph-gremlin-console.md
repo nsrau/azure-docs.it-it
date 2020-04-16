@@ -1,20 +1,20 @@
 ---
 title: "Eseguire query con l'API Gremlin di Azure Cosmos DB usando la console TinkerPop Gremlin: Esercitazione"
-description: Guida introduttiva ad Azure Cosmos DB per creare vertici, archi e query usando l'API Gremlin di Azure Cosmos DB.
+description: Guida di avvio rapido ad Azure Cosmos DB per creare vertici, archi e query usando l'API Gremlin di Azure Cosmos DB.
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 78dfbabdcddaafefe77711e8f7b0ea1028f15c58
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 597766774be15abdc7cb7836f2a23ef490b11926
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77117920"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547193"
 ---
-# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Guida introduttiva: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Guida di avvio rapido: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -59,7 +59,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
     port|443|Impostare su 443.
     username|*Nome utente*|Risorsa nel formato `/dbs/<db>/colls/<coll>`, dove `<db>` è il nome del database e `<coll>` è il nome della raccolta.
     password|*Chiave primaria*| Vedere il secondo screenshot di seguito. Si tratta della chiave primaria, che può essere recuperata dalla pagina Chiavi del portale di Azure nella casella Chiave primaria. Per copiare il valore, usare il pulsante di copia a sinistra della casella.
-    connectionPool|{enableSsl: true}|Impostazione del pool di connessioni per SSL.
+    connectionPool|{enableSsl: true}|Impostazione del pool di connessioni per TLS.
     serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Impostare questo valore ed eliminare qualsiasi interruzione di riga `\n` quando si incolla il valore.
 
     Per il valore Hosts copiare il valore **URI Gremlin** dalla pagina **Panoramica**: ![Visualizzare e copiare il valore dell'URI Gremlin nella pagina Panoramica del portale di Azure](./media/create-graph-gremlin-console/gremlin-uri.png)

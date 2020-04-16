@@ -6,14 +6,16 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 03/24/2020
-ms.openlocfilehash: cc0feff48e7da35535e30c6741994f48750d931a
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 8aedbba5d65281753ca61f13e7e1a28c856948ec
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80293510"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417794"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Esercitazioni video sul flusso di dati di mapping
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Di seguito è riportato un elenco di esercitazioni video sul flusso di dati per mapping create dal team di Azure Data Factory. 
 
@@ -92,6 +94,8 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 [Partizionare i file in data lake](https://youtu.be/VNWv-MvLQ_0)
 
 [Modello di caricamento di data warehouse](https://www.youtube.com/watch?v=7mLqwtmeQFg)
+
+[Opzioni di output del file Data Lake](https://www.youtube.com/watch?v=NAPSbjvSQA8)
 
 ## <a name="optimizing-mapping-data-flows"></a>Ottimizzazione dei flussi di dati per mapping
 

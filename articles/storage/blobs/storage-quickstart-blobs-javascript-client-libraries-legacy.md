@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Archiviazione BLOB di Azure per JavaScript v10 nel browser'
+title: 'Guida di avvio rapido: Archiviazione BLOB di Azure per JavaScript v10 nel browser'
 description: Informazioni su come caricare, elencare ed eliminare i BLOB usando l'SDK JavaScript v10 in una pagina HTML.
 services: storage
 author: mhopkins-msft
@@ -9,16 +9,16 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: da5db7d956b1ba8aa1ac245b77fe0d4cb31909c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061454"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619120"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Guida introduttiva: Gestire i BLOB con JavaScript v10 SDK nel browser
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Guida di avvio rapido: Gestire i BLOB con JavaScript v10 SDK nel browser
 
 In questo argomento di avvio rapido viene illustrato come gestire i BLOB usando codice JavaScript eseguito interamente nel browser. I BLOB sono oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Verranno usate le misure di sicurezza necessarie per garantire l'accesso protetto all'account di archiviazione BLOB.
 
@@ -34,7 +34,7 @@ In questo argomento di avvio rapido viene illustrato come gestire i BLOB usando 
 
 Prima che l'applicazione Web possa accedere a un archivio BLOB dal client, l'account deve essere configurato per abilitare la [condivisione di risorse tra le origini](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (CORS).
 
-Tornare al portale di Azure e selezionare l'account di archiviazione. Per definire una nuova regola CORS, passare alla sezione **Impostazioni** e fare clic sul collegamento **CORS**. Fare quindi clic sul pulsante **Aggiungi** per aprire la finestra **Aggiungi regola CORS**. Per questa guida introduttiva viene creata una regola CORS aperta:
+Tornare al portale di Azure e selezionare l'account di archiviazione. Per definire una nuova regola CORS, passare alla sezione **Impostazioni** e fare clic sul collegamento **CORS**. Fare quindi clic sul pulsante **Aggiungi** per aprire la finestra **Aggiungi regola CORS**. Per questa guida di avvio rapido viene creata una regola CORS aperta:
 
 ![Impostazioni CORS dell'account di archiviazione BLOB di Azure](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
@@ -43,13 +43,13 @@ La tabella seguente descrive ogni impostazione CORS e spiega i valori usati per 
 |Impostazione  |valore  | Descrizione |
 |---------|---------|---------|
 | Origini consentite | * | Accetta un elenco delimitato da virgole dei domini impostati come origini accettabili. Impostando il valore su `*`, tutti i domini potranno accedere all'account di archiviazione. |
-| Metodi consentiti     | delete, get, head, merge, post, options e put | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida introduttiva, selezionare tutte le opzioni disponibili. |
+| Metodi consentiti     | delete, get, head, merge, post, options e put | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida di avvio rapido, selezionare tutte le opzioni disponibili. |
 | Intestazioni consentite | * | Definisce un elenco di intestazioni della richiesta (comprese le intestazioni con prefisso) consentite per l'account di archiviazione. Impostando il valore su `*`, tutte le intestazioni potranno accedere. |
 | Intestazioni esposte | * | Elenca le intestazioni di risposta consentite dall'account. Impostando il valore su `*`, l'account potrà inviare qualsiasi intestazione.  |
 | Tempo trascorso massimo (secondi) | 86400 | Periodo massimo di memorizzazione della richiesta OPTIONS preliminare nella cache di un browser. Il valore *86400* consente la conservazione della cache per un giorno intero. |
 
 > [!IMPORTANT]
-> Verificare che le impostazioni usate nell'ambiente di produzione espongano l'accesso minimo necessario all'account di archiviazione per mantenere un accesso sicuro. Le impostazioni CORS descritte in questo documento sono appropriate per una guida introduttiva perché definiscono criteri di sicurezza flessibili. Queste impostazioni, tuttavia, non sono consigliate per un contesto reale.
+> Verificare che le impostazioni usate nell'ambiente di produzione espongano l'accesso minimo necessario all'account di archiviazione per mantenere un accesso sicuro. Le impostazioni CORS descritte in questo documento sono appropriate per una guida di avvio rapido perché definiscono criteri di sicurezza flessibili. Queste impostazioni, tuttavia, non sono consigliate per un contesto reale.
 
 Usare quindi Azure Cloud Shell per creare un token di sicurezza.
 
@@ -63,7 +63,7 @@ La firma di accesso condiviso viene usata dal codice in esecuzione nel browser p
 
 | Parametro      |Descrizione  | Segnaposto |
 |----------------|-------------|-------------|
-| *expiry*       | Data di scadenza del token di accesso nel formato AAAA-MM-GG. Immettere la data di domani per questa guida introduttiva. | *FUTURE_DATE* |
+| *expiry*       | Data di scadenza del token di accesso nel formato AAAA-MM-GG. Immettere la data di domani per questa guida di avvio rapido. | *FUTURE_DATE* |
 | *account-name* | nome dell'account di archiviazione. Usare il nome copiato in un passaggio precedente. | *YOUR_STORAGE_ACCOUNT_NAME* |
 | *account-key*  | Chiave dell'account di archiviazione. Usare la chiave copiata in un passaggio precedente. | *YOUR_STORAGE_ACCOUNT_KEY* |
 
@@ -90,7 +90,7 @@ La serie di valori dopo ogni parametro può risultare di difficile interpretazio
 Una volta generata la firma di accesso condiviso, copiare il valore restituito e salvarlo dove si preferisce per usarlo in un passaggio successivo. Se la firma di accesso condiviso è stata generata con un metodo diverso dall'interfaccia della riga di comando di Azure, è necessario rimuovere il carattere `?` iniziale, se presente. Questo carattere è un separatore di URL già fornito nel modello di URL in cui viene usata la firma di accesso condiviso, più avanti in questo argomento.
 
 > [!IMPORTANT]
-> Nell'ambiente di produzione, passare i token di firma di accesso condiviso usando sempre SSL. I token di firma di accesso condiviso devono essere generati nel server e inviati alla pagina HTML per poter essere passati di nuovo all'archivio BLOB di Azure. È possibile prendere in considerazione l'uso di una funzione senza server per generare token di firma di accesso condiviso. Il portale di Azure include modelli di funzioni che consentono di generare una firma di accesso condiviso con una funzione JavaScript.
+> Nell'ambiente di produzione passare i token di firma di accesso condiviso usando sempre TLS. I token di firma di accesso condiviso devono essere generati nel server e inviati alla pagina HTML per poter essere passati di nuovo all'archivio BLOB di Azure. È possibile prendere in considerazione l'uso di una funzione senza server per generare token di firma di accesso condiviso. Il portale di Azure include modelli di funzioni che consentono di generare una firma di accesso condiviso con una funzione JavaScript.
 
 ## <a name="implement-the-html-page"></a>Implementare la pagina HTML
 

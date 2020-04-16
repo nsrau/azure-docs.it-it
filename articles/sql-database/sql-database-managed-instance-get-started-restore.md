@@ -11,16 +11,16 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b12aa860bee189f706bd98df63fc194a3a0cc71
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73825698"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874705"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Guida introduttiva: Ripristinare un database in un'istanza gestita
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Guida di avvio rapido: Ripristinare un database in un'istanza gestita
 
-In questa guida introduttiva si userà SQL Server Management Studio (SSMS) per ripristinare un database (file di backup standard di Wide World Importers) dall'archivio BLOB di Azure a [Istanza gestita](sql-database-managed-instance.md) di database SQL di Azure.
+In questa guida di avvio rapido si userà SQL Server Management Studio (SSMS) per ripristinare un database (file di backup standard di Wide World Importers) dall'archivio BLOB di Azure a [Istanza gestita](sql-database-managed-instance.md) di database SQL di Azure.
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
@@ -30,9 +30,9 @@ In questa guida introduttiva si userà SQL Server Management Studio (SSMS) per r
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-La guida introduttiva:
+La guida di avvio rapido:
 
-- Usa le risorse della Guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
+- Usa le risorse della Guida di avvio rapido [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 - Richiede che nel computer in uso sia installata la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms).
 - Richiede l'uso di SSMS per connettersi all'istanza gestita. Per informazioni su come effettuare la connessione, vedere queste guide introduttive:
   - [Abilitare l'endpoint pubblico](sql-database-managed-instance-public-endpoint-configure.md) in un'istanza gestita. È l'approccio consigliato per questa esercitazione.
@@ -46,7 +46,7 @@ La guida introduttiva:
 
 In SSMS seguire questa procedura per ripristinare il database Wide World Importers nell'istanza gestita. Il file di backup del database è archiviato in un account di archiviazione BLOB di Azure preconfigurato.
 
-1. Aprire SMSS e connettersi all'istanza gestita.
+1. Aprire SSMSS e connettersi all'istanza gestita.
 2. Nel menu a sinistra fare clic con il pulsante destro del mouse sull'istanza gestita e selezionare **Nuova query** per aprire una nuova finestra di query.
 3. Eseguire lo script SQL seguente, che usa un account di archiviazione preconfigurato e una chiave di firma di accesso condiviso per [creare le credenziali](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) nell'istanza gestita.
 

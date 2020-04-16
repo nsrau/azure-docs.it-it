@@ -1,10 +1,9 @@
 ---
-title: Creare un tenant di Azure Active Directory | Microsoft Docs
+title: Creare un tenant di Azure Active Directory
 description: Informazioni su come creare un tenant di Azure AD per la registrazione e la creazione di applicazioni.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -13,14 +12,14 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 1d2140ca0064e2eb6b12726bcee7bf5362de8fbe
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0e2247e94b20846f19c2ed26c96a5dc53972e770
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79408284"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883814"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Guida introduttiva: Configurare un tenant
+# <a name="quickstart-set-up-a-tenant"></a>Guida di avvio rapido: Configurare un tenant
 
 Microsoft Identity Platform consente agli sviluppatori di creare app che si rivolgono a un'ampia gamma di identità e ambienti Microsoft 365 personalizzati. Per iniziare a usare Microsoft Identity Platform occorre accedere a un ambiente, detto anche tenant di Azure AD, in grado di registrare e gestire le app, accedere ai dati di Microsoft 365 e distribuire le restrizioni di accesso condizionale e tenant personalizzate.
 
@@ -35,7 +34,7 @@ Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e 
 * account aziendali, e dell'istituto di istruzione (account di Azure AD) o account Microsoft (ad esempio outlook.com e live.com).
 * Account di social e locali (Azure AD B2C)
 
-La guida introduttiva è suddivisa in due scenari a seconda del tipo di app che si vuole creare. Per altro supporto su come definire come target un tipo di identità, vedere [Microsoft Identity Platform](about-microsoft-identity-platform.md).
+La guida di avvio rapido è suddivisa in due scenari a seconda del tipo di app che si vuole creare. Per altro supporto su come definire come target un tipo di identità, vedere [Microsoft Identity Platform](about-microsoft-identity-platform.md).
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Account aziendali e dell'istituto di istruzione o account Microsoft personali
 

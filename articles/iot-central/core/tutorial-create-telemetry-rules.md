@@ -3,23 +3,23 @@ title: "Esercitazione: Creare e gestire le regole nell'applicazione Azure IoT Ce
 description: Questa esercitazione illustra come usare le regole di Azure IoT Central per il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica quando la regola si attiva.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f61a41fa89c7006341db928472f6b20d272bc550
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77167463"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999049"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Esercitazione: Creare una regola e configurare le notifiche nell'applicazione Azure IoT Central
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
-È possibile usare Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono di monitorare i dispositivi quasi in tempo reale e di richiamare automaticamente azioni quali l'invio di un messaggio di posta elettronica. Con pochi clic è possibile definire una condizione per monitorare i dati di telemetria del dispositivo e configurare un'azione corrispondente. Questo articolo illustra come creare regole che consentono di monitorare i dati di telemetria inviati dal dispositivo.
+È possibile usare Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono di monitorare i dispositivi quasi in tempo reale e di richiamare automaticamente le azioni, ad esempio l'invio di un messaggio di posta elettronica. Questo articolo illustra come creare regole che consentono di monitorare i dati di telemetria inviati dal dispositivo.
 
 I dispositivi usano la telemetria per l'invio di dati numerici dal dispositivo. Una regola viene attivata quando i dati di telemetria del dispositivo selezionato superano una soglia specificata.
 
@@ -34,11 +34,11 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessario completare gli argomenti di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo **MXChip IoT DevKit** da usare.
+Prima di iniziare, completare le guide di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-simulated-device.md) per creare il modello di dispositivo **MXChip IoT DevKit** da usare.
 
 ## <a name="create-a-rule"></a>Creare una regola
 
-Per creare una regola di telemetria, il modello di dispositivo deve disporre di misurazione di almeno una telemetria definita. Questa esercitazione usa un dispositivo di tipo sensore ambientale che invia dati di telemetria relativi a temperatura e umidità. Nell'argomento di avvio rapido [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) è stato aggiunto questo modello di dispositivo ed è stato creato un dispositivo simulato. La regola esegue il monitoraggio della temperatura segnalata dal dispositivo e invia un messaggio di posta elettronica quando la temperatura supera un determinato valore, ad esempio 70 gradi.
+Per creare una regola di telemetria, il modello di dispositivo deve includere almeno un valore di telemetria. Questa esercitazione usa un dispositivo **MXChip IoT DevKit** che invia dati di telemetria relativi a temperatura e umidità. Nell'argomento di avvio rapido [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-simulated-device.md) è stato aggiunto questo modello di dispositivo ed è stato creato un dispositivo simulato. La regola esegue il monitoraggio della temperatura segnalata dal dispositivo e invia un messaggio di posta elettronica quando la temperatura supera un determinato valore, ad esempio 70 gradi.
 
 1. Nel riquadro sinistro selezionare **Regole**.
 
@@ -66,8 +66,8 @@ Le condizioni definiscono i criteri monitorati dalla regola. In questa esercitaz
 
 1. Facoltativamente, è possibile impostare un valore per **Aggregazione temporale**. Quando si seleziona un'aggregazione temporale, è necessario selezionare anche un tipo di aggregazione dall'elenco a discesa Aggregazione, ad esempio Media o Somma.
 
-    * Senza aggregazione, la regola viene attivata per ogni punto dati di telemetria che soddisfa la condizione. Se ad esempio la regola è configurata per attivarsi quando la temperatura è superiore a 70, si attiva quasi immediatamente quando il dispositivo segnala una temperatura > 70.
-    * Con l'aggregazione, la regola si attiva se il valore di aggregazione dei punti dati di telemetria nella finestra dei valori temporali soddisfa la condizione. Se ad esempio la regola è configurata per attivarsi quando la temperatura è superiore a 70, l'aggregazione temporale è impostata su 10 minuti e il tipo di aggregazione è impostato su Media, la regola si attiva quando il dispositivo segnala una temperatura media > 70, calcolata in un intervallo di tempo di 10 minuti.
+    * Senza aggregazione, la regola viene attivata per ogni punto dati di telemetria che soddisfa la condizione. Se ad esempio si configura la regola per attivarsi quando la temperatura è superiore a 70, si attiva quasi immediatamente quando la temperatura del dispositivo supera questo valore.
+    * Con l'aggregazione, la regola si attiva se il valore di aggregazione dei punti dati di telemetria nella finestra dei valori temporali soddisfa la condizione. Se ad esempio si configura la regola per attivarsi quando la temperatura è superiore a 70 e con un'aggregazione temporale media di 10 minuti, la regola si attiva quando il dispositivo segnala una temperatura media maggiore di 70, calcolata in un intervallo di tempo di 10 minuti.
 
      ![Condizione di aggregazione](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
@@ -100,11 +100,11 @@ Quando una regola non è più necessaria, eliminarla aprendo la regola e sceglie
 
 ## <a name="enable-or-disable-a-rule"></a>Abilitare o disabilitare una regola
 
-Scegliere la regola che si intende abilitare o disabilitare. Attivare o disattivare il pulsante **Abilita** o **Disabilita** nella regola per abilitarla o disabilitarla per tutti i dispositivi a cui si applica la regola.
+Scegliere la regola che si intende abilitare o disabilitare. Attivare o disattivare il pulsante **Abilitata/Disabilitata** nella regola per abilitarla o disabilitarla per tutti i dispositivi a cui si applica la regola.
 
-## <a name="enable-or-disable-a-rule-for-a-device"></a>Abilitare o disabilitare una regola per un dispositivo
+## <a name="enable-or-disable-a-rule-for-specific-devices"></a>Abilitare o disabilitare una regola per dispositivi specifici
 
-Scegliere la regola che si intende abilitare o disabilitare. Aggiungere un filtro nella sezione **Ambiti** per includere o escludere un dispositivo specifico nel modello di dispositivo.
+Scegliere la regola che si vuole personalizzare. Usare uno o più filtri nella sezione **Dispositivi di destinazione** per limitare l'ambito della regola ai dispositivi da monitorare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
 title: Creare un'app Java con l'API Cassandra di Azure Cosmos DB
-description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e Java
+description: Questa guida di avvio rapido illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e Java
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5a21f36136c6f1d77a2e9cb9108f539c9fb39334
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 124bbcedceffca318367799441f66e330bc41fef
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77134878"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811321"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Guida introduttiva: Creare un'app Java per gestire i dati dell'API Cassandra di Azure Cosmos DB
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Guida di avvio rapido: Creare un'app Java per gestire i dati dell'API Cassandra di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -66,7 +66,7 @@ Si può ora passare a usare il codice. Clonare un'app Cassandra da GitHub, impos
 
 Questo passaggio è facoltativo. Per comprendere in che modo il codice crea le risorse del database, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string). Questi frammenti di codice sono tutti tratti dal file *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java*.  
 
-* Vengono impostate le opzioni per host, porta, nome utente, password e SSL di Cassandra. Le informazioni per la stringa di connessione derivano dalla pagina della stringa di connessione nel portale di Azure.
+* Vengono impostate le opzioni per host, porta, nome utente, password e TLS/SSL di Cassandra. Le informazioni per la stringa di connessione derivano dalla pagina della stringa di connessione nel portale di Azure.
 
    ```java
    cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
@@ -168,18 +168,18 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
-5. Nella riga 6, se si vuole usare un certificato SSL specifico, sostituire `<SSL key store file location>` con il percorso del certificato SSL. Se non viene fornito un valore, viene usato il certificato JDK installato in <JAVA_HOME>/jre/lib/security/cacerts. 
+5. Nella riga 6, se si vuole usare un certificato TLS/SSL specifico, sostituire `<SSL key store file location>` con il percorso del certificato TLS/SSL. Se non viene fornito un valore, viene usato il certificato JDK installato in <JAVA_HOME>/jre/lib/security/cacerts. 
 
-6. Se la riga 6 è stata modificata per usare un certificato SSL specifico, aggiornare la riga 7 per usare la password per tale certificato. 
+6. Se la riga 6 è stata modificata per usare un certificato TLS/ specifico, aggiornare la riga 7 in modo da usare la password per tale certificato. 
 
 7. Salvare il file *config.properties*.
 
 ## <a name="run-the-java-app"></a>Eseguire l'app Java
 
-1. Nella finestra del terminale Git passare con il comando `cd` alla cartella `azure-cosmosdb-cassandra-java-getting-started\java-examples`.
+1. Nella finestra del terminale Git passare con il comando `cd` alla cartella `azure-cosmosdb-cassandra-java-getting-started`.
 
     ```git
-    cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples"
+    cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started"
     ```
 
 2. Nella finestra del terminale Git usare il comando seguente per generare il file `cosmosdb-cassandra-examples.jar`.

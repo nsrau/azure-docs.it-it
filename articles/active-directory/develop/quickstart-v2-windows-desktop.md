@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido per l'uso di Microsoft Identity Platform con un'app Windows Desktop | Microsoft Docs
+title: Avvio rapido per l'uso di Microsoft Identity Platform con un'app Windows Desktop
 description: Informazioni su come un'applicazione .NET per Windows Desktop (XAML) può ottenere un token di accesso e chiamare un'API protetta da un endpoint di Microsoft Identity Platform
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 34d9af03b42df4a2806e82bb1e1fa376f099ae4c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1c66779dc726c3c6366bc03282d5d3c2bdc8134a
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78271069"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991042"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
 
@@ -75,7 +75,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
@@ -178,8 +178,3 @@ Provare l'esercitazione di Windows Desktop per una guida dettagliata completa su
 
 > [!div class="nextstepaction"]
 > [Esercitazione sulla chiamata dell'API Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
-
-Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
-
-> [!div class="nextstepaction"]
-> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

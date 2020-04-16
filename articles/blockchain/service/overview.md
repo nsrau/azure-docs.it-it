@@ -1,15 +1,15 @@
 ---
 title: Panoramica del servizio Azure Blockchain
 description: Panoramica del servizio Azure Blockchain
-ms.date: 03/12/2020
+ms.date: 03/30/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 821bac0da13209e5126f5bab109aa0895ade840a
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205081"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529150"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Che cos'è il servizio Azure Blockchain?
 
@@ -19,7 +19,7 @@ Il servizio Azure Blockchain è un servizio di contabilità generale completamen
 * Gestione predefinita del consorzio
 * Sviluppo di contratti intelligenti con strumenti di sviluppo noti
 
-Il servizio Azure Blockchain è progettato per supportare più protocolli di contabilità generale. Attualmente, fornisce il supporto per [Quorum](https://www.goquorum.com/) di Ethereum che usa il meccanismo di consenso [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+Il servizio Azure Blockchain è progettato per supportare più protocolli di contabilità generale. Attualmente, fornisce il supporto per [Quorum](https://www.goquorum.com/) di Ethereum che usa il meccanismo di consenso [Istanbul Byzantine Fault Tolerance (IBFT)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 
 Queste funzionalità richiedono pochissima amministrazione e sono disponibili senza costi aggiuntivi. È possibile concentrarsi sullo sviluppo di app e sulla logica di business anziché allocare tempo e risorse per la gestione delle macchine virtuali e dell'infrastruttura. È inoltre possibile continuare a sviluppare le applicazioni con gli strumenti open source e la piattaforma di propria scelta, per fornire soluzioni senza dover acquisire nuove competenze.
 
@@ -33,7 +33,7 @@ Il servizio Azure Blockchain offre due livelli di servizio: *Di base* e *Standar
 
 ![Piani tariffari](./media/overview/pricing-tiers.png)
 
-Oltre a offrire due nodi di convalida, il livello *Standard* rende disponibili 2 *vCore* per ogni nodo della transazione e di convalida, mentre il livello Basic offre una configurazione vCore.  Con 2 vCore per i nodi della transazione e di convalida, 1 vCore può essere dedicato al libro mastro Quorum mentre il vCore può essere usato per altri servizi correlati all'infrastruttura, garantendo prestazioni ottimali per i carichi di lavoro della blockchain di produzione. Per altre informazioni sui prezzi, vedere [Prezzi di Servizio Azure Blockchain](https://azure.microsoft.com/pricing/details/blockchain-service).
+Oltre a offrire due nodi di convalida, il livello *Standard* rende disponibili due *vCore* per ogni nodo della transazione e di convalida, mentre il livello *Basic* offre una sola configurazione vCore.  Con 2 vCore per i nodi della transazione e di convalida, 1 vCore può essere dedicato al libro mastro Quorum mentre il vCore può essere usato per altri servizi correlati all'infrastruttura, garantendo prestazioni ottimali per i carichi di lavoro della blockchain di produzione. Per altre informazioni sui prezzi, vedere [Prezzi di Servizio Azure Blockchain](https://azure.microsoft.com/pricing/details/blockchain-service).
 
 ### <a name="security-and-maintenance"></a>Sicurezza e manutenzione
 

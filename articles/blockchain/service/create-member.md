@@ -1,15 +1,15 @@
 ---
 title: Creare un membro del servizio Azure Blockchain - Portale di Azure
 description: Creare un membro del servizio Azure Blockchain per un consorzio blockchain con il portale di Azure.
-ms.date: 03/12/2020
+ms.date: 03/30/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 3c468633a193d78fb1c017a756ee372c6feefb12
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4c3dabc6abdffd2fb08ece617545d8471955d130
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79203662"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529633"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Guida di avvio rapido: Creare un membro della blockchain del servizio Azure Blockchain usando il portale di Azure
 
@@ -36,7 +36,7 @@ Un membro del servizio Azure Blockchain è un nodo blockchain in una rete blockc
     Consorzio | Immettere un nome univoco per un nuovo consorzio. Se si accede a un consorzio tramite invito, scegliere il consorzio a cui si sta accedendo. Per altre informazioni sui consorzi, vedere [Consorzio del servizio Azure Blockchain](consortium.md).
     Nome | Scegliere un nome univoco per il membro del servizio Azure Blockchain. Il nome del membro della blockchain può contenere solo lettere minuscole e numeri. Il primo carattere deve essere una lettera. Il valore deve avere una lunghezza compresa tra 2 e 20 caratteri.
     Member account password (Password dell'account del membro) | La password dell'account del membro viene usata per crittografare la chiave privata per l'account Ethereum creato per il membro. L'account del membro account e la password dell'account del membro si usano per la gestione del consorzio.
-    Prezzi | Configurazione del nodo e costo del nuovo servizio. Selezionare il collegamento **Cambia** per scegliere tra i livelli **Standard** e **Basic**. Usare il livello *Basic* per lo sviluppo, il test e i modelli di verifica. Usare il livello *Standard* per le distribuzioni di produzione.
+    Prezzi | Configurazione del nodo e costo del nuovo servizio. Selezionare il collegamento **Cambia** per scegliere tra i livelli **Standard** e **Basic**. Usare il livello *Basic* per lo sviluppo, il test e i modelli di verifica. Usare il livello *Standard* per le distribuzioni di produzione. È necessario usare anche il livello *Standard* anche se si usa Blockchain Data Manager o si invia un volume elevato di transazioni private. Dopo la creazione di membri non è possibile passare dal piano tariffario Basic a quello Standard.
     Node password (Password del nodo) | La password per il nodo della transazione predefinito del membro. Usare la password per l'autenticazione di base quando ci si connette all'endpoint pubblico del nodo della transazione predefinito per il membro della blockchain.
 
 1. Selezionare **Rivedi e crea** per convalidare le impostazioni. Selezionare **Create** (Crea) per effettuare il provisioning del servizio. Il provisioning richiede circa 10 minuti.

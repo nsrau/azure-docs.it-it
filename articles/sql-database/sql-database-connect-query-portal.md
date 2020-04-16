@@ -12,14 +12,14 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
-ms.openlocfilehash: 5847ef3033d257faef4831785b8abd864d54e835
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c072161db7a477b7973571a18d4f686b1b9c6202
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79209590"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985678"
 ---
-# <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Guida introduttiva: Usare l'editor di query del portale di Azure per eseguire query su un database SQL
+# <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Guida di avvio rapido: Usare l'editor di query del portale di Azure per eseguire query su un database SQL
 
 L'editor di query è uno strumento del portale di Azure per l'esecuzione di query SQL sul database SQL di Azure o su Azure SQL Data Warehouse. 
 
@@ -175,7 +175,7 @@ Quando si usa l'editor di query è necessario tenere presente quanto segue.
 
 * L'editor di query usa le porte 443 e 1443 per comunicare. Assicurarsi di aver abilitato il traffico HTTPS in uscita su queste porte. È anche necessario aggiungere l'indirizzo IP in uscita per le regole del firewall consentite del server per accedere ai database e ai data warehouse.
 
-* L'editor di query funziona con Collegamento privato senza la necessità di aggiungere l'indirizzo IP del client al firewall del database SQL
+* Se si usa la connessione al collegamento privato, l'editor di query funziona senza dover aggiungere l'indirizzo IP del client nel firewall del database SQL.
 
 * Premendo **F5**, la pagina dell'editor di query verrà aggiornata e qualsiasi query in uso andrà persa.
 

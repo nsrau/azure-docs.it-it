@@ -1,19 +1,19 @@
 ---
 title: Informazioni sui set di scalabilità di macchine virtuali in Azure
 description: Informazioni sui set di scalabilità di macchine virtuali di Azure e sul ridimensionamento automatico delle applicazioni
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
-ms.author: manayar
-ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.author: mimckitt
+ms.openlocfilehash: 03e3c7b5c0696069729d3067faad8ceb91fc611f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76273700"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272543"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Che cosa sono i set di scalabilità delle macchine virtuali?
 I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono disponibilità elevata per le applicazioni e consentono di gestire in modo centralizzato, configurare e aggiornare un numero elevato di macchine virtuali. Con i set di scalabilità di macchine virtuali è possibile creare servizi su larga scala per aree quali calcolo, Big Data e carichi di lavoro contenitore.
@@ -27,7 +27,7 @@ I set di scalabilità di macchine virtuali di Azure offrono funzionalità di ges
 - **Facilità di creazione e gestione di più macchine virtuali**
     - Quando sono presenti molte macchine virtuali che eseguono un'applicazione, è importante mantenere una configurazione coerente in tutto l'ambiente. Per garantire prestazioni affidabili dell'applicazione, la dimensione della macchina virtuale, la configurazione del disco e l'installazione dell'applicazione devono corrispondere tra tutte le macchine virtuali.
     - Con i set di scalabilità, tutte le istanze di macchina virtuale vengono create dalla stessa configurazione e immagine del sistema operativo di base. Questo approccio consente di gestire facilmente centinaia di macchine virtuali senza ulteriori operazioni di configurazione o gestione di rete.
-    - I set di scalabilità supportano l'uso di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) per la distribuzione del traffico di livello 4 di base e di [Gateway applicazione di Azure](../application-gateway/application-gateway-introduction.md) per la distribuzione del traffico di livello 7 più avanzata e la terminazione SSL.
+    - I set di scalabilità supportano l'uso di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) per la distribuzione del traffico di livello 4 di base e di [Gateway applicazione di Azure](../application-gateway/application-gateway-introduction.md) per la distribuzione del traffico di livello 7 più avanzata e la terminazione TLS.
 
 - **Disponibilità elevata e resilienza delle applicazioni**
     - I set di scalabilità sono usati per eseguire più istanze di un'applicazione. Se una delle istanze di macchina virtuale presenta un problema, i clienti continuano ad accedere all'applicazione tramite una delle altre istanze di macchina virtuale, con un'interruzione minima.

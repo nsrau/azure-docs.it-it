@@ -1,6 +1,6 @@
 ---
 title: Eseguire l'onboarding di computer Linux nel Centro sicurezza di Azure | Microsoft Docs
-description: Questa guida introduttiva illustra come caricare i computer Linux nel Centro sicurezza.
+description: Questa guida di avvio rapido illustra come caricare i computer Linux nel Centro sicurezza.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b7181550fd76f158ec04e9779f4301bd74484e1
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73664488"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435972"
 ---
-# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guida introduttiva: Caricare i computer Linux nel Centro sicurezza di Azure
-Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning di un agente. L'agente è denominato Microsoft Monitoring Agent (MMA), ma è anche noto come agente OMS.
+# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guida di avvio rapido: Caricare i computer Linux nel Centro sicurezza di Azure
+Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning di un agente. Si tratta dell'agente di Log Analytics, noto anche come agente OMS.
 
 Questo avvio rapido mostra come installare l'agente in un computer Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
-Prima di iniziare questa guida introduttiva, è necessario essere nel piano tariffario Standard del Centro sicurezza. Vedere [Guida introduttiva per il Centro sicurezza di Azure](security-center-get-started.md) per istruzioni sull'aggiornamento. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+Prima di iniziare questa guida di avvio rapido, è necessario aver sottoscritto il piano tariffario Standard del Centro sicurezza. Vedere [Guida di avvio rapido per il Centro sicurezza di Azure](security-center-get-started.md) per istruzioni sull'aggiornamento. È possibile provare gratuitamente il piano tariffario Standard del Centro sicurezza. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-linux-computer"></a>Aggiungere un nuovo computer Linux
 

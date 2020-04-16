@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come creare un cluster Kubernetes con
 keywords: azure devops terraform servizio azure kubernetes kubernetes
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 0a193c8da6441a04f742894797521fe92f26b2e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7a84d7562e99e53ff7be75b7d40795cd3f9e203
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78945303"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618930"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Esercitazione: Creare un cluster Kubernetes con il servizio Azure Kubernetes usando Terraform
 
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 - **Configurare Terraform**: Seguire le indicazioni nell'articolo su [Terraform e configurazione dell'accesso ad Azure](terraform-install-configure.md)
 
-- **Entità servizio di Azure**: seguire le indicazioni riportate nella sezione relativa a **Creare l'entità servizio** nell'articolo [Creare entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Prendere nota dei valori di appId, displayName, password e tenant.
+- **Entità servizio di Azure**: seguire le indicazioni riportate nella sezione **Creare un'entità servizio** nell'articolo [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Prendere nota dei valori di appId, displayName, password e tenant.
 
 ## <a name="create-the-directory-structure"></a>Creare la struttura di directory
 

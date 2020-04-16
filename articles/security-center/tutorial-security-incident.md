@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74559194"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585776"
 ---
-# <a name="tutorial-respond-to-security-incidents"></a>Esercitazione: Rispondere agli eventi imprevisti della sicurezza
+# <a name="tutorial-respond-to-security-incidents"></a>Esercitazione: Rispondere agli eventi imprevisti per la sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence delle minacce per segnalare attività dannose. È anche possibile integrare nel Centro sicurezza gli avvisi generati da altri servizi e prodotti per la sicurezza e creare avvisi personalizzati in base a indicatori o origini di intelligence dell'utente. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
@@ -31,8 +31,8 @@ Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
-Per esaminare le funzionalità descritte in questa esercitazione è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). La [Guida introduttiva per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.
+## <a name="prerequisites"></a>Prerequisiti
+Per esaminare le funzionalità descritte in questa esercitazione è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). La [Guida di avvio rapido per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.
 
 ## <a name="scenario"></a>Scenario
 Contoso ha recentemente eseguito la migrazione di alcune delle risorse locali in Azure, inclusi alcuni carichi di lavoro e database SQL di linea di business basati sulle macchine virtuali. Il team di risposta agli eventi imprevisti della sicurezza di Contoso ha attualmente difficoltà nell'analisi dei problemi di sicurezza, data la mancanza di una intelligence di sicurezza integrata con gli attuali strumenti di risposta agli eventi imprevisti. Questa mancata integrazione costituisce un problema durante la fase di rilevamento (troppi falsi positivi) e durante le fasi di valutazione e diagnosi. Nell'ambito di questa migrazione, il team ha deciso di ricorrere al Centro sicurezza per risolvere questo problema.
@@ -114,7 +114,7 @@ Se si vuole disabilitare il provisioning automatico:
 4. Selezionare **Salva**.
 
 >[!NOTE]
-> La disabilitazione del provisioning automatico non rimuove Microsoft Monitoring Agent dalle macchine virtuali di Azure in cui è stato eseguito il provisioning dell'agente. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
+> La disabilitazione del provisioning automatico non implica la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure in cui è stato eseguito il provisioning dell'agente. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -124,8 +124,3 @@ In questa esercitazione sono state descritte le funzionalità del Centro sicurez
 > * Evento imprevisto della sicurezza, ovvero un'aggregazione degli avvisi relativi a una risorsa
 > * Mappa dell'indagine, ovvero una rappresentazione grafica delle entità collegate a un evento imprevisto o avviso di sicurezza
 > * Funzionalità di ricerca per trovare altre prove di sistemi compromessi
-
-Per altre informazioni sulla funzionalità di indagine del Centro sicurezza, vedere:
-
-> [!div class="nextstepaction"]
-> [Analizzare gli eventi imprevisti e gli avvisi](security-center-investigation.md)
