@@ -7,19 +7,19 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 559ce4d1500dc5f1b67a3b3dbdbeb5d8dda7e487
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79475802"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754292"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Azure Web Application Firewall nella rete di distribuzione dei contenuti di Azure
 
-Azure Web Application Firewall (WAF) nella rete di distribuzione dei contenuti di Azure (CDN) fornisce una protezione centralizzata per il contenuto Web. WAF protegge i servizi Web da exploit e vulnerabilità comuni. Mantiene una disponibilità elevata del servizio per gli utenti e consente di soddisfare i requisiti di conformità.
+Azure Web Application Firewall (WAF) nella rete di distribuzione dei contenuti di Azure (CDN) di Microsoft fornisce una protezione centralizzata per il contenuto Web. WAF protegge i servizi Web da exploit e vulnerabilità comuni. Mantiene una disponibilità elevata del servizio per gli utenti e consente di soddisfare i requisiti di conformità.
 
 > [!IMPORTANT]
-> WAF nella rete CDN di Azure è attualmente disponibile in anteprima pubblica e viene fornito con un contratto di servizio di anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.  Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> WAF nella rete CDN di Azure di Microsoft è attualmente disponibile in anteprima pubblica e viene fornito con un contratto di servizio di anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.  Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 WAF nella rete CDN di Azure è una soluzione globale centralizzata, distribuita nei percorsi di rete perimetrale di Azure in tutto il mondo. WAF ferma gli eventuali attacchi in prossimità delle fonti di attacco, prima che raggiungano la propria origine, offrendo protezione globale su larga scala senza compromettere le prestazioni. 
 

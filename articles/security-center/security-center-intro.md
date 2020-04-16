@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77918758"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879548"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -49,7 +49,7 @@ Per garantire la protezione da questi problemi, Centro sicurezza offre gli strum
 
 Poiché Centro sicurezza è nativo in Azure, i servizi PaaS di Azure, come Service Fabric, i database SQL e gli account di archiviazione, vengono monitorati e protetti da Centro sicurezza senza necessità di distribuzione.
 
-Inoltre, Centro sicurezza protegge i server e le macchine virtuali non di Azure nel cloud o in locale, sia per i server di Windows che per quelli di Linux, installando Microsoft Monitoring Agent sui server stessi. Le macchine virtuali di Azure sono sottoposte a provisioning automatico in Centro sicurezza.
+Il Centro sicurezza protegge inoltre i server e le macchine virtuali non di Azure nel cloud o in locale, sia per i server di Windows che per quelli di Linux, installando l'agente di Log Analytics nei server stessi. Le macchine virtuali di Azure sono sottoposte a provisioning automatico in Centro sicurezza.
 
 Gli eventi raccolti dagli agenti e da Azure sono correlati nel motore di analisi della sicurezza per fornire raccomandazioni personalizzate (attività di protezione avanzata), che è necessario seguire per assicurarsi che i carichi di lavoro siano protetti, e avvisi di sicurezza. È necessario esaminare gli avvisi appena possibile per assicurarsi che non siano in corso attacchi dannosi ai carichi di lavoro.
 
@@ -127,7 +127,7 @@ Centro sicurezza consente di limitare l’esposizione agli attacchi di forza bru
 
 Centro sicurezza include funzionalità che consentono di classificare automaticamente i dati di SQL Azure. È anche possibile ottenere valutazioni per le potenziali vulnerabilità nei servizi di archiviazione e SQL di Azure e raccomandazioni su come attenuarle.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteggere i carichi di lavoro di cloud ibrido e IoT
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteggere i carichi di lavoro cloud ibridi e IoT
 
 Centro sicurezza di Azure per IoT (Internet delle cose) semplifica la protezione di carichi di lavoro ibridi offrendo visibilità unificata e controllo, prevenzione delle minacce adattiva, oltre a protezione e risposta intelligenti per le minacce in tutti i carichi di lavoro in esecuzione in dispositivi perimetrali, in locale, in Azure e in altri cloud. Per altre informazioni, vedere [Centro sicurezza di Azure per IOT](https://docs.microsoft.com/azure/asc-for-iot/).
 
@@ -146,5 +146,7 @@ Raccolta di log estesi: i registri di Windows e Linux sono tutti sfruttati dal m
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/free/).
-- Con la sottoscrizione di Azure, viene abilitato il piano tariffario gratuito di Centro sicurezza. Per sfruttare i vantaggi della gestione della sicurezza avanzata e la funzionalità di protezione dalle minacce, è necessario eseguire l'aggiornamento al piano tariffario Standard. È possibile provare gratuitamente il piano Standard per 30 giorni. Per altre informazioni, vedere la [pagina dei prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
-- Per attivare subito Centro sicurezza Standard, procedere come indicato in [Avvio rapido: Caricamento della sottoscrizione Azure in Centro sicurezza Standard](security-center-get-started.md).
+
+- Il piano tariffario gratuito del Centro sicurezza è abilitato per tutte le sottoscrizioni di Azure correnti quando si visita per la prima volta il dashboard del Centro sicurezza di Azure nel portale di Azure oppure viene abilitato a livello di codice tramite API. Per sfruttare i vantaggi della gestione della sicurezza avanzata e la funzionalità di rilevamento minacce, è necessario eseguire l'aggiornamento al piano tariffario Standard. È possibile provare gratuitamente il piano Standard per 30 giorni. Per altre informazioni, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+
+- Per abilitare subito il Centro sicurezza del livello Standard, procedere come indicato in [Avvio rapido: Caricamento della sottoscrizione Azure in Centro sicurezza Standard](security-center-get-started.md).

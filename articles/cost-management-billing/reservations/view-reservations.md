@@ -5,77 +5,53 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/31/2020
 ms.author: banders
-ms.openlocfilehash: 5c9d9074e4b8d0d9e36417daee4d58c1d9b28b64
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0635c21ee30a40344281f31c8f9aedf9d74a1284
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199246"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633859"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Visualizzare le prenotazioni di Azure nel portale di Azure
+# <a name="view-azure-reservations"></a>Visualizzare le prenotazioni di Azure
 
-A seconda del tipo di sottoscrizione e di autorizzazioni, è possibile visualizzare le prenotazioni per Azure in due modi.
+È possibile visualizzare e gestire la prenotazione acquistata dal portale di Azure.   
 
-## <a name="view-purchased-reservations"></a>Visualizzare le prenotazioni acquistate
+## <a name="permissions-to-view-a-reservation"></a>Autorizzazioni per la visualizzazione di una prenotazione
 
-Per impostazione predefinita, quando si acquista una prenotazione, l'utente e l'amministratore dell'account possono visualizzare la prenotazione. L'utente e l'amministratore account ottengono automaticamente il ruolo di proprietario per l'ordine di prenotazione e la prenotazione. Per consentire ad altri utenti di visualizzare la prenotazione, è necessario aggiungerli con il ruolo di **Proprietario** o **Lettore** all'ordine di prenotazione o alla prenotazione.
+Per visualizzare o gestire una prenotazione, è necessario disporre dell'autorizzazione di lettore o di proprietario. Per impostazione predefinita, quando si acquista una prenotazione l'utente e l'amministratore dell'account ottengono automaticamente il ruolo di proprietario per l'ordine di prenotazione e la prenotazione. Per consentire ad altri utenti di visualizzare la prenotazione, è necessario aggiungerli con il ruolo di **Proprietario** o **Lettore** all'ordine di prenotazione o alla prenotazione. Se si aggiunge un utente alla sottoscrizione fornita per la fatturazione della prenotazione, questo non viene aggiunto automaticamente alla prenotazione. 
 
 Per altre informazioni vedere [Aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-Per visualizzare una prenotazione come proprietario o lettore,
+## <a name="view-reservation-and-utilization-in-azure-portal"></a>Visualizzare la prenotazione e l'utilizzo nel portale di Azure
+
+Per visualizzare una prenotazione come proprietario o lettore
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Cercare **Prenotazioni**.
-    ![Screenshot che mostra una ricerca nel portale di Azure](./media/view-reservations/portal-reservation-search.png)  
-3. L'elenco mostra tutte le prenotazioni per le quali si ha il ruolo di Proprietario o Lettore. Ogni prenotazione mostra l'ultima percentuale di utilizzo nota.  
-    ![Esempio di elenco di prenotazioni](./media/view-reservations/view-reservations.png)
-4. Selezionare una prenotazione e visualizzare la tendenza di utilizzo per gli ultimi cinque giorni.  
-    ![Esempio di tendenza di utilizzo di una prenotazione](./media/view-reservations/reservation-utilization.png)
-5. Si possono ottenere informazioni sull'[utilizzo delle prenotazioni](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) anche tramite l'API Utilizzo istanze riservate e il [pacchetto di contenuto Informazioni dettagliate sul consumo di Microsoft Azure per Power BI](/power-bi/service-connect-to-azure-consumption-insights).
+2. Passare a [Prenotazioni](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+3. L'elenco mostra tutte le prenotazioni per le quali si ha il ruolo di proprietario o lettore. Ogni prenotazione mostra l'ultima percentuale di utilizzo nota.
+4. Fare clic sulla percentuale di utilizzo per visualizzare la cronologia di utilizzo e i dettagli. Vedere i dettagli nel video seguente.
+   > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4sYwk] 
 
-Se è necessario modificare l'ambito di una prenotazione, dividere una prenotazione, oppure modificare chi può gestire una prenotazione, vedere [gestire le prenotazioni Azure](manage-reserved-vm-instance.md).
+## <a name="get-reservations-and-utilization-using-apis-powershell-cli"></a>Ottenere le prenotazioni e l'utilizzo con le API, PowerShell e l'interfaccia della riga di comando
 
-## <a name="view-reservation-transactions-for-enterprise-enrollments"></a>Visualizzare le transazioni di prenotazione per le registrazioni Enterprise
+Ottenere l'elenco di tutte le prenotazioni usando le risorse seguenti
+- [API: ordine di prenotazione/elenco](/rest/api/reserved-vm-instances/reservationorder/list)
+- [PowerShell: ordine di prenotazione/elenco](/powershell/module/azurerm.reservations/get-azurermreservationorder)
+- [Interfaccia della riga di comando: ordine di prenotazione/elenco](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
 
- Se si dispone di una registrazione Enterprise gestita dal partner, visualizzare le prenotazioni in **Report** nel portale EA. Per altre registrazioni Enterprise, è possibile visualizzare le prenotazioni nel portale EA e nel portale di Azure. È necessario essere un amministratore EA per visualizzare le transazioni di prenotazione.
+È anche possibile ottenere l'[utilizzo della prenotazione](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) usando l'API Utilizzo istanze riservate. 
 
-Per visualizzare le transazioni di prenotazione nel portale di Azure,
+## <a name="see-reservations-and-utilization-in-power-bi"></a>Visualizzare le prenotazioni e l'utilizzo in Power BI
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Cercare **Gestione dei costi e fatturazione**.
-
-    ![Screenshot che mostra una ricerca nel portale di Azure](./media/view-reservations/portal-cm-billing-search.png)
-
-1. Selezionare **Transazioni di prenotazione**.
-1. Per filtrare i risultati, selezionare **Intervallo di tempo**, **Tipo**, o **Descrizione**.
-1. Selezionare **Applica**.
-
-    ![Screenshot che mostra i risultati delle transazioni di prenotazione](./media/view-reservations/portal-billing-reservation-transaction-results.png)
-
-Per ottenere i dati usando un'API, vedere [Get Reserved Instance transaction charges for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) (Ottenere le tariffe di transazione di istanza riservata per i clienti Enterprise).
+Per gli utenti di Power BI sono disponibili due opzioni
+- Pacchetto di contenuto: gli acquisti delle prenotazioni e i dati di utilizzo sono disponibili nel [pacchetto di contenuto Informazioni dettagliate sul consumo di Power BI](/power-bi/desktop-connect-azure-cost-management). Creare i report desiderati con questo pacchetto di contenuto. 
+- App Gestione costi: usare l'app [Gestione costi](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) per ottenere i report predefiniti che è possibile personalizzare ulteriormente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
-
-- [Informazioni sulle prenotazioni di Azure](save-compute-costs-reservations.md)
-- [Gestire le prenotazioni per Azure](manage-reserved-vm-instance.md)
-
-Acquistare un piano di servizio:
-
-- [Pagare in anticipo la capacità riservata di Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-- [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../../sql-database/sql-database-reserved-capacity.md)
-- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-
-Acquistare un piano software:
-
-- [Pagare in anticipo i piani software Red Hat dalle prenotazioni di Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Comprendere l'utilizzo:
-
+- [Gestire le prenotazioni di Azure](manage-reserved-vm-instance.md).
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](understand-reserved-instance-usage-ea.md)
 - [Informazioni sull'utilizzo della prenotazione per sottoscrizioni CSP](https://docs.microsoft.com/partner-center/azure-reservations)

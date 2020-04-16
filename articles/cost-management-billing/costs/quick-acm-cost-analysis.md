@@ -3,17 +3,17 @@ title: Avvio rapido - Esplorare i costi di Azure con l'analisi dei costi
 description: Questo guida introduttiva consente di usare l'analisi dei costi per esplorare e analizzare i costi aziendali di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155954"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874501"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva: Esplorare e analizzare i costi con l'analisi dei costi
 
@@ -45,7 +45,7 @@ Per esaminare i costi nell'analisi dei costi, aprire l'ambito nel portale di Azu
 
 L'ambito selezionato viene usato in tutto il servizio Gestione costi per fornire il consolidamento dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti, non si esegue una selezione di ambiti diversi. Si seleziona piuttosto un ambito più ampio, a cui fanno riferimento gli altri, quindi si applica il filtro fino agli ambiti annidati necessari. È importante comprendere questo approccio perché alcuni utenti potrebbero non avere accesso a un singolo ambito padre, che copre più ambiti annidati.
 
-Guardare il video [How to use Cost Management in the Azure portal](https://www.youtube.com/watch?v=mfxysF-kTFA) (Come usare Gestione costi nel portale di Azure) per altre informazioni su come usare Analisi dei costi.
+Guardare il video [How to use Cost Management in the Azure portal](https://www.youtube.com/watch?v=mfxysF-kTFA) (Come usare Gestione costi nel portale di Azure) per altre informazioni su come usare Analisi dei costi. Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
@@ -145,6 +145,10 @@ I grafici pivot nel grafico principale mostrano raggruppamenti diversi per offri
 
 ## <a name="understanding-grouping-and-filtering-options"></a>Informazioni sulle opzioni di raggruppamento e filtro
 
+L'analisi dei costi include molte opzioni di raggruppamento e filtro. Per informazioni sulle opzioni di raggruppamento e filtro, guardare il video sulla [creazione di report per dimensioni e tag di Gestione costi](https://www.youtube.com/watch?v=2Vx7V17zbmk). Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
+
 La tabella seguente contiene alcune delle opzioni di raggruppamento e filtro più comuni, oltre a indicazioni su quando usarle.
 
 | Proprietà | Utilizzo | Note |
@@ -178,7 +182,7 @@ Per altre informazioni sui termini, vedere [Informazioni sui termini usati nel f
 
 Salvare le visualizzazioni personalizzate e condividerle con altre persone aggiungendo l'analisi dei costi al dashboard del portale di Azure oppure copiando un collegamento all'analisi.
 
-Per altre informazioni su come usare il portale per condividere informazioni sui costi nell'organizzazione, vedere il video [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) (Condivisione e salvataggio delle visualizzazioni in Gestione costi di Azure).
+Per altre informazioni su come usare il portale per condividere informazioni sui costi nell'organizzazione, vedere il video [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) (Condivisione e salvataggio delle visualizzazioni in Gestione costi di Azure). Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 

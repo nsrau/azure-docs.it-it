@@ -6,15 +6,79 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
-ms.openlocfilehash: c29790035ec4e971957784e826a1e8bd8e0c9329
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a2e6d2a459a6713aa9372496fc3a933c0a886ed9
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79500490"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802605"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati in modo significativo. L'articolo verrà aggiornato la prima settimana di ogni mese per includere gli aggiornamenti degli articoli del mese precedente.
+
+## <a name="march-2020"></a>Marzo 2020
+
+### <a name="general"></a>Generale
+- [Panoramica di Monitoraggio di Azure](overview.md) - Aggiunta del video della panoramica di Monitoraggio di Azure.
+- [Configurazione della chiave gestita dal cliente di Monitoraggio di Azure](platform/customer-managed-keys.md) - Aggiornamenti di carattere generale.
+- [Informazioni di riferimento sui dati di Monitoraggio di Azure](/azure/azure-monitor/reference) - Nuovo sito.
+
+### <a name="alerts"></a>Avvisi
+
+- [Creare, visualizzare e gestire gli avvisi del log attività in Monitoraggio di Azure](platform/alerts-activity-log.md) - Spiegazione aggiuntiva sul modello di Resource Manager.
+- [Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure](platform/alerts-metric-overview.md) - Aggiornato per includere il supporto per enti governativi.
+- [Risoluzione dei problemi relativi ad avvisi e notifiche di Monitoraggio di Azure](platform/alerts-troubleshoot.md) - Nuovo articolo
+
+### <a name="application-insights"></a>Application Insights
+- [Automatizzare Azure Application Insights con PowerShell](app/powershell.md) - Aggiunta di esempi di ARMClient.
+- [Esportazione continua dei dati di telemetria da Application Insights](app/export-telemetry.md) - Aggiunta di una tabella contenente i dettagli della struttura di esportazione.
+- [Abilitare Snapshot Debugger per le app .NET nel servizio app di Azure](app/snapshot-debugger-appservice.md) - Aggiunta dell'esempio di modello di Resource Manager.
+- [Gestire l'utilizzo e i costi per Azure Application Insights](app/pricing.md) - Aggiunta di informazioni sull'avviso relativo al limite di utilizzo dati.
+- [Monitorare le applicazioni Python con Monitoraggio di Azure (anteprima)](app/opencensus-python.md) - Aggiunta delle metriche standard.
+- [Supporto dei mapping di origine per le applicazioni JavaScript - Application Insights in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) - Nuovo articolo.
+
+
+### <a name="containers"></a>Contenitori
+- [Domande frequenti su Monitoraggio di Azure](faq.md) - Aggiornamento per Monitoraggio di Azure per i contenitori.
+- [Configurare il monitoraggio della GPU con Monitoraggio di Azure per i contenitori](insights/container-insights-gpu-monitoring.md) - Nuovo articolo
+
+### <a name="insights"></a>Informazioni dettagliate
+- [Soluzione di gestione di Office 365 in Azure](insights/solution-office-365.md) - Aggiornamento della data di deprecazione.
+
+### <a name="logs"></a>Log
+- [Ottimizzare le query di log in Monitoraggio di Azure](log-query/query-optimization.md) - Aggiunta della condizione della CPU per l'analisi XML e JSON.
+- [Eliminare e ripristinare l'area di lavoro di Azure Log Analytics](platform/delete-workspace.md) - Aggiunta della sezione relativa alla risoluzione dei problemi.
+- [Usare i log di Monitoraggio di Azure con App per la logica di Azure e Power Automate](platform/logicapp-flow-connector.md) - Aggiornato per il nuovo connettore di Monitoraggio di Azure.
+
+### <a name="metrics"></a>Metriche
+- [Metriche del disco deprecate nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation) - Nuovo articolo.
+- [Esercitazione - Creare un grafico delle metriche in Monitoraggio di Azure](learn/tutorial-metrics-explorer.md) - Aggiunta di un video.
+
+### <a name="platform-logs"></a>Log della piattaforma
+- [Raccogliere e analizzare il log attività di Azure in Monitoraggio di Azure](platform/activity-log-collect.md) - Articolo riscritto per illustrare meglio la raccolta del log attività con le impostazioni di diagnostica.
+
+### <a name="virtual-machines"></a>Macchine virtuali
+- [Monitorare macchine virtuali di Azure con Monitoraggio di Azure](insights/monitor-vm-azure.md) - Nuovo articolo.
+- [Avvio rapido: Monitorare macchine virtuali di Azure con Monitoraggio di Azure](learn/quick-monitor-azure-vm.md) - Aggiornato per aggiungere Monitoraggio di Azure per le macchine virtuali.
+- [Avvisi da Monitoraggio di Azure per le macchine virtuali](insights/vminsights-alerts.md) - Nuovo articolo
+- [Panoramica sull'abilitazione di Monitoraggio di Azure per le macchine virtuali](insights/vminsights-enable-overview.md) - Aggiornamento dei collegamenti per il download dell'agente.
+
+
+Aggiornamenti di carattere generale relativi alla la disponibilità generale di Monitoraggio di Azure per le macchine virtuali
+- [Descrizione di Monitoraggio di Azure per le macchine virtuali](insights/vminsights-overview.md)
+- [Domande frequenti su Monitoraggio di Azure per le macchine virtuali disponibili a livello generale (GA)](insights/vminsights-ga-release-faq.md) 
+- [Abilitare Monitoraggio di Azure per le macchine virtuali con Criteri di Azure](insights/vminsights-enable-at-scale-policy.md) 
+- [Creare un grafico delle prestazioni con Monitoraggio di Azure per le macchine virtuali](insights/vminsights-performance.md)
+- [Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali](insights/vminsights-log-search.md)
+- [Visualizzare le dipendenze delle app con Monitoraggio di Azure per le macchine virtuali](insights/vminsights-maps.md) 
+
+
+### <a name="visualizations"></a>Visualizzazioni
+- [Visualizzazione dei dati da Monitoraggio di Azure](visualizations.md) - Aggiornato per segnalare la deprecazione pianificata di Progettazione visualizzazioni.
+
+
+
+
 
 ## <a name="february-2020"></a>Febbraio 2020
 

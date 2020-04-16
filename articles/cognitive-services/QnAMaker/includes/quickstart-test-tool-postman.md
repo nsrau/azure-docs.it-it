@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 46947579ea72e2199af116442472eec330b38009
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: dd44d9cb01ff072d89afeb4efc4a59071c621315
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77112269"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758864"
 ---
 Questa guida introduttiva basata su Postman assiste nell'ottenimento di una risposta da una knowledge base.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Ultima versione di [**Postman**](https://www.getpostman.com/).
 * È necessario avere
@@ -49,7 +49,7 @@ Usare questa procedura per configurare Postman, quindi leggere ogni sezione succ
 
 ## <a name="use-metadata-to-filter-answer"></a>Usare i metadati per filtrare una risposta
 
-In un argomento di avvio rapido precedente sono stati aggiunti i metadati a due set di domande e risposte per distinguere tra due domande diverse. Aggiungere i metadati alla query per limitare il filtro solo al set di domande e risposte pertinente.
+In un argomento di avvio rapido precedente sono stati aggiunti i metadati a due coppie di domande e risposte per distinguere tra due domande diverse. Aggiungere i metadati alla query per limitare il filtro alla sola coppia di domande e risposte pertinente.
 
 1. In Postman modificare solo la query JSON aggiungendo la proprietà `strictFilters` con la coppia nome/valore `service:qna_maker`. Il codice JSON del corpo dovrebbe essere:
 

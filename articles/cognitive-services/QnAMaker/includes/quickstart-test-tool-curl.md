@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4bd483e40e3a85a2934e58abdf46d09b17a33ed4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77495369"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758821"
 ---
 Questa guida introduttiva basata su cURL assiste nell'ottenimento di una risposta dalla knowledge base.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [**cURL**](https://curl.haxx.se/) più recente.
 * È necessario avere
@@ -34,13 +34,13 @@ Questa guida introduttiva basata su cURL assiste nell'ottenimento di una rispost
 Usare la knowledge base dell'argomento di avvio rapido precedente per eseguire una query per ottenere una risposta in base ai metadati.
 
 1. Nella pagina **Impostazioni** della knowledge base selezionare la scheda **CURL** per visualizzare un esempio di comando cURL usato per generare una risposta dalla knowledge base.
-1. Copiare il comando in un ambiente modificabile (come un file di testo) in modo da poterlo modificare. Modificare il valore della domanda come indicato di seguito in modo che i metadati di `service:qna_maker` vengano usati come filtro per i set di domande e risposte.
+1. Copiare il comando in un ambiente modificabile (come un file di testo) in modo da poterlo modificare. Modificare il valore della domanda come indicato di seguito in modo che i metadati di `service:qna_maker` vengano usati come filtro per le coppie di domande e risposte.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    La domanda è costituita solo da una singola parola, `size`, che può restituire uno dei due set di domande e risposte. La matrice `strictFilters` indica di limitare le risposte a quelle con tag `qna_maker`.
+    La domanda è costituita da una singola parola, `size`, che può restituire una delle due coppie di domande e risposte. La matrice `strictFilters` indica di limitare le risposte a quelle con tag `qna_maker`.
 
 1. La risposta include solo la risposta che soddisfa i criteri di filtro. La risposta cURL seguente è stata formattata per migliorare la leggibilità:
 

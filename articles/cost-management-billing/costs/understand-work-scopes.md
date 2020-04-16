@@ -3,17 +3,17 @@ title: Informazioni e uso degli ambiti di Gestione costi di Azure
 description: Questo articolo consente di comprendere gli ambiti di fatturazione e di gestione delle risorse disponibili in Azure e offre informazioni su come usare gli ambiti in Gestione costi e le API.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80131367"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877933"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -26,6 +26,10 @@ Un _ambito_ è un nodo nella gerarchia delle risorse di Azure a cui gli utenti d
 - Servizi cloud, ad esempio governance dei costi e dei criteri
 
 Negli ambiti è possibile gestire i dati di fatturazione, avere ruoli specifici per i pagamenti, visualizzare le fatture e gestire l'account in generale. I ruoli di fatturazione e account vengono gestiti separatamente dagli ambiti usati per la gestione delle risorse, che usano il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). Per distinguerne chiaramente le finalità, incluse le differenze relative al controllo di accesso, gli ambiti sono definiti rispettivamente _ambiti di fatturazione_ e _ambiti RBAC_.
+
+Per altre informazioni sugli ambiti, vedere il video sulla [configurazione di gerarchie per Gestione costi](https://www.youtube.com/watch?v=n3TLRaYJ1NY). Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
 
 ## <a name="how-cost-management-uses-scopes"></a>Modalità di utilizzo degli ambiti in Gestione costi
 
@@ -71,7 +75,7 @@ Collaboratore di Gestione costi è il ruolo con privilegi minimi consigliato. Co
 
 Gli account di fatturazione del Contratto Enterprise (EA, Enterprise Agreement), denominati anche registrazioni, dispongono degli ambiti seguenti:
 
-- [**Account di fatturazione**](../manage/view-all-accounts.md): rappresenta una registrazione EA. Le fatture vengono generate in questo ambito. Gli acquisti che non sono basati sull'utilizzo, ad esempio acquisti del Marketplace e prenotazioni, sono disponibili solo in questo ambito. Non sono rappresentati nei reparti o negli account di registrazione.
+- [**Account di fatturazione**](../manage/view-all-accounts.md): rappresenta una registrazione EA. Le fatture vengono generate in questo ambito. Gli acquisti che non sono basati sull'utilizzo, ad esempio acquisti del Marketplace e prenotazioni, sono disponibili solo in questo ambito. Non sono rappresentati nei reparti o negli account di registrazione. L'utilizzo delle prenotazioni, insieme a tutti gli altri utilizzi, viene applicato alle singole risorse. L'utilizzo viene riepilogato nelle sottoscrizioni all'interno dell'account di fatturazione. Per vedere i costi delle prenotazioni suddivisi in ogni risorsa, passare alla visualizzazione **Costo ammortizzato** nell'analisi dei costi.
 
     Tipo di risorsa: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Reparto**: raggruppamento facoltativo di account di registrazione.

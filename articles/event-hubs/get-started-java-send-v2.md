@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 44f57f52be512924e228d6488a786d117c6444e7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 824244c0c3247e5a218c1551dd95de6e1d6e1007
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79370594"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419222"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Usare Java per inviare o ricevere eventi da Hub eventi di Azure (azure-messaging-eventhubs)
 Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con il pacchetto Java **azure-messaging-eventhubs**.
@@ -36,7 +36,7 @@ Questa sezione illustra come creare un'applicazione Java per inviare eventi a un
 
 ### <a name="add-reference-to-azure-event-hubs-library"></a>Aggiungere il riferimento alla libreria di Hub eventi di Azure
 
-La libreria client Java per Hub eventi è disponibile per l'uso in progetti Maven dal [repository centrale di Maven](https://search.maven.org/search?q=a:azure-messaging-eventhubs). Per fare riferimento a questa libreria è possibile usare questa dichiarazione di dipendenza all'interno del file di progetto di Maven:
+La libreria client Java per Hub eventi è disponibile nel [repository centrale di Maven](https://search.maven.org/search?q=a:azure-messaging-eventhubs). Per fare riferimento a questa libreria è possibile usare questa dichiarazione di dipendenza all'interno del file di progetto di Maven:
 
 ```xml
 <dependency>
@@ -48,7 +48,7 @@ La libreria client Java per Hub eventi è disponibile per l'uso in progetti Mave
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Scrivere codice per inviare messaggi all'hub eventi
 
-Per l'esempio seguente, creare prima un nuovo progetto Maven per un'applicazione console/shell nell'ambiente di sviluppo Java preferito. Aggiungere una classe denominata `SimpleSend` e includere il codice seguente nella classe:
+Per l'esempio seguente, creare prima un nuovo progetto Maven per un'applicazione console/shell nell'ambiente di sviluppo Java preferito. Aggiungere una classe denominata `Sender` e includere il codice seguente nella classe:
 
 ```java
 import com.azure.messaging.eventhubs.*;
@@ -139,6 +139,9 @@ Compilare il programma e assicurarsi che non siano presenti errori. Questo progr
 
 ## <a name="receive-events"></a>Ricevere eventi
 Il codice di questa esercitazione si basa sull'[esempio di codice EventProcessorSample in GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/EventProcessorClientSample.java), che è possibile esaminare per vedere l'applicazione completa in funzione.
+
+> [!NOTE]
+> Se il codice viene eseguito in Hub di Azure Stack, questa piattaforma potrebbe supportare una versione diversa dell'SDK di archiviazione BLOB rispetto a quelle disponibili in Azure. Se ad esempio l'esecuzione avviene nell'[hub di Azure Stack versione 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è 2017-11-09. In questo caso, oltre ai passaggi descritti in questa sezione, sarà anche necessario aggiungere codice destinato alla versione 2017-11-09 dell'API del servizio di archiviazione. Per informazioni su come definire come destinazione una versione specifica dell'API di archiviazione, vedere [questo esempio in GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). Per altre informazioni sulle versioni del servizio di archiviazione di Azure supportate in Hub di Azure Stack, vedere [Archiviazione nell'hub di Azure Stack: differenze e considerazioni](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
 
 ### <a name="create-a-java-project"></a>Creare un progetto Java
 

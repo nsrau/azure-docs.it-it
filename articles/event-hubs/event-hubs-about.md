@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9b3af6a6cee4375a110c894b6b72655605ad077d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45276ab59f1a3dabea42b904ff54bd37326fdeca
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372247"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398121"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hub eventi di Azure - Piattaforma di streaming di Big Data e servizio di inserimento di eventi
 Hub eventi di Azure è una piattaforma di streaming di Big Data e un servizio di inserimento di eventi. È in grado di ricevere ed elaborare milioni di eventi al secondo. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione.
@@ -61,20 +61,27 @@ Con Hub eventi, è possibile iniziare con i flussi di dati in MB, per poi aument
 
 [Hub eventi per ecosistemi Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) consente ai client e alle applicazioni [Apache Kafka (1.0 e versioni successive)](https://kafka.apache.org/) di comunicare con Hub eventi. Non è necessario impostare, configurare e gestire i propri cluster Kafka.
 
-Con un ampio ecosistema disponibile in diversi [linguaggi (.NET, Java, Python, Go, JavaScript)](https://github.com/Azure/azure-event-hubs), è possibile avviare facilmente l'elaborazione di flussi da Hub eventi. Tutte i linguaggi lato client supportati offrono un'integrazione di basso livello. L'ecosistema garantisce anche un'integrazione perfetta con servizi di Azure come Analisi di flusso di Azure e Funzioni di Azure, offrendo così la possibilità di compilare architetture senza server.
+Con un ampio ecosistema disponibile in diversi linguaggi ([.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/), [JavaScript](https://github.com/Azure/azure-sdk-for-js/)), è possibile avviare facilmente l'elaborazione di flussi da Hub eventi. Tutte i linguaggi lato client supportati offrono un'integrazione di basso livello. L'ecosistema garantisce anche un'integrazione perfetta con servizi di Azure come Analisi di flusso di Azure e Funzioni di Azure, offrendo così la possibilità di compilare architetture senza server.
 
 ## <a name="key-architecture-components"></a>Componenti principali dell'architettura
 Hub eventi contiene gli [elementi chiave](event-hubs-features.md) seguenti:
 
 - **Producer di eventi**: qualsiasi entità che invia dati a un hub eventi. Gli autori di eventi possono pubblicare eventi usando HTTPS o AMQP 1.0 o Apache Kafka (1.0 e versioni successive)
-- **Partizione**: ogni consumer legge solo un subset specifico, o partizione, del flusso di messaggi.
-- **Gruppi di consumer**: una visualizzazione (stato, posizione o offset) di un intero hub eventi. I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. I consumer leggono il flusso in modo indipendente in base al proprio ritmo e con offset specifici.
-- **Unità di velocità effettiva**: unità di capacità pre-acquistate che controllano la capacità di velocità effettiva di Hub eventi.
+- **Partizioni**: ogni consumer legge solo un subset specifico, o partizione, del flusso di messaggi.
+- **Gruppi di consumer**: una vista (stato, posizione o offset) di un intero hub eventi. I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. I consumer leggono il flusso in modo indipendente in base al proprio ritmo e con offset specifici.
+- **Unità elaborate**: unità di capacità pre-acquistate che controllano la capacità di velocità effettiva degli hub eventi.
 - **Ricevitori di eventi**: qualsiasi entità che legge i dati dell'evento da un hub eventi. Tutti i consumer di Hub eventi si connettono tramite la sessione AMQP 1.0. Il servizio Hub eventi distribuisce gli eventi tramite una sessione non appena diventano disponibili. Tutti i consumer Kafka si connettono tramite il protocollo Kafka 1.0 e versioni successive.
 
 La figura seguente illustra l'architettura di elaborazione del flusso di Hub eventi:
 
 ![Hub eventi](./media/event-hubs-about/event_hubs_architecture.png)
+
+## <a name="event-hubs-on-azure-stack-hub"></a>Hub eventi nell'hub di Azure Stack
+Hub eventi nell'hub di Azure Stack consente di realizzare scenari di cloud ibrido. Sono supportate soluzioni di streaming e basate su eventi, per l'elaborazione locale e nel cloud di Azure. Indipendentemente dal fatto che lo scenario sia ibrido (connesso) o disconnesso, la soluzione può supportare l'elaborazione di eventi/flussi su larga scala. Lo scenario è vincolato solo dalle dimensioni del cluster di Hub eventi, di cui è possibile eseguire il provisioning in base a specifiche esigenze. 
+
+Le edizioni di Hub eventi (nell'hub di Azure Stack e in Azure) offrono un ampio grado di parità delle funzionalità. Questa parità significa che SDK, esempi, PowerShell, interfaccia della riga di comando e portali offrono un'esperienza simile, con poche differenze. 
+
+Hub eventi nello stack è gratuito durante l'anteprima pubblica. Per altre informazioni, vedere [Panoramica di Hub eventi nell'hub di Azure Stack](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: d7d697e3ea4b1b683275d53f6e407396f474b37b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 40d291ee17f1fdaf819d70daade735e152df8f71
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77462021"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548528"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Inviare e ricevere eventi da Hub eventi di Azure - .NET Core (Azure.Messaging.EventHubs) 
 Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con la libreria .NET Core **Azure.Messaging.EventHubs**. 
@@ -118,6 +118,9 @@ Questa sezione illustra come creare un'applicazione console .NET Core per inviar
 Questa sezione mostra come scrivere un'applicazione console .NET Core che riceve i messaggi da un hub eventi tramite un processore di eventi. Il processore di eventi semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Un processore di eventi è associato a un hub eventi specifico e a un gruppo di consumer. Riceve gli eventi da più partizioni nell'hub eventi, passandoli a un delegato del gestore per l'elaborazione tramite il codice fornito. 
 
 
+> [!NOTE]
+> Se il codice viene eseguito in Hub di Azure Stack, questa piattaforma potrebbe supportare una versione diversa dell'SDK di archiviazione BLOB rispetto a quelle disponibili in Azure. Se ad esempio l'esecuzione avviene nell'[hub di Azure Stack versione 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è 2017-11-09. In questo caso, oltre ai passaggi descritti in questa sezione, sarà anche necessario aggiungere codice destinato alla versione 2017-11-09 dell'API del servizio di archiviazione. Per informazioni su come definire come destinazione una versione specifica dell'API di archiviazione, vedere [questo esempio in GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). Per altre informazioni sulle versioni del servizio di archiviazione di Azure supportate in Hub di Azure Stack, vedere [Archiviazione nell'hub di Azure Stack: differenze e considerazioni](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Creare un account di archiviazione di Azure e un contenitore BLOB
 In questo argomento di avvio rapido si usa una risorsa di archiviazione di Azure come archivio di checkpoint. Seguire questa procedura per creare un account di archiviazione di Azure. 
 
@@ -125,7 +128,7 @@ In questo argomento di avvio rapido si usa una risorsa di archiviazione di Azure
 2. [Creare un contenitore BLOB](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Ottenere la stringa di connessione all'account di archiviazione](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
 
-    Prendere nota della stringa di connessione e del nome del contenitore. Verranno usati in seguito nel codice di ricezione. 
+    Prendere nota della stringa di connessione e del nome del contenitore. Questi valori verranno usati nel codice di ricezione. 
 
 
 ### <a name="create-a-project-for-the-receiver"></a>Creare un progetto per l'app ricevente
@@ -202,7 +205,7 @@ In questo argomento di avvio rapido si usa una risorsa di archiviazione di Azure
         static Task ProcessEventHandler(ProcessEventArgs eventArgs)
         { 
             // Write the body of the event to the console window
-            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray())); 
+            Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray())); 
             return Task.CompletedTask; 
         }
 

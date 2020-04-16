@@ -3,7 +3,7 @@ title: Definizione di rete per la distribuzione di contenuti (rete CDN) - Azure 
 description: Informazioni sulla rete per la distribuzione di contenuti (rete CDN) di Azure e su come usarla per distribuire contenuto con esigenze di larghezza di banda elevata.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/09/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4158df06b4eea175a4225e478325f8f151795850
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 262e5b7bbcbf6c463ef97d5acc72248d37195124
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75660631"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260445"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Definizione di rete per la distribuzione di contenuti
 Una rete per la distribuzione di contenuti (CDN) è una rete di server distribuita in grado di fornire contenuti Web agli utenti in modo efficiente. Per ridurre al minimo la latenza, le reti CDN archiviano il contenuto memorizzato nella cache in server perimetrali presenti in località POP (Point of Presence) prossime agli utenti finali. 

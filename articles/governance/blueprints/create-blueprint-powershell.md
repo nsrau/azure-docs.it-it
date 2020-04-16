@@ -3,12 +3,12 @@ title: 'Guida introduttiva: Creare un progetto con PowerShell'
 description: In questo argomento di avvio rapido viene usato Azure Blueprints per creare, definire e distribuire artefatti con PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 53fcf53bdcc3b5fcd1c6ec07a7d8ab45b39955b6
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75436643"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676567"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Guida introduttiva: Definire e assegnare un progetto Azure Blueprint con PowerShell
 
@@ -377,7 +377,7 @@ Dopo aver pubblicato un progetto usando PowerShell, è possibile assegnarlo a un
      L'**identità gestita assegnata dall'utente** può trovarsi in qualsiasi sottoscrizione e gruppo di risorse per cui l'utente che assegna il progetto abbia le autorizzazioni.
 
      > [!IMPORTANT]
-     > I progetti non gestiscono l'identità gestita assegnata dall'utente. Gli utenti sono responsabili dell'assegnazione di ruoli e autorizzazioni sufficienti, altrimenti l'assegnazione del progetto non riesce.
+     > Azure Blueprints non gestisce l'identità gestita assegnata dall'utente. Gli utenti sono responsabili dell'assegnazione di ruoli e autorizzazioni sufficienti, altrimenti l'assegnazione del progetto non riesce.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

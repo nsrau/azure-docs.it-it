@@ -1,53 +1,49 @@
 ---
-author: erhopf
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
-ms.openlocfilehash: 95e8a30eaa59762ad7cf5b388326c9d3c9723d8e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/02/2020
+ms.author: trbye
+ms.openlocfilehash: c2b844b3b1aa7a848e2668b3dca5a1cac5b5baaf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78926118"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400678"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare:
 
 > [!div class="checklist"]
-> * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creare una risorsa Voce di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 > * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
 
-## <a name="add-sample-code"></a>Aggiungere il codice di esempio
+## <a name="source-code"></a>Codice sorgente
 
-1. Per aggiungere una nuova classe vuota al progetto Java, selezionare **File** > **Nuovo** > **Classe**.
+Per aggiungere una nuova classe vuota al progetto Java, selezionare **File** > **Nuovo** > **Classe**. Nella finestra **Nuova classe Java** immettere **speechsdk.quickstart** nel campo **Pacchetto** e **Main** nel campo **Nome** .
 
-1. Nella finestra **Nuova classe Java** immettere **speechsdk.quickstart** nel campo **Pacchetto** e **Main** nel campo **Nome** .
+![Screenshot della procedura guidata Nuova classe Java](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-06-create-main-java.png)
 
-   ![Screenshot della procedura guidata Nuova classe Java](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-06-create-main-java.png)
+Sostituire il contenuto del file *Main.java* con il frammento seguente:
 
-1. Sostituire tutto il codice in `Main.java` con il frammento di codice seguente:
+[!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/src/speechsdk/quickstart/Main.java#code)]
 
-   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/src/speechsdk/quickstart/Main.java#code)]
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. Sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione.
+## <a name="code-explanation"></a>Spiegazione del codice
 
-1. Sostituire la stringa `YourServiceRegion` con l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione, ad esempio `westus` per la sottoscrizione di prova gratuita.
+[!INCLUDE [code explanation](../code-explanation.md)]
 
-1. Salvare le modifiche apportate al progetto.
+## <a name="build-and-run-app"></a>Compilare ed eseguire l'app
 
-> [!NOTE]
-> Per impostazione predefinita, Speech SDK riconoscerà l'uso di en-us per la lingua. Per informazioni sulla scelta della lingua di origine, vedere [Specificare la lingua di origine per il riconoscimento vocale](../../../../how-to-specify-source-language.md).
-
-## <a name="build-and-run-the-app"></a>Compilare ed eseguire l'app
-
-Premere F11 o selezionare **Esegui** > **Debug**.
+Premere <kbd>F11</kbd> o selezionare **Esegui** > **Debug**.
 I successivi 15 secondi di input vocale dal microfono verranno riconosciuti e registrati nella finestra della console.
 
 ![Screenshot della console dopo il riconoscimento corretto](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-07-console-output.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

@@ -1,22 +1,14 @@
 ---
 title: 'Esercitazione: Impostazioni di pubblicazione - LUIS'
-titleSuffix: Azure Cognitive Services
 description: In questa esercitazione verranno cambiate le impostazioni di pubblicazione per migliorare le previsioni.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/13/2019
-ms.author: diberry
-ms.openlocfilehash: 2df32c20bebf4243f383a0cccd8f037721533602
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 19913d16ecb1457ad4edb93ea34e4b96a590aca0
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75890379"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545781"
 ---
 # <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Esercitazione:  Aggiungere l'analisi del sentiment come impostazione di pubblicazione
 
@@ -67,11 +59,11 @@ Poiché si tratta di un'impostazione di pubblicazione, non è etichettata nelle 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Andare alla fine dell'URL nell'indirizzo e immettere l'espressione seguente:
+1. Passare alla fine dell'URL nella barra degli indirizzi e sostituire _YOUR_QUERY_HERE_ con:
 
     `Deliver 2 of the best cheese pizzas ever!!!`
 
-    L'ultimo parametro querystring è `query`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni con etichetta, per cui rappresenta un buon test e deve restituire la finalità `OrderPizza` con analisi del sentiment estratta.
+    Questa espressione non corrisponde ad alcuna delle espressioni con etichetta, per cui rappresenta un buon test e deve restituire la finalità `OrderPizza` con analisi del sentiment estratta.
 
     ```json
     {
@@ -122,9 +114,7 @@ Poiché si tratta di un'impostazione di pubblicazione, non è etichettata nelle 
 
     L'analisi del sentiment restituisce un valore positivo con un punteggio dell'86%.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Informazioni correlate
 

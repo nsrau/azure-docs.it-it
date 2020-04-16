@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/22/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: ea0fa0e9d4e475a8496d1ee52b4cdfea11a13d8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0f5f890b4f32961e00fb30316a1dc7c88ef93a45
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76544106"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654831"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Che cos'è Azure Active Directory Domain Services?
 
 Azure Active Directory Domain Services (Azure AD DS) offre servizi di dominio gestiti, come l'aggiunta a un dominio, Criteri di gruppo, Lightweight Directory Access Protocol (LDAP) e l'autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory. È possibile usare questi servizi di dominio senza dover distribuire, gestire e applicare patch ai controller di dominio nel cloud. Azure Active Directory Domain Services si integra con il tenant di Azure AD esistente, consentendo così agli utenti di eseguire l'accesso usando le proprie credenziali già configurate. È anche possibile usare i gruppi e gli account utente esistenti per proteggere l'accesso alle risorse e garantire così un trasferimento in modalità lift-and-shift delle risorse locali in Azure.
+
+Per iniziare, [creare un dominio gestito di Azure Active Directory Domain Services usando il portale di Azure][tutorial-create].
 
 Azure Active Directory Domain Services replica le informazioni relative alle identità da Azure AD e quindi funziona con i tenant di Azure AD che esistono solo al livello del cloud o che sono sincronizzati con un ambiente di Active Directory Domain Services locale. Lo stesso set di funzionalità di Azure Active Directory Domain Services è disponibile per entrambi gli ambienti.
 
@@ -51,7 +53,11 @@ Azure Active Directory Domain Services offre alternative alla necessità di crea
 
 ## <a name="azure-ad-ds-features-and-benefits"></a>Funzionalità e vantaggi di Azure Active Directory Domain Services
 
-Per fornire servizi di gestione delle identità ad applicazioni e macchine virtuali nel cloud, Azure Active Directory Domain Services è completamente compatibile con un ambiente di Active Directory Domain Services tradizionale per operazioni come l'aggiunta a un dominio, LDAP sicuro (LDAPS), la gestione di Criteri di gruppo e DNS e il supporto per la lettura e il binding LDAP. Il supporto per la scrittura LDAP è disponibile per gli oggetti creati nel dominio gestito di Azure Active Directory Domain Services, ma non per le risorse sincronizzate da Azure AD. Le funzionalità di Azure Active Directory Domain Services descritte di seguito semplificano le operazioni di distribuzione e gestione:
+Per fornire servizi di gestione delle identità ad applicazioni e macchine virtuali nel cloud, Azure Active Directory Domain Services è completamente compatibile con un ambiente di Active Directory Domain Services tradizionale per operazioni come l'aggiunta a un dominio, LDAP sicuro (LDAPS), Criteri di gruppo, Gestione DNS e il supporto per la lettura e il binding LDAP. Il supporto per la scrittura LDAP è disponibile per gli oggetti creati nel dominio gestito di Azure Active Directory Domain Services, ma non per le risorse sincronizzate da Azure AD.
+
+Per altre informazioni sulle opzioni disponibili per le identità, vedere [Confrontare Azure AD DS con Azure AD, Active Directory Domain Services in macchine virtuali di Azure e Active Directory Domain Services in locale][compare].
+
+Le funzionalità di Azure Active Directory Domain Services descritte di seguito semplificano le operazioni di distribuzione e gestione:
 
 * **Esperienza di distribuzione semplificata:** Azure Active Directory Domain Services viene abilitato per il tenant di Azure AD tramite una singola procedura guidata nel portale di Azure.
 * **Integrazione con Azure AD:** gli account utente, le appartenenze ai gruppi e le credenziali sono automaticamente disponibili dal tenant di Azure AD. I nuovi utenti, i gruppi o le modifiche relative agli attributi dal tenant di Azure AD o dall'ambiente di Active Directory Domain Services locale vengono sincronizzati automaticamente in Azure Active Directory Domain Services.

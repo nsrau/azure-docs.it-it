@@ -3,17 +3,17 @@ title: Assegnare l’accesso ai dati di Gestione costi di Azure
 description: Questo articolo illustra in modo dettagliato l'assegnazione di autorizzazioni per i dati di Gestione costi di Azure per vari ambiti di accesso.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 56090798defd9209c3587aa701c88db6958d1b97
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b3ede4dcc4df8bf10ce24b3d74dc5af0424de5a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065812"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879106"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
@@ -21,9 +21,9 @@ Per gli utenti con contratti Enterprise di Azure, una combinazione di autorizzaz
 
 L'ambito selezionato dall’utente viene usato in Gestione costi per fornire il consolidamento dei dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti, gli utenti non possono selezionarne più di uno. Possono tuttavia selezionare un ambito più ampio al quale si riferiscono ambiti secondari e quindi filtrare i contenuti che desiderano visualizzare. È importante comprendere il consolidamento dei dati perché alcuni utenti non devono avere accesso a un ambito padre a cui appartengono ambiti figlio.
 
-Per informazioni sull'assegnazione dell'accesso per visualizzare i costi e gli addebiti usando il controllo degli accessi in base al ruolo di Azure, vedere il video su [come assegnare l'accesso con la Gestione costi di Azure](https://www.youtube.com/watch?v=J997ckmwTa8).
+Per informazioni sull'assegnazione dell'accesso per visualizzare i costi e gli addebiti con il controllo degli accessi in base al ruolo di Azure, vedere il video sul [controllo dell'accesso di Gestione costi](https://www.youtube.com/watch?v=_uQzQ9puPyM). Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
 
->[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
+>[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
 ## <a name="cost-management-scopes"></a>Ambiti di Gestione costi
 

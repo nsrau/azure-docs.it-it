@@ -1,22 +1,14 @@
 ---
 title: 'Esercitazione: Entità di espressione regolare - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Estrarre dati formattati in modo coerente da un'espressione usando l'entità di espressione regolare.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 0ca6f2a67e01e4c604c2dcc8f8eaa9ffe8bad045
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 5b585ee52880c474d3f2736b34a267012b390aad
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75381529"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545827"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Esercitazione: Ottenere dati formattati in modo corretto dall'espressione
 Questa esercitazione illustra come creare un'entità di espressione regolare per estrarre i dati formattati in modo coerente da un'espressione.
@@ -100,11 +92,9 @@ Creare un'entità di espressione regolare per la corrispondenza con il numero de
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-2. Andare alla fine dell'URL nell'indirizzo e immettere l'espressione seguente:
+1. Passare alla fine dell'URL nella barra degli indirizzi e sostituire _YOUR_QUERY_HERE_ con:
 
     `Text my pizza delivery to x23456 x234567 x12345`
-
-    L'ultimo parametro querystring è `query`, la **query** dell'espressione.
 
     ```json
     {

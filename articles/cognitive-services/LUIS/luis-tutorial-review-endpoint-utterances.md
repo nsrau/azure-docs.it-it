@@ -1,22 +1,15 @@
 ---
 title: 'Esercitazione: Revisione delle espressioni di endpoint - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Questa esercitazione illustra come migliorare le previsioni per le app verificando o correggendo le espressioni ricevute tramite l'endpoint HTTPS LUIS di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76843974"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548734"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Esercitazione: Correggere le stime dubbie con la revisione delle espressioni di endpoint
 Questa esercitazione illustra come migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTPS LUIS di cui LUIS non è sicuro. È consigliabile includere l'analisi delle espressioni dell'endpoint come fase regolare della manutenzione pianificata di LUIS.
@@ -46,15 +39,11 @@ Usare la procedura seguente per importare un'app.
 
 1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. Nel [portale LUIS (anteprima)](https://preview.luis.ai) importare il file JSON in una nuova app.
+[!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-1. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `review`.
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Eseguire il training dell'app per applicare le modifiche alle entità all'app
 
-    > [!TIP]
-    > La clonazione in una nuova versione è una procedura consigliata prima di modificare l'app. Dopo aver completato una versione, esportare la versione, come file con estensione json o lu, e archiviare il file nel sistema di controllo del codice sorgente.
-
-
-1. Per eseguire il training dell'app, selezionare **Train** (Esegui il training).
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Pubblicare l'app per eseguire l'accesso dall'endpoint HTTP
 
@@ -66,7 +55,7 @@ In questa app sono presenti finalità ed entità, ma non è disponibile alcun ut
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Usare l'endpoint per aggiungere le espressioni seguenti.
+1. Passare alla fine dell'URL nella barra degli indirizzi e sostituire _YOUR_QUERY_HERE_ con le espressioni della tabella seguente. Inviare ogni espressione e recuperare il risultato. Sostituire quindi l'espressione alla fine con quella successiva.
 
     |Espressione dell'endpoint|Finalità allineata|
     |--|--|
@@ -110,9 +99,9 @@ Esaminare le espressioni dell'endpoint per assicurarsi che la finalità sia alli
 
 Per verificare che le espressioni di esempio correttamente allineate abbiano migliorato la previsione dell'app, provare a usare un'espressione simile a quella corretta.
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Andare alla fine dell'URL nell'indirizzo e immettere `Are there any natural language processing jobs in my department right now?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione.
+1. Passare alla fine dell'URL nella barra degli indirizzi e sostituire _YOUR_QUERY_HERE_ con `Are there any natural language processing jobs in my department right now?`.
 
    ```json
     {

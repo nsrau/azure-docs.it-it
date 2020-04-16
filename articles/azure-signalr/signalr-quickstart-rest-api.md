@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 70053fbc47a5ba85e7bb18ab762868973d014beb
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74157691"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548138"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Guida di avvio rapido: Trasmettere messaggi in tempo reale dall'app console
 
@@ -131,10 +131,17 @@ API | `1.0-preview` | `1.0`
 [Trasmettere a tutti](#broadcast) | **&#x2713;** | **&#x2713;**
 [Trasmettere a un gruppo](#broadcast-group) | **&#x2713;** | **&#x2713;**
 Trasmettere ad alcuni gruppi | **&#x2713;** (deprecato) | `N / A`
-[Inviare a utenti specifici](#send-user) | **&#x2713;** | **&#x2713;**
+[Inviare a un utente](#send-user) | **&#x2713;** | **&#x2713;**
 Inviare ad alcuni utenti | **&#x2713;** (deprecato) | `N / A`
 [Aggiunta di un utente a un gruppo](#add-user-to-group) | `N / A` | **&#x2713;**
 [Rimozione di un utente da un gruppo](#remove-user-from-group) | `N / A` | **&#x2713;**
+[Verificare l'esistenza dell'utente](#check-user-existence) | `N / A` | **&#x2713;**
+[Rimuovere un utente da tutti i gruppi](#remove-user-from-all-groups) | `N / A` | **&#x2713;**
+[Inviare a una connessione](#send-connection) | `N / A` | **&#x2713;**
+[Aggiungere una connessione a un gruppo](#add-connection-to-group) | `N / A` | **&#x2713;**
+[Rimuovere una connessione da un gruppo](#remove-connection-from-group) | `N / A` | **&#x2713;**
+[Chiudere una connessione client](#close-connection) | `N / A` | **&#x2713;**
+[Integrità dei servizi](#service-health) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Trasmettere a tutti
@@ -153,7 +160,7 @@ Versione | Metodo HTTP API | URL richiesta | Corpo della richiesta
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Vedere sopra.
 
 <a name="send-user"> </a>
-### <a name="sending-to-specific-users"></a>Invio a utenti specifici
+### <a name="sending-to-a-user"></a>Invio a un utente
 
 Versione | Metodo HTTP API | URL richiesta | Corpo della richiesta
 --- | --- | --- | ---
@@ -165,14 +172,77 @@ Versione | Metodo HTTP API | URL richiesta | Corpo della richiesta
 
 Versione | Metodo HTTP API | URL richiesta
 --- | --- | ---
-`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>Rimozione di un utente da un gruppo
 
 Versione | Metodo HTTP API | URL richiesta
 --- | --- | ---
-`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
+
+<a name="check-user-existence"> </a>
+### <a name="check-user-existence-in-a-group"></a>Verificare l'esistenza dell'utente in un gruppo
+
+Versione dell'API | Metodo HTTP API | URL richiesta
+---|---|---
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups/<group-name>`
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>` 
+
+Codice di stato della risposta | Descrizione
+---|---
+`200` | Utente esistente
+`404` | Utente non esistente
+
+<a name="remove-user-from-all-groups"> </a>
+### <a name="remove-a-user-from-all-groups"></a>Rimuovere un utente da tutti i gruppi
+
+Versione dell'API | Metodo HTTP API | URL richiesta
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups`
+
+<a name="send-connection"> </a>
+### <a name="send-message-to-a-connection"></a>Inviare il messaggio a una connessione
+
+Versione dell'API | Metodo HTTP API | URL richiesta | Request Body
+---|---|---|---
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>` | `{ "target":"<method-name>", "arguments":[ ... ] }`
+
+<a name="add-connection-to-group"> </a>
+### <a name="add-a-connection-to-a-group"></a>Aggiungere una connessione a un gruppo
+
+Versione dell'API | Metodo HTTP API | URL richiesta
+---|---|---
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
+
+<a name="remove-connection-from-group"> </a>
+### <a name="remove-a-connection-from-a-group"></a>Rimuovere una connessione da un gruppo
+
+Versione dell'API | Metodo HTTP API | URL richiesta
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
+
+<a name="close-connection"> </a>
+### <a name="close-a-client-connection"></a>Chiudere una connessione client
+
+Versione dell'API | Metodo HTTP API | URL richiesta
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>?reason=<close-reason>`
+
+<a name="service-health"> </a>
+### <a name="service-health"></a>Integrità del servizio
+
+Versione dell'API | Metodo HTTP API | URL richiesta
+---|---|---                             
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/health`
+
+Codice di stato della risposta | Descrizione
+---|---
+`200` | Servizio funzionante
+`503` | Servizio non disponibile
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

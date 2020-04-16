@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 927c09f61ce0847c72cefb51935116070e956861
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290189"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743115"
 ---
 # <a name="about-azure-virtual-wan"></a>Informazioni sulla rete WAN virtuale di Azure
 
-La rete WAN virtuale di Azure è un servizio di rete che offre connettività tra rami ottimizzata e automatizzata verso e tramite Azure. Le aree di Azure fungono da hub a cui è possibile scegliere di connettere i rami. È possibile sfruttare il backbone di Azure per anche connettere i rami e sfruttare i vantaggi della connettività da ramo a VNet. È disponibile un elenco di partner che supportano l'automazione della connettività con VPN di rete WAN virtuale di Azure. Per maggiori informazioni, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md).
+La rete WAN virtuale di Azure è un servizio che raggruppa numerose funzionalità di rete, sicurezza e routing per offrire una singola interfaccia operativa. Queste funzionalità includono la connettività dei rami (tramite l'automazione della connettività da dispositivi partner della rete WAN virtuale, ad esempio SD-WAN o CPE VPN), la connettività VPN da sito a sito, la connettività VPN (da punto a sito) di utenti remoti, la connettività privata (ExpressRoute), la connettività intra-cloud (connettività di transito per reti virtuali), la connettività ExpressRoute VPN, il routing, Firewall di Azure, la crittografia per la connettività privata e così via. Per iniziare a usare la rete WAN virtuale, non è necessario avere tutti questi casi d'uso. È possibile iniziare con un solo caso d'uso e adattare la rete quando si evolve. L'architettura della rete WAN virtuale è di tipo hub-spoke, con scalabilità e prestazioni predefinite per rami (dispositivi VPN/SD-WAN), utenti (client VPN di Azure/OpenVPN/IKEv2), circuiti ExpressRoute e reti virtuali. Rende disponibile un'[architettura di rete di transito globale](virtual-wan-global-transit-network-architecture.md) in cui l'hub di rete ospitato nel cloud consente la connettività di transito tra gli endpoint che possono essere distribuiti tra tipi diversi di spoke.
 
-La rete WAN virtuale di Azure raggruppa in una singola interfaccia operativa numerosi servizi di connettività cloud di Azure, ad esempio VPN da sito a sito, VPN utente da punto a sito ed ExpressRoute. La connettività con le reti virtuali di Azure viene stabilita tramite connessioni di rete virtuali. Rende disponibile un'[architettura di rete di transito globale](virtual-wan-global-transit-network-architecture.md) basata su un classico modello di connettività hub-spoke in cui l'hub di rete ospitato nel cloud consente la connettività di transito tra gli endpoint che possono essere distribuiti tra tipi diversi di spoke.
+Le aree di Azure fungono da hub a cui è possibile scegliere di connettersi. Tutti gli hub sono connessi in una mesh completa in una rete WAN virtuale standard, per cui è possibile usare il backbone Microsoft per la connettività tra qualsiasi spoke. Gli utenti possono configurare manualmente la connettività degli spoke con dispositivi SD-WAN/VPN nella rete WAN virtuale di Azure oppure usare le soluzioni CPE dei partner di rete WAN virtuale (SD-WAN/VPN) per configurare la connettività con Azure. Diversi partner supportano l'automazione della connettività, ovvero la possibilità di esportare le informazioni sui dispositivi in Azure, scaricare la configurazione di Azure e stabilire la connettività con la rete WAN virtuale di Azure. Per maggiori informazioni, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md). 
 
 ![Diagramma della rete WAN virtuale](./media/virtual-wan-about/virtualwan1.png)
 

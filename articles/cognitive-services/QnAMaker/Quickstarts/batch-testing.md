@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109001"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756707"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Guida introduttiva: Testare la Knowledge base con domande batch e risposte previste
 
@@ -149,7 +149,7 @@ Usare il grafico seguente per informazioni su come trovare i valori dei campi pe
     |Ricaricare il Surface Pro 4|
     |Controllare il livello della batteria|
 
-    Per due set di domande e risposte sono impostati metadati.
+    Per due coppie di domande e risposte sono impostati metadati.
 
     > [!TIP]
     > Per visualizzare i metadati e gli ID di domanda e risposta di ogni set, esportare la knowledge base. Selezionare la pagina **Settings** (Impostazioni), quindi selezionare **Export** (Esporta) come file `.xls`. Trovare il file scaricato e aprirlo con in Excel per esaminare i metadati e l'ID.
@@ -169,7 +169,7 @@ Esistono due scenari principali per i test batch:
 
 La procedura seguente presuppone che lo scenario consista nell'elaborare i log della chat
 
-1. Creare un nuovo file di test batch per includere i dati facoltativi `batch-test-data-2.tsv`. Aggiungere le sei righe del file di input del test batch originale, quindi aggiungere per ogni riga i metadati, il parametro Top e l'ID del set di domande e risposte.
+1. Creare un nuovo file di test batch per includere i dati facoltativi `batch-test-data-2.tsv`. Aggiungere le sei righe del file di input del test batch originale, quindi aggiungere per ogni riga i metadati, la risposta principale e l'ID della coppia di domande e risposte.
 
     Per simulare il processo automatizzato di verifica della presenza di nuovo testo nei log della chat rispetto alla knowledge base, impostare i metadati per ogni colonna sullo stesso valore: `topic:power`.
 

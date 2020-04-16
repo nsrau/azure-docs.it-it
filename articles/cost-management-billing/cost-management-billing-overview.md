@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 3314d00651fc5e0473d84710803671f2ad45f005
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2f96208ff3f9664d82bfc1d9ddf9bc5b9aec37c3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474527"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879089"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Che cos'è Gestione dei costi e fatturazione di Azure?
 
@@ -67,7 +67,7 @@ Un ambito è un nodo di un account di fatturazione che si usa per visualizzare e
 ## <a name="understand-azure-cost-management"></a>Informazioni su Gestione costi di Azure
 Gestione costi è il processo che consente di pianificare e controllare in maniera efficace i costi aziendali. Le attività di gestione dei costi vengono eseguite in genere dai team finanziario, di gestione e dai team app. Il servizio Gestione dei costi e fatturazione di Azure consente alle organizzazioni di pianificare tenendo presenti i costi. Consente inoltre di analizzare in modo efficace i costi e di intraprendere azioni per ottimizzare la spesa per il cloud. Per altre informazioni su come approcciare la gestione dei costi come organizzazione, consultare l'articolo [Procedure consigliate di Gestione costi di Azure](./costs/cost-mgt-best-practices.md).
 
-Guardare il [video Azure Cost Management overview](https://www.youtube.com/watch?v=el4yN5cHsJ0) (Panoramica di Gestione costi di Azure) per una rapida panoramica di come Gestione costi di Azure consente di risparmiare denaro in Azure.
+Guardare il [video Azure Cost Management overview](https://www.youtube.com/watch?v=el4yN5cHsJ0) (Panoramica di Gestione costi di Azure) per una rapida panoramica di come Gestione costi di Azure consente di risparmiare denaro in Azure. Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -93,7 +93,7 @@ Se si utilizzano sistemi esterni per accedere o per revisionare i dati di gestio
 
 [Cloudyn](./cloudyn/overview.md) è un servizio di Azure correlato a Gestione costi che verrà deprecato entro la fine del 2020. Le funzionalità di Cloudyn esistenti vengono integrate direttamente nel portale di Azure laddove possibile. Al momento non verrà eseguito l'onboarding di nuovi clienti, ma il supporto per il prodotto rimarrà disponibile fino a quando non sarà completamente deprecato.
  
-Guardare il [video Azure Cost Management and Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) (Gestione costi di Azure e Cloudyn) per altre informazioni su quando usare Gestione costi di Azure o Cloudyn in base alle proprie esigenze aziendali.
+Guardare il [video Azure Cost Management and Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) (Gestione costi di Azure e Cloudyn) per altre informazioni su quando usare Gestione costi di Azure o Cloudyn in base alle proprie esigenze aziendali. Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
  
 >[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 

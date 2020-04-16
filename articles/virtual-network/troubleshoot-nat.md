@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di connettività del servizio NAT di rete virtuale di Azure
-titleSuffix: Azure Virtual Network NAT troubleshooting
+titleSuffix: Azure Virtual Network
 description: Risolvere i problemi relativi al servizio NAT di rete virtuale.
 services: virtual-network
 documentationcenter: na
@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/30/2020
 ms.author: allensu
-ms.openlocfilehash: c629b3425cd095a6ac9d305b5cd6de58ed9d572a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674321"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396097"
 ---
-# <a name="troubleshoot-azure-virtual-network-nat-connectivity-problems"></a>Risolvere i problemi di connettività del servizio NAT di rete virtuale di Azure
+# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Risolvere i problemi di connettività del servizio NAT di rete virtuale di Azure
 
 Questo articolo consente agli amministratori di diagnosticare e risolvere i problemi di connettività quando si usa il servizio NAT di rete virtuale.
-
->[!NOTE] 
->NAT di rete virtuale è attualmente disponibile in anteprima pubblica e in un set limitato di [aree](nat-overview.md#region-availability). Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="problems"></a>I problemi
 
@@ -43,27 +40,39 @@ Per risolvere questi problemi, attenersi alla procedura descritta nella sezione 
 
 Una singola [risorsa gateway NAT](nat-gateway-resource.md) supporta un numero di flussi simultanei compreso tra 64.000 e 1 milione.  Ogni indirizzo IP fornisce 64.000 porte SNAT all'inventario disponibile. È possibile usare fino a 16 indirizzi IP per ogni risorsa gateway NAT.  Il meccanismo SNAT è descritto [qui](nat-gateway-resource.md#source-network-address-translation) in modo più dettagliato.
 
-Spesso la causa principale dell'esaurimento SNAT è un anti-modello per il modo in cui la connettività in uscita viene stabilita e gestita.  Leggere attentamente questa sezione.
+Spesso la causa radice dell'esaurimento SNAT è un anti-modello per il modo in cui la connettività in uscita viene stabilita e gestita oppure per come vengono cambiati i timer configurabili rispetto ai valori predefiniti.  Leggere attentamente questa sezione.
 
 #### <a name="steps"></a>Passaggi
 
-1. Esaminare il modo in cui l'applicazione crea la connettività in uscita, ad esempio, revisione del codice o acquisizione di pacchetti. 
-2. Determinare se questa attività è un comportamento previsto o se l'applicazione non funziona correttamente.  Usare le [metriche](nat-metrics.md) in Monitoraggio di Azure per convalidare i risultati. Usare la categoria "Non riuscita" per la metrica Connessioni SNAT.
-3. Valutare se vengono seguiti i modelli appropriati.
-4. Valutare se il problema relativo l'esaurimento delle porte SNAT deve essere corretto mediante l'assegnazione di ulteriori indirizzi IP alla risorsa gateway NAT.
+1. Controllare se il timeout di inattività predefinito è stato modificato impostandolo su un valore maggiore di 4 minuti.
+2. Esaminare il modo in cui l'applicazione crea la connettività in uscita, ad esempio, revisione del codice o acquisizione di pacchetti. 
+3. Determinare se questa attività è un comportamento previsto o se l'applicazione non funziona correttamente.  Usare le [metriche](nat-metrics.md) in Monitoraggio di Azure per convalidare i risultati. Usare la categoria "Non riuscita" per la metrica Connessioni SNAT.
+4. Valutare se vengono seguiti i modelli appropriati.
+5. Valutare se il problema relativo l'esaurimento delle porte SNAT deve essere corretto mediante l'assegnazione di ulteriori indirizzi IP alla risorsa gateway NAT.
 
 #### <a name="design-patterns"></a>Modelli di progettazione
 
-Quando possibile, sfruttare sempre i vantaggi del riutilizzo delle connessioni e del pool di connessioni.  Questi modelli eviteranno problemi di esaurimento delle risorse e genereranno un comportamento prevedibile, affidabile e scalabile. Le primitive per questi modelli sono reperibili in molti framework e librerie di sviluppo.
+Quando possibile, sfruttare sempre i vantaggi del riutilizzo delle connessioni e del pool di connessioni.  Questi modelli eviteranno problemi di esaurimento delle risorse e genereranno un comportamento prevedibile. Le primitive per questi modelli sono reperibili in molti framework e librerie di sviluppo.
 
-_**Soluzione:**_ usare i modelli appropriati
+_**Soluzione:**_ Usare procedure consigliate e modelli appropriati
 
+- Le risorse gateway NAT hanno un timeout di inattività TCP predefinito di 4 minuti.  Se questa impostazione viene impostata su un valore maggiore, NAT manterrà i flussi più a lungo e può causare [inutilmente una pressione sull'inventario delle porte SNAT](nat-gateway-resource.md#timers).
+- Le richieste atomiche (una richiesta per connessione) sono poco valide come scelta di progettazione. Questo anti-modello limita la scalabilità, riduce le prestazioni e diminuisce l'affidabilità. Riutilizzare invece le connessioni HTTP/S per ridurre il numero di connessioni e delle porte SNAT associate. L'applicazione sarà maggiormente scalabile e le prestazioni aumenteranno grazie alla riduzione di handshake, sovraccarico e costi delle operazioni di crittografia con l'uso di TLS.
+- DNS può introdurre molti flussi individuali in grandi volumi quando il client non memorizza nella cache il risultato dei resolver DNS. Usare la memorizzazione nella cache.
+- I flussi UDP, ad esempio le ricerche DNS, allocano le porte SNAT per la durata del timeout di inattività. Più è lungo il timeout di inattività, maggiore è la pressione sulle porte SNAT. Usare un timeout di inattività breve (ad esempio 4 minuti).
+- Usare i pool di connessioni per definire il volume di connessioni.
+- Non abbandonare mai un flusso TCP e non fare affidamento sui timer TCP per pulire il flusso. Se non si lascia che TCP chiuda in modo esplicito la connessione, lo stato rimane allocato in endpoint e sistemi intermedi e rende le porte SNAT non disponibili per altre connessioni. Questo scenario può generare errori dell'applicazione e l'esaurimento SNAT. 
+- Non cambiare i valori del timer correlati alla chiusura TCP a livello di sistema operativo se non se ne conosce perfettamente l'impatto. Durante il ripristino dello stack TCP, le prestazioni dell'applicazione possono subire un impatto negativo quando gli endpoint di una connessione non hanno le stesse aspettative. La spinta a cambiare i timer è in genere segno di un problema di progettazione sottostante. Esaminare le raccomandazioni seguenti.
+
+Spesso l'esaurimento SNAT può anche essere amplificato con altri anti-modelli nell'applicazione sottostante. Esaminare questi modelli e queste procedure consigliate per migliorare la scalabilità e l'affidabilità del servizio.
+
+- Analizzare l'impatto della riduzione del [timeout di inattività TCP](nat-gateway-resource.md#timers) a valori inferiori, incluso il timeout di inattività predefinito di 4 minuti, per liberare prima l'inventario delle porte SNAT.
 - Valutare l'uso di [modelli di polling asincroni](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) per le operazioni a esecuzione prolungata per liberare risorse di connessione per altre operazioni.
-- I flussi di lunga durata, ad esempio le connessioni TCP riutilizzate, devono usare i keep-alive TCP o i keep-alive del livello dell'applicazione per evitare il timeout dei sistemi intermedi.
+- I flussi di lunga durata, ad esempio le connessioni TCP riutilizzate, devono usare i keep-alive TCP o i keep-alive del livello dell'applicazione per evitare il timeout dei sistemi intermedi. L'aumento del timeout di inattività è un'ultima risorsa e potrebbe non risolvere la causa radice. Un timeout lungo può generare errori a bassa frequenza quando scade, oltre a introdurre un ritardo ed errori non necessari.
 - È consigliabile usare i [criteri di ripetizione](https://docs.microsoft.com/azure/architecture/patterns/retry) dei tentativi per evitare tentativi o picchi aggressivi durante errori temporanei o ripristini da errori.
 La creazione di una nuova connessione TCP per ogni operazione HTTP (nota anche come "connessioni atomiche") è un anti-pattern.  Le connessioni atomiche impediscono il ridimensionamento ottimale dell'applicazione e generano uno spreco di risorse.  Concatenare sempre più operazioni nella stessa connessione.  L'applicazione otterrà un vantaggio in termini di velocità delle transazioni e costi delle risorse.  Quando l'applicazione usa la crittografia Transport Layer Security (TLS), l'elaborazione delle nuove connessioni comporta un costo significativo.  Vedere [Schemi progettuali per il cloud di Azure](https://docs.microsoft.com/azure/architecture/patterns/) per altri modelli di procedure consigliate.
 
-#### <a name="possible-mitigations"></a>Possibili procedure di mitigazione
+#### <a name="additional-possible-mitigations"></a>Altre possibili procedure di mitigazione
 
 _**Soluzione:**_ ridimensionare la connettività in uscita come indicato di seguito:
 
@@ -110,7 +119,7 @@ Rivedere la sezione sull'[esaurimento SNAT](#snat-exhaustion) in questo articolo
 
 #### <a name="azure-infrastructure"></a>Infrastruttura di Azure
 
-Anche se Azure monitora e gestisce la propria infrastruttura con grande attenzione, possono verificarsi errori temporanei perché non vi è alcuna garanzia che le trasmissioni avvengano senza perdita di dati.  Usare modelli di progettazione che consentono ritrasmissioni SYN per le applicazioni TCP. Usare timeout di connessione sufficientemente ampi da consentire la ritrasmissione SYN TCP per ridurre gli effetti temporanei causati da un pacchetto SYN perso.
+Azure monitora e gestisce la propria infrastruttura con molta attenzione. Possono verificarsi errori temporanei e non è garantito che le trasmissioni siano senza perdita di dati.  Usare modelli di progettazione che consentono ritrasmissioni SYN per le applicazioni TCP. Usare timeout di connessione sufficientemente ampi da consentire la ritrasmissione SYN TCP per ridurre gli effetti temporanei causati da un pacchetto SYN perso.
 
 _**Soluzione:**_
 
@@ -128,14 +137,14 @@ Seguire le stesse indicazioni fornite nella precedente sezione sull'[infrastrutt
 
 #### <a name="internet-endpoint"></a>Endpoint Internet
 
-Le sezioni precedenti si applicano in aggiunta alle considerazioni relative all'endpoint Internet con cui viene stabilita la comunicazione. Altri fattori che possono influire sull'esito positivo della connettività sono:
+Si applicano le sezioni precedenti, oltre all'endpoint Internet con cui viene stabilita la comunicazione. Altri fattori che possono influire sull'esito positivo della connettività sono:
 
 * Gestione del traffico sul lato destinazione, tra cui
 - Limitazione della frequenza delle API imposta dal lato di destinazione
 - Mitigazione dei volumi DDoS o shaping del traffico sul livello di trasporto
 * Firewall o altri componenti nella destinazione 
 
-In genere le acquisizioni di pacchetti nell'origine e nella destinazione (se disponibili) sono necessarie per determinare quali eventi si verificano.
+In genere le acquisizioni di pacchetti nell'origine e nella destinazione (se disponibile) sono necessarie per determinare quali eventi si verificano.
 
 _**Soluzione:**_
 
@@ -147,9 +156,11 @@ _**Soluzione:**_
 
 #### <a name="tcp-resets-received"></a>Reimpostazioni TCP ricevute
 
-Se si rilevano reimpostazioni TCP (pacchetti RST TCP) ricevute nella macchina virtuale di origine, è possibile che siano state generate dal gateway NAT sul lato privato per i flussi non riconosciuti come in corso.  Uno dei possibili motivi è che la connessione TCP prevede timeout di inattività.  È possibile modificare il timeout di inattività da 4 minuti a un massimo di 120 minuti.
+Il gateway NAT genera reimpostazioni TCP nella VM di origine per il traffico non riconosciuto come in corso.
 
-Le reimpostazioni TCP non vengono generate sul lato pubblico delle risorse gateway NAT. Se si ricevono reimpostazioni TCP sul lato di destinazione, vengono generate dallo stack della VM di origine e non dalla risorsa gateway NAT.
+Uno dei possibili motivi è che la connessione TCP prevede timeout di inattività.  È possibile modificare il timeout di inattività da 4 minuti a un massimo di 120 minuti.
+
+Le reimpostazioni TCP non vengono generate sul lato pubblico delle risorse gateway NAT. Le reimpostazioni TCP sul lato di destinazione vengono generate dalla VM di origine, non dalla risorsa gateway NAT.
 
 _**Soluzione:**_
 
@@ -158,7 +169,7 @@ _**Soluzione:**_
 
 ### <a name="ipv6-coexistence"></a>Coesistenza di IPv6
 
-[NAT di rete virtuale](nat-overview.md) supporta i protocolli UDP IPv4 e TCP e la distribuzione in una [subnet con prefisso IPv6 non è supportata](nat-overview.md#limitations).
+[NAT di rete virtuale](nat-overview.md) supporta i protocolli UDP IPv4 e TCP, mentre la distribuzione in una [subnet con prefisso IPv6 non è supportata](nat-overview.md#limitations).
 
 _**Soluzione:**_ distribuire il gateway NAT in una subnet senza prefisso IPv6.
 

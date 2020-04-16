@@ -3,12 +3,12 @@ title: Panoramica di Azure Resource Graph
 description: Informazioni sul servizio Azure Resource Graph, che consente di eseguire query complesse sulle risorse su vasta scala, in diverse sottoscrizioni e diversi tenant.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: 38ead7be09e038b19c390acd9f10e1c0ccf9d858
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214769"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381523"
 ---
 # <a name="what-is-azure-resource-graph"></a>Che cos'è Azure Resource Graph?
 
@@ -50,7 +50,7 @@ Resource Graph aggiorna quindi il database. Resource Graph esegue inoltre un'_an
 
 Ora che si conosce meglio Azure Resource Graph, è possibile approfondire la creazione di query.
 
-È importante sapere che il linguaggio di query di Azure Resource Graph è basato sul [linguaggio di query Kusto](../../data-explorer/data-explorer-overview.md) usato da Esplora dati di Azure.
+È importante sapere che il linguaggio di query di Azure Resource Graph è basato sul [linguaggio di query Kusto](/azure/data-explorer/data-explorer-overview) usato da Esplora dati di Azure.
 
 In primo luogo, per informazioni dettagliate sulle operazioni e le funzioni che possono essere usate con Azure Resource Graph, vedere l'articolo sul [linguaggio di query di Azure Resource Graph](./concepts/query-language.md).
 Per esaminare le risorse, vedere l'articolo sull'[esplorazione delle risorse](./concepts/explore-resources.md).

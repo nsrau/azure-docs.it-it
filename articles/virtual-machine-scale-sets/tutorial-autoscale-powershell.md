@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Ridimensionare automaticamente un set di scalabilità con Azure PowerShell'
 description: Informazioni su come ridimensionare automaticamente con Azure PowerShell un set di scalabilità di macchine virtuali in base all'aumento o alla riduzione delle esigenze in termini di CPU
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2451779119ab8fb6c1446631797ce32fd376146
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76278420"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008999"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con Azure PowerShell
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con Azure PowerShell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -209,7 +209,7 @@ Per mantenere lo strumento **CPU Stress** in esecuzione, lasciare aperte entramb
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorare le regole di scalabilità automatica attive
-Per monitorare il numero di istanze di VM nel set di scalabilità, usare **while**. Le regole di scalabilità automatica impiegano 5 minuti ad avviare il processo di aumento del numero di istanze in risposta al carico della CPU generato da *CPU Stress* in ognuna delle istanze di VM:
+Per monitorare il numero di istanze di VM nel set di scalabilità, usare **while**. Le regole di scalabilità automatica impiegano 5 minuti ad avviare il processo di aumento del numero di istanze in risposta al carico della CPU generato da **CPU Stress** in ognuna delle istanze di VM:
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `

@@ -5,12 +5,12 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 13a03ca6820229fc90467236e0c23f236664d73f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e58414fa94a4ef54eb2f288b2cd636c10611460d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80056598"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81308925"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Guida introduttiva: Creare la prima funzione in Azure con Visual Studio
 
@@ -28,7 +28,7 @@ Per completare questa esercitazione, per prima cosa installare [Visual Studio 20
 
 ![Installare Visual Studio con il carico di lavoro Sviluppo di Azure](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Se non si ha una [sottoscrizione di Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), creare un [account gratuito](https://azure.microsoft.com/free/dotnet/) prima di iniziare.
 
 ## <a name="create-a-function-app-project"></a>Creare un progetto di app per le funzioni
 

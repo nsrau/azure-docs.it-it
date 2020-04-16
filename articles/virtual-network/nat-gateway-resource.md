@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2020
+ms.date: 04/09/2020
 ms.author: allensu
-ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4095b0b48e86b0aafcc86d74ca1fa25bacddf0ec
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359102"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011719"
 ---
-# <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Progettazione di reti virtuali con risorse gateway NAT (anteprima pubblica)
+# <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Progettazione di reti virtuali con risorse gateway NAT
 
 Le risorse gateway NAT fanno parte del servizio [NAT di rete virtuale](nat-overview.md) e forniscono la connettività Internet in uscita per una o più subnet di una rete virtuale. La subnet della rete virtuale determina quale gateway NAT verrà usato. NAT fornisce funzionalità SNAT (Source Network Address Translation) per una subnet.  Le risorse gateway NAT specificano gli indirizzi IP statici usati dalle macchine virtuali durante la creazione di flussi in uscita. Gli indirizzi IP statici provengono da risorse di indirizzi IP pubblici, da risorse di prefissi di indirizzi IP pubblici o da entrambe. Una risorsa gateway NAT può usare fino a 16 indirizzi IP statici da una delle due risorse.
 
@@ -32,10 +32,6 @@ Le risorse gateway NAT fanno parte del servizio [NAT di rete virtuale](nat-overv
 
 *Figura: NAT di rete virtuale per il flusso in uscita verso Internet*
 
-
->[!NOTE] 
->NAT di rete virtuale è attualmente disponibile in anteprima pubblica e in un set limitato di [aree](nat-overview.md#region-availability). Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
-
 ## <a name="how-to-deploy-nat"></a>Come distribuire NAT
 
 La configurazione e l'uso del gateway NAT sono procedure intenzionalmente semplificate:  
@@ -43,7 +39,7 @@ La configurazione e l'uso del gateway NAT sono procedure intenzionalmente sempli
 Risorsa gateway NAT:
 - Creare una risorsa gateway NAT a livello di area o di zona (con isolamento della zona)
 - Assegnare gli indirizzi IP
-- Modificare il timeout di inattività (facoltativo).
+- Se necessario, modificare il timeout di inattività TCP (facoltativo).  Vedere [Timer](#timers) <ins>prima di</ins> cambiare il valore predefinito.
 
 Rete virtuale
 - Configurare la subnet di rete virtuale per l'uso di un gateway NAT.
@@ -66,75 +62,30 @@ NAT è consigliato per la maggior parte dei carichi di lavoro, a meno che non es
 
 È possibile eseguire la migrazione da scenari di bilanciamento del carico standard, con [regole in uscita](../load-balancer/load-balancer-outbound-rules-overview.md), al gateway NAT. Per eseguire la migrazione, spostare le risorse di indirizzi IP pubblici e prefissi di indirizzi IP pubblici dai front-end del servizio di bilanciamento del carico al gateway NAT. Per il gateway NAT, non sono necessari nuovi indirizzi IP. È possibile riutilizzare indirizzi e prefissi di indirizzi IP pubblici standard, purché il totale non superi 16 indirizzi IP. Pianificare la migrazione tenendo presente l'interruzione del servizio durante la transizione.  Per ridurre l'interruzione, è possibile automatizzare il processo. Testare prima la migrazione in un ambiente di staging.  Durante la transizione, i flussi originati in ingresso non sono interessati.
 
-L'esempio seguente mostra come creare una risorsa gateway NAT denominata _myNATGateway_ nell'area _Stati Uniti orientali 2, AZ 1_ con timeout di inattività di _4 minuti_. Gli indirizzi IP in uscita forniti sono:
-- Un set di risorse di indirizzi IP pubblici _myIP1_ e _myIP2_ 
-- Un set di risorse di prefissi di indirizzi IP pubblici _myPrefix1_ e _myPrefix2_. 
+L'esempio seguente è un frammento di un modello di Azure Resource Manager.  Questo modello distribuisce diverse risorse, incluso un gateway NAT.  In questo esempio si useranno i parametri seguenti per il modello:
 
-Il numero totale di indirizzi IP forniti da tutte e quattro le risorse di indirizzi IP non può superare 16 indirizzi IP. È consentito usare un numero qualsiasi di indirizzi IP compreso tra 1 e 16.
+- **natgatewayname**: nome del gateway NAT.
+- **location**: area di Azure in cui si trova la risorsa.
+- **publicipname**: nome dell'IP pubblico in uscita associato al gateway NAT.
+- **vnetname**: nome della rete virtuale.
+- **subnetname**: nome della subnet associata al gateway NAT.
 
-```json
-{
-"name": "myNATGateway",
-   "type": "Microsoft.Network/natGateways",
-   "apiVersion": "2018-11-01",
-   "location": "East US 2",
-   "sku": { "name": "Standard" },
-   "zones": [ "1" ],
-   "properties": {
-      "idleTimeoutInMinutes": 4, 
-      "publicIPPrefixes": [
-         {
-            "id": "ref to myPrefix1"
-         },
-         {
-            "id": "ref to myPrefix2"
-         }
-      ],
-      "publicIPAddresses": [
-         {
-            "id": "ref to myIP1"
-         },
-         {
-            "id": "ref to myIP2"
-         }
-      ]
-   }
-}
-```
+Il numero totale di indirizzi IP forniti da tutte risorse di indirizzi IP e prefissi non può superare 16 indirizzi IP. È consentito usare un numero qualsiasi di indirizzi IP compreso tra 1 e 16.
+
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="81-96":::
 
 Una volta creata, la risorsa gateway NAT può essere usata in una o più subnet di una rete virtuale. Specificare quali subnet usano la risorsa gateway NAT. Un gateway NAT può essere usato in un'unica rete virtuale. Non è necessario assegnare lo stesso gateway NAT a tutte le subnet di una rete virtuale. È possibile configurare le singole subnet con risorse gateway NAT diverse.
 
 Gli scenari in cui non si usano zone di disponibilità saranno a livello di area (senza zone specificate). Se si usano zone di disponibilità, è possibile specificare una zona specifica in cui isolare NAT. La ridondanza della zona non è supportata. Vedere le [zone di disponibilità](#availability-zones) per NAT.
 
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
-```json
-{
-   "name": "myVNet",
-   "apiVersion": "2018-11-01",
-   "type": "Microsoft.Network/virtualNetworks",
-   "location": "myRegion", 
-   "properties": {
-      "addressSpace": {
-          "addressPrefixes": [
-           "192.168.0.0/16"
-          ]
-      },
-      "subnets": [
-         {
-            "name": "mySubnet1",
-            "properties": {
-               "addressPrefix": "192.168.0.0/24",
-               "natGateway": {
-                  "id": "ref to myNATGateway"
-               }
-            }
-         } 
-      ]
-   }
-}
-```
-I gateway NAT vengono definiti con una proprietà in una subnet all'interno di una rete virtuale. Il gateway NAT verrà usato dai flussi creati dalle macchine virtuali nella subnet _mySubnet1_ della rete virtuale _myVNet_. Per tutta la connettività in uscita verranno usati gli indirizzi IP associati a _myNatGateway_ come indirizzi IP di origine.
+I gateway NAT vengono definiti con una proprietà in una subnet all'interno di una rete virtuale. Il gateway NAT verrà usato dai flussi creati dalle macchine virtuali nella subnet **subnetname** della rete virtuale **vnetname**. Per tutta la connettività in uscita verranno usati gli indirizzi IP associati a **natgatewayname** come indirizzi IP di origine.
 
+Per altre informazioni sul modello di Azure Resource Manager usato in questo esempio, vedere:
+
+- [Avvio rapido: Creare un gateway NAT - Modello di Resource Manager](quickstart-create-nat-gateway-template.md)
+- [NAT di rete virtuale](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm/)
 
 ## <a name="design-guidance"></a>Linee guida per la progettazione
 
@@ -147,7 +98,7 @@ Leggere questa sezione per acquisire familiarità con gli aspetti da considerare
 
 ### <a name="cost-optimization"></a>Ottimizzazione dei costi
 
-Gli [endpoint di servizio](virtual-network-service-endpoints-overview.md) e il [collegamento privato](../private-link/private-link-overview.md) sono due opzioni da considerare per ottimizzare i costi quando non è necessario usare NAT.  Il traffico indirizzato agli endpoint di servizio o al collegamento privato non viene elaborato dal NAT della rete virtuale.  
+Gli [endpoint di servizio](virtual-network-service-endpoints-overview.md) e il [collegamento privato](../private-link/private-link-overview.md) sono opzioni da considerare per ottimizzare i costi. NAT non è necessario per questi servizi. Il traffico indirizzato agli endpoint di servizio o al collegamento privato non viene elaborato da NAT della rete virtuale.  
 
 Gli endpoint di servizio vincolano le risorse dei servizi di Azure alla rete virtuale e controllano l'accesso a tali risorse. Ad esempio, quando si accede all'archiviazione di Azure, usare un endpoint di servizio per l'archiviazione per evitare gli addebiti associati ai dati elaborati da NAT. Gli endpoint di servizio sono gratuiti.
 
@@ -226,27 +177,50 @@ I gateway NAT hanno la precedenza sugli scenari in uscita della subnet. Load Bal
 
 ### <a name="availability-zones"></a>Zone di disponibilità
 
-Anche senza le zone di disponibilità, NAT è resiliente e può sopravvivere a più errori dei componenti dell'infrastruttura. Se le zone di disponibilità fanno parte dello scenario, è necessario configurare NAT per una zona specifica.  Le operazioni del piano di controllo e il piano dati sono vincolati alla zona specificata. Un errore in una zona diversa da quella in cui si trova lo scenario non dovrebbe avere effetti su NAT. Il traffico in uscita proveniente da macchine virtuali nella stessa zona avrà esito negativo a causa dell'isolamento della zona.
+#### <a name="zone-isolation-with-zonal-stacks"></a>Isolamento della zona con stack di zona
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="NAT di rete virtuale con zone di disponibilità">
+  <img src="media/nat-overview/az-directions.svg" width="425" title="NAT di rete virtuale con isolamento della zona, creando più stack di zona "zonal stacks"">
 </p>
 
-*Figura: NAT di rete virtuale con zone di disponibilità*
+*Figura: Rete virtuale NAT con isolamento zona, creando più "stack di zona"*
 
-Un gateway NAT con isolamento della zona richiede indirizzi IP che corrispondono alla zona del gateway NAT. Le risorse gateway NAT con indirizzi IP di una zona diversa o senza una zona non sono supportate.
+Anche senza le zone di disponibilità, NAT è resiliente e può sopravvivere a più errori dei componenti dell'infrastruttura.  Le zone di disponibilità si basano su questa resilienza con scenari di isolamento della zona per NAT.
 
-Le reti virtuali e le subnet sono a livello di area e non sono allineate alla zona. Una VM deve trovarsi nella stessa zona del gateway NAT per una promessa di zona delle connessioni in uscita. L'isolamento della zona viene creato con uno "stack" di zona per ogni zona di disponibilità. Una promessa di zona non esiste quando si attraversano le zone di un gateway NAT di zona o si una un gate NAT di area con VM di zona.
+Le reti virtuali e le rispettive subnet sono costrutti a livello di area.  Le subnet non sono limitate a una zona.
 
-Quando si distribuiscono set di scalabilità di macchine virtuali da usare con NAT, si distribuisce un set di scalabilità di zona nella rispettiva subnet a cui si collega il gateway NAT della zona corrispondente. Se si usano set di scalabilità che si estendono in due o più zone, NAT non rispetta la promessa di zona.  NAT non supporta la ridondanza della zona.  È supportato solo l'isolamento a livello di area o di zona.
+Una promessa di zona per l'isolamento delle zone esiste quando un'istanza di macchina virtuale che usa una risorsa gateway NAT si trova nella stessa zona della risorsa gateway NAT e dei relativi indirizzi IP pubblici. Il modello da usare per l'isolamento della zona consiste nel creare uno "stack di zona" per ogni zona di disponibilità.  Questo "stack di zona" è costituito da istanze di macchine virtuali, risorse gateway NAT, risorse di indirizzi e/o prefissi IP pubblici in una subnet che si presuppone serva solo la stessa zona.   Le operazioni del piano di controllo e il piano dati sono allineati e vincolati alla zona specificata. 
+
+Un errore in una zona diversa da quella in cui si trova lo scenario non dovrebbe avere effetti su NAT. Il traffico in uscita proveniente da macchine virtuali nella stessa zona avrà esito negativo a causa dell'isolamento della zona.  
+
+#### <a name="integrating-inbound-endpoints"></a>Integrazione di endpoint in ingresso
+
+Se lo scenario richiede endpoint in ingresso, sono disponibili due opzioni:
+
+| Opzione | Modello | Esempio | Pro | Contro |
+|---|---|---|---|---|
+| (1) | **Allineare** gli endpoint in ingresso con i rispettivi **stack di zona** creati in uscita. | Creare un'istanza di Load Balancer Standard con un front-end di zona. | Modello di integrità e modalità di errore identici in ingresso e in uscita. Maggiore gestibilità. | Può essere necessario mascherare i singoli indirizzi IP per ogni zona con un nome DNS comune. |
+| (2) | **Sovrapporre** gli stack di zona con un endpoint in ingresso **tra zone**. | Creare un'istanza di Load Balancer Standard con un front-end con ridondanza della zona. | Singolo indirizzo IP per l'endpoint in ingresso. | Modello di integrità e modalità di errore variabili in ingresso e in uscita.  Maggiore complessità nella gestione. |
+
+>[!NOTE]
+> Un gateway NAT con isolamento della zona richiede indirizzi IP che corrispondono alla zona del gateway NAT. Le risorse gateway NAT con indirizzi IP di una zona diversa o senza una zona non sono consentite.
+
+#### <a name="cross-zone-outbound-scenarios-not-supported"></a>Scenari in uscita tra zona non supportati
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="NAT di rete virtuale in più zone">
+  <img src="media/nat-overview/az-directions2.svg" width="425" title="NAT di rete virtuale non compatibile con la subnet che si estende tra più zone">
 </p>
 
-*Figura: NAT di rete virtuale in più zone*
+*Figura: NAT di rete virtuale non compatibile con la subnet che si estende tra più zone*
 
-La proprietà delle zone non è modificabile.  Ridistribuire la risorsa gateway NAT con la preferenza prevista per area o zona.
+Non è possibile ottenere una promessa di zona con risorse gateway NAT quando le istanze di macchine virtuali vengono distribuite in più zone all'interno della stessa subnet.   Anche se sono presenti più gateway NAT di zona collegati a una subnet, l'istanza di macchina virtuale non riconosce la risorsa gateway NAT da selezionare.
+
+Una promessa di zona non esiste quando a) la zona di un'istanza di macchina virtuale e le zone di un gateway NAT di zona non sono allineate oppure b) viene usata una risorsa gateway NAT a livello di area con le istanze di macchine virtuali di zona.
+
+Anche se lo scenario sembra funzionare, il modello di integrità e la modalità di errore non sono definiti dal punto di vista della zona di disponibilità. È consigliabile adottare in alternativa gli stack di zona o tutto a livello di area.
+
+>[!NOTE]
+>La proprietà delle zone di una risorsa gateway NAT non è modificabile.  Ridistribuire la risorsa gateway NAT con la preferenza prevista per area o zona.
 
 >[!NOTE] 
 >Gli indirizzi IP non sono di per sé con ridondanza della zona se non viene specificata una zona.  Il front-end di [Load Balancer Standard è con ridondanza della zona](../load-balancer/load-balancer-standard-availability-zones.md#frontend) se non viene creato un indirizzo IP in una zona specifica.  Ciò non si applica a NAT.  È supportato solo l'isolamento a livello di area o di zona.
@@ -303,11 +277,9 @@ Le porte SNAT rilasciate diventano disponibili per l'uso da parte di qualsiasi m
 
 ### <a name="scaling"></a>Scalabilità
 
-Per lo scenario in uscita completo di NAT, è necessario un inventario di porte SNAT sufficiente. La scalabilità di NAT è principalmente una funzione della gestione dell'inventario di porte SNA disponibile e condiviso. Deve esistere un inventario sufficiente per gestire il flusso di picco in uscita per tutte le subnet collegate alla risorsa gateway NAT.
+La scalabilità di NAT è principalmente una funzione della gestione dell'inventario di porte SNA disponibile e condiviso. Per NAT deve esistere un inventario di porte SNAT sufficiente per gestire il flusso di picco in uscita previsto per tutte le subnet collegate a una risorsa gateway NAT.  Per creare un inventario di porte SNAT, è possibile usare risorse di indirizzi IP pubblici, risorse di prefissi IP pubblici o entrambe.
 
-SNAT esegue il mapping di più indirizzi privati a un unico indirizzo pubblico e usa più indirizzi IP pubblici per la scalabilità.
-
-Una risorsa gateway NAT userà 64.000 porte (SNAT) di un indirizzo IP pubblico.  Queste porte SNAT diventano l'inventario disponibile per il mapping del flusso privato a quello pubblico. Inoltre, l'aggiunta di altri indirizzi IP pubblici aumenta l'inventario disponibile di porte SNAT. Le risorse gateway NAT sono scalabili fino a 16 indirizzi IP pubblici e 1 milione di porte SNAT.  TCP e UDP sono inventari di porte SNAT separati e non correlati.
+SNAT associa gli indirizzi privati a uno o più indirizzi IP pubblici, riscrivendo l'indirizzo di origine e la porta di origine nei processi. Per questa conversione, una risorsa gateway NAT userà 64.000 porte (SNAT) per ogni indirizzo IP pubblico configurato. Le risorse gateway NAT sono scalabili fino a 16 indirizzi IP pubblici e 1 milione di porte SNAT. Se viene fornita una risorsa di prefisso IP pubblico, ogni indirizzo IP all'interno del prefisso fornisce l'inventario delle porte SNAT. Inoltre, l'aggiunta di altri indirizzi IP pubblici aumenta l'inventario disponibile di porte SNAT. TCP e UDP sono inventari di porte SNAT separati e non correlati.
 
 Le risorse gateway NAT riutilizzano opportunisticamente le porte di origine. Ai fini della scalabilità, è consigliabile presupporre che ogni flusso richieda una nuova porta SNAT e aumentare il numero totale di indirizzi IP pubblici per il traffico in uscita.
 
@@ -317,7 +289,10 @@ Le risorse gateway NAT interagiscono con le intestazioni IP e di trasporto IT de
 
 ### <a name="timers"></a>Timer
 
-Il timeout di inattività può essere cambiato da 4 minuti (impostazione predefinita) a 120 minuti (2 ore) per tutti i flussi.  Inoltre, è possibile reimpostare il timer di inattività con il traffico di un flusso.  Un modello consigliato per l'aggiornamento di connessioni inattive per lungo tempo e il rilevamento dell'attività degli endpoint è costituito dai keep-alive TCP.  I keep-alive TCP vengono considerati come ACK duplicati dagli endpoint, prevedono un sovraccarico ridotto e sono invisibili al livello applicativo.
+>[!IMPORTANT]
+>Un timer di inattività lungo può aumentare inutilmente la probabilità che si verifichi un esaurimento SNAT. Maggiore è l'intervallo di tempo specificato per un timer, più a lungo NAT manterrà il collegamento alle porte SNAT finché non viene raggiunto il timeout di inattività. Se i flussi raggiungono il timeout di inattività, alla fine avranno comunque esito negativo e consumeranno inutilmente porte SNAT dell'inventario.  I flussi che non riescono dopo 2 ore avrebbero comunque avuto esito negativo anche dopo i 4 minuti predefiniti. L'aumento del timeout di inattività è un'opzione da usare con moderazione come ultima risorsa. Se un flusso non è mai inattivo, non sarà influenzato dal timer di inattività.
+
+Il timeout di inattività TCP può essere cambiato da 4 minuti (impostazione predefinita) a 120 minuti (2 ore) per tutti i flussi.  Inoltre, è possibile reimpostare il timer di inattività con il traffico di un flusso.  Un modello consigliato per l'aggiornamento di connessioni inattive per lungo tempo e il rilevamento dell'attività degli endpoint è costituito dai keep-alive TCP.  I keep-alive TCP vengono considerati come ACK duplicati dagli endpoint, prevedono un sovraccarico ridotto e sono invisibili al livello applicativo.
 
 Per il rilascio di porte SNAT vengono usati i timer seguenti:
 
@@ -339,35 +314,32 @@ Una porta SNAT è disponibile per il riutilizzo nello stesso indirizzo IP di des
 - La registrazione del flusso del gruppo di sicurezza di rete non è supportato con l'uso di NAT.
 - NAT non può estendersi in più reti virtuali.
 
-## <a name="preview-participation"></a>Partecipazione all'anteprima
-
-Seguire le [istruzioni per abilitare la sottoscrizione](nat-overview.md#public-preview-participation).
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 
-Ci interessa sapere come possiamo migliorare il servizio. Gli utenti sono invitati a condividere il loro [feedback sull'anteprima pubblica](https://aka.ms/natfeedback).  E possono proporre nuove funzionalità o esprimere un voto in [UserVoice per NAT](https://aka.ms/natuservoice).
+Ci interessa sapere come possiamo migliorare il servizio. Manca una funzionalità? Proporre suggerimenti per sviluppi futuri in [UserVoice per NAT](https://aka.ms/natuservoice).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sul [servizio NAT di rete virtuale](nat-overview.md).
 * Informazioni su [metriche e avvisi per le risorse gateway NAT](nat-metrics.md).
 * Informazioni sulla [risoluzione dei problemi delle risorse gateway NAT](troubleshoot-nat.md).
-* [Segnalare le nuove funzionalità richieste per NAT di rete virtuale in UserVoice](https://aka.ms/natuservoice).
-* [Inviare feedback sull'anteprima pubblica](https://aka.ms/natfeedback).
 * Esercitazione per la convalida del gateway NAT
   - [Interfaccia della riga di comando di Azure](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
-  - [Portale](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
+  - [Portale](tutorial-create-validate-nat-gateway-portal.md)
 * Avvio rapido per la distribuzione di una risorsa gateway NAT
   - [Interfaccia della riga di comando di Azure](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [Portale](./quickstart-create-nat-gateway-portal.md).
+  - [Portale](./quickstart-create-nat-gateway-portal.md)
+  - [Modello](./quickstart-create-nat-gateway-template.md)
 * Informazioni sull'API della risorsa gateway NAT
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Informazioni sulle [zone di disponibilità](../availability-zones/az-overview.md).
 * Informazioni su [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md).
 * Informazioni su [zone di disponibilità e Load Balancer Standard](../load-balancer/load-balancer-standard-availability-zones.md).
+* [Segnalare le nuove funzionalità richieste per NAT di rete virtuale in UserVoice](https://aka.ms/natuservoice).
 
 

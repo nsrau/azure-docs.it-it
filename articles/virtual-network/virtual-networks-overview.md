@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 967d391d4ac9a9704688dce9636d9a71b2002549
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290199"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879361"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
@@ -76,6 +76,15 @@ Azure instrada il traffico tra subnet, reti virtuali connesse, reti locali e Int
 
 - **Tabelle di route:** è possibile creare tabelle di route personalizzate con route che controllano dove viene instradato il traffico per ogni subnet. Altre informazioni sulle [tabelle di route](virtual-networks-udr-overview.md#user-defined).
 - **Route Border Gateway Protocol (BGP):** se si connette la rete virtuale alla rete locale con un gateway VPN di Azure o una connessione ExpressRoute, è possibile propagare le route BGP locali alle reti virtuali. Altre informazioni sull'uso di BGP con [Gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ed [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
+
+## <a name="virtual-network-integration-for-azure-services"></a>Integrazione della rete virtuale per i servizi di Azure
+
+L'integrazione dei servizi di Azure in una rete virtuale di Azure consente di accedere privatamente ai servizi dalle macchine virtuali o da risorse di calcolo nella rete virtuale.
+È possibile integrare i servizi di Azure nella rete virtuale con le opzioni seguenti:
+- Distribuendo [istanze dedicate del servizio](virtual-network-for-azure-services.md) in una rete virtuale. I servizi sono accessibili privatamente all'interno della rete virtuale e da reti locali.
+- Usando [Collegamento privato](../private-link/private-link-overview.md) per accedere privatamente a un'istanza specifica del servizio dalla rete virtuale e dalle reti locali.
+- È anche possibile accedere al servizio usando endpoint pubblici estendendo una rete virtuale al servizio tramite [endpoint di servizio](virtual-network-service-endpoints-overview.md). Gli endpoint di servizio consentono di proteggere le risorse del servizio nella rete virtuale.
+ 
 
 ## <a name="azure-vnet-limits"></a>Limiti della rete virtuale di Azure
 

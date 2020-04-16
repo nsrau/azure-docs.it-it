@@ -1,19 +1,19 @@
 ---
 title: "Esercitazione: Creare e usare dischi per set di scalabilità con l'interfaccia della riga di comando di Azure"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare e usare dischi gestiti con un set di scalabilità di macchine virtuali e come aggiungere, preparare, elencare e rimuovere dischi.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 12bde51222e1e648f97476d5dab039b4ad2adfe8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3759fa426a712308e1956376d559c1ac84eadbd7
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067050"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008829"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:
@@ -51,18 +51,7 @@ Quando si crea o si ridimensiona un set di scalabilità, vengono automaticamente
 
 
 ## <a name="azure-data-disks"></a>Dischi dati di Azure
-È possibile aggiungere altri dischi dati se è necessario installare applicazioni e archiviare dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Ogni disco dati ha una capacità massima di 4 TB. Le dimensioni dell'istanza di macchina virtuale determinano il numero di dischi dati che possono essere collegati. Per ogni vCPU della macchina virtuale, è possibile collegare due dischi dati.
-
-### <a name="max-data-disks-per-vm"></a>Numero massimo di dischi di dati per macchina virtuale
-| Type | Dimensioni comuni | Numero massimo di dischi di dati per macchina virtuale |
-|----|----|----|
-| [Utilizzo generico](../virtual-machines/linux/sizes-general.md) | Serie A, B e D | 64 |
-| [Ottimizzate per il calcolo](../virtual-machines/linux/sizes-compute.md) | Serie F | 64 |
-| [Ottimizzate per la memoria](../virtual-machines/linux/sizes-memory.md) | Serie D, E, G e M | 64 |
-| [Ottimizzate per l'archiviazione](../virtual-machines/linux/sizes-storage.md) | Serie L | 64 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Serie N | 64 |
-| [Prestazioni elevate](../virtual-machines/linux/sizes-hpc.md) | Serie A e H | 64 |
-
+È possibile aggiungere altri dischi dati se è necessario installare applicazioni e archiviare dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Ogni disco dati ha una capacità massima di 4 TB. Le dimensioni dell'istanza di macchina virtuale determinano il numero di dischi dati che possono essere collegati. Per ogni vCPU della VM è possibile collegare due dischi dati, fino a un massimo assoluto di 64 dischi per macchina virtuale.
 
 ## <a name="vm-disk-types"></a>Tipi di dischi per la VM
 Azure offre due tipi di dischi.

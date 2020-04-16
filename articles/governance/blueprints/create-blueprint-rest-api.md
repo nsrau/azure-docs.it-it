@@ -3,12 +3,12 @@ title: "Guida introduttiva: Creare un progetto con l'API REST"
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'API REST.
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3e7e7c67822eec939c7d7752f8771d3b486abc3c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 93c9aef9efd826b88da59cdb77dedfb10fb11262
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290369"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676580"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Guida introduttiva: Definire e assegnare un progetto Azure Blueprint con l'API REST
 
@@ -25,7 +25,7 @@ Imparare a creare e assegnare progetti consente di definire modelli comuni per s
 
 Se non si ha familiarità con l'API REST, iniziare consultando le [informazioni di riferimento sull'API REST di Azure](/rest/api/azure/) per acquisire una comprensione generale dell'API REST, in particolare dell'URI della richiesta e del corpo della richiesta. Questo articolo usa questi concetti per fornire indicazioni sull'uso di Azure Blueprint e ne presuppone una certa conoscenza. Strumenti come [ARMClient](https://github.com/projectkudu/ARMClient) e altri possono gestire automaticamente l'autorizzazione e sono consigliati per gli utenti meno esperti.
 
-Per le specifiche di progetti Bluprint, vedere [API REST di Azure Blueprints](/rest/api/blueprints/).
+Per le specifiche di Azure Blueprints, vedere [API REST di Azure Blueprints](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 
@@ -406,7 +406,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
      L'**identità gestita assegnata dall'utente** può trovarsi in qualsiasi sottoscrizione e gruppo di risorse per cui l'utente che assegna il progetto abbia le autorizzazioni.
 
      > [!IMPORTANT]
-     > I progetti non gestiscono l'identità gestita assegnata dall'utente. Gli utenti sono responsabili dell'assegnazione di ruoli e autorizzazioni sufficienti, altrimenti l'assegnazione del progetto non riesce.
+     > Azure Blueprints non gestisce l'identità gestita assegnata dall'utente. Gli utenti sono responsabili dell'assegnazione di ruoli e autorizzazioni sufficienti, altrimenti l'assegnazione del progetto non riesce.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

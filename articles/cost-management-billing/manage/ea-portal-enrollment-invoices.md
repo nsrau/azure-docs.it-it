@@ -3,16 +3,16 @@ title: Fatture per la registrazione ad Azure Enterprise
 description: Questo articolo illustra come gestire la fattura della registrazione EA di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9fbc2ffcf1158f436c060817f8f25152f839c3e0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d8d189d2ee67e3f98fec5d7d4cd295879e8689c9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037265"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743885"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione ad Azure Enterprise
 
@@ -494,6 +494,12 @@ I servizi seguenti vengono fatturati separatamente:
 - Visual Studio Enterprise (annuale)
 - Visual Studio Professional (mensile)
 - Visual Studio Professional (annuale)
+
+## <a name="what-to-expect-after-change-of-channel-partner"></a>Cosa aspettarsi dopo la modifica del partner del canale
+
+Se la modifica del partner canale viene eseguita a metà del mese, il cliente riceverà una fattura per l'utilizzo con il precedente partner associato e un'altra fattura per l'utilizzo con il nuovo partner.
+
+Le fatture verranno rilasciate il mese successivo al termine del periodo di fatturazione. Se la cadenza di fatturazione è mensile, la fattura di settembre verrà rilasciata nel mese di ottobre per entrambi i partner. Se il ciclo di fatturazione è trimestrale o annuale, il cliente può aspettarsi una fattura per il precedente partner associato per l'utilizzo nel relativo periodo, mentre il restante periodo riguarderà il nuovo partner in base alla cadenza di fatturazione.
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Azure Marketplace per i clienti con Contratto Enterprise
 

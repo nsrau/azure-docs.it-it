@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ac6d72cbb69796851e58098138d51bb0988be4ec
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80052057"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520983"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
@@ -59,7 +59,7 @@ Personalizza esperienze usa l'apprendimento per rinforzo per selezionare la sing
 
 L'[API](https://go.microsoft.com/fwlink/?linkid=2092082) **Classificazione** di Personalizza esperienze viene chiamata _ogni volta_ che si presenta contenuto, in tempo reale. Questo scenario è noto come **evento**, contrassegnato con un _ID evento_.
 
-L'[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **Premio** di Personalizza esperienze può essere chiamata in tempo reale o ritardata in base ai requisiti dell'infrastruttura. Il punteggio di ricompensa viene determinato in base alle esigenze aziendali. Può trattarsi di un valore singolo, ad esempio 1 per positivo e 0 per negativo, o di un numero prodotto da un algoritmo creato considerando gli obiettivi e le metriche aziendali.
+L'[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **Premio** di Personalizza esperienze può essere chiamata in tempo reale o ritardata in base ai requisiti dell'infrastruttura. Il punteggio di ricompensa viene determinato in base alle esigenze aziendali. Il valore è compreso tra 0 e 1. Può trattarsi di un valore singolo, ad esempio 1 per positivo e 0 per negativo, o di un numero prodotto da un algoritmo creato considerando gli obiettivi e le metriche aziendali.
 
 ## <a name="personalizer-content-requirements"></a>Requisiti del contenuto di Personalizza esperienze
 

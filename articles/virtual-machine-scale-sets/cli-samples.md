@@ -1,20 +1,20 @@
 ---
 title: Esempi dell'interfaccia della riga di comando di Azure
 description: Una tabella che include collegamenti a script bash di esempio creati usando l'interfaccia della riga di comando di Azure, come la creazione e la gestione di un set di scalabilità.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: ca1c85224959840e4137eab68e3d089283827bb5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df0a57e0db239cbd7ad7d66c3fad484ec771f882
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76275156"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010988"
 ---
 # <a name="azure-cli-samples-for-virtual-machine-scale-sets"></a>Esempi dell'interfaccia della riga di comando di Azure per set di scalabilità di macchine virtuali
 

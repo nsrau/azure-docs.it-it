@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/20/2020
-ms.author: dapine
-ms.openlocfilehash: 983a3c38c19d60a2ad890255ab2120ea58776436
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/04/2020
+ms.author: trbye
+ms.openlocfilehash: 10a11168b8046dbcc877f45141571fccdca879f0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80117066"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400294"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -18,7 +18,7 @@ ms.locfileid: "80117066"
 * Il pacchetto Speech SDK per Python è disponibile per i sistemi operativi seguenti:
     * Windows: x64 e x86.
     * Mac: macOS X versione 10.12 o successiva.
-    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 su x64.
+    * Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 su x64.
 * In Linux eseguire i comandi seguenti per installare i pacchetti richiesti:
 
 # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
@@ -43,7 +43,7 @@ sudo yum install alsa-lib openssl python3
 ```
 
 > [!NOTE]
-> In RHEL/CentOS 8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> In RHEL/CentOS 7/8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 
@@ -148,7 +148,7 @@ In caso di problemi durante l'uso di queste istruzioni, consultare la più compl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## <a name="see-also"></a>Vedere anche
 

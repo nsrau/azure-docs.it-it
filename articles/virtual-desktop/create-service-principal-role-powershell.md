@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61b5017609d99f2f0074c67d3838cf351ea38bea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 322ff2be4b90a945305915432a8191db9f4efee2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79365424"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252558"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 
@@ -77,7 +77,7 @@ Ecco le tre credenziali da annotare e i cmdlet che è necessario eseguire per re
     $svcPrincipal.AppId
     ```
 
-## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Creare un'assegnazione di ruolo nell'anteprima di Desktop virtuale Windows
+## <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Creare un'assegnazione di ruolo in Desktop virtuale Windows
 
 Successivamente, è necessario creare un'assegnazione di ruolo in modo che l'entità servizio possa accedere a Desktop virtuale Windows. Assicurarsi di accedere con un account che abbia le autorizzazioni per creare assegnazioni di ruolo.
 

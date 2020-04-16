@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB: creare un'app ToDo con Xamarin"
+title: "Azure Cosmos DB: Creare un'app ToDo con Xamarin"
 description: Presenta un esempio di codice Xamarin che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
 author: codemillmatt
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 74d34705a6541b396fa2c2bf5028254f5f2e8d21
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 125cc2516fbd694bbe62545e85d4e14225fb2a6a
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77586768"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756424"
 ---
-# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
+# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Guida di avvio rapido: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -30,7 +30,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 > [!NOTE]
 > Il codice di esempio per un'intera app Xamarin canonica di esempio che include più offerte di Azure, tra cui CosmosDB, è disponibile in GitHub [qui](https://github.com/xamarinhq/app-geocontacts). Questa app offre una dimostrazione della visualizzazione di contatti in località geografiche diverse e di come consentire a tali contatti di aggiornare la propria posizione.
 
-Questo argomento di avvio rapido illustra come creare un account dell'API SQL di Azure Cosmos DB, un database di documenti e un contenitore usando il portale di Azure. Verrà quindi creata e distribuita un'app Web ToDo basata sull'[API .NET SQL](sql-api-sdk-dotnet.md) e [Xamarin](https://docs.microsoft.com/xamarin/) tramite [Xamarin.Forms](https://docs.microsoft.com/xamarin/) e il [modello architettonico MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+Questo argomento di avvio rapido illustra come creare un account dell'API SQL di Azure Cosmos DB, un database di documenti e un contenitore usando il portale di Azure. Verrà quindi creata e distribuita un'app per dispositivi mobili ToDo basata sull'[API .NET SQL](sql-api-sdk-dotnet.md) e [Xamarin](https://docs.microsoft.com/xamarin/) tramite [Xamarin.Forms](https://docs.microsoft.com/xamarin/) e il [modello architettonico MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 ![App ToDo Xamarin in esecuzione in iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
@@ -91,15 +91,15 @@ Tornare al portale di Azure per recuperare le informazioni sulla chiave API e co
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. In Visual Studio 2019 o Visual Studio per Mac aprire il file APIKeys.cs nella cartella azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers.
+2. In Visual Studio 2019 o Visual Studio per Mac aprire il file APIKeys.cs nella cartella azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers.
 
 3. Copiare il valore di URI dal portale (usando il pulsante di copia) e impostarlo come valore della variabile `CosmosEndpointUrl` in APIKeys.cs.
 
-    `public static readonly string CosmosEndpointUrl = "{Azure Cosmos DB account URL}";`
+    `public static readonly string CosmosEndpointUrl = "";`
 
 4. Copiare quindi il valore di CHIAVE PRIMARIA dal portale e impostarlo come valore di `Cosmos Auth Key` in APIKeys.cs.
 
-    `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+    `public static readonly string CosmosAuthKey = "";`
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 

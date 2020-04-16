@@ -3,22 +3,26 @@ title: Configurare l'integrazione di AWS con Gestione costi di Azure
 description: Questo articolo illustra come impostare e configurare l'integrazione del report di costi e utilizzo di AWS con Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3b1efabbf5f05c05ef939ee8713829fbd49f483
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203084"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878987"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Impostare e configurare l'integrazione del report di costi e utilizzo di AWS
 
 Grazie all'integrazione del report di costi e utilizzo di Amazon Web Services (AWS) è possibile monitorare e controllare la spesa AWS in Gestione costi di Azure. L'integrazione consente di monitorare e controllare la spesa per Azure e AWS in un'unica posizione nel portale di Azure. Questo articolo illustra come impostare l'integrazione e configurarla in modo da poter usare le funzionalità di Gestione costi di Azure per analizzare i costi e rivedere i budget.
 
 Gestione costi elabora il report di costi e utilizzo di AWS archiviato in un bucket S3 usando le credenziali di accesso di AWS per ottenere le definizioni del report e scaricare i file CSV GZIP del report.
+
+Per informazioni su come configurare l'integrazione di report AWS, guardare il video su [come configurare i connettori per AWS in Gestione costi](https://www.youtube.com/watch?v=Jg5KC1cx5cA). Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/Jg5KC1cx5cA]
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Creare un report di costi e utilizzo in AWS
 

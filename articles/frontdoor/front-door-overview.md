@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: 0ee35f4f0b4bd8c46a0445e2905ae3b50d11f721
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79471650"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879123"
 ---
 # <a name="what-is-azure-front-door"></a>Che cos'è il servizio Frontdoor di Azure?
 Frontdoor di Azure consente di definire, gestire e monitorare il routing globale del traffico Web, offrendo prestazioni ottimali e failover globale immediato per una disponibilità elevata. Con Frontdoor è possibile trasformare applicazioni aziendali e consumer globali (multi-area) in affidabili applicazioni moderne personalizzate ad alte prestazioni, API e contenuto che grazie ad Azure raggiunge un pubblico globale.
@@ -51,12 +51,12 @@ Analogamente, è possibile avere due domini diversi `www.contoso.com` e `www.fab
 ## <a name="session-affinity"></a>Affinità di sessione
 La funzionalità affinità di sessione basata su cookie è utile quando si vuole mantenere una sessione utente nello stesso back-end dell'applicazione. Usando i cookie gestiti da Frontdoor, il traffico successivo proveniente da una sessione utente viene indirizzato allo stesso back-end dell'applicazione per l'elaborazione. Questa funzionalità è importante nei casi in cui lo stato di sessione viene salvato localmente nel back-end per una sessione utente.
 
-## <a name="secure-sockets-layer-ssl-termination"></a>Terminazione di Secure Sockets Layer (SSL)
-Frontdoor supporta la terminazione SSL sull'arco. Ciò significa che i singoli utenti possono configurare la connessione SSL con gli ambienti di Frontdoor anziché stabilire connessioni a lungo raggio con il back-end dell'applicazione. Inoltre, Frontdoor supporta sia la connettività HTTP che HTTPS tra gli ambienti di Frontdoor e i back-end. Pertanto, è possibile impostare anche la crittografia SSL end-to-end. Ad esempio, se Frontdoor riceve più di 5000 richieste in un minuto per il carico di lavoro dell'applicazione, a causa del riutilizzo delle connessioni a caldo, per i servizi attivi stabilisce solo 500 connessioni con il back-end dell'applicazione, riducendo il carico significativo sui back-end.
+## <a name="tls-termination"></a>Terminazione TLS
+Frontdoor supporta la terminazione TLS sul perimetro. Ciò significa che i singoli utenti possono configurare la connessione TLS con gli ambienti di Frontdoor anziché stabilire connessioni a lungo raggio con il back-end dell'applicazione. Inoltre, Frontdoor supporta sia la connettività HTTP che HTTPS tra gli ambienti di Frontdoor e i back-end. Pertanto, è possibile configurare anche la crittografia TLS end-to-end. Ad esempio, se Frontdoor riceve più di 5000 richieste in un minuto per il carico di lavoro dell'applicazione, a causa del riutilizzo delle connessioni a caldo, per i servizi attivi stabilisce solo 500 connessioni con il back-end dell'applicazione, riducendo il carico significativo sui back-end.
 
 ## <a name="custom-domains-and-certificate-management"></a>Dominio personalizzato e gestione di certificati
 Quando si usa Frontdoor per distribuire un contenuto,è necessario un dominio personalizzato se si vuole che il nome di dominio sia visibile nell'URL del Frontdoor. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione.
-Frontdoor supporta anche HTTPS per nomi di dominio personalizzato. Usare questa funzionalità scegliendo i certificati gestiti di Frontdoor o caricando il certificato SSL personalizzato.
+Frontdoor supporta anche HTTPS per nomi di dominio personalizzato. Usare questa funzionalità scegliendo i certificati gestiti di Frontdoor per il traffico o caricando il certificato TLS/SSL personalizzato.
 
 ## <a name="application-layer-security"></a>Sicurezza del livello dell'applicazione
 Il servizio Frontdoor di Azure consente di creare regole di Web Application Firewall (WAF) personalizzate per il controllo degli accessi al fine di proteggere il carico di lavoro HTTP/HTTPS dallo sfruttamento basato su indirizzi IP del client, codice paese e parametri HTTP. Inoltre, Frontdoor consente di creare regole di limitazione della tariffa per combattere il dannoso traffico dei bot. Per altre informazioni su Web Application Firewall, vedere [Che cos'è Web Application Firewall di Azure?](../web-application-firewall/overview.md)

@@ -1,21 +1,14 @@
 ---
 title: "Guida introduttiva: Distribuire un'app con il portale LUIS"
-titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come distribuire un'app creando una risorsa endpoint di previsione, assegnando la risorsa, eseguendo il training e quindi pubblicando l'app.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: diberry
-ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/06/2020
+ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79218499"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756297"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: Distribuire un'app nel portale LUIS
 
@@ -29,35 +22,13 @@ In questo argomento di avvio rapido viene illustrato come distribuire un'applica
 * Completare il precedente [argomento di avvio rapido sul portale](get-started-portal-build-app.md) oppure [scaricare e importare l'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
 * Se si hanno app che precedono l'autenticazione delle risorse di Azure, [eseguire la migrazione a una risorsa di Azure](luis-migration-authoring.md). Alcune pagine del portale hanno un aspetto diverso quando è attiva l'autenticazione della posta elettronica.
 
-## <a name="create-the-endpoint-resource"></a>Creare la risorsa endpoint
+<a name="create-the-endpoint-resource"></a>
 
-La risorsa endpoint di stima viene creata nel portale di Azure. Dovrà essere usata solo per le query di stima dell'endpoint. Non usarla per apportare modifiche all'app.
-
-1. Accedere e creare una risorsa nel [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
-
-1. Configurare la sottoscrizione con le impostazioni seguenti:
-
-   |Impostazione|valore|Scopo|
-   |--|--|--|
-   |Nome|`my-luis-resource`|Il nome della risorsa di Azure. Questo nome è necessario quando si assegna la risorsa all'app nel portale LUIS.|
-   |Subscription|Sottoscrizione in uso|Selezionare una delle sottoscrizioni associate all'account.|
-   |Resource group|`my-resource-group`|Creare un nuovo gruppo di risorse per tutte le risorse dei servizi cognitivi. Quando le risorse non sono più necessarie, è possibile eliminare il gruppo per pulire la sottoscrizione. |
-   |Posizione di creazione|**Stati Uniti occidentali**|L'area di Azure per la creazione.|
-   |Piano tariffario di creazione|**F0**|Il piano tariffario predefinito per la creazione.|
-   |Posizione di runtime|**Stati Uniti occidentali**|L'area di Azure per le query dell'endpoint di previsione.|
-   |Piano tariffario per il runtime|**S0**|Questo piano tariffario prevede siti Web con traffico elevato.|
-   | | | |
-
-
-   ![Scelta dell'API di Azure](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-1. Selezionare **Crea** per creare la risorsa di Azure.
-
-   La sezione successiva illustrerà come connettere questa nuova risorsa a un'app LUIS nel portale LUIS.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>Assegnare la chiave della risorsa all'app LUIS nel portale LUIS
 
-Ogni volta che si crea una nuova risorsa per LUIS, è necessario assegnarla all'app LUIS. Dopo l'assegnazione, non sarà più necessario eseguire questo passaggio a meno che non venga creata una nuova risorsa. Si potrebbe creare una nuova risorsa per espandere le aree dell'app oppure per supportare un numero più elevato di query di stima.
+Ogni volta che si crea una nuova risorsa di creazione o di query di stima per LUIS, è necessario assegnarla all'app LUIS. Dopo l'assegnazione, non sarà più necessario eseguire questo passaggio a meno che non venga creata una nuova risorsa. Si potrebbe creare una nuova risorsa per espandere le aree dell'app oppure per supportare un numero più elevato di query di stima.
 
 1. Accedere all'[anteprima del portale LUIS](https://preview.luis.ai) e scegliere l'app **myEnglishApp** nell'elenco.
 

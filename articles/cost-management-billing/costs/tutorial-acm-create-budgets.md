@@ -3,17 +3,17 @@ title: 'Esercitazione: Creare e gestire i budget di Azure'
 description: Questa esercitazione illustra come pianificare e controllare i costi dei servizi di Azure utilizzati.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 82094fadf7b11d97b0e9e74d9ba897baed16ee01
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155937"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874280"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -25,7 +25,7 @@ I budget vengono reimpostati automaticamente alla fine di un periodo (mensile, t
 
 Gli esempi in questa esercitazione illustrano la creazione e la modifica di un budget per una sottoscrizione con contratto Enterprise di Azure.
 
-Per informazioni su come creare budget in Azure per monitorare la spesa, vedere il video relativo all'[applicazione dei budget alle sottoscrizioni tramite il portale di Azure](https://www.youtube.com/watch?v=UrkHiUx19Po).
+Per informazioni su come creare budget in Azure per monitorare la spesa, vedere il video relativo all'[applicazione dei budget alle sottoscrizioni tramite il portale di Azure](https://www.youtube.com/watch?v=UrkHiUx19Po). Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
@@ -38,11 +38,32 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Sono supportati i budget per diversi tipi di account Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md). Per visualizzare i budget, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
+I budget sono supportati per i tipi di account e gli ambiti di Azure seguenti:
+
+- Ambiti di Controllo degli accessi in base al ruolo di Azure
+    - Gruppi di gestione
+    - Subscription
+- Ambiti del Contratto Enterprise
+    - Account di fatturazione
+    - department
+    - Account di registrazione
+- Singoli contratti
+    - Account di fatturazione
+- Ambiti del Contratto del cliente Microsoft
+    - Account di fatturazione
+    - Profilo di fatturazione
+    - Sezione della fattura
+    - Customer
+- Scopi AWS
+    - Account esterno
+    - Sottoscrizione esterna
+
+
+Per visualizzare i budget, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
 
 Se si ha una nuova sottoscrizione, non è possibile creare immediatamente un budget o usare altre funzionalità di Gestione costi. Potrebbero essere necessarie fino a 48 ore prima di poter usarle usare tutte.
 
-Per le sottoscrizioni Azure EA è necessario avere accesso in lettura per visualizzare i budget. Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. Non è tuttavia possibile creare budget per gli account di fatturazione EA.
+Per le sottoscrizioni Azure EA è necessario avere accesso in lettura per visualizzare i budget. Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore.
 
 Le autorizzazioni o gli ambiti di Azure riportati di seguito sono supportati per i budget per ogni sottoscrizione, in base a utente e gruppo. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
@@ -58,7 +79,7 @@ Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Creare un budget nel portale di Azure
 
-È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale. Il contenuto della navigazione nel portale di Azure determina se si crea un budget per una sottoscrizione o per un gruppo di gestione.
+È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale.
 
 Per creare o visualizzare un budget, aprire l'ambito desiderato nel portale di Azure e selezionare **Budget** nel menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione dall'elenco, quindi selezionare **Budget** nel menu. Usare l'etichetta **Ambito** per passare a un ambito diverso, ad esempio un gruppo di gestione, in Budget. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
@@ -110,15 +131,11 @@ Le valutazioni dei costi del budget si basano sul costo effettivo. Non includono
 
 Quando si crea o si modifica un budget per un ambito di sottoscrizione o di gruppo di risorse, è possibile configurarlo in modo che chiami un gruppo di azioni. Il gruppo di azioni può eseguire varie azioni quando viene raggiunta la soglia del budget. I gruppi di azioni sono attualmente supportati solo per gli ambiti di sottoscrizione e di gruppo di risorse. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni nel portale di Azure](../../azure-monitor/platform/action-groups.md). Per altre informazioni sull'uso dell'automazione basata sul budget con i gruppi di azioni, vedere [Gestire i costi con i budget di Azure](../manage/cost-management-budget-scenario.md).
 
-
-
 Per creare o aggiornare i gruppi di azioni, selezionare **Gestisci gruppi di azioni** durante la creazione o la modifica di un budget.
 
 ![Esempio di creazione di un budget per visualizzare Gestisci gruppi di azioni](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
-
 Selezionare quindi **Aggiungi gruppo di azioni** e creare il gruppo di azioni.
-
 
 ![Immagine della finestra Aggiungi gruppo di azioni](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
 

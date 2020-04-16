@@ -1,22 +1,14 @@
 ---
 title: "Esercitazione: Estrarre dati strutturati con un'entità basata su Machine Learning - LUIS"
-titleSuffix: Azure Cognitive Services
 description: Estrarre dati strutturati da un'espressione usando l'entità basata su Machine Learning. Per aumentare l'accuratezza dell'estrazione, aggiungere sottocomponenti con descrittori e vincoli.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: e1709a5e86c8fed8d7f724ad1b105bd02df9fa56
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 52bf2fb0b9f37e0c731a46c0aaf8b6c5e7f0e911
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75381767"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545844"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Esercitazione: Estrarre dati strutturati da un'espressione dell'utente con entità basate su Machine Learning in Language Understanding (LUIS)
 
@@ -44,19 +36,19 @@ L'entità basata su Machine Learning supporta il [concetto di scomposizione del 
 
 Questa esercitazione aggiunge un'entità basata su Machine Learning per estrarre dati da un'espressione.
 
-Lo scopo di un'entità è definire i dati da estrarre. Ciò include la specifica di un nome e di un tipo (se possibile) per i dati, di una risoluzione dei dati in caso di ambiguità e del testo esatto che compone i dati.
+L'entità definisce i dati da estrarre dall'espressione. Ciò include la specifica di un nome e di un tipo (se possibile) per i dati, di una risoluzione dei dati in caso di ambiguità e del testo esatto che compone i dati.
 
-Per definire l'entità, è necessario creare l'entità e quindi assegnare un'etichetta al testo che rappresenta l'entità nell'espressione di esempio. Questi esempi con etichetta insegnano a LUIS qual è l'entità e dove può trovarsi in un'espressione.
+Per definire l'entità, è necessario crearla e quindi etichettare il testo che la rappresenta nelle espressioni di esempio all'interno di tutte le finalità. Questi esempi con etichetta insegnano a LUIS qual è l'entità e dove può trovarsi in un'espressione.
 
 ## <a name="entity-decomposability-is-important"></a>La scomponibilità delle entità è importante
 
-La scomponibilità delle entità è importante sia per la stima delle finalità che per l'estrazione dei dati.
+La scomponibilità delle entità è importante sia per la previsione delle finalità che per l'estrazione dei dati con l'entità.
 
 Iniziare con un'entità basata su Machine Learning, che rappresenta l'entità iniziale e di primo livello per l'estrazione dei dati. Quindi scomporre l'entità nelle parti richieste dall'applicazione client.
 
 Sebbene non sia possibile sapere quanto dettagliata debba essere l'entità quando si inizia a creare l'app, è consigliabile iniziare con un'entità basata su Machine Learning e quindi scomporre con i sottocomponenti man mano che l'app cresce.
 
-In pratica, si creerà un'entità basata su Machine Learning per rappresentare un ordine per un'app per la pizza. L'ordine deve contenere tutte le parti necessarie per compilare l'ordine. Per iniziare, l'entità estrae il testo correlato all'ordine, insieme a dimensione e quantità.
+In pratica, si crea un'entità basata su Machine Learning per rappresentare un ordine per un'app per la pizza. L'ordine deve contenere tutte le parti necessarie per compilare l'ordine. Per iniziare, l'entità estrae il testo correlato all'ordine, insieme a dimensione e quantità.
 
 Un'espressione per `Please deliver one large cheese pizza to me` dovrebbe estrarre `one large cheese pizza` sotto forma di ordine e quindi estrarre anche `1` e `large`.
 
@@ -92,7 +84,7 @@ Per estrarre i dettagli relativi a un ordine di pizza, creare un'entità `Order`
     ![Aggiungere la struttura all'entità](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. Nella casella **Create a machine learned entity** (Crea entità basata su Machine Learning) nella casella **Structure** (Struttura) aggiungere `Size` quindi premere INVIO.
-1. Per aggiungere un **descrittore**, selezionare `+` nell'area **Descriptors for Size** (Descrittori per dimensione), quindi selezionare **Create new phrase list** (Crea nuovo elenco frasi).
+1. Per aggiungere un **descrittore**, selezionare `+` nell'area **Descriptors** (Descrittori), quindi selezionare **Create new phrase list** (Crea nuovo elenco frasi).
 
 1. Nella casella **Create new phrase list descriptor** (Crea descrittore nuovo elenco frasi) immettere il nome `SizeDescriptor` quindi immettere i valori `small`, `medium` e `large`. Quando viene compilata la casella **Suggestions** (Suggerimenti), selezionare `extra large` e `xl`. Selezionare **Done** (Fine) per creare il nuovo elenco frasi.
 
@@ -108,7 +100,7 @@ Per estrarre i dettagli relativi a un ordine di pizza, creare un'entità `Order`
 
     ![Assegnare un'etichetta all'entità della dimensione per il testo dell'espressione.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
-    La linea sotto il testo è continua poiché l'etichetta e la stima corrispondono poiché è stata assegnata un'etichetta in modo esplicito al testo.
+    La linea sotto il testo è continua poiché l'etichetta e la previsione corrispondono, in quanto il testo è stato etichettato _esplicitamente_.
 
 1. Assegnare un'etichetta all'entità `Order` nelle espressioni rimanenti insieme all'entità della dimensione. Le parentesi quadre nel testo indicano l'entità `Order` con etichetta e l'entità `Size` all'interno.
 
@@ -132,7 +124,7 @@ Per estrarre i dettagli relativi a un ordine di pizza, creare un'entità `Order`
     |--|
     |`pickup XL meat lovers pizza`|
 
-    L'entità di primo livello `Order` ha un'etichetta e anche il sottocomponente `Size` ha un'etichetta con linee tratteggiate. La stima è corretta.
+    L'entità di primo livello `Order` ha un'etichetta e anche il sottocomponente `Size` ha un'etichetta con linee tratteggiate.
 
     ![Nuova espressione di esempio stimata con l'entità](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -160,20 +152,20 @@ Iniziare aggiungendo l'entità numero predefinito all'app.
 
 ## <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>Creare un'entità sottocomponente con vincolo per facilitare l'estrazione dei dati
 
-L'entità `Order` deve avere un sottocomponente `Quantity` per determinare il numero di unità di un elemento nell'ordine. La quantità deve essere vincolata a un numero in modo che i dati estratti siano immediatamente utilizzabili dall'applicazione client.
+L'entità `Order` deve avere un sottocomponente `Quantity` per determinare il numero di unità di un elemento nell'ordine. La quantità deve essere vincolata a un numero in modo che i dati estratti siano immediatamente utilizzabili dall'applicazione client per nome.
 
 Un vincolo viene applicato come corrispondenza di testo, con corrispondenza esatta (ad esempio un'entità dell'elenco) o tramite espressioni regolari (ad esempio un'entità espressione regolare o un'entità predefinita).
 
 Usando un vincolo, viene estratto solo il testo che corrisponde a tale vincolo.
 
 1. Selezionare **Entities** (Entità) quindi selezionare l'entità `Order`.
-1. Selezionare **+ Add Component** (+ Aggiungi componente) quindi immettere il nome `Quantity` e premere INVIO per aggiungere la nuova entità all'app.
-1. Dopo la notifica di esito positivo, selezionare il sottocomponente `Quantity` quindi selezionare la matita del vincolo.
+1. Selezionare **+ Add Component** (Aggiungi componente), quindi immettere il nome immettere il nome `Quantity` e premere INVIO per aggiungere il nuovo sottocomponente all'entità `Order`.
+1. Dopo la notifica di esito positivo, selezionare la matita del vincolo in **Advanced Options** (Opzioni avanzate).
 1. Nell’elenco a discesa selezionare il numero predefinito.
 
     ![Creare un'entità quantità con un numero predefinito come vincolo.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    L'entità `Quantity` viene applicata solo se viene trovato un testo corrispondente all'entità numero predefinito.
+    L'entità `Quantity` viene applicata quando il testo corrisponde all'entità con il numero predefinito.
 
     L'entità con il vincolo è stata creata ma non ancora applicata alle espressioni di esempio.
 
@@ -182,7 +174,7 @@ Usando un vincolo, viene estratto solo il testo che corrisponde a tale vincolo.
 
 ## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Etichettare un'espressione di esempio per inviare a LUIS dati sull'entità
 
-1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **OrderPizza**. I tre numeri nelle espressioni seguenti hanno un'etichetta ma sono visualizzati sotto la riga dell'entità `Order`. Questo livello inferiore indica che le entità vengono rilevate, ma non sono considerate separate dall'entità `Order`.
+1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **OrderPizza**. I tre numeri nelle espressioni seguenti hanno un'etichetta ma sono visualizzati sotto la riga dell'entità `Order`. Questo livello inferiore indica che le entità vengono rilevate, ma non sono considerate una parte dall'entità `Order`.
 
     ![Il numero predefinito è stato trovato ma non è ancora considerato separato dall'entità Order (Ordine).](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
@@ -192,7 +184,7 @@ Usando un vincolo, viene estratto solo il testo che corrisponde a tale vincolo.
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Eseguire il training dell'app per applicare le modifiche alle entità all'app
 
-Selezionare **Train** (Esegui training) per eseguire il training dell'app con le nuove espressioni.
+Selezionare **Train** (Esegui training) per eseguire il training dell'app con le nuove espressioni. Dopo il training, il sottocomponente `Quantity` viene previsto correttamente nel componente `Order`. Questa previsione corretta è indicata con una linea continua.
 
 ![Eseguire il training dell'app, quindi rivedere le espressioni di esempio.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
@@ -213,7 +205,7 @@ Testare l'app usando il pannello interattivo **Test**. Questo processo consente 
 
     La dimensione è stata identificata correttamente. Tenere presente che le espressioni di esempio nella finalità `OrderPizza` non hanno un esempio di `medium` come dimensione ma usano un descrittore di un elenco frasi `SizeDescriptor` che include il supporto.
 
-    La quantità non è stimata correttamente. Per risolvere questo problema, è possibile aggiungere più espressioni di esempio usando la parola per indicare la quantità e assegnare un'etichetta alla parola come entità `Quantity`.
+    La quantità non è stimata correttamente. È possibile risolvere questo problema nell'applicazione client specificando il valore di dimensione predefinito uno (1) se nella previsione di LUIS non viene restituita alcuna dimensione.
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Pubblicare l'app per eseguire l'accesso dall'endpoint HTTP
 
@@ -223,7 +215,7 @@ Testare l'app usando il pannello interattivo **Test**. Questo processo consente 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Passare alla fine dell'URL nell'indirizzo e immettere la stessa query immessa nel pannello di test interattivo.
+1. Passare alla fine dell'URL nella barra degli indirizzi e sostituire _YOUR_QUERY_HERE_ con la stessa query immessa nel pannello di test interattivo.
 
     `deliver a medium veggie pizza`
 

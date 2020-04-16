@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f6e7ee1b03dda30bea15a837b6daf6469e00e46d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 205f4a27a7903bc5a1da3fc12e3d4a02b23f58cf
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886399"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990923"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
 
@@ -424,7 +424,7 @@ Quando si accede all'applicazione in un dominio federato di Azure AD, è possibi
 
 Causa: le funzionalità Enterprise e certificati non sono abilitate.
 
-Soluzione Seguire la procedura descritta in [Abilitare l'autenticazione integrata in domini federati (facoltativo)](#enable-integrated-authentication-on-federated-domains-optional).
+Soluzione: Seguire la procedura descritta in [Abilitare l'autenticazione integrata in domini federati (facoltativo)](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Problema 2
 
@@ -435,8 +435,3 @@ Causa: questo problema è una limitazione nota del gestore delle autenticazioni 
 Soluzione alternativa: selezionare **Accedi con altre opzioni**. Selezionare quindi **Accedi con nome utente e password**. Selezionare **Immettere la password**. Quindi eseguire il processo di autenticazione del telefono.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
-Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione:
-
-> [!div class="nextstepaction"]
-> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

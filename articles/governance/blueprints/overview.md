@@ -3,12 +3,12 @@ title: Panoramica di Azure Blueprint
 description: Informazioni sul servizio Azure Blueprints, che consente di creare, definire e distribuire artefatti nell'ambiente di Azure.
 ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74321770"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677407"
 ---
 # <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
 
@@ -22,17 +22,17 @@ I progetti costituiscono un metodo dichiarativo per orchestrare la distribuzione
 - Gruppi di risorse
 
 Il servizio Azure Blueprints è supportato da [Azure Cosmos DB](../../cosmos-db/introduction.md) distribuito a livello globale.
-Gli oggetti del progetto vengono replicati in più aree di Azure. Questa replica fornisce bassa latenza, disponibilità elevata e accesso coerente agli oggetti del progetto, indipendentemente dall'area in cui Blueprints distribuisce le risorse.
+Gli oggetti del progetto vengono replicati in più aree di Azure. Questa replica fornisce bassa latenza, disponibilità elevata e accesso ininterrotto agli oggetti del progetto, indipendentemente dall'area in cui Azure Blueprints distribuisce le risorse.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>In cosa differisce dai modelli di Resource Manager
 
 Il servizio è progettato per facilitare la _configurazione dell'ambiente_. Questa configurazione spesso è costituita da un set di gruppi di risorse, criteri, assegnazioni di ruolo e distribuzioni dei modelli di Resource Manager. Un progetto è un pacchetto che riunisce ognuno di questi tipi di _artefatti_ e consente di comporre e indicare la versione di tale pacchetto, anche tramite una pipeline CI/CD. In definitiva, ognuno viene assegnato a una sottoscrizione in una singola operazione che può essere controllata e monitorata.
 
-Quasi tutto ciò che si desidera includere per la distribuzione nei progetti può essere eseguito con un modello di Resource Manager. Tuttavia, un modello di Resource Manager è un documento che non esiste in modo nativo in Azure: ognuno viene archiviato in locale o nel controllo del codice sorgente. Il modello viene usato per le distribuzioni di una o più risorse di Azure, ma dopo la distribuzione di tali risorse non c'è una connessione o relazione attiva con il modello.
+Quasi tutto ciò che si vuole includere per la distribuzione in Azure Blueprints può essere eseguito con un modello di Resource Manager. Tuttavia, un modello di Resource Manager è un documento che non esiste in modo nativo in Azure: ognuno viene archiviato in locale o nel controllo del codice sorgente. Il modello viene usato per le distribuzioni di una o più risorse di Azure, ma dopo la distribuzione di tali risorse non c'è una connessione o relazione attiva con il modello.
 
-Con i progetti, la relazione tra la definizione di progetto (_cosa_ distribuire) e l'assegnazione di progetto (_cosa è stato_ distribuito) viene mantenuta. Questa connessione supporta un migliore monitoraggio e controllo delle distribuzioni. Blueprint può anche aggiornare più sottoscrizioni contemporaneamente regolate dallo stesso progetto.
+Con Azure Blueprints, la relazione tra la definizione di progetto (_cosa_ distribuire) e l'assegnazione di progetto (_cosa è stato_ distribuito) viene mantenuta. Questa connessione supporta un migliore monitoraggio e controllo delle distribuzioni. Azure Blueprints può anche aggiornare più sottoscrizioni contemporaneamente regolate dallo stesso progetto.
 
-Non è necessario scegliere tra un modello di Resource Manager e un progetto. Ogni progetto può essere costituito da zero o più _artefatti_ dei modelli di Resource Manager. Ciò significa che il lavoro richiesto in precedenza per sviluppare e gestire una libreria di modelli di Resource Manager può essere riusato nei progetti.
+Non è necessario scegliere tra un modello di Resource Manager e un progetto. Ogni progetto può essere costituito da zero o più _artefatti_ dei modelli di Resource Manager. Ciò significa che il lavoro richiesto in precedenza per sviluppare e gestire una libreria di modelli di Resource Manager può essere sfruttato di nuovo in Azure Blueprints.
 
 ## <a name="how-its-different-from-azure-policy"></a>In cosa differisce dai Criteri di Azure
 
@@ -46,7 +46,7 @@ I criteri possono essere inclusi nella definizione di un progetto come i vari _a
 
 ## <a name="blueprint-definition"></a>Definizione di progetto
 
-Un progetto è costituito da _artefatti_. Azure Blueprint supporta attualmente le seguenti risorse come artefatti:
+Un progetto è costituito da _artefatti_. Azure Blueprints supporta attualmente le risorse seguenti come artefatti:
 
 |Risorsa  | Opzioni della gerarchia| Descrizione  |
 |---------|---------|---------|

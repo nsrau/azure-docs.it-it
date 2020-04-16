@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b067b18985905b226287f9dd10ad4b937fab6df1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6f0a782309edc33a8a5ce661652922494ead2ec0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76767975"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667316"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Panoramica di Azure FarmBeats (anteprima)
 
@@ -42,6 +42,24 @@ Datahub è progettato come piattaforma API estendibile. Collaboriamo con molti p
 ## <a name="accelerator"></a>Acceleratore
 
 Azure FarmBeats Accelerator è un'applicazione Web di esempio basata su Datahub. Accelerator avvia rapidamente l'interfaccia utente e lo sviluppo del modello. Azure FarmBeats Accelerator usa le API di Azure FarmBeats. Visualizza i dati dei sensori inseriti come grafici e gli output del modello come mappe. È possibile ad esempio usare l'acceleratore per creare rapidamente un'azienda agricola e ottenere con facilità una mappa dell'indice di vegetazione o una mappa di posizionamento dei sensori.
+
+## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
+
+Un amministratore può definire le regole di accesso per Azure FarmBeats usando uno dei ruoli predefiniti. I ruoli determinano le aree dell'applicazione a cui un utente può accedere e le azioni che può eseguire. Esistono due tipi di ruoli in Azure FarmBeats, per gli utenti e per i partner.
+
+### <a name="user-roles"></a>Ruoli utente
+
+Un [amministratore può aggiungere e gestire gli utenti](manage-users-in-azure-farmbeats.md) e definire i loro livelli di accesso in base a due ruoli utente: Amministratore e Sola lettura.
+
+### <a name="partner-roles"></a>Ruoli partner
+
+Un amministratore può aggiungere più partner come provider di dati ad Azure FarmBeats. Di seguito vengono riepilogati i ruoli partner disponibili in FarmBeats e le relative autorizzazioni:
+
+| Tipo di partner    |   Azioni  | Scope |
+| ---- | -------- | -------- |
+| Partner per i sensori  |   Creazione, lettura, aggiornamento <br/> <br/> Lettura, aggiornamento | DeviceModel, Device, SensorModel, Sensor <br/> <br/> ExtendedType |
+| Partner per le immagini  |   Creazione, lettura, aggiornamento <br/> <br/> Lettura, aggiornamento <br/> <br/> Lettura | Scene, SceneFile <br/> <br/> ExtendedType <br/> <br/> Farm |
+| Partner per il meteo* <br/> <br/>  (* prossimamente) |   Creazione, lettura, aggiornamento <br/> <br/> Lettura, aggiornamento <br/> <br/> Lettura | WeatherDataModel, WeatherDataLocation, JobType <br/> <br/> ExtendedType <br/> <br/> Farm |
 
 ## <a name="resources"></a>Risorse
 

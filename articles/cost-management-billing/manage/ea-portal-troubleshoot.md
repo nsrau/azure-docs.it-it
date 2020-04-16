@@ -3,16 +3,16 @@ title: Risolvere i problemi di accesso ad Azure EA Portal
 description: Questo articolo descrive alcuni problemi comuni che possono verificarsi con un contratto Azure Enterprise Agreement (EA) in Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3bf1c10e28ef9e3e4008968c9dbaef576bccdb5f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ee8363a76db93f0c2bd4734151e3d250de5402fc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411544"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586194"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Risolvere i problemi di accesso ad Azure EA Portal
 
@@ -112,7 +112,7 @@ Lo stato di una registrazione risulta in sospeso se l'amministratore EA iniziale
 
 ### <a name="why-is-my-account-stuck-in-pending-status"></a>Perché l'account rimane bloccato nello stato in sospeso?
 
-Quando vengono aggiunti nuovi proprietari di account a una registrazione per la prima volta, il relativo stato risulta "In sospeso". Non appena riceve il messaggio di posta elettronica di benvenuto per l'attivazione, il proprietario può accedere per attivare il proprio account. Per effetto di questa operazione, lo stato dell'account passerà da "In sospeso" ad "Attivo".
+Quando vengono aggiunti nuovi proprietari di account a una registrazione per la prima volta, il relativo stato risulta "in sospeso". Non appena riceve il messaggio di posta elettronica di benvenuto per l'attivazione, il proprietario può accedere per attivare il proprio account. Per effetto di questa operazione, lo stato dell'account passerà da "in sospeso" ad "attivo".
 
 ### <a name="i-received-an-error-when-signing-in-to-azure-ea-portal"></a>Si è ricevuto un errore durante l'accesso ad Azure EA Portal
 
@@ -157,11 +157,11 @@ Se la procedura precedente per la risoluzione dei problemi non ha avuto esito po
 
 Se si è dimenticata la password di Microsoft Live ID, è necessario reimpostarla all'indirizzo [https://account.live.com/password/reset](https://account.live.com/password/reset).
 
-Se si è dimenticata la password aziendale, contattare l'amministratore IT della propria azienda.
+Se si dimentica la password aziendale, contattare l'amministratore IT della propria azienda.
 
 ### <a name="i-have-a-valid-work-or-school-account-but-i-cant-add-it-to-the-ea-portal"></a>Si dispone di un account aziendale o dell'istituto di istruzione valido ma non si riesce ad aggiungerlo in EA Portal
 
-Se si dispone di un account aziendale o dell'istituto di istruzione in un tenant diverso, modificare il livello di autorizzazione nella pagina dei dettagli di registrazione impostando "Work or School Account Cross Tenant" (Account aziendale o dell'istituto di istruzione in più tenant). In questo modo sarà possibile aggiungere l'account.
+Se si dispone di un account aziendale o dell'istituto di istruzione in un tenant diverso, cambiare il livello di autorizzazione nella pagina dei dettagli di registrazione impostandolo su "Work or School Account Cross Tenant" (Account aziendale o dell'istituto di istruzione in più tenant). In questo modo sarà possibile aggiungere l'account.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

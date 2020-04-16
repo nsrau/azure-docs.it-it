@@ -3,16 +3,16 @@ title: Contratti Azure EA e modifiche
 description: Questo articolo illustra l'impatto dei contratti Azure EA e delle relative modifiche su Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/04/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b007e98f37246d17679761fd601ed76fd9fb875
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78301421"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586239"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
 
@@ -164,7 +164,7 @@ Il piano di acquisto anticipato delle risorse di calcolo di Azure (CPP, noto in 
 
 Gli SKU di piano CPP devono essere ordinati per un tipo specifico di macchina virtuale in un data center specifico. Allo stato attuale di questa funzionalità, non viene fornito un elenco di tutti gli acquisti di CPP effettuati da un cliente e pertanto non è disponibile alcun elenco di crediti in attesa. Tuttavia, quando si configurano i tipi di macchina virtuale acquistati nel data center in cui sono stati acquistati, l'allocazione mensile sarà visibile nel report di riepilogo sull'utilizzo in EA Portal.
 
-La quantità acquistata in anticipo sarà riportata come credito nella colonna "Unità incluse" e l'utilizzo correlato non comporterà alcun addebito finché le unità incluse non saranno state completamente utilizzate. L'eventuale utilizzo aggiuntivo verrà addebitato in base alle tariffe concordate nell'elenco dei prezzi standard per i clienti del Contratto Enterprise.
+La quantità preacquistata sarà riportata come credito nella colonna "Unità incluse" e l'utilizzo correlato non comporterà alcun addebito finché le unità incluse non saranno state completamente utilizzate. L'eventuale utilizzo aggiuntivo verrà addebitato in base alle tariffe concordate nell'elenco dei prezzi standard per i clienti del Contratto Enterprise.
 
 La modalità di acquisto dei crediti si basa sul numero di macchine virtuali di una classe per ogni mese. Ad esempio: se sono state acquistate 70 macchine virtuali A2 all'anno nell'area Stati Uniti orientali 2, in EA Portal non saranno visibili le stesse informazioni ricevute al momento dell'acquisto.
 
@@ -174,7 +174,7 @@ Per tipi diversi di macchine virtuali vengono usate unità di misura diverse. Ad
 
 In generale, la formula seguente consente di calcolare il numero di macchine virtuali acquistate in base alle rispettive unità di misura:
 
-<center><b> ("Quantità inclusa" * "Unità di misura") / 744 </b></center>
+<center><b> ("Quantità inclusa" * "Unità di misura")/744 </b></center>
 
 ## <a name="plan-skus"></a>SKU di piano
 
