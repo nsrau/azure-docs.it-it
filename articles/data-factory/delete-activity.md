@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618275"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416388"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Attività Delete in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 È possibile usare l'attività di eliminazione in Azure Data Factory per eliminare file o cartelle da archivi di archiviazione locali o archivi di archiviazione cloud. Usare questa attività per pulire o archiviare file quando non sono più necessari.
 
@@ -40,10 +42,10 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 ## <a name="supported-data-stores"></a>Archivi dati supportati
 
--   [Archiviazione BLOB di Azure](connector-azure-blob-storage.md)
+-   [Archiviazione BLOB di AzureAzure Blob storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Archiviazione file di AzureAzure File Storage](connector-azure-file-storage.md)
+-   [Archiviazione file di Azure](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Archivi dati del file system
 

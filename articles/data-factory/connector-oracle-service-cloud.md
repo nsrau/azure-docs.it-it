@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: e8e8b24aba5daa421c1840bb7164ba09e683981a
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c3f9046bd0cca8cb191397413c09a72c4cc11c55
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991859"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416804"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copiare dati da Oracle Service Cloud usando Azure Data Factory (anteprima)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Oracle Service Cloud. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 

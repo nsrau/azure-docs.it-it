@@ -10,18 +10,20 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 1f920f2672c19455a8e8ac979e8d6d1eb14d4c35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 024d61c5bcc38c78dc5a2bd5e01cba43d7b5267e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74924289"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418831"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 > [!div class="op_single_selector"]
 > * [Mapping del flusso di dati](data-flow-create.md)
-> * [Alveare](transform-data-using-hadoop-hive.md)  
+> * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Maiale](transform-data-using-hadoop-pig.md)  
 > * [Mapreduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
@@ -29,11 +31,11 @@ ms.locfileid: "74924289"
 > * [Apprendimento automatico](transform-data-using-machine-learning.md) 
 > * [Stored Procedure](transform-data-using-stored-procedure.md)
 > * [Attività U-SQL di Data Lake Analytics](transform-data-using-data-lake-analytics.md)
-> * [Notebook di Databricks](transform-data-databricks-notebook.md)
+> * [Blocco appunti di Databricks](transform-data-databricks-notebook.md)
 > * [Jar di Databricks](transform-data-databricks-jar.md)
 > * [Python di Databricks](transform-data-databricks-python.md)
-> * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-
+> * [.NET personalizzato](transform-data-using-dotnet-custom-activity.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 ## <a name="overview"></a>Panoramica
 Questo articolo illustra le attività di trasformazione dei dati in Azure Data Factory che è possibile usare per trasformare ed elaborare i dati non elaborati in stime e informazioni dettagliate su larga scala. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. Vengono forniti i collegamenti ad articoli con informazioni dettagliate su ciascuna attività di trasformazione.
 

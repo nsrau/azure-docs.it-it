@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d56964b7415e4ca5903950cd46c02b3c27f62d5e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4063751a71cd9cecc424dfe3daddaecfd9ea4071
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547396"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422376"
 ---
 L'uso di Spot VMs consente di sfruttare la nostra capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento in cui Azure richiede la capacità, l'infrastruttura di Azure rimuovere le macchine virtuali Spot.At any in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Pertanto, le macchine virtuali Spot sono ideali per i carichi di lavoro in grado di gestire interruzioni come processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di elaborazione di grandi dimensioni e altro ancora.
 
@@ -88,6 +88,7 @@ Con prezzi variabili, hai la possibilità di impostare un prezzo massimo, in dol
 | Enterprise Agreement         | Sì                               |
 | Pagamento in base al consumo                | Sì                               |
 | Provider di servizi cloud | [Contatta il tuo partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Contratto del cliente Microsoft | Sì                               |
 | Vantaggi                     | Non disponibile                     |
 | Sponsorizzato                    | Non disponibile                     |
 | Versione di valutazione gratuita                   | Non disponibile                     |

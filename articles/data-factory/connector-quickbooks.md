@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: ca57f4611b9eb483104d8d0b8fc5636726203195
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2c9da9c1a37b087a31d1910094f51a39288c192
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927772"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416699"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiare dati da QuickBooks Online tramite Azure Data Factory (anteprima)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da QuickBooks Online. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
@@ -128,7 +129,7 @@ Per copiare dati da QuickBooks Online, impostare il tipo di origine nell'attivit
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **QuickBooksSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

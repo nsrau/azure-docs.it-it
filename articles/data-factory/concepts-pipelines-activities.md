@@ -9,18 +9,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 6e466675a9bd86693ce0ee048480712a55829ce6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad4ffa71480a5af06c31872cbafcaab7719c55e0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246162"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418338"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-create-pipelines.md)
 > * [Versione corrente](concepts-pipelines-activities.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per creare flussi di lavoro completi basati sui dati per gli scenari di elaborazione e trasferimento dei dati.
 
@@ -50,7 +51,7 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 ---------------------------- | -------------------
 [Flusso di dati](control-flow-execute-data-flow-activity.md) | Azure Databricks managed by Azure Data Factory
 [Funzione AzureAzure Function](control-flow-azure-function-activity.md) | Funzioni di Azure
-[Alveare](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
+[Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Maiale](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [Mapreduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
@@ -59,8 +60,8 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 [Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics.
 [Attività personalizzata](transform-data-using-dotnet-custom-activity.md) | Azure Batch
-[Blocco appunti di Databricks](transform-data-databricks-notebook.md) | Azure Databricks
-[Attività Databricks Jar](transform-data-databricks-jar.md) | Azure Databricks
+[Notebook di Databricks](transform-data-databricks-notebook.md) | Azure Databricks
+[Attività JAR di Databricks](transform-data-databricks-jar.md) | Azure Databricks
 [Attività Python di Databricks](transform-data-databricks-python.md) | Azure Databricks
 
 Per altre informazioni, vedere l'articolo [Attività di trasformazione dei dati](transform-data.md).
@@ -73,14 +74,14 @@ Attività di controllo | Descrizione
 [Aggiungi variabile](control-flow-append-variable-activity.md) | Aggiungere un valore a una variabile di matrice esistente.
 [Esegui pipeline](control-flow-execute-pipeline-activity.md) | L'attività di esecuzione pipeline consente a una pipeline di Data Factory di richiamare un'altra pipeline.
 [Filtro](control-flow-filter-activity.md) | Applicare un'espressione di filtro a una matrice di input
-[Per ogni](control-flow-for-each-activity.md) | L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.
+[Per ogni](control-flow-for-each-activity.md) | L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione in cicli di questa attività è simile alla struttura di esecuzione in cicli Foreach nei linguaggi di programmazione.
 [Ottenere metadati](control-flow-get-metadata-activity.md) | Questa attività può essere usata per recuperare i metadati di tutti i dati in Azure Data Factory.
-[Attività della condizione If](control-flow-if-condition-activity.md) | Può essere usata per creare un ramo in base alla condizione che il valore restituito sia true o false. L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività se la condizione restituisce `true` e un altro set di attività se la condizione restituisce `false`.
-[Attività Lookup](control-flow-lookup-activity.md) | L'attività Lookup può essere usata per la lettura o la ricerca di un record/nome di tabella/valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive.
+[Attività della condizione If](control-flow-if-condition-activity.md) | Può essere usata per creare un ramo in base alla condizione che il valore restituito sia true o false. L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un insieme di attività quando la `true` condizione restituisce e un altro insieme di attività quando la condizione restituisce`false.`
+[Attività di ricerca](control-flow-lookup-activity.md) | L'attività Lookup può essere usata per la lettura o la ricerca di un record/nome di tabella/valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive.
 [Imposta variabile](control-flow-set-variable-activity.md) | Impostare il valore di una variabile esistente.
 [Attività Until](control-flow-until-activity.md) | Implementa il ciclo Do-Until che è simile alla struttura di esecuzione cicli Do-Until nei linguaggi di programmazione. Esegue infatti un set di attività in un ciclo finché la condizione associata con l'attività restituisce true. È possibile specificare un valore di timeout per l'attività Until in Data Factory.
 [Attività Validation](control-flow-validation-activity.md) | Verificare che l'esecuzione di una pipeline continui solo se esiste un set di dati di riferimento, soddisfi un criterio specificato o sia stato raggiunto un timeout.
-[Attività Wait](control-flow-wait-activity.md) | Quando si usa un'attività Wait in una pipeline, la pipeline attende per il periodo di tempo specificato prima di proseguire con l'esecuzione delle attività successive.
+[Attività Wait](control-flow-wait-activity.md) | Quando si usa un'attività Wait in una pipeline, la pipeline attende il tempo specificato prima di continuare con l'esecuzione delle attività successive.
 [Attività Web](control-flow-web-activity.md) | L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi.
 [Attività Webhook](control-flow-webhook-activity.md) | Utilizzando l'attività webhook, chiamare un endpoint e passare un URL di callback. L'esecuzione della pipeline attende che il callback venga richiamato prima di passare all'attività successiva.
 
@@ -107,11 +108,11 @@ Ecco come una pipeline viene definita in formato JSON:
 
 Tag | Descrizione | Type | Obbligatoria
 --- | ----------- | ---- | --------
-name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 140</li><li>Deve iniziare con una lettera, numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\"</li></ul> | string | Sì
+name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 140</li><li>Deve iniziare con una lettera, numero o un carattere di sottolineatura (\_)</li><li>I seguenti caratteri non sono consentiti: ".", "", "?", "/", "<",">","""," %"," &",":","\" </li></ul> | string | Sì
 description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | string | No
 attività | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione relativa al formato [JSON delle attività](#activity-json) per informazioni dettagliate sull'elemento JSON delle attività. | Array | Sì
 parametri | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | Elenco | No
-Concorrenza | Numero massimo di esecuzioni simultanee che la pipeline può avere. Per impostazione predefinita, non è presente alcun massimo. Se viene raggiunto il limite di concorrenza, le esecuzioni aggiuntive della pipeline verranno accodate fino al completamento di quelle precedenti | Number | No 
+Concorrenza | Numero massimo di esecuzioni simultanee che la pipeline può avere. Per impostazione predefinita, non è presente alcun massimo. Se viene raggiunto il limite di concorrenza, le esecuzioni aggiuntive della pipeline vengono accodate fino al completamento di quelle precedenti | Number | No 
 annotations | Elenco di tag associati alla pipeline | Array | No
 
 ## <a name="activity-json"></a>Attività JSON
@@ -142,12 +143,12 @@ La tabella seguente descrive le proprietà all'interno della definizione JSON de
 
 Tag | Descrizione | Obbligatoria
 --- | ----------- | ---------
-name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività. <br/><ul><li>Numero massimo di caratteri: 55</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sì</li></ul>
+name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività. <br/><ul><li>Numero massimo di caratteri: 55</li><li>Deve iniziare con un numero di lettera\_o un segno di sottolineatura ( )</li><li>I seguenti caratteri non sono consentiti: ".", "", "?", "/", "<",">","""," %"," &",":","\" | Sì</li></ul>
 description | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
 type | Tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [Attività di spostamento dei dati](#data-movement-activities), [Attività di trasformazione dei dati](#data-transformation-activities) e [Attività di controllo](#control-flow-activities). | Sì
 linkedServiceName | Nome del servizio collegato usato dall'attività.<br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. | Sì per l'attività HDInsight, l'attività di assegnazione di punteggio Batch di Azure Machine Learning e l'attività stored procedure. <br/><br/>No per tutto il resto
 typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No
-policy | Criteri che influiscono sul comportamento di runtime dell'attività. Questa proprietà include il comportamento di timeout e ripetizione. Se queste impostazioni non vengono specificate, vengono usati i valori predefiniti. Per altre informazioni, vedere la sezione [Criteri di attività](#activity-policy). | No
+policy | Criteri che influiscono sul comportamento di runtime dell'attività. Questa proprietà include un comportamento di timeout e ripetizione dei tentativi. Se non è specificato, vengono utilizzati i valori predefiniti. Per altre informazioni, vedere la sezione [Criteri di attività](#activity-policy). | No
 dependsOn | Questa proprietà viene usata per definire le dipendenze delle attività e come le attività successive dipendono dalle attività precedenti. Per altre informazioni, vedere [Dipendenza delle attività](#activity-dependency). | No
 
 ### <a name="activity-policy"></a>Criteri di attività
@@ -186,7 +187,7 @@ Nome JSON | Descrizione | Valori consentiti | Obbligatoria
 timeout | Specifica il timeout per l'attività da eseguire. | TimeSpan | No. Il timeout predefinito è 7 giorni.
 retry | Numero massimo di tentativi | Integer | No. Il valore predefinito è 0
 retryIntervalInSeconds | Il ritardo tra tentativi di ripetizione espresso in secondi | Integer | No. Il valore predefinito è 30 secondi
-secureOutput | Se impostato su true, l'output dall'attività viene considerato protetto e non viene registrato per il monitoraggio. | Boolean | No. L'impostazione predefinita è false.
+secureOutput | Se impostato su true, l'output dell'attività viene considerato sicuro e non viene registrato per il monitoraggio. | Boolean | No. L'impostazione predefinita è false.
 
 ### <a name="control-activity"></a>Attività di controllo
 Le attività di controllo presentano la seguente struttura di primo livello:
@@ -207,14 +208,14 @@ Le attività di controllo presentano la seguente struttura di primo livello:
 
 Tag | Descrizione | Obbligatoria
 --- | ----------- | --------
-name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività.<br/><ul><li>Numero massimo di caratteri: 55</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sì</li><ul>
+name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività.<br/><ul><li>Numero massimo di caratteri: 55</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>I seguenti caratteri non sono consentiti: ".", "", "?", "/", "<",">","""," %"," &",":","\" | Sì</li><ul>
 description | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
 type | Tipo di attività. Vedere le [sezioni Attività di spostamento dati,](#data-movement-activities)Attività di [trasformazione dei dati](#data-transformation-activities)e Attività di [controllo](#control-flow-activities) per diversi tipi di attività. | Sì
 typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No
 dependsOn | Questa proprietà viene usata per definire la dipendenza delle attività e come le attività successive dipendono dalle attività precedenti. Per ulteriori informazioni, vedere [dipendenza dall'attività](#activity-dependency). | No
 
 ### <a name="activity-dependency"></a>Dipendenza di attività
-La dipendenza delle attività definisce in che modo le attività successive dipendono dalle attività precedenti, determinando la condizione dell'eventuale esecuzione dell'attività successiva. Un'attività può dipendere da una o più attività precedenti con condizioni di dipendenza diverse.
+Dipendenza attività definisce il modo in cui le attività successive dipendono dalle attività precedenti, determinando la condizione che indica se continuare l'esecuzione dell'attività successiva. Un'attività può dipendere da una o più attività precedenti con condizioni di dipendenza diverse.
 
 Le diverse condizioni di dipendenza sono: Succeeded (esito positivo), Failed (esito negativo), Skipped (operazione ignorata), Completed (operazione completata).
 
@@ -223,7 +224,7 @@ Ad esempio, se una pipeline dispone di un'attività A-> attività B, i diversi s
 - L'attività B ha una condizione di dipendenza dall'attività A con **succeeded**: l'attività B viene eseguita solo se lo stato finale dell'attività A è con esito positivo.
 - L'attività B ha una condizione di dipendenza dall'attività A con **failed**: l'attività B viene eseguita solo se lo stato finale dell'attività A è con esito negativo.
 - L'attività B ha una condizione di dipendenza dall'attività A con **completed**: l'attività B viene eseguita solo se lo stato finale dell'attività A è con esito positivo o negativo.
-- L'attività B ha una condizione di dipendenza dall'attività A con **skipped**: l'attività B viene eseguita se lo stato finale dell'attività A è di operazione ignorata. Lo stato skipped (operazione ignorata) si verifica nello scenario Attività X -> Attività Y -> Attività Z, in cui ogni attività viene eseguita solo se l'attività precedente ha esito positivo. Se l'attività X ha esito negativo, lo stato dell'attività Y è "skipped" perché non viene mai eseguita. Analogamente, anche lo stato dell'attività Z è "skipped".
+- L'attività B ha una condizione di dipendenza sull'attività A con **ignorato:** l'attività B viene eseguita se lo stato finale dell'attività A è ignorato. Lo stato skipped (operazione ignorata) si verifica nello scenario Attività X -> Attività Y -> Attività Z, in cui ogni attività viene eseguita solo se l'attività precedente ha esito positivo. Se l'attività X ha esito negativo, lo stato dell'attività Y è "Skipped" perché non viene mai eseguita. Allo stesso modo, anche lo stato dell'attività è "Saltato".
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Esempio: l'attività 2 dipende dall'esito positivo dell'attività 1
 
@@ -264,10 +265,10 @@ Ad esempio, se una pipeline dispone di un'attività A-> attività B, i diversi s
     }
 }
 
-```
+`"
 
-## <a name="sample-copy-pipeline"></a>Esempio di una pipeline di copia
-In questa pipeline di esempio è presente un'attività di tipo **Copy** in the **attività** . In questo esempio, l'[attività di copia](copy-activity-overview.md) consente di copiare i dati da un'archiviazione BLOB di Azure a un database SQL di Azure.
+## Sample copy pipeline
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to an Azure SQL database.
 
 ```json
 {
@@ -357,7 +358,7 @@ In questa pipeline di esempio è presente un'attività di tipo **HDInsightHive**
 Tenere presente quanto segue:
 
 - Nella sezione attività esiste una sola attività con l'oggetto **type** impostato su **HDInsightHive**.
-- Il file di script Hive, **partitionweblogs.hql**, viene archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato AzureStorageLinkedService) e nella cartella script nel contenitore `adfgetstarted`.
+- Il file di script Hive, **partitionweblogs.hql**, viene archiviato nell'account di Archiviazione di Azure (specificato `adfgetstarted`da scriptLinkedService, denominato AzureStorageLinkedService) e nella cartella di script nel contenitore .
 - La sezione `defines` viene usata per specificare le impostazioni di runtime che vengono passate allo script Hive come valori di configurazione Hive, ad esempio `{hiveconf:inputtable}` e `${hiveconf:partitionedtable}`.
 
 La sezione **typeProperties** è diversa per ogni attività di trasformazione. Per altre informazioni sulle proprietà del tipo supportate per un'attività di trasformazione, fare clic sull'attività di trasformazione nelle [attività di trasformazione dei dati](#data-transformation-activities).
@@ -370,11 +371,11 @@ Le due pipeline di due esempio precedenti contengono una sola attività. È poss
 È possibile concatenare due attività usando la [dipendenza delle attività](#activity-dependency), che definisce in che modo le attività successive dipendono dalle attività precedenti, determinando la condizione se si passerà all'esecuzione dell'attività successiva. Un'attività può dipendere da una o più attività precedenti con condizioni di dipendenza diverse.
 
 ## <a name="scheduling-pipelines"></a>Pianificazione delle pipeline
-Le pipeline vengono pianificate da trigger. Esistono diversi tipi di trigger: il trigger dell'utilità di pianificazione che consente di attivare le pipeline con una pianificazione basata sul tempo reale e il trigger manuale che attiva le pipeline su richiesta. Per altre informazioni sui trigger, vedere l'articolo [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
+Le pipeline vengono pianificate da trigger. Esistono diversi tipi di trigger (trigger dell'utilità di pianificazione, che consente di attivare le pipeline in base a una pianificazione a muro, nonché il trigger manuale, che attiva le pipeline su richiesta). Per altre informazioni sui trigger, vedere l'articolo [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
 
 Per fare in modo che il trigger attivi l'esecuzione di una pipeline, è necessario includere un riferimento di pipeline della pipeline specifica nella definizione del trigger. Pipeline e trigger hanno una relazione n-m. Più trigger possono avviare una singola pipeline e lo stesso trigger può avviare più pipeline. Dopo che il trigger è stato definito è necessario avviarlo per iniziare ad attivare la pipeline. Per altre informazioni sui trigger, vedere l'articolo [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
 
-Ad esempio, si supponga di disporre di un trigger di utilità di pianificazione, "Trigger A" che si desidera avviare la pipeline, "MyCopyPipeline". Definire il trigger come illustrato nell'esempio seguente:
+Ad esempio, si supponga di disporre di un trigger dell'utilità di pianificazione, "Trigger A", che si desidera avviare la pipeline, "MyCopyPipeline". Il trigger viene definito come illustrato nell'esempio seguente:You define the trigger, as shown in the following example:
 
 ### <a name="trigger-a-definition"></a>Definizione del trigger A
 
@@ -399,8 +400,6 @@ Ad esempio, si supponga di disporre di un trigger di utilità di pianificazione,
   }
 }
 ```
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le esercitazioni seguenti per istruzioni dettagliate sulla creazione di pipeline con le attività:

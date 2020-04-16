@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
-ms.openlocfilehash: cf79a670db4e2729c6e0a5fb7112cdc6114f465a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77460706"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417486"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-azure-table-connector.md)
 > * [Versione corrente](connector-azure-table-storage.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati in e da Archiviazione tabelle di Azure. Si basa sull'articolo [Panoramica dell'attività](copy-activity-overview.md) di copia che presenta una panoramica generale dell'attività di copia.
 

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 8325b4ef6b89a76eeec418386cec4922cb5916b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5753336eeef115038de4eb0b5ade0651b1fa293e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979157"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419460"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Avvisare e monitorare le data factory tramite Monitoraggio di AzureAlert and monitor data factories by using Azure Monitor
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Le applicazioni cloud sono complesse e hanno molte parti in movimento. I monitoraggi forniscono dati che contribuiscono a garantire che le applicazioni rimangano in funzione in uno stato integro. I monitoraggi consentono inoltre di evitare potenziali problemi e di risolvere quelli passati.
 
@@ -289,7 +291,7 @@ Per ulteriori informazioni, vedere [Impostazioni di diagnostica](https://docs.mi
 
 | Proprietà | Type | Descrizione | Esempio |
 | --- | --- | --- | --- |
-| **Livello** |string | Livello dei log di diagnostica. Per i log di esecuzione dell'attività, impostare il valore della proprietà su 4.For activity-run logs, set the property value to 4. | `4` |
+| **Level** |string | Livello dei log di diagnostica. Per i log di esecuzione dell'attività, impostare il valore della proprietà su 4.For activity-run logs, set the property value to 4. | `4` |
 | **Correlationid** |string | ID univoco per tenere traccia di una determinata richiesta. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | string | Ora dell'evento nel formato `YYYY-MM-DDTHH:MM:SS.00000Z`UTC dell'intervallo di tempo. | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| string| ID dell'esecuzione dell'attività. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
@@ -335,7 +337,7 @@ Per ulteriori informazioni, vedere [Impostazioni di diagnostica](https://docs.mi
 
 | Proprietà | Type | Descrizione | Esempio |
 | --- | --- | --- | --- |
-| **Livello** |string | Livello dei log di diagnostica. Per i log di esecuzione dell'attività, impostare il valore della proprietà su 4.For activity-run logs, set the property value to 4. | `4` |
+| **Level** |string | Livello dei log di diagnostica. Per i log di esecuzione dell'attività, impostare il valore della proprietà su 4.For activity-run logs, set the property value to 4. | `4` |
 | **Correlationid** |string | ID univoco per tenere traccia di una determinata richiesta. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | string | Ora dell'evento nel formato `YYYY-MM-DDTHH:MM:SS.00000Z`UTC dell'intervallo di tempo. | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| string| ID dell'esecuzione della pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
@@ -379,7 +381,7 @@ Per ulteriori informazioni, vedere [Impostazioni di diagnostica](https://docs.mi
 
 | Proprietà | Type | Descrizione | Esempio |
 | --- | --- | --- | --- |
-| **Livello** |string | Livello dei log di diagnostica. Per i log di esecuzione dell'attività, impostare il valore della proprietà su 4.For activity-run logs, set the property value to 4. | `4` |
+| **Level** |string | Livello dei log di diagnostica. Per i log di esecuzione dell'attività, impostare il valore della proprietà su 4.For activity-run logs, set the property value to 4. | `4` |
 | **Correlationid** |string | ID univoco per tenere traccia di una determinata richiesta. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | string | Ora dell'evento nel formato `YYYY-MM-DDTHH:MM:SS.00000Z`UTC dell'intervallo di tempo. | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| string| ID dell'esecuzione del trigger. | `08587023010602533858661257311` |
@@ -387,7 +389,7 @@ Per ulteriori informazioni, vedere [Impostazioni di diagnostica](https://docs.mi
 |**Categoria**| string | Categoria dei log di diagnostica. Impostare il valore della proprietà su `PipelineRuns`. | `PipelineRuns` |
 |**Livello**| string | Livello dei log di diagnostica. Impostare il valore della proprietà su `Informational`. | `Informational` |
 |**Nomeoperazione**| string | Nome del trigger con stato finale, che indica se il trigger è stato attivato correttamente. Se l'heartbeat ha avuto `MyTrigger - Succeeded`esito positivo, il valore della proprietà è . | `MyTrigger - Succeeded` |
-|**triggerName**| string | Nome del trigger. | `MyTrigger` |
+|**triggerName (nome trigger)**| string | Nome del trigger. | `MyTrigger` |
 |**triggerType (Tipo di trigger)**| string | Tipo di trigger. I valori `Manual Trigger` di `Schedule Trigger`proprietà possibili sono e . | `ScheduleTrigger` |
 |**triggerEvent**| string | Evento del trigger. | `ScheduleTime - 2017-07-06T01:50:25Z` |
 |**start**| string | Ora di inizio dell'attivazione del trigger in formato UTC dell'intervallo di tempo. | `2017-06-26T20:55:29.5007959Z`|
@@ -404,7 +406,7 @@ Log Analytics eredita lo schema da Monitor con le eccezioni seguenti:Log Analyti
     | Colonna Monitoraggio di Azure | Colonna Log Analytics | Type |
     | --- | --- | --- |
     | Proprietà .properties. UserProperties (Proprietà utente) | UserProperties (Proprietà utente) | Dinamico |
-    | Proprietà .properties. Annotazioni | Annotazioni | Dinamico |
+    | Proprietà .properties. Annotazioni | annotazioni | Dinamico |
     | Proprietà .properties. Input | Input | Dinamico |
     | Proprietà .properties. Output | Output | Dinamico |
     | Proprietà .properties. Error.errorCode (Codice Errore) | ErrorCode | INT |

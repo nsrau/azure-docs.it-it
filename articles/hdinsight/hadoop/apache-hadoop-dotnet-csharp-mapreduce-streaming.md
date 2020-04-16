@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/22/2019
-ms.openlocfilehash: 025b5c5c1e3b8543111e112202906ef6f1fdb482
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 7a299ce16f6e9c7292cebf198c9c3077f8e05fcb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74561793"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417600"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Apache Hadoop in HDInsight
 
 Informazioni su come usare C# per creare una soluzione di MapReduce su HDInsight.
 
-Apache Hadoop Streaming è un'utilità che consente di eseguire processi MapReduce tramite uno script o un eseguibile. In questo esempio, .NET è usato per implementare il mapper e il reducer per una soluzione di conteggio parole.
+Lo streaming Apache Hadoop consente di eseguire processi MapReduce utilizzando uno script o un eseguibile. In questo caso, .NET viene utilizzato per implementare il mapper e il riduttore per una soluzione di conteggio delle parole.
 
 ## <a name="net-on-hdinsight"></a>.NET su HDInsight
 
@@ -49,12 +49,9 @@ Per altre informazioni sullo streaming, vedere [Hadoop Streaming](https://hadoop
 
 * Se si usa PowerShell, è necessario il [modulo Az](https://docs.microsoft.com/powershell/azure/overview).
 
-* Un client SSH (facoltativo). Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
 * Un cluster Apache Hadoop in HDInsight. Vedere [Introduzione a HDInsight su Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Corrisponde a `wasb://` per Archiviazione di Azure, a `abfs://` per Azure Data Lake Storage Gen2 e a `adl://` per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure o Data Lake Storage Gen2, l'URI è rispettivamente `wasbs://` o `abfss://`. Vedere anche [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
-
+* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Questo schema `wasb://` è per `abfs://` Archiviazione di Azure, per `adl://` Azure Data Lake Storage Gen2 o per Azure Data Lake Storage Gen1.This scheme would be for Azure Storage, for Azure Data Lake Storage Gen2 or for Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure o Data Lake Storage Gen2, l'URI è rispettivamente `wasbs://` o `abfss://`. Vedere anche [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="create-the-mapper"></a>Creare il mapper
 
@@ -221,14 +218,16 @@ Nella procedura seguente viene descritto come eseguire un processo MapReduce uti
 
    Nell'elenco seguente viene descritto cosa rappresenta ogni parametro e opzione:The following list describes what each parameter and option represents:
 
-   * *hadoop-streaming.jar*: Specifica il file jar che contiene la funzionalità MapReduce di streaming.
-   * `-files`: specifica i file *mapper.exe* e *reducer.exe* per questo processo. La `wasbs:///` `adl:///`dichiarazione `abfs:///` di protocollo , o prima di ogni file è il percorso della radice dell'archiviazione predefinita per il cluster.
-   * `-mapper`: specifica il file che implementa il mapper.
-   * `-reducer`: specifica il file che implementa il riduttore.
-   * `-input`: specifica i dati di input.
-   * `-output`: specifica la directory di output.
+   |Parametro | Descrizione |
+   |---|---|
+   |hadoop-streaming.jar|Specifica il file jar che contiene la funzionalità MapReduce di streaming.|
+   |-file|Specifica i file *mapper.exe* e *reducer.exe* per questo processo. La `wasbs:///` `adl:///`dichiarazione `abfs:///` di protocollo , o prima di ogni file è il percorso della radice dell'archiviazione predefinita per il cluster.|
+   |-mapper|Specifica il file che implementa il mapper.|
+   |-riduttore|Specifica il file che implementa il riduttore.|
+   |-input|Specifica i dati di input.|
+   |-output|Specifica la directory di output.|
 
-3. Al termine del processo MapReduce, utilizzare il comando seguente per visualizzare i risultati:
+1. Al termine del processo MapReduce, utilizzare il comando seguente per visualizzare i risultati:
 
    ```bash
    hdfs dfs -text /example/wordcountout/part-00000

@@ -11,14 +11,15 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: e736cc95628bd0e15bdb7ffd425608278788c353
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879267"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417981"
 ---
-# <a name="set-variable-activity-in-azure-data-factory"></a>Impostare l'attività delle variabili in Azure Data FactorySet variable activity in Azure Data Factory
+# <a name="set-variable-activity-in-azure-data-factory"></a>Attività di impostazione della variabile in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Usare l'attività di impostazione della variabile per impostare il valore di una variabile esistente di tipo String, Bool o Array definita in una pipeline di Data Factory.
 

@@ -8,14 +8,16 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 04/02/2020
-ms.openlocfilehash: a5244086c185c111762496086f8044f12f52be14
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: e9e9b10cc9bae029fe11fb2bd1f8b76cf120744a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632584"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417811"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi ai flussi di dati in Azure Data FactoryTroubleshoot data flows in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Questo articolo illustra i metodi di risoluzione dei problemi comuni per i flussi di dati in Azure Data Factory.This article explores common troubleshooting methods for data flows in Azure Data Factory.
 

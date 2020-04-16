@@ -10,14 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40b1b8d040c4b3ea76372920f88551fba35c5f26
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75690922"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419443"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorare visivamente Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Dopo aver creato e pubblicato una pipeline in Azure Data Factory, è possibile associarla a un trigger o avviare manualmente un'esecuzione ad hoc. È possibile monitorare tutte le esecuzioni della pipeline in modo nativo nell'esperienza utente di Azure Data Factory.You can monitor all of your pipeline runs natively in the Azure Data Factory user experience. Per aprire l'esperienza di monitoraggio, selezionare il riquadro **Monitor& Gestisci** nel pannello della data factory del portale di [Azure.](https://portal.azure.com/) Se sei già nell'esperienza utente ADF, fai clic sull'icona **Monitor** nella barra laterale sinistra.
 
@@ -35,7 +37,7 @@ La visualizzazione di monitoraggio predefinita è l'elenco delle esecuzioni dell
 | Duration | Durata dell'esecuzione (HH:MM:SS) |
 | Attivato da | Nome del trigger che ha avviato la pipeline |
 | Stato | **Non riuscito**, **Operazione riuscita**, **In corso**, **Annullato**o **In coda** |
-| Annotazioni | Tag filtrabili associati a una pipelineFilterable tags associated with a pipeline  |
+| annotazioni | Tag filtrabili associati a una pipelineFilterable tags associated with a pipeline  |
 | Parametri | Parametri per l'esecuzione della pipeline (coppie nome/valore) |
 | Errore | Se la pipeline non è riuscita, l'errore di esecuzione |
 | ID esecuzione | ID dell'esecuzione pipeline |
@@ -93,7 +95,7 @@ Consente di specificare se le esecuzioni della pipeline saranno defininte o asce
 | Nome pipeline | Filtrare in base al nome della pipeline. |
 | Inizio esecuzione |  Determinare l'intervallo di tempo delle esecuzioni della pipeline visualizzate. Le opzioni includono filtri rapidi per **Ultime 24 ore**, **Ultima settimana**e **Ultimi 30 giorni** oppure per selezionare una data e un'ora personalizzate. |
 | Stato dell'esecuzione | Il filtro viene eseguito in base allo stato: **Riuscito**, **Non riuscito**, **In coda**, **Annullato**o **In corso**. |
-| Annotazioni | Filtra per tag applicati a ogni pipeline |
+| annotazioni | Filtra per tag applicati a ogni pipeline |
 | Esecuzioni | Filtrare se si desidera visualizzare le pipeline rieseFilter whether you want to see reran pipelines |
 
 ![Opzioni per il filtraggio](media/monitor-visually/filter.png)

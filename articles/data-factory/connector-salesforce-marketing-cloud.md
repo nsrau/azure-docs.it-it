@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
-ms.openlocfilehash: a76150756d87b5f2c1b73b8755500e63cdfe05c9
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 1a5a2682198f9ce9f5cb39f21e244c723ca513d9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991740"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416659"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copiare dati da Salesforce Marketing Cloud usando Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Salesforce Marketing Cloud. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 

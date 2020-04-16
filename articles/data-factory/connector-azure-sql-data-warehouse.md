@@ -11,18 +11,27 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7fb1560fb9be809d816dde7dd69f1ec8afe5649f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422173"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417570"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) usando Azure Data FactoryCopy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory 
 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versione corrente](connector-azure-sql-data-warehouse.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Analisi synapse di Azure e usare il flusso di dati per trasformare i dati in Archiviazione di Azure Data Lake Gen2.This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
+
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Azure SQL Data Warehouse e usare Flusso di dati per trasformare i dati in Azure Data Lake Storage Gen2.This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Data Warehouse, and use Data Flow to transform data in Azure Data Lake Storage Gen2. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Analisi synapse di Azure e usare il flusso di dati per trasformare i dati in Archiviazione di Azure Data Lake Gen2.This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
@@ -372,7 +381,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 | allowCopyCommand (comando AllowCopyCommand) | Indica se utilizzare [l'istruzione COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (anteprima) per caricare i dati in SQL Data Warehouse. `allowCopyCommand`e `allowPolyBase` non possono essere entrambi veri. <br/><br/>Per i vincoli e i dettagli, vedere [Usare l'istruzione COPY per caricare i dati nella](#use-copy-statement) sezione Azure SQL Data Warehouse.See Use COPY statement to load data into Azure SQL Data Warehouse section for constraints and details.<br/><br/>I valori consentiti sono **True** e **False** (predefinito). | No.<br>Applicare quando si utilizza COPY. |
 | copyCommandSettings (impostazioni di comando) | Gruppo di proprietà che è `allowCopyCommand` possibile specificare quando la proprietà è impostata su TRUE. | No.<br/>Applicare quando si utilizza COPY. |
 | writeBatchSize    | Numero di righe da inserire nella tabella SQL **per batch.**<br/><br/>Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Data Factory determina dinamicamente le dimensioni del batch appropriate in base alle dimensioni della riga. | No.<br/>Applicare quando si utilizza l'inserimento bulk.     |
-| writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/><br/>Il valore consentito è **timespan**.  Ad esempio: "00:30:00" (30 minuti). | No.<br/>Applicare quando si utilizza l'inserimento bulk.        |
+| writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/><br/>Il valore consentito è **timespan**. Ad esempio: "00:30:00" (30 minuti). | No.<br/>Applicare quando si utilizza l'inserimento bulk.        |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Azure SQL Data Warehouse ad ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
 | Tableoption | Specifica se creare automaticamente la tabella sink se non esiste in base allo schema di origine. La creazione automatica della tabella non è supportata quando la copia in fasi è configurata nell'attività di copia. I valori `none` consentiti `autoCreate`sono: (predefinito), . |No |
 | disableMetricsCollection (insieme di disableMetricsCollection) | Data Factory raccoglie metriche quali DKU di SQL Data Warehouse per l'ottimizzazione delle prestazioni di copia e suggerimenti. Se si è interessati `true` a questo comportamento, specificare di disattivarlo. | No (il valore predefinito è `false`) |
@@ -407,7 +416,7 @@ Le seguenti impostazioni PolyBase `polyBaseSettings` sono supportate in nell'att
 
 | Proprietà          | Descrizione                                                  | Obbligatoria                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| rejectValue       | Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo.<br/><br/>Per altre informazioni sulle opzioni di rifiuto di PolyBase, vedere la sezione Argomenti in [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>I valori consentiti sono 0 (predefinito), 1, 2 e così via. | No                                            |
+| rejectValue       | Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo.<br/><br/>Per ulteriori informazioni sulle opzioni di rifiuto polyBase, vedere la sezione Arguments di [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>I valori consentiti sono 0 (predefinito), 1, 2 e così via. | No                                            |
 | rejectType        | Indica se l'opzione **rejectValue** viene specificata come valore letterale o come percentuale.<br/><br/>I valori consentiti sono **Valore** (impostazione predefinita) e **Percentuale**. | No                                            |
 | rejectSampleValue | Determina il numero di righe da recuperare prima che PolyBase ricalcoli la percentuale di righe rifiutate.<br/><br/>I valori consentiti sono 1, 2 e così via. | Sì se **rejectType** è **percentage**. |
 | useTypeDefault    | Specifica come gestire valori mancanti nei file di testo delimitato quando PolyBase recupera i dati dal file di testo.<br/><br/>Per altre informazioni su questa proprietà, vedere la sezione Arguments (Argomenti) in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>I valori consentiti sono **True** e **False** (predefinito).<br><br> | No                                            |
@@ -425,7 +434,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
 
     | Tipo di archivio dati di origine supportatoSupported source data store type                             | Tipo di autenticazione di origine supportato                        |
     | :----------------------------------------------------------- | :---------------------------------------------------------- |
-    | [BLOB di Azure](connector-azure-blob-storage.md)                | Autenticazione con chiave dell'account, autenticazione dell'identità gestita |
+    | [BLOB Azure](connector-azure-blob-storage.md)                | Autenticazione con chiave dell'account, autenticazione dell'identità gestita |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Autenticazione di un'entità servizio                            |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autenticazione con chiave dell'account, autenticazione dell'identità gestita |
 
@@ -531,7 +540,7 @@ Per usare questa funzionalità, creare un [servizio collegato Archiviazione BLOB
 
 ### <a name="best-practices-for-using-polybase"></a>Procedure consigliate per l'uso di PolyBase
 
-Nelle sezioni seguenti vengono fornite le procedure consigliate oltre a quelle menzionate in [Procedure consigliate per Analisi synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md)di Azure.
+Nelle sezioni seguenti vengono fornite le procedure consigliate oltre a quelle menzionate in [Procedure consigliate per Analisi synapse](../synapse-analytics/sql/best-practices-sql-pool.md)di Azure.
 
 #### <a name="required-database-permission"></a>Autorizzazione database obbligatoria
 
@@ -602,7 +611,7 @@ L'utilizzo dell'istruzione COPY supporta la configurazione seguente:
 
     | Tipo di archivio dati di origine supportatoSupported source data store type                             | Formato supportato           | Tipo di autenticazione di origine supportato                         |
     | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
-    | [BLOB di Azure](connector-azure-blob-storage.md)                | [Testo delimitato](format-delimited-text.md)             | Autenticazione con chiave account, autenticazione della firma di accesso condiviso, autenticazione dell'entità servizio, autenticazione dell'identità gestita |
+    | [BLOB Azure](connector-azure-blob-storage.md)                | [Testo delimitato](format-delimited-text.md)             | Autenticazione con chiave account, autenticazione della firma di accesso condiviso, autenticazione dell'entità servizio, autenticazione dell'identità gestita |
     | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Autenticazione con chiave dell'account, autenticazione della firma di accesso condivisoAccount key authentication, shared access signature authentication |
     | &nbsp;                                                       | [Orco](format-orc.md)                        | Autenticazione con chiave dell'account, autenticazione della firma di accesso condivisoAccount key authentication, shared access signature authentication |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Testo delimitato](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[Orco](format-orc.md) | Autenticazione con chiave account, autenticazione dell'entità servizio, autenticazione dell'identità gestita |
@@ -740,7 +749,7 @@ Le impostazioni specifiche di Analisi synapse di Azure sono disponibili nella sc
 Quando si copiano dati da o in Analisi synapse di Azure, i mapping seguenti vengono usati dai tipi di dati di Azure Synapse Analytics ai tipi di dati provvisori di Azure Data Factory.When you copy data from or to Azure Synapse Analytics, the following mappings are used from Azure Synapse Analytics data types to Azure Data Factory interim data types. Vedere [Mapping dello schema e del tipo di dati](copy-activity-schema-and-type-mapping.md) per informazioni su come l'attività di copia esegue il mapping dello schema di origine e del tipo di dati al sink.
 
 >[!TIP]
->Fare riferimento all'articolo [Tipi di dati di tabella nell'articolo di Analisi synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) di Azure sui tipi di dati supportati da SQL DW e le soluzioni alternative per quelli non supportati.
+>Fare riferimento all'articolo [Tipi di dati di tabella nell'articolo di Analisi synapse](../synapse-analytics/sql/develop-tables-data-types.md) di Azure sui tipi di dati supportati da SQL DW e le soluzioni alternative per quelli non supportati.
 
 | Tipo di dati di Azure Synapse AnalyticsAzure Synapse Analytics data type    | Tipo di dati provvisorio di Data Factory |
 | :------------------------------------ | :----------------------------- |

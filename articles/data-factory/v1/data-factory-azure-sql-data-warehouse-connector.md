@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2df49e65603573e4a3adcdda0635982252e70b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4335763269f4a39b4893d9022f4789296b178e92
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130813"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419324"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiare dati da e in Azure SQL Data Warehouse tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -147,12 +147,12 @@ GO
 | sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. Per informazioni dettagliate, vedere la sezione relativa alla [ripetibilità](#repeatability-during-copy). |Istruzione di query. |No |
 | allowPolyBase |Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT. <br/><br/> **L'uso di PolyBase è il modo consigliato per caricare dati in SQL Data Warehouse.** Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) . |True <br/>False (impostazione predefinita) |No |
 | polyBaseSettings |Gruppo di proprietà che è possibile specificare quando la proprietà **allowPolybase** è impostata su **true**. |&nbsp; |No |
-| rejectValue |Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo. <br/><br/>Per altre informazioni sulle opzioni di rifiuto di PolyBase, vedere la sezione **Arguments** (Argomenti) in [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (impostazione predefinita), 1, 2, … |No |
+| rejectValue |Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo. <br/><br/>Per altre informazioni sulle opzioni di rifiuto di PolyBase, vedere la sezione **Argomenti** dell'argomento [CREATE EXTERNAL TABLE (Transact-SQL).](https://msdn.microsoft.com/library/dn935021.aspx) |0 (impostazione predefinita), 1, 2, … |No |
 | rejectType |Indica se l'opzione rejectValue viene specificata come valore letterale o come percentuale. |Value (impostazione predefinita), Percentage |No |
 | rejectSampleValue |Determina il numero di righe da recuperare prima che PolyBase ricalcoli la percentuale di righe rifiutate. |1, 2, … |Sì se **rejectType** è **percentage** |
 | useTypeDefault |Specifica come gestire valori mancanti nei file di testo delimitato quando PolyBase recupera i dati dal file di testo.<br/><br/>Per altre informazioni su questa proprietà, vedere la sezione Arguments (Argomenti) in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (valore predefinito) |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/>  Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
 
 #### <a name="sqldwsink-example"></a>Esempio SqlDWSink
 
@@ -224,10 +224,10 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
 5. Nell'attività di copia associata non viene usato alcun valore `columnMapping`.
 
 ### <a name="staged-copy-using-polybase"></a>copia di staging tramite PolyBase
-Quando i dati di origine non soddisfano i criteri presentati nella sezione precedente, è possibile abilitare la copia dei dati tramite un'istanza di Archiviazione BLOB di Azure di gestione temporanea provvisoria (non può essere Archiviazione Premium). In questo caso, Azure Data Factory esegue automaticamente trasformazioni sui dati in modo che soddisfino i requisiti di formato dei dati di PolyBase e quindi usa PolyBase per caricare i dati in SQL Data Warehouse e infine pulisce i dati temporanei dall'archiviazione BLOB. Per informazioni dettagliate sul funzionamento generale della copia dei dati tramite un BLOB di Azure di staging, vedere la sezione [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) .
+Quando i dati di origine non soddisfano i criteri introdotti nella sezione precedente, è possibile abilitare la copia dei dati tramite un archivio BLOB di Azure di gestione temporanea provvisorio (non può essere Archiviazione Premium). In questo caso, Azure Data Factory esegue automaticamente trasformazioni sui dati in modo che soddisfino i requisiti di formato dei dati di PolyBase e quindi usa PolyBase per caricare i dati in SQL Data Warehouse e infine pulisce i dati temporanei dall'archiviazione BLOB. Per informazioni dettagliate sul funzionamento generale della copia dei dati tramite un BLOB di Azure di staging, vedere la sezione [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) .
 
 > [!NOTE]
-> Quando si copiano dati da un archivio dati locale in Azure SQL Data Warehouse usando PolyBase e la gestione temporanea, se la versione di Data Management Gateway è inferiore a 2.4, è necessario JRE (Java Runtime Environment) nel computer gateway usato per trasformare l'origine dati in formato corretto. È consigliabile aggiornare il gateway installando la versione più recente per evitare tale dipendenza.
+> Quando si copiano dati da un archivio dati locale in Azure SQL Data Warehouse usando PolyBase e la gestione temporanea, se la versione di Data Management Gateway è inferiore a 2.4, È necessario JRE (Java Runtime Environment) nel computer gateway usato per trasformare i dati di origine in un formato appropriato. È consigliabile aggiornare il gateway installando la versione più recente per evitare tale dipendenza.
 >
 
 Per usare questa funzionalità, creare un [servizio collegato Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) che faccia riferimento all'account di archiviazione di Azure contenente l'archivio BLOB provvisorio e quindi specificare le proprietà `enableStaging` e `stagingSettings` per l'attività di copia come illustrato nel codice seguente:
@@ -320,7 +320,7 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 | Tempo | Tempo |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| Testo | Varchar (fino a 8000) |
+| Text | Varchar (fino a 8000) |
 | NText | NVarChar (fino a 4000) |
 | Immagine | VarBinary (fino a 8000) |
 | UniqueIdentifier | UniqueIdentifier |
@@ -421,9 +421,9 @@ L'esempio copia ogni ora i dati di una serie temporale (con frequenza oraria, gi
 ```
 **Set di dati di input di Azure SQL Data Warehouse:**
 
-L'esempio presuppone che sia stata creata una tabella "MyTable" in Azure SQL Data Warehouse e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
+Nell'esempio si presuppone che sia stata creata una tabella "MyTable" in Azure SQL Data Warehouse e che contenga una colonna denominata "timestampcolumn" per i dati di serie temporali.
 
-Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
+Impostando "external": "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
 ```JSON
 {
@@ -607,7 +607,7 @@ L'esempio copia ogni ora i dati di una serie temporale (con frequenza oraria, gi
 ```
 **Set di dati di input BLOB di Azure:Azure Blob input dataset:**
 
-I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. "external": l'impostazione "true" informa il servizio Data Factory che questa tabella è esterna alla data factory e non è prodotta da un'attività nella data factory.
 
 ```JSON
 {
@@ -675,7 +675,7 @@ I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 
 ```
 **Set di dati di output di Azure SQL Data Warehouse:**
 
-Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in Azure SQL Data Warehouse. Creare la tabella in Azure SQL Data Warehouse con lo stesso numero di colonne previsto nel file CSV del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
+L'esempio copia i dati in una tabella denominata "MyTable" in Azure SQL Data Warehouse. Creare la tabella in Azure SQL Data Warehouse con lo stesso numero di colonne previsto nel file CSV del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
 
 ```JSON
 {

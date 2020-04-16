@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 7b7ef3b6f2d400dafb28cfb7a15cf95cbbe2c457
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 76085dc29d40944cf704dbc5efc578b3314f499a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351017"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419239"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limiti di risorse per i pool elastici con il modello di acquisto DTU
 
@@ -32,6 +32,9 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 > Per indicazioni e considerazioni sulla scalabilità, vedere [Scalare un pool elasticoFor](sql-database-elastic-pool-scale.md) scaling guidance and considerations, see Scale an elastic pool
 > [!NOTE]
 > I limiti delle risorse di database singoli nei pool elastici sono in genere identici a quelli di database singoli all'esterno dei pool in base alle DTU e al livello di servizio. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database S2 è 120. Pertanto, anche il numero massimo di ruoli di lavoro simultanei per un database in un pool Standard è 120 se il numero massimo di DTU per ogni database nel pool è 50 (che è equivalente a S2).
+
+> [!NOTE]
+> Il limite di risorse di archiviazione per pool in ognuna delle tabelle seguenti non include l'archiviazione del database tempdb e del log.
 
 ### <a name="basic-elastic-pool-limits"></a>Limiti del pool elastico Basic
 

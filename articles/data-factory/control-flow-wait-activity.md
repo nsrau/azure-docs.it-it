@@ -11,15 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: f9dd53fded06eec169219d00993620a0f2aa2bf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6158938d01b6e5da74ed046d2a74e0dfd827f47
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73678250"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417913"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Eseguire l'attività di attesa in Azure Data FactoryExecute wait activity in Azure Data Factory
 Quando si usa un'attività Wait in una pipeline, la pipeline attende per il periodo di tempo specificato prima di proseguire con l'esecuzione delle attività successive. 
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -102,9 +105,9 @@ In questo esempio nella pipeline sono presenti due attività: **Until** e **Wait
 Vedere altre attività del flusso di controllo supportate da Data Factory: 
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
-- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)
 - [Attività Until](control-flow-until-activity.md)

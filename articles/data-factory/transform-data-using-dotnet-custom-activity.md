@@ -10,18 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260579"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418950"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-use-custom-activities.md)
 > * [Versione corrente](transform-data-using-dotnet-custom-activity.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
 
@@ -115,7 +116,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 &#42; Le proprietà `resourceLinkedService` e `folderPath` devono essere specificate oppure omesse entrambe.
 
 > [!NOTE]
-> Se si passano servizi collegati come referenceObjects in Attività personalizzata, è consigliabile superare un servizio collegato abilitato per un insieme di credenziali delle chiavi di Azure (poiché non contiene stringhe sicure) e recuperare le credenziali usando il nome segreto direttamente dalla chiave Vault dal codice. È possibile trovare un esempio [che](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) fa riferimento al servizio collegato abilitato a AKV, recupera le credenziali dall'insieme di credenziali delle chiavi e quindi accede all'archiviazione nel codice.
+> Se si passano servizi collegati come referenceObjects in Attività personalizzata, è consigliabile superare un servizio collegato abilitato a un insieme di credenziali delle chiavi di Azure (poiché non contiene stringhe sicure) e recuperare le credenziali usando il nome segreto direttamente dall'insieme di credenziali delle chiavi dal codice. È possibile trovare un esempio [che](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) fa riferimento al servizio collegato abilitato a AKV, recupera le credenziali dall'insieme di credenziali delle chiavi e quindi accede all'archiviazione nel codice.
 
 ## <a name="custom-activity-permissions"></a>Autorizzazioni per le attività personalizzate
 
@@ -386,5 +387,5 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
-* [Attività stored procedure](transform-data-using-stored-procedure.md)
+* [Attività di esecuzione batch di Machine Learning](transform-data-using-machine-learning.md)
+* [Attività della stored procedure](transform-data-using-stored-procedure.md)

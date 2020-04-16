@@ -10,14 +10,16 @@ ms.author: daperlov
 author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
-ms.openlocfilehash: b54504cf8ca7b32bf14bd4b7e0c561ffd56d4098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f033651eb7e52ba60cce9b74941a4ef0eb376d2b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76155164"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419001"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Eseguire pipeline di Azure Machine Learning in Azure Data FactoryExecute Azure Machine Learning pipelines in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Eseguire le pipeline di Azure Machine Learning come passaggio nelle pipeline di Azure Data Factory.Run your Azure Machine Learning pipelines as a step in your Azure Data Factory pipelines. L'attività Pipeline di esecuzione di Machine Learning consente scenari di stima batch, ad esempio l'identificazione di possibili valori predefiniti del prestito, la determinazione del sentiment e l'analisi dei modelli di comportamento dei clienti.
 
@@ -70,4 +72,4 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Attività stored procedure](transform-data-using-stored-procedure.md)
+* [Attività della stored procedure](transform-data-using-stored-procedure.md)

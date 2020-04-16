@@ -11,17 +11,19 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 4a0709b4eaa8742069eecb4c39712e384645304b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57bf653aa3f421ae8897c4be661ceef589fcdc06
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74926669"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418814"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività stored procedure di SQL Server in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-stored-proc-activity.md)
 > * [Versione corrente](transform-data-using-stored-procedure.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Le attività di trasformazione dei dati in una [pipeline](concepts-pipelines-activities.md) di Data factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di stored procedure è una delle attività di trasformazione supportate da Data factory. Questo articolo si basa sull'articolo relativo alla [trasformazione dei dati](transform-data.md), che offre una panoramica generale della trasformazione dei dati e delle attività di trasformazione supportate in Data Factory.
 
@@ -101,4 +103,4 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
-* [Attività stored procedure](transform-data-using-stored-procedure.md)
+* [Attività della stored procedure](transform-data-using-stored-procedure.md)

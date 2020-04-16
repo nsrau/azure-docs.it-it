@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250264"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417117"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ottenere l'attività dei metadati in Azure Data FactoryGet Metadata activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 È possibile usare l'attività Recupera metadati per recuperare i metadati di tutti i dati in Azure Data Factory.You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory. È possibile utilizzare questa attività negli scenari seguenti:You can use this activity in the following scenarios:
 
@@ -40,13 +41,13 @@ L'attività Get Metadata accetta un set di dati come input e restituisce informa
 
 ### <a name="supported-connectors"></a>Connettori supportati
 
-**Archiviazione file**
+**Archiviazione dei file**
 
 | Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | created<br>(file/cartella) | LastModified<br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | esiste<br>(file/cartella) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Archiviazione BLOB di Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Archiviazione BLOB di AzureAzure Blob storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [File di Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -54,6 +55,7 @@ L'attività Get Metadata accetta un set di dati come input e restituisce informa
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
+- Quando si utilizza l'attività Get Metadata in una cartella, assicurarsi di disporre dell'autorizzazione LIST/EXECUTE per la cartella specificata.
 - Per Amazon S3 e `lastModified` Google Cloud Storage, si applica al bucket `exists` e alla chiave ma non alla cartella virtuale e si applica al bucket e alla chiave, ma non al prefisso o alla cartella virtuale.
 - Per l'archiviazione `lastModified` BLOB di Azure, si applica al contenitore e al BLOB, ma non alla cartella virtuale.
 - `lastModified`filtro attualmente si applica al filtro degli elementi figlio, ma non alla cartella o al file specificato.
@@ -64,7 +66,7 @@ L'attività Get Metadata accetta un set di dati come input e restituisce informa
 | Connettore/Metadati | structure | columnCount | esiste |
 |:--- |:--- |:--- |:--- |
 | [Database SQL di Azure](connector-azure-sql-database.md) | √ | √ | √ |
-| [Istanza gestita del database SQL di AzureAzure SQL Database managed instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Istanza gestita di Database SQL di Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
 | [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
@@ -93,7 +95,7 @@ L'attività Get Metadata accetta un set di dati come input e restituisce informa
 
 ## <a name="syntax"></a>Sintassi
 
-**Attività GetMetadata**
+**Ottenere l'attività dei metadatiGet Metadata activity**
 
 ```json
 {
@@ -196,7 +198,7 @@ I risultati Di ottenere i metadati vengono visualizzati nell'output dell'attivit
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su altre attività del flusso di controllo supportate da Data Factory:Learn about other control flow activities supported by Data Factory:
 
-- [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
 - [Attività ForEach](control-flow-for-each-activity.md)
 - [Attività di ricerca](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)

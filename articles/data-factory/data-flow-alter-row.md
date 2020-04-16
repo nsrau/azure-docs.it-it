@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 0798a3f9ab45ce68086681e7aea96deeb9639f94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2923e087426ee04c74da629f4e2d2d49a06eb1ef
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75834531"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416541"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Modificare la trasformazione di riga nel mapping del flusso di datiAlter row transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Utilizzare la trasformazione Altera riga per impostare i criteri di inserimento, eliminazione, aggiornamento e backup nelle righe. È possibile aggiungere condizioni uno-a-molti come espressioni. Queste condizioni devono essere specificate in ordine di priorità, poiché ogni riga verrà contrassegnata con il criterio corrispondente all'espressione corrispondente. Ognuna di queste condizioni può comportare l'inserimento, l'aggiornamento, l'eliminazione o l'upserted di una riga o di righe. Alter Row può produrre entrambe le azioni DDL & DML sul database.
 

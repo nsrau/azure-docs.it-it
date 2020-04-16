@@ -1,5 +1,5 @@
 ---
-title: Considerazioni sulla sicurezza
+title: Considerazioni relative alla sicurezza
 description: Descrive l'infrastruttura di sicurezza di base usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati.
 services: data-factory
 ms.author: abnarain
@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: bee627ade4f66206cd5254fc32bc7aa9973c7bee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131303"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416476"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 >
 > * [Versione 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Versione corrente](data-movement-security-considerations.md)
+
+ [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Questo articolo descrive l'infrastruttura di sicurezza di base usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati. Le risorse di gestione di Data Factory si basano sull'infrastruttura di sicurezza di Azure e ricorrono a tutte le misure di sicurezza offerte da Azure.
 
@@ -59,7 +61,7 @@ In questo articolo vengono prese in esame le considerazioni sulla sicurezza nei 
 ### <a name="securing-data-store-credentials"></a>Proteggere le credenziali dell'archivio dati
 
 - **Archiviare credenziali crittografate i un archivio gestito di Azure Data Factory**. Data Factory consente di proteggere le credenziali dell'archivio dati crittografandole con i certificati gestiti da Microsoft. Questi certificati ruotano ogni due anni. In questo arco temporale è compreso il rinnovo del certificato e la migrazione delle credenziali. Per altre informazioni sulla sicurezza di Archiviazione di Azure, vedere [Panoramica sulla sicurezza di Archiviazione di Azure](../security/fundamentals/storage-overview.md).
-- **Archiviare le credenziali in Azure Key Vault**. È anche possibile archiviare la credenziale dell'archivio dati in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credenziale durante l'esecuzione di un'attività. Per altre informazioni, vedere [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare credenziali in Azure Key Vault).
+- **Archiviare le credenziali in Archiviazione chiave**di Azure . È anche possibile archiviare la credenziale dell'archivio dati in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credenziale durante l'esecuzione di un'attività. Per altre informazioni, vedere [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare credenziali in Azure Key Vault).
 
 ### <a name="data-encryption-in-transit"></a>Crittografia di dati in transito
 Se l'archivio dati cloud supporta HTTPS o TLS, tutti i trasferimenti di dati tra i servizi di spostamento dei dati in Data Factory e un archivio dati cloud avvengono tramite un canale TLS o HTTPS sicuro.
@@ -111,7 +113,7 @@ Le credenziali possono essere archiviate all'interno della data factory o a cui 
  
 - **Archiviare le credenziali in locale**. Se si utilizza direttamente il cmdlet **Set-AzDataFactoryV2LinkedService** con le stringhe di connessione e le credenziali inline in JSON, il servizio collegato viene crittografato e archiviato nel runtime di integrazione self-hosted.  In questo caso le credenziali passano attraverso il servizio back-end di Azure, che è estremamente sicuro, al computer di integrazione self-hosted in cui viene infine crittografato e archiviato. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali.
 
-- **Archiviare le credenziali in Azure Key Vault**. È anche possibile archiviare la credenziale dell'archivio dati in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credenziale durante l'esecuzione di un'attività. Per altre informazioni, vedere [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare credenziali in Azure Key Vault).
+- **Archiviare le credenziali in Archiviazione chiave**di Azure . È anche possibile archiviare la credenziale dell'archivio dati in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credenziale durante l'esecuzione di un'attività. Per altre informazioni, vedere [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare credenziali in Azure Key Vault).
 
 - **Archiviare le credenziali in locale senza scorrere le credenziali tramite il back-end di Azure nel runtime di integrazione self-hosted.** Se si desidera crittografare e archiviare le credenziali in locale nel runtime di integrazione self-hosted senza dover passare il flusso delle credenziali tramite il back-end della data factory, seguire i passaggi descritti in [Crittografare le credenziali per gli archivi dati locali in Azure Data Factory.](encrypt-credentials-self-hosted-integration-runtime.md) Tutti i connettori supportano questa opzione. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali. 
 

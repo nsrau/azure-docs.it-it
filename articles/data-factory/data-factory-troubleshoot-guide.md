@@ -8,14 +8,15 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: e284060893e00ed7459edd0d1a03075c813dc5b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9a1ac831c4300c0523717fddc1fa53417068b89
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065387"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416566"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Risolvere i problemi di Azure Data FactoryTroubleshoot Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra i metodi di risoluzione dei problemi comuni per le attività di controllo esterno in Azure Data Factory.This article explores common troubleshooting methods for external control activities in Azure Data Factory.
 
@@ -1034,7 +1035,7 @@ Per utilizzare Fiddler per creare una sessione HTTP dell'applicazione Web monito
    
    1. Se necessario, aggiungere intestazioni e il corpo di una richiesta.
 
-   1. Scegliere **Execute**(Esegui).
+   1. Selezionare **Esegui**.
 
 1. Attiva nuovamente l'acquisizione del traffico e completa la transazione problematica nella tua pagina.
 

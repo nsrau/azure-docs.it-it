@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: 4acad5e2de55211b6c4492513f331c36286ed852
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dd82eea0a80ef81a0f972d1964a62e6c17a80c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892787"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417373"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiare dati da Dynamics AX tramite Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati da un'origine Dynamics AX. L'articolo è basato su [Attività di copia in Azure Data Factory](copy-activity-overview.md), dove viene presentata una panoramica generale dell'attività di copia.
 

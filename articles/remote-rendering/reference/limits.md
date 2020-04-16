@@ -1,20 +1,20 @@
 ---
-title: Limiti
+title: Limitazioni
 description: Limitazioni del codice per le funzionalità SDKCode limitations for SDK features
 author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 6e23c716a965cdf178c9f847900e66c141d5d7eb
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: b6e501cdc1d5091a27d86406c6919587bedb261a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80680336"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417692"
 ---
-# <a name="limits"></a>Limiti
+# <a name="limitations"></a>Limitazioni
 
-Un certo numero di funzioni hanno limitazioni di conteggio o dimensione a causa dei dettagli interni del sistema in esecuzione.
+Un certo numero di feature hanno dimensioni, conteggio o altre limitazioni.
 
 ## <a name="azure-frontend"></a>Front-end di Azure
 
@@ -40,4 +40,13 @@ Il numero consentito di poligoni per tutti i modelli caricati dipende dalle dime
 |premium| nessun limite |
 
 
+## <a name="platform-limitations"></a>Limitazioni della piattaforma
 
+**Desktop di Windows 10**
+
+* La distribuzione "PC Standalone" di Unity non è supportata. Utilizzare invece UWP.
+* UWP/x86 è l'unica piattaforma UWP supportata. UWP/x64 non è supportato.
+
+**Hololens 2**
+
+* Il [rendering dalla funzione fotocamera fotovoltaica](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) non è supportato.

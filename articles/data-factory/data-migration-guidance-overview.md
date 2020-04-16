@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
-ms.openlocfilehash: aaf1593cc049e8b23f8ebe36fea022b3029ccd04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4408546c892299e5bbbc22b00a4b334c36eda616
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930808"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416437"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Usare Azure Data Factory per eseguire la migrazione dei dati dal data lake o dal data warehouse ad AzureUse Azure Data Factory to migrate data from your data lake or data warehouse to Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Se si vuole eseguire la migrazione del data lake o del data warehouse aziendale (EDW) a Microsoft Azure, è consigliabile usare Azure Data Factory.If you want to migrate your data lake or enterprise data warehouse (EDW) to Microsoft Azure, consider using Azure Data Factory. Azure Data Factory è adatto agli scenari seguenti:Azure Data Factory is well-suited to the following scenarios:
 

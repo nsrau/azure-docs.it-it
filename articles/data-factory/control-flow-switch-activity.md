@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440390"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418015"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Passare da un'attività all'altra in Azure Data FactorySwitch activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 L'attività Switch fornisce le stesse funzionalità fornite da un'istruzione switch nei linguaggi di programmazione. Valuta un set di attività corrispondenti a un caso che corrisponde alla valutazione della condizione.
 
@@ -332,8 +334,8 @@ $result.Error -join "`r`n"
 Vedere altre attività del flusso di controllo supportate da Data Factory: 
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
-- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)

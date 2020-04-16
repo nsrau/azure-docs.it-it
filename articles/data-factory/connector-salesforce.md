@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 7d380f34f849eac835abbd295cd1e2d8c17daaef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 184c5f23ae18a58f26f4b18a884209941343e2e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153855"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418100"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce usando Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-salesforce-connector.md)
 > * [Versione corrente](connector-salesforce.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Salesforce. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
 
@@ -335,7 +337,7 @@ Quando si copiano dati da Salesforce, vengono usati i mapping seguenti tra i tip
 | Percentuale |Decimal |
 | Telefono |string |
 | Elenco a discesa |string |
-| Testo |string |
+| Text |string |
 | Area di testo |string |
 | Area di testo (Long) |string |
 | Area di testo (Rich) |string |

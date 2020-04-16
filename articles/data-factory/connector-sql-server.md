@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: e7f91d60a0e181690859da64e491c4c0fa1e1a3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 063ac32c98d4eb64b676247c0a16f98fa7d1702d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238710"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416694"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copiare dati da e verso SQL Server usando Azure Data FactoryCopy data to and from SQL Server by using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory in uso:Select the version of Azure Data Factory that you're using:"]
 > * [Versione 1](v1/data-factory-sqlserver-connector.md)
 > * [Versione corrente](connector-sql-server.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in un database di SQL Server.This article outlines how to use the copy activity in Azure Data Factory to copy data from and to a SQL Server database. Si basa sull'articolo [sulla panoramica dell'attività](copy-activity-overview.md) di copia che presenta una panoramica generale dell'attività di copia.
 

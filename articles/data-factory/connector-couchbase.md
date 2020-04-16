@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ac2426bbfa074e58aa5c4a213f3ecbee20052358
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d78d533bc4a863a0a70b1dbb47bdfa85d539884f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444373"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417431"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copiare dati da Couchbase tramite Azure Data Factory (anteprima)
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Couchbase. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 > [!IMPORTANT]
@@ -140,7 +140,7 @@ Per copiare dati da Couchbase, impostare il tipo di origine nell'attività di co
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **CouchbaseSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

@@ -10,17 +10,19 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/31/2018
-ms.openlocfilehash: eb887a7d9081875c28964ddb1e3d1b2e609862fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c39575e8ea60a091124c633f8958ec36e8a61885
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912963"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418848"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Spark in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-spark.md)
 > * [Versione corrente](transform-data-using-spark.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 L'attività Spark in una [pipeline](concepts-pipelines-activities.md) di Data Factory esegue un programma Spark nel cluster HDInsight [personale](compute-linked-services.md#azure-hdinsight-linked-service) o [on demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](transform-data.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate. Quando si usa un servizio Spark collegato on demand, Data Factory crea automaticamente un cluster Spark JIT per elaborare i dati e quindi elimina il cluster al termine dell'elaborazione. 
 
@@ -117,5 +119,5 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
-* [Attività stored procedure](transform-data-using-stored-procedure.md)
+* [Attività di esecuzione batch di Machine Learning](transform-data-using-machine-learning.md)
+* [Attività della stored procedure](transform-data-using-stored-procedure.md)

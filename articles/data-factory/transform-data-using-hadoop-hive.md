@@ -11,18 +11,20 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/15/2019
-ms.openlocfilehash: b4af3f897a12c71d73962735d3fe68d95f138cef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c5c917e12b1314c40763f58a7723a4df787ffa0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912918"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418933"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Trasformare i dati usando l'attività Hive di Hadoop in Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-hive-activity.md)
 > * [Versione corrente](transform-data-using-hadoop-hive.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 L'attività Hive di HDInsight in una [pipeline](concepts-pipelines-activities.md) di Data Factory esegue query Hive sul [proprio](compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight o sul cluster HDInsight [on demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](transform-data.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
@@ -78,5 +80,5 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
-* [Attività stored procedure](transform-data-using-stored-procedure.md)
+* [Attività di esecuzione batch di Machine Learning](transform-data-using-machine-learning.md)
+* [Attività della stored procedure](transform-data-using-stored-procedure.md)

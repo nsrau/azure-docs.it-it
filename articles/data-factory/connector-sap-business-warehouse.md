@@ -12,17 +12,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 0c37d77ca73ddbe8b79351f90275a1d639757633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f8406038be10ba3bdc207bf447fecb86a376fe8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74923728"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418066"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Versione corrente](connector-sap-business-warehouse.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database SAP Business Warehouse (BW). Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 

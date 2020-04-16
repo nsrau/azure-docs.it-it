@@ -11,14 +11,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 18555fbffbc48594793163894c010998094b3b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c3f58d42b6f311e4e238dcffe7da42afd8a5306
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336237"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416718"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Questo articolo illustra i passaggi per il provisioning di un runtime di integrazione di Azure-SQL Server Integration Services (SSIS) in Azure Data Factory.This article provides steps for provisioning an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory. Azure-SSIS IR supporta:
 
@@ -78,7 +80,7 @@ La tabella seguente confronta alcune funzionalità di un server di database SQL 
 | Funzionalità | Singolo database/pool elastico| Istanza gestita |
 |---------|--------------|------------------|
 | **Pianificazione** | Agente SQL Server non è disponibile.<br/><br/>Vedere [Pianificare l'esecuzione](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)di un pacchetto in una pipeline di Data Factory.| L'agente istanza gestita è disponibile. |
-| **Autenticazione** | È possibile creare un'istanza SSISDB con un utente del database indipendente che rappresenta qualsiasi gruppo di Azure AD con l'identità gestita della data factory come membro nel ruolo **di db_owner.**<br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare un'istanza SSISDB in un server di database SQL di Azure.See Enable Azure AD authentication to create an SSISDB instance on an Azure SQL Database server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | È possibile creare un'istanza SSISDB con un utente del database indipendente che rappresenta l'identità gestita della data factory. <br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare un'istanza SSISDB in un'istanza gestita del database SQL di Azure.See Enable Azure AD authentication to create an SSISDB instance in an Azure SQL Database managed instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
+| **autenticazione** | È possibile creare un'istanza SSISDB con un utente del database indipendente che rappresenta qualsiasi gruppo di Azure AD con l'identità gestita della data factory come membro nel ruolo **di db_owner.**<br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare un'istanza SSISDB in un server di database SQL di Azure.See Enable Azure AD authentication to create an SSISDB instance on an Azure SQL Database server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | È possibile creare un'istanza SSISDB con un utente del database indipendente che rappresenta l'identità gestita della data factory. <br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare un'istanza SSISDB in un'istanza gestita del database SQL di Azure.See Enable Azure AD authentication to create an SSISDB instance in an Azure SQL Database managed instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Livello di servizio** | Quando si crea un'istanza di Azure-SSIS con il server di database SQL di Azure, è possibile selezionare il livello di servizio per SSISDB. Sono disponibili più livelli di servizio. | Quando si crea un'istanza di azure-SSIS con l'istanza gestita, non è possibile selezionare il livello di servizio per SSISDB. Tutti i database nell'istanza gestita condividono la stessa risorsa allocata a tale istanza. |
 | **Rete virtuale** | Il provider di disponibilità di accesso Azure-SSIS può partecipare a una rete virtuale di Azure Resource Manager se si usa un server di database SQL di Azure con regole del firewall IP o endpoint del servizio di rete virtuale. | Il provider di oggetti chiave Azure-SSIS può partecipare a una rete virtuale di Azure Resource Manager se si usa un'istanza gestita con endpoint privato. La rete virtuale è necessaria quando non si abilita un endpoint pubblico per l'istanza gestita.<br/><br/>Se si aggiunge il raggio di ir Azure-SSIS alla stessa rete virtuale dell'istanza gestita, assicurarsi che il componente di accesso Azure-SSIS si trovi in una subnet diversa dall'istanza gestita. Se si aggiunge il raggio di aggiunto Azure-SSIS a una rete virtuale diversa dall'istanza gestita, è consigliabile un peering di rete virtuale o una connessione da rete a rete. Vedere [Connettere l'applicazione a un'istanza gestita del database SQL](../sql-database/sql-database-managed-instance-connect-app.md)di Azure. |
 | **Transazioni distribuite** | Questa funzionalità è supportata tramite transazioni elastiche. Le transazioni di Microsoft Distributed Transaction Coordinator (MSDTC) non sono supportate. Se i pacchetti SSIS usano MSDTC per coordinare le transazioni distribuite, è consigliabile eseguire la migrazione a transazioni elastiche per il database SQL di Azure.If your SSIS packages use MSDTC to coordinate distributed transactions, consider migrating to elastic sql transactions for Azure SQL Database. Per ulteriori informazioni, vedere [Transazioni distribuite tra database cloud](../sql-database/sql-database-elastic-transactions-overview.md). | Non supportato. |
@@ -118,7 +120,7 @@ Una volta creata la data factory, aprire la relativa pagina di panoramica nel po
 
    1. Per **Risparmia denaro**, selezionare l'opzione Vantaggi ibridi di Azure per il runtime di integrazione: **Sì** o **No**. Selezionare **Sì** se si desidera portare la propria licenza di SQL Server con Software Assurance per trarre vantaggio dal risparmio sui costi con l'uso ibrido.
 
-   1. Fare clic su **Avanti**.
+   1. Selezionare **Avanti**.
 
 1. Nella sezione **Impostazioni SQL** completare la procedura seguente.
 

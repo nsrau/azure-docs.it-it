@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: 80c9929f37b4890387a7625f04db6ce3e37f0cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74922125"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416446"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usare Azure Data Factory per eseguire la migrazione dei dati da un server Netezza locale ad AzureUse Azure Data Factory to migrate data from an on-premises Netezza server to Azure 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory offre un meccanismo performante, affidabile ed economico per eseguire la migrazione dei dati su larga scala da un server Netezza locale all'account di archiviazione di Azure o al database del data warehouse SQL di Azure.Azure Data Factory provides a performant, robust and cost-effective mechanism to migrate data at scale from an on-premises Netezza server to your Azure storage account or Azure SQL Data Warehouse database. 
 
@@ -151,7 +153,7 @@ Come procedura consigliata, eseguire una prova di concetto (POC) delle prestazio
 
 Per copiare una tabella, iniziare con una singola attività di copia con un singolo computer a sapieri autohosted. Aumentare `parallelCopies` gradualmente l'impostazione in base al numero di partizioni di sezione dati nella tabella. Verificare se l'intera tabella può essere caricata in Azure entro due ore, in base alla velocità effettiva risultante dal processo di copia. 
 
-Se non può essere caricato in Azure entro due ore e la capacità del nodo A/IR self-hosted e dell'archivio dati non viene completamente utilizzata, aumentare gradualmente il numero di attività di copia simultanee fino a raggiungere il limite della rete o il limite di larghezza di banda dei dati Negozi. 
+Se non può essere caricato in Azure entro due ore e la capacità del nodo A ridownload self-hosted e dell'archivio dati non viene completamente utilizzata, aumentare gradualmente il numero di attività di copia simultanee fino a raggiungere il limite della rete o il limite di larghezza di banda degli archivi dati. 
 
 Continuare a monitorare l'utilizzo della CPU e della memoria sul computer a distribuzione automatica ed essere pronti per la scalabilità verticale del computer o la scalabilità orizzontale su più computer quando si nota che la CPU e la memoria sono completamente utilizzate. 
 
@@ -199,7 +201,7 @@ Per altre informazioni, vedere gli articoli e le guide seguenti:For more informa
 - [Creare e configurare un runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [HA e scalabilità di runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [Considerazioni relative alla sicurezza per lo spostamento dei dati](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Archiviare le credenziali nell'insieme di credenziali delle chiavi di AzureStore credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+- [Archiviare le credenziali in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
 - [Copiare i dati in modo incrementale da una tabella](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
 - [Copiare i dati in modo incrementale da più tabelle](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
 - [Pagina dei prezzi di Azure Data FactoryAzure Data Factory pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)

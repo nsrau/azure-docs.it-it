@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256419"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419264"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 > [!NOTE]
@@ -45,7 +45,7 @@ I passaggi seguenti descrivono come viene stabilita una connessione a un databas
 Il database SQL di Azure supporta le tre opzioni seguenti per l'impostazione dei criteri di connessione di un server di database SQL.
 
 - **Reindirizzamento (consigliato):** I client stabiliscono connessioni direttamente al nodo che ospita il database, riducendo la latenza e riducendo la velocità effettiva. Affinché le connessioni utilizzino questa modalità, i client devono:
-   - Consentire la comunicazione in uscita dal client a tutti gli indirizzi IP di Azure nell'area sulle porte nell'intervallo 11000 11999.Allow outbound communication from the client to all Azure IP addresses in the region on ports in the range of 11000 11999. Usare i tag del servizio per SQL per semplificare la gestione.  
+   - Consentire la comunicazione in uscita dal client a tutti gli indirizzi IP SQL di Azure nell'area sulle porte nell'intervallo 11000 11999.Allow outbound communication from the client to all Azure SQL IP addresses in the region on ports in the range of 11000 11999. Usare i tag del servizio per SQL per semplificare la gestione.  
    - Consentire la comunicazione in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.Allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
 
 - **Proxy:** In questa modalità, tutte le connessioni vengono propaied tramite i gateway del database SQL di Azure, con conseguente aumento della latenza e riduzione della velocità effettiva. Affinché le connessioni utilizzino questa modalità, i client devono consentire la comunicazione in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.For connections to use this mode, clients need to allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.

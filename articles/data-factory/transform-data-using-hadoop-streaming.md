@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
-ms.openlocfilehash: 1c12a10dfdf8e69cf05ab30d0e6aa48fea5803a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1bba6903fe1cb8cc5bae9a12153553594180b43
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912906"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418882"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Trasformare i dati usando l'attività di streaming di Hadoop in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Versione corrente](transform-data-using-hadoop-streaming.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 L'attività di streaming HDInsight in una [pipeline](concepts-pipelines-activities.md) di Data Factory esegue i programmi di streaming di Hadoop nel cluster HDInsight [personalizzato](compute-linked-services.md#azure-hdinsight-linked-service) o [on demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](transform-data.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
@@ -93,5 +95,5 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
-* [Attività stored procedure](transform-data-using-stored-procedure.md)
+* [Attività di esecuzione batch di Machine Learning](transform-data-using-machine-learning.md)
+* [Attività della stored procedure](transform-data-using-stored-procedure.md)

@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
-ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33b2ca8db75acff1ce423aa50087961cce6092b2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246266"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418406"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-create-datasets.md)
 > * [Versione corrente](concepts-datasets-linked-services.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 In questo articolo vengono descritti i set di dati, la procedura di definizione dei set in formato JSON e le modalità di utilizzo nelle pipeline di Azure Data Factory.
 

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: f63c78c59d7d6be3c66ea0785389eff73e3bff60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b41d1823e8edce134c5099e066486f4f08acc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73678357"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417930"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Attività di convalida in Azure Data FactoryValidation activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 È possibile usare una convalida in una pipeline per garantire che la pipeline continui l'esecuzione solo dopo aver convalidato l'esiguo riferimento al set di dati associato, che soddisfi i criteri specificati o che sia stato raggiunto il timeout.
 
 
@@ -73,9 +75,9 @@ Minimumsize | Dimensione minima di un file in byte. Se non viene specificato alc
 Vedere altre attività del flusso di controllo supportate da Data Factory:
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
-- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)
 - [Attività Until](control-flow-until-activity.md)

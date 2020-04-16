@@ -10,14 +10,17 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d143992317c77c6fc3137527bea485a98c046daa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b7791c5c04e986b30959d2fcae17142fdd8b7ec
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75969213"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418321"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Ruoli e autorizzazioni per Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 Questo articolo descrive i ruoli necessari per creare e gestire le risorse di Azure Data Factory e le autorizzazioni concesse da tali ruoli.
 

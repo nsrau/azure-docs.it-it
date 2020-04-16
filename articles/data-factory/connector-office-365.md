@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: d97b3caccc92f0fdfeb229d94e30ee6499c26181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912406"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416881"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiare dati da Office 365 in Azure usando Azure Data FactoryCopy data from Office 365 into Azure using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory si integra con [la connessione dati](https://docs.microsoft.com/graph/data-connect-concept-overview)di Microsoft Graph , consentendo di portare i dati dell'organizzazione avanzata nel tenant di Office 365 in Azure in modo scalabile e creare applicazioni di analisi ed estrarre informazioni dettagliate basate su questi preziosi asset di dati. L'integrazione con Privileged Access Management fornisce un controllo di accesso protetto per i dati importanti in Office 365.  Fare riferimento a [questo collegamento](https://docs.microsoft.com/graph/data-connect-concept-overview) per una panoramica sulla connessione dati di Microsoft Graph e fare riferimento a [questo collegamento](https://docs.microsoft.com/graph/data-connect-policies#licensing) per informazioni sulle licenze.
 
@@ -63,11 +64,11 @@ Se Azure Data Factory viene creato come parte di un'app gestita e le assegnazion
 
 È possibile creare una pipeline con l'attività di copia usando uno degli strumenti o degli SDK seguenti. Selezionare un collegamento per passare a un'esercitazione con istruzioni dettagliate per creare una pipeline con un'attività di copia. 
 
-- [Portale di Azure](quickstart-create-data-factory-portal.md)
+- [Azure portal](quickstart-create-data-factory-portal.md)
 - [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
-- [REST API](quickstart-create-data-factory-rest-api.md)
+- [API REST](quickstart-create-data-factory-rest-api.md)
 - [Modello di Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md). 
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di data factory specifiche per il connettore di Office 365.

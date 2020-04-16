@@ -3,19 +3,23 @@ title: Specifica degli endpoint del servizio Service FabricSpecifying Service Fa
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282159"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417583"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
-Il manifesto del servizio consente alle risorse di essere usate dal servizio per essere dichiarate/modificate senza modificare il codice compilato. Azure Service Fabric supporta la configurazione delle risorse dell'endpoint del servizio. È possibile controllare l'accesso alle risorse specificate nel manifesto del servizio tramite SecurityGroup nel manifesto dell'applicazione. La dichiarazione delle risorse consente a queste ultime di essere modificate in fase di distribuzione, in questo modo il servizio non deve introdurre un nuovo meccanismo di configurazione. La definizione dello schema per il file ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Il manifesto del servizio consente alle risorse utilizzate dal servizio di essere dichiarate, o modificate, senza modificare il codice compilato. Service Fabric supporta la configurazione delle risorse endpoint per il servizio. È possibile controllare l'accesso alle risorse specificate nel manifesto del servizio tramite SecurityGroup nel manifesto dell'applicazione. La dichiarazione delle risorse consente a queste ultime di essere modificate in fase di distribuzione, in questo modo il servizio non deve introdurre un nuovo meccanismo di configurazione. La definizione dello schema per il file ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Endpoint
 Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se la porta non è esplicitamente specificata. Ad esempio, esaminare l'endpoint *ServiceEndpoint1* specificato nel frammento di manifesto fornito dopo questo paragrafo. Inoltre, i servizi possono richiedere anche una porta specifica in una risorsa. Alle repliche del servizio in esecuzione sui diversi nodi del cluster possono essere assegnati diversi numeri di porta, mentre le repliche di un servizio in esecuzione nello stesso nodo condividono la porta. Le repliche del servizio possono quindi usare queste porte in base alle esigenze per la replica e l'ascolto delle richieste client.
+
+All'attivazione di un servizio che specifica un endpoint https, Service Fabric imposterà la voce di controllo di accesso per la porta, associerà il certificato server specificato alla porta e concederà anche l'identità che il servizio è in esecuzione come autorizzazioni per la chiave privata del certificato. Il flusso di attivazione viene richiamato a ogni avvio di Service Fabric o quando la dichiarazione del certificato dell'applicazione viene modificata tramite un aggiornamento. Il certificato dell'endpoint verrà inoltre monitorato per le modifiche/rinnovi e le autorizzazioni verranno periodicamente riapplicate in base alle esigenze.
+
+Al termine del servizio, Service Fabric pulirà la voce di controllo di accesso all'endpoint e rimuoverà l'associazione del certificato. Tuttavia, le autorizzazioni applicate alla chiave privata del certificato non verranno pulite.
 
 > [!WARNING] 
 > Per impostazione della progettazione, le porte statiche non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla all'esterno dell'intervallo di porte dell'applicazione, altrimenti si tradurrà in conflitti di porta. Con la versione 6.5CU2 verrà emanato un **avviso** di integrità quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui in sincronia con il comportamento fornito 6.5. Tuttavia, è possibile impedire la distribuzione dell'applicazione dalle versioni principali successive.
@@ -85,6 +89,7 @@ Gli endpoint HTTP vengono automaticamente inseriti nell'elenco di controllo di a
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+      <Endpoint Name="ServiceEndpoint4" Protocol="https" Port="14023"/>
 
       <!-- This endpoint is used by the replicator for replicating the state of your service.
            This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
@@ -106,7 +111,7 @@ Il protocollo HTTPS fornisce l’autenticazione del server e viene anche usato p
 > Quando si usa HTTPS, non usare la stessa porta e lo stesso certificato per diverse istanze del servizio (indipendenti dall'applicazione) distribuite nello stesso nodo. L'aggiornamento di due servizi diversi mediante la stessa porta in istanze dell'applicazione diverse comporterà un errore di aggiornamento. Per altre informazioni, vedere [Aggiornamento di più applicazioni con endpoint HTTPS](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
-Di seguito è riportato un esempio ApplicationManifest che è necessario impostare per il protocollo HTTPS. È necessario fornire l'identificazione personale per il certificato. EndpointRef è un riferimento a EndpointResource in ServiceManifest per cui si imposta il protocollo HTTPS. È possibile aggiungere più Endpointcertificate.  
+Di seguito è riportato un esempio Di ApplicationManifest che illustra la configurazione necessaria per un endpoint HTTPS. Il certificato del server/endpoint può essere dichiarato tramite identificazione personale o nome comune del soggetto ed è necessario specificare un valore. EndpointRef è un riferimento a EndpointResource in ServiceManifest e il cui protocollo deve essere stato impostato sul protocollo 'https'. È possibile aggiungere più Endpointcertificate.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -127,7 +132,8 @@ Di seguito è riportato un esempio ApplicationManifest che è necessario imposta
     <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
     <Policies>
-      <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByCN" EndpointRef="ServiceEndpoint4"/>
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
@@ -143,7 +149,8 @@ Di seguito è riportato un esempio ApplicationManifest che è necessario imposta
     </Service>
   </DefaultServices>
   <Certificates>
-    <EndpointCertificate Name="TestCert1" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByTP" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByCN" X509FindType="FindBySubjectName" X509FindValue="ServiceFabric-EndpointCertificateBinding-Test" X509StoreName="MY" />  
   </Certificates>
 </ApplicationManifest>
 ```
@@ -170,7 +177,7 @@ Nella sezione ServiceManifestImport aggiungere una nuova sezione "ResourceOverri
       </Endpoints>
     </ResourceOverrides>
         <Policies>
-           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+           <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint"/>
         </Policies>
   </ServiceManifestImport>
 ```

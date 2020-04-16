@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: d7e2af6c98951e685192656b37226716e4340bfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 20def8ca51f21d914e7090999e8284244c5f3ec7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930439"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416505"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Trasformazione di divisione condizionale nel mapping del flusso di datiConditional split transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 La trasformazione suddivisione condizionale indirizza le righe di dati a flussi diversi in base alle condizioni di corrispondenza. La trasformazione di divisione condizionale è simile a una struttura decisionale CASE in un linguaggio di programmazione. La trasformazione valuta le espressioni e, in base ai risultati, indirizza la riga di dati al flusso specificato.
 

@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 4540b27a9241a14b3d1a153d11bf43900e8ae0ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153854"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416665"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce Service Cloud usando Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Salesforce Service Cloud.This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Salesforce Service Cloud. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
 
@@ -325,7 +326,7 @@ Quando si copiano dati da Salesforce Service Cloud, i mapping seguenti vengono u
 | Percentuale |Decimal |
 | Telefono |string |
 | Elenco a discesa |string |
-| Testo |string |
+| Text |string |
 | Area di testo |string |
 | Area di testo (Long) |string |
 | Area di testo (Rich) |string |

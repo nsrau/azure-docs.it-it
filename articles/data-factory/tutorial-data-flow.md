@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: e6ca8007a96cc63b51b4f79b69029cbf0799e71c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979190"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418678"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati usando i flussi di dati di mappingTransform data using mapping data flows
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
 
@@ -60,7 +62,7 @@ In questo passaggio si crea una data factory e si apre l'esperienza utente di Da
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
 6. In **Versione** selezionare **V2**.
 7. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e i calcoli (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre aree.
-8. Selezionare **Crea**.
+8. Selezionare **Create** (Crea).
 9. Al termine della creazione, la relativa notifica verrà visualizzata nel centro notifiche. Selezionare **Vai alla risorsa** per passare alla pagina della data factory.
 10. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 

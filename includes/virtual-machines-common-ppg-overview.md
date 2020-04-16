@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: 3215f5952daef053c94432bc8fdef15e1775047a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73171076"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422236"
 ---
 L'inserimento di macchine virtuali in una singola area riduce la distanza fisica tra le istanze. Collocarli all'interno di una singola zona di disponibilità li avvicinerà fisicamente. Tuttavia, con l'aumentare del footprint di Azure, una singola zona di disponibilità può estendersi su più data center fisici, il che può comportare un impatto sulla latenza di rete sull'applicazione. 
 
@@ -39,6 +39,13 @@ A proximity placement group is a new resource type in Azure. È necessario crear
 Nel caso di set di disponibilità e set di scalabilità di macchine virtuali, è necessario impostare il gruppo di posizionamento di prossimità a livello di risorsa anziché alle singole macchine virtuali. 
 
 Un gruppo di posizionamento di prossimità è un vincolo di colocation anziché un meccanismo di blocco. Viene aggiunto a un data center specifico con la distribuzione della prima risorsa per utilizzarlo. Una volta che tutte le risorse che utilizzano il gruppo di posizionamento di prossimità sono state arrestate (deallocate) o eliminate, non sono più aggiunte. Pertanto, quando si usa un gruppo di posizionamento di prossimità con più serie di macchine virtuali, è importante specificare tutti i tipi necessari in anticipo in un modello quando possibile o seguire una sequenza di distribuzione che migliorerà le possibilità di una distribuzione corretta. Se la distribuzione non riesce, riavviare la distribuzione con la dimensione della macchina virtuale non riuscita come prima dimensione da distribuire.
+
+## <a name="what-to-expect-when-using-proximity-placement-groups"></a>Cosa aspettarsi quando si utilizzano i gruppi di posizionamento di prossimitàWhat to expect when using Proximity Placement Groups 
+I gruppi di posizionamento di prossimità offrono la co-ubicazione nello stesso data center. Tuttavia, poiché i gruppi di posizionamento di prossimità rappresentano un vincolo di distribuzione aggiuntivo, possono verificarsi errori di allocazione. Esistono pochi casi d'uso in cui è possibile riscontrare errori di allocazione quando si utilizzano gruppi di posizionamento di prossimità:There are few use cases where you may see allocation failures when using proximity placement groups:
+
+- Quando si richiede la prima macchina virtuale nel gruppo di posizionamento di prossimità, il data center viene selezionato automaticamente. In alcuni casi, una seconda richiesta per uno SKU di macchina virtuale diverso, potrebbe non riuscire se non esiste in tale data center. In questo caso, viene restituito un errore **OverconstrainedAllocationRequest.In** this case, an OverconstrainedAllocationRequest error is returned. Per evitare questo problema, provare a modificare l'ordine in cui si distribuiscono gli SKU o distribuire entrambe le risorse usando un singolo modello ARM.
+-   Nel caso di carichi di lavoro elastici, in cui si aggiungono e rimuovono istanze di macchine virtuali, la presenza di un vincolo del gruppo di posizionamento di prossimità nella distribuzione può causare un errore per soddisfare la richiesta generando un errore **AllocationFailure.In** the case instances, where you add and remove VM instances, having a proximity placement group constraint on your deployment may result in a failure to satisfy the request resulting in AllocationFailure error. 
+- Arrestare (deallocare) e avviare le macchine virtuali in base alle esigenze è un altro modo per ottenere elasticità. Poiché la capacità non viene mantenuta una volta interrotta (deallocata) una macchina virtuale, l'avvio può causare un errore **AllocationFailure.Since** the capacity is not kept once you stop (deallocate) a VM, starting it again may result in an AllocationFailure error.
 
 
 ## <a name="best-practices"></a>Procedure consigliate 

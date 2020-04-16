@@ -1,22 +1,22 @@
 ---
-title: Come gestire un account di mercato commerciale nel Centro per i partner
-description: Scopri come gestire un account di mercato commerciale nel Centro per i partner.
+title: Come gestire un account di mercato commerciale nel Centro per i partner Microsoft
+description: Scopri come gestire un account di mercato commerciale nel Centro per i partner Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 50ea56a8c743636f9fdd9105e5b07a868e71d3d0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 256ea1a03cd22df443362623177f91893f28b664
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262928"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419154"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire il tuo account di mercato commerciale nel Centro per i partner
+# <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gestire l'account del marketplace commerciale nel Centro per i partner
 
-Dopo aver [creato un account del Centro per](./create-account.md)i partner, è possibile gestire l'account e le offerte utilizzando il dashboard del marketplace [commerciale.](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
+Dopo aver [creato un account del Centro per](./create-account.md)i partner, è possibile utilizzare il dashboard del marketplace [commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) per gestire l'account e le offerte.
 
 In questo articolo, approfondiremo come gestire il tuo account del Centro per i partner, incluso come:
 
@@ -35,12 +35,12 @@ In questo articolo, approfondiremo come gestire il tuo account del Centro per i 
 
 Se non è già stato fatto, l'utente (o l'amministratore dell'organizzazione) deve accedere alle [impostazioni dell'account](https://partner.microsoft.com/dashboard/account/management) per l'account del Centro per i partner per:
 - Controllare lo stato di verifica dell'account dell'azienda
-- Confermare l'ID Symantec, l'ID venditore, l'ID MPN, l'ID editore e le informazioni di contatto, inclusi l'approvatore aziendale e il contatto del venditore
+- Confermare l'ID Symantec, l'ID venditore, l'ID Microsoft Partner Network (MPN) e le informazioni di contatto dell'editore, inclusi l'approvatore della società e il contatto del venditore
 - Creare account utente per tutti coloro che utilizzeranno il proprio account aziendale nel Centro per i partner
 
 ### <a name="open-developer-settings"></a>Aprire le impostazioni dello sviluppatore
 
-Le impostazioni dell'account si trovano nell'angolo in alto a destra del dashboard del [marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace) nel Centro per i partner. Selezionare l'icona a forma di ingranaggio (nell'angolo superiore destro del dashboard) e quindi selezionare **Impostazioni sviluppatore**.
+**Le impostazioni dell'account** si trovano nell'angolo in alto a destra del dashboard del [marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace) nel Centro per i partner. Selezionare l'icona a forma di ingranaggio (nell'angolo superiore destro del dashboard) e quindi selezionare **Impostazioni sviluppatore**.
 
 ![Menu Impostazioni account nel Centro per i partner](./media/dashboard-developer-settings.png)
 
@@ -70,7 +70,7 @@ Per configurare l'account di pagamento, è necessario **associare l'account Micr
 1. Vai alla [pagina di panoramica](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) del marketplace commerciale nel Centro per i partner.
 2. Nella sezione Profilo selezionare **Associa account Microsoft**.
 3. Quando richiesto, accedere con l'account Microsoft (MSA). Questo account non può essere già associato a un altro account del Centro per i partner.
-4. Per completare la configurazione dell'account di pagamento, esci completamente dal Centro per i partner, quindi accedi di nuovo con il tuo account Microsoft (anziché con il tuo account di lavoro).
+4. Per completare la configurazione dell'account di pagamento, esci dal Centro per i partner, quindi accedi di nuovo con il tuo account Microsoft (anziché con il tuo account di lavoro).
 
 Ora che l'account Microsoft è associato, per aggiungere un account di pagamento, è necessario:
 - **Scegli un metodo di pagamento**: Conto bancario o PayPal
@@ -91,7 +91,7 @@ Non è necessario un codice ITIN (Individual Taxpayer Identification Number) deg
 
 È possibile compilare e inviare i moduli fiscali elettronicamente nel Centro per i partner; nella maggior parte dei casi, non è necessario stampare e inviare alcun modulo.
 
-Paesi e regioni diversi hanno requisiti fiscali diversi. L'importo esatto che devi pagare in tasse dipende dai paesi e dalle regioni in cui vendi le tue offerte. Microsoft rimette l'imposta sulle vendite e sull'uso per conto dell'utente in alcuni paesi. Questi paesi saranno identificati nel processo di inserzione della tua offerta. In altri paesi, a seconda di dove sei registrato, potrebbe essere necessario rimettere le vendite e utilizzare l'imposta per le vendite direttamente all'autorità fiscale locale. Inoltre, i proventi delle vendite ricevuti possono essere imponibili come reddito. Ti consigliamo vivamente di contattare l'autorità competente per il tuo paese o la tua area geografica che può aiutarti a determinare le giuste informazioni fiscali per le tue transazioni di vendita Microsoft.
+Paesi e regioni diversi hanno requisiti fiscali diversi. L'importo esatto che devi pagare in tasse dipende dai paesi e dalle regioni in cui vendi le tue offerte. Microsoft rimette le vendite e utilizza l'imposta per conto dell'utente in alcuni paesi. Questi paesi saranno identificati nel processo di inserzione della tua offerta. In altri paesi, a seconda di dove sei registrato, potrebbe essere necessario rimettere le vendite e utilizzare l'imposta per le vendite direttamente all'autorità fiscale locale. Inoltre, i proventi delle vendite ricevuti possono essere imponibili come reddito. Ti consigliamo vivamente di contattare l'autorità competente per il tuo paese o la tua area geografica che può aiutarti a determinare le giuste informazioni fiscali per le tue transazioni di vendita Microsoft.
 
 ##### <a name="withholding-rates"></a>Tassi delle trattenute
 Le informazioni che fornisci nei moduli fiscali determinano il tasso di trattenuta fiscale appropriato. Il tasso di trattenuta fiscale si applica solo alle vendite effettuate negli Stati Uniti. Le vendite effettuate in altri paesi non sono soggette a trattenuta. I tassi di trattenuta possono variare, ma per la maggior parte degli sviluppatori registrati al di fuori degli Stati Uniti il tasso predefinito è del 30%. Hai la possibilità di ridurre questo tasso se il tuo paese ha stipulato un accordo di agevolazioni fiscali sul reddito con gli Stati Uniti.
@@ -124,7 +124,7 @@ Per creare un GUID per il rilevamento, è necessario usare un generatore di GUID
 
 Si consiglia di creare un GUID univoco per ogni canale di offerta e distribuzione per ogni prodotto. È possibile scegliere di usare un unico GUID per i vari canali di distribuzione del prodotto se non si vuole suddividere la creazione di report.
 
-Se si usa un modello per distribuire un prodotto disponibile su Azure Marketplace e su GitHub, è possibile creare e registrare 2 GUID distinti:
+Se si distribuisce un prodotto usando un modello ed è disponibile sia in Azure Marketplace che in GitHub, è possibile creare e registrare due GUID distinti:If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDS:
 
 *    Prodotto A su Azure Marketplace
 *    Prodotto A su GitHub
@@ -145,23 +145,20 @@ Il Centro per i partner sfrutta [Azure Active Directory](https://docs.microsoft.
 
 ## <a name="manage-users"></a>Gestire gli utenti
 
-Nella sezione **Users** del Centro per i partner (in **Impostazioni account)** è possibile usare Azure AD per gestire gli utenti, i gruppi e le applicazioni di Azure AD che hanno accesso all'account del Centro per i partner. Per gestire gli utenti, è necessario accedere con [l'account](./company-work-accounts.md) di lavoro (tenant di Azure AD associato). Per gestire gli utenti all'interno di un account di lavoro /tenant diverso, è necessario disconnettersi e quindi accedere nuovamente come utente con autorizzazioni **di amministratore** per tale account di lavoro/tenant.
+La sezione **Utenti** del Centro per i partner (in **Impostazioni account**) consente di usare Azure AD per gestire gli utenti, i gruppi e le applicazioni di Azure AD che hanno accesso all'account del Centro per i partner. L'account deve disporre di autorizzazioni a livello di [**responsabile**](#define-user-roles-and-permissions) per l'account di lavoro (tenant di [Azure AD)](./company-work-accounts.md) in cui si desidera aggiungere o modificare gli utenti. Per gestire gli utenti all'interno di un account di lavoro /tenant diverso, è necessario disconnettersi e quindi accedere nuovamente come utente con autorizzazioni **di amministratore** per tale account di lavoro/tenant.
 
 Dopo aver eseguito l'accesso con l'account aziendale (tenant di Azure AD), è possibile:Once you are signed in with your work account (Azure AD tenant), you can:
-- [Aggiungere o rimuovere utenti](#add-or-remove-users)
+
+- [Aggiungere o rimuovere utenti](#add-existing-users)
 - [Modifica una password utente](#change-a-user-password)
-- [Aggiungere o rimuovere gruppi](#add-or-remove-users)
+- [Aggiungere o rimuovere gruppi](#manage-groups)
 - [Aggiungere o rimuovere applicazioni di Azure ADAdd or remove Azure AD applications](#add-new-azure-ad-applications)
 - [Gestire le chiavi per un'applicazione Azure AD](#manage-keys-for-an-azure-ad-application)
 - [Definire ruoli utente e autorizzazioni](#define-user-roles-and-permissions)
 
 Tenere presente che tutti gli utenti del Centro per i partner (inclusi i gruppi e le applicazioni di Azure AD) devono disporre di un account di lavoro attivo in un tenant di [Azure AD](#manage-tenants) associato all'account del Centro per i partner.
 
-### <a name="add-or-remove-users"></a>Aggiungere o rimuovere utenti
-
-L'account deve disporre di autorizzazioni a livello di [**responsabile**](#define-user-roles-and-permissions) per l'account di lavoro (tenant di [Azure AD)](./company-work-accounts.md) in cui si desidera aggiungere o modificare gli utenti.
-
-#### <a name="add-existing-users"></a>Aggiungere utenti esistenti
+### <a name="add-existing-users"></a>Aggiungere utenti esistenti
 
 Per aggiungere utenti all'account del Centro per i partner già presenti nell'account di lavoro dell'azienda (tenant di [Azure AD):](./company-work-accounts.md)
 
@@ -172,7 +169,7 @@ Se si selezionano più utenti da aggiungere all'account del Centro per i partner
 4. Nella sezione **Ruoli** specificare i ruoli o le autorizzazioni personalizzate per gli utenti selezionati.
 5. Selezionare **Salva**.
 
-#### <a name="create-new-users"></a>Creare nuovi utenti
+### <a name="create-new-users"></a>Creare nuovi utenti
 
 Per creare nuovi account utente, è necessario disporre di un account con autorizzazioni [**di amministratore globale.**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
 
@@ -186,7 +183,7 @@ Per creare nuovi account utente, è necessario disporre di un account con autori
 
 La creazione di un nuovo utente nel Centro per i partner creerà anche un account per tale utente nell'account di lavoro (tenant di Azure AD) a cui è stato eseguito l'accesso. Apportare modifiche al nome di un utente nel Centro per i partner, apportare le stesse modifiche nell'account di lavoro dell'organizzazione (tenant di Azure AD).
 
-#### <a name="invite-new-users-by-email"></a>Invitare nuovi utenti tramite posta elettronica
+### <a name="invite-new-users-by-email"></a>Invitare nuovi utenti tramite posta elettronica
 
 Per invitare gli utenti che non fanno attualmente parte dell'account di lavoro aziendale (tenant di Azure AD) tramite posta elettronica, è necessario disporre di un account con autorizzazioni [**di amministratore globale.**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
 
@@ -202,11 +199,11 @@ Se è necessario inviare di nuovo un invito, visitare la pagina **Utenti,** trov
 > [!NOTE]
 > Se l'organizzazione usa [l'integrazione](https://go.microsoft.com/fwlink/p/?LinkID=724033) della directory per sincronizzare il servizio directory locale con Azure AD, non sarà possibile creare nuovi utenti, gruppi o applicazioni Azure AD nel Centro per i partner. L'utente (o un altro amministratore nella directory locale) dovrà crearli direttamente nella directory locale prima di poterli visualizzare e aggiungere nel Centro per i partner.
 
-#### <a name="remove-a-user"></a>Rimuovere un utente
+### <a name="remove-a-user"></a>Rimuovere un utente
 
 Per rimuovere un utente dall'account di lavoro (tenant di Azure AD), passare a **Utenti** (in **Impostazioni account**), selezionare l'utente che si vuole rimuovere usando la casella di controllo nella colonna all'estrema destra, quindi scegliere **Rimuovi** dalle azioni disponibili. Verrà visualizzata una finestra popup per confermare che si desidera rimuovere gli utenti selezionati.
 
-#### <a name="change-a-user-password"></a>Modifica una password utente
+### <a name="change-a-user-password"></a>Modifica una password utente
 
 Se uno degli utenti deve modificare la password, può farlo autonomamente se è stata fornita **un'e-mail** di recupero password durante la creazione dell'account utente. Puoi anche aggiornare la password di un utente seguendo i passaggi seguenti. Per modificare la password di un utente nell'account aziendale (tenant di Azure AD), è necessario accedere con un account con autorizzazioni di [**amministratore globale.**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) Si noti che in questo modo verrà modificata la password dell'utente nel tenant di Azure AD, insieme alla password usata per accedere al Centro per i partner.
 
@@ -218,7 +215,7 @@ Se uno degli utenti deve modificare la password, può farlo autonomamente se è 
 
 I gruppi consentono di controllare più ruoli utente e autorizzazioni tutti insieme.
 
-#### <a name="add-an-existing-group"></a>Aggiungere un gruppo esistente
+### <a name="add-an-existing-group"></a>Aggiungere un gruppo esistente
 
 Per aggiungere un gruppo già esistente nell'account di lavoro dell'organizzazione (tenant di Azure AD) all'account del Centro per i partner:To add a group that already exists in your organization's work account (Azure AD tenant) to your Partner Center account:
 
@@ -231,7 +228,7 @@ Se si selezionano più gruppi da aggiungere all'account del Centro per i partner
 
 Quando si aggiunge un gruppo esistente, ogni utente membro di tale gruppo sarà in grado di accedere all'account del Centro per i partner, con le autorizzazioni associate al ruolo assegnato al gruppo.
 
-#### <a name="add-a-new-group"></a>Aggiungere un nuovo gruppo
+### <a name="add-a-new-group"></a>Aggiungere un nuovo gruppo
 
 Per aggiungere un gruppo nuovo di zecca al tuo account del Centro per i partner:
 
@@ -245,7 +242,7 @@ Per aggiungere un gruppo nuovo di zecca al tuo account del Centro per i partner:
 
 Si noti che questo nuovo gruppo verrà creato anche nell'account di lavoro dell'organizzazione (tenant di Azure AD), non solo nell'account del Centro per i partner.
 
-#### <a name="remove-a-group"></a>Rimuovere un gruppo
+### <a name="remove-a-group"></a>Rimuovere un gruppo
 
 Per rimuovere un gruppo dall'account di lavoro (tenant di Azure AD), passare a **Utenti** (in **Impostazioni account**), selezionare il gruppo che si vuole rimuovere usando la casella di controllo nella colonna all'estrema destra, quindi scegliere **Rimuovi** dalle azioni disponibili. Verrà visualizzata una finestra popup per confermare che si desidera rimuovere i gruppi selezionati.
 
@@ -253,7 +250,7 @@ Per rimuovere un gruppo dall'account di lavoro (tenant di Azure AD), passare a *
 
 È possibile consentire alle applicazioni o ai servizi che fanno parte di Azure AD dell'azienda di accedere all'account del Centro per i partner.
 
-#### <a name="add-existing-azure-ad-applications"></a>Aggiungere applicazioni di Azure AD esistentiAdd existing Azure AD applications
+### <a name="add-existing-azure-ad-applications"></a>Aggiungere applicazioni di Azure AD esistentiAdd existing Azure AD applications
 
 Per aggiungere applicazioni già esistenti in Azure Active Directory dell'azienda:To add applications that already exist in your company's Azure Active Directory:
 
@@ -263,7 +260,7 @@ Per aggiungere applicazioni già esistenti in Azure Active Directory dell'aziend
 4. Nella sezione **Ruoli** specificare i ruoli o le autorizzazioni personalizzate per le applicazioni di Azure AD selezionate.
 5. Selezionare **Salva**.
 
-#### <a name="add-new-azure-ad-applications"></a>Aggiungere nuove applicazioni di Azure ADAdd new Azure AD applications
+### <a name="add-new-azure-ad-applications"></a>Aggiungere nuove applicazioni di Azure ADAdd new Azure AD applications
 
 Se si vuole concedere al Centro per i partner l'accesso a un nuovo account dell'applicazione Azure AD, è possibile crearne uno nella sezione **Utenti.If** you want to grant Partner Center access to a brand-new Azure AD application account, you can create one in the Users section. Si noti che verrà creato un nuovo account nell'account di lavoro aziendale (tenant di Azure AD), non solo nell'account del Centro per i partner. Se si usa principalmente questa applicazione Azure AD per l'autenticazione del Centro per i partner e non è necessario che gli utenti vi accedano direttamente, è possibile immettere qualsiasi indirizzo valido per **l'URL** di risposta e l'URI **dell'ID app,** purché tali valori non vengano usati da altre applicazioni di Azure AD nella directory.
 
@@ -276,11 +273,11 @@ Se si vuole concedere al Centro per i partner l'accesso a un nuovo account dell'
 
 Dopo aver aggiunto o creato un'applicazione Azure AD, è possibile tornare alla sezione **Utenti** e selezionare il nome dell'applicazione per esaminare le impostazioni per l'applicazione, inclusi l'ID tenant, l'ID client, l'URL di risposta e l'URI dell'ID app.
 
-#### <a name="remove-an-application"></a>Rimuovere un'applicazione
+### <a name="remove-an-azure-ad-application"></a>Rimuovere un'applicazione Azure ADRemove an Azure AD application
 
 Per rimuovere un'applicazione dall'account di lavoro (tenant di Azure AD), passare a **Utenti** (in **Impostazioni account**), selezionare l'applicazione che si vuole rimuovere usando la casella di controllo nella colonna all'estrema destra, quindi scegliere **Rimuovi** dalle azioni disponibili. Verrà visualizzata una finestra popup per confermare che si desidera rimuovere le applicazioni selezionate.
 
-#### <a name="manage-keys-for-an-azure-ad-application"></a>Gestire le chiavi per un'applicazione Azure AD
+### <a name="manage-keys-for-an-azure-ad-application"></a>Gestire le chiavi per un'applicazione Azure AD
 
 Se la tua applicazione Azure AD legge e scrive dati in Microsoft Azure AD, servirà una chiave. È possibile creare chiavi per un'applicazione Azure AD modificandone le informazioni nel Centro per i partner. Puoi anche rimuovere le chiavi non più necessarie.
 
@@ -350,7 +347,3 @@ Quando si rimuove un tenant, tutti gli utenti aggiunti all'account del Centro pe
 La sezione **Contratti** del Centro per i partner (in **Impostazioni account)** consente di visualizzare un elenco degli accordi di pubblicazione autorizzati. Questi accordi sono elencati in base al nome e al numero di versione, inclusa la data in cui è stato accettato e il nome dell'utente che ha accettato l'accordo.
 
 **Le azioni necessarie** possono essere visualizzate nella parte superiore di questa pagina se sono presenti aggiornamenti del contratto che richiedono la tua attenzione. Per accettare un accordo aggiornato, leggere prima la versione dell'accordo collegata, quindi selezionare **Accetta accordo**.
-
-## <a name="next-steps"></a>Passaggi successivi
-
-- [Creare una nuova offerta SaaS](./create-new-saas-offer.md)

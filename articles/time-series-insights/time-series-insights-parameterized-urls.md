@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 02/04/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9dfe499a7d6084a23fd71ab98db472befe71fc04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024365"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417002"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -29,7 +29,7 @@ Time Series Insights Explorer supporta i parametri di query URL per specificare 
 
 ## <a name="environment-id"></a>ID di ambiente
 
-Il parametro `environmentId=<guid>` specifica l'ID dell'ambiente di destinazione. È un componente dell'FQDN di accesso ai dati ed è possibile trovarlo nell'angolo superiore destro della panoramica dell'ambiente nel portale di Azure.It's a component of the data access FQDN, and you can find it in the top-right corner of the environment overview in the Azure portal. che include tutto ciò che precede `env.timeseries.azure.com`.
+Il parametro `environmentId=<guid>` specifica l'ID dell'ambiente di destinazione. È un componente dell'FQDN di accesso ai dati ed è possibile trovarlo nell'angolo superiore destro della panoramica dell'ambiente nel portale di Azure.It's a component of the data access FQDN, and you can find it in the top-right corner of the environment overview in the Azure portal. È tutto ciò che `env.timeseries.azure.com`precede .
 
 Un parametro ID di ambiente di esempio è `?environmentId=10000000-0000-0000-0000-100000000108`.
 

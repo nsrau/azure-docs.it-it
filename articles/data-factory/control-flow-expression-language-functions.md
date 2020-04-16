@@ -10,18 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ef4b569fd8413d2825374c963fb272dd450cf0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c456e486217886510a1fd2ef1aeabae47d35b53c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533129"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417201"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-functions-variables.md)
 > * [Versione corrente](control-flow-expression-language-functions.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo offre informazioni dettagliate sulle espressioni e funzioni supportate da Azure Data Factory. 
 
@@ -153,7 +154,7 @@ Le funzioni di stringa funzionano solo sulle stringhe.
 
 | Funzione di stringa | Attività |
 | --------------- | ---- |
-| [concat](control-flow-expression-language-functions.md#concat) | Combina due o più stringhe e restituisce la stringa combinata. |
+| [Concat](control-flow-expression-language-functions.md#concat) | Combina due o più stringhe e restituisce la stringa combinata. |
 | [endsWith](control-flow-expression-language-functions.md#endswith) | Verifica se una stringa termina con la sottostringa specificata. |
 | [Guid](control-flow-expression-language-functions.md#guid) | Generare un identificatore univoco globale (GUID) sotto forma di stringa. |
 | [indiceDi](control-flow-expression-language-functions.md#indexof) | Restituisce la posizione iniziale di una sottostringa. |
@@ -161,7 +162,7 @@ Le funzioni di stringa funzionano solo sulle stringhe.
 | [Sostituire](control-flow-expression-language-functions.md#replace) | Sostituisce una sottostringa con la stringa specificata e restituisce la stringa aggiornata. |
 | [diviso](control-flow-expression-language-functions.md#split) | Restituisce una matrice che contiene le sottostringhe, separate da virgole, da una stringa più grande in base al carattere delimitatore specificato nella stringa originale. |
 | [Startswith](control-flow-expression-language-functions.md#startswith) | Verifica se una stringa inizia con una sottostringa specifica. |
-| [substring](control-flow-expression-language-functions.md#substring) | Restituisce i caratteri di una stringa, partendo dalla posizione specificata. |
+| [Sottostringa](control-flow-expression-language-functions.md#substring) | Restituisce i caratteri di una stringa, partendo dalla posizione specificata. |
 | [Tolower](control-flow-expression-language-functions.md#toLower) | Restituisce una stringa in formato minuscolo. |
 | [Toupper](control-flow-expression-language-functions.md#toUpper) | Restituisce una stringa in formato maiuscolo. |
 | [Tagliare](control-flow-expression-language-functions.md#trim) | Rimuove gli spazi iniziali e finali da una stringa e restituisce la stringa aggiornata. |
@@ -196,7 +197,7 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
 | [if](control-flow-expression-language-functions.md#if) | Verifica se un'espressione è true o false. In base al risultato, restituisce un valore specificato. |
 | [Meno](control-flow-expression-language-functions.md#less) | Verifica se il primo valore è minore del secondo valore. |
 | [lessOrEquals](control-flow-expression-language-functions.md#lessOrEquals) | Verifica se il primo valore è minore o uguale al secondo valore. |
-| [not](control-flow-expression-language-functions.md#not) | Verifica se un'espressione è false. |
+| [Non](control-flow-expression-language-functions.md#not) | Verifica se un'espressione è false. |
 | [O](control-flow-expression-language-functions.md#or) | Verifica se almeno un'espressione è true. |
   
 ## <a name="conversion-functions"></a>Funzioni di conversione  
@@ -217,7 +218,7 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
 | [base64ToString](control-flow-expression-language-functions.md#base64ToString) | Restituisce la versione stringa di una stringa con codifica base64. |
 | [binary](control-flow-expression-language-functions.md#binary) | Restituisce la versione binaria di un valore di input. |
 | [bool](control-flow-expression-language-functions.md#bool) | Restituisce la versione booleana di un valore di input. |
-| [coalesce](control-flow-expression-language-functions.md#coalesce) | Restituisce il primo valore non Null da uno o più parametri. |
+| [Coalesce](control-flow-expression-language-functions.md#coalesce) | Restituisce il primo valore non Null da uno o più parametri. |
 | [createArray (matrice)](control-flow-expression-language-functions.md#createArray) | Restituisce una matrice da più input. |
 | [dataUri (informazioni in base all'](control-flow-expression-language-functions.md#dataUri) | Restituisce l'URI dati di un valore di input. |
 | [dataUriToBinary](control-flow-expression-language-functions.md#dataUriToBinary) | Restituisce la versione binaria di un URI dati. |
@@ -226,10 +227,10 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
 | [decodeDataUri](control-flow-expression-language-functions.md#decodeDataUri) | Restituisce la versione binaria di un URI dati. |
 | [decodeUriComponent](control-flow-expression-language-functions.md#decodeUriComponent) | Restituisce una stringa che sostituisce i caratteri di escape con le versioni decodificate. |
 | [encodeUriComponent](control-flow-expression-language-functions.md#encodeUriComponent) | Restituisce una stringa che sostituisce i caratteri non sicuri dell'URL con caratteri di escape. |
-| [Galleggiante](control-flow-expression-language-functions.md#float) | Restituisce un numero a virgola mobile per un valore di input. |
-| [Int](control-flow-expression-language-functions.md#int) | Restituisce la versione integer di una stringa. |
+| [float](control-flow-expression-language-functions.md#float) | Restituisce un numero a virgola mobile per un valore di input. |
+| [int](control-flow-expression-language-functions.md#int) | Restituisce la versione integer di una stringa. |
 | [Json](control-flow-expression-language-functions.md#json) | Restituisce il valore o l'oggetto di tipo JSON (JavaScript Object Notation ) per una stringa o un elemento XML. |
-| [Stringa](control-flow-expression-language-functions.md#string) | Restituisce la versione stringa di un valore di input. |
+| [string](control-flow-expression-language-functions.md#string) | Restituisce la versione stringa di un valore di input. |
 | [uriComponent](control-flow-expression-language-functions.md#uriComponent) | Restituisce la versione codificata in formato URI per un valore di input sostituendo i caratteri non sicuri dell'URL con caratteri di escape. |
 | [uriComponentToBinary](control-flow-expression-language-functions.md#uriComponentToBinary) | Restituisce la versione binaria di una stringa con codifica URI. |
 | [uriComponentToString](control-flow-expression-language-functions.md#uriComponentToString) | Restituisce la versione stringa di una stringa con codifica URI. |
@@ -243,7 +244,7 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
 | ------------- | ---- |
 | [aggiungi](control-flow-expression-language-functions.md#add) | Restituisce il risultato della somma di due numeri. |
 | [div](control-flow-expression-language-functions.md#div) | Restituisce il risultato della divisione di due numeri. |
-| [Massimo](control-flow-expression-language-functions.md#max) | Restituisce il valore più alto di un set di numeri o una matrice. |
+| [max](control-flow-expression-language-functions.md#max) | Restituisce il valore più alto di un set di numeri o una matrice. |
 | [Minimo](control-flow-expression-language-functions.md#min) | Restituisce il valore più basso di un set di numeri o una matrice. |
 | [Mod](control-flow-expression-language-functions.md#mod) | Restituisce il resto della divisione di due numeri. |
 | [mul](control-flow-expression-language-functions.md#mul) | Restituisce il prodotto della moltiplicazione di due numeri. |

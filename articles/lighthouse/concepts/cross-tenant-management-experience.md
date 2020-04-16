@@ -3,12 +3,12 @@ title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754141"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418516"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -25,11 +25,7 @@ In genere, per gestire le risorse di Azure per un cliente, i provider di servizi
 
 Con la gestione risorse delegate di Azure, il processo di onboarding specifica gli utenti all'interno del tenant del provider di servizi che potranno accedere a sottoscrizioni, gruppi di risorse e risorse nel tenant del cliente e gestirli. Questi utenti possono quindi accedere al portale di Azure usando le proprie credenziali. All'interno del portale di Azure possono gestire le risorse appartenenti a tutti i clienti a cui hanno accesso. Per eseguire questa operazione, visitare la pagina [Clienti personali](../how-to/view-manage-customers.md) nel portale di Azure o accedere direttamente al contesto della sottoscrizione di tale cliente nel portale di Azure o tramite API.
 
-La gestione risorse delegate di Azure consente una maggiore flessibilità nella gestione delle risorse per più clienti senza dover accedere ad account diversi in tenant diversi. Un provider di servizi, ad esempio, può avere tre clienti, con responsabilità e livelli di accesso diversi, come illustrato di seguito:
-
-![Tenant dei tre clienti che mostrano le responsabilità del provider di servizi](../media/azure-delegated-resource-management-customer-tenants.jpg)
-
-Usando la gestione delle risorse delegate di Azure, gli utenti autorizzati possono accedere al tenant del provider di servizi per accedere a queste risorse, come illustrato di seguito:Using Azure delegated resource management, authorized users can sign in to the service provider's tenant to access these resources, as shown here:
+La gestione risorse delegate di Azure consente una maggiore flessibilità nella gestione delle risorse per più clienti senza dover accedere ad account diversi in tenant diversi. Ad esempio, un provider di servizi può avere due clienti con responsabilità e livelli di accesso diversi. Usando la gestione delle risorse delegate di Azure, gli utenti autorizzati possono accedere al tenant del provider di servizi per accedere a queste risorse.
 
 ![Risorse dei clienti gestite tramite un tenant del provider di servizi](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -88,7 +84,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 - Include ora l'ID tenant nei risultati delle query restituiti, consentendo di determinare se una sottoscrizione appartiene al tenant del cliente o al tenant del provider di servizi
 
-[Centro sicurezza di Azure](../../security-center/index.yml):
+[Centro sicurezza di Azure:](../../security-center/index.yml)
 
 - Visibilità tra tenant
   - Monitora la conformità ai criteri di sicurezza e garantisci la copertura della sicurezza nelle risorse di tutti gli inquilini

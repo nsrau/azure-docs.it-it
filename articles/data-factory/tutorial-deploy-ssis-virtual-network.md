@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7470af23059ccd07e48050e6dc34521e299a986f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76841098"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418610"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configurare un runtime di integrazione (IR) di Azure-SQL Server Integration Services (SSIS) per l'aggiunta a una rete virtualeConfigure an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) to join a virtual network
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questa esercitazione illustra i passaggi di base per usare il portale di Azure per configurare un runtime di integrazione (IR) di Azure-SQL Server Integration Services (SSIS) per partecipare a una rete virtuale.
 
@@ -70,7 +72,7 @@ Usare il portale di Azure per configurare una rete virtuale prima di provare ad 
 
 1. Avviare Microsoft Edge o Google Chrome. Attualmente, solo questi Web browser supportano l'interfaccia utente di Data Factory.Currently, only these web browsers support the Data Factory UI.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Selezionare **Altri servizi**. Filtrare e selezionare **Reti virtuali**.
 

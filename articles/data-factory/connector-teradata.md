@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421230"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418032"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiare dati da Teradata Vantage tramite Azure Data FactoryCopy data from Teradata Vantage by using Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 >
 > * [Versione 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Versione corrente](connector-teradata.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare i dati da Teradata Vantage.This article outlines how to use the copy activity in Azure Data Factory to copy data from Teradata Vantage. Si basa sulla [panoramica dell'attività](copy-activity-overview.md)di copia.
 
@@ -256,7 +258,7 @@ Si consiglia di abilitare la copia parallela con il partizionamento dei dati, so
 
 | Scenario                                                     | Impostazioni suggerite                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Pieno carico da tavolo di grandi dimensioni.                                   | **Opzione partizione**: Hash. <br><br/>Durante l'esecuzione, Data Factory rileva automaticamente la colonna PK, applica un hash su di essa e copia i dati in base alle partizioni. |
+| Pieno carico da tavolo di grandi dimensioni.                                   | **Opzione partizione**: Hash. <br><br/>Durante l'esecuzione, Data Factory rileva automaticamente la colonna dell'indice primario, applica un hash su di essa e copia i dati in base alle partizioni. |
 | Caricare grandi quantità di dati utilizzando una query personalizzata.                 | **Opzione partizione**: Hash.<br>**Query** `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`: .<br>**Colonna partizione**: Specificare la colonna utilizzata per applicare la partizione hash. Se non specificato, Data Factory rileva automaticamente la colonna PK della tabella specificata nel set di dati Teradata.<br><br>Durante l'esecuzione, `?AdfHashPartitionCondition` Data Factory viene sostituito con la logica della partizione hash e viene inviato a Teradata. |
 | Caricare grandi quantità di dati utilizzando una query personalizzata, con una colonna intera con un valore distribuito uniformemente per il partizionamento dell'intervallo. | **Opzioni di partizione**: Partizione a intervallo dinamico.<br>**Query** `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`: .<br>**Colonna partizione**: Specificare la colonna utilizzata per partizionare i dati. È possibile partizionare in base alla colonna con tipo di dati integer.<br>**Partizione limite superiore** e **limite inferiore della partizione:** specificare se si desidera filtrare in base alla colonna della partizione per recuperare i dati solo tra l'intervallo inferiore e superiore.<br><br>Durante l'esecuzione, `?AdfRangePartitionColumnName`Data `?AdfRangePartitionUpbound`Factory `?AdfRangePartitionLowbound` sostituisce , e con il nome di colonna effettivo e gli intervalli di valori per ogni partizione e invia a Teradata. <br>Ad esempio, se la colonna della partizione "ID" è impostata con il limite inferiore come 1 e il limite superiore come 80, con copia parallela impostata come 4, Data Factory recupera i dati da 4 partizioni. I loro ID sono compresi tra [1,20], [21, 40], [41, 60] e [61, 80], rispettivamente. |
 

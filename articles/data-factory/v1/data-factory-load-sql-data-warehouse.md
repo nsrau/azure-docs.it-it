@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 079d29c241cfbbdcc991f024c07b07b378670c10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130878"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419307"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
 > [!NOTE]
@@ -116,8 +116,8 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
 3. Nel riquadro **Nuova data factory**:
 
    1. Immettere **LoadIntoSQLDWDataFactory** come **nome**.
-       È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato un errore simile a **Nome "LoadIntoSQLDWDataFactory" per la data factory non disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteLoadIntoSQLDWDataFactory) e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .  
-   2. Selezionare la **sottoscrizione di**Azure .
+       È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore: **Nome data factory "LoadIntoSQLDWDataFactory" non è disponibile**, modificare il nome della data factory (ad esempio, nomeCaricoIntoSQLDWDataFactory) e riprovare a creare. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .  
+   2. Selezionare la **sottoscrizione**di Azure.
    3. In Gruppo di risorse eseguire una di queste operazioni:
       1. Selezionare **Usa esistente** per scegliere un gruppo di risorse esistente.
       2. Selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
@@ -160,7 +160,7 @@ Questa sezione illustra i passaggi per configurare l'origine: BLOB di Azure cont
 
     ![Copia guidata: selezionare la cartella di input](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Facendo clic su **Avanti** le impostazioni del formato di file vengono rilevate automaticamente.  Verificare che il delimitatore di colonna sia "|" anziché la virgola predefinita ",".  Dopo aver visualizzato l'anteprima dei dati fare clic su **Avanti**.
+4. Facendo clic su **Avanti** le impostazioni del formato di file vengono rilevate automaticamente.  Verificare che il delimitatore di colonna sia ''' anziché la virgola predefinita ','.  Dopo aver visualizzato l'anteprima dei dati fare clic su **Avanti**.
 
     ![Copia guidata: impostazioni di formattazione file](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 

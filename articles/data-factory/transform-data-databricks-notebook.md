@@ -11,14 +11,15 @@ manager: shwang
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c7a2aec35511ef066033c3d6462143ac31660e76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74923054"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419018"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Trasformare i dati eseguendo un notebook di Databricks
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 L'attività Notebook di Azure Databricks in una pipeline di Data Factory esegue un blocco appunti Databricks nell'area di lavoro di Azure Databricks.The Azure Databricks Notebook Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Databricks notebook in your Azure Databricks workspace. Questo articolo si basa sull'articolo sulle attività di trasformazione dei [dati,](transform-data.md)che presenta una panoramica generale della trasformazione dei dati e delle attività di trasformazione supportate.Azure Databricks è una piattaforma gestita per l'esecuzione di Apache Spark.
 

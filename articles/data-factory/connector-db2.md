@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c2071e4b2a3daa528c7d01f64e38247b063e6f1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77423828"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417428"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiare dati da DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-onprem-db2-connector.md)
 > * [Versione corrente](connector-db2.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database DB2. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
@@ -149,7 +151,7 @@ Per copiare i dati da DB2, nella sezione **dell'origine** dell'attività di copi
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **Db2Source** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (se nel set di dati è specificato "tableName") |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

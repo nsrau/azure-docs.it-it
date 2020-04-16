@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33b257e9d344fc31df072509f105d2e8fd1bd29b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb9d697c11427c7ebbf811f9cc05740347c74452
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72245175"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417560"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Crittografia del disco di Azure con Azure AD (versione precedente)Azure Disk Encryption with Azure AD (previous release)
 
@@ -27,7 +27,7 @@ Questo articolo integra [Crittografia disco di Azure per macchine virtuali Windo
   - Per scrivere le chiavi di crittografia nell'insieme di credenziali delle chiavi, è necessario che la macchina virtuale IaaS possa connettersi all'endpoint dell'insieme di credenziali delle chiavi.
   - La VM IaaS deve potersi connettere a un endpoint di archiviazione di Azure che ospita il repository delle estensioni di Azure e a un account di archiviazione di Azure che ospita i file del disco rigido virtuale.
   -  Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP. Per altre informazioni, vedere [Azure Key Vault protetto da firewall](../../key-vault/key-vault-access-behind-firewall.md).
-  - In Windows, se TLS 1.0 è stato disabilitato esplicitamente e .NET non è stato aggiornato almeno alla versione 4.6, la seguente modifica del Registro di sistema consentirà a ADE di selezionare una versione TLS più recente:
+  - La macchina virtuale da crittografare deve essere configurata per l'utilizzo di TLS 1.2 come protocollo predefinito. Se TLS 1.0 è stato disabilitato in modo esplicito e la versione .NET non è stata aggiornata a 4.6 o versione successiva, la seguente modifica del Registro di sistema consentirà ad ADE di selezionare la versione TLS più recente:
     
         [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001

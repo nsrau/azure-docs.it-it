@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/20/2019
-ms.openlocfilehash: 44371c78a4d02588eef21aae5a4bba3d033763d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3587ee711864eb33fea9bc4e61fe226562e8f612
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76030000"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418865"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Versione corrente](transform-data-using-machine-learning.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) consente di creare, testare e distribuire soluzioni di analisi predittiva. Da un punto di vista generale, questo avviene in tre passaggi:
 
@@ -226,4 +228,4 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Attività stored procedure](transform-data-using-stored-procedure.md)
+* [Attività della stored procedure](transform-data-using-stored-procedure.md)

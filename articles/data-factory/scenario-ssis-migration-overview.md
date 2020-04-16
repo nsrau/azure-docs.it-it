@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 6ad5bb26959916f60973a8c0274e17eee03aa7a1
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a588a0977a4c6dcefaaefcfdcc542fee8b15466b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991467"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419069"
 ---
-# <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Eseguire la migrazione dei carichi di lavoro SSIS locali a SSIS in ADFMigrate on-premises SSIS workloads to SSIS in ADF
+# <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Eseguire la migrazione di carichi di lavoro SSIS locali a SSIS in ADF
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -32,7 +34,7 @@ Questo articolo evidenzia il processo di migrazione dei carichi di lavoro ETL da
 
 Per stabilire un piano di migrazione completo, una valutazione approfondita consente di identificare i problemi con i pacchetti SSIS di origine che impedirebbero una migrazione corretta.
 
-Data Migration Assistant (DMA) è uno strumento scaricabile gratuitamente per questo scopo che può essere installato ed eseguito localmente. Progetto di valutazione DMA di tipo **Integration Services** può essere creato per valutare i pacchetti SSIS in batch e identificare i problemi di compatibilità che vengono presentati nelle categorie seguenti:
+Data Migration Assistant (DMA) è uno strumento scaricabile gratuitamente per questo scopo, che può essere installato ed eseguito in locale. Progetto di valutazione DMA di tipo **Integration Services** può essere creato per valutare i pacchetti SSIS in batch e identificare i problemi di compatibilità che vengono presentati nelle categorie seguenti:
 
 - Migration blockers: These are compatibility issues that block the migration source packages to run on Azure-SSIS IR. DMA fornisce indicazioni per risolvere questi problemi.
 

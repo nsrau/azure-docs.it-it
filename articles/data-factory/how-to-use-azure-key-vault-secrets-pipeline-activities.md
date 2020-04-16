@@ -10,14 +10,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 09051ad3633ddc720cb34d3d145ccf649fa9cb08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77200113"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417084"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usare i segreti di Azure Key Vault nelle attività della pipeline
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 È possibile archiviare credenziali o valori segreti in un insieme di credenziali delle chiavi di Azure e usarli durante l'esecuzione della pipeline per passare alle attività.
 

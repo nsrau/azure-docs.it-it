@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 534e5c913685eeac92022f6694ea31b24816da5d
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011651"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416817"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Versione corrente](connector-oracle.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in un database Oracle.This article outlines how to use the copy activity in Azure Data Factory to copy data from and to an Oracle database. Si basa sulla [panoramica dell'attività](copy-activity-overview.md)di copia.
 

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: ced2279878ee2eb361ec7338647418658e411513
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79213010"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417879"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività Webhook in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Un'attività webhook può controllare l'esecuzione di pipeline tramite il codice personalizzato. Con l'attività webhook, il codice dei clienti può chiamare un endpoint e passargli un URL di callback. L'esecuzione della pipeline attende la chiamata di callback prima di passare all'attività successiva.
 
@@ -143,9 +145,9 @@ Quando si utilizza lo stato Report nella proprietà **di callback,** è necessar
 Vedere le attività del flusso di controllo seguenti supportate da Data Factory:See the following control flow activities supported by Data Factory:
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
-- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)
 - [Attività Until](control-flow-until-activity.md)

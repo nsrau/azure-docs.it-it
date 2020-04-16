@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 96d0a5b2fb59e4612107d8ccbf7285fff7576585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128380"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418542"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processo di analisi scientifica dei dati del team in azione: usando Azure Synapse AnalyticsThe Team Data Science Process in action: using Azure Synapse Analytics
 In questa esercitazione viene descritto come creare e distribuire un modello di apprendimento automatico usando Analisi synapse di Azure per un set di dati disponibile pubblicamente, ovvero il set di dati [NYC Taxi Trips.In](https://www.andresmh.com/nyctaxitrips/) this tutorial, we walk you through building and deploying a machine learning model using Azure Synapse Analytics for a publicly available dataset -- the NYC Taxi Trips dataset. Il modello di classificazione binaria costruito stima se una mancia viene pagata o meno per un viaggio.  I modelli includono la classificazione multiclasse (indipendentemente dal fatto che vi sia o meno una mancia) e la regressione (la distribuzione per gli importi di mancia pagati).
@@ -24,7 +24,7 @@ In questa esercitazione viene descritto come creare e distribuire un modello di 
 La procedura segue il flusso di lavoro del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Viene illustrato come configurare un ambiente di analisi scientifica dei dati, come caricare i dati in Azure Synapse Analytics e come usare Azure Synapse Analytics o un blocco appunti IPython per esplorare i dati e progettare le funzionalità per la modellazione. Viene quindi illustrato come compilare e distribuire un modello con Azure Machine Learning.
 
 ## <a name="the-nyc-taxi-trips-dataset"></a><a name="dataset"></a>Set di dati NYC Taxi Trips
-I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file compressi con estensione CSV (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole, nonché le tariffe pagate per ogni corsa. Il record di ogni corsa include le posizioni e l'ora di partenza e arrivo, il numero di patente (del tassista) in modalità anonima e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
+I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file compressi con estensione CSV (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole, nonché le tariffe pagate per ogni corsa. Ogni record di viaggio include le posizioni e gli orari di ritiro e consegna, il numero di licenza di hack (driver) anonime e il numero di medaglione (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
 
 1. Il file **trip_data.csv** contiene i dettagli delle corse, ad esempio il numero dei passeggeri, i punti di partenza e arrivo, la durata e la lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
 
@@ -84,7 +84,7 @@ Seguire la documentazione in Creare ed eseguire query in Azure SQL Data Warehous
 
 **Installare Visual Studio e SQL Server Data Tools.** Per istruzioni, vedere [Introduzione a Visual Studio 2019 per SQL Data Warehouse.](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)
 
-**Connettersi ad Azure Synapse Analytics con Visual Studio.Connect to your Azure Synapse Analytics with Visual Studio.** Per istruzioni, vedere i passaggi 1 & 2 in [Connect to Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Connettersi ad Azure Synapse Analytics con Visual Studio.Connect to your Azure Synapse Analytics with Visual Studio.** Per istruzioni, vedere i passaggi da 1 & 2 in [Connettersi a SQL Analytics in Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
 > [!NOTE]
 > Eseguire la query SQL seguente sul database creato in Azure Synapse Analytics (anziché la query fornita nel passaggio 3 dell'argomento di connessione) per **creare una chiave master.**
@@ -126,7 +126,7 @@ In *-DestDir*eseguire lo script di PowerShell seguente in modalità amministrato
 Quando lo script di PowerShell viene eseguito per la prima volta, verrà richiesto di immettere le informazioni dall'analisi Synapse di Azure e dall'account di archiviazione BLOB di Azure.When the PowerShell script runs for the first time, you will be asked to input the information from your Azure Synapse Analytics and your Azure blob storage account. Quando l'esecuzione di questo script di PowerShell viene completata per la prima volta, le credenziali inserite risulteranno scritte in un file di configurazione SQLDW.conf nella directory di lavoro presente. L'esecuzione futura di questo file di script di PowerShell può leggere tutti i parametri necessari da questo file di configurazione. Se è necessario modificare alcuni parametri, è possibile scegliere di inserirli nella schermata al prompt eliminando questo file di configurazione e inserendo i valori dei parametri come richiesto oppure di cambiare i valori dei parametri modificando il file SQLDW.conf nella directory *-DestDir* .
 
 > [!NOTE]
-> Per evitare conflitti di nomi di schema con quelli già presenti in Azure Synapse Analytics, durante la lettura dei parametri direttamente dal file SQLDW.conf, viene aggiunto un numero casuale a 3 cifre al nome dello schema dal file SQLDW.conf come schema predefinito nome per ogni corsa. Lo script di PowerShell può richiedere un nome schema: il nome può essere specificato a discrezione dell'utente.
+> Per evitare conflitti di nomi di schema con quelli già presenti in Azure Synapse Analytics, durante la lettura dei parametri direttamente dal file SQLDW.conf, viene aggiunto un numero casuale a 3 cifre al nome dello schema dal file SQLDW.conf come nome dello schema predefinito per ogni esecuzione. Lo script di PowerShell può richiedere un nome schema: il nome può essere specificato a discrezione dell'utente.
 >
 >
 
@@ -310,7 +310,7 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 La posizione geografica degli account di archiviazione influisce sui tempi di caricamento.
 
 > [!NOTE]
-> A seconda della posizione geografica dell'account di archiviazione BLOB privato, il processo di copia dei dati da un BLOB pubblico all'account di archiviazione privato può richiedere circa 15 minuti o anche più a lungo e il processo di caricamento dei dati dall'account di archiviazione in Azure Analisi synapse di Azure potrebbe richiedere 20 minuti o più.
+> A seconda della posizione geografica dell'account di archiviazione BLOB privato, il processo di copia dei dati da un BLOB pubblico all'account di archiviazione privato può richiedere circa 15 minuti o anche più a lungo e il processo di caricamento dei dati dall'account di archiviazione all'analisi di Azure Synapse potrebbe richiedere 20 minuti o più.
 >
 >
 
@@ -330,7 +330,7 @@ La posizione geografica degli account di archiviazione influisce sui tempi di ca
 >
 >
 
-Questo script di PowerShell inserisce anche le informazioni di Azure Synapse Analytics nei file di esempio di esplorazione dei dati SQLDW_Explorations.sql, SQLDW_Explorations.ipynb e SQLDW_Explorations_Scripts.py in modo che questi tre file siano pronti per essere provati immediatamente dopo il completamento dello script di PowerShell.
+Questo script di PowerShell inserisce anche le informazioni di Analisi Synapse di Azure nei file di esempio di esplorazione dei dati SQLDW_Explorations.sql, SQLDW_Explorations.ipynb e SQLDW_Explorations_Scripts.py in modo che questi tre file siano pronti per essere provati immediatamente al termine dello script di PowerShell.
 
 Al termine dell'esecuzione, verrà visualizzata una schermata simile alla seguente:
 
@@ -839,7 +839,7 @@ In questo esercizio sono già stati esplorati e progettati i dati in Analisi syn
 5. Immettere il *nome utente SQL* in **Server user account name** (Nome account utente server) e la *password* in **Server user account password** (Password account utente server).
 7. Nell'area di testo Modifica **query database** incollare la query che estrae i campi di database necessari (inclusi eventuali campi calcolati, ad esempio le etichette) e i dati vengono campionati in base alle dimensioni di esempio desiderate.
 
-Nella figura seguente è riportato un esempio di esperimento di classificazione binaria che legge i dati direttamente dal database di Azure Synapse Analytics (ricordarsi di sostituire i nomi delle tabelle nyctaxi_trip e nyctaxi_fare in base al nome dello schema e ai nomi di tabella usati nel database procedura dettagliata). È possibile creare esperimenti dello stesso tipo per i problemi di classificazione multiclasse e di regressione.
+Nella figura seguente è riportato un esempio di esperimento di classificazione binaria che legge i dati direttamente dal database di Azure Synapse Analytics (ricordarsi di sostituire i nomi delle tabelle nyctaxi_trip e nyctaxi_fare dal nome dello schema e dai nomi di tabella usati nella procedura dettagliata). È possibile creare esperimenti dello stesso tipo per i problemi di classificazione multiclasse e di regressione.
 
 ![Formazione su Azure ML][10]
 
@@ -874,7 +874,7 @@ Nella figura di seguito viene fornito un esperimento di assegnazione dei puntegg
 
 ![Pubblicazione di Azure ML][11]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Ricapitolando quanto è stato fatto, durante questa procedura è stato creato un ambiente di analisi scientifica dei dati di Azure da usare con set di dati pubblici di grandi dimensioni, seguendo l'intero Processo di analisi scientifica dei dati per i team, dall'acquisizione dei dati al training del modello e quindi alla distribuzione di un servizio Web Azure Machine Learning.
 
 ### <a name="license-information"></a>Informazioni sulla licenza
