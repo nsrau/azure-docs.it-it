@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: af284e4c10487123c8c2a2105a25a2285ae0aa99
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73172695"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474403"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Esercitazione: Configurare una rete virtuale per un'istanza di Azure Active Directory Domain Services
 
@@ -72,18 +72,18 @@ Per impostazione predefinita, la rete virtuale di Azure creata con il dominio ge
 Per creare una subnet di rete virtuale per le VM e i carichi di lavoro delle applicazioni, completare i passaggi seguenti:
 
 1. Nel portale di Azure selezionare il gruppo di risorse del dominio gestito di Azure AD DS, ad esempio *myResourceGroup*. Nell'elenco di risorse scegliere la rete virtuale predefinita, ad esempio *aadds-vnet*.
-1. Nel menu sinistro della finestra della rete virtuale selezionare **Spazio degli indirizzi**. La rete virtuale viene creata con un singolo spazio di indirizzi, *10.0.1.0/24*, usato dalla subnet predefinita.
+1. Nel menu sinistro della finestra della rete virtuale selezionare **Spazio degli indirizzi**. La rete virtuale viene creata con un unico spazio indirizzi, *10.0.2.0/24*, usato dalla subnet predefinita.
 
     Aggiungere un intervallo di indirizzi IP aggiuntivo alla rete virtuale. Le dimensioni di questo intervallo di indirizzi e l'intervallo di indirizzi IP effettivo da usare dipendono dalle altre risorse di rete già distribuite. L'intervallo di indirizzi IP non deve sovrapporsi agli intervalli di indirizzi esistenti nell'ambiente di Azure o in locale. Assicurarsi di scegliere dimensioni dell'intervallo di indirizzi IP sufficienti per il numero di VM che si prevede di distribuire nella subnet.
 
-    Nell'esempio seguente viene aggiunto l'intervallo di indirizzi IP *10.0.2.0/24*. Al termine, selezionare **Salva**.
+    Nell'esempio seguente viene aggiunto l'intervallo di indirizzi IP *10.0.3.0/24*. Al termine, selezionare **Salva**.
 
     ![Aggiungere un altro intervallo di indirizzi IP di rete virtuale nel portale di Azure](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
 1. Successivamente, nel menu sinistro della finestra della rete virtuale selezionare **Subnet**, quindi scegliere **+ Subnet** per aggiungere una subnet.
 1. Immettere un nome per la subnet, ad esempio *workloads*. Se necessario, aggiornare l'opzione **Intervallo di indirizzi**  se si vuole usare un sottoinsieme dell'intervallo di indirizzi IP configurato per la rete virtuale nei passaggi precedenti. Per il momento, lasciare le impostazioni predefinite per opzioni come gruppo di sicurezza di rete, tabella di route ed endpoint di servizio.
 
-    Nell'esempio seguente viene creata una subnet denominata *workloads* che usa l'intervallo di indirizzi IP *10.0.2.0/24*:
+    Nell'esempio seguente viene creata una subnet denominata *workloads* che usa l'intervallo di indirizzi IP *10.0.3.0/24*:
 
     ![Aggiungere un'altra subnet di rete virtuale nel portale di Azure](./media/tutorial-configure-networking/add-vnet-subnet.png)
 
@@ -130,7 +130,7 @@ Per questa esercitazione, configurare i server DNS della rete virtuale di Azure 
 
 1. Nel portale di Azure selezionare il gruppo di risorse della rete virtuale con peering, ad esempio *myResourceGroup*. Nell'elenco di risorse scegliere la rete virtuale con peering, ad esempio *myVnet*.
 1. Nel menu sinistro della finestra della rete virtuale selezionare **Server DNS**.
-1. Per impostazione predefinita, una rete virtuale usa i server DNS predefiniti forniti da Azure. Scegliere di usare server DNS **personalizzati**. Immettere gli indirizzi IP per i controller di dominio di Azure AD DS, che in genere sono *10.0.1.4* e *10.0.1.5*. Confermare questi indirizzi IP nella finestra **Panoramica** del dominio gestito di Azure AD DS nel portale.
+1. Per impostazione predefinita, una rete virtuale usa i server DNS predefiniti forniti da Azure. Scegliere di usare server DNS **personalizzati**. Immettere gli indirizzi IP per i controller di dominio di Azure AD Domain Services, che in genere sono *10.0.2.4* e *10.0.2.5*. Confermare questi indirizzi IP nella finestra **Panoramica** del dominio gestito di Azure AD DS nel portale.
 
     ![Configurare i server DNS della rete virtuale per l'uso dei controller di dominio di Azure AD DS](./media/tutorial-configure-networking/custom-dns.png)
 

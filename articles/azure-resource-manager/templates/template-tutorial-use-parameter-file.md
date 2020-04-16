@@ -2,21 +2,21 @@
 title: 'Esercitazione: Usare un file di parametri per distribuire il modello'
 description: Usare file di parametri che contengono i valori da usare per la distribuzione del modello di Azure Resource Manager.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a12d92c0cfb9d86ebf4c335c351944997f79b4e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b91041b96a3819dbace3898d92226f0351f0f973
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773155"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411513"
 ---
-# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Esercitazione: Usare file di parametri per distribuire il modello di Azure Resource Manager
+# <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Esercitazione: Usare file di parametri per distribuire il modello di Azure Resource Manager
 
-Questa esercitazione illustra come usare i [file di parametri](parameter-files.md) per archiviare i valori passati durante la distribuzione. Nelle esercitazioni precedenti sono stati usati parametri inline con il comando di distribuzione. Questo approccio ha funzionato per il test del modello, ma quando si automatizzano le distribuzioni può risultare più agevole passare un set di valori per l'ambiente. I file di parametri semplificano la creazione di un pacchetto di valori di parametri per un ambiente specifico. In questa esercitazione si creeranno file di parametri per gli ambienti di sviluppo e di produzione. Per completare l'esercitazione, sono necessari circa **12 minuti**.
+Questa esercitazione illustra come usare i [file di parametri](parameter-files.md) per archiviare i valori passati durante la distribuzione. Nelle esercitazioni precedenti sono stati usati parametri inline con il comando di distribuzione. Questo approccio ha funzionato per il test del modello di Azure Resource Manager (ARM), ma quando si automatizzano le distribuzioni può risultare più agevole passare un set di valori per l'ambiente. I file di parametri semplificano la creazione di un pacchetto di valori di parametri per un ambiente specifico. In questa esercitazione si creeranno file di parametri per gli ambienti di sviluppo e di produzione. Per completare l'esercitazione, sono necessari circa **12 minuti**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È consigliabile, ma non obbligatorio, completare l'[esercitazione sui tag](template-tutorial-add-tags.md).
 
@@ -54,10 +54,10 @@ Come test finale del modello, creare due nuovi gruppi di risorse, uno per l'ambi
 
 Prima di tutto, verrà eseguita la distribuzione nell'ambiente di sviluppo.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$templateFile = "{provide-the-path-to-the-template-file}"
+$templateFile = "{path-to-the-template-file}"
 $parameterFile="{path-to-azuredeploy.parameters.dev.json}"
 New-AzResourceGroup `
   -Name myResourceGroupDev `
@@ -69,25 +69,28 @@ New-AzResourceGroupDeployment `
   -TemplateParameterFile $parameterFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per eseguire questo comando di distribuzione, è necessario usare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ```azurecli
-templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{path-to-the-template-file}"
+devParameterFile="{path-to-azuredeploy.parameters.dev.json}"
 az group create \
   --name myResourceGroupDev \
   --location "East US"
-az group deployment create \
+az deployment group create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
   --template-file $templateFile \
-  --parameters azuredeploy.parameters.dev.json
+  --parameters $devParameterFile
 ```
 
 ---
 
 A questo punto, verrà eseguita la distribuzione nell'ambiente di produzione.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $parameterFile="{path-to-azuredeploy.parameters.prod.json}"
@@ -101,20 +104,24 @@ New-AzResourceGroupDeployment `
   -TemplateParameterFile $parameterFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli
+prodParameterFile="{path-to-azuredeploy.parameters.prod.json}"
 az group create \
   --name myResourceGroupProd \
   --location "West US"
-az group deployment create \
+az deployment group create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
   --template-file $templateFile \
-  --parameters azuredeploy.parameters.prod.json
+  --parameters $prodParameterFile
 ```
 
 ---
+
+> [!NOTE]
+> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 
@@ -136,7 +143,7 @@ Per verificare la distribuzione, esplorare i gruppi di risorse nel portale di Az
 
 L'introduzione alla distribuzione di modelli in Azure è stata completata. Usare la sezione dei commenti per inviare eventuali commenti e suggerimenti. Grazie.
 
-È ora possibile passare a concetti più avanzati relativi ai modelli. L'esercitazione successiva illustra in modo più dettagliato l'uso della documentazione di riferimento dei modelli per la definizione delle risorse da distribuire.
+La serie di esercitazioni successiva illustra in modo più dettagliato la distribuzione dei modelli.
 
 > [!div class="nextstepaction"]
-> [Utilizzare il riferimento del modello](template-tutorial-create-encrypted-storage-accounts.md)
+> [Distribuire un modello locale](./deployment-tutorial-local-template.md)

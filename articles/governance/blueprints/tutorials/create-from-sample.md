@@ -3,18 +3,18 @@ title: 'Esercitazione: Esempio di progetto in un nuovo ambiente'
 description: In questa esercitazione si usa un esempio di progetto per creare una definizione di progetto che configura due gruppi di risorse e un'assegnazione di ruolo per ciascuno.
 ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80282019"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677083"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Esercitazione: Creare un ambiente da un esempio di progetto
 
 I progetti di esempio illustrano cosa è possibile fare con Azure Blueprints. Ogni progetto è un esempio con uno scopo specifico, ma non crea di per sé un ambiente completo. Ognuno è da intendersi come un punto di partenza per esplorare mediante Azure Blueprints con varie combinazioni di artefatti, progettazioni e parametri inclusi.
 
-L'esercitazione seguente usa l'esempio di progetto **Gruppi di risorse con Controllo degli accessi in base al ruolo** per presentare diversi aspetti del servizio Blueprints. Vengono illustrate le procedure seguenti:
+L'esercitazione seguente usa l'esempio di progetto **Gruppi di risorse con Controllo degli accessi in base al ruolo** per presentare diversi aspetti del servizio Azure Blueprints. Vengono illustrate le procedure seguenti:
 
 > [!div class="checklist"]
 > - Creare una nuova definizione di progetto dall'esempio

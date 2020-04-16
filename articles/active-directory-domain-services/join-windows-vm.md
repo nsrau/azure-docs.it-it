@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/19/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1ac508fc9fee07482e475c46e1db262c8bfa1a12
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481586"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476225"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Esercitazione: Aggiungere una macchina virtuale Windows Server a un dominio gestito
 
@@ -76,8 +76,6 @@ Se si dispone già di una macchina virtuale da aggiungere a un dominio, passare 
 
     Il protocollo RDP deve essere abilitato solo quando necessario e limitato a un set di intervalli di indirizzi IP autorizzati. Questa configurazione consente di migliorare la sicurezza della macchina virtuale e di ridurre l'area soggetta a potenziali attacchi. In alternativa, è possibile creare e usare un host Azure Bastion per consentire l'accesso solo dal portale di Azure tramite TLS. Nel passaggio successivo di questa esercitazione si userà un host Azure Bastion per connettersi in modo sicuro alla macchina virtuale.
 
-    Per il momento, disabilitare le connessioni RDP dirette alla macchina virtuale.
-
     In **Porte in ingresso pubbliche** selezionare *Nessuna*.
 
 1. Al termine, scegliere **Avanti: Dischi**.
@@ -96,22 +94,23 @@ Se si dispone già di una macchina virtuale da aggiungere a un dominio, passare 
 
     ![Scegliere di gestire la configurazione della subnet nel portale di Azure](./media/join-windows-vm/manage-subnet.png)
 
-1. Nel menu sinistro della finestra della rete virtuale selezionare **Spazio degli indirizzi**. La rete virtuale viene creata con un singolo spazio di indirizzi, *10.0.1.0/24*, usato dalla subnet predefinita.
+1. Nel menu sinistro della finestra della rete virtuale selezionare **Spazio degli indirizzi**. La rete virtuale viene creata con un unico spazio indirizzi, *10.0.2.0/24*, usato dalla subnet predefinita. È possibile che siano presenti anche altre subnet, ad esempio per i *carichi di lavoro* o Azure Bastion.
 
     Aggiungere un intervallo di indirizzi IP aggiuntivo alla rete virtuale. Le dimensioni di questo intervallo di indirizzi e l'intervallo di indirizzi IP effettivo da usare dipendono dalle altre risorse di rete già distribuite. L'intervallo di indirizzi IP non deve sovrapporsi agli intervalli di indirizzi esistenti nell'ambiente di Azure o in locale. Assicurarsi di scegliere dimensioni dell'intervallo di indirizzi IP sufficienti per il numero di VM che si prevede di distribuire nella subnet.
 
-    Nell'esempio seguente viene aggiunto l'intervallo di indirizzi IP *10.0.2.0/24*. Al termine, selezionare **Salva**.
+    Nell'esempio seguente viene aggiunto l'intervallo di indirizzi IP *10.0.5.0/24*. Al termine, selezionare **Salva**.
 
-    ![Aggiungere un altro intervallo di indirizzi IP di rete virtuale nel portale di Azure](./media/tutorial-configure-networking/add-vnet-address-range.png)
+    ![Aggiungere un altro intervallo di indirizzi IP di rete virtuale nel portale di Azure](./media/join-windows-vm/add-vnet-address-range.png)
 
 1. Successivamente, nel menu sinistro della finestra della rete virtuale selezionare **Subnet**, quindi scegliere **+ Subnet** per aggiungere una subnet.
 
-1. Selezionare **+ Subnet** e quindi immettere un nome per la subnet, ad esempio *management*. Specificare un valore in **Intervallo di indirizzi (blocco CIDR)** , ad esempio *10.0.2.0/24*. Assicurarsi che questo intervallo di indirizzi IP non si sovrapponga ad altri intervalli di indirizzi di Azure o locali esistenti. Lasciare invariati i valori predefiniti delle altre opzioni e quindi scegliere **OK**.
+1. Selezionare **+ Subnet** e quindi immettere un nome per la subnet, ad esempio *management*. Specificare un valore in **Intervallo di indirizzi (blocco CIDR)** , ad esempio *10.0.5.0/24*. Assicurarsi che questo intervallo di indirizzi IP non si sovrapponga ad altri intervalli di indirizzi di Azure o locali esistenti. Lasciare invariati i valori predefiniti delle altre opzioni e quindi scegliere **OK**.
 
     ![Creare una configurazione di subnet nel portale di Azure](./media/join-windows-vm/create-subnet.png)
 
 1. Per la creazione della subnet sono necessari alcuni secondi. Dopo aver creato la subnet, selezionare la *X* per chiudere la finestra.
 1. Tornare al riquadro **Rete** per creare una macchina virtuale e scegliere la subnet creata dal menu a discesa, ad esempio *management*. Anche in questo caso, assicurarsi di scegliere la subnet corretta e non distribuire la macchina virtuale nella stessa subnet del dominio gestito di Azure Active Directory Domain Services.
+1. Per **Indirizzo IP pubblico** selezionare *Nessuno* dal menu a discesa, in quanto per connettersi alla gestione verrà usato Azure Bastion e non è quindi necessario un indirizzo IP pubblico assegnato.
 1. Lasciare invariati i valori predefiniti delle altre opzioni e quindi scegliere **Gestione**.
 1. Impostare **Diagnostica di avvio** su *Off*. Lasciare invariati i valori predefiniti delle altre opzioni e quindi scegliere **Rivedi e crea**.
 1. Rivedere le impostazioni della macchina virtuale e quindi selezionare **Crea**.

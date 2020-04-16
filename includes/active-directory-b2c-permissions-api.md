@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 04/04/2020
 ms.author: mimart
-ms.openlocfilehash: 71a6654acd436c27bd2370646dede81778113860
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ee63c1c0913baf3700d77e6fba1582fe7027ead7
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78186143"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875681"
 ---
 #### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
@@ -28,8 +28,8 @@ ms.locfileid: "78186143"
 1. Selezionare la scheda **Le mie API**.
 1. Selezionare l'API per cui è necessario concedere l'accesso all'applicazione Web. Ad esempio, *webapi1*.
 1. In **Autorizzazione** espandere **demo** e quindi selezionare gli ambiti definiti in precedenza. Ad esempio, *demo.read* e *demo.write*.
-1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere con il passaggio successivo.
+1. Selezionare **Aggiungi autorizzazioni**.
 1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
-1. Selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui sia stato assegnato almeno il ruolo di *amministratore applicazione cloud*.
-1. Selezionare **Accetto**.
-1. Selezionare **Aggiorna** e quindi verificare che il testo "Concesso per" sia visualizzato in **Stato** per entrambi gli ambiti. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
+1. Se viene richiesto di selezionare un account, selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui sia stato assegnato almeno il ruolo di *amministratore applicazione cloud*.
+1. Selezionare **Sì**.
+1. Selezionare **Aggiorna** e quindi verificare che il testo "Concesso per" sia visualizzato in **Stato** per entrambi gli ambiti.

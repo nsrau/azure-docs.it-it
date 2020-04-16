@@ -2,21 +2,21 @@
 title: 'Esercitazione: Aggiungere le funzioni del modello'
 description: Aggiungere funzioni del modello al modello di Azure Resource Manager per costruire valori.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1db391f42aeb4fdf80baf001150f845daef3bf4f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e4984b286bf031b66272919a487d09a90f972ce0
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773219"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410968"
 ---
-# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Esercitazione: Aggiungere funzioni del modello al modello di Azure Resource Manager
+# <a name="tutorial-add-template-functions-to-your-arm-template"></a>Esercitazione: Aggiungere funzioni del modello al modello di Azure Resource Manager
 
-Questa esercitazione illustra come aggiungere [funzioni del modello](template-functions.md) al modello. Le funzioni consentono di costruire i valori in modo dinamico. Oltre alle funzioni del modello fornite dal sistema, è anche possibile creare [funzioni definite dall'utente](./template-user-defined-functions.md). Per completare l'esercitazione, sono necessari **7 minuti**.
+Questa esercitazione illustra come aggiungere [funzioni del modello](template-functions.md) al modello di Azure Resource Manager (ARM). Le funzioni consentono di costruire i valori in modo dinamico. Oltre alle funzioni del modello fornite dal sistema, è anche possibile creare [funzioni definite dall'utente](./template-user-defined-functions.md). Per completare l'esercitazione, sono necessari **7 minuti**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È consigliabile, ma non obbligatorio, completare l'[esercitazione sui parametri](template-tutorial-add-parameters.md).
 
@@ -48,7 +48,7 @@ Nelle esercitazioni precedenti è stato creato un account di archiviazione nell'
 
 Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -58,10 +58,12 @@ New-AzResourceGroupDeployment `
   -storageName "{new-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per eseguire questo comando di distribuzione, è necessario usare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addlocationparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -69,6 +71,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/06/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2e62062fabfbb7c320bbeaf473979ccef96b0ba3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: adc9b60ce1c31076a91ec44b9656752b464e024d
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80047221"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811779"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -151,7 +151,7 @@ La visualizzazione del nuovo dominio personalizzato nella pagina **Domini person
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un''associazione SSL, vedere [Proteggere un nome DNS personalizzato con un''associazione SSL nel Servizio app di Azure](configure-ssl-bindings.md).
+> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un'associazione TLS, vedere [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure](configure-ssl-bindings.md).
 
 Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
 
@@ -235,7 +235,7 @@ La visualizzazione del nuovo dominio personalizzato nella pagina **Domini person
 ![Record A aggiunto](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un''associazione SSL, vedere [Proteggere un nome DNS personalizzato con un''associazione SSL nel Servizio app di Azure](configure-ssl-bindings.md).
+> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un'associazione TLS, vedere [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure](configure-ssl-bindings.md).
 
 Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
 
@@ -290,7 +290,7 @@ Fare di nuovo clic sull'icona **+** per aggiungere un altro dominio personalizza
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un''associazione SSL, vedere [Proteggere un nome DNS personalizzato con un''associazione SSL nel Servizio app di Azure](configure-ssl-bindings.md).
+> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per aggiungere un'associazione TLS, vedere [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure](configure-ssl-bindings.md).
 
 ## <a name="test-in-browser"></a>Prova nel browser
 
@@ -366,7 +366,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Reindirizzare l'URL predefinito a una directory personalizzata
 > * Automatizzare il mapping dei domini con script
 
-Passare all'esercitazione successiva per apprendere come associare un certificato SSL personalizzato a un'app Web.
+Passare all'esercitazione successiva per apprendere come associare un certificato TLS/SSL personalizzato a un'app Web.
 
 > [!div class="nextstepaction"]
-> [Proteggere un nome DNS personalizzato con un binding SSL nel Servizio app di Azure](configure-ssl-bindings.md)
+> [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure](configure-ssl-bindings.md)

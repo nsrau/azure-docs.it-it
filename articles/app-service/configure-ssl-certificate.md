@@ -1,19 +1,19 @@
 ---
-title: Aggiungere e gestire certificati SSL
+title: Aggiungere e gestire certificati TLS/SSL
 description: Creare un certificato gratuito, importare un certificato di Servizio app, importare un certificato di Key Vault o acquistare un certificato di Servizio app in Servizio app di Azure.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223918"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810599"
 ---
-# <a name="add-an-ssl-certificate-in-azure-app-service"></a>Aggiungere un certificato SSL al servizio app di Azure
+# <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Aggiungere un certificato TLS/SSL nel Servizio app di Azure
 
 [Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questo articolo illustra come creare, caricare o importare un certificato privato o un certificato pubblico nel servizio app. 
 
@@ -47,7 +47,7 @@ Il [certificato gratuito gestito dal servizio app](#create-a-free-certificate-pr
 * Deve contenere una chiave privata costituita da almeno 2048 bit
 * Deve contenere tutti i certificati intermedi nella catena di certificati.
 
-Per proteggere un dominio personalizzato in un'associazione SSL, il certificato presenta requisiti aggiuntivi:
+Per proteggere un dominio personalizzato in un'associazione TLS/SSL, il certificato presenta requisiti aggiuntivi:
 
 * Contiene un'estensione di [utilizzo chiavi avanzato](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) per l'autenticazione server (OID = 1.3.6.1.5.5.7.3.1)
 * Deve essere firmato da un'autorità di certificazione attendibile
@@ -59,7 +59,7 @@ Per proteggere un dominio personalizzato in un'associazione SSL, il certificato 
 
 ## <a name="create-a-free-certificate-preview"></a>Creare un certificato gratuito (anteprima)
 
-Il certificato gratuito gestito dal servizio app è una soluzione rapida ed efficace per proteggere il proprio nome DNS personalizzato nel servizio app. Si tratta di un certificato SSL completamente funzionante che viene gestito dal servizio app e rinnovato automaticamente. Il certificato gratuito presenta le limitazioni seguenti:
+Il certificato gratuito gestito dal servizio app è una soluzione rapida ed efficace per proteggere il proprio nome DNS personalizzato nel servizio app. Si tratta di un certificato TLS/SSL completamente funzionante che viene gestito dal servizio app e rinnovato automaticamente. Il certificato gratuito presenta le limitazioni seguenti:
 
 - Non supporta i certificati con caratteri jolly.
 - Non supporta i domini di tipo naked.
@@ -237,7 +237,7 @@ Creare un file per il certificato unito denominato _mergedcertificate.crt_. In u
 
 ### <a name="export-certificate-to-pfx"></a>Esportare il certificato in un file PFX
 
-Esportare il certificato SSL unito con la chiave privata con cui è stata generata la richiesta del certificato.
+Esportare il certificato TLS/SSL unito con la chiave privata con cui è stata generata la richiesta del certificato.
 
 Se è stato usato OpenSSL per generare la richiesta del certificato, è stato creato un file di chiave privata. Per esportare il certificato in un file PFX, eseguire il comando seguente. Sostituire i segnaposto _&lt;private-key-file>_ e _&lt;merged-certificate-file>_ con i percorsi della chiave privata e del file di certificato unito.
 
@@ -245,7 +245,7 @@ Se è stato usato OpenSSL per generare la richiesta del certificato, è stato cr
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
-Quando richiesto, definire una password di esportazione. La password verrà usata in seguito durante il caricamento del certificato SSL nel servizio app.
+Quando richiesto, definire una password di esportazione. La password verrà usata in seguito durante il caricamento del certificato TLS/SSL nel servizio app.
 
 se è stato usato IIS o _Certreq.exe_ per generare la richiesta di certificato, installare il certificato nel computer locale e quindi [esportarlo in un file PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
@@ -363,16 +363,16 @@ A questo punto è possibile eliminare il certificato del servizio app. Nel riqua
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Altre risorse
 
-* [Proteggere un nome DNS personalizzato con un'associazione SSL](configure-ssl-bindings.md)
+* [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure](configure-ssl-bindings.md)
 * [Applicare HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Applicare TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Usare un certificato SSL nel codice dell'applicazione](configure-ssl-certificate-in-code.md)
+* [Usare un certificato TLS/SSL nel codice nel Servizio app di Azure](configure-ssl-certificate-in-code.md)
 * [FAQ: App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/) (Domande frequenti: certificati del servizio app)

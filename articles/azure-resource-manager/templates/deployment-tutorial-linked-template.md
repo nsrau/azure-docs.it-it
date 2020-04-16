@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un modello collegato
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a09315b0947f41e7602e630460cb3e674a7bf8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 177a994450b6ffe5489a8c95c3b484521fd9b77b
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081800"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672926"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Esercitazione: Distribuire un modello collegato
 
@@ -90,6 +90,9 @@ Write-Host "Press [ENTER] to continue ..."
 Per distribuire un modello privato in un account di archiviazione, generare un token di firma di accesso condiviso e includerlo nell'URI del modello. Impostare l'ora di scadenza in modo da garantire un tempo sufficiente per completare la distribuzione. Il BLOB contenente il modello sarà accessibile solo da parte del proprietario dell'account. Tuttavia, quando si crea un token di firma di accesso condiviso per il BLOB, quest'ultimo sarà accessibile a tutti gli utenti con quell'URI. Se l'URI viene intercettato da un altro utente, quest'ultimo sarà in grado di accedere al modello. Usare un token di firma di accesso condiviso è un buon metodo per limitare l'accesso ai modelli, ma è necessario non includere direttamente nel modello dati sensibili come le password.
 
 Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](./deployment-tutorial-local-template.md#create-resource-group).
+
+> [!NOTE]
+> Nel codice dell'interfaccia della riga di comando di Azure seguente il parametro di data -d sarebbe un argomento non valido in macOS. Gli utenti macOS dovranno quindi usare dovranno usare -v+2H per aggiungere 2 ore all'ora corrente nel terminale in macOS.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

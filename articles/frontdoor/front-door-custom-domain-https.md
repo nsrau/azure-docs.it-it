@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: fae4206e555c85fe0555ce1c4366cd57dd386f1e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79471830"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878035"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
@@ -37,7 +37,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > - Abilitare il protocollo HTTPS nel dominio personalizzato
 > - Usare un certificato gestito dal servizio Frontdoor di Azure 
-> - Usare il certificato personale, vale a dire un certificato SSL personalizzato
+> - Usare il certificato personale, vale a dire un certificato TLS/SSL personalizzato
 > - Convalidare il dominio
 > - Disabilitare il protocollo HTTPS nel dominio personalizzato
 
@@ -48,9 +48,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Prima di poter completare i passaggi di questa esercitazione, è necessario creare una frontdoor ed eseguire l'onboarding di almeno un dominio personalizzato. Per altre informazioni, vedere [Esercitazione: Aggiungere un dominio personalizzato alla frontdoor](front-door-custom-domain.md).
 
-## <a name="ssl-certificates"></a>Certificati SSL
+## <a name="tlsssl-certificates"></a>Certificati TLS/SSL
 
-Per abilitare il protocollo HTTPS per il recapito sicuro del contenuto in un dominio personalizzato di Frontdoor, è necessario usare un certificato SSL. È possibile scegliere di usare un certificato gestito dal servizio Frontdoor di Azure o il certificato personale.
+Per abilitare il protocollo HTTPS per il recapito sicuro del contenuto nel dominio personalizzato della frontdoor, è necessario usare un certificato TLS/SSL. È possibile scegliere di usare un certificato gestito dal servizio Frontdoor di Azure o il certificato personale.
 
 
 ### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opzione 1 (predefinita): Usare un certificato gestito da Frontdoor
@@ -72,7 +72,7 @@ Per abilitare il protocollo HTTPS in un dominio personalizzato, seguire questa p
 
 ### <a name="option-2-use-your-own-certificate"></a>Opzione 2: Usare un certificato personale
 
-Per abilitare la funzionalità HTTPS, è possibile usare un certificato personale. Questo processo avviene tramite un'integrazione con Azure Key Vault, che consente di archiviare i certificati in modo sicuro. Il servizio Frontdoor di Azure usa questo meccanismo sicuro per ottenere il certificato e richiede alcuni passaggi aggiuntivi. Quando si crea il certificato SSL, è necessario crearlo con un'autorità di certificazione consentita (CA). In caso contrario, se si usa una CA non consentita, la richiesta verrà rifiutata. Per un elenco delle autorità di certificazione consentite, vedere [Autorità di certificazione consentite per abilitare la funzionalità HTTPS personalizzata nel servizio Frontdoor di Azure](front-door-troubleshoot-allowed-ca.md).
+Per abilitare la funzionalità HTTPS, è possibile usare un certificato personale. Questo processo avviene tramite un'integrazione con Azure Key Vault, che consente di archiviare i certificati in modo sicuro. Il servizio Frontdoor di Azure usa questo meccanismo sicuro per ottenere il certificato e richiede alcuni passaggi aggiuntivi. Quando si crea il certificato TLS/SSL, è necessario crearlo con un'autorità di certificazione consentita (CA). In caso contrario, se si usa una CA non consentita, la richiesta verrà rifiutata. Per un elenco delle autorità di certificazione consentite, vedere [Autorità di certificazione consentite per abilitare la funzionalità HTTPS personalizzata nel servizio Frontdoor di Azure](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparare l'account e il certificato di Azure Key Vault
  
@@ -84,7 +84,7 @@ Per abilitare la funzionalità HTTPS, è possibile usare un certificato personal
 2. Certificati di Azure Key Vault: è possibile caricare direttamente nell'account Azure Key Vault un certificato già esistente oppure creare un nuovo certificato direttamente tramite Azure Key Vault presso una delle autorità di certificazione (CA) partner con cui Azure Key Vault è integrato. Caricare il certificato come oggetto **certificato**, anziché come **segreto**.
 
 > [!NOTE]
-> Per il certificato SSL, il servizio Frontdoor non supporta i certificati con algoritmi basati su crittografia a curva ellittica.
+> Per il certificato TLS/SSL, il servizio Frontdoor non supporta i certificati con algoritmi basati su crittografia a curva ellittica.
 
 #### <a name="register-azure-front-door"></a>Registrare il servizio Frontdoor di Azure
 
@@ -260,7 +260,7 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 
 4. *L'uso di un certificato SAN è meno sicuro rispetto a un certificato dedicato?*
     
-    Un certificato SAN applica gli stessi standard di crittografia e sicurezza di un certificato dedicato. Tutti i certificati SSL emessi usano l'algoritmo SHA-256 per la protezione avanzata dei server.
+    Un certificato SAN applica gli stessi standard di crittografia e sicurezza di un certificato dedicato. Tutti i certificati TLS/SSL emessi usano l'algoritmo SHA-256 per la protezione avanzata dei server.
 
 5. *È necessario avere un record di autorizzazione dell'autorità di certificazione presso il provider DNS?*
 

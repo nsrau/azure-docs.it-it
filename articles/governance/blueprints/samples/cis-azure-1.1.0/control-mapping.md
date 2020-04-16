@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto CIS Microsoft Azure Foundations Benchm
 description: Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark in Criteri di Azure.
 ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74707418"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656956"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark
 
@@ -245,7 +245,7 @@ Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/ove
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Assicurarsi che il criterio 'Imponi connessione SSL' sia abilitato per il server di database MySQL
 
-Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i server di database MySQL impongano le connessioni SSL.
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i server di database MySQL impongano le connessioni TLS/SSL.
 
 - Il criterio Imponi connessione SSL deve essere abilitato per i server di database MySQL
 
@@ -257,7 +257,7 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Assicurarsi che il criterio 'Imponi connessione SSL' sia abilitato per il server di database PostgreSQL
 
-Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i server di database PostgreSQL impongano le connessioni SSL.
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i server di database PostgreSQL impongano le connessioni TLS/SSL.
 
 - Il criterio Imponi connessione SSL deve essere abilitato per i server di database PostgreSQL
 

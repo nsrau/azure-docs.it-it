@@ -2,21 +2,21 @@
 title: 'Esercitazione: Aggiungere output al modello'
 description: Aggiungere output al modello di Azure Resource Manager per semplificare la sintassi.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2ee1a2c7037bde68b7858b57a03c78bd2016ff1c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765739"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743541"
 ---
-# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Esercitazione: Aggiungere output al modello di Resource Manager
+# <a name="tutorial-add-outputs-to-your-arm-template"></a>Esercitazione: Aggiungere output al modello di Azure Resource Manager
 
-Questa esercitazione illustra come restituire un valore dal modello. Gli output vengono usati quando è necessario ottenere un valore da una risorsa distribuita. Per completare l'esercitazione, sono necessari **7 minuti**.
+Questa esercitazione illustra come restituire un valore dal modello di Azure Resource Manager (ARM). Gli output vengono usati quando è necessario ottenere un valore da una risorsa distribuita. Per completare l'esercitazione, sono necessari **7 minuti**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È consigliabile, ma non obbligatorio, completare l'[esercitazione sulle variabili](template-tutorial-add-variables.md).
 
@@ -52,7 +52,7 @@ Infine, restituisce la proprietà **primaryEndpoints** dell'account di archiviaz
 
 Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -63,10 +63,12 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per eseguire questo comando di distribuzione, è necessario usare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addoutputs \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -75,7 +77,7 @@ az group deployment create \
 
 ---
 
-Nell'output del comando di distribuzione verrà visualizzato un oggetto simile al seguente:
+Nell'output del comando di distribuzione verrà visualizzato un oggetto simile all'esempio seguente solo se l'output è in formato JSON:
 
 ```json
 {
@@ -87,6 +89,9 @@ Nell'output del comando di distribuzione verrà visualizzato un oggetto simile a
     "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
+
+> [!NOTE]
+> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
 
 ## <a name="review-your-work"></a>Esaminare il lavoro
 

@@ -6,12 +6,12 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9b0154889544e0054e309cc5f43851b73b4396b4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223968"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754684"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Esercitazione: Configurare le impostazioni di rete del cluster
 
@@ -76,7 +76,7 @@ Il cluster FXT Edge Filter usa certificati X.509 per queste funzioni:
 
 Se è necessario caricare certificati nel cluster, usare la pagina delle impostazioni **Cluster** > **Certificates** (Certificati). Per informazioni dettagliate, vedere [Cluster > Certificati](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) della guida alla configurazione del cluster.
 
-Per crittografare le comunicazioni relative alla gestione del cluster, usare la pagina delle impostazioni **Cluster** > **General Setup** (Configurazione generale) per selezionare il certificato da usare per il protocollo SSL di amministrazione.
+Per crittografare le comunicazioni relative alla gestione del cluster, usare la pagina delle impostazioni **Cluster** > **General Setup** (Configurazione generale) per selezionare il certificato da usare per il protocollo TLS di amministrazione.
 
 > [!Note] 
 > Le chiavi di accesso dei servizi cloud vengono archiviate usando la pagina di configurazione **Cloud Credentials** (Credenziali cloud). La sezione [Aggiungere un archiviatore di base](fxt-add-storage.md#add-a-core-filer) precedente mostra un esempio. Per informazioni dettagliate, vedere la sezione [Credenziali cloud](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) della guida alla configurazione del cluster. 

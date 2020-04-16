@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/22/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c2d31ef46dfba31a8f217f68e8d5f98b67d58da5
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75422661"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410580"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Esercitazione: Creare il primo pacchetto di accesso in Gestione entitlement di Azure AD
 
@@ -84,79 +84,83 @@ Un *pacchetto di accesso* è un bundle di risorse di cui necessita un team o un 
 
 1. Nel riquadro di spostamento sinistro del portale di Azure fare clic su **Azure Active Directory**.
 
-1. Nel menu a sinistra fare clic su **Identity Governance**
+2. Nel menu a sinistra fare clic su **Identity Governance**
 
-1. Nel menu a sinistra fare clic su **Pacchetti di accesso**.  Se è visualizzato il messaggio **Accesso negato**, assicurarsi che nella directory sia presente una licenza di Azure AD Premium P2.
+3. Nel menu a sinistra fare clic su **Pacchetti di accesso**.  Se è visualizzato il messaggio **Accesso negato**, assicurarsi che nella directory sia presente una licenza di Azure AD Premium P2.
 
-1. Fare clic su **Nuovo pacchetto di accesso**.
+4. Fare clic su **Nuovo pacchetto di accesso**.
 
     ![Gestione entitlement nel portale di Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-1. Nella scheda **Informazioni di base** digitare il nome **Marketing Campaign** e la descrizione **Access to resources for the campaign** per il pacchetto di accesso.
+5. Nella scheda **Informazioni di base** digitare il nome **Marketing Campaign** e la descrizione **Access to resources for the campaign** per il pacchetto di accesso.
 
-1. Lasciare il menu a discesa **Catalogo** impostato su **Generale**.
+6. Lasciare il menu a discesa **Catalogo** impostato su **Generale**.
 
     ![Nuovo pacchetto di accesso - scheda Informazioni di base](./media/entitlement-management-access-package-first/basics.png)
 
-1. Fare clic su **Avanti** per aprire la scheda **Ruoli delle risorse**.
+7. Fare clic su **Avanti** per aprire la scheda **Ruoli delle risorse**.
 
     In questa scheda sarà necessario selezionare le risorse e il relativo ruolo da includere nel pacchetto di accesso.
 
-1. Fare clic su **Gruppi e team**.
+8. Fare clic su **Gruppi e team**.
 
-1. Nel riquadro Seleziona gruppi trovare e selezionare il gruppo **Marketing resources** creato in precedenza.
+9. Nel riquadro Seleziona gruppi trovare e selezionare il gruppo **Marketing resources** creato in precedenza.
 
     Per impostazione predefinita, i gruppi sono visualizzati all'interno e all'esterno del catalogo **Generale**. Quando si seleziona un gruppo all'esterno del catalogo **Generale**, questo verrà aggiungo al catalogo **Generale**.
 
     ![Nuovo pacchetto di accesso - scheda Ruoli delle risorse](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-1. Fare clic su **Seleziona** per aggiungere il gruppo all'elenco.
+10. Fare clic su **Seleziona** per aggiungere il gruppo all'elenco.
 
-1. Nell'elenco a discesa **Ruolo** selezionare **Membro**.
+11. Nell'elenco a discesa **Ruolo** selezionare **Membro**.
 
     ![Nuovo pacchetto di accesso - scheda Ruoli delle risorse](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. Fare clic su **Avanti** per aprire la scheda **Richieste**.
+    >[!NOTE]
+    > Quando si usano [gruppi dinamici](../users-groups-roles/groups-create-rule.md) non vengono visualizzati altri ruoli disponibili oltre a quello di proprietario. Questo si verifica per motivi strutturali.
+    > ![Panoramica dello scenario](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+
+12. Fare clic su **Avanti** per aprire la scheda **Richieste**.
 
     In questa scheda è possibile creare un criterio di richiesta. Un *criterio* definisce le regole o i vincoli per accedere a un pacchetto di accesso. Verrà creato un criterio che consente a un utente specifico nella directory della risorsa di richiedere questo pacchetto di accesso.
 
-1. Nella sezione **Utenti che possono richiedere l'accesso** selezionare **Per gli utenti nella directory** e quindi **Utenti e gruppi specifici**.
+13. Nella sezione **Utenti che possono richiedere l'accesso** selezionare **Per gli utenti nella directory** e quindi **Utenti e gruppi specifici**.
 
     ![Nuovo pacchetto di accesso - scheda Richieste](./media/entitlement-management-access-package-first/requests.png)
 
-1. Fare clic su **Aggiungi utenti e gruppi**.
+14. Fare clic su **Aggiungi utenti e gruppi**.
 
-1. Nel riquadro Seleziona utenti e gruppi selezionare l'utente **Requestor1** creato in precedenza.
+15. Nel riquadro Seleziona utenti e gruppi selezionare l'utente **Requestor1** creato in precedenza.
 
     ![Nuovo pacchetto di accesso - scheda Richieste - Seleziona utenti e gruppi](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
-1. Fare clic su **Seleziona**.
+16. Fare clic su **Seleziona**.
 
-1. Scorrere verso il basso fino alle sezioni **Approvazione** e **Abilita le richieste**.
+17. Scorrere verso il basso fino alle sezioni **Approvazione** e **Abilita le richieste**.
 
-1. Lasciare l'opzione **Richiedi approvazione** impostata su **No**.
+18. Lasciare l'opzione **Richiedi approvazione** impostata su **No**.
 
-1. Per **Abilita le richieste**, fare clic su **Sì** per consentire la richiesta di questo pacchetto di accesso non appena viene creato.
+19. Per **Abilita le richieste**, fare clic su **Sì** per consentire la richiesta di questo pacchetto di accesso non appena viene creato.
 
     ![Nuovo pacchetto di accesso - scheda Richieste - Approvazione e Abilita le richieste](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
-1. Fare clic su **Avanti** per aprire la scheda **Ciclo di vita**.
+20. Fare clic su **Avanti** per aprire la scheda **Ciclo di vita**.
 
-1. Nella sezione **Scadenza** impostare **Scadenza delle assegnazioni di pacchetti di accesso** su **Numero di giorni**.
+21. Nella sezione **Scadenza** impostare **Scadenza delle assegnazioni di pacchetti di accesso** su **Numero di giorni**.
 
-1. Impostare **Le assegnazioni scadono dopo** su **30** giorni.
+22. Impostare **Le assegnazioni scadono dopo** su **30** giorni.
 
     ![Nuovo pacchetto di accesso - scheda Ciclo di vita](./media/entitlement-management-access-package-first/lifecycle.png)
 
-1. Fare clic su **Avanti** per aprire la scheda **Rivedi e crea**.
+23. Fare clic su **Avanti** per aprire la scheda **Rivedi e crea**.
 
     ![Nuovo pacchetto di accesso - scheda Rivedi e crea](./media/entitlement-management-access-package-first/review-create.png)
 
     Dopo alcuni istanti, verrà visualizzata una notifica che indica che il pacchetto di accesso è stato creato.
 
-1. Nel menu a sinistra del pacchetto di accesso Marketing Campaign fare clic su **Panoramica**.
+24. Nel menu a sinistra del pacchetto di accesso Marketing Campaign fare clic su **Panoramica**.
 
-1. Copiare il **collegamento del portale di Accesso personale**.
+25. Copiare il **collegamento del portale di Accesso personale**.
 
     Questo collegamento verrà usato nel passaggio successivo.
 

@@ -2,15 +2,15 @@
 title: 'Esercitazione: Esportare un modello dal portale di Azure'
 description: Informazioni su come usare un modello esportato per completare lo sviluppo del modello.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 95d54a0661f0a0cebdbfc225074be0ce0d83a5cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f95efbaedc2718c968062c47427ab7765756bde7
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79368894"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408560"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Esercitazione: Usare il modello esportato dal portale di Azure
 
@@ -34,7 +34,7 @@ Questo modello è adatto per la distribuzione di account di archiviazione, ma è
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare **Crea una risorsa**.
-1. In **Cerca nel Marketplace** immettere **Piano di servizio app** e quindi selezionare **Piano di servizio app**.  Non selezionare **Piano di servizio app (versione classica)** .
+1. In **Cerca nel Marketplace** immettere **Piano di servizio app** e quindi selezionare **Piano di servizio app**.  Non selezionare **Piano di servizio app (versione classica)**
 1. Selezionare **Create** (Crea).
 1. Digitare:
 
@@ -97,6 +97,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
+Per eseguire questo comando di distribuzione, è necessario usare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+
 ```azurecli
 az deployment group create \
   --name addappserviceplan \
@@ -106,6 +108,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

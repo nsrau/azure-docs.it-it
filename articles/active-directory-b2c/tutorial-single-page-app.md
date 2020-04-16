@@ -6,28 +6,31 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 10/14/2019
+ms.date: 04/04/2020
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 435800d9c6bfd9131d50681a9808f9836104fac0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d7cd437f597fc34fe83904715fc2e459dfe4550f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183347"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875563"
 ---
-# <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola con Azure Active Directory B2C (Azure AD B2C)
+# <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola con Azure AD B2C
 
-Questa esercitazione illustra come usare Azure Active Directory B2C (Azure AD B2C) per l'iscrizione e l'accesso degli utenti in un'applicazione a pagina singola. Azure AD B2C consente alle applicazioni di eseguire l'autenticazione per account di social network, aziendali e di Azure Active Directory usando protocolli standard aperti.
+Questa esercitazione illustra come usare Azure Active Directory B2C (Azure AD B2C) per l'iscrizione e l'accesso degli utenti in un'applicazione a pagina singola.
 
-In questa esercitazione verranno illustrate le procedure per:
+In questa esercitazione, che è la prima di una serie in due parti, verrà descritto come:
 
 > [!div class="checklist"]
-> * Aggiornare l'applicazione in Azure AD B2C
-> * Configurare l'esempio per l'uso dell'applicazione
-> * Iscriversi usando il flusso utente
+> * Aggiungere un URL di risposta a un'applicazione registrata nel tenant di Azure AD B2C
+> * Scaricare il codice di esempio da GitHub
+> * Modificare il codice dell'applicazione di esempio in modo che funzioni con il proprio tenant
+> * Eseguire l'iscrizione usando il flusso utente di iscrizione/accesso
+
+L'[esercitazione successiva](tutorial-single-page-app-webapi.md) della serie abilita la parte relativa all'API Web dell'esempio di codice.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,13 +44,12 @@ Prima di continuare con i passaggi in questa esercitazione è necessario impleme
 
 In più, nell'ambiente di sviluppo locale devono anche essere installati gli elementi seguenti:
 
-* Editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) o versione successiva
+* [Visual Studio Code](https://code.visualstudio.com/) o un altro editor di codice
 * [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Aggiornare l'applicazione
 
-Nella seconda esercitazione completata come parte dei prerequisiti è stata registrata un'applicazione Web in Azure AD B2C. Per consentire la comunicazione con l'esempio nell'esercitazione, è necessario aggiungere un URI di reindirizzamento all'applicazione in Azure AD B2C.
+Nella seconda esercitazione completata come parte dei prerequisiti è stata registrata un'applicazione Web in Azure AD B2C. Per consentire la comunicazione con l'esempio in questa esercitazione, aggiungere un URL di risposta (anche noto come URI di reindirizzamento) alla registrazione dell'applicazione.
 
 Per aggiornare l'applicazione, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
@@ -76,7 +78,7 @@ Per aggiornare l'applicazione, è possibile usare l'esperienza **Applicazioni** 
 
 ## <a name="get-the-sample-code"></a>Scaricare il codice di esempio
 
-In questa esercitazione si configura un codice di esempio che si scarica da GitHub. L'esempio dimostra come un'applicazione a pagina singola può usare Azure AD B2C per l'iscrizione e l'accesso degli utenti e per chiamare un'API Web protetta.
+In questa esercitazione verrà configurato un esempio di codice che si scarica da GitHub per usare il proprio tenant B2C. L'esempio dimostra come un'applicazione a pagina singola può usare Azure AD B2C per l'iscrizione e l'accesso degli utenti e per chiamare un'API Web protetta (l'API Web verrà abilitata nell'esercitazione successiva della serie).
 
 [Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonare l'esempio da GitHub.
 
@@ -88,14 +90,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 Ora che è stato ottenuto l'esempio, aggiornare il codice con il nome del tenant di Azure AD B2C e l'ID dell'applicazione registrato in un passaggio precedente.
 
-1. Aprire il file `index.html` nella radice della directory di esempio.
-1. Nella definizione di `msalConfig`, modificare il valore **clientId** con l'ID applicazione registrato in un passaggio precedente. Quindi, aggiornare l'URI **authority** con il nome del tenant di Azure AD B2C. Aggiornare l'URI anche con il nome del flusso utente di accesso/iscrizione creato in uno dei prerequisiti (ad esempio, *B2C_1_signupsignin1*).
+1. Aprire il file *authConfig.js* nella cartella *JavaScriptSPA*.
+1. Nell'oggetto `msalConfig` aggiornare:
+    * `clientId` con il valore del campo **ID dell'applicazione (client)** annotato in un passaggio precedente
+    * L'URI `authority` con il nome del tenant di Azure AD B2C e il nome del flusso utente di accesso/iscrizione creato come parte dei prerequisiti (ad esempio, *B2C_1_signupsignin1*)
 
     ```javascript
-    var msalConfig = {
+    const msalConfig = {
         auth: {
-            clientId: "00000000-0000-0000-0000-000000000000", //This is your client ID
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
+            authority: "https://your-b2c-tenant.b2clogin.com/your-b2c-tenant.onmicrosoft.com/B2C_1_signupsignin1", // Update with your tenant and user flow names
             validateAuthority: false
         },
         cache: {
@@ -104,8 +108,6 @@ Ora che è stato ottenuto l'esempio, aggiornare il codice con il nome del tenant
         }
     };
     ```
-
-    Il nome del flusso utente usato in questa esercitazione è **B2C_1_signupsignin1**. Se si usa un nome di flusso utente diverso, specificarlo nel valore di `authority`.
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
@@ -116,64 +118,59 @@ Ora che è stato ottenuto l'esempio, aggiornare il codice con il nome del tenant
     ```
 1. Eseguire i comandi seguenti:
 
-    ```
+    ```console
     npm install && npm update
-    node server.js
+    npm start
     ```
 
     La finestra della console visualizza il numero di porta del server Node.js in esecuzione in locale:
 
-    ```
+    ```console
     Listening on port 6420...
     ```
+1. Passare a `http://localhost:6420` per visualizzare l'applicazione Web in esecuzione nel computer locale.
 
-1. Passare a `http://localhost:6420` nel browser per visualizzare l'applicazione.
-
-L'esempio supporta l'iscrizione, l'accesso, la modifica del profilo e la reimpostazione della password. Questa esercitazione illustra l'iscrizione di un utente con un indirizzo di posta elettronica.
+    :::image type="content" source="media/tutorial-single-page-app/web-app-spa-01-not-logged-in.png" alt-text="Web browser che mostra un'applicazione a pagina singola eseguita in locale":::
 
 ### <a name="sign-up-using-an-email-address"></a>Iscriversi usando un indirizzo di posta elettronica
 
-> [!WARNING]
-> Dopo l'iscrizione o l'accesso, è possibile che venga visualizzato un [errore di autorizzazioni insufficienti](#error-insufficient-permissions). Si tratta di un errore previsto, dovuto all'implementazione corrente dell'esempio di codice. Questo problema verrà risolto in una versione futura dell'esempio di codice e di conseguenza l'avviso non verrà più visualizzato.
+Questa applicazione di esempio supporta l'iscrizione, l'accesso e la reimpostazione della password. In questa esercitazione si esegue l'iscrizione con un indirizzo di posta elettronica.
 
 1. Selezionare **Accedi** per avviare il flusso utente *B2C_1_signupsignin1* specificato in un passaggio precedente.
 1. Azure AD B2C presenta una pagina di accesso con un collegamento di iscrizione. Non avendo ancora un account, selezionare il collegamento **Iscriversi adesso**.
-1. Il flusso di lavoro per l'iscrizione presenta una pagina per raccogliere e verificare l'identità dell'utente usando un indirizzo e-mail. Il flusso di lavoro per l'iscrizione raccoglie anche la password dell'utente e gli attributi richiesti definiti nel flusso utente.
+1. Il flusso di lavoro per l'iscrizione presenta una pagina per raccogliere e verificare l'identità dell'utente usando un indirizzo di posta elettronica. Il flusso di lavoro per l'iscrizione raccoglie anche la password dell'utente e gli attributi richiesti definiti nel flusso utente.
 
     Usare un indirizzo e-mail valido ed eseguire la convalida usando un codice di verifica. Impostare una password. Immettere i valori per gli attributi richiesti.
 
-    ![Pagina di iscrizione visualizzata dal flusso utente di accesso/iscrizione](./media/tutorial-single-page-app/azure-ad-b2c-sign-up-workflow.png)
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Pagina di iscrizione visualizzata dal flusso utente di Azure AD B2C":::
 
 1. Selezionare **Crea** per creare un account locale nella directory di Azure AD B2C.
 
-Quando si seleziona **Crea**, la pagina di iscrizione si chiude e viene nuovamente visualizzata la pagina di accesso.
+Quando si seleziona **Crea**, l'applicazione visualizza il nome dell'utente che ha eseguito l'accesso.
 
-È ora possibile usare l'indirizzo di posta elettronica e la password per accedere all'applicazione.
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Web browser che mostra un'applicazione a pagina singola con l'utente connesso":::
 
-### <a name="error-insufficient-permissions"></a>Errore: autorizzazioni insufficienti
+Se si vuole testare l'accesso, selezionare il pulsante **Disconnetti**, quindi selezionare **Accedi** e accedere con l'indirizzo di posta elettronica e la password immessi al momento dell'iscrizione.
 
-Dopo l'accesso, l'app potrebbe visualizzare un errore di autorizzazioni insufficienti:
+### <a name="what-about-calling-the-api"></a>Chiamare l'API
 
-```Output
-ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
-Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
-Timestamp: 2019-07-20 22:17:27Z
-```
+Se si seleziona il pulsante **Chiamata di API** dopo l'accesso, viene visualizzata la pagina del flusso utente di iscrizione/accesso anziché i risultati della chiamata API. Si tratta di un comportamento previsto perché non è stata ancora configurata la parte API dell'applicazione per comunicare con un'applicazione API Web registrata nel *proprio* tenant di Azure AD B2C.
 
-Questo errore viene visualizzato perché l'applicazione Web sta provando ad accedere a un'API Web protetta dalla directory demo, *fabrikamb2c*. Poiché il token di accesso è valido solo per la directory di Azure AD, la chiamata API non è autorizzata.
+A questo punto, l'applicazione sta ancora tentando di comunicare con l'API registrata nel tenant demo (fabrikamb2c.onmicrosoft.com) e poiché non è stata eseguita l'autenticazione con il tenant, viene visualizzata la pagina di iscrizione/accesso.
 
-Per correggere l'errore, continuare con l'esercitazione successiva della serie (vedere [Passaggi successivi](#next-steps)) per la creazione di un'API Web protetta per la directory.
+Passare all'esercitazione successiva della serie per abilitare l'API protetta (vedere la sezione [Passaggi successivi](#next-steps)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come:
+In questa esercitazione è stata configurata un'applicazione a pagina singola per l'uso di un flusso utente nel tenant di Azure AD B2C per fornire le funzionalità di iscrizione e accesso. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Aggiornare l'applicazione in Azure AD B2C
-> * Configurare l'esempio per l'uso dell'applicazione
-> * Iscriversi usando il flusso utente
+> * È stato aggiunto un URL di risposta a un'applicazione registrata nel tenant di Azure AD B2C
+> * È stato scaricato il codice di esempio da GitHub
+> * È stato modificato il codice dell'applicazione di esempio in modo che funzioni con il proprio tenant
+> * È stata eseguita l'iscrizione usando il flusso utente di iscrizione/accesso
 
 Passare ora all'esercitazione successiva nella serie per concedere l'accesso a un'API Web protetta dall'applicazione a pagina singola:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'applicazione a pagina singola usando Azure AD B2C >](tutorial-single-page-app-webapi.md)
+> [Esercitazione: Proteggere e concedere l'accesso a un'API Web da un'applicazione a pagina singola >](tutorial-single-page-app-webapi.md)

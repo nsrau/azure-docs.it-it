@@ -2,21 +2,21 @@
 title: 'Esercitazione: Aggiungere parametri al modello'
 description: Aggiungere parametri al modello di Azure Resource Manager per renderlo riutilizzabile.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: de7ec961672db2f3120e00f1a42b33f71e7ab092
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773197"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437822"
 ---
-# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Esercitazione: Aggiungere parametri al modello di Resource Manager
+# <a name="tutorial-add-parameters-to-your-arm-template"></a>Esercitazione: Aggiungere parametri a un modello di Azure Resource Manager
 
-Nell'[esercitazione precedente](template-tutorial-add-resource.md) è stato illustrato come aggiungere un account di archiviazione al modello e distribuirlo. Questa esercitazione illustra come migliorare il modello aggiungendo parametri. Per completare l'esercitazione, sono necessari circa **14 minuti**.
+Nell'[esercitazione precedente](template-tutorial-add-resource.md) è stato illustrato come aggiungere un account di archiviazione al modello e distribuirlo. Questa esercitazione illustra come migliorare il modello di Azure Resource Manager (ARM) aggiungendo parametri. Per completare l'esercitazione, sono necessari circa **14 minuti**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È consigliabile, ma non obbligatorio, completare l'[esercitazione sulle risorse](template-tutorial-add-resource.md).
 
@@ -44,7 +44,7 @@ A questo punto è possibile distribuire il modello. L'esempio seguente illustra 
 
 Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -54,10 +54,12 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per eseguire questo comando di distribuzione, è necessario usare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnameparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -88,7 +90,7 @@ Al parametro **storageSKU** è assegnato un valore predefinito. Questo valore vi
 
 È ora possibile distribuire di nuovo l'app. Dal momento che lo SKU predefinito è impostato su **Standard_LRS**, non è necessario specificare un valore per tale parametro.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -98,10 +100,10 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -110,24 +112,27 @@ az group deployment create \
 
 ---
 
+> [!NOTE]
+> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
+
 A questo punto il modello verrà ridistribuito per verificarne la flessibilità. Questa volta impostare il parametro SKU su **Standard_GRS**. È possibile passare un nuovo nome per creare un account di archiviazione diverso oppure usare lo stesso nome per aggiornare l'account di archiviazione esistente. Entrambe le opzioni sono ugualmente valide.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Name usedefaultsku `
+  -Name usenondefaultsku `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
   -storageName "{your-unique-name}" `
   -storageSKU Standard_GRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
-  --name usedefaultsku \
+az deployment group create \
+  --name usenondefaultsku \
   --resource-group myResourceGroup \
   --template-file $templateFile \
   --parameters storageSKU=Standard_GRS storageName={your-unique-name}
@@ -137,7 +142,7 @@ az group deployment create \
 
 Eseguire infine un ulteriore test e verificare cosa succede quando si passa uno SKU che non corrisponde a uno dei valori consentiti. In questo caso, si testerà lo scenario in cui un utente del modello ritiene che **basic** sia uno degli SKU.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -148,10 +153,10 @@ New-AzResourceGroupDeployment `
   -storageSKU basic
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name testskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \

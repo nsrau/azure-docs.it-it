@@ -2,21 +2,21 @@
 title: 'Esercitazione: Aggiungere una risorsa al modello'
 description: Descrive i passaggi per creare il primo modello di Azure Resource Manager. Viene illustrata la sintassi dei file modello e viene spiegato su come distribuire un account di archiviazione.
 author: mumian
-ms.date: 02/24/2020
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: af571b6503f04c809b62c530f6d6254082b838be
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dcdbbb325e6589669abe6cf3d25ac5191e29118b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586683"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411739"
 ---
-# <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Esercitazione: Aggiungere una risorsa al modello di Azure Resource Manager
+# <a name="tutorial-add-a-resource-to-your-arm-template"></a>Esercitazione: Aggiungere una risorsa al modello di Azure Resource Manager
 
 Nell'[esercitazione precedente](template-tutorial-create-first-template.md) è stato illustrato come creare un modello vuoto e distribuirlo. A questo punto, è possibile distribuire una risorsa effettiva. In questa esercitazione viene aggiunto un account di archiviazione. Per completare l'esercitazione, sono necessari circa **9 minuti**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È consigliabile, ma non obbligatorio, completare l'[esercitazione introduttiva sui modelli](template-tutorial-create-first-template.md).
 
@@ -26,7 +26,7 @@ Nell'[esercitazione precedente](template-tutorial-create-first-template.md) è s
 
 Per aggiungere una definizione di account di archiviazione al modello esistente, esaminare il codice JSON evidenziato nell'esempio seguente. Invece di provare a copiare sezioni del modello, copiare l'intero file e sostituire il modello con il relativo contenuto.
 
-Sostituire **{provide-unique-name}** con un nome di account di archiviazione univoco.
+Sostituire **{provide-unique-name}** (incluse le parentesi graffe) con un nome di account di archiviazione univoco.
 
 > [!IMPORTANT]
 > Il nome dell'account di archiviazione deve essere univoco in Azure. Il nome deve essere composto solo da lettere minuscole e numeri e non deve superare i 24 caratteri. Come criterio di denominazione è possibile provare a usare il prefisso **store1** e aggiungere le proprie iniziali e la data odierna. Il nome usato può, ad esempio, essere simile a **store1abc09092019**.
@@ -37,7 +37,7 @@ Formulare un nome univoco per un account di archiviazione non è semplice e non 
 
 ## <a name="resource-properties"></a>Proprietà risorsa
 
-Per trovare le proprietà da usare per ogni tipo di risorsa, è possibile usare le [informazioni di riferimento per i modelli di Resource Manager](/azure/templates/) che consentono di individuare i tipi di risorsa da distribuire.
+Per trovare le proprietà da usare per ogni tipo di risorsa, è possibile usare le [informazioni di riferimento per i modelli di Azure Resource Manager](/azure/templates/) che consentono di individuare i tipi di risorsa da distribuire.
 
 A ogni risorsa distribuita sono assegnate almeno le tre proprietà seguenti:
 
@@ -72,14 +72,19 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
+Per eseguire questo comando di distribuzione, è necessario usare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addstorage \
   --resource-group myResourceGroup \
   --template-file $templateFile
 ```
 
 ---
+
+> [!NOTE]
+> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
 
 Potrebbero verificarsi due errori di distribuzione:
 

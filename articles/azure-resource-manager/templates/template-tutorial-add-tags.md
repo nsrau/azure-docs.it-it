@@ -2,21 +2,21 @@
 title: 'Esercitazione: Aggiungere tag alle risorse nel modello'
 description: Aggiungere tag alle risorse distribuite in un modello di Azure Resource Manager. I tag consentono di organizzare le risorse in modo logico.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3e0deb53e57cd29cbfce4c37f2d6c6729f15bebd
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773189"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411696"
 ---
-# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Esercitazione: Aggiungere tag nel modello di Azure Resource Manager
+# <a name="tutorial-add-tags-in-your-arm-template"></a>Esercitazione: Aggiungere tag nel modello di Azure Resource Manager
 
-Questa esercitazione illustra come aggiungere tag alle risorse nel modello. I [tag](../management/tag-resources.md) consentono di organizzare le risorse in modo logico. I valori dei tag vengono visualizzati nei report sui costi. Per completare l'esercitazione, sono necessari **8 minuti**.
+Questa esercitazione illustra come aggiungere tag alle risorse nel modello di Azure Resource Manager (ARM). I [tag](../management/tag-resources.md) consentono di organizzare le risorse in modo logico. I valori dei tag vengono visualizzati nei report sui costi. Per completare l'esercitazione, sono necessari **8 minuti**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È consigliabile, ma non obbligatorio, completare l'[esercitazione sui modelli di avvio rapido](template-tutorial-quickstart-template.md).
 
@@ -44,7 +44,7 @@ L'esempio seguente evidenzia le modifiche apportate al modello. Copiare l'intero
 
 Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -56,10 +56,12 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per eseguire questo comando di distribuzione, è necessario usare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addtags \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -67,6 +69,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

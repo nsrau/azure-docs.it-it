@@ -1,19 +1,19 @@
 ---
-title: Utilizzare il riferimento del modello
-description: Utilizzare il riferimento del modello di Azure Resource Manager per creare un modello.
+title: Usare le informazioni di riferimento sui modelli
+description: Usare le informazioni di riferimento sul modello di Azure Resource Manager per creare un modello.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b742982121a20a2b057eba4211584b0386dde411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373177"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878501"
 ---
-# <a name="tutorial-utilize-the-arm-template-reference"></a>Esercitazione: Utilizzare il riferimento del modello di Azure Resource Manager
+# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Esercitazione: Usare le informazioni di riferimento sui modelli di Resource Manager
 
 Questo articolo illustra come trovare le informazioni sullo schema dei modelli e usarle per creare modelli di Azure Resource Manager (ARM).
 
@@ -65,9 +65,13 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
     * **resources**: specificare i tipi di risorse che vengono distribuite o aggiornate in un gruppo di risorse.
     * **outputs**: specificare i valori restituiti dopo la distribuzione.
 
-1. Espandere **resources**, in cui è definita una risorsa `Microsoft.Storage/storageAccounts`.
+1. Espandere **resources**, in cui è definita una risorsa `Microsoft.Storage/storageAccounts`. Il nome dello SKU usa un valore di parametro.  Il parametro è denominato **storageAccountType**.
 
     ![Definizione di un account di archiviazione nel modello di Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
+
+1. Espandere **parametri** per visualizzare la definizione di **storageAccountType**. Il parametro prevede quattro valori consentiti. È possibile trovare gli altri valori consentiti, quindi rivedere la definizione del parametro.
+
+    ![SKU delle risorse account di archiviazione del modello di Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
 ## <a name="find-the-template-reference"></a>Trovare le informazioni di riferimento sui modelli
 
@@ -84,7 +88,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
     ![Riferimento del modello di Resource Manager - Versioni dei tipi di account di archiviazione](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Selezionare la versione più recente del tipo di risorsa **storageAccount**.  Alla data della pubblicazione di questo articolo, la versione più recente è la versione **2019-06-01**.
+1. Selezionare la versione più recente del tipo di risorsa **storageAccount**. Alla data della pubblicazione di questo articolo, la versione più recente è la versione **2019-06-01**. Verificare che la versione corrisponda a quella usata per la risorsa account di archiviazione nel modello. Se si aggiorna la versione dell'API, verificare che la definizione della risorsa corrisponda alle informazioni di riferimento sul modello.
 
 1. Questa pagina elenca i dettagli del tipo di risorsa storageAccount.  Elenca ad esempio i valori consentiti per l'oggetto **SKU**. Sono presenti più SKU rispetto a quelli elencati nel modello di avvio rapido aperto in precedenza. È possibile personalizzare il modello di avvio rapido per includere tutti i tipi di archiviazione disponibili.
 
@@ -98,7 +102,21 @@ Da Visual Studio Code aggiungere i tipi di account di archiviazione aggiuntivi, 
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Vedere la sezione [Distribuire il modello](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) della guida introduttiva di Visual Studio Code per la procedura di distribuzione. Quando si distribuisce il modello, specificare il parametro **storageAccountType** con un valore appena aggiunto, ad esempio **Premium_ZRS**. La distribuzione avrà esito negativo se si usa il modello di avvio rapido originale perché in quel caso **Premium_ZRS** non è un valore consentito.
+Vedere la sezione [Distribuire il modello](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) della guida introduttiva di Visual Studio Code per la procedura di distribuzione. Quando si distribuisce il modello, specificare il parametro **storageAccountType** con un valore appena aggiunto, ad esempio **Premium_ZRS**. La distribuzione avrà esito negativo se si usa il modello di avvio rapido originale perché in quel caso **Premium_ZRS** non è un valore consentito.  Per passare il valore del parametro, aggiungere l'opzione seguente al comando di distribuzione:
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+--parameters storageAccountType='Premium_ZRS'
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+-storageAccountType "Premium_ZRS"
+```
+
+---
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

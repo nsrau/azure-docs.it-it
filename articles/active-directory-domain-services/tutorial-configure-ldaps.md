@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481535"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475927"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -114,10 +114,10 @@ Queste due chiavi, *pubblica* e *privata*, assicurano che solo i computer approp
 
 Per poter usare il certificato digitale creato nel passaggio precedente con il dominio gestito di Azure AD DS, è necessario prima esportare il certificato in un file *PFX* che include la chiave privata.
 
-1. Per aprire la finestra di dialogo *Esegui*, premere il tasto **WINDOWS** e **R**.
+1. Per aprire la finestra di dialogo *Esegui*, premere i tasti **WINDOWS** + **R**.
 1. Aprire Microsoft Management Console (MMC) immettendo **mmc** nella finestra di dialogo *Esegui* e quindi fare clic su **OK**.
-1. Alla richiesta di **Controllo dell'account utente** fare clic su **Sì** per avviare MMC come amministratore.
-1. Nel menu **File** fare clic su **Aggiungi/Rimuovi snap-in**.
+1. Alla richiesta di **Controllo dell'account utente** selezionare **Sì** per avviare MMC come amministratore.
+1. Dal menu **File** scegliere **Aggiungi/Rimuovi snap-in**.
 1. Nella procedura guidata **Snap-in certificati** scegliere **Account del computer** e quindi selezionare **Avanti**.
 1. Nella pagina **Seleziona computer** scegliere **Computer locale (il computer su cui è in esecuzione questa console)** e quindi selezionare **Fine**.
 1. Nella finestra di dialogo **Aggiungi o rimuovi snap-in** fare clic su **OK** per aggiungere lo snap-in Certificati a MMC.
@@ -177,9 +177,6 @@ Il file di certificato *CER* può ora essere distribuito ai computer client che 
 Con un certificato digitale creato ed esportato che include la chiave privata e il computer client impostato in modo da considerare attendibile la connessione, è ora possibile abilitare LDAP sicuro nel dominio gestito di Azure AD DS. Per abilitare LDAP sicuro in un dominio gestito di Azure AD DS, seguire questa procedura di configurazione:
 
 1. Nel [portale di Azure](https://portal.azure.com) immettere *servizi di dominio* nella casella **Cerca risorse**. Selezionare **Azure AD Domain Services** dai risultati della ricerca.
-
-    ![Cercare e selezionare il dominio gestito di Azure AD DS nel portale di Azure](./media/tutorial-configure-ldaps/search-for-domain-services.png)
-
 1. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Sul lato sinistro della finestra di Azure AD DS scegliere **LDAP sicuro.**
 1. Per impostazione predefinita, l'accesso LDAP sicuro al dominio gestito è disabilitato. Impostare **LDAP sicuro** su **Abilita**.
@@ -235,10 +232,10 @@ Dopo aver abilitato l'accesso LDAP sicuro tramite Internet, aggiornare la zona D
 
 Configurare il provider DNS esterno per creare un record host, ad esempio *ldaps*, da risolvere in questo indirizzo IP esterno. Per eseguire prima il test in locale nel computer, è possibile creare una voce nel file hosts di Windows. Per modificare correttamente il file hosts nel computer locale, aprire il *Blocco note* come amministratore, quindi aprire il file *C:\Windows\System32\drivers\etc*
 
-La voce DNS di esempio seguente, con il provider DNS esterno o nel file hosts locale, risolve il traffico per *ldaps.aaddscontoso.com* nell'indirizzo IP esterno *40.121.19.239*:
+La voce DNS di esempio seguente, con il provider DNS esterno o nel file hosts locale, risolve il traffico per *ldaps.aaddscontoso.com* nell'indirizzo IP esterno *168.62.205.103*:
 
 ```
-40.121.19.239    ldaps.aaddscontoso.com
+168.62.205.103    ldaps.aaddscontoso.com
 ```
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testare le query sul dominio gestito
@@ -261,7 +258,7 @@ Per visualizzare gli oggetti archiviati nel dominio gestito di Azure AD DS:
 1. Scegliere l'opzione di menu **Visualizza** e quindi scegliere **Albero**.
 1. Lasciare vuoto il campo *BaseDN*, quindi fare clic su **OK**.
 1. Scegliere un contenitore, ad esempio *AADDC Users*, quindi fare clic con il pulsante destro del mouse sul contenitore e scegliere **Cerca**.
-1. Lasciare i campi prepopolati impostati, quindi selezionare **Esegui**. I risultati della query vengono visualizzati nella finestra a destra.
+1. Lasciare i campi prepopolati impostati, quindi selezionare **Esegui**. I risultati della query vengono visualizzati nella finestra a destra, come illustrato nell'output di esempio seguente:
 
     ![Cercare gli oggetti nel dominio gestito di Azure AD DS tramite LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
@@ -273,7 +270,7 @@ Se è stata aggiunta una voce DNS al file hosts locale del computer per testare 
 
 1. Nel computer locale aprire il *Blocco note* come amministratore
 1. Individuare e aprire il file *C:\Windows\System32\drivers\etc*
-1. Eliminare la riga per il record aggiunto, ad esempio `40.121.19.239    ldaps.aaddscontoso.com`
+1. Eliminare la riga per il record aggiunto, ad esempio `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

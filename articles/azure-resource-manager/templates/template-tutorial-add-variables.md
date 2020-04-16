@@ -2,21 +2,21 @@
 title: 'Esercitazione: Aggiungere una variabile al modello'
 description: Aggiungere variabili al modello di Azure Resource Manager per semplificare la sintassi.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b1df86e5b593edec784de21e21a4399274d820bb
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765495"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411693"
 ---
-# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Esercitazione: Aggiungere variabili al modello di Resource Manager
+# <a name="tutorial-add-variables-to-your-arm-template"></a>Esercitazione: Aggiungere variabili al modello di Azure Resource Manager
 
-Questa esercitazione illustra come aggiungere una variabile al modello. Le variabili semplificano i modelli perché consentono di scrivere un'espressione una sola volta e di riutilizzarla nel modello. Per completare l'esercitazione, sono necessari **7 minuti**.
+Questa esercitazione illustra come aggiungere una variabile al modello di Azure Resource Manager (ARM). Le variabili semplificano i modelli perché consentono di scrivere un'espressione una sola volta e di riutilizzarla nel modello. Per completare l'esercitazione, sono necessari **7 minuti**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È consigliabile, ma non obbligatorio, completare l'[esercitazione sulle funzioni](template-tutorial-add-functions.md).
 
@@ -56,7 +56,7 @@ A questo punto è possibile distribuire il modello. La distribuzione di questo m
 
 Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -67,10 +67,12 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per eseguire questo comando di distribuzione, è necessario usare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnamevariable \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -78,6 +80,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

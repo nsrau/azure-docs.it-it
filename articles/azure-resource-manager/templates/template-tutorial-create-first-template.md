@@ -2,21 +2,21 @@
 title: 'Esercitazione: Creare e distribuire un modello'
 description: Creare il primo modello di Azure Resource Manager. L'esercitazione illustra la sintassi del file del modello e spiega come distribuire un account di archiviazione.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e31d4a5f513355e61cb53a6548b3091637bfe9a4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471506"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411716"
 ---
-# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
+# <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
 
-Questa esercitazione presenta i modelli di Azure Resource Manager e illustra come creare un modello di base e distribuirlo in Azure. Verrà descritta la struttura del modello e verranno fornite informazioni sugli strumenti necessari per l'utilizzo dei modelli. Per completare l'esercitazione sono necessari circa **12 minuti**, ma il tempo effettivo può variare in base al numero di strumenti da installare.
+Questa esercitazione presenta i modelli di Azure Resource Manager (ARM). e illustra come creare un modello di base e distribuirlo in Azure. Verrà descritta la struttura del modello e verranno fornite informazioni sugli strumenti necessari per l'utilizzo dei modelli. Per completare l'esercitazione sono necessari circa **12 minuti**, ma il tempo effettivo può variare in base al numero di strumenti da installare.
 
-Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modificherà il modello di base passo dopo passo fino a quando non sono state esaminate tutti gli elementi fondamentali di un modello di Resource Manager. Questi elementi costituiscono i blocchi predefiniti di modelli molto più complessi. Entro la fine della serie si dovrebbe essere in grado di creare modelli personalizzati, già pronti per automatizzare le distribuzioni con i modelli.
+Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modificherà il modello di base passo dopo passo fino a quando non sono state esaminate tutti gli elementi fondamentali di un modello di Azure Resource Manager. Questi elementi costituiscono i blocchi predefiniti di modelli molto più complessi. Entro la fine della serie si dovrebbe essere in grado di creare modelli personalizzati, già pronti per automatizzare le distribuzioni con i modelli.
 
 Per informazioni sui vantaggi derivanti dall'uso dei modelli e sul motivo per cui è consigliabile automatizzare la distribuzione con i modelli, vedere [Modelli di Azure Resource Manager](overview.md).
 
@@ -32,7 +32,7 @@ I modelli sono file JSON. Per creare i modelli, è necessario un editor JSON val
 
 ### <a name="command-line-deployment"></a>Distribuzione dalla riga di comando
 
-Per distribuire il modello, è necessario usare anche l'interfaccia della riga di comando di Azure oppure Azure PowerShell. Per le istruzioni di installazione, vedere:
+Per distribuire il modello, è necessario usare anche l'interfaccia della riga di comando di Azure oppure Azure PowerShell. Se si usa l'interfaccia della riga di comando di Azure, è necessario avere la versione più recente. Per le istruzioni di installazione, vedere:
 
 - [Installare Azure PowerShell](/powershell/azure/install-az-ps)
 - [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows)
@@ -53,7 +53,7 @@ A questo punto è possibile iniziare a familiarizzare con i modelli.
 
     ```json
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": []
     }
@@ -67,7 +67,7 @@ A questo punto è possibile iniziare a familiarizzare con i modelli.
 
     Il file JSON è costituito dagli elementi seguenti:
 
-    - **$schema**: specifica il percorso del file di schema JSON. Il file di schema descrive le proprietà disponibili all'interno di un modello. Ad esempio, lo schema definisce **resources** come una delle proprietà valide per un modello. Non preoccuparsi che la data dello schema sia 2015-01-01. Questa versione dello schema è aggiornata e include tutte le funzionalità più recenti. La data dello schema non è stata modificata perché dalla sua introduzione non sono state apportate modifiche sostanziali.
+    - **$schema**: specifica il percorso del file di schema JSON. Il file di schema descrive le proprietà disponibili all'interno di un modello. Ad esempio, lo schema definisce **resources** come una delle proprietà valide per un modello. Non preoccuparsi che la data dello schema sia 2019-04-01. Questa versione dello schema è aggiornata e include tutte le funzionalità più recenti. La data dello schema non è stata modificata perché dalla sua introduzione non sono state apportate modifiche sostanziali.
     - **contentVersion**: specifica la versione del modello, ad esempio 1.0.0.0. Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto.
     - **resources**: contiene le risorse da distribuire o aggiornare. Attualmente è vuoto, ma verranno aggiunte risorse in un secondo momento.
 
@@ -79,13 +79,13 @@ Il primo modello è stato creato.
 
 Per iniziare a usare Azure PowerShell o l'interfaccia della riga di comando di Azure, accedere con le credenziali di Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli
 az login
@@ -96,7 +96,7 @@ az login
 
 Quando si distribuisce un modello, si specifica un gruppo di risorse che conterrà le risorse. Prima di eseguire il comando di distribuzione, creare il gruppo di risorse usando l'interfaccia della riga di comando di Azure oppure Azure PowerShell. Selezionare le schede nella sezione di codice seguente per scegliere tra Azure PowerShell e l'interfaccia della riga di comando di Azure. Gli esempi dell'interfaccia della riga di comando in questo articolo sono scritti per la shell Bash.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -104,7 +104,7 @@ New-AzResourceGroup `
   -Location "Central US"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli
 az group create \
@@ -118,21 +118,23 @@ az group create \
 
 Per distribuire il modello, usare l'interfaccia della riga di comando di Azure o Azure PowerShell. Usare il gruppo di risorse creato. Assegnare un nome alla distribuzione in modo da poterla identificare facilmente nella cronologia di distribuzione. Per praticità, creare anche una variabile che archivia il percorso del file modello. Questa variabile semplifica l'esecuzione dei comandi di distribuzione perché non è necessario digitare nuovamente il percorso a ogni nuova distribuzione.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile
+  -TemplateFile $templateFile 
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per eseguire questo comando di distribuzione, è necessario usare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
-az group deployment create \
+az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \
   --template-file $templateFile
@@ -142,15 +144,18 @@ az group deployment create \
 
 Il comando di distribuzione restituisce risultati. Cercare `ProvisioningState` per verificare se la distribuzione è riuscita.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ![Stato del provisioning della distribuzione con PowerShell](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ![Stato del provisioning della distribuzione con l'interfaccia della riga di comando di Azure](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
 ---
+
+> [!NOTE]
+> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

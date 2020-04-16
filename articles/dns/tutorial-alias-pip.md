@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
-ms.openlocfilehash: d4517314742f3ec8e9968d20745ffb697d96f324
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77149933"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985440"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Esercitazione: Configurare un record alias per fare riferimento a un indirizzo IP pubblico di Azure 
 
@@ -20,8 +20,8 @@ In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un'infrastruttura di rete.
-> * Creare una macchina virtuale Web server.
-> * Creare un record alias.
+> * Creare una macchina virtuale server Web con un indirizzo IP pubblico.
+> * Creare un record alias che punti all'indirizzo IP pubblico.
 > * Testare il record alias.
 
 
@@ -48,7 +48,7 @@ Creare innanzitutto una rete virtuale e una subnet in cui inserire i server Web.
 4. In **Impostazioni** selezionare la rete virtuale **VNet-Servers** e la subnet **SN-Web**. Per le porte in ingresso pubbliche selezionare **HTTP** > **HTTPS** > **RDP (3389)** e quindi fare clic su **OK**.
 5. Nella pagina **Riepilogo** selezionare **Crea**.
 
-Il completamento di questa procedura richiede alcuni minuti.
+Il completamento di questa procedura richiede alcuni minuti. Alla macchina virtuale sarà collegata una scheda di interfaccia di rete, che avrà un indirizzo IP pubblico dinamico Basic denominato Web-01-ip. L'indirizzo IP pubblico cambierà ogni volta che la macchina virtuale viene riavviata.
 
 ### <a name="install-iis"></a>Installare IIS
 

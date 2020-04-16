@@ -2,25 +2,22 @@
 title: Uso della modalità dispositivo condiviso con MSAL per Android | Azure
 description: Informazioni su come preparare un dispositivo Android per l'esecuzione in modalità condivisa ed eseguire un'app per operatori sul campo.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: bf7e6bb22ce89d6be3f79efad1f1a3679e8780e7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2f74d2d441007f195abd38ca26ca7fa73605318
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77086053"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886433"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Esercitazione: Usare la modalità dispositivo condiviso nell'app Android
 
@@ -96,9 +93,9 @@ Se si imposta `"account_mode":"SINGLE"` nel file di configurazione MSAL, è poss
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
 
-/*Configure your sample app and save state for this activity*/ 
+/*Configure your sample app and save state for this activity*/
 PublicClientApplication.create(this.getApplicationCOntext(),
-  R.raw.auth_config, 
+  R.raw.auth_config,
   new PublicClientApplication.ApplicationCreatedListener(){
   @Override
   public void onCreated(IPublicClientApplication application){
@@ -109,7 +106,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
   public void onError(MsalException exception{
   /*Fail to initialize PublicClientApplication */
   }
-});  
+});
 ```
 
 ### <a name="detect-single-vs-multiple-account-mode"></a>Rilevare la modalità per account singolo o per account multipli
@@ -134,7 +131,7 @@ private IPublicClientApplication mApplication;
 
 Il metodo `loadAccount` recupera l'account dell'utente che ha eseguito l'accesso. Il metodo `onAccountChanged` determina se l'utente connesso è cambiato e, in tal caso, esegue la pulizia:
 
-```java 
+```java
 private void loadAccount()
 {
   mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback()
@@ -157,12 +154,12 @@ private void loadAccount()
         updateSingedOutUI();
       }
     }
-    @Override 
-    public void onError(@NonNull Exception exception) 
+    @Override
+    public void onError(@NonNull Exception exception)
     {
     }
   }
-}  
+}
 ```
 
 ### <a name="globally-sign-in-a-user"></a>Connettere un utente a livello globale
@@ -233,7 +230,7 @@ Avviare l'app Authenticator e passare alla pagina dell'account principale. Quand
 ![Schermata Aggiungi account dell'app Authenticator](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
 
  Passare al riquadro **Impostazioni** usando la barra dei menu a destra. Selezionare **Registrazione del dispositivo** in **Account aziendale o dell'istituto di istruzione**.
- 
+
  ![Schermata Aggiungi account dell'app Authenticator](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
  Quando si fa clic su questo pulsante, viene chiesto di autorizzare l'accesso ai contatti del dispositivo. Questa richiesta è dovuta all'integrazione dell'account di Android nel dispositivo. Scegliere **Consenti**.
@@ -254,16 +251,16 @@ Il dispositivo è ora in modalità condivisa.
 
 ## <a name="view-the-shared-device-in-the-azure-portal"></a>Visualizzare il dispositivo condiviso nel portale di Azure
 
-Dopo che un dispositivo è stato messo in modalità condivisa, diventa noto all'organizzazione e ne viene tenuta traccia nel tenant dell'organizzazione. È possibile visualizzare i dispositivi condivisi controllando il valore di **Tipo di aggiunta** nel pannello Azure Active Directory del portale di Azure.
+Dopo che un dispositivo è stato impostato in modalità condivisa, diventa noto all'organizzazione e ne viene tenuta traccia nel tenant dell'organizzazione. È possibile visualizzare i dispositivi condivisi controllando il valore di **Tipo di aggiunta** nel pannello Azure Active Directory del portale di Azure.
 
 ![Pannello Tutti i dispositivi nel portale di Azure](media/tutorial-v2-shared-device-mode/registered-device-screen.png)
 
 ## <a name="running-the-sample-app"></a>Esecuzione dell'app di esempio
 
-L'applicazione di esempio è un'app semplice che chiama l'API Graph dell'organizzazione. Alla prima esecuzione verrà chiesto di fornire il consenso, in quanto l'applicazione è nuova per l'account del dipendente.
+L'applicazione di esempio è un'app semplice che chiama l'API Graph dell'organizzazione. Alla prima esecuzione verrà richiesto di fornire il consenso, in quanto l'applicazione è nuova per l'account del dipendente.
 
 ![Schermata di informazioni sulla configurazione dell'app](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla modalità condivisa, vedere [Modalità dispositivo condiviso per dispositivi Android](shared-device-mode.md)
+Per altre informazioni sulla modalità condivisa, vedere [Modalità dispositivo condiviso per dispositivi Android](msal-android-shared-devices.md)

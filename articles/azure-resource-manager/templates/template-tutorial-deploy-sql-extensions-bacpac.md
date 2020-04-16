@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e65ebbfa0971bf2156165b55ca18eee3cc74bc9
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239285"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754321"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Esercitazione: Importare file BACPAC SQL con i modelli di Azure Resource Manager
 
-Informazioni su come usare estensioni per il database SQL di Azure per importare un file BACPAC con modelli di Azure Resource Manager. Gli artefatti della distribuzione sono tutti i file, oltre ai file modello principali, necessari per completare una distribuzione. Il file BACPAC è uno di questi elementi. 
+Informazioni su come usare estensioni per il database SQL di Azure per importare un file BACPAC con modelli di Azure Resource Manager. Gli artefatti della distribuzione sono tutti i file, oltre ai file modello principali, necessari per completare una distribuzione. Il file BACPAC è uno di questi elementi.
 
 In questa esercitazione verrà creato un modello per distribuire un server di Azure SQL e un database SQL e importare un file BACPAC. Per informazioni su come distribuire le estensioni macchina virtuale di Azure tramite modelli di Azure Resource Manager, vedere [Esercitazione: Distribuire estensioni di macchina virtuale con i modelli di Azure Resource Manager](./template-tutorial-deploy-vm-extensions.md).
 
@@ -255,7 +255,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati distribuiti un server SQL e un database SQL ed è stato importato un file BACPAC. Il file BACPAC viene archiviato in un account di archiviazione di Azure. Chiunque abbia l'URL può accedere al file. Per informazioni su come proteggere il file BACPAC (artefatto), vedere:
+In questa esercitazione sono stati distribuiti un server SQL e un database SQL ed è stato importato un file BACPAC. Per informazioni su come risolvere i problemi di distribuzione del modello, vedere:
 
 > [!div class="nextstepaction"]
-> [Secure the artifacts](./template-tutorial-secure-artifacts.md) (Proteggere gli elementi)
+> [Risolvere i problemi delle distribuzioni di modelli di Azure Resource Manager](./template-tutorial-troubleshoot.md)

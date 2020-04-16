@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c50e82647b22a18edee92f47abc1d136670cacc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441270"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519664"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Esercitazione: Compilare un'app Web Node.js con l’SDK JavaScript per gestire un account API SQL in Azure Cosmos DB 
 
@@ -83,7 +83,7 @@ A questo punto si creerà un progetto base Node.js Hello World usando il framewo
    npm start
    ```
 
-1. È possibile visualizzare la nuova applicazione passando con il browser all'indirizzo [http://localhost:3000](http://localhost:3000).
+1. È possibile visualizzare la nuova applicazione passando a `http://localhost:3000` nel browser.
    
    ![Informazioni su Node.js - schermata dell'applicazione Hello World in una finestra del browser](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -359,7 +359,7 @@ Dopo aver completato l'installazione e la configurazione iniziali, è necessario
 
 ## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>Creare un'interfaccia utente
 
-Ora si creerà l'interfaccia utente in modo che un utente possa interagire con l'applicazione. L'applicazione Express creata nelle sezioni precedenti usa **Jade** come motore di visualizzazione.
+Ora si procederà alla creazione dell'interfaccia utente per consentire agli utenti di interagire con l'applicazione. L'applicazione Express creata nelle sezioni precedenti usa **Jade** come motore di visualizzazione.
 
 1. Il file **layout.jade** della directory **views** viene usato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare Twitter Bootstrap, un toolkit di progettazione di siti Web.  
 
