@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
-ms.openlocfilehash: 332d7e4cae3b65d794d48d208b54db3809b78a8f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f12b5c158025db89dcc64a3be03b263f95a3a64c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632376"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261359"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Esercitazione: Inviare un messaggio di posta elettronica da un runbook di Automazione di Azure
 
@@ -81,7 +81,7 @@ Per usare Azure Key Vault in un runbook, sono necessari i moduli seguenti dell'a
 
 Fare clic su <kbd>Distribuisci in Automazione di Azure</kbd> nella scheda Automazione di Azure in Opzioni di installazione. Verrà aperto il portale di Azure. Nella pagina Importa selezionare l'account di Automazione e fare clic su <kbd>OK</kbd>.
 
-Per altri metodi di aggiunta dei metodi richiesti, vedere [Importare i moduli](/azure/automation/shared-resources/modules#import-modules).
+Per altri metodi di aggiunta dei metodi richiesti, vedere [Importare i moduli](/azure/automation/shared-resources/modules#importing-modules).
 
 ## <a name="create-the-runbook-to-send-an-email"></a>Creare il runbook per inviare un messaggio di posta elettronica
 

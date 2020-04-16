@@ -1,19 +1,19 @@
 ---
 title: Esempi di Azure PowerShell - Collegare e usare dischi dati
 description: Questo script crea un set di scalabilità di macchine virtuali di Azure, quindi collega e prepara i dischi dati tramite PowerShell.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: sample
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: ea18b6d2271d56d9a2287b92678ef8bfcab891a5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bff0bb0673862d614aac5bb783bc501516871b29
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76279135"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010399"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Collegare e usare dischi dati con un set di scalabilità di macchine virtuali tramite PowerShell
 Questo script crea un set di scalabilità di macchine virtuali e collega e prepara dischi dati.

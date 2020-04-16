@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 526922d73f2176825b8bba8982316f3c9c129963
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ac134dce5ad739d1d81ef0c62a6bfb04468cafff
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473574"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991110"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Guida introduttiva: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
@@ -306,8 +306,3 @@ Per consultare il repository MSAL per documentazione, domande frequenti, problem
 
 > [!div class="nextstepaction"]
 > [Repository MSAL.js di GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js)
-
-Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
-
-> [!div class="nextstepaction"]
-> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

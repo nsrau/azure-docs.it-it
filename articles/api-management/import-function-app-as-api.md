@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c393ba081b480408373ed6867624ac6278c1674e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209189"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260956"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importare un'app per le funzioni di Azure come API in Gestione API di Azure
 
@@ -118,7 +118,7 @@ L'importazione di un'app per le funzioni di Azure genera automaticamente:
 * la chiave host nell'app per le funzioni, con il nome apim-{*nome istanza del servizio Gestione API di Azure*},
 * il valore denominato nell'istanza di Gestione API di Azure, con il nome {*nome istanza dell'app per le funzioni di Azure*}-key, che contiene la chiave host creata.
 
-Per le API create dopo il 4 aprile 2019, la chiave host viene passata nelle richieste HTTP da Gestione API all'app per le funzioni in un'intestazione. Le API precedenti passano la chiave host come [parametro di query](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Questo comportamento può essere modificato tramite la [chiamata API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) `PATCH Backend` sull'entità *Back-end* associata all'app per le funzioni.
+Per le API create dopo il 4 aprile 2019, la chiave host viene passata nelle richieste HTTP da Gestione API all'app per le funzioni in un'intestazione. Le API precedenti passano la chiave host come [parametro di query](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Questo comportamento può essere modificato tramite la [chiamata API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) `PATCH Backend` sull'entità *Back-end* associata all'app per le funzioni.
 
 > [!WARNING]
 > Se si rimuove o si modifica il valore della chiave host dell'app per le funzioni di Azure o il valore denominato di Gestione API di Azure, la comunicazione tra i servizi sarà interrotta. I valori non vengono sincronizzati automaticamente.

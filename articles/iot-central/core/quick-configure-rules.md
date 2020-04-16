@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 4bbf571d6b73a6f43c1c3b1ce261da6963a74183
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 66c3bd8650d1194d5d753c1dc967ec8e870c8748
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77169486"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998973"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Guida introduttiva: Configurare regole e azioni per il dispositivo in Azure IoT Central
 
@@ -24,7 +24,7 @@ In questo argomento di avvio rapido si crea una regola che invia un messaggio di
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è consigliabile completare i due argomenti di avvio rapido precedenti, [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md), per creare il modello di dispositivo **MXChip IoT DevKit** da usare.
+Prima di iniziare, è consigliabile completare i due argomenti di avvio rapido precedenti, [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-simulated-device.md), per creare il modello di dispositivo **MXChip IoT DevKit** da usare.
 
 ## <a name="create-a-telemetry-based-rule"></a>Creare una regola basata su dati di telemetria
 

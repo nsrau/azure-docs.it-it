@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 6c2514bd078cc3feee4bd2802cf314079b824311
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f1f83fdd73816e6e30c5cac7d193719591bb8dc1
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77022121"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999012"
 ---
 # <a name="in-store-analytics-architecture"></a>Architettura di analisi punti vendita
 
@@ -51,7 +51,7 @@ Azure IoT Central offre all'esercente anche un'esperienza personalizzata consent
 L'applicazione Azure IoT Central all'interno di una soluzione può essere configurata per l'esportazione di dati analitici non elaborati o aggregati in un set di servizi Azure PaaS (Platform-as-a Service) che possono eseguire la manipolazione dei dati e arricchirli prima di inviarli a un'applicazione aziendale. 
 
 ## <a name="business-application"></a>Applicazione aziendale
-I dati IoT possono essere utili per supportare diversi tipi di applicazioni aziendali distribuite all'interno di un ambiente retail. Un responsabile o un dipendente del punto vendita può usare queste applicazioni per visualizzare informazioni aziendali dettagliate e intraprendere azioni significative in tempo reale. Per informazioni su come creare un dashboard di Power BI in tempo reale per il team di vendita al dettaglio, seguire l'[esercitazione](./tutorial-in-store-analytics-create-app-pnp.md).
+I dati IoT possono essere utili per supportare diversi tipi di applicazioni aziendali distribuite all'interno di un ambiente retail. Un responsabile o un dipendente del punto vendita può usare queste applicazioni per visualizzare informazioni aziendali dettagliate e intraprendere azioni significative in tempo reale. Per informazioni su come creare un dashboard di Power BI in tempo reale per il team di vendita al dettaglio, seguire l'[esercitazione](./tutorial-in-store-analytics-create-app.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Iniziare con i modelli di applicazione [Analisi punti vendita - Pagamento](https://aka.ms/checkouttemplate) e [Analisi punti vendita - Monitoraggio delle condizioni](https://aka.ms/conditiontemplate). 

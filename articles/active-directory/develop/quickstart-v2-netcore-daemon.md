@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c4580708c827ebf700808974d01ed30ab9d2162d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 1faaa7a925d807152fed1b08627e76341a101958
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883628"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113533"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph usando l'identità dell'app console
 
@@ -196,7 +196,6 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientSecret(config.ClientSecret)
                                           .WithAuthority(new Uri(config.Authority))
                                           .Build();
-);
 ```
 
 > | Dove: ||
@@ -245,8 +244,3 @@ Per altre informazioni sul flusso di autenticazione per questo scenario, vedere 
 
 > [!div class="nextstepaction"]
 > [Flusso di credenziali client OAuth](v2-oauth2-client-creds-grant-flow.md)
-
-Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
-
-> [!div class="nextstepaction"]
-> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

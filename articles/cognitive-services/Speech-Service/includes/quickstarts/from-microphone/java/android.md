@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: c37a52ea2a7d5f1d3e325c2f6d17bc075f50c5e0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 2641464e52b80c59b6c6b5a123ad1605c1d41495
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671245"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275474"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -78,5 +78,4 @@ Fare clic sul pulsante nell'applicazione per iniziare una sezione dedicata al ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[!INCLUDE [footer](./footer.md)]
-
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

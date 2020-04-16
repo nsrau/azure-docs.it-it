@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5f12b77f5baa1a3b06a093aac7267c65a038881e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 95386af4522adca1d65e04b01c2a349a80e9ab8a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061024"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273478"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurare una VPN da punto a sito in Windows per l'uso con File di Azure
 È possibile usare una connessione VPN da punto a sito per montare le condivisioni file di Azure su SMB dall'esterno di Azure, senza aprire la porta 445. Una connessione VPN da punto a sito è una connessione VPN tra Azure e un singolo client. Per usare una connessione VPN da punto a sito con File di Azure, è necessario configurarla per ogni client da connettere. Se è necessario connettere molti client alle condivisioni file di Azure dalla rete locale, è possibile usare una connessione VPN da sito a sito invece di una da punto a sito per ogni client. Per altre informazioni, vedere [Configurare una VPN da sito a sito per l'uso con File di Azure](storage-files-configure-s2s-vpn.md).
@@ -138,7 +138,7 @@ $vpnName = "<desired-vpn-name-here>"
 $publicIpAddressName = "$vpnName-PublicIP"
 
 $publicIPAddress = New-AzPublicIpAddress `
-    -ResourceGroupName $resourceGroupName ` 
+    -ResourceGroupName $resourceGroupName `
     -Name $publicIpAddressName `
     -Location $region `
     -Sku Basic `
@@ -242,7 +242,7 @@ foreach ($session in $sessions) {
         -ArgumentList `
             $mypwd, `
             $vpnTemp, `
-            $virtualNetworkName
+            $virtualNetworkName `
         -ScriptBlock { 
             $mypwd = $args[0] 
             $vpnTemp = $args[1]
@@ -267,7 +267,7 @@ foreach ($session in $sessions) {
 
             Add-VpnConnection `
                 -Name $virtualNetworkName `
-                -ServerAddress $vpnProfile.VpnServer ` 
+                -ServerAddress $vpnProfile.VpnServer `
                 -TunnelType Ikev2 `
                 -EncryptionLevel Required `
                 -AuthenticationMethod MachineCertificate `
