@@ -3,20 +3,20 @@ title: 'Guida introduttiva: Eseguire la sintesi vocale in un altoparlante - Serv
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà Speech SDK per convertire il testo in sintesi vocale e riprodurre l'output in un altoparlante.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 95cf6ea645e4a9a769e95692e1116ec2f1ac8c61
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e624c6c291dcd3ac17571cd93d67ac909d04f3d4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77119420"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400411"
 ---
 # <a name="quickstart-synthesize-speech-to-a-speaker"></a>Guida introduttiva: Sintetizzare la voce in un altoparlante
 

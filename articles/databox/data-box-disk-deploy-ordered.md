@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7b27f10567816884b14a0a2c69e3bd8e85cb7a76
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70012933"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398711"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Esercitazione: Ordinare un disco di Azure Data Box
 
@@ -33,12 +33,7 @@ Prima della distribuzione completare i prerequisiti di configurazione seguenti p
 
 ### <a name="for-service"></a>Per il servizio
 
-Prima di iniziare, verificare che:
-- Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
-- La sottoscrizione usata per il servizio Data Box sia di uno dei tipi seguenti:
-    - Contratto Enterprise Microsoft. Altre informazioni sui [contratti Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Cloud Solution Provider (CSP). Altre informazioni sul [programma Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-- Si abbia accesso alla sottoscrizione come proprietario o collaboratore per creare un ordine Data Box.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Per il dispositivo
 

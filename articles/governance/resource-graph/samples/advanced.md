@@ -3,16 +3,16 @@ title: Esempi di query avanzate
 description: Usare Azure Resource Graph per eseguire alcune query avanzate, ad esempio per usare le colonne, elencare i tag usati e cercare la corrispondenza di risorse con espressioni regolari.
 ms.date: 03/20/2020
 ms.topic: sample
-ms.openlocfilehash: 98e80d0977ec23cba8b8c497373b6e89b52d430e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d0e7a9be37f9baf471584ee3fe26c52d13b3084
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80130519"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381497"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Esempi di query di Resource Graph
 
-Il primo passaggio per capire le query con Azure Resource Graph è conoscere i fondamenti del [linguaggio di query](../concepts/query-language.md). Se non si ha familiarità con [Esplora dati di Azure](../../../data-explorer/data-explorer-overview.md), è consigliabile impararne le nozioni di base per capire come comporre richieste in grado di individuare le risorse desiderate.
+Il primo passaggio per capire le query con Azure Resource Graph è conoscere i fondamenti del [linguaggio di query](../concepts/query-language.md). Se non si ha familiarità con [Esplora dati di Azure](/azure/data-explorer/data-explorer-overview), è consigliabile impararne le nozioni di base per capire come comporre richieste in grado di individuare le risorse desiderate.
 
 Si esamineranno le query avanzate seguenti:
 

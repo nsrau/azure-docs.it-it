@@ -3,19 +3,19 @@ title: 'Avvio rapido: Creare un classificatore - Servizio Visione personalizzata
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido descrive come usare il sito Web di Visione personalizzata per creare un modello di classificazione di immagini.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.author: anroth
-ms.openlocfilehash: b664a586398e297a00ea9cd8fe68dc65e6ade5c8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.openlocfilehash: 56bdaa324420bf274e7cda8ac1c6506e4bc9ad21
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76170017"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404063"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Guida introduttiva: Come creare un classificatore con Visione personalizzata
 
@@ -45,7 +45,7 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 1. Immettere un nome e una descrizione per il progetto. Selezionare quindi un gruppo di risorse. Se l'account connesso è associato a un account Azure, l'elenco a discesa Gruppo di risorse visualizzerà tutti i gruppi di risorse di Azure che includono una risorsa Servizio visione artificiale personalizzato. 
 
    > [!NOTE]
-   > Se non sono disponibili gruppi di risorse, verificare di aver eseguito l'accesso a [customvision.ai](https://customvision.ai) con lo stesso account usato per il [portale di Azure](https://portal.azure.com/). Verificare inoltre di avere selezionato nel portale del servizio Visione personalizzata la stessa "Directory" di quella del portale di Azure in cui si trovano le risorse di Visione personalizzata. In entrambi i siti è possibile selezionare la directory nel menu a discesa dell'account nell'angolo superiore destro dello schermo. 
+   > Se non sono disponibili gruppi di risorse, verificare di aver eseguito l'accesso a [customvision.ai](https://customvision.ai) con lo stesso account usato per il [portale di Azure](https://portal.azure.com/). Verificare inoltre di avere selezionato nel portale del servizio Visione personalizzata la stessa "Directory" corrispondente alla directory del portale di Azure in cui si trovano le risorse di Visione personalizzata. In entrambi i siti è possibile selezionare la directory nel menu a discesa dell'account nell'angolo superiore destro dello schermo. 
 
 1. Selezionare __Classificazione__ in __Project Types__ (Tipi di progetto). In __Classification Types__ (Tipi di classificazione) scegliere quindi **Multilabel** (Multietichetta) o **Multiclass** (Multiclasse), a seconda del caso d'uso. La classificazione multietichetta applica un numero qualsiasi di tag a un'immagine (zero o più), mentre la classificazione multiclasse ordina le immagini in categorie singole (ogni immagine inviata verrà ordinata nel tag più probabile). Sarà possibile modificare il tipo di classificazione in un secondo momento, se si desidera.
 

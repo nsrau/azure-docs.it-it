@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a418841d91ab6b8fe5457f3fd64d91306fe08dfe
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199331"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383122"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Informazioni su come viene applicato lo sconto per la prenotazione ad Esplora dati di Azure
 
@@ -65,7 +65,7 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-* [Pagamento anticipato per le risorse di calcolo di Esplora dati di Azure con la capacità riservata di Esplora dati di Azure](../../data-explorer/pricing-reserved-capacity.md)  
+* [Pagamento anticipato per le risorse di calcolo di Esplora dati di Azure con la capacità riservata di Esplora dati di Azure](/azure/data-explorer/pricing-reserved-capacity)  
 * [Informazioni sulle prenotazioni di Azure](save-compute-costs-reservations.md)  
 * [Gestire le prenotazioni di Azure](manage-reserved-vm-instance.md)  
 * [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](understand-reserved-instance-usage.md)
