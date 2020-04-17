@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: da260074fc69fac9e98d3698bb2d40fdf80d7118
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57d6a2024cd6fd979426ca5de5e261f110f6156f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77252043"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537951"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gestire la cache dal portale di AzureManage your cache from the Azure portal
 
@@ -88,13 +88,6 @@ I volumi di archiviazione back-end usati come destinazioni di archiviazione non 
 > La cache HPC di Azure non scrive automaticamente i dati modificati dalla cache ai sistemi di archiviazione back-end prima di eliminare la cache.
 >
 > Per assicurarsi che tutti i dati nella cache siano stati scritti nell'archivio a lungo termine, [arrestare la cache](#stop-the-cache) prima di eliminarla. Assicurarsi che mostri lo stato **Interrotto** prima di fare clic sul pulsante Elimina.
-<!--... written to long-term storage, follow this procedure:
->
-> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
-> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
-> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
->
-> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## <a name="cache-metrics-and-monitoring"></a>Metriche e monitoraggio della cache
 
@@ -106,6 +99,5 @@ Questi grafici fanno parte degli strumenti di monitoraggio e analisi predefiniti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-<!-- * Learn more about metrics and statistics for hpc cache -->
 * Altre informazioni sulle metriche e sugli [strumenti statistici](../azure-monitor/index.yml) di AzureLearn more about Azure metrics and statistics tools
 * Ottenere [assistenza per la cache HPC di AzureGet help with your Azure HPC Cache](hpc-cache-support-ticket.md)

@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae359e5210a9a11c33dd3ff9b474e28aa2548c57
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75889324"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536965"
 ---
 # <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Risolvere gli errori durante l'onboarding della gestione degli aggiornamenti, del rilevamento delle modifiche e dell'inventarioTroubleshoot errors when onboarding Update Management, Change Tracking, and Inventory
 
@@ -72,7 +72,7 @@ Questo errore è causato da autorizzazioni non corrette o mancanti nella macchin
 
 #### <a name="resolution"></a>Risoluzione
 
-Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding) e ripetere l'operazione. Se viene visualizzato `The solution cannot be enabled on this VM because the permission to read the workspace is missing`l'errore `Microsoft.OperationalInsights/workspaces/read` , assicurarsi di disporre dell'autorizzazione per poter individuare se la macchina virtuale è stata attivata in un'area di lavoro.
+Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding-permissions) e ripetere l'operazione. Se viene visualizzato `The solution cannot be enabled on this VM because the permission to read the workspace is missing`l'errore , `Microsoft.OperationalInsights/workspaces/read` assicurarsi di disporre dell'autorizzazione per poter individuare se la macchina virtuale è stata caricata in un'area di lavoro.
 
 ### <a name="scenario-onboarding-fails-with-the-message---failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: Onboarding non riesce con il messaggio - Impossibile configurare l'account di automazione per la registrazione diagnosticaScenario: Onboarding fails with the message - Failed to configure Automation Account for diagnostic logging
 
@@ -162,7 +162,7 @@ Dopo aver rimosso le soluzioni, è possibile scollegare l'area di lavoro. È imp
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Quando si distribuisce una soluzione, vengono distribuite anche varie risorse correlate. Una di queste risorse è l'estensione Microsoft Monitoring Agent o l'agente di Log Analytics per Linux. Si tratta di estensioni di macchine virtuali installate dall'agente guest della macchina virtuale responsabile della comunicazione con l'area di lavoro Log Analytics configurata, allo scopo di un successivo coordinamento del download dei file binari e di altri file soluzione che si sta onboarding dipendono una volta che inizia l'esecuzione.
+Quando si distribuisce una soluzione, vengono distribuite anche varie risorse correlate. Una di queste risorse è l'estensione Microsoft Monitoring Agent o l'agente di Log Analytics per Linux. Si tratta di estensioni di macchine virtuali installate dall'agente guest della macchina virtuale responsabile della comunicazione con l'area di lavoro Log Analytics configurata, allo scopo di un successivo coordinamento del download dei file binari e di altri file da cui dipende l'onboarding della soluzione dopo l'inizio dell'esecuzione.
 In genere gli errori di installazione dell'estensione MMA o dell'agente di Log Analytics per Linux vengono notificati nell'Hub di notifica. Facendo clic sulla notifica vengono visualizzate altre informazioni sull'errore specifico. Si possono visualizzare altri dettagli sugli errori di distribuzione che si sono verificati anche accedendo alla risorsa Gruppi di risorse e quindi all'elemento Distribuzioni al suo interno.
 L'installazione dell'estensione MMA o dell'agente di Log Analytics per Linux può non riuscire per diverse ragioni e la procedura per risolvere gli errori varia a seconda del problema. Di seguito vengono riportate le procedure per la risoluzione di problemi specifici.
 

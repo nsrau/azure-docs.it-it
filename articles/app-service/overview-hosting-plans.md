@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482344"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537645"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -32,7 +32,7 @@ Il _piano tariffario_ di un piano di servizio app determina le funzionalità del
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Ogni piano fornisce anche un subset specifico di funzionalità del servizio app. Queste funzionalità includono domini personalizzati e certificati SSL, scalabilità automatica, slot di distribuzione, backup, integrazione di Gestione traffico e altre. Il numero di funzionalità disponibili è direttamente proporzionale al livello del piano. Per conoscere le funzionalità disponibili supportate in ogni piano tariffario, vedere [Informazioni dettagliate sui piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Ogni piano fornisce anche un subset specifico di funzionalità del servizio app. Queste funzionalità includono domini personalizzati e certificati TLS/SSL, scalabilità automatica, slot di distribuzione, backup, integrazione di Gestione traffico e altro ancora. Il numero di funzionalità disponibili è direttamente proporzionale al livello del piano. Per conoscere le funzionalità disponibili supportate in ogni piano tariffario, vedere [Informazioni dettagliate sui piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
@@ -71,11 +71,11 @@ Fatta eccezione per il piano **Gratuito**, un piano di servizio app prevede una 
 - Nei livelli di calcolo dedicati (**Basic**, **Standard**, **Premium**, **PremiumV2**), il piano del servizio app definisce il numero di istanze di macchine virtuali a cui vengono ridimensionate le app, in modo che ogni istanza di _macchina virtuale_ nel piano di servizio app abbia un addebito orario. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
 - Nel piano **Isolato** l'ambiente del servizio app definisce il numero di ruoli di lavoro isolati che eseguono le app e _ogni ruolo di lavoro_ viene fatturato su base oraria. È anche prevista una tariffa di base oraria per l'esecuzione dell'ambiente del servizio app stesso.
 
-L'uso delle funzionalità del servizio app disponibili (configurazione di domini personalizzati, certificati SSL, slot di distribuzione, backup e così via) non viene addebitato. Le eccezioni sono le seguenti:
+Non viene addebitato alcun costo per l'utilizzo delle funzionalità del servizio app disponibili (configurazione di domini personalizzati, certificati TLS/SSL, slot di distribuzione, backup e così via). Le eccezioni sono le seguenti:
 
 - Domini del servizio app: si paga quando se ne acquista uno in Azure e per il rinnovo annuale.
 - Certificati del servizio app: si paga quando se ne acquista uno in Azure e per il rinnovo annuale.
-- Connessioni SSL basate su IP: è prevista una tariffa oraria per ogni connessione SSL basata su IP, ma alcuni piani **Standard** o superiori offrono una connessione SSL basata su IP gratuita. Le connessioni SSL basate su SNI sono gratuite.
+- Connessioni TLS basate su IP- C'è un costo orario per ogni connessione TLS basata su IP, ma alcuni livelli **Standard** o superiore ti dà una connessione TLS basata su IP gratuitamente. Le connessioni TLS basate su SNI sono gratuite.
 
 > [!NOTE]
 > Se si integra il servizio app con un altro servizio di Azure, potrebbe essere necessario tenere presenti le tariffe per questi altri servizi. Se ad esempio si usa Gestione traffico di Azure per ridimensionare l'app geograficamente, anche Gestione traffico di Azure viene fatturato in base all'utilizzo. Per valutare il costo per tutti i servizi in Azure, vedere [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/). 
@@ -86,7 +86,7 @@ L'uso delle funzionalità del servizio app disponibili (configurazione di domini
 
 È possibile passare a un piano di servizio app superiore o inferiore in qualsiasi momento. È semplice come cambiare il piano tariffario. È possibile scegliere prima un piano tariffario inferiore e passare a uno superiore in seguito, quando sono necessarie altre funzionalità del servizio app.
 
-È ad esempio possibile avviare il test dell'app Web in un piano di servizio app **Gratuito** senza pagare nulla. Quando si vuole aggiungere il [nome DNS personalizzato](app-service-web-tutorial-custom-domain.md) all'app Web, è sufficiente passare al piano superiore **Condiviso**. Successivamente, quando si desidera [creare un'associazione SSL](configure-ssl-bindings.md), ridimensionare il piano fino al livello **Basic.** Quando sono necessari [ambienti di staging](deploy-staging-slots.md), passare al piano superiore **Standard**. Quando sono necessari più core, memoria o risorse di archiviazione, passare a dimensioni delle VM superiori nello stesso piano.
+È ad esempio possibile avviare il test dell'app Web in un piano di servizio app **Gratuito** senza pagare nulla. Quando si vuole aggiungere il [nome DNS personalizzato](app-service-web-tutorial-custom-domain.md) all'app Web, è sufficiente passare al piano superiore **Condiviso**. Successivamente, quando si desidera [creare un'associazione TLS](configure-ssl-bindings.md), ridimensionare il piano fino al livello Basic.Later, when you want to create a TLS binding , scale your plan up to **Basic** tier. Quando sono necessari [ambienti di staging](deploy-staging-slots.md), passare al piano superiore **Standard**. Quando sono necessari più core, memoria o risorse di archiviazione, passare a dimensioni delle VM superiori nello stesso piano.
 
 Lo stesso meccanismo funziona in ordine inverso. Quando le funzionalità di un piano superiore non sono più necessarie, è possibile passare a un piano inferiore per risparmiare.
 

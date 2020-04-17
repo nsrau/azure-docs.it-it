@@ -3,12 +3,12 @@ title: Configurare l'analisi di app Web per ASP.NET con Azure Application Insigh
 description: Configurare gli strumenti di analisi delle prestazioni, della disponibilità e del comportamento degli utenti per un sito Web ASP.NET, ospitato in locale o in Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdd5b1131a0d2d3e2f53840d21cedce1577fde03
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665919"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536897"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 
@@ -56,7 +56,7 @@ Se si vuole impostare il gruppo di risorse o la località in cui verranno archiv
 > [!NOTE]
 > Per non inviare i dati di telemetria al portale durante il debug, è possibile aggiungere Application Insights SDK all'app senza configurare una risorsa nel portale. È possibile visualizzare i dati di telemetria in Visual Studio durante il debug. Successivamente, è possibile tornare a questa pagina di configurazione oppure attendere di aver distribuito l'app e quindi [attivare la telemetria in fase di esecuzione](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
-## <a name="step-2-run-your-app"></a><a name="run"></a>Passaggio 2: Eseguire l'app
+## <a name="step-2-run-your-app"></a><a name="run"></a>Passaggio 2: esegui l'app
 Eseguire l'app con F5. Aprire pagine diverse per generare alcuni dati di telemetria.
 
 In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati registrati.
@@ -93,7 +93,7 @@ Nel portale verrà visualizzata la telemetria dell'app.
 Per visualizzare altri dettagli nel portale, fare clic su qualsiasi riquadro o grafico.
 
 ## <a name="step-4-publish-your-app"></a>Passaggio 4: Pubblicare l'app
-Pubblicare l'app nel server IIS o in Azure. Verificare in [Flusso metriche attive](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) che tutto funzioni correttamente.
+Pubblicare l'app nel server IIS o in Azure. Verificare in [Flusso metriche attive](../../azure-monitor/app/live-stream.md) che tutto funzioni correttamente.
 
 I dati di telemetria vengono aggiornati nel portale di Application Insights, in cui è possibile monitorare le metriche, eseguire ricerche nei dati di telemetria. nonché usare l'avanzato [linguaggio di query Kusto](/azure/kusto/query/) per analizzare l'utilizzo e le prestazioni o trovare eventi specifici.
 
@@ -125,7 +125,7 @@ Se sono state apportate personalizzazioni a ApplicationInsights.config, salvarne
 Se si è interessati, vedere gli argomenti alternativi seguenti:
 
 * [Strumentazione di un'app Web in fase di esecuzione](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Servizi cloud di AzureAzure Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md)
 
 ### <a name="more-telemetry"></a>Altri dati di telemetria
 

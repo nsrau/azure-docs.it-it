@@ -2,13 +2,13 @@
 title: Configurare Monitoraggio di Azure per i contenitori Prometheus Integration Documenti Microsoft
 description: Questo articolo descrive come configurare l'agente di Monitoraggio di Azure per i contenitori per eliminare le metriche da Prometheus con il cluster Kubernetes.This article describes how you can configure the Azure Monitor for containers agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 7fcf52cceb69834f68f8e4ce7a2674972a6430fd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931430"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537373"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurare il raschiamento delle metriche Prometheus con Monitoraggio di Azure per i contenitoriConfigure scraping of Prometheus metrics with Azure Monitor for containers
 
@@ -22,7 +22,6 @@ ms.locfileid: "75931430"
 Il raschiatura delle metriche Prometheus è supportato con i cluster Kubernetes ospitati su:
 
 - Servizio Azure Kubernetes
-- Istanze di Azure Container
 - Azure Stack o locale
 - Azure Red Hat OpenShift
 
@@ -76,7 +75,7 @@ Quando viene specificato un URL, Monitoraggio di Azure per i contenitori raschia
 |Scope | Chiave | Tipo di dati | valore | Descrizione |
 |------|-----|-----------|-------|-------------|
 | A livello di cluster | | | | Specificare uno dei tre metodi seguenti per raschiare gli endpoint per le metriche. |
-| | `urls` | string | Matrice delimitata da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio `urls=[$NODE_IP/metrics]`. ($NODE_IP è un parametro specifico di Monitoraggio di Azure per i contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutto maiuscolo.) |
+| | `urls` | string | Matrice delimitata da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE_IP è un parametro specifico di Monitoraggio di Azure per i contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutto maiuscolo.) |
 | | `kubernetes_services` | string | Matrice delimitata da virgole | Una serie di servizi Kubernetes per raschiare le metriche da kube-state-metrics. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | true o false | Se impostato `true` su nelle impostazioni a livello di cluster, l'agente di Monitoraggio di Azure per i contenitori eliminerà i pod Kubernetes nell'intero cluster per le annotazioni Prometheus seguenti:When set to in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true o false | Consente la raschiatura del baccello. `monitor_kubernetes_pods` deve essere impostato su `true`. |
@@ -84,7 +83,7 @@ Quando viene specificato un URL, Monitoraggio di Azure per i contenitori raschia
 | | `prometheus.io/path` | string | Matrice delimitata da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso `/metrics`delle metriche non è , definirlo con questa annotazione. |
 | | `prometheus.io/port` | string | 9102 | Specificare una porta da cui raschiare. Se la porta non è impostata, il valore predefinito sarà 9102.If port is not set, it will default to 9102. |
 | | `monitor_kubernetes_pods_namespaces` | string | Matrice delimitata da virgole | Un elenco consenti di spazi dei nomi per raschiare le metriche dai pod Kubernetes.<br> Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| A livello di nodo | `urls` | string | Matrice delimitata da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio `urls=[$NODE_IP/metrics]`. ($NODE_IP è un parametro specifico di Monitoraggio di Azure per i contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutto maiuscolo.) |
+| A livello di nodo | `urls` | string | Matrice delimitata da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE_IP è un parametro specifico di Monitoraggio di Azure per i contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutto maiuscolo.) |
 | A livello di nodo o a livello di clusterNode-wide or Cluster-wide | `interval` | string | 60s | Il valore predefinito dell'intervallo di raccolta è un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings.node]* e/o *[prometheus_data_collection_settings.cluster]* in unità di tempo come s, m, h. |
 | A livello di nodo o a livello di clusterNode-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| string | Matrice delimitata da virgole | È possibile specificare determinate metriche da raccogliere o`fieldpass`meno dall'endpoint`fielddrop`impostando l'elenco allow ( ) e disallow ( ). È necessario impostare prima l'elenco Consenti. |
 

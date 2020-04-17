@@ -13,19 +13,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 04/16/2020
 ms.author: juergent
 ms.custom: ''
-ms.openlocfilehash: 43fc2e9369b9d11b1ac0205beddea01b633fb633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e803da238ebdd728e772a15b0f29ae36d401a699
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598375"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536404"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Configurazioni e certificazioni SAP in esecuzione su Microsoft Azure
 
-SAP e Microsoft hanno una lunga storia di collaborazione che produce vantaggi per i reciproci clienti. Microsoft aggiorna costantemente la propria piattaforma e invia i dettagli di nuove certificazioni a SAP al fine di garantire la leadership di Microsoft Azure come piattaforma in cui eseguire carichi di lavoro SAP. Le tabelle seguenti illustrano le configurazioni supportate da Azure e un elenco sempre crescente di certificazioni SAP. 
+SAP e Microsoft hanno una lunga storia di collaborazione che produce vantaggi per i reciproci clienti. Microsoft aggiorna costantemente la propria piattaforma e invia i dettagli di nuove certificazioni a SAP al fine di garantire la leadership di Microsoft Azure come piattaforma in cui eseguire carichi di lavoro SAP. Le tabelle seguenti illustrano le configurazioni supportate da Azure e un elenco sempre crescente di certificazioni SAP. Questo elenco è un elenco generale che potrebbe deviare qua e là dagli elenchi ufficiali SAP. Come accedere ai dati dettagliati è documentato nell'articolo [Quale software SAP è supportato per le distribuzioni](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) di AzureHow to get to the detailed data is documented in the article What SAP software is supported for Azure deployments
 
 ## <a name="sap-hana-certifications"></a>Certificazioni SAP HANA
 Riferimenti:
@@ -52,17 +52,19 @@ Riferimenti:
 
 | Prodotto SAP | Sistema operativo guest | RDBMS | Tipi di macchine virtuali |
 | --- | --- | --- | --- |
-| Software SAP Business Suite | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 a A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2 , M208ms_v2, M416s_v2, M416ms_v2 |
-| SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 a A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2 , M208ms_v2, M416s_v2, M416ms_v2 |
-| SAP BusinessObjects BI | WINDOWS |N/D |Da A5 a A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2 , M208ms_v2, M416s_v2, M416ms_v2 |
-| SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 a A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2 , M208ms_v2, M416s_v2, M416ms_v2 |
+| Software SAP Business Suite | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
+| SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
+| SAP BusinessObjects BI | Windows |N/D |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
+| SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Altri carichi di lavoro SAP supportati in Azure
 
 | Prodotto SAP | Sistema operativo guest | RDBMS | Tipi di macchine virtuali |
 | --- | --- | --- | --- |
-| SAP Business One in SQL Server | WINDOWS  | SQL Server | Tutti i tipi di VM certificati per NetWeaver<br /> [Nota SAP #928839](https://launchpad.support.sap.com/#/notes/928839) |
+| SAP Business One in SQL Server | Windows  | SQL Server | Tutti i tipi di VM certificati per NetWeaver<br /> [Nota SAP #928839](https://launchpad.support.sap.com/#/notes/928839) |
 | SAP BPC 10.01 MS SP08 | Windows e Linux | | Tutti i tipi di VM certificati per NetWeaver<br /> Nota SAP n. 2451795 |
 | Piattaforma di business intelligence SAP Business Objects | Windows e Linux | | Nota SAP n. 2145537 |
 | SAP Data Services 4.2 | | | Nota SAP n. 2288344 |
-| SAP Hybris Commerce Platform 5.x e 6.x | WINDOWS | SQL Server, Oracle | Tutti i tipi di VM certificati per NetWeaver<br /> [Wiki di Hybris](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |
+| Piattaforma SAP Hybris Commerce  | Windows | SQL Server, Oracle | Tutti i tipi di VM certificati per NetWeaver <br /> [Wiki di Hybris](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
+| Piattaforma SAP Hybris Commerce  | SLES 12 o più recenti | SAP HANA | Tutti i tipi di VM certificati per NetWeaver <br /> [Wiki di Hybris](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
+| Piattaforma SAP Hybris Commerce  | RHEL 7 o più recente | SAP HANA | Tutti i tipi di VM certificati per NetWeaver <br /> [Wiki di Hybris](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |

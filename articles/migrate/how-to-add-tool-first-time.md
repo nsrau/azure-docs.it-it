@@ -1,17 +1,14 @@
 ---
 title: Aggiungere uno strumento di valutazione/migrazione in Azure MigrateAdd an assessment/migration tool in Azure Migrate
 description: Descrive come creare un progetto di Azure Migrate e aggiungere uno strumento di valutazione/migrazione.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/16/2020
+ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74185944"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537730"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Aggiungere uno strumento di valutazione/migrazione per la prima volta
 
@@ -30,35 +27,21 @@ Configurare un nuovo progetto di Azure Migrate in una sottoscrizione di Azure e 
 
     ![Configurare Azure Migrate](./media/how-to-add-tool-first-time/azure-migrate-search.png)
 
-3. In **Panoramica** fare clic su **Valutare ed eseguire la migrazione dei server **.
-4. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Valutare ed eseguire la migrazione dei server **.
+3. In **Panoramica** fare clic su **Valutare ed eseguire la migrazione dei server** .
+4. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Valutare ed eseguire la migrazione dei server** .
 
     ![Individuare e valutare i server](./media/how-to-add-tool-first-time/assess-migrate.png)
 
 1. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Aggiungi strumenti**.
 2. In **Progetto di migrazione** selezionare la sottoscrizione di Azure e creare un gruppo di risorse, se non se ne ha già uno.
-3. In **Dettagli progetto**specificare il nome del progetto e l'area geografica in cui si desidera creare il progetto. 
+3. In **Dettagli progetto**specificare il nome del progetto e l'area geografica in cui si desidera creare il progetto.  Esaminare le aree geografiche supportate per i cloud [pubblici](migrate-support-matrix.md#supported-geographies-public-cloud) e [governativi.](migrate-support-matrix.md#supported-geographies-azure-government)
 
     ![Creare un progetto di Azure Migrate](./media/how-to-add-tool-first-time/migrate-project.png)
 
-    È possibile creare un progetto di Azure Migrate in una delle aree geografiche seguenti.
+    - L'area geografica specificata per il progetto viene usato solo per archiviare i metadati raccolti da macchine virtuali locali. Per la migrazione effettiva è possibile selezionare qualsiasi area di destinazione.
+    - Se è necessario distribuire un progetto all'interno di un'area specifica in un'area geografica, usare l'API seguente per creare un progetto. Specificare l'ID sottoscrizione, il nome del gruppo di risorse e il nome del progetto, insieme al percorso. Esaminare le aree geografiche/aree geografiche per i cloud [pubblici](migrate-support-matrix.md#supported-geographies-public-cloud) e [governativi.](migrate-support-matrix.md#supported-geographies-azure-government)
 
-   **Geografia** | **Area della posizione di archiviazione**
-    --- | ---
-    Asia   | Asia sud-orientale o Asia orientale
-    Europa | Europa settentrionale o Europa occidentale
-    Giappone  | Giappone Est o Giappone Ovest
-    Regno Unito | Regno Unito meridionale o Regno Unito occidentale
-    Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
-    Canada | Canada centrale
-    India  | India Centrale o India Sud
-    Australia | Australia Sud-est
-
-    L'area geografica specificata per il progetto viene usato solo per archiviare i metadati raccolti da macchine virtuali locali. Per la migrazione effettiva è possibile selezionare qualsiasi area di destinazione.
-
-    Se si vuole specificare un'area specifica all'interno di un'area geografica per la distribuzione del progetto di migrazione e delle risorse associate (le restrizioni dei criteri nella sottoscrizione possono consentire la distribuzione di risorse di Azure solo in un'area di Azure specifica), è possibile usare l'API seguente per creare un progetto di migrazione. Specificare l'ID sottoscrizione, il nome del gruppo di risorse, Eseguire la migrazione del nome del progetto insieme alla posizione (una delle aree di Azure indicate nella tabella in cui viene distribuita Azure Migrate).
-
-    `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
+        `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
 
 
 4. Fare clic su **Avanti**e aggiungere uno strumento di valutazione o migrazione.
@@ -68,9 +51,9 @@ Configurare un nuovo progetto di Azure Migrate in una sottoscrizione di Azure e 
 
 5. In **Seleziona strumento di valutazione,** aggiungere uno strumento di valutazione. Se non è necessario uno strumento di valutazione, selezionare **Ignora l'aggiunta** > di uno strumento di valutazione per ora**Avanti**. 
 2. In **Seleziona strumento di migrazione**aggiungere uno strumento di migrazione in base alle esigenze. Se al momento non è necessario uno strumento di migrazione, selezionare **Ignora l'aggiunta** > di uno strumento di migrazione per ora**Avanti**.
-3. In **Revisione e aggiunta di strumenti**rivedere le impostazioni e fare clic su Aggiungi **strumenti**.
+3. In **Rivedi e aggiungi strumenti** rivedere le impostazioni e fare clic su **Aggiungi strumenti**.
 
-Dopo aver creato il progetto è possibile selezionare strumenti aggiuntivi per la valutazione e la migrazione di server e carichi di lavoro, database e app Web.
+Dopo aver creato il progetto, è possibile selezionare strumenti aggiuntivi per la valutazione e la migrazione di server e carichi di lavoro, database e app Web.
 
 ## <a name="create-additional-projects"></a>Creare progetti aggiuntivi
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ab342dba5c8be2ff3793c0eb36926969b3e364e5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655650"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537288"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per la cache HPC di AzurePrerequisites for Azure HPC Cache
 
@@ -20,9 +20,6 @@ Prima di usare il portale di Azure per creare una nuova cache HPC di Azure, assi
 ## <a name="azure-subscription"></a>Sottoscrizione di Azure
 
 Si consiglia un abbonamento a pagamento.
-
-> [!NOTE]
-> Durante i primi mesi della versione GA, il team della cache HPC di Azure deve aggiungere la sottoscrizione all'elenco di accesso prima di poterla usare per creare un'istanza della cache. Questa procedura consente di garantire che ogni cliente ottenga una risposta di qualità elevata dalle cache. Compila [questo modulo](https://aka.ms/onboard-hpc-cache) per richiedere l'accesso.
 
 ## <a name="network-infrastructure"></a>Infrastruttura di rete
 
@@ -84,11 +81,11 @@ Per creare un account di archiviazione compatibile, usare queste impostazioni:To
 * Livello di accesso (impostazione predefinita): **Hot**
 
 È consigliabile usare un account di archiviazione nella stessa posizione della cache.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 È inoltre necessario concedere all'applicazione cache l'accesso all'account di archiviazione di Azure, come indicato in [Autorizzazioni](#permissions), precedente. Seguire la procedura descritta in [Aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) per assegnare alla cache i ruoli di accesso necessari. Se non si è il proprietario dell'account di archiviazione, fare in modo che il proprietario eseri questo passaggio.
 
 ### <a name="nfs-storage-requirements"></a>Requisiti di archiviazione NFS
+<!-- linked from configuration.md -->
 
 Se si utilizza un sistema di archiviazione NFS (ad esempio, un sistema NAS hardware locale), assicurarsi che soddisfi questi requisiti. Potrebbe essere necessario collaborare con gli amministratori di rete o i gestori del firewall per il sistema di archiviazione (o il data center) per verificare queste impostazioni.
 

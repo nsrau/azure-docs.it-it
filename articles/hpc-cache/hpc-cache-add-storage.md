@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: cecafd9209b095270e9a06ca59ffef162326efc2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657420"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538002"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -117,8 +117,6 @@ Creare tutti i percorsi da una destinazione di archiviazione.
 Compilare questi valori per ogni percorso dello spazio dei nomi:Fill in these values for each namespace path:
 
 * **Percorso dello spazio dei nomi virtuale:** impostare il percorso del file rivolto al client per questa destinazione di archiviazione. Per altre informazioni sulla funzionalità dello spazio dei nomi virtuale, vedere [Configurare lo spazio dei nomi aggregato.](hpc-cache-namespace.md)
-
-<!--  The virtual path should start with a slash ``/``. -->
 
 * **Percorso esportazione NFS:** immettere il percorso dell'esportazione NFS.
 

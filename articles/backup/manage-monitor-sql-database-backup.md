@@ -3,12 +3,12 @@ title: Gestire e monitorare i database di SQL Server in una macchina virtuale di
 description: Questo articolo descrive come gestire e monitorare i database di SQL Server in esecuzione in una macchina virtuale di Azure.This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172148"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537305"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -38,7 +38,7 @@ Con i backup del log eseguiti ogni 15 minuti, monitorare i processi di backup pu
 
 Per monitorare gli avvisi di backup del database:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Nel dashboard dell'insieme di credenziali, selezionare **Avvisi ed eventi**.
 
@@ -59,7 +59,7 @@ Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quant
 
 - Tutti i punti di ripristino rimarranno invariati per sempre, tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
 - Verranno addebitati i addebiti per l'istanza protetta e l'archiviazione utilizzata. Per altre informazioni, vedere Prezzi di Backup di [Azure.For more information,](https://azure.microsoft.com/pricing/details/backup/)see Azure Backup pricing .
-- Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo.
+- Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo. I punti di ripristino precedenti scadranno in base ai criteri, ma un ultimo punto di ripristino verrà sempre mantenuto fino a quando non si interrompono i backup e si eliminano i dati.
 
 Per interrompere la protezione per un database:
 

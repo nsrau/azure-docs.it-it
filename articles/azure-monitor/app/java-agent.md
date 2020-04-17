@@ -3,12 +3,12 @@ title: Monitoraggio delle prestazioni delle app Web Java - Azure Application Ins
 description: Estendere il monitoraggio di prestazioni e utilizzo del sito Web Java con Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: b29618179d22eac97a07bf41906465aba1fd7929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657028"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537543"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorare le dipendenze, le eccezioni intercettate e i tempi di esecuzione dei metodi nelle app Web JavaMonitor dependencies, caught exceptions, and method execution times in Java web apps
 
@@ -135,4 +135,4 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md

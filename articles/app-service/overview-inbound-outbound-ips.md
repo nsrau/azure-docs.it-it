@@ -4,12 +4,12 @@ description: Informazioni sull'uso degli indirizzi IP in ingresso e in uscita ne
 ms.topic: article
 ms.date: 06/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279208"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537628"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Indirizzi IP in ingresso e in uscita in Servizio app di Azure
 
@@ -23,7 +23,7 @@ Indipendentemente dal numero di istanze cui è applicata scalabilità orizzontal
 
 - Eliminazione di un'app e sua successiva ricreazione in un gruppo di risorse diverso.
 - Eliminazione dell'ultima app in un gruppo di risorse _e_ combinazione di aree e sua ricreazione.
-- Eliminare un binding SSL esistente, ad esempio durante il rinnovo del certificato (vedere [Rinnovare](configure-ssl-certificate.md#renew-certificate)il certificato ).
+- Eliminare un binding TLS esistente, ad esempio durante il rinnovo del certificato (vedere [Rinnovare](configure-ssl-certificate.md#renew-certificate)il certificato ).
 
 ## <a name="find-the-inbound-ip"></a>Trovare l'IP in ingresso
 
@@ -35,7 +35,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="get-a-static-inbound-ip"></a>Ottenere un IP statico in ingressoGet a static inbound IP
 
-A volte è necessario un indirizzo IP statico dedicato per l'app. Per ottenere un indirizzo IP in ingresso statico, è necessario configurare un'[associazione SSL basata su IP](configure-ssl-bindings.md#secure-a-custom-domain). Se la funzionalità SSL non è effettivamente necessaria per proteggere l'app, è anche possibile caricare un certificato autofirmato per questa associazione. In un'associazione SSL basata su IP il certificato è associato all'indirizzo IP stesso e di conseguenza Servizio app di Azure effettua il provisioning di un indirizzo IP statico a questo scopo. 
+A volte è necessario un indirizzo IP statico dedicato per l'app. Per ottenere un indirizzo IP in ingresso statico, è necessario [proteggere un dominio personalizzato.](configure-ssl-bindings.md#secure-a-custom-domain) Se non hai effettivamente bisogno della funzionalità TLS per proteggere la tua app, puoi anche caricare un certificato autofirmato per questa associazione. In un'associazione TLS basata su IP, il certificato è associato all'indirizzo IP stesso, pertanto il servizio app esegue il provisioning di un indirizzo IP statico per farlo accadere. 
 
 ## <a name="when-outbound-ips-change"></a>Casi in cui gli indirizzi IP in uscita cambiano
 

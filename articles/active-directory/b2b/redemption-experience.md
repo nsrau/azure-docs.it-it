@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043e0f3a0ff2c1c642c63a387c571b575f77cf7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0645807aa40557c163643f1393c310668518f9be
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050827"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535137"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -52,6 +52,36 @@ In alcuni casi l'e-mail di invito è consigliata tramite un collegamento diretto
  - È a volte possibile che l'oggetto utente invitato non abbia un indirizzo di posta elettronica a causa di un conflitto con un oggetto contatto (ad esempio, un oggetto contatto di Outlook). In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di invito.
  - L'utente può accedere con un alias dell'indirizzo di posta elettronica invitato. Un alias è un indirizzo di posta elettronica aggiuntivo associato a un account di posta elettronica. In questo caso, l'utente deve fare clic sull'URL di riscatto nell'e-mail di invito.
 
+## <a name="invitation-redemption-flow"></a>Flusso di riscatto dell'invito
+
+Quando un utente fa clic sul collegamento Accetta invito in un messaggio di posta elettronica di [invito,](invitation-email-elements.md)Azure AD riscatta automaticamente l'invito in base al flusso di riscatto, come illustrato di seguito:When a user clicks the **Accept invitation** link in an invitation email , Azure AD automatically redeems the invitation on the redemption flow as shown below:
+
+![Screenshot che mostra il diagramma di flusso di riscatto](media/redemption-experience/invitation-redemption-flow.png)
+
+1. Il processo di riscatto verifica se l'utente dispone di un account Microsoft personale [(MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)esistente.
+
+2. Se un amministratore ha abilitato la [federazione diretta](direct-federation.md), Azure AD verifica se il suffisso di dominio dell'utente corrisponde al dominio di un provider di identità SAML/WS-Fed configurato e reindirizza l'utente al provider di identità preconfigurato.
+
+3. Se un amministratore ha abilitato la [federazione di Google](google-federation.md), Azure AD verifica se il suffisso di dominio dell'utente è gmail.com o googlemail.com e reindirizza l'utente a Google.
+
+4. Azure AD esegue l'individuazione basata sull'utente per determinare se l'utente esiste in un tenant di [Azure AD esistente.](what-is-b2b.md#easily-add-guest-users-in-the-azure-ad-portal)
+
+5. Una volta identificata la **home directory** dell'utente, l'utente viene inviato al provider di identità corrispondente per l'accesso.  
+
+6. Se i passaggi da 1 a 4 non riescono a trovare una home directory per l'utente invitato, Azure AD determina se il tenant invitante ha abilitato la funzionalità [di passcode monouso (OTP) tramite posta elettronica](one-time-passcode.md) per gli ospiti.
+
+7. Se l'opzione [E-mail passcode per gli ospiti è abilitata,](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode)viene inviato un passcode all'utente tramite l'e-mail invitata. L'utente recupererà e immetterà questo passcode nella pagina di accesso di Azure AD.
+
+8. Se il passcode monouso per i guest tramite posta elettronica è disabilitato, Azure AD controlla il suffisso di dominio rispetto a un elenco di domini consumer gestito da Microsoft.If Email one-time passcode for guests is disabled, Azure AD checks the domain suffix against a consumer domain list maintained by Microsoft. Se il dominio corrisponde a qualsiasi dominio nell'elenco dei domini consumer, all'utente viene richiesto di creare un account Microsoft personale. In caso contrario, all'utente viene richiesto di creare un [account self-service](../users-groups-roles/directory-self-service-signup.md) di Azure AD (account virale).
+
+9. Azure AD tenta di creare un account self-service di Azure AD (account virale) verificando l'accesso alla posta elettronica. La verifica dell'account viene eseguita inviando un codice al messaggio di posta elettronica e facendo in modo che l'utente recuperi e lo invii ad Azure AD. Tuttavia, se il tenant dell'utente invitato è federato o se il campo AllowEmailVerifiedUsers è impostato su false nel tenant dell'utente invitato, l'utente non è in grado di completare il riscatto e il flusso genera un errore. Per altre informazioni, vedere Risoluzione dei problemi di [collaborazione B2B](troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption)di Azure Active Directory .
+
+10. All'utente viene richiesto di creare un account Microsoft personale (MSA).
+
+11. Dopo l'autenticazione al provider di identità corretto, l'utente viene reindirizzato ad Azure AD per completare l'esperienza di [consenso.](redemption-experience.md#consent-experience-for-the-guest)  
+
+Per i rimborsi JIT, in cui il riscatto è tramite un collegamento a un'applicazione tenant, i passaggi da 8 a 10 non sono disponibili. Se un utente raggiunge il passaggio 6 e la funzionalità di passcode monouso di posta elettronica non è abilitata, l'utente riceve un messaggio di errore e non è in grado di riscattare l'invito. Per evitare questo problema, gli amministratori devono abilitare il [passcode monouso](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) di Posta elettronica o assicurarsi che l'utente fa clic su un collegamento di invito.
+
 ## <a name="consent-experience-for-the-guest"></a>Esperienza di consenso per l'ospite
 
 Quando un ospite accede per accedere alle risorse di un'organizzazione partner per la prima volta, viene guidato tramite le pagine seguenti. 
@@ -67,8 +97,7 @@ Quando un ospite accede per accedere alle risorse di un'organizzazione partner p
 
    ![Screenshot che mostra le nuove condizioni per l'utilizzo](media/redemption-experience/terms-of-use-accept.png) 
 
-   > [!NOTE]
-   > È possibile configurare [le condizioni per l'utilizzo](../governance/active-directory-tou.md) in **Gestire le** > **relazioni organizzative** > **Condizioni per l'utilizzo**.
+   È possibile configurare [le condizioni per l'utilizzo](../governance/active-directory-tou.md) in **Gestire le** > **relazioni organizzative** > **Condizioni per l'utilizzo**.
 
 3. Se non diversamente specificato, il guest viene reindirizzato al pannello di accesso App, che elenca le applicazioni a cui il guest può accedere.
 

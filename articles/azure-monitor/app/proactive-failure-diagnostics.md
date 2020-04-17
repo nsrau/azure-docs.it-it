@@ -4,12 +4,12 @@ description: Avvisa sui cambiamenti insoliti nella frequenza delle richieste non
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671750"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536812"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se l'app Web registra un aumento anomalo della frequenza delle richieste non riuscite. rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per le richieste, le richieste non riuscite hanno in genere codici di risposta pari o superiori a 400. Per facilitare la verifica e la diagnosi del problema, nei dettagli dell'avviso viene fornita un'analisi delle caratteristiche degli errori e dei dati correlati dell'applicazione. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
@@ -353,7 +353,7 @@ Il rilevamento intelligente delle anomalie degli errori integra altre funzionali
 ## <a name="next-steps"></a>Passaggi successivi
 Questi strumenti di diagnostica consentono di controllare i dati dall'app:These diagnostic tools help you inspect the data from your app:
 
-* [Esplora metriche](../../azure-monitor/app/metrics-explorer.md)
+* [Esplora metriche](../../azure-monitor/platform/metrics-charts.md)
 * [Esplora ricerche](../../azure-monitor/app/diagnostic-search.md)
 * [Linguaggio avanzato di query di Analisi](../../azure-monitor/log-query/get-started-portal.md)
 

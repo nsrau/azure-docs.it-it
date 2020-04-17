@@ -12,12 +12,12 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f3585cfa7ea6f0d8afc61e899f9641d415a2e354
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77161189"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537237"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover della chiave di firma in Azure Active Directory
 Questo articolo illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante notare che queste chiavi si rotolano su base periodica e, in caso di emergenza, potrebbero essere annullate immediatamente. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave o stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
@@ -146,7 +146,7 @@ I passaggi seguenti consentono di verificare il corretto funzionamento della log
 ### <a name="web-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>API Web che proteggono le risorse e sono state create con Visual Studio 2013
 Se l'applicazione API Web è stata creata in Visual Studio 2013 tramite il modello API Web ed è stata selezionata l'opzione **Account aziendali** nel menu **Modifica autenticazione**, la logica necessaria è già disponibile nell'applicazione.
 
-Se l'autenticazione è stata configurata manualmente, seguire queste istruzioni per informazioni su come configurare l'API Web per aggiornare automaticamente le informazioni sulle chiavi.
+Se hai configurato manualmente l'autenticazione, segui le istruzioni riportate di seguito per scoprire come configurare l'API Web per aggiornare automaticamente le informazioni chiave.
 
 Il frammento di codice seguente illustra come ottenere le chiavi più recenti dal documento di metadati della federazione e quindi usare il [gestore dei token JWT](https://msdn.microsoft.com/library/dn205065.aspx) per convalidare il token. Il frammento di codice presuppone che si userà il proprio meccanismo di memorizzazione nella cache per mantenere la chiave per la convalida dei futuri token di Azure AD, che si trovino in un database, in un file di configurazione o altrove.
 
@@ -308,4 +308,3 @@ Se la chiave è archiviata in una posizione qualsiasi o è hardcoded nell'applic
 
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Come eseguire un rollover manuale se l'applicazione non supporta il rollover automatico
 Se l'applicazione **non** supporta il rollover automatico, sarà necessario stabilire un processo che monitori periodicamente le chiavi di firma di Azure AD ed esegua un rollover manuale di conseguenza. [Questo repository GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contiene gli script e le istruzioni necessarie.
-

@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b812ae10b3462dbeff05c8a67e7ebb725281e7e8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259331"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535758"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup da conservare fino a un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
@@ -28,8 +28,8 @@ Il servizio app può eseguire il backup delle informazioni seguenti in un accoun
 
 Le soluzioni di database seguenti sono supportate con funzionalità di backup: 
 
-- [SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+- [Database SQL](https://azure.microsoft.com/services/sql-database/)
+- [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql)
 - [Database di Azure per PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/)
  
@@ -44,8 +44,8 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 * Per usufruire della funzionalità di backup e ripristino è necessario che il piano del Servizio app si trovi al livello **Standard** o al livello **Premium**. Per altre informazioni sul ridimensionamento del piano di servizio app per usare un livello superiore, vedere [Scalare un'app Web in Servizio app di Azure](manage-scale-up.md). Il livello **Premium** consente un maggior numero di backup giornalieri rispetto al livello **Standard**.
 * Sono necessari un account di archiviazione e un contenitore di Azure nella stessa sottoscrizione dell'applicazione di cui si desidera eseguire il backup. Per altre informazioni sugli account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * È possibile eseguire il backup di un massimo di 10 GB di contenuto del database e dell'app. Se la dimensione del backup supera questo limite, verrà visualizzato un messaggio di errore.
-* Il backup di Database di Azure per MySQL abilitato per SSL non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
-* Il backup di Database di Azure per PostgreSQL abilitato per SSL non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
+* I backup di TLS abilitato Database di Azure per MySQL non sono supportati. Se è configurato un backup, si otterranno i backup non riusciti.
+* I backup di TLS abilitati per il database di Azure per PostgreSQL non sono supportati. Se è configurato un backup, si otterranno i backup non riusciti.
 * Per i database MySQL in-app viene automaticamente eseguito un backup senza alcuna configurazione. Se si modificano manualmente le impostazioni per i database MySQL in-app, ad esempio si aggiungono stringhe di connessione, è possibile che i backup non vengano eseguiti correttamente.
 * L'uso di un account di archiviazione abilitato per un firewall come destinazione per i backup non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
 

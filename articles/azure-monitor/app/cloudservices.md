@@ -3,12 +3,12 @@ title: Application Insights per i servizi cloud di Azure | Microsoft Docs
 description: Monitorare i ruoli Web e di lavoro in modo efficace con Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276192"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537594"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -18,7 +18,7 @@ ms.locfileid: "79276192"
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, è necessario disporre di quanto segue:
 
-* Una sottoscrizione di [Azure](https://azure.com). Accedere con l'account Microsoft per Windows, Xbox Live o altri servizi cloud Microsoft. 
+* Una sottoscrizione di [Azure.An Azure](https://azure.com) subscription. Accedere con l'account Microsoft per Windows, Xbox Live o altri servizi cloud Microsoft. 
 * Strumenti di Microsoft Azure 2.9 o versione successiva.
 * Developer Analytics Tools 7.10 o versione successiva.
 
@@ -31,7 +31,7 @@ Questa opzione instrumenta l'app in fase di esecuzione, fornendo tutti i dati di
 
 Se non si hanno altre esigenze, non è necessario eseguire altre operazioni. 
 
-I passaggi successivi sono [la visualizzazione delle metriche dall'app,](../../azure-monitor/app/metrics-explorer.md) [l'esecuzione di query sui dati con Analytics](../../azure-monitor/app/analytics.md). 
+I passaggi successivi sono [la visualizzazione delle metriche dall'app,](../../azure-monitor/platform/metrics-charts.md) [l'esecuzione di query sui dati con Analytics](../../azure-monitor/app/analytics.md). 
 
 Per monitorare le prestazioni nel browser, potrebbe essere necessario configurare [test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) e [aggiungere codice alle pagine Web](../../azure-monitor/app/javascript.md).
 
@@ -165,7 +165,7 @@ Questo passaggio è necessario solo se si desidera acquisire query SQL complete 
 
 1. Aprire le risorse di Application Insights create.
 
-   Verranno visualizzati i singoli punti dati in [Cerca][diagnostic] e i dati aggregati in [Esplora metriche](../../azure-monitor/app/metrics-explorer.md).
+   Verranno visualizzati i singoli punti dati in [Cerca][diagnostic] e i dati aggregati in [Esplora metriche](../../azure-monitor/platform/metrics-charts.md).
 
 1. Aggiungere altri dati di telemetria (vedere le sezioni successive) e quindi pubblicare l'app per ottenere commenti e suggerimenti in diretta sull'utilizzo e la diagnostica. 
 
@@ -184,7 +184,7 @@ Le informazioni di [Diagnostica di Azure](https://docs.microsoft.com/azure/monit
 * I log eventi di Windows vengono visualizzati come tracce ed eventi personalizzati.
 * I log applicazioni, i log ETW e gli eventuali log dell'infrastruttura di diagnostica vengono visualizzati come tracce.
 
-Per visualizzare i contatori delle prestazioni e i conteggi degli eventi, aprire [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) e aggiungere il grafico seguente:
+Per visualizzare i contatori delle prestazioni e i conteggi degli eventi, aprire [Esplora metriche](../../azure-monitor/platform/metrics-charts.md) e aggiungere il grafico seguente:
 
 ![Dati di Diagnostica di Azure](./media/cloudservices/23-wad.png)
 
@@ -275,7 +275,7 @@ Se si dispone di un'app client per dispositivi mobili, usare [App Center](../../
 * [Configurare l'invio di dati di Diagnostica di Azure ad Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Creare automaticamente risorse di Application Insights](../../azure-monitor/app/powershell.md)
 * [Automatizzare Diagnostica di Azure](../../azure-monitor/app/powershell-azure-diagnostics.md)
-* [Funzioni di AzureAzure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md

@@ -3,12 +3,12 @@ title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Micro
 description: Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. È possibile usare questa funzionalità con app Web ASP.NET ospitate in locale o con macchine virtuali.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670050"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536829"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare le app Web in fase di esecuzione con Application Insights Codeless Attach
 
@@ -84,7 +84,7 @@ Per ripetere la pubblicazione senza aggiungere Application Insights al codice, s
 4. Ripristinare eventuali modifiche apportate al file con estensione config.
 
 
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Risoluzione dei problemi 
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Risoluzione dei problemi
 
 ### <a name="confirm-a-valid-installation"></a>Confermare un'installazione valida 
 
@@ -298,7 +298,7 @@ Per le applicazioni già instrumentate in fase di compilazione:
  * Chiamate alle dipendenze (.NET 4.5) e valori restituiti nelle chiamate alle dipendenze (.NET 4.6)
  * Valori di analisi dello stack delle eccezioni
 
-[Scopri di più](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Altre informazioni](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 
@@ -314,7 +314,7 @@ Per le applicazioni già instrumentate in fase di compilazione:
 
 Visualizzare i dati di telemetria:
 
-* [Esaminare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo
+* [Esaminare le metriche](../../azure-monitor/platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo
 * Per diagnosticare i problemi, vedere [Eventi e log di ricerca][diagnostic]
 * Per informazioni sulle query più avanzate, vedere [Analytics](../../azure-monitor/app/analytics.md)
 

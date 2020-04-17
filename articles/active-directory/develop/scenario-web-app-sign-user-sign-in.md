@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 317ca55adb9f680dc93343a185395abad08889da
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 2ab5697ceff612e65174fdb7f9ef6137e2c8b9a5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881316"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537067"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>App Web che consente di accedere agli utenti: accesso e disconnessione
 
@@ -205,7 +205,7 @@ Dopo che l'utente ha eseguito l'accesso all'app, è consigliabile abilitare l'ac
 ## <a name="sign-out"></a>Disconnessione
 
 La disconnessione da un'app Web implica molto più che rimuovere le informazioni sull'account di accesso dallo stato dell'app Web.
-L'app Web deve inoltre reindirizzare `logout` l'utente all'endpoint della piattaforma di identità Microsoft per disconnettersi. 
+L'app Web deve inoltre reindirizzare `logout` l'utente all'endpoint della piattaforma di identità Microsoft per disconnettersi.
 
 Quando l'app Web reindirizza `logout` l'utente all'endpoint, questo endpoint cancella la sessione dell'utente dal browser. Se l'app non è `logout` andata all'endpoint, l'utente eseguirà nuovamente l'autenticazione nell'app senza immettere nuovamente le credenziali. Il motivo è che avranno una sessione di accesso singolo valida con l'endpoint della piattaforma di identità Microsoft.The reason is that they'll have a valid single sign-in session with the Microsoft identity platform endpoint.
 
@@ -306,7 +306,7 @@ Nella guida introduttiva di Python, il pulsante di disconnessione si trova nel f
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Microsoft Identity Python Web App</h1>
+    <h1>Microsoft Identity Python web app</h1>
     Welcome {{ user.get("name") }}!
     <li><a href='/graphcall'>Call Microsoft Graph API</a></li>
     <li><a href="/logout">Logout</a></li>

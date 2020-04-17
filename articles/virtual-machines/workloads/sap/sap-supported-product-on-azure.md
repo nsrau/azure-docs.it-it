@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 04/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0aaa13ff4d3331378cc17cd0cde29be43822397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56341affee721b3ee6676da401e03dbbca84e597
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460790"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538240"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Supporto del software SAP per le distribuzioni di AzureWhat SAP software is supported for Azure deployments
 Questo articolo descrive come scoprire quale software SAP è supportato per le distribuzioni di Azure e quali sono le versioni del sistema operativo o DBMS necessarie.
@@ -34,7 +34,7 @@ La valutazione, se il software SAP corrente è supportato e quali versioni del s
 
 
 ## <a name="general-restrictions-for-sap-workload"></a>Restrizioni generali per il carico di lavoro SAPGeneral restrictions for SAP workload
-I servizi di Azure IaaS che possono essere usati per il carico di lavoro SAP sono limitati all'hardware x86-64 o x64. Non esistono offerte basate su CPU Sparc o Power che si applicano al carico di lavoro SAP. I clienti che utilizzano applicazioni su sistemi operativi proprietari di architetture hardware come IBM mainframe o AS400, o in cui sono in uso i sistemi operativi HP-UX, Solaris o AIX, devono modificare le applicazioni SAP, tra cui DBMS, seguenti sistemi operativi:
+I servizi di Azure IaaS che possono essere usati per il carico di lavoro SAP sono limitati all'hardware x86-64 o x64. Non esistono offerte basate su CPU Sparc o Power che si applicano al carico di lavoro SAP. I clienti che eseguono applicazioni su sistemi operativi proprietari di architetture hardware come IBM mainframe o AS400, o in cui sono in uso i sistemi operativi HP-UX, Solaris o AIX, devono modificare le applicazioni SAP, tra cui DBMS, in uno dei seguenti sistemi operativi:
 
 - Server Windows a 64 bit per la piattaforma x86-64
 - SUSE linux 64bit per la piattaforma x86-64
@@ -111,20 +111,20 @@ Poiché si conoscono le versioni HANA specifiche che è possibile eseguire nell'
 
 
 ## <a name="certified-azure-vms-and-hana-large-instance-units-and-business-transaction-throughput"></a>Macchine virtuali di Azure certificate e unità di istanza di grandi dimensioni HANA e velocità effettiva delle transazioni aziendali
-Oltre a valutare le versioni del sistema operativo supportate, le versioni DBMS e le versioni software SAP di supporto dipendenti per le unità dell'infrastruttura di Azure, è necessario qualificare queste unità in base alla velocità effettiva delle transazioni aziendali, espressa nell'unità 'SAP' Sap. Tutto il dimensionamento SAP dipende dai calcoli SAPS. Valutando i sistemi SAP esistenti, in genere è possibile, con l'aiuto del provider dell'infrastruttura, calcolare il SAPS delle unità. Per il livello DBMS e per il livello dell'applicazione. In altri casi in cui vengono create nuove funzionalità, un esercizio di dimensionamento con SAP può rivelare i numeri SAPS necessari per il livello dell'applicazione e il livello DBMS. In qualità di provider di infrastruttura, Microsoft è tenuta a fornire la caratterizzazione della velocità effettiva SAP delle diverse unità certificate NetWeaver e/o HANA.
+Oltre a valutare le versioni del sistema operativo supportate, le versioni DBMS e le versioni software SAP di supporto dipendenti per le unità dell'infrastruttura di Azure, è necessario qualificare queste unità in base alla velocità effettiva delle transazioni aziendali, espressa nell'unità 'SAP' da SAP. Tutto il dimensionamento SAP dipende dai calcoli SAPS. Valutando i sistemi SAP esistenti, in genere è possibile, con l'aiuto del provider dell'infrastruttura, calcolare il SAPS delle unità. Per il livello DBMS e per il livello dell'applicazione. In altri casi in cui vengono create nuove funzionalità, un esercizio di dimensionamento con SAP può rivelare i numeri SAPS necessari per il livello dell'applicazione e il livello DBMS. In qualità di provider di infrastruttura, Microsoft è tenuta a fornire la caratterizzazione della velocità effettiva SAP delle diverse unità certificate NetWeaver e/o HANA.
 
 Per le macchine virtuali di Azure, questi numeri di velocità effettiva SAPS sono documentati in [NOTA del supporto SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533). Per le unità di istanza di grandi dimensioni di Azure HANA, i numeri di velocità effettiva SAPS sono documentati in [NOTa di supporto SAP #2316233](https://launchpad.support.sap.com/#/notes/2316233)
 
 Esaminando [la nota del supporto SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533), si applicano le seguenti osservazioni:
 
-- Per le macchine virtuali di Azure serie M e le macchine virtuali di **Azure serie Mv2, si applicano versioni minime del sistema operativo diverse rispetto ad altri tipi di macchine virtuali di Azure.For M-Series Azure VMs and Mv2-Series Azure VMs, different minimum OS releases apply than per other Azure VM types.** Il requisito per le versioni più recenti del sistema operativo si basa sulle modifiche che i diversi fornitori di sistemi operativi dovevano fornire nelle versioni del sistema operativo per abilitare i sistemi operativi in esecuzione sui tipi di macchine virtuali di Azure specifici o ottimizzare le prestazioni e velocità effettiva del carico di lavoro SAP su tali tipi di VM
+- Per le macchine virtuali di Azure serie M e le macchine virtuali di **Azure serie Mv2, si applicano versioni minime del sistema operativo diverse rispetto ad altri tipi di macchine virtuali di Azure.For M-Series Azure VMs and Mv2-Series Azure VMs, different minimum OS releases apply than per other Azure VM types.** Il requisito per le versioni più recenti del sistema operativo si basa sulle modifiche che i diversi fornitori di sistemi operativi dovevano fornire nelle versioni del sistema operativo per abilitare i sistemi operativi in esecuzione sui tipi di macchine virtuali di Azure specifici o ottimizzare le prestazioni e la velocità effettiva del carico di lavoro SAP in tali tipi di macchine virtuali
 - Sono disponibili due tabelle che specificano tipi di macchine virtuali diversi. La seconda tabella specifica la velocità effettiva SAPS per i tipi di vm azure che supportano solo archiviazione standard di Azure.The second table specifies SAPS throughput for Azure VM types that support Azure standard Storage only. La distribuzione DBMS sulle unità specificate nella seconda tabella della nota non è supportata
 
 
 ## <a name="other-sap-products-supported-on-azure"></a>Altri prodotti SAP supportati in Azure
 In general the assumption is that with the state of hyperscale clouds like Azure, most of the SAP software should run without functional problems in Azure. Tuttavia, e al contrario della visualizzazione del cloud privato, SAP esprime ancora il supporto per i diversi prodotti SAP in modo esplicito per i diversi provider di cloud hyerpscale. Di conseguenza, esistono diverse note di supporto SAP che indicano il supporto per Azure per diversi prodotti SAP. 
 
-Per la piattaforma Business Objects BI, [nota #2145537 del supporto SAP](https://launchpad.support.sap.com/#/notes/2145537) fornisce un elenco di prodotti SAP Business Objects supportati in Azure.For Business Objects BI platform, SAP support note #2145537 gives a list of SAP Business Objects products supported on Azure. Se sono presenti domande su componenti o combinazioni di versioni software e versioni del sistema operativo che sembrano non essere elencate o supportate e che sono più recenti rispetto alle versioni minime elencate, è necessario aprire una richiesta di supporto SAP sul componente richiesto sostegno per.
+Per la piattaforma Business Objects BI, [nota #2145537 del supporto SAP](https://launchpad.support.sap.com/#/notes/2145537) fornisce un elenco di prodotti SAP Business Objects supportati in Azure.For Business Objects BI platform, SAP support note #2145537 gives a list of SAP Business Objects products supported on Azure. Se sono presenti domande su componenti o combinazioni di versioni software e versioni del sistema operativo che sembrano non essere elencate o supportate e che sono più recenti rispetto alle versioni minime elencate, è necessario aprire una richiesta di supporto SAP sul componente per cui si richiede supporto.
 
 Per Business Objects Data Services, [la nota del supporto SAP #22288344](https://launchpad.support.sap.com/#/notes/2288344) illustra il supporto minimo di SAP Data Services in esecuzione in Azure.For Business Objects Data Services, SAP support note and explains minimum support of SAP Data Services running on Azure. 
 
@@ -135,7 +135,12 @@ Il supporto SAP Datahub/Vora in Azure Kubernetes Services (AKS) è descritto in 
 
 Il supporto per SAP BPC 10.1 SP08 è descritto in [Nota sul supporto SAP #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
-Il supporto per SAP Hybris Commerce Platform 5.x e 6.x su Azure è descritto in dettaglio nel [Wiki Hybris](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud)
+Il supporto per SAP Hybris Commerce Platform su Azure è descritto in dettaglio nel [Wiki Hybris](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud). A partire dal DBMS supportato per SAP Hybris Commerce Platform, elenca come:
+
+- SQL Server e Oracle sulla piattaforma del sistema operativo Windows. Si applicano le stesse versioni minime di SAP NetWeaver. Per informazioni dettagliate, vedere [#1928533 delle note di supporto SAP](https://launchpad.support.sap.com/#/notes/1928533)
+- SAP HANA su Red Hat e SUSE Linux. I tipi di VM certificati SAP HANA sono necessari come documentato in precedenza in [questo documento.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support) SAP (Hybris) Commerce Platform è considerato carico di lavoro OLTP
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

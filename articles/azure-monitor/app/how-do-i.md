@@ -3,12 +3,12 @@ title: Cosa fare in Azure Application Insights | Microsoft Docs
 description: Domande frequenti in Application Insights
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663858"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536863"
 ---
 # <a name="how-do-i--in-application-insights"></a>Cosa fare in Application Insights?
 ## <a name="get-an-email-when-"></a>Per ricevere un messaggio di posta elettronica quando...
@@ -45,7 +45,7 @@ Poiché gli avvisi possono avere due stati, è necessario inviare un valore bass
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Creare un grafico in [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) per visualizzare l'allarme:
+Creare un grafico in [Esplora metriche](../../azure-monitor/platform/metrics-charts.md) per visualizzare l'allarme:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -75,14 +75,14 @@ Alcune informazioni da considerare:
 
 * Più ruoli in un'app: usare una singola risorsa di Application Insights e filtrare [in base a cloud_Rolename](../../azure-monitor/app/app-map.md).
 * Separazione di sviluppo, test e versioni di rilascio: usare diverse risorse di Application Insights. Raccogliere le chiavi di strumentazione da web.config. [Ulteriori informazioni](../../azure-monitor/app/separate-resources.md)
-* Creazione di rapporti sulle versioni di compilazione: aggiungere una proprietà usando un inizializzatore di telemetria. [Scopri di più](../../azure-monitor/app/separate-resources.md)
+* Creazione di rapporti sulle versioni di compilazione: aggiungere una proprietà usando un inizializzatore di telemetria. [Altre informazioni](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorare i server back-end e le app desktop
 [Usare il modulo di Windows Server SDK](../../azure-monitor/app/windows-desktop.md).
 
 ## <a name="visualize-data"></a>Visualizzare i dati
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Dashboard con metriche da più app
-* In [Esplora metriche](../../azure-monitor/app/metrics-explorer.md)personalizzare il grafico e salvarlo come preferito. Aggiungerlo al dashboard di Azure.
+* In [Esplora metriche](../../azure-monitor/platform/metrics-charts.md)personalizzare il grafico e salvarlo come preferito. Aggiungerlo al dashboard di Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Dashboard con dati provenienti da altre fonti e Application Insights
 * [Esportare dati di telemetria in Power BI](../../azure-monitor/app/export-power-bi.md ).
@@ -159,5 +159,5 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 * **Server Unix** - [Installazione raccolta](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Per visualizzare altri contatori delle prestazioni
-* Innanzitutto [aggiungere un nuovo grafico](../../azure-monitor/app/metrics-explorer.md) e verificare che il contatore sia incluso nel set di base offerto.
+* Innanzitutto [aggiungere un nuovo grafico](../../azure-monitor/platform/metrics-charts.md) e verificare che il contatore sia incluso nel set di base offerto.
 * In caso contrario, [aggiungere il contatore al set raccolto dal modulo del contatore delle prestazioni](../../azure-monitor/app/performance-counters.md).

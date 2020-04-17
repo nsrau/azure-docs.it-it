@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259279"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535707"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -45,7 +45,7 @@ Viene visualizzata la pagina di gestione dell'app del servizio app.
 
 ### <a name="check-the-pricing-tier"></a>Scegliere il piano tariffario
 
-Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)**.
+Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **Aumenta (piano di servizio app)** .
 
 ![Menu di scalabilità verticale](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -137,7 +137,7 @@ I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzat
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Un'etichetta **Non sicura** per il dominio personalizzato indica che non è ancora associata a un certificato SSL e qualsiasi richiesta HTTPS da un browser al dominio personalizzato riceverà un errore o un avviso, a seconda del browser. Per configurare l'associazione SSL, vedere [Proteggere un nome DNS personalizzato con un'associazione SSL nel servizio app](configure-ssl-bindings.md)di Azure.To configure SSL binding, see Secure a custom DNS name with an SSL binding in Azure App Service .
+> Un'etichetta **Non sicura** per il dominio personalizzato indica che non è ancora associata a un certificato TLS/SSL e qualsiasi richiesta HTTPS da un browser al dominio personalizzato riceverà un errore o un avviso, a seconda del browser. Per configurare l'associazione TLS, vedere [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel servizio app](configure-ssl-bindings.md)di Azure.To configure TLS binding, see Secure a custom DNS name with a TLS/SSL binding in Azure App Service .
 >
 
 Per verificare i nomi host, navigare nei nomi host elencati dal browser. Nell'esempio nella schermata precedente, provare a passare a _kontoso.net_ e _a www\.kontoso.net_.

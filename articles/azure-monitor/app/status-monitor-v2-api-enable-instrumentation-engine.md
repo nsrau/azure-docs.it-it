@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70102395b94c89d4ce0edfddeda1df0be0e2f216
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671357"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536761"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>API dell'agente di Application Insights: Enable-InstrumentationEngine
 
@@ -62,7 +62,7 @@ Configuring registry for instrumentation engine...
 ## <a name="next-steps"></a>Passaggi successivi
 
   Visualizzare i dati di telemetria:
- - [Esplora le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo.
+ - [Esplora le metriche](../../azure-monitor/platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
 - [Cerca eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
 - Usa [l'analisi](../../azure-monitor/app/analytics.md) per query più avanzate.
 - [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).

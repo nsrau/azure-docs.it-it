@@ -2,13 +2,13 @@
 title: Supporto per la migrazione di VMware in Azure MigrateSupport for VMware migration in Azure Migrate
 description: Informazioni sul supporto per la migrazione delle macchine virtuali VMware in Azure Migrate.Learn about support for VMware VM migration in Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.date: 04/15/2020
+ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314006"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538138"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione VMwareSupport matrix for VMware migration
 
@@ -64,10 +64,12 @@ Leggere [questo articolo](server-migrate-overview.md) per capire quale metodo si
 
 
 ## <a name="agentless-azure-migrate-appliance"></a>Appliance Agentless-Azure Migrate Agentless-Azure Migrate appliance 
-La migrazione senza agente usa l'appliance Azure Migrate, distribuita in una macchina virtuale VMware.Agentless migration uses the Azure Migrate appliance, deployed on a VMware VM.
+
+La migrazione senza agente usa [l'appliance di Azure Migrate.](migrate-appliance.md) È possibile distribuire l'appliance come VMWare VMWare usando un modello OVA, importato in vCenter Server o uno script di [PowerShell.](deploy-appliance-script.md)
 
 - Informazioni sui [requisiti dell'appliance](migrate-appliance.md#appliance---vmware) per VMware.
-- Informazioni sugli [URL](migrate-appliance.md#url-access) a cui l'appliance deve accedere.
+- Informazioni sugli URL a cui l'appliance deve accedere nei cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi.](migrate-appliance.md#government-cloud-urls)
+- In Azure per enti pubblici è necessario distribuire l'appliance usando lo script.
 
 ## <a name="agentless-ports"></a>Porte senza agente
 
@@ -123,7 +125,8 @@ Quando si configura l'appliance di replica utilizzando il modello OVA fornito ne
 
 - Informazioni sui [requisiti dell'appliance](migrate-replication-appliance.md#appliance-requirements) di replica per VMware.
 - MySQL deve essere installato nell'appliance. Ulteriori informazioni sulle opzioni di [installazione](migrate-replication-appliance.md#mysql-installation).
-- Informazioni sugli URL e [sulle](migrate-replication-appliance.md#url-access) [porte](migrate-replication-appliance.md#port-access) a cui l'appliance di replica deve accedere.
+- Informazioni sugli URL a cui l'appliance di replica deve accedere nei cloud [pubblici](migrate-replication-appliance.md#url-access) e [governativi.](migrate-replication-appliance.md#azure-government-url-access)
+- Esaminare le [porte](migrate-replication-appliance.md#port-access) a cui l'appliance di replica deve accedere.
 
 ## <a name="agent-based-ports"></a>Porte basate su agenti
 

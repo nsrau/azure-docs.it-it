@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd21a78d0271f91d334bba5aba748f3770ad38cf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271876"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537934"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Spostare i dati nell'archiviazione BLOB di AzureMove data to Azure Blob storage
 
@@ -21,7 +21,7 @@ Questo articolo illustra i modi migliori per spostare i dati nell'archivio BLOB 
 
 Tenete a mente questi fatti:
 
-* La cache HPC di Azure usa un formato di archiviazione specializzato per organizzare i dati nell'archiviazione BLOB. Questo è il motivo per cui una destinazione di archiviazione BLOB deve essere un nuovo contenitore vuoto o un contenitore BLOB usato in precedenza per i dati della cache HPC di Azure.This is why a Blob storage target must either be a new, empty container, or a Blob container that was previously used for Azure HPC Cache data. <!--([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)-->
+* La cache HPC di Azure usa un formato di archiviazione specializzato per organizzare i dati nell'archiviazione BLOB. Questo è il motivo per cui una destinazione di archiviazione BLOB deve essere un nuovo contenitore vuoto o un contenitore BLOB usato in precedenza per i dati della cache HPC di Azure.This is why a Blob storage target must either be a new, empty container, or a Blob container that was previously used for Azure HPC Cache data.
 
 * La copia dei dati tramite la cache HPC di Azure in una destinazione di archiviazione back-end è più efficiente quando si usano più client e operazioni parallele. Un semplice comando di copia da un client sposterà i dati lentamente.
 
@@ -31,13 +31,13 @@ Se non si vuole usare l'utilità di caricamento o se si vuole aggiungere contenu
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Precaricare i dati nell'archivio BLOB con CLFSLoadPre-load data in Blob storage with CLFSLoad
 
-È possibile usare i parametri <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> L'utilità Avere CLFSLoad per copiare i dati in un nuovo contenitore di archiviazione BLOB prima di aggiungerli come destinazione di archiviazione. Questa utilità viene eseguita in un singolo sistema Linux e scrive i dati nel formato proprietario necessario per la cache HPC di Azure.This utility runs on a single Linux system and writes data in the proprietary format needed for Azure HPC Cache. CLFSLoad è il modo più efficiente per popolare un contenitore di archiviazione BLOB da usare con la cache.
+È possibile usare l'utilità Avere CLFSLoad per copiare i dati in un nuovo contenitore di archiviazione BLOB prima di aggiungerlo come destinazione di archiviazione. Questa utilità viene eseguita in un singolo sistema Linux e scrive i dati nel formato proprietario necessario per la cache HPC di Azure.This utility runs on a single Linux system and writes data in the proprietary format needed for Azure HPC Cache. CLFSLoad è il modo più efficiente per popolare un contenitore di archiviazione BLOB da usare con la cache.
 
 L'utilità Avere CLFSLoad è disponibile su richiesta del team della cache HPC di Azure.The Avere CLFSLoad utility is available by request from your Azure HPC Cache team. Chiedi al tuo team di contattarlo o apri un ticket di [supporto](hpc-cache-support-ticket.md) per richiedere assistenza.
 
 Questa opzione funziona solo con nuovi contenitori vuoti. Creare il contenitore prima di utilizzare Avere CLFSLoad.
 
-Informazioni dettagliate sono incluse nella distribuzione di Avere CLFSLoad, disponibile su richiesta del team della cache HPC di Azure.Detailed information is included in the Avere CLFSLoad distribution, which is available on request from the Azure HPC Cache team. <!-- [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). --><!-- caution literal link -->
+Informazioni dettagliate sono incluse nella distribuzione di Avere CLFSLoad, disponibile su richiesta del team della cache HPC di Azure.Detailed information is included in the Avere CLFSLoad distribution, which is available on request from the Azure HPC Cache team.
 
 Una panoramica generale del processo:
 
@@ -51,8 +51,6 @@ L'utilità Avere CLFSLoad richiede le seguenti informazioni:
 * Nome del contenitore di archiviazione BLOB vuoto
 * Un token di firma di accesso condiviso che consente all'utilità di scrivere nel contenitore
 * Un percorso locale dell'origine dati, ovvero una directory locale contenente i dati da copiare o un percorso locale a un sistema remoto montato con i dati
-
-<!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
 ## <a name="copy-data-through-the-azure-hpc-cache"></a>Copiare i dati tramite la cache HPC di AzureCopy data through the Azure HPC Cache
 

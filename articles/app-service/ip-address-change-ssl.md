@@ -4,12 +4,12 @@ description: Se l'indirizzo IP SSL sta per essere modificato, questo articolo sp
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
-ms.openlocfilehash: 34f35eb67cada6066e35227fcd6a0eaf425ac007
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672397"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535724"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Come preparare un cambio di indirizzo IP SSL
 
@@ -25,7 +25,7 @@ Se si riceve una notifica di modifica dell'indirizzo IP SSL dell'app Servizio ap
 
 4.  Sotto l'intestazione **Impostazioni** fare clic su **Impostazioni SSL** nel riquadro di spostamento a sinistra.
 
-1. Nella sezione delle associazioni SSL selezionare il record del nome host. Nell'editor che si apre scegliere **SNI SSL** nel menu a discesa **Tipo SSL** e fare clic su **Aggiungi binding**. Quando compare il messaggio che avvisa della riuscita dell'operazione, l'indirizzo IP esistente è stato rilasciato.
+1. Nella sezione Binding TLS/SSL selezionare il record del nome host. Nell'editor che si apre scegliere **SNI SSL** nel menu a discesa **Tipo SSL** e fare clic su **Aggiungi binding**. Quando compare il messaggio che avvisa della riuscita dell'operazione, l'indirizzo IP esistente è stato rilasciato.
 
 6.  Nella sezione **Associazioni SSL** selezionare di nuovo lo stesso record del nome host con il certificato. Nell'editor che si apre questa volta scegliere **SSL basato su IP** nel menu a discesa **Tipo SSL** e fare clic su **Aggiungi binding**. Quando compare il messaggio che avvisa della riuscita dell'operazione, è stato acquisito un nuovo indirizzo IP.
 

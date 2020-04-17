@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1fd22772e72cba4cce3f9fa2751dc0df0e15bb9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77602933"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535599"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -155,14 +155,14 @@ I trigger automatici chiamano una funzione in risposta a un evento. Si consideri
 ```cs
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
     ILogger log)
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-L'attributo `QueueTrigger` indica al runtime di chiamare la `myqueue-items` funzione ogni volta che viene visualizzato un messaggio della coda nella coda. L'attributo `Blob` indica al runtime di usare il messaggio della coda per leggere un BLOB nel contenitore *sample-workitems.* Il contenuto del messaggio della coda, passato `myQueueItem` alla funzione nel parametro, è il nome del BLOB.
+L'attributo `QueueTrigger` indica al runtime di chiamare la `myqueue-items` funzione ogni volta che viene visualizzato un messaggio della coda nella coda. L'attributo `Blob` indica al runtime di usare il messaggio della coda per leggere un BLOB nel contenitore *sample-workitems.* Il nome dell'elemento `samples-workitems` BLOB nel contenitore viene ottenuto direttamente`{queueTrigger}`dal trigger della coda come espressione di associazione ( ).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 

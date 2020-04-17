@@ -3,12 +3,12 @@ title: Valutazioni nella valutazione del server di migrazione di AzureAssessment
 description: Informazioni sulle valutazioni in Azure Migrate Server Assessment
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: ae55686f0152d9c2b170ae1b34d7493ed7ac8d94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1f32eea0ec6a8a4877fd1dc134344cfe68dcaba
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127783"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537764"
 ---
 # <a name="assessments-in-azure-migrateserver-assessment"></a>Valutazioni in Azure Migrate:Server Assessment
 
@@ -17,6 +17,9 @@ Questo articolo offre una panoramica delle valutazioni nello strumento [Azure Mi
 ## <a name="whats-an-assessment"></a>Cos'è una valutazione?
 
 Una valutazione con lo strumento di valutazione dei server misura la disponibilità e stima l'impatto della migrazione dei server locali in Azure.An assessment with the Server Assessment tool measures the readiness, and estimates the impact, of migrating on-premises servers to Azure.
+
+> [!NOTE]
+> In Azure per enti pubblici esaminare i percorsi di valutazione [delle destinazione supportati.](migrate-support-matrix.md#supported-geographies-azure-government) Si noti che i consigli sulle dimensioni delle macchine virtuali nelle valutazioni utilizzeranno la serie VM in modo specifico per le aree di Government Cloud.Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Altre informazioni](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) sui tipi di macchine virtuali.
 
 ## <a name="types-of-assessments"></a>Tipi di valutazioni
 
@@ -77,7 +80,7 @@ Se si utilizza l'appliance per l'individuazione, i dati sulle prestazioni per le
     - Il valore del 95esimo percentile assicura che si ignorino tutti gli outlier, che potrebbero essere inclusi se si sceglie il 99esimo percentile.
     - Se si desidera scegliere l'utilizzo di picco per il periodo e non si desidera perdere alcun outlier, è necessario selezionare il 99esimo percentile per l'utilizzo percentile.
 
-5. Questo valore viene moltiplicato per il fattore di comfort per ottenere i dati di utilizzo delle prestazioni effettivi per ogni metrica (utilizzo della CPU, utilizzo della memoria, Operazioni di I/O al secondo del disco (lettura e scrittura), velocità effettiva del disco (lettura e scrittura) e velocità effettiva della rete (in essenza) dell'apparecchio raccoglie.
+5. Questo valore viene moltiplicato per il fattore di comfort per ottenere i dati di utilizzo delle prestazioni effettivi per ogni metrica (utilizzo della CPU, utilizzo della memoria, Operazioni di I/O al secondo del disco (lettura e scrittura), velocità effettiva del disco (lettura e scrittura) e velocità effettiva della rete (in eout) che l'appliance raccoglie.
 
 
 
@@ -98,7 +101,7 @@ Ecco cosa include in una valutazione in Server Assessment.
 
 **Proprietà** | **Dettagli**
 --- | ---
-**Posizione di destinazione** | Percorso in cui si desidera eseguire la migrazione. La valutazione del server supporta attualmente queste aree di Azure di destinazione:Server Assessment currently supports these target Azure regions:<br/><br/> Australia Est, Australia Sud-Est, Brasile Sud, Canada Centrale, Canada Est, India centrale, Stati Uniti centrali, Cina orientale, Cina nord, Asia orientale, Stati Uniti orientali, Stati Uniti orientali2, Germania centrale, Germania nord-est, Giappone est, Giappone occidentale, Corea centrale, Corea del Sud, Nord Stati Uniti centrali, Nord Europa, Stati Uniti centro-meridionali, Sud-est asiatico, India meridionale, Regno Unito meridionale, Regno Unito occidentale, US Gov Arizona, US Gov Texas, US Gov Virginia, Stati Uniti centro-occidentali, Europa occidentale, India occidentale, Stati Uniti occidentali e Stati Uniti occidentali2.
+**Posizione di destinazione** | Percorso in cui si desidera eseguire la migrazione. La valutazione del server supporta attualmente queste aree di Azure di destinazione:Server Assessment currently supports these target Azure regions:<br/><br/> Australia Orientale, Australia Sud-Est, Brasile Meridionale, Canada Centrale, Canada Orientale, India centrale, Stati Uniti centrali, Cina orientale, Cina settentrionale, Asia orientale, Stati Uniti orientali, STATI Uniti orientali2, Germania centrale, Germania nord-orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea del Sud, Stati Uniti centrali, Stati Uniti centro-meridionali, Sud-est asiatico, India meridionale, Regno Unito, Regno Unito Occidentale, US Gov Arizona, US Gov Texas, US Gov Virginia , Stati Uniti centro-occidentali, Europa occidentale, India occidentale, Stati Uniti occidentali e Stati Uniti occidentali2.
 *Disco di archiviazione di destinazione (come è il dimensionamento)** | Tipo di dischi da usare per l'archiviazione in Azure.The type of disks to use for storage in Azure. <br/><br/> Specificare il disco di archiviazione di destinazione come gestito da un servizio SSD premium, gestito da SSD standard o su HDD standard.
 **Disco di archiviazione di destinazione (dimensionamento basato sulle prestazioni)** | Specificare il tipo di disco di archiviazione di destinazione come automatico, gestito premium, gestito hdD standard o SSD standard gestito.<br/><br/> **Automatico:** il suggerimento del disco si basa sui dati sulle prestazioni dei dischi (operazioni di input/output al secondo (IOPS) e velocità effettiva).<br/><br/>**Premium/standard**: La valutazione consiglia uno SKU del disco all'interno del tipo di archiviazione selezionato.<br/><br/> Se si vuole ottenere un'istanza singola del servizio di sla smalto per VM del 99,9%, considerando l'utilizzo di dischi gestiti Premium.If you want to achieve a single instance VM SLA of 99.9%, considering using premium managed disks. Ciò garantisce che tutti i dischi nella valutazione siano consigliati come dischi gestiti dai servizi Premium.This ensures that all disks in the assessment are recommended as premium-managed disks.<br/><br/> Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
 **Istanze riservate (RI)** | Specificare [Le istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure, in modo che le stime dei costi nella valutazione prendano in considerazione gli sconti RI.<br/><br/> Le irdove sono attualmente supportate solo per le offerte con pagamento in base al numero di informazioni in Azure Migrate.RIs are currently supported only for Pay-As-You-Go offers in Azure Migrate.
@@ -134,7 +137,7 @@ Server Assessment reviews the following properties of the on-premises VM to dete
 --- | --- | ---
 **Tipo di avvio** | Azure supporta le macchine virtuali con un tipo di avvio di BIOS, non UEFI. | Pronto in modo condizionale se il tipo di avvio è UEFI.
 **Core** | The number of cores in the machines must be equal to or less than the maximum number of cores (128) supported for an Azure VM.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se nelle impostazioni di valutazione è specificato un fattore di comfort, il numero di core utilizzati viene moltiplicato per questo fattore.<br/><br/> Se non è presente alcuna cronologia delle prestazioni, Azure Migrate usa i core allocati senza applicare il fattore di comfort. | Idoneo se è minore o uguale ai limiti.
-**Memoria** | La dimensione della memoria del computer deve essere uguale o inferiore alla memoria massima&nbsp;(3892 gigabyte [GB] nella serie di Azure M Standard_M128m 2 ) consentita per una macchina virtuale di Azure.The machine memory size must be equal to or less than the maximum memory (3892 gigabyte [GB] on Azure M series Standard_M128m<sup>2</sup>) allowed for an Azure VM. [Scopri di più](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> Se non c'è storia, la memoria allocata viene utilizzata senza applicare il fattore di comfort.<br/><br/> | Idoneo se rientra nei limiti.
+**Memoria** | La dimensione della memoria del computer deve essere uguale o inferiore alla memoria massima&nbsp;(3892 gigabyte [GB] nella serie di Azure M Standard_M128m 2 ) consentita per una macchina virtuale di Azure.The machine memory size must be equal to or less than the maximum memory (3892 gigabyte [GB] on Azure M series Standard_M128m<sup>2</sup>) allowed for an Azure VM. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> Se non c'è storia, la memoria allocata viene utilizzata senza applicare il fattore di comfort.<br/><br/> | Idoneo se rientra nei limiti.
 **Disco di archiviazione** | Le dimensioni allocate di un disco devono essere pari o inferiori a 32 TB. Anche se Azure supporta dischi da 64 TB con dischi UltraSD, Azure Migrate: Server Assessment attualmente controlla 32 TB come limiti di dimensione del disco in quanto non supporta ancora Ultra SSD. <br/><br/> Il numero di dischi collegati alla macchina deve essere pari o inferiore a 65, incluso il disco del sistema operativo. | Idoneo se rientra nei limiti.
 **Rete** | A un computer devono essere collegate al numero di schede di rete (NIC) pari o meno a un computer. | Idoneo se rientra nei limiti.
 
@@ -182,7 +185,7 @@ Dopo che la macchina è stata contrassegnata come pronta per Azure, la valutazio
 Se si utilizza il dimensionamento basato sulle prestazioni, Server Assessment che presenta i suggerimenti per il dimensionamento nel modo seguente:
 
 - Server Assessment considers the performance history of the machine to identify the VM size and disk type in Azure.
-- Se i server sono stati importati utilizzando un file CSV, vengono utilizzati i valori specificati. Questo metodo è particolarmente utile se è stato riassegnato eccessivamente il computer locale, l'utilizzo è effettivamente basso e si vuole ridimensionare correttamente la macchina virtuale in Azure per risparmiare sui costi. 
+- Se i server sono stati importati utilizzando un file CSV, vengono utilizzati i valori specificati. Questo metodo è particolarmente utile se è stato riassegnato eccessivamente il computer locale, l'utilizzo è basso e si vuole ridimensionare correttamente la macchina virtuale in Azure per risparmiare sui costi. 
 - Se non si desidera utilizzare i dati sulle prestazioni, reimpostare i criteri di ridimensionamento in modo che sia locale, come descritto nella sezione precedente.
 
 #### <a name="calculate-storage-sizing"></a>Calcolare il dimensionamento dello storage

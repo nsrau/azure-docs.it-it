@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: 1fac524af4b69f8e35934840643c6d3ad99fe1cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74174603"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536625"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Eseguire la migrazione dei criteri del firewall delle applicazioni Web tramite Azure PowerShellMigrate Web Application Firewall policies using Azure PowerShell
 
@@ -28,6 +28,13 @@ Utilizzare la procedura seguente per eseguire lo script di migrazione:
 2. Copiare lo script nella finestra della shell cloud ed eseguirlo.
 3. Lo script richiede l'ID sottoscrizione, il nome del gruppo di risorse, il nome del gateway applicazione a cui è associata la configurazione WAF e il nome del nuovo criterio WAF da creare. Una volta immessi questi input, lo script viene eseguito e crea il nuovo criterio WAF
 4. Associare i nuovi criteri WAF al gateway applicazione. Passare al criterio WAF nel portale e selezionare la scheda **Gateway applicazione associati.** Selezionare **Associa un gateway applicazione** e quindi selezionare il gateway applicazione a cui associare il criterio WAF.
+
+> [!NOTE]
+> Lo script non completa una migrazione se esistono le seguenti condizioni:
+> - Un'intera regola è disabilitata. Per completare una migrazione, assicurarsi che un intero gruppo di regole non sia disabilitato.
+> - Una o più voci di esclusione con l'operatore *Equals.* Per completare una migrazione, assicurarsi che le voci di esclusione con *Uguale a Qualsiasi* operatore non siano presenti.
+>
+> Per altre informazioni, vedere la funzione *ValidateInput* nello script.
 
 ```azurepowershell-interactive
 <#PSScriptInfo

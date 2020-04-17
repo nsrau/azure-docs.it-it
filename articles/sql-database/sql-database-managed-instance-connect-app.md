@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9f592c345b7cfcf5f21d816fde1fae6b8e6b98c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d920fb7815e5a9fe30d8f3b4e40f36133d83222
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823391"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538087"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a un'istanza gestita di database SQL di Azure
 
@@ -132,6 +132,8 @@ Per la risoluzione dei problemi di connettività, verificare quanto segue:
    ```
 
 - Se si usa il peering della Vnet, assicurarsi di aver seguito le istruzioni per l'impostazione di [Consenti transito Gateway e Usa gateway remoti](#connect-from-on-premises-with-vnet-peering).
+
+- Se si usa il peering della rete virtuale per connettere un'applicazione ospitata del servizio app di Azure e la rete virtuale dell'istanza gestita ha un intervallo di indirizzi IP pubblici, assicurarsi che le impostazioni dell'applicazione ospitata consentano il traffico in uscita da instradare alle reti IP pubbliche. Seguire le istruzioni in [Integrazione regionale della rete virtuale](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versioni richieste di strumenti e driver
 

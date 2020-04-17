@@ -10,16 +10,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: b3d068a8100cf78ccffac6d537fe71942239f383
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: d5b6452684757aead684356fd9bb032b90c58c4a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886161"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535826"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Aggiungere un Azure Active Directory usando i servizi connessi in Visual StudioAdd an Azure Active Directory by using Connected Services in Visual Studio
 
-Tramite Azure Active Directory (Azure AD), è possibile supportare Single Sign-On (SSO) per le applicazioni Web ASP.NET MVC o l'autenticazione di Active Directory nei servizi Web API. Con l'autenticazione di Azure AD, gli utenti possono usare gli account di Azure Active Directory per connettersi alle applicazioni Web. I vantaggi dell'autenticazione AD Azure con l'API Web comprendono la protezione avanzata dei dati quando si espone un'API da un'applicazione web. Con Azure AD, non è necessario gestire un sistema di autenticazione distinto con la gestione di account e utente.
+Utilizzando Azure Active Directory (Azure AD), è possibile supportare Single Sign-On (SSO) per ASP.NET applicazioni Web MVC o l'autenticazione di Active Directory nei servizi API Web. Con l'autenticazione di Azure AD, gli utenti possono usare gli account di Azure Active Directory per connettersi alle applicazioni Web. I vantaggi dell'autenticazione di Azure AD con l'API Web includono una sicurezza avanzata dei dati quando si espone un'API da un'applicazione Web.The Azure AD Authentication with web API include enhanced data security when exposing an API from a web application. Con Azure AD, non è necessario gestire un sistema di autenticazione distinto con la gestione di account e utente.
 
 Questo articolo e gli articoli correlati forniscono i dettagli dell'uso del servizio connesso di Visual Studio per Active Directory. La funzionalità è disponibile in Visual Studio 2015 e versioni successive.
 

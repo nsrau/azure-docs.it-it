@@ -3,12 +3,12 @@ title: Appliance di Azure Migrate
 description: Fornisce una panoramica dell'appliance di Azure Migrate usata nella valutazione e nella migrazione del server.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437582"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538223"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance di Azure Migrate
 
@@ -25,11 +25,22 @@ L'appliance di Azure Migrate viene usata negli scenari seguenti.
 **Valutazione della macchina virtuale Hyper-V** | Migrazione di Azure:valutazione del serverAzure Migrate:Server Assessment | Individuazione delle macchine virtuali Hyper-V<br/><br/> Raccogliere i metadati del computer e i metadati delle prestazioni per le valutazioni.
 **Valutazione fisica delle macchine** |  Migrazione di Azure:valutazione del serverAzure Migrate:Server Assessment |  Individuare i server fisici (o le macchine virtuali considerate come server fisici).<br/><br/> Raccogliere i metadati del computer e i metadati delle prestazioni per le valutazioni.
 
+## <a name="deployment-methods"></a>Metodi di distribuzione
+
+L'apparecchio può essere distribuito utilizzando un paio di metodi:
+
+- L'appliance può essere distribuita usando un modello per le macchine virtuali VMware e Hyper-V (modello OVA per VMware o VHD per Hyper-V).
+- Se non si vuole usare un modello, è possibile distribuire l'appliance per VMware o Hyper-V utilizzando uno script di PowerShell.If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V using a PowerShell script.
+- In Azure per enti pubblici è consigliabile distribuire l'appliance usando uno script.
+- Per i server fisici, si distribuisce sempre l'appliance utilizzando uno script.
+- I link per il download sono disponibili nelle tabelle seguenti.
+
+
 ## <a name="appliance---vmware"></a>Appliance - VMware 
 
 The following table summarizes the Azure Migrate appliance requirements for VMware.
 
-**Requisito** | **Vmware** 
+**Requisito** | **VMware** 
 --- | ---
 **Componenti dell'apparecchio** | L'apparecchio è dotato dei seguenti componenti:<br/><br/> - **App di gestione:** si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. Utilizzato durante la valutazione dei computer per la migrazione ad Azure.Used when assessing machines for migration to Azure.<br/> - **Agente di individuazione:** l'agente raccoglie i dati di configurazione del computer. Utilizzato durante la valutazione dei computer per la migrazione ad Azure.Used when assessing machines for migration to Azure.<br/>- **Agente di valutazione:** l'agente raccoglie i dati sulle prestazioni. Utilizzato durante la valutazione dei computer per la migrazione ad Azure.Used when assessing machines for migration to Azure.<br/>- **Servizio di aggiornamento automatico**: Aggiorna i componenti dell'appliance (eseguiti ogni 24 ore).<br/>- **Agente DRA:** orchestra la replica delle macchine virtuali e coordina la comunicazione tra i computer replicati e Azure.DRA agent : Orchestrates VM replication, and coordinates communication between replicated machines and Azure. Utilizzato solo durante la replica di macchine virtuali VMware in Azure usando la migrazione senza agente.<br/>- **Gateway:** invia i dati replicati in Azure.Gateway : Sends replicated data to Azure. Utilizzato solo durante la replica di macchine virtuali VMware in Azure usando la migrazione senza agente.
 **Distribuzione supportata** | Eseguire la distribuzione come VM VMware usando il modello OVA.<br/><br/> Eseguire la distribuzione come macchina virtuale o computer fisico VMware usando lo script di installazione di PowerShell.Deploy as a VMware VM or physical machine using PowerShell installation script.
@@ -67,7 +78,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Requisito** | **Fisico** 
 --- | ---
 **Componenti dell'apparecchio** | L'apparecchio è dotato dei seguenti componenti: <br/><br/> - **App di gestione:** si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. Utilizzato durante la valutazione dei computer per la migrazione ad Azure.Used when assessing machines for migration to Azure.<br/> - **Agente di individuazione:** l'agente raccoglie i dati di configurazione del computer. Utilizzato durante la valutazione dei computer per la migrazione ad Azure.Used when assessing machines for migration to Azure.<br/>- **Agente di valutazione:** l'agente raccoglie i dati sulle prestazioni. Utilizzato durante la valutazione dei computer per la migrazione ad Azure.Used when assessing machines for migration to Azure.<br/>- **Servizio di aggiornamento automatico**: Aggiorna i componenti dell'appliance (eseguiti ogni 24 ore).
-**Distribuzione supportata** | Eseguire la distribuzione come computer fisico dedicato o come macchina virtuale usando uno script di installazione di PowerShell.Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script.
+**Distribuzione supportata** | Eseguire la distribuzione come computer fisico dedicato o come macchina virtuale usando uno script di installazione di PowerShell.Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script. Lo script è disponibile per il download dal portale.
 **Sostegno al progetto** |  Un accessorio può essere associato a un singolo progetto. <br/> Un numero qualsiasi di appliance può essere associato a un singolo progetto.<br/> 
 **Limiti di individuazione** | Un apparecchio può scoprire fino a 250 server fisici.
 **Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale. [Altre informazioni](tutorial-assess-physical.md#set-up-the-appliance) In alternativa, [scaricare direttamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> La dimensione del download è 59,7 MB.
@@ -78,8 +89,10 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 L'appliance di Azure Migrate richiede connettività a Internet.The Azure Migrate appliance needs connectivity to the internet.
 
-- Quando si distribuisce l'appliance, Azure Migrate esegue un controllo di connettività agli URL riepilogati nella tabella seguente.
+- Quando si distribuisce l'appliance, Azure Migrate esegue un controllo della connettività agli URL necessari.
 - Se si utilizza un proxy basato su URL per connettersi a Internet, è necessario consentire l'accesso a questi URL, assicurandosi che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL.
+
+### <a name="public-cloud-urls"></a>URL del cloud pubblico
 
 **URL** | **Dettagli**  
 --- | --- |
@@ -95,6 +108,25 @@ download.microsoft.com/download | Consenti download dal download Microsoft.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Connettersi agli URL del servizio Azure Migrate.Connect to Azure Migrate service URLs.
 *.hypervrecoverymanager.windowsazure.com | **Utilizzato per la migrazione senza agente VMware**<br/><br/> Connettersi agli URL del servizio Azure Migrate.Connect to Azure Migrate service URLs.
 *.blob.core.windows.net |  **Utilizzato per la migrazione senza agente VMware**<br/><br/>Caricare i dati nell'archivio per la migrazione.
+
+### <a name="government-cloud-urls"></a>URL cloud governativi
+
+**URL** | **Dettagli**  
+--- | --- |
+*.portal.azure.us  | Passare al portale di Azure.
+graph.windows.net | Accedere alla sottoscrizione di Azure.
+login.microsoftonline.us  | Creare app di Azure Active Directory (AD) per l'appliance per comunicare con Azure Migrate.Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
+management.usgovcloudapi.net | Creare app di Azure AD per l'appliance per comunicare con il servizio Azure Migrate.Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
+dc.services.visualstudio.com | Caricare i log dell'app usati per il monitoraggio interno.
+.vault.usgovcloudapi.net | Gestire i segreti nell'insieme di credenziali delle chiavi di Azure.Manage secrets in the Azure Key Vault.
+aka.ms/ ) | Consentire l'accesso ai collegamenti alias. Utilizzato per gli aggiornamenti dell'appliance di Azure Migrate.Used for Azure Migrate appliance updates.
+download.microsoft.com/download | Consenti download dal download Microsoft.
+Servicebus.usgovcloudapi.net .servicebus.usgovcloudapi.net  | Comunicazione tra l'appliance e il servizio Azure Migrate.Communication between the appliance and the Azure Migrate service.
+discoverysrv.windowsazure.us .discoverysrv.windowsazure.us <br/> MIGRATION.WINDOWSAZURE.US .migration.windowsazure.us | Connettersi agli URL del servizio Azure Migrate.Connect to Azure Migrate service URLs.
+*.hypervrecoverymanager.windowsazure.us | **Utilizzato per la migrazione senza agente VMware**<br/><br/> Connettersi agli URL del servizio Azure Migrate.Connect to Azure Migrate service URLs.
+*.blob.core.usgovcloudapi.net  |  **Utilizzato per la migrazione senza agente VMware**<br/><br/>Caricare i dati nell'archivio per la migrazione.
+Applicationinsights.us .applicationinsights.us | Utilizzato dall'agente gateway nell'appliance per accedere all'endpoint di Application Insights per il monitoraggio diagnostico.
+
 
 
 

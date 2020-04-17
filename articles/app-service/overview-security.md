@@ -5,12 +5,12 @@ keywords: servizio app di azure, app web, app per dispositivi mobili, app per le
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: e28935f73511e5ad973929517658cc626b5a6ea2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475375"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535656"
 ---
 # <a name="security-in-azure-app-service"></a>Sicurezza in Servizio app di Azure
 
@@ -31,14 +31,14 @@ Nelle sezioni seguenti viene illustrato come rafforzare la protezione dell'app d
 
 ## <a name="https-and-certificates"></a>HTTPS e certificati
 
-Servizio app di Azure consente di proteggere le app con [HTTPS](https://wikipedia.org/wiki/HTTPS). Al momento della creazione, il nome di dominio predefinito dell'app (\<nome_app >.azurewebsites.net) è già accessibile tramite HTTPS. Se [configuri un dominio personalizzato per la tua app,](app-service-web-tutorial-custom-domain.md)devi [anche proteggerlo con un certificato SSL](configure-ssl-bindings.md) in modo che i browser client possano stabilire connessioni HTTPS protette al dominio personalizzato. Esistono diversi tipi di certificati supportati dal servizio app:
+Servizio app di Azure consente di proteggere le app con [HTTPS](https://wikipedia.org/wiki/HTTPS). Al momento della creazione, il nome di dominio predefinito dell'app (\<nome_app >.azurewebsites.net) è già accessibile tramite HTTPS. Se [configuri un dominio personalizzato per la tua app,](app-service-web-tutorial-custom-domain.md)devi [anche proteggerlo con un certificato TLS/SSL](configure-ssl-bindings.md) in modo che i browser client possano stabilire connessioni HTTPS protette al dominio personalizzato. Esistono diversi tipi di certificati supportati dal servizio app:
 
 - Certificato gestito dal servizio app gratuito
 - Certificato del servizio app
 - Certificato di terze parti
 - Certificato importato dall'insieme di credenziali delle chiavi di AzureCertificate imported from Azure Key Vault
 
-Per altre informazioni, vedere Aggiungere un certificato SSL nel servizio app di Azure.For more information, see [Add an SSL certificate in Azure App Service.](configure-ssl-certificate.md)
+Per altre informazioni, vedere Aggiungere un certificato TLS/SSL nel servizio app di Azure.For more information, see Add a [TLS/SSL certificate in Azure App Service.](configure-ssl-certificate.md)
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protocolli non sicuri (HTTP, TLS 1.0, FTP)
 

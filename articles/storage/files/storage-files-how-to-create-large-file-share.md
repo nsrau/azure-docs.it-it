@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061008"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537679"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Abilitare e creare condivisioni file di grandi dimensioniEnable and create large file shares
 
@@ -33,8 +33,8 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 
 ### <a name="portal"></a>Portale
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
-1. Nel portale di Azure fare clic su **Tutti i servizi**. 
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Nel portale di Azure selezionare **Tutti i servizi**. 
 1. Nell'elenco delle risorse immettere **Account di archiviazione.** Mentre si digita, l'elenco viene filtrato in base all'input. Selezionare **Account di archiviazione**.
 1. Nella finestra **Account di archiviazione** visualizzata selezionare **Aggiungi**.
 1. Selezionare la sottoscrizione da usare per creare l'account di archiviazione.
@@ -43,7 +43,7 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
     ![Screenshot che mostra come creare un gruppo di risorse nel portale](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Immettere quindi un nome per l'account di archiviazione. Il nome deve essere univoco in Azure. Il nome deve inoltre avere una lunghezza da 3 a 24 caratteri e può avere solo numeri e lettere minuscole.
-1. Selezionare un percorso per l'account di archiviazione e assicurarsi che sia [una delle repliche supportate per le condivisioni file](storage-files-planning.md#regional-availability)di grandi dimensioni.
+1. Selezionare la località per l'account di archiviazione.
 1. Impostare la replica su **Archiviazione con ridondanza locale** o Archiviazione con **ridondanza di zona**.
 1. Lasciare i valori predefiniti di questi campi:
 
@@ -59,7 +59,7 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 
     ![Screenshot con il pulsante di opzione "abilitato" in un nuovo account di archiviazione nel portale di Azure](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="cli"></a>CLI
 
@@ -126,7 +126,7 @@ La creazione di una condivisione file di grandi dimensioni è quasi identica all
 
 1. Nell'account di archiviazione selezionare **Condivisioni file**.
 1. Selezionare **: Condivisione file**.
-1. Immettere un nome per la condivisione file. Puoi anche impostare la dimensione della quota che desideri, fino a 100 TiB. Quindi selezionare **Crea**. 
+1. Immettere un nome per la condivisione file. Puoi anche impostare la dimensione della quota che desideri, fino a 100 TiB. Selezionare quindi **Crea**. 
 
 ![Interfaccia utente del portale di Azure con le caselle Nome e Quota](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 

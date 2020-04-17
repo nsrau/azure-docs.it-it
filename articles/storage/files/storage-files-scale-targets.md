@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255132"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536439"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -51,8 +51,7 @@ Vedere la sezione Obiettivi di [scalabilità dell'account di archiviazione](#azu
 ### <a name="file-share-and-file-scale-targets"></a>Obiettivi di condivisione file e scala fileFile share and file scale targets
 
 > [!NOTE]
-> Le condivisioni file standard superiori a 5 TiB presentano alcune limitazioni e restrizioni regionali.
-> Per un elenco di limitazioni, informazioni regionali e istruzioni per abilitare queste dimensioni di condivisione file di dimensioni maggiori, vedere la sezione [Condivisioni file](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) di dimensioni maggiori della Guida alla pianificazione.
+> Le condivisioni file standard superiori a 5 TiB presentano alcune limitazioni. Per un elenco delle limitazioni e delle istruzioni per abilitare condivisioni file di dimensioni maggiori, vedere la sezione [Abilitare condivisioni file di dimensioni maggiori](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) nelle condivisioni file standard della guida alla pianificazione.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -113,5 +112,5 @@ Come indicazione generale per la distribuzione, è necessario tenere presenti al
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
-- [Pianificazione di una distribuzione di Sincronizzazione file di AzurePlanning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md)
+- [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

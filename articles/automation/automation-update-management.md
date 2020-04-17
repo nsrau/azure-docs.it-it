@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eaba4bf7760e150f2477ee743c797f94784b8506
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278506"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535503"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -104,7 +104,7 @@ Nella tabella seguente sono elencati i sistemi operativi non supportati:
 
 Le informazioni seguenti descrivono i requisiti client specifici del sistema operativo. Per ulteriori informazioni, vedere [Pianificazione della rete](#ports).
 
-#### <a name="windows"></a>WINDOWS
+#### <a name="windows"></a>Windows
 
 Gli agenti Windows devono essere configurati per comunicare con un server WSUS oppure richiedono l'accesso a Microsoft Update.
 
@@ -127,7 +127,7 @@ Le macchine virtuali create dalle immagini Red Hat Enterprise Linux (RHEL) su ri
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Per creare e gestire le distribuzioni degli aggiornamenti, sono necessarie autorizzazioni specifiche. Per ulteriori informazioni su queste autorizzazioni, vedere [Accesso basato sui ruoli - Gestione aggiornamenti](automation-role-based-access-control.md#update-management).
+Per creare e gestire le distribuzioni degli aggiornamenti, sono necessarie autorizzazioni specifiche. Per ulteriori informazioni su queste autorizzazioni, vedere [Accesso basato sui ruoli - Gestione aggiornamenti](automation-role-based-access-control.md#update-management-permissions).
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
@@ -204,7 +204,7 @@ Seguire le istruzioni in [Connettere computer senza accesso a Internet](../azure
 
 Nelle tabelle che seguono sono riportate le classificazioni degli aggiornamenti in Gestione aggiornamenti, con una definizione per ogni classificazione.
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 |Classificazione  |Descrizione  |
 |---------|---------|

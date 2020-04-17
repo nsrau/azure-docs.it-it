@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979481"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537016"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
@@ -33,9 +33,9 @@ Usando le caselle di controllo, selezionare le macchine virtuali che si vuole ca
 Dalla barra dei comandi fare clic su **Servizi** e selezionare **Rilevamento modifiche**, **Inventario** o **Gestione aggiornamenti**.
 
 > [!NOTE]
-> Per **Rilevamento modifiche** e **Inventario** viene usata la stessa soluzione. Quando un servizio è abilitato, viene abilitato anche l'altro.
+> Rilevamento delle modifiche e l'inventario utilizzano la stessa soluzione. Quando uno è abilitato, l'altro è abilitato pure.
 
-L'immagine seguente è relativa a Gestione aggiornamenti. Rilevamento modifiche e Inventario hanno lo stesso layout e lo stesso comportamento.
+L'immagine seguente è relativa a Gestione aggiornamenti. Rilevamento modifiche e inventario hanno lo stesso layout e lo stesso comportamento.
 
 L'elenco di macchine virtuali viene filtrato per visualizzare solo le macchine virtuali che sono nella stessa sottoscrizione e località. Se le macchine virtuali sono in più di tre gruppi di risorse, vengono selezionati i primi tre gruppi di risorse.
 
@@ -71,8 +71,8 @@ Fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della so
 Le soluzioni seguenti sono dipendenti da un'area di lavoro Log Analytics:
 
 * [Gestione degli aggiornamenti](automation-update-management.md)
-* [Rilevamento delle modifiche](automation-change-tracking.md)
-* [Avviare/arrestare VM durante gli orari di minore attività](automation-solution-vm-management.md)
+* [Rilevamento modifiche](automation-change-tracking.md)
+* [Avviare/arrestare le macchine virtuali durante le ore non lavorativeStart/Stop VMs during off-hours](automation-solution-vm-management.md)
 
 Se si decide di non integrare più l'account di Automazione con un'area di lavoro di Log Analytics, è possibile scollegare l'account direttamente dal portale di Azure.If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Prima di procedere, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
 
@@ -101,19 +101,19 @@ Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di min
 
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
-* Variabili
+* variables
 
 In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro di Log Analytics.Alternative ly can also unlink your workspace from your Automation Account from your Log Analytics workspace. Nell'area di lavoro selezionare **Account di automazione** in **Risorse correlate**. Nella pagina Account di automazione selezionare **Scollega account**.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Durante l'onboarding di più computer, per alcuni computer potrebbe essere visualizzato **Cannot enable** (Abilitazione non consentita). Esistono diversi motivi per cui alcuni computer non possono essere abilitati. Le sezioni seguenti indicano i possibili motivi dello stato **Cannot enable** (Abilitazione non consentita) in una VM durante un tentativo di onboarding.
+Durante l'onboarding di più computer, `Cannot enable`potrebbero essere presenti macchine che vengono visualizzate come . Esistono diversi motivi per cui alcuni computer non possono essere abilitati. Le sezioni seguenti mostrano `Cannot enable` i possibili motivi per lo stato in una macchina virtuale quando si tenta di eseguire l'onboarding.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>La VM invia report a un'area di lavoro diversa: "\<workspaceName\>".  Modificare la configurazione per usarla per l'abilitazione
 
 **Causa**: questo errore indica che la VM che si sta provando a caricare invia report a un'altra area di lavoro.
 
-**Soluzione**: fare clic su **Use as configuration** (Usa come configurazione) per modificare l'account di Automazione e l'area di lavoro Log Analytics di destinazione.
+**Soluzione:** fare clic su **Usa come configurazione** per modificare l'account di automazione di destinazione e l'area di lavoro di Log Analytics.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>La VM invia report a un'area di lavoro che non è disponibile in questa sottoscrizione
 
@@ -148,7 +148,7 @@ Durante l'onboarding di più computer, per alcuni computer potrebbe essere visua
 Per rimuovere una macchina virtuale per Gestione aggiornamenti:
 
 * Nell'area di lavoro Log Analytics rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates`. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
-* Rimuovere [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o l'[agente di Log Analytics per Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Rimuovere [l'agente di Log Analytics per Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o l'agente di Log Analytics per [Linux.](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

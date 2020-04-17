@@ -12,12 +12,12 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5241089ff3cc7826216fcadd6fd94116ee4a2c89
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: ac630c4901c126ed883adbdc7efb03f36372e6ff
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309445"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535877"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Piattaforma di identità Microsoft e flusso di codici di autorizzazione OAuth 2.0
 
@@ -219,7 +219,7 @@ Le risposte di errore hanno un aspetto simile al seguente:
 
 ## <a name="use-the-access-token"></a>Usare il token di accesso
 
-Dopo aver ottenuto un `access_token` è possibile usarlo in richieste alle API Web includendolo nell'intestazione `Authorization`:
+Dopo aver acquisito correttamente `access_token`un oggetto , è possibile utilizzare il token nelle `Authorization` richieste alle API Web includendolo nell'intestazione:
 
 > [!TIP]
 > Eseguire la richiesta in Postman. (Sostituisci `Authorization` prima l'intestazione) [Prova a eseguire questa richiesta in Postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
@@ -232,11 +232,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>Aggiornare il token di accesso
 
-I token di accesso hanno breve durata ed è quindi necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. A tale scopo, inviare un'altra richiesta `POST` all'endpoint `/token`, specificando il `refresh_token` anziché il valore `code`.  I token di aggiornamento sono validi per tutte le autorizzazioni per cui il client ha già ottenuto il consenso; in questo modo, un token di aggiornamento emesso su richiesta per `scope=mail.read` può essere usato per richiedere un nuovo token di accesso per `scope=api://contoso.com/api/UseResource`.  
+I token di accesso hanno breve durata ed è quindi necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. A tale scopo, inviare un'altra richiesta `POST` all'endpoint `/token`, specificando il `refresh_token` anziché il valore `code`.  I token di aggiornamento sono validi per tutte le autorizzazioni per cui il client ha già ottenuto il consenso; in questo modo, un token di aggiornamento emesso su richiesta per `scope=mail.read` può essere usato per richiedere un nuovo token di accesso per `scope=api://contoso.com/api/UseResource`.
 
-I token di aggiornamento non hanno una durata specificata. La durata dei token di aggiornamento è in genere relativamente lunga. In alcuni casi, tuttavia, i token di aggiornamento scadono, vengono revocati o non hanno privilegi sufficienti per l'azione desiderata. L'applicazione deve prevedere e gestire correttamente gli [errori restituiti dall'endpoint di rilascio del token](#error-codes-for-token-endpoint-errors). 
+I token di aggiornamento non hanno una durata specificata. La durata dei token di aggiornamento è in genere relativamente lunga. In alcuni casi, tuttavia, i token di aggiornamento scadono, vengono revocati o non hanno privilegi sufficienti per l'azione desiderata. L'applicazione deve prevedere e gestire correttamente gli [errori restituiti dall'endpoint di rilascio del token](#error-codes-for-token-endpoint-errors).
 
-Anche se i token di aggiornamento non vengono revocati quando vengono utilizzati per acquisire nuovi token di accesso, è previsto che elimini il token di aggiornamento precedente. La [specifica OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) dice: "Il server di autorizzazione può emettere un nuovo token di aggiornamento, nel qual caso il client DEVE eliminare il token di aggiornamento precedente e sostituirlo con il nuovo token di aggiornamento. Il server di autorizzazione può revocare il token di aggiornamento precedente dopo aver eseguito un nuovo token di aggiornamento al client."  
+Anche se i token di aggiornamento non vengono revocati quando vengono utilizzati per acquisire nuovi token di accesso, è previsto che elimini il token di aggiornamento precedente. La [specifica OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) dice: "Il server di autorizzazione può emettere un nuovo token di aggiornamento, nel qual caso il client DEVE eliminare il token di aggiornamento precedente e sostituirlo con il nuovo token di aggiornamento. Il server di autorizzazione può revocare il token di aggiornamento precedente dopo aver eseguito un nuovo token di aggiornamento al client."
 
 ```
 // Line breaks for legibility only
@@ -254,7 +254,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Provare a eseguire la richiesta in Postman. (Non dimenticare di sostituire `refresh_token`il ) [Prova a eseguire questa richiesta in Postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-> 
+>
 
 | Parametro     |                | Descrizione        |
 |---------------|----------------|--------------------|

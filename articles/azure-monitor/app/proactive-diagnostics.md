@@ -3,12 +3,12 @@ title: Rilevamento intelligente in Azure Application Insights | Microsoft Docs
 description: Application Insights esegue automaticamente un'analisi approfondita dei dati di telemetria dell'app e segnala potenziali problemi.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9f88e1d2e643d04c4417283420217e7d496caf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671801"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536795"
 ---
 # <a name="smart-detection-in-application-insights"></a>Rilevamento intelligente in Application Insights
  Rilevamento intelligente avvisa automaticamente l'utente di potenziali problemi di prestazioni e anomalie di errore nell'applicazione Web. Esegue l'analisi proattiva dei dati di telemetria che l'app invia ad [Application Insights](../../azure-monitor/app/app-insights-overview.md). Se si verifica un improvviso aumento della percentuale di errori o in caso di modelli anomali delle prestazioni di client o server, viene generato un avviso. Questa funzionalità non richiede alcuna configurazione. Funziona se l'applicazione invia dati di telemetria sufficienti.
@@ -34,7 +34,7 @@ Smart Detection rileva e notifica una serie di problemi, ad esempio:
 
 * [Rilevamento intelligente: anomalie negli errori](../../azure-monitor/app/proactive-failure-diagnostics.md). Si usa Machine Learning per impostare la frequenza prevista delle richieste non riuscite per l'app, in correlazione con il carico e altri fattori. Se la percentuale di errori supera la prevista, viene inviato un avviso.
 * [Rilevamento intelligente: anomalie nelle prestazioni](../../azure-monitor/app/proactive-performance-diagnostics.md). Vengono inviate notifiche se il tempo di risposta di un'operazione o la durata delle dipendenze sta rallentando rispetto alla baseline cronologica o se viene identificato un modello anomalo nel tempo di risposta o di caricamento pagina.   
-* Le degradazioni generali e i problemi, ad esempio [Trace degredation](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [Perdita di memoria](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), Aumento anomalo del volume delle [eccezioni](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) e [anti-modelli di sicurezza](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* Le degradazioni generali e i problemi, ad esempio [Trace degradation](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [Perdita di memoria](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), [Aumento anomalo del volume delle eccezioni](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) e [anti-modelli](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack)di sicurezza .
 
 I collegamenti della Guida in ogni notifica consentono di vedere gli articoli pertinenti.
 
@@ -53,7 +53,7 @@ In alternativa, è possibile modificare la configurazione usando i modelli di Az
 ## <a name="next-steps"></a>Passaggi successivi
 Gli strumenti di diagnostica seguenti consentono di controllare la telemetria dall'app:
 
-* [Esplora metriche](../../azure-monitor/app/metrics-explorer.md)
+* [Esplora metriche](../../azure-monitor/platform/metrics-charts.md)
 * [Esplora ricerche](../../azure-monitor/app/diagnostic-search.md)
 * [Linguaggio avanzato di query di Analisi](../../azure-monitor/log-query/get-started-portal.md)
 

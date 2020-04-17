@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 82c516eeac6d3e88ca7b6ac1c97ebb638ba27979
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383921"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537696"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -164,7 +164,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="ad-support"></a>
 **L'autenticazione basata sull'identità e il controllo di accesso sono supportati da File di Azure?**  
     
-    Sì, File di Azure supporta l'autenticazione basata sull'identità e il controllo degli accessi. È possibile scegliere uno dei due modi per usare il controllo degli accessi basato sull'identità: Active Directory (AD) (anteprima) o Servizi di dominio Azure Active Directory (Azure AD DS) (GA). Active Directory supporta l'autenticazione tramite computer aggiunti a un dominio Active Directory, in locale o in Azure, per accedere alle condivisioni file di Azure tramite SMB. L'autenticazione di Servizi di dominio Azure su SMB per file di Azure consente alle macchine virtuali Windows aggiunte al dominio di Azure DS di accedere a condivisioni, directory e file usando le credenziali di Azure AD. Per altre informazioni, vedere [Panoramica del supporto dell'autenticazione basata sull'identità di File di Azure per l'accesso SMB](storage-files-active-directory-overview.md). 
+    Sì, File di Azure supporta l'autenticazione basata sull'identità e il controllo degli accessi. È possibile scegliere uno dei due modi per usare il controllo degli accessi basato sull'identità: Servizi di dominio Active Directory locale (anteprima) o Servizi di dominio Azure Active Directory (Azure AD DS). Servizi di dominio Active Directory locale supporta l'autenticazione tramite computer aggiunti a un dominio di Servizi di dominio Active Directory, in locale o in Azure, per accedere alle condivisioni file di Azure tramite SMB. L'autenticazione di Servizi di dominio Azure su SMB per file di Azure consente alle macchine virtuali Windows aggiunte al dominio di Azure DS di accedere a condivisioni, directory e file usando le credenziali di Azure AD. Per altre informazioni, vedere [Panoramica del supporto dell'autenticazione basata sull'identità di File di Azure per l'accesso SMB](storage-files-active-directory-overview.md). 
 
     File di Azure offre altri due modi per gestire il controllo di accesso:
 
@@ -185,30 +185,30 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Sì, supportiamo le API REST che ottengono, impostano o copiano gli ACL NTFS per le directory o i file quando usano l'API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (o versione successiva).
 
 * <a id="ad-vm-subscription"></a>
-**È possibile accedere a File di Azure con le credenziali di Azure AD da una macchina virtuale in una sottoscrizione diversa?**
+**È possibile accedere alle condivisioni file di Azure con le credenziali di Azure AD da una macchina virtuale in una sottoscrizione diversa?**
 
-    Se la sottoscrizione in cui è distribuita la condivisione file è associata allo stesso tenant di Azure AD della distribuzione di Azure AD Domain Services in cui la macchina virtuale è aggiunta a un dominio, sarà possibile accedere a File di Azure usando le stesse credenziali di Azure AD. La limitazione si applica non alla sottoscrizione ma al tenant di Azure AD associato.
+    Se la sottoscrizione in cui viene distribuita la condivisione file è associata allo stesso tenant di Azure AD della distribuzione di Servizi di dominio Azure AD a cui la macchina virtuale fa parte di un dominio, è possibile accedere alle condivisioni file di Azure usando le stesse credenziali di Azure AD. La limitazione si applica non alla sottoscrizione ma al tenant di Azure AD associato.
     
 * <a id="ad-support-subscription"></a>
-**È possibile abilitare l'autenticazione di Azure File di Azure AD DS o AD con un tenant di Azure AD diverso dal tenant primario a cui è associata la condivisione file?**
+**È possibile abilitare l'autenticazione di Servizi di dominio Active Directory di Azure o locale per le condivisioni file di Azure usando un tenant di Azure AD diverso dal tenant primario della condivisione file di Azure?**
 
-    No, File di Azure supporta solo l'integrazione di Azure AD DS o AD con un tenant di Azure AD che risiede nella stessa sottoscrizione della condivisione file. È possibile associare una sola sottoscrizione a un tenant di Azure AD. Questa limitazione si applica a entrambi i metodi di autenticazione di Azure AD DS e AD. Quando si usa Active Directory per l'autenticazione, le credenziali di Active Directory devono essere sincronizzate con Azure AD a cui è associato l'account di archiviazione.
+    No, File di Azure supporta solo l'integrazione di Servizi di dominio Active Directory di Azure AD o locale con un tenant di Azure AD che si trova nella stessa sottoscrizione della condivisione file. È possibile associare una sola sottoscrizione a un tenant di Azure AD. Questa limitazione si applica sia ai metodi di autenticazione di Servizi di dominio Active Directory di Azure AD che ai metodi di autenticazione di Servizi di dominio Active Directory locali. Quando si usa Servizi di dominio Active Directory locale per l'autenticazione, le credenziali di Servizi di dominio [Active Directory devono essere sincronizzate](../../active-directory/hybrid/how-to-connect-install-roadmap.md) con Azure AD a cui è associato l'account di archiviazione.
 
 * <a id="ad-linux-vms"></a>
-**File di Azure Azure Azure DS o l'autenticazione AD supporta le macchine virtuali Linux?**
+**L'autenticazione di Servizi di dominio Active Directory di Azure AD o locale per le condivisioni file di Azure supporta le macchine virtuali Linux?**
 
     No, l'autenticazione da macchine virtuali Linux non è supportata.
 
 * <a id="ad-aad-smb-afs"></a>
-**È possibile sfruttare l'autenticazione di Azure File di Azure AD DS o l'autenticazione di Active Directory (anteprima) nelle condivisioni file gestite da Sincronizzazione file di Azure?**
+**Le condivisioni file gestite da Sincronizzazione file di Azure supportano l'autenticazione di Azure AD DS o locale di Servizi di dominio Active Directory (anteprima)?**
 
-    Sì, è possibile abilitare l'autenticazione di Azure AD DS o AD in una condivisione file gestita dalla sincronizzazione file di Azure.Yes, you can enable Azure AD DS or AD authentication on a file share managed by Azure file sync. Le modifiche agli ACL NTFS di directory/file nei file server locali verranno suddivise in livelli in File di Azure e viceversa.
+    Sì, è possibile abilitare l'autenticazione di Servizi di dominio Active Directory di Azure AD o locale in una condivisione file gestita da Sincronizzazione file di Azure.Yes, you can enable Azure AD DS or on-premises AD DS authentication on a file share managed by Azure File Sync. Le modifiche agli ACL NTFS di directory/file nei file server locali verranno suddivise in livelli in File di Azure e viceversa.
 
 * <a id="ad-aad-smb-files"></a>
-**Come è possibile verificare se è stata abilitata l'autenticazione di Active Directory nell'account di archiviazione e nelle informazioni sul dominio di Active Directory?**
+**Come è possibile verificare se è stata abilitata l'autenticazione di Servizi di dominio Active Directory nell'account di archiviazione e recuperare le informazioni sul dominio?**
 
-    È possibile fare riferimento alle istruzioni fornite qui per verificare se l'autenticazione di Azure Files AD è abilitata nell'account di archiviazione e recuperare le informazioni sul dominio di Active Directory.You can refer to the instructions provided [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
-
+    Per istruzioni, vedere [qui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
+    
 * <a id="encryption-at-rest"></a>
 **Come è possibile garantire che la condivisione file di Azure usi la crittografia dei dati inattivi?**  
 
@@ -241,15 +241,15 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     No, l'autenticazione da macchine virtuali Linux non è supportata.
 
 * <a id="ad-multiple-forest"></a>
-**L'autenticazione di Azure Files AD supporta l'integrazione con un ambiente AD usando più foreste?**    
+**L'autenticazione di Servizi di dominio Active Directory locale per le condivisioni file di Azure supporta l'integrazione con un ambiente Servizi di dominio Active Directory usando più foreste?**    
 
-    L'autenticazione di Azure Files AD si integra solo con la foresta del servizio di dominio ad Active Directory in cui è registrato l'account di archiviazione. Per supportare l'autenticazione da un'altra foresta di Active Directory, l'ambiente deve disporre di un trust tra foreste configurato correttamente. Il modo in cui i file di Azure si registrano in un servizio di dominio Active Directory è per lo più lo stesso di un normale file server, in cui crea un'identità (account di accesso del computer o del servizio) in Active Directory per l'autenticazione. L'unica differenza è che il nome SPN registrato dell'account di archiviazione termina con "file.core.windows.net" che non corrisponde al suffisso di dominio. Rivolgersi all'amministratore di dominio per verificare se è necessario un aggiornamento dei criteri di routing DNS per abilitare l'autenticazione a più insiemi di strutture a causa del suffisso di dominio diverso.
+    L'autenticazione di Servizi di dominio Active Directory locale di Azure File si integra solo con la foresta del servizio di dominio in cui è registrato l'account di archiviazione. Per supportare l'autenticazione da un'altra foresta, l'ambiente deve disporre di un trust tra foreste configurato correttamente. Il modo in cui i file di Azure si registrano in Servizi di dominio Active Directory quasi come un normale file server, in cui crea un'identità (account di accesso del computer o del servizio) in Servizi di dominio Active Directory per l'autenticazione. L'unica differenza è che il nome SPN registrato dell'account di archiviazione termina con "file.core.windows.net" che non corrisponde al suffisso di dominio. Rivolgersi all'amministratore di dominio per verificare se è necessario un aggiornamento dei criteri di routing DNS per abilitare l'autenticazione a più insiemi di strutture a causa del suffisso di dominio diverso.
 
 * <a id=""></a>
-**Quali aree sono disponibili per l'autenticazione di Azure Files AD (anteprima)?**
+**Quali aree sono disponibili per l'autenticazione di Servizi di dominio Active Directory di Azure (anteprima)?**
 
-    Per informazioni dettagliate, fare riferimento alla disponibilità regionale di [Active Directory.](storage-files-identity-auth-active-directory-enable.md#regional-availability)
-
+    Per informazioni dettagliate, fare riferimento alla [disponibilità regionale](storage-files-identity-auth-active-directory-enable.md#regional-availability) di Servizi di dominio Active Directory.
+    
 * <a id="ad-aad-smb-afs"></a>
 **È possibile sfruttare l'autenticazione di Azure Files Active Directory (AD) (anteprima) nelle condivisioni file gestite da Sincronizzazione file di Azure?**
 

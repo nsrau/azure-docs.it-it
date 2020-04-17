@@ -3,12 +3,12 @@ title: Separazione della telemetria in Azure Application Insights
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671461"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536778"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separazione della telemetria da sviluppo, test e produzione
 
@@ -34,7 +34,7 @@ Per rendere più semplice la modifica del valore ikey man mano che il codice att
 
 Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
 
-*C #*
+*C#*
 
     protected void Application_Start()
     {
@@ -69,7 +69,7 @@ In [portal.azure.com](https://portal.azure.com)aggiungere una nuova risorsa di A
 
 ![Fare clic su Nuovo, Application Insights](./media/separate-resources/01-new.png)
 
-* Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche](../../azure-monitor/app/metrics-explorer.md). Se il tipo dell'app non è visualizzato, scegliere uno dei tipi Web per le pagine Web.
+* Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche](../../azure-monitor/platform/metrics-charts.md). Se il tipo dell'app non è visualizzato, scegliere uno dei tipi Web per le pagine Web.
 * **Il gruppo** di risorse è una comodità per la gestione di proprietà come il controllo di [accesso.](../../azure-monitor/app/resources-roles-access-control.md) È possibile usare gruppi di risorse separati per lo sviluppo, i test e la produzione.
 * **sottoscrizione** è il proprio account di pagamento in Azure.
 * Il **percorso** è la posizione in cui vengono conservati i dati. e attualmente non è modificabile. 
@@ -89,7 +89,7 @@ Sono necessarie le chiavi di strumentazione di tutte le risorse a cui l'app invi
 ## <a name="filter-on-build-number"></a>Filtrare in base al numero di build
 Quando si pubblica una nuova versione dell'app, potrebbe essere opportuno separare i dati telemetrici delle diverse build.
 
-È possibile impostare la proprietà della versione dell'applicazione in modo che sia possibile filtrare i risultati della [ricerca](../../azure-monitor/app/diagnostic-search.md) e di [Esplora metriche](../../azure-monitor/app/metrics-explorer.md).
+È possibile impostare la proprietà della versione dell'applicazione in modo che sia possibile filtrare i risultati della [ricerca](../../azure-monitor/app/diagnostic-search.md) e di [Esplora metriche](../../azure-monitor/platform/metrics-charts.md).
 
 ![Filtro su una proprietà](./media/separate-resources/050-filter.png)
 
@@ -139,7 +139,7 @@ Per tenere traccia della versione dell'applicazione, assicurarsi che il processo
     </PropertyGroup>
 ```
 
-Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](../../azure-monitor/app/diagnostic-search.md) o quando si [esaminano le metriche](../../azure-monitor/app/metrics-explorer.md).
+Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](../../azure-monitor/app/diagnostic-search.md) o quando si [esaminano le metriche](../../azure-monitor/platform/metrics-charts.md).
 
 Tuttavia, si noti che il numero di versione della build viene generato solo da Microsoft Build Engine, non dalla build dello sviluppatore da Visual Studio.However, notice that the build version number is generated only by the Microsoft Build Engine, not by the developer build from Visual Studio.
 

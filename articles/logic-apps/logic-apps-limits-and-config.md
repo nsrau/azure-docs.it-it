@@ -3,15 +3,15 @@ title: Limiti e configurazione
 description: Limiti del servizio, ad esempio durata, velocità effettiva e capacità, oltre a valori di configurazione, ad esempio indirizzi IP da consentire, per le app per la logica di AzureService limits, such as duration, throughput, and capacity, plus configuration values, such as IP addresses to allow, for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 4359c5581d14f4a918a49cf2b91ac58561ea93d3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/17/2020
+ms.openlocfilehash: 40950be2e5caeb17d20086720a7b65c15147c2f5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257454"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535112"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -112,7 +112,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 ### <a name="integration-service-environment-ise"></a>Ambiente del servizio di integrazione (ISE)Integration service environment (ISE)
 
-Ecco i limiti di velocità effettiva per lo SKU Premium:Here are the throughput limits for the Premium SKU:
+Di seguito sono riportati i limiti di velocità effettiva per lo [SKU Premium ISE:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
 | Nome | Limite | Note |
 |------|-------|-------|
@@ -124,8 +124,7 @@ Ecco i limiti di velocità effettiva per lo SKU Premium:Here are the throughput 
 Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
 
 > [!NOTE]
-> Lo [SKU per sviluppatori](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) non ha limiti pubblicati poiché questo SKU non dispone di alcun contratto di servizio (SLA) o funzionalità per la scalabilità verticale.
-> Usare questo SKU solo per sperimentare, sviluppo e test, non per test di produzione o prestazioni.
+> Lo [SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) per sviluppatori non ha limiti di pubblicazione, funzionalità per la scalabilità verticale e nessun contratto di servizio (SLA). Usare questo SKU solo per sperimentare, sviluppo e test, non per test di produzione o prestazioni.
 
 <a name="gateway-limits"></a>
 
@@ -281,12 +280,9 @@ Di seguito sono riportati i limiti di dimensione dei messaggi applicabili ai pro
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Disabilitazione o eliminazione di app per la logica
 
-Quando si disabilita un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione.
-Tutte le esecuzioni in corso e in sospeso continuano fino al completamento, operazione che potrebbe richiedere tempo.
+Quando si disabilita un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso continuano fino al completamento, operazione che potrebbe richiedere tempo.
 
-Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione.
-Tutte le esecuzioni in corso e in sospeso vengono annullate.
-Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo.
+Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo.
 
 <a name="configuration"></a>
 
@@ -300,17 +296,17 @@ Gli indirizzi IP utilizzati da App per la logica di Azure per le chiamate in ing
 > * **LogicAppsManagement**: Rappresenta i prefissi degli indirizzi IP in ingresso per il servizio App per la logica.
 > * **LogicApps**: Rappresenta i prefissi degli indirizzi IP in uscita per il servizio App per la logica.
 
+* Per [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), gli indirizzi IP fissi o riservati non sono disponibili per [i connettori personalizzati](../logic-apps/custom-connector-overview.md) e i [connettori gestiti,](../connectors/apis-list.md#managed-api-connectors)ad esempio Archiviazione di Azure, SQL Server, Office 365 Outlook e così via.
+
 * Per supportare le chiamate effettuate direttamente dalle app per la logica con [HTTP,](../connectors/connectors-native-http.md) [HTTP e](../connectors/connectors-native-http-swagger.md)altre richieste HTTP, impostare il firewall con tutti gli indirizzi IP [in ingresso](#inbound) *e* [in uscita](#outbound) utilizzati dal servizio App per la logica, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto le intestazioni **In ingresso** e **In uscita** in questa sezione e vengono ordinati in base all'area.
 
-* Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area.
+* Per supportare le chiamate effettuate dai [connettori gestiti,](../connectors/apis-list.md#managed-api-connectors) configurare il firewall con *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area.
 
 * Per abilitare la comunicazione per le app per la logica in esecuzione in un ambiente del servizio di integrazione (ISE), assicurarsi di [aprire queste porte.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise)
 
 * Se le app per la logica hanno problemi di accesso agli account di archiviazione di Azure che usano [firewall e regole del firewall,](../storage/common/storage-network-security.md)sono disponibili varie opzioni per [abilitare l'accesso.](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)
 
   Ad esempio, le app per la logica non possono accedere direttamente agli account di archiviazione che usano regole del firewall ed esistono nella stessa area. Tuttavia, se si consentono [gli indirizzi IP in uscita per i connettori gestiti nell'area,](../logic-apps/logic-apps-limits-and-config.md#outbound)le app per la logica possono accedere agli account di archiviazione che si trovano in un'area diversa, tranne quando si usano i connettori Archiviazione tabelle di Azure o Archiviazione coda di Azure.However, if you permit the outbound IP addresses for managed connectors in your region , your logic apps can access storage accounts that are in a different region except when you use the Azure Table Storage or Azure Queue Storage connectors. Per accedere all'archiviazione tabelle o all'archiviazione delle code, è possibile usare il trigger HTTP e le azioni. Per altre opzioni, vedere [Accedere agli account di archiviazione protetti da firewall](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
-
-* Per i connettori personalizzati, [Azure per enti pubblici](../azure-government/documentation-government-overview.md)e Azure China [21Vianet](https://docs.microsoft.com/azure/china/), gli indirizzi IP fissi o riservati non sono disponibili.
 
 <a name="inbound"></a>
 

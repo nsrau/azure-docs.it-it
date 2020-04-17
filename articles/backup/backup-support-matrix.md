@@ -3,12 +3,12 @@ title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878953"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537322"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di AzureSupport matrix for Azure Backup
 
@@ -43,7 +43,7 @@ Nella tabella seguente vengono descritte le funzionalità degli insiemi di crede
 
 Ecco cosa è supportato se si vuole eseguire il backup dei computer locali:Here's what's supported if you want to back up on-premises machines:
 
-**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Funzionalità**
+**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Caratteristiche**
 --- | --- | --- | ---
 **Backup diretto di computer Windows con l'agente MARS** | File, cartelle, stato del sistema | Eseguire il backup nell'insieme di credenziali dei servizi di ripristino. | Eseguire il backup tre volte al giorno<br/><br/> Nessun backup in grado di riconoscere le app<br/><br/> Ripristinare file, cartella, volume
 **Backup diretto di computer Linux con l'agente MARS** | Backup non supportato
@@ -63,7 +63,7 @@ Ecco cosa è supportato se si vuole eseguire il backup dei computer locali:Here'
 
 Ecco cosa è supportato se si vuole eseguire il backup delle macchine virtuali di Azure:Here's what's supported if you want to back up Azure VMs:
 
-**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Funzionalità**
+**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Caratteristiche**
 --- | --- | --- | ---
 **Backup della macchina virtuale di Azure tramite l'estensione della macchina virtualeAzure VM backup by using VM extension** | Intera macchina virtuale | Torna all'insieme di credenziali. | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Indietro una volta al giorno.<br/><br/> Backup in grado di riconoscere le app per le macchine virtuali Windows; backup coerente con i file per le macchine virtuali Linux. È possibile configurare la coerenza delle app per i computer Linux usando script personalizzati.<br/><br/> Ripristinare la macchina virtuale o il disco.<br/><br/> Impossibile eseguire il backup di una macchina virtuale di Azure in un percorso locale.
 **Backup della macchina virtuale di Azure tramite l'agente MARSAzure VM backup by using MARS agent** | File, cartelle, stato del sistema | Torna all'insieme di credenziali. | Indietro tre volte al giorno.<br/><br/> Se si desidera eseguire il backup di file o cartelle specifici anziché dell'intera macchina virtuale, l'agente MARS può essere eseguito insieme all'estensione della macchina virtuale.
@@ -90,7 +90,7 @@ Backup di Azure non supporta la regolazione automatica dell'orologio per l'ora l
 
 La deduplicazione dei dischi è supportata come segue:
 
-- La deduplicazione del disco è supportata in locale quando si utilizza DPM o MABs per eseguire il backup delle macchine virtuali Hyper-V che eseguono Windows. Windows Server esegue la deduplicazione dei dati (a livello di host) nei dischi rigidi virtuali (VHD) collegati alla macchina virtuale come archivio di backup.
+- La deduplicazione del disco è supportata in locale quando si utilizza DPM o MABS per eseguire il backup delle macchine virtuali Hyper-V che eseguono Windows. Windows Server esegue la deduplicazione dei dati (a livello di host) nei dischi rigidi virtuali (VHD) collegati alla macchina virtuale come archivio di backup.
 - La deduplicazione non è supportata in Azure per nessun componente di Backup. Quando DPM e MABS vengono distribuiti in Azure, i dischi di archiviazione collegati alla macchina virtuale non possono essere deduplicati.
 
 ## <a name="security-and-encryption-support"></a>Supporto per la sicurezza e la crittografia

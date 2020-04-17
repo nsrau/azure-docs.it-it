@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali VMware con il server di Backup di
 description: In questo articolo viene illustrato come usare il server di Backup di Azure per eseguire il backup delle macchine virtuali VMware in esecuzione in un server VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 951016d393b095b0329ff18861421402e0e18a1a
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 92846f9bb9259e55a2c957716676ff42c032b2b5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529513"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537407"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali VMware con il server di Backup di Azure
 
@@ -96,11 +96,11 @@ Se si dispone di limiti sicuri all'interno dell'organizzazione e non si desidera
 
 1. Copiare e incollare il seguente testo in un file .txt.
 
-```text
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-"IgnoreCertificateValidation"=dword:00000001
-```
+    ```text
+    Windows Registry Editor Version 5.00
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+    "IgnoreCertificateValidation"=dword:00000001
+    ```
 
 2. Salvare il file con il nome **DisableSecureAuthentication.reg** nel computer del server di Backup di Azure.
 
@@ -130,27 +130,49 @@ Il server di Backup di Azure richiede un account utente con autorizzazioni di ac
 
 ### <a name="role-permissions"></a>Autorizzazioni ruoli
 
-| **Privilegi per l'account utente di vCenter 6.7**              | **Privilegi per l'account utente di vCenter 6.5**             |
-| --------------------------------------------------------- | -------------------------------------------------------- |
-| Datastore.Allocare spazio                                  | Datastore.Allocare spazio                                 |
-| Global.Log Evento                                          | Global.Log Evento                                         |
-| Global.Gestisci attributi personalizzati                           | Global.Gestisci attributi personalizzati                          |
-| Network.Assign                                            | Network.Assign                                           |
-| Resource. Assegnare una macchina virtuale al pool di risorseAssign virtual Machine to Resource pool        | Resource. Assegnare una macchina virtuale al pool di risorseAssign virtual Machine to Resource pool       |
-| VirtualMachine.Configuration.AddNewDisk                   | VirtualMachine.Configuration.AddNewDisk                  |
-| File VirtualMachine.Configuration. Aggiungi o rimuovi dispositivo       | File VirtualMachine.Configuration. Aggiungi o rimuovi dispositivo      |
-| VirtualMachine.Configuration.Advanced                     | VirtualMachine.Configuration.Advanced                    |
-| VirtualMachine.Configuration.Toggle Disk Change Tracking | Rilevamento modifiche di VirtualMachine.Configuration.Disk       |
-| VirtualMachine.Configuration.Configure Host USB Device   | Dispositivo USB VirtualMachine.Configuration.Host            |
-| File senza proprietario VirtualMachine.Configuration.Query         | File senza proprietario VirtualMachine.Configuration.Query        |
-| Posizionamento del file di scambio di dimensioni virtuali.configurazione.modifica   | Posizionamento di VirtualMachine.Configuration.Swapfile         |
-| VirtualMachine.Interaction.Power Off                      | VirtualMachine.Interaction.Power Off                     |
-| VirtualMachine.Inventory.Create New                       | VirtualMachine.Inventory.Create New                      |
-| VirtualMachine.Provisioning.Consenti accesso al disco            | VirtualMachine.Provisioning.Consenti accesso al disco           |
-| VirtualMachine.Provisioning.Consenti accesso ai file            | VirtualMachine.Provisioning.Consenti accesso ai file           |
-| VirtualMachine.Provisioning.Consenti accesso al disco di sola lettura  | VirtualMachine.Provisioning.Consenti accesso al disco di sola lettura |
-| VirtualMachine.Snapshot Management.Create Snapshot       | VirtualMachine.Snapshot Management.Create Snapshot      |
-| VirtualMachine.Snapshot Management.Remove Snapshot       | VirtualMachine.Snapshot Management.Remove Snapshot      |
+| Privilegi per l'account utente di vCenter 6.7                     | Privilegi per l'account utente di vCenter 6.5                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Cluster di archivio dati. Configurare un cluster di datatstoreConfigure a datatstore cluster            | Cluster di archivio dati. Configurare un cluster di datatstoreConfigure a datatstore cluster            |
+| Datastore.AllocateSpace                                      | Datastore.AllocateSpace                                      |
+| Datastore.Browse datastore                                   | Datastore.Browse datastore                                   |
+| Datastore.Low-level file operations                          | Datastore.Low-level file operations                          |
+| Global.Disable methods                                       | Global.Disable methods                                       |
+| Global.Enable methods                                        | Global.Enable methods                                        |
+| Global.Licenses                                              | Global.Licenses                                              |
+| Global.Log event                                             | Global.Log event                                             |
+| Global.Manage custom attributes                              | Global.Manage custom attributes                              |
+| Global.Set custom attribute                                  | Global.Set custom attribute                                  |
+| Host.Operazioni locali. Creare una macchina virtualeCreate virtual machine                | Host.Operazioni locali. Creare una macchina virtualeCreate virtual machine                |
+| Network.Assign network                                       | Network.Assign network                                       |
+| Resource. Assegnare una macchina virtuale al pool di risorseAssign virtual machine to resource pool           | Resource. Assegnare una macchina virtuale al pool di risorseAssign virtual machine to resource pool           |
+| vApp.Add virtual machine                                     | vApp.Add virtual machine                                     |
+| vApp.Assign resource pool                                    | vApp.Assign resource pool                                    |
+| vApp.Unregister                                              | vApp.Unregister                                              |
+| File VirtualMachine.Configuration. Aggiungi o rimuovi dispositivo          | File VirtualMachine.Configuration. Aggiungi o rimuovi dispositivo          |
+| Macchina virtuale. Lease disco Configuration.Acquire            | Virtual machine.Configuration.Disk lease                     |
+| Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Add new disk                   |
+| Macchina virtuale. Configurazione.Configurazione avanzata        | Virtual machine.Configuration.Advanced                       |
+| Macchina virtuale. Configuration.Toggle Disk change tracking (Disattivazione rilevamento delle modifiche del disco)   | Macchina virtuale. Rilevamento delle modifiche di Configuration.Disk          |
+| Macchina virtuale. Configuration.Configurare il dispositivo USB host     | Macchina virtuale. Dispositivo USB Configuration.Host               |
+| Macchina virtuale. Configuration.Extend disco virtuale           | Macchina virtuale. Configuration.Extend disco virtuale           |
+| Macchina virtuale. File non di proprietà di Configuration.Query           | Macchina virtuale. File non di proprietà di Configuration.Query           |
+| Macchina virtuale. Posizionamento di Configuration.Change Swapfile     | Macchina virtuale. Posizionamento di Configuration.Swapfile            |
+| Macchina virtuale. Esecuzione del programma operativo Guest Operations.GuestGuest Operations.Guest Operation Program | Macchina virtuale. Esecuzione del programma operativo Guest Operations.GuestGuest Operations.Guest Operation Program |
+| Macchina virtuale. Modifiche alle operazioni guest.Guest | Macchina virtuale. Modifiche alle operazioni guest.Guest |
+| Macchina virtuale. Operazioni guest.Query operative guest    | Macchina virtuale. Operazioni guest.Query operative guest    |
+| Macchina virtuale . Interazione. Connessione del dispositivo             | Macchina virtuale . Interazione. Connessione del dispositivo             |
+| Macchina virtuale . Interazione. Gestione del sistema operativo guest tramite L'API VIX | Macchina virtuale . Interazione. Gestione del sistema operativo guest tramite L'API VIX |
+| Macchina virtuale . Interazione. Spegnimento                      | Macchina virtuale . Interazione. Spegnimento                      |
+| Macchina virtuale . Inventory.Crea nuovo                        | Macchina virtuale . Inventory.Crea nuovo                        |
+| Virtual machine .Inventory.Remove                            | Virtual machine .Inventory.Remove                            |
+| Virtual machine .Inventory.Register                          | Virtual machine .Inventory.Register                          |
+| Macchina virtuale . Provisioning.Consentire l'accesso al disco             | Macchina virtuale . Provisioning.Consentire l'accesso al disco             |
+| Macchina virtuale . Provisioning.Consentire l'accesso ai file             | Macchina virtuale . Provisioning.Consentire l'accesso ai file             |
+| Macchina virtuale . Provisioning.Consentire l'accesso al disco di sola lettura   | Macchina virtuale . Provisioning.Consentire l'accesso al disco di sola lettura   |
+| Macchina virtuale . Provisioning.Consenti download macchina virtuale | Macchina virtuale . Provisioning.Consenti download macchina virtuale |
+| Virtual machine .Snapshot management.  Creare snapshot       | Virtual machine .Snapshot management.  Creare snapshot       |
+| Macchina virtuale . Gestione delle istantanee. Rimuovi istantanea        | Macchina virtuale . Gestione delle istantanee. Rimuovi istantanea        |
+| Macchina virtuale . Gestione delle istantanee. Ripristinare l'istantanea     | Macchina virtuale . Gestione delle istantanee. Ripristinare l'istantanea     |
 
 <br>
 
@@ -174,8 +196,6 @@ Il server di Backup di Azure richiede un account utente con autorizzazioni di ac
 | Macchina virtuale. Provisioning. Allow read-only disk access |                                             |
 | Macchina virtuale. Gestione delle istantanee. Crea snapshot       |                                             |
 | Macchina virtuale. Gestione delle istantanee. Rimuovi istantanea       |                                             |
-
-
 
 ## <a name="create-a-vmware-account"></a>Configurare un account VMware
 
@@ -255,7 +275,7 @@ Aggiungere il server vCenter al server di Backup di Azure.
 
     ![Specifica credenziale](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Fare clic su **Aggiungi** per aggiungere il server VMware all'elenco dei server. Fare quindi clic su **Avanti**.
+6. Fare clic su **Aggiungi** per aggiungere il server VMware all'elenco dei server. Quindi fare clic su **Next**.
 
     ![Aggiungere il server VMware e le credenziali](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -283,14 +303,14 @@ Aggiungere le macchine virtuali VMware per il backup. I gruppi protezione dati r
 
 1. Nella pagina **Selezione tipo di gruppo protezione dati** selezionare **Server** e quindi fare clic su **Avanti**. Verrà visualizzata la pagina **Selezione membri del gruppo**.
 
-1. In **Seleziona membri del gruppo**selezionare le macchine virtuali (o cartelle di macchine virtuali) di cui si vuole eseguire il backup. Fare quindi clic su **Avanti**.
+1. In **Seleziona membri del gruppo**selezionare le macchine virtuali (o cartelle di macchine virtuali) di cui si vuole eseguire il backup. Quindi fare clic su **Next**.
 
     - Quando si seleziona una cartella, le macchine virtuali o le cartelle al suo interno vengono selezionate per il backup. È possibile deselezionare le cartelle o le macchine virtuali da escludere dal backup.
 1. Se una macchina virtuale o una cartella è già sottoposta a backup, non è possibile selezionarla. Ciò garantisce che i punti di ripristino duplicati non vengano creati per una macchina virtuale.
 
     ![Seleziona membri del gruppo](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. Nella pagina **Seleziona metodo protezione dati** immettere un nome per il gruppo protezione dati e le impostazioni di protezione. Per eseguire il backup in Azure, impostare la protezione a breve termine su **Disco** e abilitare la protezione dati online. Fare quindi clic su **Avanti**.
+1. Nella pagina **Seleziona metodo protezione dati** immettere un nome per il gruppo protezione dati e le impostazioni di protezione. Per eseguire il backup in Azure, impostare la protezione a breve termine su **Disco** e abilitare la protezione dati online. Quindi fare clic su **Next**.
 
     ![Seleziona metodo protezione dati](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -321,17 +341,17 @@ Aggiungere le macchine virtuali VMware per il backup. I gruppi protezione dati r
 
     ![Scelta del metodo per la creazione della replica](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. In **Opzioni di verifica coerenza** selezionare come e quando automatizzare le verifiche della coerenza. Fare quindi clic su **Avanti**.
+1. In **Opzioni di verifica coerenza** selezionare come e quando automatizzare le verifiche della coerenza. Quindi fare clic su **Next**.
       - È possibile eseguire verifiche della coerenza quando i dati di replica diventano incoerenti o in base a una pianificazione impostata.
       - Per non configurare la verifica automatica della coerenza, è possibile eseguire una verifica manuale. A questo scopo, fare clic con il pulsante destro del mouse sul gruppo protezione dati > **Esegui verifica coerenza**.
 
-1. Nella pagina **Specifica i dati da proteggere online** selezionare le macchine virtuali o cartelle di macchine virtuali di cui eseguire il backup. È possibile selezionare i membri singolarmente o fare clic su **Seleziona tutto** per scegliere tutti i membri. Fare quindi clic su **Avanti**.
+1. Nella pagina **Specifica i dati da proteggere online** selezionare le macchine virtuali o cartelle di macchine virtuali di cui eseguire il backup. È possibile selezionare i membri singolarmente o fare clic su **Seleziona tutto** per scegliere tutti i membri. Quindi fare clic su **Next**.
 
     ![Specifica i dati da proteggere online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. Nella pagina **Specificare la pianificazione dei backup online** specificare la frequenza con cui si vuole eseguire il backup dei dati dall'archiviazione locale ad Azure.
 
-    - I punti di recupero cloud per i dati verranno generati in base alla pianificazione. Fare quindi clic su **Avanti**.
+    - I punti di recupero cloud per i dati verranno generati in base alla pianificazione. Quindi fare clic su **Next**.
     - Dopo la generazione, il punto di recupero viene trasferito nell'insieme di credenziali di Servizi di ripristino di Azure.
 
     ![Specificare la pianificazione dei backup online](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

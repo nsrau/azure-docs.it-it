@@ -3,12 +3,12 @@ title: Creare una nuova risorsa di Azure Application Insights | Microsoft Docs
 description: Impostare manualmente il monitoraggio di Application Insights per una nuova applicazione live.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c1b3a6920723ad59b714cce4bd69e1b95fe1995f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132413"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537577"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
@@ -28,7 +28,7 @@ Accedere al [portale](https://portal.azure.com)di Azure e creare una risorsa App
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco | Nome che identifica l'app che si sta monitorando. |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del gruppo di risorse nuovo o esistente per ospitare i dati di App Insights.Name for the new or existing resource group to host App Insights data. |
-   | **Percorso** | Stati Uniti orientali | Scegli una posizione vicino a te o vicino alla posizione in cui è ospitata l'app. |
+   | **Posizione** | Stati Uniti orientali | Scegli una posizione vicino a te o vicino alla posizione in cui è ospitata l'app. |
 
 > [!NOTE]
 > Sebbene sia possibile usare lo stesso nome di risorsa in gruppi di risorse diversi, può essere utile usare un nome univoco a livello globale. Ciò può essere utile se si prevede di [eseguire query tra risorse](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) in quanto semplifica la sintassi richiesta.
@@ -153,12 +153,12 @@ Per la documentazione completa dell'interfaccia della riga di comando di Azure p
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
-* [Esplora le metriche](../../azure-monitor/app/metrics-explorer.md)
+* [Esplora le metriche](../../azure-monitor/platform/metrics-charts.md)
 * [Scrivere query di Analisi](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

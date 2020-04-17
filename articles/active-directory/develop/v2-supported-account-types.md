@@ -12,18 +12,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6c9ccb3dc29865c790e5d8cc9cfc35e68f5561d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886144"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535775"
 ---
 # <a name="supported-account-types"></a>Tipi di account supportati
 
 In questo articolo vengono illustrati i tipi di account (talvolta denominati gruppi di destinatari) supportati nelle applicazioni.
 
-<!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
+<!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
 ## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Tipi di account supportati nelle applicazioni Microsoft Identity Platform
 
@@ -44,7 +44,7 @@ Nel cloud pubblico di Microsoft Azure la maggior parte dei tipi di app può cons
 
 Alcuni tipi di account non possono essere usati con determinati flussi di autenticazione. Ad esempio, nelle applicazioni desktop, UWP o daemon:
 
-- Le applicazioni daemon possono essere usate solo con le organizzazioni di Azure Active Directory. Non ha senso provare a usare applicazioni daemon per modificare gli account personali Microsoft. Il consenso amministratore non verrà mai concesso.  
+- Le applicazioni daemon possono essere usate solo con le organizzazioni di Azure Active Directory. Non ha senso provare a usare applicazioni daemon per modificare gli account personali Microsoft. Il consenso amministratore non verrà mai concesso.
 - È possibile solo usare il flusso di autenticazione integrata di Windows con gli account aziendali o dell'istituto di istruzione (nella propria organizzazione o in qualsiasi organizzazione). In realtà, l'autenticazione integrata di Windows può essere usata solo con gli account di dominio ed è necessario che i computer siano aggiunti a un dominio o ad Azure AD. Questo flusso non ha senso per gli account Microsoft personali.
 - La [concessione della password del proprietario della risorsa](./v2-oauth-ropc.md) (nome utente/password) non può essere usata con gli account Microsoft personali. In effetti, gli account Microsoft personali richiedono il consenso utente per l'accesso alle risorse personali a ogni sessione di accesso. Per questo motivo tale comportamento non è compatibile con i flussi non interattivi.
 - Il flusso di codice del dispositivo non funziona ancora con gli account Microsoft personali.

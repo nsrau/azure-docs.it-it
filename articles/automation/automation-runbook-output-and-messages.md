@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 457b2d2211ea1ba5fa36cec4b7e9a214f5bcad77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367092"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535537"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
 
@@ -240,7 +240,7 @@ Tuttavia, a meno che non siano necessarie queste informazioni per tenere traccia
 **Per abilitare l'analisi a livello di attività:To enable activity-level tracing:**
 
 1. Nel portale di Azure aprire l'account di automazione.
-2. Selezionare **Runbooks** nella sezione **Process Automation** per aprire l'elenco dei runbook.
+2. Selezionare **Runbooks** in **Process Automation** per aprire l'elenco dei runbook.
 3. Nella pagina Runbooks selezionare un runbook grafico dall'elenco dei runbook.
 4. In **Impostazioni** fare clic su **Registrazione e traccia**.
 5. Nella pagina Registrazione e traccia, in **Registra record dettagliati,** fare clic su **Attivato** per abilitare la registrazione dettagliata.
@@ -253,7 +253,7 @@ Tuttavia, a meno che non siano necessarie queste informazioni per tenere traccia
 Automazione di Azure può inviare lo stato del processo del runbook e i flussi di lavoro all'area di lavoro di Log Analytics.Azure Automation can send runbook job status and job streams to your Log Analytics workspace. Monitoraggio di Azure supporta i log che consentono di:Azure Monitor supports logs that allow you to:
 
 * Ottenere informazioni dettagliate sui processi di Automazione.
-* Attivare un messaggio di posta elettronica o un avviso in base allo stato del processo del runbook, ad esempio non riuscito o sospeso.
+* Attivare un messaggio di posta elettronica o un avviso in base allo stato del processo del runbook, ad esempio Non riuscito o Sospeso.
 * Scrivere query avanzate tra flussi di lavoro.
 * Correlare i processi tra account di Automazione.
 * Visualizzare la cronologia dei processi.

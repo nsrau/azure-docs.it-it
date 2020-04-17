@@ -12,14 +12,14 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: d5b2ef57af112169fb39e0da7a60b095698ff504
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61d07c1ba912a0e24b2f4e5fa67243b4525db367
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299831"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536183"
 ---
-# <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ambiti per un'API Web che accetta i token v1.0
+# <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ambiti per un'API Web che accetta token v1.0Scopes for a web API accepting v1.0 tokens
 
 Le autorizzazioni OAuth2 sono ambiti di autorizzazione che un'applicazione API Web (risorsa) di Azure Active Directory (Azure AD) per sviluppatori (v1.0) espone alle applicazioni client. Questi ambiti di autorizzazione possono essere concessi alle applicazioni client durante il consenso. Vedere la sezione relativa a `oauth2Permissions` nelle [informazioni di riferimento sul manifesto dell'applicazione in Azure Active Directory](reference-app-manifest.md#manifest-reference).
 

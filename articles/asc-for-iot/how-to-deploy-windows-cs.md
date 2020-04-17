@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: d667dd09c2276936e10cea0581e4c8d2810b2ccb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81311083"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537611"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Distribuire un agente di sicurezza per Windows basato su C# del Centro sicurezza di Azure per IoT
 
@@ -135,9 +135,9 @@ Per abilitare la registrazione:
      sc.exe start "ASC IoT Agent"
      ```
 
-1. Esaminare il file di log per altre informazioni sull'errore.
+1. Esaminare il file di log per altre informazioni sull'errore. Il file di registro sarebbe presente nella directory di lavoro in cui viene eseguito lo script. 
 
-   Posizione dei file di log: `%WinDir%/System32/IoTAgentLog.log`
+   Posizione dei file di log: `.\IoTAgentLog.log`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

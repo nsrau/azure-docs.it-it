@@ -3,12 +3,12 @@ title: API di Application Insights per metriche ed eventi personalizzati | Micro
 description: Inserire alcune righe di codice nell'app desktop o per dispositivi, nella pagina Web o nel servizio per tenere traccia dell'utilizzo e diagnosticare i problemi.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 06bd8bd0958afd26e1256a010b08c908c59aaf7d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d6cb2f5ab418e8d3b5935fef535565ccf55a3906
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585871"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536948"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -107,13 +107,13 @@ Nei progetti Node.js è possibile usare `new applicationInsights.TelemetryClient
 
 ## <a name="trackevent"></a>TrackEvent
 
-In Application Insights un *evento personalizzato* è un punto dati che è possibile visualizzare in [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) come conteggio aggregato e in [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md) come singole occorrenze. Non è correlato a MVC o ad altri "eventi" del framework.
+In Application Insights un *evento personalizzato* è un punto dati che è possibile visualizzare in [Esplora metriche](../../azure-monitor/platform/metrics-charts.md) come conteggio aggregato e in [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md) come singole occorrenze. Non è correlato a MVC o ad altri "eventi" del framework.
 
 Inserire chiamate `TrackEvent` nel codice per contare i vari eventi. La frequenza d'uso di una particolare funzionalità, la frequenza di raggiungimento di obiettivi specifici o la frequenza di particolari tipi di errore.
 
 Ad esempio, in un'app di gioco è possibile inviare un evento ogni volta che un utente vince il gioco:
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.trackEvent({name:"WinGame"});
@@ -257,7 +257,7 @@ Per inviare le metriche ad Application Insights, è possibile usare l'API `Track
 
 Per inviare un singolo valore di metrica:
 
-*Javascript*
+*JavaScript*
 
  ```javascript
 appInsights.trackMetric("queueLength", 42.0);
@@ -299,7 +299,7 @@ I dati relativi a utente e sessione vengono inviati come proprietà insieme alle
 
 ### <a name="custom-page-views"></a>Visualizzazioni pagina personalizzate
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.trackPageView("tab1");
@@ -338,7 +338,7 @@ In alternativa, è possibile:
 * Impostare una durata esplicita nella chiamata di [trackPageView](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/API.md#trackpageview): `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
 * Usare le chiamate relative ai tempi di visualizzazione della pagina `startTrackPage` e `stopTrackPage`.
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 // To start timing a page:
@@ -443,7 +443,7 @@ requests
 
 Inviare le eccezioni ad Application Insights:
 
-* Per [contarle](../../azure-monitor/app/metrics-explorer.md), come indicazione della frequenza di un problema.
+* Per [contarle](../../azure-monitor/platform/metrics-charts.md), come indicazione della frequenza di un problema.
 * Per [esaminare le singole occorrenze](../../azure-monitor/app/diagnostic-search.md).
 
 I report includono le analisi dello stack.
@@ -471,7 +471,7 @@ try {
 }
 ```
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 try
@@ -738,7 +738,7 @@ In un'app Web gli utenti sono identificati dai cookie per impostazione predefini
 
 Se gli utenti accedono all'app, è possibile ottenere un conteggio più preciso impostando l'ID dell'utente autenticato nel codice del browser:
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 // Called when my app has identified the user.
@@ -774,7 +774,7 @@ Se l'app raggruppa gli utenti in account, è anche possibile passare un identifi
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-In [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) è possibile creare un grafico che conta i valori **Utenti, Autenticati** e **Account utente**.
+In [Esplora metriche](../../azure-monitor/platform/metrics-charts.md) è possibile creare un grafico che conta i valori **Utenti, Autenticati** e **Account utente**.
 
 È anche possibile [cercare](../../azure-monitor/app/diagnostic-search.md) i punti dati del client con account e nomi utente specifici.
 
@@ -792,7 +792,7 @@ Affinché i valori metrici siano visualizzati correttamente, devono essere maggi
 
 Esistono tuttavia alcuni [limiti sul numero di proprietà, di valori delle proprietà e di metriche](#limits) che è possibile usare.
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.trackEvent
@@ -1114,7 +1114,7 @@ protected void Application_Start()
 }
 ```
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.config.instrumentationKey = myKey;

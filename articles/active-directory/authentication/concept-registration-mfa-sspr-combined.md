@@ -1,26 +1,31 @@
 ---
 title: Registrazione combinata per la reimpostazione della password self-service e MFA - Azure Active Directory
-description: Azure AD Multi-Factor Authentication e registrazione della reimpostazione della password self-service (anteprima)Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
+description: Azure AD Multi-Factor Authentication e registrazione della reimpostazione della password self-serviceAzure AD Multi-Factor Authentication and self-service password reset registration
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26656b6dafd91d47c05c2d1f923e53f4ba790cf8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 48350bf8f0ffb8681d95f6f42f9aa93256395f9a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309923"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534687"
 ---
-# <a name="combined-security-information-registration-preview"></a>Registrazione combinata delle informazioni di sicurezza (anteprima)Combined security information registration (preview)
+# <a name="combined-security-information-registration-overview"></a>Panoramica della registrazione combinata delle informazioni di sicurezza
 
 Prima della registrazione combinata, gli utenti registrare i metodi di autenticazione per Azure Multi-Factor Authentication e la reimpostazione della password self-service (SSPR) separatamente. Le persone erano confuse sul fatto che metodi simili sono stati utilizzati per Multi-Factor Authentication e SSPR, ma hanno dovuto registrarsi per entrambe le funzionalità. Ora, con la registrazione combinata, gli utenti possono registrarsi una sola volta e ottenere i vantaggi di entrambi Multi-Factor Authentication e SSPR.
+
+Questo articolo descrive cos'è la registrazione combinata della sicurezza. Per iniziare con la registrazione di sicurezza combinata, vedere il seguente articolo:
+
+> [!div class="nextstepaction"]
+> [Abilitare la registrazione combinata della sicurezzaEnable combined security registration](howto-registration-mfa-sspr-combined.md)
 
 ![Il mio profilo che mostra le informazioni di sicurezza registrate per un utente](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
@@ -28,16 +33,10 @@ Prima di abilitare la nuova esperienza, consultare questa documentazione incentr
 
 La registrazione delle informazioni di sicurezza combinata di Azure AD non è attualmente disponibile per i cloud nazionali come Azure US Government, Azure Germania o Azure China 21Vianet.Azure AD combined security information registration is not currently available to national clouds like Azure US Government, Azure Germany, or Azure China 21Vianet.
 
-|     |
-| --- |
-| La registrazione combinata delle informazioni di sicurezza per L'autenticazione a più fattori e la reimpostazione della password self-service di Azure Active Directory (Azure AD) è una funzionalità di anteprima pubblica di Azure AD. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
 > [!IMPORTANT]
 > Gli utenti abilitati sia per l'anteprima originale che per l'esperienza di registrazione combinata avanzata vedranno il nuovo comportamento. Gli utenti abilitati per entrambe le esperienze vedranno solo la nuova esperienza del profilo personale. Il nuovo profilo personale si allinea con l'aspetto della registrazione combinata e offre un'esperienza senza soluzione di continuità per gli utenti. Gli utenti possono vedere [https://myprofile.microsoft.com](https://myprofile.microsoft.com)il mio profilo accedendo a .
-
-> [!NOTE] 
-> È possibile che venga visualizzato un messaggio di errore durante il tentativo di accedere all'opzione Informazioni di sicurezza. Ad esempio, "Spiacenti, non è possibile accedere". In questo caso, verificare di non disporre di alcun oggetto Configurazione o Criteri di gruppo che blocchi i cookie di terze parti nel browser Web. 
+>
+> È possibile che venga visualizzato un messaggio di errore durante il tentativo di accedere all'opzione Informazioni di sicurezza. Ad esempio, "Spiacenti, non è possibile accedere". In questo caso, verificare di non disporre di alcun oggetto Configurazione o Criteri di gruppo che blocchi i cookie di terze parti nel browser Web.
 
 Le pagine del profilo personale vengono localizzate in base alle impostazioni della lingua del computer che accede alla pagina. Microsoft memorizza la lingua più recente utilizzata nella cache del browser, pertanto i successivi tentativi di accesso alle pagine continueranno a eseguire il rendering nell'ultima lingua utilizzata. Se si cancella la cache, le pagine verranno nuovamente renderizzate. Se si desidera forzare una lingua `?lng=<language>` specifica, è possibile `<language>` aggiungere alla fine dell'URL, dove è il codice della lingua che si desidera eseguire il rendering.
 
@@ -77,7 +76,6 @@ Man mano che continuiamo ad aggiungere altri metodi di autenticazione ad Azure A
 Ci sono due modalità di registrazione combinata: interrupt e manage.
 
 - **La modalità di interrupt** è un'esperienza simile a una procedura guidata, presentata agli utenti quando registrano o aggiornano le informazioni di sicurezza all'accesso.
-
 - **La modalità** di gestione fa parte del profilo utente e consente agli utenti di gestire le proprie informazioni di sicurezza.
 
 Per entrambe le modalità, gli utenti che hanno registrato in precedenza un metodo che può essere utilizzato per Multi-Factor Authentication dovranno eseguire Multi-Factor Authentication prima di poter accedere alle informazioni di sicurezza.
@@ -139,14 +137,8 @@ Un utente che in precedenza ha impostato almeno un metodo che [https://aka.ms/my
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Forzare gli utenti a registrare nuovamente i metodi di autenticazione](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
+Per iniziare, vedere le esercitazioni per abilitare la [reimpostazione della password self-service](tutorial-enable-sspr.md) e [abilitare Azure Multi-Factor Authentication.](tutorial-enable-azure-mfa.md)
 
-[Abilitare la registrazione combinata nel tenantEnable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
+Informazioni su come [abilitare la registrazione combinata nel tenant](howto-registration-mfa-sspr-combined.md) o [forzare gli utenti a registrare nuovamente i metodi di autenticazione.](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
 
-[Report di utilizzo e approfondimenti di SSPR e MFA](howto-authentication-methods-usage-insights.md)
-
-[Metodi disponibili per Multi-Factor Authentication e SSPR](concept-authentication-methods.md)
-
-[Configurare la reimpostazione della password self-service](howto-sspr-deployment.md)
-
-[Configurazione di Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+È anche possibile esaminare i [metodi disponibili per Azure Multi-Factor Authentication e SSPR](concept-authentication-methods.md).

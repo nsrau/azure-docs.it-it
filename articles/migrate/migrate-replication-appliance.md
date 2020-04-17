@@ -3,12 +3,12 @@ title: Appliance di replica Azure Migrate
 description: Informazioni sull'appliance di replica di Azure Migrate per la migrazione VMWare basata su agente.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245863"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535214"
 ---
 # <a name="replication-appliance"></a>Appliance di replica
 
@@ -28,8 +28,11 @@ L'appliance di replica viene distribuita quando si configura la migrazione basat
 
 **Utilizzo** | **Dettagli**
 --- |  ---
-Migrazione basata su agente VM VMware | Scaricare il modello OVA dall'hub di Azure Migrate e importare in vCenter Server per creare la macchina virtuale dell'appliance.
-Migrazione basata su agente di computer fisico | Se non si dispone di un'infrastruttura VMware o se non è possibile creare una macchina virtuale VMware usando un modello OVA, scaricare un programma di installazione software dall'hub di Azure Migrate ed eseguirlo per configurare il computer dell'appliance.
+**Migrazione basata su agente VM VMware** | Scaricare il modello OVA dall'hub di Azure Migrate e importare in vCenter Server per creare la macchina virtuale dell'appliance.
+**Migrazione basata su agente di computer fisico** | Se non si dispone di un'infrastruttura VMware o se non è possibile creare una macchina virtuale VMware usando un modello OVA, scaricare un programma di installazione software dall'hub di Azure Migrate ed eseguirlo per configurare il computer dell'appliance.
+
+> [!NOTE]
+> Se si esegue la distribuzione in Azure per enti pubblici, usare il file di installazione per distribuire l'appliance di replica.
 
 ## <a name="appliance-requirements"></a>Requisiti dell'appliance
 
@@ -55,7 +58,7 @@ TLS | TLS 1.2 deve essere abilitato.
 MySQL | MySQL deve essere installato sull'appliance.<br/> MySQL deve essere installato. È possibile installarlo manualmente oppure Site Recovery può installarlo durante la distribuzione dell'appliance.
 Altre app | Non eseguire altre app nell'appliance di replica.
 Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
-Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Scopri di più](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - Nessun sito Web predefinito preesistente <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443 <br>- Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
 **Impostazioni di rete** |
 Tipo di indirizzo IP | Statico
@@ -74,9 +77,9 @@ Scaricare e installare in Azure MigrateDownload and install in Azure Migrate | Q
 
 ## <a name="url-access"></a>accesso con URL
 
-L'appliance di replica deve accedere a questi URL.
+L'appliance di replica deve accedere a questi URL nel cloud pubblico di Azure.The replication appliance needs access to these URLs in the Azure public cloud.
 
-**Url** | **Dettagli**
+**URL** | **Dettagli**
 --- | ---
 \*.backup.windowsazure.com | Usato per il coordinamento e il trasferimento dei dati replicati
 \*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati replicati
@@ -84,10 +87,26 @@ L'appliance di replica deve accedere a questi URL.
 \*.hypervrecoverymanager.windowsazure.com | Usato per il coordinamento e le operazioni di gestione della replica
 https:\//management.azure.com | Usato per il coordinamento e le operazioni di gestione della replica
 *.services.visualstudio.com | Utilizzato per scopi di telemetria (Facoltativo)
-time.nist.gov | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
 time.windows.com | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | L'installazione di OVF deve accedere a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | La configurazione dell'appliance deve accedere a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL. In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che l'URL della rete CDN sia consentito anche se necessario.
+
+
+## <a name="azure-government-url-access"></a>Accesso all'URL di Azure per enti pubbliciAzure Government URL access
+
+L'appliance di replica deve accedere a questi URL in Azure per enti pubblici.
+
+**URL** | **Dettagli**
+--- | ---
+\*.backup.windowsazure.us | Usato per il coordinamento e il trasferimento dei dati replicati
+\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati replicati
+\*.blob.core.windows.net | Usato per accedere all'account di archiviazione in cui sono archiviati i dati replicati
+\*.hypervrecoverymanager.windowsazure.us | Usato per il coordinamento e le operazioni di gestione della replica
+https:\//management.usgovcloudapi.net | Usato per il coordinamento e le operazioni di gestione della replica
+*.services.visualstudio.com | Utilizzato per scopi di telemetria (Facoltativo)
+time.nist.gov | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | La configurazione dell'appliance con OVA deve accedere a questi URL. Vengono utilizzati per il controllo degli accessi e la gestione delle identità da Azure Active Directory.They are used for access control and identity management by Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL. In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che l'URL della rete CDN sia consentito anche se necessario.
 
 ## <a name="port-access"></a>Accesso alla porta
 
@@ -107,7 +126,7 @@ Server di elaborazione | Il server di elaborazione riceve i dati di replica, li 
     - Le macchine virtuali comunicano con l'appliance di replica sulla porta HTTPS 443 in ingresso, per la gestione della replica.
     - L'appliance di replica orchestra la replica con Azure sulla porta HTTPS 443 in uscita.
     - Le macchine virtuali inviano i dati di replica al server di elaborazione (in esecuzione sull'appliance di replica) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
-    - Il server di elaborazione riceve i dati della replica, li ottimizza e li crittografa, quindi li invia ad Archiviazione di Azure attraverso la porta 443 in uscita.
+    - Il server di elaborazione riceve i dati di replica, li ottimizza e li crittografa e li invia all'archiviazione di Azure tramite la porta 443 in uscita.
 5. I log dei dati di replica vengono prima eseguiti in un account di archiviazione della cache in Azure.The replication data logs first arate in a cache storage account in Azure. Questi log vengono elaborati e i dati vengono archiviati in un disco gestito di Azure.These logs are processed and the data is stored in an Azure managed disk.
 
 ![Architecture](./media/migrate-replication-appliance/architecture.png)

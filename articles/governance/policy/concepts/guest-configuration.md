@@ -3,12 +3,12 @@ title: Informazioni su come controllare il contenuto delle macchine virtualiLear
 description: Informazioni su come Criteri di Azure usa l'agente di configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4a2989badc099a199bf21f7e020ca8e6256ddaf0
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: e4899f6b3108cabb4e9cdd36e4b2bc5cd2f1cbd4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113422"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538036"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -59,7 +59,7 @@ La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 |Microsoft|Windows Server|Datacenter 2012, Datacenter 2012 R2, Datacenter 2016, Datacenter 2019 Datacenter|
 |Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
 |SUSE|SLES|12 SP3|
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati

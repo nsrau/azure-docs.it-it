@@ -4,12 +4,12 @@ description: Informazioni su come gestire e monitorare i backup dell'agente di M
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: c11d73edd32c197aac2cec58eeb1cc20e5c6a339
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673256"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537356"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup dell'agente di Microsoft Azure Recovery Services (MARS) tramite il servizio Backup di AzureManage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -90,7 +90,7 @@ Esistono due modi per interrompere la protezione del backup di file e cartelle:
 
 - **Arrestare la protezione e conservare i dati**di backup .
   - Questa opzione interromperà la protezione di tutti i processi di backup futuri.
-  - Il servizio Backup di Azure manterrà i punti di ripristino di cui è stato eseguito il backup in base ai criteri di conservazione.
+  - Il servizio Backup di Azure manterrà tutti i punti di ripristino esistenti per un tempo indefinito. I punti di ripristino non verranno controllati per la scadenza fino a quando non viene ripresa la protezione.
   - Sarà possibile ripristinare i dati di cui è stato eseguito il backup per i punti di ripristino non scaduti.
   - Se si decide di riprendere la protezione, è possibile utilizzare l'opzione *Riattiva pianificazione backup.* Dopo di che, i dati verrebbero conservati in base al nuovo criterio di conservazione.
 - **Interrompere la protezione ed eliminare i dati di backup**.
@@ -106,7 +106,7 @@ Esistono due modi per interrompere la protezione del backup di file e cartelle:
 1. Nella pagina **Seleziona elemento criterio** selezionare Modifica pianificazione di backup per i file e le **cartelle** e fare clic su **Avanti**.
 
     ![Modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. Nella pagina **Modifica o interrompi backup pianificato** selezionare Interrompi utilizzando questa pianificazione di **backup, ma mantenere i backup archiviati fino a quando non viene nuovamente attivata una pianificazione.** Selezionare quindi **Avanti**.
+1. Nella pagina **Modifica o interrompi backup pianificato** selezionare Interrompi utilizzando questa pianificazione di **backup, ma mantenere i backup archiviati fino a quando non viene nuovamente attivata una pianificazione.** Quindi selezionare **Avanti**.
 
     ![Modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
 1. In **Sospendi backup pianificato** esaminare le informazioni e fare clic su **Fine**.
@@ -117,7 +117,7 @@ Esistono due modi per interrompere la protezione del backup di file e cartelle:
 ### <a name="stop-protection-and-delete-backup-data"></a>Interrompere la protezione ed eliminare i dati di backup
 
 1. Aprire la console di gestione MARS, passare al riquadro **Azioni** e selezionare **Pianifica backup**.
-2. Nella pagina **Modifica o interrompi backup pianificato** selezionare Interrompi utilizzando questa pianificazione di backup ed eliminare tutti i backup **archiviati.** Selezionare quindi **Avanti**.
+2. Nella pagina **Modifica o interrompi backup pianificato** selezionare Interrompi utilizzando questa pianificazione di backup ed eliminare tutti i backup **archiviati.** Quindi selezionare **Avanti**.
 
     ![Modificare o arrestare un backup pianificato.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 

@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262893"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534466"
 ---
 # <a name="application-configuration-options"></a>Opzioni di configurazione dell'applicazione
 
@@ -106,11 +106,11 @@ L'URI di reindirizzamento è l'URI a cui il provider di identità invierà nuova
 ### <a name="redirect-uri-for-public-client-apps"></a>URI di reindirizzamento per le app client pubbliche
 
 Se sei uno sviluppatore di app client pubblico che usa MSAL:
-- Si desidera utilizzare `.WithDefaultRedirectUri()` in applicazioni desktop o UWP (MSAL.NET 4.1 e versioni successive). Questo metodo imposterà la proprietà uri di reindirizzamento dell'applicazione client pubblica sull'URI di reindirizzamento consigliato predefinito per le applicazioni client pubbliche. 
+- Si desidera utilizzare `.WithDefaultRedirectUri()` in applicazioni desktop o UWP (MSAL.NET 4.1 e versioni successive). Questo metodo imposterà la proprietà uri di reindirizzamento dell'applicazione client pubblica sull'URI di reindirizzamento consigliato predefinito per le applicazioni client pubbliche.
 
-  Piattaforma  | URI di reindirizzamento  
+  Piattaforma  | URI di reindirizzamento
   ---------  | --------------
-  Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
   UWP | valore `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`di . In questo modo SSO con il browser impostando il valore sul risultato di WebAuthenticationBroker.GetCurrentApplicationCallbackUri() che è necessario registrare
   .NET Core | `https://localhost`. Ciò consente all'utente di utilizzare il browser di sistema per l'autenticazione interattiva poiché .NET Core non dispone di un'interfaccia utente per la visualizzazione Web incorporata al momento.
 
@@ -130,7 +130,7 @@ Per ulteriori dettagli su Android, vedere [Autenticazione brokered in Android](b
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>URI di reindirizzamento per le app client riservate
 
-Per le app Web, l'URI di reindirizzamento (o URI di risposta) è l'URI che verrà usato da Azure AD per inviare il token all'applicazione. Questo URI può essere l'URL dell'app Web/API Web se l'app riservata è una di queste. L'URI di reindirizzamento deve essere registrato nella registrazione dell'app. Questa registrazione è particolarmente importante quando si distribuisce un'app che è stata inizialmente testata in locale. È quindi necessario aggiungere l'URL di risposta dell'app distribuita nel portale di registrazione dell'applicazione.
+Per le app Web, l'URI di reindirizzamento (o URI di risposta) è l'URI che verrà usato da Azure AD per inviare il token all'applicazione. Questo URI può essere l'URL dell'app Web o dell'API Web se l'app confidenziale è una di queste. L'URI di reindirizzamento deve essere registrato nella registrazione dell'app. Questa registrazione è particolarmente importante quando si distribuisce un'app che è stata inizialmente testata in locale. È quindi necessario aggiungere l'URL di risposta dell'app distribuita nel portale di registrazione dell'applicazione.
 
 Per le app daemon, non è necessario specificare un URI di reindirizzamento.
 

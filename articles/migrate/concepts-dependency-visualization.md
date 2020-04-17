@@ -2,13 +2,13 @@
 title: Analisi delle dipendenze nella valutazione del server di migrazione di AzureDependency analysis in Azure Migrate Server Assessment
 description: Viene descritto come usare l'analisi delle dipendenze per la valutazione usando Valutazione server di Azure migrate.Describes how to use dependency analysis for assessment using Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f96496b66d6bcfd397fb0a7303d3dbfb4fd6f6b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455639"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537747"
 ---
 # <a name="dependency-analysis"></a>Analisi delle dipendenze
 
@@ -30,7 +30,7 @@ Sono disponibili due opzioni per la distribuzione dell'analisi delle dipendenze
 - **Agentless**: Con l'analisi senza agenti, non è necessario installare agenti su computer che si desidera eseguire il controllo incrociato. Questa opzione è attualmente in anteprima ed è disponibile solo per le macchine virtuali VMware.This option is currently in preview, and is only available for VMware VMs.
 
 > [!NOTE]
-> L'analisi delle dipendenze non è disponibile in Azure per enti pubblici.
+> L'analisi delle dipendenze basata su agente non è disponibile in Azure per enti pubblici. È possibile utilizzare l'analisi delle dipendenze senza agente.
 
 ## <a name="agentless-analysis"></a>Analisi senza agenti
 
@@ -68,7 +68,7 @@ Supporto | Questa opzione è attualmente in anteprima ed è disponibile solo per
 Agente | Non è necessario installare agenti su computer che si desidera eseguire il controllo incrociato. | Agenti da installare in ogni computer locale che si desidera analizzare: [l'agente di monitoraggio Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e l'agente di [dipendenza](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [Mappa dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nei log di Monitoraggio di [Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per l'analisi delle dipendenze. 
 Funzionamento | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Gli agenti della mappa dei servizi installati in un computer raccolgono dati sui processi TCP e sulle connessioni in ingresso/in uscita per ogni processo.
-Dati | Nome del server del computer di origine, processo e nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo e nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati vengono raccolte e disponibili per le query di Log Analytics. 
+Data | Nome del server del computer di origine, processo e nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo e nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati vengono raccolte e disponibili per le query di Log Analytics. 
 Visualizzazione | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata da un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> La mappa può essere visualizzata solo su un'ora.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/> Aggiungere e rimuovere server in un gruppo dalla vista mappa.
 Esportazione dati | Al momento non è possibile scaricarlo in formato tabulare. | È possibile eseguire query sui dati con Log Analytics.Data can be queryed with Log Analytics.
 

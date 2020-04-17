@@ -6,14 +6,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: 809274aba35e9607aeacf7c6483ec3d10f899667
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312360"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535588"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurare un gateway applicazione con un endpoint di bilanciamento del carico internoConfigure an application gateway with an internal load balancer (ILB) endpoint
 
@@ -95,8 +95,8 @@ A tale scopo, eseguire l'operazione seguente:
    - Selezionare *myResourceGroupAG* per **Gruppo di risorse**.
    - *myVM* - per **Nome macchina virtuale**.
    - Selezionare **Windows Server 2019 Datacenter** per **Immagine**.
-   - *azureadmin* - per il **nome utente**.
-   - *Azure123456!* per la **Password**.
+   - un **nome utente**valido .
+   - una **Password**valida .
 5. Accettare le impostazioni predefinite rimanenti e selezionare **Avanti : Dischi**.
 6. Accettare le impostazioni predefinite e selezionare **Avanti : Rete**.
 7. Assicurarsi che **myVNet** sia selezionato per la rete virtuale e che la subnet sia **myBackendSubnet**.

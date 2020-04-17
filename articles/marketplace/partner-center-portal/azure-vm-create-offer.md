@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 12dd17045715a24d1e5151b30a5e7706b0e58717
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 161fd9276427db0d0d7d56da1bfc0bb8ccf52a52
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383791"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536659"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Creare un'offerta di macchina virtuale di AzureCreate an Azure virtual machine offer
 
@@ -296,7 +296,7 @@ Selezionare **Salva bozza** prima di passare alla sezione successiva, Panoramica
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
-Puoi fornire diverse opzioni di piano all'interno della stessa offerta nel Centro per i partner. Questi piani sono stati precedentemente indicati come SKU. Un'offerta richiede almeno un piano, che può differire in termini di pubblico di monetizzazione, cloud di Azure, funzionalità o immagini VM.
+Puoi fornire diverse opzioni di piano all'interno della stessa offerta nel Centro per i partner. Questi piani sono stati precedentemente indicati come SKU. Un'offerta richiede almeno un piano, che può differire in termini di pubblico di monetizzazione, aree di Azure, funzionalità o immagini VM.
 
 Dopo aver creato i piani, la scheda **Panoramica piano** mostra:
 
@@ -326,7 +326,7 @@ Selezionare **Create** (Crea).
 
 ### <a name="plan-setup"></a>Pianificare l'installazione
 
-Impostare la configurazione di alto livello per il tipo di piano, se riutilizza la configurazione tecnica di un altro piano e in quali cloud il piano deve essere disponibile. Le selezioni effettuate in questo campo determinano quali campi vengono visualizzati in altre schede per la stessa pianta.
+Impostare la configurazione di alto livello per il tipo di piano, se riutilizza la configurazione tecnica di un altro piano e in quali aree di Azure il piano deve essere disponibile. Le selezioni effettuate in questo campo determinano quali campi vengono visualizzati in altre schede per la stessa pianta.
 
 #### <a name="reuse-technical-configuration"></a>Riutilizzare la configurazione tecnica
 
@@ -335,24 +335,24 @@ Se si dispone di più piani dello stesso tipo e i pacchetti sono identici tra di
 > [!NOTE]
 > Quando si riutilizza la configurazione tecnica da un altro piano, l'intera scheda **Configurazione tecnica** scompare da questo piano. I dettagli di configurazione tecnica dell'altro piano, inclusi gli aggiornamenti eseguiti in futuro, verranno utilizzati anche per questo piano. Questa impostazione non può essere modificata dopo la pubblicazione di questo piano.
 
-#### <a name="cloud-availability"></a>Disponibilità del cloud
+#### <a name="azure-regions"></a>Aree di Azure
 
-Il piano deve essere reso disponibile in almeno un cloud.
+Il piano deve essere reso disponibile in almeno un'area di Azure.Your plan must be made available in at least one Azure region.
 
-Selezionare l'opzione **Azure globale** per rendere il piano disponibile per i clienti in tutte le aree pubbliche di Azure con integrazione del marketplace commerciale. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto valutario](https://aka.ms/AzureGovCurrencies).
+Selezionare l'opzione **Azure globale** per rendere il piano disponibile per i clienti in tutte le aree pubbliche di Azure con integrazione del marketplace commerciale. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto valutario](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Selezionare l'opzione **Cloud di Azure per enti** pubblici per rendere disponibile il piano nel cloud di Azure per enti [pubblici.](https://aka.ms/WhatIsAzureGovernment) questo è un cloud governativo-com con accesso controllato per i clienti provenienti da agenzie federali, statali, locali o tribali degli Stati Uniti, nonché partner idonei a servire queste entità. In qualità di editore, sei responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per servire questa community cloud. Azure per enti pubblici usa data center e reti fisicamente isolati (solo negli Stati Uniti).
+Selezionare l'opzione **Azure per enti pubblici** per rendere disponibile il piano nell'area di Azure per enti [pubblici.](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) Questa area fornisce accesso controllato ai clienti provenienti da enti federali, statali, locali o tribali statunitensi, nonché ai partner idonei a servirli. L'utente, in qualità di editore, è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate. Azure per enti pubblici usa data center e reti fisicamente isolati (solo negli Stati Uniti).
 
-Prima della pubblicazione in [Azure per enti pubblici](https://aka.ms/azuregovpublish), è possibile testare e convalidare il piano nell'ambiente in quanto determinati endpoint potrebbero essere diversi. Per configurare e testare il piano, richiedere un account di valutazione dalla versione di valutazione di [Microsoft Azure per enti pubblici](https://aka.ms/AzureGovernmentTrial).
+Prima della pubblicazione in [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), è possibile testare e convalidare il piano nell'ambiente in quanto determinati endpoint potrebbero essere diversi. Per configurare e testare il piano, richiedere un account di valutazione dalla versione di valutazione di [Microsoft Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> Dopo che il piano è stato pubblicato e disponibile in un cloud specifico, non è possibile rimuoverlo.
+> Dopo che il piano è stato pubblicato e disponibile in un'area di Azure specifica, non è possibile rimuoverla.
 
-#### <a name="azure-government-cloud-certifications"></a>Certificazioni cloud di Azure per enti pubblici
+#### <a name="azure-government-certifications"></a>Certificazioni di Azure per enti pubbliciAzure Government certifications
 
-Questa opzione è visibile solo se in **Disponibilità cloud**è selezionata **l'opzione Azure Government Cloud** .
+Questa opzione è visibile solo se si seleziona **Azure per enti pubblici** in **Aree**di Azure .
 
-I servizi di Azure per enti pubblici gestiscono i dati soggetti a determinate normative e requisiti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Per dare consapevolezza alle certificazioni per questi programmi, è possibile fornire fino a 100 link che li descrivono. Questi possono essere link al tuo annuncio sul programma direttamente o link a descrizioni della tua conformità con loro sui tuoi siti web. Questi collegamenti sono visibili solo ai clienti di Cloud di Azure.These links visible to Azure Government Cloud customers only.
+I servizi di Azure per enti pubblici gestiscono i dati soggetti a determinate normative e requisiti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Per dare consapevolezza alle certificazioni per questi programmi, è possibile fornire fino a 100 link che li descrivono. Questi possono essere link al tuo annuncio sul programma direttamente o link a descrizioni della tua conformità con loro sui tuoi siti web. Questi collegamenti sono visibili solo ai clienti di Azure per enti pubblici.
 
 Selezionare **Salva bozza** prima di continuare.
 
@@ -384,7 +384,7 @@ In questa scheda verranno configurati gli elementi seguenti:
 
 #### <a name="markets"></a>Mercati
 
-Ogni piano deve essere disponibile in almeno un mercato. Selezionare la casella di controllo per ogni località di mercato in cui il piano deve essere disponibile per l'acquisto (gli utenti di questi mercati possono comunque distribuire l'offerta in tutte le aree di Azure per i cloud selezionati). Il pulsante **Imposta rimessa** mostra i paesi in cui Microsoft rimette l'imposta sulle vendite e sull'utilizzo per conto dell'utente. La pubblicazione in Cina è limitata ai piani che sono **Gratuiti** o **Bring your own license** (BYOL).
+Ogni piano deve essere disponibile in almeno un mercato. Selezionare la casella di controllo per ogni località di mercato in cui il piano deve essere disponibile per l'acquisto (gli utenti di questi mercati possono comunque distribuire l'offerta a tutte le aree di Azure selezionate in **[Configurazione piano).](#plan-setup)** Il pulsante **Imposta rimessa** mostra i paesi in cui Microsoft rimette l'imposta sulle vendite e sull'utilizzo per conto dell'utente. La pubblicazione in Cina è limitata ai piani che sono **Gratuiti** o **Bring your own license** (BYOL).
 
 Se hai già impostato i prezzi per il tuo piano in Dollari USA (USD) e aggiungi un'altra posizione di mercato, il prezzo per il nuovo mercato verrà calcolato in base ai tassi di cambio correnti. Controlla sempre il prezzo per ogni mercato prima della pubblicazione. Esaminare i prezzi utilizzando il collegamento **Prezzi di esportazione (xlsx)** dopo aver salvato le modifiche.
 

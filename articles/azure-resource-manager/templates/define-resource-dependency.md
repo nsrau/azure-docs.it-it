@@ -3,12 +3,12 @@ title: Impostare l'ordine di distribuzione per le risorse
 description: Descrive come impostare una risorsa come dipendente da un'altra risorsa durante la distribuzione per garantire che le risorse vengano distribuite nell'ordine corretto.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153285"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535469"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definire l'ordine di distribuzione delle risorse nei modelli ARMDefine the order for deploying resources in ARM templates
 
@@ -18,7 +18,7 @@ Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base a
 
 ## <a name="dependson"></a>dependsOn
 
-All'interno del modello, l'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Il valore è un elenco separato da virgole di nomi di risorse. L'elenco può includere risorse [distribuite in modo condizionale.](conditional-resource-deployment.md) Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
+All'interno del modello, l'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Il valore è una matrice JSON di stringhe, ognuna delle quali è un nome di risorsa. La matrice può includere risorse [distribuite in modo condizionale.](conditional-resource-deployment.md) Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
 
 L'esempio seguente illustra un set di scalabilità di macchine virtuali dipendente da un servizio di bilanciamento del carico e da una rete virtuale. L'esempio illustra anche un ciclo che crea più account di archiviazione. Queste altre risorse non sono visualizzate nell'esempio seguente, ma devono esistere in un altro punto del modello.
 

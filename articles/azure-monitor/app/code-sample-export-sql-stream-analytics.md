@@ -3,12 +3,12 @@ title: Esportare in SQL da Azure Application Insights | Documentazione Microsoft
 description: Eseguire l'esportazione continua dei dati Application Insights in SQL tramite l'analisi di flusso.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663676"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536914"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -61,7 +61,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
     ![Scegliere i tipi di eventi](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) e i singoli eventi in [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md). 
+1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../../azure-monitor/platform/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md). 
    
     I dati verranno inoltre esportati nell'archivio. 
 2. Esaminare i dati esportati, nel portale (scegliere **Esplora**, selezionare l'account di archiviazione, quindi **Contenitori**) o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
@@ -240,7 +240,7 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Esportare in PowerBI usando l'analisi di flusso](../../azure-monitor/app/export-power-bi.md )
+* [Esportare in Power BI usando analisi di flusso](../../azure-monitor/app/export-power-bi.md )
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](../../azure-monitor/app/export-data-model.md)
 * [Esportazione continua in Application Insights](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -249,7 +249,7 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
 

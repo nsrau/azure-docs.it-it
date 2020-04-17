@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b0f60e13ca4bc5115f9a49885c3c659ad1147fcc
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7f05d33b43df85c49a0c92b60157e2a6448325ac
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881894"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537135"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Un'app Web che chiama le API Web: Configurazione del codice
 
@@ -253,7 +253,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 ### <a name="the-tokenacquisitionbuildconfidentialclientapplication-method"></a>Il metodo TokenAcquisition.BuildConfidentialClientApplication
 
-In ASP.NET Core, la compilazione dell'applicazione `HttpContext`client riservata utilizza le informazioni contenute nel file . L'accesso `HttpContext` alla richiesta associato `CurrentHttpContext` viene eseguito tramite la proprietà . `HttpContext`contiene informazioni sull'URL dell'app Web e sull'utente `ClaimsPrincipal`connesso (in un oggetto ). 
+In ASP.NET Core, la compilazione dell'applicazione `HttpContext`client riservata utilizza le informazioni contenute nel file . L'accesso `HttpContext` alla richiesta associato `CurrentHttpContext` viene eseguito tramite la proprietà . `HttpContext`contiene informazioni sull'URL dell'app Web e sull'utente `ClaimsPrincipal`connesso (in un oggetto ).
 
 Il `BuildConfidentialClientApplication` metodo utilizza anche la configurazione di ASP.NET Core. La configurazione include una sezione "AzureAD" ed è associata anche a entrambi gli elementi seguenti:The configuration has an "AzureAD" section, and also is bound to both of the following elements:
 

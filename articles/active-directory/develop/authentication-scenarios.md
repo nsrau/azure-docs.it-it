@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: e78f822a88b093992f065a509c2250e6a5c0dec2
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5252fdbbaf425662fc9725e618f8fc450b435722
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885566"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534653"
 ---
 # <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 
@@ -80,16 +80,16 @@ I token di accesso vengono passati a un'API Web come token di connessione nell'i
 
 A seconda della modalità di compilazione del client, può usare uno o più flussi di autenticazione supportati da Azure AD. Questi flussi possono produrre una varietà di token (id_tokens, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per farli funzionare. Questo grafico fornisce una panoramica:This chart provides an overview:
 
-|Flusso | Richiede | id_token | token di accesso | aggiornare il token | codice di autorizzazione | 
+|Flusso | Richiede | id_token | token di accesso | aggiornare il token | codice di autorizzazione |
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Flusso del codice di autorizzazioneAuthorization code flow](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flusso del codice di autorizzazioneAuthorization code flow](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Flusso implicito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Flusso OIDC ibrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
 |[Riscatto della token di aggiornamento](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | aggiornare il token | x | x | x| |
 |[Flusso on-behalf-of](v2-oauth2-on-behalf-of-flow.md) | token di accesso| x| x| x| |
 |[Credenziali del client](v2-oauth2-client-creds-grant-flow.md) | | | x (solo app)| | |
 
-I token emessi tramite la modalità implicita hanno un limite `response_mode` di `query` `fragment`lunghezza dovuto al ritorno al browser tramite l'URL (where is o ).  Alcuni browser hanno un limite alla dimensione dell'URL che può essere inserito nella barra del browser e non riescono quando è troppo lungo.  Pertanto, questi token `groups` non `wids` hanno o attestazioni. 
+I token emessi tramite la modalità implicita hanno un limite `response_mode` di `query` `fragment`lunghezza dovuto al ritorno al browser tramite l'URL (where is o ).  Alcuni browser hanno un limite alla dimensione dell'URL che può essere inserito nella barra del browser e non riescono quando è troppo lungo.  Pertanto, questi token `groups` non `wids` hanno o attestazioni.
 
 Ora che hai una panoramica delle nozioni di base, continua a leggere per comprendere il modello di app di identità e l'API, scopri come funziona il provisioning in Azure AD e ottieni collegamenti a informazioni dettagliate sugli scenari comuni supportati da Azure AD.
 
@@ -102,7 +102,7 @@ Affinché un provider di identità sappia che un utente ha accesso a una determi
 * Personalizzare la personalizzazione dell'applicazione nella finestra di dialogo di accesso. Questo è importante perché questa è la prima esperienza che un utente avrà con la tua app.
 * Decidere se si desidera consentire agli utenti di accedere solo se appartengono all'organizzazione. Si tratta di un singolo'applicazione tenant. In alternativa, consentire agli utenti di accedere utilizzando qualsiasi account aziendale o dell'istituto di istruzione. Si tratta di un'applicazione multi-tenant. Puoi anche consentire account Microsoft personali o un account social da LinkedIn, Google e così via.
 * Richiedere le autorizzazioni di ambito. Ad esempio, è possibile richiedere l'ambito "user.read", che concede l'autorizzazione per leggere il profilo dell'utente connesso.
-* Definire gli ambiti che definiscono l'accesso all'API Web. In genere, quando un'app vuole accedere all'API, dovrà richiedere le autorizzazioni per gli ambiti definiti.
+* Define scopes that define access to your web API. In genere, quando un'app vuole accedere all'API, dovrà richiedere le autorizzazioni per gli ambiti definiti.
 * Condividere un segreto con Azure AD che dimostra l'identità dell'app in Azure AD.  Ciò è rilevante nel caso in cui l'app sia un'applicazione client riservata. Un'applicazione client riservata è un'applicazione in grado di contenere le credenziali in modo sicuro. Per archiviare le credenziali è necessario un server back-end attendibile.
 
 Una volta registrata, all'applicazione verrà assegnato un identificatore univoco condiviso dall'app con Azure AD quando richiede i token. Se l'app è [un'applicazione client riservata,](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application)condividerà anche il segreto o la chiave pubblica, a seconda che siano stati utilizzati o meno certificati o segreti.
@@ -126,7 +126,7 @@ Il consenso è il processo di concessione dell'autorizzazione per un'applicazion
 
 Nella piattaforma di identità Microsoft, un [oggetto applicazione](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-object) descrive un'applicazione. In fase di distribuzione, la piattaforma di identità Microsoft utilizza l'oggetto applicazione come blueprint per creare [un'entità servizio,](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#service-principal-object)che rappresenta un'istanza concreta di un'applicazione all'interno di una directory o di un tenant. L'entità servizio definisce le operazioni che l'app può effettivamente eseguire in una directory di destinazione specifica, chi può usarla, a quali risorse ha accesso e così via. La piattaforma di identità Microsoft crea un'entità servizio da un oggetto applicazione tramite **il consenso**.
 
-Il diagramma seguente illustra un flusso di provisioning di Microsoft Identity Platform semplificato basato su consenso. Mostra due tenant: A e B. Tenant A possiede l'applicazione. Il tenant B crea un'istanza dell'applicazione tramite un'entità servizio.  
+Il diagramma seguente illustra un flusso di provisioning di Microsoft Identity Platform semplificato basato su consenso. Mostra due tenant: A e B. Tenant A possiede l'applicazione. Il tenant B crea un'istanza dell'applicazione tramite un'entità servizio.
 
 ![Flusso di provisioning semplificato basato su consenso](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
@@ -160,7 +160,7 @@ Il diagramma di sequenza seguente riepiloga questa interazione:The following seq
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Come un'app Web determina se l'utente è autenticato
 
-Gli sviluppatori di app Web possono indicare se tutte o solo alcune pagine richiedono l'autenticazione. Ad esempio, in ASP.NET/ASP.NET Core, questa `[Authorize]` operazione viene eseguita aggiungendo l'attributo alle azioni del controller. 
+Gli sviluppatori di app Web possono indicare se tutte o solo alcune pagine richiedono l'autenticazione. Ad esempio, in ASP.NET/ASP.NET Core, questa `[Authorize]` operazione viene eseguita aggiungendo l'attributo alle azioni del controller.
 
 Questo attributo fa ASP.NET verificare la presenza di un cookie di sessione contenente l'identità dell'utente. Se non è presente un cookie, ASP.NET reindirizza l'autenticazione al provider di identità specificato. Se il provider di identità è Azure `https://login.microsoftonline.com`AD, l'app Web reindirizza l'autenticazione a , che visualizza una finestra di dialogo di accesso.
 
