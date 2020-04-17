@@ -1,5 +1,7 @@
 - name: Tagliare i piani
   href: cut-planes.md
+- name: Eseguire il debug del rendering
+  href: debug-rendering.md
 - name: Override dello stato gerarchico
   href: override-hierarchical-state.md
 - name: Riproiezione con ritardo della fase

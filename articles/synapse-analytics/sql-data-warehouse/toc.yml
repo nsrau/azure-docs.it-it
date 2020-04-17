@@ -1,13 +1,13 @@
-- name: Documentazione di Azure Synapse Analytics
+- name: Azure Synapse (SQL DW)
   href: index.yml
+- name: Passare ad Azure Synapse (anteprima per aree di lavoro)
+  href: ../overview-what-is.md
 - name: Panoramica
   items:
     - name: Che cos'è Azure Synapse Analytics?
       href: sql-data-warehouse-overview-what-is.md
     - name: Architettura di Azure Synapse Analytics
       href: massively-parallel-processing-mpp-architecture.md
-    - name: Unità di data warehouse
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
     - name: Tabella di riepilogo
       href: cheat-sheet.md
     - name: Procedure consigliate

@@ -15,23 +15,23 @@
   items:
     - name: Eventi di archiviazione
       items:
+        - name: Portale
+          href: blob-event-quickstart-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
         - name: Azure PowerShell
           href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
-        - name: Portale
-          href: blob-event-quickstart-portal.md
         - name: Modello ARM
           displayName: Resource Manager
           href: blob-event-quickstart-template.md
     - name: Eventi personalizzati
       items:
+        - name: Portale
+          href: custom-event-quickstart-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: custom-event-quickstart.md
         - name: PowerShell
           href: custom-event-quickstart-powershell.md
-        - name: Portale
-          href: custom-event-quickstart-portal.md
     - name: Funzioni di Azure come gestore eventi
       href: custom-event-to-function.md
     - name: Archiviazione code come gestore eventi
@@ -96,11 +96,64 @@
       href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
 - name: Concetti
   items:
-    - name: Concetti relativi a Griglia di eventi
+    - name: Terminologia di Griglia di eventi
       href: concepts.md
+    - name: Argomenti personalizzati
+      href: custom-topics.md
     - name: Argomenti di sistema
-      href: system-topics.md
-    - name: Security
+      items:
+        - name: Panoramica degli argomenti di sistema
+          href: system-topics.md
+        - name: Origini eventi
+          items:
+            - name: Configurazione app di Azure
+              href: event-schema-app-configuration.md
+            - name: Archiviazione BLOB di Azure
+              href: event-schema-blob-storage.md
+            - name: Registro Azure Container
+              href: event-schema-container-registry.md
+            - name: Hub eventi di Azure
+              href: event-schema-event-hubs.md
+            - name: Hub IoT Azure
+              href: event-schema-iot-hub.md
+            - name: Insieme di credenziali chiave di Azure
+              href: event-schema-key-vault.md
+            - name: Azure Machine Learning
+              href: event-schema-machine-learning.md
+            - name: Mappe di Azure
+              href: event-schema-azure-maps.md
+            - name: Servizi multimediali di Azure
+              href: event-schema-media-services.md
+            - name: Gruppi di risorse di Azure
+              href: event-schema-resource-groups.md
+            - name: Bus di servizio di Azure
+              href: event-schema-service-bus.md
+            - name: Servizio Azure SignalR
+              href: event-schema-azure-signalr.md
+            - name: Sottoscrizioni Azure
+              href: event-schema-subscriptions.md
+    - name: Domini eventi
+      href: event-domains.md
+    - name: Formati dello schema di eventi
+      items:
+        - name: Schema di eventi di Griglia di eventi
+          href: event-schema.md
+        - name: Schema evento cloud
+          href: cloud-event-schema.md
+    - name: Gestori eventi
+      displayName: 'Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks'
+      href: event-handlers.md
+    - name: Recapito di eventi
+      items:
+        - name: Filtro eventi
+          href: event-filtering.md
+        - name: Recapito e nuovo tentativo
+          href: delivery-and-retry.md
+    - name: Ripristino di emergenza
+      items:
+        - name: Ripristino di emergenza geografico
+          href: geo-disaster-recovery.md
+    - name: Sicurezza
       items:
         - name: Authentication
           href: security-authentication.md
@@ -108,20 +161,6 @@
           href: security-authorization.md
         - name: Sicurezza di rete
           href: network-security.md
-    - name: Recapito e nuovo tentativo
-      href: delivery-and-retry.md
-    - name: Filtro eventi
-      href: event-filtering.md
-    - name: Domini eventi
-      href: event-domains.md
-    - name: Origini eventi
-      displayName: 'Azure subscriptions, Container registry, Custom topics, Event Hubs, IoT Hub, Key Vault, Media Services, Resource groups, Service Bus, Storage, Maps, App Configuration, Signal R, Machine Learning'
-      href: event-sources.md
-    - name: Gestori eventi
-      displayName: 'Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks'
-      href: event-handlers.md
-    - name: Ripristino di emergenza geografico
-      href: geo-disaster-recovery.md
 - name: Guide pratiche
   items:
     - name: Configurare gli endpoint privati (anteprima)
@@ -140,8 +179,6 @@
       href: manage-event-delivery.md
     - name: Filtrare gli eventi
       href: how-to-filter-events.md
-    - name: Monitorare il recapito di eventi
-      href: monitor-event-delivery.md
     - name: Eseguire query su sottoscrizioni di eventi
       href: query-event-subscriptions.md
     - name: Effettuare la sottoscrizione tramite il portale
@@ -154,10 +191,14 @@
       href: how-to-event-domains.md
     - name: Implementare il failover lato client
       href: custom-disaster-recovery.md
-    - name: Risolvere gli errori
-      href: troubleshoot-errors.md
-    - name: Abilitare i log di diagnostica per un argomento
-      href: enable-diagnostic-logs-topic.md
+    - name: Risolvere problemi
+      items:
+        - name: Abilitare i log di diagnostica per un argomento
+          href: enable-diagnostic-logs-topic.md
+        - name: Risolvere gli errori
+          href: troubleshoot-errors.md
+        - name: Monitorare il recapito di eventi
+          href: monitor-event-delivery.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -176,35 +217,6 @@
       href: /javascript/api/overview/azure/eventgrid
     - name: Schema di sottoscrizione
       href: subscription-creation-schema.md
-    - name: Schema di eventi
-      href: event-schema.md
-      items:
-        - name: Sottoscrizioni Azure
-          href: event-schema-subscriptions.md
-        - name: Archiviazione BLOB
-          href: event-schema-blob-storage.md
-        - name: Registro Container
-          href: event-schema-container-registry.md
-        - name: Hub eventi
-          href: event-schema-event-hubs.md
-        - name: Hub IoT
-          href: event-schema-iot-hub.md
-        - name: Key Vault
-          href: event-schema-key-vault.md
-        - name: Servizi multimediali
-          href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
-        - name: Gruppi di risorse
-          href: event-schema-resource-groups.md
-        - name: Bus di servizio
-          href: event-schema-service-bus.md
-        - name: Mappe di Azure
-          href: event-schema-azure-maps.md
-        - name: Configurazione app
-          href: event-schema-app-configuration.md
-        - name: Servizio Azure SignalR
-          href: event-schema-azure-signalr.md
-        - name: Azure Machine Learning
-          href: event-schema-machine-learning.md
     - name: Risorse del modello
       items:
         - name: Sottoscrizioni di eventi

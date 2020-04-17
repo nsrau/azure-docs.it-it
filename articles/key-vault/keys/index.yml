@@ -1,0 +1,64 @@
+### YamlMime:Landing
+title: Documentazione sulle chiavi
+summary: Azure Key Vault consente agli utenti e alle applicazioni di Microsoft Azure di archiviare e usare le chiavi. Supporta più tipi di chiavi e algoritmi e consente di usare moduli di protezione hardware per le chiavi di valore elevato.
+metadata:
+  title: Chiavi
+  description: Azure Key Vault consente agli utenti e alle applicazioni di Microsoft Azure di archiviare e usare le chiavi. Supporta più tipi di chiavi e algoritmi e consente di usare moduli di protezione hardware per le chiavi di valore elevato.
+  services: key-vault
+  ms.service: key-vault
+  ms.subservice: keys
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/07/2020
+  ms.openlocfilehash: d5394200164d4f254ceca7a18035df95cc401747
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81423361"
+landingContent:
+- title: Chiavi
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cosa sono le chiavi di Key Vault?
+      url: about-keys.md
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Interfaccia della riga di comando di Azure
+      url: quick-create-cli.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
+    - text: Portale
+      url: quick-create-portal.md
+    - text: Python
+      url: quick-create-python.md
+- title: Esercitazioni
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Importare chiavi con protezione HSM in Key Vault
+      url: hsm-protected-keys.md
+    - text: Importare chiavi con protezione HSM indipendenti dal fornitore
+      url: hsm-protected-keys-vendor-agnostic-byok.md
+- title: Altre informazioni su Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Panoramica di Key Vault
+      url: ../general/overview.md
+    - text: Concetti fondamentali
+      url: ../general/basic-concepts.md
+    - text: Panoramica dell'eliminazione temporanea
+      url: ../general/overview-soft-delete.md
+    - text: Panoramica della sicurezza
+      url: ../general/overview-security.md
+- title: Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Gestire i segreti nelle app server con Azure Key Vault
+      url: /learn/modules/manage-secrets-with-azure-key-vault/

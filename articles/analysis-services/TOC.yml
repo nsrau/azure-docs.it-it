@@ -8,7 +8,7 @@
   items:
     - name: Creare un server - Portale
       href: analysis-services-create-server.md
-    - name: Creare un server - PowerShell
+    - name: 'creare un server: PowerShell'
       href: analysis-services-create-powershell.md
     - name: Creare un server - Modello di Resource Manager
       displayName: Resource Manager
@@ -39,6 +39,8 @@
       href: analysis-services-connect.md
     - name: Disponibilità elevata
       href: analysis-services-bcdr.md
+    - name: Operazioni a esecuzione prolungata
+      href: analysis-services-long-operations.md
     - name: Origini dati supportate
       href: analysis-services-datasource.md
 - name: Procedure

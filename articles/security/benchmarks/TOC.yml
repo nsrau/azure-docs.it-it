@@ -40,6 +40,8 @@
       href: ../../container-registry/security-baseline.md
     - name: Baseline di sicurezza di Cosmos DB
       href: ../../cosmos-db/security-baseline.md
+    - name: Baseline di sicurezza di Esplora dati
+      href: /azure/data-explorer/security-baseline
     - name: Baseline di sicurezza di Hub eventi
       href: ../../event-hubs/security-baseline.md
     - name: Baseline di sicurezza di HDInsight
