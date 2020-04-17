@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 50c209483a12adc3545b63fb66685e386d9ad10a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252147"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453524"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
@@ -36,7 +36,7 @@ Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e u
 
 ### <a name="create-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Se non si ha già un insieme di credenziali delle chiavi in [Azure Key Vault](../key-vault/key-vault-overview.md), crearne uno usando i comandi seguenti nell'interfaccia della riga di comando di Azure.
+Se non si ha già un insieme di credenziali delle chiavi in [Azure Key Vault](../key-vault/general/overview.md), crearne uno usando i comandi seguenti nell'interfaccia della riga di comando di Azure.
 
 Aggiornare la variabile `RES_GROUP` con il nome di un gruppo di risorse esistente in cui creare l'insieme di credenziali delle chiavi e `ACR_NAME` con il nome del registro contenitori. Per brevità, i comandi in questo articolo presuppongono che le istanze del Registro di sistema, dell'insieme di credenziali delle chiavi e del contenitore siano tutti creati nello stesso gruppo di risorse.
 

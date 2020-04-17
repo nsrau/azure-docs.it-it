@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667144"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455446"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics solution in Azure Monitor
 
@@ -94,7 +94,7 @@ Dopo aver fatto clic sul riquadro **Analisi Vault chiave,** puoi visualizzare i 
     In una pagina di ricerca di log qualsiasi è possibile visualizzare i risultati in base all'ora, ai dettagli e alla cronologia di ricerca. È anche possibile filtrare per facet in modo da limitare i risultati.
 
 ## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
-La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con tipo **KeyVaults**, raccolti dai [log AuditEvent](../../key-vault/key-vault-logging.md) in Diagnostica di Azure.  Le proprietà per questi record sono disponibili nella tabella seguente:  
+La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con tipo **KeyVaults**, raccolti dai [log AuditEvent](../../key-vault/general/logging.md) in Diagnostica di Azure.  Le proprietà per questi record sono disponibili nella tabella seguente:  
 
 | Proprietà | Descrizione |
 |:--- |:--- |
@@ -107,7 +107,7 @@ La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con 
 | `httpStatusCode_d` |Codice di stato HTTP restituito dalla richiesta (ad esempio *200*) |
 | `id_s` |ID univoco della richiesta |
 | `identity_claim_appid_g` | GUID per l'ID applicazione |
-| `OperationName` |Nome dell'operazione, come illustrato in [Registrazione dell'Insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-logging.md) |
+| `OperationName` |Nome dell'operazione, come illustrato in [Registrazione dell'Insieme di credenziali delle chiavi di Azure](../../key-vault/general/logging.md) |
 | `OperationVersion` |Versione dell'API REST richiesta dal client (ad esempio *2015-06-01*) |
 | `requestUri_s` |URI della richiesta |
 | `Resource` |Nome dell'insieme di credenziali delle chiavi |

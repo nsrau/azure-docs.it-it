@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 970701606811cbd61a9bfebe39ff82cdc91d5693
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245838"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457893"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java in Linux per il servizio app di Azure
 
@@ -230,7 +230,7 @@ Seguire le istruzioni in [Proteggere un nome DNS personalizzato con un'associazi
 
 ### <a name="use-keyvault-references"></a>Usare i riferimenti KeyVaultUse KeyVault References
 
-[Azure KeyVault](../../key-vault/key-vault-overview.md) offre una gestione segreta centralizzata con criteri di accesso e cronologia di controllo. È possibile archiviare segreti (ad esempio password o stringhe di connessione) in KeyVault e accedere a questi segreti nell'applicazione tramite variabili di ambiente.
+[Azure KeyVault](../../key-vault/general/overview.md) offre una gestione segreta centralizzata con criteri di accesso e cronologia di controllo. È possibile archiviare segreti (ad esempio password o stringhe di connessione) in KeyVault e accedere a questi segreti nell'applicazione tramite variabili di ambiente.
 
 In primo luogo, seguire le istruzioni per [concedere all'app l'accesso a Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e creare un riferimento [KeyVault al segreto in un'impostazione dell'applicazione](../app-service-key-vault-references.md#reference-syntax). È possibile convalidare che il riferimento viene risolto nel segreto stampando la variabile di ambiente mentre si accede in remoto al terminale del servizio app.
 
@@ -244,7 +244,7 @@ Potrebbe essere necessaria una configurazione aggiuntiva per crittografare la co
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
-- [Mysql](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [Mongodb](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 

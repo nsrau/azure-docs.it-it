@@ -3,12 +3,12 @@ title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come utilizzarli per creare blueprint sicuri e dinamici.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383609"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458489"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -41,7 +41,7 @@ Se l'assegnazione del blueprint utilizza **un'identità gestita assegnata dall'u
 > [!IMPORTANT]
 > In entrambi i casi, l'insieme di credenziali delle chiavi deve avere **Abilita accesso ad Azure Resource Manager per** la distribuzione dei modelli configurata nella pagina Criteri di **accesso.** Per istruzioni su come abilitare questa funzionalità, vedere [Key Vault - Abilitare la distribuzione di modelli](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-Per altre informazioni sull'insieme di credenziali di Azure, vedere [Panoramica di Key Vault](../../../key-vault/key-vault-overview.md).
+Per altre informazioni sull'insieme di credenziali di Azure, vedere [Panoramica di Key Vault](../../../key-vault/general/overview.md).
 
 ## <a name="parameter-types"></a>Tipi di parametro
 
@@ -234,7 +234,7 @@ L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inser
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere l'elenco delle funzioni del [blueprint](../reference/blueprint-functions.md).
-- Informazioni sul ciclo di vita del [blueprint.](lifecycle.md)
+- Informazioni sul [ciclo di vita del progetto](lifecycle.md).
 - Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
 - Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md).
 - Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).

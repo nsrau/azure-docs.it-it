@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 8552fc8555207c5b6ca59bbd0da0fdebaae2e87b
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 3b4362e4c5e69efddfbc99ef0f98ad3c5966165c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546099"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450876"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedura: personalizzare browser e webview per iOS/macOSHow to: Customize browsers and WebViews for iOS/macOS
 
@@ -74,10 +74,10 @@ Il browser che utilizzi influisce sull'esperienza SSO a causa del modo in cui co
 
 | Tecnologia    | Tipo di browser  | Disponibilità iOS | disponibilità di macOS | Condivide cookie e altri dati  | Disponibilità MSAL | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession (ASWebAuthenticationSession)](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 e fino | macOS 10.15 e fino | Sì | iOS e macOS 10.15 | w/ Istanze di Safari
-| [SFAuthenticationSessionSFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 e fino in | N/D | Sì | Solo iOS |  w/ Istanze di Safari
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 e fino in | N/D | No | Solo iOS | No**
-| **SFSafariViewController** | System | iOS10 | N/D | Sì | Solo iOS |  w/ Istanze di Safari
+| [ASWebAuthenticationSession (ASWebAuthenticationSession)](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 e fino | macOS 10.15 e fino | Sì | iOS e macOS 10.15 | w/ Istanze di Safari
+| [SFAuthenticationSessionSFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Sistema | iOS11 e fino in | N/D | Sì | Solo iOS |  w/ Istanze di Safari
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Sistema | iOS11 e fino in | N/D | No | Solo iOS | No**
+| **SFSafariViewController** | Sistema | iOS10 | N/D | Sì | Solo iOS |  w/ Istanze di Safari
 | **WKWebView (visualizzazione di file WKWebView)**  | In-app | iOS8 e fino in | macOS 10.10 e fino | No | iOS e macOS | No**
 
 Affinché SSO funzioni, i token devono essere condivisi tra le app. Ciò richiede una cache di token o un'applicazione broker, ad esempio Microsoft Authenticator per iOS.This requires a token cache, or broker application, such as Microsoft Authenticator for iOS.
@@ -102,7 +102,7 @@ Objective-C
 ```objc
 UIViewController *myParentController = ...;
 WKWebView *myCustomWebView = ...;
-MSALWebviewParameters *webViewParameters = [[MSALWebviewParameters alloc] initWithParentViewController:myParentController];
+MSALWebviewParameters *webViewParameters = [[MSALWebviewParameters alloc] initWithAuthPresentationViewController:myParentController];
 webViewParameters.webviewType = MSALWebviewTypeWKWebView;
 webViewParameters.customWebview = myCustomWebView;
 MSALInteractiveTokenParameters *interactiveParameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"myscope"] webviewParameters:webViewParameters];
@@ -113,7 +113,7 @@ Swift
 ```swift
 let myParentController: UIViewController = ...
 let myCustomWebView: WKWebView = ...
-let webViewParameters = MSALWebviewParameters(parentViewController: myParentController)
+let webViewParameters = MSALWebviewParameters(authPresentationViewController: myParentController)
 webViewParameters.webviewType = MSALWebviewType.wkWebView
 webViewParameters.customWebview = myCustomWebView
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: ["myscope"], webviewParameters: webViewParameters)

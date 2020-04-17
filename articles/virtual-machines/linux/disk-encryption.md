@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f7eb63d0bbdce86f4a7195430dc15d6873e9f6e6
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 68341de82ae15df91477947664c500caaa96a09a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452724"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server dei dischi gestiti di AzureServer-side encryption of Azure managed disks
 
@@ -34,7 +34,7 @@ Per impostazione predefinita, i dischi gestiti utilizzano chiavi di crittografia
 
 ## <a name="customer-managed-keys"></a>Chiavi gestite dal cliente
 
-È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con l'insieme di credenziali delle chiavi di Azure.Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. È possibile importare le chiavi RSA nell'insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault.You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. 
+È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con l'insieme di credenziali delle chiavi di Azure.Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. È possibile importare le chiavi RSA nell'insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault.You can either import [your RSA keys](../../key-vault/keys/hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. 
 
 I dischi gestiti di Azure gestiscono la crittografia e la decrittografia in modo completamente trasparente usando la [crittografia della busta.](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique) Crittografa i dati utilizzando una chiave DEK (Data Encryption Key) basata su [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256, che a sua volta è protetta tramite le chiavi. Il servizio di archiviazione genera chiavi di crittografia dei dati e le crittografa con chiavi gestite dal cliente usando la crittografia RSA. La crittografia della busta consente di ruotare (modificare) le chiavi periodicamente in base ai criteri di conformità senza influire sulle macchine virtuali. Quando si ruotano le chiavi, il servizio di archiviazione crittografa nuovamente le chiavi di crittografia dei dati con le nuove chiavi gestite dal cliente. 
 
@@ -238,7 +238,7 @@ az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esplorare i modelli di Azure Resource Manager per la creazione di dischi crittografati con chiavi gestite dal clienteExplore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
-- [Informazioni sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-overview.md)
+- [Informazioni sull'insieme di credenziali delle chiavi di Azure](../../key-vault/general/overview.md)
 - [Replicare computer con dischi abilitati per le chiavi gestite dal cliente](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Configurare il ripristino di emergenza di VM VMware in Azure con PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Configurare il ripristino di emergenza in Azure per le macchine virtuali Hyper-V tramite PowerShell e Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

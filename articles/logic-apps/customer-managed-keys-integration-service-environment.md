@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127644"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458438"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurare chiavi gestite dal cliente per crittografare i dati inattivi per gli ambienti del servizio di integrazione (ISE) in App per la logica di AzureSet up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps
 
 Le app per la logica di Azure si basano su Archiviazione di Azure per archiviare e crittografare automaticamente i [dati inattivi.](../storage/common/storage-service-encryption.md) Questa crittografia protegge i dati e consente di soddisfare gli impegni di conformità e sicurezza dell'organizzazione. Per impostazione predefinita, Archiviazione di Azure usa chiavi gestite da Microsoft per crittografare i dati. Per altre informazioni sul funzionamento della crittografia di Archiviazione di Azure, vedere Crittografia di Archiviazione di Azure per i dati inattivi e [Crittografia dei dati di Azure inattivi.For](../security/fundamentals/encryption-atrest.md)more information about how Azure Storage encryption works, see Azure Storage encryption for data at [rest.](../storage/common/storage-service-encryption.md)
 
-Quando si crea un ambiente del servizio di [integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per l'hosting delle app per la logica e si vuole un maggiore controllo sulle chiavi di crittografia usate da Archiviazione di Azure, è possibile configurare, usare e gestire la propria chiave usando Archiviazione delle chiavi di [Azure.](../key-vault/key-vault-overview.md) Questa funzionalità è nota anche come "Bring Your Own Key" (BYOK) e la chiave viene definita "chiave gestita dal cliente".
+Quando si crea un ambiente del servizio di [integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per l'hosting delle app per la logica e si vuole un maggiore controllo sulle chiavi di crittografia usate da Archiviazione di Azure, è possibile configurare, usare e gestire la propria chiave usando Archiviazione delle chiavi di [Azure.](../key-vault/general/overview.md) Questa funzionalità è nota anche come "Bring Your Own Key" (BYOK) e la chiave viene definita "chiave gestita dal cliente".
 
 Questo argomento illustra come configurare e specificare una chiave di crittografia personalizzata da usare quando si crea ISE usando l'API REST delle app per la logica. Per la procedura generale per creare un'API REST di ISE tramite app per la logica, vedere Creare un ambiente del [servizio di integrazione (ISE) usando l'API REST delle app per la logica.](../logic-apps/create-integration-service-environment-rest-api.md)
 
@@ -39,7 +39,7 @@ Questo argomento illustra come configurare e specificare una chiave di crittogra
 
 * Un insieme di credenziali delle chiavi di Azure con le proprietà **Soft Delete** e Do Not Purge abilitateAn Azure key vault that has the Soft Delete and **Do Not Purge** properties enabled
 
-  Per altre informazioni sull'abilitazione di queste proprietà, vedere [Panoramica dell'eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md) di Archiviazione delle chiavi di Azure e [Configurare le chiavi gestite dal cliente con L'insieme](../storage/common/storage-encryption-keys-portal.md)delle chiavi di Azure.For more information about enabling these properties, see Azure Key Vault soft-delete overview and Configure customer-managed keys with Azure Key Vault . Se non si ha familiarità con l'insieme di credenziali delle chiavi di Azure, vedere [come creare un insieme](../key-vault/quick-create-portal.md#create-a-vault) di credenziali delle chiavi usando il portale di Azure o il comando [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)di Azure.
+  Per altre informazioni sull'abilitazione di queste proprietà, vedere [Panoramica dell'eliminazione temporanea](../key-vault/general/overview-soft-delete.md) di Archiviazione delle chiavi di Azure e [Configurare le chiavi gestite dal cliente con L'insieme](../storage/common/storage-encryption-keys-portal.md)delle chiavi di Azure.For more information about enabling these properties, see Azure Key Vault soft-delete overview and Configure customer-managed keys with Azure Key Vault . Se non si ha familiarità con l'insieme di credenziali delle chiavi di Azure, vedere [come creare un insieme](../key-vault/secrets/quick-create-portal.md#create-a-vault) di credenziali delle chiavi usando il portale di Azure o il comando [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)di Azure.
 
 * Nell'insieme di credenziali delle chiavi, una chiave creata con i seguenti valori di proprietà:
 
@@ -47,7 +47,7 @@ Questo argomento illustra come configurare e specificare una chiave di crittogra
   |----------|-------|
   | **Tipo chiave** | RSA |
   | **Dimensione chiave RSA** | 2048 |
-  | **Abilitato** | Sì |
+  | **Enabled** | Sì |
   |||
 
   ![Creare la chiave di crittografia gestita dal clienteCreate your customer-managed encryption key](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -225,8 +225,8 @@ Per questa attività, è possibile usare il comando Azure PowerShell Set-AzKeyVa
 
    1. Al termine del riquadro Criteri di **accesso** selezionare **Salva**.
 
-Per ulteriori informazioni, consultate Fornire l'autenticazione dell'insieme di credenziali delle [chiavi con un'identità gestita.](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault)
+Per ulteriori informazioni, consultate Fornire l'autenticazione dell'insieme di credenziali delle [chiavi con un'identità gestita.](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni su [Azure Key Vault](../key-vault/key-vault-overview.md)
+* Altre informazioni su [Azure Key Vault](../key-vault/general/overview.md)

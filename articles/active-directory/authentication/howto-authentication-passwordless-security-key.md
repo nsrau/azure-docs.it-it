@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653946"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450922"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Abilitare l'accesso alla chiave di sicurezza senza password (anteprima)Enable passwordless security key sign-in (preview)
 
@@ -48,7 +48,7 @@ I dispositivi aggiunti ad Azure AD ibrido devono eseguire Windows 10 Insider Bui
 
 ### <a name="enable-the-combined-registration-experience"></a>Abilitare l'esperienza di registrazione combinataEnable the combined registration experience
 
-Le funzionalità di registrazione per i metodi di autenticazione senza password si basano sull'anteprima combinata della registrazione. Seguire i passaggi nell'articolo Abilitare la registrazione combinata delle informazioni di [sicurezza (anteprima)](howto-registration-mfa-sspr-combined.md)per abilitare l'anteprima combinata della registrazione.
+Le funzionalità di registrazione per i metodi di autenticazione senza password si basano sulla funzionalità di registrazione combinata. Seguire i passaggi nell'articolo Abilitare la registrazione combinata delle informazioni di [sicurezza (anteprima)](howto-registration-mfa-sspr-combined.md)per abilitare la registrazione combinata.
 
 ### <a name="enable-fido2-security-key-method"></a>Abilita metodo tasto di protezione FIDO2
 

@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 7e6981fb57421846b491693bb6195ecef31a3773
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450352"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Modificare i modelli di progettazione dei feed in Azure Cosmos DBChange feed design patterns in Azure Cosmos DB
 
@@ -99,7 +99,7 @@ Si consideri, ad esempio, un'applicazione di vendita al dettaglio che utilizza i
 
 1. Cliente aggiunge l'articolo A al carrello
 2. Cliente aggiunge l'articolo B al carrello
-3. Il cliente aggiunge rimuove l'articolo A dal carrello
+3. Il cliente rimuove l'articolo A dal carrello
 4. I check-out dei clienti e i contenuti del carrello vengono spediti
 
 Una vista materializzata del contenuto corrente del carrello della spesa viene mantenuta per ogni cliente. Questa applicazione deve garantire che questi eventi vengano elaborati nell'ordine in cui si verificano. Se, ad esempio, il pagamento del carrello dovesse essere elaborato prima della rimozione dell'articolo A, è probabile che il cliente abbia dovuto spedire l'articolo A, anziché l'articolo B desiderato. Per garantire che questi quattro eventi vengano elaborati in ordine di occorrenza, devono rientrare nello stesso valore della chiave di partizione. Se si seleziona **nome utente** (ogni cliente ha un nome utente univoco) come chiave di partizione, è possibile garantire che questi eventi vengano visualizzati nel feed di modifiche nello stesso ordine in cui vengono scritti in Azure Cosmos DB.

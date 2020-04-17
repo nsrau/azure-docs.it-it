@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: ee51be1d994c3b81765266e95c48d321a2f43b14
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80989443"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455088"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Eseguire la migrazione dei processi di SQL Server Agent ad ADF con SSMSMigrate SQL Server Agent jobs to ADF with SSMS
 
@@ -35,7 +35,7 @@ In generale, per i processi di SQL agent selezionati con tipi di passaggio di pr
 |Passaggio del processo SSISSSIS job step|Eseguire l'attività del pacchetto SSISExecute SSIS package activity|<li> Il nome dell'attività sarà \<il nome del passaggio>. <li> L'account proxy utilizzato nel passaggio di processo verrà migrato come autenticazione di Windows di questa attività. <li> *Le opzioni di esecuzione,* ad eccezione di Usa runtime a *32 bit* definito nel passaggio di processo, verranno ignorate durante la migrazione. <li> *La verifica* definita nel passaggio di processo verrà ignorata durante la migrazione.|
 |schedule      |trigger pianifica        |Il nome del trigger di pianificazione verrà *Generato per \<il nome della pianificazione>*. <br> <br> Le opzioni seguenti nella pianificazione dei processi di SQL Agent verranno ignorate durante la migrazione:Below options in SQL Agent job schedule will be ignored in migration: <li> Intervallo di secondo livello. <li> *Avvia automaticamente all'avvio di SQL Server Agent* <li> *Avvia quando la CPU risulta inattiva* <li> *giorno della settimana* e *del fine settimana*<time zone> <br> Di seguito sono riportate le differenze dopo la migrazione della pianificazione dei processi di SQL Agent al trigger di pianificazione ADF: <li> L'esecuzione successiva di ADF Schedule Trigger è indipendente dallo stato di esecuzione dell'esecuzione attivata dall'antecedente. <li> La configurazione della ricorrenza di ADF Schedule Trigger è diversa dalla frequenza giornaliera nel processo dell'agente SQL.|
 
-- generare modelli di Azure Resource Manager (ARM) nella cartella di output locale e distribuirli manualmente in Data Factory.Generate Azure Resource Manager (ARM) templates in local output folder, and deploy to data factory directly or later manually. Per ulteriori informazioni sui modelli di Gestione risorse ADF, vedere [Tipi di risorse Microsoft.DataFactory](https://docs.microsoft.com/azure/templates/microso.ft.datafactory/allversions).
+- generare modelli di Azure Resource Manager (ARM) nella cartella di output locale e distribuirli manualmente in Data Factory.Generate Azure Resource Manager (ARM) templates in local output folder, and deploy to data factory directly or later manually. Per ulteriori informazioni sui modelli di Gestione risorse ADF, vedere [Tipi di risorse Microsoft.DataFactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

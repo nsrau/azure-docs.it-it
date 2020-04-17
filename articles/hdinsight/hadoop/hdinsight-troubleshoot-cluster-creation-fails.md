@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
-ms.openlocfilehash: a95c4d654650276c815c5b23fb2c6f8a6d06bc2e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 3af7515995a305f41fb9b9f85deb9107de51c622
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383463"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453490"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Risolvere gli errori di creazione del cluster con Azure HDInsightTroubleshoot cluster creation failures with Azure HDInsight
 
@@ -29,7 +29,7 @@ I problemi seguenti sono le cause principali più comuni per gli errori di creaz
 
 ## <a name="permissions-issues"></a>Problemi con le autorizzazioni
 
-Se si usa Azure Data Lake Storage ```AmbariClusterCreationFailedErrorCode```Gen2 ```Internal server error occurred while processing the request. Please retry the request or contact support.```e viene visualizzato l'errore , aprire il portale di Azure, passare all'account di archiviazione e in Controllo di accesso (IAM), verificare che il ruolo **Collaboratore dati BLOB** di archiviazione o **Proprietario dati BLOB** di archiviazione abbia assegnato l'accesso **all'identità gestita assegnata dall'utente** per la sottoscrizione. Per istruzioni dettagliate, vedere come [Configurare le autorizzazioni per l'identità gestita nell'account Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
+Se si usa Azure Data Lake Storage Gen2 `AmbariClusterCreationFailedErrorCode`:::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support.":::e viene visualizzato l'errore : " ", aprire il portale di Azure, passare all'account di archiviazione e in Controllo di accesso (IAM) verificare che il **collaboratore** dei dati BLOB di archiviazione o il ruolo **Proprietario dati BLOB** di archiviazione abbia l'accesso assegnato all'identità gestita assegnata dall'utente per la sottoscrizione. **User assigned managed identity** Per istruzioni dettagliate, vedere come [Configurare le autorizzazioni per l'identità gestita nell'account Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
 
 Se si usa Azure Data Lake Storage Gen1, vedere le istruzioni di installazione e configurazione [qui.](../hdinsight-hadoop-use-data-lake-store.md) Data Lake Storage Gen1 non è supportato per i cluster HBase e non è supportato in HDInsight versione 4.0.
 

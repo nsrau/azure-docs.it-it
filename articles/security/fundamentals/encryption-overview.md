@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 7ac657e6627aff4eb588506118e5eeeaef70efba
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548615"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454646"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
 
@@ -61,7 +61,7 @@ I tre modelli di crittografia lato server offrono caratteristiche differenti di 
 
 È possibile proteggere le macchine virtuali Linux e Windows usando [Crittografia dischi di Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) che usa la tecnologia [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) per proteggere sia i dischi del sistema operativo sia i dischi di dati con la crittografia dell'intero volume.
 
-Le chiavi e i segreti di crittografia vengono protetti nella sottoscrizione di [Azure Key Vault](../../key-vault/key-vault-overview.md). È possibile eseguire il backup e il ripristino delle macchine virtuali crittografate con configurazione KEK usando il servizio Backup di Microsoft Azure.
+Le chiavi e i segreti di crittografia vengono protetti nella sottoscrizione di [Azure Key Vault](../../key-vault/general/overview.md). È possibile eseguire il backup e il ripristino delle macchine virtuali crittografate con configurazione KEK usando il servizio Backup di Microsoft Azure.
 
 ### <a name="azure-storage-service-encryption"></a>Crittografia del servizio di archiviazione di Azure
 

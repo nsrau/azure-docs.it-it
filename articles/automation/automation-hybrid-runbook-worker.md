@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1e4470ce5ac69390cf8d361577b9ebf0013e4e51
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 861c7ffa647c8d2f37b32c359253ca991eeb314f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405797"
+ms.locfileid: "81457706"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
 
@@ -68,7 +68,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ```
 
 > [!NOTE]
-> Questo codice non rimuove Microsoft Monitoring Agent dal computer. Rimuove solo la funzionalità e la configurazione del ruolo di lavoro ibrido per runbook.
+> Questo codice non rimuove l'agente di Log Analytics per Linux dal computer. Rimuove solo la funzionalità e la configurazione del ruolo di lavoro ibrido per runbook.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Rimuovere un gruppo di ruoli di lavoro ibridi
 
@@ -89,7 +89,7 @@ Per rimuovere un gruppo di lavoro ibrido per runbook, è innanzitutto necessario
 
 ### <a name="hybrid-worker-role"></a>Ruolo di lavoro ibrido
 
-Affinché il ruolo di lavoro ibrido per runbook si connetta e si registri con Automazione di Azure, deve avere accesso al numero di porta e agli URL descritti in questa sezione. Questo accesso è in cima alle porte e agli URL necessari affinché Microsoft Monitoring Agent si connetta ai log di Monitoraggio di Azure.This access is on top to the ports and [URLs required for Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) to connect to Azure Monitor logs.
+Affinché il ruolo di lavoro ibrido per runbook si connetta e si registri con Automazione di Azure, deve avere accesso al numero di porta e agli URL descritti in questa sezione. Questo accesso è in cima alle porte e agli [URL necessari per l'agente Log Analytics](../azure-monitor/platform/agent-windows.md) per connettersi ai log di Azure Monitor.This access is on top to the ports and URLs required for Log Analytics agent to connect to Azure Monitor logs.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

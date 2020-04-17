@@ -1,31 +1,26 @@
 ---
 title: Risolvere i problemi di registrazione combinata - Azure Active DirectoryTroubleshoot combined registration - Azure Active Directory
-description: Risolvere i problemi relativi a Azure AD Multi-Factor Authentication e alla registrazione combinata della reimpostazione della password self-service (anteprima)Troubleshoot Azure AD Multi-Factor Authentication and self-service password reset combined registration (preview)
+description: Risolvere i problemi relativi a Azure AD Multi-Factor Authentication e alla reimpostazione combinata della password self-serviceTroubleshoot Azure AD Multi-Factor Authentication and self-service password reset combined
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847389"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450939"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>Risoluzione dei problemi relativi alla registrazione combinata delle informazioni di sicurezza (anteprima)Troubleshooting combined security information registration (preview)
+# <a name="troubleshooting-combined-security-information-registration"></a>Risoluzione dei problemi di registrazione combinata delle informazioni di sicurezzaTroubleshooting combined security information registration
 
 Le informazioni contenute in questo articolo hanno lo scopo di guidare gli amministratori che stanno risolvendo i problemi segnalati dagli utenti dell'esperienza di registrazione combinata.
-
-|     |
-| --- |
-| La registrazione combinata delle informazioni di sicurezza per Azure Multi-Factor Authentication e la reimpostazione della password self-service di Azure Active Directory (Azure AD) è una funzionalità di anteprima pubblica di Azure AD. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
 
 ## <a name="audit-logs"></a>Log di controllo
 
@@ -150,16 +145,16 @@ In una finestra di PowerShell eseguire il comando seguente, specificando i perco
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>Disattivare l'esperienza di anteprima
+### <a name="disable-the-updated-experience"></a>Disabilitare l'esperienza aggiornata
 
-Per disabilitare l'esperienza di anteprima per gli utenti, completare questi passaggi:
+Per disabilitare l'esperienza aggiornata per gli utenti, completare questi passaggi:To disable the updated experience for your users, complete these steps:
 
 1. Accedere al portale di Azure come amministratore utente.
 2. Passare a Impostazioni utente di **Azure Active Directory** > Gestire**le** > impostazioni per le funzionalità di anteprima del pannello di**accesso.**
 3. In Gli utenti possono utilizzare le funzionalità di **anteprima per la registrazione e la gestione delle informazioni**di sicurezza impostare il **selettore**su Nessuno e quindi selezionare **Salva**.
 
-Agli utenti non verrà più richiesto di registrarsi utilizzando l'esperienza di anteprima.
+Agli utenti non verrà più richiesto di registrarsi utilizzando l'esperienza aggiornata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni sull'anteprima pubblica della registrazione combinata per la reimpostazione della password self-service e Azure Multi-Factor AuthenticationLearn more about the public preview of combined registration for self-service password reset and Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Altre informazioni sulla registrazione combinata per la reimpostazione della password self-service e Azure Multi-Factor AuthenticationLearn more about combined registration for self-service password reset and Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

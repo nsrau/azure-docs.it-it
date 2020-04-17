@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811434"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456499"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Usare chiavi gestite dal cliente nell'insieme di credenziali delle chiavi di Azure per il servizio importazione/esportazioneUse customer-managed keys in Azure Key Vault for Import/Export service
 
 Importazione/esportazione di Azure protegge le chiavi BitLocker usate per bloccare le unità tramite una chiave di crittografia. Per impostazione predefinita, le chiavi BitLocker vengono crittografate con chiavi gestite da Microsoft.By default, BitLocker keys are encrypted with Microsoft-managed keys. Per un ulteriore controllo sulle chiavi di crittografia, è anche possibile fornire chiavi gestite dal cliente.
 
-Le chiavi gestite dal cliente devono essere create e archiviate in un insieme di credenziali delle chiavi di Azure.Customer-managed keys must be created and stored in an Azure Key Vault. Per altre informazioni su Archiviazione delle chiavi di Azure, vedere [Che cos'è l'insieme di](../../key-vault/key-vault-overview.md) credenziali delle chiavi di Azure.For more information about Azure Key Vault, see What is Azure Key Vault?
+Le chiavi gestite dal cliente devono essere create e archiviate in un insieme di credenziali delle chiavi di Azure.Customer-managed keys must be created and stored in an Azure Key Vault. Per altre informazioni su Archiviazione delle chiavi di Azure, vedere [Che cos'è l'insieme di](../../key-vault/general/overview.md) credenziali delle chiavi di Azure.For more information about Azure Key Vault, see What is Azure Key Vault?
 
 Questo articolo illustra come usare le chiavi gestite dal cliente con il servizio importazione/esportazione nel portale di Azure.This article shows how to use customer-managed keys with Import/Export service in the [Azure portal](https://portal.azure.com/).
 
@@ -33,12 +33,12 @@ Prima di iniziare, verificare che:
     - [Creare un processo](storage-import-export-data-to-files.md)di importazione per i file .
     - [Creare un processo di esportazione per i BLOBCreate an export job for blobs](storage-import-export-data-from-blobs.md)
 
-2. Si dispone di un insieme di credenziali delle chiavi di Azure esistente con una chiave che è possibile usare per proteggere la chiave BitLocker.You have an existing Azure Key Vault with a key in it that you can use to protect your BitLocker key. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: Impostare e recuperare un segreto da Un](../../key-vault/quick-create-portal.md)insieme di credenziali delle chiavi di Azure usando il portale di Azure.To learn how to create a key vault using the Azure portal, see Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal.
+2. Si dispone di un insieme di credenziali delle chiavi di Azure esistente con una chiave che è possibile usare per proteggere la chiave BitLocker.You have an existing Azure Key Vault with a key in it that you can use to protect your BitLocker key. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: Impostare e recuperare un segreto da Un](../../key-vault/secrets/quick-create-portal.md)insieme di credenziali delle chiavi di Azure usando il portale di Azure.To learn how to create a key vault using the Azure portal, see Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal.
 
     - **L'eliminazione temporanea** e **l'opzione Non eliminare** sono impostate sull'insieme di credenziali delle chiavi esistente. Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, vedere le sezioni **intitolate Abilitazione dell'eliminazione temporanea** e **abilitazione** della protezione dell'eliminazione in uno degli articoli seguenti:
 
-        - [Come usare l'eliminazione temporanea con PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
-        - [Come utilizzare l'eliminazione temporanea con CLI](../../key-vault/key-vault-soft-delete-cli.md).
+        - [Come usare l'eliminazione temporanea con PowerShell](../../key-vault/general/soft-delete-powershell.md).
+        - [Come utilizzare l'eliminazione temporanea con CLI](../../key-vault/general/soft-delete-cli.md).
     - L'insieme di credenziali delle chiavi esistente deve avere una chiave RSA di dimensioni 2048 o superiore. Per altre informazioni sulle chiavi, vedere **Chiavi dell'insieme di credenziali delle chiavi** in Informazioni su chiavi, segreti e certificati dell'insieme di credenziali delle chiavi di [Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
     - L'insieme di credenziali delle chiavi deve trovarsi nella stessa area dell'account di archiviazione per i dati.  
     - Se non si dispone di un insieme di credenziali delle chiavi di Azure esistente, è anche possibile crearlo inline come descritto nella sezione seguente.
@@ -64,7 +64,7 @@ La configurazione della chiave gestita dal cliente per il servizio di importazio
 
     ![Selezionare o creare l'insieme di credenziali delle chiavi di AzureSelect or create Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. È inoltre possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nel **pannello Crea insieme di credenziali**delle chiavi immettere il gruppo di risorse e il nome dell'insieme di credenziali delle chiavi. Accettare tutte le altre impostazioni predefinite. Selezionare **Revisione e creazione**.
+6. È inoltre possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nel **pannello Crea insieme di credenziali**delle chiavi immettere il gruppo di risorse e il nome dell'insieme di credenziali delle chiavi. Accettare tutte le altre impostazioni predefinite. Selezionare **Rivedi e crea**.
 
     ![Creare un nuovo insieme di credenziali delle chiavi di AzureCreate new Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 

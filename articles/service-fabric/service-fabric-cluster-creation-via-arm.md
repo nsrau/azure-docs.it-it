@@ -3,17 +3,17 @@ title: Creare un cluster di Azure Service FabricCreate an Azure Service Fabric c
 description: Informazioni su come configurare un cluster di Service Fabric protetto in Azure usando Azure Resource Manager.  È possibile creare un cluster usando un modello predefinito o il proprio modello di cluster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 8cf14230f3abd37d91f1ec369f597ee594876100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624121"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458301"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creare un cluster di Service Fabric usando Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portale di Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -251,7 +251,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Usare un puntatore a un segreto caricato in un insieme di credenziali delle chiavi
 
-Per utilizzare un insieme di credenziali delle chiavi esistente, l'insieme di credenziali delle chiavi deve essere abilitato per la [distribuzione per](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) consentire al provider di risorse di calcolo di ottenere certificati da esso e installarlo nei nodi del cluster.
+Per utilizzare un insieme di credenziali delle chiavi esistente, l'insieme di credenziali delle chiavi deve essere abilitato per la [distribuzione per](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) consentire al provider di risorse di calcolo di ottenere certificati da esso e installarlo nei nodi del cluster.
 
 Distribuire il cluster usando PowerShell:
 

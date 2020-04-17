@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d7d0baacd5f702e8f435ab440eaf0338a60f4cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a043bcc2f81214b68b166d443baead6cd230184
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500764"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457502"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -464,7 +464,7 @@ $roleDefinition | Set-AzRoleDefinition
 * Concedere autorizzazioni all'insieme di credenziali delle chiavi.
 * Impostare i criteri di accesso.
 
-È possibile utilizzare lo script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) in PowerShell Gallery per assegnare all'account RunAs le autorizzazioni per L'insieme di credenziali delle chiavi. Per ulteriori informazioni sull'impostazione delle autorizzazioni nell'insieme di credenziali delle chiavi, vedere [Concedere alle applicazioni l'accesso a un insieme di credenziali](../key-vault/key-vault-group-permissions-for-apps.md) delle chiavi.
+È possibile utilizzare lo script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) in PowerShell Gallery per assegnare all'account RunAs le autorizzazioni per L'insieme di credenziali delle chiavi. Per ulteriori informazioni sull'impostazione delle autorizzazioni nell'insieme di credenziali delle chiavi, vedere [Concedere alle applicazioni l'accesso a un insieme di credenziali](../key-vault/general/group-permissions-for-apps.md) delle chiavi.
 
 ## <a name="resolving-misconfiguration-issues-for-run-as-accounts"></a>Risoluzione dei problemi di configurazione errata per gli account RunAs
 

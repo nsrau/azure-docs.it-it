@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 508eac08284f91821223a78cafdfee7b4c9c540b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: fb82cec6874f8ef4f41897cc22939fe69ed02ec2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410871"
+ms.locfileid: "81457417"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Usare ID Broker (anteprima) per la gestione delle credenzialiUse ID Broker (preview) for credential management
 
@@ -56,7 +56,7 @@ Dopo aver abilitato ID Broker, sarà comunque necessario un hash della password 
 
 SSH authentication requires the hash to be available in Azure AD DS. Se si desidera utilizzare SSH solo per scenari amministrativi, è possibile creare un account solo cloud e utilizzarlo per SSH nel cluster. Altri utenti possono comunque usare gli strumenti Ambari o HDInsight (ad esempio il plug-in IntelliJ) senza avere l'hash della password disponibile in Servizi di dominio Active Directory di Azure.Other users can still use Ambari or HDInsight tools (such as the IntelliJ plug-in) without have the password hash available in Azure AD DS.
 
-## <a name="clinets-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clinets che usano OAuth per connettersi al gateway HDInsight con la configurazione di ID Broker
+## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Client che utilizzano OAuth per connettersi al gateway HDInsight con la configurazione di ID Broker
 
 Nella configurazione del broker ID, le app personalizzate e i client che si connettono al gateway possono essere aggiornati per acquisire prima il token OAuth richiesto. È possibile seguire i passaggi in questo [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) per acquisire il token con le seguenti informazioni:
 

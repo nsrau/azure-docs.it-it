@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5749b2fc58c4e1c5c75142f85a5132946714e25b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472635"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457434"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Usare le chiavi gestite dal cliente per crittografare i dati di configurazione dell'appUse customer-managed keys to encrypt your App Configuration data
 Configurazione app di Azure [crittografa le informazioni riservate inattivi.](../security/fundamentals/encryption-atrest.md) L'uso di chiavi gestite dal cliente garantisce una maggiore protezione dei dati consentendo di gestire le chiavi di crittografia.  Quando viene usata la crittografia della chiave gestita, tutte le informazioni riservate in Configurazione app vengono crittografate con una chiave dell'insieme di credenziali delle chiavi di Azure fornita dall'utente.  Ciò offre la possibilità di ruotare la chiave di crittografia su richiesta.  Fornisce inoltre la possibilità di revocare l'accesso di Configurazione app di Azure alle informazioni riservate revocando l'accesso dell'istanza di configurazione app alla chiave.
@@ -20,7 +20,7 @@ Configurazione app di Azure [crittografa le informazioni riservate inattivi.](..
 Azure App Configuration encrypts sensitive information at rest using a 256-bit AES encryption key provided by Microsoft. Ogni istanza di Configurazione app ha la propria chiave di crittografia gestita dal servizio e usata per crittografare le informazioni riservate. Le informazioni riservate includono i valori trovati nelle coppie chiave-valore.  Quando la funzionalità a chiave gestita dal cliente è abilitata, Configurazione app usa un'identità gestita assegnata all'istanza di Configurazione app per l'autenticazione con Azure Active Directory.When customer-managed key capability is enabled, App Configuration uses a managed identity assigned to the App Configuration instance to authenticate with Azure Active Directory. L'identità gestita chiama quindi l'insieme di credenziali delle chiavi di Azure ed esegue il wrapping della chiave di crittografia dell'istanza di configurazione dell'app. La chiave di crittografia di cui è stato eseguito il wrapping viene quindi archiviata e la chiave di crittografia senza ritorno a capo viene memorizzata nella cache all'interno di Configurazione app per un'ora. Configurazione app aggiorna la versione senza ritorno a capo della chiave di crittografia dell'istanza di configurazione app ogni ora. Ciò garantisce la disponibilità in condizioni operative normali. 
 
 >[!IMPORTANT]
-> Se l'identità assegnata all'istanza di Configurazione app non è più autorizzata ad annullare il wrapping della chiave di crittografia dell'istanza o se la chiave gestita viene eliminata definitivamente, non sarà più possibile decrittografare le informazioni riservate archiviate nell'app Istanza di configurazione. L'uso della funzione di [eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md) di Azure Key Vault riduce la possibilità di eliminare accidentalmente la chiave di crittografia.
+> Se l'identità assegnata all'istanza di Configurazione app non è più autorizzata ad annullare il wrapping della chiave di crittografia dell'istanza o se la chiave gestita viene eliminata definitivamente, non sarà più possibile decrittografare le informazioni riservate archiviate nell'istanza di Configurazione app. L'uso della funzione di [eliminazione temporanea](../key-vault/general/overview-soft-delete.md) di Azure Key Vault riduce la possibilità di eliminare accidentalmente la chiave di crittografia.
 
 Quando gli utenti abilitano la funzionalità della chiave gestita dal cliente nell'istanza di Configurazione app di Azure, controllano la capacità del servizio di accedere alle informazioni riservate. La chiave gestita funge da chiave di crittografia radice. Un utente può revocare l'accesso dell'istanza di configurazione dell'app alla chiave gestita modificando i criteri di accesso dell'insieme di credenziali delle chiavi. Quando questo accesso viene revocato, Configurazione app perderà la possibilità di decrittografare i dati utente entro un'ora. A questo punto, l'istanza di configurazione app proibisce tutti i tentativi di accesso. Questa situazione è recuperabile concedendo al servizio l'accesso alla chiave gestita ancora una volta.  Entro un'ora, App Configuration sarà in grado di decrittografare i dati utente e operare in condizioni normali.
 

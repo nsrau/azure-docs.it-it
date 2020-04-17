@@ -4,18 +4,17 @@ description: Il monitoraggio dei dati raccolti da Monitoraggio di Azure è separ
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: a1b5859341237c1b177ee8deaf636a67f4824948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666548"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457264"
 ---
 # <a name="azure-monitor-data-platform"></a>Piattaforma dati di Monitoraggio di AzureAzure Monitor data platform
 
@@ -69,7 +68,7 @@ La tabella seguente confronta metriche e log in Monitoraggio di Azure.The follow
 | Attributo  | Metriche | Log |
 |:---|:---|:---|
 | Vantaggi | Leggero e capace di scenari quasi in tempo reale come gli avvisi. Ideale per il rilevamento rapido dei problemi. | Analizzato con linguaggio di query avanzato. Ideale per analisi approfondite e per identificare la causa principale. |
-| Dati | Solo valori numerici | Dati testuali o numerici |
+| Data | Solo valori numerici | Dati testuali o numerici |
 | Struttura | Set standard di proprietà, tra cui il tempo di campionamento, la risorsa monitorata, un valore numerico. Alcune metriche includono più dimensioni per un'ulteriore definizione. | Set univoco di proprietà a seconda del tipo di log. |
 | Raccolta | Raccolti a intervalli regolari. | Può essere raccolto sporadicamente come eventi innescano un record da creare. |
 | Visualizzare nel portale di Azure | Esplora metriche | Log Analytics |

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191392"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450141"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Migliorare la sicurezza per i messaggi B2B utilizzando i certificati
 
@@ -34,7 +34,7 @@ Quando è necessario mantenere riservata la comunicazione B2B, è possibile aume
 
 Per usare un *certificato pubblico* nelle app per la logica con funzionalità B2B, è necessario prima caricare il certificato nell'account di integrazione. Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integration-agreements.md) creati, il certificato diventa disponibile per proteggere i messaggi B2B.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Nel menu principale di Azure selezionare **Tutte le risorse**. Nella casella di ricerca immettere il nome dell'account di integrazione e quindi selezionare l'account di integrazione desiderato.
+1. Accedere al [portale di Azure](https://portal.azure.com). Nel menu principale di Azure selezionare **Tutte le risorse**. Nella casella di ricerca immettere il nome dell'account di integrazione e quindi selezionare l'account di integrazione desiderato.
 
    ![Trovare e selezionare l'account di integrazione](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
@@ -48,7 +48,7 @@ Per usare un *certificato pubblico* nelle app per la logica con funzionalità B2
    |----------|-------|-------------|
    | **Nome** | <*nome-certificato*> | Nome del certificato, ovvero "publicCert" in questo esempio | 
    | **Tipo di certificato** | Pubblico | Tipo del certificato |
-   | **Certificato** | <*nome-file del certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. |
+   | **Certificate** | <*nome-file del certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. |
    ||||
 
    ![Scegliere "Aggiungi" e specificare i dettagli del certificato](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
@@ -66,14 +66,14 @@ Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integrati
 > [!NOTE]
 > Per i certificati privati, assicurarsi di aggiungere un certificato pubblico corrispondente che viene visualizzato nelle impostazioni di **invio e ricezione** [dell'accordo AS2](logic-apps-enterprise-integration-as2.md) per la firma e la crittografia dei messaggi.
 
-1. [Aggiungere la chiave privata in Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) e specificare un **nome chiave**.
+1. [Aggiungere la chiave privata in Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) e specificare un **nome chiave**.
    
 2. Autorizzare App per la logica di Azure a eseguire operazioni su Azure Key Vault. Per concedere l'accesso all'entità servizio di App per la logica, usare il comando di PowerShell, [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), ad esempio:
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. Accedere al [portale](https://portal.azure.com)di Azure . Nel menu principale di Azure selezionare **Tutte le risorse**. Nella casella di ricerca immettere il nome dell'account di integrazione e quindi selezionare l'account di integrazione desiderato.
+3. Accedere al [portale di Azure](https://portal.azure.com). Nel menu principale di Azure selezionare **Tutte le risorse**. Nella casella di ricerca immettere il nome dell'account di integrazione e quindi selezionare l'account di integrazione desiderato.
 
    ![Trovare l'account di integrazione](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
@@ -87,9 +87,9 @@ Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integrati
    |----------|-------|-------------|
    | **Nome** | <*nome-certificato*> | Nome del certificato, ovvero "privateCert" in questo esempio | 
    | **Tipo di certificato** | Privato | Tipo del certificato |
-   | **Certificato** | <*nome-file del certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. Quando si utilizza un insieme di credenziali delle chiavi per la chiave privata, il file caricato sarà il certificato pubblico. | 
+   | **Certificate** | <*nome-file del certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. Quando si utilizza un insieme di credenziali delle chiavi per la chiave privata, il file caricato sarà il certificato pubblico. | 
    | **Gruppo di risorse** | <*integration-account-resource-group*> | Gruppo di risorse dell'account di integrazione, ovvero "MyResourceGroup" in questo esempio | 
-   | **Insieme di credenziali delle chiaviKey Vault** | <*key-vault-name*> | Nome dell'insieme di credenziali delle chiavi di Azure |
+   | **Key Vault** | <*key-vault-name*> | Nome dell'insieme di credenziali delle chiavi di Azure |
    | **Nome chiave** | <*nome-chiave*> | Nome della chiave |
    ||||
 

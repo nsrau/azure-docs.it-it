@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f105eac0f6f21ea3358340a4e2aaec7d1f1a95ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 569c989e8876bb7213d1469c7a70da99aa0b1e9c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190551"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455343"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Controlli di sicurezza per macchine virtuali WindowsSecurity controls for Windows Virtual Machines
 
@@ -50,7 +50,7 @@ In questo articolo vengono documentati i controlli di sicurezza incorporati in M
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia lato server inattivi: chiavi gestite da MicrosoftServer-side encryption at rest: Microsoft-managed keys | Sì | Vedere [Crittografare i dischi virtuali in una macchina virtuale Windows](/azure/virtual-machines/windows/encrypt-disks). |
+| Crittografia lato server inattivi: chiavi gestite da MicrosoftServer-side encryption at rest: Microsoft-managed keys | Sì | Vedere [Crittografare i dischi virtuali in una macchina virtuale Windows](/azure/virtual-machines/windows/disk-encryption-overview). |
 | Crittografia in transito (ad esempio crittografia ExpressRoute, nella crittografia della rete virtuale e crittografia VNet-VNet )| Sì | Macchine virtuali di Azure supporta la crittografia ExpressRoute e VNet.Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNet encryption. Vedere [Crittografia in transito nelle macchine virtuali](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Crittografia lato server inattivi: chiavi gestite dal cliente (BYOK)Server-side encryption at rest: customer-managed keys (BYOK) | Sì | Le chiavi gestite dal cliente sono uno scenario di crittografia di Azure supportato. vedere [Panoramica della crittografia](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)di Azure .|
 | Crittografia a livello di colonna (Azure Data Services)Column level encryption (Azure Data Services)| N/D | |

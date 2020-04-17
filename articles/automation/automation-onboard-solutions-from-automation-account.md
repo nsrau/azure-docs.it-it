@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278675"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457655"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 
@@ -18,7 +18,7 @@ Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicu
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere ad Azure all'indirizzo https://portal.azure.com
+Accedere ad Azure https://portal.azure.comall'indirizzo .
 
 ## <a name="enable-solutions"></a>Abilitare soluzioni
 
@@ -82,7 +82,7 @@ Fare clic su **+ Aggiungi macchine virtuali di Azure** e selezionare una o più 
 
 I computer non in Azure devono essere aggiunti manualmente. Dall'account di Automazione selezionare **Inventario** o **Rilevamento modifiche** in **Gestione configurazione**o Gestione **aggiornamenti** in **Gestione aggiornamenti**.
 
-Fare clic su **Aggiungi computer non di Azure**. Verrà visualizzata una nuova finestra del browser con le [istruzioni su come installare e configurare Microsoft Monitoring Agent nel computer](../azure-monitor/platform/log-analytics-agent.md), in modo che possa iniziare a inviare report alla soluzione. In caso di onboarding di un computer attualmente gestito da System Center Operations Manager, non è richiesto un nuovo agente, dal momento che le informazioni dell'area di lavoro vengono inserite nell'agente esistente.
+Fare clic su **Aggiungi computer non di Azure**. Questa azione apre una nuova finestra del browser con [le istruzioni per installare e configurare l'agente di Log Analytics per Windows](../azure-monitor/platform/log-analytics-agent.md) in modo che il computer possa iniziare a segnalare la soluzione. Se si esegue l'onboarding di un computer attualmente gestito da System Center Operations Manager, non è necessario un nuovo agente e le informazioni sull'area di lavoro vengono immesse nell'agente esistente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Eseguire l'onboarding di computer nell'area di lavoro
 
@@ -111,8 +111,8 @@ Per abilitare la soluzione per uno o più computer, selezionare **Abilita nei co
 Le soluzioni seguenti sono dipendenti da un'area di lavoro Log Analytics:
 
 * [Gestione degli aggiornamenti](automation-update-management.md)
-* [Rilevamento delle modifiche](automation-change-tracking.md)
-* [Avviare/arrestare VM durante gli orari di minore attività](automation-solution-vm-management.md)
+* [Rilevamento modifiche](automation-change-tracking.md)
+* [Avviare/arrestare le macchine virtuali durante le ore non lavorativeStart/Stop VMs during off-hours](automation-solution-vm-management.md)
 
 Se si decide di non integrare più l'account di Automazione con un'area di lavoro di Log Analytics, è possibile scollegare l'account direttamente dal portale di Azure.If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal.  Prima di continuare, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
 
@@ -141,7 +141,7 @@ Se è stata usata la soluzione per avviare e arrestare VM durante gli orari di m
 
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
-* Variabili
+* variables
 
 In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro di Log Analytics.Alternative ly can also unlink your workspace from your Automation Account from your Log Analytics workspace. Nell'area di lavoro selezionare **Account di automazione** in **Risorse correlate**. Nella pagina Account di automazione selezionare **Scollega account**.
 
@@ -150,7 +150,7 @@ In alternativa, è anche possibile scollegare l'area di lavoro dall'account di a
 Per rimuovere una macchina virtuale per Gestione aggiornamenti:
 
 * Nell'area di lavoro Log Analytics rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates`. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
-* Rimuovere [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o l'[agente di Log Analytics per Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Rimuovere [l'agente di Log Analytics per Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o l'agente di Log Analytics per [Linux.](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

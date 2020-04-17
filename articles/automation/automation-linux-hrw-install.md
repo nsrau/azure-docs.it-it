@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9dc4dce5a7af49529924881321b1a5080293a585
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f2584a8d4e68b7c16b3acdc29f64f0a19d83d735
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405619"
+ms.locfileid: "81457672"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -76,7 +76,7 @@ Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è col
 
 1. Abilitare la soluzione Ruolo di lavoro ibrido per runbook di Automazione in Azure usando uno dei metodi seguenti:
 
-   * Aggiungere la soluzione Automation Hybrid Worker alla sottoscrizione usando la procedura descritta in [Add Azure Monitor logs solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
+   * Aggiungere la soluzione Automation Hybrid Worker alla sottoscrizione usando la procedura descritta in [Add Azure Monitor log solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
    * Eseguire il cmdlet seguente:
 
         ```azurepowershell-interactive

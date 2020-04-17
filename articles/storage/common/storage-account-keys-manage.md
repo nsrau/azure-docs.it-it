@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 50c0980800bbc9b2951bf9107114c1a4d9265558
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521283"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454663"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gestire le chiavi di accesso dell'account di archiviazioneManage storage account access keys
 
@@ -31,8 +31,8 @@ Microsoft consiglia di usare l'insieme di credenziali delle chiavi di Azure per 
 
 Microsoft consiglia di usare l'insieme di credenziali delle chiavi di Azure per gestire e ruotare le chiavi di accesso. L'applicazione può accedere in modo sicuro alle chiavi in Key Vault, in modo da evitare di archiviarle con il codice dell'applicazione. Per ulteriori informazioni sull'utilizzo dell'insieme di credenziali delle chiavi per la gestione delle chiavi, vedere gli articoli seguenti:For more information about using Key Vault for key management, see the following articles:
 
-- [Gestire le chiavi dell'account di archiviazione con Azure Key Vault e PowerShellManage storage account keys with Azure Key Vault and PowerShell](../../key-vault/key-vault-overview-storage-keys-powershell.md)
-- [Gestire le chiavi dell'account di archiviazione con l'insieme di credenziali delle chiavi di Azure e l'interfaccia della riga di comando di AzureManage storage account keys with Azure Key Vault and the](../../key-vault/key-vault-ovw-storage-keys.md)
+- [Gestire le chiavi dell'account di archiviazione con Azure Key Vault e PowerShellManage storage account keys with Azure Key Vault and PowerShell](../../key-vault/secrets/overview-storage-keys-powershell.md)
+- [Gestire le chiavi dell'account di archiviazione con l'insieme di credenziali delle chiavi di Azure e l'interfaccia della riga di comando di AzureManage storage account keys with Azure Key Vault and the](../../key-vault/secrets/overview-storage-keys.md)
 
 ## <a name="manually-rotate-access-keys"></a>Ruotare manualmente i tasti di scelta
 

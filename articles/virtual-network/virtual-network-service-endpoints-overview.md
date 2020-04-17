@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 72c2c90f7a71bd9bf251adb492168fa5d2baa60a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244784"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455411"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
@@ -35,7 +35,7 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. L
 - **[Database di Azure per il server MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql):* disponibili in genere nelle aree di Azure in cui è disponibile il servizio di database.
 - **[Database di Azure per MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft.Sql):* disponibile in genere nelle aree di Azure in cui è disponibile il servizio di database.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB):* disponibile in genere in tutte le aree di Azure.Azure Cosmos DB ( Microsoft.AzureCosmosDB ): Generally available in all Azure regions.
-- **[Archiviazione delle chiavi di Azure](../key-vault/key-vault-overview-vnet-service-endpoints.md)** (*Microsoft.KeyVault):* disponibile in genere in tutte le aree di Azure.Azure Key Vault ( Microsoft.KeyVault ): Generally available in all Azure regions.
+- **[Archiviazione delle chiavi di Azure](../key-vault/general/overview-vnet-service-endpoints.md)** (*Microsoft.KeyVault):* disponibile in genere in tutte le aree di Azure.Azure Key Vault ( Microsoft.KeyVault ): Generally available in all Azure regions.
 - **[Bus di servizio di Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.ServiceBus):* disponibile in genere in tutte le aree di Azure.Azure Service Bus ( Microsoft.ServiceBus ): Generally available in all Azure regions.
 - Hub eventi di Azure (*Microsoft.EventHub):* disponibili in genere in tutte le aree di **[Azure.Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** ( Microsoft.EventHub ): Generally available in all Azure regions.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.AzureActiveDirectory):* disponibile in genere in tutte le aree di Azure in cui è disponibile ADLS Gen1.Azure Data Lake Store Gen 1 ( Microsoft.AzureActiveDirectory ): Generally available in all Azure regions where ADLS Gen1 is available.
@@ -45,7 +45,7 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. L
 
 - **[Registro contenitori di Azure](../container-registry/container-registry-vnet.md)** (*Microsoft.ContainerRegistry):* anteprima disponibile in tutte le aree di Azure in cui è disponibile il Registro di sistema del contenitore di Azure.Azure Container Registry ( Microsoft.ContainerRegistry ): Preview available in all Azure regions where Azure Container Registry is available.
 
-Per le notifiche più aggiornate, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+Per le notifiche più aggiornate, controllare la pagina Aggiornamenti della rete virtuale di Azure.For the most up-to-date [notifications,](https://azure.microsoft.com/updates/?product=virtual-network) check the Azure Virtual Network updates page.
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -145,11 +145,11 @@ Per le domande frequenti, vedere Domande frequenti sugli endpoint del [servizio 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare gli endpoint del servizio di rete virtualeConfigure virtual network service endpoints](tutorial-restrict-network-access-to-resources.md)
+- [Configurare gli endpoint servizio di rete virtuale](tutorial-restrict-network-access-to-resources.md)
 - [Proteggere un account di archiviazione di Azure in una rete virtualeSecure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Proteggere un database SQL di Azure a una rete virtualeSecure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Proteggere un data warehouse SQL di Azure a una rete virtualeSecure an Azure SQL Data Warehouse to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integrazione dei servizi di Azure nelle reti virtualiAzure service integration in virtual networks](virtual-network-for-azure-services.md)
 - [Criteri degli endpoint servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Modello di Azure Resource ManagerAzure Resource Manager template](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

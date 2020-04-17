@@ -1,5 +1,5 @@
 ---
-title: Crittografare gli asset protetti in Automazione di AzureEncrypt secure assets in Azure Automation
+title: Crittografare gli asset protetti in Automazione di Azure
 description: Automazione di Azure protegge gli asset protetti usando più livelli di crittografia. Per impostazione predefinita, la crittografia viene eseguita utilizzando chiavi gestite da Microsoft.By default, the encryption is done using Microsoft-managed keys. I clienti possono configurare i propri account di automazione per l'utilizzo di chiavi gestite dal cliente per la crittografia. In questo articolo vengono descritti i dettagli di entrambe le modalità di crittografia e come è possibile passare tra le due.
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a82d2b6d9521ba7dd5e7b194c26ff8fe5a100871
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547764"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457485"
 ---
-# <a name="encrypt-secure-assets-in-azure-automation"></a>Crittografare gli asset protetti in Automazione di AzureEncrypt secure assets in Azure Automation
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Crittografare gli asset protetti in Automazione di Azure
 
 Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Queste risorse sono protette in Automazione di Azure usando più livelli di crittografia. In base alla chiave di primo livello utilizzata per la crittografia, sono disponibili due modelli per la crittografia:
 -    Utilizzo di chiavi gestite da MicrosoftUsing Microsoft-managed keys
@@ -32,7 +32,7 @@ Ogni asset sicuro viene crittografato e archiviato in Automazione di Azure usand
 
 Puoi gestire la crittografia delle risorse sicure per il tuo account Automation con le tue chiavi. Quando si specifica una chiave gestita dal cliente a livello dell'account di automazione, tale chiave viene utilizzata per proteggere e controllare l'accesso alla chiave di crittografia dell'account per l'account di automazione. Questo a sua volta viene utilizzato per crittografare e decrittografare tutte le risorse sicure. Le chiavi gestite dal cliente offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È inoltre possibile controllare le chiavi di crittografia utilizzate per proteggere gli asset protetti.
 
-Usare L'insieme di credenziali delle chiavi di Azure per archiviare le chiavi gestite dal cliente. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API dell'insieme di credenziali delle chiavi di Azure per generare le chiavi.  Per altre informazioni su Archiviazione delle chiavi di Azure, vedere [Che cos'è l'insieme di](../key-vault/key-vault-overview.md) credenziali delle chiavi di Azure.For more information about Azure Key Vault, see What is Azure Key Vault?
+Usare L'insieme di credenziali delle chiavi di Azure per archiviare le chiavi gestite dal cliente. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API dell'insieme di credenziali delle chiavi di Azure per generare le chiavi.  Per altre informazioni su Archiviazione delle chiavi di Azure, vedere [Che cos'è l'insieme di](../key-vault/general/overview.md) credenziali delle chiavi di Azure.For more information about Azure Key Vault, see What is Azure Key Vault?
 
 ## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Abilitare le chiavi gestite dal cliente per un account di automazioneEnable customer-managed keys for an Automation account
 
@@ -192,7 +192,7 @@ To revoke access to customer-managed keys, use PowerShell or the Azure CLI. Per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sull'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-overview.md)
+- [Informazioni sull'insieme di credenziali delle chiavi di Azure](../key-vault/general/overview.md)
 
 - [Asset di tipo certificato in Automazione di Azure](shared-resources/certificates.md)
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853e7143834a340b870b71ef1a287dab136e2783
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654065"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450973"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)Enable passwordless sign-in with the Microsoft Authenticator app (preview)
 
@@ -41,7 +41,7 @@ Invece di visualizzare una richiesta di password dopo aver immesso un nome utent
 
 ### <a name="enable-the-combined-registration-experience"></a>Abilitare l'esperienza di registrazione combinataEnable the combined registration experience
 
-Le funzionalità di registrazione per i metodi di autenticazione senza password si basano sull'anteprima combinata della registrazione. Seguire i passaggi nell'articolo Abilitare la registrazione combinata delle informazioni di [sicurezza (anteprima)](howto-registration-mfa-sspr-combined.md)per abilitare l'anteprima combinata della registrazione.
+Le funzionalità di registrazione per i metodi di autenticazione senza password si basano sulla funzionalità di registrazione combinata. Seguire i passaggi nell'articolo [Abilitare](howto-registration-mfa-sspr-combined.md)la registrazione combinata delle informazioni di sicurezza , per abilitare la registrazione combinata.
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Abilitare i metodi di autenticazione per l'accesso telefonico senza passwordEnable passwordless phone sign-in authentication methods
 

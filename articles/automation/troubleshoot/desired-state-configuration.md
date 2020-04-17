@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aeffa0bb736f03403bf483b22775ef468bbcb2bd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f0034d06c852d4d71284093879a456d296d98715
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405472"
+ms.locfileid: "81457468"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Risolvere i problemi relativi alla configurazione dello stato desiderato (DSC) di Automazione di AzureTroubleshoot issues with Azure Automation Desired State Configuration (DSC)
 
@@ -113,7 +113,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Causa
 
-Questo problema è causato da un certificato errato o scaduto.  Per ulteriori informazioni, vedere [Scadenza e nuova registrazione del certificato](../automation-dsc-onboarding.md#re-register-a-node).
+Questo problema è causato da un certificato errato o scaduto.  Per ulteriori informazioni, vedere [Scadenza e nuova registrazione del certificato](../automation-dsc-onboarding.md#re-registering-a-node).
 
 Questo problema potrebbe anche essere causato da una configurazione proxy che non consente l'accesso a**azure-automation.net**. Per ulteriori informazioni, vedere [Configurazione di reti private](../automation-dsc-overview.md#network-planning). 
 
@@ -135,7 +135,7 @@ In secondo luogo, disinstallare l'estensione DSC dal nodo.
 
 In terzo luogo, rimuovere tutti i certificati non valido o scaduti dal nodo.
 
-Nel nodo in cui si è verificato l'errore da un prompt di Powershell con privilegi elevati eseguire le operazioni seguenti:On the failing node from an elevated Powershell Prompt, run the following:
+Nel nodo in cui si è verificato l'errore da un prompt di PowerShell con privilegi elevati eseguire le operazioni seguenti:On the failing node from an elevated PowerShell prompt, run the following:
 
 ```powershell
 $certs = @()
@@ -279,8 +279,8 @@ Considerare il nodo di sottoscrizione incrociata come se si trovasse in un cloud
 
 Attenersi alla seguente procedura per registrare il nodo.
 
-* Windows - [Macchine Windows fisiche/virtuali in locale o in un cloud diverso da Azure/AWS](../automation-dsc-onboarding.md#onboard-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure).
-* Linux - [Macchine Linux fisiche/virtuali in locale o in un cloud diverso da Azure.](../automation-dsc-onboarding.md#onboard-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure)
+* Windows - [Macchine Windows fisiche/virtuali in locale o in un cloud diverso da Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
+* Linux - [Macchine Linux fisiche/virtuali in locale o in un cloud diverso da Azure.](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines)
 
 ### <a name="scenario-error-message---provisioning-failed"></a><a name="agent-has-a-problem"></a>Scenario: Messaggio di errore - "Provisioning non riuscito"
 

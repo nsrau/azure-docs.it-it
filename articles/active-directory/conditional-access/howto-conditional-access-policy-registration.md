@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f69a94e17155ff93510d09f666bce12f628274f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295165"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457910"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Accesso condizionale: protezione della registrazione delle informazioni di sicurezzaConditional Access: Securing security info registration
 
@@ -32,9 +32,9 @@ Il criterio seguente si applica a tutti gli utenti selezionati, che tentano di r
 1. In **Assegnazioni**selezionare **Utenti e gruppi**e selezionare gli utenti e i gruppi a cui si desidera applicare il criterio.
 
    > [!WARNING]
-   > Gli utenti devono essere abilitati per [l'anteprima di registrazione combinata](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Gli utenti devono essere abilitati per la [registrazione combinata](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. In **Azioni o app cloud**selezionare Azioni **utente**, selezionare Registra informazioni di **sicurezza (anteprima)**.
+1. In **Azioni o app cloud**selezionare Azioni **utente**, selezionare Registra informazioni **di sicurezza**.
 1. In **Condizioni** > **Posizioni**.
    1. Configura **Sì**.
    1. Includi **qualsiasi posizione**.

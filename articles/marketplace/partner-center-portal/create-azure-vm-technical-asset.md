@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eb885d0e965579b1ab2d66395f9f96eab0845bae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266500"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457400"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Creare gli asset tecnici della macchina virtuale di AzureCreate your Azure Virtual Machine technical assets
 
@@ -51,7 +51,7 @@ Prendere in considerazione l'uso di uno degli ambienti di scripting seguenti per
 
 Inoltre, è consigliabile aggiungere i seguenti strumenti all'ambiente di sviluppo:
 
-* [Esplora archivi Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Visual Studio Code](https://code.visualstudio.com/)
   * Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   * Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -281,8 +281,8 @@ Il processo seguente generalizza una macchina virtuale Linux e la ridistribuisce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si verificano problemi durante la creazione del nuovo disco rigido virtuale basato su Azure, vedere [Common issues during VHD creation](https://aka.ms/AzureVM_VHDCreationFAQ) (Problemi comuni durante la creazione di un disco rigido virtuale).
+Se si verificano problemi durante la creazione del nuovo disco rigido virtuale basato su Azure, vedere [Common issues during VHD creation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues) (Problemi comuni durante la creazione di un disco rigido virtuale).
 
 In caso contrario:
 
-* [Certificare l'immagine della macchina virtuale](https://aks.ms/CertifyVMimage) spiega come testare e inviare un'immagine della macchina virtuale per la certificazione di Azure Marketplace, inclusa dove ottenere lo strumento di test di *certificazione per lo* strumento certificato di Azure e come usarlo per certificare l'immagine della macchina virtuale.
+* [Certificare l'immagine della macchina virtuale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri) spiega come testare e inviare un'immagine della macchina virtuale per la certificazione di Azure Marketplace, inclusa dove ottenere lo strumento di test di *certificazione per lo* strumento certificato di Azure e come usarlo per certificare l'immagine della macchina virtuale.

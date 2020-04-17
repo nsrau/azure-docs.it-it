@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1cc047ee60cf8287f32a42b878371c5fc9680b7a
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6c75b9c2feeab32c139998f617cacf540733e3bd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985746"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456346"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure di baseIntroduction to the core Azure Storage services
 
@@ -21,7 +21,7 @@ La piattaforma di archiviazione di Azure è la soluzione di archiviazione cloud 
 
 - **Durabilità e disponibilità elevata.** La ridondanza garantisce che i dati siano al sicuro in caso di errori hardware temporanei. Si può anche scegliere di replicare i dati tra data center o aree geografiche per una protezione aggiuntiva da catastrofi locali o calamità naturali. Con questo tipo di replica, i dati mantengono disponibilità elevata in caso di interruzioni impreviste.
 - **Sicuro.** Tutti i dati scritti in un account di archiviazione di Azure vengono crittografati dal servizio. Archiviazione di Azure offre un controllo dettagliato su chi potrà accedere ai dati.
-- **Scalabilità.** La soluzione Archiviazione di Azure è progettata per offrire scalabilità elevata in modo da soddisfare le esigenze di archiviazione dati e di prestazioni delle attuali applicazioni.
+- **Scalabile.** La soluzione Archiviazione di Azure è progettata per offrire scalabilità elevata in modo da soddisfare le esigenze di archiviazione dati e di prestazioni delle attuali applicazioni.
 - **Soluzione gestita.** Azure gestisce automaticamente la manutenzione hardware, gli aggiornamenti e i problemi critici.
 - **Accessibilità.** I dati in Archiviazione di Azure sono accessibili da ogni parte del mondo tramite HTTP o HTTPS. Microsoft fornisce librerie client per Archiviazione di Azure in diversi linguaggi, tra cui .NET, Java, Node.js, Python, PHP, Ruby, Go e altri, nonché un'API REST matura. Archiviazione di Azure supporta l'esecuzione di script in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Il portale di Azure e Azure Storage Explorer, inoltre, offrono semplici soluzioni visive per l'uso dei dati.  
 
@@ -131,7 +131,7 @@ Le librerie client di Archiviazione di Azure forniscono metodi per crittografare
 
 ## <a name="redundancy"></a>Ridondanza
 
-Per garantire che i dati siano durevoli, Archiviazione di Azure archivia più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un'opzione di ridondanza. Per altre informazioni, vedere [Ridondanza di Archiviazione di Azure](/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Per garantire che i dati siano durevoli, Archiviazione di Azure archivia più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un'opzione di ridondanza. Per altre informazioni, vedere [Ridondanza di Archiviazione di Azure](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Trasferire dati da e verso Archiviazione di AzureTransfer data from and from Azure Storage
 

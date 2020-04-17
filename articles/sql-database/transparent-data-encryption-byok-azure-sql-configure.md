@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 81927575b99604e71f7b0920bc3a448f7796f565
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b1c985eeec9af25ec576f4e2375c417dc376f95
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067196"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452758"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
 
@@ -28,19 +28,19 @@ Questo articolo illustra come usare una chiave di Azure Key Vault per Transparen
 - [Consigliata ma facoltativa] Disporre di un modulo di protezione hardware (HSM) o una chiave locale già archiviati a scopo di creazione di una copia locale del materiale della chiave di protezione TDE.
 - È necessario che Azure PowerShell sia installato e in esecuzione.
 - Creare le chiavi e un Azure Key Vault per l'uso con TDE.
-  - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+  - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](../key-vault/keys/hsm-protected-keys.md)
     - L'insieme di credenziali delle chiavi deve avere la seguente proprietà da usare per TDE:
-  - [protezione per l'eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md) e l'eliminazione
+  - [protezione per l'eliminazione temporanea](../key-vault/general/overview-soft-delete.md) e l'eliminazione
 - La chiave deve avere i seguenti attributi per essere usata per TDE:
    - Nessuna data di scadenza
    - Non disabilitato
    - In grado di eseguire le operazioni *Ottieni*, *Esegui il wrapping della chiave*, *Annulla il wrapping della chiave*
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Per cmdlet specifici, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
-Per informazioni specifiche sull'insieme di credenziali delle chiavi, vedere Istruzioni di [PowerShell da Key Vault](../key-vault/quick-create-powershell.md) e [Come usare key Vault soft-delete con PowerShell.](../key-vault/key-vault-soft-delete-powershell.md)
+Per informazioni specifiche sull'insieme di credenziali delle chiavi, vedere Istruzioni di [PowerShell da Key Vault](../key-vault/secrets/quick-create-powershell.md) e [Come usare key Vault soft-delete con PowerShell.](../key-vault/general/soft-delete-powershell.md)
 
 > [!IMPORTANT]
 > Il modulo Di PowerShell Azure Resource Manager (RM) è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo futuro è per il modulo Az.Sql.The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nel modulo Az e nei moduli di AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo modulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
@@ -119,11 +119,11 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per installare l'interfaccia della riga di comando richiesta versione 2.0 o successiva e connettersi alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure 2.0.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-Per informazioni specifiche sull'insieme di credenziali delle chiavi, vedere Gestire l'insieme di credenziali delle chiavi utilizzando l'interfaccia della riga di comando [2.0](../key-vault/key-vault-manage-with-cli2.md) e Come utilizzare l'eliminazione temporanea dell'insieme di credenziali [delle chiavi con l'interfaccia della riga di comando.](../key-vault/key-vault-soft-delete-cli.md)
+Per informazioni specifiche sull'insieme di credenziali delle chiavi, vedere Gestire l'insieme di credenziali delle chiavi utilizzando l'interfaccia della riga di comando [2.0](../key-vault/general/manage-with-cli2.md) e Come utilizzare l'eliminazione temporanea dell'insieme di credenziali [delle chiavi con l'interfaccia della riga di comando.](../key-vault/general/soft-delete-cli.md)
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Assegnare un'identità Azure AD al server
 
@@ -182,7 +182,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 ## <a name="useful-powershell-cmdlets"></a>Cmdlet PowerShell utili
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 - Utilizzare il cmdlet [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) per disattivare TDE.
 
@@ -205,7 +205,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 - Per le impostazioni generali del database, vedere [az sql](/cli/azure/sql).
 
@@ -221,13 +221,13 @@ Se si verifica un problema, controllare quanto segue:
 
 - Se non è possibile trovare l'insieme di credenziali delle chiavi, assicurarsi di essere nella sottoscrizione corretta.
 
-   # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+   # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
    ```powershell
    az account show - s <SubscriptionId>

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4c76bcbf945c63588f8471c10deca0b5982d3562
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e904f650c9fc11aab2dcb002ac68a9f19287940e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414241"
+ms.locfileid: "81449953"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Domande frequenti su diverse API in Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB ha un motore di indicizzazione indipendente dallo schema che pu�
 
 ### <a name="can-i-use-multiple-apis-to-access-my-data"></a>Posso usare più API per accedere ai miei dati?
 
-Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. Dove multimodello significa che Azure Cosmos DB supporta più API e più modelli di dati, API diverse usano formati di dati diversi per il protocollo di archiviazione e wire. Ad esempio, SQL utilizza JSON, MongoDB utilizza BSON, tabella utilizza EDM, Cassandra utilizza CQL, Gremlin utilizza GraphSON. Di conseguenza, è consigliabile usare la stessa API per tutti gli accessi ai dati in un determinato account.
+Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. Dove multimodello significa che Azure Cosmos DB supporta più API e più modelli di dati, API diverse usano formati di dati diversi per il protocollo di archiviazione e wire. Ad esempio, SQL usa JSON, MongoDB usa BSON, Table usa EDM, Cassandra usa CQL, Gremlin usa il formato JSON. Di conseguenza, è consigliabile usare la stessa API per tutti gli accessi ai dati in un determinato account.
 
 Ogni API funziona in modo indipendente, ad eccezione dell'API Gremlin e SQL, interoperabile.
 
@@ -234,7 +234,7 @@ Oltre ai codici di errore comuni di MongoDB, l'API di Azure Cosmos DB per MongoD
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Il driver Simba per MongoDB è supportato per l'uso con l'API di Azure Cosmos DB per MongoDB?
 
-Sì, è possibile usare il driver ODBC per Mongo di Simba con l'API di Azure Cosmos DB per MongoDB.
+Sì, è possibile usare il driver ODBC Mongo di Simba con l'API di Azure Cosmos DB per MongoDB
 
 ## <a name="table-api"></a><a id="table"></a>API di tabella
 
@@ -523,7 +523,7 @@ Tutti gli oggetti, i vertici e gli archi dei grafi vengono rappresentati come do
 
 L'addebito per unità richiesta viene basato sul set di dati in uso dell'attraversamento e non sul set di risultati. Ad esempio, se una query ha come obiettivo il recupero di un singolo vertice come risultato ma deve attraversare altri oggetti per ottenere tale risultato, il costo sarà basato su tutti gli oggetti del grafo necessari per il calcolo del vertice specifico.
 
-### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Qual è la scala massima che un database a grafi può avere nell'API Gremlin di Azure Cosmos DB?
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Qual è la scala massima che un database grafico può avere nell'API Gremlin di Azure Cosmos DB?
 
 Azure Cosmos DB usa il [partizionamento orizzontale](partition-data.md) per gestire automaticamente gli incrementi nei requisiti relativi a risorse di archiviazione e velocità effettiva. La velocità effettiva massima e la capacità di archiviazione di un carico di lavoro sono determinate dal numero di partizioni associate a un determinato contenitore. Tuttavia, un contenitore API Gremlin ha un set specifico di linee guida per garantire un'esperienza di prestazioni adeguata su larga scala. Per altre informazioni sul partizionamento e sulle procedure consigliate, vedere l'articolo relativo al [partizionamento in Azure Cosmos DB](partition-data.md).
 
@@ -531,13 +531,13 @@ Azure Cosmos DB usa il [partizionamento orizzontale](partition-data.md) per gest
 
 La maggior parte dei driver Apache Tinkerpop Gremlin nativi consente di fornire un dizionario di parametri per l'esecuzione della query. Ecco un esempio di come ottenere questo risultato in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
-### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Perché viene visualizzato un errore analogo a "Errore di compilazione query Gremlin: non è possibile trovare un metodo"?
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Perché viene visualizzato l'errore "Gremlin Query Compilation Error: Unable to find any method"?
 
 L'API Gremlin di Azure Cosmos DB implementa un sottoinsieme di funzionalità definite nella superficie di attacco di Gremlin. Per le procedure supportate e altre informazioni, vedere l'articolo [Supporto Gremlin](gremlin-support.md).
 
 La soluzione alternativa migliore consiste nel riscrivere la procedura Gremlin necessaria con le funzionalità supportate, poiché tutti i passaggi Gremlin essenziali sono supportati da Azure Cosmos DB.
 
-### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Perché viene visualizzato un errore analogo a "WebSocketException: Il server ha restituito il codice di stato '200' ma è previsto il codice di stato '101'"?
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Perché viene visualizzato l'errore "WebSocketException: Il server ha restituito il codice di stato '200' quando era previsto il codice di stato '101'?</a0>
 
 Questo errore viene probabilmente generato quando viene usato un endpoint non corretto. L'endpoint che genera questo errore ha il criterio seguente:
 
@@ -562,7 +562,7 @@ La query proverà a recuperare tutti i vertici dal grafo. Il costo di questa que
 
 Una connessione Gremlin viene effettuata tramite una connessione WebSocket. Benché le connessioni WebSocket non abbiano una durata specifica, l'API Gremlin di Azure Cosmos DB interromperà le connessioni inattive dopo 30 minuti di inattività.
 
-### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Perché non è possibile usare le chiamate API Fluent nei driver Gremlin nativi?
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Perché non è possibile utilizzare le chiamate API fluente nei driver Gremlin nativi?
 
 Le chiamate API Fluent non sono ancora supportate dall'API Gremlin di Azure Cosmos DB. Le chiamate API Fluent richiedono una funzionalità di formattazione interna denominata supporto per bytecode che non è attualmente supportata dall'API Gremlin di Azure Cosmos DB. A causa dello stesso motivo, non è attualmente supportato il driver Gremlin-JavaScript più recente.
 

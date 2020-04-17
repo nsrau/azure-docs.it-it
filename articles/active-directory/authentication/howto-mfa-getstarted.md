@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667350"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451126"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Pianificare una distribuzione di Azure Multi-Factor AuthenticationPlan an Azure Multi-Factor Authentication deployment
 
@@ -144,7 +144,7 @@ Un messaggio di testo che contiene un codice di verifica viene inviato all'utent
 
 ## <a name="plan-registration-policy"></a>Pianificare i criteri di registrazione
 
-Gli amministratori devono determinare la modalità di registrazione dei metodi da parte degli utenti. Le organizzazioni devono [abilitare la nuova esperienza](howto-registration-mfa-sspr-combined.md) di registrazione combinata per Azure MFA e la reimpostazione della password self-service (SSPR). SSPR consente agli utenti di reimpostare la password in modo sicuro utilizzando gli stessi metodi utilizzati per l'autenticazione a più fattori. Consigliamo questa registrazione combinata, attualmente in anteprima pubblica, perché è un'ottima esperienza per gli utenti, con la possibilità di registrarsi una volta per entrambi i servizi. L'abilitazione degli stessi metodi per SSPR e Azure MFA consentirà agli utenti di essere registrati per usare entrambe le funzionalità.
+Gli amministratori devono determinare la modalità di registrazione dei metodi da parte degli utenti. Le organizzazioni devono [abilitare la nuova esperienza](howto-registration-mfa-sspr-combined.md) di registrazione combinata per Azure MFA e la reimpostazione della password self-service (SSPR). SSPR consente agli utenti di reimpostare la password in modo sicuro utilizzando gli stessi metodi utilizzati per l'autenticazione a più fattori. Consigliamo questa registrazione combinata perché è un'ottima esperienza per gli utenti, con la possibilità di registrarsi una volta per entrambi i servizi. L'abilitazione degli stessi metodi per SSPR e Azure MFA consentirà agli utenti di essere registrati per usare entrambe le funzionalità.
 
 ### <a name="registration-with-identity-protection"></a>Registrazione con Identity Protection
 
@@ -235,10 +235,10 @@ Per pianificare la strategia dei criteri di accesso condizionale, che determiner
 1. In **Utenti e gruppi**:
    * Nella scheda **Includere** selezionare il pulsante di opzione **Tutti gli utenti**
    * Nella scheda **Escludi** selezionare la casella **Utenti e gruppi** e scegliere gli account di accesso di emergenza.
-   * Fare clic su **Fine**.
+   * Fare clic su **Done**.
 1. In **App cloud**selezionare il pulsante di opzione Tutte le app **cloud.**
    * FACOLTATIVAMENTE: nella scheda **Escludere** scegliere le app cloud per le quali l'organizzazione non richiede MFA.
-   * Fare clic su **Fine**.
+   * Fare clic su **Done**.
 1. In **Condizioni** sezione:
    * FACOLTATIVAMENTE: se è stato abilitato Azure Identity Protection, è possibile scegliere di valutare il rischio di accesso come parte dei criteri.
    * FACOLTATIVAMENTE: se sono state configurate posizioni attendibili o località denominate, è possibile specificare di includere o escludere tali percorsi dai criteri.

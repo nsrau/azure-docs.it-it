@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393306"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458250"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Archivio chiavi di Azure come origine griglia di eventiAzure Key Vault as Event Grid source
 
@@ -80,18 +80,18 @@ Un evento presenta i seguenti dati di primo livello:
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
 |Titolo  |Descrizione  |
 |---------|---------|
-| [Monitoraggio degli eventi dell'insieme di credenziali delle chiavi con Griglia di eventi di AzureMonitoring Key Vault events with Azure Event Grid](../key-vault/event-grid-overview.md) | Panoramica dell'integrazione dell'insieme di credenziali delle chiavi con Griglia di eventi. |
-| [Esercitazione: Creare e monitorare gli eventi dell'insieme di credenziali delle chiavi con Griglia di eventiTutorial: Create and monitor Key Vault events with Event Grid](../key-vault/event-grid-tutorial.md) | Scopri come impostare le notifiche di Griglia di eventi per Key Vault. |
+| [Monitoraggio degli eventi dell'insieme di credenziali delle chiavi con Griglia di eventi di AzureMonitoring Key Vault events with Azure Event Grid](../key-vault/general/event-grid-overview.md) | Panoramica dell'integrazione dell'insieme di credenziali delle chiavi con Griglia di eventi. |
+| [Esercitazione: Creare e monitorare gli eventi dell'insieme di credenziali delle chiavi con Griglia di eventiTutorial: Create and monitor Key Vault events with Event Grid](../key-vault/general/event-grid-tutorial.md) | Scopri come impostare le notifiche di Griglia di eventi per Key Vault. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un'introduzione a Griglia di eventi di Azure, vedere [Che cos'è Griglia di eventi?](overview.md).
 * Per altre informazioni su come creare una sottoscrizione di Griglia di eventi di Azure, vedere Schema della sottoscrizione di [Griglia di](subscription-creation-schema.md)eventi.
-* Per altre informazioni sull'integrazione dell'insieme di credenziali delle chiavi con Griglia di eventi, vedere Monitoraggio dell'insieme di credenziali delle chiavi con Griglia di eventi di [Azure (anteprima).](../key-vault/event-grid-overview.md)
-* Per un'esercitazione sull'integrazione dell'insieme di credenziali delle chiavi con Griglia di eventi, vedere Ricevere e rispondere alle notifiche dell'insieme di credenziali delle [chiavi con Azure Event Grid (anteprima).](../key-vault/event-grid-tutorial.md)
+* Per altre informazioni sull'integrazione dell'insieme di credenziali delle chiavi con Griglia di eventi, vedere Monitoraggio dell'insieme di credenziali delle chiavi con Griglia di eventi di [Azure (anteprima).](../key-vault/general/event-grid-overview.md)
+* Per un'esercitazione sull'integrazione dell'insieme di credenziali delle chiavi con Griglia di eventi, vedere Ricevere e rispondere alle notifiche dell'insieme di credenziali delle [chiavi con Azure Event Grid (anteprima).](../key-vault/general/event-grid-tutorial.md)
 * Per altre indicazioni per Key Vault e Azure Automation, vedere:To get additional guidance for Key Vault and Azure Automation, see:
-    - [Informazioni sull'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-overview.md)
-    - [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](../key-vault/event-grid-overview.md)
-    - [Ricevere e rispondere alle notifiche di Key Vault con Griglia di eventi di Azure (anteprima)](../key-vault/event-grid-tutorial.md)
+    - [Informazioni sull'insieme di credenziali delle chiavi di Azure](../key-vault/general/overview.md)
+    - [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](../key-vault/general/event-grid-overview.md)
+    - [Ricevere e rispondere alle notifiche di Key Vault con Griglia di eventi di Azure (anteprima)](../key-vault/general/event-grid-tutorial.md)
     - [Panoramica di Automazione di AzureAzure Automation overview](../automation/index.yml)

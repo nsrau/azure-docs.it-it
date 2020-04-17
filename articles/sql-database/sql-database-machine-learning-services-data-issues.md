@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 0bb3abc7b7102da55c9ededcadd7a301f74065ab
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: e81cca3e20d5b6c050489e80b91d013d5e934cce
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349331"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453200"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Usare dati R e SQL in Machine Learning Services nel database SQL di Azure (anteprima)
 
@@ -37,7 +38,7 @@ I problemi comuni che possono verificarsi includono:Common issues that you may e
 
 - Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/) prima di iniziare.
 
-- Per eseguire il codice di esempio in questi esercizi, è necessario disporre di un database SQL di Azure con Machine Learning Services (con R) abilitato. Durante l'anteprima pubblica, Microsoft eseguirà l'onboarding e l'abilitazione dell'apprendimento automatico per il database nuovo o esistente. Seguire la procedura descritta in [Iscriversi per l'anteprima](sql-database-machine-learning-services-overview.md#signup).
+- Per eseguire il codice di esempio in questi esercizi, è innanzitutto necessario avere il database SQL di [Azure con Machine Learning Services (con R)](sql-database-machine-learning-services-overview.md) abilitato.
 
 - Assicurarsi di avere installato la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). È possibile eseguire gli script R tramite altri strumenti di gestione di database o di query, ma in questo Avvio rapido si userà SQL Server Management Studio.
 
@@ -291,7 +292,7 @@ STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 1
 - La colonna datetime è stata elaborata usando il tipo di dati R **POSIXct**.
 - La colonna di testo "ProductSeries" è stata identificata come **fattore**, vale a dire una variabile di categoria. Per impostazione predefinita, i valori stringa sono gestiti come fattori. Se si passa una stringa a R, viene convertita in un numero intero per uso interno e quindi rimappata alla stringa nell'output.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Da questi brevi esempi è possibile capire la necessità di controllare gli effetti della conversione dei dati quando si passano query SQL come input. Poiché alcuni tipi di dati SQL non sono supportati da R, considerare questi modi per evitare errori:Because some SQL data types are not supported by R, consider these ways to avoid errors:
 

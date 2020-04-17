@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671942"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457298"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: app o azioni cloudConditional Access: Cloud apps or actions
 
@@ -120,7 +120,7 @@ Oltre alle app Microsoft, gli amministratori possono aggiungere qualsiasi applic
 
 ## <a name="user-actions"></a>Azioni utente
 
-Le azioni utente sono attività che possono essere eseguite da un utente. L'unica azione attualmente supportata è Registra informazioni di **sicurezza (anteprima)**, che consente l'applicazione dei criteri di accesso condizionale quando gli utenti abilitati per il tentativo di registrazione combinato di registrare le informazioni di sicurezza. Ulteriori informazioni sono disponibili nell'articolo Registrazione combinata delle informazioni di [sicurezza (anteprima)](../authentication/concept-registration-mfa-sspr-combined.md).
+Le azioni utente sono attività che possono essere eseguite da un utente. L'unica azione attualmente supportata è **Registra informazioni**di sicurezza , che consente l'applicazione dei criteri di accesso condizionale quando gli utenti abilitati per il tentativo di registrazione combinato di registrare le informazioni di sicurezza. Ulteriori informazioni sono disponibili nell'articolo Registrazione combinata delle informazioni di [sicurezza](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

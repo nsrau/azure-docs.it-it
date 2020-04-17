@@ -4,12 +4,12 @@ description: Consigli per proteggere immagini e segreti per le istanze del conte
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: b5f2c4d9ca80318574e288110fd4ce7f490af00d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76260498"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457995"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerazioni sulla sicurezza per le istanze del contenitore di AzureSecurity considerations for Azure Container Instances
 
@@ -37,7 +37,7 @@ Le soluzioni di monitoraggio della sicurezza e di scansione delle immagini, ad e
 
 ### <a name="protect-credentials"></a>Proteggere le credenziali
 
-I contenitori possono essere distribuiti in diversi cluster e aree di Azure.Containers can spread across several clusters and Azure regions. Pertanto, è necessario proteggere le credenziali necessarie per gli account di accesso o l'accesso alle API, ad esempio password o token. Assicurarsi che solo gli utenti con privilegi possano accedere a tali contenitori in transito e inattivi. Eseguire l'inventario di tutti i segreti delle credenziali e quindi richiedere agli sviluppatori di utilizzare gli strumenti di gestione dei segreti emergenti progettati per le piattaforme contenitore.  Assicurarsi che la soluzione includa database crittografati, crittografia TLS per i dati segreti in transito e controllo degli [accessi basato](../role-based-access-control/overview.md)sui ruoli con privilegi minimi. [L'insieme](../key-vault/key-vault-secure-your-key-vault.md) di credenziali delle chiavi di Azure è un servizio cloud che protegge le chiavi di crittografia e i segreti (ad esempio certificati, stringhe di connessione e password) per le applicazioni in contenitore. Poiché questi dati sono sensibili e critici per l'azienda, l'accesso sicuro agli insiemi di credenziali delle chiavi in modo che solo le applicazioni e gli utenti autorizzati possano accedervi.
+I contenitori possono essere distribuiti in diversi cluster e aree di Azure.Containers can spread across several clusters and Azure regions. Pertanto, è necessario proteggere le credenziali necessarie per gli account di accesso o l'accesso alle API, ad esempio password o token. Assicurarsi che solo gli utenti con privilegi possano accedere a tali contenitori in transito e inattivi. Eseguire l'inventario di tutti i segreti delle credenziali e quindi richiedere agli sviluppatori di utilizzare gli strumenti di gestione dei segreti emergenti progettati per le piattaforme contenitore.  Assicurarsi che la soluzione includa database crittografati, crittografia TLS per i dati segreti in transito e controllo degli [accessi basato](../role-based-access-control/overview.md)sui ruoli con privilegi minimi. [L'insieme](../key-vault/general/secure-your-key-vault.md) di credenziali delle chiavi di Azure è un servizio cloud che protegge le chiavi di crittografia e i segreti (ad esempio certificati, stringhe di connessione e password) per le applicazioni in contenitore. Poiché questi dati sono sensibili e critici per l'azienda, l'accesso sicuro agli insiemi di credenziali delle chiavi in modo che solo le applicazioni e gli utenti autorizzati possano accedervi.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>Considerazioni per l'ecosistema dei contenitoriConsiderations for the container ecosystem
 

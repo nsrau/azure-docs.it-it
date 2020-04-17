@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657171"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457179"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accesso sicuro e dati nelle app per la logica di AzureSecure access and data in Azure Logic Apps
 
@@ -182,7 +182,7 @@ Per impedire la modifica o l'eliminazione delle app per la logica da parte di al
 
 Durante l'esecuzione di un'app per la logica, tutti i dati [vengono crittografati durante](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) il transito usando Transport Layer Security (TLS) e [inattivi.](../security/fundamentals/encryption-atrest.md) Al termine dell'esecuzione dell'app per la logica, è possibile visualizzare la cronologia per l'esecuzione, inclusi i passaggi eseguiti insieme allo stato, alla durata, agli input e agli output per ogni azione. Questo dettaglio dettagliato fornisce informazioni dettagliate su come è stata eseguita l'app per la logica e su dove è possibile avviare la risoluzione dei problemi che si verificano.
 
-Quando si visualizza la cronologia di esecuzione dell'app per la logica, app per la logica autentica l'accesso e quindi fornisce collegamenti agli input e agli output per le richieste e le risposte per ogni esecuzione. Tuttavia, per le azioni che gestiscono password, segreti, chiavi o altre informazioni riservate, si desidera impedire ad altri utenti di visualizzare e accedere a tali dati. Ad esempio, se l'app per la logica riceve un segreto dall'insieme di credenziali delle chiavi di [Azure](../key-vault/key-vault-overview.md) da usare durante l'autenticazione di un'azione HTTP, si vuole nascondere tale segreto dalla visualizzazione.
+Quando si visualizza la cronologia di esecuzione dell'app per la logica, app per la logica autentica l'accesso e quindi fornisce collegamenti agli input e agli output per le richieste e le risposte per ogni esecuzione. Tuttavia, per le azioni che gestiscono password, segreti, chiavi o altre informazioni riservate, si desidera impedire ad altri utenti di visualizzare e accedere a tali dati. Ad esempio, se l'app per la logica riceve un segreto dall'insieme di credenziali delle chiavi di [Azure](../key-vault/general/overview.md) da usare durante l'autenticazione di un'azione HTTP, si vuole nascondere tale segreto dalla visualizzazione.
 
 Per controllare l'accesso agli input e agli output nella cronologia di esecuzione dell'app per la logica, sono disponibili le opzioni seguenti:To control access to the inputs and outputs in your logic app's run history, you have these options:
 
@@ -370,7 +370,7 @@ Per altre informazioni, vedere queste sezioni in questo argomento:For more infor
 
 Se si automatizza la distribuzione per le app per la logica utilizzando i modelli di `securestring` `secureobject` [Resource Manager,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile definire parametri di [modello](../azure-resource-manager/templates/template-parameters.md)protetti , che vengono valutati al momento della distribuzione, utilizzando i tipi e . Per definire i parametri del modello, `parameters` utilizzare la sezione di primo livello `parameters` del modello, che è separata e diversa dalla sezione della definizione del flusso di lavoro. Per fornire i valori per i parametri di modello, utilizzare un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato.
 
-Ad esempio, se si usano i segreti, è possibile definire e usare parametri di modello protetti che recuperano tali segreti dall'insieme di credenziali delle chiavi di [Azure](../key-vault/key-vault-overview.md) durante la distribuzione. È quindi possibile fare riferimento all'insieme di credenziali delle chiavi e al segreto nel file dei parametri. Per altre informazioni, vedere gli argomenti seguenti:
+Ad esempio, se si usano i segreti, è possibile definire e usare parametri di modello protetti che recuperano tali segreti dall'insieme di credenziali delle chiavi di [Azure](../key-vault/general/overview.md) durante la distribuzione. È quindi possibile fare riferimento all'insieme di credenziali delle chiavi e al segreto nel file dei parametri. Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Passare valori sensibili durante la distribuzione usando l'insieme di credenziali delle chiavi di AzurePass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Proteggere i parametri nei modelli](#secure-parameters-deployment-template) di Azure Resource Manager più avanti in questo argomentoSecure parameters in Azure Resource Manager templates later in this topic
@@ -425,7 +425,7 @@ Per proteggere le informazioni riservate nella definizione del flusso di lavoro 
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Parametri protetti nei modelli di Azure Resource ManagerSecure parameters in Azure Resource Manager templates
 
-Un modello di [Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) `parameters` per un'app per la logica include più sezioni. Per proteggere password, chiavi, segreti e altre informazioni riservate, definire i parametri `securestring` protetti `secureobject` a livello di modello e a livello di definizione del flusso di lavoro utilizzando il tipo or . È quindi possibile archiviare questi valori nell'insieme di credenziali delle chiavi di [Azure](../key-vault/key-vault-overview.md) e usare il file dei [parametri](../azure-resource-manager/templates/parameter-files.md) per fare riferimento all'insieme di credenziali delle chiavi e al segreto. Il modello recupera quindi tali informazioni al momento della distribuzione. Per altre informazioni, vedere [Passare valori sensibili durante la distribuzione tramite L'insieme di](../azure-resource-manager/templates/key-vault-parameter.md)credenziali delle chiavi di Azure.For more information, see Pass sensitive values at deployment by using Azure Key Vault .
+Un modello di [Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) `parameters` per un'app per la logica include più sezioni. Per proteggere password, chiavi, segreti e altre informazioni riservate, definire i parametri `securestring` protetti `secureobject` a livello di modello e a livello di definizione del flusso di lavoro utilizzando il tipo or . È quindi possibile archiviare questi valori nell'insieme di credenziali delle chiavi di [Azure](../key-vault/general/overview.md) e usare il file dei [parametri](../azure-resource-manager/templates/parameter-files.md) per fare riferimento all'insieme di credenziali delle chiavi e al segreto. Il modello recupera quindi tali informazioni al momento della distribuzione. Per altre informazioni, vedere [Passare valori sensibili durante la distribuzione tramite L'insieme di](../azure-resource-manager/templates/key-vault-parameter.md)credenziali delle chiavi di Azure.For more information, see Pass sensitive values at deployment by using Azure Key Vault .
 
 Di seguito sono `parameters` riportate ulteriori informazioni su queste sezioni:Here is more information about these sections:
 
@@ -625,7 +625,7 @@ Se l'opzione [Base](../active-directory-b2c/secure-rest-api.md) è disponibile, 
 | Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
 | **autenticazione** | `type` | Sì | Basic | Il tipo di autenticazione da utilizzare |
-| **Username** | `username` | Sì | <*nome utente*>| Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
+| **Nome utente** | `username` | Sì | <*nome utente*>| Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
 | **Password** | `password` | Sì | <*Password*> | La password per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
 ||||||
 
@@ -684,7 +684,7 @@ Per altre informazioni sulla protezione dei servizi tramite l'autenticazione del
 * [Migliorare la sicurezza per i servizi back-end usando l'autenticazione del certificato client in Gestione API di AzureImprove security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
 * [Migliorare la sicurezza per il servizio RESTfuL utilizzando i certificati client](../active-directory-b2c/secure-rest-api.md)
 * [Credenziali del certificato per l'autenticazione dell'applicazione](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Usare un certificato TLS/SSL nel codice nel servizio app di AzureUse a TLS/SSL certificate in your code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
+* [Usare un certificato TLS/SSL nel codice nel Servizio app di Azure](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -749,7 +749,7 @@ Nel trigger o nell'azione che supporta l'autenticazione non elaborata specificar
 | Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
 | **autenticazione** | `type` | Sì | Raw | Il tipo di autenticazione da utilizzare |
-| **valore** | `value` | Sì | <*authorization-header-value*> | Valore dell'intestazione di autorizzazione da utilizzare per l'autenticazione |
+| **Valore** | `value` | Sì | <*authorization-header-value*> | Valore dell'intestazione di autorizzazione da utilizzare per l'autenticazione |
 ||||||
 
 Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un modello di Azure Resource Manager [per automatizzare la distribuzione,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione `type` HTTP `Raw`di esempio specifica l'autenticazione come e utilizza la [funzione parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:

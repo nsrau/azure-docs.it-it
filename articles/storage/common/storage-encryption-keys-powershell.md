@@ -10,18 +10,18 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f24c89a53af5e618d64b78d6001040190c1f339c
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: bfc2e256396904456a7ee0fd8b6173c00a5f53d7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618339"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456397"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure tramite PowerShellConfigure customer-managed keys with Azure Key Vault by using PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Questo articolo illustra come configurare un insieme di credenziali delle chiavi di Azure con chiavi gestite dal cliente tramite PowerShell.This article shows how to configure an Azure Key Vault with customer-managed keys using PowerShell. Per informazioni su come creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando di Azure, vedere Guida introduttiva: Impostare e recuperare un segreto dall'insieme di credenziali delle chiavi di Azure tramite PowerShell.To learn how to create a key vault using Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell.](../../key-vault/quick-create-powershell.md)
+Questo articolo illustra come configurare un insieme di credenziali delle chiavi di Azure con chiavi gestite dal cliente tramite PowerShell.This article shows how to configure an Azure Key Vault with customer-managed keys using PowerShell. Per informazioni su come creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando di Azure, vedere Guida introduttiva: Impostare e recuperare un segreto dall'insieme di credenziali delle chiavi di Azure tramite PowerShell.To learn how to create a key vault using Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell.](../../key-vault/secrets/quick-create-powershell.md)
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Assegnare un'identità all'account di archiviazioneAssign an identity to the storage account
 
@@ -51,7 +51,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Per informazioni su come abilitare **l'eliminazione temporanea** e l'eliminazione non **eliminare** in un insieme di credenziali delle chiavi esistente con PowerShell, vedere le sezioni **Attivazione dell'eliminazione temporanea** e **dell'abilitazione** della protezione dell'eliminazione in [Come usare l'eliminazione temporanea con PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
+Per informazioni su come abilitare **l'eliminazione temporanea** e l'eliminazione non **eliminare** in un insieme di credenziali delle chiavi esistente con PowerShell, vedere le sezioni **Attivazione dell'eliminazione temporanea** e **dell'abilitazione** della protezione dell'eliminazione in [Come usare l'eliminazione temporanea con PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Configurare i criteri di accesso dell'insieme di credenziali delle chiavi
 

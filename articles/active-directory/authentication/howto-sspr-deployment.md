@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676736"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450990"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active DirectoryPlan an Azure Active Directory self-service password reset deployment
 
@@ -115,7 +115,7 @@ Prima di distribuire SSPR, è possibile scegliere di determinare il numero e il 
 
 Microsoft consiglia alle organizzazioni di abilitare l'esperienza di registrazione combinata per SSPR e l'autenticazione a più fattori. Quando si abilita questa esperienza di registrazione combinata, gli utenti devono selezionare le informazioni di registrazione una sola volta per abilitare entrambe le funzionalità.
 
-L'esperienza di registrazione combinata non richiede alle organizzazioni di abilitare SSPR e Azure Multi-Factor Authentication.The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication. La registrazione combinata offre alle organizzazioni un'esperienza utente migliore. Per altre informazioni, vedere Registrazione combinata delle informazioni di [sicurezza (anteprima)For](concept-registration-mfa-sspr-combined.md) more information, see Combined security information registration (preview)
+L'esperienza di registrazione combinata non richiede alle organizzazioni di abilitare SSPR e Azure Multi-Factor Authentication.The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication. La registrazione combinata offre alle organizzazioni un'esperienza utente migliore. Per ulteriori informazioni, vedere [Registrazione combinata delle informazioni](concept-registration-mfa-sspr-combined.md) di sicurezza
 
 ## <a name="plan-the-deployment-project"></a>Pianificare il progetto di distribuzione
 

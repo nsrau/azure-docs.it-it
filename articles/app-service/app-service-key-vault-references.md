@@ -6,32 +6,32 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280339"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453728"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare i riferimenti dell'insieme di credenziali delle chiavi per il servizio app e le funzioni di AzureUse Key Vault references for App Service and Azure Functions
 
-Questo argomento illustra come usare i segreti da Azure Key Vault all'interno dell'applicazione di Servizio app o Funzioni di Azure senza che siano richieste modifiche al codice. [Azure Key Vault](../key-vault/key-vault-overview.md) è un servizio che supporta la gestione centralizzata dei segreti con controllo completo sui criteri di accesso e sulla cronologia di controllo.
+Questo argomento illustra come usare i segreti da Azure Key Vault all'interno dell'applicazione di Servizio app o Funzioni di Azure senza che siano richieste modifiche al codice. [Azure Key Vault](../key-vault/general/overview.md) è un servizio che supporta la gestione centralizzata dei segreti con controllo completo sui criteri di accesso e sulla cronologia di controllo.
 
 ## <a name="granting-your-app-access-to-key-vault"></a>Concedere all'app l'accesso a Key Vault
 
 Per leggere i segreti da Key Vault, è necessario avere creato un insieme di credenziali e concedere all'app l'autorizzazione per accedervi.
 
-1. Creare un insieme di credenziali seguendo l'[avvio rapido per Key Vault](../key-vault/quick-create-cli.md).
+1. Creare un insieme di credenziali seguendo l'[avvio rapido per Key Vault](../key-vault/secrets/quick-create-cli.md).
 
 1. Creare un'[identità gestita assegnata dal sistema](overview-managed-identity.md) per l'applicazione.
 
    > [!NOTE] 
    > I riferimenti a Key Vault supportano attualmente solo identità gestite assegnate dal sistema. Non è possibile usare identità assegnate dall'utente.
 
-1. Creare [criteri di accesso in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri. Non configurare l'"applicazione autorizzata" o le impostazioni di `applicationId`, poiché questa operazione non è compatibile con un'identità gestita.
+1. Creare [criteri di accesso in Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri. Non configurare l'"applicazione autorizzata" o le impostazioni di `applicationId`, poiché questa operazione non è compatibile con un'identità gestita.
 
     > [!NOTE]
-    > I riferimenti dell'insieme di credenziali delle chiavi non sono attualmente in grado di risolvere i segreti archiviati in un insieme di credenziali delle chiavi con restrizioni di [rete.](../key-vault/key-vault-overview-vnet-service-endpoints.md)
+    > I riferimenti dell'insieme di credenziali delle chiavi non sono attualmente in grado di risolvere i segreti archiviati in un insieme di credenziali delle chiavi con restrizioni di [rete.](../key-vault/general/overview-vnet-service-endpoints.md)
 
 ## <a name="reference-syntax"></a>Sintassi del riferimento
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3491a54682e8f2b244c0400480a69e083335f5c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008390"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454680"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
@@ -163,7 +163,7 @@ Per le operazioni con chiavi di crittografia, può essere concesso l'accesso a u
 Per ottenere una chiave da usare per la crittografia o la decrittografia dei dati inattivi, l'identità del servizio con cui verrà eseguita l'istanza del servizio Resource Manager deve disporre di UnwrapKey (per ottenere la chiave per la decrittografia) e WrapKey (per inserire una chiave nell'insieme di credenziali delle chiavi al momento della creazione di una nuova chiave).
 
 >[!NOTE]
->Per altri dettagli sull'autorizzazione dell'insieme di credenziali delle chiavi, vedere la pagina Proteggere l'insieme di credenziali delle chiavi nella [documentazione di Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md).
+>Per altri dettagli sull'autorizzazione dell'insieme di credenziali delle chiavi, vedere la pagina Proteggere l'insieme di credenziali delle chiavi nella [documentazione di Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
 
 **Vantaggi**
 
@@ -282,7 +282,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Azure Data Catalog               | Sì                | -                  | -                  |
 | HDInsight di Azure                  | Sì                | Tutti                | -                  |
 | Azure Monitor Application Insights | Sì                | Sì                | -                  |
-| Analisi dei log di Monitoraggio di AzureAzure Monitor Log Analytics | Sì                | Sì                | -                  |
+| Analisi dei log di Monitoraggio di AzureAzure Monitor Log Analytics      | Sì                | Sì                | -                  |
 | Esplora dati di Azure              | Sì                | Sì                | -                  |
 | Data factory di Azure               | Sì                | Sì                | -                  |
 | Archivio Azure Data Lake            | Sì                | Sì, RSA a 2048 bit  | -                  |
@@ -290,15 +290,16 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Servizio Azure Kubernetes         | Sì                | Sì                | -                  |
 | Istanze di Container              | Sì                | Sì                | -                  |
 | Registro Container               | Sì                | Sì                | -                  |
-| **Calcolare**                      |                    |                    |                    |
+| **Calcolo**                      |                    |                    |                    |
 | Macchine virtuali                 | Sì                | Sì, RSA a 2048 bit  | -                  |
 | Set di scalabilità delle macchine virtualiVirtual Machine Scale Set        | Sì                | Sì, RSA a 2048 bit  | -                  |
 | SAP HANA                         | Sì                | Sì, RSA a 2048 bit  | -                  |
-| Servizio app                      | Sì                | Sì                | -                  |
-| Automazione                       | Sì                | Sì                | -                  |
-| Portale di Azure                     | Sì                | Sì                | -                  |
+| Servizio app                      | Sì                | Sì\*\*            | -                  |
+| Automazione                       | Sì                | Sì\*\*            | -                  |
+| Funzioni di Azure                  | Sì                | Sì\*\*            | -                  |
+| Portale di Azure                     | Sì                | Sì\*\*            | -                  |
 | App per la logica                       | Sì                | Sì                | -                  |
-| Applicazioni gestite di Azure       | Sì                | Sì                | -                  |
+| Applicazioni gestite di Azure       | Sì                | Sì\*\*            | -                  |
 | Bus di servizio                      | Sì                | Sì                | -                  |
 | Site Recovery                    | Sì                | Sì                | -                  |
 | **Database**                    |                    |                    |                    |
@@ -312,6 +313,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Archiviazione tabelle                    | Sì                | Sì                | Sì                |
 | Azure Cosmos DB                  | Sì                | Sì                | -                  |
 | Azure Databricks                 | Sì                | Sì                | -                  |
+| Servizio Migrazione del database di Azure | Sì                | N/D\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps Services            | Sì                | -                  | Sì                |
 | Azure Repos                      | Sì                | -                  | Sì                |
@@ -344,6 +346,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Sincronizzazione file                        | Sì                | Sì, RSA a 2048 bit  | -                  |
 | Archiviazione code                    | Sì                | Sì                | Sì                |
 | Avere vFXT                       | Sì                | -                  | -                  |
+| Cache Redis di Azure            | Sì                | N/D\*              | -                  |
 | Azure NetApp Files               | Sì                | Sì                | -                  |
 | Spazio di archiviazione                  | Sì                | Sì, RSA a 2048 bit  | -                  |
 | StorSimple                       | Sì                | Sì, RSA a 2048 bit  | Sì                |
@@ -352,6 +355,8 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Data Box Edge                    | Sì                | Sì                | -                  |
 
 \*Questo servizio non rende persistenti i dati. Le cache temporanee, se presenti, vengono crittografate con una chiave Microsoft.Transient caches, if any, are encrypted with a Microsoft key.
+
+\*\*Questo servizio supporta l'archiviazione dei dati nel proprio archivio chiavi, account di archiviazione o altro servizio di persistenza dei dati che supporta già la crittografia lato server con la chiave gestita dal cliente.
 
 ## <a name="conclusion"></a>Conclusioni
 

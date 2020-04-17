@@ -3,23 +3,20 @@ title: Autenticazione e autorizzazione
 description: Scopri il supporto dell'autenticazione e dell'autorizzazione predefiniti nel servizio app di Azure e in Funzioni di Azure e su come può proteggere l'app da accessi non autorizzati.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.reviewer: mahender
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: a4ceed0d897f069a7895a3eb6b10c327566afbe5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520687"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457859"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app di Azure e nelle funzioni di AzureAuthentication and authorization in Azure App Service and Azure Functions
 
-> [!NOTE]
-> Al momento, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluso [MSAL)](../active-directory/develop/msal-overview.md)non è supportato per il servizio app di Azure e funzioni di Azure.At this time, Azure Active Directory v2.0 (including MSAL ) is not supported for Azure App Service and Azure Functions. Si prega di controllare di nuovo per gli aggiornamenti.
->
 > [!NOTE]
 > Al momento, ASP.NET Core non supporta attualmente il popolamento dell'utente corrente con la funzionalità di autenticazione/autorizzazione.
 >

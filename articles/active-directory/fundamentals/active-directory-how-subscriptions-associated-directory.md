@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f44e9a1e43da2b9ce6c817898c1722fba715c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262178"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457927"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -85,7 +85,7 @@ La modifica della directory della sottoscrizione è un'operazione a livello di s
 
 Dopo aver associato una sottoscrizione a una directory diversa, potrebbe essere necessario eseguire le attività seguenti per riprendere le operazioni:After you associate a subscription to a different directory, you might need to do the following tasks to resume operations:
 
-- Se sono presenti insiemi di credenziali delle chiavi, è necessario modificare l'ID tenant dell'insieme di credenziali delle chiavi. Per ulteriori informazioni, vedere [Modificare un ID tenant dell'insieme](../../key-vault/key-vault-subscription-move-fix.md)di credenziali delle chiavi dopo uno spostamento della sottoscrizione.
+- Se sono presenti insiemi di credenziali delle chiavi, è necessario modificare l'ID tenant dell'insieme di credenziali delle chiavi. Per ulteriori informazioni, vedere [Modificare un ID tenant dell'insieme](../../key-vault/general/subscription-move-fix.md)di credenziali delle chiavi dopo uno spostamento della sottoscrizione.
 
 - Se sono state utilizzate identità gestite assegnate dal sistema per le risorse, è necessario riabilitare queste identità. Se sono state utilizzate identità gestite assegnate dall'utente, è necessario ricreare queste identità. Dopo aver riabilitato o ricreato le identità gestite, è necessario ristabilire le autorizzazioni assegnate a tali identità. Per altre informazioni, vedere [Che cos'è l'identità gestita per le risorse](../managed-identities-azure-resources/overview.md)di Azure? .
 

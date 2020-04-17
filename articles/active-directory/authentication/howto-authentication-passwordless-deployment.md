@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c9933e75a39af43af9e2745d5f7732d40027b34
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582482"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451432"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione dell'autenticazione senza password in Azure Active DirectoryPlan a passwordless authentication deployment in Azure Active Directory
 
@@ -67,7 +67,7 @@ Le organizzazioni devono soddisfare i prerequisiti seguenti prima di iniziare un
 
 | Prerequisito | App di autenticazione | Chiavi di protezione FIDO2 |
 | --- | --- | --- |
-| [La registrazione combinata per l'autenticazione a più fattori di Azure e la reimpostazione della password self-service (SSPR)](howto-registration-mfa-sspr-combined.md) è abilitata (funzionalità di anteprima)Combined registration for Azure Multi-factor authentication and self-service password reset (SSPR) is enabled (preview feature) | √ | √ |
+| [La registrazione combinata per l'autenticazione a più fattori di Azure e la reimpostazione della password self-service (SSPR) è abilitataCombined registration for Azure Multi-factor authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled | √ | √ |
 | [Gli utenti possono eseguire l'autenticazione a più fattori di AzureUsers can perform Azure Multi-factor authentication](howto-mfa-getstarted.md) | √ | √ |
 | [Gli utenti sono stati registrati per l'autenticazione a più fattori di Azure e SSPRUsers have registered for Azure Multi-factor authentication and SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Gli utenti hanno registrato i propri dispositivi mobili in Azure Active DirectoryUsers have registered their mobile devices to Azure Active Directory](../devices/overview.md) | √ |   |

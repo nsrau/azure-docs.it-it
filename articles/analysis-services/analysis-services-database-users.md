@@ -4,15 +4,15 @@ description: Informazioni su come gestire ruoli del database e utenti in un serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273708"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454204"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
 
@@ -25,10 +25,9 @@ Le autorizzazioni di ruoli includono:
 *  **Elabora**: utenti che possono connettersi ed eseguire operazioni di elaborazione nel database e analizzare i dati del database modello.
 *  **Lettura**: utenti che possono usare un'applicazione client per connettersi e analizzare i dati del database modello.
 
-Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono utenti o gruppi a tali ruoli utilizzando Gestione ruoli in Visual Studio con progetti di Analysis Services. Quando viene distribuito in un server, si utilizzaSQL Server Management Studio (SSMS), i cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)per Analysis Services Analysis Services o Il linguaggio TMSL [(Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) per aggiungere o rimuovere ruoli e membri utente.
+Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono utenti o gruppi a tali ruoli utilizzando Gestione ruoli in Visual Studio con progetti di Analysis Services. Quando viene distribuito in un server, utilizzare SQL Server Management Studio (SSMS), i cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)per Analysis Services o [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) per aggiungere o rimuovere ruoli e membri utente.
 
-**I gruppi di sicurezza** devono `MailEnabled` essere `True`abilitati alla [posta](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) elettronica con la proprietà impostata su . Quando si specifica un gruppo `obj:groupid@tenantid`in base all'indirizzo di posta elettronica, utilizzare .
-
+Quando si aggiunge un `obj:groupid@tenantid`gruppo di **sicurezza**, utilizzare .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Per aggiungere o gestire ruoli e utenti in Visual StudioTo add or manage roles and users in Visual Studio  
   
@@ -45,7 +44,7 @@ Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono 
     |Autorizzazione|Descrizione|  
     |----------------|-----------------|  
     |**Nessuno**|I membri non possono leggere o modificare lo schema del modello e non possono eseguire query sui dati.|  
-    |**Leggere**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
+    |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
     |**Lettura ed elaborazione**|I membri possono eseguire query su dati in base ai filtri a livello di riga ed eseguire operazioni Elabora ed Elabora tutto, ma non possono modificare lo schema del modello.|  
     |**Processo**|I membri possono effettuare le operazioni relative alle opzioni Elabora ed Elabora tutto, Impossibile leggere o modificare lo schema del modello e non è possibile eseguire query sui dati.|  
     |**Amministratore**|I membri possono modificare lo schema del modello ed eseguire query su tutti i dati.|   
@@ -75,7 +74,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
    |**Elaborazione database**|I membri possono effettuare le operazioni relative alle opzioni Elabora ed Elabora tutto, ma non possono modificare lo schema del modello, né eseguire query sui dati.|  
-   |**Leggere**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
+   |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
   
 4. Fare clic su **Appartenenza**, quindi immettere un utente o un gruppo nel tenant di Azure AD dall'indirizzo e-mail.
 
@@ -133,7 +132,7 @@ I filtri di riga definiscono le righe di una tabella su cui i membri di uno spec
   
 I filtri di riga possono essere definiti solo per i ruoli con le autorizzazioni Lettura e Lettura ed elaborazione. Per impostazione predefinita, se non si definisce un filtro di riga per una determinata tabella, i membri possono eseguire query su tutte le righe della tabella a meno che non vengano applicati filtri incrociati da un'altra tabella.
   
- I filtri di riga richiedono una formula DAX, che deve restituire un valore TRUE/FALSE, per definire le righe su cui i membri del ruolo specifico possono eseguire query. Non è possibile eseguire query su righe non incluse nella formula DAX. Ad esempio, nel caso della tabella Customers con l'espressione di filtri di riga seguente, *=Customers [Country] = 'USA'*, i membri del ruolo Sales possono visualizzare solo i clienti negli Stati Uniti.  
+ I filtri di riga richiedono una formula DAX, che deve restituire un valore TRUE/FALSE, per definire le righe su cui i membri del ruolo specifico possono eseguire query. Non è possibile eseguire query su righe non incluse nella formula DAX. Ad esempio, la tabella Clienti con l'espressione di filtro di riga seguente, *"Customers [Paese] - "USA",* i membri del ruolo Vendite possono visualizzare solo i clienti negli Stati Uniti.  
   
 I filtri di riga si applicano alle righe specificate e alle righe correlate. Quando una tabella dispone di più relazioni, tramite i filtri viene applicata la sicurezza alla relazione che è attiva. I filtri di riga vengono intersecati con altri filtri di riga definiti per le tabelle correlate, ad esempio:  
   

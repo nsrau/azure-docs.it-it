@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: abff2f16d9559f015417711820a993badd636f7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133087"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457876"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -102,7 +102,7 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Richieste non riuscite**
 
-  Numero di richieste non riuscite servite dal gateway applicazione. Il conteggio delle richieste può essere ulteriormente filtrato per mostrare il conteggio per ogni combinazione di impostazioni del pool back-end specifico-http.
+  Numero di richieste servite da Gateway applicazione con codici di errore del server 5xx. Sono inclusi i codici 5xx generati dal gateway applicazione e i codici 5xx generati dal back-end. Il conteggio delle richieste può essere ulteriormente filtrato per mostrare il conteggio per ogni combinazione di impostazioni del pool back-end specifico-http.
    
 - **Unità di capacità fatturabili fisse**
 
@@ -162,7 +162,7 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Richieste non riuscite**
 
-  Numero di richieste non riuscite servite dal gateway applicazione. Il conteggio delle richieste può essere ulteriormente filtrato per mostrare il conteggio per ogni combinazione di impostazioni del pool back-end specifico-http.
+  Numero di richieste servite da Gateway applicazione con codici di errore del server 5xx. Sono inclusi i codici 5xx generati dal gateway applicazione e i codici 5xx generati dal back-end. Il conteggio delle richieste può essere ulteriormente filtrato per mostrare il conteggio per ogni combinazione di impostazioni del pool back-end specifico-http.
 
 - **Stato della risposta**
 
