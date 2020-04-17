@@ -64,7 +64,7 @@
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP'
         - name: Ruby
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Informazioni di riferimento sull'API Traduzione testuale v3
           href: reference/v3-0-reference.md
@@ -98,11 +98,11 @@
           href: 'https://aka.ms/TranslatorGitHub'
         - name: Domande frequenti
           href: 'https://www.microsoft.com/translator/faq.aspx'
-        - name: Supporto di lingua e area geografica
+        - name: Lingue supportate
           href: language-support.md
         - name: Prezzi
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
-        - name: Disponibilità internazionale
+        - name: Disponibilità a livello di area
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Conformità
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

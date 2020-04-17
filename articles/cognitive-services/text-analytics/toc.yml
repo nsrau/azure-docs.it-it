@@ -48,7 +48,7 @@
   items:
     - name: Tipi di entità denominati
       href: named-entity-types.md
-    - name: Supporto di lingua e area geografica
+    - name: Lingue supportate
       href: language-support.md
     - name: Offset per il testo
       href: concepts/text-offsets.md
@@ -74,7 +74,7 @@
           href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Usare il servizio Kubernetes
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sull'interfaccia della riga di comando
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
@@ -118,7 +118,7 @@
       href: text-analytics-resource-faq.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

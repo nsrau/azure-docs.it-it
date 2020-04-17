@@ -46,7 +46,7 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check'
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Controllo ortografico Bing v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference'
@@ -72,11 +72,11 @@
     - name: Analisi per l'API Controllo ortografico Bing
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-    - name: Supporto di lingua e area geografica
+    - name: Lingue supportate
       href: language-support.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/bing-api'

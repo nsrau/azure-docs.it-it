@@ -58,7 +58,7 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Usare istanze di contenitore
           href: deploy-form-recognizer-on-container-instances.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Riconoscimento modulo v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
@@ -78,7 +78,9 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2087186'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
+    - name: Lingue supportate
+      href: language-support.md
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

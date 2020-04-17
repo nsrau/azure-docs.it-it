@@ -19,7 +19,7 @@
       href: tutorial-python.md
     - name: Usare più risorse dello strumento di lettura immersiva
       href: tutorial-multiple-resources.md
-- name: Procedura
+- name: Procedure
   items:
     - name: Creare una risorsa dello strumento di lettura immersiva
       href: how-to-create-immersive-reader.md
@@ -33,7 +33,7 @@
       href: how-to-customize-launch-button.md
     - name: Memorizzare il token di autenticazione nella cache
       href: how-to-cache-token.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sugli SDK
       href: reference.md
@@ -41,7 +41,7 @@
   items:
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Supporto per le lingue
-      href: 'https://aka.ms/ltlangsupport'
-    - name: Disponibilità internazionale
+    - name: Lingue supportate
+      href: language-support.md
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

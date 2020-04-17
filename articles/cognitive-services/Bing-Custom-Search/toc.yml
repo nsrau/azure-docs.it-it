@@ -59,7 +59,7 @@
     - name: Sfogliare i risultati della ricerca
       href: ../Bing-Web-Search/paging-search-results.md
       maintainContext: true
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sull'API Suggerimenti automatici personalizzati Bing
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference'
@@ -96,7 +96,7 @@
       href: 'https://cognitive.uservoice.com/forums/598147-bing-custom-search-api'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=bing+custom+search'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
@@ -108,7 +108,7 @@
       href: 'https://aka.ms/bingcustomsearchtryit'
     - name: Endpoint di Ricerca personalizzata Bing
       href: endpoint-custom.md
-    - name: Supporto di lingua e area geografica
+    - name: Lingue supportate
       href: language-support.md
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
