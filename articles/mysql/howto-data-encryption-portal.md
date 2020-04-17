@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: acf3e6273f98d98d5da55cfb5b044677116c44dc
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 9d1e89919647d9d94b287618da2f9a77278425a5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520802"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459084"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Crittografia dei dati per il database di Azure per MySQL tramite il portale di AzureData encryption for Azure Database for MySQL by using the Azure portal
 
@@ -22,13 +22,13 @@ Informazioni su come usare il portale di Azure per configurare e gestire la crit
 * È necessario disporre di una sottoscrizione di Azure e avere il ruolo di amministratore di tale sottoscrizione.
 * In Archiviazione delle chiavi di Azure creare un insieme di credenziali delle chiavi e una chiave da usare per una chiave gestita dal cliente.
 * L'insieme di credenziali delle chiavi deve avere le proprietà seguenti da utilizzare come chiave gestita dal cliente:The key vault must have the following properties to use as a customer-managed key:
-  * [Eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md)
+  * [Eliminazione temporanea](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Eliminatesse protette](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
+  * [Eliminatesse protette](../key-vault/general/overview-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -49,7 +49,7 @@ Informazioni su come usare il portale di Azure per configurare e gestire la crit
 
    ![Panoramica dei criteri di accesso](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
-3. Selezionare **Save** (Salva).
+3. Selezionare **Salva**.
 
 ## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Impostare la crittografia dei dati per il database di Azure per MySQLSet data encryption for Azure Database for MySQL
 
@@ -61,7 +61,7 @@ Informazioni su come usare il portale di Azure per configurare e gestire la crit
 
    ![Screenshot del database di Azure per MySQL, con le opzioni di crittografia dei dati evidenziate](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
-3. Selezionare **Save** (Salva).
+3. Selezionare **Salva**.
 
 4. Per assicurarsi che tutti i file (inclusi i file temporanei) siano completamente crittografati, riavviare il server.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38fd7c8e14f58052912f68a277f194fd3866f2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 029743dbb44ab0ebb6ab8f695c0c966137c45107
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970570"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459798"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Crittografia del disco di Azure con Azure AD (versione precedente)Azure Disk Encryption with Azure AD (previous release)
 
@@ -35,7 +35,7 @@ Per abilitare la funzionalità di crittografia del disco di Azure usando la sint
   - Per ottenere un token per la connessione all'insieme di credenziali delle chiavi, la \[\]macchina virtuale IaaS deve essere in grado di connettersi a un endpoint di Azure AD login.microsoftonline.com .
   - Per scrivere le chiavi di crittografia nell'insieme di credenziali delle chiavi, è necessario che la macchina virtuale IaaS possa connettersi all'endpoint dell'insieme di credenziali delle chiavi.
   - La VM IaaS deve potersi connettere a un endpoint di archiviazione di Azure che ospita il repository delle estensioni di Azure e a un account di archiviazione di Azure che ospita i file del disco rigido virtuale.
-  -  Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP. Per altre informazioni, vedere [Azure Key Vault protetto da firewall](../../key-vault/key-vault-access-behind-firewall.md).
+  -  Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP. Per altre informazioni, vedere [Azure Key Vault protetto da firewall](../../key-vault/general/access-behind-firewall.md).
   - In Windows, se TLS 1.0 è disabilitato in modo esplicito e la versione .NET non viene aggiornata a 4.6 o versione successiva, la seguente modifica del Registro di sistema consente a Crittografia disco di Azure di selezionare la versione TLS più recente:On Windows, if TLS 1.0 is explicitly disabled and the .NET version isn't updated to 4.6 or higher, the following registry change enables Azure Disk Encryption to select the more recent TLS version:
     
             [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]

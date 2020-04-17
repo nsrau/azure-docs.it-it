@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb9d697c11427c7ebbf811f9cc05740347c74452
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9cd668fcac3751715fbe91c9aeff98583c9d03d5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417560"
+ms.locfileid: "81458914"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Crittografia del disco di Azure con Azure AD (versione precedente)Azure Disk Encryption with Azure AD (previous release)
 
@@ -28,15 +28,16 @@ Questo articolo integra [Crittografia disco di Azure per macchine virtuali Windo
   - La VM IaaS deve potersi connettere a un endpoint di archiviazione di Azure che ospita il repository delle estensioni di Azure e a un account di archiviazione di Azure che ospita i file del disco rigido virtuale.
   -  Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP. Per altre informazioni, vedere [Azure Key Vault protetto da firewall](../../key-vault/key-vault-access-behind-firewall.md).
   - La macchina virtuale da crittografare deve essere configurata per l'utilizzo di TLS 1.2 come protocollo predefinito. Se TLS 1.0 è stato disabilitato in modo esplicito e la versione .NET non è stata aggiornata a 4.6 o versione successiva, la seguente modifica del Registro di sistema consentirà ad ADE di selezionare la versione TLS più recente:
-    
-        [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-        "SystemDefaultTlsVersions"=dword:00000001
-        "SchUseStrongCrypto"=dword:00000001
 
-        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-        "SystemDefaultTlsVersions"=dword:00000001
-        "SchUseStrongCrypto"=dword:00000001` 
-     
+```console
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001` 
+```
 
 **Criteri di gruppo:**
  - La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Per le macchine virtuali aggiunte a un dominio, non eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1) (Informazioni di riferimento sui Criteri di gruppo BitLocker).

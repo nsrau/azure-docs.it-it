@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 2a4c6dd3dd6f1bb2f15e31226086c73fb8e63521
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124838"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461396"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -112,11 +112,11 @@ Ad esempio, quando si utilizza il driver ADO.NET questa operazione viene eseguit
 
 [Transparent Data Encryption (TDE) per il database SQL di Azure](transparent-data-encryption-azure-sql.md) aggiunge un livello di sicurezza per proteggere i dati inattivi da accessi non autorizzati o non in linea per i file non elaborati o i backup. Gli scenari comuni includono il furto in data center o eliminazioni non protette di hardware o supporti, ad esempio unità disco e nastri di backup.TDE crittografa l'intero database usando un algoritmo di crittografia AES, che non richiede agli sviluppatori di applicazioni di apportare modifiche alle applicazioni esistenti.
 
-In Azure, tutti i nuovi database SQL vengono crittografati per impostazione predefinita e la chiave di crittografia del database è protetta da un certificato del server incorporato.  La manutenzione e la rotazione del certificato sono gestite dal servizio e non richiedono alcun intervento da parte dell'utente. I clienti che preferiscono assumere il controllo delle chiavi di crittografia possono gestire le chiavi presenti in [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
+In Azure, tutti i nuovi database SQL vengono crittografati per impostazione predefinita e la chiave di crittografia del database è protetta da un certificato del server incorporato.  La manutenzione e la rotazione del certificato sono gestite dal servizio e non richiedono alcun intervento da parte dell'utente. I clienti che preferiscono assumere il controllo delle chiavi di crittografia possono gestire le chiavi presenti in [Azure Key Vault](../key-vault/general/secure-your-key-vault.md).
 
 ### <a name="key-management-with-azure-key-vault"></a>Gestione delle chiavi con Azure Key Vault
 
-Il supporto [Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) per  [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) consente ai clienti di appropriarsi della gestione e rotazione delle chiavi tramite  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md), il sistema di gestione delle chiavi esterne di Azure basato sul cloud. Se viene revocato l'accesso del database per l'insieme di credenziali delle chiavi, il database non può essere decrittografato e letto in memoria. Azure Key Vault offre una piattaforma di gestione centralizzata delle chiavi, sfrutta i moduli di protezione hardware (HSM) accuratamente monitorati e consente la separazione dei compiti tra la gestione delle chiavi e i dati per contribuire a rispettare i requisiti di conformità alle norme di sicurezza.
+Il supporto [Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) per  [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) consente ai clienti di appropriarsi della gestione e rotazione delle chiavi tramite  [Azure Key Vault](../key-vault/general/secure-your-key-vault.md), il sistema di gestione delle chiavi esterne di Azure basato sul cloud. Se viene revocato l'accesso del database per l'insieme di credenziali delle chiavi, il database non può essere decrittografato e letto in memoria. Azure Key Vault offre una piattaforma di gestione centralizzata delle chiavi, sfrutta i moduli di protezione hardware (HSM) accuratamente monitorati e consente la separazione dei compiti tra la gestione delle chiavi e i dati per contribuire a rispettare i requisiti di conformità alle norme di sicurezza.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (crittografia in uso)
 

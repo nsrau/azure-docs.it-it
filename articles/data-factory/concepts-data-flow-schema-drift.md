@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/12/2019
-ms.openlocfilehash: a6b3b1d11242434088c138460d968f39d5273e4f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/15/2020
+ms.openlocfilehash: 4c510cae7ba5a952e6dc7f7cb7ae7591fe801560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418423"
+ms.locfileid: "81461294"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Deriva dello schema nel mapping del flusso di datiSchema drift in mapping data flow
 
@@ -30,6 +30,10 @@ Per proteggersi dalla deriva dello schema, è importante disporre delle funziona
 Azure Data Factory supporta in modo nativo schemi flessibili che cambiano dall'esecuzione all'esecuzione in modo che sia possibile creare una logica di trasformazione dei dati generica senza la necessità di ricompilare i flussi di dati.
 
 Nel flusso di dati è necessario prendere una decisione dal punto di vista dell'architettura riguardo a se accettare la deviazione dello schema in tutto il flusso. In questo modo, è possibile proteggersi da modifiche dello schema rispetto alle origini. Tuttavia, si perderà l'associazione anticipata delle colonne e dei tipi in tutto il flusso di dati. Azure Data Factory considera i flussi di derapata dello schema come flussi di associazione tardiva, pertanto quando si compilano le trasformazioni, i nomi delle colonne con deriva non saranno disponibili nelle visualizzazioni dello schema in tutto il flusso.
+
+Questo video fornisce un'introduzione ad alcune delle soluzioni complesse che è possibile compilare facilmente in ADF con la funzionalità di deriva dello schema del flusso di dati. In questo esempio vengono compilati modelli riutilizzabili basati su schemi di database flessibili:In this example, we build reusable patterns based on flexible database schemas:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## <a name="schema-drift-in-source"></a>Deriva dello schema nell'origineSchema drift in source
 

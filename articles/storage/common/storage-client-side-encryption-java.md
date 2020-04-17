@@ -10,12 +10,12 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8fe95a471df6ea86aad90f387088824c3c92bd3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32691e0ddcee3f5410b12f07a2fb80806345bc26
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460437"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460512"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure con Java per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -103,7 +103,7 @@ Nelle operazioni batch, la stessa KEK verrà utilizzata per tutte le righe nell�
 > Per eseguire operazioni di query, è necessario specificare un resolver di chiave in grado di risolvere tutte le chiavi nel set di risultati. Se un'entità inclusa nel risultato della query non può essere risolta in un provider, la libreria client genererà un errore. Per ogni query che esegue le proiezioni del lato server, la libreria client aggiungerà le proprietà dei metadati di crittografia speciali (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) per impostazione predefinita alle colonne selezionate.
 
 ## <a name="azure-key-vault"></a>Insieme di credenziali chiave di Azure
-L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure gli utenti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per altre informazioni, vedere [Informazioni sull’insieme di credenziali chiave di Azure](../../key-vault/key-vault-overview.md)
+L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure gli utenti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per altre informazioni, vedere [Informazioni sull’insieme di credenziali chiave di Azure](../../key-vault/general/overview.md)
 
 La libreria client di archiviazione utilizza la libreria principale insieme di credenziali chiave per fornire un framework comune in Azure per la gestione delle chiavi. Gli utenti ottengono anche l'ulteriore vantaggio dell'utilizzo della libreria di estensioni dell’insieme di credenziali chiave. La libreria di estensioni fornisce funzionalità utili per provider di chiavi locali e cloud Symmetric/RSA semplici, nonché l'aggregazione e la memorizzazione nella cache.
 
@@ -256,4 +256,4 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 * Scaricare la libreria Maven dell'insieme di credenziali delle chiavi di Azure per i pacchetti Java Maven seguenti:
   * [core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
   * [Pacchetto client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
-* Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-overview.md)
+* Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../../key-vault/general/overview.md)

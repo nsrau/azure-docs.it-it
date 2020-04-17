@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 59b11d22f054a98fe176e4393843606bd01cc872
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 9ae486ee522982b116af58cfb7cbfbca66a7ef4a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879480"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458744"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Come configurare Key Vault per le macchine virtuali con l'interfaccia della riga di comando di Azure
 
-Nello stack di Azure Resource Manager i segreti e i certificati vengono modellati come risorse offerte tramite Key Vault. Per altre informazioni sugli insiemi di credenziali delle chiavi di Azure, vedere [Informazioni sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-overview.md) Per consentire l'uso di Key Vault con le macchine virtuali di Azure Resource Manager è necessario impostare su true la proprietà *EnabledForDeployment* in Key Vault. Questo articolo illustra come configurare Key Vault per l'uso con macchine virtuali di Azure tramite l'interfaccia della riga di comando di Azure. 
+Nello stack di Azure Resource Manager i segreti e i certificati vengono modellati come risorse offerte tramite Key Vault. Per altre informazioni sugli insiemi di credenziali delle chiavi di Azure, vedere [Informazioni sull'insieme di credenziali delle chiavi di Azure](../../key-vault/general/overview.md) Per consentire l'uso di Key Vault con le macchine virtuali di Azure Resource Manager è necessario impostare su true la proprietà *EnabledForDeployment* in Key Vault. Questo articolo illustra come configurare Key Vault per l'uso con macchine virtuali di Azure tramite l'interfaccia della riga di comando di Azure. 
 
 Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index).
 

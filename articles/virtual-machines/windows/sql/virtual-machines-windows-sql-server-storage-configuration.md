@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93f01b3c23e08e7f432841d8a77cbe3602bff1c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243198"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482147"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 
@@ -56,7 +56,7 @@ Inoltre, è possibile impostare la memorizzazione nella cache per i dischi. Le m
 
 La memorizzazione nella cache del disco per SSD Premium può essere *ReadOnly*, *ReadWrite* o *None*. 
 
-- La memorizzazione nella cache ReadOnly è estremamente vantaggiosa per i file di dati di SQL Server archiviati in Archiviazione *Premium.ReadOnly* caching is highly beneficial for SQL Server data files that are stored on Premium Storage. La memorizzazione nella cache *ReadOnly* comporta una bassa latenza di lettura, un'elevata velocità di I/O al secondo di lettura e velocità effettiva man mano che le letture vengono eseguite dalla cache, che os all'interno della memoria della macchina virtuale e dell'Unità SSD locale. Queste letture sono molto più veloci rispetto alle letture dal disco dati, ovvero dall'archiviazione BLOB di Azure.These reads are much faster than reads from data disk, which is from the Azure blob storage. L'archiviazione Premium non conta le letture servite dalla cache verso le operazioni di I/O al secondo e la velocità effettiva del disco. Pertanto, l'applicabile è in grado di ottenere una maggiore velocità effettiva totale di IOPS ant. 
+- La memorizzazione nella cache ReadOnly è estremamente vantaggiosa per i file di dati di SQL Server archiviati in Archiviazione *Premium.ReadOnly* caching is highly beneficial for SQL Server data files that are stored on Premium Storage. La memorizzazione nella cache *ReadOnly* comporta una bassa latenza di lettura, un'elevata velocità di I/O al secondo di lettura e velocità effettiva in quanto le letture vengono eseguite dalla cache, che si trova all'interno della memoria della macchina virtuale e dell'Unità SSD locale. Queste letture sono molto più veloci rispetto alle letture dal disco dati, ovvero dall'archiviazione BLOB di Azure.These reads are much faster than reads from data disk, which is from the Azure blob storage. L'archiviazione Premium non conta le letture servite dalla cache verso le operazioni di I/O al secondo e la velocità effettiva del disco. Pertanto, l'applicabile è in grado di ottenere operazioni di I/O al secondo e velocità effettiva totali più elevate. 
 - *Nessuna* configurazione della cache deve essere utilizzata per i dischi che ospitano il file di log di SQL Server come file di log viene scritto in sequenza e non trae vantaggio dalla memorizzazione nella cache *ReadOnly.* 
 - La memorizzazione nella cache *ReadWrite* non deve essere utilizzata per ospitare i file di SQL Server poiché SQL Server non supporta la coerenza dei dati con la cache *ReadWrite.* Scrive la capacità di spreco della cache BLOB *ReadOnly* e le latenze aumentano leggermente se le scritture passano attraverso i livelli di cache BLOB *ReadOnly.* 
 

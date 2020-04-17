@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 354b0eae1620c49006b350371aae38f8867c18b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07fa72f086b676723279ee4b8efd927beb2692f0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124666"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481978"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrare Analisi di flusso di Azure con Azure Machine Learning (anteprima)Integrate Azure Stream Analytics with Azure Machine Learning (Preview)
 
@@ -31,7 +31,7 @@ Completare i passaggi seguenti prima di aggiungere un modello di Machine Learnin
 
 3. Assicurarsi che il servizio Web accetti e restituisca i dati serializzati JSON.
 
-4. Distribuire il modello nel [servizio Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) per distribuzioni di produzione su larga scala. Se il servizio Web non è in grado di gestire il numero di richieste provenienti dal processo, le prestazioni del processo di Analisi di flusso diminuiranno, con un impatto sulla latenza.
+4. Distribuire il modello nel [servizio Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) per distribuzioni di produzione su larga scala. Se il servizio Web non è in grado di gestire il numero di richieste provenienti dal processo, le prestazioni del processo di Analisi di flusso diminuiranno, con un impatto sulla latenza. I modelli distribuiti nelle istanze del contenitore di Azure non sono attualmente supportati, ma saranno disponibili nei prossimi mesi.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Aggiungere un modello di apprendimento automatico al processoAdd a machine learning model to your job
 

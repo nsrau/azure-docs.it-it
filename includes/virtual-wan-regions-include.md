@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 757367e2b9773908b81ad35615a23b1b5c67aa3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c822e8af076f74e1bccc46b7a71717d9631de0a1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117003"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461902"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>Aree di Azure all'interno di un'area geopoliticaAzure regions within a geopolitical region
 
@@ -42,5 +42,5 @@ La connettività VPN da sito a sito e l'architettura della rete WAN virtuale son
 |Area geopolitica | Aree di Azure|
 |---|---|
 | Cloud del US Gov | US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD (area centrale), US DoD (area orientale) |
-| Cina orientale | Cina orientale, Cina orientale 2|
-| Cina settentrionale | Cina settentrionale, Cina settentrionale 2 |
+| Cina orientale | Cina orientale2|
+| Cina settentrionale | Cina Nord2 |

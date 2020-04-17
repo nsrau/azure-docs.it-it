@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b5d46caa80f3f0aaeeb18bd919dafccf628c5faf
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384916"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461861"
 ---
 Quando si crea una macchina virtuale (VM) di Azure, è necessario creare una [rete virtuale](../articles/virtual-network/virtual-networks-overview.md) o usarne una esistente. È anche necessario decidere come si accederà alle macchine virtuali nella rete virtuale. È importante [pianificare prima di creare risorse](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e comprendere i [limiti delle risorse di rete](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -148,24 +148,7 @@ Questa tabella elenca i metodi che è possibile usare per creare un servizio di 
 
 ### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
 
-Quando si lavora con set di scalabilità di macchine virtuali e bilanciamento del carico, è necessario considerare quanto segue:When working with virtual machine scale sets and load balancer, the following should be considered:
-
-* **Non è possibile usare lo stesso servizio**di bilanciamento del carico con più set di scalabilità di macchine virtuali.
-* Regole NAT di **inoltro delle**porte e in ingresso :
-  * Ogni set di scalabilità di macchine virtuali deve avere una regola NAT in ingresso.
-  * Quando si usa il set di scalabilità della macchina virtuale nel pool back-end del servizio di bilanciamento del carico, le regole NAT in ingresso predefinite vengono create automaticamente, si tratta di regole NAT in ingresso predefinite.
-* **Regole di bilanciamento del carico**:
-  * Quando si usa il set di scalabilità della macchina virtuale nel pool back-end del servizio di bilanciamento del carico, la regola di bilanciamento del carico predefinita viene creata automaticamente, si tratta di una fase predefinita.
-* **Regole in uscita:**
-  *  Per creare una regola in uscita per un pool back-end a cui fa già riferimento una regola di bilanciamento del carico, è necessario contrassegnare prima **"Crea regole in uscita implicite"** come **No** nel portale quando viene creata la regola di bilanciamento del carico in ingresso.
-
-  :::image type="content" source="./media/virtual-machines-common-network-overview/vmsslb.png" alt-text="Creazione della regola di bilanciamento del carico" border="true":::
-
-I metodi seguenti possono essere usati per distribuire un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente.
-
-* Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente usando il portale di [Azure.Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../articles/load-balancer/configure-vm-scale-set-portal.md).
-* Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di [Azure esistente usando Azure PowerShell.Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell.](../articles/load-balancer/configure-vm-scale-set-powershell.md)
-* Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di [Azure esistente usando l'interfaccia della riga di comando di Azure.Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI.](../articles/load-balancer/configure-vm-scale-set-cli.md)
+Per altre informazioni sul servizio di bilanciamento del carico e sui set di scalabilità di macchine virtuali, vedere Set di scalabilità di macchine virtuali di rete per Azure.For more information on load balancer and virtual machine scale sets, see [Networking for Azure virtual machine scale sets.](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)
 
 ## <a name="vms"></a>VM
 

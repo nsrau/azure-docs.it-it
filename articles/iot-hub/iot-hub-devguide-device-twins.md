@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 251c9c9717bae1728bffa48827a45d4535d66c15
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79285240"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482083"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
@@ -58,7 +58,7 @@ Un dispositivo gemello è un documento JSON che include:
 
 * **Proprietà segnalate**. Sono usate insieme alle proprietà desiderate per sincronizzare la configurazione o le condizioni del dispositivo. L'app per dispositivo è in grado di impostare le proprietà segnalate, mentre il back-end della soluzione è in grado di fare delle query.
 
-* **Proprietà dell'identità del dispositivo**. La radice del documento JSON del dispositivo gemello contiene le proprietà di sola lettura dell'identità del dispositivo corrispondente archiviata nel [registro delle identità](iot-hub-devguide-identity-registry.md).
+* **Proprietà dell'identità del dispositivo**. La radice del documento JSON del dispositivo gemello contiene le proprietà di sola lettura dell'identità del dispositivo corrispondente archiviata nel [registro delle identità](iot-hub-devguide-identity-registry.md). Proprietà `connectionStateUpdatedTime` `generationId` e non saranno incluse.
 
 ![Screenshot delle proprietà del dispositivo gemello](./media/iot-hub-devguide-device-twins/twin.png)
 
@@ -399,7 +399,7 @@ In questa esercitazione si è appreso come usare i dispositivi gemelli. Altri ar
 
 * [Informazioni e uso dei moduli gemelli nell'hub IoT](iot-hub-devguide-module-twins.md)
 * [Richiamare un metodo diretto in un dispositivo](iot-hub-devguide-direct-methods.md)
-* [Pianificare processi su più dispositivi](iot-hub-devguide-jobs.md)
+* [Pianificare processi in più dispositivi](iot-hub-devguide-jobs.md)
 
 Per provare alcuni dei concetti descritti in questo articolo, vedere le esercitazioni sull'hub IoT seguenti:
 

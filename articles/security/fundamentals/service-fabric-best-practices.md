@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: befe8945468d220a04ec7f0b515f22159cb72b0f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549241"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461651"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedure consigliate per la sicurezza di Azure Service Fabric
 Distribuire un'applicazione in Azure è veloce, semplice ed economico. Prima di distribuire l'applicazione cloud in produzione, esaminare l'elenco di procedure consigliate essenziali e consigliate per l'implementazione di cluster sicuri nell'applicazione.
@@ -155,7 +155,7 @@ Service Fabric usa certificati per fornire l'autenticazione e la crittografia e 
 
 Service Fabric usa certificati X.509 per proteggere un cluster e offrire le funzionalità di sicurezza dell'applicazione. Azure Key Vault viene impiegato per [gestire i certificati](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) dei cluster di Service Fabric in Azure. Il provider di risorse di Azure che crea i cluster esegue il pull di tutti i certificati da un insieme di credenziali delle chiavi. Il provider installa quindi i certificati nelle macchine virtuali quando il cluster viene distribuito in Azure.
 
-Esiste una relazione di certificati tra [Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md), il cluster di Service Fabric e il provider di risorse che usa i certificati. In fase di creazione del cluster le informazioni sulla relazione di certificati vengono archiviate in un insieme di credenziali delle chiavi.
+Esiste una relazione di certificati tra [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), il cluster di Service Fabric e il provider di risorse che usa i certificati. In fase di creazione del cluster le informazioni sulla relazione di certificati vengono archiviate in un insieme di credenziali delle chiavi.
 
 Per configurare un insieme di credenziali delle chiavi sono disponibili due passaggi di base:
 1. Creare un gruppo di risorse specifico per l'insieme di credenziali delle chiavi.
@@ -166,7 +166,7 @@ Per configurare un insieme di credenziali delle chiavi sono disponibili due pass
 
     L'insieme di credenziali delle chiavi deve essere abilitato per la distribuzione. Il provider di risorse di calcolo può quindi ottenere i certificati dall'insieme di credenziali e installarli nelle istanze di macchine virtuali.
 
-Per altre informazioni su come configurare un insieme di credenziali delle chiavi, vedere [Che cos'è Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Per altre informazioni su come configurare un insieme di credenziali delle chiavi, vedere [Che cos'è Azure Key Vault?](../../key-vault/general/overview.md).
 
 ## <a name="assign-users-to-roles"></a>Assegnare utenti ai ruoli
 Dopo aver creato le applicazioni per rappresentare il cluster, assegnare gli utenti ai ruoli supportati da Service Fabric: di sola lettura e amministratore. È possibile assegnare questi ruoli usando il portale di Azure.You can assign these roles by using the Azure portal.

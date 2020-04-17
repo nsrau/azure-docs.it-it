@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c61ba0840b75bff10af1d802a9b90c922ef1f12f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: adb36e14bb7b772d3e28361bdc48d248bd84f41f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415879"
+ms.locfileid: "81458965"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -73,7 +73,7 @@ Quando si usa l'estensione DSC per registrare un nodo con il servizio Configuraz
 - RegistrationKey - un segreto condiviso utilizzato per registrare i nodi con il servizio
 - NodeConfigurationName - il nome della configurazione del nodo (MOF) da estrarre dal servizio per configurare il ruolo del server
 
-Queste informazioni possono essere visualizzate nel portale di Azure oppure è possibile usare PowerShell.This information can be seen in the [Azure portal](../../automation/automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal) or you can use PowerShell.
+Queste informazioni possono essere visualizzate nel portale di Azure oppure è possibile usare PowerShell.This information can be seen in the Azure portal or you can use PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint

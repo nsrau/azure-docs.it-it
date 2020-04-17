@@ -2,13 +2,13 @@
 title: VMware assessment support in Azure Migrate
 description: Informazioni sul supporto per la valutazione delle macchine virtuali VMware con Azure Migrate Server Assessment.Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/29/2020
-ms.openlocfilehash: e0172656d06075f89a7c3a06e8d4e9be94e6f5d0
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 04/15/2020
+ms.openlocfilehash: 8a09562f14b95256ee9c2b5ba7d9c308cde66397
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389308"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532205"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione VMware 
 
@@ -39,7 +39,7 @@ Oltre a individuare i computer, la valutazione del server può individuare app, 
 **Credenziali vCenter** | L'individuazione delle app richiede un account vCenter Server con accesso in sola lettura e privilegi abilitati per le macchine virtuali > le operazioni Guest.
 **Credenziali della macchina virtualeVM credentials** | L'individuazione delle app supporta attualmente l'uso di una credenziale per tutti i server Windows e di una credenziale per tutti i server Linux.App discovery currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.<br/><br/> Creare un account utente guest per le macchine virtuali Windows e un account utente normale/normale (accesso non sudo) per tutte le macchine virtuali Linux.You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
 **Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera individuare. <br/> La versione degli strumenti VMware deve essere successiva alla 10.2.0.
-**Powershell** | Per le macchine virtuali deve essere installata la versione 2.0 o successiva.
+**PowerShell** | Per le macchine virtuali deve essere installata la versione 2.0 o successiva.
 **Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali che si desidera individuare, l'appliance di Azure Migrate deve essere in grado di connettersi alla porta TCP 443.
 **Limiti** | Per l'individuazione delle app, è possibile individuare fino a 10000 macchine virtuali in ogni appliance di Azure Migrate.For app-discovery, you can discover up to 10000 VMs on each Azure Migrate appliance.
 
@@ -47,7 +47,7 @@ Oltre a individuare i computer, la valutazione del server può individuare app, 
 
 ## <a name="vmware-requirements"></a>Requisiti di VMware
 
-**Vmware** | **Dettagli**
+**VMware** | **Dettagli**
 --- | ---
 **VM VMware** | La valutazione è supportata per tutti i sistemi operativi Windows e Linux.
 **VCenter Server** | Le macchine che si desidera individuazione e valutazione devono essere gestite da vCenter Server versione 5.5, 6.0, 6.5 o 6.7.
@@ -61,7 +61,9 @@ Oltre a individuare i computer, la valutazione del server può individuare app, 
 Azure Migrate usa [l'appliance di Azure Migrate](migrate-appliance.md) per l'individuazione e la valutazione. È possibile distribuire l'appliance come VMWare VMWare usando un modello OVA, importato in vCenter Server o uno script di [PowerShell.](deploy-appliance-script.md)
 
 - Informazioni sui [requisiti dell'appliance](migrate-appliance.md#appliance---vmware) per VMware.
-- Informazioni sugli [URL](migrate-appliance.md#url-access) a cui l'appliance deve accedere.
+- Informazioni sugli URL a cui l'appliance deve accedere nei cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi.](migrate-appliance.md#government-cloud-urls)
+- In Azure per enti pubblici è necessario distribuire l'appliance usando lo script.
+
 
 ## <a name="port-access"></a>Accesso alla porta
 
@@ -86,8 +88,9 @@ Host ESXi (individuazione app/analisi delle dipendenze senza agente) | Se si des
 **Agenti richiesti** | Nessun agente richiesto nei computer che si desidera analizzare.
 **Strumenti VMware** | VMware Tools (successivo alla 10.2) deve essere installato e in esecuzione in ogni macchina virtuale che si vuole analizzare.
 **Credenziali del server vCenter** | La visualizzazione delle dipendenze richiede un account vCenter Server con accesso in sola lettura e privilegi abilitati per le macchine virtuali > le operazioni Guest. 
-**Powershell** | Per le macchine virtuali deve essere installata la versione 2.0 o successiva delle macchine virtuali.
+**PowerShell** | Per le macchine virtuali deve essere installata la versione 2.0 o successiva delle macchine virtuali.
 **Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali che si desidera analizzare, l'appliance di Azure Migrate deve essere in grado di connettersi alla porta TCP 443.
+
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisiti di analisi delle dipendenze basati su agente
 
@@ -97,12 +100,13 @@ Host ESXi (individuazione app/analisi delle dipendenze senza agente) | Se si des
 --- | --- 
 **Prima della distribuzione** | È necessario disporre di un progetto di Azure Migrate, con lo strumento Azure Migrate: Server Assessment aggiunto al progetto.<br/><br/>  Distribuire la visualizzazione delle dipendenze dopo aver impostato un'appliance di Azure Migrate per individuare i computer locali<br/><br/> [Scopri come](create-manage-projects.md) creare un progetto per la prima volta.<br/> [Informazioni su come](how-to-assess.md) aggiungere uno strumento di valutazione a un progetto esistente.<br/> Informazioni su come configurare l'appliance Azure Migrate per la valutazione di [Hyper-V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)o server fisici.
 **Azure Government** | La visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
-**Analisi dei log** | Azure Migrate usa la soluzione [Mappa dei servizi](../operations-management-suite/operations-management-suite-service-map.md) nei log di Monitoraggio di Azure per [la](../log-analytics/log-analytics-overview.md) visualizzazione delle dipendenze.<br/><br/> Associare un'area di lavoro di Log Analytics nuova o esistente a un progetto di Azure Migrate.You associate a new or existing Log Analytics workspace with an Azure Migrate project. L'area di lavoro per un progetto di Azure Migrate non può essere modificata dopo l'aggiunta. <br/><br/> L'area di lavoro deve trovarsi nella stessa sottoscrizione del progetto Azure Migrate.The workspace must be in the same subscription as the Azure Migrate project.<br/><br/> L'area di lavoro deve risiedere nelle aree degli Stati Uniti orientali, del sud-est asiatico o dell'Europa occidentale. Le aree di lavoro in altre aree non possono essere associate a un progetto.<br/><br/> L'area di lavoro deve trovarsi in un'area in cui la mappa del servizio [è supportata.](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)<br/><br/> In Log Analytics, l'area di lavoro associata ad Azure Migrate è contrassegnata con la chiave del progetto di migrazione e il nome del progetto.
+**Log Analytics** | Azure Migrate usa la soluzione [Mappa dei servizi](../operations-management-suite/operations-management-suite-service-map.md) nei log di Monitoraggio di Azure per [la](../log-analytics/log-analytics-overview.md) visualizzazione delle dipendenze.<br/><br/> Associare un'area di lavoro di Log Analytics nuova o esistente a un progetto di Azure Migrate.You associate a new or existing Log Analytics workspace with an Azure Migrate project. L'area di lavoro per un progetto di Azure Migrate non può essere modificata dopo l'aggiunta. <br/><br/> L'area di lavoro deve trovarsi nella stessa sottoscrizione del progetto Azure Migrate.The workspace must be in the same subscription as the Azure Migrate project.<br/><br/> L'area di lavoro deve risiedere nelle aree degli Stati Uniti orientali, del sud-est asiatico o dell'Europa occidentale. Le aree di lavoro in altre aree non possono essere associate a un progetto.<br/><br/> L'area di lavoro deve trovarsi in un'area in cui la mappa del servizio [è supportata.](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)<br/><br/> In Log Analytics, l'area di lavoro associata ad Azure Migrate è contrassegnata con la chiave del progetto di migrazione e il nome del progetto.
 **Agenti richiesti** | In ogni computer che si desidera analizzare, installare i seguenti agenti:<br/><br/> [L'agente di monitoraggio Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/> [L'agente di dipendenza](../azure-monitor/platform/agents-overview.md#dependency-agent).<br/><br/> Se i computer locali non sono connessi a Internet, è necessario scaricare e installare il gateway di Log Analytics su di essi.<br/><br/> Ulteriori informazioni sull'installazione [dell'agente di dipendenza](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) e di [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
-**Area di lavoro di Log Analytics** | L'area di lavoro deve trovarsi nella stessa sottoscrizione del progetto Azure Migrate.The workspace must be in the same subscription as the Azure Migrate project.<br/><br/> Azure Migrate supporta le aree di lavoro che risiedano nelle aree degli Stati Uniti orientali, del sud-est asiatico e dell'Europa occidentale.<br/><br/>  L'area di lavoro deve trovarsi in un'area in cui la mappa del servizio [è supportata.](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites)<br/><br/> L'area di lavoro per un progetto di Azure Migrate non può essere modificata dopo l'aggiunta.
+**Area di lavoro Log Analytics** | L'area di lavoro deve trovarsi nella stessa sottoscrizione del progetto Azure Migrate.The workspace must be in the same subscription as the Azure Migrate project.<br/><br/> Azure Migrate supporta le aree di lavoro che risiedano nelle aree degli Stati Uniti orientali, del sud-est asiatico e dell'Europa occidentale.<br/><br/>  L'area di lavoro deve trovarsi in un'area in cui la mappa del servizio [è supportata.](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites)<br/><br/> L'area di lavoro per un progetto di Azure Migrate non può essere modificata dopo l'aggiunta.
 **Costi** | La soluzione Mappa di servizio non comporta alcun addebito per i primi 180 giorni (dal giorno in cui si associa l'area di lavoro Log Analytics al progetto Di mitele di Azure)/<br/><br/> Dopo 180 giorni verranno applicati gli addebiti standard di Log Analytics.<br/><br/> L'utilizzo di qualsiasi soluzione diversa da Mappa del servizio nell'area di lavoro di Log Analytics associata comporterà costi standard per Log Analytics.Using any solution other than Service Map in the associated Log Analytics workspace will incur [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> All'eliminazione del progetto di Azure Migrate, l'area di lavoro non viene eliminata con il progetto. Dopo l'eliminazione del progetto, l'utilizzo della mappa del servizio non è gratuito e a ogni nodo verrà addebitato il livello a pagamento dell'area di lavoro di Log Analytics/<br/><br/>Se si hanno progetti creati prima della disponibilità generale di Azure Migrate (GA- 28 febbraio 2018), è possibile che siano stati sostenuti costi aggiuntivi per la mappa del servizio. Per garantire il pagamento dopo soli 180 giorni, ti consigliamo di creare un nuovo progetto, poiché le aree di lavoro esistenti prima di GA sono ancora addebitabili.
-**dispositivi mobili** | Quando si registrano gli agenti nell'area di lavoro, si usano l'ID e la chiave forniti dal progetto Azure Migrate.When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.<br/><br/> È possibile usare l'area di lavoro Log Analytics all'esterno di Azure Migrate.<br/><br/> Se si elimina il progetto Azure Migrate associato, l'area di lavoro non viene eliminata automaticamente. [Eliminarlo manualmente](../azure-monitor/platform/manage-access.md).<br/><br/> Non eliminare l'area di lavoro creata da Azure Migrate, a meno che non si elimini il progetto Azure Migrate.Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. In caso contrario, la funzionalità di visualizzazione delle dipendenze non funzionerà come previsto.
+**Gestione** | Quando si registrano gli agenti nell'area di lavoro, si usano l'ID e la chiave forniti dal progetto Azure Migrate.When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.<br/><br/> È possibile usare l'area di lavoro Log Analytics all'esterno di Azure Migrate.<br/><br/> Se si elimina il progetto Azure Migrate associato, l'area di lavoro non viene eliminata automaticamente. [Eliminarlo manualmente](../azure-monitor/platform/manage-access.md).<br/><br/> Non eliminare l'area di lavoro creata da Azure Migrate, a meno che non si elimini il progetto Azure Migrate.Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. In caso contrario, la funzionalità di visualizzazione delle dipendenze non funzionerà come previsto.
 **Connettività Internet** | Se i computer non sono connessi a Internet, è necessario installare il gateway di Log Analytics su di essi.
+**Azure Government** | L'analisi delle dipendenze basata su agente non è supportata.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

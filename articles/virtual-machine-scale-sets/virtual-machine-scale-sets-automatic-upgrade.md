@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393783"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458982"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 
@@ -158,7 +158,7 @@ az provider register --namespace Microsoft.Compute
 - La nuova versione dell'immagine non deve essere esclusa dalla versione più recente dell'immagine della galleria. Le versioni di immagine escluse dalla versione più recente dell'immagine della galleria non vengono implementate nel set di scalabilità tramite l'aggiornamento automatico delle immagini del sistema operativo.
 
 > [!NOTE]
->Possono essere eseguite fino a 2 ore prima che un set di scalabilità otturi la prima implementazione dell'immagine dopo la configurazione del set di scalabilità per gli aggiornamenti automatici del sistema operativo. Si tratta di un ritardo una tantera per ogni set di scalabilità. Le successive implementazioni dell'immagine vengono applicate al set di scalabilità senza questo ritardo.
+>La creazione di un set di scalabilità può richiedere fino a 3 ore per attivare il primo'implementazione dell'aggiornamento dell'immagine dopo la configurazione del set di scalabilità per gli aggiornamenti automatici del sistema operativo. Si tratta di un ritardo una tantera per ogni set di scalabilità. Le successive implementazioni dell'immagine vengono attivate sul set di scalabilità entro 30 minuti.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configurare l'aggiornamento automatico dell'immagine del sistema operativo

@@ -3,12 +3,12 @@ title: Monitorare le modifiche di delega nel tenant di gestioneMonitor delegatio
 description: Informazioni su come monitorare l'attività di delega dai tenant dei clienti al tenant di gestione.
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 322580cc3d0246f7a34e28cdae94da57fda070b5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985151"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458812"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche di delega nel tenant di gestioneMonitor delegation changes in your managing tenant
 
@@ -44,7 +44,7 @@ Poiché si tratta di un ampio livello di accesso, è consigliabile assegnare que
 
 - [Creare un nuovo account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md) da utilizzare solo per questa funzione, anziché assegnare questo ruolo a un'entità servizio esistente usata per altre automazioni.
 - Assicurarsi che questa entità servizio non abbia accesso alle risorse delegate dei clienti.
-- [Usare un certificato per autenticarlo](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e archiviarlo in modo sicuro in Archiviazione delle chiavi di Azure.Use a certificate to authenticate [and store it securely in Azure Key Vault](../../key-vault/key-vault-best-practices.md).
+- [Usare un certificato per autenticarlo](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e archiviarlo in modo sicuro in Archiviazione delle chiavi di Azure.Use a certificate to authenticate [and store it securely in Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limitare gli utenti che hanno accesso per agire per conto dell'entità servizio.
 
 Utilizzare uno dei metodi seguenti per eseguire le assegnazioni dell'ambito radice.

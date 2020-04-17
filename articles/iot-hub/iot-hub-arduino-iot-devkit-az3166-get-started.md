@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 631a20c7bf73aa2af363fdc0019ef24cccc58f9e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 0c7566df870b3c41b1f1dd7d4a4129ff9d9d9407
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258593"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481730"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -175,9 +175,7 @@ Seguire questi passaggi per preparare l'ambiente di sviluppo per DevKit:Follow t
 
     ![Installare Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Oppure usa questo link diretto:
-    > [!div class="nextstepaction"]
-    > [Installare il pacchetto di estensione degli strumenti IoT di AzureInstall Azure IoT Tools extension pack](vscode:extension/vsciot-vscode.azure-iot-tools)
+    Oppure usa questo URL diretto:`vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
     > Il pacchetto di estensione Azure IoT Tools contiene Azure IoT Device Workbench usato per sviluppare ed eseguire il debug in vari dispositivi devkit IoT.The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. [L'estensione dell'hub IoT](https://aka.ms/iot-toolkit)di Azure, inclusa anche nel pacchetto di estensione degli strumenti IoT di Azure, viene usata per gestire e interagire con gli hub IoT di Azure.The Azure IoT Hub extension , also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
@@ -190,7 +188,7 @@ Seguire questi passaggi per preparare l'ambiente di sviluppo per DevKit:Follow t
 
     Aggiungere le seguenti righe per configurare Arduino a seconda della piattaforma: 
 
-    * **Finestre di windows**:
+    * **Windows**:
 
         ```json
         "arduino.path": "C:\\Program Files (x86)\\Arduino",

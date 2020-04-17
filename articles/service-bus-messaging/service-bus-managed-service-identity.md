@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46a1db94d576174b837a40c646fcf9e082e339c8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756284"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461617"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di AzureAuthenticate a managed identity with Azure Active Directory to access Azure Service Bus resources
 Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) offrono una funzionalità per l'intera piattaforma Azure che consente di creare un'identità sicura associata alla distribuzione in cui viene eseguito il codice dell'applicazione. È quindi possibile associare l'identità ai ruoli di controllo di accesso che concedono autorizzazioni personalizzate per l'accesso a risorse di Azure specifiche necessarie per l'applicazione.
@@ -75,10 +75,10 @@ Per ulteriori informazioni sulla modalità di definizione dei ruoli predefiniti,
 ## <a name="enable-managed-identities-on-a-vm"></a>Abilitare le identità gestite su una macchina virtuale
 Prima di poter usare le identità gestite per le risorse di Azure per autorizzare le risorse del bus di servizio dalla macchina virtuale, è necessario abilitare le identità gestite per le risorse di Azure nella macchina virtuale. Per informazioni su come abilitare identità gestite per le risorse di Azure, vedere uno di questi articoli:
 
-- [Portale di Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [Interfaccia della riga di comando di AzureAzure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Modello di Azure Resource ManagerAzure Resource Manager template](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Modello di Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Librerie client di Azure Resource ManagerAzure Resource Manager client libraries](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Concedere autorizzazioni a un'identità gestita in Azure ADGrant permissions to a managed identity in Azure AD
@@ -140,7 +140,7 @@ Per inviare o ricevere messaggi, immettere il nome dello spazio dei nomi e il no
 
 
 > [!NOTE]
-> - L'identità gestita funziona solo all'interno dell'ambiente di Azure, nei servizi app, nelle macchine virtuali di Azure e nei set di scalabilità. Per le applicazioni .NET, la libreria Microsoft.Azure.Services.AppAuthentication, usata dal pacchetto NuGet del bus di servizio, rappresenta un'astrazione di questo protocollo e supporta un'esperienza di sviluppo locale. Questa libreria consente anche di testare il codice in locale nel computer di sviluppo usando l'account utente da Visual Studio, dall'interfaccia della riga di comando di Azure 2.0 o tramite l'autenticazione integrata di Active Directory. Per altre informazioni sulle opzioni di sviluppo locale con questa libreria, vedere [Autenticazione da servizio a servizio ad Azure Key Vault usando .NET](../key-vault/service-to-service-authentication.md).  
+> - L'identità gestita funziona solo all'interno dell'ambiente di Azure, nei servizi app, nelle macchine virtuali di Azure e nei set di scalabilità. Per le applicazioni .NET, la libreria Microsoft.Azure.Services.AppAuthentication, usata dal pacchetto NuGet del bus di servizio, rappresenta un'astrazione di questo protocollo e supporta un'esperienza di sviluppo locale. Questa libreria consente anche di testare il codice in locale nel computer di sviluppo usando l'account utente da Visual Studio, dall'interfaccia della riga di comando di Azure 2.0 o tramite l'autenticazione integrata di Active Directory. Per altre informazioni sulle opzioni di sviluppo locale con questa libreria, vedere [Autenticazione da servizio a servizio ad Azure Key Vault usando .NET](../key-vault/general/service-to-service-authentication.md).  
 > 
 > - Le identità gestite attualmente non funzionano con gli slot di distribuzione del servizio app.
 

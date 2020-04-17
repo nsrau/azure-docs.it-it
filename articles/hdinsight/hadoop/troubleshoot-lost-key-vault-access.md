@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: 2ae389be25cd8633a53a49cf000796c1510733a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76965164"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461532"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scenario: i cluster di Azure HDInsight con crittografia del disco perdono l'accesso all'insieme di credenziali delle chiaviScenario: Azure HDInsight clusters with disk encryption lose Key Vault access
 
@@ -32,7 +32,7 @@ Passare a Apache Ambari UI per trovare ulteriori informazioni sull'avviso da **D
 
 ### <a name="kvaad-outage"></a>Interruzione KV/AA
 
-Esaminare [la disponibilità e la ridondanza](../../key-vault/key-vault-disaster-recovery-guidance.md) di Archiviazione delle chiavi di Azure e la pagina dello stato di Azure per altri dettaglihttps://status.azure.com/
+Esaminare [la disponibilità e la ridondanza](../../key-vault/general/disaster-recovery-guidance.md) di Archiviazione delle chiavi di Azure e la pagina dello stato di Azure per altri dettaglihttps://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>Cancellazione accidentale KV
 

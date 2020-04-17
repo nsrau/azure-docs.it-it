@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 795d21e05ade652b52c06d597ca4c5fef85e7245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ddb4b2cd465b5e9542d777d33b9bd8cb952becd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152833"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531338"
 ---
-# <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempioDeploy the sample labeling tool
+# <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
 
 Lo strumento di etichettatura dell'esempio di riconoscimento dei moduli è un'applicazione che fornisce una semplice interfaccia utente (UI), che è possibile utilizzare per etichettare manualmente i moduli (documenti) allo scopo di un apprendimento supervisionato. In questo articolo, ti forniremo link e istruzioni che ti indicheranno come:
 
@@ -34,14 +34,14 @@ Il modo più rapido per avviare l'etichettatura dei dati consiste nell'eseguire 
 
 Prima di iniziare, è importante notare che esistono due modi per distribuire lo strumento di etichettatura di esempio in un'istanza del contenitore di Azure (ACI). Entrambe le opzioni vengono utilizzate per eseguire lo strumento di etichettatura di esempio con ACI:Both options are used to run the sample labeling tool with ACI: 
 
-* [Uso del portale di AzureUsing the Azure portal](#azure-portal)
+* [Uso del portale di Azure](#azure-portal)
 * [Uso dell'interfaccia della riga di comando di AzureUsing the Azure CLI](#azure-cli)
 
 ### <a name="azure-portal"></a>Portale di Azure
 
 Seguire questi passaggi per creare una nuova risorsa usando il portale di Azure:Follow these steps to create a new resource using the Azure portal: 
 
-1. Accedere al [portale](https://portal.azure.com/signin/index/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/signin/index/).
 2. Selezionare **Crea una risorsa**. 
 3. Selezionare quindi **App Web**. 
 
@@ -76,6 +76,7 @@ Seguire questi passaggi per creare una nuova risorsa usando il portale di Azure:
    * Nome utente (facoltativo): crea un nome utente. 
    * Password (facoltativo): crea una password sicura che ricorderai.
    * Immagine e tag - Impostare questa opzione su`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Distribuzione continua: impostare questa opzione su **Attivato** se si desidera ricevere gli aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di etichettatura di esempio.
    * Comando di avvio - Impostare questa opzione su`./run.sh eula=accept`
 
    > [!div class="mx-imgBorder"]
@@ -120,7 +121,7 @@ az container create \
 
 ## <a name="open-source-on-github"></a>Open source on GitHub
 
-Lo strumento di etichettatura dei moduli OCR è disponibile anche come progetto open source su GitHub. Lo strumento è un'applicazione web compilata utilizzando React e Redux, ed è scritto in TypeScript. Per ulteriori informazioni o per contribuire, consultate Strumento di etichettatura dei moduli [OCR.](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md)
+Lo strumento di etichettatura dei moduli OCR è disponibile anche come progetto open source su GitHub. Si tratta di un'applicazione Web creata con React + Redux e scritta in TypeScript. Per altre informazioni o per contribuire, vedere [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,13 +2,13 @@
 title: Azure Migrate appliance FAQ
 description: Risposte alle domande comuni sull'appliance Azure Migrate.Get answers to common questions about the Azure Migrate appliance.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437604"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529689"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance di Azure Migrate: domande comuniAzure Migrate appliance: Common questions
 
@@ -31,6 +31,15 @@ Ecco altre informazioni sull'appliance di Azure Migrate:Here's more information 
 
 [Ulteriori informazioni](migrate-appliance.md) sull'apparecchio.
 
+## <a name="how-can-i-deploy-the-appliance"></a>Come è possibile distribuire l'appliance?
+
+L'apparecchio può essere distribuito come segue:
+
+- Utilizzo di un modello per le macchine virtuali VMware e le macchine virtuali Hyper-V (modello OVA per VMware o VHD per Hyper-V).
+- Se non si vuole usare un modello o ci si usa Azure per enti pubblici, è possibile distribuire l'appliance per VMware o Hyper-V usando uno script di PowerShell.If you don't want to use a template, or you're in Azure Government, you can deploy the appliance for VMware or Hyper-V using a PowerShell script.
+- Per i server fisici, si distribuisce sempre l'appliance utilizzando uno script.
+
+
 ## <a name="how-does-the-appliance-connect-to-azure"></a>In che modo l'appliance si connette ad Azure?
 
 L'appliance può connettersi tramite Internet o usando Azure ExpressRoute con il peering pubblico/Microsoft.The appliance can connect over the internet or by using Azure ExpressRoute with public/Microsoft peering.
@@ -45,11 +54,8 @@ Quando si usa il modello scaricato per creare la macchina virtuale dell'applianc
 
 ## <a name="what-network-connectivity-is-required"></a>Quale connettività di rete è necessaria?
 
-Vedere gli articoli seguenti per informazioni sui requisiti di connettività di rete per l'appliance di Azure Migrate:See the following articles for information about network connectivity requirements for the Azure Migrate appliance:
 
-- **Valutazione VMware**: [Accesso tramite URL](migrate-appliance.md#url-access) e [accesso alle porte](migrate-support-matrix-vmware.md#port-access)
-- **Migrazione senza agente VMware**: [accesso all'URL](migrate-appliance.md#url-access) e [accesso alle porte](migrate-support-matrix-vmware-migration.md#agentless-ports)
-- **Valutazione Hyper-V**: [accesso tramite URL](migrate-appliance.md#url-access) e [accesso alla porta](migrate-support-matrix-hyper-v.md#port-access)
+L'appliance deve accedere agli URL di Azure.The appliance needs access to Azure URLs. [Esaminare](migrate-appliance.md#url-access) l'elenco DI URL.
 
 ## <a name="what-data-does-the-appliance-collect"></a>Quali dati raccoglie l'apparecchio?
 

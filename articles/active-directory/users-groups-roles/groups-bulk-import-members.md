@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff4234d9fd28e655e868108e37b09c5afe2767c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15960caa55274f06159263c1af4a6c8280e83f4e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72517134"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533479"
 ---
-# <a name="bulk-import-group-members-preview-in-azure-active-directory"></a>Importazione in blocco dei membri del gruppo (anteprima) in Azure Active DirectoryBulk import group members (preview) in Azure Active Directory
+# <a name="bulk-import-group-members-in-azure-active-directory"></a>Importazione in blocco dei membri del gruppo in Azure Active Directory
 
 Usando il portale di Azure Active Directory (Azure AD) è possibile aggiungere un numero elevato di membri a un gruppo usando un file con valori delimitati da virgole (CSV) per importare in blocco i membri del gruppo.
 
@@ -30,7 +30,7 @@ Usando il portale di Azure Active Directory (Azure AD) è possibile aggiungere u
 1. In Azure AD selezionare **Gruppi** > **tutti i gruppi**.
 1. Aprire il gruppo a cui si stanno aggiungendo membri e quindi selezionare **Membri**.
 1. Nella pagina **Membri** selezionare **Importa membri**.
-1. Nella pagina Importa in blocco i membri del **gruppo (anteprima)** selezionare **Scarica** per ottenere il modello di file CSV con le proprietà del membro del gruppo necessarie.
+1. Nella pagina **Importa in blocco** i membri del gruppo selezionare **Scarica** per ottenere il modello di file CSV con le proprietà del membro del gruppo necessarie.
 
     ![Il comando Importa membri si trova nella pagina del profilo del gruppo](./media/groups-bulk-import-members/import-panel.png)
 
@@ -38,16 +38,16 @@ Usando il portale di Azure Active Directory (Azure AD) è possibile aggiungere u
 
    ![Il file CSV contiene i nomi e gli URL per i membri da importare](./media/groups-bulk-import-members/csv-file.png)
 
-1. Nella pagina In blocco dei membri del **gruppo (anteprima),** in **Carica il file CSV,** individuare il file. Quando si seleziona il file, viene avviata la convalida del file CSV.
+1. Nella pagina In blocco dei membri del **gruppo,** in **Carica il file CSV,** individuare il file. Quando si seleziona il file, viene avviata la convalida del file CSV.
 1. Quando il contenuto del file viene convalidato, nella pagina di importazione in blocco viene visualizzato **File caricato correttamente.** Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
 1. Quando il file supera la convalida, selezionare **Invia** per avviare l'operazione in blocco di Azure che importa i membri del gruppo nel gruppo.
 1. Al termine dell'operazione di importazione, verrà visualizzata una notifica che l'operazione in blocco è riuscita.
 
 ## <a name="check-import-status"></a>Controllare lo stato dell'importazione
 
-È possibile visualizzare lo stato di tutte le richieste bulk in sospeso nella pagina **Risultati dell'operazione in blocco (anteprima).**
+È possibile visualizzare lo stato di tutte le richieste bulk in sospeso nella pagina **Risultati dell'operazione** in blocco.
 
-   ![La pagina dei risultati delle operazioni in blocco mostra lo stato della richiesta in blocco](./media/groups-bulk-import-members/bulk-center.png)
+[![](media/groups-bulk-import-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-import-members/bulk-center.png#lightbox)
 
 Per informazioni dettagliate su ogni elemento pubblicitario all'interno dell'operazione in blocco, selezionare i valori nelle colonne **: Operazione riuscita**, **Non riuscita**o **Richieste totali.** Se si verificano errori, verranno elencati i motivi dell'errore.
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299415"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461719"
 ---
 # <a name="design-secure-applications-on-azure"></a>Progettare applicazioni sicure in AzureDesign secure applications on Azure
 In questo articolo vengono presentate le attività di sicurezza e i controlli da considerare quando si progettano applicazioni per il cloud. Sono illustrate le risorse di formazione e le domande sulla sicurezza e i concetti da considerare durante i requisiti e le fasi di progettazione del ciclo di vita dello sviluppo della [sicurezza Microsoft.](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) L'obiettivo è definire le attività e i servizi di Azure che è possibile usare per progettare un'applicazione più sicura.
@@ -242,7 +242,7 @@ Il modo migliore per difendersi da questo tipo di attacco è chiedere all'utente
 
 Perdere chiavi e credenziali è un problema comune. un rischio ben peggiore della perdita di chiavi e credenziali consiste negli accessi non autorizzati. Gli aggressori possono sfruttare le tecniche automatizzate e manuali per trovare chiavi e segreti che vengono memorizzati in archivi di codice come GitHub. Non inserire chiavi e segreti in questi repository di codice pubblico o in qualsiasi altro server.
 
-Inserisci sempre le chiavi, i certificati, i segreti e le stringhe di connessione in una soluzione di gestione delle chiavi. È possibile utilizzare una soluzione centralizzata in cui chiavi e segreti vengono archiviati in moduli di sicurezza hardware (HSM). Azure offre un HSM nel cloud con L'insieme di credenziali delle chiavi di [Azure.Azure](../../key-vault/key-vault-overview.md)provides you with an HSM in the cloud with Azure Key Vault .
+Inserisci sempre le chiavi, i certificati, i segreti e le stringhe di connessione in una soluzione di gestione delle chiavi. È possibile utilizzare una soluzione centralizzata in cui chiavi e segreti vengono archiviati in moduli di sicurezza hardware (HSM). Azure offre un HSM nel cloud con L'insieme di credenziali delle chiavi di [Azure.Azure](../../key-vault/general/overview.md)provides you with an HSM in the cloud with Azure Key Vault .
 
 Key Vault è un *archivio segreto:* è un servizio cloud centralizzato per l'archiviazione dei segreti delle applicazioni. Key Vault mantiene i tuoi dati riservati al sicuro mantenendo i segreti dell'applicazione in un'unica posizione centrale e fornendo accesso sicuro, controllo delle autorizzazioni e registrazione dell'accesso.
 
@@ -273,11 +273,11 @@ Se i dati sono archiviati in un database o se si spostano avanti e indietro tra 
 
 Alcune cose non dovrebbero mai essere hardcoded nel software. Alcuni esempi sono nomi host o indirizzi IP, URL, indirizzi di posta elettronica, nomi utente, password, chiavi dell'account di archiviazione e altre chiavi di crittografia. Valutare la possibilità di implementare requisiti relativi a ciò che può o non può essere hardcoded nel codice, incluse le sezioni di commento del codice.
 
-Quando si inseriscono commenti nel codice, assicurarsi di non salvare le informazioni riservate. Sono inclusi l'indirizzo di posta elettronica, le password, le stringhe di connessione, le informazioni sull'applicazione che verrebbero conosciute solo da un utente dell'organizzazione e qualsiasi altra cosa che potrebbe offrire a un utente malintenzionato un vantaggio nell'attaccare l'applicazione o l'organizzazione .
+Quando si inseriscono commenti nel codice, assicurarsi di non salvare le informazioni riservate. Sono inclusi l'indirizzo di posta elettronica, le password, le stringhe di connessione, le informazioni sull'applicazione che verrebbero conosciute solo da un utente dell'organizzazione e qualsiasi altra cosa che potrebbe offrire a un utente malintenzionato un vantaggio nell'attaccare l'applicazione o l'organizzazione.
 
 Fondamentalmente, si supponga che tutti gli elementi nel progetto di sviluppo saranno di dominio pubblico quando viene distribuito. Evitare di includere dati sensibili di qualsiasi tipo nel progetto.
 
-In precedenza, è stato illustrato [L'insieme di credenziali delle chiavi](../../key-vault/key-vault-overview.md)di Azure.Earlier, we discussed Azure Key Vault . È possibile utilizzare Key Vault per archiviare segreti come chiavi e password invece di codice a livello di codice. Quando si usa l'insieme di credenziali delle chiavi in combinazione con le identità gestite per le risorse di Azure, l'app Web di Azure può accedere ai valori di configurazione dei segreti in modo semplice e sicuro senza archiviare segreti nel controllo del codice sorgente o nella configurazione. Per altre informazioni, vedere Gestire i segreti nelle app server con l'insieme di credenziali delle chiavi di Azure.To learn more, see [Manage secrets in your server apps with Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+In precedenza, è stato illustrato [L'insieme di credenziali delle chiavi](../../key-vault/general/overview.md)di Azure.Earlier, we discussed Azure Key Vault . È possibile utilizzare Key Vault per archiviare segreti come chiavi e password invece di codice a livello di codice. Quando si usa l'insieme di credenziali delle chiavi in combinazione con le identità gestite per le risorse di Azure, l'app Web di Azure può accedere ai valori di configurazione dei segreti in modo semplice e sicuro senza archiviare segreti nel controllo del codice sorgente o nella configurazione. Per altre informazioni, vedere Gestire i segreti nelle app server con l'insieme di credenziali delle chiavi di Azure.To learn more, see [Manage secrets in your server apps with Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Implementare misure di sicurezza per i guasti
 

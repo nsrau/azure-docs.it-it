@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d3e267eab056589ed38c436620dd0db185291da1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425902"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481847"
 ---
 # <a name="multitenant-applications-in-azure"></a>Applicazioni multi-tenant in Azure
 Un'applicazione multi-tenant è una risorsa condivisa che consente agli "utenti in tenant separati" di visualizzare l'applicazione come se fosse propria. Uno scenario tipico che si presta a un'applicazione multi-tenant è quello in cui tutti gli utenti dell'applicazione da tenant diversi possono voler personalizzare l'esperienza utente, ma in caso contrario hanno gli stessi requisiti aziendali di base. Esempi di grandi applicazioni multi-tenant sono Office 365, Outlook.com e visualstudio.com.
@@ -48,15 +48,15 @@ Azure offre molte funzionalità che consentono di risolvere i principali problem
 
 **Isolamento**
 
-* Segmentare i tenant del sito Web in base alle intestazioni host con o senza comunicazione SSL
+* Segmentare i tenant del sito Web in base alle intestazioni host con o senza comunicazione TLS
 * Segmentare i tenant del sito Web in base ai parametri della query
 * Servizi Web nei ruoli di lavoro
   * Ruoli di lavoro che in genere elaborano i dati nel back-end di un'applicazione.
   * Ruoli Web che solitamente fungono da front-end per le applicazioni.
 
-**Archiviazione**
+**Storage**
 
-Gestione dei dati, ad esempio Database SQL di Azure o servizi di archiviazione di Azure, ad esempio il servizio tabelle, che fornisce servizi per l'archiviazione di grandi quantità di dati non strutturati e il servizio BLOB, che fornisce servizi per archiviare grandi quantità di testo non strutturato o dati binari come video, audio e immagini.
+Gestione dei dati, ad esempio Database SQL di Azure o servizi di archiviazione di Azure, ad esempio il servizio tabelle, che fornisce servizi per l'archiviazione di grandi quantità di dati non strutturati e il servizio BLOB, che fornisce servizi per archiviare grandi quantità di dati di testo non strutturati o binari, ad esempio video, audio e immagini.
 
 * Protezione dei dati multitenant negli account di accesso di SQL Server per tenant nel database SQL.Securing Multitenant Data in SQL Database per-tenant SQL Server logins.
 * Usando le tabelle di Azure per le risorse dell'applicazione specificando criteri di accesso a livello di contenitore, è possibile avere la possibilità di modificare le autorizzazioni senza dover rilasciare nuovi URL per le risorse protette con firme di accesso condiviso.
@@ -74,7 +74,7 @@ Azure offre diversi servizi di rete che supportano l'autenticazione e migliorano
 * La rete virtuale di Azure consente di effettuare il provisioning e la gestione delle reti private virtuali (VPN) in Azure e di collegare queste reti in modo sicuro con l'infrastruttura IT locale.
 * Rete virtuale - Gestione traffico consente di bilanciare il carico del traffico in ingresso tra più servizi di Azure ospitati, in esecuzione sia nello stesso data center sia in data center diversi distribuiti in tutto il mondo.
 * Azure Active Directory (Azure AD) è un servizio moderno basato su REST che fornisce funzionalità di gestione dell'identità e controllo di accesso per le applicazioni cloud. L'uso di Azure AD per le risorse dell'applicazione offre un modo semplice per autenticare e autorizzare gli utenti ad accedere alle applicazioni e ai servizi Web, consentendo al contempo di fattorizzare le funzionalità di autenticazione e autorizzazione dal codice.
-* Il bus di servizio di Azure fornisce una funzionalità protetta di messaggistica e flusso dei dati per le applicazioni distribuite e ibride, ad esempio la comunicazione tra le applicazioni ospitate su Azure e le applicazioni e i servizi locali, senza richiedere complesse infrastrutture di sicurezza e firewall. L'utilizzo dell'inoltro del bus di servizio per le risorse dell'applicazione per accedere ai servizi esposti come endpoint può appartenere al tenant (ad esempio, ospitato all'esterno del sistema, ad esempio in locale) oppure è possibile che si esegua il provisioning dei servizi in modo specifico per il tenant (perché dati sensibili e specifici del tenant viaggiano attraverso di essi).
+* Il bus di servizio di Azure fornisce una funzionalità protetta di messaggistica e flusso dei dati per le applicazioni distribuite e ibride, ad esempio la comunicazione tra le applicazioni ospitate su Azure e le applicazioni e i servizi locali, senza richiedere complesse infrastrutture di sicurezza e firewall. L'utilizzo dell'inoltro del bus di servizio per le risorse dell'applicazione per accedere ai servizi esposti come endpoint può appartenere al tenant (ad esempio, ospitato all'esterno del sistema, ad esempio in locale) oppure è possibile che venga eseguito il provisioning dei servizi in modo specifico per il tenant (perché i dati sensibili specifici del tenant viaggiano tra di essi).
 
 **Provisioning delle risorse**
 

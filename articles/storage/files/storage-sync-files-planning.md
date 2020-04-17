@@ -7,21 +7,31 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8666f51b88d2a70a2cb27e3606f24010771c8017
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255119"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460707"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
-[File](storage-files-introduction.md) di Azure possono essere distribuiti in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando Sincronizzazione file di Azure.Azure Files can be deployed in two main ways: by mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync. L'opzione di distribuzione scelta consente di modificare gli aspetti da considerare durante la pianificazione della distribuzione. 
+
+:::row:::
+    :::column:::
+        [![Intervista e demo che presenta Azure File Sync - clicca per giocare!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
+    :::column-end:::
+    :::column:::
+        Sincronizzazione file di Azure è un servizio che consente di memorizzare nella cache un numero di condivisioni file di Azure in una macchina virtuale cloud o Windows Server locale. 
+        
+        Questo articolo illustra le funzionalità e i concetti di Sincronizzazione file di Azure.This article introduces you to Azure File Sync concepts and features. Quando si ha familiarità con Sincronizzazione file di Azure, è consigliabile seguire la guida alla distribuzione di [Sincronizzazione file](storage-sync-files-deployment-guide.md) di Azure per provare questo servizio.        
+    :::column-end:::
+:::row-end:::
+
+I file verranno archiviati nel cloud in [condivisioni file](storage-files-introduction.md)di Azure. Le condivisioni file di Azure possono essere usate in due modi: montando direttamente queste condivisioni file di Azure senza server (SMB) o memorizzando nella cache le condivisioni file di Azure in locale usando Sincronizzazione file di Azure.Azure file shares can be used in two ways: by mounting these serverless Azure file shares (SMB) or by caching Azure file shares on-premises using Azure File Sync. L'opzione di distribuzione scelta modifica gli aspetti da considerare durante la pianificazione della distribuzione. 
 
 - **Montaggio diretto di una condivisione file di Azure:** poiché File di Azure fornisce l'accesso SMB, è possibile montare le condivisioni file di Azure in locale o nel cloud usando il client SMB standard disponibile in Windows, macOS e Linux.Direct mount of an Azure file share : Since Azure Files provides SMB access, you can mount Azure file shares on-premises or in the cloud using the standard SMB client available in Windows, macOS, and Linux. Poiché le condivisioni file di Azure sono senza server, la distribuzione per gli scenari di produzione non richiede la gestione di un file server o di un dispositivo NAS. Ciò significa che non è necessario applicare patch software o scambiare i dischi fisici. 
 
 - **Memorizzare nella cache**la condivisione file di Azure in locale con Sincronizzazione file di Azure: Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure, mantenendo la flessibilità, le prestazioni e la compatibilità di un file server locale. Sincronizzazione file di Azure trasforma un server Windows Server locale (o cloud) in una cache rapida della condivisione file di Azure.Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your Azure file share. 
-
-Questo articolo affronta principalmente le considerazioni sulla distribuzione per la distribuzione di Sincronizzazione file di Azure.This article primari addresses deployment considerations for deploying Azure File Sync. Per pianificare che una distribuzione di condivisioni file di Azure venga montata direttamente da un client locale o cloud, vedere Pianificazione di una distribuzione di File di Azure.To plan for a deployment of Azure file shares to be directly mounted by an on-premises or cloud client, see [Planning for an Azure Files deployment.](storage-files-planning.md)
 
 ## <a name="management-concepts"></a>Concetti relativi alla gestione
 Una distribuzione di Sincronizzazione file di Azure ha tre oggetti di gestione fondamentali:An Azure File Sync deployment has three fundamental management objects:
@@ -256,7 +266,7 @@ Esistono due strategie per crittografare i dati in Windows Server che funzionano
 
 Per fornire la crittografia sotto il file system, Windows Server fornisce la posta in arrivo di BitLocker. BitLocker is fully transparent to Azure File Sync. Il motivo principale per utilizzare un meccanismo di crittografia come BitLocker consiste nell'impedire l'esfiltrazione fisica dei dati dal data center locale da parte di un utente che ruba i dischi e di impedire il sideload di un sistema operativo non autorizzato per eseguire letture/scritture non autorizzate nei dati. Per ulteriori informazioni su BitLocker, vedere [Cenni preliminari](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview)su BitLocker .
 
-I prodotti di terze parti che funzionano in modo simile a BitLocker, in quanto si trovano al di sotto del volume NTFS, dovrebbero funzionare in modo completamente trasparente con Sincronizzazione file di Azure.Third party products which work similarly to BitLocker, in that they sit beneath the NTFS volume, should similarly work fully transparently with Azure File Sync. 
+I prodotti di terze parti che funzionano in modo simile a BitLocker, in quanto si trovano al di sotto del volume NTFS, dovrebbero funzionare in modo completamente trasparente con Sincronizzazione file di Azure.Third-party products which work similarly to BitLocker, in that they sit beneath the NTFS volume, should similarly work fully transparently with Azure File Sync. 
 
 L'altro metodo principale per crittografare i dati consiste nel crittografare il flusso di dati del file quando l'applicazione salva il file. Alcune applicazioni possono eseguire questa operazione in modo nativo, tuttavia questo non è in genere il caso. Un esempio di metodo per crittografare il flusso di dati del file è Azure Information Protection (AIP)/Azure Rights Management Services (Azure RMS)/Active Directory RMS. Il motivo principale per utilizzare un meccanismo di crittografia come AIP/RMS consiste nell'impedire l'esfiltrazione dei dati dalla condivisione file da parte di utenti che li copiano in percorsi alternativi, ad esempio in un'unità flash o inviandoli tramite posta elettronica a una persona non autorizzata. Quando il flusso di dati di un file viene crittografato come parte del formato di file, questo file continuerà a essere crittografato nella condivisione file di Azure.When a file's data stream is encrypted as part of the file format, this file will continue to be encrypted on the Azure file share. 
 
@@ -370,7 +380,7 @@ Se si usa una soluzione di backup locale, i backup devono essere eseguiti in un 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md)
-* [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
-* [Come distribuire i file di Azure](storage-files-deployment-guide.md)
-* [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+* [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md)
+* [Distribuire i file di Azure](storage-files-deployment-guide.md)
+* [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 * [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)

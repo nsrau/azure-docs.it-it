@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7d8d1505a268976161636abd0ed2d24398978284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4186a4ed369eb289360b74c0758e5ce3f7eca929
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75374303"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482166"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Cos'è SQL Server in Macchine virtuali di Azure? (Windows)
 
@@ -38,6 +38,9 @@ Le VM di SQL Server Azure possono usare l'[applicazione automatica delle patch](
 ## <a name="automated-backups"></a>Backup automatizzati
 
 Le VM di SQL Server Azure possono sfruttare il [backup automatico](virtual-machines-windows-sql-automated-backup-v2.md), che crea periodicamente backup del database nell'archiviazione BLOB. È anche possibile usare questa tecnica manualmente. Per altre informazioni, vedere [Usare Archiviazione di Azure per il backup e il ripristino di SQL Server](virtual-machines-windows-use-storage-sql-server-backup-restore.md).
+
+Azure also offers an enterprise-class backup solution for SQL Server running in Azure VMs. Una soluzione di backup completamente gestita supporta i gruppi di disponibilità Always On, la conservazione a lungo termine, il ripristino temporizzato e la gestione e il monitoraggio centralizzati. Per altre informazioni, vedere Backup di Azure per SQL Server nella macchina virtuale di Azure.For more information, see [Azure Backup for SQL Server in Azure VM.](https://docs.microsoft.com/azure/backup/backup-azure-sql-database)
+  
 
 ## <a name="high-availability"></a>Disponibilità elevata
 

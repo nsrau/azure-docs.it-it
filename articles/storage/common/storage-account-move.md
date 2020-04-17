@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73838714"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459033"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Spostare un account di archiviazione di Azure in un'altra area
 
@@ -51,7 +51,7 @@ Questo modello contiene le impostazioni che descrivono l'account di archiviazion
 
 Per esportare un modello tramite il portale di Azure:To export a template by using Azure portal:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Selezionare **Tutte le risorse** e quindi selezionare l'account di archiviazione.
 
@@ -63,7 +63,7 @@ Per esportare un modello tramite il portale di Azure:To export a template by usi
 
    Questo file zip contiene i file .json che costituiscono il modello e gli script per distribuire il modello.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per esportare un modello tramite PowerShell:To export a template by using PowerShell:
 
@@ -109,7 +109,7 @@ Per distribuire il modello tramite il portale di Azure:To deploy the template by
 
     ![Raccolta di modelli di Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 
@@ -139,7 +139,7 @@ Per distribuire il modello tramite il portale di Azure:To deploy the template by
     ```
     Per ottenere i codici di ubicazione, vedere [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per una regione è il nome dell'area senza spazi, **Central US** = **centralus**.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per distribuire il modello tramite PowerShell:To deploy the template by using PowerShell:
 
@@ -194,7 +194,7 @@ Distribuire il modello per creare un nuovo account di archiviazione nell'area di
 
 3. Fare clic sulla casella di controllo **Accetto i termini e le condizioni sopra indicati,** quindi fare clic sul pulsante **Seleziona acquisto.**
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Ottenere l'ID sottoscrizione in cui si vuole distribuire l'indirizzo IP pubblico di destinazione con [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
 
@@ -274,9 +274,9 @@ Per rimuovere un account di archiviazione tramite il portale di Azure:To remove 
 
 3. Selezionare **Elimina**e confermare.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Per rimuovere il gruppo di risorse e le risorse associate, incluso il nuovo account di archiviazione, usare il comando [Remove-AzStorageAccount:To](/powershell/module/az.resources/remove-azstorageaccount) remove the resource group and its associated resources, including the new storage account, use the Remove-AzStorageAccount command:
+Per rimuovere il gruppo di risorse e le risorse associate, incluso il nuovo account di archiviazione, usare il comando [Remove-AzStorageAccount:To](/powershell/module/az.storage/remove-azstorageaccount) remove the resource group and its associated resources, including the new storage account, use the Remove-AzStorageAccount command:
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount

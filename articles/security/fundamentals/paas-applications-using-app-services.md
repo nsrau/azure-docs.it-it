@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: c3f3c7fbaa043a03b70ab770c06e493716c70daf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500289"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461668"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Servizio app di Azure
 
@@ -36,7 +36,7 @@ Il servizio app fornisce un servizio OAuth 2.0 per il provider di identità. OAu
 La limitazione degli accessi è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati. Usare il controllo degli accessi in base al ruolo per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito, ad esempio la necessità di conoscere e privilegiare i principi di sicurezza. Per altre informazioni sulla concessione agli utenti dell'accesso alle applicazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](/azure/role-based-access-control/overview)
 
 ## <a name="protect-your-keys"></a>Proteggere le chiavi.
-Non importa quanto è valida la sicurezza impostata se si perdono le chiavi di sottoscrizione. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con Key Vault è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware. È anche possibile utilizzare Azure Key Vault per gestire i certificati TLS con il rinnovo automatico. Per altre informazioni, vedere [Che cos'è Azure Key Vault?](../../key-vault/key-vault-overview.md)
+Non importa quanto è valida la sicurezza impostata se si perdono le chiavi di sottoscrizione. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con Key Vault è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware. È anche possibile utilizzare Azure Key Vault per gestire i certificati TLS con il rinnovo automatico. Per altre informazioni, vedere [Che cos'è Azure Key Vault?](../../key-vault/general/overview.md)
 
 ## <a name="restrict-incoming-source-ip-addresses"></a>Limitare gli indirizzi IP di origine in ingresso
 [Ambiente del servizio app](../../app-service/environment/intro.md) ha una funzionalità di integrazione di rete virtuale che consente di limitare gli indirizzi IP di origine in ingresso tramite gruppi di sicurezza di rete (NSG). Se non si ha familiarità con le reti virtuali di Azure (VNET), si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet di cui si controlla l'accesso. Per altre informazioni, vedere [Integrare l'app con](../../app-service/web-sites-integrate-with-vnet.md)una rete virtuale di Azure.To learn more, see Integrate your app with an Azure Virtual Network .

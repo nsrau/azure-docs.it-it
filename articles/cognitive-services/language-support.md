@@ -10,56 +10,60 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4944fd36359f35ff516aa149b357a7cda042fdae
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477055"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530972"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Supporto per le lingue naturali per i servizi cognitivi di Azure
 
 Servizi cognitivi di Azure consentono di creare applicazioni che visualizzano, ascoltano, parlano con e comprendono gli utenti. Tra questi servizi sono supportate più di trenta lingue, consentendo agli utenti di comunicare con l'applicazione in modi naturali. Utilizzare i collegamenti seguenti per visualizzare la disponibilità della lingua in base al servizio.
 
-Questi servizi cognitivi sono indipendenti dalla lingua e non hanno limitazioni basate sulla lingua.
+Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazioni basate sul linguaggio umano.
 
-* [Personalizza esperienze](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
-* [Rilevamento anomalie (anteprima)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
+* [Rilevamento anomalie (anteprima)](./anomaly-detector/index.yml)
+* [Servizio visione artificiale personalizzato](./Custom-Vision-Service/index.yml)
+* [Viso](./face/index.yml)
+* [Personalizza esperienze](./personalizer/index.yml)
 
 ## <a name="vision"></a>Visione
 
-* [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
-* [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
-* [Riconoscimento input penna](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/language-support)
-## <a name="speech"></a>Sintesi vocale
-
-* [Riconoscimento vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/customspeech-how-to-topics/cognitive-services-custom-speech-change-locale)
-* [Servizio vocale: Riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-to-text)
-* [Servizio vocale: Riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech)
-* [Servizio di riconoscimento vocale: Traduzione vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-translation)
+* [Visione artificiale](./computer-vision/language-support.md)
+* [Riconoscimento modulo (anteprima)](./form-recognizer/language-support.md)
+* [Riconoscimento input penna (anteprima)](./ink-recognizer/language-support.md)
+* [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
 ## <a name="language"></a>Linguaggio
 
-* [Controllo ortografico Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
-* [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
-* [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
-* [Traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
-* [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)
+* [Strumento di lettura immersiva (anteprima)](./immersive-reader/language-support.md)
+* [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
+* [QnA Maker](./qnamaker/overview/languages-supported.md)
+* [Text Analytics](./text-analytics/text-analytics-supported-languages.md)
+* [Traduzione testuale](./translator/languages.md)
 
-## <a name="search"></a>Cerca
+## <a name="speech"></a>Sintesi vocale
 
-* [Ricerca Web Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets)
-* [Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
-* [Ricerca notizie Bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/supported-countries-markets)
-* [Suggerimenti automatici Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages)
-* [Ricerca visiva Bing](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/supported-countries-markets)
-* [Ricerca personalizzata Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/supported-countries-markets)
+* [Servizio vocale: Riconoscimento vocale](./speech-service/supported-languages.md#speech-to-text)
+* [Servizio vocale: Riconoscimento vocale](./speech-service/supported-languages.md#text-to-speech)
+* [Servizio di riconoscimento vocale: Traduzione vocale](./speech-service/supported-languages.md#speech-translation)
+
+## <a name="search"></a>Ricerca
+
+* [Ricerca personalizzata Bing](./bing-custom-search/supported-countries-markets.md)
+* [Ricerca immagini Bing](./bing-image-search/supported-countries-markets.md)
+* [Ricerca notizie Bing](./bing-news-search/supported-countries-markets.md)
+* [Suggerimenti automatici Bing](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
+* [Controllo ortografico Bing](./bing-spell-check/bing-spell-check-supported-languages.md)
+* [Ricerca visiva Bing](./bing-visual-search/supported-countries-markets.md)
+* [Ricerca Web Bing](./bing-web-search/supported-countries-markets.md)
 
 ## <a name="decision"></a>Decisione
 
-* [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
+* [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Che cosa sono i servizi cognitivi?](welcome.md)
+* [Cosa sono i Servizi cognitivi?](welcome.md)
 * [Creare un account](cognitive-services-apis-create-account.md)

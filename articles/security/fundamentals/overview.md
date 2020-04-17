@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a7957c7cbcfa511ea441d8c7bd4371f56ab87560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545978"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461685"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Panoramica
@@ -295,7 +295,7 @@ Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali
 Con Azure IaaS è possibile usare software antimalware di fornitori di soluzioni di sicurezza come Microsoft, Symantec, Trend Micro, McAfee e Kaspersky per proteggere le macchine virtuali da file dannosi, adware e altre minacce. [Microsoft Antimalware](antimalware.md) per Servizi cloud e Macchine virtuali di Azure è una funzionalità di protezione che consente di identificare e rimuovere virus, spyware e altro software dannoso. Microsoft Antimalware offre avvisi configurabili quando software dannoso o indesiderato tenta l'installazione o l'esecuzione nei sistemi di Azure. Microsoft Antimalware può anche essere distribuito usando il Centro sicurezza di Azure.
 
 ### <a name="hardware-security-module"></a>Modulo di protezione hardware
-La crittografia e l'autenticazione non migliorano la sicurezza a meno che le chiavi stesse non siano protette. È possibile semplificare la gestione e la sicurezza dei segreti e delle chiavi critici archiviandoli in [Azure Key Vault](../../key-vault/key-vault-overview.md). Key Vault consente di archiviare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 livello 2. Le chiavi di crittografia di SQL Server per backup o [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) possono essere tutte archiviate nell'insieme di credenziali delle chiavi con qualsiasi chiave o segreto delle applicazioni. Le autorizzazioni e l'accesso per questi elementi protetti vengono gestiti tramite [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+La crittografia e l'autenticazione non migliorano la sicurezza a meno che le chiavi stesse non siano protette. È possibile semplificare la gestione e la sicurezza dei segreti e delle chiavi critici archiviandoli in [Azure Key Vault](../../key-vault/general/overview.md). Key Vault consente di archiviare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 livello 2. Le chiavi di crittografia di SQL Server per backup o [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) possono essere tutte archiviate nell'insieme di credenziali delle chiavi con qualsiasi chiave o segreto delle applicazioni. Le autorizzazioni e l'accesso per questi elementi protetti vengono gestiti tramite [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ### <a name="virtual-machine-backup"></a>Backup di una macchina virtuale
 [Backup di Azure](../../backup/backup-overview.md) è una soluzione che protegge i dati delle applicazioni senza investimenti di capitale e con costi operativi minimi. Gli errori delle applicazioni possono danneggiare i dati e gli errori umani possono introdurre nelle applicazioni bug che potrebbero causare problemi di sicurezza. Con Backup di Azure, le macchine virtuali che eseguono Windows e Linux sono protette.

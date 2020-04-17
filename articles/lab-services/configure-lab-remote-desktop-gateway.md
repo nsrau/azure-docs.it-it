@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529412"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460988"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurare il lab in Azure DevTest Labs per l'uso di un gateway di desktop remotoConfigure your lab in Azure DevTest Labs to use a remote desktop gateway
 In Laboratori DevTest di Azure è possibile configurare un gateway desktop remoto per il lab per garantire l'accesso sicuro alle macchine virtuali lab (VM) senza dover esporre la porta RDP. Il lab offre agli utenti del lab una posizione centrale in cui gli utenti del lab possono visualizzare e connettersi a tutte le macchine virtuali a cui hanno accesso. Il pulsante **Connetti** nella pagina **Macchina virtuale** crea un file RDP specifico del computer che è possibile aprire per connettersi al computer. È possibile personalizzare e proteggere ulteriormente la connessione RDP connettendo il lab a un gateway di desktop remoto. 
@@ -64,7 +64,7 @@ La funzione di Azure `https://{function-app-uri}/app/host/{lab-machine-name}/por
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configurare il lab per l'utilizzo dell'autenticazione tokenConfigure the lab to use token authentication 
 In questa sezione viene illustrato come configurare un lab per l'utilizzo di un computer gateway desktop remoto che supporta l'autenticazione token. In questa sezione non viene illustrato come configurare una farm gateway desktop remoto. Per ulteriori informazioni, vedere la sezione [Esempio per creare un gateway di desktop remoto](#sample-to-create-a-remote-desktop-gateway) alla fine di questo articolo. 
 
-Prima di aggiornare le impostazioni lab, archiviare la chiave necessaria per eseguire correttamente la funzione per restituire un token di autenticazione nell'insieme di credenziali delle chiavi del lab. È possibile ottenere il valore del tasto funzione nella pagina Gestisci per la funzione nel portale di Azure.You can get the function key value in the **Manage** page for the function in the Azure portal. Per ulteriori informazioni su come salvare un segreto in un insieme di credenziali delle chiavi, vedere [Aggiungere un segreto all'insieme di](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault)credenziali delle chiavi . Salvare il nome del segreto per un uso successivo.
+Prima di aggiornare le impostazioni lab, archiviare la chiave necessaria per eseguire correttamente la funzione per restituire un token di autenticazione nell'insieme di credenziali delle chiavi del lab. È possibile ottenere il valore del tasto funzione nella pagina Gestisci per la funzione nel portale di Azure.You can get the function key value in the **Manage** page for the function in the Azure portal. Per ulteriori informazioni su come salvare un segreto in un insieme di credenziali delle chiavi, vedere [Aggiungere un segreto all'insieme di](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)credenziali delle chiavi . Salvare il nome del segreto per un uso successivo.
 
 Per trovare l'ID dell'insieme di credenziali delle chiavi del lab, eseguire il comando dell'interfaccia della riga di comando di Azure seguente:To find the ID of the lab's key vault, run the following Azure CLI command: 
 

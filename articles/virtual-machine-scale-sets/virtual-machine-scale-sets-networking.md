@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
-ms.openlocfilehash: 9f048c7d89da0ab75c321cd8e3932ea97c7ed09c
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: efe3a39008361fdf76d80a0c8e7e2e30b061117d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310024"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461353"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rete per i set di scalabilità di macchine virtuali di Azure
 
@@ -41,42 +41,27 @@ La rete accelerata di Azure migliora le prestazioni di rete abilitando Single-Ro
 }
 ```
 
-## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Creare un set di scalabilità che faccia riferimento a un'istanza di Azure Load Balancer esistente
-Quando viene creato un set di scalabilità usando il portale di Azure, viene creato un nuovo servizio di bilanciamento del carico per la maggior parte delle opzioni di configurazione. Se si crea un set di scalabilità, che deve fare riferimento a un servizio di bilanciamento del carico esistente, è possibile eseguire questa operazione tramite l'interfaccia della riga di comando. Lo script di esempio seguente crea un servizio di bilanciamento del carico e quindi crea un set di scalabilità che vi fa riferimento:
+## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Azure virtual machine scale sets with Azure Load Balancer
 
-```azurecli
-az network lb create \
-    -g lbtest \
-    -n mylb \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --public-ip-address-allocation Static \
-    --backend-pool-name mybackendpool
+Quando si lavora con set di scalabilità di macchine virtuali e bilanciamento del carico, è necessario considerare quanto segue:When working with virtual machine scale sets and load balancer, the following should be considered:
 
-az vmss create \
-    -g lbtest \
-    -n myvmss \
-    --image Canonical:UbuntuServer:16.04-LTS:latest \
-    --admin-username negat \
-    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
-    --upgrade-policy-mode Automatic \
-    --instance-count 3 \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --lb mylb \
-    --backend-pool-name mybackendpool
-```
+* **Non è possibile usare lo stesso servizio**di bilanciamento del carico con più set di scalabilità di macchine virtuali.
+* Regole NAT di **inoltro delle**porte e in ingresso :
+  * Ogni set di scalabilità di macchine virtuali deve avere una regola NAT in ingresso.
+  * Dopo la creazione del set di scalabilità, la porta back-end non può essere modificata per una regola di bilanciamento del carico usata da un probe di integrità del servizio di bilanciamento del carico. Per modificare la porta, è possibile rimuovere il probe di integrità aggiornando il set di scalabilità della macchina virtuale di Azure, aggiornare la porta e quindi configurare nuovamente il probe di integrità.
+  * Quando si usa il set di scalabilità della macchina virtuale nel pool back-end del servizio di bilanciamento del carico, le regole NAT in ingresso predefinite vengono create automaticamente.
+* **Regole di bilanciamento del carico**:
+  * Quando si usa il set di scalabilità della macchina virtuale nel pool back-end del servizio di bilanciamento del carico, la regola di bilanciamento del carico predefinita viene creata automaticamente.
+* **Regole in uscita:**
+  *  Per creare una regola in uscita per un pool back-end a cui fa già riferimento una regola di bilanciamento del carico, è necessario contrassegnare prima **"Crea regole in uscita implicite"** come **No** nel portale quando viene creata la regola di bilanciamento del carico in ingresso.
 
->[!NOTE]
-> Dopo la creazione del set di scalabilità, la porta back-end non può essere modificata per una regola di bilanciamento del carico usata da un probe di integrità del servizio di bilanciamento del carico. Per modificare la porta, è possibile rimuovere il probe di integrità aggiornando il set di scalabilità della macchina virtuale di Azure, aggiornare la porta e quindi configurare nuovamente il probe di integrità. 
-
-Per altre informazioni sul servizio di bilanciamento del carico e sui set di scalabilità di macchine virtuali, vedere Reti virtuali e macchine virtuali in Azure.For more information on load balancer and virtual machine scale sets, see [Virtual networks and virtual machines in Azure.](../../articles/virtual-machines/windows/network-overview.md)
+  :::image type="content" source="./media/vmsslb.png" alt-text="Creazione della regola di bilanciamento del carico" border="true":::
 
 I metodi seguenti possono essere usati per distribuire un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente.
 
-* Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente usando il portale di [Azure.Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../../articles/load-balancer/configure-vm-scale-set-portal.md).
-* Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di [Azure esistente usando Azure PowerShell.Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell.](../../articles/load-balancer/configure-vm-scale-set-powershell.md)
-* Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di [Azure esistente usando l'interfaccia della riga di comando di Azure.Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI.](../../articles/load-balancer/configure-vm-scale-set-cli.md)
+* Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente usando il portale di [Azure.Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
+* Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di [Azure esistente usando Azure PowerShell.Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell.](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell)
+* Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di [Azure esistente usando l'interfaccia della riga di comando di Azure.Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI.](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli)
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Creare un set di scalabilità che fa riferimento a un gateway applicazione
 Per creare un set di scalabilità che usa un gateway applicazione, fare riferimento al pool di indirizzi back-end del gateway applicazione nella sezione Configurazioni IP del set di scalabilità, come in questa configurazione ARM modello:

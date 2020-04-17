@@ -4,18 +4,18 @@ description: Informazioni sulla crittografia a riposo del registro dei contenito
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5561998cf0b19698c8059a861a4014a171a7e7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498957"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461753"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Crittografia con chiavi gestite dal cliente
 
 Quando si archiviano immagini e altri elementi in un registro contenitori di Azure, Azure crittografa automaticamente il contenuto del Registro di sistema inattivi con [chiavi gestite dal servizio.](../security/fundamentals/encryption-atrest.md#data-encryption-models) You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. Questo articolo illustra i passaggi usando l'interfaccia della riga di comando di Azure e il portale di Azure.This article walks you through the steps using the Azure CLI and the Azure portal.
 
-La crittografia lato server con chiavi gestite dal cliente è supportata tramite l'integrazione con [Azure Key Vault](../key-vault/key-vault-overview.md). È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi di crittografia. Con l'insieme di credenziali delle chiavi di Azure è anche possibile controllare l'utilizzo delle chiavi.
+La crittografia lato server con chiavi gestite dal cliente è supportata tramite l'integrazione con [Azure Key Vault](../key-vault/general/overview.md). È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi di crittografia. Con l'insieme di credenziali delle chiavi di Azure è anche possibile controllare l'utilizzo delle chiavi.
 
 Questa funzionalità è disponibile nel livello del servizio registro contenitore **Premium.This** feature is available in the Premium container registry service tier. Per informazioni sui limiti e i livelli del servizio Registro di sistema, vedere SKU del [Registro di sistema del contenitore di Azure.For](container-registry-skus.md)information about registry service tiers and limits, see Azure Container Registry SKUs .
 
@@ -32,7 +32,7 @@ Questa funzionalità è disponibile nel livello del servizio registro contenitor
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare i passaggi dell'interfaccia della riga di comando di Azure in questo articolo, è necessaria l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
+Per usare i passaggi dell'interfaccia della riga di comando di Azure in questo articolo, è necessaria l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="enable-customer-managed-key---cli"></a>Abilitare la chiave gestita dal cliente - CLIEnable customer-managed key - CLI
 
@@ -176,7 +176,7 @@ Prendere nota del **nome della risorsa** dell'identità gestita. Questo nome è 
 
 ### <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Per la procedura di creazione di un insieme di credenziali delle chiavi, vedere [Guida introduttiva: Impostare e recuperare un segreto dall'insieme](../key-vault/quick-create-portal.md)di credenziali delle chiavi di Azure usando il portale di Azure.For steps to create a key vault, see Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal.
+Per la procedura di creazione di un insieme di credenziali delle chiavi, vedere [Guida introduttiva: Impostare e recuperare un segreto dall'insieme](../key-vault/secrets/quick-create-portal.md)di credenziali delle chiavi di Azure usando il portale di Azure.For steps to create a key vault, see Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal.
 
 Quando si crea un insieme di credenziali delle chiavi per una chiave gestita dal cliente, nella scheda **Nozioni di base** è necessario abilitare le seguenti impostazioni di protezione: **Protezione temporanea** ed **Eliminazione**protezione . Queste impostazioni consentono di evitare la perdita accidentale di dati o di credenziali delle chiavi.
 
@@ -392,7 +392,7 @@ La revoca della chiave blocca in modo efficace l'accesso a tutti i dati del Regi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sulla [crittografia inattivi in Azure](../security/fundamentals/encryption-atrest.md).Learn more about encryption at rest in Azure .
-* Ulteriori informazioni sui criteri di accesso e su come [proteggere l'accesso a un insieme di credenziali delle chiavi.](../key-vault/key-vault-secure-your-key-vault.md)
+* Ulteriori informazioni sui criteri di accesso e su come [proteggere l'accesso a un insieme di credenziali delle chiavi.](../key-vault/general/secure-your-key-vault.md)
 * Per fornire commenti e suggerimenti sulle chiavi gestite dal cliente per il Registro di sistema del contenitore di Azure, visitare il [sito ACR GitHub](https://aka.ms/acr/issues).
 
 

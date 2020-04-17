@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c6455930f88d02e11cb0c45d29594ae40eaad9e3
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 82d8c8ca94f3d0f4289902ae40928ff507e2d1ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113283"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460665"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -63,9 +63,6 @@ Le note sulla versione seguenti sono relative alla versione 10.0.0.0 dell'agente
 - Supporto per lo spostamento del servizio di sincronizzazione archiviazione e/o dell'account di archiviazione in un tenant di Azure Active Directory (AAD) diversoSupport for moving the Storage Sync Service and/or storage account to a different Azure Active Directory (AAD) tenant
     - Sincronizzazione file di Azure supporta ora lo spostamento del servizio di sincronizzazione archiviazione e/o dell'account di archiviazione in un gruppo di risorse, una sottoscrizione o un tenant di Azure AD diverso.
     
-- Lo strumento di valutazione ora identifica i file o le directory che terminano con un punto
-    - Lo strumento di [valutazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) è stato aggiornato per identificare i file o le directory che terminano con un punto. I file o le directory che terminano con un punto non sono attualmente supportati da Sincronizzazione file di Azure.Files or directories that end with a period are not currently supported by Azure File Sync. Per utilizzare la versione aggiornata dello strumento di [valutazione,](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)installare la versione più recente del [modulo Azure PowerShell.](https://docs.microsoft.com/powershell/azure/install-az-ps)
- 
 - Miglioramenti vari delle prestazioni e dell'affidabilità
     - Rilevamento delle modifiche nella condivisione file di Azure potrebbe non riuscire se la rete virtuale (VNET) e le regole del firewall sono configurate nell'account di archiviazione.
     - Riduzione del consumo di memoria associato al richiamo. 

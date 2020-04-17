@@ -3,12 +3,12 @@ title: Azure Migrate Server Migration FAQ
 description: Risposte alle domande comuni sull'uso della migrazione del server di azure per eseguire la migrazione dei computer.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: cc78d2087dcaad2922ca6b6d9c090a8decdb6e84
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: bf33c276c721f3be16d75b964c2b223e90c2a560
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393802"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529800"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrazione server di azure di migrazione: domande comuniAzure Migrate Server Migration: Common questions
 
@@ -18,6 +18,10 @@ Questo articolo risponde alle domande comuni sullo strumento Migrazione server d
 - Domande [sull'appliance Azure Migrate](common-questions-appliance.md)
 - Domande su [scoperta, valutazione e visualizzazione delle dipendenze](common-questions-discovery-assessment.md)
 - Ottenere risposte alle domande nel forum di [Azure Migrate](https://aka.ms/AzureMigrateForum)
+
+## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Quali aree geografiche sono supportate per la migrazione con Azure Migrate?
+
+Esaminare le aree geografiche supportate per i cloud [pubblici](migrate-support-matrix.md#supported-geographies-public-cloud) e [governativi.](migrate-support-matrix.md#supported-geographies-azure-government)
 
 ## <a name="how-does-agentless-vmware-replication-work"></a>Come funziona la replica VMware senza agente?
 

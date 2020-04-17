@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544333"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460648"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
 
@@ -199,7 +199,7 @@ Usare le procedure consigliate seguenti quando si configurano ACR per i volumi S
 ### <a name="data-security-and-encryption"></a>Sicurezza e crittografia dei dati
 L'array virtuale StorSimple include funzionalità di sicurezza e crittografia dei dati che assicurano la riservatezza e l'integrità dei dati. Quando si usano queste funzionalità, è opportuno seguire queste procedure consigliate: 
 
-* Definire una chiave di crittografia per l'archiviazione cloud per generare la crittografia AES-256 prima dell'invio dei dati dall'array virtuale al cloud. Questa chiave non è necessaria se i dati sono crittografati inizialmente. La chiave può essere generata e protetta usando un sistema di gestione delle chiavi, ad esempio l' [insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-overview.md).
+* Definire una chiave di crittografia per l'archiviazione cloud per generare la crittografia AES-256 prima dell'invio dei dati dall'array virtuale al cloud. Questa chiave non è necessaria se i dati sono crittografati inizialmente. La chiave può essere generata e protetta usando un sistema di gestione delle chiavi, ad esempio l' [insieme di credenziali delle chiavi di Azure](../key-vault/general/overview.md).
 * Quando si configura l'account di archiviazione tramite il servizio StorSimple Manager, assicurarsi di abilitare la modalità TLS per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud.
 * Rigenerare periodicamente le chiavi per gli account di archiviazione, mediante l'accesso al servizio di archiviazione di Azure, per tenere conto delle eventuali modifiche relative all'accesso in base alle modifiche apportate all'elenco di amministratori.
 * I dati nell'array virtuale vengono compressi e deduplicati prima di essere inviati ad Azure. Non è consigliabile usare il servizio ruolo Deduplicazione dati nell'host Windows Server.

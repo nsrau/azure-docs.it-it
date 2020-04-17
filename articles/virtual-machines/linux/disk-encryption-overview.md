@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548443"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459781"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption for Linux VMs 
 
@@ -105,7 +105,7 @@ Per abilitare la funzionalità crittografia dei dischi di Azure, le macchine vir
   - Per ottenere un token per la connessione all'insieme di credenziali delle chiavi, \[\]la macchina virtuale Linux deve essere in grado di connettersi a un endpoint di Azure Active Directory login.microsoftonline.com .
   - Per scrivere le chiavi di crittografia nell'insieme di credenziali delle chiavi, la macchina virtuale Linux deve essere in grado di connettersi all'endpoint dell'insieme di credenziali delle chiavi.
   - La macchina virtuale Linux deve essere in grado di connettersi a un endpoint di archiviazione di Azure che ospita il repository delle estensioni di Azure e un account di archiviazione di Azure che ospita i file del disco rigido virtuale.
-  -  Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP. Per altre informazioni, vedere [Azure Key Vault protetto da firewall](../../key-vault/key-vault-access-behind-firewall.md).  
+  -  Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP. Per altre informazioni, vedere [Azure Key Vault protetto da firewall](../../key-vault/general/access-behind-firewall.md).  
 
 ## <a name="encryption-key-storage-requirements"></a>Requisiti di archiviazione delle chiavi di crittografiaEncryption key storage requirements  
 

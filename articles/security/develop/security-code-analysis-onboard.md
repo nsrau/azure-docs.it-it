@@ -1,10 +1,10 @@
 ---
 title: Guida all'onboarding dell'analisi dei codici di sicurezza Microsoft
 description: In questo articolo viene descritta l'installazione dell'estensione Microsoft Security Code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 04/14/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6132aab98cc8145cb99cf153c64f20fbac00131c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ef111817b6351277f975b9b7e454f9a89982451
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197006"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460206"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding e installazione
 
@@ -49,6 +49,7 @@ Contattare un partner dall'elenco seguente e chiedere di acquistare l'estensione
 >**Partner:**
 
 - Aree - Dettagli di contatto:cloudsupport@zones.com
+- Wortell – Dettagli di contatto:info@wortell.nl
 
 ### <a name="become-a-partner"></a>Diventa un partner
 

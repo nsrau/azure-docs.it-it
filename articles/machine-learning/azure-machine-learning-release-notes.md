@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: ce9919a0b0f614e427c12ee3e3fbda0be46470ea
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273308"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459169"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine LearningAzure Machine Learning release notes
 
@@ -721,10 +721,10 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
       + Per base all'input specifico start_time e/o end_time, verranno restituiti solo i risultati delle esecuzioni pianificate;
       + Il parametro 'daily_latest_only' è deprecato.
     + Supporto per il recupero di output Data Drift basati su set di dati.
-  + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-model**
     + Rinomina il pacchetto AzureML-explain-model in AzureML-interprete, mantenendo il pacchetto precedente per la compatibilità con le versioni precedenti per il momento.
     + corretto il bug AutoML con spiegazioni non elaborate impostate per l'attività di classificazione anziché la regressione per impostazione predefinita al download da ExplanationClient.
-    + Aggiungere il supporto per ScoringExplainer da creare direttamente utilizzando [MimicWrapperAdd](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper) support for [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) to be created directly using MimicWrapper
+    + Aggiungere il supporto per ScoringExplainer da creare direttamente utilizzando MimicWrapperAdd support for [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) to be created directly using MimicWrapper
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Prestazioni migliorate per la creazione di pipeline di grandi dimensioni.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
@@ -798,7 +798,7 @@ La scheda Esperimento nel [nuovo portale dell'area di lavoro](https://ml.azure.c
     + Aggiunti ulteriori campi di dimensione VM (disco del sistema operativo, numero di GPU) alla funzione [supported_vmsizes()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
     + Aggiunti campi aggiuntivi alla funzione [list_nodes()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#list-nodes--) per mostrare l'esecuzione, l'IP privato e quello pubblico, la porta ecc.
     + Possibilità di specificare un nuovo campo durante il [provisioning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--) `--remotelogin_port_public_access` del cluster che può essere impostato su abilitato o disabilitato a seconda che si desideri lasciare la porta SSH aperta o chiusa al momento della creazione del cluster. Se non viene specificato, il servizio aprirà o chiuderà in modo intelligente la porta a seconda che si stia distribuendo il cluster all'interno di una rete virtuale.
-  + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-model**
     + È stata migliorata la documentazione per gli output di Spiegazione nello scenario di classificazione.
     + Aggiunta la possibilità di caricare i valori y previsti nella spiegazione per gli esempi di valutazione. Sblocca visualizzazioni più utili.
     + Aggiunta la proprietà esplicativo a MimicWrapper per consentire l'ottenimento del MimicExplainer sottostante.

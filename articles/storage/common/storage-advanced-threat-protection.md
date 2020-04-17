@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 4219bb471b92e7ddae72c50403f635498c90080d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f390aececdbf9a20f191279892c1856332f2aa8e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251691"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482088"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurare la protezione avanzata dalle minacce per Archiviazione di AzureConfigure advanced threat protection for Azure Storage
 
@@ -27,9 +27,7 @@ Il servizio inviera i log di diagnostica delle richieste di lettura, scrittura e
 
 ## <a name="availability"></a>Disponibilità
 
-La protezione avanzata dalle minacce per Archiviazione di Azure è attualmente disponibile solo per [L'archiviazione BLOB.](https://azure.microsoft.com/services/storage/blobs/) 
-
-Questo servizio è disponibile in tutti i cloud pubblici e nei cloud degli enti pubblici degli Stati Uniti, ma non in altre aree cloud sovrane o governative di Azure.This service is available in all public clouds and US government clouds, but no other sovereign or Azure government cloud regions.
+La protezione avanzata dalle minacce per Archiviazione di Azure è attualmente disponibile solo per [L'archiviazione BLOB.](https://azure.microsoft.com/services/storage/blobs/) I tipi di account che supportano la protezione avanzata dalle minacce includono la versione 2 generica, il BLOB a blocchi e gli account di archiviazione BLOB. La protezione avanzata dalle minacce è disponibile in tutti i cloud pubblici e nei cloud degli enti pubblici degli Stati Uniti, ma non in altre aree cloud sovrane o governative di Azure.Advanced threat protection is available in all public clouds and US government clouds, but not in other sovereign or Azure government cloud regions.
 
 Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la pagina dei prezzi del Centro sicurezza di Azure.For pricing details, including a free 30 day [trial,](https://azure.microsoft.com/pricing/details/security-center/)see the Azure Security Center pricing page .
 
@@ -86,7 +84,7 @@ Usare un criterio di Azure per abilitare la protezione avanzata dalle minacce tr
 
     ![Pagina Definizioni dei criteri](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[API REST](#tab/rest-api)
+### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Usare i comandi dell'API di riposo per creare, aggiornare o ottenere l'impostazione di protezione avanzata dalle minacce per un account di archiviazione specifico.
 

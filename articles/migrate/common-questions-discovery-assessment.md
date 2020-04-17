@@ -2,13 +2,13 @@
 title: Domande sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate
 description: Risposte alle domande comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 7a63271811053ee2da79f134ac117559e31b0fed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460807"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529774"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Analisi di individuazione, valutazione e dipendenza - Domande comuni
 
@@ -19,9 +19,16 @@ Questo articolo risponde alle domande comuni sull'individuazione, la valutazione
 - Domande sulla [migrazione dei server](common-questions-server-migration.md)
 - Ottenere risposte alle domande nel forum di [Azure Migrate](https://aka.ms/AzureMigrateForum)
 
+
+## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Quali aree geografiche sono supportate per l'individuazione e la valutazione con Azure Migrate?
+
+Esaminare le aree geografiche supportate per i cloud [pubblici](migrate-support-matrix.md#supported-geographies-public-cloud) e [governativi.](migrate-support-matrix.md#supported-geographies-azure-government)
+
+
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quante macchine virtuali è possibile individuare con un'appliance?
 
 È possibile individuare fino a 10.000 macchine virtuali VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 250 server fisici utilizzando una singola appliance. Se si dispone di più computer, vedere [Scalabilità di una valutazione Hyper-V](scale-hyper-v-assessment.md), ridimensionamento di [una valutazione VMware](scale-vmware-assessment.md)o ridimensionamento di [una valutazione del server fisico.](scale-physical-assessment.md)
+
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>Le dimensioni della macchina virtuale sono cambiate. Posso eseguire di nuovo una valutazione?
 
@@ -77,7 +84,7 @@ Le valutazioni basate sull'importazione sono valutazioni create con computer imp
 
 ## <a name="what-is-dependency-visualization"></a>Informazioni sulla visualizzazione delle dipendenze
 
-La visualizzazione delle dipendenze consente di valutare i gruppi di macchine virtuali per la migrazione con maggiore sicurezza. La visualizzazione delle dipendenze controlla trasversalmente le dipendenze dei computer prima di eseguire una valutazione. Garantisce che non venga lasciato nulla e consente di evitare interruzioni impreviste durante la migrazione ad Azure.It helps ensure that no is left behind, and it helps avoid unexpected outages when you migrate to Azure. Azure Migrate usa la soluzione Mapping dei servizi in Monitoraggio di Azure per abilitare la visualizzazione delle dipendenze. [Scopri di più](concepts-dependency-visualization.md).
+La visualizzazione delle dipendenze consente di valutare i gruppi di macchine virtuali per la migrazione con maggiore sicurezza. La visualizzazione delle dipendenze controlla trasversalmente le dipendenze dei computer prima di eseguire una valutazione. Garantisce che non venga lasciato nulla e consente di evitare interruzioni impreviste durante la migrazione ad Azure.It helps ensure that no is left behind, and it helps avoid unexpected outages when you migrate to Azure. Azure Migrate usa la soluzione Mapping dei servizi in Monitoraggio di Azure per abilitare la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md)
 
 > [!NOTE]
 > La visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
@@ -91,9 +98,9 @@ Le differenze tra la visualizzazione senza agente e la visualizzazione basata su
 Supporto | Questa opzione è attualmente in anteprima ed è disponibile solo per le macchine virtuali VMware.This option is currently in preview, and is only available for VMware VMs. [Esaminare i](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) sistemi operativi supportati. | In generale la disponibilità (GA).
 Agente | Non è necessario installare agenti su computer che si desidera eseguire il controllo incrociato. | Agenti da installare in ogni computer locale che si desidera analizzare: [l'agente di monitoraggio Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e l'agente di [dipendenza](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Prerequisiti | [Esaminare](concepts-dependency-visualization.md#agentless-analysis) i prerequisiti e i requisiti di distribuzione. | [Esaminare](concepts-dependency-visualization.md#agent-based-analysis) i prerequisiti e i requisiti di distribuzione.
-Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [Mappa dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nei log di Monitoraggio di Azure per [la](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) visualizzazione delle dipendenze. [Scopri di più](concepts-dependency-visualization.md#agent-based-analysis).
+Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [Mappa dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nei log di Monitoraggio di Azure per [la](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#agent-based-analysis)
 Funzionamento | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Gli agenti della mappa dei servizi installati in un computer raccolgono dati sui processi TCP e sulle connessioni in ingresso/in uscita per ogni processo.
-Dati | Nome del server del computer di origine, processo e nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo e nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati vengono raccolte e disponibili per le query di Log Analytics. 
+Data | Nome del server del computer di origine, processo e nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo e nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati vengono raccolte e disponibili per le query di Log Analytics. 
 Visualizzazione | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata da un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> La mappa può essere visualizzata solo su un'ora.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/> Aggiungere e rimuovere server in un gruppo dalla vista mappa.
 Esportazione dati | Al momento non è possibile scaricarlo in formato tabulare. | È possibile eseguire query sui dati con Log Analytics.Data can be queryed with Log Analytics.
 

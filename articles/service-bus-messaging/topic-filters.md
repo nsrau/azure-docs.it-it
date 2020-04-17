@@ -3,22 +3,21 @@ title: Filtri per gli argomenti del bus di servizio di Azure | Microsoft Docs
 description: In questo articolo viene illustrato come i sottoscrittori possono definire quali messaggi desiderano ricevere da un argomento specificando i filtri.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/27/2020
+ms.topic: conceptual
+ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: b8ffbb16763bfe6485ebf2ab770f4537ddbc8569
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76774489"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482057"
 ---
 # <a name="topic-filters-and-actions"></a>Filtri e azioni per gli argomenti
 
@@ -30,17 +29,28 @@ Il bus di servizio supporta tre condizioni di filtro.
 
 -   *Filtri booleani*: **TrueFilter** e **FalseFilter** determinano la selezione per la sottoscrizione di tutti i messaggi in arrivo (**true**) o di nessun messaggio in arrivo (**false**).
 
--   *Filtri SQL*: un **SqlFilter** contiene un'espressione condizionale di tipo SQL che viene valutata nel broker rispetto alle proprietà di sistema e definite dall'utente dei messaggi in arrivo. Nell'espressione condizionale, tutte le proprietà di sistema devono essere precedute dal prefisso `sys.`. Il [subset del linguaggio SQL per le condizioni di filtro](service-bus-messaging-sql-filter.md) verifica l'esistenza di proprietà (`EXISTS`), nonché di valori Null (`IS NULL`), operatori logici, operatori relazionali NOT/AND/OR, operazioni aritmetiche semplici e criteri di ricerca di testo semplici con `LIKE`.
+-   *Filtri SQL*: un **SqlFilter** contiene un'espressione condizionale di tipo SQL che viene valutata nel broker rispetto alle proprietà di sistema e definite dall'utente dei messaggi in arrivo. Nell'espressione condizionale, tutte le proprietà di sistema devono essere precedute dal prefisso `sys.`. Il sottoinsieme del [linguaggio SQL per](service-bus-messaging-sql-filter.md) le`EXISTS`condizioni di`IS NULL`filtro verifica l'esistenza di proprietà ( ), valori null `LIKE`( ), NOT/AND/OR logici, operatori relazionali, aritmetica numerica semplice e criteri di ricerca di testo semplice con .
 
--   *Filtri di correlazione*: un **CorrelationFilter** contiene un set di condizioni che vengono confrontate con una o più proprietà utente e di sistema di un messaggio in arrivo. Viene comunemente usato per trovare corrispondenze con la proprietà **CorrelationId**, ma l'applicazione può anche scegliere di trovare corrispondenze con **ContentType**, **Label**, **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId**, **To** e qualsiasi proprietà definita dall'utente. Esiste una corrispondenza quando il valore di una proprietà di un messaggio in arrivo è uguale al valore specificato nel filtro di correlazione. Per le espressioni stringa, nel confronto viene fatta distinzione tra maiuscole e minuscole. Quando si specificano più proprietà per la corrispondenza, vengono combinate dal filtro con una condizione di AND logico e il filtro quindi corrisponde se corrispondono tutte le condizioni.
+-   *Filtri di correlazione*: un **CorrelationFilter** contiene un set di condizioni che vengono confrontate con una o più proprietà utente e di sistema di un messaggio in arrivo. Un utilizzo comune consiste nel trovare una corrispondenza con la proprietà **CorrelationId,** ma l'applicazione può anche scegliere di eseguire la corrispondenza con le proprietà seguenti:A common use is to match against the CorrelationId property, but the application can also choose to match against the following properties:
+
+    - **Contenttype**
+     - **Etichetta**
+     - **Messageid**
+     - **Replyto**
+     - **ReplyToSessionId**
+     - **SessionId** 
+     - **A**
+     - qualsiasi proprietà definita dall'utente. 
+     
+     Esiste una corrispondenza quando il valore di una proprietà di un messaggio in arrivo è uguale al valore specificato nel filtro di correlazione. Per le espressioni stringa, nel confronto viene fatta distinzione tra maiuscole e minuscole. Quando si specificano più proprietà per la corrispondenza, vengono combinate dal filtro con una condizione di AND logico e il filtro quindi corrisponde se corrispondono tutte le condizioni.
 
 Tutti i filtri valutano le proprietà del messaggio. I filtri non possono valutare il corpo del messaggio.
 
-Regole di filtro complesse richiedono capacità di elaborazione. In particolare, l'uso di regole di filtro SQL riduce la velocità effettiva complessiva dei messaggi a livello di sottoscrizione, argomento e spazio dei nomi. Quando possibile, le applicazioni dovrebbero preferire i filtri di correlazione rispetto ai filtri di tipo SQL, perché sono molto più efficienti in termini di elaborazione e hanno quindi un impatto minore sulla velocità effettiva.
+Regole di filtro complesse richiedono capacità di elaborazione. In particolare, l'uso delle regole di filtro SQL causa una velocità effettiva complessiva dei messaggi inferiore a livello di sottoscrizione, argomento e spazio dei nomi. Quando possibile, le applicazioni devono scegliere i filtri di correlazione rispetto ai filtri di tipo SQL perché sono molto più efficienti nell'elaborazione e hanno un impatto minore sulla velocità effettiva.
 
 ## <a name="actions"></a>Azioni
 
-Con le condizioni di filtro SQL, è possibile definire un'azione per annotare il messaggio aggiungendo, rimuovendo o sostituendo le proprietà e i relativi valori. L'azione [usa un'espressione di tipo SQL](service-bus-messaging-sql-filter.md) basata approssimativamente sulla sintassi dell'istruzione SQL UPDATE. L'azione viene eseguita sul messaggio dopo che è stata trovata una corrispondenza e prima che il messaggio venga selezionato nella sottoscrizione. Le modifiche alle proprietà del messaggio sono private e limitate al messaggio copiato nella sottoscrizione.
+Con le condizioni di filtro SQL, è possibile definire un'azione per annotare il messaggio aggiungendo, rimuovendo o sostituendo le proprietà e i relativi valori. L'azione [usa un'espressione di tipo SQL](service-bus-messaging-sql-filter.md) basata approssimativamente sulla sintassi dell'istruzione SQL UPDATE. L'azione viene eseguita sul messaggio dopo che è stato abbinato e prima che il messaggio venga selezionato nella sottoscrizione. Le modifiche alle proprietà del messaggio sono private e limitate al messaggio copiato nella sottoscrizione.
 
 ## <a name="usage-patterns"></a>Modelli di utilizzo
 
@@ -52,10 +62,17 @@ Il partizionamento usa i filtri per distribuire i messaggi tra le diverse sottos
 
 Il routing usa i filtri per distribuire i messaggi tra le sottoscrizioni dell'argomento in modo prevedibile, ma non necessariamente esclusivo. In combinazione con la funzionalità di [inoltro automatico](service-bus-auto-forwarding.md), i filtri per gli argomenti consentono di creare grafici di routing complessi all'interno di uno spazio dei nomi del bus di servizio per la distribuzione dei messaggi in un'area di Azure. Usando Funzioni di Azure o App per la logica di Azure come collegamento tra gli spazi dei nomi del bus di servizio di Azure, è possibile creare topologie globali complesse con integrazione diretta nelle applicazioni line-of-business.
 
+
+> [!NOTE]
+> Attualmente il portale di Azure non consente di specificare le regole di filtro per le sottoscrizioni. È possibile usare uno qualsiasi degli SDK o dei modelli di Azure Resource Manager supportati per definire le regole di sottoscrizione. 
+
 ## <a name="next-steps"></a>Passaggi successivi
+Vedere gli esempi seguenti:See the following samples: 
 
-Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti:
+- [.NET - Esercitazione di invio e ricezione di base con filtri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
+- [.NET - Filtri per argomento](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
+- [Tipo di script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
+- [Modello di Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
-* [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
-* [Sintassi di SQLFilter](service-bus-messaging-sql-filter.md)
-* [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+

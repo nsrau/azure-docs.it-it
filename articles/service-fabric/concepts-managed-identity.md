@@ -4,12 +4,12 @@ description: Informazioni sull'uso delle identità gestite per Azure con Service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415104"
+ms.locfileid: "81461447"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Uso di identità gestite per Azure con Service FabricUsing Managed identities for Azure with Service Fabric
 
@@ -57,7 +57,7 @@ Gli scenari seguenti non sono supportati o non sono consigliati. Notare che ques
 
 - Rimuovere o modificare le identità assegnate a un'applicazione; Se è necessario apportare modifiche, inviare distribuzioni separate per aggiungere prima una nuova assegnazione di identità e quindi per rimuoverne una assegnata in precedenza. La rimozione di un'identità da un'applicazione esistente può avere effetti indesiderati, tra cui lasciare l'applicazione in uno stato non aggiornabile. È sicuro eliminare completamente l'applicazione se è necessaria la rimozione di un'identità; Si noti che questo eliminerà l'identità assegnata dal sistema (se definita) associata all'applicazione e rimuoverà tutte le associazioni con le identità assegnate dall'utente assegnate all'applicazione.
 
-- Il supporto di Service Fabric per le identità gestite non è attualmente integrato in [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md).
+- Il supporto di Service Fabric per le identità gestite non è attualmente integrato in [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

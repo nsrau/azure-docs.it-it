@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1961797f37a760fe3a31dc8aa3830889965b69b5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 78f7c935e64276e7f4862dad966b99bff6bd246d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81379947"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481949"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -160,7 +160,7 @@ Nella tabella seguente viene illustrato il periodo di gestione durevole e dispon
 
 <sup>2</sup> Per informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione](storage-account-overview.md).
 
-Tutti i dati per tutti i tipi di account di archiviazione vengono copiati in base all'opzione di ridondanza per l'account di archiviazione. Vengono copiati oggetti, tra cui BLOB di blocchi, BLOB di aggiunta, BLOB di pagine, code, tabelle e file.
+Tutti i dati per tutti i tipi di account di archiviazione e [tutti i livelli (incluso l'archivio)](../blobs/storage-blob-storage-tiers.md) vengono copiati in base all'opzione di ridondanza per l'account di archiviazione. Vengono copiati oggetti, tra cui BLOB di blocchi, BLOB di aggiunta, BLOB di pagine, code, tabelle e file.
 
 Per informazioni sui prezzi per ogni opzione di ridondanza, vedere Prezzi di Archiviazione di Azure.For pricing information for each redundancy option, see [Azure Storage pricing.](https://azure.microsoft.com/pricing/details/storage/)
 

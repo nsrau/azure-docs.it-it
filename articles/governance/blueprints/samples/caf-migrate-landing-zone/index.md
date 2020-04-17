@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto della zona di destinazione per la mig
 description: Panoramica e architettura del progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework (CAF) per Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: d0328a590d86677e098504a7498a696697fc38c8
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383537"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459866"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Panoramica del progetto di esempio della zona di destinazione per la migrazione di Microsoft Cloud Adoption Framework per Azure
 
@@ -24,7 +24,7 @@ Il progetto di esempio della zona di destinazione per la migrazione di Cloud Ado
 
 Questo ambiente è costituito da diversi servizi di Azure usati per offrire una governance di livello aziendale sicura e completamente monitorata. L'ambiente è costituito da:
 
-- Un'istanza di [Azure Key Vault](../../../../key-vault/key-vault-overview.md) usata per ospitare i segreti per i certificati, le chiavi e i segreti distribuiti nell'ambiente dei servizi condivisi
+- Un'istanza di [Azure Key Vault](../../../../key-vault/general/overview.md) usata per ospitare i segreti per i certificati, le chiavi e i segreti distribuiti nell'ambiente dei servizi condivisi
 - [Analisi dei log](../../../../azure-monitor/overview.md), distribuito per garantire la registrazione di tutte le azioni e tutti i servizi in una posizione centrale dal momento in cui viene avviata la migrazione
 - [Centro sicurezza di Azure](../../../../security-center/security-center-intro.md) (versione standard), distribuito per fornire la protezione dalle minacce per i carichi di lavoro di cui è stata eseguita la migrazione
 - [Rete virtuale di Azure](../../../../virtual-network/virtual-networks-overview.md), distribuito per fornire rete e subnet isolate per la macchina virtuale

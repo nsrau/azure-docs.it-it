@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto Carico di lavoro dell'ambiente del se
 description: Panoramica e architettura del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 834096ec529673bae1728877310ba7153ae94cb3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381739"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460580"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Panoramica del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001
 
@@ -32,7 +32,7 @@ Questo ambiente è costituito da diversi servizi di Azure usati per offrire un'i
 - [Criteri di Azure](../../../policy/overview.md) per bloccare i servizi che è possibile distribuire nell'ambiente e impedire la creazione di qualsiasi risorsa di indirizzo IP pubblico
 - Una rete virtuale che contiene una singola subnet e di cui è stato eseguito il peering a un ambiente di [servizi condivisi](../iso27001-shared/index.md) preesistente e che forza tutto il traffico a passare attraverso il firewall dei [servizi condivisi](../iso27001-shared/index.md). La rete virtuale ospita le risorse seguenti:
   - Un [ambiente del servizio app di Azure](../../../../app-service/environment/intro.md) che può essere usato per ospitare una o più applicazioni Web, API Web o funzioni
-  - Un'istanza di [Azure Key Vault](../../../../key-vault/key-vault-overview.md) che usa un endpoint servizio di rete virtuale per l'archiviazione dei segreti usati dalle applicazioni in esecuzione nell'ambiente del carico di lavoro
+  - Un'istanza di [Azure Key Vault](../../../../key-vault/general/overview.md) che usa un endpoint servizio di rete virtuale per l'archiviazione dei segreti usati dalle applicazioni in esecuzione nell'ambiente del carico di lavoro
   - Un'istanza del server di [database SQL di Azure](../../../../sql-database/sql-database-technical-overview.md) che usa un endpoint servizio di rete virtuale per ospitare i database usati per le applicazioni nell'ambiente del carico di lavoro
 
 ## <a name="next-steps"></a>Passaggi successivi

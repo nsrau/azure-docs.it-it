@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 14ff86bc47ab6de55d840c4b986c99caf2d4e99c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545647"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482019"
 ---
 # <a name="azure-built-in-roles"></a>Ruoli predefiniti di AzureAzure built-in roles
 
@@ -41,7 +41,7 @@ Nella tabella seguente vengono fornite una breve descrizione e l'ID univoco di o
 > | [Proprietario](#owner) | Consente di gestire tutto, incluso l'accesso alle risorse. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Lettore](#reader) | Consente di visualizzare tutti gli elementi, ma senza apportare alcuna modifica. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | [Amministratore Accesso utenti](#user-access-administrator) | Consente di gestire gli accessi utente alle risorse di Azure. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
-> | **Calcolare** |  |  |
+> | **Calcolo** |  |  |
 > | [Collaboratore della macchina virtuale classica](#classic-virtual-machine-contributor) | Consente di gestire le macchine virtuali classiche, ma non di accedervi né di gestire la rete virtuale o l'account di archiviazione a cui sono connesse. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | [Accesso amministratore macchina virtualeVirtual Machine Administrator Login](#virtual-machine-administrator-login) | Consente di visualizzare le macchine virtuali nel portale e di accedere come amministratore | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | [Collaboratore macchine virtuali](#virtual-machine-contributor) | Consente di gestire le macchine virtuali, ma non di accedervi né di gestire la rete virtuale o l'account di archiviazione a cui sono connesse. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
@@ -55,7 +55,7 @@ Nella tabella seguente vengono fornite una breve descrizione e l'ID univoco di o
 > | [Collaboratore zona DNS](#dns-zone-contributor) | Consente di gestire le zone DNS e i set di record in DNS di Azure, ma non di controllare chi è autorizzato ad accedervi. | befefa01-2a29-4197-83a8-272ff33ce314 |
 > | [Collaboratore di rete](#network-contributor) | Consente di gestire le reti, ma non di accedervi. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Collaboratore Gestione traffico](#traffic-manager-contributor) | Consente di gestire i profili di Gestione traffico, ma non di controllare chi è autorizzato ad accedervi. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
-> | **Archiviazione** |  |  |
+> | **Storage** |  |  |
 > | [Contributore Avere](#avere-contributor) | Può creare e gestire un cluster Avere vFXT. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Operatore Avere](#avere-operator) | Utilizzato dal cluster Avere vFXT per gestire il cluster | c025889f-8102-4ebf-b32c-fc0c6f6bd9 |
 > | [Collaboratore di backup](#backup-contributor) | Consente di gestire il servizio di backup, ma non è possibile creare vault e concedere l'accesso ad altri utenti | 5e467623-bb1f-42f4-a55d-6e525e11384b |
@@ -202,7 +202,7 @@ Consente di gestire tutto tranne concedere l'accesso alle risorse.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | * | È in grado di creare e gestire ogni tipo di risorsa |
 > | **NotActions** |  |
 > | Microsoft.Authorization/*/Delete | Eliminare ruoli, assegnazioni di criteri, definizioni di criteri e definizioni di set di criteri |
@@ -252,7 +252,7 @@ Consente di gestire tutto, incluso l'accesso alle risorse.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | * | È in grado di creare e gestire ogni tipo di risorsa |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -292,7 +292,7 @@ Consente di visualizzare tutti gli elementi, ma senza apportare alcuna modifica.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -332,7 +332,7 @@ Consente di gestire gli accessi utente alle risorse di Azure.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.Authorization/* | Gestire l'autorizzazione |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
@@ -379,7 +379,7 @@ Consente di gestire le macchine virtuali classiche, ma non di accedervi né di g
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.ClassicCompute/domainNames/* | Creare e gestire nomi di dominio di calcolo classici |
 > | Microsoft.ClassicCompute/virtualMachines/* | Creare e gestire macchine virtuali |
@@ -451,7 +451,7 @@ Consente di visualizzare le macchine virtuali nel portale e di accedere come amm
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Network/publicIPAddresses/read | Ottiene una definizione dell’indirizzo IP pubblico. |
 > | Microsoft.Network/virtualNetworks/read | Ottiene la definizione della rete virtuale |
 > | Microsoft.Network/loadBalancers/read | Ottiene una definizione del servizio di bilanciamento del carico |
@@ -503,7 +503,7 @@ Consente di gestire le macchine virtuali, ma non di accedervi né di gestire la 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Compute/availabilitySets/* | Creare e gestire set di disponibilità di calcolo |
 > | Microsoft.Compute/locations/* | Creare e gestire percorsi di calcolo |
@@ -623,7 +623,7 @@ Consente di visualizzare le macchine virtuali nel portale e di accedere come ute
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Network/publicIPAddresses/read | Ottiene una definizione dell’indirizzo IP pubblico. |
 > | Microsoft.Network/virtualNetworks/read | Ottiene la definizione della rete virtuale |
 > | Microsoft.Network/loadBalancers/read | Ottiene una definizione del servizio di bilanciamento del carico |
@@ -676,7 +676,7 @@ Può gestire gli endpoint della rete CDN, ma non può concedere l'accesso ad alt
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -730,7 +730,7 @@ Può visualizzare gli endpoint della rete CDN, ma non può apportare modifiche.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -784,7 +784,7 @@ Può gestire i profili DELLA rete CDN e i relativi endpoint, ma non può concede
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -838,7 +838,7 @@ Può visualizzare i profili della rete CDN e i relativi endpoint, ma non può ap
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -892,7 +892,7 @@ Consente di gestire le reti classiche, ma non di accedervi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.ClassicNetwork/* | Creare e gestire reti classiche |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
@@ -944,7 +944,7 @@ Consente di gestire le zone DNS e i set di record in DNS di Azure, ma non di con
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Network/dnsZones/* | Creazione e gestione di zone e record DNS |
@@ -996,7 +996,7 @@ Consente di gestire le reti, ma non di accedervi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Network/* | Creare e gestire reti |
@@ -1048,7 +1048,7 @@ Consente di gestire i profili di Gestione traffico, ma non di controllare chi è
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Network/trafficManagerProfiles/* |  |
@@ -1103,7 +1103,7 @@ Può creare e gestire un cluster Avere vFXT.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Compute/ |  |
 > | Microsoft.Compute/availabilitySets/* |  |
@@ -1185,7 +1185,7 @@ Utilizzato dal cluster Avere vFXT per gestire il cluster
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Compute/virtualMachines/read | Ottiene le proprietà di una macchina virtuale |
 > | Microsoft.Network/networkInterfaces/read | Ottiene una definizione dell’interfaccia di rete.  |
 > | Microsoft.Network/networkInterfaces/write | Crea un'interfaccia di rete o ne aggiorna una esistente.  |
@@ -1251,7 +1251,7 @@ Consente di gestire il servizio di backup, ma non è possibile creare vault e co
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Network/virtualNetworks/read | Ottiene la definizione della rete virtuale |
 > | Microsoft.RecoveryServices/locations/* |  |
@@ -1371,7 +1371,7 @@ Consente di gestire i servizi di backup, ma non di rimuovere il backup, creare i
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Network/virtualNetworks/read | Ottiene la definizione della rete virtuale |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Restituisce lo stato dell'operazione |
@@ -1521,7 +1521,7 @@ Può visualizzare i servizi di backup, ma non può apportare modifiche.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp è un'operazione interna usata dal servizio |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Restituisce lo stato dell'operazione |
@@ -1635,7 +1635,7 @@ Consente di gestire gli account di archiviazione classici, ma non di accedervi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.ClassicStorage/storageAccounts/* | Creare e gestire account di archiviazione |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
@@ -1687,7 +1687,7 @@ Gli operatori della chiave dell'account di archiviazione classico sono autorizza
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Elenca le chiavi di accesso per gli account di archiviazione. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Rigenera le chiavi di accesso esistenti per l'account di archiviazione. |
 > | **NotActions** |  |
@@ -1729,7 +1729,7 @@ Consente di gestire tutto il servizio Data Box, ad eccezione della concessione d
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
@@ -1779,7 +1779,7 @@ Consente di gestire il servizio Data Box, ad eccezione della creazione di ordini
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Databox/*/read |  |
 > | Microsoft.Databox/jobs/listsecrets/action |  |
@@ -1837,7 +1837,7 @@ Consente di inviare, monitorare e gestire i propri processi, ma non di creare o 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.BigAnalytics/accounts/* |  |
 > | Microsoft.DataLakeAnalytics/accounts/* |  |
@@ -1919,7 +1919,7 @@ Consente di visualizzare tutti gli elementi ma non consente di eliminare o crear
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Restituisce le chiavi di accesso per l'account di archiviazione specificato. |
 > | Microsoft.Storage/storageAccounts/ListAccountSas/azione | Restituisce il token SAS dell’account per l’account di archiviazione specificato. |
 > | Microsoft.Storage/storageAccounts/read | Restituisce l'elenco di account di archiviazione o ottiene le proprietà per l’account di archiviazione specificato. |
@@ -1963,7 +1963,7 @@ Consente la gestione degli account di archiviazione. Fornisce l'accesso alla chi
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Insights/diagnosticSettings/* | Crea, aggiorna o legge l'impostazione di diagnostica per Analysis Server |
@@ -2019,7 +2019,7 @@ Consente l'inserimento e la rigenerazione delle chiavi di accesso dell'account d
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Restituisce le chiavi di accesso per l'account di archiviazione specificato. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Rigenera le chiavi di accesso per l'account di archiviazione specificato. |
 > | **NotActions** |  |
@@ -2061,7 +2061,7 @@ Leggere, scrivere ed eliminare i BLOB e i contenitori e i BLOB di Archiviazione 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Eliminare un contenitore. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Restituire un contenitore o un elenco di contenitori. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Modificare i metadati o le proprietà di un contenitore. |
@@ -2071,6 +2071,7 @@ Leggere, scrivere ed eliminare i BLOB e i contenitori e i BLOB di Archiviazione 
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Eliminare un BLOB. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Restituire un BLOB o un elenco di BLOB. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action | Sposta il BLOB da un percorso a un altro |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Scrivere in un BLOB. |
 > | **NotDataActions** |  |
 > | *nessuno* |  |
@@ -2095,6 +2096,7 @@ Leggere, scrivere ed eliminare i BLOB e i contenitori e i BLOB di Archiviazione 
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
       ],
       "notDataActions": []
@@ -2113,7 +2115,7 @@ Fornisce l'accesso completo ai contenitori e ai dati BLOB di Archiviazione di Az
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | Autorizzazioni complete per i contenitori. |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Restituisce una chiave di delega utente per il servizio BLOB. |
 > | **NotActions** |  |
@@ -2157,7 +2159,7 @@ Leggere ed elencare i contenitori e i BLOB di Archiviazione di Azure.Read and li
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Restituire un contenitore o un elenco di contenitori. |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Restituisce una chiave di delega utente per il servizio BLOB. |
 > | **NotActions** |  |
@@ -2201,7 +2203,7 @@ Ottenere una chiave di delega utente, che può quindi essere usata per creare un
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Restituisce una chiave di delega utente per il servizio BLOB. |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2241,7 +2243,7 @@ Consente l'accesso in lettura, scrittura ed eliminazione su file/directory nelle
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2285,7 +2287,7 @@ Consente di leggere, scrivere, eliminare e modificare gli ACL in file/directory 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2331,7 +2333,7 @@ Consente l'accesso in lettura a file/directory nelle condivisioni file di Azure.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2371,7 +2373,7 @@ Leggere, scrivere ed eliminare le code e i messaggi della coda di Archiviazione 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Eliminare una coda. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Restituisce una coda o un elenco di code. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Modificare i metadati o le proprietà della coda. |
@@ -2421,7 +2423,7 @@ Visualizzare, recuperare ed eliminare un messaggio da una coda di Archiviazione 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2463,7 +2465,7 @@ Aggiungere messaggi a una coda di Archiviazione di Azure.Add messages to an Azur
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2503,7 +2505,7 @@ Leggere ed elencare le code di Archiviazione di Azure e i messaggi delle code. P
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Restituisce una coda o un elenco di code. |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2548,7 +2550,7 @@ Concede l'accesso alla lettura dei dati correlati alla mappa da un account di ma
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2588,7 +2590,7 @@ Consente di gestire i servizi di Ricerca, ma non di accedervi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
@@ -2640,7 +2642,7 @@ Consente di gestire i piani Web per i siti Web, ma non di accedervi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
@@ -2694,7 +2696,7 @@ Consente di gestire i siti Web (non i piani Web), ma non di accedervi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Insights/components/* | È in grado di creare e gestire i componenti di Insights |
@@ -2759,7 +2761,7 @@ acr eliminare
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ContainerRegistry/registri/artifacts/delete | Eliminare un elemento in un registro contenitori. |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2799,7 +2801,7 @@ firmatario immagine acr
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Eseguire il push/pull di metadati considerati attendibili per un registro contenitori. |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2839,7 +2841,7 @@ acr pull
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Eseguire il pull o ottenere immagini da un registro contenitori. |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2879,7 +2881,7 @@ acr push
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Eseguire il pull o ottenere immagini da un registro contenitori. |
 > | Microsoft.ContainerRegistry/registries/push/write | Eseguire il push o scrivere immagini in un registro contenitori. |
 > | **NotActions** |  |
@@ -2921,7 +2923,7 @@ lettore di dati di quarantena acr
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ContainerRegistry/registri/quarantena/lettura | Eseguire il pull o ottenere immagini in quarantena da un registro contenitori |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -2961,7 +2963,7 @@ writer di dati di quarantena acr
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ContainerRegistry/registri/quarantena/lettura | Eseguire il pull o ottenere immagini in quarantena da un registro contenitori |
 > | Microsoft.ContainerRegistry/registri/quarantena/scrittura | Scrivere/modificare lo stato di quarantena di immagini in quarantena |
 > | **NotActions** |  |
@@ -3003,7 +3005,7 @@ Elencare l'azione delle credenziali di amministratore del cluster.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Elenca la credenziale clusterAdmin di un cluster gestito |
 > | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Recupera il profilo di accesso per un cluster gestito in base al nome del ruolo con un'operazione di elenco delle credenziali |
 > | **NotActions** |  |
@@ -3045,7 +3047,7 @@ Elencare l'azione delle credenziali di utente del cluster.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Elenca la credenziale clusterUser di un cluster gestito |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -3088,7 +3090,7 @@ Può leggere i dati degli account Azure Cosmos DB. Vedere [Collaboratore account
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.DocumentDB/*/read | Leggere tutte le raccolte |
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | Legge le chiavi di sola lettura degli account di database. |
@@ -3140,7 +3142,7 @@ Consente di gestire gli account di Azure Cosmos DB, ma non di accedere ai dati i
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
@@ -3202,7 +3204,7 @@ Può inviare una richiesta di ripristino per un database di Cosmos DB o un conte
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Invia una richiesta per configurare il backup |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Invia una richiesta di ripristino |
 > | **NotActions** |  |
@@ -3244,7 +3246,7 @@ Può inviare una richiesta di ripristino per un database di Cosmos DB o un conte
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.DocumentDb/databaseAccounts/* | Creare e gestire account Azure Cosmos DB |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
@@ -3298,7 +3300,7 @@ Consente di gestire le cache Redis, ma non di accedervi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Cache/redis/* | Creare e gestire cache Redis |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
@@ -3350,7 +3352,7 @@ Consente di gestire i database SQL, ma non di accedervi né di gestirne i criter
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
@@ -3458,7 +3460,7 @@ Consente di gestire le istanze gestite SQL E la configurazione di rete necessari
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
@@ -3524,7 +3526,7 @@ Consente di gestire i criteri relativi alla sicurezza di server e database SQL, 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Aggiunge una risorsa come un account di archiviazione o un database SQL a una subnet. Non avvisabile. |
@@ -3648,7 +3650,7 @@ Consente di gestire i server SQL e i database, ma non l'accesso ad essi e non i 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
@@ -3765,7 +3767,7 @@ Consente l'accesso completo alle risorse di Hub eventi di Azure.Allows for full 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.EventHub/ |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -3807,7 +3809,7 @@ Consente di ricevere l'accesso alle risorse di Hub eventi di Azure.Allows receiv
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.EventHub//eventhubs/consumergroups/read |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -3849,7 +3851,7 @@ Consente l'accesso di invio alle risorse di Hub eventi di Azure.Allows send acce
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.EventHub/ s/eventhubs/lettura |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -3891,7 +3893,7 @@ Consente di creare e gestire data factory, oltre alle risorse figlio in esse con
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.DataFactory/dataFactories/* | Creare e gestire data factory e le relative risorse figlio. |
 > | Microsoft.DataFactory/factories/* | Creare e gestire data factory e le relative risorse figlio. |
@@ -3947,7 +3949,7 @@ Può eliminare i dati di analisi
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Insights/components/*/read |  |
 > | Microsoft.Insights/components/purge/action | Ripulitura dei dati da Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read | Visualizzare i dati di analisi dei log |
@@ -3993,7 +3995,7 @@ Consente di leggere e modificare le configurazioni cluster HDInsight.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.HDInsight/'/read |  |
 > | Microsoft.HDInsight/clusters/getGatewaySettings/azione | Ottenere le impostazioni del gateway per il cluster HDInsightGet gateway settings for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/updateGatewaySettings/azione | Aggiornare le impostazioni del gateway per il cluster HDInsightUpdate gateway settings for HDInsight Cluster |
@@ -4049,7 +4051,7 @@ Può leggere, creare, modificare ed eliminare operazioni correlate ai Servizi di
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
@@ -4093,12 +4095,13 @@ Il ruolo Collaboratore di Log Analytics può leggere tutti i dati di monitoraggi
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.Automation/automationAccounts/* |  |
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Elenca le chiavi di accesso per gli account di archiviazione. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
+> | Microsoft.HybridCompute/machines/extensions/write | Installa o aggiorna le estensioni di Azure ArcInstalls or Updates an Azure Arc extensions |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Insights/diagnosticSettings/* | Crea, aggiorna o legge l'impostazione di diagnostica per Analysis Server |
 > | Microsoft.OperationalInsights/* |  |
@@ -4130,6 +4133,7 @@ Il ruolo Collaboratore di Log Analytics può leggere tutti i dati di monitoraggi
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.OperationalInsights/*",
@@ -4157,7 +4161,7 @@ Il ruolo Lettore di Log Analytics può visualizzare ed eseguire ricerche in tutt
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Esegue una query di ricerca |
@@ -4208,7 +4212,7 @@ Consente l'accesso ai nodi membro Blockchain
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Ottiene o elenca i nodi delle transazioni dei membri Blockchain esistenti. |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -4253,7 +4257,7 @@ Consente di creare, leggere, aggiornare, eliminare e gestire le chiavi di Serviz
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.CognitiveServices/* |  |
 > | Microsoft.Features/features/read | Ottiene le funzionalità di una sottoscrizione. |
@@ -4325,7 +4329,7 @@ Consente di leggere i dati di Servizi cognitivi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -4365,7 +4369,7 @@ Consente di leggere ed elencare le chiavi di Servizi cognitivi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | Elenco delle chiavi |
 > | Microsoft.Insights/alertRules/read | Legge un avviso della metrica (versione classica) |
@@ -4434,7 +4438,7 @@ Consente di gestire gli ancoraggi spaziali nel tuo account, ma non eliminarli
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -4484,7 +4488,7 @@ Consente di gestire gli ancoraggi spaziali nel tuo account, inclusa l'eliminazio
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -4536,7 +4540,7 @@ Consente di individuare e leggere le proprietà degli ancoraggi spaziali nel tuo
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -4585,7 +4589,7 @@ Può gestire il servizio e le API.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ApiManagement/service/* | È in grado di creare e gestire il servizio Gestione API |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
@@ -4637,7 +4641,7 @@ Può gestire il servizio ma non le API.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ApiManagement/service/*/read | Leggere le istanze del servizio Gestione API |
 > | Microsoft.ApiManagement/service/backup/action | Esegue il backup del servizio Gestione API nel contenitore specificato in un account di archiviazione fornito dall’utente |
 > | Microsoft.ApiManagement/service/delete | Elimina l’istanza del servizio Gestione API |
@@ -4707,7 +4711,7 @@ Consente l'accesso di sola lettura al servizio e alle API.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ApiManagement/service/*/read | Leggere le istanze del servizio Gestione API |
 > | Microsoft.ApiManagement/service/read | Leggere i metadati per un'istanza del servizio Gestione API |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
@@ -4763,7 +4767,7 @@ Consente l'accesso completo ai dati di configurazione dell'app.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -4807,7 +4811,7 @@ Consente l'accesso in lettura ai dati di configurazione dell'app.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | *nessuno* |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -4847,7 +4851,7 @@ Consente l'accesso completo alle risorse del bus di servizio di Azure.Allows for
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ServiceBus/ |  |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -4889,7 +4893,7 @@ Consente di ricevere l'accesso alle risorse del bus di servizio di Azure.Allows 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ServiceBus/ s/queues/lettura |  |
 > | Microsoft.ServiceBus///argomenti/lettura |  |
 > | Microsoft.ServiceBus///argomenti/sottoscrizioni/lettura |  |
@@ -4935,7 +4939,7 @@ Consente l'invio dell'accesso alle risorse del bus di servizio di Azure.Allows f
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ServiceBus/ s/queues/lettura |  |
 > | Microsoft.ServiceBus///argomenti/lettura |  |
 > | Microsoft.ServiceBus///argomenti/sottoscrizioni/lettura |  |
@@ -4981,7 +4985,7 @@ Consente di gestire le registrazioni di Azure Stack.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.AzureStack/registrazioni/prodotti//azione |  |
 > | Microsoft.AzureStack/registrations/products/read | Ottiene le proprietà di un prodotto del marketplace Azure Stack |
 > | Microsoft.AzureStack/registrations/read | Ottiene le proprietà di una registrazione di Azure Stack |
@@ -5025,7 +5029,7 @@ Consente di gestire le operazioni di sottoscrizione di eventi EventGrid.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.EventGrid/eventSubscriptions/* |  |
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Elenca le sottoscrizioni di eventi globali per tipo di argomento |
@@ -5081,7 +5085,7 @@ Consente di leggere le sottoscrizioni di eventi EventGrid.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.EventGrid/eventSubscriptions/read | Leggere un eventSubscriptionRead an eventSubscription |
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Elenca le sottoscrizioni di eventi globali per tipo di argomento |
@@ -5131,7 +5135,7 @@ Consente di gestire gli account Sistemi intelligenti, ma non di accedervi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.IntelligentSystems/accounts/* | Creare e gestire account di Intelligent Systems |
@@ -5183,7 +5187,7 @@ Consente di gestire le app per la logica, ma non di modificarne l'accesso.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Elenca le chiavi di accesso per gli account di archiviazione. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Restituisce l'account di archiviazione con l'account specificato. |
@@ -5263,7 +5267,7 @@ Consente di leggere, abilitare e disabilitare le app per la logica, ma non di mo
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/*/read | Legge le regole di avviso di Insights |
 > | Microsoft.Insights/metricAlerts//read |  |
@@ -5338,7 +5342,7 @@ Crea, legge, aggiorna ed elimina l'identità assegnata all'utente
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/read | Ottiene l'identità assegnata a un utente esistente |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/write | Crea una nuova identità assegnata a un utente esistente o aggiorna i tag associati a un'identità assegnata a un utente esistente |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Elimina l'identità assegnata a un utente esistente |
@@ -5392,7 +5396,7 @@ Legge e assegna l'identità assegnata all'utente
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
@@ -5437,7 +5441,7 @@ Legge e assegna l'identità assegnata all'utente
 }
 ```
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 
 ### <a name="azure-sentinel-contributor"></a>Azure Sentinel Contributor
@@ -5447,7 +5451,7 @@ Azure Sentinel Contributor
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.SecurityInsights/ |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
 > | Microsoft.OperationalInsights/workspaces/*/read | Visualizzare i dati di analisi dei log |
@@ -5513,8 +5517,9 @@ Lettore Sentinel di AzureAzure Sentinel Reader
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.SecurityInsights/ |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/azione | Controllare l'autorizzazione e la licenza dell'utente |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
 > | Microsoft.OperationalInsights/workspaces/*/read | Visualizzare i dati di analisi dei log |
 > | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Ottiene i servizi collegati nell'area di lavoro specificata. |
@@ -5548,6 +5553,7 @@ Lettore Sentinel di AzureAzure Sentinel Reader
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -5581,8 +5587,9 @@ Risponditore di Azure SentinelAzure Responder
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.SecurityInsights/ |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/azione | Controllare l'autorizzazione e la licenza dell'utente |
 > | Microsoft.SecurityInsights/casi/ |  |
 > | Microsoft.SecurityInsights/incidents/. |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
@@ -5618,6 +5625,7 @@ Risponditore di Azure SentinelAzure Responder
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
@@ -5653,7 +5661,7 @@ Consente di gestire gli insiemi di credenziali delle chiavi, ma non di accedervi
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.KeyVault/* |  |
@@ -5707,7 +5715,7 @@ Consente di gestire gli insiemi di credenziali delle chiavi, ma non di accedervi
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Authorization/policyAssignments/* | Creare e gestire assegnazioni di criteri |
 > | Microsoft.Authorization/policyDefinitions/* | Creare e gestire definizioni di criteri |
@@ -5767,7 +5775,7 @@ Consente di inviare le valutazioni al Centro sicurezza
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Security/valutazioni/scrittura | Creare o aggiornare le valutazioni della sicurezza nella sottoscrizioneCreate or update security assessments on your subscription |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -5807,7 +5815,7 @@ Questo è un ruolo legacy. Si prega di utilizzare Security Admin invece.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.ClassicCompute/*/read | Leggere le informazioni di configurazione delle macchine virtuali classiche |
 > | Microsoft.ClassicCompute/virtualMachines/*/write | Scrivere la configurazione delle macchine virtuali classiche |
@@ -5865,7 +5873,7 @@ Può visualizzare suggerimenti e avvisi, visualizzare i criteri di sicurezza, vi
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.operationalInsights/workspaces/*/read | Visualizzare i dati di analisi dei log |
@@ -5922,7 +5930,7 @@ Consente di connettere, avviare, riavviare e arrestare le macchine virtuali in A
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Compute/availabilitySets/read | Ottiene le proprietà di un set di disponibilità |
 > | Microsoft.Compute/virtualMachines/*/read | Leggere le proprietà di una macchina virtuale (dimensioni della VM, stato di runtime, estensioni della VM e così via) |
@@ -6026,7 +6034,7 @@ Consente di creare, gestire ed eliminare i lab gestiti con gli account di Azure 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Crea un lab in un account del lab. |
@@ -6085,7 +6093,7 @@ Consente di creare, gestire ed eliminare i lab gestiti con gli account di Azure 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso classicheCreate and manage classic alert rules |
 > | Microsoft.Insights/metricAlerts/. | Creare e gestire nuove regole di avviso |
@@ -6141,7 +6149,7 @@ Concede l'autorizzazione utente per visualizzare e scaricare gli snapshot di deb
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Insights/components/*/read |  |
@@ -6191,7 +6199,7 @@ Può leggere tutti i dati del monitoraggio e modificare le impostazioni di monit
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
@@ -6285,7 +6293,7 @@ Abilitare la pubblicazione di metriche nelle risorse di Azure
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Insights/Register/Action | Registra il provider Microsoft Insights |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
@@ -6331,7 +6339,7 @@ Può leggere tutti i dati del monitoraggio (metriche, log e così via). Vedere a
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Esegue una query di ricerca |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
@@ -6375,7 +6383,7 @@ Può salvare cartelle di lavoro condivise.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Insights/cartelle di lavoro/scrittura | Creare o aggiornare una cartella di lavoro |
 > | Microsoft.Insights/cartelle di lavoro/eliminazione | Eliminare una cartella di lavoro |
 > | Microsoft.Insights/cartelle di lavoro/lettura | Leggere una cartella di lavoro |
@@ -6419,7 +6427,7 @@ Può leggere le cartelle di lavoro.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | microsoft.insights/cartelle di lavoro/lettura | Leggere una cartella di lavoro |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -6462,7 +6470,7 @@ Consente di creare e gestire i processi tramite i runbook di Automazione.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Legge le risorse del ruolo di lavoro ibrido per runbook |
 > | Microsoft.Automation/automationAccounts/jobs/read | Ottiene un processo di automazione di Azure |
@@ -6526,7 +6534,7 @@ Gli operatori di automazione possono avviare, arrestare, sospendere e riprendere
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Legge le risorse del ruolo di lavoro ibrido per runbook |
 > | Microsoft.Automation/automationAccounts/jobs/read | Ottiene un processo di automazione di Azure |
@@ -6606,7 +6614,7 @@ Consente di leggere le proprietà del runbook per permettere di creare processi 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Automation/automationAccounts/runbooks/read | Ottiene un runbook di automazione di Azure |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
@@ -6656,7 +6664,7 @@ Può eseguire l'onboarding di macchine connesse di Azure.Can onboard Azure Conne
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.HybridCompute/machines/lettura | Leggere tutte le macchine Azure ArcRead any Azure Arc machines |
 > | Microsoft.HybridCompute/machines/write | Scrive un'arco di Azure per le macchine |
 > | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Assegnazione di configurazione guest Get. |
@@ -6700,7 +6708,7 @@ Può leggere, scrivere, eliminare e ricollegare macchine connesse di Azure.Can r
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.HybridCompute/machines/lettura | Leggere tutte le macchine Azure ArcRead any Azure Arc machines |
 > | Microsoft.HybridCompute/machines/write | Scrive un'arco di Azure per le macchine |
 > | Microsoft.HybridCompute/machines/delete | Elimina macchine Azure ArcDeletes an Azure Arc machines |
@@ -6750,7 +6758,7 @@ Consente l'accesso in lettura ai dati di fatturazione.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Billing/*/read | Lettura delle informazioni di fatturazione |
 > | Microsoft.Commerce/*/read |  |
@@ -6802,7 +6810,7 @@ Può gestire le definizioni di progetto, ma non assegnarle.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Blueprint/blueprints/ | Creare e gestire definizioni di blueprint o elementi del blueprint. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
@@ -6850,7 +6858,7 @@ Può assegnare blueprint pubblicati esistenti, ma non può creare nuovi blueprin
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Blueprint/blueprintAssignments/ | Creare e gestire le assegnazioni dei blueprint. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
@@ -6898,7 +6906,7 @@ Può visualizzare i costi e gestire la configurazione dei costi, ad esempio budg
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Consumption/* |  |
 > | Microsoft.CostManagement/* |  |
 > | Microsoft.Billing/billingPeriods/read |  |
@@ -6954,7 +6962,7 @@ Può visualizzare la configurazione e i dati dei costi, ad esempio budget ed esp
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Billing/billingPeriods/read |  |
@@ -7010,7 +7018,7 @@ Consente la creazione di risorse dell'applicazione gestita.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.Soluzioni/applicazioni/. |  |
 > | Microsoft.Solutions/register/action | Esegue la registrazione in Microsoft Solutions. |
@@ -7058,7 +7066,7 @@ Consente di leggere ed eseguire azioni sulle risorse dell'applicazione gestita
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.Solutions/applications/read | Recupera un elenco di applicazioni. |
 > | Microsoft.Soluzioni/z/azione |  |
@@ -7102,7 +7110,7 @@ Consente di leggere le risorse in un accesso di app gestita e JIT richiesta.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Solutions/jitRequests/* |  |
@@ -7146,7 +7154,7 @@ Il ruolo di eliminazione dell'assegnazione di registrazione dei servizi gestiti 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.ManagedServices/registrationAssignments/lettura | Recupera un elenco di assegnazioni di registrazione di Servizi gestiti. |
 > | Microsoft.ManagedServices/registrationAssignments/delete | Rimuove l'assegnazione di registrazione dei servizi gestiti. |
 > | Microsoft.ManagedServices/operationStatuses/lettura | Legge lo stato dell'operazione per la risorsa. |
@@ -7190,7 +7198,7 @@ Ruolo Collaboratore gruppo di gestione
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Management/managementGroups/delete | Elimina un gruppo di gestione. |
 > | Microsoft.Management/managementGroups/read | Elenca i gruppi di gestione per l'utente autenticato. |
 > | Microsoft.Management/managementGroups/subscriptions/delete | Annulla l'associazione della sottoscrizione dal gruppo di gestione. |
@@ -7238,7 +7246,7 @@ Ruolo Lettore gruppo di gestione
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Management/managementGroups/read | Elenca i gruppi di gestione per l'utente autenticato. |
 > | **NotActions** |  |
 > | *nessuno* |  |
@@ -7278,7 +7286,7 @@ Consente di gestire gli account e le applicazioni di APR New Relic, ma non di ac
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
@@ -7330,7 +7338,7 @@ Consente l'accesso in lettura ai criteri delle risorse e l'accesso in scrittura 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/policyassignments/read (Autorizzazione/assegnazioni criteri/lettura) | Ottiene informazioni su un'assegnazione di criteri. |
 > | Microsoft.Authorization/policydefinitions/read | Ottiene informazioni su una definizione di criteri. |
 > | Microsoft.Authorization/policysetdefinitions/read | Ottiene informazioni su una definizione di set di criteri. |
@@ -7378,7 +7386,7 @@ Utenti con diritti per creare/modificare criteri di risorse, creare ticket di su
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.Authorization/policyassignments/* | Creare e gestire assegnazioni di criteri |
 > | Microsoft.Authorization/policydefinitions/* | Creare e gestire definizioni di criteri |
@@ -7428,7 +7436,7 @@ Consente di gestire il servizio Site Recovery ad eccezione della creazione dell'
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Network/virtualNetworks/read | Ottiene la definizione della rete virtuale |
@@ -7522,7 +7530,7 @@ Consente di eseguire il failover e il failback ma non di eseguire altre operazio
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Network/virtualNetworks/read | Ottiene la definizione della rete virtuale |
@@ -7676,7 +7684,7 @@ Consente di visualizzare lo stato di Site Recovery ma non di eseguire altre oper
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp è un'operazione interna usata dal servizio |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | L'operazione Ottieni informazioni estese ottiene le informazioni estese di un oggetto che rappresenta la risorsa di Azure di tipo ?vault? |
@@ -7776,7 +7784,7 @@ Consente di creare e gestire le richieste di supporto.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
@@ -7820,7 +7828,7 @@ Consente di gestire i tag sulle entità, senza fornire l'accesso alle entità st
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Ottiene le risorse del gruppo di risorse. |
@@ -7877,7 +7885,7 @@ Consente di gestire i servizi BizTalk, ma non di accedervi.
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.BizTalkServices/BizTalk/* | È in grado di creare e gestire i servizi BizTalk |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
@@ -7929,7 +7937,7 @@ Consente di gestire le raccolte di processi dell'utilità di pianificazione, ma 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
-> | **Azioni** |  |
+> | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |

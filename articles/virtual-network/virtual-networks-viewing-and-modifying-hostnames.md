@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: genlin
 manager: dcscontentpm
-editor: tysonn
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: cce248e2906f4a36737388e8cc7124b1bb19fbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09c911838d34a083de8450145ce849fc966eb0e8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71058670"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459152"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visualizzazione e modifica di nomi host
 Per consentire alle istanze di ruolo di essere collegate al nome host, è necessario impostare il valore per il nome host nel file di configurazione del servizio per ogni ruolo. Tale operazione è possibile aggiungendo il nome host desiderato all'attributo **vmName** dell'elemento **Role**. Il valore dell'attributo **vmName** viene usato come base per il nome host di ogni istanza del ruolo. Se ad esempio **vmName** è *webrole* e sono disponibili tre istanze di quel ruolo, i nomi host delle istanze saranno *webrole0*, *webrole1* e *webrole2*. Non è necessario specificare un nome host per le macchine virtuali nel file di configurazione, poiché il nome host per una macchina virtuale viene formulato in base al nome della macchina virtuale stessa. Per altre informazioni sulla configurazione di un servizio di Microsoft Azure, vedere [Schema di configurazione dei servizi di Azure (file .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)

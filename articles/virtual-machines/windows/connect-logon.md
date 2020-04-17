@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ef62b02e-bf35-468d-b4c3-71b63fe7f409
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 152df830f11cd5a73235559c5c5d65ced44f22fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4f5df4a76792c64ab92bbe8d6e4b84080fbd8fe
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266767"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459186"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
 Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà necessario usare il pulsante **Connetti** nel portale di Azure. Connettersi prima di tutto alla macchina virtuale e quindi eseguire l'accesso.

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 930a3f0cf629c99fc03a84c701bcf7b2807c77c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73498b3537f4cf9313fc9e2464785f63c2af0d5a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972867"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460733"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 > [!NOTE]
@@ -233,7 +233,7 @@ Per le procedure consigliate sull'uso dei parametri, vedere [Procedure consiglia
 * Le impostazioni variano a seconda dell'ambiente, ad esempio di sviluppo, test e produzione
 * Segreti (password)
 
-Se è necessario eseguire il pull di segreti dall'[Insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-overview.md) quando si distribuiscono entità di Azure Data Factory tramite modelli, specificare l'**insieme di credenziali delle chiavi** e il **nome del segreto** come illustrato nell'esempio seguente:
+Se è necessario eseguire il pull di segreti dall'[Insieme di credenziali delle chiavi di Azure](../../key-vault/general/overview.md) quando si distribuiscono entità di Azure Data Factory tramite modelli, specificare l'**insieme di credenziali delle chiavi** e il **nome del segreto** come illustrato nell'esempio seguente:
 
 ```JSON
 "parameters": {

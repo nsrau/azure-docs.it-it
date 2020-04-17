@@ -1,11 +1,11 @@
 ---
-title: Creazione in blocco di utenti (anteprima) nel portale di Azure Active Directory Documenti Microsoft
+title: Creazione in blocco di utenti nel portale di Azure Active Directory Documenti Microsoft
 description: Aggiungere utenti in blocco nell'interfaccia di amministrazione di Azure AD in Azure Active DirectoryAdd users in bulk in the Azure AD admin center in Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/30/2019
+ms.date: 04/16/2020
 ms.topic: article
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a10dfffa69652ee2b75053c04b97f6492c46811e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3a8b9cb9701288d24534ab08940f6dbd4a698ad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174326"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532935"
 ---
-# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Creare in blocco gli utenti (anteprima) in Azure Active Directory
+# <a name="bulk-create-users-in-azure-active-directory"></a>Creare utenti in blocco in Azure Active Directory
 
 Azure Active Directory (Azure AD) supporta le operazioni di creazione ed eliminazione di utenti in blocco, l'invito in blocco per gli ospiti e supporta il download di elenchi di utenti, gruppi e membri del gruppo.
 
@@ -40,7 +40,7 @@ Per creare utenti nel portale di amministrazione in blocco, è necessario accede
 
    ![Il file CSV contiene i nomi e gli URL degli utenti da creare](./media/users-bulk-add/add-csv-file.png)
 
-1. Nella pagina **Crea in blocco utente (anteprima),** in Carica il file CSV, individuare il file. Quando si seleziona il file e si fa clic su **Invia**, viene avviata la convalida del file CSV.
+1. Nella pagina Crea utente in **blocco,** in Carica il file CSV, individuare il file. Quando si seleziona il file e si fa clic su **Invia**, viene avviata la convalida del file CSV.
 1. Dopo aver convalidato il contenuto del file, verrà visualizzato **File caricato correttamente**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
 1. Quando il file supera la convalida, selezionare **Invia** per avviare l'operazione in blocco di Azure che importa i nuovi utenti.
 1. Al termine dell'operazione di importazione, verrà visualizzata una notifica dello stato del processo dell'operazione in blocco.
@@ -49,9 +49,9 @@ Se sono presenti errori, è possibile scaricare e visualizzare il file dei risul
 
 ## <a name="check-status"></a>Controlla stato
 
-È possibile visualizzare lo stato di tutte le richieste bulk in sospeso nella pagina **Risultati dell'operazione in blocco (anteprima).**
+È possibile visualizzare lo stato di tutte le richieste bulk in sospeso nella pagina **Risultati dell'operazione** in blocco.
 
-   ![Controllare lo stato del caricamento nella pagina Risultati operazioni in blocco](./media/users-bulk-add/bulk-center.png)
+   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
 
 Successivamente, è possibile verificare che gli utenti creati esistano nell'organizzazione di Azure AD nel portale di Azure o tramite PowerShell.Next, you can check to see that the users you created exist in the Azure AD organization either in the Azure portal or by using PowerShell.
 

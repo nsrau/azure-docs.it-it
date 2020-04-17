@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92d96abd343266372984918fd0c942ec1cae865f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2b2b901f652564c47ca35cb0f75a69f26fa2fa71
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428303"
+ms.locfileid: "81533225"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Aggiungere e gestire utenti in un'unità amministrativa in Azure Active DirectoryAdd and manage users in an administrative unit in Azure Active Directory
 
@@ -51,9 +51,9 @@ Per la procedura di preparazione all'utilizzo di PowerShell e Microsoft Graph pe
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+    $administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
-    Add-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $UserObj.ObjectId
+    Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
 
 Nell'esempio precedente, il cmdlet Add-AzureADAdministrativeUnitMember viene usato per aggiungere l'utente all'unità amministrativa. L'ID oggetto dell'unità amministrativa in cui deve essere aggiunto l'utente e l'ID oggetto dell'utente da aggiungere vengono considerati come argomenti. La sezione evidenziata può essere modificata in base alle esigenze dell'ambiente specifico.
 

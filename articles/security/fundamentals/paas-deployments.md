@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811482"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461702"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -74,7 +74,7 @@ I principi e i modelli per i perimetri di rete sono disponibili da molto tempo, 
 Di seguito sono illustrate le procedure consigliate per la gestione del perimetro di identità.
 
 **Procedura consigliata**: proteggere le chiavi e le credenziali per proteggere la distribuzione PaaS.   
-**Dettagli**: la perdita delle chiavi e delle credenziali è un problema comune. È possibile utilizzare una soluzione centralizzata in cui chiavi e segreti possono essere archiviati in moduli di sicurezza hardware (HSM). [L'insieme](../../key-vault/key-vault-overview.md) di credenziali delle chiavi di Azure protegge le chiavi e i segreti crittografando le chiavi di autenticazione, le chiavi dell'account di archiviazione, le chiavi di crittografia dei dati, i file con estensione pfx e le password usando chiavi protette da HSM.
+**Dettagli**: la perdita delle chiavi e delle credenziali è un problema comune. È possibile utilizzare una soluzione centralizzata in cui chiavi e segreti possono essere archiviati in moduli di sicurezza hardware (HSM). [L'insieme](../../key-vault/general/overview.md) di credenziali delle chiavi di Azure protegge le chiavi e i segreti crittografando le chiavi di autenticazione, le chiavi dell'account di archiviazione, le chiavi di crittografia dei dati, i file con estensione pfx e le password usando chiavi protette da HSM.
 
 **Procedura consigliata**: non inserire le credenziali e altri segreti nel codice sorgente o GitHub.   
 **Dettagli**: un rischio ben peggiore della perdita di chiavi e credenziali consiste negli accessi non autorizzati. Gli utenti malintenzionati possono sfruttare le tecnologie bot per trovare chiavi e segreti archiviati in repository di codice come GitHub. Si consiglia pertanto di non inserire chiavi e segreti in questi archivi di codice pubblici.

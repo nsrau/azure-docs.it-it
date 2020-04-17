@@ -3,12 +3,12 @@ title: Usare l'identità gestita con un'applicazioneUse managed identity with an
 description: Come usare le identità gestite nel codice dell'applicazione di Azure Service Fabric per accedere ai servizi di Azure.How to use managed identities in Azure Service Fabric application code to access Azure Services.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415626"
+ms.locfileid: "81461566"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Come sfruttare l'identità gestita di un'applicazione Service Fabric per accedere ai servizi di AzureHow to leverage a Service Fabric application's managed identity to access Azure services
 
@@ -41,10 +41,6 @@ Per ottenere un token, il client esegue i passaggi seguenti:To obtain a token, t
 Una risposta corretta conterrà un payload JSON che rappresenta il token di accesso risultante, nonché i metadati che lo descrivono. Una risposta non riuscita includerà anche una spiegazione dell'errore. Per ulteriori informazioni sulla gestione degli errori, vedere di seguito.
 
 I token di accesso verranno memorizzati nella cache da Service Fabric a vari livelli (nodo, cluster, servizio del provider di risorse), pertanto una risposta corretta non implica necessariamente che il token sia stato emesso direttamente in risposta alla richiesta dell'applicazione utente. I token verranno memorizzati nella cache per meno della durata e pertanto è garantito che un'applicazione riceva un token valido. È consigliabile che il codice dell'applicazione memorizzi nella cache tutti i token di accesso acquisiti; la chiave di memorizzazione nella cache deve includere (una derivazione) il pubblico. 
-
-
-> [!NOTE]
-> L'unica versione API `2019-07-01-preview`accettata è attualmente ed è soggetta a modifiche.
 
 Richiesta di esempio:
 ```http

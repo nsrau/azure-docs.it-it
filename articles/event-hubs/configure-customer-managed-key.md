@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77621998"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459135"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare le chiavi gestite dal cliente per la crittografia dei dati di Hub eventi di Azure inattivi tramite il portale di AzureConfigure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal
 Hub eventi di Azure offre la crittografia dei dati inattivi con Azure Storage Service Encryption (Azure SSE). Gli hub eventi si basano su Archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con Archiviazione di Azure vengono crittografati usando chiavi gestite da Microsoft.Event Hubs relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
@@ -26,9 +26,9 @@ L'abilitazione della funzionalità BYOK è un processo di configurazione una tan
 > [!NOTE]
 > La funzionalità BYOK è supportata dai cluster [dedicati a tenant di Hub eventi.](event-hubs-dedicated-overview.md) Non può essere abilitato per gli spazi dei nomi Hub di eventi standard.
 
-È possibile usare l'insieme di credenziali delle chiavi di Azure per gestire le chiavi e controllare l'utilizzo delle chiavi. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API dell'insieme di credenziali delle chiavi di Azure per generare le chiavi. Per altre informazioni su Archiviazione delle chiavi di Azure, vedere [Che cos'è l'insieme di](../key-vault/key-vault-overview.md) credenziali delle chiavi di Azure.For more information about Azure Key Vault, see What is Azure Key Vault?
+È possibile usare l'insieme di credenziali delle chiavi di Azure per gestire le chiavi e controllare l'utilizzo delle chiavi. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API dell'insieme di credenziali delle chiavi di Azure per generare le chiavi. Per altre informazioni su Archiviazione delle chiavi di Azure, vedere [Che cos'è l'insieme di](../key-vault/general/overview.md) credenziali delle chiavi di Azure.For more information about Azure Key Vault, see What is Azure Key Vault?
 
-Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente tramite il portale di Azure.This article shows how to configure a key vault with customer-managed keys by using the Azure portal. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: Impostare e recuperare un segreto da Un](../key-vault/quick-create-portal.md)insieme di credenziali delle chiavi di Azure usando il portale di Azure.To learn how to create a key vault using the Azure portal, see Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal.
+Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente tramite il portale di Azure.This article shows how to configure a key vault with customer-managed keys by using the Azure portal. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: Impostare e recuperare un segreto da Un](../key-vault/secrets/quick-create-portal.md)insieme di credenziali delle chiavi di Azure usando il portale di Azure.To learn how to create a key vault using the Azure portal, see Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal.
 
 > [!IMPORTANT]
 > L'uso di chiavi gestite dal cliente con Hub eventi di Azure richiede che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Essi sono: **Eliminazione soft** e **non eliminare**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure.These properties are enabled by default when you create a new key vault in the Azure portal. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
@@ -44,9 +44,9 @@ Per abilitare le chiavi gestite dal cliente nel portale di Azure, eseguire la pr
     ![Abilita chiave gestita dal cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Configurare un insieme di credenziali delle chiavi con chiaviSet up a key vault with keys
-Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la chiave gestita del cliente allo spazio dei nomi Hub eventi di Azure.After you enable customer-managed keys, you need to associate the customer managed key with your Azure Event Hubs namespace. Gli hub eventi supportano solo L'insieme di chiavi di Azure.Event Hubs supports only Azure Key Vault. Se si abilita l'opzione Crittografia con chiave gestita dal cliente nella sezione precedente, è necessario che la chiave importi nell'insieme di credenziali delle chiavi di Azure.If you enable the **Encryption with customer-managed key option** in the previous section, you need to have the key imported into Azure Key Vault. Inoltre, le chiavi devono avere **Soft Delete** e Do **Not Purge** configurato per la chiave. Queste impostazioni possono essere configurate tramite [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) o [l'interfaccia della riga di comando.](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection)
+Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la chiave gestita del cliente allo spazio dei nomi Hub eventi di Azure.After you enable customer-managed keys, you need to associate the customer managed key with your Azure Event Hubs namespace. Gli hub eventi supportano solo L'insieme di chiavi di Azure.Event Hubs supports only Azure Key Vault. Se si abilita l'opzione Crittografia con chiave gestita dal cliente nella sezione precedente, è necessario che la chiave importi nell'insieme di credenziali delle chiavi di Azure.If you enable the **Encryption with customer-managed key option** in the previous section, you need to have the key imported into Azure Key Vault. Inoltre, le chiavi devono avere **Soft Delete** e Do **Not Purge** configurato per la chiave. Queste impostazioni possono essere configurate tramite [PowerShell](../key-vault/general/soft-delete-powershell.md) o [l'interfaccia della riga di comando.](../key-vault/general/soft-delete-cli.md#enabling-purge-protection)
 
-1. Per creare un nuovo insieme di credenziali delle chiavi, seguire la [guida introduttiva](../key-vault/key-vault-overview.md)dell'insieme di credenziali delle chiavi di Azure . Per ulteriori informazioni sull'importazione di chiavi esistenti, vedere [Informazioni su chiavi, segreti e certificati](../key-vault/about-keys-secrets-and-certificates.md).
+1. Per creare un nuovo insieme di credenziali delle chiavi, seguire la [guida introduttiva](../key-vault/general/overview.md)dell'insieme di credenziali delle chiavi di Azure . Per ulteriori informazioni sull'importazione di chiavi esistenti, vedere [Informazioni su chiavi, segreti e certificati](../key-vault/about-keys-secrets-and-certificates.md).
 1. Per attivare la protezione di eliminazione temporanea ed eliminazione durante la creazione di un insieme di credenziali, utilizzare il comando [az keyvault create.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
 
     ```azurecli-interactive
@@ -71,10 +71,10 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
 
 
 ## <a name="rotate-your-encryption-keys"></a>Ruotare le chiavi di crittografia
-È possibile ruotare la chiave nell'insieme di credenziali delle chiavi usando il meccanismo di rotazione degli insiemi di credenziali delle chiavi di Azure.You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Per ulteriori informazioni, consultate [Impostare la rotazione e](../key-vault/key-vault-key-rotation-log-monitoring.md)il controllo delle chiavi. Le date di attivazione e scadenza possono anche essere impostate per automatizzare la rotazione delle chiavi. Il servizio Hub eventi rileverà le nuove versioni chiave e inizierà a usarle automaticamente.
+È possibile ruotare la chiave nell'insieme di credenziali delle chiavi usando il meccanismo di rotazione degli insiemi di credenziali delle chiavi di Azure.You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Per ulteriori informazioni, consultate [Impostare la rotazione e](../key-vault/secrets/key-rotation-log-monitoring.md)il controllo delle chiavi. Le date di attivazione e scadenza possono anche essere impostate per automatizzare la rotazione delle chiavi. Il servizio Hub eventi rileverà le nuove versioni chiave e inizierà a usarle automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revoca dell'accesso alle chiavi
-La revoca dell'accesso alle chiavi di crittografia non eliminerà i dati dagli hub eventi. Tuttavia, non è possibile accedere ai dati dallo spazio dei nomi Hub eventi. È possibile revocare la chiave di crittografia tramite i criteri di accesso o eliminando la chiave. Ulteriori informazioni sui criteri di accesso e sulla protezione dell'insieme di credenziali delle chiavi da [Accesso sicuro a un insieme di credenziali delle chiavi](../key-vault/key-vault-secure-your-key-vault.md).
+La revoca dell'accesso alle chiavi di crittografia non eliminerà i dati dagli hub eventi. Tuttavia, non è possibile accedere ai dati dallo spazio dei nomi Hub eventi. È possibile revocare la chiave di crittografia tramite i criteri di accesso o eliminando la chiave. Ulteriori informazioni sui criteri di accesso e sulla protezione dell'insieme di credenziali delle chiavi da [Accesso sicuro a un insieme di credenziali delle chiavi](../key-vault/general/secure-your-key-vault.md).
 
 Una volta revocata la chiave di crittografia, il servizio Hub eventi nello spazio dei nomi crittografato diventerà inutilizzabile. Se l'accesso alla chiave è abilitato o viene ripristinata la chiave di eliminazione, il servizio Hub eventi selezionerà la chiave in modo da poter accedere ai dati dallo spazio dei nomi Hub eventi crittografato.
 
@@ -400,7 +400,7 @@ In questo passaggio verrà aggiornato lo spazio dei nomi Hub eventi con le infor
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 Come procedura consigliata, abilitare sempre i log come illustrato nella sezione precedente. Aiuta a tenere traccia delle attività quando la crittografia BYOK è abilitata. Aiuta anche a rintracciare i problemi.
 
 Di seguito sono riportati i codici di errore comuni da cercare quando è abilitata la crittografia BYOK.
@@ -423,7 +423,7 @@ Di seguito sono riportati i codici di errore comuni da cercare quando è abilita
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
 - [Panoramica di Hub eventi](event-hubs-about.md)
-- [Panoramica dell'Insieme di chiaviKey Vault overview](../key-vault/key-vault-overview.md)
+- [Panoramica dell'Insieme di chiaviKey Vault overview](../key-vault/general/overview.md)
 
 
 

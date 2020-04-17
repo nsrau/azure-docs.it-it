@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: twooley
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: b50875105696dc5c556e2a4a9e756078cf995327
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 946926a8a805ec3c53ea3c57dc3eded2462f7673
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060407"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461549"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configurare un indirizzo IP privato per una macchina virtuale usando il portale di AzureConfigure a private IP address for a VM using the Azure portal
 
@@ -56,7 +55,7 @@ Per creare una macchina virtuale denominata *DNS01* nella subnet *front-end* di 
     | **Sottoscrizione** | L'abbonamento corrente |
     | **Gruppo di risorse** | **TestRG** (selezionare dall'elenco a discesa) |
     | **Nome macchina virtuale** | *DNS01* |
-    | **Regione** | **(Stati Uniti) Stati Uniti orientali** |
+    | **Area** | **(Stati Uniti) Stati Uniti orientali** |
     | **Immagine** | **Windows Server 2019 Datacenter** |
     | **Dimensione** | **VM Dimensioni** di **B1ls**, **Offerta** di **Standard** |
     | **Nome utente** | Il nome utente dell'account amministratore |

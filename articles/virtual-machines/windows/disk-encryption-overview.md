@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b2fe7e4fbe4830567533053580880315ceface5d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546331"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458880"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption for Windows VMs 
 
@@ -54,7 +54,7 @@ Per abilitare Crittografia disco di Azure, le macchine virtuali devono soddisfar
   - Per ottenere un token per la connessione all'insieme di credenziali delle chiavi, \[\]la macchina virtuale Windows deve essere in grado di connettersi a un endpoint di Azure Active Directory, login.microsoftonline.com .
   - Per scrivere le chiavi di crittografia nell'insieme di credenziali delle chiavi, la macchina virtuale Windows deve essere in grado di connettersi all'endpoint dell'insieme di credenziali delle chiavi.
   - La macchina virtuale Windows deve essere in grado di connettersi a un endpoint di archiviazione di Azure che ospita il repository delle estensioni di Azure e un account di archiviazione di Azure che ospita i file del disco rigido virtuale.
-  -  Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP. Per altre informazioni, vedere [Azure Key Vault protetto da firewall](../../key-vault/key-vault-access-behind-firewall.md).    
+  -  Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP. Per altre informazioni, vedere [Azure Key Vault protetto da firewall](../../key-vault/general/access-behind-firewall.md).    
 
 
 ## <a name="group-policy-requirements"></a>Requisiti di Criteri di gruppo

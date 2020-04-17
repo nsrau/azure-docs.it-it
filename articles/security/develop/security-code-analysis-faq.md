@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74851520"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460223"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 Domande? Consulta le seguenti FAQ per ulteriori informazioni.
@@ -154,12 +154,12 @@ Esempi di regole di eliminazione valide:
 
 Le risorse seguenti consentono di gestire in modo sicuro i segreti e di accedere a informazioni riservate dall'interno delle applicazioni:The following resources help you securely manage secrets and access sensitive information from within your applications:
 
- - [Archivio chiavi di AzureAzure Key Vault](../../key-vault/index.yml)
+ - [Insieme di credenziali chiave di Azure](../../key-vault/index.yml)
  - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
  - [Identità del servizio gestito di Azure AD (MSI)Azure AD Managed Service Identity (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Identità gestite per le risorse di AzureManaged identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identità gestite nel servizio app di Azure e nelle funzioni di AzureManaged identities in Azure App Service and Azure Functions](../../app-service/overview-managed-identity.md)
- - [Libreria AppAuthentication](../../key-vault/service-to-service-authentication.md)
+ - [Libreria AppAuthentication](../../key-vault/general/service-to-service-authentication.md)
 
 
 Per ulteriori informazioni, vedere il post di blog [Gestione sicuramente dei segreti nel cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).

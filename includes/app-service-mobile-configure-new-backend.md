@@ -5,15 +5,15 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 04/15/2020
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5b6389491fd91b716a05e7c57c98addb6352bd9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67440204"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461931"
 ---
 1. Scaricare le guide introduttive dell'SDK client per le piattaforme seguenti:
     
@@ -69,23 +69,13 @@ ms.locfileid: "67440204"
    - **Back-end Node.js**
     
      Se hai intenzione di usare Node.js quickstart app, seguire le istruzioni riportate di seguito.
-
-     1. Nel portale di Azure passare a **Tabelle semplici**, verrà visualizzata questa schermata.
-      
-        ![Tabelle facili dei nodi](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
-
-     2. Assicurarsi che la stringa di connessione SQL sia già stata aggiunta nella scheda **Configurazione.** Quindi selezionare la casella di **Riconosco che questo sovrascriverà tutto** il contenuto del sito e fare clic su Crea **TodoItem tabella** pulsante.
      
-        ![Configurazione delle tabelle facili dei nodiNode Easy Tables Configuration](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
-
-     3. In **Tabelle facili**, fare clic sul pulsante **Aggiungi.**
-    
-        ![Pulsante Aggiungi tabelle facili da nodo](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
-
-     4. Creare `TodoItem` una tabella con accesso anonimo.
-      
-        ![Nodo Easy Tabelle Aggiungi Tabella](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
-
+        1. Creare una nuova API: è possibile apportare modifiche direttamente nel portale di Azure o modificare il codice in locale nell'ambiente di sviluppo e quindi pubblicare in Azure.Create a new API - You can either make changes right in the Azure portal or modify the code locally in your development environment and then publish to Azure. Fai clic `App Service Editor (Preview)` `Development Tools` sul menu in cui offre un'esperienza di modifica nel browser per il codice dell'app.
+        
+        2. Fare `Go` clic su e una volta che si apre l'Editor del servizio app, si ha il controllo completo sul codice sorgente. Supponendo che sia già stato installato il pacchetto express e azure-mobile-apps con il comando di installazione npm, fare clic sulla cartella api in WWWROOT per creare o modificare l'API personalizzata. Apportare le modifiche al file di codice e le modifiche vengono salvate automaticamente.
+        
+        3. Si dispone del controllo completo sul database SQL di Azure usato per archiviare i dati dell'applicazione. È possibile creare facilmente nuove tabelle nel database.
+ 
    - **Back-end .NET**
     
         Se hai intenzione di usare l'app di avvio rapido .NET, segui le istruzioni riportate di seguito.

@@ -12,23 +12,19 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
-ms.openlocfilehash: 2a2cd4bfc3d393543b41eea776f02723d94054b1
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: 46ca4661d06b52c861431a680a69297575ac99b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345821"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461413"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Machine Learning Services con R nel database SQL di Azure (anteprima)
 
 Machine Learning Services è una funzionalità del database SQL di Azure, usata per l'esecuzione di script R nel database. La funzionalità include pacchetti Microsoft R che garantiscono prestazioni elevate per le analisi predittive e l'apprendimento automatico. I dati relazionali possono essere usati negli script R tramite stored procedure, script di T-SQL contenenti istruzioni R o codice R contenente T-SQL.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
-> [!NOTE]
-> L'anteprima è disponibile per singoli database e pool elastici che utilizzano il modello di acquisto basato su vCore nei livelli di servizio critici **per** l'azienda e **per scopi generici.** In questa anteprima iniziale il livello di servizio **hyperscale** e l'opzione di distribuzione **dell'istanza gestita** non sono supportati. R attualmente è l'unico linguaggio supportato. Al momento non è disponibile il supporto per Python.
->
-> L'anteprima è attualmente disponibile nelle seguenti aree geografiche: Europa occidentale, Europa settentrionale, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Canada centrale, Sud-est asiatico, India meridionale e Australia sud-orientale.
 
 ## <a name="what-you-can-do-with-r"></a>Cosa permette di fare R
 
@@ -43,7 +39,7 @@ I pacchetti R open source più comuni sono preinstallati in Servizi di Machine L
 | Pacchetto R | Descrizione|
 |-|-|
 | [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open è la distribuzione avanzata di R offerta da Microsoft. Si tratta di una piattaforma open source completa per analisi statistica e data science. Basata su R e compatibile al 100% con questo linguaggio, include funzionalità aggiuntive per migliorare le prestazioni e la riproducibilità. |
-| [RevoScaleR (informazioni in stato inserito)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR è la libreria primaria per R scalabile. Le funzioni di questa libreria sono tra le più diffuse. In queste librerie sono disponibili trasformazioni e manipolazione, riepilogo statistico, visualizzazione e molte altre forme di analisi e modellazione dei dati. Inoltre, le funzioni in queste librerie distribuiscono automaticamente i carichi di lavoro tra i core disponibili per l'elaborazione parallela, con la possibilità di operare su blocchi di dati coordinati e gestiti dal motore di calcolo. |
+| [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR è la libreria primaria per R scalabile. Le funzioni di questa libreria sono tra le più diffuse. In queste librerie sono disponibili trasformazioni e manipolazione, riepilogo statistico, visualizzazione e molte altre forme di analisi e modellazione dei dati. Inoltre, le funzioni in queste librerie distribuiscono automaticamente i carichi di lavoro tra i core disponibili per l'elaborazione parallela, con la possibilità di operare su blocchi di dati coordinati e gestiti dal motore di calcolo. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML aggiunge algoritmi di apprendimento automatico per creare modelli personalizzati per l'analisi del sentiment, delle immagini e del testo. |
 
 Oltre ai pacchetti preinstallati, è possibile [installare pacchetti aggiuntivi.](sql-database-machine-learning-services-add-r-packages.md)

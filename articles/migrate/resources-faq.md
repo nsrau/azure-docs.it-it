@@ -1,17 +1,14 @@
 ---
 title: Azure Migrate FAQ
 description: Risposte alle domande comuni sul servizio Azure Migrate.Get answers to common questions about the Azure Migrate service.
-author: snehaamicrosoft
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: snehaa
-ms.openlocfilehash: c85c5c6e11beb0178139dad152f56f420b2ac26f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78926724"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530318"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: domande comuniAzure Migrate: Common questions
 
@@ -22,7 +19,7 @@ Questo articolo risponde alle domande comuni su Azure Migrate.This article answe
 
 ## <a name="what-is-azure-migrate"></a>Cos'è Azure Migrate?
 
-Azure Migrate provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads and private and public cloud VMs to Azure. L'hub fornisce strumenti di Azure Migrate per la valutazione e la migrazione e offerte ISV di terze parti. [Scopri di più](migrate-services-overview.md).
+Azure Migrate provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads and private and public cloud VMs to Azure. L'hub fornisce strumenti di Azure Migrate per la valutazione e la migrazione e offerte ISV di terze parti. [Altre informazioni](migrate-services-overview.md)
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Cosa è possibile fare con Azure Migrate?
 
@@ -56,8 +53,7 @@ Scegli il tuo strumento in base a ciò che vuoi fare:
 
 ## <a name="which-geographies-are-supported"></a>Quali aree geografiche sono supportate?
 
-- **VMware VMs**: esaminare le [aree geografiche supportate](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) di Azure Migrate per le macchine virtuali VMware.VMware VMs : Review the Azure Migrate supported geographies for VMware VMs.
-- **Macchine virtuali Hyper-V:** esaminare le [aree geografiche supportate](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v) di Azure Migrate per le macchine virtuali Hyper-V.Hyper-V V VMs : Review the Azure Migrate supported geographies for Hyper-V VMs.
+Esaminare le aree geografiche supportate per i cloud [pubblici](migrate-support-matrix.md#supported-geographies-public-cloud) e [governativi.](migrate-support-matrix.md#supported-geographies-azure-government)
 
 ## <a name="how-do-i-get-started"></a>Come iniziare?
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae3743530440c9df9094a0b9784922d2d6a3dfdf
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 753d606e1fc2dc966c970a210cf6fc5066d5ed83
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985406"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460138"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Azure Disk Encryption for Linux virtual machines FAQ
 
@@ -148,7 +148,9 @@ Crittografia disco di Azure usa il valore predefinito di decrittografia di aes-x
 No, i dati non verranno cancellati da unità dati che sono già crittografate usando Crittografia dischi di Azure. Analogamente al modo in cui EncryptFormatAll non crittografa nuovamente l'unità del sistema operativo, non riapplica la crittografia all'unità dati già crittografata. Per altre informazioni, vedere [Criteri EncryptFormatAll ](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).        
 
 ## <a name="is-xfs-filesystem-supported"></a>Il file system XFS è supportato?
-I volumi XFS sono supportati per la crittografia del disco dati solo con EncryptFormatAll. Questo riformatto il volume, cancellando tutti i dati precedentemente lì. Per altre informazioni, vedere [Criteri EncryptFormatAll ](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+La crittografia dei dischi del sistema operativo XFS è supportata.
+
+La crittografia dei dischi dati XFS è supportata solo quando viene utilizzato il parametro EncryptFormatAll. Questo riformatto il volume, cancellando tutti i dati precedentemente lì. Per altre informazioni, vedere [Criteri EncryptFormatAll ](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>È possibile eseguire il backup e il ripristino di una macchina virtuale crittografata? 
 

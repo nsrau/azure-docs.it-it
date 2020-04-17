@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa0dc204a017e2d40eb3952a9ede0755127f8de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970667"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460121"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Crittografia disco di Azure in una rete isolataAzure Disk Encryption on an isolated network
 
@@ -43,7 +43,7 @@ Tutte le impostazioni dei gruppi di sicurezza di rete devono consentire all'endp
 
 Se si usa Crittografia disco di [Azure con Azure AD (versione precedente),](disk-encryption-overview-aad.md)la libreria di Azure Active [Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) dovrà essere installata manualmente per tutte le distribuzioni (oltre ai pacchetti appropriati per la distribuzione, come indicato [in precedenza).](#package-management)
 
-Quando la crittografia è abilitata con le [credenziali di Azure AD](disk-encryption-linux-aad.md), la macchina virtuale di destinazione deve consentire la connettività sia sugli endpoint di Azure Active Directory sia sugli endpoint di Key Vault. Gli endpoint di autenticazione di Azure Active Directory correnti sono mantenuti nelle sezioni 56 e 59 della documentazione [URL e intervalli di indirizzi IP per Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). Le istruzioni di Key Vault sono fornite nella documentazione [Accedere ad Azure Key Vault protetto da firewall](../../key-vault/key-vault-access-behind-firewall.md).
+Quando la crittografia è abilitata con le [credenziali di Azure AD](disk-encryption-linux-aad.md), la macchina virtuale di destinazione deve consentire la connettività sia sugli endpoint di Azure Active Directory sia sugli endpoint di Key Vault. Gli endpoint di autenticazione di Azure Active Directory correnti sono mantenuti nelle sezioni 56 e 59 della documentazione [URL e intervalli di indirizzi IP per Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). Le istruzioni di Key Vault sono fornite nella documentazione [Accedere ad Azure Key Vault protetto da firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure 
 

@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75437051"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461464"
 ---
 # <a name="expressroute-encryption"></a>Crittografia ExpressRouteExpressRoute encryption
  
 ExpressRoute supporta un paio di tecnologie di crittografia per garantire la riservatezza e l'integrità dei dati che attraversano tra la rete e la rete di Microsoft.
 
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>Domande frequenti sulla crittografia point-to-point in base a MACsec
-MACsec è [uno standard IEEE](https://1.ieee802.org/security/802-1ae/). Crittografa i dati a livello mac (Media Access Control) o Network Layer 2. È possibile usare MACsec per crittografare i collegamenti fisici tra i dispositivi di rete e i dispositivi di rete microsoft quando ci si connette a Microsoft tramite [ExpressRoute Direct](expressroute-erdirect-about.md). MACsec è disabilitato sulle porte ExpressRoute Direct per impostazione predefinita. Portare la propria chiave MACsec per la crittografia e archiviarla in [Azure Key Vault](../key-vault/key-vault-overview.md). Sei tu a decidere quando ruotare la chiave. Vedi altre domande frequenti di seguito.
+MACsec è [uno standard IEEE](https://1.ieee802.org/security/802-1ae/). Crittografa i dati a livello mac (Media Access Control) o Network Layer 2. È possibile usare MACsec per crittografare i collegamenti fisici tra i dispositivi di rete e i dispositivi di rete microsoft quando ci si connette a Microsoft tramite [ExpressRoute Direct](expressroute-erdirect-about.md). MACsec è disabilitato sulle porte ExpressRoute Direct per impostazione predefinita. Portare la propria chiave MACsec per la crittografia e archiviarla in [Azure Key Vault](../key-vault/general/overview.md). Sei tu a decidere quando ruotare la chiave. Vedi altre domande frequenti di seguito.
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>È possibile abilitare MACsec nel circuito ExpressRoute di cui è stato eseguito il provisioning da un provider ExpressRoute?
 No. MACsec crittografa tutto il traffico su un collegamento fisico con una chiave di proprietà di un'entità (ad esempio un cliente). Pertanto, è disponibile solo in ExpressRoute Direct.Therefore, it's available on ExpressRoute Direct only.
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>È possibile crittografare alcuni dei circuiti ExpressRoute nelle porte di ExpressRoute Direct e lasciare in chiaro altri circuiti sulle stesse porte? 

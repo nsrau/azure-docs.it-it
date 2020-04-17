@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono utilizzate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 017878c4c47a5645ea8815580d2176c7a2ff5d66
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0a7c4e05270ff242fa97b253b27a5de92895368a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314007"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461005"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -89,7 +89,7 @@ Le seguenti modalità del provider di risorse sono attualmente supportate durant
 - `Microsoft.ContainerService.Data`per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md). I criteri che utilizzano questa modalità del provider di risorse devono utilizzare l'effetto [EnforceRegoPolicy.Policies](./effects.md#enforceregopolicy) using this Resource Provider mode **must** use the EnforceRegoPolicy effect.
 - `Microsoft.Kubernetes.Data`per la gestione dei cluster AKS Engine kubernetes autogestiti in Azure.For managing self-managed AKS Engine Kubernetes clusters on Azure.
   I criteri che utilizzano questa modalità del provider di risorse **devono** utilizzare l'effetto [EnforceOPAConstraint.](./effects.md#enforceopaconstraint)
-- `Microsoft.KeyVault.Data`per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+- `Microsoft.KeyVault.Data`per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le iniziative durante l'anteprima.
@@ -324,7 +324,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>Valore
+### <a name="value"></a>valore
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.

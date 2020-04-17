@@ -3,12 +3,12 @@ title: Versioni del cluster supportate in Azure Service FabricSupported cluster 
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti del blog del team di Service Fabric.Learn about cluster versions in Azure Service Fabric, including a link to the newest releases from the Service Fabric team blog.
 ms.topic: troubleshooting
 ms.date: 03/02/2020
-ms.openlocfilehash: 1158266857f0864ed2f442edb100032c70063719
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: b76e498926492ce7acaa696dfe9a0299fb5573e0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385045"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460529"
 ---
 # <a name="supported-service-fabric-versions"></a>Versioni di Service Fabric supportate
 
@@ -37,10 +37,10 @@ Nella tabella seguente sono elencate le versioni di Service Fabric e le relative
 | 6.3.* | 6.1.480.* |Versione 3.2 o precedente |giovedì 31 marzo 2019  |
 | 6.4.* | 6.2.301.* |Versione 3.3 o precedente |giovedì 15 settembre 2019 |
 | 6.5.* | 6.4.617.* |Minore o uguale alla versione 3.4 |1o agosto 2020 |
-| 7.0.466.* | 6.4.664.* |Minore o uguale alla versione 4.0|Versione corrente, quindi nessuna data di fine |
-| 7.0.466.* | 6.5.* |Minore o uguale alla versione 4.0|Versione corrente, quindi nessuna data di fine |
-| 7.0.470.* | 7.0.466.* |Minore o uguale alla versione 4.0 |Versione corrente, quindi nessuna data di fine |
-
+| 7.0.466.* | 6.4.664.* |Minore o uguale alla versione 4.0|1o agosto 2020  |
+| 7.0.466.* | 6.5.* |Minore o uguale alla versione 4.0|1o agosto 2020 |
+| 7.0.470.* | 7.0.466.* |Minore o uguale alla versione 4.0 |1o agosto 2020  |
+| 7.1.409.* | 7.0.466.* |Minore o uguale alla versione 4.0 |Versione corrente, quindi nessuna data di fine |
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
 Nella tabella seguente sono elencati i sistemi operativi supportati per le versioni di Service Fabric supportate.

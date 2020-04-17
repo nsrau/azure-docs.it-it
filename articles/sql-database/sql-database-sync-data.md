@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 80afbeb5668d43ac7bb0b12fadb88a93c68e0ddb
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 8708c458e1064e4b9ea7dc67f1a4d4fbce1547b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383707"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481956"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -134,6 +134,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 - L'autenticazione di Azure Active Directory non è supportata.
 - Le tabelle con lo stesso nome ma schema diverso (ad esempio, dbo.customers e sales.customers) non sono supportate.
 - Le colonne con tipi di dati definiti dall'utente non sono supportateColumns with User Defined Data Types aren't supported
+- Lo spostamento di server tra sottoscrizioni diverse non è supportato. 
 
 #### <a name="unsupported-data-types"></a>Tipi di dati non supportati
 

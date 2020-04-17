@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7c34e42d0ab68a5dab9718075f02a85322ce6c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650564"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458829"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -61,7 +61,7 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
 
 * Prima di poter utilizzare il connettore AS2, è necessario creare un [accordo](../logic-apps/logic-apps-enterprise-integration-agreements.md) AS2 tra i partner commerciali e archiviare tale contratto nell'account di integrazione.
 
-* Se si usa [L'insieme di credenziali delle chiavi](../key-vault/key-vault-overview.md) di Azure per la gestione dei certificati, verificare che le chiavi dell'insieme di credenziali consentano le operazioni di **crittografia** e **decrittografia.** In caso contrario, le azioni di codifica e decodifica hanno esito negativo.
+* Se si usa [L'insieme di credenziali delle chiavi](../key-vault/general/overview.md) di Azure per la gestione dei certificati, verificare che le chiavi dell'insieme di credenziali consentano le operazioni di **crittografia** e **decrittografia.** In caso contrario, le azioni di codifica e decodifica hanno esito negativo.
 
   Nel portale di Azure passare alla chiave nell'insieme di credenziali delle chiavi, esaminare le **operazioni consentite**della chiave e verificare che le operazioni **di crittografia** e **decrittografia** siano selezionate, ad esempio:In the Azure portal, go to the key in your key vault, review your key's Allowed operations , and confirm that the Encrypt and Decrypt operations are selected, for example:
 

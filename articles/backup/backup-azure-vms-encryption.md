@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino delle macchine virtuali di Azure critt
 description: Descrive come eseguire il backup e il ripristino di macchine virtuali di Azure crittografate con il servizio Backup di Azure.Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: a3976cc83f749b1abe00cef3f5bf867ffbc30ab6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98febe9f91cb4b71d546300d4e65ade073d19e67
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206691"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461770"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Eseguire il backup e il ripristino della macchina virtuale di Azure crittografataBack up and restore encrypted Azure VM
 
@@ -30,7 +30,7 @@ Backup di Azure può eseguire il backup e il ripristino delle macchine virtuali 
 **Non gestito** | Sì | Sì
 **Gestito**  | Sì | Sì
 
-- Ulteriori informazioni su [ADE,](../security/azure-security-disk-encryption-overview.md) [Key Vault](../key-vault/key-vault-overview.md)e [KEK](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
+- Ulteriori informazioni su [ADE,](../security/azure-security-disk-encryption-overview.md) [Key Vault](../key-vault/general/overview.md)e [KEK](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Leggere le [domande frequenti sulla](../security/azure-security-disk-encryption-faq.md) crittografia del disco della macchina virtuale di Azure.Read the FAQ for Azure VM disk encryption.
 
 ### <a name="limitations"></a>Limitazioni
@@ -136,8 +136,8 @@ Le macchine virtuali crittografate vengono ripristinate come segue:You restore e
 
 1. [Ripristinare il disco della macchina virtuale](backup-azure-arm-restore-vms.md#restore-disks).
 2. Ricreare l'istanza della macchina virtuale eseguendo una delle operazioni seguenti:
-    1. Usare il modello generato durante l'operazione di ripristino per personalizzare le impostazioni della macchina virtuale e attivare la distribuzione della macchina virtuale. [Scopri di più](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    2. Creare una nuova macchina virtuale dai dischi ripristinati usando PowerShell.Create a new VM from the restored disks using PowerShell. [Scopri di più](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    1. Usare il modello generato durante l'operazione di ripristino per personalizzare le impostazioni della macchina virtuale e attivare la distribuzione della macchina virtuale. [Altre informazioni](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)
+    2. Creare una nuova macchina virtuale dai dischi ripristinati usando PowerShell.Create a new VM from the restored disks using PowerShell. [Altre informazioni](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
 3. Per le macchine virtuali Linux, reinstallare l'estensione ADE in modo che i dischi dati siano aperti e installati.
 
 ## <a name="next-steps"></a>Passaggi successivi
