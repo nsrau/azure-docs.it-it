@@ -10,7 +10,7 @@
       href: hpc-cache-namespace.md
 - name: Guide pratiche
   items:
-    - name: Prerequisites
+    - name: Prerequisiti
       href: hpc-cache-prereqs.md
     - name: Creare la cache
       href: hpc-cache-create.md
@@ -36,6 +36,8 @@
       href: hpc-cache-mount.md
     - name: Gestire la cache
       href: hpc-cache-manage.md
+    - name: Configurare impostazioni facoltative
+      href: configuration.md
 - name: Risorse
   items:
     - name: Aprire un ticket di supporto
@@ -46,5 +48,7 @@
       href: troubleshoot-nas.md
     - name: Ripristino dopo un'interruzione a livello di area
       href: hpc-region-recovery.md
+    - name: Usare le chiavi di crittografia gestite dal cliente
+      href: customer-keys.md
     - name: Usare Azure NetApp Files con Cache HPC di Azure
       href: hpc-cache-netapp.md

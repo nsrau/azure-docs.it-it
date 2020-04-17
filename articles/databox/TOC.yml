@@ -70,6 +70,8 @@
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Da archivio HDFS
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: A Backup di Azure
+                  href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
             - name: Risolvere problemi
               items:
                 - name: Problemi di Data Box

@@ -157,7 +157,7 @@
     - name: Automatizzazione dell'infrastruttura
       href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: ../virtual-machines/windows/security-policy.md
@@ -252,7 +252,7 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Aggiornamenti automatici del sistema operativo
           href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Ripristini automatici delle istanze (anteprima)
+        - name: Ripristini automatici delle istanze
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Protezione delle istanze
           href: virtual-machine-scale-sets-instance-protection.md
