@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 274e85a914ebec31a03f1149bc4467ea142e7255
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 50a1971fed4cce49eea1922bc9b81f06667f4dd8
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482116"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641011"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -1681,7 +1681,7 @@ Servizio di Azure: archiviazione classica del modello di distribuzioneAzure serv
 > | Azione | Microsoft.ClassicStorage/checkStorageAccountAvailability/read | Recupera la disponibilità di un account di archiviazione. |
 > |  | **Dischi** |  |
 > | Azione | Microsoft.ClassicStorage/disks/read | Restituisce il disco dell'account di archiviazione. |
-> |  | **Immagini** |  |
+> |  | **images** |  |
 > | Azione | Microsoft.ClassicStorage/images/read | Restituisce l'immagine. |
 > |  | **immagini/operationstatuses** |  |
 > | Azione | Microsoft.ClassicStorage/images/operationstatuses/read | Recupera lo stato operativo dell'immagine. |
@@ -2185,7 +2185,7 @@ Servizio di Azure: Macchine virtuali , Set di [scalabilità di macchine virtuali
 > | Azione | Microsoft.Compute/hostGroups/hosts/lettura | Ottenere le proprietà di un hostGet the properties of a host |
 > | Azione | Microsoft.Compute/hostGroups/hosts/write | Crea un nuovo host o aggiorna un host esistente |
 > | Azione | Microsoft.Compute/hostGroups/hosts/delete | Elimina l'host |
-> |  | **Immagini** |  |
+> |  | **images** |  |
 > | Azione | Microsoft.Compute/images/read | Ottiene le proprietà dell’immagine |
 > | Azione | Microsoft.Compute/images/write | Crea una nuova immagine o ne aggiorna una esistente |
 > | Azione | Microsoft.Compute/images/delete | Elimina l'immagine |
@@ -3764,7 +3764,7 @@ Servizio di Azure: [Azure Dev SpacesAzure](../dev-spaces/index.yml) service: Azu
 > | Tipo di azione | Operazione | Descrizione |
 > | --- | --- | --- |
 > | Azione | Microsoft.DevSpaces/register/action | Registra il provider di risorse Microsoft Dev Spaces con una sottoscrizione |
-> |  | **controllers** |  |
+> |  | **Controller** |  |
 > | Azione | Microsoft.DevSpaces/controllers/read | Legge le proprietà del controller di Azure Dev Spaces |
 > | Azione | Microsoft.DevSpaces/controllers/write | Crea o aggiorna le proprietà del controller di Azure Dev Spaces |
 > | Azione | Microsoft.DevSpaces/controllers/delete | Consente di eliminare i servizi del controller di Azure Dev Spaces e dataplane |
@@ -4499,7 +4499,7 @@ Servizio di Azure: [Azure Resource ManagerAzure](../azure-resource-manager/index
 > | Tipo di azione | Operazione | Descrizione |
 > | --- | --- | --- |
 > | Azione | Microsoft.Features/register/action | Registra la funzionalità di una sottoscrizione. |
-> |  | **funzionalità** |  |
+> |  | **Caratteristiche** |  |
 > | Azione | Microsoft.Features/features/read | Ottiene le funzionalità di una sottoscrizione. |
 > |  | **Operazioni** |  |
 > | Azione | Microsoft.Features/operations/read | Recupera l'elenco delle operazioni. |
@@ -5332,7 +5332,7 @@ Servizio di Azure: [Azure Data ExplorerAzure](/azure/data-explorer/) service: Az
 > | Azione | Microsoft.Kusto/Clusters/PrincipalAssignments/delete | Elimina una risorsa assegnazioni di entità cluster. |
 > |  | **Cluster/SKUs** |  |
 > | Azione | Microsoft.Kusto/Clusters/SKU/lettura | Legge una risorsa SKU del cluster. |
-> |  | **Luoghi** |  |
+> |  | **Percorsi** |  |
 > | Azione | Microsoft.Kusto/Locations/CheckNameAvailability/azione | Controlla la disponibilità del nome della risorsa. |
 > | Azione | Microsoft.Kusto/Locations/GetNetworkPolicies/action | Ottiene i criteri di finalità di rete |
 > |  | **posizioni/risultati delle operazioni** |  |
@@ -7968,7 +7968,7 @@ Servizio di Azure: [Site Recovery](../site-recovery/index.yml)
 > | Tipo di azione | Operazione | Descrizione |
 > | --- | --- | --- |
 > | Azione | Microsoft.RecoveryServices/register/action | Registra la sottoscrizione per il provider di risorse specificato |
-> |  | **Luoghi** |  |
+> |  | **Percorsi** |  |
 > | Azione | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
 > | Azione | Microsoft.RecoveryServices/Locations/backupStatus/action | Controlla lo stato del backup dell'insieme di credenziali di Servizi di ripristino |
 > | Azione | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Convalida le funzioni |
@@ -10859,5 +10859,5 @@ Servizio di Azure: [Monitoraggio di AzureAzure](../azure-monitor/index.yml) serv
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Abbina il provider di risorse al servizio](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Ruoli personalizzati di AzureAzure custom roles](custom-roles.md)
 - [Ruoli predefiniti di AzureAzure built-in roles](built-in-roles.md)
+- [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

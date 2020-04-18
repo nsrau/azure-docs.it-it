@@ -4,18 +4,18 @@ description: Informazioni sulla clausola SQL ORDER BY per Azure Cosmos DB. Usare
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/17/2020
 ms.author: tisande
-ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188739"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641404"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clausola ORDER BY in Azure Cosmos DB
 
-La clausola facoltativa ORDER BY specifica l'ordinamento per i risultati restituiti dalla query.
+La `ORDER BY` clausola facoltativa specifica l'ordinamento per i risultati restituiti dalla query.
 
 ## <a name="syntax"></a>Sintassi
   
@@ -31,9 +31,9 @@ ORDER BY <sort_specification>
   
    Specifica una proprietà o espressione in cui ordinare il set di risultati della query. Una colonna di ordinamento può essere specificata come nome o alias di proprietà.  
   
-   È possibile specificare più proprietà. I nomi delle proprietà devono essere univoci. La sequenza delle proprietà di ordinamento nella clausola ORDER BY definisce l'organizzazione del set di risultati ordinato. Ovvero, il set di risultati viene ordinato in base alla prima proprietà e quindi l'elenco così ordinato viene ordinato in base alla seconda proprietà e così via.  
+   È possibile specificare più proprietà. I nomi delle proprietà devono essere univoci. La sequenza delle proprietà `ORDER BY` di ordinamento nella clausola definisce l'organizzazione del set di risultati ordinato. Ovvero, il set di risultati viene ordinato in base alla prima proprietà e quindi l'elenco così ordinato viene ordinato in base alla seconda proprietà e così via.  
   
-   I nomi di proprietà a cui viene fatto riferimento nella clausola ORDER BY devono corrispondere a una proprietà nell'elenco di selezione o a una proprietà definita nella raccolta specificata nella clausola FROM senza ambiguità.  
+   I nomi di proprietà `ORDER BY` a cui si fa riferimento nella clausola devono corrispondere a `FROM` una proprietà nell'elenco di selezione o a una proprietà definita nella raccolta specificata nella clausola senza ambiguità.  
   
 - `<sort_expression>`  
   
@@ -45,7 +45,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Specifica che i valori nella colonna specificata devono essere ordinati in ordine crescente o decrescente. ASC consente di ordinare i valori dal più piccolo al più grande. DESC consente di ordinare i valori dal più grande al più piccolo. ASC è l'ordinamento predefinito. I valori Null vengono considerati i valori in assoluto più piccoli.  
+   Specifica che i valori nella colonna specificata devono essere ordinati in ordine crescente o decrescente. `ASC`ordina dal valore più basso al valore più alto. `DESC`ordina dal valore più alto al valore più basso. `ASC`è l'ordinamento predefinito. I valori Null vengono considerati i valori in assoluto più piccoli.  
   
 ## <a name="remarks"></a>Osservazioni  
   
@@ -152,7 +152,7 @@ I risultati includono solo il `lastName`documento che ha un:
     ]
 ```
 
-Se si aggiornano i criteri di indicizzazione del `lastName`contenitore per includere in modo esplicito un percorso per , nei risultati della query verranno inclusi documenti con una proprietà di ordinamento non definita. È necessario definire in modo esplicito il percorso per portare a questo valore scalare (e non oltre). È necessario `?` utilizzare il carattere nella definizione del percorso nei `lastName` criteri di indicizzazione per assicurarsi di indicizzare in modo esplicito la proprietà e nessun percorso annidato aggiuntivo oltre.
+Se si aggiornano i criteri di indicizzazione del `lastName`contenitore per includere in modo esplicito un percorso per , nei risultati della query verranno inclusi documenti con una proprietà di ordinamento non definita. È necessario definire in modo esplicito il percorso per portare a questo valore scalare (e non oltre). È necessario `?` utilizzare il carattere nella definizione del percorso nei `lastName` criteri di indicizzazione per assicurarsi di indicizzare in modo esplicito la proprietà e nessun percorso annidato aggiuntivo oltre. Se `Order By` la query utilizza un [indice composito](index-policy.md#composite-indexes), i risultati includeranno sempre documenti con una proprietà di ordinamento non definita nei risultati della query.
 
 Di seguito è riportato un criterio di indicizzazione `lastName` di esempio che consente di visualizzare documenti con un elemento non definito nei risultati della query:Here is a sample indexing policy which allows you to have documents with an undefined appear in the query results:
 
@@ -218,6 +218,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
+- [Introduttiva](sql-query-getting-started.md)
 - [Indexing policies in Azure Cosmos DB](index-policy.md) (Criteri di indicizzazione in Azure Cosmos DB)
 - [Clausola OFFSET LIMIT](sql-query-offset-limit.md)

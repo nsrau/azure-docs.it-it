@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/03/2019
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137456"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641358"
 ---
-# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare l'accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di AzureElevate access to manage all Azure subscriptions and management Groups
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure
 
 Come amministratore globale in Azure Active Directory (Azure AD), potrebbe non essere disponibile l'accesso a tutte le sottoscrizioni e i gruppi di gestione nella directory. Questo articolo descrive i modi in cui è possibile elevare i privilegi di accesso a tutte le sottoscrizioni e tutti i gruppi di gestione.
 
@@ -30,7 +30,7 @@ Come amministratore globale in Azure Active Directory (Azure AD), potrebbe non e
 
 ## <a name="why-would-you-need-to-elevate-your-access"></a>Motivi per cui può essere necessario elevare i privilegi di accesso
 
-In alcune occasioni, un amministratore globale potrebbe avere bisogno di eseguire le operazioni seguenti:
+Se si è un amministratore globale, in alcuni casi potrebbe essere necessario eseguire le azioni seguenti:
 
 - Ottenere nuovamente l'accesso a una sottoscrizione o a un gruppo di gestione di Azure quando un utente ha perso l'accesso
 - Concedere a un altro utente o a se stesso l'accesso a una sottoscrizione o a un gruppo di gestione di Azure
@@ -55,9 +55,7 @@ Seguire questa procedura per eseguire con privilegi elevati l'accesso per un amm
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) come amministratore globale.
 
-1. Cercare e selezionare **Azure Active Directory**.
-
-   ![Selezionare Azure Active Directory - schermata](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+1. Aprire **Azure Active Directory**.
 
 1. In **Gestisci**selezionare **Proprietà**.
 
@@ -233,7 +231,7 @@ Usare la procedura di base seguente per eseguire con privilegi elevati l'accesso
 
 ### <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati
 
-Quando si `elevateAccess`chiama , si crea un'assegnazione di ruolo per se stessi, in modo da`/`revocare i privilegi è necessario rimuovere l'assegnazione di ruolo Amministratore accesso utenti per se stessi nell'ambito radice ( )
+Quando si `elevateAccess`chiama , si crea un'assegnazione di ruolo per se stessi, in modo da`/`revocare tali privilegi è necessario rimuovere l'assegnazione di ruolo Amministratore accesso utenti per se stessi nell'ambito radice ( ).
 
 1. Chiamare [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) con `roleName` uguale a User Access Administrator per determinare l'ID del nome del ruolo Amministratore Accesso utenti.
 

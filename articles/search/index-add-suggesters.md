@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: d40d4cfe1b86448f1e8df307013905d69f203dcd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/14/2020
+ms.openlocfilehash: 1e2a837acef976b6b872c2d4002ee49d662ad594
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261058"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641332"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
@@ -42,15 +42,15 @@ Quando si creano prefissi, un suggerimento ha una propria catena di analisi, sim
 
 ## <a name="define-a-suggester"></a>Definire un suggerimento
 
-Anche se un suggerimento ha diverse proprietà, è principalmente una raccolta di campi per i quali si sta abilitando un'esperienza di ricerca durante la digitazione. Ad esempio, un'app di viaggio potrebbe voler abilitare il completamento automatico in destinazioni, città e attrazioni. Di conseguenza, tutti e tre i campi andrebbero nella raccolta di campi.
+Per creare un suggerimento, aggiungerne uno a [uno schema](https://docs.microsoft.com/rest/api/searchservice/create-index) di indice e [impostare ogni proprietà](#property-reference). Nell'indice, si può avere un suggeritore (in particolare, un suggeritore nella raccolta di suggerimenti). Il momento migliore per creare un suggerimento è quando si definisce anche il campo che lo utilizzerà.
 
-Per creare un suggerimento, aggiungerne uno a uno schema di indice. È possibile avere un suggerimento in un indice (in particolare, un suggeritore nella raccolta di suggerimenti). Un suggerimento accetta un elenco di campi. 
+### <a name="choose-fields"></a>Selezionare i campi
 
-+ Per i suggerimenti, scegliere i campi che meglio rappresentano un singolo risultato. I nomi, i titoli o altri campi univoci che distinguono tra i documenti funzionano meglio. Se i campi sono costituiti da valori simili o identici, i suggerimenti saranno composti da risultati identici e un utente non saprà su quale fare clic.
+Anche se un suggerimento ha diverse proprietà, è principalmente una raccolta di campi per i quali si sta abilitando un'esperienza di ricerca durante la digitazione. Per i suggerimenti in particolare, scegliere i campi che meglio rappresentano un singolo risultato. I nomi, i titoli o altri campi univoci che distinguono tra più corrispondenze funzionano meglio. Se i campi sono costituiti da valori ripetitivi, i suggerimenti sono costituiti da risultati identici e un utente non saprà su quale fare clic.
 
-+ Assicurarsi che ogni campo `sourceFields` nell'elenco dei suggerimenti utilizzi`"analyzer": null`l'analizzatore Lucene `"analyzer": "en.Microsoft"`standard predefinito ( ) o un [analizzatore di linguaggio](index-add-language-analyzers.md) (ad esempio, ). 
+Assicurarsi che ogni campo utilizzi un analizzatore che esegue l'analisi lessicale durante l'indicizzazione. È possibile utilizzare l'analizzatore`"analyzer": null`Lucene standard predefinito ( `"analyzer": "en.Microsoft"`) o un [analizzatore del linguaggio](index-add-language-analyzers.md) (ad esempio, ). 
 
-  La scelta di un analizzatore determina il modo in cui i campi vengono tokenizzati e successivamente preceduti. Ad esempio, per una stringa sillabata come "sensibile al contesto", l'utilizzo di un analizzatore di linguaggio comporterà queste combinazioni di token: "context", "sensitive", "context-sensitive". Se avessi usato l'analizzatore Lucene standard, la stringa sillabata non esisterebbe.
+La scelta di un analizzatore determina il modo in cui i campi vengono tokenizzati e successivamente preceduti. Ad esempio, per una stringa sillabata come "sensibile al contesto", l'utilizzo di un analizzatore di linguaggio comporterà queste combinazioni di token: "context", "sensitive", "context-sensitive". Se avessi usato l'analizzatore Lucene standard, la stringa sillabata non esisterebbe.
 
 > [!TIP]
 > Prendi in considerazione l'uso [dell'API Analizza testo](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) per informazioni dettagliate su come i termini vengono suddivisi in token e successivamente con il prefisso. Dopo aver creato un indice, è possibile provare vari analizzatori su una stringa per visualizzare i token che genera.
@@ -61,7 +61,7 @@ Il momento migliore per creare un suggerimento è quando si crea anche la defini
 
 Se si tenta di creare un suggerimento utilizzando campi preesistenti, l'API non lo consentirà. I prefissi vengono generati durante l'indicizzazione, quando i termini parziali in due o più combinazioni di caratteri vengono tokenizzati insieme a termini interi. Dato che i campi esistenti sono già in formato token, sarà necessario ricostruire l'indice se si desidera aggiungerli a un suggerimento. Per altre informazioni, vedere [Come ricompilare un indice di Ricerca cognitiva](search-howto-reindex.md)di Azure.For more information, see How to rebuild an Azure Cognitive Search index.
 
-### <a name="create-using-the-rest-api"></a>Creare usando l'API RESTCreate using the REST API
+## <a name="create-using-rest"></a>Creare usando RESTCreate using REST
 
 Nell'API REST aggiungere i suggerimenti tramite [Crea indice](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna indice.](https://docs.microsoft.com/rest/api/searchservice/update-index) 
 
@@ -99,7 +99,7 @@ Nell'API REST aggiungere i suggerimenti tramite [Crea indice](https://docs.micro
   }
   ```
 
-### <a name="create-using-the-net-sdk"></a>Creare utilizzando .NET SDK
+## <a name="create-using-net"></a>Creare utilizzando .NET
 
 Definire un oggetto [Suggester](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)nel linguaggio C. `Suggesters`è una raccolta, ma può richiedere un solo elemento. 
 
@@ -122,37 +122,40 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-### <a name="property-reference"></a>Informazioni di riferimento sulle proprietà
+## <a name="property-reference"></a>Informazioni di riferimento sulle proprietà
 
 |Proprietà      |Descrizione      |
 |--------------|-----------------|
 |`name`        |Nome dello strumento suggerimenti.|
-|`searchMode`  |La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching`, che ricerca una corrispondenza flessibile di espressioni all'inizio o all'interno di frasi.|
+|`searchMode`  |La strategia usata per la ricerca di espressioni candidate. L'unica modalità `analyzingInfixMatching`attualmente supportata è , che attualmente corrisponde all'inizio di un termine.|
 |`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. I campi devono `Edm.String` `Collection(Edm.String)`essere di tipo e . Se un analizzatore viene specificato nel campo, deve essere un analizzatore denominato da [questo elenco](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (non un analizzatore personalizzato).<p/> Come procedura consigliata, specificare solo i campi che si prestano a una risposta prevista e appropriata, che si tratti di una stringa completata in una barra di ricerca o in un elenco a discesa.<p/>Un nome di hotel è un buon candidato perché ha precisione. I campi dettagliati come le descrizioni e i commenti sono troppo densi. Analogamente, i campi ripetitivi, ad esempio categorie e tag, sono meno efficaci. Negli esempi, includiamo comunque "categoria" per dimostrare che è possibile includere più campi. |
 
 <a name="how-to-use-a-suggester"></a>
 
 ## <a name="use-a-suggester"></a>Utilizzare un suggerimento
 
-In una query viene utilizzato un suggerimento. Dopo aver creato un suggerimento, chiamare l'API appropriata nella logica di query per richiamare la funzionalità. 
+In una query viene utilizzato un suggerimento. Dopo aver creato un suggerimento, chiama una delle seguenti API per un'esperienza di ricerca durante la digitazione:
 
 + [API REST dei suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
 + [API REST di completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
 + [SuggestWithHttpMessagesAsync (metodo)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
 + [Metodo AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
-L'utilizzo dell'API è illustrato nella chiamata seguente all'API REST di completamento automatico. Questo esempio è tratto da due asporto. In primo luogo, come con tutte le query, l'operazione è contro la raccolta di documenti di un indice. In secondo luogo, è possibile aggiungere parametri di query. Sebbene molti parametri di query siano comuni a entrambe le API, l'elenco è diverso per ognuno di essi.
+In un'applicazione di ricerca, il codice client deve sfruttare una libreria come [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) per raccogliere la query parziale e fornire la corrispondenza. Per ulteriori informazioni su questa attività, vedere [Aggiungere il completamento automatico o i risultati suggeriti al codice client.](search-autocomplete-tutorial.md)
+
+L'utilizzo dell'API è illustrato nella chiamata seguente all'API REST di completamento automatico. Questo esempio è tratto da due asporto. In primo luogo, come con tutte le query, l'operazione è contraria alla raccolta di documenti di un indice e la query include un parametro **di ricerca,** che in questo caso fornisce la query parziale. In secondo luogo, è necessario aggiungere **suggesterName** alla richiesta. Se un suggerimento non è definito nell'indice, una chiamata al completamento automatico o i suggerimenti avranno esito negativo.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs/autocomplete?[query parameters]  
-api-key: [admin or query key]
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+{
+  "search": "minecraf",
+  "suggesterName": "sg"
+}
 ```
-
-Se un suggerimento non è definito nell'indice, una chiamata al completamento automatico o i suggerimenti avranno esito negativo.
 
 ## <a name="sample-code"></a>Codice di esempio
 
-+ [Per creare la prima app nell'esempio in C,](tutorial-csharp-type-ahead-and-suggestions.md) vengono illustrate la costruzione di un suggerimento, le query suggerite, il completamento automatico e l'esplorazione in base a facet. Questo esempio di codice viene eseguito in un servizio di ricerca cognitiva di Azure sandbox e usa un indice Hotels precaricato in modo che tutto ciò che devi fare è premere F5 per eseguire l'applicazione. Non è necessario alcun abbonamento o accesso.
++ L'esempio per la creazione di [una prima app in C, ad esempio Ricerca come si digita,](tutorial-csharp-type-ahead-and-suggestions.md) illustra la costruzione di un suggerimento, le query suggerite, il completamento automatico e l'esplorazione in base a facet. Questo esempio di codice viene eseguito in un servizio di ricerca cognitiva di Azure sandbox e usa un indice Hotels precaricato in modo che tutto ciò che devi fare è premere F5 per eseguire l'applicazione. Non è necessario alcun abbonamento o accesso.
 
 + [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) è un esempio meno recente che contiene sia il codice C , che java. Vengono inoltre illustrate la costruzione di un suggerimento, le query suggerite, il completamento automatico e l'esplorazione in base a facet. In questo esempio di codice vengono utilizzati i dati di esempio [DI NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) ospitati. 
 
@@ -161,4 +164,4 @@ Se un suggerimento non è definito nell'indice, una chiamata al completamento au
 Si consiglia di vedere come vengono formulate le richieste.
 
 > [!div class="nextstepaction"]
-> [Suggerimenti ed esempi di completamento automatico](search-autocomplete-tutorial.md) 
+> [Aggiungere il completamento automatico e suggerimenti al codice clientAdd autocomplete and suggestions to client code](search-autocomplete-tutorial.md) 

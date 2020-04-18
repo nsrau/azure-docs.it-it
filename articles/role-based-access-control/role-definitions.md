@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: e4e4ac1b0a867130dd7b9e276db52e1ca1e72976
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062137"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641385"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informazioni sulle definizioni del ruolo per le risorse di Azure
 
 Per capire come funziona un ruolo o creare un [ruolo personalizzato per le risorse di Azure](custom-roles.md), è utile comprendere il modo in cui vengono definiti i ruoli. Questo articolo illustra in dettaglio le definizioni di ruolo e presenta alcuni esempi.
 
-## <a name="role-definition-structure"></a>Struttura delle definizioni di ruolo
+## <a name="role-definition"></a>Definizione di ruolo
 
-Una *definizione di ruolo* è una raccolta di autorizzazioni, talvolta semplicemente chiamata *ruolo*. Una definizione di ruolo elenca le operazioni che è possibile eseguire, ad esempio lettura, scrittura ed eliminazione, È anche possibile elencare le operazioni che non possono essere eseguite o le operazioni correlate ai dati sottostanti. Una definizione di ruolo presenta la struttura seguente:
+Una *definizione di ruolo* è una raccolta di autorizzazioni, talvolta semplicemente chiamata *ruolo*. Una definizione di ruolo elenca le operazioni che è possibile eseguire, ad esempio lettura, scrittura ed eliminazione, È anche possibile elencare le operazioni che non possono essere eseguite o le operazioni correlate ai dati sottostanti. Una definizione di ruolo ha le proprietà seguenti:A role definition has the following properties:
 
 ```
 Name
@@ -41,6 +41,20 @@ DataActions []
 NotDataActions []
 AssignableScopes []
 ```
+
+| Proprietà | Descrizione |
+| --- | --- |
+| `Name` | Nome visualizzato del ruolo. |
+| `Id` | ID univoco del ruolo. |
+| `IsCustom` | Indica se questo è un ruolo personalizzato. Impostare su `true` per i ruoli personalizzati. |
+| `Description` | Descrizione del ruolo. |
+| `Actions` | Matrice di stringhe che specifica le operazioni di gestione che il ruolo consente di eseguire. |
+| `NotActions` | Matrice di stringhe che specifica le operazioni di gestione che sono escluse dalle `Actions` consentite. |
+| `DataActions` | Matrice di stringhe che specifica le operazioni sui dati che il ruolo consente di eseguire sui dati all'interno dell'oggetto. |
+| `NotDataActions` | Matrice di stringhe che specifica le operazioni sui dati che sono escluse dalle `DataActions` consentite. |
+| `AssignableScopes` | Matrice di stringhe che specifica gli ambiti che il ruolo è disponibile per l'assegnazione. |
+
+### <a name="operations-format"></a>Formato delle operazioni
 
 Le operazioni vengono specificate con stringhe che hanno il formato seguente:
 
@@ -55,6 +69,8 @@ La parte `{action}` di una stringa relativa a un'operazione specifica il tipo di
 | `write` | Abilita le operazioni di scrittura (PUT o PATCH). |
 | `action` | Abilita operazioni personalizzate come riavviare le macchine virtuali (POST). |
 | `delete` | Abilita le operazioni di eliminazione (DELETE). |
+
+### <a name="role-definition-example"></a>Esempio di definizione di ruolo
 
 Di seguito è riportata la definizione del ruolo [Collaboratore](built-in-roles.md#contributor) in formato JSON. L'operazione identificata dal carattere jolly (`*`) in `Actions` indica che l'entità di sicurezza assegnata a questo ruolo può eseguire qualsiasi azione, anche quelle definite in futuro in seguito all'aggiunta di nuovi tipi di risorse da parte di Azure. Le operazioni sotto `NotActions` vengono sottratte a `Actions`. Nel caso del ruolo [Collaboratore](built-in-roles.md#contributor), `NotActions` rimuove la capacità di gestire e assegnare l'accesso alle risorse.
 
@@ -92,7 +108,7 @@ L'accesso alla gestione non viene ereditato dai dati a condizione che il metodo 
 
 In precedenza, il controllo degli accessi in base al ruolo non veniva usato per le operazioni sui dati. L'autorizzazione per le operazioni sui dati variava a seconda del provider di risorse. Lo stesso modello di autorizzazione del controllo di accesso basato sui ruoli utilizzato per le operazioni di gestione è stato esteso alle operazioni sui dati.
 
-Per supportare le operazioni sui dati sono state aggiunte nuove proprietà di dati alla struttura di definizione dei ruoli. Le operazioni sui dati vengono specificate nelle proprietà `DataActions` e `NotDataActions`. Con l'aggiunta di queste proprietà di dati viene mantenuta la separazione tra gestione e dati. In tal modo, si impedisce alle assegnazioni di ruolo correnti con caratteri jolly (`*`) di accedere immediatamente ai dati. Ecco alcune operazioni sui dati che possono essere specificate in `DataActions` e `NotDataActions`:
+Per supportare le operazioni sui dati, sono state aggiunte nuove proprietà dei dati alla definizione del ruolo. Le operazioni sui dati vengono specificate nelle proprietà `DataActions` e `NotDataActions`. Con l'aggiunta di queste proprietà di dati viene mantenuta la separazione tra gestione e dati. In tal modo, si impedisce alle assegnazioni di ruolo correnti con caratteri jolly (`*`) di accedere immediatamente ai dati. Ecco alcune operazioni sui dati che possono essere specificate in `DataActions` e `NotDataActions`:
 
 - Leggere un elenco di BLOB in un contenitore
 - Scrivere su un BLOB di archiviazione in un contenitore
@@ -161,7 +177,7 @@ Per visualizzare ed eseguire le operazioni sui dati, è necessario disporre dell
 | Strumento  | Versione  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 o versione successiva |
-| [Interfaccia della riga di comando di AzureAzure](/cli/azure/install-azure-cli) | 2.0.30 o successiva |
+| [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) | 2.0.30 o successiva |
 | [Azure per .NET](/dotnet/azure/) | 2.8.0-Preview o successiva |
 | [Azure SDK per Go](/azure/go/azure-sdk-go-install) | 15.0.0 o successiva |
 | [Azure per Java](/java/azure/) | 1.9.0 o successiva |

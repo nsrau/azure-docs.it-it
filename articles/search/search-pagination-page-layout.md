@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 451e83fa6ab547536a4cfd85304930e749a8247f
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998387"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641613"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Ricerca cognitiva di AzureHow to work with search results in Azure Cognitive Search
 
@@ -108,10 +108,22 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
     }
 ```
 
-> [!IMPORTANT]
-> I servizi creati dopo il 15 luglio 2020 offriranno un'esperienza di evidenziazione diversa. I servizi creati prima di tale data non cambieranno nel loro comportamento di evidenziazione. Con questa modifica, verranno restituite solo le frasi che corrispondono alla query completa della frase. Inoltre, sarà possibile specificare la dimensione del frammento restituito per l'evidenziazione.
->
-> Quando si scrive codice client che implementa l'evidenziazione dei risultati, tenere presente questa modifica. Si noti che questo non avrà alcun impatto su di voi a meno che non si crea un servizio di ricerca completamente nuovo.
+### <a name="new-behavior-starting-july-15"></a>Nuovo comportamento (a partire dal 15 luglio)
+
+I servizi creati dopo il 15 luglio 2020 offriranno un'esperienza di evidenziazione diversa. I servizi creati prima di tale data non cambieranno nel loro comportamento di evidenziazione. 
+
+Con il nuovo comportamento:
+
+* Verranno restituite solo le frasi che corrispondono alla query completa della frase. La query "super bowl" restituirà punti salienti come questo:
+
+    ```html
+    '<em>super bowl</em> is super awesome with a bowl of chips'
+    ```
+  Si noti che il termine *ciotola di patatine* non ha alcuna evidenziazione perché non corrisponde alla frase completa.
+  
+* Sarà possibile specificare la dimensione del frammento restituito per l'evidenziazione. La dimensione del frammento viene specificata come numero di caratteri (il valore massimo è 1000 caratteri).
+
+Quando si scrive codice client che implementa l'evidenziazione dei risultati, tenere presente questa modifica. Si noti che questo non avrà alcun impatto su di voi a meno che non si crea un servizio di ricerca completamente nuovo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

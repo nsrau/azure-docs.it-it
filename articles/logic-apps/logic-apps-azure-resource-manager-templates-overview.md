@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 920d8bfbcef33464d528306113abe6223d752889
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477749"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641821"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando i modelli di Azure Resource ManagerOverview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
 
@@ -76,7 +76,7 @@ Il modello di app per la logica usa questo formato di nome file:Your logic app t
 
 <a name="template-parameters"></a>
 
-## <a name="template-parameters"></a>Parametri del modello
+## <a name="template-parameters"></a>Parametri di modelli
 
 Un modello di `parameters` app per la logica ha più oggetti che esistono a livelli diversi ed eseguono funzioni diverse. Ad esempio, al livello principale, è possibile dichiarare i parametri di modello per i valori da accettare e usare durante la distribuzione durante la creazione e la distribuzione di risorse in Azure, ad esempio:For example, at the top level, you can declare [template parameters](../azure-resource-manager/templates/template-syntax.md#parameters) for the values to accept and use at deployment when creating and deploying resources in Azure, for example:
 
@@ -391,7 +391,9 @@ Questa sintassi mostra dove è possibile dichiarare i parametri sia a livello di
             },
             // Workflow definition parameter value
             "parameters": {
-               "<workflow-definition-parameter-name>": "[parameters('<template-parameter-name>')]"
+               "<workflow-definition-parameter-name>": { 
+                  "value": "[parameters('<template-parameter-name>')]"
+               }
             },
             "accessControl": {}
          },

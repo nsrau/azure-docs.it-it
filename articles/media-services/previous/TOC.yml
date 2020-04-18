@@ -257,8 +257,6 @@
           items:
             - name: Codificatore Haivision KB
               href: media-services-configure-kb-live-encoder.md
-            - name: Codificatore NewTek TriCaster
-              href: media-services-configure-tricaster-live-encoder.md
             - name: Codificatore Wirecast
               href: media-services-configure-wirecast-live-encoder.md
         - name: Gestire operazioni a esecuzione prolungata
@@ -440,7 +438,7 @@
           href: media-services-error-codes.md
         - name: Logica di retry
           href: media-services-retry-logic-in-dotnet-sdk.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
