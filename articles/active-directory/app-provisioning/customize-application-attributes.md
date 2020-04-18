@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfee19e9cfd1def71ebad82c2210ffc10146c896
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264089"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639755"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione del provisioning degli utenti dei mapping degli attributi per le applicazioni SaaS in Azure Active DirectoryCustomizing user provisioning attribute-mappings for SaaS applications in Azure Active Directory
 
@@ -143,7 +143,10 @@ La RFC SCIM definisce uno schema di utenti e gruppi di base, consentendo al temp
    4. Selezionare **Modifica elenco attributi per AppName**.
    5. Nella parte inferiore dell'elenco di attributi, immettere le informazioni sull'attributo personalizzato nei campi forniti. Selezionare **quindi Aggiungi attributo**.
 
-Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustrato nell'esempio seguente. "CustomExtensionName" e "CustomAttribute" possono essere personalizzati in base ai requisiti dell'applicazione, ad esempio: urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute o urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute or urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute or urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute or urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute or urn:ietf:params:schemas:extension:2.0:CustomExtensionName:CustomAttribute or urn:ietf:params:schemas:extension:2.0:CustomExtensionName: CustomExtensionName:2.0:Utente.CustomAttributeName:valore
+Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustrato nell'esempio seguente. "CustomExtensionName" e "CustomAttribute" possono essere personalizzati in base ai requisiti dell'applicazione, ad esempio:  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
+ * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
 
 Queste istruzioni sono applicabili solo alle applicazioni abilitate per SCIM. Applicazioni come ServiceNow e Salesforce non sono integrate con Azure AD tramite SCIM e pertanto non richiedono questo spazio dei nomi specifico quando si aggiunge un attributo personalizzato.
 
@@ -313,7 +316,7 @@ La selezione di questa opzione forza in modo efficace una risincronizzazione di 
 - L'aggiornamento dei mapping degli attributi influisce negativamente sulle prestazioni di un ciclo di sincronizzazione. Un aggiornamento della configurazione del mapping degli attributi richiede la rivalutazione di tutti gli oggetti gestiti.
 - Una procedura consigliata consiste nel ridurre al minimo il numero di modifiche consecutive ai mapping degli attributi.
 - L'aggiunta di un attributo di foto di cui eseguire il provisioning a un'app non è supportata oggi, poiché non è possibile specificare il formato per la sincronizzazione della foto. È possibile richiedere la funzione su [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
-- L'attributo IsSoftDeleted fa spesso parte dei mapping predefiniti per un'applicazione. IsSoftdeleted può essere true in uno dei quattro scenari (l'utente non rientra nell'ambito perché non è assegnato dall'applicazione, l'utente non è nell'ambito perché non soddisfa un filtro di ambito, l'utente è stato eliminato temporaneamente in Azure AD o la proprietà AccountEnabled è impostata su false sull'utente). 
+- L'attributo IsSoftDeleted fa spesso parte dei mapping predefiniti per un'applicazione. IsSoftdeleted può essere true in uno dei quattro scenari (l'utente non rientra nell'ambito perché non è assegnato dall'applicazione, l'utente non è nell'ambito perché non soddisfa un filtro di ambito, l'utente è stato eliminato temporaneamente in Azure AD o la proprietà AccountEnabled è impostata su false per l'utente). 
 - Il servizio di provisioning di Azure AD non supporta il provisioning di valori NullThe Azure AD provisioning service does not support provisioning null values
 
 ## <a name="next-steps"></a>Passaggi successivi

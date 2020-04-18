@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d0ef55f6f5117ffa77052118155afea716125a4
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266442"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639734"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrare i log di Azure AD con i log di Monitoraggio di AzureIntegrate Azure AD logs with Azure Monitor logs
 
@@ -60,9 +60,13 @@ Per usare questa funzionalità, sono necessari:
 * Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
 * Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su come [creare un'area](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)di lavoro di Log Analytics.
 
+## <a name="licensing-requirements"></a>Requisiti di licenza
+
+L'uso di questa funzionalità richiede una licenza di Azure AD Premium P1 o P2. Per trovare la licenza corretta per le proprie esigenze, vedere [Caratteristiche e funzionalità di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
 ## <a name="send-logs-to-azure-monitor"></a>Inviare log a Monitoraggio di AzureSend logs to Azure Monitor
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 
 2. Selezionare**Impostazioni** -> di diagnostica **di Azure Active Directory** > **Aggiungi impostazione diagnostica**. È anche possibile selezionare **Esporta impostazioni** dalla pagina **Log di controllo** o **Accessi** per visualizzare la pagina di configurazione delle impostazioni di diagnostica.  
     

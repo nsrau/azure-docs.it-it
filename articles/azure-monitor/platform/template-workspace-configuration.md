@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 81e46f53c0afc69c927918daa0488c4835d60805
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477975"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605027"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire l'area di lavoro di Log Analytics usando i modelli di Azure Resource ManagerManage Log Analytics workspace using Azure Resource Manager templates
 
@@ -40,7 +40,7 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 | Risorsa | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
-| Cerca      | savedSearches | 2015-03-20 |
+| Ricerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
 | Soluzione    | solutions     | 2015-11-01-preview |
 
@@ -153,7 +153,7 @@ Per la prenotazione della capacità, definire una prenotazione di `CapacityReser
    >* "name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Modificare il modello in base alle esigenze. Valutare la possibilità di creare un file di parametri di [Resource Manager](../../azure-resource-manager/templates/parameter-files.md) anziché passare parametri come valori inline. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
+2. Modificare il modello in base alle esigenze. Valutare la possibilità di creare un file di parametri di [Resource Manager](../../azure-resource-manager/templates/parameter-files.md) anziché passare parametri come valori inline. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.
 

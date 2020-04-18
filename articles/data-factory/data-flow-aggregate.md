@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 050fcc33f0e3d65ca8e94b3be143c5b1ae77608d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416545"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606529"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione di aggregazione nel mapping del flusso di datiAggregate transformation in mapping data flow
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 La trasformazione Aggregazione definisce le aggregazioni delle colonne nei flussi di dati. Utilizzando il Generatore di espressioni, è possibile definire diversi tipi di aggregazioni, ad esempio SUM, MIN, MAX e COUNT raggruppate in base a colonne esistenti o calcolate.
 

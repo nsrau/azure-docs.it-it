@@ -1,5 +1,5 @@
 ---
-title: Consigli sulla sicurezza per l'insieme di credenziali delle chiavi di AzureSecurity recommendations for Azure Key Vault
+title: Raccomandazioni sulla sicurezza per Azure Key Vault
 description: Consigli sulla sicurezza per Archiviazione delle chiavi di Azure.Security recommendations for Azure Key Vault. L'implementazione di queste linee guida ti aiuterà a rispettare i tuoi obblighi di sicurezza come descritto nel nostro modello di responsabilità condivisa
 services: key-vault
 author: msmbaldwin
@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: b7bd85508851df7c7a664862b02141bf4d3bea1f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0da1a3019124f62aba6a959ce9104c85bd85d3fc
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429850"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616489"
 ---
-# <a name="security-recommendations-for-azure-key-vault"></a>Consigli sulla sicurezza per l'insieme di credenziali delle chiavi di AzureSecurity recommendations for Azure Key Vault
+# <a name="security-recommendations-for-azure-key-vault"></a>Raccomandazioni sulla sicurezza per Azure Key Vault
 
 Questo articolo contiene consigli sulla sicurezza per L'insieme di credenziali delle chiavi di Azure.This article contains security recommendations for Azure Key Vault. L'implementazione di queste raccomandazioni ti aiuterà a rispettare i tuoi obblighi di sicurezza come descritto nel nostro modello di responsabilità condivisa. Per ulteriori informazioni sulle operazioni eseguite da Microsoft per adempiere alle responsabilità dei provider di servizi, leggere [Responsabilità condivise per](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)il cloud computing .
 

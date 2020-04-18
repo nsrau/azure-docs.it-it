@@ -4,12 +4,12 @@ description: Riepiloga il supporto per il ripristino di emergenza delle macchine
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: f61f32ddc0a1cc6575907bc72522228b77552947
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 3e66d71011937c3e22c6f1537bcd448d4aa3bbf3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673799"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605514"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza della macchina virtuale di Azure tra aree di AzureSupport matrix for Azure VM disaster recovery between Azure regions
 
@@ -20,9 +20,9 @@ Questo articolo riepiloga il supporto e i prerequisiti per il ripristino di emer
 
 **Distribuzione** |  **Supporto**
 --- | ---
-**Portale di Azure** | Supportato.
+**Azure portal** | Supportato.
 **PowerShell** | Supportato. [Altre informazioni](azure-to-azure-powershell.md)
-**API REST** | Supportato.
+**REST API** | Supportato.
 **CLI** | Attualmente non supportato
 
 
@@ -114,7 +114,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7.4, 7.5, 7.5,
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel Ubuntu supportate per macchine virtuali di Azure
 
-**Rilascio** | **Versione del servizio Mobility** | **Versione kernel** |
+**Versione** | **Versione del servizio Mobility** | **Versione kernel** |
 --- | --- | --- |
 14.04 LTS | 9.32| 3.13.0-24-generico a 3.13.0-170-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-generico a 4.4.0-148-generico,<br/>4.15.0-1023-azure a 4.15.0-1045-azure |
 14.04 LTS | 9.31 | 3.13.0-24-generico a 3.13.0-170-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-generico a 4.4.0-148-generico,<br/>4.15.0-1023-azure a 4.15.0-1045-azure |
@@ -134,7 +134,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7.4, 7.5, 7.5,
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel Debian supportate per macchine virtuali di Azure
 
-**Rilascio** | **Versione del servizio Mobility** | **Versione kernel** |
+**Versione** | **Versione del servizio Mobility** | **Versione kernel** |
 --- | --- | --- |
 Debian 7 | 9.28,9.29,9.30,9.31 | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -143,7 +143,7 @@ Debian 8 | 9.28 | da 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0.0.bpo.4-amd64 a 4.9
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel SUSE Linux Enterprise Server 12 supportate per macchine virtuali di Azure
 
-**Rilascio** | **Versione del servizio Mobility** | **Versione kernel** |
+**Versione** | **Versione del servizio Mobility** | **Versione kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.32 | Sono supportati tutti i [kernel SUSE 12 SP1,SP2,SP3,SP4,](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) di stock.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.34-azure  |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.31 | Sono supportati tutti i [kernel SUSE 12 SP1,SP2,SP3,SP4,](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) di stock.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.29-azure  |
@@ -152,9 +152,9 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.29 | Sono supportati tutti
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel di SUSE Linux Enterprise Server 15 supportate per le macchine virtuali di AzureSupported SUSE Linux Enterprise Server 15 kernel versions for Azure virtual machines
 
-**Rilascio** | **Versione del servizio Mobility** | **Versione kernel** |
+**Versione** | **Versione del servizio Mobility** | **Versione kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Sono supportati tutti i [kernel SUSE 15 e 15.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15)</br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Sono supportati tutti i kernel SUSE 15 e 15.</br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Computer replicati - File system/archiviazione guest Linux
 

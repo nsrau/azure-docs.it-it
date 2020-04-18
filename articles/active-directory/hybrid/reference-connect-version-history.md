@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/03/2020
+ms.date: 04/17/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2e3f8da4a05feedb8c1ab585fabcc74edbc71a
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 815d3afe68003f56a5748584b322b731ef5a3dc7
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998754"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639639"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -55,6 +55,15 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 
 ### <a name="fixed-issues"></a>Problemi risolti
 Questo hotfix per la creazione di correzioni di un problema con la build 1.5.18.0 se è attivata la funzionalità Di filtering di gruppo e si utilizza mS-DS-ConsistencyGuid come ancoraggio di origine.
+
+> [!IMPORTANT]
+> Se si utilizza mS-DS-ConsistencyGuid come ancoraggio di origine ed è stata clonata la regola di sincronizzazione **In da AD - Join di gruppo** e si prevede di eseguire l'aggiornamento, completare i passaggi seguenti come parte dell'aggiornamento:
+> 1. Durante l'aggiornamento, deselezionare l'opzione **Avvia il processo di sincronizzazione**al termine della configurazione.
+> 2. Modificare la regola di sincronizzazione join clonata e aggiungere le due trasformazioni seguenti:Edit the cloned join sync rule and add the following two transformations:
+>     - Impostare `objectGUID` flusso `sourceAnchorBinary`diretto su .
+>     - Impostare `ConvertToBase64([objectGUID])` il `sourceAnchor`flusso dell'espressione su .     
+> 3. Abilitare l'utilità di pianificazione utilizzando `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+
 
 ## <a name="15180"></a>1.5.18.0
 
@@ -871,7 +880,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Select|
+    |CertVersion|CertSignatureAlgorithmOid|Seleziona|
     |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 

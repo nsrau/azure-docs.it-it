@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94699f2153fa8d1df3ab85c184f32792c7ae0b59
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428875"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606015"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteggi la tua area di lavoro Synapse (anteprima)
 
@@ -51,8 +51,8 @@ Creare e popolare tre gruppi di sicurezza per l'area di lavoro:Create and popula
 - **WS1\_WSAdmins** – per gli utenti che necessitano di un controllo completo sull'area di lavoro
 - **WS1\_SparkAdmins** : per gli utenti che necessitano di un controllo completo sugli aspetti Spark dell'area di lavoro
 - **WS1\_SQLAdmins** – per gli utenti che necessitano di un controllo completo sugli aspetti SQL dell'area di lavoro
-- Aggiungere **gli\_amministratori WS1** a **WS1\_SQLAdmins**
-- Aggiungere **gli\_amministratori WS1** a **WS1\_SparkAdmins**
+- Aggiungere **WS1\_WSAdmins** a **WS1\_SQLAdmins**
+- Aggiungere **\_WS1 WSAdmins** a **WS1\_SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSAGGIo 2: Preparare l'account Data Lake Storage Gen2
 
@@ -89,7 +89,7 @@ L'area di lavoro Synapse deve accedere a STG1 e CNT1 in modo che possa eseguire 
 - Aprire il portale di Azure
 - Individuare STG1
 - Passare a CNT1
-- Verificare che MSI per WS1 sia assegnato al ruolo **Collaboratore dati BLOB** di Azure in CNT1Ensure that the MSI for WS1 is assigned to the Azure Blob Data Contributor role on CNT1
+- Verificare che il file MSI (Managed Service Identity) per WS1 sia assegnato al ruolo **Collaboratore dati BLOB** di Azure in CNT1
   - Se non vedi che è stato assegnato, assegnalo.
   - Il file MSI ha lo stesso nome dell'area di lavoro. In questo caso, &quot;sarebbe&quot;WS1 .
 

@@ -5,31 +5,31 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: eaba4bf7760e150f2477ee743c797f94784b8506
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 9bdc8cf97513854cf6a92ffd078febca6302d35c
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535503"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617404"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
-È possibile usare la soluzione di gestione degli aggiornamenti in Automazione di Azure per gestire gli aggiornamenti del sistema operativo per le macchine Windows e Linux in Azure, in ambienti locali e in altri ambienti cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
+È possibile usare la **soluzione di gestione** degli aggiornamenti in Automazione di Azure per gestire gli aggiornamenti del sistema operativo per le macchine Windows e Linux in Azure, in ambienti locali e in altri ambienti cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
 
 È possibile abilitare Gestione aggiornamenti per le macchine virtuali usando i metodi seguenti:You can enable Update Management for virtual machines (VMs) using the following methods:
 
 - [Dall'account di Automazione di Azure](automation-onboard-solutions-from-automation-account.md) per uno o più computer di Azure e manualmente per computer non Azure.From your Azure Automation account for one or more Azure machines and manually for non-Azure machines.
 
-- Per una singola macchina virtuale di Azure dalla pagina della macchina virtuale nel portale di Azure.For a single Azure VM from the virtual machine page in the Azure portal. Questo scenario è disponibile per le macchine virtuali Linux e [Windows.This](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and Windows VMs.
+- Per una singola macchina virtuale di Azure dalla pagina Macchina virtuale nel portale di Azure.For a single Azure VM from the Virtual machine page in the Azure portal. Questo scenario è disponibile per le macchine virtuali Linux e [Windows.This](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and Windows VMs.
 
-- Per più macchine virtuali di Azure selezionandole dalla pagina Macchine virtuali nel portale di Azure.For [multiple Azure VMs](manage-update-multi.md) by selecting them from the **Virtual machines** page in the Azure portal. 
+- Per più macchine virtuali di Azure selezionandole dalla pagina Macchine virtuali nel portale di Azure.For [multiple Azure VMs](manage-update-multi.md) by selecting them from the Virtual machines page in the Azure portal. 
 
 > [!NOTE]
-> La soluzione di gestione degli aggiornamenti richiede il collegamento di un'area di lavoro di Log Analytics all'account di automazione. Per un elenco definitivo delle aree supportate, vedere [Mapping dell'area di lavoro](./how-to/region-mappings.md)di Azure . I mapping delle aree non influiscono sulla possibilità di gestire le macchine virtuali in un'area separata dall'account di automazione.
+> La **soluzione di gestione degli aggiornamenti** richiede il collegamento di un'area di lavoro di Log Analytics all'account di automazione. Per un elenco definitivo delle aree supportate, vedere [Mapping dell'area di lavoro](./how-to/region-mappings.md)di Azure . I mapping delle aree non influiscono sulla possibilità di gestire le macchine virtuali in un'area separata dall'account di automazione.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-È disponibile un modello di Azure [Resource Manager](automation-update-management-deploy-template.md) che consente di distribuire la soluzione di gestione degli aggiornamenti in un account di automazione nuovo o esistente e un'area di lavoro di Log Analytics nella sottoscrizione.
+È disponibile un modello di Azure [Resource Manager](automation-update-management-deploy-template.md) che consente di distribuire la soluzione di gestione degli **aggiornamenti** in un account di automazione nuovo o esistente e nell'area di lavoro di Log Analytics nella sottoscrizione.
 
 ## <a name="solution-overview"></a>Panoramica della soluzione
 
@@ -137,7 +137,7 @@ La soluzione è costituita dalle risorse seguenti. Queste risorse vengono aggiun
 
 Dopo aver abilitato questa soluzione, qualsiasi computer Windows connesso direttamente all'area di lavoro di Log Analytics viene configurato automaticamente come lavoratore ibrido per supportare i runbook inclusi in questa soluzione.
 
-Ogni computer Windows gestito dalla soluzione è elencato nel riquadro Gruppi di **lavoro ibridi** come gruppo di **lavoro ibrido** di sistema per l'account di automazione. Le soluzioni usano la convenzione di denominazione *Hostname FQDN_GUID.* Non è possibile applicare runbook a questi gruppi nell'account. Se si tenta, il tentativo ha esito negativo. Questi gruppi hanno lo scopo di supportare solo questa soluzione di gestione.
+Ogni computer Windows gestito dalla soluzione è elencato nel riquadro Gruppi di lavoro ibridi come gruppo di lavoro ibrido di sistema per l'account di automazione. Le soluzioni `Hostname FQDN_GUID` utilizzano la convenzione di denominazione. Non è possibile applicare runbook a questi gruppi nell'account. Se si tenta, il tentativo ha esito negativo. Questi gruppi hanno lo scopo di supportare solo questa soluzione di gestione.
 
 È possibile aggiungere il computer Windows a un gruppo Hybrid Runbook Worker nell'account di automazione per supportare i runbook di automazione se si usa lo stesso account sia per la soluzione che per l'appartenenza al gruppo Hybrid Runbook Worker. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
@@ -150,12 +150,12 @@ Se il gruppo di gestione di System Center Operations Manager è [connesso a un'a
 * Update Deployment MP
 
 > [!NOTE]
-> Se si dispone di un gruppo di gestione di Operations Manager 1807 o 2019 connesso a un'area di lavoro di Log Analytics con agenti configurati nel gruppo di gestione per raccogliere i dati di log, è necessario eseguire l'override della regola seguente per gestirli con Gestione aggiornamenti: Sostituire il parametro **IsAutoRegistrationEnabled** e impostare **su True** nella regola **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
+> Se si dispone di un gruppo di gestione di Operations Manager 1807 o 2019 connesso a un'area `IsAutoRegistrationEnabled` di lavoro di Log Analytics con agenti configurati nel gruppo di gestione per raccogliere i dati di log, è necessario sostituire il parametro e impostarlo su True nella regola **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
 
 Per altre informazioni su come vengono aggiornati i Management Pack della soluzione, vedere [Connettere Operations Manager ai log](../azure-monitor/platform/om-agents.md)di Monitoraggio di Azure.
 
 > [!NOTE]
-> Affinché i computer con l'agente Operations Manager, per essere completamente gestiti da Gestione aggiornamenti, l'agente deve essere aggiornato all'agente di Log Analytics per Windows o Linux. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager). Negli ambienti che utilizzano Operations Manager, è necessario eseguire System Center Operations Manager 2012 R2 UR 14 o versione successiva.
+> Affinché i computer con l'agente Operations Manager siano completamente gestiti da Gestione aggiornamenti, l'agente deve essere aggiornato all'agente di Log Analytics per Windows o all'agente di Log Analytics per Linux. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager). Negli ambienti che utilizzano Operations Manager, è necessario eseguire System Center Operations Manager 2012 R2 UR 14 o versione successiva.
 
 ## <a name="data-collection"></a>Raccolta dati
 
@@ -249,13 +249,9 @@ Gestione aggiornamenti si basa sul repository di aggiornamento configurato local
 Per iniziare l'aggiornamento dei sistemi, è necessario abilitare la soluzione di gestione degli aggiornamenti. Di seguito sono riportati i metodi consigliati e supportati per l'onboarding della soluzione:
 
 - [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
-
 - [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
-
 - [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
-
 - [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
-
 - [Con un modello di Azure Resource Manager](automation-update-management-deploy-template.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

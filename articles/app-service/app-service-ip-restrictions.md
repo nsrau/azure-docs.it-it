@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a02c099871ce9748f4c5f604900a7c4d57bb96b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473524"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639278"
 ---
-# <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso al servizio app di AzureAzure App Service Access Restrictions #
+# <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso al servizio app di AzureAzure App Service access restrictions
 
 Le restrizioni di accesso consentono di definire un elenco consentito/rifiuta con priorità che controlla l'accesso di rete all'app. L'elenco può includere indirizzi IP o subnet di rete virtuale di Azure.The list can include IP addresses or Azure Virtual Network subnets. Quando sono presenti una o più voci, è presente un implicito "nega tutto" che esiste alla fine dell'elenco.
 
@@ -125,12 +125,12 @@ La sintassi JSON per l'esempio precedente è:
 }
 ```
 
-## <a name="azure-function-app-access-restrictions"></a>Restrizioni di accesso alle app per le funzioni di AzureAzure Function App Access Restrictions
+## <a name="azure-functions-access-restrictions"></a>Restrizioni di accesso di Funzioni di AzureAzure Functions access restrictions
 
 Le restrizioni di accesso sono disponibili anche per le app per le funzioni con le stesse funzionalità dei piani di servizio app. L'abilitazione delle restrizioni di accesso disabiliterà l'editor del codice del portale per tutti gli indirizzi IP non consentiti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Restrizioni di accesso per le app per le funzioni di AzureAccess restrictions for Azure Function Apps](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[Restrizioni di accesso per Funzioni di AzureAccess restrictions for Azure Functions](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Integrazione del gateway applicazione con gli endpoint del servizioApplication Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md)
 

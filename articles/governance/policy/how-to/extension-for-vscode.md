@@ -3,12 +3,12 @@ title: Azure Policy extension for Visual Studio Code
 description: Informazioni su come usare l'estensione Dei criteri di Azure per Visual Studio Code per cercare gli alias di Resource Manager.Learn how to use the Azure Policy extension for Visual Studio Code to look up Resource Manager aliases.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e31af652f2746adbf0eda386bdb178c752f5f84
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264674"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641015"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione Dei criteri di Azure per il codice di Visual StudioUse Azure Policy extension for Visual Studio Code
 
@@ -26,7 +26,7 @@ Azure Policy extension for Visual Studio Code can be installed on all platforms 
 Per completare i passaggi in questo articolo, è necessario quanto segue:
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-- [Codice di Visual Studio](https://code.visualstudio.com).
+- [Visual Studio Code](https://code.visualstudio.com).
 
 ## <a name="install-azure-policy-extension"></a>Installare l'estensione Dei criteri di AzureInstall Azure Policy extension
 
@@ -121,7 +121,7 @@ I clienti con centinaia o migliaia di risorse in una singola sottoscrizione potr
 
 ## <a name="discover-aliases-for-resource-properties"></a>Individuare gli alias per le proprietà delle risorseDiscover aliases for resource properties
 
-Quando viene selezionata una risorsa, tramite l'interfaccia di ricerca o selezionandola nella visualizzazione albero, l'estensione Criteri di Azure apre il file JSON che rappresenta tale risorsa e tutti i valori delle proprietà di Resource Manager.When a resource is selected, whether through the search interface or by selecting it in the treeview, the Azure Policy extension opens the JSON file representing that resource and all it's Resource Manager property values.
+Quando viene selezionata una risorsa, tramite l'interfaccia di ricerca o selezionandola nella visualizzazione albero, l'estensione Criteri di Azure apre il file JSON che rappresenta tale risorsa e tutti i relativi valori delle proprietà di Resource Manager.When a resource is selected, whether through the search interface or by selecting it in the treeview, the Azure Policy extension opens the JSON file representing that resource and all its Resource Manager property values.
 
 Una volta aperta una risorsa, passando il puntatore del mouse sul nome o sul valore della proprietà di Resource Manager viene visualizzato l'alias dei criteri di Azure, se presente. In questo esempio, la `Microsoft.Compute/virtualMachines` risorsa è un tipo di risorsa e la proprietà **properties.storageProfile.imageReference.offer** viene passata il mouse. Al passaggio del mouse vengono visualizzati gli alias corrispondenti.
 
@@ -157,7 +157,7 @@ Dalla barra dei menu passare a **Visualizza** > **tavolozza comandi**e quindi im
 
 - Esaminare esempi in [Esempi di criteri di Azure](../samples/index.md).Review examples at Azure Policy samples .
 - Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
-- Rivedere [Informazioni sugli effetti dei criteri](../concepts/effects.md).
+- Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Comprendere come creare criteri a livello di [codice.](programmatically-create.md)
 - Informazioni su come [correggere le risorse non conformi.](remediate-resources.md)
 - Esaminare le informazioni su cui si trova un gruppo di gestione con Organizzare le risorse con i gruppi di gestione di Azure.Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c98cd5d3d4d76f9455e4c036aa32a4ead20cfff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d845e245a242a88d16a2597f0144a0ae4a727cb0
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671716"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640964"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilare app Web ASP.NET Core Linux di Azure con Application Insights Profiler
 
@@ -168,10 +168,6 @@ L'output dovrebbe essere simile all'esempio seguente:
 
     ![Visualizzare le tracce del profiler](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="known-issues"></a>Problemi noti
-
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Il pulsante ProfilA ora non funziona per Linux Profiler
-La versione Linux del profiler di App Insights non supporta ancora la profilatura su richiesta utilizzando il pulsante del profilo ora.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

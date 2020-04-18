@@ -11,15 +11,15 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 2108f2f9098fe6da8ee4666b30605bed14164484
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3007865c15ceb03b104282c29179ec59a8196b38
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414711"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604595"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data FactorySource control in Azure Data Factory
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 L'esperienza dell'interfaccia utente di Azure Data Factory (UX) ha due esperienze disponibili per la creazione visiva:The Azure Data Factory user interface experience (UX) has two experiences available for visual authoring:
 
@@ -138,7 +138,7 @@ Entrambi i metodi aprono il riquadro di configurazione delle impostazioni del re
 
 Il riquadro di configurazione mostra le seguenti impostazioni del repository GitHub:
 
-| **Impostazione** | **Descrizione**  | **valore**  |
+| **Impostazione** | **Descrizione**  | **Valore**  |
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice Azure Repos. | GitHub |
 | **Use GitHub Enterprise** (Usa GitHub Enterprise) | Casella di controllo per selezionare GitHub Enterprise | non selezionato (impostazione predefinita) |

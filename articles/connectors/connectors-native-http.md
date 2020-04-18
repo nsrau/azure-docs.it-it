@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c52f2df34faf441ab70b48b11bbc393ebcecb65
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297203"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617606"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chiamare gli endpoint del servizio su HTTP o HTTPS da App per la logica di AzureCall service endpoints over HTTP or HTTPS from Azure Logic Apps
 
@@ -59,7 +59,7 @@ Questo articolo illustra come aggiungere un trigger o un'azione HTTP al flusso d
 
 Questo trigger predefinito effettua una chiamata HTTP all'URL specificato per un endpoint e restituisce una risposta.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Aprire l'app per la logica vuota in Progettazione app per la logica.
+1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica vuota in Progettazione app per la logica.
 
 1. Nella casella di ricerca della finestra di progettazione selezionare **Predefinito**. Nella casella di ricerca immettere `http` come filtro. Nell'elenco **Trigger** selezionare il trigger **HTTP.**
 
@@ -88,7 +88,7 @@ Questo trigger predefinito effettua una chiamata HTTP all'URL specificato per un
 
 Questa azione predefinita effettua una chiamata HTTP all'URL specificato per un endpoint e restituisce una risposta.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Aprire l'app per la logica in Logic App Designer.
+1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica in Logic App Designer.
 
    In questo esempio viene utilizzato il trigger HTTP come primo passaggio.
 
@@ -140,8 +140,8 @@ Si supponga, ad esempio, di disporre di un'app per la logica che invia una richi
 Ecco lo stesso esempio che mostra la definizione JSON dell'azione HTTP nella definizione del flusso di lavoro sottostante:Here is the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
 
 ```json
-{
-   "HTTP_action": {
+"HTTP_action": {
+   "inputs": {
       "body": {
          "$content-type": "multipart/form-data",
          "$multipart": [

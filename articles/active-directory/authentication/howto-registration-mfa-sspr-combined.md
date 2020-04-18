@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 04/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d9544b1f4dd5ecbf66493f26c373c5502dce68a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 466b063253ee49ab58c2685f359b4bb8a4079532
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451083"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639688"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Abilitare la registrazione combinata delle informazioni di sicurezza in Azure Active DirectoryEnable combined security information registration in Azure Active Directory
 
@@ -47,34 +47,34 @@ Se è stato configurato l'elenco di assegnazione da sito a area in Internet Expl
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Criteri di accesso condizionale per la registrazione combinataConditional Access policies for combined registration
 
-Garantire quando e come gli utenti si registrano per Azure Multi-Factor Authentication e la reimpostazione della password self-service è ora possibile con le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità è disponibile per le organizzazioni che hanno abilitato la funzionalità di [registrazione combinata.](../authentication/concept-registration-mfa-sspr-combined.md) Questa funzionalità può essere abilitata nelle organizzazioni in cui desiderano che gli utenti si registrino per Azure Multi-Factor Authentication e SSPR da una posizione centrale, ad esempio un percorso di rete attendibile durante l'onboarding delle risorse umane. Per altre informazioni sulla creazione di percorsi attendibili in Accesso condizionale, vedere l'articolo [Qual è la condizione del percorso in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
+Garantire quando e come gli utenti si registrano per Azure Multi-Factor Authentication e la reimpostazione della password self-service è ora possibile con le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità è disponibile per le organizzazioni che hanno abilitato la funzionalità di [registrazione combinata.](../authentication/concept-registration-mfa-sspr-combined.md) Questa funzionalità può essere abilitata nelle organizzazioni in cui desiderano che gli utenti si registrino per Azure Multi-Factor Authentication e SSPR da una posizione centrale, ad esempio un percorso di rete attendibile durante l'onboarding delle risorse umane.
+
+Per altre informazioni sulla creazione di percorsi attendibili in Accesso condizionale, vedere l'articolo [Qual è la condizione del percorso in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Creare un criterio per richiedere la registrazione da un percorso attendibileCreate a policy to require registration from a trusted location
 
-Il criterio seguente si applica a tutti gli utenti selezionati, che tentano di registrarsi utilizzando l'esperienza di registrazione combinata, e bloccano l'accesso a meno che non si connettano da una posizione contrassegnata come rete attendibile.
-
-![Creare un criterio CA per controllare la registrazione delle informazioni di sicurezzaCreate a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+Il criterio seguente si applica a tutti gli utenti selezionati che tentano di registrarsi utilizzando l'esperienza di registrazione combinata e blocca l'accesso a meno che non si connettano da una posizione contrassegnata come rete attendibile.
 
 1. Nel **portale di Azure**passare ad**Accesso condizionale** alla**sicurezza** > di **Azure Active Directory** > 
-1. Selezionare **Nuovo criterio**
-1. In Nome immettere un Nome per il criterio. Ad esempio, Registrazione combinata delle informazioni di **sicurezza su reti attendibili**
-1. In **Assegnazioni**fare clic su **Utenti e gruppi**e selezionare gli utenti e i gruppi a cui si desidera applicare il criterio
+1. Selezionare **: Nuovo criterio**
+1. Immettere un nome per questo criterio, ad esempio Registrazione combinata delle informazioni di *protezione nelle reti attendibili*.
+1. In **Assegnazioni** selezionare **Utenti e gruppi**. Scegli gli utenti e i gruppi a cui applicare questo criterio, quindi seleziona **Fine**.
 
    > [!WARNING]
-   > Gli utenti devono essere abilitati per la [registrazione combinata](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Gli utenti devono essere abilitati per la registrazione combinata.
 
-1. In **App o azioni cloud**selezionare Azioni **utente**, selezionare Registra informazioni di **sicurezza (anteprima)**
-1. In **Condizioni** > **Posizioni**
+1. In **Azioni o app cloud**selezionare Azioni **utente**. Selezionare **Registra informazioni di sicurezza**, quindi selezionare **Fatto**.
+
+    ![Creare criteri di accesso condizionale per controllare la registrazione delle informazioni di sicurezzaCreate a conditional access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+
+1. In**Percorsi** **condizioni** > configurare le opzioni seguenti:
    1. Configura **Sì**
    1. Includi **qualsiasi posizione**
    1. Escludi **tutti i percorsi attendibili**
-   1. Fare clic su **Fine** nel pannello Posizioni
-   1. Fare clic su **Fine** nel pannello Condizioni
-1. In **Controlli di** > accesso**Concedi**
-   1. Fare clic su **Blocca accesso**
-   1. Quindi fare clic su **Seleziona**
+1. Selezionare **Fine** nella finestra *Posizioni,* quindi **Selezionare Fine** nella finestra *Condizioni.*
+1. In **Controlli di** > accesso**Concedi**, scegliere **Blocca accesso**, quindi **Seleziona**
 1. Impostare **Abilita criterio** su **Attivato**
-1. Quindi fare clic su **Crea**
+1. Per finalizzare il criterio, selezionare **Crea**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

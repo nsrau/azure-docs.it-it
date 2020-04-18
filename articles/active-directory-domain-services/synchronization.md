@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38ed48df4d681543cc30daccf46b98635d973b89
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944426"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639902"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Modalità di sincronizzazione di oggetti e credenziali in un dominio gestito di Servizi di dominio Azure ADHow objects and credentials are synchronized in an Azure AD Domain Services managed domain
 
@@ -31,6 +31,8 @@ Il diagramma seguente illustra il funzionamento della sincronizzazione tra Servi
 ## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Sincronizzazione da Azure AD ad Azure AD DSSynchronization from Azure AD to Azure AD DS
 
 Gli account utente, le appartenenze ai gruppi e gli hashe delle credenziali vengono sincronizzati in un modo da Azure AD ad Azure AD DS. Questo processo di sincronizzazione è automatico, Non è necessario configurare, monitorare o gestire questo processo di sincronizzazione. La sincronizzazione iniziale può richiedere da alcune ore a un paio di giorni, a seconda del numero di oggetti nella directory di Azure AD. Al termine della sincronizzazione iniziale, le modifiche apportate in Azure AD, ad esempio le modifiche di password o attributi, vengono sincronizzate automaticamente con Servizi di dominio Active Directory di Azure.After the initial synchronization is complete, changes that are made in Azure AD, such as password or attribute changes, are then automatically synchronized to Azure AD DS.
+
+Quando un utente viene creato in Azure AD, non viene sincronizzato con Azure AD DS finché non modifica la password in Azure AD. Con questo processo di modifica delle password, in Azure AD vengono generati e archiviati gli hash delle password per l'autenticazione Kerberos e NTLM. Gli ishe delle password sono necessari per autenticare correttamente un utente in Azure AD DS.
 
 Il processo di sincronizzazione è un modo / unidirezionale in base alla progettazione. Non esiste la sincronizzazione inversa delle modifiche da Servizi di dominio Active Directory di Azure ad Azure AD. Un dominio gestito di Azure AD DS è in gran parte di sola lettura, ad eccezione delle sole personalizzate che è possibile creare. Non è possibile apportare modifiche agli attributi utente, alle password utente o alle appartenenze ai gruppi all'interno di un dominio gestito di Servizi di dominio Active Directory di Azure.You can't make changes to user attributes, user passwords, or group memberships within an Azure AD DS managed domain.
 
@@ -134,7 +136,7 @@ Le chiavi di crittografia sono univoche per ogni tenant di Azure AD. Questi hash
 
 Gli hashe delle password legacy vengono quindi sincronizzati da Azure AD nei controller di dominio per un dominio gestito di Servizi di dominio Active Directory di Azure.Legacy password hashes are then synchronized from Azure AD into the domain controllers for an Azure AD DS managed domain. I dischi per questi controller di dominio gestiti in Azure AD DS vengono crittografati inattivi. Questi isemi con password vengono archiviati e protetti in questi controller di dominio in modo simile alla modalità di archiviazione e protezione delle password in un ambiente di Servizi di dominio Active Directory locale.
 
-Per gli ambienti Azure AD solo cloud, [gli utenti devono reimpostare/modificare la password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) affinché gli errori di password necessari vengano generati e archiviati in Azure AD. Per qualsiasi account utente del cloud creato in Azure AD dopo l'abilitazione di Azure AD Domain Services, gli hash delle password sono generati e archiviati in formati compatibili con NTLM e Kerberos. Questi nuovi account non devono reimpostare o modificare la password per generare gli insiemi di password legacy.
+Per gli ambienti Azure AD solo cloud, [gli utenti devono reimpostare/modificare la password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) affinché gli errori di password necessari vengano generati e archiviati in Azure AD. Per qualsiasi account utente del cloud creato in Azure AD dopo l'abilitazione di Azure AD Domain Services, gli hash delle password sono generati e archiviati in formati compatibili con NTLM e Kerberos. Tutti gli account utente cloud devono modificare la password prima di essere sincronizzati con Azure AD DS.All cloud user accounts must change their password before they're synchronized to Azure AD DS.
 
 Per gli account utente ibridi sincronizzati dall'ambiente di Servizi di dominio Active Directory locale tramite Azure AD Connect, è necessario [configurare Azure AD Connect per sincronizzare gli hashe delle password nei formati compatibili NTLM e Kerberos.](tutorial-configure-password-hash-sync.md)
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c8606f0b7ab47d624ec66c8cda539e571cec6ce
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393048"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617669"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -142,6 +142,14 @@ Seguire questa procedura per avviare un account di test:
 1. Accedi con [https://aka.ms/mfasetup](https://aka.ms/mfasetup) un account di prova.
 2. Seguire le richieste per configurare un metodo di verifica.
 3. [Creare criteri di accesso condizionale](howto-mfa-getstarted.md#create-conditional-access-policy) per richiedere l'autenticazione a più fattori per l'account di test.
+
+> [!IMPORTANT]
+>
+> Assicurarsi che gli utenti siano stati registrati correttamente per Azure Multi-Factor Authentication. Se gli utenti sono stati registrati solo per la reimpostazione della password self-service (SSPR), *StrongAuthenticationMethods* è abilitato per il proprio account. Azure Multi-Factor Authentication viene applicato quando *StrongAuthenticationMethods* è configurato, anche se l'utente è registrato solo per SSPR.
+>
+> È possibile abilitare la registrazione combinata della sicurezza che configura SSPR e Azure Multi-Factor Authentication contemporaneamente. Per altre informazioni, vedere Abilitare la registrazione combinata delle informazioni di sicurezza in Azure Active Directory.For more information, see [Enable combined security information registration in Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+>
+> È inoltre possibile [forzare gli utenti a registrare nuovamente](howto-mfa-userdevicesettings.md#manage-user-authentication-options) i metodi di autenticazione se in precedenza hanno abilitato solo SSPR.
 
 ## <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 

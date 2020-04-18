@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'uso delle f
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 47b2d78f7dc831c4314c4215f5e0a9e17f75f0dc
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668367"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617530"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -134,7 +134,7 @@ Per altre informazioni sull'uso dei selettori di nodo, vedere [Assigning Pods to
 
 Un selettore di nodo è un modo semplice per assegnare pod a un determinato nodo. Una maggiore flessibilità è disponibile con l'*affinità tra nodi*. Usando l'affinità tra nodi, si definisce cosa accade se il pod non può essere associato a un nodo. È possibile *richiedere* che l'utilità di pianificazione di Kubernetes trovi una corrispondenza tra un pod e un host con etichetta. In alternativa, è possibile *preferire* una corrispondenza ma consentire la pianificazione del pod su un host differente se la corrispondenza non è disponibile.
 
-Nell'esempio seguente l'affinità tra nodi viene impostata su *requiredDuringSchedulingIgnoredDuringExecution*. Questa affinità richiede che l'utilità di pianificazione di Kubernetes usi un nodo con un'etichetta corrispondente. Se non è disponibile alcun nodo, il pod rimane in attesa che la pianificazione continui. Per consentire la pianificazione del pod su un nodo differente, è invece possibile impostare il valore su *preferredDuringScheduledIgnoreDuringExecution*:
+Nell'esempio seguente l'affinità tra nodi viene impostata su *requiredDuringSchedulingIgnoredDuringExecution*. Questa affinità richiede che l'utilità di pianificazione di Kubernetes usi un nodo con un'etichetta corrispondente. Se non è disponibile alcun nodo, il pod rimane in attesa che la pianificazione continui. Per consentire la pianificazione del pod su un nodo diverso, è invece possibile impostare il valore *su preferredDuringSchedulingIgnoreDuringExecution*:
 
 ```yaml
 kind: Pod

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5310c999cc44f0cf35f129751da7472031e6c57a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537084"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Esercitazione: Integrazione di Azure Active Directory con Amazon Web Services (AWS) (esercitazione precedente)
 
@@ -37,7 +37,7 @@ Per altre informazioni sull'integrazione delle app SaaS con Azure AD, vedere [ch
 ![Amazon Web Services (AWS) nell'elenco dei risultati](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Si noti che collegare un'app AWS a tutti gli account AWS non è l'approccio consigliato. Si consiglia di usare [questo](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approccio per configurare più istanze di account AWS con più istanze di app AWS in Azure AD. È consigliabile utilizzare questo approccio solo se si dispone di un numero molto inferiore di account e ruoli AWS, questo modello non è scalabile man mano che gli account e i ruoli AWS all'interno di questi account aumentano. Inoltre, questo approccio non usa la funzionalità di importazione dei ruoli AWS tramite il provisioning degli utenti di Azure AD e pertanto è necessario aggiungere/aggiornare/eliminare manualmente i ruoli. Per altre limitazioni su questo approccio, vedere i dettagli di seguito.
+> Si noti che collegare un'app AWS a tutti gli account AWS non è l'approccio consigliato. Si consiglia di usare [questo](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approccio per configurare più istanze di account AWS con più istanze di app AWS in Azure AD. È consigliabile utilizzare questo approccio solo se si dispone di pochi account e ruoli AWS in esso, questo modello non è scalabile come gli account AWS e ruoli all'interno di questi account crescono. Questo approccio non usa la funzionalità di importazione dei ruoli AWS usando il provisioning degli utenti di Azure AD, pertanto è necessario aggiungere/aggiornare/eliminare manualmente i ruoli. Per altre limitazioni su questo approccio, vedere i dettagli di seguito.
 
 **Non è consigliabile usare questo approccio per i motivi seguenti:**
 

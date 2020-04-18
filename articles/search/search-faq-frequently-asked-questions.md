@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262452"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618040"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Ricerca cognitiva di Azure - domande frequenti (FAQ)Azure Cognitive Search - frequently asked questions (FAQ)
 
@@ -82,6 +82,14 @@ La maggior parte delle query di ricerca con caratteri jolly, ad esempio prefisso
 Per impostazione predefinita, ai risultati della ricerca vengono assegnati dei punteggi in base alle [proprietà statistiche dei termini corrispondenti](search-lucene-query-architecture.md#stage-4-scoring) e i risultati vengono ordinati dal punteggio più alto a quello più basso nel set dei risultati. Alcuni tipi di query (con carattere jolly, prefisso, regex) tuttavia contribuiscono sempre con un punteggio costante al punteggio complessivo del documento. Questo comportamento dipende dalla progettazione. Ricerca cognitiva di Azure impone un punteggio costante per consentire l'inserimento nei risultati delle corrispondenze trovate tramite l'espansione delle query, senza influire sulla classificazione.
 
 Si supponga, ad esempio, che un input di "tour" in una ricerca con caratteri jolly produca corrispondenze in "tour", "tourettes" e "tourmaline". Data la natura di questi risultati, non è possibile dedurre ragionevolmente quali termini risultino più utili rispetto ad altri. Per questo motivo, verranno ignorate le frequenze di termini durante l'assegnazione dei punteggi dei risultati nelle query di tipo con caratteri jolly, prefisso e regex. Ai risultati della ricerca basati su un input parziale viene assegnato un punteggio costante per evitare la distorsione verso risultati potenzialmente imprevisti.
+
+## <a name="skillset-operations"></a>Operazioni di set di competenze
+
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Ci sono suggerimenti o trucchi per ridurre le accuse di servizi cognitivi sull'ingestione?
+
+E 'comprensibile che non si desidera eseguire le competenze incorporate o competenze personalizzate più di quanto sia assolutamente necessario, soprattutto se avete a che fare con milioni di documenti da elaborare. Con questo in mente, abbiamo aggiunto funzionalità di "arricchimento incrementale" per l'esecuzione del set di competenze. In sostanza, è possibile fornire un percorso della cache (una stringa di connessione di archiviazione BLOB) che verrà usato per archiviare l'output dei passaggi di arricchimento "intermedi".  Ciò consente alla pipeline di arricchimento di essere intelligente e di applicare solo gli arricchimenti necessari quando si modifica il set di competenze. Ciò consente inoltre di risparmiare tempo di indicizzazione in quanto la pipeline sarà più efficiente.
+
+Ulteriori informazioni [sull'arricchimento incrementale](cognitive-search-incremental-indexing-conceptual.md)
 
 ## <a name="design-patterns"></a>Modelli di progettazione
 

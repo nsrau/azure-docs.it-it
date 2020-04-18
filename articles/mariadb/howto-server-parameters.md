@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/1/2020
-ms.openlocfilehash: 9d057a4be02d8d93d3ef02ee3153baebe9146ff1
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.date: 4/16/2020
+ms.openlocfilehash: f39e9450fb922e5b93d7b4b809df73cf5ab007c1
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632702"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81602397"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Questo articolo illustra come configurare i parametri di server del Database di Azure per MariaDB usando il portale di Azure
 
@@ -60,7 +60,8 @@ Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 |innodb_file_per_table nel livello Basic|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512MB|
+|innodb_log_file_size|256 MB|
+|innodb_log_files_in_group|2|
 
 Altri parametri non elencati qui sono impostati sui propri valori predefiniti per [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
 

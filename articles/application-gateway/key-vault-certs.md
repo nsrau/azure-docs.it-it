@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: be558c3e3a68ce6c194dcf98d8f5ff92c4c14edb
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 934cf854b0c526ed994c7dc91763f65de64fd14b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457825"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617515"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminazione TLS con certificati Key Vault
 
@@ -47,7 +47,10 @@ L'integrazione del gateway applicazione con Key Vault richiede un processo di co
 
 1. **Configurare l'insieme di credenziali delle chiavi**
 
-   È quindi possibile importare un certificato esistente o crearne uno nuovo nell'insieme di credenziali delle chiavi. Il certificato verrà utilizzato dalle applicazioni eseguite tramite il gateway applicazione. In questo passaggio è anche possibile usare un segreto dell'insieme di credenziali delle chiavi archiviato come file PFX con codifica 64 senza password. È consigliabile usare un tipo di certificato a causa della funzionalità di rinnovo automatico disponibile con gli oggetti di tipo di certificato nell'insieme di credenziali delle chiavi. Dopo aver creato un certificato o un segreto, definire i criteri di accesso nell'insieme di credenziali delle chiavi per consentire all'identità di *ottenere* l'accesso al segreto.
+   È quindi possibile importare un certificato esistente o crearne uno nuovo nell'insieme di credenziali delle chiavi. Il certificato verrà utilizzato dalle applicazioni eseguite tramite il gateway applicazione. In questo passaggio, è anche possibile usare un segreto dell'insieme di credenziali delle chiavi archiviato come file PFX con codifica base 64 senza password. È consigliabile usare un tipo di certificato a causa della funzionalità di rinnovo automatico disponibile con gli oggetti di tipo di certificato nell'insieme di credenziali delle chiavi. Dopo aver creato un certificato o un segreto, definire i criteri di accesso nell'insieme di credenziali delle chiavi per consentire all'identità di *ottenere* l'accesso al segreto.
+   
+   > [!NOTE]
+   > Se si distribuisce il gateway applicazione tramite un modello ARM, tramite l'interfaccia della riga di comando di Azure o PowerShell o tramite un'applicazione di Azure distribuita dal portale di Azure, il certificato SSL archiviato nell'insieme di credenziali delle chiavi come file PFX con codifica base 64 **deve essere senza password.** Inoltre, è necessario completare i passaggi descritti in Usare l'insieme di credenziali delle chiavi di Azure per passare il valore sicuro dei [parametri durante la distribuzione.](../azure-resource-manager/templates/key-vault-parameter.md) È particolarmente importante impostare su `enabledForTemplateDeployment` `true`.
 
 1. **Configurare il gateway applicazione**
 

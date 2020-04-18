@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: a82d2b6d9521ba7dd5e7b194c26ff8fe5a100871
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 594bac257c2b9739f1ece276c881348b35d2f704
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457485"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604822"
 ---
 # <a name="encrypt-secure-assets-in-azure-automation"></a>Crittografare gli asset protetti in Automazione di Azure
 
@@ -56,9 +56,9 @@ Prima di abilitare le chiavi gestite dal cliente per un account di automazione, 
  - Solo le chiavi RSA sono supportate con la crittografia di automazione di Azure.Only RSA keys are supported with Azure Automation encryption. Per altre informazioni sulle chiavi, vedere [Informazioni su chiavi, segreti e certificati dell'insieme](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)di credenziali delle chiavi di Azure.
 - L'account di automazione e l'insieme di credenziali delle chiavi possono trovarsi in sottoscrizioni diverse, ma devono trovarsi nello stesso tenant di Azure Active Directory.The Automation account and the key vault can be in different subscriptions, but need to be in the same Azure Active Directory tenant.
 
-### <a name="assign-an-identity-to-the-automation-account"></a>Assegnare un'identità all'account di automazione
+### <a name="assign-an-identity-to-the-automation-account"></a>Assegnare un'identità all'account di automazioneAssign an identity to the Automation account
 
-Per usare le chiavi gestite dal cliente con un account di automazione, l'account di automazione deve eseguire l'autenticazione nell'insieme di credenziali delle chiavi in cui sono archiviate le chiavi gestite dal cliente. Azure Automation uses system assigned managed identities to authenticate the account with Azure Key Vault. Per altre informazioni sulle identità gestite, vedere [Informazioni sulle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Per usare le chiavi gestite dal cliente con un account di automazione, l'account di automazione deve eseguire l'autenticazione nell'insieme di credenziali delle chiavi in cui sono archiviate le chiavi gestite dal cliente. Azure Automation uses system assigned managed identities to authenticate the account with Azure Key Vault. Per altre informazioni sulle identità gestite, vedere [Che cosa sono le identità gestite per le risorse](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) di Azure?
 
 Configurare un'identità gestita assegnata dal sistema all'account di automazione usando la seguente chiamata all'API REST:
 
@@ -133,7 +133,7 @@ Corpo della richiesta:
 
 ### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Modificare la configurazione dell'account di automazione per utilizzare la chiave gestita dal cliente
 
-Infine, è possibile cambiare l'account di automazione dalle chiavi gestite da Microsft alle chiavi gestite dal cliente, usando la seguente chiamata all'API REST:
+Infine, è possibile passare dall'account di automazione dalle chiavi gestite da Microsoft alle chiavi gestite dal cliente, usando la chiamata all'API REST seguente:Finally, you can switch your Automation account from Microsoft-managed keys to customer-managed keys, using the following REST API call:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -193,9 +193,6 @@ To revoke access to customer-managed keys, use PowerShell or the Azure CLI. Per 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni sull'insieme di credenziali delle chiavi di Azure](../key-vault/general/overview.md)
-
 - [Asset di tipo certificato in Automazione di Azure](shared-resources/certificates.md)
-
 - [Asset credenziali in Automazione di Azure](shared-resources/credentials.md)
-
 - [Asset di tipo variabile in Automazione di Azure](shared-resources/variables.md)

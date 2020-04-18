@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33684a6292d7e51c04f6bacc7c49ee5986dbec10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3bc87b183803c0854542d6925af7429b593d2af
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502408"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605180"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architettura di rete di SAP HANA (istanze Large)
 
@@ -86,7 +86,7 @@ Per fornire latenza di rete deterministica tra macchine virtuali e istanza di gr
 Per ridurre la latenza, ExpressRoute Fast Path è stato introdotto e rilasciato a maggio 2019 per la connettività specifica delle istanze di grandi dimensioni HANA alle reti virtuali di Azure che ospitano le macchine virtuali dell'applicazione SAP. La differenza principale rispetto alla soluzione implementata finora è che i flussi di dati tra macchine virtuali e istanze di grandi dimensioni HANA non vengono più instradati attraverso il gateway ExpressRoute.The major difference to the solution rolled out to far out to far, is, is, that the data flows between VMs and HANA Large Instances is nomore tind through the ExpressRoute gateway at. Le macchine virtuali assegnate nelle subnet della rete virtuale di Azure comunicano direttamente con il router perimetrale aziendale dedicato. 
 
 > [!IMPORTANT] 
-> La funzionalità Percorso rapido ExpressRoute richiede che le subnet che eseguono le macchine virtuali dell'applicazione SAP si trovino nella stessa rete virtuale di Azure connessa alle istanze di grandi dimensioni HANA. Le macchine virtuali situate nelle reti virtuali di Azure sottoposte a peering con la rete virtuale di Azure connesse direttamente alle unità di istanza di grandi dimensioni HANA non traggono vantaggio da ExpressRoute Fast Path. Di conseguenza, le progettazioni tipiche di reti virtuali hub e spoke, in cui i circuiti ExpressRoute si connettono a una rete virtuale hub e le reti virtuali contenenti il livello applicazione SAP (spokes) vengono sottoposte a peered, l'ottimizzazione da ExpressRoute Fast Il percorso non funzionerà. In aggiunta, ExpressRoute Fast Path non supporta oggi le regole di routing definite dall'utente. Per altre informazioni, vedere [Gateway di rete virtuale ExpressRoute e FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> La funzionalità Percorso rapido ExpressRoute richiede che le subnet che eseguono le macchine virtuali dell'applicazione SAP si trovino nella stessa rete virtuale di Azure connessa alle istanze di grandi dimensioni HANA. Le macchine virtuali situate nelle reti virtuali di Azure sottoposte a peering con la rete virtuale di Azure connesse direttamente alle unità di istanza di grandi dimensioni HANA non traggono vantaggio da ExpressRoute Fast Path. Di conseguenza, le progettazioni tipiche di rete virtuale hub e spoke, in cui i circuiti ExpressRoute si connettono a una rete virtuale hub e le reti virtuali contenenti il livello dell'applicazione SAP (spokes) vengono sottoposte a peered, l'ottimizzazione tramite ExpressRoute Fast Path non funzionerà. In aggiunta, ExpressRoute Fast Path non supporta oggi le regole di routing definite dall'utente. Per altre informazioni, vedere [Gateway di rete virtuale ExpressRoute e FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
 
 
 Per ulteriori informazioni su come configurare ExpressRoute Fast Path, leggere il documento [Connect a virtual network to HANA large instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route).    
@@ -151,7 +151,7 @@ Esistono tre modi per abilitare il routing transitivo in tali scenari:There are 
 - [Regole di IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in una VM Linux per abilitare il routing tra le posizioni locali e le unità di istanze Large di HANA o fra tali unità in aree diverse. La macchina virtuale che esegue IPTables deve essere distribuita nella rete virtuale di Azure che si connette a istanze di grandi dimensioni HANA e in locale. La macchina virtuale deve essere dimensionata di conseguenza, pertanto la velocità effettiva di rete della macchina virtuale è sufficiente per il traffico di rete previsto. Per informazioni dettagliate sulla larghezza di banda della rete VM, vedere l'articolo Dimensioni delle macchine virtuali Linux in Azure.For details on VM network bandwidth, check the article [Sizes of Linux virtual machines in Azure.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Firewall](https://azure.microsoft.com/services/azure-firewall/) di Azure sarebbe un'altra soluzione per consentire il traffico diretto tra unità di istanza di grandi dimensioni e locali. 
 
-Tutto il traffico di queste soluzioni verrebbe instradato attraverso una rete virtuale di Azure e, di conseguenza, il traffico potrebbe essere ulteriormente limitato dalle appliance soft usate o dai gruppi di sicurezza di rete di Azure, in modo che determinati indirizzi IP o indirizzi IP locale potrebbe essere bloccato o consentito esplicitamente l'accesso a istanze di grandi dimensioni HANA. 
+Tutto il traffico di queste soluzioni verrebbe instradato attraverso una rete virtuale di Azure e, di conseguenza, il traffico potrebbe essere ulteriormente limitato dalle appliance soft usate o dai gruppi di sicurezza di rete di Azure, pertanto determinati indirizzi IP o intervalli di indirizzi IP locali potrebbero essere bloccati o esplicitamente consentiti l'accesso alle istanze di grandi dimensioni HANA. 
 
 > [!NOTE]  
 > Tenere presente che Microsoft non fornisce l'implementazione e il supporto per soluzioni personalizzate che riguardano IPTables o appliance di rete di terze parti. Il supporto deve essere reso disponibile dal fornitore del componente usato o dall'integratore. 
@@ -182,7 +182,7 @@ Per ulteriori informazioni su come ottenere ExpressRoute Global Reach abilitato,
 Le istanze Large di HANA *non* hanno una connettività Internet diretta. Questo limita ad esempio la possibilità di registrare l'immagine del sistema operativo direttamente con il relativo fornitore. Può quindi essere necessario usare il server SUSE Linux Enterprise Server Subscription Management Tool locale o Red Hat Enterprise Linux Subscription Manager.
 
 ## <a name="data-encryption-between-vms-and-hana-large-instance"></a>Crittografia dei dati tra VM e istanze Large di HANA
-I dati trasferiti tra le istanze Large di HANA e le VM non vengono crittografati. Tuttavia, esclusivamente per lo scambio tra il lato HANA DBMS e le applicazioni basate su JDBC/ODBC, è possibile abilitare la crittografia del traffico. Per altre informazioni, vedere [questa documentazione di SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false).
+I dati trasferiti tra le istanze Large di HANA e le VM non vengono crittografati. Tuttavia, esclusivamente per lo scambio tra il lato HANA DBMS e le applicazioni basate su JDBC/ODBC, è possibile abilitare la crittografia del traffico. Per altre informazioni, vedere [questa documentazione di SAP](https://help.sap.com/viewer/102d9916bf77407ea3942fef93a47da8/1.0.11/en-US/dbd3d887bb571014bf05ca887f897b99.html).
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>Usare le unità di istanze Large di HANA in più aree
 

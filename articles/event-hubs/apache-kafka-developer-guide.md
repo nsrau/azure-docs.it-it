@@ -8,12 +8,12 @@ ms.author: spelluru
 ms.date: 03/31/2020
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: 8a72d20101aacaf59b4be5c4a231b132237113f3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: d90bf8efab28624672dcedb5bf53d45052dd9123
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633918"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605116"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Apache Kafka developer guide for Azure Event Hubs
 Questo articolo fornisce collegamenti ad articoli che descrivono come integrare le applicazioni Apache Kafka con gli hub eventi di Azure.This article provides links to articles that describe how to integrate your Apache Kafka applications with Azure Event Hubs. 
@@ -33,7 +33,7 @@ Vedere le guide introduttive seguenti nel repository **azure-event-hubs-for-kafk
 | [Java](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java) | Questa guida introduttiva mostrerà come creare e connettersi a un endpoint Event Hubs Kafka utilizzando un produttore di esempio e un consumer scritto in Java.This quickstart will show how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Java. |
 | [Node.js](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/node) | <p>Questa guida introduttiva mostrerà come creare e connettersi a un endpoint Kafka di hub eventi usando un producer e un consumer di esempio scritti in Node.This quickstart will show how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Node.</p><p>In questo esempio viene utilizzata la libreria [node-rdkafka.](https://github.com/Blizzard/node-rdkafka) </p>| 
 | [Python](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/python) | <p>Questa guida introduttiva mostrerà come creare e connettersi a un endpoint Event Hubs Kafka usando un produttore di esempio e un consumer scritti in python.</p><p>Questo esempio è basato sul [client Apache Kafka Python di Confluent,](https://github.com/confluentinc/confluent-kafka-python)modificato per l'utilizzo con gli hub eventi per Kafka.</p>|
-| [invio](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go) | <p>Questa guida introduttiva mostrerà come creare e connettersi a un endpoint Kafka di Hub eventi usando un produttore e un consumer di esempio scritti in Go.This quickstart will show how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Go.</p><p>Questo esempio è basato sul [client Apache Kafka Golang di Confluent,](https://github.com/confluentinc/confluent-kafka-go)modificato per l'utilizzo con gli hub eventi per Kafka.</p>| 
+| [Go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go) | <p>Questa guida introduttiva mostrerà come creare e connettersi a un endpoint Kafka di Hub eventi usando un produttore e un consumer di esempio scritti in Go.This quickstart will show how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Go.</p><p>Questo esempio è basato sul [client Apache Kafka Golang di Confluent,](https://github.com/confluentinc/confluent-kafka-go)modificato per l'utilizzo con gli hub eventi per Kafka.</p>| 
 | [Sarama kafka Go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go-sarama-client) | Questa guida introduttiva mostrerà come creare e connettersi a un endpoint Event Hubs Kafka usando un produttore e un consumer di esempio scritti in Go usando la libreria [client Sarama Kafka.](https://github.com/Shopify/sarama) |
 | [Kafka](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafka-cli) | Questa guida introduttiva mostrerà come creare e connettersi a un endpoint Difka di hub eventi usando l'interfaccia della riga di comando fornita con la distribuzione Apache Kafka.| 
 | [Kafkacat](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat) | kafkacat è un consumatore di linea di comando non-JVM e produttore basato su librdkafka, popolare per la sua velocità e l'ingombro ridotto. Questa guida introduttiva contiene una configurazione di esempio e diversi semplici comandi kafkacat di esempio. | 
@@ -58,7 +58,7 @@ Vedere le esercitazioni seguenti su GitHub:See the following tutorials on GitHub
 | [Logstash](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/logstash) | Questo tutorial ti guiderà attraverso l'integrazione di Logstash con gli hub di eventi abilitati per Kafka utilizzando i plug-in di input/output Logstash Kafka. | 
 | [MirrorMaker](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker) | Questa esercitazione mostra come un hub eventi e Kafka MirrorMaker possono integrare una pipeline Kafka esistente in Azure eseguendo il mirroring del flusso di input Kafka nel servizio Hub eventi. |
 | [NiFi](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/nifi) | Questa esercitazione mostrerà come connettere Apache NiFi a uno spazio dei nomi Hub eventi. | 
-| [Oauth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth) | Le guide introduttive mostrano come creare e connettersi a un endpoint Kafka di Hub eventi utilizzando un produttore e un consumer di esempio scritti nei linguaggi di programmazione Go e Java. |
+| [OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth) | Le guide introduttive mostrano come creare e connettersi a un endpoint Kafka di Hub eventi utilizzando un produttore e un consumer di esempio scritti nei linguaggi di programmazione Go e Java. |
 | [Registro schemi di Confluent](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/schema-registry) | Questa esercitazione illustra come integrare il Registro di sistema dello schema e gli hub eventi per Kafka.This tutorial will walk you through integrating Schema Registry and Event Hubs for Kafka. | 
 | [Spark](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark) | Questa esercitazione illustra come connettere l'applicazione Spark a un hub eventi senza modificare i client di protocollo o eseguire i cluster Kafka. | 
 
@@ -79,4 +79,12 @@ Vedere le seguenti guide alle procedure nella documentazione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Esaminare gli esempi nel GitHub repo [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) nelle cartelle quickstart e tutorials.
+
+Vedere anche gli articoli seguenti:Also, see the following articles:
+
+- [Guida alla risoluzione dei problemi di Apache Kafka per gli hub eventi](apache-kafka-troubleshooting-guide.md)
+- [Domande frequenti - Hub di eventi per Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Guida alla migrazione di Apache Kafka per gli hub eventi](apache-kafka-migration-guide.md)
+
+
 

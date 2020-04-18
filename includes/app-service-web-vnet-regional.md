@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: ccompy
-ms.openlocfilehash: 7f2b011b2de5af0e4ace9cbeb4399911d8e83b7f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312845"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604866"
 ---
 L'uso dell'integrazione regionale della rete virtuale consente all'app di accedere a:Using regional VNet Integration enables your app to access:
 
@@ -19,7 +19,7 @@ L'uso dell'integrazione regionale della rete virtuale consente all'app di accede
 * Risorse tra connessioni Azure ExpressRoute.Resources across Azure ExpressRoute connections.
 * Risorse nella rete virtuale con cui si è integrati.
 * Risorse tra connessioni con peer, che includono connessioni Azure ExpressRoute.Resources across peered connections, which includes Azure ExpressRoute connections.
-* Endpoint privati: nota: il DNS deve essere gestito separatamente anziché usare le zone private DNS di Azure.Private endpoints - Note: DNS must be managed separately rather than using Azure DNS private zones.
+* Endpoint privati 
 
 Quando si usa l'integrazione della rete virtuale con le reti virtuali nella stessa area, è possibile usare le funzionalità di rete di Azure seguenti:When you use VNet Integration with VNets in the same region, you can use the following Azure networking features:
 
@@ -50,7 +50,7 @@ Esistono alcune limitazioni con l'utilizzo dell'integrazione della rete virtuale
 * È possibile integrare solo con le reti virtuali nello stesso abbonamento dell'app.
 * È possibile avere una sola integrazione della rete virtuale regionale per ogni piano di servizio app. Più app nello stesso piano di servizio app possono usare la stessa rete virtuale.
 * Non è possibile modificare la sottoscrizione di un'app o di un piano mentre è presente un'app che usa l'integrazione regionale della rete virtuale.
-* L'app non è in grado di risolvere gli indirizzi nelle zone private DNS di Azure.Your app cannot resolve addresses in Azure DNS Private zones.
+* L'app non è in grado di risolvere gli indirizzi nelle zone private DNS di Azure senza modifiche alla configurazione
 
 Viene utilizzato un indirizzo per ogni istanza del piano. Se si ridimensiona l'app a cinque istanze, vengono usati cinque indirizzi. Poiché le dimensioni della subnet non possono essere modificate dopo l'assegnazione, è necessario usare una subnet sufficientemente grande da contenere la scalabilità che l'app potrebbe raggiungere. Un /26 con 64 indirizzi è la dimensione consigliata. Un /26 con 64 indirizzi supporta un piano Premium con 30 istanze. Quando si aumenta o si aumenta la scalabilità di un piano, è necessario il doppio degli indirizzi per un breve periodo di tempo.
 
@@ -83,9 +83,22 @@ Se si vuole instradare tutto il traffico in uscita in locale, è possibile usare
 
 Le route BGP (Border Gateway Protocol) influiscono anche sul traffico dell'app. Se si dispone di route BGP da un'operazione simile a un gateway ExpressRoute, il traffico in uscita dell'app ne risentirà. Per impostazione predefinita, le route BGP influiscono solo sul traffico di destinazione RFC1918. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1, tutto il traffico in uscita può essere influenzato dalle route BGP.
 
+### <a name="azure-dns-private-zones"></a>Aree private DNS di AzureAzure DNS Private zones 
+
+Dopo l'integrazione dell'app con la rete virtuale, usa lo stesso server DNS con cui è configurata la rete virtuale. Per impostazione predefinita, l'app non funziona con le zone private DNS di Azure.By default, your app won't work with Azure DNS Private zones. Per usare le zone private DNS di Azure, è necessario aggiungere le impostazioni dell'app seguenti:To work with Azure DNS Private zones you need to add the following app settings:
+
+1. WEBSITE_DNS_SERVER con valore 168.63.129.16 
+1. WEBSITE_VNET_ROUTE_ALL con valore 1
+
+Queste impostazioni invieranno tutte le chiamate in uscita dall'app nella rete virtuale oltre a consentire all'app di usare le zone private DNS di Azure.These settings will send all of your outbound calls from your app into your VNet in addition to enabling your app to use Azure DNS private zones.
+
+### <a name="private-endpoints"></a>Endpoint privati
+
+Se si desidera effettuare chiamate agli [endpoint privati][privateendpoints], è necessario eseguire l'integrazione con le zone private DNS di Azure o gestire l'endpoint privato nel server DNS usato dall'app. 
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
 [VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba281ffb30801e0ae10cab10ceb95c0a3bffde2d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264232"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640014"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Concetti di gestione per account utente, password e amministrazione in Servizi di dominio Azure Active Directory
 
@@ -48,7 +48,7 @@ Per ulteriori informazioni sulle differenze nella modalità di applicazione dei 
 
 Per autenticare gli utenti nel dominio gestito, Azure AD DS necessita dell'hash delle password in un formato idoneo per l'autenticazione NTLM (NT LAN Manager) e Kerberos. Azure AD non genera né archivia gli hash delle password nel formato necessario per l'autenticazione NTLM o Kerberos finché non si abilita Azure AD DS per il tenant. Per motivi di sicurezza, Azure AD non archivia nemmeno le credenziali di tipo password in un formato non crittografato. Azure AD quindi non può generare automaticamente questi hash delle password NTLM o Kerberos in base alle credenziali esistenti degli utenti.
 
-Per gli account utente solo cloud, gli utenti devono cambiare le loro password prima di poter usare Azure AD DS. Con questo processo di modifica delle password, in Azure AD vengono generati e archiviati gli hash delle password per l'autenticazione Kerberos e NTLM.
+Per gli account utente solo cloud, gli utenti devono cambiare le loro password prima di poter usare Azure AD DS. Con questo processo di modifica delle password, in Azure AD vengono generati e archiviati gli hash delle password per l'autenticazione Kerberos e NTLM. L'account non viene sincronizzato da Azure AD ad Azure AD DS finché non viene modificata la password.
 
 Per gli utenti sincronizzati da un ambiente di Servizi di dominio Active Directory locale tramite Azure AD Connect, [abilitare la sincronizzazione degli hash delle password.][hybrid-phs]
 
@@ -70,7 +70,7 @@ In Servizi di dominio Active Directory di Azure la foresta contiene un solo domi
 
 Per impostazione predefinita, un dominio gestito di Servizi di dominio Active Directory di Azure viene creato come foresta *utente.* Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Gli account utente possono eseguire direttamente l'autenticazione nel dominio gestito di Servizi di dominio Active Directory di Azure, ad esempio per accedere a una macchina virtuale aggiunta a un dominio. Una foresta utente funziona quando gli isemi delle password possono essere sincronizzati e gli utenti non utilizzano metodi di accesso esclusivi come l'autenticazione con smart card.
 
-In una foresta di *risorse* di Servizi di dominio Active Directory di Azure gli utenti eseguono l'autenticazione tramite un *trust* tra foreste unidirezionale dal dominio Active Directory locale. Con questo approccio, gli oggetti utente e gli ishe delle password non vengono sincronizzati con Azure AD DS. Gli oggetti utente e le credenziali esistono solo in Servizi di dominio Active Directory locale. Questo approccio consente alle aziende di ospitare risorse e piattaforme di applicazioni in Azure che dipendono dall'autenticazione classica, ad esempio LDAPS, Kerberos o NTLM, ma vengono rimossi eventuali problemi di autenticazione. Le foreste di risorse di Servizi di dominio Azure sono attualmente in anteprima.
+In una foresta di *risorse* di Servizi di dominio Active Directory di Azure gli utenti eseguono l'autenticazione tramite un *trust* tra foreste unidirezionale dal dominio Active Directory locale. Con questo approccio, gli oggetti utente e gli ishe delle password non vengono sincronizzati con Azure AD DS. Gli oggetti utente e le credenziali esistono solo in Servizi di dominio Active Directory locale. Questo approccio consente alle aziende di ospitare risorse e piattaforme di applicazioni in Azure che dipendono dall'autenticazione classica, ad esempio LDAPS, Kerberos o NTLM, ma vengono rimossi eventuali problemi di autenticazione. Le foreste di risorse Azure AD Domain Services sono attualmente disponibili in anteprima.
 
 Per altre informazioni sui tipi di foresta in Servizi di dominio Active Directory di Azure, vedere Che cosa sono le foreste di [risorse?][concepts-forest] e Come funzionano i trust della [foresta in Azure AD DS?][concepts-trust]
 

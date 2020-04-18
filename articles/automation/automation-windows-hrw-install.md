@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2bd9b4f46e28a28f99045319d8ac606cdcee7216
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53dfe07ebd4925c96290db140b6e613c38eef564
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536786"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617338"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -144,7 +144,7 @@ Nei risultati della ricerca dovrebbero essere visualizzati i record heartbeat pe
 Utilizzare la procedura seguente per completare l'installazione e l'installazione dell'agente.
 
 1. Abilitare la soluzione per l'onboarding del computer agente. Consultate [Utilizzare I computer di bordo nell'area di lavoro.](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace)
-2. Verificare che l'agente abbia scaricato correttamente la soluzione di automazione. Deve disporre di una cartella denominata **AzureAutomationFiles** in **C:**. 
+2. Verificare che l'agente abbia scaricato correttamente la soluzione di automazione. 
 3. Per confermare la versione del ruolo di lavoro ibrido per runbook, passare a C: , **Programmi , Microsoft Monitoring Agent , agente , AzureAutomation** e prendere nota della sottocartella della **versione.**
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>Passaggio 4 - Installare l'ambiente del runbook e connettersi ad Automazione di AzureStep 4 - Install the runbook environment and connect to Azure Automation

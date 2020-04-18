@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 847b6c4616cbbb7fd9c6ccad18ec426dc38a887a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bceea53e6b177940305a2dc77f2a6ecfa37f277a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430851"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617906"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funzionalità dei dati dei clienti in Azure Key Vault
 
@@ -40,7 +40,7 @@ Le informazioni seguenti identificano i dati dei clienti all'interno di Azure Ke
 
 Le stesse API REST, esperienze del portale e SDK usati per creare insiemi di credenziali, chiavi, segreti, certificati e account di archiviazione gestiti sono inoltre in grado di aggiornare ed eliminare questi oggetti.
 
-L'eliminazione temporanea consente di recuperare i dati eliminati per 90 giorni dopo l'eliminazione. Quando si usa l'eliminazione temporanea, i dati possono essere eliminati in modo permanente prima della scadenza del periodo di conservazione di 90 giorni eseguendo un'operazione di ripulitura. Se l'insieme di credenziali o la sottoscrizione è stata configurata per bloccare le operazioni di ripulitura, non è possibile eliminare definitivamente i dati fino a quando non è scaduto il periodo di conservazione pianificato.
+L'eliminazione temporanea consente di recuperare i dati eliminati per 90 giorni dopo l'eliminazione. Quando si utilizza l'eliminazione temporanea, i dati possono essere eliminati definitivamente prima della scadenza del periodo di conservazione di 90 giorni eseguendo un'operazione di eliminazione. Se l'insieme di credenziali o la sottoscrizione è stata configurata per bloccare le operazioni di ripulitura, non è possibile eliminare definitivamente i dati fino a quando non è scaduto il periodo di conservazione pianificato.
 
 ## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
 

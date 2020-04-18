@@ -4,15 +4,15 @@ description: Integra l'app nel servizio app di Azure con le reti virtuali di Azu
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cb5747c6780da134dfb2f5ab088348b848c5f04a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4866397af244ffb3c6aa9c7547b0a9413b10ccfd
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312829"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604872"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare l'app con una rete virtuale di AzureIntegrate your app with an Azure virtual network
 
@@ -41,8 +41,6 @@ Il servizio app di Azure presenta due varianti:Azure App Service has two variati
     ![Selezionare la rete virtuale classica][3]
 
 Durante l'integrazione, l'app viene riavviata. Al termine dell'integrazione, vedrai i dettagli sulla rete virtuale con cui sei integrato.
-
-Dopo aver integrato l'app con la rete virtuale, usa lo stesso server DNS con cui è configurata la rete virtuale, a meno che non si tratti di zone private DNS di Azure.After your app is integrated with your VNet, it is using the same DNS server that Your VNet is configured with, unless it's Azure DNS Private zones. Attualmente, non è possibile usare l'integrazione della rete virtuale con le zone private DNS di Azure.Currently, you can't use VNet Integration with Azure DNS Private zones.
 
 ## <a name="regional-vnet-integration"></a>Integrazione della rete virtuale regionale
 
@@ -200,3 +198,4 @@ Per l'integrazione della rete virtuale richiesta dal gateway, è possibile integ
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
 [VNETRouteTables]: https://docs.microsoft.com/azure/virtual-network/manage-route-table/
 [installCLI]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/
+[privateendpoints]: networking/private-endpoint.md

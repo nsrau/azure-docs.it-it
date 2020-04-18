@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 5c84588290ce769b556002469b6a11c6950bb878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd38f646b8dfc58839cd2645f7fadf7332693854
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476553"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605993"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -77,7 +77,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Passaggio 2 Verificare la connettività tra la VM e il Servizio di gestione delle chiavi di Azure
 
-1. Scaricare ed estrarre lo strumento [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) in una cartella locale nella macchina virtuale che non viene attivata. 
+1. Scaricare ed estrarre lo strumento [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) in una cartella locale nella macchina virtuale che non viene attivata. 
 
 2. Andare a Start, cercare Windows PowerShell, fare clic con il pulsante destro del mouse su Windows PowerShell e scegliere Esegui come amministratore.
 
@@ -98,7 +98,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
 
    Se Lost è maggiore di 0 (zero), la VM non ha la connettività al server di gestione delle chiavi. In questo caso, se la VM è in una rete virtuale ed è specificato un server DNS personalizzato, è necessario verificare che il server DNS possa risolvere kms.core.windows.net. In alternativa, sostituire il server DNS con uno che risolve kms.core.windows.net.
 
-   Tenere presente che, se si rimuovono tutti i server DNS da una rete virtuale, le VM usano il servizio DNS interno di Azure. Questo servizio può risolvere kms.core.windows.net.
+   Si noti che se si rimuovono tutti i server DNS da una rete virtuale, le macchine virtuali usano il servizio DNS interno di Azure.Notice that if you remove all DNS servers from a virtual network, VMs use Azure's internal DNS service. Questo servizio può risolvere kms.core.windows.net.
   
     Assicurarsi inoltre che il traffico di rete in uscita verso l'endpoint KMS con porta 1688 non sia bloccato dal firewall nella macchina virtuale.
 

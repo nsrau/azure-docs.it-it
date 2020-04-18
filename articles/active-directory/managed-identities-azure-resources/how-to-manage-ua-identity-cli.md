@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1e8587562ff452373fe2ee3b98fa20309e77cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266585"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639769"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante l'interfaccia della riga di comando di Azure
 
@@ -37,6 +37,12 @@ Questo articolo illustra come creare, elencare ed eliminare un'identità gestita
     - Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
     - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
     - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. Accedere ad Azure tramite `az login`, usando un account associato alla sottoscrizione di Azure in cui si vuole distribuire l'identità gestita assegnata dall'utente.
+
+
+> [!NOTE]
+> Per modificare le autorizzazioni utente quando si usa un'entità di servizio dell'app usando l'interfaccia della riga di comando, è necessario fornire all'entità servizio autorizzazioni aggiuntive nell'API Graph di Azure AD poiché parti dell'interfaccia della riga di comando eseguono richieste GET sull'API Graph.In order to modify user permissions when using an app servivce principal using CLI, you must provide the service principal additional permissions in Azure AD Graph API as portion of CLI perform GET requests against the Graph API. In caso contrario, si potrebbe finire per ricevere un messaggio 'Privilegi insufficienti per completare l'operazione'. To do this you will need to go into the App registration in Azure Active Directory, select your app, click on API permissions, scroll down and select Azure Active Directory Graph. Da qui selezionare Autorizzazioni applicazionee quindi aggiungere le autorizzazioni appropriate. 
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

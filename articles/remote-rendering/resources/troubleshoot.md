@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7ee219ae5ace0f0da398cc542f410d3c895c8bd4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679985"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617863"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -76,6 +76,14 @@ La qualità video può essere compromessa dalla qualità della rete o dal codec 
 
 * Vedere la procedura per identificare i problemi di [rete](#unstable-holograms).
 * Consultare [i requisiti](../overview/system-requirements.md#development-pc) di sistema per l'installazione del driver di grafica più recente.
+
+## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Il video registrato con MRC non riflette la qualità dell'esperienza dal vivo
+
+Un video può essere registrato su Hololens attraverso [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Tuttavia il video risultante ha una qualità peggiore rispetto all'esperienza dal vivo per due motivi:
+* Il framerate video è limitato a 30 Hz invece di 60 Hz.
+* Le immagini video non passano attraverso la fase di elaborazione della [riproiezione](../overview/features/late-stage-reprojection.md) in fase avanzata, quindi il video sembra essere più inverso.
+
+Entrambi sono limitazioni intrinseche della tecnica di registrazione.
 
 ## <a name="black-screen-after-successful-model-loading"></a>Schermo nero dopo il caricamento del modello
 

@@ -1,30 +1,30 @@
 ---
-title: Visualizzare le valutazioni degli aggiornamenti di Azure Update ManagementView Azure Update Management update assessments
+title: Visualizzare le valutazioni degli aggiornamenti di Azure Automation Update ManagementView Azure Automation Update Management update assessments
 description: In questo articolo viene descritto come visualizzare le valutazioni degli aggiornamenti per le distribuzioni degli aggiornamenti.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278415"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617382"
 ---
-# <a name="view-azure-update-management-update-assessments"></a>Visualizzare le valutazioni degli aggiornamenti di Azure Update ManagementView Azure Update Management update assessments
+# <a name="view-azure-automation-update-management-update-assessments"></a>Visualizzare le valutazioni degli aggiornamenti di Azure Automation Update ManagementView Azure Automation Update Management update assessments
 
 Nell'account di Automazione di Azure selezionare **Gestione aggiornamenti** per visualizzare lo stato dei computer.
 
 Questa visualizzazione contiene informazioni sui computer, sugli aggiornamenti mancanti, sulle distribuzioni degli aggiornamenti e sulle distribuzioni degli aggiornamenti pianificate. Nella colonna **COMPLIANCE** è possibile visualizzare l'ultima volta che la macchina è stata valutata. Nella colonna **UPDATE AGENT READINESS** è possibile visualizzare l'integrità dell'agente di aggiornamento. Se si verifica un problema, selezionare il collegamento per accedere alla documentazione relativa alla risoluzione dei problemi che consente di risolvere il problema.
 
-Per eseguire una ricerca nei log che restituisca informazioni sul computer, sull'aggiornamento o sulla distribuzione, selezionare l'elemento corrispondente nell'elenco. Si apre il riquadro **Ricerca log** con una query per l'elemento selezionato:
+Per eseguire una ricerca nei log che restituisca informazioni sul computer, sull'aggiornamento o sulla distribuzione, selezionare l'elemento corrispondente nell'elenco. Viene aperto il riquadro Ricerca log con una query per l'elemento selezionato.
 
 ![Visualizzazione predefinita di Gestione aggiornamenti](media/automation-update-management/update-management-view.png)
 
 ## <a name="view-missing-updates"></a>Visualizzare gli aggiornamenti mancanti
 
-Selezionare **Aggiornamenti mancanti** per visualizzare l'elenco di aggiornamenti mancanti nei computer. Ogni aggiornamento viene inserito nell'elenco e può essere selezionato. Vengono visualizzate informazioni sul numero di computer che richiedono l'aggiornamento, i dettagli del sistema operativo e un collegamento per ulteriori informazioni. Il riquadro **Di ricerca log** mostra anche ulteriori dettagli sugli aggiornamenti.
+Selezionare **Aggiornamenti mancanti** per visualizzare l'elenco di aggiornamenti mancanti nei computer. Ogni aggiornamento viene inserito nell'elenco e può essere selezionato. Vengono visualizzate informazioni sul numero di computer che richiedono l'aggiornamento, i dettagli del sistema operativo e un collegamento per ulteriori informazioni. Il riquadro Ricerca log mostra anche ulteriori dettagli sugli aggiornamenti.
 
 ![Aggiornamenti mancanti](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
@@ -32,18 +32,18 @@ Selezionare **Aggiornamenti mancanti** per visualizzare l'elenco di aggiornament
 
 Nelle tabelle seguenti sono elencate le classificazioni degli aggiornamenti supportate in Gestione aggiornamenti, con una definizione per ogni classificazione.
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 |Classificazione  |Descrizione  |
 |---------|---------|
-|Aggiornamenti critici     | Un aggiornamento per un problema specifico che risolve un bug critico non correlato alla sicurezza.        |
-|Aggiornamenti per la sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
-|Aggiornamenti cumulativi     | Un set cumulativo di aggiornamenti rapidi, contenuti nello stesso pacchetto per facilitarne la distribuzione.        |
+|Aggiornamenti critici     | Aggiornamenti per problemi specifici che riguardano bug critici e non correlati alla sicurezza.        |
+|Aggiornamenti per la sicurezza     | Aggiornamenti per problemi specifici del prodotto e relativi alla sicurezza.        |
+|Aggiornamenti cumulativi     | Set di aggiornamenti rapidi che vengono inclusi nel pacchetto per una facile distribuzione.        |
 |Feature Pack     | Nuove funzionalità del prodotto distribuite di fuori di una versione del prodotto.        |
-|Service Pack     | Un set cumulativo di aggiornamenti rapidi applicati a un'applicazione.        |
-|Aggiornamenti della definizione     | Un aggiornamento per un virus o altri file di definizione.        |
-|Strumenti     | Utilità o funzionalità che consente di completare una o più attività.        |
-|Aggiornamenti     | Un aggiornamento di un'applicazione o un file attualmente installati.        |
+|Service Pack     | Set di aggiornamenti rapidi applicati a un'applicazione.        |
+|Aggiornamenti della definizione     | Aggiornamenti a virus o altri file di definizione.        |
+|Strumenti     | Utilità o funzionalità che consentono di completare una o più attività.        |
+|Aggiornamenti     | Aggiornamenti alle applicazioni o ai file attualmente installati.        |
 
 ### <a name="linux"></a><a name="linux-2"></a>Linux
 

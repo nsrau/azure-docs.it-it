@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284122"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605907"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chiamare le funzioni di Azure dalle app per la logica di AzureCall Azure functions from Azure Logic Apps
 
@@ -101,7 +101,9 @@ Dopo aver creato la funzione di Azure, seguire la procedura per [aggiungere le f
 
 ## <a name="create-functions-inside-logic-apps"></a>Creare funzioni all'interno delle app per la logica
 
-Prima di poter creare una funzione di Azure a partire dall'interno dell'app per la logica usando la finestra di progettazione app per la logica, è necessario disporre di un'app per le funzioni di Azure, che è un contenitore per le funzioni. Se non si dispone di un'app per le funzioni, occorre prima di tutto crearne una. Vedere [Creare la prima funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).
+You can create Azure functions directly from your logic app's workflow by using the built-in Azure Functions action in the Logic App Designer, but you can use this method only for Azure functions written in JavaScript. Per altri linguaggi, è possibile creare funzioni di Azure tramite l'esperienza Funzioni di Azure nel portale di Azure.For other languages, you can create Azure functions through the Azure Functions experience in the Azure portal. Per altre informazioni, vedere Creare la prima funzione nel portale di Azure.For more information, see [Create your first function in the Azure portal.](../azure-functions/functions-create-first-azure-function.md)
+
+Tuttavia, prima di poter creare qualsiasi funzione di Azure, è necessario disporre già di un'app per le funzioni di Azure, che è un contenitore per le funzioni. Se non si dispone di un'app per le funzioni, occorre prima di tutto crearne una. Vedere [Creare la prima funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).
 
 1. Nel [portale di Azure](https://portal.azure.com)aprire l'app per la logica in Progettazione app per la logica.
 

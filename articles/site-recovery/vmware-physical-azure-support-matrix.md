@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza vMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza delle macchine virtuali VMware e del server fisico in Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: fbd5d87b219cbb482569dc5e45adc9c81181670c
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 02448754abd92eab9e095a5eaff10861f8b5e5e4
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672444"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606039"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -117,7 +117,7 @@ Debian 8 | [9.29][9.29 UR] | da 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0.0.bpo.4-
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 (versioni del kernel supportate)
 
-**Rilascio** | **Versione del servizio Mobility** | **Versione kernel** |
+**Versione** | **Versione del servizio Mobility** | **Versione kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.28][9.28 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> SP1(LTSS) 3.12.74-60.64.45-predefinito a 3.12.74-60.64.118-default</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.117-default</br></br>SP3 4.4.73-5-predefinito a 4.4.180-94.100-default</br></br>SP3 4.4.138-4.7-azure a 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default sul valore predefinito 4.12.14-95.29</br>SP4 4.12.14-6.3-azure a 4.12.14-6.23-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.27][9.27 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> SP1(LTSS) 3.12.74-60.64.45-predefinito a 3.12.74-60.64.115-default</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.114-default</br></br>SP3 4.4.73-5-predefinito a 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-azure a 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-predefinito a 4.12.14-95.19-default</br>SP4 4.12.14-6.3-azure a 4.12.14-6.15-azure |
@@ -126,9 +126,9 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,25][9.25 UR] | Da 3.12
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>Versioni del kernel supportate da SUSE Linux Enterprise Server 15
 
-**Rilascio** | **Versione del servizio Mobility** | **Versione kernel** |
+**Versione** | **Versione del servizio Mobility** | **Versione kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | Sono supportati tutti i [kernel SUSE 15 e 15.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) </br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | Sono supportati tutti i kernel SUSE 15 e 15. </br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure
 
 ## <a name="linux-file-systemsguest-storage"></a>File system/archiviazione guest Linux
 

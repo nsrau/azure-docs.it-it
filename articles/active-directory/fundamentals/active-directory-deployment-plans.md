@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4538afcef85c4a6eaef4213133963ecab9987e1f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: d7a596454a48a1d6fcee77634363dd38f34a4d58
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80876218"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603360"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Piani di distribuzione di Azure Active Directory
 Per informazioni generali sulla distribuzione delle funzionalità di Azure Active Directory (Azure AD)? I piani di distribuzione di Azure AD illustrano il valore aziendale, le considerazioni sulla pianificazione e le procedure operative necessarie per distribuire correttamente le funzionalità comuni di Azure AD.
@@ -80,7 +80,7 @@ L'ampliamento dell'implementazione a gruppi di utenti più ampi dovrebbe essere 
 | -| -|
 | [AD FS per la sincronizzazione dell'hash delle password](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Con la sincronizzazione dell'hash delle password, gli hash delle password utente vengono sincronizzati da Active Directory locale ad Azure AD, consentendo ad Azure AD di autenticare gli utenti senza alcuna interazione con Active Directory locale |
 | [AD FS per l'autenticazione pass-through](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| L'autenticazione pass-through di Azure AD consente agli utenti di accedere alle applicazioni locali e basate su cloud usando le stesse password. Questa funzionalità offre agli utenti un'esperienza migliore, ovvero una password in meno da ricordare, e riduce i costi dell'helpdesk IT perché è meno probabile che gli utenti dimentichino come accedere. Quando gli utenti eseguono l'accesso tramite Azure AD, la funzionalità ne convalida direttamente le password rispetto ad Active Directory locale. |
-| [Proxy dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan.md) |Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Devono accedere alle app SaaS nel cloud e alle app aziendali in locale. Il proxy di applicazione di Azure AD consente questo accesso affidabile senza reti private virtuali (VPN) costose e complesse o zone demilitarizzate (DM). |
+| [Proxy dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Devono accedere alle app SaaS nel cloud e alle app aziendali in locale. Il proxy di applicazione di Azure AD consente questo accesso affidabile senza reti private virtuali (VPN) costose e complesse o zone demilitarizzate (DM). |
 | [Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md)| L'accesso Single Sign-On (SSO) facile di Azure Active Directory consente agli utenti di eseguire l'accesso automaticamente dai dispositivi di proprietà dell'azienda connessi alla rete aziendale. Con questa funzionalità, gli utenti non dovranno digitare le password per accedere ad Azure AD e in genere non dovranno immettere i nomi utente. Questa funzionalità consente agli utenti autorizzati di accedere facilmente alle applicazioni basate su cloud senza la necessità di componenti locali aggiuntivi. |
 
 ## <a name="deploy-user-provisioning"></a>Distribuire il provisioning degli utentiDeploy user provisioning

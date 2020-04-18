@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 73bbfad4c0535fa00b1aa53764eb52acb83124f8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80680375"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617878"
 ---
 # <a name="network-requirements"></a>Requisiti di rete
 
@@ -27,6 +27,9 @@ I requisiti di rete esatti dipendono dal caso d'uso specifico, ad esempio il num
 * **Evita di convocando traffico intenso** in larghezza di banda, come lo streaming di video o video, sulla stessa rete Wi-Fi.
 * Avere una buona potenza del **segnale Wi-Fi** è essenziale. Se possibile, rimani vicino al tuo punto di accesso Wi-Fi ed evita gli ostacoli tra il tuo dispositivo client e i punti di accesso.
 * Assicurarsi di connettersi sempre al **data center di Azure più vicino** per [l'area.](regions.md) Più il data center è vicino, minore è la latenza di rete, che ha un enorme effetto sulla stabilità dell'ologramma.
+
+> [!NOTE]
+> La larghezza di banda downstream è per lo più utilizzata dal flusso video, che a sua volta è diviso tra informazioni sul colore e sulla profondità (entrambi a 60 Hz, stereo).
 
 ## <a name="network-performance-tests"></a>Test delle prestazioni di rete
 
@@ -48,4 +51,4 @@ Se si riscontrano elementi quali ologrammi instabili, nervosi o salti quando si 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: Rendering di un modello con Unity](../quickstarts/render-model.md)
+* [Avvio rapido: Eseguire il rendering di un modello con Unity](../quickstarts/render-model.md)

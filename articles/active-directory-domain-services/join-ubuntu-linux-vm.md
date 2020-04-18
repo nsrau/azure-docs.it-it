@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 95373ab8ff78c5bcb856e6d7e6d67d8525cd3f7e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 74af841b777494744c72ed219bacd3b3835d41ac
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655124"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617555"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito di Servizi di dominio Azure ADJoin an Ubuntu Linux virtual machine to an Azure AD Domain Services managed domain
 
@@ -29,12 +29,12 @@ Questo articolo illustra come aggiungere una macchina virtuale Linux Ubuntu a un
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
 * Una sottoscrizione di Azure attiva.
-    * Se non si dispone di una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
     * Se necessario, seguire la prima esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Un account utente che fa parte del dominio gestito di Servizi di dominio Active Directory di Azure.A user account that's a part of the Azure AD DS managed domain.
+* Un account utente che fa parte del dominio gestito di Azure AD DS.
 
 ## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Creare e connettersi a una macchina virtuale Ubuntu LinuxCreate and connect to an Ubuntu Linux VM
 
@@ -154,6 +154,12 @@ Successfully enrolled machine in realm
 ```
 
 Se la macchina virtuale non riesce a completare correttamente il processo di aggiunta al dominio, assicurarsi che il gruppo di sicurezza di rete della macchina virtuale consenta il traffico Kerberos in uscita sulla porta TCP -UDP 464 alla subnet di rete virtuale per il dominio gestito di Azure AD DS.
+
+Se hai ricevuto l'errore *Errore GSS non specificato.  Il codice secondario può fornire ulteriori informazioni (Server non trovato nel database Kerberos),* aprire il `[libdefaults]` file */etc/krb5.conf* e aggiungere il codice seguente nella sezione e riprovare:
+
+```console
+rdns=false
+```
 
 ## <a name="update-the-sssd-configuration"></a>Aggiornare la configurazione SSSD
 

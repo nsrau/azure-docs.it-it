@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2ddfa9611143d5c3f823539e018c8afc885c6a46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f5ff48f4d5a658a1bbb4e6b9fb4b3f0f3fb190f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083220"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81602698"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Eseguire la migrazione di carichi di lavoro usando reti estese di livello 2
 
@@ -108,7 +108,7 @@ Per ulteriori informazioni, vedere [Virtual Private Networks](https://docs.vmwar
 
 La procedura seguente mostra come recuperare l'ID del router logico dell'istanza del router logico Tier0 DR per i servizi IPsec e L2VPN. L'ID del router logico è necessario in un secondo momento durante l'implementazione di L2VPN.
 
-1. Accedere a NSX-T Manager https://*nsx-t-manager-ip-address* e selezionare **Networking** > **Router** > **Provider-LR** > **Overview**. Per **Modalità disponibilità elevata**, selezionare **Active-Standby**. Questa azione apre una finestra popup che mostra la macchina virtuale Edge in cui è attualmente attivo il router Tier0.
+1. Accedere a NSX-T `https://*nsx-t-manager-ip-address*` Manager e selezionare **Networking** > **RouterS** > **Provider-LR** > **Overview**. Per **Modalità disponibilità elevata**, selezionare **Active-Standby**. Questa azione apre una finestra popup che mostra la macchina virtuale Edge in cui è attualmente attivo il router Tier0.
 
     ![Selezionare active-standby](media/l2vpn-fetch01.png)
 
@@ -154,11 +154,11 @@ Per stabilire una VPN basata su route IPsec tra il router NSX-T Tier0 e il clien
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>Pubblicizzare l'IP dell'interfaccia di loopback alla rete sottoposta
 
-1. Creare una route null per la rete di interfaccia di loopback. Accedere a NSX-T Manager e selezionare **Routing** > **Routing** > **Router** > di rete Route Routing Route**Provider-LR** > **Routing** > **Routing Static Routes**. Fare clic su **Aggiungi**. Per **Rete**, immettere l'indirizzo IP dell'interfaccia di loopback. Per **Hop successivi**, fare clic su **Aggiungi**, specificare 'Null' per l'hop successivo e mantenere il valore predefinito 1 per Distanza amministratore.
+1. Creare una route null per la rete di interfaccia di loopback. Accedere a NSX-T Manager e selezionare **Routing** > **Routing** > **Router** > di rete Route Routing Route**Provider-LR** > **Routing** > **Routing Static Routes**. Scegliere **Aggiungi**. Per **Rete**, immettere l'indirizzo IP dell'interfaccia di loopback. Per **Hop successivi**, fare clic su **Aggiungi**, specificare 'Null' per l'hop successivo e mantenere il valore predefinito 1 per Distanza amministratore.
 
     ![Aggiungi route statica](media/l2vpn-routing-security01.png)
 
-2. Creare un elenco di prefissi IP. Accedere a NSX-T Manager e selezionare **Routing** > **Router** > di**rete** > **Provider-LR** > **Routing** > **IP Prefix Lists**. Fare clic su **Aggiungi**. Immettere un nome per identificare l'elenco. Per **Prefissi**, fare clic su **Aggiungi** due volte. Nella prima riga immettere '0.0.0.0/0' per **Rete** e 'Nega' per **Azione**. Nella seconda riga selezionare **Qualsiasi** per **Rete** e **Permesso** per **l'azione**.
+2. Creare un elenco di prefissi IP. Accedere a NSX-T Manager e selezionare **Routing** > **Router** > di**rete** > **Provider-LR** > **Routing** > **IP Prefix Lists**. Scegliere **Aggiungi**. Immettere un nome per identificare l'elenco. Per **Prefissi**, fare clic su **Aggiungi** due volte. Nella prima riga immettere '0.0.0.0/0' per **Rete** e 'Nega' per **Azione**. Nella seconda riga selezionare **Qualsiasi** per **Rete** e **Permesso** per **l'azione**.
 3. Collegare l'elenco dei prefissi IP a entrambi gli elementi adiacenti BGP (TOR). L'associazione dell'elenco di prefissi IP all'adiacente BGP impedisce che la route predefinita venga annunciata in BGP alle commutazioni TOR. Tuttavia, qualsiasi altra route che include la route null annuncierà l'indirizzo IP dell'interfaccia di loopback alle opzioni TOR.
 
     ![Crea elenco prefissi IP](media/l2vpn-routing-security02.png)
@@ -180,7 +180,7 @@ Gli indirizzi IP scelti per l'interfaccia di loopback e tunnel utilizzati per L2
 ```
 Loopback interface ip : 192.168.254.254/32
 Tunnel interface subnet : 5.5.5.0/29
-Logical-router ID : UUID of Tier0 DR logical router obtained in section “Steps to fetch Logical-Router ID needed for L2VPN”
+Logical-router ID : UUID of Tier0 DR logical router obtained in section "Steps to fetch Logical-Router ID needed for L2VPN"
 Logical-switch ID(Stretch) : UUID of Stretch Logical Switch obtained earlier
 IPSec Service ID :
 IKE profile ID :
@@ -356,7 +356,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 Per il comando POST seguente, l'ID del servizio L2VPN è l'ID appena ottenuto e l'ID di sessione VPN IPsec è l'ID ottenuto nella sezione precedente.
 
-``` 
+```    
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
 
 {

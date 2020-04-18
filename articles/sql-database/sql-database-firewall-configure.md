@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: af88fdf3378a6290c773c658ea6dd3469d7c92cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531278"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606099"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regole del firewall IP del database SQL di Azure e di Azure SQL Data WarehouseAzure SQL Database and Azure SQL Data Warehouse IP firewall rules
 
@@ -101,7 +101,7 @@ Quando un computer tenta di connettersi al server di database da Internet, il fi
 
 ### <a name="connections-from-inside-azure"></a>Connessioni dall'interno di AzureConnections from inside Azure
 
-Per consentire alle applicazioni ospitate all'interno di Azure di connettersi al server SQL, è necessario abilitare le connessioni di Azure.To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. Quando un'applicazione da Azure tenta di connettersi al server di database, il firewall verifica che siano consentite le connessioni di Azure.When an application from Azure tries to connect to your database server, the firewall verifies that Azure connections are allowed. Un'impostazione del firewall con indirizzi IP iniziale e finale pari a 0.0.0.0 indica che sono consentite connessioni di Azure.A firewall setting that has starting and ending IP addresses equal to *0.0.0.0* indicars that Azure connections are allowed. Questa opzione può essere attivata direttamente dal pannello Portale di Azure impostando le regole del firewall, nonché cambiando le **impostazioni Consenti ai servizi e alle risorse** di Azure di accedere a questo server su **ON** nelle impostazioni Firewall e **reti virtuali.** Se la connessione non è consentita, la richiesta non raggiunge il server di database SQL.
+Per consentire alle applicazioni ospitate all'interno di Azure di connettersi al server SQL, è necessario abilitare le connessioni di Azure.To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. Quando un'applicazione da Azure tenta di connettersi al server di database, il firewall verifica che siano consentite le connessioni di Azure.When an application from Azure tries to connect to your database server, the firewall verifies that Azure connections are allowed. Questa opzione può essere attivata direttamente dal pannello Portale di Azure impostando le regole del firewall, nonché cambiando le **impostazioni Consenti ai servizi e alle risorse** di Azure di accedere a questo server su **ON** nelle impostazioni Firewall e **reti virtuali.** Se la connessione non è consentita, la richiesta non raggiunge il server di database SQL.
 
 > [!IMPORTANT]
 > Questa opzione configura il firewall per consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Se si seleziona questa opzione, assicurarsi che le autorizzazioni di accesso e utente limitino l'accesso solo agli utenti autorizzati.

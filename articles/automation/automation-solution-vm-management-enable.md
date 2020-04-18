@@ -1,20 +1,20 @@
 ---
-title: Abilitare la soluzione Start/Stop VMs durante le ore non lavorativeEnable Start/Stop VMs during off hours solution
+title: Abilitare l'automazione di Azure Start/Stop VMs durante la soluzione off hoursEnable Azure Automation Start/Stop VMs during off hours solution
 description: Questo articolo descrive come abilitare la soluzione Start/Stop VM di Automazione di Azure per le macchine virtuali di Azure.This article describes how to enable the Azure Automation Start/Stop VM solution for your Azure virtual machines.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b619d3c9b4b334e637d6a1c456256cb33ad5134
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2414567b74232d634fa0a34202691a8e43ae6135
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261381"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604755"
 ---
-# <a name="enable-azure-startstop-vms-solution"></a>Abilitare la soluzione Start/Stop VMs di AzureEnable Azure Start/Stop VMs solution
+# <a name="enable-azure-automation-startstop-vms-solution"></a>Abilitare la soluzione Start/Stop vMs di Automazione di AzureEnable Azure Automation Start/Stop VMs solution
 
-Eseguire la procedura seguente per aggiungere la soluzione Start/Stop VMs durante le ore non orari a un account di automazione nuovo o esistente e all'area di lavoro di Log Analytics collegata. Dopo aver completato il processo di onboarding, configurare le variabili per personalizzare la soluzione.
+Eseguire la procedura seguente per aggiungere la soluzione **Start/Stop VMs durante** le ore non orari a un account di automazione nuovo o esistente e all'area di lavoro di Log Analytics collegata. Dopo aver completato il processo di onboarding, configurare le variabili per personalizzare la soluzione.
 
 >[!NOTE]
 >Per usare questa soluzione con le macchine virtuali classiche, è necessario un account RunAs classico, che non viene creato per impostazione predefinita. Per istruzioni sulla creazione di un account RunAs classico, consultate [Creare un account RunAs classico.](automation-create-standalone-account.md#create-a-classic-run-as-account)
@@ -26,7 +26,7 @@ Eseguire la procedura seguente per aggiungere la soluzione Start/Stop VMs durant
 
 2. Cercare e selezionare **Account di automazione**.
 
-3. Nella pagina Account di **automazione** selezionare l'account di automazione dall'elenco.
+3. Nella pagina Account di automazione selezionare l'account di automazione dall'elenco.
 
 4. Nell'account di automazione selezionare **Avvia/Arresta macchina virtuale** in **Risorse correlate**. Da qui è possibile fare clic su **Learn more about and enable the solution** (Scopri di più e abilita la soluzione). Se si è già distribuita una soluzione Avvio/Arresto di macchine virtuali, è possibile selezionarla facendo clic su **Gestisci la soluzione** e cercarla nell'elenco.
 
@@ -39,32 +39,32 @@ Eseguire la procedura seguente per aggiungere la soluzione Start/Stop VMs durant
 
    ![Portale di Azure](media/automation-solution-vm-management/azure-portal-01.png)
 
-6. Viene visualizzata la pagina **Aggiungi soluzione**. Viene richiesto di configurare la soluzione prima di importarla nella sottoscrizione di Automazione.
+6. Viene visualizzata la pagina Aggiungi soluzione. Viene richiesto di configurare la soluzione prima di poterla importare nella sottoscrizione di Automazione.
 
    ![Pagina Aggiungi soluzione di Virtual Machine Management](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-7. Nella pagina **Aggiungi soluzione** selezionare **Area di lavoro**. Selezionare un'area di lavoro Log Analytics collegata alla stessa sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro, selezionare **Crea una nuova area di lavoro**. Nella pagina **Area di lavoro di Log Analytics** eseguire la procedura seguente:On the Log Analytics workspace page, perform the following steps:
+7. Nella pagina Aggiungi soluzione selezionare **Area di lavoro**. Selezionare un'area di lavoro Log Analytics collegata alla stessa sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro, selezionare **Crea una nuova area di lavoro**. Nella pagina Area di lavoro di Log Analytics eseguire la procedura seguente:On the Log Analytics workspace page, perform the following steps:
 
-   - Specificare un nome per la nuova area di lavoro di **Log Analytics,** ad esempio "ContosoLAWorkspace".
+   - Specificare un nome per la nuova area di lavoro di Log Analytics, ad esempio **ContosoLAWorkspace**.
    - Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    - Per il **gruppo di risorse**, è possibile selezionare un gruppo di risorse esistente o crearne uno nuovo.
    - Selezionare una **posizione**.
    - Selezionare un **piano tariffario**. Scegliere l'opzione **Per GB (autonomo)**. I log di Monitoraggio di Azure hanno [prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) aggiornati e il livello Per GB è l'unica opzione.
 
    > [!NOTE]
-   > Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
+   > Quando si abilitano le soluzioni, sono supportate solo determinate aree per il collegamento di un'area di lavoro di Log Analytics e di un account di automazione.
    >
-   > Per un elenco delle coppie di mapping supportate, vedere Mapping delle aree per l'area di [lavoro Account di automazione e Log Analytics](how-to/region-mappings.md).
+   > Per un elenco delle coppie di mapping supportate, vedere [Mapping delle aree per l'account](how-to/region-mappings.md)di automazione e l'area di lavoro di Log Analytics .
 
-8. Dopo aver specificato le informazioni necessarie nella pagina **area di lavoro Log Analytics**, fare clic su **Crea**. È possibile monitorarne lo stato scegliendo **Notifiche** dal menu. Al termine, si tornerà alla pagina **Aggiungi soluzione**.
+8. Dopo aver specificato le informazioni necessarie nella pagina area di lavoro Log Analytics, fare clic su **Crea**. È possibile monitorarne lo stato scegliendo **Notifiche** dal menu. Al termine, si tornerà alla pagina Aggiungi soluzione.
 
-9. Nella pagina **Aggiungi soluzione** selezionare **Account di Automazione**. Se si sta creando una nuova area di lavoro Log Analytics, è possibile creare un nuovo account di Automazione da associarvi oppure selezionare un Account di automazione esistente che non sia già collegato a un'area di lavoro Log Analytics. Selezionare un account di Automazione esistente o fare clic su **Crea un account di Automazione** e specificare le informazioni seguenti nella pagina **Aggiungi account di Automazione**:
+9. Nella pagina Aggiungi soluzione selezionare **Account di Automazione**. Se si sta creando una nuova area di lavoro di Log Analytics, è possibile creare un nuovo account di automazione da associare o selezionare un account di automazione esistente che non è già collegato a un'area di lavoro di Log Analytics. Selezionare un account di automazione esistente o fare clic su Crea un account di **automazione**e nella pagina Aggiungi account di automazione fornire le informazioni seguenti:
  
    - Nel campo **Nome** immettere il nome dell'account di Automazione.
 
      Tutte le altre opzioni vengono popolate automaticamente in base all'area di lavoro Log Analytics selezionata. Queste opzioni non possono essere modificate. Il metodo di autenticazione predefinito per i runbook inclusi nella soluzione è un account RunAs di Azure. Dopo aver fatto clic su **OK**, le opzioni di configurazione vengono convalidate e viene creato l'account di Automazione. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
-10. Nella pagina **Aggiungi soluzione** selezionare infine **Configurazione**. Viene visualizzata la pagina **Parametri**.
+10. Nella pagina Aggiungi soluzione selezionare infine **Configurazione**. Viene visualizzata la pagina Parametri.
 
     ![Pagina dei parametri per la soluzione](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
@@ -85,12 +85,12 @@ Eseguire la procedura seguente per aggiungere la soluzione Start/Stop VMs durant
      > [!IMPORTANT]
      > Il valore predefinito per i **nomi dei gruppi di risorse di destinazione** è **&ast;**, destinato a tutte le macchine virtuali in una sottoscrizione. Se non si vuole che la soluzione interessi tutte le macchine virtuali nella sottoscrizione, questo valore deve essere aggiornato con un elenco di nomi di gruppi di risorse prima di abilitare le pianificazioni.
 
-11. Dopo aver configurato le impostazioni iniziali necessarie per la soluzione, fare clic su **OK** per chiudere la pagina **Parametri** e selezionare **Crea**. 
+11. Dopo aver configurato le impostazioni iniziali necessarie per la soluzione, fare clic su **OK** per chiudere la pagina Parametri e selezionare **Crea**. 
 
 Dopo la convalida di tutte le impostazioni, la soluzione viene distribuita nella sottoscrizione. Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
 > [!NOTE]
-> Se si dispone di una sottoscrizione di Azure Cloud Solution Provider (Azure CSP), al termine della distribuzione passare all'account di automazione passare a **Variabili** in **Risorse condivise** e impostare la variabile [**External_EnableClassicVMs**](automation-solution-vm-management.md#variables) su **False**. In questo modo, si impedisce alla soluzione di cercare risorse della macchina virtuale classica.
+> Se si dispone di una sottoscrizione di Azure Cloud Solution Provider (Azure CSP), al termine della distribuzione passare all'account di automazione, passare a **Variabili** in **Risorse condivise** e impostare la variabile [**External_EnableClassicVMs**](automation-solution-vm-management.md#variables) su **False**. In questo modo, si impedisce alla soluzione di cercare risorse della macchina virtuale classica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

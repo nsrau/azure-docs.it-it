@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9e1bff3d25a978b5159d8e6ab8ab2453df77ca3
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116752"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640504"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Pianificare pipeline di Machine Learning con Azure Machine Learning SDK per Python
 
@@ -98,6 +98,10 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Argomenti facoltativi durante la creazione di una pianificazioneOptional arguments when creating a schedule
 
 Oltre agli argomenti descritti in precedenza, è possibile impostare l'argomento `status` `"Disabled"` su per creare una pianificazione inattiva. Infine, `continue_on_step_failure` consente di passare un valore booleano che eseguirà l'override del comportamento di errore predefinito della pipeline.
+
+### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Usare le app per la logica di Azure per flussi di lavoro più complessiUse Azure Logic Apps for more complex workflows
+
+App per la logica di Azure supporta flussi di lavoro più complessi ed è molto più ampiamente integrato rispetto alle pipeline di Azure Machine Learning.Azure Logic Apps supports more complex workflows and is molto more broadly integrated than Azure Machine Learning pipelines. Per altre informazioni, vedere [Attivare un'esecuzione di una pipeline di Machine Learning da un'app per la logica.](how-to-trigger-published-pipeline.md)
 
 ## <a name="view-your-scheduled-pipelines"></a>Visualizzare le pipeline pianificate
 

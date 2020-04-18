@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: d127d3f9e66b7d2d40aa420e2116fee17d996514
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 7858bd467c6e3fd82fcb3803a98e96b265f17d23
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437302"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605265"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -42,7 +42,7 @@ Creare una connessione Desktop remoto alla macchina virtuale.
 
 1. Fare clic sul pulsante **Connetti** nelle proprietà della macchina virtuale. Verrà creato e scaricato un file Remote Desktop Protocol, con estensione rdp.
 
-2. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. In Mac, è necessario un client RDP come questo [client Desktop remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponibile nel Mac App Store.
+2. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. In Mac, è necessario un client RDP come questo [client Desktop remoto](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) disponibile nel Mac App Store.
 
 3. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale e quindi fare clic su **OK**.
 
@@ -98,7 +98,7 @@ Creare una nuova scheda di rete virtuale per la macchina virtuale guest e config
 4. Creare un indirizzo IP per il gateway NAT.
     
 Per poter configurare il gateway, sono necessarie alcune informazioni sulla rete:    
-  * IPAddress: l'IP del gateway NAT specifica l'indirizzo IPv4 o IPv6 da usare come indirizzo predefinito del gateway per la subnet di rete virtuale. Il formato generico è a.b.c.1, ad esempio "192.168.0.1". Anche se la posizione finale non deve essere .1, in genere lo è (sulla base della lunghezza del prefisso). In genere è consigliabile usare uno spazio degli indirizzi di rete privata conforme al documento RFC 1918. 
+  * IPAddress: l'IP del gateway NAT specifica l'indirizzo IPv4 o IPv6 da usare come indirizzo predefinito del gateway per la subnet di rete virtuale. Il formato generico è a.b.c.1, ad esempio "192.168.0.1". Mentre la posizione finale non deve essere 0,1, di solito è (in base alla lunghezza del prefisso). In genere è consigliabile usare uno spazio degli indirizzi di rete privata conforme al documento RFC 1918. 
   * PrefixLength: la lunghezza del prefisso della subnet definisce le dimensioni della subnet locale (subnet mask). La lunghezza del prefisso della subnet è un valore intero compreso tra 0 e 32. Con 0 viene eseguito il mapping all'intera rete Internet, mentre con 32 si consente il mapping di un solo IP. I valori comuni sono compresi tra 24 e 12 a seconda del numero di IP che è necessario collegare al NAT. Un valore comune di PrefixLength è 24, che corrisponde a una subnet mask 255.255.255.0.
   * InterfaceIndex: il valore **ifIndex** corrisponde all'indice dell'interfaccia del commutatore virtuale creato nel passaggio precedente. 
 

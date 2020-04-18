@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7fcfac923da1c0daee58b10d92cbc6a6ad5e7910
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 625efcce7305cd7b1dd415a286e6b1e92682cc0a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383415"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616822"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Impostare e usare gli obiettivi di calcolo per il training del modelloSet up and use compute targets for model training 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -425,7 +425,7 @@ Per altre informazioni, vedere la documentazione di ScriptRunConfig e [RunConfig
 
 È possibile usare [l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) di Azure e [l'estensione dell'interfaccia della riga](reference-azure-machine-learning-cli.md) di comando di Machine Learning per creare configurazioni di esecuzione e inviare esecuzioni su destinazioni di calcolo diverse. Gli esempi seguenti presuppongono che si disponga di un'area `az login` di lavoro di Azure Machine Learning esistente e che sia stato effettuato l'accesso ad Azure usando il comando dell'interfaccia della riga di comando. 
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 ### <a name="create-run-configuration"></a>Creare la configurazione di esecuzioneCreate run configuration
 

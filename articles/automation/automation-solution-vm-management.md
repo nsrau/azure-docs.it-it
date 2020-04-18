@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbcd4ea174d4b6a2a45495c32f178ed1bd01bbe0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261347"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604718"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Avviare/arrestare le macchine virtuali durante la soluzione fuori orario in Automazione di AzureStart/stop VMs during off-hours solution in Azure Automation
 
@@ -225,11 +225,11 @@ L'account di Automazione e l'area di lavoro Log Analytics non vengono eliminati 
 
 1. Cercare e selezionare **Aree di lavoro**di Log Analytics .
 
-2. Nella pagina **Aree** di lavoro di Log Analytics selezionare l'area di lavoro.
+2. Nella pagina Area di lavoro di Log Analytics selezionare l'area di lavoro.
 
 3. Scegliere **Elimina** dal menu nella pagina delle impostazioni dell'area di lavoro.
 
-4. Se non si vuole mantenere i componenti dell'account di Automazione di Azure, è possibile eliminarli manualmente. Vedere [Componenti della soluzione](#solution-components).
+4. Se non si vuole mantenere i [componenti](#solution-components)della soluzione dell'account di Automazione di Azure, è possibile eliminarli manualmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

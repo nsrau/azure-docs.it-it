@@ -3,18 +3,18 @@ title: Dove e come usare - Personalizer
 description: Personalizza esperienze può essere applicato in qualsiasi situazione in cui l'applicazione può selezionare l'elemento, l'azione o il prodotto giusto da visualizzare, per migliorare l'esperienza, ottenere risultati aziendali migliori o migliorare la produttività.
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219324"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617672"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Dove e come usare Personalizer
 
 Utilizzare Personalizer in qualsiasi situazione in cui l'applicazione deve selezionare l'azione corretta (contenuto) da visualizzare - al fine di rendere l'esperienza migliore, ottenere risultati aziendali migliori o migliorare la produttività.
 
-Il personalista usa l'apprendimento automatico per selezionare l'azione (contenuto) da visualizzare all'utente. La selezione può variare notevolmente a seconda della quantità, della qualità e della distribuzione dei dati inviati al servizio.
+Il personalista utilizza l'apprendimento del rinforzo per selezionare l'azione (contenuto) da mostrare all'utente. La selezione può variare notevolmente a seconda della quantità, della qualità e della distribuzione dei dati inviati al servizio.
 
 ## <a name="example-use-cases-for-personalizer"></a>Casi d'uso di esempio per Personalizza esperienze
 

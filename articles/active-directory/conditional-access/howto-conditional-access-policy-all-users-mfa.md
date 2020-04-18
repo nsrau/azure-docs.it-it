@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3e7b1a656c92e37a709b57dae463f6644003e42
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 60d0ad0a1c0a1b4d13ce4d386df22406a8ab8e51
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755195"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617631"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accesso condizionale: richiedere l'autenticazione a più fattori per tutti gli utentiConditional Access: Require MFA for all users
 
@@ -41,7 +41,7 @@ Le organizzazioni possono avere molte applicazioni cloud in uso. Non tutte quest
 
 ## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
-I passaggi seguenti consentono di creare un criterio di accesso condizionale per richiedere ai ruoli amministrativi assegnati di eseguire l'autenticazione a più fattori.
+La procedura seguente consente di creare un criterio di accesso condizionale per richiedere a tutti gli utenti di eseguire l'autenticazione a più fattori.
 
 1. Accedere al **portale** di Azure come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
 1. Passare ad Accesso**condizionale**alla**sicurezza** > di **Azure Active Directory** > .
@@ -50,7 +50,7 @@ I passaggi seguenti consentono di creare un criterio di accesso condizionale per
 1. In **Assegnazioni**selezionare **Utenti e gruppi**
    1. In **Includi**selezionare **Tutti gli utenti**
    1. In **Escludi**selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o di rottavetro dell'organizzazione. 
-   1. Selezionare **Fatto**.
+   1. Selezionare **Operazione completata**.
 1. In **Includi app o azioni** > **Include**cloud selezionare Tutte le **app cloud**.
    1. In **Escludi**selezionare le applicazioni che non richiedono l'autenticazione a più fattori.
 1. In **Condizioni** > **App client (anteprima)** impostare **Configura** su **Sì**e selezionare **Fatto**.
@@ -68,8 +68,8 @@ Nel criterio di esempio precedente, un'organizzazione può scegliere di non rich
    1. Configura **Sì**.
    1. Includi **qualsiasi posizione**.
    1. Escludi **tutti i percorsi attendibili**.
-   1. Selezionare **Fatto**.
-1. Selezionare **Fatto**.
+   1. Selezionare **Operazione completata**.
+1. Selezionare **Operazione completata**.
 1. **Salvare** le modifiche ai criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -3,12 +3,12 @@ title: Come creare criteri di configurazione guest per LinuxHow to create Guest 
 description: Informazioni su come creare criteri di configurazione guest dei criteri di Azure per Linux.Learn how to create an Azure Policy Guest Configuration policy for Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f93aafc8f2c016218b1b7fea82558ea6ba4b4ff8
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 65e0082f87f05104e9a57ff0342cd3d2950b63e8
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365402"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617937"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di configurazione guest per LinuxHow to create Guest Configuration policies for Linux
 
@@ -38,7 +38,7 @@ Sistemi operativi in cui è installato il modulo:
 
 - Linux
 - macOS
-- WINDOWS
+- Windows
 
 Il modulo delle risorse Configurazione ospite richiede il software seguente:The Guest Configuration resource module requires the following software:
 
@@ -89,7 +89,7 @@ supports:
     - os-family: unix
 ```
 
-Salvare il file in `linux-path` una cartella denominata nella directory del progetto.
+Salvare il file `inspec.yml` con nome `linux-path` in una cartella denominata nella directory del progetto.
 
 Successivamente, creare il file Ruby con l'astrazione del linguaggio InSpec utilizzata per controllare il computer.
 
@@ -99,7 +99,7 @@ describe file('/tmp') do
 end
 ```
 
-Salvare il file in `controls` una `linux-path` nuova cartella denominata all'interno della directory.
+Salvare il file `linux-path.rb` con nome `controls` in `linux-path` una nuova cartella denominata all'interno della directory.
 
 Infine, creare una configurazione, importare il modulo `ChefInSpecResource` di risorsa **GuestConfiguration** e utilizzare la risorsa per impostare il nome del profilo InSpec.
 

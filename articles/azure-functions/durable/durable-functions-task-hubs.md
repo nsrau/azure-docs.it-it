@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262487"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604603"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hub attività in Funzioni permanenti (Funzioni di Azure)
 
@@ -35,7 +35,13 @@ Tutte queste risorse vengono create automaticamente nell'account di archiviazion
 
 ## <a name="task-hub-names"></a>Nomi degli hub attività
 
-Gli hub attività sono identificati mediante un nome dichiarato nel file *host.json* file, come illustrato nell'esempio seguente:
+Gli hub attività sono identificati da un nome conforme a queste regole:Task hubs are identified by a name that conforms to these rules:
+
+* Contiene solo caratteri alfanumerici
+* Inizia con una lettera
+* Ha una lunghezza minima di 3 caratteri, una lunghezza massima di 45 caratteri
+
+Il nome dell'hub attività viene dichiarato nel file *host.json,* come illustrato nell'esempio seguente:The task hub name is declared in the host.json file, as shown in the following example:
 
 ### <a name="hostjson-functions-20"></a>host.json (Funzioni 2.0)
 
@@ -98,7 +104,7 @@ Il nome dell'hub attività verrà impostato in base al valore dell’impostazion
 
 Il codice seguente illustra come scrivere una funzione che usa [l'associazione client dell'orchestrazione](durable-functions-bindings.md#orchestration-client) per usare un hub attività configurato come impostazione dell'app:The following code demonstrates how to write a function that uses the orchestration client binding to work with a task hub that is configured as an App Setting:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -121,7 +127,7 @@ public static async Task<HttpResponseMessage> Run(
 > [!NOTE]
 > L'esempio precedente in Cè è per Funzioni durevoli 2.x. Per funzioni durevoli 1.x, è necessario utilizzare `DurableOrchestrationContext` al posto di `IDurableOrchestrationContext`. Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 La proprietà dell'hub attività nel file `function.json` viene configurata tramite Impostazione app:
 

@@ -4,12 +4,12 @@ description: Informazioni su come usare il componente di scalabilità automatica
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2baa64779713d0bac063e1d2c06107ba2ab291fb
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596250"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617537"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -19,7 +19,7 @@ Questo articolo illustra come abilitare e gestire il componente di scalabilità 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.76 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][azure-cli-install]you need to install or upgrade, see Install Azure CLI.
+Questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.76 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -117,6 +117,7 @@ Monitorare le prestazioni delle applicazioni e dei servizi e modificare il numer
 | tempo di ridimensionamento verso il basso          | Per quanto tempo un nodo non pronto deve non essere necessario prima di essere idoneo per la scalabilità verso il basso         | 20 minuti    |
 | soglia di utilizzo verso il basso | Livello di utilizzo del nodo, definito come somma delle risorse richieste diviso per la capacità, al di sotto del quale un nodo può essere considerato per la scalabilità ridottaNode utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down | 0.5 |
 | max-graceful-termination-sec     | Numero massimo di secondi che il cluster autoscaler attende la terminazione del pod durante il tentativo di ridurre un nodo. | 600 secondi   |
+| balance-similar-node-groups | Rilevare pool di nodi simili e bilanciare il numero di nodi tra di essi | false |
 
 > [!IMPORTANT]
 > Il profilo di scalabilità automatica del cluster influisce su tutti i pool di nodi che utilizzano il cluster autoscaler. Non è possibile impostare un profilo di scalabilità automatica per ogni pool di nodi.

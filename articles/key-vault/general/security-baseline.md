@@ -1,20 +1,20 @@
 ---
-title: Linea di base della sicurezza di Azure per l'insieme di credenziali delle chiaviAzure Security Baseline for Key
-description: Linea di base della sicurezza di Azure per l'insieme di credenziali delle chiaviAzure Security Baseline for Key
+title: Baseline di sicurezza di Azure per Key Vault
+description: Baseline di sicurezza di Azure per Key Vault
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cb908c4b105324e0866d53463ecd3a8a59e7e651
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 46fa0160dd8b37e89cdd77ba8acdae294fddbefe
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429889"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616889"
 ---
-# <a name="azure-security-baseline-for-key-vault"></a>Linea di base della sicurezza di Azure per l'insieme di credenziali delle chiaviAzure Security Baseline for Key
+# <a name="azure-security-baseline-for-key-vault"></a>Baseline di sicurezza di Azure per Key Vault
 
 La linea di base della sicurezza di Azure per l'insieme di credenziali delle chiavi contiene suggerimenti che consentono di migliorare il livello di sicurezza della distribuzione.
 
@@ -1001,7 +1001,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Gestire i segreti di Azure in modo sicuro
 
-**Linee guida:** usare l'identità del servizio gestito insieme a Archiviazione delle chiavi di Azure per semplificare e proteggere la gestione dei segreti per le applicazioni cloud. Verificare che l'eliminazione temporanea dell'insieme di credenziali delle chiavi di Azure sia abilitata.
+**Linee guida:** usare l'identità del servizio gestito insieme a Archiviazione delle chiavi di Azure per semplificare e proteggere la gestione dei segreti per le applicazioni cloud. Verificare che l'eliminazione temporanea dell'account di accesso automatico delle chiavi di Azure sia abilitata.
 
 Come integrare con le identità gestite di Azure:How to integrate with Azure Managed Identities:
 
@@ -1175,7 +1175,7 @@ Come ripristinare i segreti dell'insieme di credenziali delle chiavi:https://doc
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantire la protezione dei backup e delle chiavi gestite dai clienti
 
-**Guida:** verificare che l'eliminazione temporanea sia abilitata per l'insieme di credenziali delle chiavi di Azure.Guidance : Ensure that soft delete is enabled for Azure Key Vault. L'eliminazione temporanea consente il ripristino degli insiemi di credenziali delle chiavi eliminati e degli oggetti dell'insieme di credenziali, ad esempio chiavi, segreti e certificati. 
+**Guida:** verificare che l'eliminazione temporanea sia abilitata per l'insieme di credenziali delle chiavi di Azure.Guidance : Ensure that soft-delete is enabled for Azure Key Vault. L'eliminazione temporanea consente il ripristino degli insiemi di credenziali delle chiavi eliminati e degli oggetti dell'insieme di credenziali, ad esempio chiavi, segreti e certificati. 
 
 Come usare l'eliminazione temporanea dell'insieme di credenziali delle chiavi di Azure:How to use Azure Key Vault's Soft Delete: 
 

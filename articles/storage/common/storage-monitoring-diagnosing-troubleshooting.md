@@ -8,12 +8,12 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bbffacc0a8c47950b8637e826d1d5db9fbdb234
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255964"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605075"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -516,24 +516,24 @@ Voci del log:
 
 | ID richiesta | testo dell'operazione |
 | --- | --- |
-| 07b26a5d-... |Avvio di richieste sincrone in https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Avvio di richieste sincrone in `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |In attesa di risposta. |
 | 07b26a5d-... |Risposta ricevuta. Codice stato = 200, ID richiesta = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione. |
 | 07b26a5d-... |Download del corpo della risposta. |
 | 07b26a5d-... |Operazione completata correttamente. |
-| 07b26a5d-... |Avvio di richieste sincrone in https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Avvio di richieste sincrone in `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |In attesa di risposta. |
 | 07b26a5d-... |Risposta ricevuta. Codice stato = 202, ID richiesta = 6ab2a4cf-..., Content-MD5 = , ETag =. |
 | 07b26a5d-... |Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione. |
 | 07b26a5d-... |Download del corpo della risposta. |
 | 07b26a5d-... |Operazione completata correttamente. |
-| e2d06d78-... |Avvio di richieste asincrone in https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |Avvio di richieste asincrone in `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |In attesa di risposta. |
-| de8b1c3c-... |Avvio di richieste sincrone in https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |Avvio di richieste sincrone in `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparazione della scrittura dei dati della richiesta. |
 | e2d06d78-... |Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (404) Non trovato. |
@@ -541,7 +541,7 @@ Voci del log:
 | e2d06d78-... |Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione. |
 | e2d06d78-... |Download del corpo della risposta. |
 | e2d06d78-... |Operazione completata correttamente. |
-| e2d06d78-... |Avvio di richieste asincrone in https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| e2d06d78-... |Avvio di richieste asincrone in `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |In attesa di risposta. |
 | de8b1c3c-... |Scrittura dei dati della richiesta. |
@@ -567,10 +567,10 @@ La tabella che segue mostra un esempio di messaggio del log lato server generato
 | Orario di inizio richiesta | 2014-05-30T06:17:48.4473697Z |
 | Tipo di operazione     | GetBlobProperties            |
 | Stato della richiesta     | SASAuthorizationError        |
-| Stato codice HTTP   | 404                          |
+| Stato codice HTTP   | 404                            |
 | Tipo di autenticazione| Sas                          |
 | Tipo di servizio       | BLOB                         |
-| URL richiesta        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| URL richiesta         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Intestazione dell'ID richiesta  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID richiesta client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
@@ -739,7 +739,7 @@ La procedura che segue indica come acquisire informazioni dettagliate sui pacche
 4. Aggiungere un filtro nella casella di testo **Capture Filter** . Ad esempio, **host contosoemaildist.table.core.windows.net** configura Wireshark per acquisire solo i pacchetti inviati o ricevuti dall'endpoint del servizio tabelle nell'account di archiviazione **contosoemaildist**. Vedere l' [elenco completo dei filtri di acquisizione](https://wiki.wireshark.org/CaptureFilters).
 
    ![][6]
-5. Fare clic su **Start**. Wireshark acquisirà tutti i pacchetti inviati a o dall'endpoint del servizio tabelle non appena l'applicazione client viene utilizzata sul computer locale.
+5. Fare clic su **Avvia**. Wireshark acquisirà tutti i pacchetti inviati a o dall'endpoint del servizio tabelle non appena l'applicazione client viene utilizzata sul computer locale.
 6. Al termine, fare clic su **Capture** nel menu principale e su **Stop**.
 7. Per salvare i dati acquisiti in un file di acquisizione di Wireshark, fare clic su **File** nel menu principale e scegliere **Save**.
 
@@ -814,7 +814,7 @@ Per altre informazioni, vedere [Informazioni su Azure Application Insights](../.
 Per altre informazioni sull'analisi in Archiviazione di Azure, vedere queste risorse:For more information about analytics in Azure Storage, see these resources:
 
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
-* [Analisi dell'archiviazione](storage-analytics.md)
+* [Analisi archiviazione](storage-analytics.md)
 * [Metriche di analisi dello archiviazione](storage-analytics-metrics.md)
 * [Schema della tabella delle metriche di analisi dell'archiviazioneStorage analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Log di Analisi archiviazione](storage-analytics-logging.md)

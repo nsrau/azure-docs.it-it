@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 69f8cd0f78a45c6c5e53368edc5902c4b6695701
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e610bf94dfdee4e2765e4fae4259f18a9f1036b5
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408826"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639985"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Servizi di dominio Azure ADVirtual network design considerations and configuration options for Azure AD Domain Services
 
@@ -109,10 +109,11 @@ Le regole del gruppo di sicurezza di rete seguenti sono necessarie per Servizi d
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Sincronizzazione con il tenant di Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Allow  | Sì      | Gestione del tuo dominio. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Gestione del tuo dominio. |
-| 636         | TCP      | Qualsiasi                                | Qualsiasi         | Allow  | No       | Abilitato solo quando si configura LDAP sicuro (LDAPS). |
 
 > [!WARNING]
 > Non modificare manualmente queste risorse e configurazioni di rete. Quando si associa un gruppo di sicurezza di rete non configurato correttamente o una tabella di route definita dall'utente alla subnet in cui viene distribuito Servizi di dominio Active Directory di Azure, è possibile interrompere la capacità di Microsoft di gestire il dominio. Anche la sincronizzazione tra il tenant di Azure AD e il dominio gestito di Servizi di dominio Active Directory di Azure viene interrotta.
+>
+> Se si utilizza LDAP sicuro, è possibile aggiungere la regola 636 della porta TCP richiesta per consentire il traffico esterno, se necessario. L'aggiunta di questa regola non inserisce le regole del gruppo di sicurezza di rete in uno stato non supportato. Per ulteriori informazioni, consulta [Bloccare l'accesso LDAP sicuro su Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
 > Esistono regole predefinite per *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*e *DenyAllOutBound* anche per il gruppo di sicurezza di rete. Non modificare o eliminare queste regole predefinite.
 >

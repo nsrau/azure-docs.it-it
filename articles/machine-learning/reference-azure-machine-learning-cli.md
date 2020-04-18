@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16f9080487af95e7de5c5f8c91fd5c8d356b7bde
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402484"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618061"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Usare l'estensione CLI per Azure Machine LearningUse the CLI extension for Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,11 +35,30 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 
 * Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* [L'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)di Azure .
+* Per usare i comandi dell'interfaccia della riga di comando in questo documento **dall'ambiente locale,** è necessario l'interfaccia della riga di comando di [Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+
+    Se si usa [Azure Cloud Shell,](https://azure.microsoft.com//features/cloud-shell/)l'interfaccia della riga di comando avviene tramite il browser e si trova nel cloud.
 
 ## <a name="full-reference-docs"></a>Documenti di riferimento completi
 
 Trovare i documenti di [riferimento completi per l'estensione azure-cli-ml dell'interfaccia della riga di comando di Azure.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest)
+
+## <a name="connect-the-cli-to-your-azure-subscription"></a>Connettere l'interfaccia della riga di comando alla sottoscrizione di Azure
+
+> [!IMPORTANT]
+> Se si usa Azure Cloud Shell, è possibile ignorare questa sezione. La shell cloud autentica automaticamente l'utente usando l'account che si accede alla sottoscrizione di Azure.The cloud shell automatically authenticates you using the account you log into your Azure subscription.
+
+Esistono diversi modi per eseguire l'autenticazione alla sottoscrizione di Azure dall'interfaccia della riga di comando. Il più semplice è quello di autenticare in modo interattivo utilizzando un browser. Per eseguire l'autenticazione interattiva, aprire una riga di comando o un terminale e utilizzare il comando seguente:
+
+```azurecli-interactive
+az login
+```
+
+Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, è necessario aprire un browser e seguire le istruzioni nella riga di comando. Le istruzioni prevedono la navigazione [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e l'immissione di un codice di autorizzazione.
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
+Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della riga](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)di comando di Azure.
 
 ## <a name="install-the-extension"></a>Installare l'estensione
 
@@ -87,7 +106,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az group create -n myresourcegroup -l westus2
     ```
 
-+ Creare un'area di lavoro di Azure Machine Learning:
++ Creare un'area di lavoro di Azure Machine Learning:Create an Azure Machine Learning workspace:
 
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8e73ef75b3313656b45d29270d9996c3ad17c630
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538070"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603673"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Riparazioni automatiche delle istanze per i set di scalabilità delle macchine virtuali di AzureAutomatic instance repairs for Azure virtual machine scale sets
 
@@ -90,6 +90,8 @@ Se la funzionalità di notifica di [terminazione](./virtual-machine-scale-sets-t
 ## <a name="enabling-automatic-repairs-policy-when-creating-a-new-scale-set"></a>Abilitazione dei criteri di riparazione automatica durante la creazione di un nuovo set di scalabilitàEnabling automatic repairs policy when creating a new scale set
 
 Per abilitare i criteri di riparazione automatiche durante la creazione di un nuovo set di scalabilità, assicurarsi che siano soddisfatti tutti i [requisiti](#requirements-for-using-automatic-instance-repairs) per l'attivazione di questa funzionalità. L'endpoint dell'applicazione deve essere configurato correttamente per le istanze del set di scalabilità per evitare l'attivazione di riparazioni indesiderate durante la configurazione dell'endpoint. Per i set di scalabilità appena creati, tutte le riparazioni di istanze vengono eseguite solo dopo aver atteso la durata del periodo di tolleranza. Per abilitare il ripristino automatico dell'istanza in un set di scalabilità, usare l'oggetto *automaticRepairsPolicy* nel modello del set di scalabilità delle macchine virtuali.
+
+È anche possibile usare questo modello di [guida rapida](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) per distribuire un set di scalabilità di macchine virtuali con il probe di integrità del servizio di bilanciamento del carico e i ricorrezioni automatici delle istanze abilitate con un periodo di tolleranza di 30 minuti.
 
 ### <a name="azure-portal"></a>Portale di Azure
  

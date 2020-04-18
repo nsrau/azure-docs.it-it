@@ -3,12 +3,12 @@ title: Distribuire le risorse nella sottoscrizioneDeploy resources to subscripti
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 65cc220d32d1e1149b7026fc438f5e34262511dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131964"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604997"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
@@ -23,17 +23,17 @@ Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della
 * [Budget](/azure/templates/microsoft.consumption/budgets)
 * [distribuzioni](/azure/templates/microsoft.resources/deployments) - per i modelli annidati che vengono distribuiti nei gruppi di risorse.Deployments - for nested templates that deploy to resource groups.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns](/azure/templates/microsoft.peering/peerasns)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 * [policyAssegnazioni](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [correzioni](/azure/templates/microsoft.policyinsights/remediations)
+* [correzioni](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
 * [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
 * [RoleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 * [scopeAssegnazioni](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [tag](/azure/templates/microsoft.resources/tags)
+* [Tag](/azure/templates/microsoft.resources/tags)
 
 ### <a name="schema"></a>SCHEMA
 

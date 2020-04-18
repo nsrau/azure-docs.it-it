@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: inventario, automazione, modifica, gestione
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0627d2daa70c276535dc43b722e22e1d73b0c8d2
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844820"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617365"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 
@@ -30,7 +30,7 @@ Questo articolo presuppone che sia disponibile una macchina virtuale in cui conf
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Accedere al [portale](https://portal.azure.com/)di Azure .
+Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Abilitare la raccolta dell'inventario dalla pagina delle risorse della macchina virtuale
 
@@ -53,9 +53,9 @@ Al termine della distribuzione, la barra di stato scompare. Il sistema sta ancor
 
 Per impostazione predefinita, sono configurati per la raccolta il software, i servizi di Windows e i daemon Linux. Per raccogliere i dati di inventario dei file e del Registro di sistema di Windows, configurare le impostazioni della raccolta dell'inventario.
 
-1. Nella visualizzazione **Inventario** selezionare il pulsante **Modifica impostazioni** nella parte superiore della finestra.
-2. Per aggiungere una nuova impostazione della raccolta, passare alla categoria delle impostazioni che si vuole aggiungere selezionando le schede **Registro di sistema di Windows**, **File Windows** e **File Linux**.
-3. Selezionare la categoria appropriata e fare clic su **Aggiungi** nella parte superiore della finestra.
+1. Nella pagina Inventario fare clic su **Modifica impostazioni** nella parte superiore della pagina.
+2. Per aggiungere una nuova impostazione di raccolta, passare alla categoria di impostazione che si desidera aggiungere selezionando la scheda **Registro di sistema**di Windows, File di **Windows**o **File Linux.**
+3. Selezionare la categoria appropriata e fare clic su **Aggiungi** nella parte superiore della pagina.
 
 Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere configurate per le diverse categorie.
 
@@ -72,23 +72,23 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 
 |Proprietà  |Descrizione  |
 |---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata        |
-|Nome elemento     | Nome descrittivo del file da rilevare        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
-|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\myfile.txt"
+|Attivato     | True se l'impostazione viene applicata e False in caso contrario.        |
+|Nome elemento     | Nome descrittivo del file di cui tenere traccia.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.       |
+|Immettere il percorso     | Il percorso in cui verificare la presenza del file, ad esempio **c:**
 
 ### <a name="linux-files"></a>File di Linux
 
 |Proprietà  |Descrizione  |
 |---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata        |
-|Nome elemento     | Nome descrittivo del file da rilevare        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
-|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "/etc/*.conf"       |
-|Tipo di percorso     | Tipo di elemento da rilevare. I valori possibili sono File e Directory        |
-|Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
-|Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
-|Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora** - Ignora i collegamenti simbolici e non include i file/directory a cui si fa riferimento<br>**Segui** : segue i collegamenti simbolici durante la ricorsione e include anche i file/directory a cui si fa riferimento<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
+|Attivato     | True se l'impostazione viene applicata e False in caso contrario.        |
+|Nome elemento     | Nome descrittivo del file di cui tenere traccia.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Immettere il percorso     | Il percorso in cui verificare la presenza del file, ad esempio **/etc/**       |
+|Tipo di percorso     | Tipo di elemento di cui tenere traccia. I valori sono File e Directory.        |
+|Ricorsione     | True se la ricorsione viene utilizzata durante la ricerca dell'elemento da tenere traccia e False in caso contrario.        |
+|Usa Sudo     | True se sudo viene utilizzato durante il controllo dell'elemento e False in caso contrario.         |
+|Collegamenti     | Valore che indica come vengono trattati i collegamenti simbolici durante l'attraversamento delle directory. I valori possibili sono: <br> Ignora - Ignora i collegamenti simbolici e non include i file/directory a cui si fa riferimento<br>Segui : segue i collegamenti simbolici durante la ricorsione e include anche i file/directory a cui si fa riferimento<br>Gestisci: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
 
 ## <a name="manage-machine-groups"></a>Gestire i gruppi di computer
 
@@ -104,9 +104,9 @@ Selezionando un gruppo di computer nell'elenco, si apre la pagina Gruppi di comp
 
 ![Visualizzare la pagina del gruppo di computer](./media/automation-vm-inventory/machine-group-page.png)
 
-Fare clic sul pulsante **+ Clona** per clonare il gruppo di computer. È necessario assegnare al gruppo un nuovo nome e un alias. In questa fase è possibile modificare la definizione. Dopo aver modificato la query, fare clic su **Convalida query** per visualizzare in anteprima i computer che verranno selezionati. Quando si è ottenuto il gruppo desiderato, fare clic su **Crea** per creare il gruppo di computer
+Fare clic su **Clona** per clonare il gruppo di macchine. È necessario assegnare al gruppo un nuovo nome e un nuovo alias per il gruppo. In questa fase è possibile modificare la definizione. Dopo aver modificato la query, fare clic su **Convalida query** per visualizzare in anteprima i computer che verranno selezionati. Quando si è soddisfatti del gruppo, fare clic su **Crea** per creare il gruppo di macchine.
 
-Se si desidera creare un nuovo gruppo di computer, selezionare **Crea un gruppo**di computer . Questo pulsante apre la pagina **Crea un gruppo di computer** in cui è possibile definire il nuovo gruppo. Fare clic su **Crea** per creare il gruppo.
+Se si desidera creare un nuovo gruppo di computer, fare clic su **Crea un gruppo**di computer . Questo pulsante consente di aprire la pagina Crea un gruppo di **computer,** in cui è possibile definire il nuovo gruppo. Fare clic su **Crea** per creare il gruppo.
 
 ![Creare il nuovo gruppo di computer](./media/automation-vm-inventory/create-new-group.png)
 
@@ -115,18 +115,17 @@ Se si desidera creare un nuovo gruppo di computer, selezionare **Crea un gruppo*
 Per rimuovere la macchina virtuale dalla gestione dell'inventario:
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Log Analytics** e quindi selezionare l'area di lavoro usata durante il caricamento della macchina virtuale.
-2. Nella categoria **Origini dati dell'area di lavoro** nella finestra **Log Analytics** scegliere **Macchine virtuali** dal menu **Risorsa**.
-3. Nell'elenco selezionare la macchina virtuale che si vuole disconnettere. La macchina virtuale avrà un segno di spunta verde accanto alla voce **Questa area di lavoro** nella colonna **Connessione OMS**.
+2. Nella pagina Log Analytics aprire il menu **Risorsa.**
+3. Selezionare **Macchine virtuali** in **Origini dati area di lavoro**.
+4. Nell'elenco selezionare la macchina virtuale che si vuole disconnettere. La macchina virtuale avrà un segno di spunta verde accanto alla voce **Questa area di lavoro** nella colonna **Connessione OMS**.
 
    >[!NOTE]
-   >OMS è ora indicato come log di Monitoraggio di Azure.OMS is now referred to as Azure Monitor logs.
+   >Operations Management Suite (OMS) è ora indicato come log di Monitoraggio di Azure.Operations Management Suite (OMS) is now referred to as Azure Monitor logs.
    
-4. Nella parte superiore della pagina successiva selezionare **Disconnetti**.
-5. Nella finestra di conferma fare clic su **Sì**.
-    Questa azione disconnette la macchina virtuale dalla gestione.
+5. Nella parte superiore della pagina successiva fare clic su **Disconnetti**.
+6. Nella finestra di conferma, fare clic su **Sì** per disconnettere la macchina dalla gestione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulla gestione delle modifiche nelle impostazioni dei file e del Registro di sistema nelle macchine virtuali, vedere [Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche](../log-analytics/log-analytics-change-tracking.md).
 * Per informazioni sulla gestione degli aggiornamenti di Windows e dei pacchetti nelle macchine virtuali, vedere [Soluzione Gestione aggiornamenti in Azure](../operations-management-suite/oms-solution-update-management.md).
-
