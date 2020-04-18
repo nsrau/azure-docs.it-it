@@ -9,41 +9,33 @@
       href: whats-new.md
 - name: Avvi rapidi
   items:
-    - name: Uso del portale Web
+    - name: Creare un classificatore
       items:
-        - name: Creare un classificatore
+        - name: Uso del portale Web
           href: getting-started-build-a-classifier.md
-        - name: Creare un rilevatore di oggetti
-          href: get-started-build-detector.md
-    - name: Uso di .NET SDK
-      items:
-        - name: Classificazione di immagini
+        - name: Uso di .NET SDK
           href: csharp-tutorial.md
-        - name: Rilevamento di oggetti
-          href: csharp-tutorial-od.md
-    - name: Uso di Python SDK
-      items:
-        - name: Classificazione di immagini
+        - name: Uso di Python SDK
           href: python-tutorial.md
-        - name: Rilevamento di oggetti
-          href: python-tutorial-od.md
-    - name: Uso di Java SDK
-      items:
-        - name: Classificazione di immagini
+        - name: Uso di Java SDK
           href: java-tutorial.md
-        - name: Rilevamento di oggetti
-          href: java-tutorial-od.md
-    - name: Uso di Node.js SDK
-      items:
-        - name: Classificazione di immagini
+        - name: Uso di Node.js SDK
           href: node-tutorial.md
-        - name: Rilevamento di oggetti
-          href: node-tutorial-object-detection.md
-    - name: Uso di Go SDK
-      items:
-        - name: Classificazione di immagini
+        - name: Uso di Go SDK
           href: go-tutorial.md
-        - name: Rilevamento di oggetti
+    - name: Creare un rilevatore di oggetti
+      items:
+        - name: Uso del portale Web
+          href: get-started-build-detector.md
+        - name: Uso di .NET SDK
+          href: csharp-tutorial-od.md
+        - name: Uso di Python SDK
+          href: python-tutorial-od.md
+        - name: Uso di Java SDK
+          href: java-tutorial-od.md
+        - name: Uso di Node.js SDK
+          href: node-tutorial-object-detection.md
+        - name: Uso di Go SDK
           href: go-tutorial-object-detection.md
 - name: Esercitazioni
   items:
@@ -75,7 +67,7 @@
       href: ./export-delete-data.md
     - name: Aggiornare l'app all'API 3.0
       href: ./update-application-to-3.0-sdk.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Training di Custom Vision
       href: 'https://go.microsoft.com/fwlink/?linkid=865446'
@@ -109,7 +101,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
