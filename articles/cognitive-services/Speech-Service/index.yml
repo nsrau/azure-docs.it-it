@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 4b9b447ce06e0316cf229fc9a064bfded7411abf
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: 3535f1cb5f8901c0da629e7d2ef4f2a045d714f2
+  ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81401400"
+  ms.lasthandoff: 04/17/2020
+  ms.locfileid: "81604913"
 highlightedContent:
   items:
   - title: Informazioni sul Servizio di riconoscimento vocale
@@ -37,43 +37,43 @@ conceptualContent:
   items:
   - title: Riconoscimento vocale
     links:
-    - itemType: how-to-guide
-      text: Nozioni di base sul riconoscimento vocale
-      url: speech-to-text-basics.md
     - itemType: quickstart
       text: Riconoscimento vocale da un microfono
       url: quickstarts/speech-to-text-from-microphone.md
     - itemType: quickstart
       text: Riconoscimento vocale da un file audio
       url: quickstarts/speech-to-text-from-file.md
+    - itemType: how-to-guide
+      text: Nozioni di base sul riconoscimento vocale
+      url: speech-to-text-basics.md
     footerLink:
       text: Altre informazioni
       url: index-speech-to-text.yml
   - title: Sintesi vocale
     links:
-    - itemType: how-to-guide
-      text: Nozioni di base sulla sintesi vocale
-      url: text-to-speech-basics.md
     - itemType: quickstart
       text: Sintetizzare la voce in un altoparlante
       url: quickstarts/text-to-speech.md
     - itemType: quickstart
       text: Sintetizzare la voce in un file audio
       url: quickstarts/text-to-speech-audio-file.md
+    - itemType: how-to-guide
+      text: Nozioni di base sulla sintesi vocale
+      url: text-to-speech-basics.md
     footerLink:
       text: Altre informazioni
       url: index-text-to-speech.yml
   - title: Traduzione vocale
     links:
-    - itemType: how-to-guide
-      text: Nozioni di base sulla traduzione vocale
-      url: speech-translation-basics.md
     - itemType: quickstart
       text: Tradurre la voce in testo
       url: quickstarts/translate-speech-to-text.md
     - itemType: quickstart
       text: Tradurre la voce in più lingue di destinazione
       url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - itemType: how-to-guide
+      text: Nozioni di base sulla traduzione vocale
+      url: speech-translation-basics.md
     footerLink:
       text: Altre informazioni
       url: index-speech-translation.yml
