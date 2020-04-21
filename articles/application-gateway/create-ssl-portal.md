@@ -1,22 +1,22 @@
 ---
-title: 'Esercitazione: Configurare la terminazione SSL nel portale - Gateway applicazione di Azure'
-description: Questa esercitazione descrive come configurare un gateway applicazione e aggiungere un certificato per la terminazione SSL con il portale di Azure.
+title: 'Esercitazione: Configurare la terminazione TLS nel portale - Gateway applicazione di Azure'
+description: Questa esercitazione descrive come configurare un gateway applicazione e aggiungere un certificato per la terminazione TLS con il portale di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74012316"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312382"
 ---
-# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Esercitazione: Configurare un gateway applicazione con la terminazione SSL tramite il portale di Azure
+# <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Esercitazione: Configurare un gateway applicazione con la terminazione TLS tramite il portale di Azure
 
-È possibile usare il portale di Azure per configurare un [gateway applicazione](overview.md) con un certificato per la terminazione SSL che usa macchine virtuali per i server back-end.
+È possibile usare il portale di Azure per configurare un [gateway applicazione](overview.md) con un certificato per la terminazione TLS che usa macchine virtuali per i server back-end.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -265,4 +265,4 @@ In questo esempio viene installato IIS nelle macchine virtuali solo per verifica
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sul supporto del gateway applicazione SSL](ssl-overview.md)
+> [Altre informazioni sul supporto TLS del gateway applicazione](ssl-overview.md)

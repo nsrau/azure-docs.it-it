@@ -1,23 +1,23 @@
 ---
 title: 'Esercitazione: Operazioni di estrazione, trasformazione e caricamento (ETL) con Interactive Query - Azure HDInsight'
-description: 'Esercitazione: informazioni su come estrarre dati da un set di dati non elaborati in formato CSV, trasformarli usando Interactive Query in HDInsight e quindi caricare i dati trasformati nel database SQL di Azure tramite Apache Sqoop.'
+description: 'Esercitazione: Informazioni su come estrarre i dati da un set di dati CSV non elaborato. Trasformarlo con Interactive Query in HDInsight. Caricare quindi i dati trasformati nel database SQL di Azure usando Apache Sqoop.'
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 07/02/2019
-ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/02/2019
+ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494147"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313749"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Esercitazione: Estrarre, trasformare e caricare dati usando Interactive Query in Azure HDInsight
 
-In questa esercitazione si importano i dati sui voli disponibili pubblicamente contenuti in un file CSV di dati non elaborati nell'archiviazione cluster di HDInsight e quindi si trasformano i dati usando Interactive Query in Azure HDInsight. Dopo averli trasformati, i dati vengono caricati in un database SQL di Azure tramite [Apache Sqoop](https://sqoop.apache.org/).
+In questa esercitazione verrà scaricato un file di dati CSV non elaborato dei dati di volo disponibili pubblicamente. Verrà importato nell'archiviazione cluster HDInsight e quindi i dati verranno trasformati usando Interactive Query in Azure HDInsight. Dopo averli trasformati, i dati vengono caricati in un database SQL di Azure tramite [Apache Sqoop](https://sqoop.apache.org/).
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -46,7 +46,7 @@ Questa esercitazione illustra le attività seguenti:
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |
-   | Campi |Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Campi |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
 3. Selezionare **Download**. Si otterrà un file con estensione zip con i campi dati selezionati.
 
@@ -60,7 +60,7 @@ Esistono diversi modi per caricare i dati nell'archivio associato a un cluster H
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    Se viene richiesto di immettere Sì o No per continuare, digitare Sì al prompt dei comandi e premere INVIO. Il testo non è visibile nella finestra durante la digitazione.
+    Se richiesto, specificare Sì o No per continuare. Il testo non è visibile nella finestra durante la digitazione.
 
 2. Al termine del caricamento connettersi al cluster tramite SSH. Modificare il comando seguente sostituendo `CLUSTERNAME` con il nome del cluster HDInsight. Immettere quindi il comando seguente:
 
@@ -283,13 +283,13 @@ Nelle sezioni precedenti i dati trasformati sono stati copiati nel percorso `/tu
     GO
     ```
 
-    Dovrebbe essere visualizzato un elenco di dati della tabella. La tabella include il nome della città e il tempo di ritardo medio dei voli per la città. 
+    Dovrebbe essere visualizzato un elenco di dati della tabella. La tabella include il nome della città e il tempo di ritardo medio dei voli per la città.
 
     Digitare `exit` per uscire dall'utilità tsql.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine dell'esercitazione, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
+Al termine dell'esercitazione, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non è in uso. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, eliminare i cluster quando non vengono usati è una scelta economicamente conveniente.
 
 Per eliminare un cluster, vedere [Eliminare un cluster HDInsight tramite browser, PowerShell o l'interfaccia della riga di comando di Azure](../hdinsight-delete-cluster.md).
 
@@ -298,4 +298,4 @@ Per eliminare un cluster, vedere [Eliminare un cluster HDInsight tramite browser
 In questa esercitazione si è importato un file CSV di dati non elaborati in un archivio cluster HDInsight e quindi si sono trasformati i dati usando Interactive Query in Azure HDInsight.  Passare all'esercitazione successiva per informazioni sul connettore Apache Hive Warehouse.
 
 > [!div class="nextstepaction"]
->[Integrare Apache Spark e Apache Hive con il connettore Hive Warehouse](./apache-hive-warehouse-connector.md)
+> [Integrare Apache Spark e Apache Hive con il connettore Hive Warehouse](./apache-hive-warehouse-connector.md)

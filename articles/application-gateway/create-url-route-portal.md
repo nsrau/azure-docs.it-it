@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: bc810ac7901d83f03d3f3ac2199561225326d261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74048145"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312188"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Esercitazione: Creare un gateway applicazione con regole di routing basato su percorsi usando il portale di Azure
 
@@ -207,4 +207,4 @@ Rivedere le impostazioni nella scheda **Rivedi e crea** e quindi selezionare **C
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitazione di SSL end-to-end nel gateway applicazione di Azure](application-gateway-backend-ssl.md)
+- [Abilitazione di TLS end-to-end nel gateway applicazione di Azure](application-gateway-backend-ssl.md)

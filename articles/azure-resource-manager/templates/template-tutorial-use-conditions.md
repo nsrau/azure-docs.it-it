@@ -5,12 +5,12 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f88f141257e8e614f62c7441c313002b5735116d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 8f51c65489efeed1fa18e70bd75e7370a9e59903
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239200"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260641"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
 
@@ -55,23 +55,25 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azure Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. In Visual Studio Code selezionare **File**>**Apri file**.
-2. In **Nome file** incollare l'URL seguente:
+1. In **Nome file** incollare l'URL seguente:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-3. Selezionare **Apri** per aprire il file.
-4. Sono presenti cinque risorse definite dal modello:
+1. Selezionare **Apri** per aprire il file.
+1. Sono presenti sei risorse definite dal modello:
 
-   * `Microsoft.Storage/storageAccounts`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
-5. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
+    È utile esaminare le informazioni di riferimento sul modello prima di personalizzare un modello.
+
+1. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
 
 ## <a name="modify-the-template"></a>Modificare il modello
 
@@ -83,12 +85,12 @@ Apportare due modifiche al modello esistente:
 Di seguito è riportata la procedura per apportare le modifiche:
 
 1. Aprire **azuredeploy.json** in Visual Studio Code.
-2. Sostituire le tre occorrenze di **variables('storageAccountName')** con **parameters('storageAccountName')** nell'intero modello.
-3. Rimuovere la definizione di variabile seguente:
+1. Sostituire le tre occorrenze di **variables('storageAccountName')** con **parameters('storageAccountName')** nell'intero modello.
+1. Rimuovere la definizione di variabile seguente:
 
     ![Diagramma dell'uso di una condizione nel modello di Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
-4. Aggiungere i due parametri seguenti al modello:
+1. Aggiungere i due parametri seguenti all'inizio della sezione Parameters:
 
     ```json
     "storageAccountName": {
@@ -103,11 +105,13 @@ Di seguito è riportata la procedura per apportare le modifiche:
     },
     ```
 
+    Premere **[ALT]+[SHIFT]+F** per formattare il modello in Visual Studio Code.
+
     La definizione aggiornata dei parametri si presenta come segue:
 
     ![Usare una condizione in Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
 
-5. Aggiungere la riga seguente all'inizio della definizione dell'account di archiviazione.
+1. Aggiungere la riga seguente all'inizio della definizione dell'account di archiviazione.
 
     ```json
     "condition": "[equals(parameters('newOrExisting'),'new')]",
@@ -118,7 +122,7 @@ Di seguito è riportata la procedura per apportare le modifiche:
     La definizione aggiornata dell'account di archiviazione si presenta come segue:
 
     ![Usare una condizione in Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Aggiornare la proprietà **storageUri** della definizione di risorsa di macchina virtuale con il valore seguente:
+1. Aggiornare la proprietà **storageUri** della definizione di risorsa di macchina virtuale con il valore seguente:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -126,20 +130,25 @@ Di seguito è riportata la procedura per apportare le modifiche:
 
     Questa modifica è necessaria quando si usa un account di archiviazione esistente in un diverso gruppo di risorse.
 
-7. Salvare le modifiche.
+1. Salvare le modifiche.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
 Seguire le istruzioni in [Distribuire il modello](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) per aprire Cloud Shell e caricare il modello aggiornato, quindi eseguire lo script di PowerShell seguente per distribuire il modello.
 
+> [!IMPORTANT]
+> Il nome dell'account di archiviazione deve essere univoco in Azure. Il nome deve essere composto solo da lettere minuscole e numeri e non deve superare i 24 caratteri. Il nome dell'account di archiviazione è il nome del progetto a cui viene aggiunto "store". Assicurarsi che il nome del progetto e il nome dell'account di archiviazione generato soddisfino i requisiti per il nome dell'account di archiviazione.
+
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
 $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
 $vmAdmin = Read-Host -Prompt "Enter the admin username"
 $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+
+$resourceGroupName = "${projectName}rg"
+$storageAccountName = "${projectName}store"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
@@ -150,6 +159,8 @@ New-AzResourceGroupDeployment `
     -storageAccountName $storageAccountName `
     -newOrExisting $newOrExisting `
     -TemplateFile "$HOME/azuredeploy.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!NOTE]
@@ -162,8 +173,12 @@ Provare a ripetere la distribuzione con il parametro **newOrExisting** impostato
 Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse. Per eliminare il gruppo di risorse, selezionare **Prova** per aprire Cloud Shell. Per incollare lo script di PowerShell, fare clic con il pulsante destro del mouse sul riquadro della shell e quindi scegliere **Incolla**.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+$projectName = Read-Host -Prompt "Enter the same project name you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
+
 Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

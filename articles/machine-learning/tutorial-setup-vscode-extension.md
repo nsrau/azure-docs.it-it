@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
-ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/13/2020
+ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77604827"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272917"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Configurare l'estensione Azure Machine Learning per Visual Studio Code
 
@@ -70,36 +70,36 @@ Ora che è stato effettuato l'accesso ad Azure con le credenziali dell'account, 
 1. Quando si espande il riquadro comandi, seguire le istruzioni.
 
     1. Selezionare la sottoscrizione di Azure.
-    1. Selezionare **Create a new Azure ML workspace** (Crea una nuova area di lavoro di Azure ML)
-    1. Selezionare **TensorFlow Single-Node Training** (Training su nodo singolo TensorFlow) come tipo di processo.
-    1. Immettere `train.py` come script per il training. Si tratta del file che contiene il codice di un modello di Machine Learning che categorizza le immagini di cifre scritte a mano.
-    1. Specificare i pacchetti seguenti come requisiti per l'esecuzione.
-
-        ```text
-        pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
-        ```
+    1. Selezionare **File di dipendenze Conda** dall'elenco degli ambienti.
+    1. Premere **INVIO** per esplorare il file di dipendenze Conda. Questo file contiene le dipendenze necessarie per eseguire lo script. In questo caso, il file di dipendenze è costituito dal file `env.yml` all'interno della directory `mnist-vscode-docs-sample`.
+    1. Premere **INVIO** per esplorare il file di script di training. Si tratta del file che contiene il codice di un modello di Machine Learning che categorizza le immagini di cifre scritte a mano. In questo caso, lo script per eseguire il training del modello è costituito dal file `train.py` all'interno della directory `mnist-vscode-docs-sample`.
 
 1. A questo punto, nell'editor di testo viene visualizzato un file di configurazione simile a quello riportato di seguito. La configurazione contiene le informazioni necessarie per eseguire il processo di training, ad esempio il file che contiene il codice per eseguire il training del modello e le eventuali dipendenze di Python specificate nel passaggio precedente.
 
     ```json
     {
-        "workspace": "WS01311608",
-        "resourceGroup": "WS01311608-rg1",
+        "workspace": "WS04131142",
+        "resourceGroup": "WS04131142-rg1",
         "location": "South Central US",
-        "experiment": "WS01311608-exp1",
+        "experiment": "WS04131142-exp1",
         "compute": {
-            "name": "WS01311608-com1",
+            "name": "WS04131142-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS01311608-com1-rc1",
-            "condaDependencies": [
-                "python=3.6.2",
-                "tensorflow=1.15.0"
-            ],
-            "pipDependencies": [
-                "azureml-defaults"
-            ]
+            "filename": "WS04131142-com1-rc1",
+            "environment": {
+                "name": "WS04131142-env1",
+                "conda_dependencies": [
+                    "python=3.6.2",
+                    "tensorflow=1.15.0",
+                    "pip"
+                ],
+                "pip_dependencies": [
+                    "azureml-defaults"
+                ],
+                "environment_variables": {}
+            }
         }
     }
     ```

@@ -1,14 +1,14 @@
 ---
 title: 'Criterio: Operatori logici in una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce un esempio di come usare gli operatori logici in una definizione di criteri.
-ms.date: 01/31/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 8e57efaea81848c6b2d0188dbf3f91e06ed74c67
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 691383b1f8ae34bbd51ce7f4f9310980e3c66537
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170239"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272509"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Modello di Criteri di Azure: operatori logici
 
@@ -38,6 +38,18 @@ Questa definizione di criteri valuta le risorse in base a un modello di denomina
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json" range="7-21" highlight="2,3,9":::
 
 Anche questo blocco **policyRule.if** include un singolo operatore **allOf**, ma ogni condizione è racchiusa nell'operatore logico **not**. Viene valutata prima l'istruzione condizionale all'interno dell'operatore logico **not** e quindi viene valutato l'operatore logico **not** per determinare se l'intera clausola è vera o falsa. Se entrambi gli operatori logici **not** operatori logici restituiscono true, viene attivato l'effetto dei criteri.
+
+## <a name="sample-3-combining-logical-operators"></a>Esempio 3: Combinazione di operatori logici
+
+Questa definizione dei criteri valuta gli account Java Spring per verificare se la traccia non è abilitata o se la traccia non si trova in uno stato di esito positivo.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
+
+### <a name="sample-3-explanation"></a>Esempio 3: Spiegazione
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json" range="6-28" highlight="3,8":::
+
+Questo blocco **policyRule.if** include entrambi gli operatori logici **allOf** e **anyOf**. L'operatore logico **anyOf** restituisce true finché una condizione inclusa è true. Poiché _type_ è alla base dell'operatore **allOf**, deve sempre restituire true. Se _type_ e una delle condizioni nell'operatore **anyOf** sono true, viene attivato l'effetto dei criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

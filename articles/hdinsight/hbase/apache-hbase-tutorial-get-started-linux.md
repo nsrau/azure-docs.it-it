@@ -1,20 +1,19 @@
 ---
 title: 'Esercitazione: Usare Apache HBase in Azure HDInsight'
 description: Seguire questa esercitazione su Apache HBase per iniziare a usare Hadoop in HDInsight. Creare tabelle dalla shell HBase e sottoporle a query tramite Hive.
-keywords: hbasecommand, esempio di hbase
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
-ms.date: 06/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 04/14/2020
+ms.openlocfilehash: a601d54ebda074a25a988ac2a115f6418dd5c7ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71077149"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390270"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Esercitazione: Usare Apache HBase in Azure HDInsight
 
@@ -37,13 +36,13 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="create-apache-hbase-cluster"></a>Creare un cluster Apache HBase
 
-La procedura seguente usa un modello di Azure Resource Manager per creare un cluster HBase e l'account di Archiviazione di Azure predefinito dipendente. Per comprendere i parametri usati nella procedure e altri metodi di creazione del cluster, vedere [Creare cluster Hadoop basati su Linux in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+La procedura seguente usa un modello di Azure Resource Manager per creare un cluster HBase. Il modello crea anche l'account di archiviazione di Azure predefinito dipendente. Per comprendere i parametri usati nella procedure e altri metodi di creazione del cluster, vedere [Creare cluster Hadoop basati su Linux in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Selezionare l'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. Compilare i campi seguenti del pannello **Distribuzione personalizzata**:
+2. Nella finestra di dialogo **Distribuzione personalizzata** immettere i valori seguenti:
 
     |Proprietà |Descrizione |
     |---|---|
@@ -56,7 +55,7 @@ La procedura seguente usa un modello di Azure Resource Manager per creare un clu
 
     Gli altri parametri sono facoltativi.  
 
-    Ogni cluster ha una dipendenza dall'account di Archiviazione di Azure. Dopo aver eliminato un cluster, i dati vengono mantenuti nell'account di archiviazione. Il nome dell'account di archiviazione predefinito del cluster è il nome del cluster a cui viene aggiunto "store". È hardcoded nella sezione delle variabili del modello.
+    Ogni cluster ha una dipendenza dall'account di Archiviazione di Azure. Dopo aver eliminato un cluster, i dati rimangono nell'account di archiviazione. Il nome dell'account di archiviazione predefinito del cluster è il nome del cluster a cui viene aggiunto "store". È hardcoded nella sezione delle variabili del modello.
 
 3. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**. La creazione di un cluster richiede circa 20 minuti.
 
@@ -203,7 +202,7 @@ Questa procedura usa la tabella HBase `Contacts` creata nella procedura preceden
 
 L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikipedia.org/wiki/Basic_access_authentication). Le richieste vengono sempre eseguite usando il protocollo HTTPS (Secure HTTP) per essere certi che le credenziali vengano inviate in modo sicuro al server.
 
-1. Inizializzare una variabile di ambiente per semplicità d'uso. Modificare i comandi seguenti sostituendo `MYPASSWORD` con la password dell'account di accesso del cluster. Sostituire `MYCLUSTERNAME` con il nome del cluster HBase e quindi immettere i comandi.
+1. Impostare la variabile di ambiente per semplicità d'uso. Modificare i comandi seguenti sostituendo `MYPASSWORD` con la password dell'account di accesso del cluster. Sostituire `MYCLUSTERNAME` con il nome del cluster HBase e quindi immettere i comandi.
 
     ```bash
     export password='MYPASSWORD'
@@ -240,10 +239,10 @@ L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikiped
     -v
     ```
 
-    È necessario applicare la codifica base64 ai valori specificati nell'interruttore -d. Nell'esempio:
+    È necessario applicare la codifica Base 64 ai valori specificati nell'opzione -d. Nell'esempio:
 
    * MTAwMA==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * UGVyc29uYWw6TmFtZQ==: Personale: Nome
    * Sm9obiBEb2xl: John Dole
 
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) consente di inserire più valori in batch.
@@ -306,7 +305,7 @@ Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come creare un cluster Apache HBase, come creare tabelle e come visualizzare i dati di tali tabelle dalla shell HBase. Si è inoltre appreso come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C# di HBase per creare una tabella HBase e recuperare i dati dalla tabella. Per altre informazioni, vedere:
+In questa esercitazione si è appreso come creare un cluster Apache HBase. Si è anche visto come creare tabelle e visualizzare i dati in tali tabelle dalla shell HBase, come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C# di HBase per creare una tabella HBase e recuperare i dati dalla tabella. Per altre informazioni, vedere:
 
 > [!div class="nextstepaction"]
 > [Panoramica di HBase di HDInsight](./apache-hbase-overview.md)

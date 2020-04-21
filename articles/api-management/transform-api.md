@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70067460"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258746"
 ---
 # <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API
 
@@ -112,7 +112,7 @@ Per visualizzare la risposta originale:
 2.  Selezionare **Tutte le operazioni**.
 3.  Nella parte superiore della schermata selezionare la scheda **Progettazione**.
 4.  Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>** .
-5.  Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;** .
+5.  Posizionare il cursore all'interno dell'elemento **&lt;in uscita&gt;** e fare clic sul pulsante **Inserisci criterio** nell'angolo in alto a destra.
 6.  Nella finestra a destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Find and replace string in body** (+ Trova e sostituisci la stringa nel corpo).
 7.  Modificare il codice **find-and-replace** (nell'elemento **\<in uscita\>** ) per sostituire l'URL in modo che corrisponda al gateway di Gestione API. Ad esempio:
 
