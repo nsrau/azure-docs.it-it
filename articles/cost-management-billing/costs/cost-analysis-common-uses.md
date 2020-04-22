@@ -3,16 +3,16 @@ title: Utilizzi dell'analisi dei costi comune in Gestione costi di Azure
 description: Questo articolo illustra come ottenere risultati per le attività di analisi dei costi comune in Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 2e0e222e636f694328835e20fda97deca1d9986a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520872"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261499"
 ---
 # <a name="common-cost-analysis-uses"></a>Utilizzi dell'analisi dei costi comune
 
@@ -27,6 +27,17 @@ La visualizzazione dei costi da parte di un servizio di Azure può aiutare a com
 1. Modificare la visualizzazione in **Tabella**.
 
 [![Ripartizione dei costi per servizio di Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
+
+## <a name="review-invoiced-charges-in-cost-analysis"></a>Esaminare le tariffe fatturate in Analisi dei costi
+
+Per visualizzare i dettagli della fattura nel portale di Azure, passare ad Analisi dei costi per l'ambito associato alla fattura che si sta analizzando. Selezionare la visualizzazione **Dettagli della fattura**, in cui vengono mostrati gli addebiti indicati nella fattura.
+
+[![Esempio che mostra i dettagli della fattura](./media/cost-analysis-common-uses/invoice-details.png)](./media/cost-analysis-common-uses/invoice-details.png#lightbox)
+
+La visualizzazione dei dettagli della fattura consente di identificare il servizio con costi imprevisti e determinare le risorse direttamente associate alla risorsa in Analisi dei costi. Se, ad esempio, si vogliono analizzare gli addebiti per il servizio Macchine virtuali, passare alla visualizzazione **Costi accumulati**. Impostare quindi la granularità su **Giornaliera**, filtrare gli addebiti per **Nome del servizio: Macchine virtuali** e raggruppare gli addebiti per **Risorsa**.
+
+[![Esempio che mostra i costi accumulati per Macchine virtuali](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
+
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Visualizzare la ripartizione dei costi per servizio di Azure
 

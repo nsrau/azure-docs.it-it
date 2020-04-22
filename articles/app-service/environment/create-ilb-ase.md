@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 98345e8585a3f6653659e0d41eb5c3308a0a6634
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b7fa447e8564fcbf77702f1d3d474cceb48705c5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057406"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114626"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creare e usare un ambiente del servizio app con bilanciamento del carico interno 
 
@@ -60,6 +60,9 @@ Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
     ![Creazione dell'ambiente del servizio app](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
 
+> [!NOTE]
+> Il nome dell'ambiente del servizio app non può contenere più di 37 caratteri.
+
 6. Selezionare Rete
 
 7. Selezionare o creare una rete virtuale. Se si crea una nuova rete virtuale, verrà definita con un intervallo di indirizzi 192.168.250.0/23. Per creare una rete virtuale con un intervallo di indirizzi diverso o in un gruppo di risorse diverso rispetto all'ambiente del servizio app, usare il portale di creazione rete virtuale di Azure. 
@@ -69,6 +72,7 @@ Per creare un ambiente del servizio app con bilanciamento del carico interno:
     ![Rete dell'ambiente del servizio app][1]
 
 7. Selezionare **Rivedi e crea** e quindi **Crea**.
+
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Creare un'app in un ambiente del servizio app con bilanciamento del carico interno ##
 

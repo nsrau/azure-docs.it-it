@@ -10,22 +10,22 @@ ms.subservice: ''
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9898addfa840752e27de8716d2185e767aac809b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 3ec52c5274891619cf7976e99b5241bfc67a4076
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350098"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415090"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integrazione del controllo del codice sorgente per il pool SQL
 
-Questa esercitazione illustra come integrare il progetto di database SQL Server Data Tools (SSDT) con il controllo del codice sorgente.  L'integrazione del controllo del codice sorgente è il primo passaggio per la creazione della pipeline di integrazione e distribuzione continue con la risorsa pool SQL in Azure Synapse Analytics. 
+Questa esercitazione illustra come integrare il progetto di database SQL Server Data Tools (SSDT) con il controllo del codice sorgente.  L'integrazione del controllo del codice sorgente è il primo passaggio per la creazione della pipeline di integrazione e distribuzione continue con la risorsa pool SQL in Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 - Iscriversi per ottenere un'[organizzazione di Azure DevOps](https://azure.microsoft.com/services/devops/)
-- Completare l'esercitazione [Creare e connettere](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal)
--  [Installare Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/) 
+- Completare l'esercitazione [Creare e connettere](create-data-warehouse-portal.md)
+- [Installare Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/)
 
 ## <a name="set-up-and-connect-to-azure-devops"></a>Configurare Azure DevOps e connettersi
 
@@ -53,7 +53,7 @@ Questa esercitazione illustra come integrare il progetto di database SQL Server 
 
    ![Importare il progetto](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importare il progetto")  
 
-3. In Team Explorer di Visual Studio eseguire il commit di tutte le modifiche apportate al repository Git locale 
+3. In Team Explorer di Visual Studio eseguire il commit di tutte le modifiche apportate al repository Git locale
 
    ![Eseguire il commit](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 

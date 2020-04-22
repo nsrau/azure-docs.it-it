@@ -1,0 +1,176 @@
+---
+title: Gestire l'accesso ad aree di lavoro, dati e pipeline
+description: Informazioni su come gestire il controllo di accesso ad aree di lavoro, dati e pipeline in un'area di lavoro di Azure Synapse Analytics (anteprima).
+services: synapse-analytics
+author: azaricstefan
+ms.service: synapse-analytics
+ms.topic: overview
+ms.subservice: ''
+ms.date: 04/15/2020
+ms.author: v-stazar
+ms.reviewer: jrasnick
+ms.openlocfilehash: 89d2105ab080309639c4341072c3f5f36608dfce
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421105"
+---
+# <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gestire l'accesso ad aree di lavoro, dati e pipeline
+
+Informazioni su come gestire il controllo di accesso ad aree di lavoro, dati e pipeline in un'area di lavoro di Azure Synapse Analytics (anteprima).
+
+> [!NOTE]
+> Per la disponibilità generale, il controllo degli accessi in base al ruolo verrà sviluppato ulteriormente con l'introduzione di ruoli di Azure specifici di Synapse
+
+## <a name="access-control-for-workspace"></a>Controllo di accesso per l'area di lavoro
+
+Per una distribuzione di produzione in un'area di lavoro di Azure Synapse, è consigliabile organizzare l'ambiente in modo da semplificare il provisioning di utenti e amministratori.
+
+> [!NOTE]
+> L'approccio adottato in questo articolo consiste nel creare diversi gruppi di sicurezza e quindi configurare l'area di lavoro per usarli in modo coerente. Una volta configurati i gruppi di sicurezza, un amministratore deve solo gestirne l'appartenenza al loro interno.
+
+### <a name="step-1-set-up-security-groups-with-names-following-this-pattern"></a>Passaggio 1: Configurare i gruppi di sicurezza con nomi che seguono questo modello
+
+1. Creare un gruppo di sicurezza denominato `Synapse_WORKSPACENAME_Users`
+2. Creare un gruppo di sicurezza denominato `Synapse_WORKSPACENAME_Admins`
+3. Aggiunta di `Synapse_WORKSPACENAME_Admins` a `ProjectSynapse_WORKSPACENAME_Users`
+
+### <a name="step-2-prepare-the-default-adls-gen2-account"></a>Passaggio 2: Preparare l'account predefinito di ADLS Gen2
+
+Quando è stato effettuato il provisioning dell'area di lavoro, è stato necessario selezionare un account ADLSGEN2 e un contenitore per il filesystem da usare per l'area di lavoro.
+
+1. Aprire il [portale di Azure](https://portal.azure.com)
+2. Passare all'account di ADLSGEN2
+3. Passare al contenitore (filesystem) selezionato per l'area di lavoro di Azure Synapse
+4. Fare clic su **Controllo di accesso (IAM)**
+5. Assegnare i ruoli seguenti:
+   1. Ruolo **Lettore**: `Synapse_WORKSPACENAME_Users`
+   2. Ruolo **Proprietario dei dati dei BLOB di archiviazione**: `Synapse_WORKSPACENAME_Admins`
+   3. Ruolo **Collaboratore ai dati dei BLOB di archiviazione**: `Synapse_WORKSPACENAME_Users`
+   4. Ruolo **Proprietario dei dati dei BLOB di archiviazione**: `WORKSPACENAME`
+  
+### <a name="step-3-configure-the-workspace-admin-list"></a>Passaggio 3: Configurare l'elenco di amministratori dell'area di lavoro
+
+1. Passare all'[**interfaccia utente Web di Azure Synapse**](https://web.azuresynapse.net)
+2. Passare a **Gestisci**  > **sicurezza** > **Controllo di accesso**
+3. Fare clic su **Aggiungi amministratore** e selezionare `Synapse_WORKSPACENAME_Admins`
+
+### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Passaggio 4: Configurare l'accesso dell'amministratore di SQL per l'area di lavoro
+
+1. Accedere al [portale di Azure](https://portal.azure.com)
+2. Passare all'area di lavoro
+3. Passare a **Impostazioni** > **Amministratore di Active Directory**
+4. Fare clic su **Imposta amministratore**
+5. Selezionare `Synapse_WORKSPACENAME_Admins`
+6. Fare clic su **Seleziona**
+7. Fare clic su **Salva**
+
+### <a name="step-5-add-and-remove-users-and-admins-to-security-groups"></a>Passaggio 5: Aggiungere e rimuovere utenti e amministratori dai gruppi di sicurezza
+
+1. Aggiungere utenti che richiedono l'accesso amministrativo a `Synapse_WORKSPACENAME_Admins`
+2. Aggiungere tutti gli altri utenti a`Synapse_WORKSPACENAME_Users`
+
+## <a name="access-control-to-data"></a>Controllo di accesso ai dati
+
+Il controllo di accesso ai dati sottostanti è diviso in tre parti:
+
+- Accesso del piano dati all'account di archiviazione (già configurato in precedenza nel passaggio 2)
+- Accesso del piano dati ai database SQL (sia per i pool SQL che per SQL su richiesta)
+- Creazione di una credenziale per i database di SQL su richiesta sull'account di archiviazione
+
+## <a name="access-control-to-sql-databases"></a>Controllo di accesso a database SQL
+
+> [!TIP]
+> La procedura seguente deve essere eseguita per **ogni** database SQL per concedere agli utenti l'accesso a tutti i database SQL.
+
+### <a name="sql-on-demand"></a>SQL su richiesta
+
+Per concedere l'accesso a un utente a **singolo** database di SQL su richiesta, seguire la procedura di questo esempio:
+
+1. CREATE LOGIN
+
+    ```sql
+    use master
+    go
+    CREATE LOGIN [John.Thomas@microsoft.com] FROM EXTERNAL PROVIDER;
+    go
+    ```
+
+2. CREATE USER
+
+    ```sql
+    use yourdb -- Use your DB name
+    go
+    CREATE USER john FROM LOGIN [John.Thomas@microsoft.com];
+    ```
+
+3. Aggiungere USER ai membri del ruolo specificato
+
+    ```sql
+    use yourdb -- Use your DB name
+    go
+    alter role db_owner Add member john -- Type USER name from step 2
+    ```
+
+### <a name="sql-pools"></a>Pool SQL
+
+Per concedere l'accesso a un utente a **singolo** database SQL, seguire la procedura di questo esempio:
+
+1. Creare l'utente nel database eseguendo il comando seguente che fa riferimento al database desiderato nel selettore di contesto (elenco a discesa per selezionare i database):
+
+    ```sql
+    --Create user in SQL DB
+    CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
+    ```
+
+2. Concedere all'utente un ruolo per l'accesso al database:
+
+    ```sql
+    --Create user in SQL DB
+    EXEC sp_addrolemember 'db_owner', '<alias@domain.com>';
+    ```
+
+> [!IMPORTANT]
+> *db_datareader* e *db_datawriter* possono funzionare per le autorizzazioni di lettura/scrittura se non si desidera concedere l'autorizzazione *db_owner*.
+> Per consentire a un utente Spark di leggere e scrivere direttamente da Spark in/da un pool SQL, l'autorizzazione *db_owner* è necessaria.
+
+Dopo aver creato gli utenti, verificare che SQL su richiesta possa eseguire query sull'account di archiviazione:
+
+- Eseguire il comando seguente scegliendo come destinazione il database **master** di SQL su richiesta:
+
+    ```sql
+    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
+    WITH IDENTITY='User Identity';
+    ```
+
+## <a name="access-control-to-workspace-pipeline-runs"></a>Controllo di accesso alle esecuzioni di pipeline dell'area di lavoro
+
+### <a name="workspace-managed-identity"></a>Identità gestita dell'area di lavoro
+
+> [!IMPORTANT]
+> Per eseguire correttamente le pipeline che includono set di dati o attività che fanno riferimento a un pool SQL, l'identità dell'area di lavoro deve essere concessa direttamente al pool SQL.
+
+Eseguire i comandi seguenti in ogni pool SQL per consentire all'identità gestita dell'area di lavoro di eseguire le pipeline nel database del pool SQL:
+
+```sql
+--Create user in DB
+CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
+
+--Granting permission to the identity
+GRANT CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+```
+
+Questa autorizzazione può essere rimossa eseguendo lo script seguente nello stesso pool SQL:
+
+```sql
+--Revoking permission to the identity
+REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+
+--Deleting the user in the DB
+DROP USER [<workspacename>];
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per una panoramica dell'accesso e del controllo in Synapse SQL, vedere [Controllo di accesso in Synapse SQL](../sql/access-control.md). Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx). Per altre informazioni sui ruoli del database, vedere l'articolo [Ruoli del database](https://msdn.microsoft.com/library/ms189121.aspx).

@@ -5,14 +5,14 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 04/14/2020
 ms.author: banders
-ms.openlocfilehash: 10275bac8cd9363939f9b6f298c49d7ef08ab7bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202914"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383174"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Panoramica delle API di creazione di report per i clienti Enterprise
 Le API di creazione di report consentono ai clienti Enterprise di Azure di estrarre i dati di fatturazione e sull'uso a livello di codice per inserirli negli strumenti di analisi preferiti. I clienti Enterprise hanno sottoscritto un [Contratto Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) con Azure per concludere impegni monetari negoziati e ottenere l'accesso alla determinazione dei prezzi personalizzata per le risorse di Azure.
@@ -41,7 +41,7 @@ Per le API descritte di seguito, [qui](https://consumption.azure.com/swagger/ui/
 * **Dettagli delle istanze riservate** - L'[API per l'utilizzo di istanze riservate](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) restituisce l'utilizzo degli acquisti di istanze riservate. L'[API per gli addebiti per istanze riservate](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) visualizza le transazioni di fatturazione effettuate.
 
 ## <a name="data-freshness"></a>Aggiornamento dei dati
-Vengono restituiti ETag in risposta a tutte le API indicate in precedenza. Una modifica di ETag indica che i dati sono stati aggiornati.  Nelle chiamate successive alla stessa API tramite gli stessi parametri passare l'ETag acquisito con la chiave "If-None-Match" nell'intestazione della richiesta http. Il codice di stato della risposta sarà "NotModified" se i dati non sono stati aggiornati ulteriormente e non verrà restituito alcun dato. L'API restituirà il set di dati completo per il periodo richiesto a ogni modifica di ETag.
+Vengono restituiti ETag in risposta a tutte le API indicate in precedenza. Una modifica di ETag indica che i dati sono stati aggiornati.  Nelle chiamate successive alla stessa API tramite gli stessi parametri passare l'ETag acquisito con la chiave "If-None-Match" nell'intestazione della richiesta HTTP. Il codice di stato della risposta sarà "NotModified" se i dati non sono stati aggiornati ulteriormente e non verrà restituito alcun dato. L'API restituirà il set di dati completo per il periodo richiesto a ogni modifica di ETag.
 
 ## <a name="helper-apis"></a>API di supporto
  **Elenco periodi di fatturazione** - L'[API per periodi di fatturazione](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) restituisce un elenco di periodi di fatturazione contenente i dati sull'uso per la registrazione specificata in ordine cronologico inverso. Ogni periodo contiene una proprietà che punta alla route API per i quattro set di dati, ovvero BalanceSummary, UsageDetails, MarketplaceCharges e PriceSheet.
@@ -51,7 +51,9 @@ Vengono restituiti ETag in risposta a tutte le API indicate in precedenza. Una m
 |Codice di stato della risposta|Message|Descrizione|
 |-|-|-|
 |200| OK|Nessun errore|
+|400| Bad Request| Parametri non validi (intervalli di date, numeri EA e così via)|
 |401| Non autorizzata| Chiave API non trovata, non valida, scaduta e così via|
 |404| Non disponibile| Endpoint del report non trovato|
-|400| Bad Request| Parametri non validi (intervalli di date, numeri EA e così via)|
+|429 | TooManyRequests | La richiesta è stata limitata. Riprovare dopo aver atteso il tempo specificato nell'intestazione <code>x-ms-ratelimit-microsoft.consumption-retry-after</code>.|
 |500| Errore del server| Errore imprevisto nell'elaborazione della richiesta|
+| 503 | ServiceUnavailable | Il servizio è temporaneamente non disponibile. Riprovare dopo aver atteso il tempo specificato nell'intestazione <code>Retry-After</code>.|

@@ -3,18 +3,18 @@ title: Argomento di avvio rapido sulla distribuzione automatizzata di VM con Con
 description: Questo argomento di avvio rapido illustra come usare il modulo di Azure PowerShell e i modelli di Azure Resource Manager per distribuire un archivio di Configurazione app di Azure. I valori dell'archivio verranno quindi usati per distribuire una VM.
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 03/05/2020
+ms.date: 04/14/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 02afa2cb36323e0c3c38c2451b1924b636f7faed
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79126388"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309104"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Guida introduttiva: Distribuzione automatizzata di macchine virtuali con Configurazione app e un modello di Resource Manager
 
@@ -152,6 +152,9 @@ Per poter applicare le coppie chiave-valore alla macchina virtuale, è necessari
 ## <a name="deploy-vm-using-stored-key-values"></a>Distribuire una VM con le coppie chiave-valore archiviate
 
 Ora che sono state aggiunte le coppie chiave-valore nell'archivio, è possibile distribuire una VM usando un modello di Azure Resource Manager. Il modello fa riferimento alle chiavi **windowsOsVersion** e **diskSizeGB** create.
+
+> [!WARNING]
+> I modelli di Azure Resource Manager non possono fare riferimento alle chiavi in un archivio di Configurazione app con collegamento privato abilitato.
 
 1. Copiare e incollare il codice JSON seguente in un nuovo file denominato *azuredeploy.json* oppure scaricare il file dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
 
@@ -423,13 +426,13 @@ Ora che sono state aggiunte le coppie chiave-valore nell'archivio, è possibile 
    |storageAccountName|Un nome univoco per un account di archiviazione associato alla macchina virtuale.|
    |domainNameLabel|Un nome di dominio univoco.|
 
-1. Nella finestra di PowerShell eseguire il comando seguente per distribuire l'archivio di Configurazione app di Azure. Assicurarsi di sostituire il nome del gruppo di risorse, il percorso del file del modello e il percorso del file di parametri del modello.
+1. Nella finestra di PowerShell eseguire il comando seguente per distribuire la macchina virtuale. Assicurarsi di sostituire il nome del gruppo di risorse, il percorso del file del modello e il percorso del file di parametri del modello.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
-       -TemplateFile "<path to prereq.azuredeploy.json>" `
-       -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
+       -ResourceGroupName "<your resource group>"
+       -TemplateFile "<path to azuredeploy.json>" `
+       -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
 Congratulazioni! È stata distribuita una macchina virtuale usando le configurazioni archiviate in Configurazione app di Azure.

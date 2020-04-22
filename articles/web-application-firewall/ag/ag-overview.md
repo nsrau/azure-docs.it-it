@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74384105"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314351"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Web Application Firewall di Azure nel gateway applicazione di Azure
 
@@ -28,9 +28,9 @@ Tutte le funzionalità di WAF elencate di seguito sono disponibili all'interno d
 
 ![Diagramma di WAF nel gateway applicazione](../media/ag-overview/waf1.png)
 
-Il gateway applicazione funziona da controller per la distribuzione di applicazioni (ADC, Application Delivery Controller). Offre terminazione SSL (Secure Sockets Layer), affinità di sessione basata su cookie, distribuzione del carico round robin, routing basato sul contenuto, possibilità di ospitare più siti Web e miglioramenti della sicurezza.
+Il gateway applicazione funziona da controller per la distribuzione di applicazioni (ADC, Application Delivery Controller). Offre TLS (Transport Layer Security), noto in precedenza come SSL (Secure Sockets Layer), terminazione, affinità di sessione basata su cookie, distribuzione del carico round robin, routing basato sul contenuto, possibilità di ospitare più siti Web e miglioramenti della sicurezza.
 
-I miglioramenti della sicurezza offerti dal gateway applicazione includono la gestione dei criteri di SSL e il supporto di SSL end-to-end. La sicurezza delle applicazioni è rafforzata dall'integrazione di WAF nel gateway applicazione. La combinazione protegge le applicazioni Web da vulnerabilità comuni. Fornisce inoltre una posizione centrale di facile configurazione da gestire.
+I miglioramenti della sicurezza offerti dal gateway applicazione includono la gestione dei criteri di TLS e il supporto di TLS end-to-end. La sicurezza delle applicazioni è rafforzata dall'integrazione di WAF nel gateway applicazione. La combinazione protegge le applicazioni Web da vulnerabilità comuni. Fornisce inoltre una posizione centrale di facile configurazione da gestire.
 
 ## <a name="benefits"></a>Vantaggi
 

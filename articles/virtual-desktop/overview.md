@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/19/2020
+ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294821"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261721"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -89,21 +89,36 @@ Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere
 
 Le macchine virtuali di Azure create per Desktop virtuale Windows devono avere l'accesso agli URL seguenti:
 
-|Indirizzo|Porta in uscita|Scopo|
-|---|---|---|
-|*.wvd.microsoft.com|Porta TCP 443|Traffico del servizio|
-|*.blob.core.windows.net|Porta TCP 443|Agente, aggiornamenti dello stack SXS e traffico dell'agente|
-|*.core.windows.net|Porta TCP 443|Traffico dell'agente|
-|*.servicebus.windows.net|Porta TCP 443|Traffico dell'agente|
-|prod.warmpath.msftcloudes.com|Porta TCP 443|Traffico dell'agente|
-|catalogartifact.azureedge.net|Porta TCP 443|Azure Marketplace|
-|kms.core.windows.net|Porta TCP 1688|Attivazione di Windows 10|
+|Indirizzo|Porta TCP in uscita|Scopo|Tag del servizio|
+|---|---|---|---|
+|*.wvd.microsoft.com|443|Traffico del servizio|WindowsVirtualDesktop|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Aggiornamenti dello stack dell'agente e di SXS|AzureCloud|
+|*.core.windows.net|443|Traffico dell'agente|AzureCloud|
+|*.servicebus.windows.net|443|Traffico dell'agente|AzureCloud|
+|prod.warmpath.msftcloudes.com|443|Traffico dell'agente|AzureCloud|
+|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
+|kms.core.windows.net|1688|Attivazione di Windows|Internet|
 
 >[!IMPORTANT]
->L'apertura di questi URL è essenziale per la distribuzione affidabile di Desktop virtuale Windows. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse di Desktop virtuale Windows e non includono gli URL di altri servizi come Azure Active Directory.
+>Per evitare problemi al servizio, nella maggior parte dei casi è consigliabile usare i tag del servizio anziché gli URL. Lo sblocco di questi URL è essenziale per la distribuzione affidabile di Desktop virtuale Windows. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse di Desktop virtuale Windows e non includono gli URL di altri servizi come Azure Active Directory.
+
+La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtuali di Azure:
+
+|Indirizzo|Porta TCP in uscita|Scopo|Tag del servizio|
+|---|---|---|---|
+|*.microsoftonline.com|443|Autenticazione a Microsoft Online Services|nessuno|
+|*.events.data.microsoft.com|443|Servizio di telemetria|nessuno|
+|www.msftconnecttest.com|443|Rileva se il sistema operativo è connesso a Internet|nessuno|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|nessuno|
+|login.windows.net|443|Accesso a Microsoft Online Services, Office 365|nessuno|
+|*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|nessuno|
+|*.digicert.com|443|Verifica della revoca del certificato|nessuno|
+
 
 >[!NOTE]
 >Attualmente per Desktop virtuale Windows non è disponibile un elenco di intervalli di indirizzi IP che è possibile includere in un elenco di elementi consentiti per autorizzare il traffico di rete. Al momento è supportata solo l'aggiunta di URL specifici.
+>
+>Per un elenco degli URL correlati a Office, inclusi gli URL obbligatori correlati ad Azure Active Directory, vedere [URL e intervalli di indirizzi IP di Office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >
 >È necessario usare il carattere jolly (*) per gli URL che coinvolgono il traffico del servizio. Se si preferisce non usare * per il traffico correlato ad agenti, ecco come trovare gli URL senza caratteri jolly:
 >
@@ -137,15 +152,15 @@ I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 
 I client Desktop remoto devono avere accesso agli URL seguenti:
 
-|Indirizzo|Porta in uscita|Scopo|Client|
+|Indirizzo|Porta TCP in uscita|Scopo|Client|
 |---|---|---|---|
-|*.wvd.microsoft.com|Porta TCP 443|Traffico del servizio|Tutti|
-|*.servicebus.windows.net|Porta TCP 443|Dati per la risoluzione dei problemi|Tutti|
-|go.microsoft.com|Porta TCP 443|FWLink Microsoft|Tutti|
-|aka.ms|Porta TCP 443|Abbreviazione URL Microsoft|Tutti|
-|docs.microsoft.com|Porta TCP 443|Documentazione|Tutti|
-|privacy.microsoft.com|Porta TCP 443|Informativa sulla privacy|Tutti|
-|query.prod.cms.rt.microsoft.com|Porta TCP 443|Aggiornamenti client|Desktop di Windows|
+|*.wvd.microsoft.com|443|Traffico del servizio|Tutti|
+|*.servicebus.windows.net|443|Dati per la risoluzione dei problemi|Tutti|
+|go.microsoft.com|443|FWLink Microsoft|Tutti|
+|aka.ms|443|Abbreviazione URL Microsoft|Tutti|
+|docs.microsoft.com|443|Documentazione|Tutti|
+|privacy.microsoft.com|443|Informativa sulla privacy|Tutti|
+|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|
 
 >[!IMPORTANT]
 >L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse del client e non includono gli URL di altri servizi come Azure Active Directory.

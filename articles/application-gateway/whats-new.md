@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 1cfa2ab1d8bf096b1821f7473d9808801b47c547
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70014b5ab37a07e01eaa2db3d729b7d8af520842
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371174"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311769"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novità del gateway applicazione di Azure
 
@@ -33,7 +33,7 @@ Il gateway applicazione di Azure viene aggiornato regolarmente. Per rimanere agg
 |Altre metriche |Sono state aggiunte le nuove metriche seguenti per facilitare il monitoraggio dello SKU del gateway applicazione v2: [Metriche temporali](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), stato della risposta back-end, byte ricevuti, byte inviati, protocollo TLS client e unità di calcolo correnti. Vedere [Metriche supportate dallo SKU del gateway applicazione V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Agosto 2019 |
 |Regole personalizzate di WAF |Il gateway applicazione WAF_v2 supporta ora la creazione di regole personalizzate. Vedere [Regole personalizzate del gateway applicazione](custom-waf-rules-overview.md). |Giugno 2019 |
 |Ridimensionamento automatico, ridondanza delle zone, disponibilità generale del supporto di VIP statici |Disponibilità generale dello SKU v2, che supporta dimensionamento automatico, ridondanza di zona, miglioramento delle prestazioni, indirizzi VIP statici, Key Vault, riscrittura dell'intestazione. Vedere la [documentazione sul ridimensionamento automatico del gateway applicazione](application-gateway-autoscaling-zone-redundant.md). |Aprile 2019 |
-|Integrazione di Key Vault |Il gateway applicazione supporta ora l'integrazione con Key Vault (in anteprima pubblica) per i certificati server associati a listener abilitati per HTTPS. Vedere [SSL termination with Key Vault certificates](key-vault-certs.md) (Terminazione SSL con certificati di Key Vault). |Aprile 2019 |
+|Integrazione di Key Vault |Il gateway applicazione supporta ora l'integrazione con Key Vault (in anteprima pubblica) per i certificati server associati a listener abilitati per HTTPS. Vedere [Terminazione TLS con certificati di Key Vault](key-vault-certs.md). |Aprile 2019 |
 |CRUD/riscritture intestazioni     |È ora possibile riscrivere le intestazioni HTTP. Vedere [Esercitazione: Creare un gateway applicazione e riscrivere intestazioni HTTP](tutorial-http-header-rewrite-powershell.md).|Dicembre 2018|
 |Configurazione di WAF ed elenco di esclusione     |Sono state aggiunte altre opzioni per configurare la soluzione WAF e ridurre i falsi positivi. Per altre informazioni, vedere [Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione](application-gateway-waf-configuration.md).|Dicembre 2018|
 |Ridimensionamento automatico, ridondanza delle zone, supporto di VIP statici      |Con la versione 2 dello SKU, sono stati introdotti diversi miglioramenti, come il ridimensionamento automatico, le prestazioni più elevate e altro ancora. Per altre informazioni, vedere [Cos'è il gateway applicazione di Azure?](overview.md)|Settembre 2018|

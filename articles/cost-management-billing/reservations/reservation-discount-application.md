@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: fb6e7e3fe3b7b45b503dca66dc5b039a9eceb689
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5781ade7b2f3cfc7514208861de025cc84944fcd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135488"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380641"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 
@@ -39,7 +39,7 @@ Quando si acquista una prenotazione, è possibile applicare lo sconto ad altre i
 Piani di servizio:
 
 - Istanze di macchina virtuale riservate: quando si acquista la prenotazione, se si seleziona **Ottimizzato per: Flessibilità delle dimensioni istanza**, la copertura dello sconto dipende dalle dimensioni delle VM selezionate. La prenotazione può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di serie di dimensioni. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- Capacità riservata di Archiviazione di Azure: è possibile acquistare capacità riservata per gli account di Archiviazione di Azure standard in unità di 100 TiB o 1 PiB al mese. La capacità riservata di Archiviazione di Azure è disponibile in tutte le aree per qualsiasi livello di accesso (ad accesso frequente, sporadico o Archivio) e per qualsiasi opzione di replica (archiviazione con ridondanza locale, con ridondanza geografica o con ridondanza della zona).
+- Capacità riservata di Archiviazione di Azure: è possibile acquistare capacità riservata per gli account di Archiviazione di Azure standard in unità di 100 TiB o 1 PiB al mese. Per informazioni sulle aree che supportano la capacità riservata di Archiviazione di Azure, vedere [Prezzi per i BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/). La capacità riservata di Archiviazione di Azure è disponibile per tutti i livelli di accesso (ad accesso frequente, sporadico e archivio) e per qualsiasi configurazione di replica (archiviazione con ridondanza locale, con ridondanza geografica o con ridondanza della zona).
 - Capacità riservata del database SQL: la copertura degli sconti dipende dal livello di prestazioni selezionato. Per altre informazioni, vedere [Informazioni su come viene applicato ai database SQL lo sconto sulla prenotazione](understand-reservation-charges.md).
 - Capacità riservata di Azure Cosmos DB: la copertura degli sconti dipende dalla velocità effettiva di cui viene effettuato il provisioning. Per altre informazioni, vedere [Informazioni su come viene applicato lo sconto per la prenotazione ad Azure Cosmos DB](understand-cosmosdb-reservation-charges.md).
 

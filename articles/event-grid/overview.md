@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 65fd9d06c8b25e0aff94429f8eb95bb922da330c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77505918"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393194"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -32,22 +32,21 @@ Questa immagine illustra in che modo Griglia di eventi collega origini e gestori
 
 ## <a name="event-sources"></a>Origini eventi
 
-Per informazioni dettagliate complete sulle funzionalità di ogni origine, con articoli correlati, vedere [Origini evento](event-sources.md). Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Griglia di eventi:
+Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Griglia di eventi:
 
-* [Sottoscrizioni di Azure (operazioni di gestione)](event-sources.md#azure-subscriptions)
-* [Registro Container](event-sources.md#container-registry)
-* [Argomenti personalizzati](event-sources.md#custom-topics)
-* [Hub eventi](event-sources.md#event-hubs)
-* [Hub IoT](event-sources.md#iot-hub)
-* [Key Vault (anteprima)](event-sources.md#key-vault-preview)
-* [Servizi multimediali](event-sources.md#media-services)
-* [Gruppi di risorse (operazioni di gestione)](event-sources.md#resource-groups)
-* [Bus di servizio](event-sources.md#service-bus)
-* [Archiviazione BLOB](event-sources.md#storage)
-* [Mappe di Azure](event-sources.md#maps)
-* [Configurazione app](event-sources.md#app-configuration)
-* [Signal R](event-sources.md#azure-signalr)
-* [Machine Learning](event-sources.md#azure-machine-learning)
+- [Configurazione app di Azure](event-schema-app-configuration.md)
+- [Archiviazione BLOB di Azure](event-schema-blob-storage.md)
+- [Registro Azure Container](event-schema-container-registry.md)
+- [Hub eventi di Azure](event-schema-event-hubs.md)
+- [Hub IoT Azure](event-schema-iot-hub.md)
+- [Insieme di credenziali chiave Azure](event-schema-key-vault.md)
+- [Azure Machine Learning](event-schema-machine-learning.md)
+- [Mappe di Azure](event-schema-azure-maps.md)
+- [Servizi multimediali di Azure](event-schema-media-services.md)
+- [Gruppi di risorse di Azure](event-schema-resource-groups.md)
+- [Bus di servizio di Azure](event-schema-service-bus.md)
+- [Azure SignalR](event-schema-azure-signalr.md)
+- [Sottoscrizioni di Azure](event-schema-subscriptions.md)
 
 ## <a name="event-handlers"></a>Gestori eventi
 

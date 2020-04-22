@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: e8117eb1b521dc2e3fa9eaca1316e0b9c14f0e98
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bbe5d9ac21ae9e03d629a1667567a915c8653a8a
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80129465"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81602643"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes usando un modello di Azure Resource Manager
 
@@ -30,7 +30,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare un cluster del servizio Azure Kubernetes usando un modello di Resource Manager, è necessario specificare una chiave pubblica SSH e l'entità servizio di Azure Active Directory. Se è necessaria una di queste risorse, vedere la sezione successiva. In caso contrario passare direttamente alla sezione [Creare un cluster del servizio Azure Kubernetes](#create-an-aks-cluster).
+Per creare un cluster del servizio Azure Kubernetes usando un modello di Resource Manager, è necessario specificare una chiave pubblica SSH e l'entità servizio di Azure Active Directory.  In alternativa, è possibile usare un'[identità gestita](use-managed-identity.md) anziché un'entità servizio per le autorizzazioni. Se è necessaria una di queste risorse, vedere la sezione successiva. In caso contrario passare direttamente alla sezione [Creare un cluster del servizio Azure Kubernetes](#create-an-aks-cluster).
 
 ### <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
 
@@ -48,7 +48,7 @@ Per altre informazioni su come creare le chiavi SSH, vedere [Creare e gestire ch
 
 ### <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-Per consentire a un cluster servizio Azure Kubernetes di interagire con altre risorse di Azure viene usata un'entità servizio di Azure Active Directory. Creare un'entità servizio usando il comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Il parametro `--skip-assignment` limita l'assegnazione di autorizzazioni aggiuntive. Per impostazione predefinita, questa entità servizio è valida per un anno.
+Per consentire a un cluster servizio Azure Kubernetes di interagire con altre risorse di Azure viene usata un'entità servizio di Azure Active Directory. Creare un'entità servizio usando il comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Il parametro `--skip-assignment` limita l'assegnazione di autorizzazioni aggiuntive. Per impostazione predefinita, questa entità servizio è valida per un anno. Si noti che è possibile usare un'identità gestita anziché un'entità servizio. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -82,7 +82,7 @@ Per altri esempi per il servizio Azure Kubernetes, vedere il sito dei [modelli d
 
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello.
 
-    [![Distribuzione in Azure](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
+    [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 2. Selezionare o immettere i valori seguenti.
 
@@ -281,7 +281,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete].
+> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete]. Se è stata usata un'identità gestita, l'identità viene gestita dalla piattaforma e non richiede la rimozione.
 
 ## <a name="get-the-code"></a>Ottenere il codice
 

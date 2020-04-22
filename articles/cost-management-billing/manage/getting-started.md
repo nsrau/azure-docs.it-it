@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/30/2020
+ms.date: 04/10/2020
 ms.author: banders
-ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475270"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262094"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure
 
@@ -192,7 +192,18 @@ La fattura di Azure aggrega i costi per il mese in base al _contatore_. I contat
 
 Filtrare il file CSV di utilizzo in base a _MeterName_, come illustrato nella fattura da analizzare per visualizzare tutte le voci che si applicano al contatore. Il valore di _InstanceID_ per la voce corrisponde alla risorsa di Azure effettiva che ha generato l'addebito.
 
-Una volta identificata la risorsa in questione, è possibile usare l'analisi dei costi in Gestione costi di Azure per analizzare ulteriormente i costi correlati alla risorsa. Per altre informazioni sull'uso dell'analisi dei costi, vedere [Avviare l'analisi dei costi](../costs/quick-acm-cost-analysis.md).
+Una volta identificata la risorsa in questione, è possibile usare Analisi dei costi in Gestione costi di Azure per analizzare ulteriormente i costi correlati alla risorsa. Per altre informazioni sull'uso dell'analisi dei costi, vedere [Avviare l'analisi dei costi](../costs/quick-acm-cost-analysis.md).
+
+### <a name="review-invoiced-charges-in-cost-analysis"></a>Esaminare le tariffe fatturate in Analisi dei costi
+
+Per visualizzare i dettagli della fattura nel portale di Azure, passare ad Analisi dei costi per l'ambito associato alla fattura che si sta analizzando. Selezionare la visualizzazione **Dettagli della fattura**, in cui vengono mostrati gli addebiti indicati nella fattura.
+
+[![Esempio che mostra i dettagli della fattura](./media/getting-started/invoice-details.png)](./media/getting-started/invoice-details.png#lightbox)
+
+La visualizzazione dei dettagli della fattura consente di identificare il servizio con costi imprevisti e determinare le risorse direttamente associate alla risorsa in Analisi dei costi. Se, ad esempio, si vogliono analizzare gli addebiti per il servizio Macchine virtuali, passare alla visualizzazione **Costi accumulati**. Impostare quindi la granularità su **Giornaliera**, filtrare gli addebiti per **Nome del servizio: Macchine virtuali** e raggruppare gli addebiti per **Risorsa**.
+
+[![Esempio che mostra i costi accumulati per Macchine virtuali](./media/getting-started/virtual-machines.png)](./media/getting-started/virtual-machines.png#lightbox)
+
 
 ### <a name="identify-spikes-in-cost-over-time"></a>Identificare i picchi dei costi nel tempo
 

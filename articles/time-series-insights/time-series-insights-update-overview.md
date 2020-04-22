@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1e4f72300752c93659db4edd4610464dbebf2503
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77014420"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271064"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Informazioni su Azure Time Series Insights (anteprima)
 
@@ -55,8 +55,8 @@ Piattaforma di analisi operativa avanzata combinata alle funzionalità di esplor
 
 * Soluzione di archiviazione a più livelli con supporto di analisi a caldo e a freddo che offre ai clienti la possibilità di instradare i dati tra caldo e freddo per l'analisi interattiva sui dati a caldo e l'intelligenza operativa su decenni di dati cronologici. 
 
-    *   Una soluzione di analisi a caldo estremamente interattiva per eseguire un numero elevato di query frequenti su dati di intervalli di tempo più brevi 
-    *   Un data lake delle serie temporali scalabile e ottimizzato per prestazioni e costi basato su Archiviazione di Azure che consente ai clienti di individuare le tendenze di anni di dati delle serie temporali in pochi secondi. 
+    *    Una soluzione di analisi a caldo estremamente interattiva per eseguire un numero elevato di query frequenti su dati di intervalli di tempo più brevi 
+    *    Un data lake delle serie temporali scalabile e ottimizzato per il costo e per le prestazioni, basato su Archiviazione di Azure, che consente ai clienti di individuare le tendenze di anni di dati delle serie temporali in pochi secondi. 
 
 * Il supporto di modelli semantici che descrive il dominio e i metadati associati ai segnali derivati e non elaborati da asset e dispositivi.
 
@@ -64,7 +64,7 @@ Piattaforma di analisi operativa avanzata combinata alle funzionalità di esplor
 
 * Analisi avanzate con API di query avanzate ed esperienza utente che combina informazioni dettagliate sui dati basati su asset con analisi avanzate dei dati ad hoc con supporto per interpolazione, funzioni scalari e di aggregazione, variabili categoriali, grafici a dispersione e segnali delle serie temporali con cambio d'ora per l'analisi approfondita.
 
-*   Piattaforma di livello Enterprise per supportare le esigenze di scalabilità, prestazioni, sicurezza e affidabilità dei clienti IoT aziendali.
+*    Piattaforma di livello Enterprise per supportare le esigenze di scalabilità, prestazioni, sicurezza e affidabilità dei clienti IoT aziendali.
 
 * Supporto di estendibilità e integrazione per l'analisi end-to-end. Time Series Insights offre una piattaforma di analisi estendibile per diversi scenari di dati. Il connettore Power BI di Time Series Insights consente ai clienti di portare le query eseguite in Time Series Insights direttamente in Power BI per ottenere una visualizzazione unificata delle analisi di BI e delle serie temporali in un unico pannello.
 

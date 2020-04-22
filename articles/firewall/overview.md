@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/17/2020
+ms.date: 04/08/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ed27097d29f3a10e708044ad7e2e30736e2c60e6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bb4b654bd0b3591ebaa1bd217020095319a4938c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79471847"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381904"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -53,7 +53,7 @@ Per altre informazioni sulle zone di disponibilità, vedere [Informazioni sulle 
 
 ## <a name="application-fqdn-filtering-rules"></a>Regole di filtro del nome di dominio completo dell'applicazione
 
-È possibile limitare il traffico HTTP/S in uscita o il traffico SQL di Azure (anteprima) a un elenco specifico di nomi di dominio completo (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione SSL.
+È possibile limitare il traffico HTTP/S in uscita o il traffico SQL di Azure (anteprima) a un elenco specifico di nomi di dominio completo (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Regole di filtro per il traffico di rete
 
@@ -61,7 +61,7 @@ Per altre informazioni sulle zone di disponibilità, vedere [Informazioni sulle 
 
 ## <a name="fqdn-tags"></a>Tag FQDN
 
-I tag FQDN rendono più semplice consentire il traffico di rete noto del servizio di Azure attraverso il firewall. Ad esempio, si supponga di voler consentire il traffico di rete di Windows Update attraverso il firewall. Creare una regola di applicazione e includere il tag di Windows Update. A questo punto il traffico di rete da Windows Update può attraversare il firewall.
+I tag FQDN consentono di autorizzare con facilità il traffico di rete noto del servizio di Azure attraverso il firewall. Ad esempio, si supponga di voler consentire il traffico di rete di Windows Update attraverso il firewall. Creare una regola di applicazione e includere il tag di Windows Update. A questo punto il traffico di rete da Windows Update può attraversare il firewall.
 
 ## <a name="service-tags"></a>Tag di servizio
 
@@ -116,9 +116,13 @@ Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non f
 |Le zone di disponibilità possono essere configurate solo durante la distribuzione.|Le zone di disponibilità possono essere configurate solo durante la distribuzione. Non è possibile configurare le zone di disponibilità dopo aver distribuito un firewall.|Questo si verifica per motivi strutturali.|
 |SNAT sulle connessioni in ingresso|Oltre a DNAT, le connessioni tramite l'indirizzo IP pubblico del firewall (in ingresso) sono inviate tramite SNAT a uno degli indirizzi IP privati del firewall. Questo requisito è attualmente previsto (anche per le appliance virtuali di rete in modalità attivo/attivo) per consentire il routing simmetrico.|Per mantenere l'origine iniziale per HTTP/S, prendere in considerazione l'uso delle intestazioni [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For). Usare ad esempio un servizio come [Frontdoor di Azure](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) o [Gateway applicazione di Azure](../application-gateway/rewrite-http-headers.md) prima del firewall. È anche possibile aggiungere WAF come parte di Frontdoor di Azure e concatenarlo al firewall.
 |Supporto per il filtro FQDN di SQL disponibile solo in modalità proxy (porta 1433)|Per il database SQL di Azure, Azure SQL Data Warehouse e Istanza gestita di SQL di Azure:<br><br>Durante l'anteprima il filtro FQDN di SQL è supportato solo in modalità proxy (porta 1433).<br><br>Per SQL IaaS di Azure:<br><br>Se si usano porte non standard, è possibile specificarle nelle regole dell'applicazione.|Per SQL in modalità di reindirizzamento, che è l'impostazione predefinita se la connessione viene effettuata dall'interno di Azure, è invece possibile filtrare l'accesso usando il tag di servizio SQL nell'ambito delle regole di rete di Firewall di Azure.
-|Il traffico in uscita dalla porta TCP 25 non è consentito| Le connessioni SMTP in uscita che usano la porta TCP 25 vengono bloccate. La porta 25 viene usata principalmente per il recapito di posta elettronica non autenticata. Si tratta del comportamento predefinito della piattaforma per le macchine virtuali. Per altre informazioni, vedere [Risolvere i problemi di connettività SMTP in uscita in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Tuttavia, a differenza delle macchine virtuali, non è attualmente possibile abilitare questa funzionalità nel firewall di Azure.|Seguire il metodo consigliato per inviare messaggi di posta elettronica come illustrato nell'articolo sulla risoluzione dei problemi di SMTP. In alternativa, escludere la macchina virtuale che necessita dell'accesso SMTP in uscita dalla route predefinita al firewall e configurare invece l'accesso in uscita direttamente in Internet.
+|Il traffico in uscita dalla porta TCP 25 non è consentito| Le connessioni SMTP in uscita che usano la porta TCP 25 vengono bloccate. La porta 25 viene usata principalmente per il recapito di posta elettronica non autenticata. Si tratta del comportamento predefinito della piattaforma per le macchine virtuali. Per altre informazioni, vedere [Risolvere i problemi di connettività SMTP in uscita in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Tuttavia, a differenza delle macchine virtuali, non è attualmente possibile abilitare questa funzionalità nel firewall di Azure. Nota: per consentire SMTP autenticato (porta 587) o SMTP su una porta diversa da 25, assicurarsi di configurare una regola di rete e non una regola dell'applicazione perché l'ispezione SMTP non è al momento supportata.|Seguire il metodo consigliato per inviare messaggi di posta elettronica come illustrato nell'articolo sulla risoluzione dei problemi di SMTP. In alternativa, escludere la macchina virtuale che necessita dell'accesso SMTP in uscita dalla route predefinita al firewall e configurare invece l'accesso in uscita direttamente in Internet.
 |FTP attivo non è supportato|FTP attivo è disabilitato nel firewall di Azure per proteggere dagli attacchi di rimbalzo FTP tramite il comando FTP PORT.|In alternativa, è possibile usare FTP passivo. È comunque necessario aprire in modo esplicito le porte TCP 20 e 21 sul firewall.
-|Il valore visualizzato dalla metrica di utilizzo delle porte SNAT è 0%|La metrica di utilizzo delle porte SNAT di Firewall di Azure può mostrare un utilizzo dello 0% anche quando vengono usate porte SNAT. In questo caso, l'uso della metrica come parte della metrica di integrità del firewall fornisce un risultato non corretto.|Questo problema è stato risolto e l'implementazione nell'ambiente di produzione è prevista nel mese di maggio 2020. La ridistribuzione del firewall risolve il problema in alcuni casi, ma non in modo coerente. Come soluzione alternativa intermedia, usare lo stato di integrità del firewall per cercare solo lo stato *degradato* e non lo stato *non integro*. L'esaurimento delle porte viene visualizzato come stato *degradato*. Lo stato *non integro* è riservato per un uso futuro, quando saranno disponibili più metriche di impatto per l'integrità del firewall. 
+|Il valore visualizzato dalla metrica di utilizzo delle porte SNAT è 0%|La metrica di utilizzo delle porte SNAT di Firewall di Azure può mostrare un utilizzo dello 0% anche quando vengono usate porte SNAT. In questo caso, l'uso della metrica come parte della metrica di integrità del firewall fornisce un risultato non corretto.|Questo problema è stato risolto e l'implementazione nell'ambiente di produzione è prevista nel mese di maggio 2020. La ridistribuzione del firewall risolve il problema in alcuni casi, ma non in modo coerente. Come soluzione alternativa intermedia, usare lo stato di integrità del firewall per cercare solo lo stato *degradato* e non lo stato *non integro*. L'esaurimento delle porte viene visualizzato come stato *degradato*. Lo stato *non integro* è riservato per un uso futuro, quando saranno disponibili più metriche di impatto per l'integrità del firewall.
+|DNAT non è supportato con il tunneling forzato abilitato|I firewall distribuiti con il tunneling forzato abilitato non supportano l'accesso in ingresso da Internet a causa del routing simmetrico.|Si tratta di una scelta per progettazione. Il percorso di ritorno per le connessioni in ingresso passa attraverso il firewall locale, che non ha visto la connessione stabilita.
+|FTP passivo in uscita non funziona per i firewall con più indirizzi IP pubblici.|FTP passivo stabilisce connessioni diverse per canali di controllo e dei dati. Quando un firewall con più indirizzi IP pubblici invia dati in uscita, seleziona in modo casuale uno degli indirizzi IP pubblici come indirizzo IP di origine. FTP ha esito negativo quando i canali di controllo e dei dati usano indirizzi IP di origine diversi.|È stata pianificata una configurazione SNAT esplicita. Nel frattempo, è consigliabile usare un singolo indirizzo IP in questa situazione.|
+|Per la metrica NetworkRuleHit manca una dimensione del protocollo|La metrica ApplicationRuleHit consente il protocollo basato su filtro, ma questa funzionalità non è presente nella metrica NetworkRuleHit corrispondente.|È in corso la ricerca di una correzione.|
+|Gli aggiornamenti della configurazione possono richiedere in media cinque minuti.|Un aggiornamento della configurazione di Firewall di Azure può richiedere in media da tre a cinque minuti e gli aggiornamenti paralleli non sono supportati.|È in corso la ricerca di una correzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
