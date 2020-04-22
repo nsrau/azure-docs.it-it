@@ -87,7 +87,7 @@
             - name: Soluzioni basate su CEF
               href: connect-common-event-format.md
               items:
-                - name: 'PASSAGGIO 1: Distribuire il cluster'
+                - name: 'PASSAGGIO 1: Distribuire il server d''inoltro dei log'
                   href: connect-cef-agent.md
                 - name: 'PASSAGGIO 2: Configurare la soluzione di sicurezza'
                   href: connect-cef-solution-config.md
@@ -143,5 +143,5 @@
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 'Blog su sicurezza, privacy e conformità per Azure'
       href: 'https://blogs.msdn.com/b/azuresecurity/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'

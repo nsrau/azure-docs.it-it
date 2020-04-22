@@ -10,12 +10,8 @@
   items:
     - name: Libreria client
       items:
-        - name: 'Uso di C#'
-          href: quickstarts/detect-data-anomalies-csharp-sdk.md
-        - name: Uso di Python
-          href: quickstarts/detect-data-anomalies-python-sdk.md
-        - name: Uso di Node.js
-          href: quickstarts/detect-data-anomalies-nodejs-sdk.md
+        - name: Librerie client di Rilevamento anomalie
+          href: ./quickstarts/client-libraries.md
     - name: API REST
       items:
         - name: 'Uso di C#'

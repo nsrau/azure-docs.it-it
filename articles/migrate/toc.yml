@@ -10,7 +10,7 @@
       items:
         - name: Generale
           href: resources-faq.md
-        - name: Appliance di Azure Migrate
+        - name: Appliance Azure Migrate
           href: common-questions-appliance.md
         - name: Strumento Valutazione del server e analisi delle dipendenze
           href: common-questions-discovery-assessment.md
@@ -96,14 +96,16 @@
       href: how-to-assess.md
     - name: Distribuire l'appliance di Azure Migrate
       items:
-        - name: Distribuire l'appliance per VMware (OVA)
+        - name: Distribuire appliance con un modello (VMware)
           href: how-to-set-up-appliance-vmware.md
-        - name: Distribuire l'appliance per Hyper-V (VHD)
+        - name: Distribuire appliance con un modello (Hyper-V)
           href: how-to-set-up-appliance-hyper-v.md
-        - name: Distribuire l'appliance per VMware/Hyper-V (script)
+        - name: Distribuire appliance per uno script (VMware/Hyper-V)
           href: deploy-appliance-script.md
         - name: Distribuire l'appliance per server fisici
           href: how-to-set-up-appliance-physical.md
+        - name: Distribuire appliance in Azure per enti pubblici
+          href: deploy-appliance-script-government.md
     - name: Limitare l'ambito di individuazione per le macchine virtuali VMware
       href: set-discovery-scope.md
     - name: 'Individuare applicazioni, ruoli e funzionalità'

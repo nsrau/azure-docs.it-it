@@ -2,8 +2,10 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sull'insieme di credenziali delle chiavi di Azure
+    - name: Informazioni su Azure Key Vault
       href: overview.md
+    - name: 'Informazioni su chiavi, segreti e certificati'
+      href: about-keys-secrets-certificates.md
 - name: Esercitazioni
   items:
     - name: Macchina virtuale di Azure
@@ -68,6 +70,8 @@
           href: vs-key-vault-add-connected-service.md
     - name: Monitoraggio e governance
       items:
+        - name: Configurare il monitoraggio e gli avvisi per Azure Key Vault
+          href: alert.md
         - name: Integrare Azure Key Vault con Criteri di Azure
           href: azure-policy.md
         - name: Registrazione di Azure Key Vault

@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 82755c42ecc46c2d6bcc7ec3362f43a594923693
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 26632aebbd6cddd1463064b397a2f42071a5d518
+  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79415935"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "81757293"
 landingContent:
 - title: Informazioni sull'API Rilevamento anomalie
   linkLists:
@@ -49,9 +49,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Uso di C#
-      url: quickstarts/detect-data-anomalies-csharp-sdk.md
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
+    - text: Uso di JavaScript
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
     - text: Uso di Python
-      url: quickstarts/detect-data-anomalies-python-sdk.md
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
   - linkListType: tutorial
     links:
     - text: Visualizzare le anomalie con il rilevamento in batch e Power BI
@@ -96,7 +98,7 @@ landingContent:
       url: https://aka.ms/adadvisorsjoin
     - text: Contenuto generato dagli utenti
       url: user-generated-content.md
-- title: Riferimento
+- title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
     links:
