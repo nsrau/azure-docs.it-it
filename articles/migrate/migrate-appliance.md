@@ -3,12 +3,12 @@ title: Appliance di Azure Migrate
 description: Fornisce una panoramica dell'appliance di Azure Migrate usata nella valutazione e nella migrazione del server.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1c21f06e674871aefde1ae952a459db16feeb717
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538223"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676349"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance di Azure Migrate
 
@@ -125,7 +125,7 @@ Servicebus.usgovcloudapi.net .servicebus.usgovcloudapi.net  | Comunicazione tra 
 discoverysrv.windowsazure.us .discoverysrv.windowsazure.us <br/> MIGRATION.WINDOWSAZURE.US .migration.windowsazure.us | Connettersi agli URL del servizio Azure Migrate.Connect to Azure Migrate service URLs.
 *.hypervrecoverymanager.windowsazure.us | **Utilizzato per la migrazione senza agente VMware**<br/><br/> Connettersi agli URL del servizio Azure Migrate.Connect to Azure Migrate service URLs.
 *.blob.core.usgovcloudapi.net  |  **Utilizzato per la migrazione senza agente VMware**<br/><br/>Caricare i dati nell'archivio per la migrazione.
-Applicationinsights.us .applicationinsights.us | Utilizzato dall'agente gateway nell'appliance per accedere all'endpoint di Application Insights per il monitoraggio diagnostico.
+Applicationinsights.us .applicationinsights.us | Caricare i log dell'app usati per il monitoraggio interno.
 
 
 

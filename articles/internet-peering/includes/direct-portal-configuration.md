@@ -8,66 +8,66 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 2a42ba8809e6895c9eea9f8762513b7fcaa9eb3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fda22346a44388248e37473bc7891b8a130569c4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75775277"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681045"
 ---
-1. Nella pagina **Crea peering,** nella scheda **Configurazione,** compilare i campi come illustrato di seguito.
+1. Nella scheda **Configurazione** della pagina **Crea peering** compilare le caselle come illustrato di seguito.
 
-    * Per **Tipo di peering**, selezionare *Diretto*.
-    * Per **rete Microsoft**, scegliere *AS8075*. Non creare il peering con ASN 8069. È riservato per applicazioni speciali e utilizzato solo da [Microsoft peering](mailto:peering@microsoft.com).
-    * Selezionare **SKU** come *Basic Free*. Non selezionare *Premium Free* poiché è riservato ad applicazioni speciali.
-    * Scegli la posizione **Metro** in cui vuoi configurare il peering.
+    * Per **Tipo di peering**, selezionare **Diretto**.
+    * Per **Rete Microsoft**, selezionare **AS8075**. Non creare il peering con ASN 8069. È riservato per applicazioni speciali e utilizzato solo da [Microsoft peering](mailto:peering@microsoft.com).
+    * Selezionare **SKU** come **Basic Free**. Non selezionare Premium Free perché è riservato ad applicazioni speciali.
+    * Selezionare la posizione **Metro** in cui si desidera impostare il peering.
 
         > [!NOTE]
-        > Se si dispone già di connessioni di peering con Microsoft nella posizione **Metro** selezionata e si utilizza il portale per la prima volta per configurare il peering in tale posizione, le connessioni di peering esistenti verranno elencate nella sezione **Connessioni peering** come illustrato di seguito. Microsoft convertirà automaticamente queste connessioni di peering in risorse di Azure in modo che sia possibile gestirle tutte insieme alle nuove connessioni, in un'unica posizione. Per altre info, vedi [Convertire un peering diretto legacy](../howto-legacy-direct-portal.md) in una risorsa di Azure usando il portale.
+        > Se si dispone già di connessioni di peering con Microsoft nella posizione **Metro** selezionata e si usa il portale di Azure per la prima volta per configurare il peering in tale posizione, le connessioni peering esistenti verranno elencate nella sezione **Connessioni peering** come illustrato. Microsoft convertirà automaticamente queste connessioni di peering in una risorsa di Azure in modo che sia possibile gestirle tutte, insieme alle nuove connessioni, in un'unica posizione. Per altre informazioni, vedere [Convertire un peering diretto legacy in una risorsa](../howto-legacy-direct-portal.md)di Azure usando il portale.
         >
 
-1. In **Connessioni peering**fare clic su **Crea nuova** per aggiungere una riga per ogni nuova connessione che si desidera configurare.
+1. In **Connessioni peering**selezionare **Crea nuova** per aggiungere una riga per ogni nuova connessione che si desidera configurare.
 
-    * Per configurare/modificare le impostazioni di connessione, fare clic sul pulsante di modifica per una linea.
+    * Per configurare o modificare le impostazioni di connessione, selezionare il pulsante di modifica per una linea.
 
         > [!div class="mx-imgBorder"]
-        > ![Configurazione peering - Modifica diretta](../media/setup-direct-conf-tab-edit.png)
+        > ![Pulsante Modifica](../media/setup-direct-conf-tab-edit.png)
     
-    * Per eliminare una riga, fare clic sul pulsante **...** > **Elimina**.
+    * Per eliminare una riga, selezionare **...**  >  **Elimina**.
 
         > [!div class="mx-imgBorder"]
-        > ![Configurazione peering - Modifica diretta](../media/setup-direct-conf-tab-delete.png)
+        > ![Pulsante Elimina](../media/setup-direct-conf-tab-delete.png)
 
     * È necessario fornire tutte le impostazioni per una connessione, come illustrato di seguito.
 
          > [!div class="mx-imgBorder"]
-         > ![Configurazione peering - Connessione diretta](../media/setup-direct-conf-tab-connection.png)
+         > ![Pagina Connessione peering diretto](../media/setup-direct-conf-tab-connection.png)
 
         1. Selezionare la **funzionalità Peering** in cui è necessario configurare la connessione.
-        1. **Provider di indirizzi di sessione** viene utilizzato per determinare chi fornisce la subnet necessaria per configurare la sessione BGP tra la rete e Microsoft. Se si è in grado di fornire una subnet, scegliere *Peer*. Altrimenti scegliere **Microsoft** e [Microsoft peering](mailto:peering@microsoft.com) vi contatterà. Si noti che la scelta di così, richiederebbe più tempo per Microsoft elaborare la richiesta di peering. In alcuni casi Microsoft potrebbe non essere in grado di fornire subnet che comporteranno la negazione della richiesta.
-        1. Se si sceglie **Provider di indirizzi** di sessione come *peer*, immettere l'indirizzo IPv4 e IPv6 insieme alla maschera prefisso nei campi **Prefisso IPv4 sessione** e **Prefisso IPv6 sessione** rispettivamente.
-        1. Immettere il numero di prefissi IPv4 e IPv6 annunciati nei campi **Massimo indirizzi IPv4 annunciati** e Numero massimo di **indirizzi IPv6 annunciati** rispettivamente.
+        1. **Provider di indirizzi di sessione** viene utilizzato per determinare chi fornisce la subnet necessaria per configurare la sessione BGP tra la rete e Microsoft. Se è possibile fornire la subnet, selezionare **Peer**. In caso contrario, seleziona **Microsoft** e [Microsoft peering](mailto:peering@microsoft.com) ti contatterà. La scelta di questa opzione richiederà più tempo per Microsoft per elaborare la richiesta di peering. In alcuni casi, Microsoft potrebbe non essere in grado di fornire subnet, che comporterà la negazione della richiesta.
+        1. Se è stata selezionata l'opzione **Provider di indirizzi** di sessione come **Peer**, immettere gli indirizzi IPv4 e IPv6 insieme alle maschere di prefisso nelle caselle **Prefisso IPv4 sessione** e **Prefisso IPv6 sessione,** rispettivamente.
+        1. Inserisci il numero di prefissi IPv4 e IPv6 che pubblicizzerai rispettivamente nelle caselle Numero massimo di **indirizzi IPv4 annunciati** e Numero massimo di **indirizzi IPv6 pubblicizzati.**
         1. Regolare il dispositivo di scorrimento **Larghezza di banda totale** per riflettere la larghezza di banda per la connessione.
-        1. Fare clic **su OK** per salvare le impostazioni di connessione.
+        1. Selezionare **Salva** per salvare le impostazioni di connessione.
 
-1. Ripetere il passaggio precedente per aggiungere altre connessioni in qualsiasi struttura in cui Microsoft è colocalizzata con la rete, all'interno della **metropolitana** selezionata in precedenza.
+1. Ripetere il passaggio precedente per aggiungere altre connessioni in qualsiasi struttura in cui Microsoft sia colocalizzata con la rete, all'interno della **metropolitana** selezionata in precedenza.
 
-1. Dopo aver aggiunto tutte le connessioni necessarie, fare clic su **Rivedi : crea**.
+1. Dopo aver aggiunto tutte le connessioni necessarie, selezionare **Revisione e creazione**.
 
     > [!div class="mx-imgBorder"]
-    > ![Scheda Configurazione peering finale](../media/setup-direct-conf-tab-final.png)
+    > ![Finale della scheda Configurazione peering](../media/setup-direct-conf-tab-final.png)
 
-1. Osservare che il portale esegue la convalida di base delle informazioni immesse. Questo viene visualizzato in una barra multifunzione nella parte superiore, come *Esecuzione della convalida finale...*.
+1. Si noti che il portale esegue la convalida di base delle informazioni immesse. Una barra multifunzione nella parte superiore visualizza il messaggio *Esecuzione della convalida finale...*.
 
     > [!div class="mx-imgBorder"]
     > ![Scheda Convalida peering](../media/setup-direct-review-tab-validation.png)
 
-1. Dopo che si passa a *Convalida superata*, verificare le informazioni e inviare la richiesta facendo clic su **Crea**. Se è necessario modificare la richiesta, fare clic su **Precedente** e ripetere i passaggi precedenti.
+1. Dopo che il messaggio diventa *Convalida superata,* verificare le informazioni. Inviare la richiesta selezionando **Crea**. Per modificare la richiesta, selezionare **Indietro** e ripetere i passaggi.
 
     > [!div class="mx-imgBorder"]
     > ![Invio peering](../media/setup-direct-review-tab-submit.png)
 
-1. Dopo aver inviato la richiesta, attendere che completi la distribuzione. Se la distribuzione non riesce, [contattare Microsoft peering](mailto:peering@microsoft.com). Una distribuzione corretta verrà visualizzata come di seguito.
+1. Dopo aver inviato la richiesta, attendere il completamento della distribuzione. Se la distribuzione non riesce, [contattare Microsoft peering](mailto:peering@microsoft.com). Viene visualizzata una distribuzione corretta come illustrato di seguito.
 
     > [!div class="mx-imgBorder"]
-    > ![Successo peering](../media/setup-direct-success.png)
+    > ![Successo di peering](../media/setup-direct-success.png)

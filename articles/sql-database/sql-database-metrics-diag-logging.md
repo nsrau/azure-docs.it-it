@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 288d4e4d0c5faa6bb2b51451fb36bbb6d666c9eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756409"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683187"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configurare l'esportazione di streaming dei dati di telemetria di diagnostica del database SQL di AzureConfigure streaming export of Azure SQL Database diagnostic telemetry
 
@@ -95,7 +95,7 @@ Questo flusso di telemetria di diagnostica trasmesso a una di queste destinazion
 
 Selezionare una delle schede seguenti per istruzioni dettagliate per la configurazione dell'esportazione di flusso dei dati di telemetria di diagnostica nel portale di Azure e per gli script per eseguire lo stesso risultato con PowerShell e l'interfaccia della riga di comando di Azure.Select one of the following tabs for step-by-step guidance for configuring the streaming export of diagnostic telemetry in the Azure portal and for scripts for accomplishing the same with PowerShell and the Azure CLI.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 ### <a name="elastic-pools"></a>Pool elastici
 
@@ -363,7 +363,7 @@ SQL Database metrics and resource logs that are streamed into a Log Analytics wo
 
 ## <a name="stream-into-event-hubs"></a>Trasmettere un flusso a Hub eventi
 
-È possibile trasmettere le metriche del database SQL e i log delle risorse negli hub eventi usando l'opzione Stream in un hub eventi incorporato nel portale di Azure.You can stream SQL Database metrics and resource logs into Event Hubs by using the built-in **Stream to an event hub** option in the Azure portal. È anche possibile abilitare l'ID regola del bus di servizio usando le impostazioni di diagnostica tramite i cmdlet di PowerShell, l'interfaccia della riga di comando di Azure o l'API REST di Azure Monitor.You also can enable the Service Bus rule ID by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
+È possibile trasmettere le metriche del database SQL e i log delle risorse negli hub eventi usando l'opzione Stream in un hub eventi incorporato nel portale di Azure.You can stream SQL Database metrics and resource logs into Event Hubs by using the built-in **Stream to an event hub** option in the Azure portal. È anche possibile abilitare l'ID regola del bus di servizio usando le impostazioni di diagnostica tramite i cmdlet di PowerShell, l'interfaccia della riga di comando di Azure o l'API REST di Azure Monitor.You also can enable the Service Bus rule ID by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
 
 ### <a name="what-to-do-with-metrics-and-resource-logs-in-event-hubs"></a>Cosa fare con le metriche e i log delle risorse negli hub eventi
 

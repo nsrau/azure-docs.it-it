@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255652"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685757"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
 In questo articolo vengono presentate le attività di sicurezza e i controlli da considerare quando si sviluppano applicazioni per il cloud. Le domande sulla sicurezza e i concetti da considerare durante le fasi di implementazione e verifica del ciclo di vita dello sviluppo della [sicurezza Microsoft (SDL, Microsoft Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) sono trattati. L'obiettivo è quello di aiutare a definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più sicura.
@@ -44,7 +44,7 @@ Azure Marketplace offre strumenti di [sviluppo](https://azuremarketplace.microso
 
 ### <a name="validate-and-sanitize-every-input-for-your-application"></a>Convalidare e sanificare ogni input per l'applicazione
 
-Considerare tutti gli input come non attendibili per proteggere l'applicazione dalle vulnerabilità più comuni delle applicazioni Web. I dati non attendibili sono un veicolo per gli attacchi di iniezione. L'input per l'applicazione include parametri nell'URL, input dall'utente, dati dal database o da un'API e tutto ciò che viene passato in quanto un utente potrebbe potenzialmente modificare. Un'applicazione deve [verificare](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) che i dati siano sintattici e semanticamente validi prima che l'applicazione utilizzi i dati in qualsiasi modo (inclusa la visualizzazione all'utente).
+Considerare tutti gli input come non attendibili per proteggere l'applicazione dalle vulnerabilità più comuni delle applicazioni Web. I dati non attendibili sono un veicolo per gli attacchi di iniezione. L'input per l'applicazione include parametri nell'URL, input dall'utente, dati dal database o da un'API e tutto ciò che viene passato in quanto un utente potrebbe potenzialmente modificare. Un'applicazione deve [verificare](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs) che i dati siano sintattici e semanticamente validi prima che l'applicazione utilizzi i dati in qualsiasi modo (inclusa la visualizzazione all'utente).
 
 Convalidare l'input nelle prime prime fasi del flusso di dati per assicurarsi che solo i dati formati correttamente entrino nel flusso di lavoro. Non si desidera che i dati in formato non corretto persistono nel database o l'attivazione di un malfunzionamento in un componente a valle.
 

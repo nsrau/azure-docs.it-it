@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e27550ecc5b42c2bf0d947690da09e13d88ea4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128025"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683905"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Accesso delegato in Desktop virtuale Windows
 
@@ -37,7 +37,7 @@ L'accesso delegato di Windows Virtual Desktop supporta i valori seguenti per ogn
 L'accesso delegato in Windows Virtual Desktop include diverse definizioni di ruolo predefinite che è possibile assegnare a utenti ed entità servizio.
 
 * Un proprietario di Servizi Desktop remoto può gestire tutto, incluso l'accesso alle risorse.
-* Un collaboratore RDS può gestire tutto tranne l'accesso alle risorse.
+* Un collaboratore RDS può gestire tutto, ma non può accedere alle risorse.
 * Un lettore RDS può visualizzare tutto, ma non può apportare modifiche.
 * Un operatore RDS può visualizzare le attività di diagnostica.
 

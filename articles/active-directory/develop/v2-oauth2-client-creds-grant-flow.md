@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6021348160b338bc3a153764968f6c846a644cd1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f559dc0da8680a6cd3243b5ee12c3145244c9c2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535860"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677876"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Piattaforma di identità Microsoft e flusso delle credenziali client OAuth 2.0
 
@@ -26,9 +26,6 @@ La [concessione di credenziali client OAuth 2.0](https://tools.ietf.org/html/rfc
 In questo articolo viene descritto come programmare direttamente in base al protocollo nell'applicazione. Quando possibile, è consigliabile utilizzare le librerie di autenticazione Microsoft (MSAL) supportate per [acquisire token e chiamare API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dai anche un'occhiata alle [app di esempio che utilizzano MSAL](sample-v2-code.md).
 
 Il flusso di concessione delle credenziali client OAuth 2.0 consente a un servizio Web (client riservato) di usare le proprie credenziali, invece di rappresentare un utente, per l'autenticazione durante la chiamata a un altro servizio Web. In questo scenario il client è in genere un servizio Web di livello intermedio, un servizio daemon o un sito Web. Per un livello più elevato di sicurezza, Microsoft Identity Platform consente anche al servizio chiamante di usare un certificato (invece di un segreto condiviso) come credenziale.
-
-> [!NOTE]
-> L'endpoint della piattaforma di identità Microsoft non supporta tutti gli scenari e le funzionalità di Azure AD. Per determinare se è necessario utilizzare l'endpoint della piattaforma di identità Microsoft, leggere le informazioni sulle [limitazioni della piattaforma](active-directory-v2-limitations.md)di identità Microsoft .
 
 Nel più comune *OAuth a tre vie*, a un'applicazione client viene concessa l'autorizzazione per accedere a una risorsa per conto di un determinato utente. L'autorizzazione è delegata dall'utente all'applicazione, in genere, durante il processo di [concessione](v2-permissions-and-consent.md). Tuttavia, nel flusso di credenziali client (*OAuth a due vie*), le autorizzazioni vengono concesse direttamente all'applicazione stessa. Quando l'app presenta un token a una risorsa, quest'ultima obbliga l'app stessa, e non l'utente, ad avere l'autorizzazione per eseguire un'azione.
 

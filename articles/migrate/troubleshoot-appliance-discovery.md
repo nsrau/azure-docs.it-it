@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9fbf55fbe16d958bf10541894159dade26668bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336714"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677331"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi all'appliance di Azure Migrate e all'individuazioneTroubleshoot the Azure Migrate appliance and discovery
 
@@ -27,7 +27,7 @@ Questo articolo consente di risolvere i problemi relativi alla distribuzione del
 
 Se viene visualizzato l'errore "Il file manifesto fornito non è valido: voce di manifesto OVF non valida", eseguire le operazioni seguenti:
 
-1. Verificare che il file OVA dell'appliance di Azure Migrate venga scaricato correttamente controllandone il valore hash. [Scopri di più](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se il valore hash non corrisponde, scaricare nuovamente il file OVA e ripetere la distribuzione.
+1. Verificare che il file OVA dell'appliance di Azure Migrate venga scaricato correttamente controllandone il valore hash. [Altre informazioni](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware) Se il valore hash non corrisponde, scaricare nuovamente il file OVA e ripetere la distribuzione.
 2. Se la distribuzione continua a non riuscire e si utilizza il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client web vSphere. Se la distribuzione continua a non riuscire, provare a utilizzare un Web browser diverso.
 3. Se si utilizza il client web vSphere e si tenta di distribuirlo su vCenter Server 6.5 o 6.7, provare a distribuire l'OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (anziché vCenter Server) con il client Web (https://<indirizzo *IP host*>/ui).
@@ -41,6 +41,15 @@ Ciò può accadere se il computer dell'appliance si trova dietro un proxy.
 - Assicurarsi di fornire le credenziali di autorizzazione se il proxy ne ha bisogno.
 - Se si utilizza un proxy firewall basato su URL per controllare la connettività in uscita, aggiungere [questi URL](migrate-appliance.md#url-access) a un elenco Consenti.
 - Se si utilizza un proxy di intercettazione per connettersi a Internet, importare il certificato proxy nella macchina virtuale dell'appliance attenendosi [alla seguente procedura.](https://docs.microsoft.com/azure/migrate/concepts-collector)
+
+## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Impossibile accedere ad Azure dall'app Web dell'appliance
+
+Se si usa l'account Azure non corretto, viene visualizzato l'errore "Spiacenti, ma si verificano problemi di accesso". Questo errore si verifica per un paio di motivi:
+
+- Se si accede all'applicazione Web dell'appliance per il cloud pubblico, si usano le credenziali dell'account utente per il portale cloud di enti pubblici.
+- Se si accede all'applicazione Web dell'appliance per il cloud governativo usando le credenziali dell'account utente per il portale del cloud privato.
+
+Assicurarsi di utilizzare le credenziali corrette.
 
 ##  <a name="datetime-synchronization-error"></a>Errore di sincronizzazione data/ora
 
@@ -141,7 +150,7 @@ Azure Migrate supporta l'individuazione di applicazioni, ruoli e funzionalità t
 
 Gli errori tipici di individuazione delle app sono riepilogati nella tabella. 
 
-**Errore** | **Causa** | **Azione**
+**Error (Errore) (Error (Errore)e)** | **Causa** | **Azione**
 --- | --- | --- | ---
 10000: "Impossibile individuare le applicazioni installate sul server". | Ciò può verificarsi se il sistema operativo del computer non è Windows o Linux.This might occur if the machine operating system isn't Windows or Linux. | Usare solo l'individuazione delle app per Windows/Linux.
 10001: "Impossibile recuperare le applicazioni installate nel server". | Errore interno - alcuni file mancanti nell'appliance. | Contattare il supporto Microsoft.

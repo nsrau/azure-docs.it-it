@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521311"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676362"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticare l'accesso alle risorse degli hub eventi usando le firme di accesso condivisoAuthenticate access to Event Hubs resources using shared access signatures (SAS)
 La firma di accesso condiviso offre un controllo granulare sul tipo di accesso concesso ai client che dispone della firma di accesso condiviso. Ecco alcuni dei controlli che è possibile impostare in una sAS:Here are some of the controls you can set in a SAS: 
@@ -22,7 +22,7 @@ La firma di accesso condiviso offre un controllo granulare sul tipo di accesso c
 - Le autorizzazioni concesse dalla firma di accesso condiviso. Ad esempio, una sAS per uno spazio dei nomi Hub eventi potrebbe concedere l'autorizzazione di ascolto, ma non l'autorizzazione di invio.
 - Solo i client che presentano le credenziali valide possono inviare dati a un hub eventi.
 - Un client non può rappresentare un altro client.
-- È possibile impedire a un client rouge di inviare dati a un hub eventi.
+- A un client non autorizzato può essere impedito l'invio di dati a un hub eventi.
 
 Questo articolo illustra l'autenticazione dell'accesso alle risorse di Hub eventi tramite SAS. Per informazioni **sull'autorizzazione** dell'accesso alle risorse di Hub eventi tramite la sAS, vedere [questo articolo](authorize-access-shared-access-signature.md). 
 

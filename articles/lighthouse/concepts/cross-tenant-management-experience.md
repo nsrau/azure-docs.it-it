@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 04/06/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 107350cdab90751e918d4c7845776464b43abbdd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418516"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682822"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -72,6 +72,14 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 - Analisi dei log: eseguire query sui dati delle aree di lavoro dei clienti remoti in più tenant
 - Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio runbook di Automazione di Azure o Funzioni di Azure, nel tenant del provider di servizi tramite webhook
 
+[Rete di Azure:](../../networking/networking-overview.md)
+
+- Distribuire e gestire schede di rete virtuale (VNet) e di interfaccia di rete virtuale (vNIC) all'interno dei tenant dei clientiDeploy and manage [Azure Virtual Network (VNet)](../../virtual-network/index.yml) and virtual network interface cards (vNICs) within customer tenants
+- Distribuire e configurare Firewall di Azure per proteggere le risorse della rete virtuale dei clientiDeploy and configure [Azure Firewall](../../firewall/overview.md) to protect customers' Virtual Network resources
+- Gestire servizi di connettività come LA rete WAN virtuale di [Azure,](../../virtual-wan/virtual-wan-about.md) [ExpressRoute](../../expressroute/expressroute-introduction.md)e [i gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) per i clienti
+- Usare Azure Lighthouse per supportare scenari chiave per il programma MSP di Rete di [AzureUse](../../networking/networking-partners-msp.md) Azure Lighthouse to support key scenarios for the Azure Networking MSP Program
+
+
 [Criteri di Azure:](../../governance/policy/index.yml)
 
 - Gli snapshot di conformità mostrano i dettagli per i criteri assegnati nelle sottoscrizioni delegate
@@ -121,10 +129,6 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 - Usare la diagnostica di avvio per risolvere i problemi delle macchine virtuali di Azure nei tenant dei clienti
 - Accedere alle macchine virtuali con la console seriale nei tenant dei clienti
 - Si noti che non è possibile usare Azure Active Directory per l'accesso remoto a una macchina virtuale e non è possibile integrare una macchina virtuale con un insieme di credenziali delle chiavi per password, segreti o chiavi crittografiche per la crittografia del disco
-
-[Rete virtuale di Azure:](../../virtual-network/index.yml)
-
-- Distribuire e gestire reti virtuali e schede di interfaccia di rete virtuale nei tenant dei clienti
 
 Richieste di supporto:
 

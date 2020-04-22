@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione a condivisioni file di AzureMigrate to Azure file shares
+title: Eseguire la migrazione a condivisioni file di Azure
 description: Informazioni sulle migrazioni alle condivisioni file di Azure e nella guida alla migrazione.
 author: fauhse
 ms.service: storage
@@ -7,122 +7,150 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 903ce52120fce7c23c6a3754498b81fc6fc2430f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6141d48d67dd44c348961c6e09acf4e2531a61e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247317"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685980"
 ---
-# <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di AzureMigrate to Azure file shares
+# <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di Azure
 
 Questo articolo illustra gli aspetti di base di una migrazione alle condivisioni file di Azure.This article covers the basic aspects of a migration to Azure file shares.
 
-Oltre alle nozioni di base sulla migrazione, questo articolo contiene un elenco di guide alla migrazione esistenti e individualizzate. Queste guide alla migrazione consentono di spostare i file in condivisioni file di Azure e sono organizzate in base alla posizione dei dati di oggi e al modello di distribuzione (solo cloud o ibrido) in cui si prevede di passare.
+Questo articolo contiene le nozioni di base sulla migrazione e una tabella di guide alla migrazione. Queste guide consentono di spostare i file in condivisioni file di Azure.These guides help you move your files into Azure file shares. Le guide sono organizzate in base alla posizione dei dati e al modello di distribuzione (solo cloud o ibrido) in cui ci si sta spostando.
 
 ## <a name="migration-basics"></a>Nozioni di base sulla migrazioneMigration basics
 
-In Azure sono disponibili più tipi diversi di archiviazione cloud. Un aspetto fondamentale della migrazione dei file in Azure consiste nel determinare l'opzione di archiviazione di Azure più appropriata per i dati.
+Azure include più tipi di archiviazione cloud disponibili. Un aspetto fondamentale delle migrazioni di file in Azure è determinare l'opzione di archiviazione di Azure più appropriata per i dati.
 
-Le condivisioni file di Azure sono ideali per i dati dei file generici. Davvero tutto ciò per cui si usa una condivisione SMB o NFS locale. Con [Sincronizzazione file](storage-sync-files-planning.md)di Azure è possibile memorizzare facoltativamente nella cache il contenuto di diverse condivisioni file di Azure in più server Windows in locale.
+[Le condivisioni file](storage-files-introduction.md) di Azure sono adatte per i dati dei file generici. Questi dati includono tutto ciò per cui si usa una condivisione SMB o NFS locale. Con [Sincronizzazione file](storage-sync-files-planning.md)di Azure è possibile memorizzare nella cache il contenuto di diverse condivisioni file di Azure nei server che eseguono Windows Server locale.
 
-Se si dispone di un'applicazione attualmente in esecuzione in un server locale, l'archiviazione dei file nelle condivisioni file di Azure può essere più a punsi, a seconda dell'applicazione. È possibile sollevare l'applicazione per l'esecuzione in Azure e usare le condivisioni file di Azure come archiviazione condivisa. È anche possibile prendere in considerazione [dischi](../../virtual-machines/windows/managed-disks-overview.md) di Azure per questo scenario. Per le applicazioni in formato cloud che non dipendono dall'accesso SMB o locale al computer ai dati o all'accesso condiviso, l'archiviazione degli oggetti, ad esempio i BLOB di [Azure,](../blobs/storage-blobs-overview.md)è spesso la scelta migliore.
+Per un'app attualmente in esecuzione in un server locale, l'archiviazione di file in una condivisione file di Azure potrebbe essere una buona scelta. È possibile spostare l'app in Azure e usare le condivisioni file di Azure come archiviazione condivisa. È anche possibile prendere in considerazione [dischi](../../virtual-machines/windows/managed-disks-overview.md) di Azure per questo scenario.
 
-The key in any migration is to capture all the applicable file fidelity when migrating your files from their current storage location to Azure. Un aiuto per scegliere l'archiviazione di Azure corretta è anche l'aspetto della fedeltà supportata dall'opzione di archiviazione di Azure ed è richiesta dallo scenario. I dati dei file generici dipendono tradizionalmente dai metadati dei file. I dati dell'applicazione potrebbero non esserlo. Esistono due componenti di base per un file:
+Alcune app cloud non dipendono da SMB o dall'accesso ai dati locali del computer o dall'accesso condiviso. Per queste app, l'archiviazione degli oggetti come [i BLOB](../blobs/storage-blobs-overview.md) di Azure è spesso la scelta migliore.
+
+The key in any migration is to capture all the applicable file fidelity when moving your files from their current storage location to Azure. La fedeltà supportata dall'opzione di archiviazione di Azure e la quantità necessaria per lo scenario consentono di scegliere l'archiviazione di Azure corretta. I dati generali dei file dipendono tradizionalmente dai metadati dei file. I dati dell'app potrebbero non esserlo.
+
+Di seguito sono riportati i due componenti di base di un file:
 
 - **Flusso di dati**: Il flusso di dati di un file archivia il contenuto del file.
-- **Metadati del**file : I metadati dei file hanno diversi sottocomponenti:
-   * Attributi del file: di sola lettura, ad esempio.
-   * Autorizzazioni file: denominate *autorizzazioni NTFS* o ACL di *file e cartelle*.
-   * Timestamp: in particolare i timestamp *di creazione* e *ultima modifica.*
-   * Flusso di dati alternativo: uno spazio per archiviare grandi quantità di proprietà non standard.
+- **Metadati del**file : I metadati del file hanno i seguenti sottocomponenti:
+   * Attributi di file come di sola lettura
+   * Autorizzazioni per i file, che possono essere definite *autorizzazioni NTFS* o ACL di file *e cartelle*
+   * Timestamp, in particolare la creazione e i timestamp dell'ultima modifica
+   * Un flusso di dati alternativo, ovvero uno spazio per archiviare grandi quantità di proprietà non standard
 
-La fedeltà dei file, in una migrazione, può quindi essere definita come la possibilità di archiviare tutte le informazioni sui file applicabili nell'origine, la possibilità di trasferirli con lo strumento di migrazione e la possibilità di archiviarli nell'archivio di destinazione della migrazione.
+La fedeltà dei file in una migrazione può essere definita come la capacità di:File fidelity in a migration can be defined as the ability to:
 
-Per garantire che la migrazione proceda nel modo più semplice possibile, identificare lo strumento di [copia migliore per le proprie esigenze](#migration-toolbox) e associare una destinazione di archiviazione all'origine.
+- Archiviare tutte le informazioni sui file applicabili nell'origine.
+- Trasferire i file con lo strumento di migrazione.
+- Archiviare i file nell'archivio di destinazione della migrazione.
 
-Tenendo conto delle informazioni precedenti, diventa chiaro quale sia l'archiviazione di destinazione per i file di uso generale in Azure: [condivisioni file](storage-files-introduction.md)di Azure. Rispetto all'archiviazione di oggetti nei BLOB di Azure, i metadati dei file possono essere archiviati in modo nativo nei file in una condivisione file di Azure.Compared to object storage in Azure blobs, file metadata can be natively stored on files in an Azure file share.
+Per garantire che la migrazione proceda senza problemi, identificare lo strumento di [copia migliore per le proprie esigenze](#migration-toolbox) e associare una destinazione di archiviazione all'origine.
 
-Le condivisioni file di Azure mantengono anche la gerarchia di file e cartelle. Inoltre:
-* Le autorizzazioni NTFS possono essere archiviate in file e cartelle così come sono locali.
-* Gli utenti di Active Directory (o gli utenti di Servizi di dominio Active Directory) possono accedere in modo nativo a una condivisione file di Azure.AD users (or Azure AD DS users) can natively access an Azure file share. 
-    Usano la loro identità attuale e ottengono l'accesso in base alle autorizzazioni di condivisione, nonché agli ACL di file e cartelle. Comportamento non diverso dal momento in cui gli utenti si connettono a una condivisione file locale.
-*  Il flusso di dati alternativo è l'aspetto principale della fedeltà dei file che attualmente non può essere archiviato in un file in una condivisione file di Azure.The alternative data stream is the primary aspect of file fidelity that currently cannot be stored on a file in an Azure file share.
-   Viene mantenuto in locale quando è coinvolta sincronizzazione file di Azure.It is preserved on-premises when Azure File Sync is involved.
+Tenendo conto delle informazioni precedenti, è possibile vedere che l'archiviazione di destinazione per i file generici in Azure è [condivisioni file](storage-files-introduction.md)di Azure.Taking the previous information in account, you can see that the target storage for general-purpose files in Azure is Azure file shares .
 
-* [Altre informazioni sull'autenticazione di Active Directory per le condivisioni file di AzureLearn more about AD authentication for Azure file shares](storage-files-identity-auth-active-directory-enable.md)
-* [Altre informazioni sull'autenticazione di Servizi di dominio Azure Active Directory (AAD DS) per le condivisioni file di AzureLearn more about Azure Active Directory Domain Services (AAD DS) authentication for Azure file shares](storage-files-identity-auth-active-directory-domain-service-enable.md)
+A differenza dell'archiviazione di oggetti nei BLOB di Azure, una condivisione file di Azure può archiviare in modo nativo i metadati dei file. Le condivisioni file di Azure mantengono inoltre la gerarchia, gli attributi e le autorizzazioni di file e cartelle. Le autorizzazioni NTFS possono essere archiviate in file e cartelle perché sono locali.
+
+Un utente di Active Directory, ovvero il controller di dominio locale, può accedere in modo nativo a una condivisione file di Azure.A user of Active Directory, which is their on-premises domain controller, can natively access an Azure file share. Così può un utente di Servizi di dominio Azure Active Directory (Azure AD DS). Ognuno utilizza la propria identità corrente per ottenere l'accesso in base alle autorizzazioni di condivisione e agli ACL di file e cartelle. Questo comportamento è simile a quello di un utente che si connette a una condivisione file locale.
+
+Il flusso di dati alternativo è l'aspetto principale della fedeltà dei file che attualmente non può essere archiviato in un file in una condivisione file di Azure.The alternative data stream is the primary aspect of file fidelity that currently can't be stored on a file in an Azure file share. Viene mantenuto in locale quando viene usata sincronizzazione file di Azure.It's preserved on-premises when Azure File Sync is used.
+
+Altre informazioni [sull'autenticazione](storage-files-identity-auth-active-directory-enable.md) di Azure AD e [sull'autenticazione](storage-files-identity-auth-active-directory-domain-service-enable.md) di Servizi di dominio Active Directory per le condivisioni file di Azure.Learn more about Azure AD authentication and Azure AD DS authentication for Azure file shares.
 
 ## <a name="migration-guides"></a>Guide alla migrazione
 
 Nella tabella seguente sono elencate guide dettagliate sulla migrazione.
 
-Navigare da:
-1. Individuare la riga per il sistema di origine in cui sono attualmente archiviati i file.
-2. Decidere se si usa una distribuzione ibrida in cui si usa Sincronizzazione file di Azure per memorizzare nella cache il contenuto di una o più condivisioni file di Azure in locale o se si vuole usare le condivisioni file di Azure direttamente nel cloud. Selezionare la colonna di destinazione che riflette la decisione.
-3. All'interno dell'intersezione tra origine e destinazione, una cella di tabella elenca gli scenari di migrazione disponibili. Selezionare uno di essi per collegarsi direttamente alla guida dettagliata alla migrazione.
+Come utilizzare la tabella:
 
-Uno scenario senza un collegamento non dispone ancora di una guida alla migrazione pubblicata. Controllare questa tabella occasionalmente per gli aggiornamenti. Nuove guide saranno pubblicate quando disponibili.
+1. Individuare la riga per il sistema di origine in cui sono attualmente archiviati i file.
+
+1. Scegli una di queste destinazioni:
+
+   - Una distribuzione ibrida che usa Sincronizzazione file di Azure per memorizzare nella cache il contenuto delle condivisioni file di Azure in locale
+   - Condivisioni file di Azure nel cloudAzure file shares in the cloud
+
+   Selezionare la colonna di destinazione che corrisponde a quella scelta.
+
+1. All'interno dell'intersezione tra origine e destinazione, una cella di tabella elenca gli scenari di migrazione disponibili. Selezionarne uno per collegarne direttamente la guida dettagliata alla migrazione.
+
+Uno scenario senza un collegamento non dispone ancora di una guida alla migrazione pubblicata. Controllare questa tabella occasionalmente per gli aggiornamenti. Le nuove guide verranno pubblicate quando saranno disponibili.
 
 | Source (Sorgente) | Destinazione: </br>Distribuzione ibrida | Destinazione: </br>Distribuzione solo cloud |
 |:---|:--|:--|
 | | Combinazione di utensili:| Combinazione di utensili: |
-| Windows Server 2012 R2 e versioni successive | <ul><li>[Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronizzazione file di Azure - DataBox](storage-sync-offline-data-transfer.md)</li><li>Servizio di migrazione archiviazione - Sincronizzazione file di AzureStorage Migration Service - Azure File Sync</li></ul> | <ul><li>Sincronizzazione file di Azure</li><li>Sincronizzazione file di Azure - DataBox</li><li>Servizio di migrazione archiviazione - Sincronizzazione file di AzureStorage Migration Service - Azure File Sync</li><li>Robocopy</li></ul> |
-| Windows Server 2012 e versioni precedenti | <ul><li>Sincronizzazione file di Azure - DataBox</li><li>Servizio di migrazione archiviazione - Sincronizzazione file di AzureStorage Migration Service - Azure File Sync</li></ul> | <ul><li>Servizio di migrazione archiviazione - Sincronizzazione file di AzureStorage Migration Service - Azure File Sync</li><li>Robocopy</li></ul> |
-| NAS (Network Attached Storage) | <ul><li>[Sincronizzazione file di Azure - RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>Robocopy</li></ul> |
-| Linux / Samba | <ul><li>[RoboCopy - Sincronizzazione file di Azure](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Robocopy</li></ul> |
-| StorSimple 8100 / 8600 | <ul><li>[Sincronizzazione file di Azure - 8020 Appliance virtuale](storage-files-migration-storsimple-8000.md)</li></ul> | |
-| StorSimple 1200 | <ul><li>[Sincronizzazione file di Azure](storage-files-migration-storsimple-1200.md)</li></ul> | |
+| Windows Server 2012 R2 e versioni successive | <ul><li>[Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync and Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Servizio di migrazione di archiviazione e sincronizzazione file di AzureAzure File Sync and Storage Migration Service</li></ul> | <ul><li>Sincronizzazione file di Azure</li><li>Casella di dati e sincronizzazione file di AzureAzure File Sync and Data Box</li><li>Servizio di migrazione di archiviazione e sincronizzazione file di AzureAzure File Sync and Storage Migration Service</li><li>Robocopy</li></ul> |
+| Windows Server 2012 e versioni precedenti | <ul><li>Casella di dati e sincronizzazione file di AzureAzure File Sync and Data Box</li><li>Servizio di migrazione di archiviazione e sincronizzazione file di AzureAzure File Sync and Storage Migration Service</li></ul> | <ul><li>Servizio di migrazione di archiviazione e sincronizzazione file di AzureAzure File Sync and Storage Migration Service</li><li>Robocopy</li></ul> |
+| Archiviazione collegata alla rete (NAS) | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>Robocopy</li></ul> |
+| Linux o Samba | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Robocopy</li></ul> |
+| Microsoft Azure StorSimple Cloud Appliance 8100 o StorSimple Cloud Appliance 8600 | <ul><li>[Sincronizzazione file di Azure e StorSimple Cloud Appliance 8020](storage-files-migration-storsimple-8000.md)</li></ul> | |
+| StorSimple Cloud Appliance 1200 | <ul><li>[Sincronizzazione file di Azure](storage-files-migration-storsimple-1200.md)</li></ul> | |
 | | | |
 
 ## <a name="migration-toolbox"></a>Strumenti di migrazione
 
 ### <a name="file-copy-tools"></a>Strumenti di copia dei file
 
-Sono disponibili diversi strumenti di copia dei file Microsoft e non Microsoft. Per selezionare lo strumento di copia dei file corretto per lo scenario di migrazione, è necessario considerare tre domande fondamentali:
+Ci sono diversi strumenti di copia di file disponibili da Microsoft e altri. Per selezionare lo strumento corretto per lo scenario di migrazione, è necessario considerare le domande fondamentali seguenti:To select the right tool for your migration scenario, you must consider these fundamental questions:
 
-* Lo strumento di copia supporta l'origine e il percorso di destinazione per una determinata copia di file? 
-    * Supporta il percorso di rete e/o i protocolli disponibili (ad esempio REST/SMB/NFS) da e verso i percorsi di archiviazione di origine e di destinazione?
-* Lo strumento di copia mantiene la fedeltà dei file necessaria supportata dal percorso di origine/destinazione? In alcuni casi, l'archiviazione di destinazione non supporta la stessa fedeltà dell'origine. È già stata presa la decisione che l'archiviazione di destinazione è sufficiente per le proprie esigenze, pertanto lo strumento di copia deve solo corrispondere alle funzionalità di fedeltà dei file di destinazione.
-* Lo strumento di copia dispone di feature che lo adattano alla mia strategia di migrazione? 
-    * Si consideri, ad esempio, se dispone di opzioni che consentono di ridurre al minimo i tempi di inattività. Una buona domanda da porsi è: Posso eseguire questa copia più volte sullo stesso, dagli utenti a cui si accede attivamente posizione? In tal caso, è possibile ridurre in modo significativo il tempo di inattività. Confrontarlo con una situazione in cui è possibile avviare la copia solo quando l'origine smette di cambiare, per garantire una copia completa.
+* Lo strumento supporta i percorsi di origine e di destinazione per la copia dei file?
+
+* Lo strumento supporta il percorso di rete o i protocolli disponibili (ad esempio REST, SMB o NFS) tra i percorsi di archiviazione di origine e di destinazione?
+
+* Lo strumento mantiene la fedeltà dei file necessaria supportata dai percorsi di origine e di destinazione?
+
+    In alcuni casi, l'archiviazione di destinazione non supporta la stessa fedeltà dell'origine. Se l'archiviazione di destinazione è sufficiente per le proprie esigenze, lo strumento deve corrispondere solo alle funzionalità di fedeltà dei file della destinazione.
+
+* Lo strumento dispone di funzionalità che consentono di adattarlo alla strategia di migrazione?
+
+    Ad esempio, valutare se lo strumento consente di ridurre al minimo i tempi di inattività.
+    
+    Quando uno strumento supporta un'opzione per eseguire il mirroring di un'origine in una destinazione, è spesso possibile eseguirlo più volte nella stessa origine e destinazione mentre l'origine rimane accessibile.
+
+    La prima volta che si esegue lo strumento, viene copiata la maggior parte dei dati. Questa esecuzione iniziale potrebbe durare un po'. Spesso dura più a lungo di quanto si desidera per portare l'origine dati non in linea per i processi aziendali.
+
+    Eseguendo il mirroring di un'origine in una destinazione (come con **robocopy /MIR**), è possibile eseguire nuovamente lo strumento sulla stessa origine e destinazione. L'esecuzione è molto più veloce perché deve trasportare solo le modifiche di origine che si verificano dopo l'esecuzione precedente. La riesecuzione di uno strumento di copia in questo modo può ridurre significativamente i tempi di inattività.
 
 La tabella seguente classifica gli strumenti Microsoft e la relativa idoneità corrente per le condivisioni file di Azure:The following table classifies Microsoft tools and their current suitability for Azure file shares:
 
-| Consigliato | Strumento | Supporta le condivisioni file di AzureSupports Azure file shares | Mantiene la fedeltà dei file |
+| Consigliato | Strumento | Supporto per le condivisioni file di AzureSupport for Azure file shares | Conservazione della fedeltà dei file |
 | :-: | :-- | :---- | :---- |
-|![Sì, consigliato.](media/storage-files-migration-overview/circle-green-checkmark.png)| Robocopy | Supportato. Le condivisioni file di Azure possono essere montate come unità di rete. | Piena fedeltà |
-|![Sì, consigliato.](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronizzazione file di Azure | Integrato in modo nativo nelle condivisioni file di Azure.Natively integrated into Azure file shares. | Piena fedeltà |
-|![Sì, consigliato.](media/storage-files-migration-overview/circle-green-checkmark.png)| Servizio di migrazione archiviazione (SMS) | Supportato indirettamente. Le condivisioni file di Azure possono essere montate come unità di rete in un server di destinazione SMS. | Piena fedeltà |
-|![Non completamente consigliato.](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| DataBox di AzureAzure DataBox | Supportato. | Non copia i metadati. [Può essere usato in combinazione con Sincronizzazione file](storage-sync-offline-data-transfer.md)di Azure. |
-|![Non consigliata.](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | Supportato. | Non copia i metadati. |
-|![Non consigliata.](media/storage-files-migration-overview/circle-red-x.png)| Esplora archivi Azure | Supportato. | Non copia i metadati. |
-|![Non consigliata.](media/storage-files-migration-overview/circle-red-x.png)| Data factory di Azure | Supportato. | Non copia i metadati. |
+|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Robocopy | Supportato. Le condivisioni file di Azure possono essere montate come unità di rete. | Piena fedeltà. |
+|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronizzazione file di Azure | Integrato in modo nativo nelle condivisioni file di Azure.Natively integrated into Azure file shares. | Piena fedeltà. |
+|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Servizio di migrazione della risorsa di archiviazione | Supportato indirettamente. Le condivisioni file di Azure possono essere montate come unità di rete nei server di destinazione di SMS. | Piena fedeltà. |
+|![Non completamente raccomandato](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Supportato. | Non copia i metadati. [Data Box può essere usato con Sincronizzazione file](storage-sync-offline-data-transfer.md)di Azure. |
+|![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | Supportato. | Non copia i metadati. |
+|![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| Esplora archivi Azure | Supportato. | Non copia i metadati. |
+|![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| Data factory di Azure | Supportato. | Non copia i metadati. |
 |||||
 
-*\*Fedeltà completa: soddisfa o supera le funzionalità di condivisione file di Azure.Full fidelity: meets or exceeds Azure file share capabilities.*
+*\*Fedeltà completa: soddisfa o supera le funzionalità di condivisione file di Azure.Full fidelity: meets or exceeds Azure file-share capabilities.*
 
 ### <a name="migration-helper-tools"></a>Strumenti helper per la migrazione
 
-In questa sezione sono elencati gli strumenti che consentono di pianificare ed eseguire le migrazioni.
+In questa sezione vengono descritti gli strumenti che consentono di pianificare ed eseguire le migrazioni.
 
-* **RoboCopy, di Microsoft Corporation**
+#### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy di Microsoft Corporation
 
-    Uno degli strumenti di copia più applicabili alle migrazioni di file, viene fornito come parte di Microsoft Windows. A causa delle numerose opzioni in questo strumento, la documentazione principale di [RoboCopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) è una fonte utile.
+RoboCopy è uno degli strumenti più applicabili alle migrazioni di file. Viene fornito come parte di Windows. La documentazione principale di [RoboCopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) è una risorsa utile per le numerose opzioni di questo strumento.
 
-* **TreeSize, da JAM Software GmbH**
+#### <a name="treesize-from-jam-software-gmbh"></a>TreeSize da JAM Software GmbH
 
-    Sincronizzazione file di Azure viene ridimensionato principalmente in base al numero di elementi (file e cartelle) e meno con l'importo TiB totale. Lo strumento può essere utilizzato per determinare il numero di file e cartelle nei volumi di Windows Server. Inoltre può essere usato per creare una prospettiva prima di una distribuzione di [Sincronizzazione file](storage-sync-files-deployment-guide.md) di Azure, ma anche dopo, quando è impegnata la suddivisione in livelli cloud e ti piace vedere non solo il numero di elementi, ma anche in quali directory viene usata di più la cache del server.
-    Questo strumento (versione testata 4.4.1) è compatibile con i file a livelli cloud. Non causerà il richiamo dei file a livelli durante il suo normale funzionamento.
+Sincronizzazione file di Azure viene ridimensionato principalmente in base al numero di elementi (file e cartelle) e non con la quantità di spazio di archiviazione totale. Lo strumento TreeSize consente di determinare il numero di elementi nei volumi di Windows Server.
 
+È possibile usare lo strumento per creare una prospettiva prima di una distribuzione di [Sincronizzazione file](storage-sync-files-deployment-guide.md)di Azure.You can use the tool to create a perspective before an Azure File Sync deployment . È anche possibile usarlo quando la suddivisione in livelli cloud è impegnata dopo la distribuzione. In questo scenario, viene visualizzato il numero di elementi e le directory che utilizzano maggiormente la cache del server.
+
+La versione testata dello strumento è la versione 4.4.1. È compatibile con i file a livello cloud. Lo strumento non causerà il richiamo dei file a livelli durante il normale funzionamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-1. Creare un piano per il quale la distribuzione delle condivisioni file di Azure (solo cloud o ibrida) per cui ci si sforza.
-2. Esaminare l'elenco delle guide alla migrazione disponibili per trovare la guida dettagliata corrispondente all'origine e alla distribuzione delle condivisioni file di Azure.Review the list of available migration guides to find the detailed guide that matches your source and deployment of Azure file shares.
+1. Creare un piano per il quale la distribuzione delle condivisioni file di Azure (solo cloud o ibrida) si vuole.
+1. Esaminare l'elenco delle guide alla migrazione disponibili per trovare la guida dettagliata corrispondente all'origine e alla distribuzione delle condivisioni file di Azure.Review the list of available migration guides to find the detailed guide that matches your source and deployment of Azure file shares.
 
-Sono disponibili altre informazioni sulle tecnologie File di Azure menzionate in questo articolo:There is more information available about the Azure Files technologies mentioned in this article:
+Ecco altre informazioni sulle tecnologie File di Azure menzionate in questo articolo:Here is more information about the Azure Files technologies mentioned in this article:
 
 * [Panoramica della condivisione file di AzureAzure file share overview](storage-files-introduction.md)
-* [Pianificazione di una distribuzione di Sincronizzazione file di AzurePlanning for an Azure File Sync deployment](storage-sync-files-planning.md)
+* [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
 * [Sincronizzazione file di Azure: livelli cloudAzure File Sync: Cloud tiering](storage-sync-cloud-tiering.md)

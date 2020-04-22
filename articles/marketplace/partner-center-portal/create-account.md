@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/14/2020
-ms.openlocfilehash: d62d05cdbda86af3c3a38757877624e87f6d1719
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1bd71a4fb150d544125703679cf0fa0b8951e1eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383767"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684127"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account marketplace commerciale nel Centro per i partner
 
@@ -164,7 +164,7 @@ Un'organizzazione può avere più editori associati a un account Commercial Mark
 
 Un altro utente dello stesso tenant di Azure Active Directory può aggiungere un nuovo server di pubblicazione seguendo la procedura seguente:Another user from the same Azure Active Directory tenant can add a new publisher by following the steps below:
 
-1. Avviare il flusso di iscrizione nel [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Avviare il flusso di iscrizione nel [Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
 2. Selezionare **Accedi con un account di lavoro** e immettere l'indirizzo di posta elettronica di lavoro.
 3. Selezionare il pulsante **Aggiungi server di pubblicazione.**
 4. Scegliere l'ID MPN che si desidera associare al server di pubblicazione.

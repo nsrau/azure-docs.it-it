@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71200004"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686947"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Creare e distribuire il servizio di gestione dei certificati OPC Vault
 
@@ -90,7 +90,7 @@ Dopo la corretta distribuzione, è possibile iniziare a utilizzare i servizi. Co
 
 Ecco come:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al gruppo di risorse in cui è stato distribuito il servizio.
 3. Scegliere **Elimina gruppo di risorse** e confermare.
 4. Dopo un breve periodo di tempo, tutti i componenti del servizio distribuito vengono eliminati.
@@ -107,7 +107,7 @@ Usare un nome di gruppo di risorse breve e semplice. Il nome viene utilizzato an
 
 ### <a name="website-name-already-in-use"></a>Nome del sito Web già in uso
 
-È possibile che il nome del sito web sia già in uso. È necessario usare un nome di gruppo di risorse diverso. I nomi host utilizzati dallo https://resourcegroupname.azurewebsites.net script https://resourgroupname-service.azurewebsites.netdi distribuzione sono: e .
+È possibile che il nome del sito web sia già in uso. È necessario usare un nome di gruppo di risorse diverso. I nomi host utilizzati dallo script\/di distribuzione sono: https: /resourcegroupname.azurewebsites.net e https:\//resourgroupname-service.azurewebsites.net.
 Altri nomi di servizi vengono creati mediante la combinazione di iseo con nome breve ed è improbabile che siano in conflitto con altri servizi.
 
 ### <a name="azure-ad-registration"></a>Registrazione di Azure AD 

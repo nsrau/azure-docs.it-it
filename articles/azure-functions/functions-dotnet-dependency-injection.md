@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: f8f1eb353087c5121eaafb4c8789e7a2f7638b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475122"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678447"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento delle dipendenze in Funzioni di Azure .NET
 
 Funzioni di Azure supporta il modello di progettazione software di inserimento delle dipendenze (DI), che è una tecnica per ottenere [l'inversione del controllo (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) tra le classi e le relative dipendenze.
 
-- L'inserimento delle dipendenze in Funzioni di Azure si basa sulle funzionalità di inserimento delle dipendenze di .NET Core.Dependency injection in Azure Functions is built on the .NET Core Dependency Injection features. È consigliabile familiarizzare con l'inserimento delle dipendenze di [.NET Core.Familiarity with the .NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) is recommended. Esistono tuttavia differenze nella modalità di override delle dipendenze e nella modalità di lettura dei valori di configurazione con Funzioni di Azure nel piano Consumo.
+- L'inserimento delle dipendenze in Funzioni di Azure si basa sulle funzionalità di inserimento delle dipendenze di .NET Core.Dependency injection in Azure Functions is built on the .NET Core Dependency Injection features. È consigliabile familiarizzare con [l'inserimento delle dipendenze di .NET Core.Familiarity with .NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) is recommended. Esistono differenze nella modalità di override delle dipendenze e nella modalità di lettura dei valori di configurazione con Funzioni di Azure nel piano Consumo.
 
 - Il supporto per l'inserimento delle dipendenze inizia con Funzioni di Azure 2.x.Support for dependency injection begins with Azure Functions 2.x.
 

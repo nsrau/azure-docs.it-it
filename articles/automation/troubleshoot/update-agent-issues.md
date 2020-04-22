@@ -1,6 +1,6 @@
 ---
-title: Diagnosticare il ruolo di lavoro ibrido ibrido di Windows - Azure Update ManagementDiagnose Windows Hybrid Runbook Worker - Azure Update Management
-description: Informazioni su come risolvere i problemi relativi al runbook ibrido di automazione di Azure in Windows che supporta la gestione degli aggiornamenti.
+title: Risoluzione dei problemi relativi agli agenti di aggiornamento di Windows in Gestione aggiornamenti di Automazione di AzureTroubleshooting Windows Update agent issues in Azure Automation Update Management
+description: Informazioni su come risolvere i problemi relativi all'agente di aggiornamento di Windows utilizzando la soluzione Gestione aggiornamenti.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ec35d11eba59ea21947e2c3cd5286bababa4eabb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6983a2ac7ab5fafcb00aee0b72221a8540ea1668
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76153855"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678984"
 ---
-# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>Comprendere e risolvere l'integrità del ruolo di lavoro per runbook ibride di Windows in Gestione aggiornamenti
+# <a name="troubleshoot-windows-update-agent-issues"></a>Risolvere i problemi relativi agli agenti di aggiornamento di WindowsTroubleshoot Windows update agent issues
 
-Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente di lavoro ibrido per runbook per determinare il problema sottostante. Questo articolo illustra come eseguire lo strumento di risoluzione dei problemi per le macchine di Azure dal portale di Azure e dalle macchine non azure nello [scenario offline.](#troubleshoot-offline)
+Ci possono essere molti motivi per cui la macchina non viene visualizzata come pronta (integro) in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente di lavoro ibrido per runbook per determinare il problema sottostante. Questo articolo illustra come eseguire lo strumento di risoluzione dei problemi per le macchine di Azure dal portale di Azure e dalle macchine non azure nello [scenario offline.](#troubleshoot-offline)
 
-L'elenco seguente indica i tre possibili stati di conformità di un computer:
+Di seguito sono riportati i tre stati di preparazione per una macchina:
 
-* **Pronto:** il ruolo di lavoro ibrido per runbook è stato distribuito ed è stato visualizzato l'ultima volta meno di 1 ora fa.
-* **Disconnesso:** il ruolo di lavoro ibrido per runbook è stato distribuito ed è stato visualizzato l'ultima volta 1 ora fa.
-* **Non configurato:** il ruolo di lavoro ibrido per runbook non viene trovato o non ha completato l'onboarding.
+* Pronto: il ruolo di lavoro ibrido per runbook è stato distribuito ed è stato visualizzato l'ultima volta meno di 1 ora fa.
+* Disconnesso: il ruolo di lavoro ibrido per runbook è stato distribuito ed è stato visualizzato l'ultima volta 1 ora fa.
+* Non configurato: il ruolo di lavoro ibrido per runbook non viene trovato o non ha completato l'onboarding.
 
 > [!NOTE]
-> Potrebbe verificarsi un leggero ritardo tra ciò che viene visualizzato dal portale di Azure e lo stato corrente del computer.
+> Può esserci un leggero ritardo tra ciò che viene visualizzato dal portale di Azure e lo stato corrente di una macchina.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina **Troubleshoot Update Agent** (Risoluzione dei problemi dell'agente di aggiornamento). Per le macchine non Azure, il collegamento porta a questo articolo. Vedere le istruzioni offline per risolvere i problemi di un computer non Azure.See the [offline instructions](#troubleshoot-offline) to troubleshoot a non-Azure machine.
+Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina Troubleshoot Update Agent (Risoluzione dei problemi dell'agente di aggiornamento). Per le macchine non Azure, il collegamento porta a questo articolo. Vedere le istruzioni offline per risolvere i problemi di un computer non Azure.See the [offline instructions](#troubleshoot-offline) to troubleshoot a non-Azure machine.
 
 ![Aggiornare l'elenco di gestione delle macchine virtuali](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
 > Per controllare l'integrità del ruolo di lavoro ibrido per runbook, la macchina virtuale deve essere in esecuzione. Se la macchina virtuale non è in esecuzione, viene visualizzato il pulsante **Avvia macchina virtuale**.
 
-Nella pagina **Risoluzione dei problemi dell'agente di aggiornamento** fare clic su **Esegui controlli** per avviare la risoluzione dei problemi. Lo strumento di risoluzione dei problemi utilizza [Esegui comando](../../virtual-machines/windows/run-command.md) per eseguire uno script nel computer per verificare le dipendenze. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
+Nella pagina Risoluzione dei problemi dell'agente di aggiornamento fare clic su **Esegui controlli** per avviare la risoluzione dei problemi. Lo strumento di risoluzione dei problemi utilizza [Esegui comando](../../virtual-machines/windows/run-command.md) per eseguire uno script nel computer per verificare le dipendenze. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
 
 ![Pagina Risoluzione dei problemi dell'agente di aggiornamento](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -86,15 +86,13 @@ Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di 
 
 ### <a name="monitoring-agent-service-status"></a>Monitoraggio dello stato del servizio agente
 
-Questo controllo determina se `HealthService`, ovvero Microsoft Monitoring Agent, è in esecuzione nel computer.
+Questo controllo determina se l'agente`healthservice`di Log Analytics per Windows ( ) è in esecuzione nel computer. Per ulteriori informazioni sulla risoluzione dei problemi del servizio, vedere [L'agente di Log Analytics per Windows non è in esecuzione](hybrid-runbook-worker.md#mma-not-running).
 
-Per altre informazioni sulla risoluzione dei problemi del servizio, vedere [Microsoft Monitoring Agent non è in esecuzione](hybrid-runbook-worker.md#mma-not-running).
-
-Per reinstallare Microsoft Monitoring Agent, vedere [Installare e configurare Microsoft Monitoring Agent.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)
+Per reinstallare l'agente di Log Analytics per Windows, vedere [Installare e configurare l'agente di Log Analytics per Windows.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)
 
 ### <a name="monitoring-agent-service-events"></a>Monitoraggio degli eventi del servizio agente
 
-Questo controllo determina se nel log di Azure Operations Manager nel computer sono comparsi eventi `4502` nelle ultime 24 ore.
+Questo controllo determina se gli eventi 4502 vengono visualizzati nel log di Azure Operations Manager nel computer nelle ultime 24 ore.
 
 Per altre informazioni su questo evento, vedere la [guida alla risoluzione dei problemi](hybrid-runbook-worker.md#event-4502) per questo evento.
 
@@ -167,9 +165,9 @@ RuleName                    : Monitoring Agent service status
 RuleGroupName               : VM Service Health Checks
 RuleDescription             : HealthService must be running on the machine
 CheckResult                 : Failed
-CheckResultMessage          : Microsoft Monitoring Agent service (HealthService) is not running
+CheckResultMessage          : Log Analytics for Windows service (HealthService) is not running
 CheckResultMessageId        : MonitoringAgentServiceRunningCheck.Failed
-CheckResultMessageArguments : {Microsoft Monitoring Agent, HealthService}
+CheckResultMessageArguments : {Log Analytics agent for Windows, HealthService}
 
 RuleId                      : MonitoringAgentServiceEventsCheck
 RuleGroupId                 : servicehealth
@@ -177,9 +175,9 @@ RuleName                    : Monitoring Agent service events
 RuleGroupName               : VM Service Health Checks
 RuleDescription             : Event Log must not have event 4502 logged in the past 24 hours
 CheckResult                 : Failed
-CheckResultMessage          : Microsoft Monitoring Agent service Event Log (Operations Manager) does not exist on the machine
+CheckResultMessage          : Log Analytics agent for Windows service Event Log (Operations Manager) does not exist on the machine
 CheckResultMessageId        : MonitoringAgentServiceEventsCheck.Failed.NoLog
-CheckResultMessageArguments : {Microsoft Monitoring Agent, Operations Manager, 4502}
+CheckResultMessageArguments : {Log Analytics agent for Windows, Operations Manager, 4502}
 
 RuleId                      : CryptoRsaMachineKeysFolderAccessCheck
 RuleGroupId                 : permissions

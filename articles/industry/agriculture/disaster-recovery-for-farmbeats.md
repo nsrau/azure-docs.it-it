@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: d64735e683ba1133e7d381a68611d204c4068026
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313094"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683901"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Ripristino di emergenza per FarmBeatsDisaster recovery for FarmBeats
 
@@ -28,7 +28,7 @@ Nelle sezioni seguenti vengono fornite informazioni su come configurare il ripri
 
 FarmBeats archivia i dati in tre servizi di Azure di prima parte, che sono **Archiviazione di Azure,** **Cosmos DB** e Time Series **Insights**. Usare la procedura seguente per abilitare la ridondanza dei dati per questi servizi in un'area di Azure abbinata:Use the following steps to enable data redundancy for these services to a paired Azure region:
 
-1.  **Archiviazione di Azure:** seguire questa linea guida per abilitare la ridondanza dei dati per ogni account di archiviazione nella distribuzione di FarmBbeats.Azure Storage - Follow this guideline to enable data redundancy for each storage account in your FarmBbeats deployment.
+1.  **Archiviazione di Azure:** seguire questa linea guida per abilitare la ridondanza dei dati per ogni account di archiviazione nella distribuzione di FarmBeats.Azure Storage - Follow this guideline to enable data redundancy for each storage account in your FarmBeats deployment.
 2.  **Database Cosmos** di Azure: seguire questa linea guida per abilitare la ridondanza dei dati per l'account Cosmos DB distribuzione FarmBeats.Azure Cosmos DB - Follow this guide line to enable data redundancy for Cosmos DB account your FarmBeats deployment.
 3.  **Azure Time Series Insights (TSI):** TSI attualmente non offre ridondanza dei dati. Per recuperare i dati di Time Series Insights, passare al sensore/partner meteo ed eseguire nuovamente il push dei dati nella distribuzione di FarmBeats.
 

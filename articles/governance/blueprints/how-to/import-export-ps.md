@@ -3,12 +3,12 @@ title: Importare ed esportare blueprint con PowerShellImport and export blueprin
 description: Informazioni su come utilizzare le definizioni del blueprint come codice. Condividi, controllo del codice sorgente e gestisci utilizzando i comandi di esportazione e importazione.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677144"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686845"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importare ed esportare definizioni di blueprint con PowerShellImport and export blueprint definitions with PowerShell
 
@@ -88,7 +88,7 @@ I passaggi per esportare la definizione del blueprint sono semplici. L'esportazi
 
 Dopo aver esportato una [definizione di blueprint o](#export-your-blueprint-definition) una definizione di blueprint creata manualmente nella struttura di cartelle [richiesta,](#folder-structure-of-a-blueprint-definition)è possibile importare tale definizione di blueprint in un gruppo di gestione o in una sottoscrizione diversa.
 
-Per esempi di definizioni di blueprint predefinite, vedere il [repository Azure Blueprint GitHub](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
+Per esempi di definizioni di blueprint predefinite, vedere il [repository Azure Blueprint GitHub](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Nome** [obbligatorio]
   - Specifica il nome della nuova definizione di blueprint
@@ -121,7 +121,7 @@ Per informazioni sulla creazione di definizioni di blueprint avanzate, vedere gl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul ciclo di vita del [blueprint.](../concepts/lifecycle.md)
+- Informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](../concepts/parameters.md).
 - Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](../concepts/sequencing-order.md).
 - Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](../concepts/resource-locking.md).

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: 40950be2e5caeb17d20086720a7b65c15147c2f5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: c650cfcbfeddaa83d8bf3127024ac77b93456a57
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535112"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683156"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -312,7 +312,10 @@ Gli indirizzi IP utilizzati da App per la logica di Azure per le chiamate in ing
 
 ### <a name="inbound-ip-addresses"></a>Indirizzi IP in ingresso
 
-Questa sezione elenca solo gli indirizzi IP in ingresso per il servizio App per la logica di Azure.This section lists the inbound IP addresses for the Azure Logic Apps service only. Per ridurre la complessità quando si creano regole di sicurezza, è possibile utilizzare facoltativamente il [tag del servizio,](../virtual-network/service-tags-overview.md) **LogicAppsManagement**, anziché specificare i prefissi degli indirizzi IP delle app per la logica in ingresso per ogni area. Questo tag funziona tra le aree in cui è disponibile il servizio App per la logica. Se si dispone di Azure per enti pubblici, vedere Azure per enti [pubblici - Indirizzi IP in ingresso](#azure-government-inbound).
+Questa sezione elenca solo gli indirizzi IP in ingresso per il servizio App per la logica di Azure.This section lists the inbound IP addresses for the Azure Logic Apps service only. Se si dispone di Azure per enti pubblici, vedere Azure per enti [pubblici - Indirizzi IP in ingresso](#azure-government-inbound).
+
+> [!TIP]
+> Per ridurre la complessità quando si creano regole di sicurezza, è possibile utilizzare facoltativamente il [tag del servizio,](../virtual-network/service-tags-overview.md) **LogicAppsManagement**, anziché specificare i prefissi degli indirizzi IP delle app per la logica in ingresso per ogni area. Questo tag funziona tra le aree in cui è disponibile il servizio App per la logica.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -343,6 +346,7 @@ Questa sezione elenca solo gli indirizzi IP in ingresso per il servizio App per 
 | Stati Uniti centro-meridionali | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | India meridionale | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Asia sud-orientale | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
+| Emirati Arabi Uniti centrali | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
 | Regno Unito meridionale | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Regno Unito occidentale | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | Stati Uniti centro-occidentali | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
@@ -368,14 +372,17 @@ Questa sezione elenca solo gli indirizzi IP in ingresso per il servizio App per 
 
 ### <a name="outbound-ip-addresses"></a>Indirizzi IP in uscita
 
-Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logica di Azure e i connettori gestiti. Per ridurre la complessità quando si creano regole di sicurezza, è possibile utilizzare facoltativamente il tag di [servizio](../virtual-network/service-tags-overview.md), **LogicApps**, anziché specificare i prefissi degli indirizzi IP delle app per la logica in uscita per ogni area. Questo tag funziona tra le aree in cui è disponibile il servizio App per la logica. Per i connettori gestiti, utilizzare gli indirizzi IP. Se si dispone di Azure per enti pubblici, vedere Azure per enti [pubblici - Indirizzi IP in uscita](#azure-government-outbound).
+Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logica di Azure e i connettori gestiti. Se si dispone di Azure per enti pubblici, vedere Azure per enti [pubblici - Indirizzi IP in uscita](#azure-government-outbound).
+
+> [!TIP]
+> Per ridurre la complessità quando si creano regole di sicurezza, è possibile utilizzare facoltativamente il tag di [servizio](../virtual-network/service-tags-overview.md), **LogicApps**, anziché specificare i prefissi degli indirizzi IP delle app per la logica in uscita per ogni area. Questo tag funziona tra le aree in cui è disponibile il servizio App per la logica. Per i connettori gestiti, è necessario continuare a utilizzare gli indirizzi IP.
 
 <a name="multi-tenant-outbound"></a>
 
 #### <a name="multi-tenant-azure---outbound-ip-addresses"></a>Multi-tenant Azure - Indirizzi IP in uscitaMulti-tenant Azure - Outbound IP addresses
 
-| Region | IP App per la logica | IP connettori gestiti |
-|--------|---------------|-----------------------|
+| Area multi-tenant | IP App per la logica | IP connettori gestiti |
+|---------------------|---------------|-----------------------|
 | Australia orientale | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213, 52.237.214.72 |
 | Australia sud-orientale | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34, 52.255.48.202 |
 | Brasile meridionale | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207, 191.232.191.157 |
@@ -399,6 +406,7 @@ Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logi
 | Stati Uniti centro-meridionali | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191, 52.171.130.92 |
 | India meridionale | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225, 13.71.127.26 |
 | Asia sud-orientale | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19, 52.187.115.69 |
+| Emirati Arabi Uniti centrali | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 | 20.45.67.28, 20.45.67.45, 20.37.74.192 - 20.37.74.207, 40.120.8.0 - 40.120.8.31 |
 | Regno Unito meridionale | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15, 51.140.61.124, 51.140.74.150 |
 | Regno Unito occidentale | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.124.13, 51.141.52.185 |
 | Stati Uniti centro-occidentali | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 13.78.132.82, 52.161.101.204 |

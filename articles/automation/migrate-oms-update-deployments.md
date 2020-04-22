@@ -1,20 +1,20 @@
 ---
-title: Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure
+title: Eseguire la migrazione delle distribuzioni degli aggiornamenti OMS in AzureMigrate your OMS update Deployments to Azure
 description: Questo articolo descrive come eseguire la migrazione delle distribuzioni di aggiornamenti di OMS esistenti in Azure
 services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 910f284eedbf50be5b58b6c18f02e50adda35e9a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417771"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679995"
 ---
-# <a name="migrate-your-oms-update-deployments-to-azure"></a>Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure
+# <a name="migrate-your-oms-update-deployments-to-azure"></a>Eseguire la migrazione delle distribuzioni degli aggiornamenti OMS in AzureMigrate your OMS update deployments to Azure
 
-Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azure-monitor/platform/oms-portal-transition.md). Tutte le funzionalità precedentemente disponibili nel portale di OMS per Gestione aggiornamenti sono ora disponibili nel portale di Azure. Questo articolo contiene le informazioni necessarie per la migrazione al portale di Azure.
+Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azure-monitor/platform/oms-portal-transition.md). Tutte le funzionalità disponibili nel portale OMS per la gestione degli aggiornamenti sono disponibili nel portale di Azure tramite i log di Monitoraggio di Azure.All functionality that was available in the OMS portal for Update Management is available in the Azure portal, through Azure Monitor logs. Questo articolo fornisce le informazioni necessarie per eseguire la migrazione al portale di Azure.This article provides the information you need to migrate to the Azure portal.
 
 ## <a name="key-information"></a>Informazioni chiave
 
@@ -23,7 +23,7 @@ Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azur
 
 ## <a name="access-the-azure-portal"></a>Accedere al portale di Azure
 
-Dall'area di lavoro OMS fare clic su **Apri in Azure**. Si passerà così all'area di lavoro Log Analytics usata in precedenza da OMS.
+Dall'area di lavoro OMS fare clic su **Apri in Azure**. Questa selezione consente di passare all'area di lavoro di Log Analytics usata da OMS.
 
 ![Apri in Azure -Portale di OMS](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
@@ -31,11 +31,13 @@ Nel portale di Azure fare clic su **Account di automazione**.
 
 ![Log di Monitoraggio di Azure](media/migrate-oms-update-deployments/log-analytics.png)
 
-In Account di automazione fare clic su **Gestione aggiornamenti** per aprire Gestione aggiornamenti.
+Nell'account Di automazione fare clic su **Gestione aggiornamenti**.
 
 ![Gestione degli aggiornamenti](media/migrate-oms-update-deployments/azure-automation.png)
 
-In futuro sarà possibile passare direttamente al portale di Azure seguendo questa procedura: in **Tutti i servizi** selezionare **Account di automazione** nella sezione **Strumenti di gestione**, selezionare l'account di automazione appropriato e quindi fare clic su **Gestione aggiornamenti**.
+Nel portale di Azure selezionare **Account di automazione** in **Tutti i servizi**. 
+
+In **Strumenti di gestione**selezionare l'account di automazione appropriato e fare clic su Gestione **aggiornamenti**.
 
 ## <a name="recreate-existing-deployments"></a>Creare nuovamente le distribuzioni esistenti
 
@@ -49,15 +51,15 @@ Per creare una nuova distribuzione di aggiornamenti, passare al portale di Azure
 
 ![Pianificare la distribuzione di aggiornamenti](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-Si apre il riquadro **Nuova distribuzione di aggiornamenti**. Specificare i valori per le proprietà descritte nella tabella seguente e quindi fare clic su **Crea**:
+Si apre il riquadro Nuova distribuzione di aggiornamenti. Specificare i valori per le proprietà descritte nella tabella seguente e quindi fare clic su **Crea**:
 
-Per i computer da aggiornare, selezionare la ricerca salvata usata per la distribuzione di OMS esistente.
+Per **Macchine da aggiornare**, selezionare la ricerca salvata utilizzata dalla distribuzione di OMS esistente.
 
 | Proprietà | Descrizione |
 | --- | --- |
 |Nome |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Selezionare **Linux** o **Windows**.|
-|Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md) |
+|Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere Gruppi di computer nei log di [Monitoraggio di AzureTo](../azure-monitor/platform/computer-groups.md) learn about the different methods of creating computer groups in Azure Monitor logs, see Computer groups in Azure Monitor logs |
 |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie. CentOS non supporta questa operazione per impostazione predefinita.|
 |Aggiornamenti da escludere|Immettere gli aggiornamenti da escludere. Per Windows, immettere l'articolo della Knowledge Base senza il prefisso **KB**. Per Linux, immettere il nome del pacchetto o usare un carattere jolly.  |
 |Impostazioni di pianificazione|Selezionare l'ora di inizio e quindi selezionare **Una sola volta** o **Ricorrente** per la ricorrenza. | 
@@ -72,4 +74,4 @@ Come accennato in precedenza, dopo la configurazione delle nuove distribuzioni t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Gestione aggiornamenti in Azure, vedere [Soluzione Gestione aggiornamenti](automation-update-management.md).
+Per altre informazioni sulla gestione degli aggiornamenti in Azure, vedere [Gestione aggiornamenti.](automation-update-management.md)

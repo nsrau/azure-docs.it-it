@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f11c19ba33ee2fbae0fef265371bedad2fe29cb7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821746"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684945"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Usare un'istanza gestita del database SQL di Azure in modo sicuro con endpoint pubbliciUse an Azure SQL Database managed instance securely with public endpoints
 
@@ -35,7 +35,7 @@ Sebbene non sia obbligatorio, il modello di distribuzione comune per un'istanza 
 
 ## <a name="secure-data-in-motion"></a>Proteggere i dati in movimento
 
-Il traffico dati dell'istanza gestita viene sempre crittografato se il driver client supporta la crittografia. I dati inviati tra l'istanza gestita e altre macchine virtuali di Azure o servizi di Azure non lasciano mai la backbone di Azure.Data sent between the managed instance and other Azure virtual machines or Azure services never leaves Azure's backbone. Se esiste una connessione tra l'istanza gestita e una rete locale, è consigliabile usare Azure ExpressRoute con il peering Microsoft.If there's a connection between the managed instance and an on-premises network, we recommend you use Azure ExpressRoute with Microsoft peering. ExpressRoute consente di evitare di spostare i dati tramite Internet pubblico. Per la connettività privata dell'istanza gestita, è possibile usare solo il peering privato.
+Il traffico dati dell'istanza gestita viene sempre crittografato se il driver client supporta la crittografia. I dati inviati tra l'istanza gestita e altre macchine virtuali di Azure o servizi di Azure non lasciano mai la backbone di Azure.Data sent between the managed instance and other Azure virtual machines or Azure services never leaves Azure's backbone. Se esiste una connessione tra l'istanza gestita e una rete locale, è consigliabile usare Azure ExpressRoute.If there's a connection between the managed instance and an on-premises network, we recommend use Azure ExpressRoute. ExpressRoute consente di evitare di spostare i dati tramite Internet pubblico. Per la connettività privata dell'istanza gestita, è possibile usare solo il peering privato.
 
 ## <a name="lock-down-inbound-and-outbound-connectivity"></a>Bloccare la connettività in ingresso e in uscita
 

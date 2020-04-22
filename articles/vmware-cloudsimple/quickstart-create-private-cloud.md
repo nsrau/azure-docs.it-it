@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7460490dbd45862f4269d25e3910373700ec9a03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10831c0dc39fa241a43541850afae39593ae033b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77564721"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678276"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva - Configurare un ambiente Cloud privato
 
@@ -26,7 +26,7 @@ Esaminare [I prerequisiti di rete](cloudsimple-network-checklist.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-private-cloud"></a>Creare un cloud privato
 
@@ -140,7 +140,7 @@ Dopo aver creato un cloud privato, creare una VLAN in cui distribuire le macchin
 5. Selezionare un ID VLAN dall'elenco.  
 6. Immettere un nome di subnet per identificare la subnet.
 7. Specificare l'intervallo CIDR della subnet e la maschera.  Questo intervallo non deve sovrapporsi alle subnet esistenti.
-8. Fare clic su **Submit**.
+8. Fare clic su **Submit** (Invia).
 
     ![Creare dettagli VLAN/SubnetCreate VLAN/Subnet details](media/create-new-vlan-subnet-details.png)
 
@@ -159,8 +159,8 @@ CloudSimple fornisce un circuito ExpressRoute per il cloud privato. È possibile
     ![Avvia vSphere Client](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selezionare il client vSphere preferito per accedere a vCenter e accedere con il nome utente e la password.  Le impostazioni predefinite sono:
-    * Nome utente: **CloudOwner\@cloudsimple.local**
-    * Password: **CloudSimple123!**  
+    * Nome utente:`CloudOwner@cloudsimple.local`
+    * Password: `CloudSimple123!`
 
 Le schermate di vCenter nelle procedure successive provengono dal client vSphere (HTML5).
 

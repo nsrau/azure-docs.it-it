@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7a91f61302b5944e69f71c3cfee2f41cd87b809f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 947286a7238e3ddf2aebe66c6ea87e0e1cf8a853
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309372"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677724"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Piattaforma di identità Microsoft e flusso OAuth 2.0 On-Behalf-To-Behalf-Of
 
@@ -27,9 +27,7 @@ Il flusso On-Behalf-Of (OBO) di OAuth 2.0 viene usato quando un'applicazione ric
 In questo articolo viene descritto come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile utilizzare le librerie di autenticazione Microsoft (MSAL) supportate per [acquisire token e chiamare API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dai anche un'occhiata alle [app di esempio che utilizzano MSAL](sample-v2-code.md).
 
 > [!NOTE]
->
-> - L'endpoint della piattaforma di identità Microsoft non supporta tutti gli scenari e le funzionalità. Per determinare se è necessario utilizzare l'endpoint della piattaforma di identità Microsoft, leggere le informazioni sulle [limitazioni della piattaforma](active-directory-v2-limitations.md)di identità Microsoft . 
-> - A partire da maggio 2018, non è possibile usare un `id_token` derivato da flusso implicito per il flusso OBO. Le applicazioni a pagina singola dovrebbero invece passare un token di **accesso** a un client riservato di livello intermedio per eseguire i flussi OBO. Per altre informazioni su quali client possono eseguire chiamate OBO, vedere le [limitazioni](#client-limitations).
+> A partire da maggio 2018, non è possibile usare un `id_token` derivato da flusso implicito per il flusso OBO. Le applicazioni a pagina singola dovrebbero invece passare un token di **accesso** a un client riservato di livello intermedio per eseguire i flussi OBO. Per altre informazioni su quali client possono eseguire chiamate OBO, vedere le [limitazioni](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagramma di protocollo
 
@@ -186,10 +184,10 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Ottenere il consenso per l'applicazione di livello intermedio
 
-A seconda dell'architettura o dell'utilizzo dell'applicazione, è possibile prendere in considerazione diverse strategie per garantire che il flusso OBO abbia esito positivo. In tutti i casi, l'obiettivo finale è garantire il consenso corretto in modo che l'app client possa chiamare l'app di livello intermedio e l'app di livello intermedio disponga dell'autorizzazione per chiamare la risorsa back-end. 
+A seconda dell'architettura o dell'utilizzo dell'applicazione, è possibile prendere in considerazione diverse strategie per garantire che il flusso OBO abbia esito positivo. In tutti i casi, l'obiettivo finale è garantire il consenso corretto in modo che l'app client possa chiamare l'app di livello intermedio e l'app di livello intermedio disponga dell'autorizzazione per chiamare la risorsa back-end.
 
 > [!NOTE]
-> In precedenza il sistema di account Microsoft (account personali) non supportava il campo "Applicazione client nota", né poteva mostrare il consenso combinato.  Questo è stato aggiunto e tutte le app nella piattaforma di identità Microsoft possono utilizzare l'approccio dell'applicazione client nota per ottenere il consenso per le chiamate OBO. 
+> In precedenza il sistema di account Microsoft (account personali) non supportava il campo "Applicazione client nota", né poteva mostrare il consenso combinato.  Questo è stato aggiunto e tutte le app nella piattaforma di identità Microsoft possono utilizzare l'approccio dell'applicazione client nota per ottenere il consenso per le chiamate OBO.
 
 ### <a name="default-and-combined-consent"></a>/.default e consenso combinato
 

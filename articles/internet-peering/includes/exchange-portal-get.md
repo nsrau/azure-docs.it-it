@@ -8,43 +8,43 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: b967c844ab145074490e931122cbe092d67de0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 000971878e24c46892aaef1fa0c65237a4219883
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774549"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678557"
 ---
-Una volta distribuita correttamente la risorsa **peering,** è possibile visualizzarla seguendo la procedura seguente.
+Dopo aver distribuito correttamente la risorsa **Peering,** è possibile visualizzarla seguendo questi passaggi.
 
-1. Passare a **Gruppi di** risorse e fare clic sul gruppo di risorse selezionato durante la creazione della risorsa di **peering.** È possibile utilizzare il campo *Filtro* se sono disponibili troppi gruppi di risorse.
+1. Passare a **Gruppi di**risorse e selezionare il gruppo di risorse selezionato al momento della creazione della risorsa **peering.** Usare la casella **Filtro** se sono disponibili troppi gruppi di risorse.
 
     > [!div class="mx-imgBorder"]
-    > ![Gruppo di risorse peering](../media/setup-direct-get-resourcegroup.png)
+    > ![Gruppi di risorse](../media/setup-direct-get-resourcegroup.png)
 
-1. Fare clic sulla risorsa **peering** creata.
+1. Selezionare la risorsa **di peering** creata.
 
     > [!div class="mx-imgBorder"]
     > ![Visualizzazione delle risorse peering](../media/setup-direct-get-open.png)
 
-1. La pagina **Panoramica** mostra informazioni generali. Osservare le informazioni evidenziate di seguito.
+1. La pagina **Panoramica** mostra informazioni di alto livello, come illustrato di seguito.
 
     > [!div class="mx-imgBorder"]
-    > ![Visualizzazione delle risorse peering](../media/setup-exchange-get-overview.png)
+    > ![Riquadro Panoramica delle risorse di peering](../media/setup-exchange-get-overview.png)
 
-1. A sinistra, fai clic su **Informazioni ASN** per visualizzare le informazioni inviate durante la creazione di PeerAsn
-
-    > [!div class="mx-imgBorder"]
-    > ![Visualizzazione delle risorse peering](../media/setup-direct-get-asninfo.png)
-
-1. A sinistra, fare clic su **Connessioni**. Osservare in alto un riepilogo delle connessioni peering tra l'ASN e Microsoft, attraverso diverse strutture all'interno della metropolitana. È inoltre possibile accedere al riepilogo delle connessioni dalla pagina **Panoramica,** facendo clic su **Connessioni** nel riquadro centrale come evidenziato in precedenza.
+1. A sinistra, seleziona **Informazioni ASN** per visualizzare le informazioni inviate al momento della creazione di PeerAsn.
 
     > [!div class="mx-imgBorder"]
-    > ![Visualizzazione delle risorse peering](../media/setup-exchange-get-connectionssummary.png)
+    > ![Informazioni ASN sulle risorse di peering](../media/setup-direct-get-asninfo.png)
 
-    * **Stato connessione** corrisponde allo stato della configurazione della connessione di peering. Gli stati visualizzati in questo campo seguono il diagramma di stato illustrato nella [procedura dettagliata di peering di Exchange](../walkthrough-exchange-all.md)
-    * **Lo stato sessione IPv4** e **lo stato sessione IPv6** corrispondono rispettivamente agli stati sessione BGP IPv4 e IPv6.  
-    * Quando si seleziona una riga in alto, la sezione ***Connessione*** in basso mostra i dettagli per ogni connessione. È possibile fare clic sui segni freccia per espandere le sottosezioni ***Configurazione***, ***Indirizzo IPv4*** e ***Indirizzo IPv6***
+1. A sinistra, selezionare **Connessioni**. Nella parte superiore dello schermo viene visualizzato un riepilogo delle connessioni peering tra l'ASN e Microsoft, tra diverse strutture all'interno della metropolitana. È inoltre possibile accedere al riepilogo delle connessioni dalla pagina **Panoramica** selezionando **Connessioni** nel riquadro centrale, come illustrato.
+
+    > [!div class="mx-imgBorder"]
+    > ![Collegamento delle risorse di peeringPeering resource Connections](../media/setup-exchange-get-connectionssummary.png)
+
+    * **Stato connessione** corrisponde allo stato dell'impostazione della connessione di peering. Gli stati visualizzati in questo campo seguono il diagramma di stato illustrato nella [procedura dettagliata Exchange peering](../walkthrough-exchange-all.md).
+    * **Lo stato della sessione IPv4** e **lo stato sessione IPv6** corrispondono rispettivamente agli stati sessione BGP IPv4 e IPv6.  
+    * Quando si seleziona una riga nella parte superiore dello schermo, la sezione **Connessione** nella parte inferiore mostra i dettagli per ogni connessione. Selezionare le frecce per espandere **Configurazione**, **Indirizzo IPv4**e **Indirizzo IPv6**.
 
     > [!div class="mx-imgBorder"]
     > ![Visualizzazione delle risorse peering](../media/setup-exchange-get-connectionsipv4.png)

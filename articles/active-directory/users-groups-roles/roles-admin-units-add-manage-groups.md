@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f45d9e1ca5b8237779fe096154c83749aa08fe
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1f0b0c0a7b666aed56ad24625c80c0a57683b998
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428433"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683263"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Aggiungere e gestire gruppi in unità amministrative in Azure Active DirectoryAdd and manage groups in administrative units in Azure Active Directory
 
 In Azure Active Directory (Azure AD) è possibile aggiungere gruppi a un'unità amministrativa (AU) per un ambito amministrativo di controllo più granulare.
 
-Per la procedura di preparazione all'utilizzo di PowerShell e Microsoft Graph per la gestione delle unità amministrative, vedere [Introduzione.](roles-admin-units-manage.md#getting-started)
+Per la procedura di preparazione all'utilizzo di PowerShell e Microsoft Graph per la gestione delle unità amministrative, vedere [Introduzione.](roles-admin-units-manage.md#get-started)
 
 ## <a name="add-groups-to-an-au"></a>Aggiungere gruppi a un'Unione africana
 

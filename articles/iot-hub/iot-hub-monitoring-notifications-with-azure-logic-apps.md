@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68385722"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680715"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
 
@@ -22,7 +22,7 @@ ms.locfileid: "68385722"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Le app per](https://docs.microsoft.com/azure/logic-apps/) la logica di Azure consentono di orchestrare i flussi di lavoro tra servizi locali e cloud, una o più aziende e vari protocolli. Un'app per la logica inizia con un trigger, seguito da una o più azioni che possono essere sequenziate usando controlli predefiniti, ad esempio condizioni e iteratori. Questa flessibilità rende App per la logica una soluzione IoT ideale per scenari di monitoraggio IoT.This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. Ad esempio, l'arrivo dei dati di telemetria da un dispositivo in un endpoint dell'hub IoT può avviare flussi di lavoro dell'app per la logica per warehousei in un BLOB di Archiviazione di Azure, inviare avvisi tramite posta elettronica per avvisare delle anomalie dei dati, pianificare una visita del tecnico se un dispositivo segnala un erroreFor example, the arrival of telemetry data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure E così via.
+[Le app per](https://docs.microsoft.com/azure/logic-apps/) la logica di Azure consentono di orchestrare i flussi di lavoro tra servizi locali e cloud, una o più aziende e vari protocolli. Un'app per la logica inizia con un trigger, seguito da una o più azioni che possono essere sequenziate usando controlli predefiniti, ad esempio condizioni e iteratori. Questa flessibilità rende App per la logica una soluzione IoT ideale per scenari di monitoraggio IoT.This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. Ad esempio, l'arrivo dei dati di telemetria da un dispositivo in un endpoint dell'hub IoT può avviare flussi di lavoro dell'app per la logica per warehousei in un BLOB di Archiviazione di Azure, inviare avvisi tramite posta elettronica per avvisare di anomalie dei dati, pianificare una visita del tecnico se un dispositivo segnala un errore e così via.
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
@@ -84,7 +84,7 @@ Creare uno spazio dei nomi del bus di servizio e una coda Più avanti in questo 
 
    ![Creare uno spazio dei nomi del bus di servizio nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. Selezionare **Crea**. Attendere il completamento della distribuzione prima di passare al passaggio successivo.
+1. Selezionare **Create** (Crea). Attendere il completamento della distribuzione prima di passare al passaggio successivo.
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>Aggiungere una coda del bus di servizio allo spazio dei nomiAdd a Service Bus queue to the namespace
 
@@ -124,7 +124,7 @@ Aggiungere un endpoint personalizzato per la coda del bus di servizio all'hub Io
 
    ![Aggiungere un endpoint all'hub IoT nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. Selezionare **Crea**. Dopo aver creato correttamente l'endpoint, procedere al passaggio successivo.
+1. Selezionare **Create** (Crea). Dopo aver creato correttamente l'endpoint, procedere al passaggio successivo.
 
 ### <a name="add-a-routing-rule"></a>Aggiungere una regola di routing
 
@@ -162,7 +162,7 @@ Nella sezione precedente si imposta l'hub IoT per instradare i messaggi contenen
 
    ![Creare un'app per la logica nel portale di AzureCreate a logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="configure-the-logic-app-trigger"></a>Configurare il trigger dell'app per la logicaConfigure the logic app trigger
 
@@ -212,7 +212,7 @@ Nella sezione precedente si imposta l'hub IoT per instradare i messaggi contenen
       Ottenere le informazioni di SMTP per [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) e [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > Potrebbe essere necessario disabilitare SSL per stabilire la connessione. Se questo è il caso e si desidera riattivare SSL dopo che la connessione è stata stabilita, vedere il passaggio facoltativo alla fine di questa sezione.
+      > Potrebbe essere necessario disabilitare TLS/SSL per stabilire la connessione. In questo caso e si desidera riattivare TLS dopo aver stabilito la connessione, vedere il passaggio facoltativo alla fine di questa sezione.
 
    1. Dall'elenco a discesa **Aggiungi nuovo parametro** nel passaggio **Invia e-mail** selezionare **Da**, **A**, **Oggetto** e **Corpo**. Toccare o fare clic in un punto qualsiasi dello schermo per chiudere la casella di selezione.
 
@@ -224,7 +224,7 @@ Nella sezione precedente si imposta l'hub IoT per instradare i messaggi contenen
 
    1. Selezionare **Salva** per salvare la connessione SMTP.
 
-1. (Facoltativo) Se è stato necessario disabilitare SSL per stabilire una connessione con il provider di posta elettronica e si desidera riabilitarlo, attenersi alla seguente procedura:
+1. (Facoltativo) Se è stato necessario disabilitare TLS per stabilire una connessione con il provider di posta elettronica e si desidera riabilitarlo, attenersi alla seguente procedura:
 
    1. Nel riquadro **dell'app per** la logica, in Strumenti di **sviluppo,** selezionare **Connessioni API**.
 

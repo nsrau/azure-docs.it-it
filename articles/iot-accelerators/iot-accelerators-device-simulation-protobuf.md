@@ -6,15 +6,17 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom:
+- mvc
+- amqp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250218"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683998"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializzare i dati di telemetria con i Protocol Buffers
 
@@ -204,7 +206,7 @@ Aprire il file **WebService,appsettings.ini** e modificare le impostazioni come 
 
 #### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Configurare la soluzione in modo da includere i nuovi file del modello di dispositivo
 
-Per impostazione predefinita, i file JSON e JS del nuovo modello di dispositivo non verranno copiati all'interno della soluzione creata. È necessario includerli esplicitamente.
+Per impostazione predefinita, i nuovi file JSON e JS del modello di dispositivo non verranno copiati nella soluzione incorporata. È necessario includerli esplicitamente.
 
 Aggiungere una voce al file **services\services.csproj** per ogni file da includere. Ad esempio:
 

@@ -1,6 +1,6 @@
 ---
-title: Licenza per Microsoft® Smooth Streaming Client Porting Kit
-description: Informazioni su come ottenere la licenza per Microsoft® Smooth Streaming Client Porting Kit.
+title: Licenze&reg; Microsoft Smooth Streaming Client Porting Kit
+description: Informazioni su come ottenere&reg; in licenza Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096704"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686906"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenza per Microsoft® Smooth Streaming Client Porting Kit 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenze&reg; Microsoft Smooth Streaming Client Porting Kit 
 ## <a name="overview"></a>Panoramica
 Microsoft Smooth Streaming Client Porting Kit, **SSPK** per brevità, è un'implementazione client di Smooth Streaming ottimizzata per aiutare produttori di dispositivi integrati, operatori di telefonia via cavo e mobile, provider di servizi di gestione del contenuto, produttori di telefoni, fornitori di software indipendenti (ISV) e provider di soluzioni a creare prodotti e servizi per la trasmissione di flussi adattivi in formato Smooth Streaming. SSPK è un'implementazione indipendente dal dispositivo e dalla piattaforma del client Smooth Streaming che può essere applicata dal licenziatario a qualsiasi dispositivo e piattaforma. 
 
@@ -73,7 +73,7 @@ Smooth Streaming Client Final Product è disponibile in un modello a pagamento c
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedura di gestione delle licenze e accesso a SSPK
 E-mail [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) per tutte le query di licenza.
 
-Il [portale di distribuzione di SSPK](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) è accessibile a licenziatari della versione Interim registrati.
+Il portale di distribuzione di SSPK è accessibile a licenziatari della versione Interim registrati.
 
 I licenziatari provvisori e finali SSPK possono inviare domande tecniche a [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 

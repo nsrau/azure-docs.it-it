@@ -1,52 +1,31 @@
 ---
-title: Configurare i post-script preliminari e post-script nella distribuzione di gestione degli aggiornamenti in AzureConfigure pre and post-scripts on your Update Management deployment in Azure
+title: Gestire pre-script e post-script nella distribuzione di gestione degli aggiornamenti in AzureManage pre-scripts and post-scripts in your Update Management deployment in Azure
 description: In questo articolo viene descritto come configurare e gestire pre-script e post-script per le distribuzioni degli aggiornamenti.
 services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bbf7f2945ad6a94c51cfd0c7db1e8c85d739c6ed
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 00cde5255f9c9a2baa7c7042ae2a8f73448da0ae
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631626"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679981"
 ---
-# <a name="manage-pre-and-post-scripts"></a>Gestire i pre e i post-script
+# <a name="manage-pre-scripts-and-post-scripts"></a>Gestire pre-script e post-script
 
-I pre-script e i post-script consentono di eseguire i runbook di PowerShell nell'account di Automazione di Azure prima (pre-attività) e dopo (post-attività) una distribuzione di aggiornamento. I post script preliminari e successivi vengono eseguiti nel contesto di Azure, non in locale. I pre-script vengono eseguiti all'inizio della distribuzione dell'aggiornamento. I post-script vengono eseguiti alla fine della distribuzione e dopo eventuali riavvii configurati.
+I pre-script e i post-script vengono eseguiti nell'account di Automazione di Azure prima (pre-attività) e dopo (post-attività) una distribuzione di aggiornamento. I pre-script e i postscript vengono eseguiti nel contesto di Azure, non in locale. I pre-script vengono eseguiti all'inizio della distribuzione dell'aggiornamento. I post-script vengono eseguiti alla fine della distribuzione e dopo eventuali riavvii configurati.
 
-## <a name="runbook-requirements"></a>Requisiti dei runbook
+>[!NOTE]
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per istruzioni sull'installazione del modulo Az nel ruolo di lavoro ibrido per runbook, vedere [Installare il modulo di Azure PowerShell.For](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)Az module installation instructions on your Hybrid Runbook Worker, see Install the Azure PowerShell Module . Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando Come aggiornare i moduli di [Azure PowerShell in Automazione di Azure.](automation-update-azure-modules.md)
 
-Affinché un runbook venga usato come pre o postscript, il runbook deve essere importato nell'account di Automazione e pubblicato. Per ulteriori informazioni su questo processo, consultate [Pubblicare un runbook.](manage-runbooks.md#publishing-a-runbook)
+## <a name="pre-script-and-post-script-requirements"></a>Requisiti di pre-script e post-script
 
-## <a name="using-a-pre-script-or-post-script"></a>Utilizzo di un pre-script o di un postscript
+Affinché un runbook venga usato come pre-script o postscript, è necessario importarlo nell'account di automazione e [pubblicare il runbook](manage-runbooks.md#publishing-a-runbook).
 
-Per utilizzare un pre-script o post-script in una distribuzione di aggiornamento, iniziare creando una distribuzione di aggiornamento. Selezionare **Pre-script - Post-script**. Verrà visualizzata la pagina **Selezionare i pre-script e i post-script**.
+## <a name="pre-script-and-post-script-parameters"></a>Parametri di pre-script e post-script
 
-![Selezionare gli script](./media/pre-post-scripts/select-scripts.png)
-
-Selezionare lo script che si desidera utilizzare. In questo esempio viene usato il runbook **UpdateManagement-TurnOnVms.In** this example, we use the UpdateManagement-TurnOnVms runbook. Quando si seleziona il runbook, viene visualizzata la pagina **Configura script.** Selezionare **Pre-Script**, quindi **scegliere OK**.
-
-Ripetere la procedura per lo script **UpdateManagement-TurnOffVms**. Ma quando si sceglie il **tipo di script**, selezionare **Post-Script**.
-
-La sezione **Elementi selezionati** ora mostra entrambi gli script selezionati. Uno è un pre-script e l'altro è un post-script:
-
-![Elementi selezionati](./media/pre-post-scripts/selected-items.png)
-
-Completare la configurazione della distribuzione degli aggiornamenti.
-
-Al termine della distribuzione degli aggiornamenti, è possibile passare a **Distribuzioni** di aggiornamento per visualizzare i risultati. Come si può vedere, lo stato viene fornito per il pre-script e post-script:
-
-![Risultati aggiornamento](./media/pre-post-scripts/update-results.png)
-
-Selezionando l'esecuzione della distribuzione degli aggiornamenti, vengono visualizzati ulteriori dettagli per il pre e post-script. Viene fornito un collegamento all'origine dello script al momento dell'esecuzione.
-
-![Risultati dell'esecuzione della distribuzione](./media/pre-post-scripts/deployment-run.png)
-
-## <a name="passing-parameters"></a>Passaggio di parametri
-
-Quando si configurano i pre e i post-script, è possibile passare parametri come la pianificazione di un runbook. I parametri vengono definiti al momento della creazione della distribuzione di aggiornamento. I pre e i post-script supportano i seguenti tipi:
+Quando si configurano pre-script e post-script, è possibile passare parametri come la pianificazione di un runbook. I parametri vengono definiti al momento della creazione della distribuzione di aggiornamento. I pre-script e i post-script supportano i seguenti tipi:
 
 * [char]
 * [byte]
@@ -58,13 +37,11 @@ Quando si configurano i pre e i post-script, è possibile passare parametri come
 * [DateTime]
 * [string]
 
+I parametri runbook pre-script e post-script non supportano i tipi booleani, oggetto o matrice. Questi valori causano l'esito negativo dei runbook. 
+
 Se è necessario un altro tipo di oggetto, è possibile eseguirne il cast in un altro tipo con la propria logica nel runbook.
 
-Oltre ai parametri del runbook standard, viene fornito un altro parametro: **SoftwareUpdateConfigurationRunContext**
-
-Questo parametro è una stringa JSON e se si definisce il parametro nel pre o nel postscript, viene passato automaticamente dalla distribuzione dell'aggiornamento. Il parametro contiene informazioni sulla distribuzione dell'aggiornamento, ovvero un sottoinsieme di informazioni restituite [dall'API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). 
-
-Nella tabella seguente vengono illustrate le proprietà fornite nella variabile.
+Oltre ai parametri del runbook standard, viene fornito il `SoftwareUpdateConfigurationRunContext` parametro (tipo di stringa JSON). Se si definisce il parametro nel runbook pre-script o post-script, questo viene passato automaticamente dalla distribuzione dell'aggiornamento. Il parametro contiene informazioni sulla distribuzione dell'aggiornamento, ovvero un sottoinsieme di informazioni restituite [dall'API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). Le sezioni seguenti definiscono le proprietà associate.
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Proprietà SoftwareUpdateConfigurationRunContext
 
@@ -74,7 +51,7 @@ Nella tabella seguente vengono illustrate le proprietà fornite nella variabile.
 |SoftwareUpdateConfigurationRunId     | ID univoco per l'esecuzione.        |
 |SoftwareUpdateConfigurationSettings     | Raccolta di proprietà relative alla configurazione dell'aggiornamento software.         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | Sistemi operativi di destinazione per la distribuzione dell'aggiornamento.         |
-|SoftwareUpdateConfigurationSettings.duration     | La durata massima della distribuzione `PT[n]H[n]M[n]S` dell'aggiornamento viene eseguita in base a ISO8601. chiamata anche finestra di *manutenzione*.          |
+|SoftwareUpdateConfigurationSettings.duration     | La durata massima della distribuzione `PT[n]H[n]M[n]S` dell'aggiornamento viene eseguita in base a ISO8601. chiamata anche finestra di manutenzione.          |
 |SoftwareUpdateConfigurationSettings.Windows     | Raccolta di proprietà relative ai computer Windows.         |
 |SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | Elenco di KB esclusi dalla distribuzione dell'aggiornamento.        |
 |SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Aggiornare le classificazioni selezionate per la distribuzione degli aggiornamenti.        |
@@ -115,8 +92,33 @@ Di seguito è riportato un esempio di stringa JSON passata al parametro **Softwa
 Un esempio completo con tutte le proprietà è disponibile in: [Get software update configuration by name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
-> L'oggetto `SoftwareUpdateConfigurationRunContext` può contenere voci duplicate per le macchine. Ciò può causare l'esecuzione di post-script e pre e post script più volte sullo stesso computer. Per risolvere questo problema, utilizzare `Sort-Object -Unique` per selezionare solo nomi di macchina virtuale univoci nello script.
+> L'oggetto `SoftwareUpdateConfigurationRunContext` può contenere voci duplicate per le macchine. Ciò può causare l'esecuzione di pre-script e post-script più volte sullo stesso computer. Per risolvere questo problema, utilizzare `Sort-Object -Unique` per selezionare solo nomi di macchina virtuale univoci.
 
+## <a name="using-a-pre-script-or-post-script-in-a-deployment"></a>Utilizzo di un pre-script o post-script in una distribuzioneUsing a pre-script or post-script in a deployment
+
+Per utilizzare un pre-script o post-script in una distribuzione di aggiornamento, iniziare creando una distribuzione di aggiornamento. Selezionare **Pre-script - Post-script**. Verrà visualizzata la pagina **Selezionare i pre-script e i post-script**.
+
+![Selezionare gli script](./media/pre-post-scripts/select-scripts.png)
+
+Selezionare lo script che si desidera utilizzare. In questo esempio viene usato il runbook **UpdateManagement-TurnOnVms.In** this example, we use the UpdateManagement-TurnOnVms runbook. Quando si seleziona il runbook, viene visualizzata la pagina **Configura script.** Selezionare **Pre-Script**, quindi **scegliere OK**.
+
+Ripetere la procedura per lo script **UpdateManagement-TurnOffVms**. Ma quando si sceglie il **tipo di script**, selezionare **Post-Script**.
+
+La sezione **Elementi selezionati** ora mostra entrambi gli script selezionati. Uno è un pre-script e l'altro è un post-script:
+
+![Elementi selezionati](./media/pre-post-scripts/selected-items.png)
+
+Completare la configurazione della distribuzione degli aggiornamenti.
+
+Al termine della distribuzione degli aggiornamenti, è possibile passare a **Distribuzioni** di aggiornamento per visualizzare i risultati. Come si può vedere, lo stato viene fornito per il pre-script e post-script:
+
+![Risultati aggiornamento](./media/pre-post-scripts/update-results.png)
+
+Selezionando l'esecuzione della distribuzione degli aggiornamenti, vengono visualizzati ulteriori dettagli relativi a pre-script e post-script. Viene fornito un collegamento all'origine dello script al momento dell'esecuzione.
+
+![Risultati dell'esecuzione della distribuzione](./media/pre-post-scripts/deployment-run.png)
+
+nel copione.
 
 ## <a name="stopping-a-deployment"></a>Arresto di una distribuzione
 
@@ -135,9 +137,47 @@ foreach($summary in $finalStatus)
 }
 ```
 
+
+
+## <a name="interacting-with-machines"></a>Interazione con le macchine
+
+I pre-script e le post-attività vengono eseguiti come runbook nell'account di automazione e non direttamente nei computer della distribuzione. Le attività preliminari e le post-attività vengono eseguite anche nel contesto di Azure e non hanno accesso a computer non Azure.Pre-tasks and post-tasks also run in the Azure context and don't have access to non-Azure machines. Le sezioni seguenti illustrano come interagire direttamente con i computer, siano essi macchine virtuali di Azure o computer non Azure.The following sections show how you can interact with the machines directly, whether they'm Azure VMs or non-Azure machines.
+
+### <a name="interact-with-azure-machines"></a>Interagire con le macchine di AzureInteract with Azure machines
+
+Le pre-attività e le post-attività vengono eseguite come runbook e non vengono eseguite in modo nativo nelle macchine virtuali di Azure nella distribuzione. Per interagire con le macchine virtuali di Azure, è necessario disporre degli elementi seguenti:To interact with your Azure VMs, you must have the following items:
+
+* Un account RunAs
+* Un runbook che si desidera eseguire
+
+Per interagire con i computer di Azure, è necessario usare il cmdlet Invoke-AzVMRunCommand per interagire con le macchine virtuali di Azure.To interact with Azure machines, you should use the [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) cmdlet to interact with your Azure VMs. Per un esempio di come eseguire questa operazione, vedere l'esempio di runbook [Update Management – run script con il comando Esegui](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+
+### <a name="interact-with-non-azure-machines"></a>Interagire con macchine non AzureInteract with non-Azure machines
+
+Le attività preliminari e le post-attività vengono eseguite nel contesto di Azure e non hanno accesso a computer non Azure.Pre-tasks and post-tasks run in the Azure context and don't have access to non-Azure machines. Per interagire con i computer non Azure, è necessario disporre degli elementi seguenti:To interact with the non-Azure machines, you must have the following items:
+
+* Un account RunAs
+* Ruolo di lavoro ibrido per runbook installato nel computer
+* Un runbook da eseguire in locale
+* Un runbook padre
+
+Per interagire con computer non Azure, un runbook padre viene eseguito nel contesto di Azure.To interact with non-Azure machines, a parent runbook is run in the Azure context. Questo runbook chiama un runbook figlio con il cmdlet [Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) È necessario specificare il `RunOn` parametro e specificare il nome del ruolo di lavoro ibrido per runbook in cui eseguire lo script. Vedere l'esempio di gestione degli aggiornamenti del [runbook: eseguire lo script in locale](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+
+## <a name="aborting-patch-deployment"></a>Interruzione della distribuzione delle patch
+
+Se il pre-script restituisce un errore, è possibile interrompere la distribuzione. A tale scopo, è necessario [generare](/powershell/module/microsoft.powershell.core/about/about_throw) un errore nello script per qualsiasi logica che costituirebbe un errore.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.
+    throw "There was an error, abort deployment"
+}
+```
+
 ## <a name="samples"></a>Esempi
 
-Esempi per i post e post-script sono disponibili nella raccolta Script Center e PowerShell Gallery oppure è possibile importarli tramite il portale di Azure.Samples for pre and post-scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) and the PowerShell Gallery , oppure è possibile importarli tramite il portale di Azure.Samples for pre and post-scripts can be found in the Script Center Gallery and the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), oppure è possibile importarli tramite il A tale scopo, nell'account di automazione, in **Automazione processo**selezionare **Runbooks Gallery**. Usare **Update Management** come filtro.
+Esempi per pre-script e post-script sono disponibili nella [raccolta Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) e PowerShell Gallery oppure è possibile importarli tramite il portale di Azure.Samples for pre-scripts and post-scripts can be found in the Script Center Gallery and the PowerShell Gallery , oppure è possibile importarli tramite il portale di Azure.Samples for pre-scripts and post-scripts can be found in the Script Center Gallery and the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), or you can import them through the Azure portal. A tale scopo, nell'account di automazione, in **Automazione processo**selezionare **Runbooks Gallery**. Usare **Update Management** come filtro.
 
 ![Elenco della raccolta](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -152,7 +192,7 @@ In alternativa, è possibile cercarli in base al nome dello script, come illustr
 > [!IMPORTANT]
 > Dopo aver importato i runbook, è necessario pubblicarli prima di poterli utilizzare. A tale scopo, individuare il runbook nell'account di automazione, selezionare **Modifica**e quindi **Pubblica**.
 
-Gli esempi sono tutti basati sul modello di base definito nell'esempio seguente. Questo modello può essere utilizzato per creare il proprio runbook da utilizzare con i pre e i post-script. È inclusa la logica necessaria per `SoftwareUpdateConfigurationRunContext` l'autenticazione con Azure e la gestione del parametro.
+Gli esempi sono tutti basati sul modello di base definito nell'esempio seguente. Questo modello può essere utilizzato per creare il proprio runbook da utilizzare con pre-script e post-script. È inclusa la logica necessaria per `SoftwareUpdateConfigurationRunContext` l'autenticazione con Azure e la gestione del parametro.
 
 ```powershell
 <#
@@ -174,13 +214,13 @@ param(
 #This requires a RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-Add-AzureRmAccount `
+Add-AzAccount `
     -ServicePrincipal `
     -TenantId $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzureContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 #endregion BoilerplateAuthentication
 
 #If you wish to use the run context, it must be converted from JSON
@@ -194,7 +234,7 @@ Write-Output $context
 #Example: How to create and write to a variable using the pre-script:
 <#
 #Create variable named after this run so it can be retrieved
-New-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+New-AzAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
 #Set value of variable
 Set-AutomationVariable –Name $runId -Value $vmIds
 #>
@@ -205,45 +245,8 @@ $variable = Get-AutomationVariable -Name $runId
 #>
 ```
 
-## <a name="interacting-with-machines"></a>Interazione con le macchine
-
-Le attività preliminari e successive vengono eseguite come runbook nell'account di automazione e non direttamente nei computer della distribuzione. Le post-attività preliminari e successive vengono eseguite anche nel contesto di Azure e non hanno accesso a computer non Azure.Pre and post-tasks also run in the Azure context and don't have access to non-Azure machines. Le sezioni seguenti illustrano come interagire direttamente con i computer, siano essi macchine virtuali di Azure o computer non Azure.The following sections show how you can interact with the machines directly, whether they'm Azure VMs or non-Azure machines.
-
-### <a name="interacting-with-azure-machines"></a>Interazione con le macchine di AzureInteracting with Azure machines
-
-Le post-attività vengono eseguite come runbook e non vengono eseguite in modo nativo nelle macchine virtuali di Azure nella distribuzione. Per interagire con le macchine virtuali di Azure, è necessario disporre degli elementi seguenti:To interact with your Azure VMs, you must have the following items:
-
-* Un account RunAs
-* Un runbook che si desidera eseguire
-
-Per interagire con i computer di Azure, è necessario usare il cmdlet Invoke-AzureRmVMRunCommand per interagire con le macchine virtuali di Azure.To interact with Azure machines, you should use the [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet to interact with your Azure VMs. Per un esempio di come eseguire questa operazione, vedere l'esempio di runbook [Update Management – run script con il comando Esegui](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
-
-### <a name="interacting-with-non-azure-machines"></a>Interazione con computer non AzureInteracting with non-Azure machines
-
-Le attività preliminari e successive vengono eseguite nel contesto di Azure e non hanno accesso a computer non Azure.Pre and post-tasks run in the Azure context and don't have access to non-Azure machines. Per interagire con i computer non Azure, è necessario disporre degli elementi seguenti:To interact with the non-Azure machines, you must have the following items:
-
-* Un account RunAs
-* Ruolo di lavoro ibrido per runbook installato nel computer
-* Un runbook da eseguire in locale
-* Un runbook padre
-
-Per interagire con computer non Azure, un runbook padre viene eseguito nel contesto di Azure.To interact with non-Azure machines, a parent runbook is run in the Azure context. Questo runbook chiama un runbook figlio con il cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). È necessario specificare il `-RunOn` parametro e specificare il nome del ruolo di lavoro ibrido per runbook in cui eseguire lo script. Per altre info, vedi l'esempio di gestione degli aggiornamenti del [runbook: esegui lo script in locale.](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)
-
-## <a name="abort-patch-deployment"></a>Interrompere la distribuzione delle patch
-
-Se il pre-script restituisce un errore, è possibile interrompere la distribuzione. A tale scopo, è necessario [generare](/powershell/module/microsoft.powershell.core/about/about_throw) un errore nello script per qualsiasi logica che costituirebbe un errore.
-
-```powershell
-if (<My custom error logic>)
-{
-    #Throw an error to fail the patch deployment.
-    throw "There was an error, abort deployment"
-}
-```
-
-## <a name="known-issues"></a>Problemi noti
-
-* Non è possibile passare un valore booleano, oggetti o matrici ai parametri quando si utilizzano i post-script. In caso contrario, il runbook non riesce. Per un elenco completo dei tipi supportati, vedere [Passaggio di parametri](#passing-parameters).
+> [!NOTE]
+> Per i runbook di `Add-AzAccount` PowerShell non grafici e `Add-AzureRMAccount` sono alias per [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). È possibile utilizzare questi cmdlet [oppure aggiornare i moduli](automation-update-azure-modules.md) nell'account di automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli anche se è stato appena creato un nuovo account di automazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -251,4 +254,3 @@ Passare all'esercitazione seguente per informazioni su come gestire gli aggiorna
 
 > [!div class="nextstepaction"]
 > [Gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure](automation-tutorial-update-management.md)
-

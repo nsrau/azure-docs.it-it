@@ -6,14 +6,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 882d428d7a8a9b56408aaa68964fa1e36c7cc7c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80bcf0d5d37a44cee2aab38161abac619542204a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277307"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684313"
 ---
 # <a name="containers-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di contenitori
 
@@ -41,9 +41,9 @@ Microsoft supporta attualmente i modelli di licenza BYOL (Bring Your Own License
 
 Se non è già stato fatto, 
 
-- [Registrati](https://azuremarketplace.microsoft.com/sell) nel marketplace.
+- [Scopri](https://azuremarketplace.microsoft.com/sell) di più sul mercato.
 
-Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
+Per registrarti al Centro per i partner, inizia a creare una nuova offerta o a lavorarla su una esistente:
 
-- [Accedi al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare la tua offerta.
-- Vedere [Contenitori](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) per altre informazioni.
+- [Accedi al Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare la tua offerta.
+- Per altre informazioni, vedere Creare un'offerta di contenitore di [Azure.See create an Azure container offer](./partner-center-portal/create-azure-container-offer.md) for more information.

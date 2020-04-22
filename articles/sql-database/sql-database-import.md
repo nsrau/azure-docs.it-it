@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 05698596f966f879da1affc58af0122d08d519ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7db3f6f50745526876ef2ca6e3253f1931420f0f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256237"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683254"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Guida introduttiva: Importare un file BACPAC in un database nel database SQL di AzureQuickstart: Import a BACPAC file to a database in Azure SQL Database
 
@@ -88,7 +88,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > I computer che elaborano le richieste di importazione/esportazione inviate tramite il portale o Powershell devono archiviare il file bacpac e i file temporanei generati da Data-Tier Application Framework (DacFX). Lo spazio su disco richiesto varia in modo significativo tra i database con le stesse dimensioni e può richiedere fino a 3 volte le dimensioni del database. I computer che eseguono la richiesta di importazione/esportazione dispongono solo di 450 GB di spazio su disco locale. Di conseguenza, alcune richieste potrebbero non riuscire con l'errore "Spazio insufficiente sul disco". In questo caso, la soluzione consiste nell'eseguire sqlpackage.exe in un computer con spazio su disco locale sufficiente. Quando si importano/esportano database di dimensioni superiori a 150 GB, utilizzare SqlPackage per evitare questo problema.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > Il modulo Di PowerShell Azure Resource Manager (RM) è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo futuro è per il modulo Az.Sql.The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nel modulo Az e nei moduli di AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo modulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
@@ -123,7 +123,7 @@ while ($importStatus.Status -eq "InProgress") {
 $importStatus
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Usare il comando az-sql-db-import per inviare una richiesta di database di importazione al servizio Database SQL di Azure.Use the [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) command to submit an import database request to the Azure SQL Database service. A seconda delle dimensioni del database, l'importazione può richiedere del tempo.
 
@@ -144,7 +144,8 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## <a name="limitations"></a>Limitazioni
 
-L'importazione in un database nel pool elastico non è supportata. È possibile importare i dati in un database singolo e quindi spostare quest'ultimo in un pool elastico.
+- L'importazione in un database nel pool elastico non è supportata. È possibile importare i dati in un database singolo e quindi spostare quest'ultimo in un pool elastico.
+- Il servizio di esportazione dell'importazione non funziona quando l'opzione Consenti accesso ai servizi di Azure è impostata su OFF. Tuttavia, è possibile aggirare il problema eseguendo manualmente sqlpackage.exe da una macchina virtuale di Azure o eseguendo l'esportazione direttamente nel codice usando l'API DACFx.However you can work around the problem by manually running sqlpackage.exe from an Azure VM or performing the export directly in your code by using the DACFx API.
 
 ## <a name="import-using-wizards"></a>Importazione con procedure guidate
 

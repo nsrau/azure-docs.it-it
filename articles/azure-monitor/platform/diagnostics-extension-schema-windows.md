@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274710"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676422"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schema di estensione diagnostica di Windows
 L'estensione Diagnostica di Azure è un agente in Monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e dai carichi di lavoro delle risorse di calcolo di Azure.Azure Diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure compute resources. Questo articolo descrive in dettaglio lo schema usato per la configurazione dell'estensione di diagnostica nelle macchine virtuali Windows e in altre risorse di calcolo.
@@ -72,7 +72,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Obbligatoria
 
-|Attributi|Descrizione|  
+|Attributes|Descrizione|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Spazio massimo sul disco locale che può essere usato dai vari tipi di dati di diagnostica raccolti da Diagnostica di Azure. L'impostazione predefinita è 4096 MB.<br />
 |**useProxyServer** | Configurare Diagnostica di Azure per l'uso delle impostazioni del server proxy definite nelle impostazioni di Internet Explorer.|
@@ -99,7 +99,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Abilitare la raccolta di dump di arresto anomalo del sistema.  
 
-|Attributi|Descrizione|  
+|Attributes|Descrizione|  
 |----------------|-----------------|  
 |**containerName**|Facoltativa. Nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.|  
 |**crashDumpType**|Facoltativa.  Configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.|  
@@ -170,7 +170,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Attributo facoltativo:<br/><br/> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
-|**Evento**|Attributo obbligatorio:<br /><br /> **id**: ID dell'evento.<br /><br /> Attributo facoltativo:<br /><br /> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
+|**Event**|Attributo obbligatorio:<br /><br /> **id**: ID dell'evento.<br /><br /> Attributo facoltativo:<br /><br /> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
 
 
 
@@ -180,7 +180,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Attributo facoltativo:<br /><br /> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
-|**Evento**|Attributo obbligatorio:<br /><br /> **id**: ID dell'evento.<br /><br /> Attributo facoltativo:<br /><br /> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
+|**Event**|Attributo obbligatorio:<br /><br /> **id**: ID dell'evento.<br /><br /> Attributo facoltativo:<br /><br /> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
 
 
 
@@ -223,9 +223,8 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elemento figlio|Descrizione|  
 |-------------------|-----------------|  
-|**Datasource**|Log eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*"|  
-
-
+|**DataSource**|Log eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*" |
+|**Lavandini** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
 
 
 ## <a name="logs-element"></a>Elemento Logs  
@@ -238,9 +237,9 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Attributo|Type|Descrizione|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Facoltativa. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferLogLevelFilter**|**Stringa**|Facoltativa. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**scheduledTransferPeriod**|**Durata**|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
-|**Lavandini** |**Stringa**| Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
+|**scheduledTransferLogLevelFilter**|**string**|Facoltativa. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**scheduledTransferPeriod**|**duration**|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
+|**Lavandini** |**string**| Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -269,12 +268,12 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Attributo|Type|Descrizione|  
 |---------------|----------|-----------------|  
-|**name**|string|Stringa che identifica il nome del sink.|  
+|**nome**|string|Stringa che identifica il nome del sink.|  
 
 |Elemento|Type|Descrizione|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Usato solo per inviare dati ad Application Insights. Contiene la chiave di strumentazione per un account di Application Insights attivo a cui è possibile accedere.|  
-|**Canali**|string|Uno per ogni filtro aggiuntivo per i flussi|  
+|**Channels**|string|Uno per ogni filtro aggiuntivo per i flussi|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -294,10 +293,10 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Definisce le posizioni a cui inviare i dati di diagnostica, ad esempio il servizio Application Insights.  
 
-|Attributi|Type|Descrizione|  
+|Attributes|Type|Descrizione|  
 |----------------|----------|-----------------|  
-|**logLevel**|**Stringa**|Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**name**|**Stringa**|Nome univoco per fare riferimento al canale|  
+|**logLevel**|**string**|Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**nome**|**string**|Nome univoco per fare riferimento al canale|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig

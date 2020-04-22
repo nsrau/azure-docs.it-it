@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 768fa9ca2080fc9a58fb321e62d8d61a608f9564
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7a0f0b96f8140118f1c74ecbd4368aac49d7ece6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415266"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684300"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del mercato commerciale
 
@@ -202,11 +202,11 @@ Quando vengono scelti modelli di determinazione prezzi con pagamento in base al 
 * I clienti effettuano in genere gli acquisti tramite il contratto Enterprise Agreement o un contratto con pagamento in base al consumo abilitato per le carte di credito. Il tipo di contratto determina le date di fatturazione, riscossione e pagamento.
 
 >[!NOTE]
->Tutti i report e le informazioni dettagliate per l'opzione di pubblicazione delle transazioni sono disponibili tramite la sezione Insights del portale per i partner cloud o della sezione Analisi del Centro per i partner.
+>Tutti i report e le informazioni dettagliate per l'opzione di pubblicazione delle transazioni sono disponibili tramite la sezione Analisi del Centro per i partner.
 
 #### <a name="billing-questions-and-support"></a>Domande sulla fatturazione e supporto
 
-Per altre informazioni e normative legali, vedere il [contratto per la pubblicazione](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (disponibile nel portale Cloud Partner).
+Per altre informazioni e criteri legali, vedere il [Contratto per](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) i publisher (disponibile nel Centro per i partner).
 
 Per ottenere assistenza per le domande sulla fatturazione, contattare il [supporto editore del marketplace commerciale.](https://aka.ms/marketplacepublishersupport)
 

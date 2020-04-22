@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 9d7cbdd5ad551ba48f08f62237d5384aa7998fb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4c8f21234cfbf040d57c0e1c8dbecbb698d7d50
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281664"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685916"
 ---
 # <a name="cloud-solution-providers"></a>Cloud Solution Provider
 
@@ -195,4 +195,4 @@ Visita la Guida di [Azure Marketplace e AppSource Publisher](https://docs.micros
 
 Per ulteriori informazioni sui servizi GTM del marketplace, vedere [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Accedi al [Centro per i partner partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) o al portale per i partner [cloud](https://cloudpartner.azure.com/) per creare e configurare la tua offerta.
+Accedi al [Centro per i partner partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) o al portale per i partner [cloud](https://cloudpartner.azure.com/) per creare e configurare la tua offerta.

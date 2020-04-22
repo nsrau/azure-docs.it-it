@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: f30ccd498b79c36c8892ae38a3e26d169249621a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481100"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677159"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura di connettività per un'istanza gestita nel database SQL di AzureConnectivity architecture for a managed instance in Azure SQL Database
 
@@ -39,7 +39,7 @@ Un'istanza gestita è un'offerta di piattaforma come servizio (PaaS). Microsoft 
 
 Alcune operazioni di SQL Server avviate da utenti finali o applicazioni potrebbero richiedere istanze gestite per interagire con la piattaforma. Un caso è la creazione di un database dell'istanza gestita. Questa risorsa viene esposta tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure e l'API REST.
 
-Le istanze gestite dipendono da servizi di Azure come Archiviazione di Azure per i backup, Hub eventi di Azure per la telemetria, Azure Active Directory per l'autenticazione, Archiviazione chiave di Azure per Transparent Data Encryption (TDE) e un paio di servizi della piattaforma Azure che forniscono funzionalità di sicurezza e supportabilità. Le istanze gestite effettuano connessioni a questi servizi.
+Le istanze gestite dipendono da servizi di Azure come Archiviazione di Azure per i backup, Hub eventi di Azure per i dati di telemetria, Azure Active Directory per l'autenticazione, Archiviazione chiave di Azure per Transparent Data Encryption (TDE) e un paio di servizi della piattaforma Azure che forniscono funzionalità di sicurezza e supportabilità. Le istanze gestite effettuano connessioni a questi servizi.
 
 Tutte le comunicazioni sono crittografate e firmate utilizzando certificati. Per verificare l'affidabilità delle parti in comunicazione, le istanze gestite verificano costantemente questi certificati tramite gli elenchi di revoche di certificati. Se i certificati vengono revocati, l'istanza gestita chiude le connessioni per proteggere i dati.
 
@@ -81,7 +81,7 @@ Quando le connessioni iniziano all'interno dell'istanza gestita (come con i back
 > [!NOTE]
 > Il traffico destinato ai servizi di Azure che si trovano all'interno dell'area dell'istanza gestita è ottimizzato e per questo motivo non è associato all'indirizzo IP pubblico dell'endpoint di gestione dell'istanza gestita. Per questo motivo, se è necessario utilizzare regole del firewall basate su IP, in genere per l'archiviazione, il servizio deve trovarsi in un'area diversa dall'istanza gestita.
 
-## <a name="service-aided-subnet-configuration"></a>Configurazione della subnet assistita dal servizioService-aided subnet configuration
+## <a name="service-aided-subnet-configuration"></a>Configurazione della subnet con il supporto del servizio
 
 Per soddisfare i requisiti di sicurezza e gestibilità dei clienti, l'istanza gestita sta passando dalla configurazione manuale a quella assistita.
 
@@ -306,6 +306,7 @@ Le funzionalità di rete virtuale seguenti non sono attualmente supportate con l
 - **Peering Microsoft:** abilitazione del [peering Microsoft](../expressroute/expressroute-faqs.md#microsoft-peering) su circuiti di route rapida sottoposti a peering direttamente o in transitivo con la rete virtuale in cui risiede l'istanza gestita influiscono sul flusso di traffico tra i componenti dell'istanza gestita all'interno della rete virtuale e sui servizi, dipende dalla causa dei problemi di disponibilità. Si prevede che le distribuzioni di istanze gestite nella rete virtuale con peering Microsoft già abilitato avranno esito negativo.
 - **Peering di rete virtuale globale:** la connettività di [peering](../virtual-network/virtual-network-peering-overview.md) della rete virtuale tra aree di Azure non funziona per l'istanza gestita a causa di vincoli di [bilanciamento del carico documentati.](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - **AzurePlatformDNS:** l'utilizzo del tag del [servizio](../virtual-network/service-tags-overview.md) AzurePlatformDNS per bloccare la risoluzione DNS della piattaforma renderebbe l'istanza gestita non disponibile. Sebbene l'istanza gestita supporti il DNS definito dal cliente per la risoluzione DNS all'interno del motore, esiste una dipendenza dal DNS della piattaforma per le operazioni della piattaforma.
+- **Gateway NAT:** l'utilizzo di [NAT di rete virtuale](../virtual-network/nat-overview.md) per controllare la connettività in uscita con un indirizzo IP pubblico specifico renderebbe l'istanza gestita non disponibile. Il servizio dell'istanza gestita è attualmente limitato all'uso del servizio di bilanciamento del carico di base che non fornisce la coesistenza dei flussi in ingresso e in uscita con NAT di rete virtuale.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Obsoleto] Requisiti di rete senza configurazione di subnet assistita dal servizioNetwork requirements without service-aided subnet configuration
 

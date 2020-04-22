@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: f038293b48956ac89314e426df3f5dc491954df3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb778c8d24639320b60927438de76a29de724ac2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064212"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684720"
 ---
 # <a name="execute-r-script"></a>Execute R Script
 
@@ -44,7 +44,10 @@ azureml_main <- function(dataframe1, dataframe2){
 ```
 
 ## <a name="installing-r-packages"></a>Installazione di pacchetti R
-Per installare pacchetti R `install.packages()` aggiuntivi, usare il metodo . Assicurarsi di specificare il repository CRAN. I pacchetti vengono installati per ogni modulo **Execute R Script** e non vengono condivisi tra altri moduli Execute R Script.Packages are installed for each Execute R Script module, and aren't shared across other **Execute R Script** modules.
+Per installare pacchetti R `install.packages()` aggiuntivi, usare il metodo . I pacchetti vengono installati per ogni modulo **Execute R Script** e non vengono condivisi tra altri moduli Execute R Script.Packages are installed for each Execute R Script module, and aren't shared across other **Execute R Script** modules.
+
+> [!NOTE]
+> Specificare il repository CRAN quando si installano pacchetti come`install.packages("zoo",repos = "http://cran.us.r-project.org")`
 
 In questo esempio viene illustrato come installare lo zoo:
 ```R
@@ -52,7 +55,13 @@ In questo esempio viene illustrato come installare lo zoo:
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -77,7 +86,13 @@ L'esempio seguente mostra come caricare un file di immagine nello **script Execu
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -124,6 +139,12 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
 
 1. Nella casella di testo **Script R** digitare o incollare uno script R valido.
 
+    > [!NOTE]
+    > Prestare molta attenzione quando si scrive lo script e si assicura che non vi sia alcun errore di sintassi, ad esempio utilizzando una variabile non dichiarata o un modulo o una funzione non importata. Prestare inoltre ulteriori attenzioni all'elenco dei pacchetti preinstallati alla fine di questo documento. Per utilizzare i pacchetti non elencati, installarli nello script, ad esempio`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    
+    > [!NOTE]
+    > Le funzioni dipendenti dalla libreria X11, ad esempio "Visualizza", non sono supportate perché la libreria X11 non è preinstallata.
+    
     Per iniziare, la casella di testo **R Script** è precompilata con codice di esempio, che è possibile modificare o sostituire.
     
     ```R
@@ -131,7 +152,13 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
     # The script MUST contain a function named azureml_main
     # which is the entry point for this module.
 
-    # The entry point function can contain up to two input arguments:
+    # Please note that functions dependant on X11 library
+    # such as "View" are not supported because X11 library
+    # is not pre-installed.
+    
+    # The entry point function MUST have two input arguments.
+    # If the input port is not connected, the corresponding
+    # dataframe argument will be null.
     #   Param<dataframe1>: a R DataFrame
     #   Param<dataframe2>: a R DataFrame
     azureml_main <- function(dataframe1, dataframe2){
@@ -148,8 +175,8 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
 
  * Lo script deve contenere una funzione denominata `azureml_main`, che è il punto di ingresso per questo modulo.
 
- * La funzione del punto di ingresso `Param<dataframe1>` può contenere fino a due argomenti di input: e`Param<dataframe2>`
- 
+ * La funzione del punto di `Param<dataframe1>` ingresso `Param<dataframe2>`deve avere due argomenti di input: e , anche quando questi due argomenti non vengono utilizzati nella funzione.
+
    > [!NOTE]
     > Ai dati passati al modulo Execute `dataframe1` `dataframe2` **R Script** viene fatto riferimento come e `dataset1`, `dataset2`che è diverso dalla finestra di progettazione di Azure Machine Learning (il riferimento alla finestra di progettazione come , ). Verificare che i dati di input siano referenati correttamente nello script.  
  
@@ -195,7 +222,14 @@ L'esempio seguente mostra come ridimensionare e normalizzare i dati di input:The
 # R version: 3.5.1
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
-# The entry point function can contain up to two input arguments:
+
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1730939de399cacd13c62988259904ba84ee78ff
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654138"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680194"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Metodi di autenticazione utilizzo & informazioni dettagliate (anteprima)Authentication methods usage & insights (preview)
 
@@ -37,7 +37,7 @@ Non sono necessarie licenze aggiuntive per accedere all'utilizzo e alle informaz
 
 Per accedere all'utilizzo e alle informazioni dettagliate del metodo di autenticazione:To access authentication method usage and insights:
 
-1. Passare al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare alla**reimpostazione della password di** >  **Azure Active Directory** > **Utilizzo & informazioni dettagliate.**
 1. Dalle panoramiche **di registrazione** o **utilizzo,** è possibile scegliere di aprire i report prefiltrati da filtrare in base alle proprie esigenze.
 
@@ -93,6 +93,8 @@ Utilizzando i controlli nella parte superiore dell'elenco, è possibile cercare 
 I dati mostrati in questi rapporti saranno ritardati fino a 60 minuti. Nel portale di Azure è presente un campo "Ultimo aggiornamento" per identificare la recente analisi dei dati.
 
 I dati di utilizzo e di informazioni dettagliate non sostituiscono i report attività di Azure Multi-Factor Authentication o le informazioni contenute nel report di accesso di Azure AD.
+
+Il report non può attualmente essere filtrato per escludere gli utenti esterni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

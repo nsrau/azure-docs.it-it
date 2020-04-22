@@ -1,14 +1,14 @@
 ---
 title: Tipi di risorse supportati di Resource ManagerSupported Resource Manager resource types
 description: Fornire un elenco dei tipi di risorse di Resource Manager supportati da Azure Resource Graph e cronologia delle modifiche.
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.topic: reference
-ms.openlocfilehash: 99cb2176e4b0642be1fc31d49528ebf915ea440a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 99a10e084f8ae24156c447f7abca31a8ef977720
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415146"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685469"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informazioni di riferimento sulla tabella e sul tipo di risorsa della tabella di Azure Resource GraphAzure Resource Graph table and resource type reference
 
@@ -50,7 +50,11 @@ Azure Resource Graph supporta i tipi di **risorse** seguenti di [Azure Resource 
 - livearena.broadcast/servizi
 - mailjet.email/servizi
 - microsoft.aad/domainservices (servizi di dominio)microsoft.aad/domainservices (informazioni in base
+- microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/tenants
+- microsoft.aisupercomputer/account
+- microsoft.aisupercomputer/account/gruppi di lavoro
+- microsoft.aisupercomputer/account/gruppi di lavoro/processi
 - microsoft.alertsmanagement/actionrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
@@ -63,6 +67,7 @@ Azure Resource Graph supporta i tipi di **risorse** seguenti di [Azure Resource 
 - microsoft.automation/automationaccounts/runbooks
 - microsoft.azconfig/configurationstores
 - directory di microsoft.azureactivedirectory/b2cdirectories
+- microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
 - microsoft.azuredata/sqlbigdataclusters
@@ -351,6 +356,7 @@ Azure Resource Graph supporta i tipi di **risorse** seguenti di [Azure Resource 
 - microsoft.remoteapp/collections
 - microsoft.resourcegraph/query
 - microsoft.resources/deploymentscripts
+- microsoft.resources/templatespecs
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
 - microsoft.search/searchservices (informazioni in base alle funzionalità microsoft.search/searchservices)
@@ -405,6 +411,7 @@ Azure Resource Graph supporta i tipi di **risorse** seguenti di [Azure Resource 
 - microsoft.visualstudio/account
 - microsoft.visualstudio/account/estensione
 - microsoft.visualstudio/account/progetto
+- microsoft.vmware/arczones
 - microsoft.vmwarecloudsimple/dedicatocloudnodes
 - microsoft.vmwarecloudsimple/dedicatedcloudservices (servizi cloud di microsoft.vmwarecloudsemplice/dedicato)
 - microsoft.vmwarecloudsimple/virtualmachines
@@ -454,7 +461,6 @@ Azure Resource Graph supporta i tipi di **risorse** seguenti di [Azure Resource 
 
 ## <a name="securityresources"></a>risorse per la sicurezza
 
-- valutazionemetadati
 - microsoft.security/valutazioni
 - microsoft.security/valutazioni/sottovalutazioni
 - microsoft.security/prezzi

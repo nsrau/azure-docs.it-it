@@ -2,13 +2,13 @@
 title: Creare il file di parametri
 description: Creare un file di parametri per il passaggio di valori durante la distribuzione di un modello di Azure Resource ManagerCreate parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: bb52d9c5ebcb0820362e5de3d6b24b0b18d742e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: a1a1f703594f8eaa572ea38ecef88b4cd6ba5a4b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76155622"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682887"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creare un file di parametri di Resource ManagerCreate Resource Manager parameter file
 
@@ -20,7 +20,7 @@ Il file dei parametri ha il seguente formato:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "<first-parameter-name>": {
@@ -39,7 +39,7 @@ Il seguente file di parametri include un valore di testo normale e un valore arc
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "<first-parameter-name>": {
@@ -86,7 +86,7 @@ Il primo dettaglio da notare è il nome di ogni parametro. I valori nel file dei
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -101,7 +101,7 @@ Si noti il tipo del parametro. I valori nel file dei parametri devono avere gli 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -118,7 +118,7 @@ Successivamente, cercare un valore predefinito. Se un parametro ha un valore pre
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -135,7 +135,7 @@ Infine, esaminare i valori consentiti e le eventuali restrizioni come lunghezza 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -154,7 +154,7 @@ Nell'esempio seguente vengono illustrati i formati dei diversi tipi di parametro
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "exampleString": {

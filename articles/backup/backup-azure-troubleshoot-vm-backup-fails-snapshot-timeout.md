@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248021"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677416"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -142,6 +142,13 @@ Se l'operazione di backup pianificata richiede più tempo, in conflitto con la c
 
 Questo errore viene segnalato dalla macchina virtuale IaaS. Per identificare la causa principale del problema, passare alle impostazioni dell'insieme di credenziali dei servizi di ripristino. Nella sezione **Monitoraggio** selezionare **Processi di backup** per filtrare e visualizzare lo stato. Fare clic su Errori per **esaminare** i dettagli del messaggio di errore sottostante. Eseguire ulteriori azioni in base alle raccomandazioni nella pagina dei dettagli dell'errore.
 
+## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent - Backup failed: This virtual machine is not (actively) protected by Azure Backup
+
+**Codice di errore:** UserErrorBcmDatasourceNotPresent <br>
+**Messaggio di errore:** Backup non riuscito: questa macchina virtuale non è (attivamente) protetta da Backup di Azure.Error message: Backup failed: This virtual machine is not (actively) protected by Azure Backup.
+
+Verificare se la macchina virtuale specificata è attivamente (non in stato di pausa) protetta da Backup di Azure.Please check if the given virtual machine is actively (not in pause state) protected by Azure Backup. Per risolvere questo problema, assicurarsi che la macchina virtuale sia attiva e quindi ritentare l'operazione.
+
 ## <a name="causes-and-solutions"></a>Cause e soluzioni
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)
@@ -211,7 +218,7 @@ Le condizioni seguenti possono causare errori dell'attività di snapshot:
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Rimuovere il blocco dal gruppo di risorse dei punti di ripristino
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare **all'opzione Tutte le risorse**, selezionare il`<Geo>``<number>`gruppo di risorse raccolta punti di ripristino nel formato seguente AzureBackupRG_ _ .
 3. Nella sezione **Impostazioni** selezionare **Blocchi** per visualizzare i blocchi.
 4. Per rimuovere il blocco, selezionare i puntini di sospensione e fare clic su **Elimina**.
@@ -240,7 +247,7 @@ Dopo aver rimosso il blocco, attivare un backup su richiesta. Questa azione gara
 
 Per cancellare manualmente la raccolta dei punti di ripristino, che non viene cancellata a causa del blocco sul gruppo di risorse, provare a eseguire la procedura seguente:
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel menu **Hub** fare clic su **Tutte le risorse** e selezionare il gruppo di risorse con il formato AzureBackupRG_`<Geo>`_`<number>` nella posizione in cui si trova la VM.
 
     ![Eliminare un blocco](./media/backup-azure-arm-vms-prepare/resource-group.png)

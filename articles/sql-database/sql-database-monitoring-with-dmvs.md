@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214017"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683008"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio delle prestazioni del database SQL di Azure tramite DMV
 
@@ -604,7 +604,7 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
 
 3. Con queste informazioni sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità delle dimensioni di calcolo scelte in rapporto al carico di lavoro. I valori medi di **sys.resource_stats** offrono in genere una buona baseline da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. È ad esempio possibile che si usi il livello di servizio Standard con le dimensioni di calcolo S2. Le percentuali medie di uso per la CPU e per le operazioni I/O di scrittura e lettura sono inferiori al 40%, il numero medio di ruoli di lavoro è inferiore a 50 e il numero medio di sessioni è inferiore a 200. Il carico di lavoro potrebbe essere idoneo per le dimensioni di calcolo S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database può rientrare in dimensioni di calcolo inferiori prendendo in considerazione la CPU e le operazioni di lettura e scrittura, è sufficiente dividere il numero di DTU delle dimensioni di calcolo inferiori per il numero di DTU delle dimensioni di calcolo correnti e moltiplicare il risultato per 100:
 
-    ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
+    `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
     Il risultato rappresenta la differenza di prestazioni relativa, in percentuale, tra le due dimensioni di calcolo. Se l'uso delle risorse non supera questa quantità, il carico di lavoro potrebbe essere idoneo per le dimensioni di calcolo inferiori. È tuttavia necessario esaminare anche tutti gli intervalli dei valori di uso delle risorse e determinare, a livello di percentuale, la frequenza con cui il carico di lavoro del database può rientrare nelle dimensioni di calcolo inferiori. La query seguente genera questa percentuale per ogni dimensione di risorsa, in base alla soglia del 40% calcolata in questo esempio:
 

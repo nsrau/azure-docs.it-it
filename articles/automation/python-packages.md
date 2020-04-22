@@ -5,34 +5,34 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 05d892edf20cda228bc566b30b0b693ea7c4a184
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f52dfd92d430abffe5857d231898dd4b0e7745e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417636"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679911"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gestire pacchetti Python 2 in Automazione di Azure
 
-Automazione di Azure consente di eseguire runbook Python 2 in Azure e nei ruoli di lavoro ibridi per runbook Linux. Per favorire la semplificazione dei runbook, è possibile importare i moduli necessari usando pacchetti Python. Questo articolo descrive come gestire e usare pacchetti Python in Automazione di Azure.
+Automazione di Azure consente di eseguire runbook Python 2 in Azure e nei ruoli di lavoro ibridi per runbook Linux. Per favorire la semplificazione dei runbook, è possibile importare i moduli necessari usando pacchetti Python. Questo articolo descrive come gestire e usare i pacchetti Python in Automazione di Azure.This article describes how to manage and use Python packages in Azure Automation.
 
 ## <a name="import-packages"></a>Importare pacchetti
 
-Nell'account di Automazione selezionare **Pacchetti Python 2** in **Risorse condivise**. Fare clic su **+ Aggiungi pacchetto Python 2**.
+Nell'account di automazione selezionare **Pacchetti Python 2** in Risorse **condivise**. Fare clic su **+ Aggiungi pacchetto Python 2**.
 
 ![Aggiungere un pacchetto Python](media/python-packages/add-python-package.png)
 
-Nella pagina **Aggiungi pacchetto Python 2** selezionare un pacchetto locale da caricare. Il pacchetto può essere un file con estensione `.whl` o `.tar.gz`. Dopo aver selezionato il pacchetto, fare clic su **OK** per caricarlo.
+Nella pagina Aggiungi pacchetto Python 2 selezionare un pacchetto locale da caricare. Il pacchetto può essere un file **.whl** o **.tar.gz.** Quando il pacchetto è selezionato, fare clic **su OK** per caricarlo.
 
 ![Aggiungere un pacchetto Python](media/python-packages/upload-package.png)
 
-Una volta che un pacchetto è stato importato, è elencato nella pagina **dei pacchetti Python 2** nel tuo account di automazione. Se è necessario rimuovere un pacchetto, selezionare il pacchetto da eliminare e scegliere **Elimina** nella pagina dei pacchetti.
+Una volta che un pacchetto è stato importato, è elencato nella pagina dei pacchetti Python 2 nel tuo account di automazione. Se è necessario rimuovere un pacchetto, selezionarlo e fare clic su **Elimina**.
 
 ![Elenco di pacchetti](media/python-packages/package-list.png)
 
 ## <a name="import-packages-with-dependencies"></a>Importare pacchetti con dipendenzeImport packages with dependencies
 
-L'automazione di Azure non risolve le dipendenze per i pacchetti python durante il processo di importazione. Esistono due modi per importare un pacchetto con tutte le relative dipendenze. Solo uno dei seguenti passaggi deve essere utilizzato per importare i pacchetti nel tuo account di automazione.
+L'automazione di Azure non risolve le dipendenze per i pacchetti python durante il processo di importazione. Esistono due modi per importare un pacchetto con tutte le relative dipendenze. Solo uno dei passaggi seguenti deve essere usato per importare i pacchetti nell'account Automation.
 
 ### <a name="manually-download"></a>Download manuale
 
@@ -55,13 +55,13 @@ Importare il python runbook [Importare pacchetti Python 2 da pypi nell'account d
 
 ![Elenco di pacchetti](media/python-packages/import-python-runbook.png)
 
-Il runbook consente di specificare il pacchetto `Azure` da scaricare, ad esempio, (il quarto parametro) scaricherà tutti i moduli di Azure e tutte le relative dipendenze, ovvero circa 105.The runbook allows you to specify what package to download, for example, (the fourth parameter) will download all Azure modules and all its dependencies, which is about 105.
+Il runbook consente di specificare il pacchetto da scaricare. Ad esempio, l'uso `Azure` del parametro scarica tutti i moduli di Azure e tutte le dipendenze (circa 105).
 
-Una volta completato il runbook, puoi controllare la pagina dei **pacchetti Python 2** in Risorse **condivise** nel tuo account di automazione per verificare che il pacchetto sia stato importato correttamente.
+Una volta completato il runbook, puoi controllare i **pacchetti Python 2** in Risorse **condivise** nel tuo account di automazione per verificare che il pacchetto sia stato importato correttamente.
 
 ## <a name="use-a-package-in-a-runbook"></a>Usare un pacchetto in un runbook
 
-Dopo aver importato un pacchetto, è ora possibile utilizzarlo in un runbook. L'esempio seguente usa il [ pacchetto di utilità di Automazione di Azure](https://github.com/azureautomation/azure_automation_utility). Questo pacchetto rende più semplice l'uso di Python con Automazione di Azure. Per usare il pacchetto, seguendo le istruzioni nel repository GitHub aggiungerlo al runbook tramite `from azure_automation_utility import get_automation_runas_credential`, ad esempio, per importare la funzione per il recupero dell'account RunAs.
+Con un pacchetto importato, è possibile utilizzarlo in un runbook. Nell'esempio seguente viene utilizzato il [pacchetto dell'utilità di automazione](https://github.com/azureautomation/azure_automation_utility)di Azure. Questo pacchetto rende più semplice l'uso di Python con Automazione di Azure. Per usare il pacchetto, seguire le istruzioni nel repository GitHub e aggiungerlo al runbook. Ad esempio, è `from azure_automation_utility import get_automation_runas_credential` possibile utilizzare per importare la funzione per il recupero dell'account RunAs.
 
 ```python
 import azure.mgmt.resource
@@ -89,4 +89,4 @@ Per sviluppare e testare i runbook Python 2 offline, è possibile usare il modul
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare con i runbook Python 2, vedere [Il primo runbook Python 2](automation-first-runbook-textual-python2.md)
+Per iniziare con i runbook di Python 2, vedere [il mio primo runbook di Python 2.](automation-first-runbook-textual-python2.md)

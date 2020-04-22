@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bc635addc2a5cd7d3c698f6885bec0399e28743a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e94bdd6e79ff13d8ba736e140538bae74091f727
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309663"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680081"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolli OAuth 2.0 e OpenID Connect sulla piattaforma Microsoft Identity
 
 L'endpoint della piattaforma di identità Microsoft per l'identità come servizio con protocolli standard del settore, OpenID Connect e OAuth 2.0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli. Le informazioni in questo argomento sono utili se si sceglie di scrivere il codice inviando e gestendo direttamente le richieste HTTP o di usare una libreria open source di terze parti anziché usare una [libreria open source](reference-v2-libraries.md) di Microsoft.
-
-> [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure AD sono supportati dall'endpoint della piattaforma di identità Microsoft.Non all Azure AD scenarios and features are supported by the Microsoft identity platform endpoint. Per determinare se è necessario utilizzare l'endpoint della piattaforma di identità Microsoft, leggere le informazioni sulle [limitazioni della piattaforma](active-directory-v2-limitations.md)di identità Microsoft .
 
 ## <a name="the-basics"></a>Nozioni di base
 
@@ -68,7 +65,7 @@ Dove `{tenant}` può assumere uno dei quattro diversi valori:
 Per informazioni su come interagire con questi endpoint, scegliere un tipo di app specifico nella sezione [Protocolli](#protocols) e seguire i collegamenti per altre informazioni.
 
 > [!TIP]
-> Qualsiasi app registrata in Azure AD può usare l'endpoint della piattaforma di identità Microsoft, anche se non accede agli account personali.  In questo modo, è possibile eseguire la migrazione delle applicazioni esistenti alla piattaforma di identità Microsoft e [MSAL](reference-v2-libraries.md) senza ricreare l'applicazione.  
+> Qualsiasi app registrata in Azure AD può usare l'endpoint della piattaforma di identità Microsoft, anche se non accede agli account personali.  In questo modo, è possibile eseguire la migrazione delle applicazioni esistenti alla piattaforma di identità Microsoft e [MSAL](reference-v2-libraries.md) senza ricreare l'applicazione.
 
 ## <a name="tokens"></a>Tokens
 

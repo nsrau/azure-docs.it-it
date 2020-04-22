@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/11/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e73eae4d66f4ff94a48dfa27e258f8ba8ef87633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126749"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681407"
 ---
 # <a name="localization"></a>Localizzazione
 
@@ -110,7 +110,7 @@ L'elemento **Item** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Testo | Sì | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
+| Text | Sì | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
 | valore | Sì | Il valore di attestazione della stringa associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
@@ -146,65 +146,190 @@ L'elemento **LocalizedString** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| ElementType | Sì | Un riferimento a un elemento del tipo di attestazione o a un elemento dell'interfaccia utente nel criterio. `ClaimType`Valori possibili: `UxElement` `ErrorMessage`, `Predicate`, `GetLocalizedStringsTransformationClaimType`, , o . Il valore `ClaimType` viene usato per localizzare uno degli attributi di attestazione, come specificato nell'ID stringa. Il valore `UxElement` viene usato per localizzare uno degli elementi dell'interfaccia utente, come specificato nell'ID stringa. Il valore `ErrorMessage` viene usato per localizzare uno dei messaggi di errore del sistema, come specificato nell'ID stringa. Il valore `Predicate` viene usato per localizzare uno dei messaggi di errore del sistema [Predicato](predicates.md), come specificato nell'ID stringa. Il valore `InputValidation` viene usato per localizzare uno dei messaggi di errore del gruppo [PredicateValidation](predicates.md), come specificato nell'ID stringa. Il `GetLocalizedStringsTransformationClaimType` valore viene utilizzato per copiare le stringhe localizzate nelle attestazioni. Per altre informazioni, vedere [Trasformazione delle attestazioni GetLocalizedStringsTransformationFor](string-transformations.md#getlocalizedstringstransformation) more information, see GetLocalizedStringsTransformation claims transformation  | 
+| ElementType | Sì | Valori possibili: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [InputValidation](#inputvalidation)o [UxElement](#uxelement).   | 
 | ElementId | Sì | Se **ElementType** è `ClaimType` `Predicate`impostato `InputValidation`su , , o , questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema . |
 | ID stringa | Sì | Se **ElementType** è impostato su `ClaimType`, questo elemento contiene un riferimento a un attributo di un tipo di attestazione. I valori possibili sono: `DisplayName`, `AdminHelpText` o `PatternHelpText`. Il valore`DisplayName` viene usato per impostare il nome visualizzato di attestazione. Il valore `AdminHelpText` viene usato per impostare il nome del testo di istruzioni dell'utente di attestazione. Il valore`PatternHelpText` viene usato per impostare il testo di istruzioni del criterio di attestazione. Se **ElementType** è impostato su `UxElement`, questo elemento contiene un riferimento a un elemento dell'interfaccia utente. Se **ElementType** è impostato su `ErrorMessage`, questo elemento specifica l'identificatore di un messaggio di errore. Visualizzare gli [ID stringa di localizzazione](localization-string-ids.md) per un elenco completo degli `UxElement` identificatori.|
 
+## <a name="elementtype"></a>ElementType
 
-L'esempio seguente mostra una pagina di iscrizione localizzata. I primi tre valori**LocalizedString** impostano l'attributo di attestazione. Il terzo modifica il valore del pulsante Continua. L'ultimo modifica il messaggio di errore.
+Il riferimento ElementType a un tipo di attestazione, una trasformazione attestazione o un elemento dell'interfaccia utente nei criteri da localizzare.
 
-```XML
-<LocalizedResources Id="api.selfasserted.en">
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
-```
+| Elemento da localizzare | ElementType | ElementId |ID stringa |
+| --------- | -------- | ----------- |----------- |
+| Nome provider di identità |`ClaimsProvider`| | ID dell'elemento ClaimsExchange|
+| Attributi del tipo di attestazione|`ClaimType`|Nome del tipo di attestazione| Attributo dell'attestazione da localizzare. Valori `AdminHelpText`possibili: `DisplayName` `PatternHelpText`, `UserHelpText`, , e .|
+|Messaggio di errore|`ErrorMessage`||Id del messaggio di errore |
+|Copia le stringhe localizzate nelle attestazioni|`GetLocalizedStringsTra nsformationClaimType`||Il nome dell'attestazione di output|
+|Messaggio utente predicato|`Predicate`|Il nome del predicato| Attributo del predicato da localizzare. Valori possibili: `HelpText`.|
+|Messaggio utente del gruppo di predicati|`InputValidation`|ID dell'elemento PredicateValidation.|ID dell'elemento PredicateGroup. Il gruppo di predicati deve essere un elemento figlio dell'elemento di convalida del predicato come definito nel ElementId.|
+|Elementi dell'interfaccia utente |`UxElement` | | ID dell'elemento dell'interfaccia utente da localizzare.|
 
-L'esempio seguente mostra una versione localizzata di **UserHelpText** del **Predicato** con ID `IsLengthBetween8And64`. E una versione localizzata di **UserHelpText** del**PredicateGroup** con ID `CharacterClasses` dei **PredicateValidation** con ID `StrongPassword`.
+## <a name="examples"></a>Esempi
 
-```XML
-<PredicateValidation Id="StrongPassword">
-  <PredicateGroups>
-    ...
-    <PredicateGroup Id="CharacterClasses">
-    ...
-    </PredicateGroup>
-  </PredicateGroups>
-</PredicateValidation>
+### <a name="claimsprovider"></a>ClaimsProvider
 
-...
+Il ClaimsProvider valore viene utilizzato per localizzare uno dei provider di attestazioni nome visualizzato. 
 
-<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
+```xml
+<OrchestrationStep Order="2" Type="ClaimsExchange">
   ...
-</Predicate>
-...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
+  </ClaimsExchanges>
+</OrchestrationStep>
 
-
-<LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
-
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>
 ```
 
-## <a name="set-up-localization"></a>Configurare la localizzazione
+Nell'esempio seguente viene illustrato come localizzare il nome visualizzato dei provider di attestazioni.
 
-Questo articolo illustra come supportare più impostazioni locali o lingue nel criterio per i percorsi utente. Per la localizzazione sono necessari tre passaggi: configurare l'elenco esplicito delle lingue supportate, fornire stringhe e raccolte specifiche della lingua e modificare ContentDefinition per la pagina.
+```xml
+<LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="GoogleExchange">Google</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="LinkedInExchange">LinkedIn</LocalizedString>
+```
 
-### <a name="set-up-the-explicit-list-of-supported-languages"></a>Configurare l'elenco esplicito delle lingue supportate
+### <a name="claimtype"></a>ClaimType
 
-Nell'elemento **BuildingBlocks**, aggiungere l'elemento**Localizzazione** con l'elenco delle lingue supportate. Nell'esempio seguente viene illustrato come definire il supporto di localizzazione sia in inglese (impostazione predefinita) che in spagnolo:
+Il ClaimType valore viene utilizzato per localizzare uno degli attributi dell'attestazione. 
+
+```xml
+<ClaimType Id="email">
+  <DisplayName>Email Address</DisplayName>
+  <DataType>string</DataType>
+  <UserHelpText>Email address that can be used to contact you.</UserHelpText>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+```
+
+Nell'esempio seguente viene illustrato come localizzare gli attributi DisplayName, UserHelpText e PatternHelpText del tipo di attestazione di posta elettronica.
 
 ```XML
-<Localization Enabled="true">
-  <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
-    <SupportedLanguage>en</SupportedLanguage>
-    <SupportedLanguage>es</SupportedLanguage>
-  </SupportedLanguages>
-</Localization>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
+```
+
+### <a name="errormessage"></a>ErrorMessage
+
+Il valore ErrorMessage viene utilizzato per localizzare uno dei messaggi di errore di sistema. 
+
+```xml
+<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+  <Metadata>
+    <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+    <Item Key="UserMessageIfClaimsPrincipalAlreadyExists">You are already registered, please press the back button and sign in instead.</Item>
+  </Metadata>
+  ...
+</TechnicalProfile>
+```
+
+Nell'esempio seguente viene illustrato come localizzare il messaggio di errore UserMessageIfClaimsPrincipalAlreadyExists.
+
+
+```XML
+<LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
+```
+
+### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
+
+Il GetLocalizedStringsTransformationClaimType valore viene utilizzato per copiare le stringhe localizzate nelle attestazioni. Per altre informazioni, vedere [Trasformazione delle attestazioni GetLocalizedStringsTransformationFor](string-transformations.md#getlocalizedstringstransformation) more information, see GetLocalizedStringsTransformation claims transformation
+
+
+```xml
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+Nell'esempio seguente viene illustrato come localizzare le attestazioni di output della trasformazione delle attestazioni GetLocalizedStringsTransformation.
+
+```xml
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+```
+
+### <a name="predicate"></a>Predicate
+
+Il valore Predicate viene utilizzato per localizzare uno dei messaggi di errore [Predicate.](predicates.md) 
+
+```xml
+<Predicates>
+  <Predicate Id="LengthRange" Method="IsLengthRange"  HelpText="The password must be between 6 and 64 characters.">
+    <Parameters>
+      <Parameter Id="Minimum">6</Parameter>
+      <Parameter Id="Maximum">64</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">a-z</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Uppercase" Method="IncludesCharacters" HelpText="an uppercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">A-Z</Parameter>
+    </Parameters>
+  </Predicate>
+</Predicates>
+```
+
+Nell'esempio seguente viene illustrato come localizzare il testo della Guida dei predicati.
+
+```xml
+<LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
+```
+
+### <a name="inputvalidation"></a>InputValidation
+
+Il Valore InputValidation viene utilizzato per localizzare uno dei messaggi di errore del gruppo [PredicateValidation.](predicates.md) 
+
+```xml
+<PredicateValidations>
+  <PredicateValidation Id="CustomPassword">
+    <PredicateGroups>
+      <PredicateGroup Id="LengthGroup">
+        <PredicateReferences MatchAtLeast="1">
+          <PredicateReference Id="LengthRange" />
+        </PredicateReferences>
+      </PredicateGroup>
+      <PredicateGroup Id="CharacterClasses">
+        <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+        <PredicateReferences MatchAtLeast="3">
+          <PredicateReference Id="Lowercase" />
+          <PredicateReference Id="Uppercase" />
+          <PredicateReference Id="Number" />
+          <PredicateReference Id="Symbol" />
+        </PredicateReferences>
+      </PredicateGroup>
+    </PredicateGroups>
+  </PredicateValidation>
+</PredicateValidations>
+```
+
+Nell'esempio seguente viene illustrato come localizzare un testo della Guida del gruppo di convalida del predicato.
+
+```XML
+<LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
+```
+
+### <a name="uxelement"></a>Oggetto UxElement
+
+Il UxElement valore viene utilizzato per localizzare uno degli elementi dell'interfaccia utente. Nell'esempio seguente viene illustrato come localizzare i pulsanti continua e annulla.
+
+```XML
+<LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+<LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

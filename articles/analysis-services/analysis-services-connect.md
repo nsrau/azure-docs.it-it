@@ -4,15 +4,15 @@ description: Informazioni su come connettersi e ottenere dati da un server di An
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2875959a833134131fa6db6d51df0c2b47a39377
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: cc671629934d80b3e727ca69f9026f534d05e160
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411309"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676640"
 ---
 # <a name="connecting-to-servers"></a>Connessione ai server
 
@@ -23,6 +23,9 @@ In questo articolo viene descritta la connessione a un server tramite applicazio
 [Ottenere le librerie client più recenti](analysis-services-data-providers.md)
 
 Tutte le connessioni a qualunque tipo di server richiedono le librerie client AMO, ADOMD.NET e OLEDB aggiornate per connettersi e interagire con un server di Analysis Services. Per SSMS, Visual Studio, Excel 2016 e versioni successive e Power BI, le librerie client più recenti vengono installate o aggiornate con versioni mensili. In alcuni casi, tuttavia, è possibile che un'applicazione non abbia la versione più recente. Ad esempio, quando alcuni criteri ritardano gli aggiornamenti o quando gli aggiornamenti di Office 365 sono su Deferred Channel.
+
+> [!NOTE]
+> Le librerie client non possono connettersi ad Azure Analysis Services tramite server proxy che richiedono un nome utente e una password. 
 
 ## <a name="server-name"></a>Nome server
 

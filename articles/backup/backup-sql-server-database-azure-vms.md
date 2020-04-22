@@ -4,12 +4,12 @@ description: In questo articolo viene illustrato come eseguire il backup dei dat
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 5b10907738feeecbec06669175e82578f2915f92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 887f15deed74330cf132e0574d166c074d2c7cad
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273332"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685719"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -112,7 +112,7 @@ Evitare di utilizzare i seguenti elementi nei nomi di database:
 * Punto e virgola ';'
 * Barra avanti '/'
 
-L'aliasing è disponibile per i caratteri non supportati, ma ti consigliamo di evitarli. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+L'aliasing è disponibile per i caratteri non supportati, ma ti consigliamo di evitarli. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 >[!NOTE]
 >L'operazione **di configurazione della protezione** per i database con caratteri speciali, ad esempio il nome di "" o "&". È possibile modificare il nome del database o abilitare la **protezione automatica**, che consente di proteggere correttamente questi database.

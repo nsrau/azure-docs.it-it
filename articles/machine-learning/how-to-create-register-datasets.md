@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: feaa0c22ec98d170a65e5c9bee119ba3904a95cf
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: cc7a8df80e719173c7818055ab8771ddd7f73691
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673737"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682779"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creare set di dati di Azure Machine LearningCreate Azure Machine Learning datasets
 
@@ -164,7 +164,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 In TabularDatasets è possibile specificare un timestamp da una colonna nei dati o dalla posizione in cui vengono archiviati i dati del modello di percorso per abilitare un tratto di serie temporali. Questa specifica consente di filtrare in modo semplice ed efficiente in base al tempo.
 
-Utilizzare [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) il metodo`TabularDataset` sulla classe per specificare la colonna timestamp e per abilitare il filtro in base all'ora. Per ulteriori informazioni, vedere [Demo dell'API relativa alle serie temporali tabulare con i dati meteo NOAA](https://aka.ms/azureml-tsd-notebook).
+Utilizzare [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) il metodo`TabularDataset` sulla classe per specificare la colonna timestamp e per abilitare il filtro in base all'ora. Per ulteriori informazioni, vedere [Demo dell'API relativa alle serie temporali tabulare con i dati meteo NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
 ```Python
 # create a TabularDataset with time series trait

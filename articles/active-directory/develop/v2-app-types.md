@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bdbda8bed38819ca2b4d2fb1ef3d9bf591269890
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535911"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677993"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazione per la piattaforma di identità MicrosoftApplication types for Microsoft identity platform
 
 L'endpoint di Microsoft Identity Platform (v2.0) supporta l'autenticazione per un'ampia gamma di architetture di app moderne, tutte basate sui protocolli standard del settore [OAuth 2.0 o OpenID Connect](active-directory-v2-protocols.md). Questo articolo descrive i tipi di app che è possibile compilare utilizzando la piattaforma di identità Microsoft, indipendentemente dalla lingua o dalla piattaforma preferita. Le informazioni sono progettate per facilitare la comprensione degli scenari di alto livello prima di [iniziare a utilizzare il codice.](v2-overview.md#getting-started)
-
-> [!NOTE]
-> L'endpoint della piattaforma di identità Microsoft non supporta tutti gli scenari e le funzionalità di Azure Active Directory (Azure AD). Per determinare se è necessario utilizzare l'endpoint della piattaforma di identità Microsoft, leggere le informazioni sulle [limitazioni della piattaforma](active-directory-v2-limitations.md)di identità Microsoft .
 
 ## <a name="the-basics"></a>Nozioni di base
 

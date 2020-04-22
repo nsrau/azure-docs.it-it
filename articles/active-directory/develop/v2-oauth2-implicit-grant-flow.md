@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b946ab6157ba63213a4c140221d36f231aa62f0d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7fb2bbcdd5f84e3637a108d0753566d3a9de7fd0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535843"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677752"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Piattaforma di identità Microsoft e flusso di concessione implicitaMicrosoft identity platform and Implicit grant flow
 
@@ -32,9 +32,6 @@ Per queste applicazioni (Angular, Ember.js, React.js e così via), la piattaform
 In questo articolo viene descritto come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile utilizzare le librerie di autenticazione Microsoft (MSAL) supportate per [acquisire token e chiamare API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dai anche un'occhiata alle [app di esempio che utilizzano MSAL](sample-v2-code.md).
 
 Se, tuttavia, si preferisce non usare una libreria nell'app a pagina singola e inviare manualmente i messaggi dei protocolli, seguire questa procedura generale.
-
-> [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory (Azure AD) sono supportati dall'endpoint della piattaforma di identità Microsoft.Non all Azure Active Directory (Azure AD) scenarios and features are supported by the Microsoft identity platform endpoint. Per determinare se è necessario utilizzare l'endpoint della piattaforma di identità Microsoft, leggere le informazioni sulle [limitazioni della piattaforma](active-directory-v2-limitations.md)di identità Microsoft .
 
 ## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Scenari adatti alla concessione implicita OAuth2
 

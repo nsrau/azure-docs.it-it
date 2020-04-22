@@ -4,17 +4,17 @@ description: Reidratare i BLOB dall'archivio in modo da poter accedere ai dati.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2019
+ms.date: 04/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614790"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684078"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratare i dati BLOB dal livello di archiviazioneRehydrate blob data from the archive tier
 
@@ -31,15 +31,21 @@ Mentre un BLOB si trova nel livello di accesso all'archivio, viene considerato o
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiare un BLOB archiviato in un livello online
 
-Se non si vuole reidratare il BLOB di archivio, è possibile scegliere di eseguire un'operazione [di copia BLOB.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Il BLOB originale rimarrà invariato nell'archivio mentre viene creato un nuovo BLOB nel livello a caldo o freddo online su cui lavorare. Nell'operazione Copia BLOB è inoltre possibile impostare la proprietà facoltativa *x-ms-rehydrate-priority* su Standard o Alta (anteprima) per specificare la priorità con cui si vuole creare la copia BLOB.
-
-I BLOB di archiviazione possono essere copiati solo nei livelli di destinazione online all'interno dello stesso account di archiviazione. La copia di un BLOB di archivio in un altro BLOB di archivio non è supportata.
+Se non si vuole reidratare il BLOB di archivio, è possibile scegliere di eseguire un'operazione [di copia BLOB.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Il BLOB originale rimarrà invariato nell'archivio mentre viene creato un nuovo BLOB nel livello a caldo o freddo online su cui lavorare. Nell'operazione Copia BLOB è inoltre possibile impostare la proprietà facoltativa *x-ms-rehydrate-priority* su Standard o High per specificare la priorità con cui si vuole creare la copia BLOB.
 
 Il completamento della copia di un BLOB dall'archivio può richiedere ore a seconda della priorità di reidrato selezionata. Dietro le quinte, l'operazione **Copia BLOB** legge il BLOB di origine dell'archivio per creare un nuovo BLOB online nel livello di destinazione selezionato. Il nuovo BLOB potrebbe essere visibile quando si elencano i BLOB, ma i dati non sono disponibili fino al completamento della lettura dal BLOB di archiviazione di origine e fino a quando non viene scritta la lettura dal BLOB di archiviazione di origine e i dati vengono scritti nel nuovo BLOB di destinazione online. Il nuovo BLOB è come copia indipendente e qualsiasi modifica o eliminazione non influisce sul BLOB di archivio di origine.
 
+I BLOB di archiviazione possono essere copiati solo nei livelli di destinazione online all'interno dello stesso account di archiviazione. La copia di un BLOB di archivio in un altro BLOB di archivio non è supportata. Nella tabella seguente vengono indicate le funzionalità di CopyBlob.The following table indicates CopyBlob's capabilities.
+
+|                                           | **Origine livello a caldoHot tier source**   | **Fonte del livello Cool** | **Origine livello di archiviazione**    |
+| ----------------------------------------- | --------------------- | -------------------- | ------------------- |
+| **Destinazione a livello caldo**                  | Supportato             | Supportato            | Supportato all'interno dello stesso account; reidratarsi in sospeso               |
+| **Destinazione livello Cool**                 | Supportato             | Supportato            | Supportato all'interno dello stesso account; reidratarsi in sospeso               |
+| **Destinazione livello di archiviazione**              | Supportato             | Supportato            | Non supportato         |
+
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
-I BLOB di reidratazione non archiviati in livelli a caldo o freddi vengono addebitati come operazioni di lettura e recupero dei dati. L'utilizzo di Priorità alta (anteprima) presenta costi di funzionamento e recupero dati più elevati rispetto alla priorità standard. La reidratazione ad alta priorità viene visualizzata come un elemento pubblicitario separato sulla fattura. Se una richiesta con priorità alta per restituire un BLOB di archivio di pochi gigabyte richiede più di 5 ore, non verrà addebitata la velocità di recupero con priorità alta. Tuttavia, i tassi di recupero standard si applicano ancora quando la reidratazione è stata classificata in priorità rispetto ad altre richieste.
+I BLOB di reidratazione non archiviati in livelli a caldo o freddi vengono addebitati come operazioni di lettura e recupero dei dati. L'utilizzo di Priorità alta prevede costi di funzionamento e recupero dati più elevati rispetto alla priorità standard. La reidratazione ad alta priorità viene visualizzata come un elemento pubblicitario separato sulla fattura. Se una richiesta con priorità alta per restituire un BLOB di archivio di pochi gigabyte richiede più di 5 ore, non verrà addebitata la velocità di recupero con priorità alta. Tuttavia, i tassi di recupero standard si applicano ancora quando la reidratazione è stata classificata in priorità rispetto ad altre richieste.
 
 La copia dei BLOB dall'archivio in livelli hot o cool vengono addebitati come operazioni di lettura e recupero dei dati. Un'operazione di scrittura viene addebitata per la creazione della nuova copia BLOB. Le tariffe di eliminazione anticipata non si applicano quando si copia in un BLOB online perché il BLOB di origine rimane non modificato nel livello di archiviazione. Se selezionato, vengono applicati costi di recupero ad alta priorità.
 
@@ -52,7 +58,7 @@ I BLOB nel livello di archiviazione devono essere archiviati per un minimo di 18
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Reidratare un BLOB di archiviazione a un livello onlineRehydrate an archive blob to an online tier
 # <a name="portal"></a>[Portale](#tab/azure-portal)
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure cercare e selezionare **Tutte le risorse**.
 
@@ -68,9 +74,10 @@ I BLOB nel livello di archiviazione devono essere archiviati per un minimo di 18
 
 1. Seleziona **Salva** in basso.
 
-![Modificare il livello dell'account di archiviazioneChange storage account tier](media/storage-tiers/blob-access-tier.png)
+![Modificare il](media/storage-tiers/blob-access-tier.png)
+![livello dell'account di archiviazione Controllare lo stato di reidratoChange storage account tier Check rehydrate status](media/storage-tiers/rehydrate-status.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Lo script di PowerShell seguente può essere usato per modificare il livello BLOB di un BLOB di archiviazione. La `$rgName` variabile deve essere inizializzata con il nome del gruppo di risorse. La `$accountName` variabile deve essere inizializzata con il nome dell'account di archiviazione. La `$containerName` variabile deve essere inizializzata con il nome del contenitore. La `$blobName` variabile deve essere inizializzata con il nome del BLOB. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

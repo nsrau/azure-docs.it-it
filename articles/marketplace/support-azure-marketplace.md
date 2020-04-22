@@ -1,20 +1,21 @@
 ---
-title: Sostegno al mercato commerciale Azure
+title: Sostegno al mercato commerciale Azure Marketplace
 description: Informazioni sul supporto e collegamenti per Azure Marketplace e AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 3/19/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b2dba23bdf07233a9945086fba2274602cb2dcf1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2b73fee33692b65770caeea651c12e9780dba2c4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252235"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681376"
 ---
-# <a name="support-for-the-marketplace"></a>Supporto per Marketplace  
+# <a name="support-for-the-marketplace"></a>Supporto per Marketplace
+
 Ecco un elenco delle opzioni di supporto per Marketplace.  
 
 È inoltre possibile ottenere risposta a molte domande nel [canale Marketplace del forum della community dei servizi cloud e intelligenza artificiale](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
@@ -23,11 +24,11 @@ Ecco un elenco delle opzioni di supporto per Marketplace.
 
 Apri un ticket con [il supporto dell'editore](https://aka.ms/marketplacepublishersupport) di Microsoft Marketplace per problemi relativi all'onboarding e all'inizio.
 
-## <a name="partner-center-or-cloud-partner-portal"></a>Centro per i partner o portale per i partner cloud  
+## <a name="partner-center"></a>Centro per i partner   
 
 | Canale di supporto | Descrizione | Disponibilità |  
 |:--- |:--- |:--- |  
-| Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Supporto per il Centro per i partner o il portale per i partner cloud. | Il supporto è fornito 24x5. |  
+| Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Supporto per il Centro per i partner. | Il supporto è fornito 24x5. |  
 
 ## <a name="technical"></a>Tecnici  
 

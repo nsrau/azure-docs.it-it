@@ -8,30 +8,30 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3a5f7157ef8f3645dd03ec93684238dd8bbc067e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: beffb2babefd86c2807e21e9337cba66f42fcfc2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774224"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678461"
 ---
 Prima di iniziare la configurazione, installare e importare i moduli necessari. Per installare i moduli in PowerShell, è necessario disporre dei privilegi di amministratore.
 
-1. Installare e importare il modulo Az
+1. Installare e importare il modulo Az.
     ```powershell
     Install-Module Az -AllowClobber
     Import-Module Az
     ```
-1. Installare e importare il modulo Az.Peering
+1. Installare e importare il modulo Az.Peering.
     ```powershell
     Install-Module -Name Az.Peering -AllowClobber
     Import-Module Az.Peering
     ```
-1. Verificare che i moduli vengano importati correttamente utilizzando il comando riportato di seguito.
+1. Verificare che i moduli importati correttamente utilizzando questo comando:
     ```powershell
     Get-Module
     ```
-1. Accedere all'account Azure usando il comando seguente.
+1. Accedere al proprio account di Azure con il seguente comando:
     ```powershell
     Connect-AzAccount
     ```
@@ -46,8 +46,8 @@ Prima di iniziare la configurazione, installare e importare i moduli necessari. 
     New-AzResourceGroup -Name "PeeringResourceGroup" -Location "Central US"
     ```
 > [!IMPORTANT]
-> Se non sono già stati associati l'ASN e la sottoscrizione, seguire i passaggi per [Associate Peer ASN](../howto-subscription-association-powershell.md). Questa operazione è necessaria per richiedere un peering.
+> Se non sono già stati associati l'ASN e la sottoscrizione, seguire i passaggi descritti in [Associate Peer ASN](../howto-subscription-association-powershell.md). Questa azione è necessaria per richiedere un peering.
 
 > [!NOTE]
-> La posizione del gruppo di risorse è indipendente dalla posizione in cui si sceglie di configurare un peering.
+> La posizione di un gruppo di risorse è indipendente dalla posizione in cui si sceglie di configurare un peering.
 &nbsp;

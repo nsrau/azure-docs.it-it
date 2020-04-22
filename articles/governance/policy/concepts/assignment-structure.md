@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura di assegnazione dei criteri
 description: Descrive la definizione di assegnazione dei criteri usata dai criteri di Azure per correlare le definizioni e i parametri dei criteri alle risorse per la valutazione.
-ms.date: 09/23/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265298"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683210"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
@@ -20,6 +20,7 @@ Utilizzare JSON per creare un'assegnazione di criteri. L'assegnazione dei criter
 - description
 - metadata
 - modalità di imposizione
+- ambiti esclusi
 - definizione di criteri
 - parametri
 
@@ -34,6 +35,7 @@ Ad esempio, il codice JSON seguente mostra un'assegnazione di criteri in modalit
             "assignedBy": "Cloud Center of Excellence"
         },
         "enforcementMode": "DoNotEnforce",
+        "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
         "parameters": {
             "prefix": {
@@ -65,6 +67,10 @@ Questa proprietà ha i seguenti valori:
 |Disabled |DoNotEnforce |string |Sì |No | L'effetto dei criteri non viene applicato durante la creazione o l'aggiornamento delle risorse. |
 
 Se enforcementMode non è specificato in una definizione di criteri o di iniziativa, viene utilizzato il valore _Default.If_ **enforcementMode** isn't specified in a policy or initiative definition, the value Default is used. [È](../how-to/remediate-resources.md) possibile avviate attività di correzione per i criteri [deployIfNotExists,](./effects.md#deployifnotexists) anche quando **enforcementMode** è impostato su _DoNotEnforce_.
+
+## <a name="excluded-scopes"></a>Ambiti esclusi
+
+**L'ambito** dell'assegnazione include tutti i contenitori di risorse figlio e le risorse figlio. Se a un contenitore di risorse figlio o a una risorsa figlio non deve essere applicata la definizione, ognuno può essere escluso dalla valutazione impostando **notScopes**. Questa proprietà è una matrice per consentire l'esclusione di uno o più contenitori di risorse o risorse dalla valutazione. **notScopes** può essere aggiunto o aggiornato dopo la creazione dell'assegnazione iniziale.
 
 ## <a name="policy-definition-id"></a>ID definizione criteri
 

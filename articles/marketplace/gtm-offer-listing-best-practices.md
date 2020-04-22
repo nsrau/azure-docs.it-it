@@ -1,22 +1,22 @@
 ---
-title: Servizi Go-To-Market - Procedure consigliate per le inserzioni di offerte | Azure
+title: Servizi Go-To-Market - Offerta di best practice per l'inserzione Azure Marketplace
 description: Servizi Go-To-Market - Questa sezione descrive le procedure consigliate per le inserzioni di un'offerta
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 3cb625e613d8dbe9398e947925a8dc574a277614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f5083b5f00834e65a8385835635588033bd977
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286252"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684569"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
-Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegno di offerte nel marketplace. Per scrivere e configurare questi materiali di marketing, andare al [portale Cloud Partner](https://cloudpartner.azure.com/#insights). 
+Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegno di offerte nel marketplace. Per scrivere e configurare i materiali di marketing, vai al [Centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). 
 
 ## <a name="storefront-offer-details"></a>Dettagli dell'offerta della vetrina
 
@@ -25,14 +25,14 @@ Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegn
 | Nome offerta | Specificare un titolo efficace:<br> <ul> <li> Il nome dell'app deve comunicare ai clienti il valore essenziale. </li> <li> Includere nel titolo dell'app parole chiave di ricerca per ottenere priorità più elevate nei risultati dei motori di ricerca. </li> </ul> Seguire un formato di titolo impostato per le inserzioni di servizi di consulenza:<br>[Nome offerta: [Durata] [Tipo offerta] (ad esempio, *Contoso: Implementazione*di 2 settimane) <br><br> Attenersi alle linee guida del marchio:<br>Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le [linee guida per i marchi Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e quelle relative ad altri prodotti specifici. |
 | Descrizione dell'offerta | Fornire una descrizione chiara dell'offerta:<br> <ul> <li> Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione. </li> <li> Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca. </li> <li> Per vendere un prodotto, non basarsi sulle funzionalità, ma concentrarsi sul valore che può offrire. </li> <li> Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti.</li> <li> Inoltre, le inserzioni di servizi di consulenza devono indicare chiaramente il servizio professionale fornito. </li></ul> I componenti fondamentali di una proposta di valore devono includere le informazioni seguenti:<ul><li>Descrizione del prodotto.</li><li>Tipo di utente che ottiene vantaggi dal prodotto.</li><li>Necessità o problema del cliente a cui risponde il prodotto.</li></ul> |
 
-Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegno di offerte nel marketplace. Per scrivere e configurare questi materiali di marketing, andare al [portale Cloud Partner](https://cloudpartner.azure.com/#insights). 
+Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegno di offerte nel marketplace. Per scrivere e configurare i materiali di marketing, visitare il Centro per i [partner.](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) 
 
 ## <a name="storefront-listing-details"></a>Dettagli dell'inserzione della vetrina
 
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
-| Settori: solo le app AppSource e i servizi di consulenza | Selezionare i settori se l'offerta risponde a esigenze specifiche di settore: <ul><li> Nella descrizione dell'offerta mettere in risalto le funzionalità specifiche per i settori selezionati.</li> </ul> **Nota:** il numero massimo di opzioni varia in base al tipo di offerta ed è indicato nel [portale Cloud Partner](https://cloudpartner.azure.com/#insights). |
-| Categorie | Selezionare le categorie che risultano più in linea con l'offerta:<br> <ul> <li> Scegliere le categorie con attenzione perché vengono usate dai clienti per cercare le app adatte alle loro esigenze. </li> <li> Nella descrizione sottolineare come l'offerta riesca a soddisfare i requisiti specifici delle categorie selezionate. </li> </ul> **Nota:** il numero massimo di opzioni varia in base al tipo di offerta ed è indicato nel [portale Cloud Partner](https://cloudpartner.azure.com/#insights). |
+| Settori: solo le app AppSource e i servizi di consulenza | Selezionare i settori se l'offerta risponde a esigenze specifiche di settore: <ul><li> Nella descrizione dell'offerta mettere in risalto le funzionalità specifiche per i settori selezionati.</li> </ul> **Nota:** il numero massimo di opzioni varia in base al tipo di offerta ed è indicato nel [Centro per i partner.](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) |
+| Categorie | Selezionare le categorie che risultano più in linea con l'offerta:<br> <ul> <li> Scegliere le categorie con attenzione perché vengono usate dai clienti per cercare le app adatte alle loro esigenze. </li> <li> Nella descrizione sottolineare come l'offerta riesca a soddisfare i requisiti specifici delle categorie selezionate. </li> </ul> **Nota:** il numero massimo di opzioni varia in base al tipo di offerta ed è indicato nel [Centro per i partner.](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) |
 | Prodotti con cui funziona l'app (3 max): solo app AppSource | Elencare altri prodotti e tecnologie usati o estesi dalla soluzione offerta. Ad esempio, l'hub IoT di Azure o Azure Machine Learning. |
 | Parole chiave di ricerca (massimo 3) | Le parole chiave di ricerca consentono agli utenti aziendali di trovare l'offerta durante la ricerca <ul> <li> in Azure Marketplace </li> <li> in AppSource </li> <li> con i motori di ricerca </li> </ul> Per fare in modo che l'inserzione venga visualizzata in queste ricerche, è necessario: <ul> <li> Identificare le tre principali parole chiave di ricerca per l'offerta. </li> <li> Incorporare le parole chiave di ricerca nel riepilogo e nella descrizione dell'offerta. </li> <li> Elencare le parole chiave di ricerca qui. </li> </ul> |
 
@@ -89,12 +89,12 @@ Quando si crea un collegamento dalla notifica di AppSource o Azure Marketplace n
 
 L'URL di esempio seguente contiene entrambi i parametri di query precedenti: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-Aggiungendo questi parametri all'URL di AppSource, è possibile controllare l'efficacia della campagna nel dashboard di analisi del [portale Cloud Partner](https://cloudpartner.azure.com/#insights).
+Aggiungendo i parametri all'URL AppSource, è possibile verificare l'efficacia della campagna nel dashboard di analisi nel Centro per i [partner.](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sui vantaggi del tuo [mercato commerciale.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
+Scopri di più sui vantaggi del tuo [mercato commerciale.](./gtm-your-marketplace-benefits.md)
 
-Accedere al [portale Cloud Partner](https://cloudpartner.azure.com) per creare e configurare l'offerta.
+Accedi al [Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare e configurare la tua offerta.
 
 ---

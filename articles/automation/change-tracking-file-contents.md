@@ -1,16 +1,16 @@
 ---
 title: Visualizzare le modifiche nel contenuto dei file con Automazione di Azure
-description: Usare la funzionalità di modifica del contenuto del file di Rilevamento modifiche per visualizzare il contenuto che è stato modificato.
+description: Utilizzare la funzionalità di modifica del contenuto del file di Rilevamento modifiche per visualizzare il contenuto di un file che è stato modificato.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57c3c2c7a0c923921c727ccea7839940457bc1ee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418818"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682989"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visualizza i contenuti di un file verificati con Rilevamento modifiche
 
@@ -20,7 +20,7 @@ La verifica del contenuto dei file consente di visualizzare i contenuti prima e 
 
 * Un account di archiviazione standard con il modello di distribuzione di Gestione risorse è necessario per la memorizzazione del contenuto del file. Gli account di archiviazione dei modelli di distribuzione Premium e classico non devono essere utilizzati. Per altre informazioni sugli account di archiviazione, vedere Informazioni sugli account di archiviazione di [AzureFor more information](../storage/common/storage-create-storage-account.md) on storage accounts, see About Azure storage accounts
 
-* L'account di archiviazione usato può avere solo 1 account di automazione collegato.
+* L'account di archiviazione usato può avere solo 1 account di automazione connesso.
 
 * [Il rilevamento delle modifiche](automation-change-tracking.md) è abilitato nell'account di automazione.
 
@@ -44,19 +44,19 @@ La verifica del contenuto dei file consente di visualizzare i contenuti prima e 
 
 I passaggi seguenti consentono di eseguire l'attivazione per il rilevamento delle modifiche su un file:
 
-1. Nella pagina **Modifica impostazioni** di **Rilevamento modifiche**, selezionare la scheda **File di Windows** o **File di Linux** e fare clic su **Aggiungi**
+1. Nella pagina Modifica impostazioni di **Rilevamento modifiche**selezionare la scheda **File di Windows** o File **Linux** e fare clic su **Aggiungi**
 
-1. Inserire le informazioni per il percorso del file e selezionare **True** sotto **Caricare il contenuto del file per tutte le impostazioni**. Questa impostazione abilita il rilevamento delle modifiche del file solo per quel determinato percorso.
+1. Inserire le informazioni per il percorso del file e selezionare True sotto **Caricare il contenuto del file per tutte le impostazioni**. Questa impostazione abilita il rilevamento delle modifiche del file solo per quel determinato percorso.
 
    ![aggiungere un file di Linux](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## <a name="viewing-the-contents-of-a-tracked-file"></a>Visualizzazione del contenuto di un file rilevato
 
-1. Una volta rilevata una modifica per il file o per un file nel percorso, appare nel portale. Selezionare la modifica del file nell'elenco delle modifiche. Viene visualizzato il riquadro **Dettagli modifiche**.
+1. Una volta rilevata una modifica per il file o per un file nel percorso, appare nel portale. Selezionare la modifica del file nell'elenco delle modifiche. Viene visualizzato il riquadro Dettagli modifiche.
 
    ![elencare le modifiche](./media/change-tracking-file-contents/change-list.png)
 
-1. Nella pagina **Dettagli modifiche**, è possibile visualizzare le informazioni standard sul contenuto di un file prima e dopo le modifiche; in alto a sinistra, fare clic su **Visualizzare le modifiche al contenuto del file**.
+1. Nel riquadro Modifica dettagli vengono visualizzate le informazioni sullo standard prima e dopo il file. Selezionare **Visualizza modifiche al contenuto** del file per visualizzare il contenuto del file.
 
    ![dettagli modifiche](./media/change-tracking-file-contents/change-details.png)
 

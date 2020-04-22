@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246045"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678158"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Criteri personalizzati in Azure Active Directory B2C
 
@@ -43,7 +43,9 @@ Vengono usati questi tre tipi di file dei criteri:
 - **File di estensioni** - contiene le modifiche di configurazione univoche per il tenant.
 - **File Relying Party (RP)** - L'unico file incentrato sulle attività che viene chiamato direttamente dell'applicazione o dal servizio (noto anche come Relying Party). Ogni attività univoca richiede un file Relying Party associato e, a seconda dei requisiti di personalizzazione, il numero potrebbe essere il "totale delle applicazioni per il numero totale di casi di uso".
 
-I flussi utente in Azure AD B2C seguono il modello a 3 file descritto sopra, ma lo sviluppatore visualizza solo il file RP, mentre il portale di Azure apporta modifiche in background al file delle estensioni.
+I flussi utente in Azure AD B2C seguono il modello di file illustrato in precedenza, ma lo sviluppatore vede solo il file RP, mentre il portale di Azure apporta modifiche in background al file delle estensioni.
+
+Sebbene esistano tre tipi di file di criteri, non sono limitati a soli tre file. È possibile disporre di più file di ogni tipo di file. Ad esempio, se non si desidera apportare modifiche al file Extensions, è possibile creare un file Extensions2 per estendere ulteriormente il file Extensions.
 
 ## <a name="custom-policy-core-concepts"></a>Concetti principali dei criteri personalizzati
 
@@ -55,7 +57,7 @@ L'identità del cliente e il servizio di gestione degli accessi (CIAM) in Azure 
 
 Azure AD B2C interagisce in sequenza con i provider di identità, gli utenti, altri sistemi e la directory dell'utente locale per eseguire un'attività di identità. Ad esempio accesso di un utente, registrazione di un nuovo utente o reimpostazione di una password. Il Framework dell'esperienza di gestione delle identità e un criterio (chiamato anche percorso utente o criterio del framework attendibilità) stabilisce attendibilità tra più parti e definisce in modo esplicito gli attori, le azioni, i protocolli e la sequenza di passaggi da completare.
 
-Identity Experience Framework è una piattaforma di Azure completamente configurabile, basata su criteri e basata su cloud che orchestra l'attendibilità tra entità in formati di protocollo standard come OpenID Connect, OAuth, SAML e alcune non standard, ad esempio REST Scambi di attestazioni da sistema a sistema basati su API. Il framework crea esperienze intuitive e generiche che supportano HTML e CSS.
+Identity Experience Framework è una piattaforma di Azure completamente configurabile, basata su criteri e basata su cloud che orchestra l'attendibilità tra entità in formati di protocollo standard come OpenID Connect, OAuth, SAML e alcuni non standard, ad esempio scambi di attestazioni da sistema a sistema basati su API REST. Il framework crea esperienze intuitive e generiche che supportano HTML e CSS.
 
 Un criterio personalizzato è rappresentato come uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. Gli elementi XML definiscono, tra gli altri elementi, lo schema delle attestazioni, le trasformazioni delle attestazioni, le definizioni di contenuto, i provider di attestazioni, i profili tecnici e le procedure di orchestrazione per i percorsi utente. Un criterio personalizzato è accessibile nella forma di uno o più file XML che vengono eseguiti dal framework dell'esperienza di gestione delle identità quando vengono chiamati da una Relying Party. Gli sviluppatori che configurano criteri personalizzati devono definire dettagliatamente le relazioni attendibili in modo da includere gli endpoint dei metadati e le definizioni di scambio per le attestazioni esatte e configurare i segreti, le chiavi e i certificati necessari per ogni provider di identità.
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdf0cbfb91332d60516432a7a67fb10404d89113
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370354"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683842"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -238,7 +238,7 @@ Un requisito comune di tutti i connettori di provisioning Workday è la richiest
 
 1. Accedere al tenant di Workday con un account amministratore. Nell'**applicazione Workday** immettere "create user" nella casella di ricerca e quindi fare clic su **Create Integration System User** (Crea utente del sistema di integrazione).
 
-   ![Create user](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
+   ![Crea utente](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
 2. Completare l'attività **Create Integration System User** specificando un nome utente e una password per un nuovo utente del sistema di integrazione.  
   
    * Lasciare l'opzione **Require New Password at Next Sign In (Richiedi nuova password al prossimo accesso)** non selezionata, perché l'accesso dell'utente verrà eseguito a livello di codice.
@@ -281,6 +281,7 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
     ![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
 2. Nella casella di testo **Domain** (Dominio) cercare i domini seguenti e aggiungerli al filtro uno alla volta.  
    * *External Account Provisioning*
+   * *Dati lavoratore: Lavoratori*
    * *Worker Data: Public Worker Reports*
    * *Person Data: Work Contact Information* (Dati persona: informazioni di contatto ruolo di lavoro)
    * *Worker Data: All Positions*
@@ -312,6 +313,7 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
    | ---------- | ---------- |
    | Get e put | Worker Data: Public Worker Reports |
    | Get e put | Person Data: Work Contact Information (Dati persona: informazioni di contatto ruolo di lavoro) |
+   | Recupero | Dati lavoratore: Lavoratori |
    | Recupero | Worker Data: All Positions |
    | Recupero | Worker Data: Current Staffing Information |
    | Recupero | Dati lavoratore - Qualifica riportata sul profilo |
@@ -451,11 +453,15 @@ In questo passaggio viene stabilita la connettività con Workday e Active Direct
 
 1. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente dell'amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Dovrebbe essere simile a: **nome utente\@tenant_name**
+   * **Nome utente Workday:** immettere il nome utente dell'account del sistema di integrazione Workday, con l'aggiunta del nome di dominio tenant. Dovrebbe essere simile a: **nome utente\@tenant_name**
 
-   * **Password amministratore –** Immettere la password dell'account del sistema di integrazione Workday
+   * **Password di Workday –** Immettere la password dell'account del sistema di integrazione Workday
 
-   * **URL del tenant:** immettere l'URL dell'endpoint dei servizi Web Workday per il tenant. Questo valore dovrebbe https://wd3-impl-services1.workday.com/ccx/service/contoso4essere simile al seguente: , dove *contoso4* viene sostituito con il nome del tenant corretto e *wd3-impl* viene sostituito con la stringa di ambiente corretta.
+   * **URL dell'API dei servizi Web di Workday –** Immettere l'URL dell'endpoint dei servizi Web di Workday per il tenant. Questo valore dovrebbe https://wd3-impl-services1.workday.com/ccx/service/contoso4essere simile al seguente: , dove *contoso4* viene sostituito con il nome del tenant corretto e *wd3-impl* viene sostituito con la stringa di ambiente corretta.
+
+     > [!NOTE]
+     > Per impostazione predefinita, l'app usa Workday Web Services v21.1 se nell'URL non sono specificate informazioni sulla versione. Per utilizzare una versione specifica dell'API dei servizi Web di Workday, utilizzare il formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Esempio: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
 
    * **Foresta di Active Directory:** il "nome" del dominio di Active Directory, così come registrato con l'agente. Usare l'elenco a discesa per selezionare il dominio di destinazione per il provisioning. In genere, il valore corrisponde a una stringa simile a: *contoso.com*
 
@@ -607,11 +613,16 @@ Le sezioni seguenti descrivono i passaggi per la configurazione del provisioning
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente amministratore:** immettere il nome utente dell'account del sistema di integrazione Workday, con il nome di dominio tenant aggiunto. Dovrebbe essere simile a: username@contoso4
+   * **Nome utente Workday:** immettere il nome utente dell'account del sistema di integrazione Workday, con l'aggiunta del nome di dominio tenant. Dovrebbe essere simile a: username@contoso4
 
-   * **Password amministratore –** Immettere la password dell'account del sistema di integrazione Workday
+   * **Password di Workday –** Immettere la password dell'account del sistema di integrazione Workday
 
-   * **URL del tenant:** immettere l'URL dell'endpoint dei servizi Web Workday per il tenant. Questo valore dovrebbe essere simile a: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, dove * contoso4* è sostituito dal nome del tenant corretto e *wd3-impl* è sostituito dalla stringa di ambiente corretta. Se l'URL non è noto, determinare l'URL corretto da usare insieme al proprio partner di integrazione Workday o al supporto tecnico.
+   * **URL dell'API dei servizi Web di Workday –** Immettere l'URL dell'endpoint dei servizi Web di Workday per il tenant. Questo valore dovrebbe essere simile a: https://wd3-impl-services1.workday.com/ccx/service/contoso4, dove * contoso4* è sostituito dal nome del tenant corretto e *wd3-impl* è sostituito dalla stringa di ambiente corretta. Se l'URL non è noto, determinare l'URL corretto da usare insieme al proprio partner di integrazione Workday o al supporto tecnico.
+
+     > [!NOTE]
+     > Per impostazione predefinita, l'app usa Workday Web Services v21.1 se nell'URL non sono specificate informazioni sulla versione. Per utilizzare una versione specifica dell'API dei servizi Web di Workday, utilizzare il formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Esempio: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+
 
    * **E-mail di notifica –** Inserisci il tuo indirizzo email e seleziona la casella di controllo "Invia e-mail in caso di errore".
 
@@ -807,9 +818,13 @@ Questa funzionalità non è attualmente supportata. La soluzione consigliata con
 
 La soluzione attualmente usa le API di Workday seguenti:
 
-* Get_Workers (v21.1) per il recupero di informazioni relative al lavoratore
-* Maintain_Contact_Information (v26.1) per la funzionalità di Writeback dell'indirizzo di posta elettronica di lavoro
-* Update_Workday_Account (v31.2) per la funzionalità di writeback del nome utente
+* Il formato **URL API dei servizi Web** di lavoro utilizzato nella sezione Credenziali di **amministratore** determina la versione dell'API utilizzata per Get_Workers
+  * Se il formato dell'URL è:\#\#\#\#\.https:// workday\.com/ccx/service/tenantName , viene utilizzata l'API v21.1. 
+  * Se il formato\#\#\#\#\.dell'URL\.è: https:// workday com/ccx/service/tenantName/Human\_Resources , viene utilizzata l'API v21.1 
+  * Se il formato dell'URL è: https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources/v\# \# \. \# , viene utilizzata la versione dell'API specificata. (Esempio: se v34.0 è specificato, viene utilizzato.)  
+   
+* La funzionalità di writeback delle e-mail di Workday utilizza Maintain_Contact_Information (v26.1) 
+* La funzionalità di writeback del nome utente workday utilizza Update_Workday_Account (v31.2) 
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>È possibile configurare il tenant di Workday HCM con due tenant di Azure AD?
 

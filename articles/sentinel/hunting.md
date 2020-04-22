@@ -16,24 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 54ddf6818b95a4037188ab222501ddfa69b28149
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587899"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686640"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Caccia alle minacce con Azure Sentinel
 
 Se sei un investigatore che vuole essere proattivo sulla ricerca di minacce alla sicurezza, Azure Sentinel potente ricerca e strumenti di query di ricerca per la ricerca di minacce alla sicurezza tra le origini dati dell'organizzazione. Ma i sistemi e gli apparecchi di sicurezza generano montagne di dati che possono essere difficili da analizzare e filtrare in eventi significativi. Per consentire agli analisti della sicurezza di cercare in modo proattivo nuove anomalie che non sono state rilevate dalle app di sicurezza, le query di caccia integrate di Azure Sentinel guidano l'utente a porre le domande giuste per individuare i problemi nei dati già presenti nella rete. 
 
-Ad esempio, una query incorporata fornisce dati sui processi più non comuni in esecuzione sull'infrastruttura: non si desidera un avviso su ogni volta che vengono eseguiti, potrebbero essere completamente innocenti, ma è possibile dare un'occhiata alla query in occasione di c'è qualcosa di insolito. 
+Ad esempio, una query incorporata fornisce dati sui processi più non comuni in esecuzione sull'infrastruttura: non si desidera un avviso su ogni volta che vengono eseguiti, potrebbero essere completamente innocenti, ma è possibile dare un'occhiata alla query in occasione per vedere se c'è qualcosa di insolito. 
 
 
 
 Con la caccia ad Azure Sentinel, è possibile sfruttare le funzionalità seguenti:With Azure Sentinel hunting, you can take advantage of the following capabilities:
 
-- Query predefinite: per iniziare, una pagina iniziale fornisce esempi di query precaricate progettati per iniziare e acquisire familiarità con le tabelle e il linguaggio di query. Queste query di caccia integrate sono sviluppate dai ricercatori di sicurezza Microsoft in modo continuo, aggiungendo nuove query e perfezionando le query esistenti per fornire un punto di ingresso per cercare nuovi rilevamenti e capire da dove iniziare la caccia per il nuovi attacchi. 
+- Query predefinite: per iniziare, una pagina iniziale fornisce esempi di query precaricate progettati per iniziare e acquisire familiarità con le tabelle e il linguaggio di query. Queste query di caccia incorporate sono sviluppate dai ricercatori di sicurezza Microsoft in modo continuo, aggiungendo nuove query e perfezionando le query esistenti per fornire un punto di ingresso per cercare nuovi rilevamenti e capire dove iniziare la caccia per l'inizio di nuovi attacchi. 
 
 - Potente linguaggio di query con IntelliSense: costruito su un linguaggio di query che offre la flessibilità necessaria per portare la caccia al livello successivo.
 
@@ -54,7 +54,7 @@ Con la caccia ad Azure Sentinel, è possibile sfruttare le funzionalità seguent
 
 3. Eseguire una revisione rapida della query sottostante nel riquadro dei dettagli della query oppure fare clic su **Visualizza risultato query** per aprire la query in Log Analytics. Nella parte inferiore, esaminare le corrispondenze per la query.
 
-4.  Fare clic sulla riga e selezionare **Aggiungi segnalibro** per aggiungere le righe da analizzare - è possibile farlo per tutto ciò che sembra sospetto. 
+4.    Fare clic sulla riga e selezionare **Aggiungi segnalibro** per aggiungere le righe da analizzare - è possibile farlo per tutto ciò che sembra sospetto. 
 
 5. Quindi, tornare alla pagina principale **di caccia** e fare clic sulla scheda **Segnalibri** per visualizzare tutte le attività sospette. 
 
@@ -66,7 +66,7 @@ Con la caccia ad Azure Sentinel, è possibile sfruttare le funzionalità seguent
 
 ## <a name="query-language"></a>Linguaggio di query 
 
-La caccia in Azure Sentinel è basata sul linguaggio di query Kusto.Hunting in Azure Sentinel is based on Kusto query language. Per ulteriori informazioni sul linguaggio di query e sugli operatori supportati, vedere Guida di riferimento al [linguaggio di query](https://docs.loganalytics.io/docs/Language-Reference/).
+La caccia in Azure Sentinel è basata sul linguaggio di query Kusto.Hunting in Azure Sentinel is based on Kusto query language. Per ulteriori informazioni sul linguaggio di query e sugli operatori supportati, vedere Guida di riferimento al [linguaggio di query](/azure/azure-monitor/log-query/get-started-queries).
 
 ## <a name="public-hunting-query-github-repository"></a>Ricerca pubblica repository GitHub
 

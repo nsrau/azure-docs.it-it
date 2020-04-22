@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 320723744e1366fdc73cd0593fb0ebece03367f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188435"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678112"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso per Azure Active Directory multi-tenant usando criteri personalizzati in Azure Active Directory B2C
 
@@ -32,11 +32,11 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD, è necessario registrare un'applicazione all'interno del tenant aziendale di Azure AD.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD dell'organizzazione (ad esempio, contoso.com). Nel menu superiore, selezionare il **filtro Directory e sottoscrizione** e quindi scegliere la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
-1. Immettere un **nome** per l'applicazione. Ad esempio: `Azure AD B2C App`.
+1. Immettere un **Nome** per l'applicazione. Ad esempio: `Azure AD B2C App`.
 1. Selezionare **Account in qualsiasi directory dell'organizzazione** per questa applicazione.
 1. Per l'URI di **reindirizzamento**, accettare il valore di **Web** `your-B2C-tenant-name` e immettere l'URL seguente in lettere minuscole, dove viene sostituito con il nome del tenant B2C di Azure AD.
 
@@ -44,7 +44,7 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Ad esempio: `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Ad esempio: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Selezionare **Registra**. Prendere nota del valore di **ID applicazione (client)**, che sarà necessario in un passaggio successivo.
 1. Selezionare **Certificati & segreti**, quindi Nuovo **segreto client**.
@@ -54,14 +54,14 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 
 Se si vuole `family_name` ottenere `given_name` le attestazioni e di Azure AD, è possibile configurare attestazioni facoltative per l'applicazione nell'interfaccia utente del portale di Azure o nel manifesto dell'applicazione. Per altre informazioni, vedere [Come fornire attestazioni facoltative all'app Azure AD.](../active-directory/develop/active-directory-optional-claims.md)
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Cercare e selezionare **Azure Active Directory**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory**.
 1. Nella sezione **Gestisci** selezionare **Registrazioni app**.
 1. Selezionare l'applicazione per cui si desidera configurare attestazioni facoltative nell'elenco.
-1. Nella sezione **Gestisci** selezionare **Configurazione token (anteprima).**
+1. Nella sezione **Gestisci** selezionare **Configurazione token**.
 1. Selezionare **Aggiungi attestazione facoltativa**.
-1. Selezionare il tipo di token che si desidera configurare.
-1. Selezionare le attestazioni facoltative da aggiungere.
-1. Fare clic su **Aggiungi**.
+1. Per tipo **di token**, selezionare **ID**.
+1. Selezionare le attestazioni `family_name` `given_name`facoltative da aggiungere e .
+1. Scegliere **Aggiungi**.
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
@@ -75,7 +75,7 @@ Se si vuole `family_name` ottenere `given_name` le attestazioni e di Azure AD, �
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `AADAppSecret`.  Il `B2C_1A_` prefisso viene aggiunto automaticamente al nome della chiave al momento della creazione, pertanto il relativo riferimento nel codice XML nella sezione seguente deve *B2C_1A_AADAppSecret.*
 1. In **Segreto**immettere il segreto client registrato in precedenza.
 1. In **Uso chiave** selezionare `Signature`.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 

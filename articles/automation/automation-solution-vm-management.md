@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 369e3bcf4e5913f4a3ff82206d1e24a206db3f34
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604718"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681305"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Avviare/arrestare le macchine virtuali durante la soluzione fuori orario in Automazione di AzureStart/stop VMs during off-hours solution in Azure Automation
 
@@ -120,7 +120,7 @@ Tutti i runbook `WhatIf` padre includono il parametro. Se impostato su True, il 
 La tabella seguente elenca le variabili create nell'account di Automazione. Modifica solo le `External`variabili precedute da . La modifica di `Internal` variabili precedute da prefisso causa effetti indesiderati.
 
 > [!NOTE]
-> Le limitazioni relative al nome della macchina virtuale e al gruppo di risorse sono in gran parte il risultato della dimensione della variabile.
+> Le limitazioni relative al nome della macchina virtuale e al gruppo di risorse sono in gran parte il risultato della dimensione della variabile. Vedere [Asset variabili in Automazione di Azure.See Variable assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
 
 |Variabile | Descrizione|
 |---------|------------|
@@ -159,8 +159,8 @@ Non abilitare tutte le pianificazioni, perché questa operazione potrebbe creare
 |Schedule_AutoStop_CreateAlert_Parent | Ogni 8 ore | Esegue il runbook **AutoStop_CreateAlert_Parent** ogni 8 ore, che `External_Start_ResourceGroupNames`a `External_Stop_ResourceGroupNames`sua `External_ExcludeVMNames` volta arresta i valori basati su macchine virtuali in , e variabili. In alternativa, è possibile specificare un elenco separato `VMList` da virgole di macchine virtuali usando il parametro .|
 |Scheduled_StopVM | Definito dall'utente, ogni giorno | Esegue il runbook **ScheduledStopStart_Parent** `Stop` con un parametro di ogni giorno all'ora specificata.Arresta automaticamente tutte le macchine virtuali che soddisfano le regole definite dagli asset variabili.Abilitare la pianificazione correlata **Scheduled-StartVM**.|
 |Scheduled_StartVM | Definito dall'utente, ogni giorno | Esegue il runbook **ScheduledStopStart_Parent** con `Start` un valore di parametro di ogni giorno all'ora specificata. Avvia automaticamente tutte le macchine virtuali che soddisfano le regole definite dagli asset variabili.Abilitare la pianificazione correlata **Scheduled-StopVM**.|
-|Sequenced-StopVM | 1:00 (UTC), ogni venerdì | Esegue il runbook Sequenced_Parent con `Stop` un valore di parametro di ogni venerdì all'ora specificata.Arresterà in sequenza (crescente) tutte le macchine virtuali con un tag **SequenceStop** definito dalle variabili appropriate. Per altre informazioni sui valori di tag e sulle variabili di asset, vedere la sezione Runbook.Abilitare la pianificazione correlata, **Sequenced-StartVM**.|
-|Sequenced-StartVM | 13:00 (UTC), ogni lunedì | Esegue il runbook **SequencedStopStart_Parent** con `Start` un valore di parametro di ogni lunedì all'ora specificata. Avvia in sequenza (decrescente) tutte le macchine virtuali con un tag **SequenceStart** definito dalle variabili appropriate. Per ulteriori informazioni sui valori dei tag e sulle risorse variabili, consultate [Runbooks.](#runbooks) Abilitare la pianificazione correlata, **Sequenced-StopVM**.
+|Sequenced-StopVM | 1:00 (UTC), ogni venerdì | Esegue il runbook **Sequenced_StopStop_Parent** con `Stop` un valore di parametro di ogni venerdì all'ora specificata.Arresterà in sequenza (crescente) tutte le macchine virtuali con un tag **SequenceStop** definito dalle variabili appropriate. Per ulteriori informazioni sui valori dei tag e sulle variabili delle risorse, consultate [Runbook.](#runbooks)Abilitare la pianificazione correlata, **Sequenced-StartVM**.|
+|Sequenced-StartVM | 13:00 (UTC), ogni lunedì | Esegue il runbook **SequencedStopStart_Parent** con `Start` un valore di parametro di ogni lunedì all'ora specificata. Avvia in sequenza (decrescente) tutte le macchine virtuali con un tag **SequenceStart** definito dalle variabili appropriate. Per ulteriori informazioni sui valori dei tag e sulle risorse variabili, consultate [Runbook.](#runbooks) Abilitare la pianificazione correlata, **Sequenced-StopVM**.
 
 ## <a name="use-of-the-solution-with-classic-vms"></a>Uso della soluzione con le macchine virtuali classicheUse of the solution with classic VMs
 

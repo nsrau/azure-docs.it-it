@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 798fec4dacb33a9f16de319062baf12adaffdbd0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428745"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676931"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiche in Sql SynapseStatistics in Synapse SQL
 
@@ -163,13 +163,15 @@ Per creare statistiche su una colonna, specificare un nome per l'oggetto statist
 Questa sintassi usa tutte le opzioni predefinite. Per impostazione predefinita, il pool SQL campiona il **20%** della tabella quando crea statistiche.
 
 ```sql
-CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
+CREATE STATISTICS [statistics_name]
+    ON [schema_name].[table_name]([column_name]);
 ```
 
 Ad esempio:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1);
+CREATE STATISTICS col1_stats
+    ON dbo.table1 (col1);
 ```
 
 #### <a name="create-single-column-statistics-by-examining-every-row"></a>Creare statistiche a colonna singola esaminando ogni riga
@@ -177,13 +179,17 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 La frequenza di campionamento del 20% è sufficiente per la maggior parte delle situazioni. È tuttavia possibile modificare la frequenza di campionamento. Per eseguire il campionamento dell'intera tabella, usare la sintassi seguente:
 
 ```sql
-CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
+CREATE STATISTICS [statistics_name]
+    ON [schema_name].[table_name]([column_name])
+    WITH FULLSCAN;
 ```
 
 Ad esempio:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
+CREATE STATISTICS col1_stats
+    ON dbo.table1 (col1)
+    WITH FULLSCAN;
 ```
 
 #### <a name="create-single-column-statistics-by-specifying-the-sample-size"></a>Creare statistiche a colonna singola specificando le dimensioni del campione
@@ -191,7 +197,9 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 Un'altra opzione disponibile consiste nello specificare la dimensione del campione come percentuale:Another option you have is to specify the sample size as a percent:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
+CREATE STATISTICS col1_stats
+    ON dbo.table1 (col1)
+    WITH SAMPLE = 50 PERCENT;
 ```
 
 #### <a name="create-single-column-statistics-on-only-some-of-the-rows"></a>Creare statistiche a colonna singola solo su alcune righe
@@ -203,7 +211,9 @@ Ad esempio, è possibile usare le statistiche filtrate quando si pianifica di es
 Questo esempio crea statistiche su un intervallo di valori. È possibile definire con facilità i valori in modo che corrispondano all'intervallo di valori in una partizione.
 
 ```sql
-CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
+CREATE STATISTICS stats_col1
+    ON table1(col1)
+    WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
 > [!NOTE]
@@ -214,7 +224,10 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 È anche possibile combinare le varie opzioni. L'esempio seguente crea un oggetto statistiche filtrato con una dimensione del campione personalizzata:
 
 ```sql
-CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
+CREATE STATISTICS stats_col1
+    ON table1 (col1)
+    WHERE col1 > '2000101' AND col1 < '20001231'
+    WITH SAMPLE = 50 PERCENT;
 ```
 
 Per i riferimenti completi, vedere [CREAZIONE DELLE  STATISTICHE](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
@@ -229,7 +242,10 @@ Per creare un oggetto statistiche a più colonne, utilizzare gli esempi preceden
 In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche trasversali sono calcolate in base alla *categoria di prodotto\_* e al sub_category del *\_prodotto:*
 
 ```sql
-CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
+CREATE STATISTICS stats_2cols
+    ON table1 (product_category, product_sub_category)
+    WHERE product_category > '2000101' AND product_category < '20001231'
+    WITH SAMPLE = 50 PERCENT;
 ```
 
 Poiché esiste una correlazione tra *la categoria di prodotto\_* e la *sottocategoria\_\_del prodotto,* un oggetto statistiche a più colonne può essere utile se si accede a queste colonne contemporaneamente.
@@ -263,7 +279,7 @@ L'esempio seguente consente di iniziare a progettare il database. È possibile a
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
-(   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample
+(   @create_type    tinyint -- 1 default, 2 Fullscan, 3 Sample
 ,   @sample_pct     tinyint
 )
 AS
@@ -420,8 +436,8 @@ Queste visualizzazioni di sistema forniscono informazioni sulle statistiche:
 
 | Vista del catalogo | Descrizione |
 |:--- |:--- |
-| [sys.columns (colonne)](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Una riga per ogni colonna. |
-| [Sys](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Una riga per ogni oggetto del database. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Una riga per ogni colonna. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Una riga per ogni oggetto del database. |
 | [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Una riga per ogni schema del database. |
 | [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Una riga per ogni oggetto statistiche. |
 | [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Una riga per ogni colonna nell'oggetto statistiche. Si collega a sys.columns. |
@@ -470,8 +486,8 @@ JOIN    sys.stats_columns   AS sc ON    st.[stats_id]       = sc.[stats_id]
 JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
                             AND         sc.[object_id]      = co.[object_id]
 JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
-JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
-JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
+JOIN    sys.tables          AS tb ON    co.[object_id]      = tb.[object_id]
+JOIN    sys.schemas         AS sm ON    tb.[schema_id]      = sm.[schema_id]
 WHERE   1=1
 AND     st.[user_created] = 1
 ;
@@ -506,18 +522,20 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 Se si è interessati a visualizzare solo parti specifiche, usare la clausola `WITH` e specificare le parti da visualizzare:
 
 ```sql
-DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
+DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
+    WITH stat_header, histogram, density_vector
 ```
 
 Ad esempio:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
+DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
+    WITH histogram, density_vector
 ```
 
 ### <a name="dbcc-show_statistics-differences"></a>Differenze di DBCC SHOW_STATISTICS()
 
-DBCC SHOW_STATISTICS() è implementato in modo più rigoroso nel pool SQL rispetto a SQL Server:
+`DBCC SHOW_STATISTICS()`è più rigorosamente implementato nel pool SQL rispetto a SQL Server:
 
 - Le funzionalità non documentate non sono supportate.
 - Non posso usare Stats_stream.
@@ -602,7 +620,7 @@ sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
 
 Argomenti: @stmt [ ] N'statement_text' - Specifica un'istruzione Transact-SQLTransact-SQL che restituirà valori di colonna da utilizzare per le statistiche. È possibile utilizzare TABLESAMPLE per specificare campioni di dati da utilizzare. Se TABLESAMPLE non è specificato, verrà utilizzato FULLSCAN.
 
-```sql
+```syntaxsql
 <tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
 ```
 
@@ -744,14 +762,18 @@ Questa opzione non può essere utilizzata quando viene specificata l'opzione FUL
 #### <a name="create-single-column-statistics-by-examining-every-row"></a>Creare statistiche a colonna singola esaminando ogni riga
 
 ```sql
-CREATE STATISTICS sState on census_external_table (STATENAME) WITH FULLSCAN, NORECOMPUTE
+CREATE STATISTICS sState
+    on census_external_table (STATENAME)
+    WITH FULLSCAN, NORECOMPUTE
 ```
 
 #### <a name="create-single-column-statistics-by-specifying-the-sample-size"></a>Creare statistiche a colonna singola specificando le dimensioni del campione
 
 ```sql
 -- following sample creates statistics with sampling 20%
-CREATE STATISTICS sState on census_external_table (STATENAME) WITH SAMPLE 5 percent, NORECOMPUTE
+CREATE STATISTICS sState
+    on census_external_table (STATENAME)
+    WITH SAMPLE 5 percent, NORECOMPUTE
 ```
 
 ### <a name="examples-update-statistics"></a>Esempi: aggiornare le statistiche
@@ -765,7 +787,9 @@ DROP STATISTICS census_external_table.sState
 E creare statistiche:
 
 ```sql
-CREATE STATISTICS sState on census_external_table (STATENAME) WITH FULLSCAN, NORECOMPUTE
+CREATE STATISTICS sState
+    on census_external_table (STATENAME)
+    WITH FULLSCAN, NORECOMPUTE
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

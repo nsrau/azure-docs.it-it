@@ -1,5 +1,5 @@
 ---
-title: Usare Gestione aggiornamenti di Azure con i client di Configuration ManagerUse Azure Update Management with Configuration Manager clients
+title: Usare la gestione degli aggiornamenti di Automazione di Azure con i client di Configuration ManagerUse Azure Automation Update Management with Configuration Manager clients
 description: Questo articolo consente di configurare Microsoft Endpoint Configuration Manager con questa soluzione per distribuire gli aggiornamenti software ai client ConfigMgr.
 services: automation
 ms.subservice: update-management
@@ -7,18 +7,18 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0ca836e3b53c3cce755d45b50fe168073f0bbaa
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 32a077c476d9669c3f32bd4040fdc8ff90156c19
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618724"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678740"
 ---
 # <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>Distribuire gli aggiornamenti ai client di Microsoft Endpoint Configuration Manager con Gestione aggiornamenti
 
 I clienti che hanno investito in Microsoft Endpoint Configuration Manager per gestire PC, server e dispositivi mobili si basano anche sulla sua forza e maturità nella gestione degli aggiornamenti software come parte del loro ciclo di gestione degli aggiornamenti software (SUM).
 
-È possibile creare report e aggiornare i server Windows gestiti tramite la creazione e il pre-staging di distribuzioni di aggiornamenti software in Configuration Manager, nonché ottenere lo stato dettagliato delle distribuzioni di aggiornamenti completate usando la [soluzione Gestione aggiornamenti](automation-update-management.md). Se si usa Configuration Manager per la creazione di report sulla conformità degli aggiornamenti, ma non per la gestione delle distribuzioni degli aggiornamenti con i server Windows, è possibile continuare a creare report in Configuration Manager mentre gli aggiornamenti della sicurezza vengono gestiti con la soluzione di gestione degli aggiornamenti.
+È possibile segnalare e aggiornare i server Windows gestiti creando e pre-staging le distribuzioni degli aggiornamenti software in Configuration Manager e ottenere lo stato dettagliato delle distribuzioni degli aggiornamenti completate tramite [Gestione aggiornamenti](automation-update-management.md). Se si usa Configuration Manager per la creazione di report sulla conformità degli aggiornamenti, ma non per la gestione delle distribuzioni degli aggiornamenti con i server Windows, è possibile continuare a creare report in Configuration Manager mentre gli aggiornamenti della sicurezza vengono gestiti con la soluzione di gestione degli aggiornamenti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +37,7 @@ Se si vuole continuare a gestire le distribuzioni di aggiornamenti da Configurat
 
 1. Creare una distribuzione degli aggiornamenti software dal sito principale nella gerarchia di Configuration Manager usando il processo descritto in [Deploy software updates](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates). L'unica impostazione che deve essere configurata in modo diverso rispetto a una distribuzione standard è l'opzione **Non installare aggiornamenti software** per controllare il comportamento di download del pacchetto di distribuzione. Questo comportamento viene gestito dalla soluzione Gestione aggiornamenti creando una distribuzione di aggiornamenti pianificata nel passaggio successivo.
 
-1. Selezionare **Gestione aggiornamenti** in Automazione di Azure. Creare una nuova distribuzione seguendo i passaggi descritti nella sezione relativa alla [creazione di una distribuzione degli aggiornamenti](automation-tutorial-update-management.md#schedule-an-update-deployment) e scegliere **Gruppi importati** nell'elenco a discesa **Tipo** per selezionare la raccolta appropriata di Configuration Manager. Tenere presente questi punti importanti: a. Se è definita una finestra di manutenzione per la raccolta di dispositivi di Configuration Manager selezionata, i membri della raccolta rispettano questa finestra invece dell'impostazione **Durata** definita nella distribuzione pianificata.
+1. Selezionare **Gestione aggiornamenti** in Automazione di Azure. Creare una nuova distribuzione seguendo i passaggi descritti in [Creazione di](automation-tutorial-update-management.md#schedule-an-update-deployment) una distribuzione di aggiornamento e selezionare Gruppi **importati** nell'elenco a discesa **Tipo** per selezionare la raccolta di Configuration Manager appropriata. Tenere presente questi punti importanti: a. Se è definita una finestra di manutenzione per la raccolta di dispositivi di Configuration Manager selezionata, i membri della raccolta rispettano questa finestra invece dell'impostazione **Durata** definita nella distribuzione pianificata.
     b. I membri della raccolta di destinazione devono avere una connessione Internet diretta, tramite un server proxy o il gateway di Log Analytics.
 
 Dopo aver completato la distribuzione di aggiornamenti tramite Automazione di Azure, i computer di destinazione che sono membri del gruppo di computer selezionato installeranno gli aggiornamenti all'ora pianificata dalla cache client locale. È possibile [visualizzare lo stato della distribuzione di aggiornamenti](automation-tutorial-update-management.md#view-results-of-an-update-deployment) per monitorare i risultati della distribuzione.

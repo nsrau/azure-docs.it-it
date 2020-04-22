@@ -3,12 +3,12 @@ title: Abilitare l'identità gestita nel gruppo di contenitoriEnable managed ide
 description: Informazioni su come abilitare un'identità gestita nelle istanze del contenitore di Azure che possono eseguire l'autenticazione con altri servizi di AzureLearn how to enable a managed identity in Azure Container Instances that can authenticate with other Azure services
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: 003055d5021dd8ad7c3bab6d2900298ffd13b222
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19d2ab22eea15278c7753046f9222c7856fbf5ef
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76901942"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685652"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 
@@ -31,7 +31,7 @@ Adattare gli esempi per abilitare e usare le identità in Istanze di Azure Conta
 Con un'identità gestita in un contenitore in esecuzione è possibile eseguire l'autenticazione a qualsiasi [servizio che supporti l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) senza dover gestire le credenziali nel codice del contenitore. Per i servizi che non supportano l'autenticazione di Active Directory, è possibile archiviare segreti in un insieme di credenziali delle chiavi di Azure e usare l'identità gestita per accedere all'insieme di credenziali delle chiavi per recuperare le credenziali. Per altre informazioni sull'uso di un'identità gestita, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale. Attualmente, le identità gestite nelle istanze del contenitore di Azure sono supportate solo con contenitori Linux e non ancora con contenitori Windows.Currently, managed identities on Azure Container Instances, are only supported with Linux containers and not yet with Windows containers.
+> Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale. Attualmente, le identità gestite nelle istanze del contenitore di Azure sono supportate solo con contenitori Linux e non ancora con contenitori Windows.Currently, managed identities on Azure Container Instances, are only supported with Linux containers and not yet with Windows containers.
 >  
 
 ### <a name="enable-a-managed-identity"></a>Abilitare un'identità gestita
@@ -52,7 +52,7 @@ L'uso di un'identità gestita in un contenitore in esecuzione equivale fondament
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.49 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.49 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-azure-key-vault"></a>Creare un insieme di credenziali delle chiavi di AzureCreate an Azure key vault
 
@@ -189,7 +189,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Utilizzare ora il token di accesso per eseguire l'autenticazione nell'insieme di credenziali delle chiavi e leggere un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL (*https://mykeyvault.vault.azure.net/...*):
+Utilizzare ora il token di accesso per eseguire l'autenticazione nell'insieme di credenziali delle chiavi e leggere un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL (*https:\//mykeyvault.vault.azure.net/...*):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

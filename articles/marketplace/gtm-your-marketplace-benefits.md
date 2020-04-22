@@ -1,18 +1,18 @@
 ---
-title: Go-To-Market Services - I vantaggi del tuo mercato commerciale Azure
+title: Go-To-Market Services - I vantaggi del tuo mercato commerciale Azure Marketplace
 description: "Servizi per l'immissione sul mercato: in questa sezione vengono descritte le risorse Microsoft che gli autori possono usare."
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/08/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: d34fb989e7f656df93faae63ef4dc42ed0fe5abe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5c8b2f5cb03c7e1777137100547fbbbaf107f0b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286235"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684550"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del tuo mercato commerciale
 
@@ -24,7 +24,7 @@ Quando andrai in diretta con la tua offerta, il team di Marketplace Rewards si c
 
 Marketplace Rewards è progettato per supportarti nella tua specifica fase di crescita, a partire dalle attività di sensibilizzazione per aiutarti a ottenere i tuoi primi clienti. Man mano che cresci attraverso il mercato, sblocchi nuovi vantaggi progettati per aiutarti a convertire i clienti e concludere le offerte. 
 
-Il programma crea un ciclo di feedback positivo: i vantaggi in ogni fase della crescita sono progettati per passare alla fase successiva, consentendo di far crescere il proprio business per i clienti Microsoft, con il campo di Microsoft e attraverso il canale di Microsoft sfruttando il mercato commerciale come piattaforma. 
+Il programma crea un ciclo di feedback positivo: i vantaggi in ogni fase della crescita sono progettati per passare alla fase successiva, consentendo di far crescere il tuo business per i clienti Microsoft, con il campo di Microsoft e attraverso il canale di Microsoft sfruttando il mercato commerciale come piattaforma. 
 
 I vantaggi sono differenziati in base al fatto che l'offerta sia [Elenco, Versione di valutazione o Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
 
@@ -44,7 +44,7 @@ I tuoi passaggi per iniziare sono semplici:
 2. Il team contatta il "proprietario" o il "contatto primario" per ogni offerta del marketplace. È consigliabile immettere un individuo o un alias che controlli regolarmente: i info@company.com messaggi inviati agli alias, ad esempio spesso si perdono.
 
 >[!Note]
->Se la tua offerta è stata attiva per più di quattro settimane e non hai ricevuto un messaggio, controlla all'interno della tua organizzazione che è il proprietario dell'offerta in questione, cercando nel portale Cloud Partner o nel Centro per i partner. Dovrebbero avere la comunicazione e i prossimi passi. <br> <br> Se non è possibile determinare il proprietario o se il proprietario ha https://aka.ms/marketplacepublishersupportlasciato l'azienda, è possibile sollevare un ticket di supporto all'indirizzo .
+>Se la tua offerta è stata attiva per più di quattro settimane e non hai ricevuto un messaggio, controlla all'interno della tua organizzazione che è il proprietario dell'offerta in questione, cercando nel Centro per i partner. Dovrebbero avere la comunicazione e i prossimi passi. <br> <br> Se non è possibile determinare il proprietario o se il proprietario ha https://aka.ms/marketplacepublishersupportlasciato l'azienda, è possibile sollevare un ticket di supporto all'indirizzo .
 
 L'ambito delle attività disponibili si espande in base alla crescita delle offerte nel marketplace. Tutte le inserzioni ricevono un livello base di raccomandazioni per l'ottimizzazione e promozione come parte di un'email self-service di risorse e best practice.
 
@@ -96,7 +96,7 @@ Microsoft si riserva il diritto di revocare e terminare i vantaggi di Marketplac
 * attività illegali utilizzando la loro quotazione sul mercato.
 * sono de-listed dal mercato commerciale. 
 * utilizzare la loro offerta per mostrare contenuti di marketing o altri contenuti che violano le leggi sul copyright o sui marchi.
-* violare i criteri del programma di sponsorizzazione di [Azure,](https://azure.microsoft.com/offers/ms-azr-0036p/)incluso, ma non solo, il finanziamento della sponsorizzazione di Azure per le proprie operazioni interne o il mining di bitcoin. 
+* violare i criteri del programma di sponsorizzazione di [Azure,](https://azure.microsoft.com/offers/ms-azr-0036p/)incluso, ma non solo, il finanziamento della sponsorizzazione di Azure per le proprie operazioni interne o il mining di Bitcoin. 
 
 ### <a name="offer-availability"></a>Disponibilità dell'offerta
 
@@ -106,9 +106,7 @@ Le transazioni che si sono dimostrate fraudolente non conteranno ai piani del pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se hai creato l'offerta nel [portale Cloud Partner,](https://cloudpartner.azure.com)accedi per creare o configurare la tua offerta.
-
-Se hai creato l'offerta nel [Centro per i partner,](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview)accedi per creare o configurare l'offerta.
+Se hai creato l'offerta nel [Centro per i partner,](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)accedi per creare o configurare l'offerta.
 
 Rivedere le [risorse self-service a vostra disposizione](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

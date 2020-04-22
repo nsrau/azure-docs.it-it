@@ -3,12 +3,12 @@ title: Domande sull'individuazione, la valutazione e l'analisi delle dipendenze 
 description: Risposte alle domande comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b4b2a50bc88768d46c82f6bce73447dc901e5dfd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529774"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681910"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Analisi di individuazione, valutazione e dipendenza - Domande comuni
 
@@ -28,6 +28,10 @@ Esaminare le aree geografiche supportate per i cloud [pubblici](migrate-support-
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quante macchine virtuali è possibile individuare con un'appliance?
 
 È possibile individuare fino a 10.000 macchine virtuali VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 250 server fisici utilizzando una singola appliance. Se si dispone di più computer, vedere [Scalabilità di una valutazione Hyper-V](scale-hyper-v-assessment.md), ridimensionamento di [una valutazione VMware](scale-vmware-assessment.md)o ridimensionamento di [una valutazione del server fisico.](scale-physical-assessment.md)
+
+## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Non è possibile visualizzare alcuni tipi di macchine virtuali in Azure per enti pubblici
+
+I tipi di VM supportati per la valutazione e la migrazione dipendono dalla disponibilità nella posizione di Azure per enti pubblici. È possibile [esaminare e confrontare](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) i tipi di macchine virtuali in Azure per enti pubblici.
 
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>Le dimensioni della macchina virtuale sono cambiate. Posso eseguire di nuovo una valutazione?
@@ -87,7 +91,7 @@ Le valutazioni basate sull'importazione sono valutazioni create con computer imp
 La visualizzazione delle dipendenze consente di valutare i gruppi di macchine virtuali per la migrazione con maggiore sicurezza. La visualizzazione delle dipendenze controlla trasversalmente le dipendenze dei computer prima di eseguire una valutazione. Garantisce che non venga lasciato nulla e consente di evitare interruzioni impreviste durante la migrazione ad Azure.It helps ensure that no is left behind, and it helps avoid unexpected outages when you migrate to Azure. Azure Migrate usa la soluzione Mapping dei servizi in Monitoraggio di Azure per abilitare la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md)
 
 > [!NOTE]
-> La visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
+> L'analisi delle dipendenze basata su agente non è disponibile in Azure per enti pubblici. È possibile utilizzare l'analisi delle dipendenze senza agenti
 
 ## <a name="whats-the-difference-between-agent-based-and-agentless"></a>Qual è la differenza tra agent-based e agentless?
 

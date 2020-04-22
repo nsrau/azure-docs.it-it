@@ -2,14 +2,14 @@
 title: Matrice di supporto di Azure MigrateAzure Migrate support matrix
 description: Viene fornito un riepilogo delle impostazioni di supporto e delle limitazioni per il servizio Azure Migrate.
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 0f766bf95bb7e26d942e7dde3f315bbef6d5dc5c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44a971894f53a3f31c068b3c3ed4912bc7e00dab
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535197"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680704"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto di Azure MigrateAzure Migrate support matrix
 
@@ -25,6 +25,8 @@ Nella tabella sono riepilogati gli scenari di individuazione, valutazione e migr
 **Valutazione locale** | Valutare i carichi di lavoro e i dati locali in esecuzione nelle macchine virtuali VMware, nelle macchine virtuali Hyper-V e nei server fisici. Valutare l'utilizzo di Azure Migrate Server Assessment e Microsoft Data Migration Assistant (DMA), nonché di altri strumenti e offerte ISV.
 **Migrazione locale in AzureOn-premises migration to Azure** | Eseguire la migrazione di carichi di lavoro e dati in esecuzione su server fisici, macchine virtuali VMware, macchine virtuali Hyper-V, server fisici e MACCHINE virtuali basate su cloud in Azure.Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Eseguire la migrazione usando la valutazione del server di azure migrate e il servizio DMS (Azure Database Migration Service) nonché altri strumenti e offerte ISV.
 
+> [!NOTE]
+> Attualmente, gli strumenti ISV non possono inviare dati ad Azure Migrate in Azure per enti pubblici. È possibile utilizzare gli strumenti Microsoft integrati o gli strumenti partner in modo indipendente.
 
 ## <a name="supported-tools"></a>Strumenti supportati
 
@@ -93,7 +95,7 @@ Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 **Attività** | **Area geografica** | **Dettagli**
 --- | --- | ---
 Crea progetto | Stati Uniti | I metadati sono memorizzati in US Gov Arizona, US Gov Virginia
-Valutazione degli obiettivi | Stati Uniti | Regioni di destinazione: US Gov Arizona, US Gov Virginia/US Gov Texas
+Valutazione degli obiettivi | Stati Uniti | Regioni bersaglio: US Gov Arizona, US Gov Virginia, US Gov Texas
 Replica di destinazione | Stati Uniti | Regioni di destinazione: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77157857"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682036"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD  
 
@@ -79,7 +79,7 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
        Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
    * URI di risorsa per Servizi multimediali. 
 
-       Questo URI è identico a quello degli account di Servizi multimediali inclusi nello stesso ambiente Azure (ad esempio, https://rest.media.azure.net).
+       Questo URI è lo stesso per gli account di Servizi multimediali\/che si trovano nello stesso ambiente Azure (ad esempio, https: /rest.media.azure.net).
 
    * ID client dell'applicazione Servizi multimediali (nativa).
    * URI di reindirizzamento dell'applicazione Servizi multimediali (nativa).
@@ -121,7 +121,7 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
        Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
    * URI di risorsa per Servizi multimediali. 
 
-       Questo URI è identico a quello degli account di Servizi multimediali che si trovano nello stesso ambiente Azure (ad esempio, https://rest.media.azure.net).
+       Questo URI è lo stesso per gli account di Servizi multimediali che\/si trovano nello stesso ambiente Azure (ad esempio, https: /rest.media.azure.net).
 
    * URI di risorsa per Servizi multimediali REST.
 

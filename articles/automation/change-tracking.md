@@ -5,44 +5,55 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d84566c7680081561f60d4825f25a9ce19e02b24
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844803"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682983"
 ---
-# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
+# <a name="track-environment-changes-with-change-tracking"></a>Tenere traccia delle modifiche dell'ambiente con il rilevamento delle modificheTrack environment changes with Change Tracking
 
 Questo articolo spiega come usare la soluzione Rilevamento modifiche per identificare facilmente le modifiche nell'ambiente. La soluzione tiene traccia delle seguenti modifiche di configurazione per individuare i problemi operativi:
 
 - Software Windows
 - Software Linux (pacchetti)
-
     >[!NOTE]
-    >Il rilevamento delle modifiche tiene traccia solo del software gestito con il gestore di pacchetti della distribuzione.
+    >Rilevamento modifiche tiene traccia solo del software gestito con il gestore dei pacchetti di distribuzione.
 
 - File Windows e Linux
 - Chiavi del Registro di sistema di Windows
 - Servizi Windows
 - Daemon Linux
 
-Le modifiche al software installato, ai servizi di Windows, al Registro di sistema e ai file di Windows e ai daemon Linux nei server monitorati vengono inviate al servizio Monitor di Azure nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+Dopo aver abilitato la soluzione, è possibile visualizzare il riepilogo delle modifiche per i computer monitorati selezionando **Rilevamento modifiche** in **Gestione configurazione** nell'account di automazione.
 
 > [!NOTE]
 > Il rilevamento delle modifiche di Automazione di Azure tiene traccia delle modifiche nelle macchine virtuali. Per tenere traccia delle modifiche alle proprietà di Azure Resource Manager, vedere [Cronologia delle modifiche](../governance/resource-graph/how-to/get-resource-changes.md)di Azure Resource Graph.
 
-## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
+È possibile visualizzare le modifiche ai computer e quindi analizzare i dettagli per ogni evento. Nella parte superiore del grafico sono disponibili menu a discesa per limitare le informazioni dettagliate e relative al grafico in base al tipo di modifica e agli intervalli di tempo. È anche possibile fare clic sul grafico e trascinare la selezione per selezionare un intervallo di tempo personalizzato. **Cambia tipo** sarà uno dei seguenti valori **Eventi**, **Daemons**, **File**, **Registro di sistema**, **Software**, Servizi **di Windows**. Categoria mostra il tipo di modifica e può essere **aggiunto**, **Modificato**, o **Rimosso**.
+
+![image of Change Tracking dashboard](./media/change-tracking/change-tracking-dash01.png)
+
+Facendo clic su una modifica o su un evento vengono visualizzate informazioni dettagliate relative a tale modifica. Come si può notare nell'esempio, il tipo di avvio del servizio è stato modificato da Manuale ad Automatico.
+
+![immagine dei dettagli del rilevamento delle modifiche](./media/change-tracking/change-tracking-details.png)
+
+Le modifiche al software installato, ai servizi di Windows, al Registro di sistema e ai file di Windows e ai daemon Linux nei server monitorati vengono inviate al servizio Monitor di Azure nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+
+## <a name="supported-operating-systems"></a>Sistemi operativi supportati
+
+### <a name="windows-operating-systems"></a>Sistemi operativi Windows
 
 Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate per l'agente Windows:
 
 * Windows Server 2008 R2 o versione successiva
 
-## <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
+### <a name="linux-operating-systems"></a>Sistemi operativi Linux
 
 Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possibile che l'agente Linux sia eseguito in altre distribuzioni non elencate. Se non diversamente indicato, tutte le versioni minori sono supportate per ogni versione principale elencata.
 
-### <a name="64-bit"></a>64 bit
+#### <a name="64-bit"></a>64 bit
 
 * CentOS 6 e 7
 * Amazon Linux 2017.09
@@ -52,7 +63,7 @@ Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possi
 * Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
-### <a name="32-bit"></a>32 bit
+#### <a name="32-bit"></a>32 bit
 
 * CentOS 6
 * Oracle Linux 6
@@ -60,124 +71,21 @@ Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possi
 * Debian GNU/Linux 8 e 9
 * Ubuntu Linux 14.04 LTS e 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a><a name="onboard"></a>Abilitare Rilevamento modifiche e inventario
-
-Per iniziare a tenere traccia delle modifiche, è necessario abilitare la soluzione Rilevamento modifiche e Inventario. Esistono molti modi per caricare i computer al fine di effettuare il rilevamento modifiche e inventario. Per eseguire l'onboarding della soluzione si consigliano i metodi supportati seguenti.
-
-* [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
-* [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
-* [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
-* [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
-
-## <a name="configuring-change-tracking-and-inventory"></a>Configurazione di Rilevamento modifiche e Inventario
-
-Per informazioni sulla modalità di esecuzione dell'onboarding nella soluzione, vedere [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md) (Soluzioni per l'onboarding dall'account di Automazione). Dopo aver eseguito l'onboarding di una macchina con la soluzione Rilevamento modifiche e inventario, è possibile configurare gli articoli di cui tenere traccia. Quando si abilita un nuovo file o una nuova chiave del Registro di sistema per tenere traccia, viene abilitata sia per il rilevamento delle modifiche che per l'inventario.
-
-Per tenere traccia delle modifiche nei file sia di Windows che di Linux, vengono usati hash MD5 dei file. Questi hash vengono quindi usati per rilevare se dopo l'ultimo inventario sono state apportate modifiche.
-
-### <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
-
-Azure Security Center has added File Integrity Monitoring (FIM) built on Azure Change Tracking. Mentre FIM monitora solo file e registri, la soluzione completa di rilevamento delle modifiche include anche:
-
-- Modifiche software
-- servizi Windows
-- Linux Daemons
-
-Se FIM è già stato abilitato e si desidera provare la soluzione completa di rilevamento delle modifiche, è necessario eseguire la procedura seguente. Le impostazioni non vengono rimosse da questo processo.
-
-> [!NOTE]
-> L'abilitazione della soluzione completa di rilevamento delle modifiche può causare costi aggiuntivi, per ulteriori informazioni, vedere [Prezzi di automazione](https://azure.microsoft.com/pricing/details/automation/).
-
-1. Rimuovere la soluzione di monitoraggio passando all'area di lavoro e individuandola [nell'elenco delle soluzioni di monitoraggio installate](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
-2. Fare clic sul nome della soluzione per aprire la relativa pagina di riepilogo e quindi fare clic su Elimina, come descritto in [Rimuovere una soluzione](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution)di monitoraggio .
-3. Riattivare la soluzione passando all'account di automazione e selezionando **Rilevamento modifiche** dal menu delle risorse in **Gestione configurazione**.
-4. Confermare i dettagli dell'impostazione dell'area di lavoro e fare clic su **Abilita**.
-
-### <a name="configure-linux-files-to-track"></a>Configurare i file di Linux da rilevare
-
-Seguire questa procedura per configurare il rilevamento dei file in computer Linux:
-
-1. Nell'account di Automazione selezionare **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE**. Fare clic su **Modifica impostazioni** (simbolo dell'ingranaggio).
-2. Nella pagina **Rilevamento modifiche** selezionare **File Linux** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
-3. In **Aggiungi file Linux per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**.
-
-|Proprietà  |Descrizione  |
-|---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata.        |
-|Nome elemento     | Nome descrittivo del file da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Immettere il percorso     | Percorso in cui cercare il file. Ad esempio: "/etc/*.conf"       |
-|Tipo di percorso     | Tipo di elemento da rilevare, i valori possibili sono File e Directory.        |
-|Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
-|Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
-|Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento.<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento.<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del contenuto restituito.     |
-|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
-
-> [!NOTE]
-> Questa opzione dei collegamenti "Gestisci" non è consigliata. Il recupero del contenuto del file non è supportato.
-
-### <a name="configure-windows-files-to-track"></a>Configurare i file di Windows da rilevare
-
-Seguire questa procedura per configurare il rilevamento dei file in computer Windows:
-
-1. Nell'account di Automazione selezionare **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE**. Fare clic su **Modifica impostazioni** (simbolo dell'ingranaggio).
-2. Nella pagina **Rilevamento modifiche** selezionare **File Windows** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
-3. In **Aggiungi file Windows per Rilevamento modifiche** immettere le informazioni per il file da rilevare e fare clic su **Salva**.
-
-|Proprietà  |Descrizione  |
-|---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata.        |
-|Nome elemento     | Nome descrittivo del file da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\\\*.txt"<br>È anche possibile usare le variabili di ambiente, ad esempio "%winDir%\System32\\\*.*"       |
-|Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
-|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
-
-## <a name="wildcard-recursion-and-environment-settings"></a>Impostazioni con caratteri jolly, ricorsione e ambiente
-
-Ricorsione consente di specificare i caratteri jolly per semplificare il rilevamento tra le directory e le variabili di ambiente che consentono di tenere traccia dei file tra gli ambienti con nomi di unità multipli o dinamici. L'elenco seguente mostra le informazioni comuni che è necessario conoscere quando si configura la ricorsione:
-
-* I caratteri jolly sono necessari per tenere traccia di più file
-* I caratteri jolly possono essere usati solo nell'ultimo segmento di un percorso. (ad esempio `c:\folder\*file*` o `/etc/*.conf`)
-* Se una variabile di ambiente dispone di un percorso non valido, la convalida avrà esito positivo, ma tale percorso avrà esito negativo quando si esegue l'inventario.
-* Evitare percorsi generici, ad esempio `c:\*.*`, quando si imposta il percorso, poiché vengono attraversate troppe cartelle.
-
-## <a name="configure-file-content-tracking"></a>Configurare il rilevamento del contenuto di file
-
-È possibile visualizzare il contenuto prima e dopo una modifica di un file con Rilevamento modifiche contenuto file. Questa funzionalità è disponibile per i file di Windows e Linux. Per ogni modifica al file, il contenuto del file viene archiviato in un account di archiviazione e mostra il file prima e dopo la modifica, inline o in modalità side-by-side. Per altre informazioni, vedere [View the contents of a tracked file](change-tracking-file-contents.md) (Visualizzare il contenuto di un file con il rilevamento modifiche applicato).
-
-![visualizzare le modifiche in un file](./media/change-tracking-file-contents/view-file-changes.png)
-
-### <a name="configure-windows-registry-keys-to-track"></a>Configurare le chiavi del Registro di Sistema di Windows da rilevare
-
-Seguire questa procedura per configurare il rilevamento delle chiavi del Registro di sistema in computer Windows:
-
-1. Nell'account di Automazione selezionare **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE**. Fare clic su **Modifica impostazioni** (simbolo dell'ingranaggio).
-2. Nella pagina **Rilevamento modifiche** selezionare **Registro di sistema di Windows** e quindi fare clic su **+ Aggiungi** per aggiungere una nuova chiave del Registro di sistema da rilevare.
-3. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**.
-
-|Proprietà  |Descrizione  |
-|---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata.        |
-|Nome elemento     | Nome descrittivo della chiave del Registro di sistema da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico delle chiavi del Registro di sistema.        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare la chiave del Registro di sistema. Ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
-
 ## <a name="limitations"></a>Limitazioni
 
 La soluzione Rilevamento modifiche non supporta attualmente gli elementi seguenti:
 
 * Ricorsione per Rilevamento del Registro di sistema di Windows
-* File system di rete
-* Non vengono tracciati diversi metodi di installazione
-* I file .exe non vengono registrati per Windows
+* Filesystem di rete
+* Diversi metodi di installazione
+* ***File .exe** per Windows
 
 Altre limitazioni:
 
 * La colonna **Dimensioni massime file** e i valori non sono usati nell'implementazione corrente.
-* Se si raccolgono oltre 2500 file in un ciclo di recupero di 30 minuti, è possibile assistere a una riduzione delle prestazioni della soluzione.
-* Quando il traffico di rete è elevato, i record di modifica possono impiegare fino a sei ore prima di essere visualizzati.
-* Se si modifica la configurazione mentre un computer è arrestato, il computer potrebbe registrare le modifiche che appartenevano alla configurazione precedente.
+* Se si raccolgono più di 2500 file in un ciclo di raccolta di 30 minuti, le prestazioni della soluzione potrebbero essere ridotte.
+* Quando il traffico di rete è elevato, la visualizzazione dei record delle modifiche può richiedere fino a sei ore.
+* Se si modifica la configurazione mentre un computer è spento, il computer potrebbe registrare le modifiche appartenenti alla configurazione precedente.
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -185,6 +93,26 @@ La soluzione Rilevamento modifiche sta riscontrando attualmente i problemi segue
 
 * Gli aggiornamenti rapidi non vengono raccolti nei computer Windows Server 2016 Core RS3.
 * Linux Daemons può mostrare uno stato cambiato anche se non c'è stato alcun cambiamento. Ciò è dovuto `SvcRunLevels` al modo in cui il campo viene acquisito.
+
+## <a name="network-requirements"></a>Requisiti di rete
+
+Il rilevamento delle modifiche richiede in modo specifico gli indirizzi seguenti. Le comunicazioni con questi indirizzi utilizzano la porta 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Impostazioni con caratteri jolly, ricorsione e ambiente
+
+Ricorsione consente di specificare i caratteri jolly per semplificare il rilevamento tra le directory e le variabili di ambiente che consentono di tenere traccia dei file tra gli ambienti con nomi di unità multipli o dinamici. L'elenco seguente mostra le informazioni comuni che è necessario conoscere quando si configura la ricorsione:
+
+* I caratteri jolly sono necessari per il rilevamento di più file.
+* I caratteri jolly possono essere utilizzati solo nell'ultimo segmento\\di un percorso, ad esempio, c: .
+* Se una variabile di ambiente ha un percorso non valido, la convalida ha esito positivo, ma tale percorso ha esito negativo durante l'esecuzione di Inventory.If an environment variable has an invalid path, validation succeeds, but that path fails when Inventory runs.
+* Evitare i percorsi generali quando si imposta il percorso, poiché questo tipo di impostazione può causare l'attraversamento di troppe cartelle.
 
 ## <a name="change-tracking-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di Change Tracking
 
@@ -211,7 +139,7 @@ La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macc
 |Servizi|250||
 |Daemon|250||
 
-L'utilizzo medio dei dati di Log Analytics per un computer con Rilevamento modifiche e Inventario è di circa 40 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per visualizzare l'esatta quantità di dati usati.
+L'utilizzo medio dei dati di Log Analytics per un computer che usa il rilevamento delle modifiche è di circa 40 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per visualizzare l'esatta quantità di dati usati.
 
 ### <a name="windows-service-tracking"></a>Rilevamento dei servizi di Windows
 
@@ -249,36 +177,103 @@ Lo scopo del monitoraggio delle modifiche alle chiavi del Registro di sistema è
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora l'elenco delle DLL di sistema note o comunemente usate. Questo sistema impedisce alle persone di sfruttare autorizzazioni vulnerabili delle directory delle applicazioni rilasciando trojan nelle DLL di sistema.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora l'elenco dei pacchetti in grado di ricevere le notifiche degli eventi da Winlogon, il modello di supporto di accesso interattivo per il sistema operativo Windows.
 
-## <a name="network-requirements"></a>Requisiti di rete
+## <a name="enable-change-tracking"></a><a name="onboard"></a>Abilitare il rilevamento delle modificheEnable Change Tracking
 
-I seguenti indirizzi sono necessari e specifici per Rilevamento modifiche. La comunicazione verso questi indirizzi avviene sulla porta 443.
+Per iniziare a tenere traccia delle modifiche, è necessario abilitare la soluzione Rilevamento modifiche. Ci sono molti modi per eseguire l'onboarding delle macchine per il rilevamento delle modifiche. Per eseguire l'onboarding della soluzione si consigliano i metodi supportati seguenti.
 
-|Azure Public  |Azure Government  |
+* [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
+* [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
+* [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
+* [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
+
+## <a name="configure-change-tracking"></a>Configurare il rilevamento delle modifiche
+
+Per informazioni su come eseguire l'onboarding dei computer nella soluzione, vedere [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). Dopo aver eseguito l'onboarding di un computer con la soluzione rilevamento delle modifiche, è possibile configurare gli elementi di cui tenere traccia. Quando si abilita un nuovo file o una nuova chiave del Registro di sistema per tenere traccia, viene abilitata sia per il rilevamento delle modifiche.
+
+Per tenere traccia delle modifiche nei file sia di Windows che di Linux, vengono usati hash MD5 dei file. Questi hash vengono quindi usati per rilevare se dopo l'ultimo inventario sono state apportate modifiche.
+
+## <a name="enable-file-integrity-monitoring-in-azure-security-center"></a>Abilitare il monitoraggio dell'integrità dei file nel Centro sicurezza di AzureEnable File Integrity Monitoring in Azure Security Center
+
+Azure Security Center has added File Integrity Monitoring (FIM), which is built on Azure Change Tracking. Mentre FIM monitora solo file e registri, la soluzione completa di rilevamento delle modifiche include anche:
+
+- Modifiche software
+- servizi Windows
+- Linux Daemons
+
+Se FIM è già stato abilitato e si desidera provare la soluzione completa di rilevamento delle modifiche, è necessario eseguire la procedura seguente. Le impostazioni non vengono rimosse da questo processo.
+
+> [!NOTE]
+> L'abilitazione della soluzione completa di rilevamento delle modifiche può causare costi aggiuntivi, per ulteriori informazioni, vedere [Prezzi di automazione](https://azure.microsoft.com/pricing/details/automation/).
+
+1. Rimuovere la soluzione di monitoraggio passando all'area di lavoro e individuandola [nell'elenco delle soluzioni di monitoraggio installate](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
+2. Fare clic sul nome della soluzione per aprire la relativa pagina di riepilogo e quindi fare clic su Elimina, come descritto in [Rimuovere una soluzione](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution)di monitoraggio .
+3. Riattivare la soluzione passando all'account di automazione e selezionando **Rilevamento modifiche** in **Gestione configurazione**.
+4. Confermare i dettagli dell'impostazione dell'area di lavoro e fare clic su **Abilita**.
+
+## <a name="configure-file-content-change-tracking"></a>Configurare il rilevamento delle modifiche del contenuto dei file
+
+È possibile visualizzare il contenuto prima e dopo la modifica del file con il rilevamento delle modifiche del contenuto del file. Questa funzione è disponibile per i file Windows e Linux. Per ogni modifica apportata a un file, il contenuto del file viene archiviato in un account di archiviazione. Il file viene visualizzato prima e dopo la modifica, in linea o affiancata. Per altre informazioni, vedere [View the contents of a tracked file](change-tracking-file-contents.md) (Visualizzare il contenuto di un file con il rilevamento modifiche applicato).
+
+![visualizzare le modifiche in un file](./media/change-tracking-file-contents/view-file-changes.png)
+
+## <a name="configure-windows-registry-keys-to-track"></a>Configurare le chiavi del Registro di Sistema di Windows da rilevare
+
+Seguire questa procedura per configurare il rilevamento delle chiavi del Registro di sistema in computer Windows:
+
+1. Nell'account Di automazione selezionare **Rilevamento modifiche** in **Gestione configurazione**. Fare clic su **Modifica impostazioni** (simbolo dell'ingranaggio).
+2. Nella pagina Rilevamento modifiche selezionare **Registro di sistema di Windows** e quindi fare clic su **+ Aggiungi** per aggiungere una nuova chiave del Registro di sistema da rilevare.
+3. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**.
+
+|Proprietà  |Descrizione  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|Attivato     | Determina se l'impostazione viene applicata.        |
+|Nome elemento     | Nome descrittivo della chiave del Registro di sistema da rilevare.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico delle chiavi del Registro di sistema.        |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare la chiave del Registro di sistema. Ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
-## <a name="use-change-tracking"></a>Uso di Change Tracking
+## <a name="configure-file-tracking-on-windows"></a>Configurare il rilevamento dei file in Windows
 
-Dopo avere abilitato la soluzione, è possibile visualizzare il riepilogo delle modifiche per i computer monitorati selezionando **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE** nell'account di Automazione.
+Attenersi alla seguente procedura per configurare il rilevamento dei file nei computer Windows:
 
-È possibile visualizzare le modifiche ai computer e quindi analizzare i dettagli per ogni evento. Nella parte superiore del grafico sono disponibili menu a discesa per limitare le informazioni dettagliate e relative al grafico in base al tipo di modifica e agli intervalli di tempo. È anche possibile fare clic sul grafico e trascinare la selezione per selezionare un intervallo di tempo personalizzato. **Cambia tipo** sarà uno dei seguenti valori **Eventi**, **Daemons**, **File**, **Registro di sistema**, **Software**, Servizi **di Windows**. Categoria mostra il tipo di modifica e può essere **aggiunto**, **Modificato**, o **Rimosso**.
+1. Nell'account Di automazione selezionare **Rilevamento modifiche** in **Gestione configurazione**. Fare clic su **Modifica impostazioni** (simbolo dell'ingranaggio).
+2. Nella pagina Rilevamento modifiche selezionare **File Windows** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
+3. In **Aggiungi file Windows per Rilevamento modifiche** immettere le informazioni per il file da rilevare e fare clic su **Salva**.
 
-![image of Change Tracking dashboard](./media/change-tracking/change-tracking-dash01.png)
+|Proprietà  |Descrizione  |
+|---------|---------|
+|Attivato     | True se l'impostazione viene applicata e False in caso contrario.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Immettere il percorso     | Il percorso in cui verificare la presenza del file, ad esempio **c:\\\***<br>È inoltre possibile utilizzare variabili `%winDir%\System32\\\*.*`di ambiente, ad esempio .       |
+|Ricorsione     | True se la ricorsione viene utilizzata durante la ricerca dell'elemento da tenere traccia e False in caso contrario.        |
+|Caricare il contenuto del file per tutte le impostazioni| True per caricare il contenuto del file nelle revisioni e False in caso contrario.|
 
-Facendo clic su una modifica o su un evento vengono visualizzate informazioni dettagliate relative a tale modifica. Come si può notare nell'esempio, il tipo di avvio del servizio è stato modificato da Manuale ad Automatico.
+## <a name="configure-file-tracking-on-linux"></a>Configurare il rilevamento dei file su LinuxConfigure file tracking on Linux
 
-![immagine dei dettagli del rilevamento delle modifiche](./media/change-tracking/change-tracking-details.png)
+Seguire questa procedura per configurare il rilevamento dei file in computer Linux:
+
+1. Nell'account Di automazione selezionare **Rilevamento modifiche** in **Gestione configurazione**. Fare clic su **Modifica impostazioni** (simbolo dell'ingranaggio).
+2. Nella pagina Rilevamento modifiche selezionare **File Linux** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
+3. In **Aggiungi file Linux per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**.
+
+|Proprietà  |Descrizione  |
+|---------|---------|
+|Attivato     | Determina se l'impostazione viene applicata.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Immettere il percorso     | Percorso in cui cercare il file. Ad esempio: "/etc/*.conf"       |
+|Tipo di percorso     | Tipo di elemento da rilevare, i valori possibili sono File e Directory.        |
+|Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
+|Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
+|Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento.<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento.<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del contenuto restituito.     |
+|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
+
+> [!NOTE]
+> Questa opzione dei collegamenti "Gestisci" non è consigliata. Il recupero del contenuto del file non è supportato.
 
 ## <a name="search-logs"></a>Eseguire ricerche nei log
 
-Oltre ai dettagli forniti nel portale, è possibile eseguire ricerche nei log. Con la pagina **Rilevamento modifiche** aperta, fare clic su **Log Analytics**, verrà visualizzata la pagina **Registri.**
-
-### <a name="sample-queries"></a>Query di esempio
-
-La tabella seguente contiene esempi di ricerche log per i record di modifica raccolti da questa soluzione:
+È possibile eseguire varie ricerche nei registri per i record delle modifiche. Con la pagina Rilevamento modifiche aperta, fare clic su **Log Analytics**, verrà visualizzata la pagina Registri. La tabella seguente contiene esempi di ricerche log per i record di modifica raccolti da questa soluzione:
 
 |Query  |Descrizione  |
 |---------|---------|
@@ -287,15 +282,15 @@ La tabella seguente contiene esempi di ricerche log per i record di modifica rac
 
 ## <a name="alert-on-changes"></a>Generare avvisi in base alle modifiche
 
-Una funzionalità importante di Rilevamento modifiche e inventario consiste nella possibilità di generare avvisi relativi allo stato di configurazione e alle eventuali modifiche apportate allo stato di configurazione dell'ambiente ibrido.
-
-Nell'esempio seguente lo screenshot mostra che il file `C:\windows\system32\drivers\etc\hosts` è stato modificato su un computer. Il file hosts è importante perché è usato da Windows per risolvere i nomi host in indirizzi IP e ha la precedenza anche sul DNS. Ciò può causare problemi di connettività o determinare il reindirizzamento del traffico verso siti Web dannosi o comunque pericolosi.
+Una funzionalità chiave del rilevamento delle modifiche è l'avviso sullo stato della configurazione e le eventuali modifiche allo stato di configurazione dell'ambiente ibrido. Nell'esempio riportato di seguito viene illustrato che il file **C:.** Questo file è importante perché Windows lo utilizza per risolvere i nomi host in indirizzi IP. Questa operazione ha la precedenza sul DNS e potrebbe causare problemi di connettività o il reindirizzamento del traffico a siti Web dannosi o altrimenti pericolosi.
 
 ![Grafico che mostra la modifica del file hosts](./media/change-tracking/changes.png)
 
 Per analizzare più a fondo questa modifica, passare alla funzionalità Ricerca log facendo clic su **Log Analytics**. In Ricerca log usare la query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` per cercare le modifiche al contenuto del file hosts. Questa query esegue la ricerca di modifiche apportate al contenuto di file il cui percorso completo contiene la parola "hosts". È anche possibile cercare un file specifico usando il formato completo del percorso anziché una sola parte (ad esempio, `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
-Dopo che la query ha restituito i risultati desiderati, fare clic sul pulsante **Nuova regola di avviso** nell'interfaccia di Ricerca log per aprire la pagina per la creazione dell'avviso. È possibile accedere a questa interfaccia anche tramite **Monitoraggio di Azure** nel portale di Azure. Nell'interfaccia per la creazione dell'avviso, controllare di nuovo la query e modificare la logica dell'avviso. In questo caso, si vuole che l'avviso venga attivato anche se viene rilevata una sola modifica in tutti i computer nell'ambiente.
+Dopo che la query restituisce i risultati desiderati, fare clic su **Nuova regola** di avviso nella ricerca log per aprire la pagina di creazione dell'avviso. È possibile accedere a questa interfaccia anche tramite **Monitoraggio di Azure** nel portale di Azure. 
+
+Controllare nuovamente la query e modificare la logica di avviso. In questo caso, si vuole che l'avviso venga attivato anche se viene rilevata una sola modifica in tutti i computer nell'ambiente.
 
 ![Immagine che mostra la query per il rilevamento delle modifiche apportate al file hosts](./media/change-tracking/change-query.png)
 
@@ -307,7 +302,7 @@ Dopo aver impostato tutti i parametri e la logica, è possibile applicare l'avvi
 
 ### <a name="alert-suggestions"></a>Suggerimenti sugli avvisi
 
-Anche se la generazione di un avviso relativo alle modifiche apportate al file hosts è una buona applicazione della funzione di generazione degli avvisi per i dati di Rilevamento modifiche e inventario, esistono molti altri casi in cui è utile generare avvisi, come illustrato dalle query di esempio riportate nella sezione seguente.
+Mentre gli avvisi sulle modifiche al file hosts sono una buona applicazione di avvisi per il rilevamento delle modifiche o i dati di inventario, esistono molti altri scenari per gli avvisi, inclusi i casi definiti insieme alle relative query di esempio nella sezione seguente.
 
 |Query  |Descrizione  |
 |---------|---------|

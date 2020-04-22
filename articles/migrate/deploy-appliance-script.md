@@ -3,31 +3,22 @@ title: Configurare un'appliance di Azure Migrate con uno scriptSet up an Azure M
 description: Informazioni su come configurare un'appliance di Azure Migrate con uno script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: faed7f96ea8c1850af5523d35f9f891011a48df8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0c4d85909bbfa623b5ad8590e973250474d9d95a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537713"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676304"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurare un'appliance con uno script
 
-Questo articolo descrive come configurare [l'appliance Di Azure Migrate](deploy-appliance.md) usando uno script di installazione di PowerShell, per le macchine virtuali VMware e le macchine virtuali Hyper-V.This article describes how to set up the Azure Migrate appliance using a PowerShell installer script, for VMware VMs, and Hyper-V V VMs. Se si desidera configurare l'appliance per i server fisici, [leggere questo articolo](how-to-set-up-appliance-physical.md).
+Seguire questo articolo per creare [un'appliance di Azure Migrate](deploy-appliance.md) per la valutazione/migrazione delle macchine virtuali VMware e delle macchine virtuali Hyper-V. Si esegue uno script per creare un'appliance e verificare che possa connettersi ad Azure.You run a script to create an appliance, and verify that it can connect to Azure. 
 
+È possibile distribuire l'appliance per VMware e macchine virtuali Hyper-V usando uno script o un modello scaricato dal portale di Azure.You can deploy the appliance for VMware and Hyper-V VMs using a script, or using a template that you download from the Azure portal. L'uso di uno script è utile se non è possibile creare una macchina virtuale usando il modello scaricato.
 
-È possibile distribuire l'appliance utilizzando un paio di metodi:
-
-
-- Utilizzo di un modello per macchine virtuali VMware (OVA) o Hyper-V Vm (VHD).
-- Utilizzo di uno script. Questo è il metodo descritto in questo articolo. Lo script fornisce:
-    - Un'alternativa alla configurazione dell'appliance tramite un modello OVA, per la valutazione e la migrazione senza agenti delle macchine virtuali VMware.
-    - Un'alternativa alla configurazione dell'appliance usando un modello di disco rigido virtuale, per la valutazione e la migrazione delle macchine virtuali Hyper-V.
-    - Per la valutazione dei server fisici (o delle macchine virtuali di cui si desidera eseguire la migrazione come server fisici), lo script è l'unico metodo per configurare l'appliance.
-    - Un modo per distribuire l'appliance in Azure per enti pubblici.
-
-
-Dopo aver creato l'appliance, verificare che sia possibile connettersi ad Azure Migrate.After creating the appliance, you verify that it can connect to Azure Migrate. Configurare quindi l'appliance per la prima volta e registrarla con il progetto Azure Migrate.You then configure the appliance for the first time, and register it with the Azure Migrate project.
-
+- Per utilizzare un modello, seguire le esercitazioni per [VMware](tutorial-prepare-vmware.md) o [Hyper-V](tutorial-prepare-hyper-v.md).
+- Per configurare un'appliance per i server fisici, è possibile utilizzare solo uno script. Seguire [questo articolo](how-to-set-up-appliance-physical.md).
+- Per configurare un'appliance in un cloud di Azure per enti pubblici, seguire [questo articolo.](deploy-appliance-script-government.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -55,24 +46,15 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
 2. Eseguire il comando seguente per generare il codice hash per il file compresso
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio di utilizzo per il cloud pubblico:Example usage for public cloud:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - Esempio di utilizzo per il cloud governativo:Example usage for government cloud:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip```
+    - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+3. Verificare il valore hash generato. Per l'ultima versione dell'appliance:
 
-3. Verificare i valori hash generati:
+    **Algoritmo** | **Valore hash**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-    - Per il cloud pubblico (per l'ultima versione dell'appliance):
 
-        **Algoritmo** | **Valore hash**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - Per gli enti di Azure per enti pubblici (per la versione più recente dell'appliance):For Azure government (for the latest appliance version):
-
-        **Algoritmo** | **Valore hash**
-          --- | ---
-          MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
 
 ### <a name="run-the-script"></a>Eseguire lo script
 
@@ -92,15 +74,14 @@ Per eseguire lo script:
 2. Avviare PowerShell nel computer, con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella contenente il contenuto estratto dal file compresso scaricato.
 4. Eseguire lo script **AzureMigrateInstaller.ps1,** come indicato di seguito:Run the script AzureMigrateInstaller.ps1 , as follows:
-    - Per il cloud pubblico:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
-    - Per Azure per enti pubblici:For Azure Government:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
    
 5. Dopo che lo script viene eseguito correttamente, avvia l'applicazione Web dell'appliance in modo che sia possibile configurare l'appliance. Se si verificano problemi, esaminare i log di script in C<em>AzureMigrateScenarioInstaller_:</em>.
 
 ### <a name="verify-access"></a>Verificare l'accesso
 
-Assicurarsi che l'appliance possa connettersi agli URL di Azure per i cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [cloud governativi](migrate-appliance.md-government-cloud-urls.
-
+Assicurarsi che l'appliance possa connettersi agli URL di Azure per il cloud [pubblico.](migrate-appliance.md#public-cloud-urls)
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Configurare l'appliance per Hyper-V
 
@@ -120,24 +101,14 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
 2. Eseguire il comando seguente per generare il codice hash per il file compresso
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio di utilizzo per il cloud pubblico:Example usage for public cloud:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - Esempio di utilizzo per il cloud governativo:Example usage for government cloud:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3. Verificare i valori hash generati:
+3. Verificare i valori hash generati. Per l'ultima versione dell'appliance:
 
-    - Per il cloud pubblico (per l'ultima versione dell'appliance):
-
-        **Algoritmo** | **Valore hash**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - Per gli enti di Azure per enti pubblici (per la versione più recente dell'appliance):For Azure government (for the latest appliance version):
-
-        **Algoritmo** | **Valore hash**
-          --- | ---
-          MD5 | 717f8b9185f565006b5aff0215ecadac
-          
+    **Algoritmo** | **Valore hash**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
 ### <a name="run-the-script"></a>Eseguire lo script
 
@@ -156,22 +127,17 @@ Per eseguire lo script:
 1. Estrarre il file compresso in una cartella sul computer che ospiterà l'appliance. Assicurarsi di non eseguire lo script in un computer in un'appliance Azure Migrate esistente.
 2. Avviare PowerShell nel computer, con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella contenente il contenuto estratto dal file compresso scaricato.
-4. Eseguire lo script **AzureMigrateInstaller.ps1,** come indicato di seguito:Run the script AzureMigrateInstaller.ps1 , as follows:
-    - Per il cloud pubblico:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
-    - Per Azure per enti pubblici:For Azure Government:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ```
+4. Eseguire lo script **AzureMigrateInstaller.ps1,** come indicato di seguito:Run the script AzureMigrateInstaller.ps1 , as follows:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
    
 5. Dopo che lo script viene eseguito correttamente, avvia l'applicazione Web dell'appliance in modo che sia possibile configurare l'appliance. Se si verificano problemi, esaminare i log di script in C<em>AzureMigrateScenarioInstaller_:</em>.
 
 ### <a name="verify-access"></a>Verificare l'accesso
 
-Assicurarsi che l'appliance possa connettersi agli URL di Azure per i cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [cloud governativi](migrate-appliance.md-government-cloud-urls.
-
-
+Assicurarsi che l'appliance possa connettersi agli URL di Azure per il cloud [pubblico.](migrate-appliance.md#public-cloud-urls)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla configurazione dell'appliance con un modello o per i server fisici, vedere gli articoli seguenti:
+Dopo aver distribuito l'appliance, è necessario configurarla per la prima volta e registrarla con il progetto Azure Migrate.After deploying the appliance, you need to configure it for the first time, and register it with the Azure Migrate project.
 
 - Configurare l'appliance per [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
 - Configurare l'appliance per [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
-- Impostare l'appliance per i [server fisici.](how-to-set-up-appliance-physical.md)

@@ -1,18 +1,18 @@
 ---
-title: Moduli di Azure IoT Edge
+title: Moduli Edge IoT di Azure Marketplace
 description: L'offerta Moduli di Azure IoT Edge in Azure Marketplace per gli editori di app e servizi.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/22/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: aadbf33914f919e393a5ec88cf6fc0a6103911b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286150"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684345"
 ---
 # <a name="iot-edge-modules"></a>Moduli di IoT Edge
 
@@ -58,7 +58,7 @@ Tutti i criteri e le condizioni dei contratti di Microsoft Azure Marketplace si 
 
 Per pubblicare un modulo Azure IoT Edge in Azure Marketplace, è necessario soddisfare i seguenti prerequisiti:
 
-- Ottenere l'accesso al portale Cloud Partner (CPP). Per altre informazioni, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Accesso al Centro per i partner. Per altre informazioni, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Ospitare il modulo Azure IoT Edge in un'istanza di Registro Azure Container. 
 - Avere a pronti i metadati del modulo Azure IoT Edge, come i seguenti (elenco non completo): 
     - Un titolo
@@ -71,19 +71,19 @@ Per pubblicare un modulo Azure IoT Edge in Azure Marketplace, è necessario sodd
 
 **Requisiti tecnici**
 
-I requisiti tecnici principali di un modulo Azure IoT Edge, affinché possa essere certificato e pubblicato in Azure Marketplace, sono descritti nel dettaglio in [Preparare le risorse tecniche del modulo Azure IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
+I requisiti tecnici principali di un modulo Azure IoT Edge, affinché possa essere certificato e pubblicato in Azure Marketplace, sono descritti nel dettaglio in [Preparare le risorse tecniche del modulo Azure IoT Edge](./partner-center-portal/create-iot-edge-module-asset.md).
 
 ## <a name="documentation-and-resources"></a>Documentazione e risorse
 
-[Creare un'offerta del modulo IoT Edge:](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) passaggi per la pubblicazione di una nuova offerta di moduli IoT Edge con il portale di pubblicazione cloud.
+[Creare un'offerta del modulo IoT Edge:](./partner-center-portal/azure-iot-edge-module-creation.md) passaggi per la pubblicazione di una nuova offerta di moduli IoT Edge nel Centro per i partner.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se non è già stato fatto,
 
-- [Registrati](https://azuremarketplace.microsoft.com/sell) nel marketplace.
+- [Scopri](https://azuremarketplace.microsoft.com/sell) di più sul mercato.
 
-Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
+Per registrarsi nel Centro per i partner e iniziare a creare una nuova offerta o a lavorarle su una offerta esistente,
 
-- Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/) per creare o completare l'offerta.
-- Vedere [Panoramica della pubblicazione dell'offerta di modulo IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) per informazioni su come pubblicare un'offerta di modulo IoT Edge.
+- Accedi al [Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare la tua offerta.
+- Per informazioni su come pubblicare un'offerta del modulo IoT Edge, vedere [Creare un'offerta del modulo IoT Edge.](./partner-center-portal/azure-iot-edge-module-creation.md)

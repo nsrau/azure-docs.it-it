@@ -8,20 +8,20 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e375c42ee91061c9f558daa9affba875664f777f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c84cd8b1d7850576eb608d88ba91c3079edb0d68
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774120"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680768"
 ---
-Per ottenere l'elenco dei peer, eseguire il `Get-AzPeering` comando:
+Per ottenere l'elenco dei peering, eseguire il comando **Get-AzPeering.**
 
 ```powershell
 $directPeering = Get-AzPeering -ResourceGroupName "PeeringResourceGroup" -Name "SeattleDirectPeering"
 ```
 
-Di seguito è riportata una risposta di esempio quando il provisioning end-to-end è stato completato correttamente:Below is an example response when the end-to-end provisioning was successfully completed:
+L'esempio seguente mostra la risposta quando il provisioning end-to-end è stato completato correttamente.
 
 ```powershell
     Name                 : SeattleDirectPeering

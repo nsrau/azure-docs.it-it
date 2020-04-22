@@ -1,5 +1,5 @@
 ---
-title: 'Risoluzione di problemi: ruoli di lavoro ibridi per runbook di Automazione di Azure'
+title: Risoluzione dei problemi relativi ai ruoli di runbook ibrido di automazione di AzureTroubleshooting Azure Automation Hybrid Runbook
 description: Questo articolo fornisce informazioni per la risoluzione dei problemi relativi ai ruoli di esecuzione ibrido di Automazione di Azure.This article provides information for troubleshooting Azure Automation Hybrid Runbook Workers.
 services: automation
 ms.service: automation
@@ -9,20 +9,23 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2587af0ada18b5c4271e7411783fe60211a3479
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 2b3bf6706e977bdb6915335dee59da3c250e7895
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637853"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679325"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 
 Questo articolo contiene informazioni sulla risoluzione di problemi relativi ai ruoli di lavoro ibridi per runbook.
 
+>[!NOTE]
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per istruzioni sull'installazione del modulo Az nel ruolo di lavoro ibrido per runbook, vedere [Installare il modulo di Azure PowerShell.For](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)Az module installation instructions on your Hybrid Runbook Worker, see Install the Azure PowerShell Module . Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando Come aggiornare i moduli di [Azure PowerShell in Automazione di Azure.](../automation-update-azure-modules.md)
+
 ## <a name="general"></a>Generale
 
-Il ruolo di lavoro ibrido per runbook dipende da un agente per comunicare con l'account di Automazione di Azure per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Per Windows, questo agente è l'agente di Log Analytics per Windows, noto anche come Microsoft Monitoring Agent (MMA). For Linux, it's the Log Analytics agent for Linux.
+Il ruolo di lavoro ibrido per runbook dipende da un agente per comunicare con l'account di Automazione di Azure per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Per Windows, questo agente è l'agente di Log Analytics per Windows. For Linux, it's the Log Analytics agent for Linux.
 
 ### <a name="scenario-runbook-execution-fails"></a><a name="runbook-execution-fails"></a>Scenario: l'esecuzione del runbook ha esito negativo
 
@@ -41,10 +44,8 @@ Il runbook viene sospeso poco dopo i tentativi di esecuzione tre volte. Esistono
 Le possibili cause sono le seguenti:
 
 * I runbook non possono eseguire l'autenticazione con le risorse locali.
-
 * Il ruolo di lavoro ibrido è protetto da proxy o firewall.
-
-* Il computer configurato per l'esecuzione della funzionalità Hybrid Runbook Worker non soddisfa i requisiti hardware minimi.
+* Il computer configurato per l'esecuzione di Hybrid Runbook Worker non soddisfa i requisiti hardware minimi.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -103,20 +104,20 @@ Avviare il computer di lavoro e quindi registrarlo nuovamente con Automazione di
 Un runbook in esecuzione su un ruolo di lavoro ibrido Runbook ha esito negativo con il seguente messaggio di errore.
 
 ```error
-Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
 At line:3 char:1
-+ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
 ```
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica quando si tenta di utilizzare un [account RunAs](../manage-runas-account.md) in un runbook che viene eseguito in un lavoratore ibrido Runbook in cui il certificato di account RunAs non è presente. Ibrido Runbook I ruoli worker non dispongono dell'asset del certificato in locale per impostazione predefinita, operazione richiesta dall'account RunAs per funzionare correttamente.
+Questo errore si verifica quando si tenta di utilizzare un [account RunAs](../manage-runas-account.md) in un runbook che viene eseguito in un lavoratore ibrido Runbook in cui il certificato dell'account RunAs non è presente. I ruoli di lavoro ibridi per runbook non dispongono dell'asset del certificato in locale per impostazione predefinita. L'account RunAs richiede che questa risorsa funzioni correttamente.
 
 #### <a name="resolution"></a>Risoluzione
 
-Se il ruolo di lavoro ibrido per runbook è una macchina virtuale di Azure, è possibile usare [le identità gestite per le risorse](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) di Azure.If your Hybrid Runbook Worker is an Azure VM, you can use Managed identities for Azure resources instead. Questo scenario semplifica l'autenticazione consentendo di eseguire l'autenticazione alle risorse di Azure usando l'identità gestita della macchina virtuale di Azure anziché l'account RunAs. Quando il ruolo di lavoro ibrido per runbook è un computer locale, è necessario installare il certificato dell'account RunAs nel computer. Per informazioni su come installare il certificato, vedere la procedura per eseguire il runbook di PowerShell Export-RunAsCertificateToHybridWorker in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+Se il ruolo di lavoro ibrido per runbook è una macchina virtuale di Azure, è possibile usare [le identità gestite per le risorse](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) di Azure.If your Hybrid Runbook Worker is an Azure VM, you can use Managed identities for Azure resources instead. Questo scenario semplifica l'autenticazione consentendo di eseguire l'autenticazione alle risorse di Azure usando l'identità gestita della macchina virtuale di Azure anziché l'account RunAs. Quando il ruolo di lavoro ibrido per runbook è un computer locale, è necessario installare il certificato dell'account RunAs nel computer. Per informazioni su come installare il certificato, vedere la procedura per eseguire il runbook di PowerShell **Export-RunAsCertificateToHybridWorker** in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="scenario-error-403-during-registration-of-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>Scenario: Errore 403 durante la registrazione del ruolo di lavoro ibrido per runbook
 
@@ -189,19 +190,19 @@ Se viene visualizzato `The specified class does not exist..` l'errore nel file *
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a>WINDOWS
 
 Il ruolo di lavoro per runbook ibrido di Windows dipende [dall'agente di Log Analytics per Windows per](../../azure-monitor/platform/log-analytics-agent.md) comunicare con l'account di automazione per registrare il worker, ricevere processi di runbook e segnalare lo stato. Se la registrazione del lavoratore non riesce, questa sezione include alcuni possibili motivi.
 
-### <a name="scenario-the-microsoft-monitoring-agent-isnt-running"></a><a name="mma-not-running"></a>Scenario: Microsoft Monitoring Agent non è in esecuzione
+### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Scenario: L'agente di Log Analytics per Windows non è in esecuzione
 
 #### <a name="issue"></a>Problema
 
-Il servizio `healthservice` non è in esecuzione nel computer del ruolo di lavoro ibrido per runbook.
+Il `healthservice` non è in esecuzione sul computer ibrido Runbook Worker.
 
 #### <a name="cause"></a>Causa
 
-Se il servizio Microsoft Monitoring Agent non è in esecuzione, al ruolo di lavoro ibrido per runbook viene impedito di comunicare con Automazione di Azure.If the Microsoft Monitoring Agent service isn't running, the Hybrid Runbook Worker is implac from communicating with Azure Automation.
+Se il servizio Log Analytics per Windows non è in esecuzione, il ruolo di lavoro ibrido per runbook non è in grado di comunicare con Automazione di Azure.If the Log Analytics for Windows service isn't running, the Hybrid Runbook Worker can't communicate with Azure Automation.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -272,7 +273,7 @@ Questo problema può essere causato da una cache danneggiata nel ruolo di lavoro
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema, accedere al ruolo di lavoro ibrido per runbook ed eseguire lo script seguente. Questo script arresta Microsoft Monitoring Agent, rimuove la cache e riavvia il servizio. Questa azione costringe il ruolo di lavoro ibrido per runbook a scaricare nuovamente la configurazione da Automazione di Azure.
+Per risolvere questo problema, accedere al ruolo di lavoro ibrido per runbook ed eseguire lo script seguente. Questo script arresta l'agente di Log Analytics per Windows, ne rimuove la cache e riavvia il servizio. Questa azione costringe il ruolo di lavoro ibrido per runbook a scaricare nuovamente la configurazione da Automazione di Azure.
 
 ```powershell
 Stop-Service -Name HealthService
@@ -304,8 +305,8 @@ Per risolvere questo problema, rimuovere la `HealthService`seguente chiave `Add-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
+Se non vedi il problema sopra o non riesci a risolvere il problema, prova uno dei seguenti canali per ulteriore assistenza:
 
 * Ottieni risposte dagli esperti di Azure tramite i forum di [Azure.](https://azure.microsoft.com/support/forums/)
-* Connettiti [@AzureSupport](https://twitter.com/azuresupport) con l'account ufficiale di Microsoft Azure per migliorare l'esperienza dei clienti connettendo la community di Azure alle risorse giuste: risposte, supporto ed esperti.
-* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.
+* Connettiti [@AzureSupport](https://twitter.com/azuresupport)con , l'account ufficiale di Microsoft Azure per migliorare l'esperienza dei clienti connettendo la community di Azure alle risorse giuste: risposte, supporto ed esperti.
+* Archiviare un incidente del supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.

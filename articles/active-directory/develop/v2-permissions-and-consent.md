@@ -12,19 +12,16 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 55055f65e1b725e079b60e960837e05558ef08d6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 26bfbcb4762d889b2c56276e66e4bf8e0acb64b2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886212"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677696"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
 Le applicazioni che si integrano con Microsoft Identity Platform seguono un modello di autorizzazione che offre a utenti e amministratori il controllo sulle modalità di accesso ai dati. L'implementazione del modello di autorizzazione è stata aggiornata nell'endpoint della piattaforma di identità Microsoft e modifica il modo in cui un'app deve interagire con la piattaforma di identità Microsoft.The implementation of the authorization model has been updated on the Microsoft identity platform endpoint, and it changes how an app must interact with the Microsoft identity platform. Questo articolo illustra i concetti di base di questo modello di autorizzazione, inclusi gli ambiti, le autorizzazioni e il consenso.
-
-> [!NOTE]
-> L'endpoint della piattaforma di identità Microsoft non supporta tutti gli scenari e le funzionalità. Per determinare se è necessario utilizzare l'endpoint della piattaforma di identità Microsoft, leggere le informazioni sulle [limitazioni della piattaforma](active-directory-v2-limitations.md)di identità Microsoft .
 
 ## <a name="scopes-and-permissions"></a>Ambiti e autorizzazioni
 
@@ -66,8 +63,8 @@ Le _autorizzazioni valide_ sono le autorizzazioni che l'app avrà quando effettu
 - Per le autorizzazioni delegate, le _autorizzazioni valide_ dell'app sono costituite dall'intersezione con meno privilegi tra le autorizzazioni delegate concesse all'app (tramite il consenso) e i privilegi dell'utente attualmente connesso. L'app non può mai avere più privilegi rispetto all'utente connesso. All'interno delle organizzazioni, i privilegi dell'utente connesso possono essere determinati da criteri o dall'appartenenza a uno o più ruoli di amministratore. Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
    Si supponga, ad esempio, che all'app sia stata concessa l'autorizzazione delegata _User.ReadWrite.All_. Questa autorizzazione concede nominalmente all'app l'autorizzazione per leggere e aggiornare il profilo di ogni utente in un'organizzazione. Se l'utente connesso è un amministratore globale, l'app sarà in grado di aggiornare il profilo di tutti gli utenti dell'organizzazione. Tuttavia, se l'utente connesso non è in un ruolo di amministratore, l'app sarà in grado di aggiornare solo il profilo dell'utente connesso. Non sarà in grado di aggiornare i profili di altri utenti nell'organizzazione, perché l'utente per conto del quale è autorizzata ad agire non dispone di tali privilegi.
-  
-- Per le autorizzazioni dell'applicazione, le _autorizzazioni valide_ dell'app corrispondono al livello completo di privilegi impliciti nell'autorizzazione. Un'app che ha l'autorizzazione dell'applicazione _User.ReadWrite.All_ può ad esempio aggiornare il profilo di tutti gli utenti dell'organizzazione. 
+
+- Per le autorizzazioni dell'applicazione, le _autorizzazioni valide_ dell'app corrispondono al livello completo di privilegi impliciti nell'autorizzazione. Un'app che ha l'autorizzazione dell'applicazione _User.ReadWrite.All_ può ad esempio aggiornare il profilo di tutti gli utenti dell'organizzazione.
 
 ## <a name="openid-connect-scopes"></a>Ambiti di OpenID Connect
 
@@ -92,7 +89,7 @@ L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri
 > [!NOTE]
 > Questa autorizzazione viene visualizzata oggi in tutte le schermate di consenso, anche per i flussi che non forniscono un token di aggiornamento [(il flusso implicito).](v2-oauth2-implicit-grant-flow.md)  Ciò consente di coprire gli scenari in cui un client può iniziare all'interno del flusso implicito e quindi passare al flusso di codice in cui è previsto un token di aggiornamento.
 
-Nella piattaforma di identità Microsoft (richieste effettuate all'endpoint 2.0), l'app deve richiedere in modo esplicito l'ambito `offline_access` per ricevere i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md), si riceve solo un token di accesso dall'endpoint `/token`. Il token di accesso è valido per un breve periodo. Il token di accesso ha in genere una durata di un'ora. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, a seconda del tipo di app, l'utente potrebbe dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni. 
+Nella piattaforma di identità Microsoft (richieste effettuate all'endpoint 2.0), l'app deve richiedere in modo esplicito l'ambito `offline_access` per ricevere i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md), si riceve solo un token di accesso dall'endpoint `/token`. Il token di accesso è valido per un breve periodo. Il token di accesso ha in genere una durata di un'ora. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, a seconda del tipo di app, l'utente potrebbe dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni.
 
 Per ulteriori informazioni su come ottenere e utilizzare i token di aggiornamento, vedere le informazioni di riferimento sul protocollo della piattaforma di [identità Microsoft](active-directory-v2-protocols.md).
 
@@ -117,7 +114,7 @@ Il parametro `scope` è un elenco di autorizzazioni delegate separate da spazi r
 Dopo che l'utente ha immesso le proprie credenziali, l'endpoint della piattaforma di identità Microsoft verifica la presenza di un record corrispondente del *consenso dell'utente.* Se l'utente non ha acconsentito ad alcuna delle autorizzazioni richieste in passato, né ha acconsentito un amministratore a tali autorizzazioni per conto dell'intera organizzazione, l'endpoint della piattaforma di identità Microsoft chiede all'utente di concedere le autorizzazioni richieste.
 
 > [!NOTE]
->Attualmente, le autorizzazioni `offline_access` ("Mantieni l'accesso ai dati per cui hai concesso l'accesso a") e `user.read` ("Accedi e visualizza il profilo personale") vengono automaticamente incluse nel consenso iniziale per un'applicazione.  Queste autorizzazioni sono in genere necessarie per il corretto funzionamento dell'app: `offline_access` consente all'app di accedere a token di aggiornamento, essenziali per le app Web e native, mentre `user.read` consente di accedere all'attestazione `sub`, permettendo al client o all'app di identificare correttamente l'utente nel tempo e accedere a informazioni utente elementari.  
+>Attualmente, le autorizzazioni `offline_access` ("Mantieni l'accesso ai dati per cui hai concesso l'accesso a") e `user.read` ("Accedi e visualizza il profilo personale") vengono automaticamente incluse nel consenso iniziale per un'applicazione.  Queste autorizzazioni sono in genere necessarie per il corretto funzionamento dell'app: `offline_access` consente all'app di accedere a token di aggiornamento, essenziali per le app Web e native, mentre `user.read` consente di accedere all'attestazione `sub`, permettendo al client o all'app di identificare correttamente l'utente nel tempo e accedere a informazioni utente elementari.
 
 ![Schermata di esempio che mostra il consenso dell'account di lavoroExample screenshot that shows work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -149,8 +146,8 @@ Se l'applicazione richiede le autorizzazioni dell'applicazione e un amministrato
 
 ## <a name="using-the-admin-consent-endpoint"></a>Uso dell'endpoint di consenso dell'amministratore
 
-> [!NOTE] 
-> Dopo aver concesso il consenso dell'amministratore utilizzando l'endpoint di consenso dell'amministratore, hai terminato di concedere il consenso dell'amministratore e gli utenti non devono eseguire ulteriori azioni. Dopo aver concesso il consenso dell'amministratore, gli utenti possono ottenere un token di accesso tramite un tipico flusso di autenticazione e il token di accesso risultante disporrà delle autorizzazioni concesse. 
+> [!NOTE]
+> Dopo aver concesso il consenso dell'amministratore utilizzando l'endpoint di consenso dell'amministratore, hai terminato di concedere il consenso dell'amministratore e gli utenti non devono eseguire ulteriori azioni. Dopo aver concesso il consenso dell'amministratore, gli utenti possono ottenere un token di accesso tramite un tipico flusso di autenticazione e il token di accesso risultante disporrà delle autorizzazioni concesse.
 
 Quando un amministratore aziendale usa l'applicazione e viene indirizzato all'endpoint di autorizzazione, Microsoft Identity Platform rileverà il ruolo dell'utente e chiederà se vuole fornire il consenso per conto dell'intero tenant per le autorizzazioni richieste. Tuttavia, è disponibile anche un endpoint di consenso amministratore dedicato utilizzabile per richiedere in modo proattivo che un amministratore conceda l'autorizzazione per conto dell'intero tenant. L'utilizzo di questo endpoint è necessario anche per richiedere le autorizzazioni dell'applicazione (che non possono essere richieste tramite l'endpoint di autorizzazione).
 
@@ -189,7 +186,7 @@ Quando si è pronti a richiedere le autorizzazioni all'amministratore dell'organ
   &state=12345
   &redirect_uri=http://localhost/myapp/permissions
   &scope=
-  https://graph.microsoft.com/calendars.read 
+  https://graph.microsoft.com/calendars.read
   https://graph.microsoft.com/mail.send
 ```
 
@@ -200,7 +197,7 @@ Quando si è pronti a richiedere le autorizzazioni all'amministratore dell'organ
 | `client_id` | Obbligatoria | ID **applicazione (client)** assegnato all'app dal [portale di Azure.](https://go.microsoft.com/fwlink/?linkid=2083908) |
 | `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-|`scope`        | Obbligatoria        | Definisce il set di autorizzazioni richieste dall'applicazione. Può essere un ambito [`/.default`](#the-default-scope)statico (utilizzando ) o dinamico.  Possono essere inclusi gli ambiti`openid`OIDC ( , `profile`, `email`). Se sono necessarie autorizzazioni per `/.default` l'applicazione, è necessario utilizzare per richiedere l'elenco di autorizzazioni configurato staticamente.  | 
+|`scope`        | Obbligatoria        | Definisce il set di autorizzazioni richieste dall'applicazione. Può essere un ambito [`/.default`](#the-default-scope)statico (utilizzando ) o dinamico.  Possono essere inclusi gli ambiti`openid`OIDC ( , `profile`, `email`). Se sono necessarie autorizzazioni per `/.default` l'applicazione, è necessario utilizzare per richiedere l'elenco di autorizzazioni configurato staticamente.  |
 
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. All'amministratore viene chiesto di approvare tutte `scope` le autorizzazioni richieste nel parametro.  Se è stato utilizzato`/.default`un valore statico ( ), funzionerà come l'endpoint di consenso dell'amministratore v1.0 e richiedere il consenso per tutti gli ambiti trovati nelle autorizzazioni necessarie per l'app.
@@ -253,7 +250,7 @@ Content-Type: application/json
 }
 ```
 
-È possibile usare il token di accesso risultante nelle richieste HTTP per la risorsa. Esso indica alla risorsa, in modo affidabile, che l'applicazione dispone delle autorizzazioni appropriate per eseguire un'attività specifica. 
+È possibile usare il token di accesso risultante nelle richieste HTTP per la risorsa. Esso indica alla risorsa, in modo affidabile, che l'applicazione dispone delle autorizzazioni appropriate per eseguire un'attività specifica.
 
 Per ulteriori informazioni sul protocollo OAuth 2.0 e su come ottenere i token di accesso, vedere le informazioni di riferimento sul protocollo endpoint della piattaforma di [identità Microsoft](active-directory-v2-protocols.md).
 
@@ -261,7 +258,7 @@ Per ulteriori informazioni sul protocollo OAuth 2.0 e su come ottenere i token d
 
 È possibile `/.default` usare l'ambito per eseguire la migrazione delle app dall'endpoint v1.0 all'endpoint della piattaforma di identità Microsoft.You can use the scope to help migrate your apps from the v1.0 endpoint to the Microsoft identity platform endpoint. Si tratta di un ambito predefinito per ogni applicazione che fa riferimento all'elenco statico di autorizzazioni configurate nella registrazione dell'applicazione. Un valore `scope` di `https://graph.microsoft.com/.default` è funzionalmente identico a `resource=https://graph.microsoft.com` degli endpoint v1.0, vale a dire che richiede un token con gli ambiti in Microsoft Graph per cui l'applicazione è registrata nel portale di Azure.  Viene costruito utilizzando l'URI della risorsa `/.default` ( ad `https://contosoApp.com`esempio, se l'URI della risorsa è , l'ambito richiesto sarà `https://contosoApp.com/.default`).  Vedere la [sezione sulle barre finali](#trailing-slash-and-default) per i casi in cui è necessario includere una seconda barra per richiedere correttamente il token.
 
-L'ambito /.default può essere utilizzato in qualsiasi flusso OAuth 2.0, ma è necessario nel [flusso Per conto di](v2-oauth2-on-behalf-of-flow.md) e nel flusso delle credenziali [client,](v2-oauth2-client-creds-grant-flow.md)nonché quando si utilizza l'endpoint di consenso di amministrazione v2 per richiedere le autorizzazioni dell'applicazione.  
+L'ambito /.default può essere utilizzato in qualsiasi flusso OAuth 2.0, ma è necessario nel [flusso Per conto di](v2-oauth2-on-behalf-of-flow.md) e nel flusso delle credenziali [client,](v2-oauth2-client-creds-grant-flow.md)nonché quando si utilizza l'endpoint di consenso di amministrazione v2 per richiedere le autorizzazioni dell'applicazione.
 
 > [!NOTE]
 > I client non possono`/.default`combinare il consenso statico ( () ) e dinamico in una singola richiesta. Di conseguenza, `scope=https://graph.microsoft.com/.default+mail.read` comporterà un errore dovuto alla combinazione dei tipi di ambito.
@@ -301,13 +298,13 @@ response_type=token            //code or a hybrid flow is also possible here
 &state=1234
 ```
 
-Questa operazione produce una schermata di consenso per tutte le autorizzazioni registrate (se applicabili in base alle suddette descrizioni del consenso e `/.default`), quindi restituisce un id_token, anziché un token di accesso.  Questo comportamento esiste per alcuni client legacy che passano da ADAL a MSAL e **non deve** essere utilizzato dai nuovi client destinati all'endpoint della piattaforma di identità Microsoft.  
+Questa operazione produce una schermata di consenso per tutte le autorizzazioni registrate (se applicabili in base alle suddette descrizioni del consenso e `/.default`), quindi restituisce un id_token, anziché un token di accesso.  Questo comportamento esiste per alcuni client legacy che passano da ADAL a MSAL e **non deve** essere utilizzato dai nuovi client destinati all'endpoint della piattaforma di identità Microsoft.
 
 ### <a name="trailing-slash-and-default"></a>Barra finale e /.default
 
-Alcuni URI di risorsa hanno`https://contoso.com/` una barra `https://contoso.com`finale ( a differenza di ) che può causare problemi con la convalida del token.  Ciò può verificarsi principalmente quando si richiede`https://management.azure.com/`un token per Gestione risorse di Azure ( ), che ha una barra finale nell'URI della risorsa e richiede che sia presente quando viene richiesto il token.  Così, quando si richiede `https://management.azure.com/` un `/.default`token per `https://management.azure.com//.default` e utilizzando , è necessario richiedere - notare la doppia barra! 
+Alcuni URI di risorsa hanno`https://contoso.com/` una barra `https://contoso.com`finale ( a differenza di ) che può causare problemi con la convalida del token.  Ciò può verificarsi principalmente quando si richiede`https://management.azure.com/`un token per Gestione risorse di Azure ( ), che ha una barra finale nell'URI della risorsa e richiede che sia presente quando viene richiesto il token.  Così, quando si richiede `https://management.azure.com/` un `/.default`token per `https://management.azure.com//.default` e utilizzando , è necessario richiedere - notare la doppia barra!
 
-In generale- se è stato convalidato che il token viene emesso e il token viene rifiutato dall'API che deve accettarlo, è consigliabile aggiungere una seconda barra e riprovare. Ciò si verifica perché il server di accesso genera `scope` un token `/.default` con il gruppo di destinatari corrispondente agli URI nel parametro, con rimosso dalla fine.  Se in questo modo viene rimossa la barra finale, il server di accesso elabora comunque la richiesta e la convalida rispetto all'URI della risorsa, anche se non corrispondono più: questa non è standard e non deve essere affidata all'applicazione.  
+In generale- se è stato convalidato che il token viene emesso e il token viene rifiutato dall'API che deve accettarlo, è consigliabile aggiungere una seconda barra e riprovare. Ciò si verifica perché il server di accesso genera `scope` un token `/.default` con il gruppo di destinatari corrispondente agli URI nel parametro, con rimosso dalla fine.  Se in questo modo viene rimossa la barra finale, il server di accesso elabora comunque la richiesta e la convalida rispetto all'URI della risorsa, anche se non corrispondono più: questa non è standard e non deve essere affidata all'applicazione.
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Risoluzione dei problemi di autorizzazioni e consenso
 

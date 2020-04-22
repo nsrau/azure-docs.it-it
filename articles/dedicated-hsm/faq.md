@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0cb7957008308425d91abb3e0f828cc40301736
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064935"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683316"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -40,7 +40,7 @@ Microsoft ha collaborato con Gemalto per fornire il servizio HSM dedicato di Azu
 
 ### <a name="q-what-is-an-hsm-used-for"></a>D: Per cosa viene usato un modulo di protezione hardware?
 
-I moduli di protezione hardware servono per l'archiviazione delle chiavi crittografiche usate per la funzionalità di crittografia, tra cui SSL (Secure Socket Layer), crittografia di dati, infrastruttura a chiave pubblica (PKI), DRM (Digital Rights Management) e firma di documenti.
+Gli HSM vengono utilizzati per archiviare le chiavi di crittografia utilizzate per la funzionalità di crittografia, ad esempio TLS (protezione a livello di trasporto), la crittografia dei dati, l'infrastruttura PKI (infrastruttura a chiave pubblica), il DRM (Digital Rights Management) e i documenti di firma.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>D: Come funziona un modulo di protezione hardware dedicato?
 
@@ -69,6 +69,7 @@ A partire da fine marzo 2019, HSM dedicato è disponibile nelle 14 regioni elenc
 * Stati Uniti orientali
 * Stati Uniti orientali 2
 * Stati Uniti occidentali
+* Stati Uniti occidentali 2
 * Stati Uniti centro-meridionali
 * Asia sud-orientale
 * Asia orientale
@@ -84,6 +85,10 @@ A partire da fine marzo 2019, HSM dedicato è disponibile nelle 14 regioni elenc
 * Canada orientale
 * Australia orientale
 * Australia sud-orientale
+* Svizzera Nord
+* Svizzera Ovest
+* US Gov Virginia
+* US Gov Texas
 
 ## <a name="interoperability"></a>Interoperabilità
 
@@ -132,13 +137,13 @@ Sì. Fare riferimento alla guida alla migrazione di Gemalto.
 
 ### <a name="q-how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm"></a>D: Come si decide se usare Azure Key Vault o HSM dedicato di Azure?
 
-HSM dedicato di Azure è la scelta più appropriata per le aziende che eseguono la migrazione ad applicazioni locali di Azure che usano moduli di protezione hardware. HSM dedicato offre un'opzione per eseguire la migrazione di un'applicazione con modifiche minime. Se le operazioni di crittografia vengono eseguite nel codice dell'applicazione in esecuzione in una macchina virtuale o un'app Web di Azure, possono usare HSM dedicato. In generale, può usare HSM dedicato il software con licenza a strappo eseguito in modelli IaaS (infrastruttura distribuita come servizio) che supportano i moduli di protezione hardware come archivio chiavi, ad esempio Gateway applicazione o Gestione traffico per SSL senza chiave, ADCS (Servizi certificati Active Directory) o strumenti PKI simili, strumenti/applicazioni usati per la firma di documenti o la firma del codice oppure SQL Server (IaaS) configurato con TDE (Transparent Data Encryption) con chiave master in un modulo di protezione hardware che usa un provider EKM (Extensible Key Management). L'insieme di credenziali delle chiavi di Azure è adatto per le applicazioni "born-in-cloud" o per gli scenari di crittografia inattivi in cui i dati dei clienti vengono elaborati da PaaS (piattaforma come servizio) o scenari SaaS (Software as a service), ad esempio la chiave cliente di Office 365, Azure Information Protection , Crittografia del disco di Azure, crittografia di Azure Data Lake Store con chiave gestita dal cliente, crittografia di Archiviazione di Azure con chiave gestita dal cliente e SQL di Azure con chiave gestita dal cliente.
+HSM dedicato di Azure è la scelta più appropriata per le aziende che eseguono la migrazione ad applicazioni locali di Azure che usano moduli di protezione hardware. HSM dedicato offre un'opzione per eseguire la migrazione di un'applicazione con modifiche minime. Se le operazioni di crittografia vengono eseguite nel codice dell'applicazione in esecuzione in una macchina virtuale o un'app Web di Azure, possono usare HSM dedicato. In generale, il software con wrapping ridotto in esecuzione nei modelli IaaS (infrastruttura come servizio), che supportano gli HSM come archivio chiavi possono utilizzare L'HSM devoto, ad esempio il gateway applicazione o il gestore del traffico per TLS senza chiave, ADCS (Servizi certificati Active Directory) o strumenti PKI simili, strumenti/applicazioni utilizzati per la firma dei documenti, la firma del codice o un SQL Server (IaaS) configurato con TDE (crittografia del database trasparente) con chiave master in un hSM che utilizza un provider EKM (extensible key management). L'insieme di credenziali delle chiavi di Azure è adatto per le applicazioni "born-in-cloud" o per gli scenari di crittografia inattivi in cui i dati dei clienti vengono elaborati da Scenari PaaS (piattaforma come servizio) o SaaS (Software as a service) come Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, crittografia di Azure Data Lake Store con chiave gestita dal cliente, crittografia di Archiviazione di Azure con chiave gestita dal cliente e Azure SQL con chiave gestita dal cliente.
 
 ### <a name="q-what-usage-scenarios-best-suit-azure-dedicated-hsm"></a>D: Quali sono gli scenari di utilizzo ottimali per HSM dedicato di Azure?
 
 HSM dedicato di Azure è ideale per gli scenari di migrazione, vale a dire se si esegue la migrazione in Azure di applicazioni locali che già usano moduli di protezione hardware. Questo offre un'opzione a impatto ridotto per la migrazione in Azure con modifiche minime all'applicazione. Se le operazioni di crittografia vengono eseguite nel codice dell'applicazione in esecuzione in una macchina virtuale o un'app Web di Azure, è possibile usare HSM dedicato. In generale, può usare HSM dedicato il software con licenza a strappo eseguito in modelli IaaS (infrastruttura distribuita come servizio) che supportano i moduli di protezione hardware come archivio chiavi, ad esempio:
 
-* Gateway applicazione o Gestione traffico per SSL senza chiave
+* Gateway applicazione o gestore del traffico per TLS senza chiaveApplication gateway or traffic manager for keyless TLS
 * ADCS (Servizi certificati Active Directory)
 * Strumenti PKI simili
 * Strumenti/applicazioni usate per la firma di documenti

@@ -2,13 +2,13 @@
 title: Distribuire risorse con l'interfaccia della riga di comando di Azure e il modelloDeploy resources with Azure CLI and template
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure.Use Azure Resource Manager and Azure CLI to deploy resources to Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 241b84bc7b8c0b213e74cd7ee5f3d7668fe0d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282648"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685694"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire risorse con modelli ARM e l'interfaccia della riga di comando di AzureDeploy resources with ARM templates and Azure CLI
 
@@ -168,7 +168,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Gestire il formato JSON esteso
 
-Per distribuire un modello con stringhe o commenti su `--handle-extended-json-format` più righe, è necessario utilizzare l'opzione .  Ad esempio:
+Per distribuire un modello con stringhe o commenti su più righe usando l'interfaccia della `--handle-extended-json-format` riga della riga di comando di Azure con la versione 2.3.0 o precedente, è necessario usare l'opzione.  Ad esempio:
 
 ```json
 {

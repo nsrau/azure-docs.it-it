@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 0f86d1ad03062797764af6a0d49beacaa3458a8f
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365559"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684736"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo Python Script
 
@@ -164,7 +164,7 @@ L'esempio seguente mostra come caricare un file di immagine nel modulo **Execute
 # imports up here can be used to
 import pandas as pd
 
-# The entry point function can contain up to two input arguments:
+# The entry point function must have two input arguments:
 #   Param<dataframe1>: a pandas.DataFrame
 #   Param<dataframe2>: a pandas.DataFrame
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -217,10 +217,17 @@ Il modulo **Execute Python Script** contiene codice Python di esempio che è pos
 
 5. Nella casella di testo **Script Python** digitare o incollare uno script Python valido.
 
+    > [!NOTE]
+    > Prestare molta attenzione quando si scrive lo script e assicurarsi che non vi sia alcun errore di sintassi, ad esempio utilizzando un oggetto non dichiarato o un modulo non importato. Prestare anche ulteriori attenzioni all'elenco dei moduli preinstallati. Per importare i moduli che non sono elencati, installare i pacchetti corrispondenti nello script, ad esempio
+    >  ``` Python
+    > import os
+    > os.system(f"pip install scikit-misc")
+    > ```
+    
     La casella di testo **dello script Python** è prepopolata con alcune istruzioni nei commenti e codice di esempio per l'accesso ai dati e l'output. È necessario modificare o sostituire questo codice. Assicurati di seguire le convenzioni Python sul rientro e l'uso di maiuscole e minuscole.
 
     + Lo script deve contenere una funzione denominata `azureml_main` come punto di ingresso per questo modulo.
-    + La funzione del punto di ingresso `Param<dataframe1>` può contenere fino a due argomenti di input: e`Param<dataframe2>`
+    + La funzione del punto di `Param<dataframe1>` ingresso `Param<dataframe2>`deve avere due argomenti di input: e , anche quando questi argomenti non vengono utilizzati nello script.
     + I file compressi collegati alla terza porta di input `.\Script Bundle`vengono decompressi e `sys.path`memorizzati nella directory , , che viene aggiunta anche a Python . 
 
     Pertanto, se il `mymodule.py`file zip `import mymodule`contiene , importarlo utilizzando .

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2739e960c4bc6d35ac9ad757e80ed620e5dc04f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459169"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684654"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine LearningAzure Machine Learning release notes
 
@@ -825,7 +825,7 @@ La scheda Esperimento nel [nuovo portale dell'area di lavoro](https://ml.azure.c
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Azure Machine Learning SDK per Python v1.0.62
 
 + **Nuove funzionalità**
-  + Introdotto `timeseries` il tratto su TabularDataset. Questa tratto consente di filtrare facilmente il timestamp sui dati di un TabularDataset, ad esempio l'utilizzo di tutti i dati tra un intervallo di tempo o i dati più recenti. Per informazioni su `timeseries` questo tratto su TabularDataset, si prega di visitare https://aka.ms/azureml-data per la documentazione o https://aka.ms/azureml-tsd-notebook per un blocco appunti di esempio.
+  + Introdotto `timeseries` il tratto su TabularDataset. Questa tratto consente di filtrare facilmente il timestamp sui dati di un TabularDataset, ad esempio l'utilizzo di tutti i dati tra un intervallo di tempo o i dati più recenti. Per informazioni su `timeseries` questo tratto su TabularDataset, si prega di visitare https://aka.ms/azureml-data per la documentazione o https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb per un blocco appunti di esempio.
   + Formazione abilitata con TabularDataset e FileDataset.Enabled training with TabularDataset and FileDataset. Si https://aka.ms/dataset-tutorial prega di visitare per un blocco appunti di esempio.
 
   + **azureml-train-core**
@@ -1339,7 +1339,7 @@ Al momento di questa versione, sono supportati i seguenti browser: Chrome, Firef
 + **Funzionalità di anteprima**
     + Integrazione con il rilevamento [MLflow](https://mlflow.org) 1.0.0 tramite pacchetto azureml-mlflow[(blocchi appunti di esempio).](https://aka.ms/azureml-mlflow-examples)
     + Inviare il notebook Jupyter come corsa. [Documentazione di riferimento API](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Anteprima pubblica di [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) tramite il pacchetto azureml-contrib-datadrift[(blocchi appunti di esempio).](https://aka.ms/azureml-datadrift-example) La deriva dei dati è uno dei motivi principali per cui la precisione del modello si riduce nel tempo. Succede quando i dati serviti per il modello nell'ambiente di produzione sono diversi dai dati su cui è stato eseguito il training del modello. AmL Data Drift detector aiuta il cliente a monitorare la deriva dei dati e invia un avviso ogni volta che viene rilevata una deriva.
+    + Anteprima pubblica di [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) tramite il pacchetto azureml-contrib-datadrift[(blocchi appunti di esempio).](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/monitor-models/data-drift) La deriva dei dati è uno dei motivi principali per cui la precisione del modello si riduce nel tempo. Succede quando i dati serviti per il modello nell'ambiente di produzione sono diversi dai dati su cui è stato eseguito il training del modello. AmL Data Drift detector aiuta il cliente a monitorare la deriva dei dati e invia un avviso ogni volta che viene rilevata una deriva.
 
 + **Modifiche di rilievo**
 

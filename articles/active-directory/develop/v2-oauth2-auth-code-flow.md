@@ -12,21 +12,18 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ac630c4901c126ed883adbdc7efb03f36372e6ff
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: e5e462c52c8b06af6da5081f84a082138cd53a3f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535877"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677938"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Piattaforma di identità Microsoft e flusso di codici di autorizzazione OAuth 2.0
 
 La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web. Utilizzando l'implementazione della piattaforma di identità Microsoft di OAuth 2.0, è possibile aggiungere l'accesso e l'accesso API alle app per dispositivi mobili e desktop. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle [librerie di autenticazione open source di Azure](reference-v2-libraries.md).
 
 In questo articolo viene descritto come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile utilizzare le librerie di autenticazione Microsoft (MSAL) supportate per [acquisire token e chiamare API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dai anche un'occhiata alle [app di esempio che utilizzano MSAL](sample-v2-code.md).
-
-> [!NOTE]
-> Non tutti gli scenari di Azure Active Directory & funzionalità sono supportati dall'endpoint della piattaforma di identità Microsoft.Non all Azure Active Directory scenarios & features are supported by the Microsoft identity platform endpoint. Per determinare se è necessario utilizzare l'endpoint della piattaforma di identità Microsoft, leggere le informazioni sulle [limitazioni della piattaforma](active-directory-v2-limitations.md)di identità Microsoft .
 
 Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749). Viene utilizzato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, incluse [le app Web](v2-app-types.md#web-apps) e le app [installate in modo nativo.](v2-app-types.md#mobile-and-native-apps) Il flusso consente alle app di acquisire in modo sicuro access_tokens che possono essere usate per accedere alle risorse protette dall'endpoint della piattaforma di identità Microsoft.The flow enables apps to securely a acquire access_tokens that can be used to access resources secured by the Microsoft identity platform endpoint.
 

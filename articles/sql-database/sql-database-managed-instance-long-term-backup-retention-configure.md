@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/14/2020
-ms.openlocfilehash: c9edbbf54696a817d0495f6890e0d796e482231f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 04/19/2020
+ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393725"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677114"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gestire la conservazione dei backup a lungo termine dell'istanza gestita del database SQL di Azure (PowerShell)Manage Azure SQL Database managed instance long-term backup retention (PowerShell)
 
@@ -36,23 +36,22 @@ Per **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstan
 - Ruolo Proprietario sottoscrizione o
 - Ruolo Collaboratore istanza gestita o
 - Ruolo personalizzato con le autorizzazioni seguenti:Custom role with the following permissions:
-
-   ```Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read``` ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read```
-   ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read```
+  - `Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read`
+  - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
+  - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
 Per **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, è necessario disporre di uno dei ruoli seguenti:
 
 - Ruolo Proprietario sottoscrizione o
 - Ruolo personalizzato con l'autorizzazione seguente:Custom role with the following permission:
-
-   ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete```
+  - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
 > [!NOTE]
 > Il ruolo Collaboratore istanza gestita non dispone dell'autorizzazione per eliminare i backup LTR.
 
 Le autorizzazioni RBAC possono essere concesse nell'ambito della *sottoscrizione* o del *gruppo di risorse.* Tuttavia, per accedere ai backup LTR che appartengono a un'istanza eliminata, l'autorizzazione deve essere concessa nell'ambito di *sottoscrizione* di tale istanza.
 
-```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete```
+- `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
 ## <a name="create-an-ltr-policy"></a>Creare i criteri di conservazione a lungo termine
 
@@ -75,7 +74,6 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 # create LTR policy with WeeklyRetention = 12 weeks, YearlyRetention = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
 Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
     -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
-
 ```
 
 ## <a name="view-ltr-policies"></a>Visualizzare i criteri di conservazione a lungo termine
@@ -86,7 +84,6 @@ In questo esempio viene illustrato come elencare i criteri LTR all'interno di un
 # gets the current version of LTR policy for the database
 $ltrPolicies = Get-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
     -DatabaseName $dbName -ResourceGroupName $resourceGroup
-
 ```
 
 ## <a name="clear-an-ltr-policy"></a>Cancellare i criteri di conservazione a lungo termine
@@ -118,7 +115,6 @@ $ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instan
 
 # only list the latest LTR backup for each database
 $ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instance.Location -InstanceName $instanceName -OnlyLatestPerDatabase
-
 ```
 
 ## <a name="delete-ltr-backups"></a>Eliminare i backup con conservazione a lungo termine
@@ -142,7 +138,6 @@ Questo esempio illustra come eseguire il ripristino da un backup con conservazio
 # restore a specific LTR backup as an P1 database on the instance $instanceName of the resource group $resourceGroup
 Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId `
    -TargetInstanceName $instanceName -TargetResourceGroupName $resourceGroup -TargetInstanceDatabaseName $dbName
-
 ```
 
 > [!IMPORTANT]

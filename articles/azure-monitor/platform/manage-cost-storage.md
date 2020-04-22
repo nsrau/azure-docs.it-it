@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: d03b053f2aa5de4a6f7874dbf4e6ccb3a305a964
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 9a7d0530c4f03138fad3e4aaa473d54e1cfd5b0a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992080"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686567"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di AzureManage usage and costs with Azure Monitor Logs
 
@@ -38,8 +38,7 @@ La determinazione dei prezzi predefinita per Log Analytics è un modello con pag
   - Numero di macchine virtuali monitorate
   - Tipo di dati raccolti da ogni macchina virtuale monitorataType of data collected from each monitored VM 
   
-Oltre al modello con pagamento in base al movimento, Log Analytics dispone di livelli di **prenotazione della capacità** che consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al costo. Il prezzo di prenotazione della capacità consente di acquistare una prenotazione a partire da 100 GB/giorno. Qualsiasi utilizzo superiore al livello di prenotazione verrà fatturato alla tariffa con pagamento in base al consumo. I livelli Di riserva capacità hanno un periodo di impegno di 31 giorni. Durante il periodo di impegno, è possibile passare a un livello superiore Prenotazione capacità (che riavvierà il periodo di impegno di 31 giorni), ma non è possibile tornare a conto con pagamento in base al numero di impegni o a un livello di prenotazione capacità inferiore fino al termine del periodo di impegno. 
-[Ulteriori informazioni](https://azure.microsoft.com/pricing/details/monitor/) sui prezzi di log analytics con pagamento in base al consumo e prenotazione della capacità. 
+Oltre al modello con pagamento in base al movimento, Log Analytics dispone di livelli di **prenotazione della capacità** che consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al costo. Il prezzo di prenotazione della capacità consente di acquistare una prenotazione a partire da 100 GB/giorno. Qualsiasi utilizzo superiore al livello di prenotazione verrà fatturato alla tariffa con pagamento in base al consumo. I livelli Di riserva capacità hanno un periodo di impegno di 31 giorni. Durante il periodo di impegno, è possibile passare a un livello superiore Prenotazione capacità (che riavvierà il periodo di impegno di 31 giorni), ma non è possibile tornare a conto con pagamento in base al numero di impegni o a un livello di prenotazione capacità inferiore fino al termine del periodo di impegno. La fatturazione per i livelli Prenotazione capacità viene eseguita su base giornaliera. [Ulteriori informazioni](https://azure.microsoft.com/pricing/details/monitor/) sui prezzi di log analytics con pagamento in base al consumo e prenotazione della capacità. 
 
 In tutti i piani tariffari, il volume di dati viene calcolato da una rappresentazione di stringa dei dati mentre vengono preparati per essere archiviati. Diverse [proprietà comuni a tutti i tipi di dati](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) non `_ResourceId` `_ItemId`sono `_IsBillable` incluse nel calcolo della dimensione dell'evento, tra cui , e `_BilledSize`.
 
@@ -112,10 +111,14 @@ Per impostare la conservazione predefinita per l'area di lavoro,
 3. Nel riquadro spostare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni e quindi fare clic su **OK**.  Se si usa il livello *gratuito*, non è possibile modificare il periodo di conservazione dei dati ed è necessario eseguire l'aggiornamento al piano a pagamento per controllare questa impostazione.
 
     ![Modificare l'impostazione di conservazione dei dati dell'area di lavoro](media/manage-cost-storage/manage-cost-change-retention-01.png)
+
+Quando la conservazione viene abbassata, è presente un periodo di prova di diversi giorni prima che i dati meno recenti vengano rimossi. 
     
 La conservazione può anche essere [impostata tramite Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando il `retentionInDays` parametro. Inoltre, se si imposta la conservazione dei dati su 30 giorni, `immediatePurgeDataOn30Days` è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il parametro , che può essere utile per gli scenari correlati alla conformità. Questa funzionalità viene esposta solo tramite Azure Resource Manager.This functionality is only exposed via Azure Resource Manager. 
 
 Due tipi `Usage` di `AzureActivity` dati, e 90, vengono conservati per 90 giorni per impostazione predefinita e per questa conservazione di 90 giorni è previsto alcun costo. Questi tipi di dati sono inoltre esenti da costi di inserimento dati. 
+
+
 
 ### <a name="retention-by-data-type"></a>Conservazione per tipo di dati
 
@@ -446,7 +449,7 @@ La decisione se le aree di lavoro con accesso al piano tariffario **Per Node** l
 Per facilitare questa valutazione, è possibile utilizzare la query seguente per formulare un suggerimento per il piano tariffario ottimale in base ai modelli di utilizzo di un'area di lavoro.  Questa query esamina i nodi monitorati e i dati inseriti in un'area di lavoro negli ultimi 7 giorni e per ogni giorno valuta quale piano tariffario sarebbe stato ottimale. Per usare la query, è necessario specificare se l'area di lavoro usa il Centro sicurezza di Azure impostando `workspaceHasSecurityCenter` `true` su o `false`, quindi (facoltativamente) aggiornando i prezzi Per nodo e Per GB ricevuti dall'organizzazione. 
 
 ```kusto
-// Set these paramaters before running query
+// Set these parameters before running query
 let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your price per node / month 
 let PerGBPrice = 2.30; // Enter your price per GB 
@@ -459,6 +462,14 @@ union withsource = tt *
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
 | join (
+    Heartbeat 
+    | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+    | where Computer != ""
+    | summarize ASCnodesPerHour = dcount(Computer) by bin(TimeGenerated, 1h) 
+    | extend ASCnodesPerHour = iff(workspaceHasSecurityCenter, ASCnodesPerHour, 0)
+    | summarize ASCnodesPerDay = sum(ASCnodesPerHour)/24.  by day=bin(TimeGenerated, 1d)   
+) on day
+| join (
     Usage 
     | where TimeGenerated > ago(8d)
     | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
@@ -469,18 +480,20 @@ union withsource = tt *
 ) on day
 | extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
 | extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
-             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*nodesPerDay, 0.)) * PerGBPrice,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)) * PerGBPrice,
              DataGB * PerGBPrice)
 | extend OverageGB = iff(workspaceHasSecurityCenter, 
-             max_of(DataGB - 1.0*nodesPerDay, 0.), 
+             max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
              max_of(DataGB - 0.5*nodesPerDay, 0.))
 | extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
 | extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
              iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
-| project day, nodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
 | project day, Recommendation // Comment this line to see details
 | sort by day asc
 ```
+
+Questa query non è una replica esatta del modo in cui viene calcolato l'utilizzo, ma funzionerà per fornire consigli del livello tariffario nella maggior parte dei casi.  
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Creare un avviso quando la raccolta dati è elevataCreate an alert when data collection is high
 

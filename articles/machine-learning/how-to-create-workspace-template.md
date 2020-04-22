@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 457979837b1c56eb85fc19c9a1fce5dc7df8c23b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b802a9c9df7e7f0c44ea66ee0061efb517b80050
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481996"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682751"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
@@ -81,7 +81,9 @@ Nel modello di esempio seguente viene illustrato come creare un'area di lavoro c
 
 * Abilitare le impostazioni di riservatezza elevata per l'area di lavoro
 * Abilitare la crittografia per l'area di lavoroEnable encryption for the workspace
-* Usa un insieme di credenziali delle chiavi di Azure esistenteUses an existing Azure Key Vault
+* Usa un insieme di credenziali delle chiavi di Azure esistente per recuperare le chiavi gestite dal cliente
+
+Per ulteriori informazioni, vedere [Crittografia inattivi](concept-enterprise-security.md#encryption-at-rest).
 
 ```json
 {
@@ -121,7 +123,7 @@ Nel modello di esempio seguente viene illustrato come creare un'area di lavoro c
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
+    "high_confidentiality":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -256,27 +258,31 @@ Nel modello di esempio seguente viene illustrato come creare un'area di lavoro c
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbiWorkspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
 }
 ```
 
-Per ottenere l'ID dell'insieme di credenziali delle chiavi e l'URI della chiave necessario per questo modello, è possibile usare l'interfaccia della riga di comando di Azure.To get the ID of the Key Vault, and the Key URI needed by this template, you can use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID and URI:
+Per ottenere l'ID dell'insieme di credenziali delle chiavi e l'URI della chiave necessario per questo modello, è possibile usare l'interfaccia della riga di comando di Azure.To get the ID of the Key Vault, and the Key URI needed by this template, you can use the Azure CLI. Il comando seguente ottiene l'ID dell'insieme di credenziali delle chiavi:
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-Questo comando restituisce un valore simile al testo seguente. Il primo valore è l'ID e il secondo è l'URI:
+Il comando restituisce un valore analogo a `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`.
 
-```text
-[
-  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
-  "https://mykeyvault.vault.azure.net/"
-]
+Per ottenere l'URI per la chiave gestita dal cliente, utilizzare il comando seguente:
+
+```azurecli-interactive
+az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
+
+Il comando restituisce un valore analogo a `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`.
+
+> [!IMPORTANT]
+> Una volta creato un workspace, non è possibile modificare le impostazioni per i dati riservati, la crittografia, l'ID dell'insieme di credenziali delle chiavi o gli identificatori di chiave. Per modificare questi valori, è necessario creare una nuova area di lavoro utilizzando i nuovi valori.
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 

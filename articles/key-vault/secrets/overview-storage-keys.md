@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 0b855584ef6efef574e8264f3cead79000a51b13
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1125bafa43ce1752c58d1cce0bba66a6bbd32c32
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81432008"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685426"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gestire le chiavi dell'account di archiviazione con Key Vault e l'interfaccia della riga di comando di AzureManage storage account keys with Key Vault and the Azure CLI
 
@@ -71,13 +71,23 @@ az login
 Usare il comando Azure CLI [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest) per concedere a Key Vault di accedere all'account di archiviazione. Fornire al comando i seguenti valori di parametro:
 
 - `--role`: passare il ruolo RBAC "Ruolo del servizio operatore chiavi dell'account di archiviazione". Questo ruolo limita l'ambito di accesso all'account di archiviazione. Per un account di archiviazione classico, passare invece "Ruolo del servizio operatore di chiave dell'account di archiviazione classico".
-- `--assignee-object-id`: passare il valore "93c27d83-f79b-4cb2-8dd4-4aa716542e74", ovvero l'ID oggetto per l'insieme di credenziali delle chiavi nel cloud pubblico di Azure. Per ottenere l'ID oggetto per l'insieme di credenziali delle chiavi nel cloud di Azure per enti pubblici, vedere [ID applicazione entità servizio.](#service-principal-application-id)
+- `--assignee`: passare ilhttps://vault.azure.netvalore " ", ovvero l'URL per l'insieme di credenziali delle chiavi nel cloud pubblico di Azure.: Pass the value " " ", which is the url for Key Vault in the Azure public cloud. Per il cloud di Azure Goverment usare '--asingee-object-id', vedere [ID applicazione entità servizio.](#service-principal-application-id)
 - `--scope`: consente di passare l'ID risorsa `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`dell'account di archiviazione, che è nel formato . Per trovare l'ID sottoscrizione, usare il comando Elenco account dell'interfaccia della riga di comando di [Azure.To](/cli/azure/account?view=azure-cli-latest#az-account-list) find your subscription ID, use the Azure CLI az account list command. Per trovare il nome dell'account di archiviazione e il gruppo di risorse dell'account di archiviazione, usare il comando elenco di account di archiviazione dell'interfaccia della riga di comando di [Azure.To](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) find your storage account name and storage account resource group, use the Azure CLI az storage account list command.
 
 ```azurecli-interactive
-az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
+### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Concedere all'account utente l'autorizzazione per gli account di archiviazione gestiti
 
+Usare il cmdlet [keyvault-set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) dell'interfaccia della riga di comando di Azure per aggiornare i criteri di accesso dell'insieme di credenziali delle chiavi e concedere le autorizzazioni dell'account di archiviazione all'account utente.
+
+```azurecli-interactive
+# Give your user principal access to all storage account permissions, on your Key Vault instance
+
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage-permissions get list delete set update regeneratekey getsas listsas deletesas setsas recover backup restore purge
+```
+
+Tenere presente che le autorizzazioni per gli account di archiviazione non sono disponibili nella pagina "Criteri di accesso" dell'account di archiviazione nel portale di Azure.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Creare un account di archiviazione gestito di Key VaultCreate a Key Vault Managed storage account
 
  Creare un account di archiviazione gestito dell'insieme di credenziali delle chiavi usando il comando di archiviazione keyvault dell'interfaccia della riga di comando di Azure.Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) command. Impostare un periodo di rigenerazione di 90 giorni. Dopo 90 giorni, Key `key1` Vault rigenera e `key2` `key1`scambia la chiave attiva da a . `key1`viene quindi contrassegnato come tasto attivo. Fornire al comando i seguenti valori di parametro:

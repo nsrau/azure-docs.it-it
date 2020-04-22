@@ -3,12 +3,12 @@ title: Configurare l'ambiente di sviluppo in LinuxSet up your development enviro
 description: Installare il runtime e l'SDK e creare un cluster di sviluppo locale in Linux. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 1048e1ccf6b9bc921daa3014ab8003fd53473461
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6cedd97144a3fd32d9af8582e24ad5c12914e575
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309123"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682613"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -265,7 +265,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 2. Per installare il plug-in Service Fabric, selezionare Help Install New Software **(Installazione** > **nuovo software).**
 
-3. Nella casella **Work with** (Lavora con) immettere **https://dl.microsoft.com/eclipse**.
+3. Nella casella **Utilizzo** immettere **https:\//dl.microsoft.com/eclipse**.
 
 4. Selezionare **Aggiungi**.
 

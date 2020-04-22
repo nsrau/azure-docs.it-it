@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: d6ac5961cbecf4e81c0b6bcc25c39aad42b18416
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429837"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686183"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -88,7 +88,7 @@ Per usare l'interfaccia della riga di comando di Azure:To use Azure CLI:
 
 1. Accedere al portale di Azure: az login per accedere ad Azure.Sign in to the Azure portal: *az login* to sign in to Azure.
 
-1. Verificare l'accesso immettendo *az account https://vault.azure.netget-access-token --resource *. Se viene visualizzato un errore, verificare che la versione corretta dell'interfaccia della riga di comando di Azure sia installata correttamente.
+1. Verificare l'accesso immettendo *az account\/get-access-token --resource https: /vault.azure.net*. Se viene visualizzato un errore, verificare che la versione corretta dell'interfaccia della riga di comando di Azure sia installata correttamente.
 
    Se l'interfaccia della riga di comando di Azure non `AzureServiceTokenProvider` è installata nella directory predefinita, è possibile che venga visualizzata una segnalazione errori che non riesce a trovare il percorso per l'interfaccia della riga di comando di Azure.If Azure CLI isn't installed to the default directory, you may receive an error reporting that can't find the path for Azure CLI. Usare la variabile di ambiente AzureCLIPath per definire la cartella di installazione dell'interfaccia della riga di comando di Azure.Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` aggiunge la directory specificata nella variabile di ambiente **AzureCLIPath** alla variabile di ambiente **Path**, quando è necessario.
 

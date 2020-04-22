@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811231"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686799"
 ---
 # <a name="develop-a-secure-web-app"></a>Sviluppare un'app Web sicura
 
@@ -803,7 +803,7 @@ Nel portale di Azure configurare l'app per usare le credenziali necessarie:In th
 Dopo aver aggiunto la configurazione e i segreti di Azure AD all'insieme di credenziali delle chiavi, gli utenti possono essere autenticati nell'app usando l'autenticazione OAuth di Azure.After you add the Azure AD configuration and secrets to Key Vault, users can be authenticated into the app by using Azure OAuth authentication.
 Nel codice dell'app questa operazione viene gestita dalla libreria di autenticazione di Azure Active Directory (ADAL).
 
-Dopo che i segreti si trovano nell'insieme di credenziali delle chiavi e l'applicazione ha accessohttps://GATEWAY_HASH.cloudapp.net)ai segreti e al database, il servizio dell'applicazione può essere raggiunto tramite l'URL dell'applicazione del gateway ( , che è possibile ottenere dal relativo blade.
+Dopo che i segreti si trovano in Key Vault e l'applicazione ha accesso ai segreti e\/al database, il servizio dell'applicazione può essere raggiunto tramite l'URL dell'applicazione del gateway (https: /GATEWAY_HASH.cloudapp.net), che è possibile ottenere dal relativo pannello.
 
 Se, quando si accede ad Azure AD, viene visualizzato il messaggio di errore "L'utente non è registrato nella directory a cui si sta tentando di accedere", è necessario aggiungere l'utente. Per aggiungere l'utente, passare alla scheda **Utenti** di Azure AD e aggiungere manualmente l'utente immettendo i dettagli o invitare l'utente immettendo l'indirizzo di posta elettronica come utente guest in Azure AD nel pannello **Invita guest.**
 
@@ -978,7 +978,7 @@ Lo strumento [AP](https://www.zaproxy.org/) è uno scanner di vulnerabilità del
 
 ### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Individuare e correggere le vulnerabilità nelle dipendenze delle appFind and fix vulnerabilities in app dependencies
 
-Per trovare e correggere le dipendenze dell'applicazione, è possibile utilizzare controllo delle dipendenze di [OWASP](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+Per trovare e correggere le dipendenze dell'applicazione, è possibile utilizzare controllo delle dipendenze di [OWASP](https://owasp.org/www-project-dependency-check/).
 
 La sicurezza è un'applicazione simile che controlla le dipendenze. Lo si può trovare su [GitHub](https://github.com/pyupio/safety). Analisi di sicurezza per le vulnerabilità rilevate in database di vulnerabilità ben noti.
 

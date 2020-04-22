@@ -1,18 +1,18 @@
 ---
-title: Servizi Go-To-Market - Come apparire in primo piano nel marketplace | Azure
+title: Servizi Go-To-Market - Come partecipare al mercato Azure Marketplace
 description: Servizi Go-To-Market - Questa sezione descrive come far apparire un'inserzione in primo piano in Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 266070a6292e41af6ce1b4258774d20a9bd90312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe18ca41942ff58b8d9eefef3122c90980029766
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286286"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684614"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Come apparire in primo piano in AppSource e in Azure Marketplace
 
@@ -38,7 +38,7 @@ Per migliorare il punteggio, è possibile eseguire le azioni seguenti:
 Le promozioni delle app in primo piano non sono collegate all'algoritmo di ricerca.
 
 >[!Note]
->Se la soluzione offerta non viene visualizzata correttamente nei risultati della ricerca, inviare un ticket di supporto tramite il menu della Guida nel [portale Cloud Partner](https://cloudpartner.azure.com/).
+>Se la soluzione non viene visualizzata correttamente nei risultati della ricerca, presentare un ticket di supporto tramite il menu Guida nel [Centro per i partner](https://partner.microsoft.com/).
 
 Il supporto GTM include anche una libreria completa di modelli Self-help, contenuti Web, materiale di training e strumenti per aiutare a promuovere ulteriormente le inserzioni e il business.
 
@@ -46,6 +46,6 @@ Il supporto GTM include anche una libreria completa di modelli Self-help, conten
 
 Scopri di più sui vantaggi del tuo [mercato commerciale.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
 
-Accedere al [portale Cloud Partner](https://cloudpartner.azure.com) per creare e configurare l'offerta.
+Accedi al [Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare e configurare la tua offerta.
 
 ---

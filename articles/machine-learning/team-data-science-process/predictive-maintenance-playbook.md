@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 5cf3f02284777a54a9d26cad8a7f3b5b4fa6b335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087809"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686759"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Manutenzione predittiva (**PdM**) è un'applicazione comune di analisi predittiva che può consentire alle aziende di diversi settori di usare in modo ottimale gli asset e ridurre i costi operativi. Questa guida sintetizza le linee guida e le procedure consigliate aziendali e analitiche per sviluppare e distribuire nel modo corretto soluzioni PdM tramite la tecnologia della [piattaforma Microsoft Azure per l'intelligenza artificiale](https://azure.microsoft.com/overview/ai-platform).
 
@@ -231,7 +231,7 @@ Le specifiche tecniche delle apparecchiature come la data di fabbricazione, il n
 
 Come risultato delle operazioni di preparazione dei dati descritte finora, i dati saranno organizzati come illustrato di seguito. I dati di training, test e convalida devono avere questo schema logico (in questo esempio il tempo è espresso in unità di giorni).
 
-| ID asset | Tempo | \<Colonne di entità geografiche> | Etichetta |
+| ID asset | Tempo | \<Colonne di entità geografiche> | Label |
 | ---- | ---- | --- | --- |
 | A123 |Giorno 1 | . . . | . |
 | A123 |Giorno 2 | . . . | . |
@@ -410,7 +410,7 @@ Il processo precedente è descritto in diversi modi nella letteratura accademica
 - _Assegnare un punteggio ai nuovi dati_ usando il modello
 - _Applicare il modello_ ai nuovi dati
 - _Operazionalizzare_ il modello
-- _Distribuire_ il modello
+- Distribuire il _modelloDeploy_ the model
 - _Eseguire il modello_ sui nuovi dati
 
 Come indicato in precedenza, l'operazionalizzazione del modello per PdM è diversa da attività simili. Gli scenari che implicano il rilevamento delle anomalie e il rilevamento degli errori in genere implementano un _punteggio online_ (detto anche _punteggio in tempo reale_). In questo caso, il modello _assegna un punteggio_ a ogni record in ingresso e restituisce una stima. Per il rilevamento delle anomalie, la stima è un'indicazione del fatto che si è verificata un'anomalia (esempio: SVM a una classe). Per il rilevamento degli errori, è il tipo o la classe di errore.
@@ -449,6 +449,6 @@ Microsoft Azure offre percorsi di apprendimento per i concetti fondamentali alla
 | [Webinar YouTube Microsoft AI](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Pubblico |
 | [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Pubblico |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partner |
-| [Microsoft Partner Network](https://learningportal.microsoft.com) | Partner |
+| [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partner |
 
 Sono inoltre disponibili corsi aperti online su larga scala (MOOC) sull'intelligenza artificiale offerti da istituzioni come Stanford, il MIT e altri istituti didattici.

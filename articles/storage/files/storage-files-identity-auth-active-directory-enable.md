@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.author: rogarana
-ms.openlocfilehash: 8d1e1262c592f0120b191e18a5c16b97b887a6a2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44debc299054568769bfbe6cfc089cc528594274
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536532"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677065"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Abilitare l'autenticazione di Servizi di dominio Active Directory locale tramite SMB per le condivisioni file di AzureEnable on-premises Active Directory Domain Services authentication over SMB for Azure file shares
 
@@ -68,11 +68,7 @@ Prima di abilitare l'autenticazione di Servizi di dominio Active Directory per l
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
-L'autenticazione dei file di Azure con Servizi di dominio Active Directory (anteprima) è disponibile nella maggior parte delle [aree pubbliche.](https://azure.microsoft.com/global-infrastructure/regions/)
-
-L'autenticazione dei file di Azure con Servizi di dominio Active Directory locale non è disponibile in:Azure Files authentication with on-premises AD DS is not available in:
-- Stati Uniti occidentali
-
+L'autenticazione dei file di Azure con Servizi di dominio Active Directory (anteprima) è disponibile in tutte le aree pubbliche e in [Tutte le aree Gov](https://azure.microsoft.com/global-infrastructure/locations/)di Azure.
 
 ## <a name="workflow-overview"></a>Panoramica del flusso di lavoro
 
@@ -84,13 +80,13 @@ Eseguire quindi la procedura seguente per configurare i file di Azure per l'aute
 
 1. Abilitare l'autenticazione di Servizi di dominio Active Directory di Azure nell'account di archiviazione. 
 
-1. Assegnare le autorizzazioni di accesso per una condivisione all'identità di Azure AD (un utente, un gruppo o un'entità servizio) sincronizzata con l'identità di Active Directory di destinazione. 
+2. Assegnare le autorizzazioni di accesso per una condivisione all'identità di Azure AD (un utente, un gruppo o un'entità servizio) sincronizzata con l'identità di Active Directory di destinazione. 
 
-1. Configurare gli ACL su SMB per directory e file. 
+3. Configurare gli ACL su SMB per directory e file. 
  
-1. Montare una condivisione file di Azure in una macchina virtuale aggiunta a Servizi di dominio Active Directory.Mount an Azure file share to a VM joined to your AD DS. 
+4. Montare una condivisione file di Azure in una macchina virtuale aggiunta a Servizi di dominio Active Directory.Mount an Azure file share to a VM joined to your AD DS. 
 
-1. Aggiornare la password dell'identità dell'account di archiviazione in Servizi di dominio Active Directory.
+5. Aggiornare la password dell'identità dell'account di archiviazione in Servizi di dominio Active Directory.
 
 Il diagramma seguente illustra il flusso di lavoro end-to-end per abilitare l'autenticazione di Azure AD rispetto a SMB per le condivisioni file di Azure.The following diagram illustrates the end-to-end workflow for enabling Azure AD authentication over SMB for Azure file shares. 
 

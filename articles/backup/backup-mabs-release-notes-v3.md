@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite informazioni sui problemi noti e
 ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: b47d83e0e3714f3f035397acaadeac9cda39d12a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03863f7598da06bb36cbb7497d7c773f811a004e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172271"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685620"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Note sulla versione per il server di Backup di Microsoft Azure
 
@@ -60,7 +60,7 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
 4. [Installare](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
 5. Configurare le funzionalità di report usando i parametri documentati in [Configurazione di SSRS con SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6. [Installare](backup-azure-microsoft-azure-backup.md) la versione 3 del server di Backup di Microsoft Azure.
-7. [Ripristinare](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL con SSMS ed eseguire lo strumento di sincronizzazione di DPM, come descritto [qui](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
+7. [Ripristinare](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL con SSMS ed eseguire lo strumento di sincronizzazione di DPM, come descritto [qui](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
 8. Aggiornare la proprietà 'DataBaseVersion' nella tabella dbo.tbl_DLS_GlobalSetting usando il comando seguente:
 
 ```sql

@@ -4,12 +4,12 @@ description: Questo articolo offre una panoramica della gestione di un'applicazi
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 69c10b0e9d3b7c29122c8432ab1e4bc06d3a3120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481117"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682634"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modello di risorse dell'applicazione Service FabricService Fabric application resource model
 
@@ -99,7 +99,7 @@ L'applicazione di esempio contiene modelli di [Azure Resource Manager](https://g
 | applicationTypeVersion (gestionedei) | La versione del tipo di applicazione         | 1.0.0                                                        | Deve corrispondere a ApplicationManifest.xml                 |
 | serviceName            | Il nome del servizio         | Votazione -VotingWeb                                             | Il formato NomeApplicazione/NomeServizio            |
 | nomeservizio        | Il nome del tipo del servizio                | VotingWeb                                                    | Deve corrispondere a ServiceManifest.xml                 |
-| appPackageUrl (informazioni in questo gruppo)          | URL di archiviazione BLOB dell'applicazione     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | URL del pacchetto dell'applicazione nell'archiviazione BLOB (la procedura per impostare l'URL è descritta più avanti nell'articolo): |
+| appPackageUrl (informazioni in questo gruppo)          | URL di archiviazione BLOB dell'applicazione     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | URL del pacchetto dell'applicazione nell'archiviazione BLOB (la procedura per impostare l'URL è descritta più avanti nell'articolo): |
 
 ```json
 {

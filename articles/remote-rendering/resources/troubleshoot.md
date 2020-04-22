@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617863"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681864"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -101,6 +101,35 @@ Se questi due passaggi non sono stati utili, è necessario scoprire se i fotogra
 **Il modello non è all'interno del frustum di visualizzazione:**
 
 In molti casi, il modello viene visualizzato correttamente ma si trova al di fuori del frustum della fotocamera. Un motivo comune è che il modello è stato esportato con un perno lontano dal centro in modo che venga ritagliato dal piano di ritaglio lontano della videocamera. È utile eseguire una query sul riquadro di delimitazione del modello a livello di codice e visualizzare la casella con Unity come una casella di riga o stamparne i valori nel registro di debug.
+
+Inoltre, il processo di conversione genera un [file json](../how-tos/conversion/get-information.md) di output insieme al modello convertito. Per eseguire il debug dei problemi di `boundingBox` posizionamento del modello, vale la pena esaminare la voce nella [sezione outputStatistics](../how-tos/conversion/get-information.md#the-outputstatistics-section):
+
+```JSON
+{
+    ...
+    "outputStatistics": {
+        ...
+        "boundingBox": {
+            "min": [
+                -43.52,
+                -61.775,
+                -79.6416
+            ],
+            "max": [
+                43.52,
+                61.775,
+                79.6416
+            ]
+        }
+    }
+}
+```
+
+Il riquadro di delimitazione è descritto come a `min` e `max` posizione nello spazio 3D, in metri. Quindi una coordinata di 1000.0 significa che è a 1 chilometro di distanza dall'origine.
+
+Ci possono essere due problemi con questo riquadro di delimitazione che portano a geometria invisibile:
+* **La casella può essere lontana dal centro,** quindi l'oggetto viene ritagliato del tutto a causa del ritaglio aereo lontano. I `boundingBox` valori in questo caso `min = [-2000, -5,-5], max = [-1990, 5,5]`sono simili al seguente: , utilizzando un offset di grandi dimensioni sull'asse x come esempio qui. Per risolvere questo tipo di `recenterToOrigin` problema, attivare l'opzione nella configurazione di [conversione](../how-tos/conversion/configure-model-conversion.md)del modello .
+* **La scatola può essere centrata ma essere ordini di grandezza troppo grande**. Ciò significa che, anche se la fotocamera inizia al centro del modello, la sua geometria viene ritagliata in tutte le direzioni. I `boundingBox` valori tipici in questo `min = [-1000,-1000,-1000], max = [1000,1000,1000]`caso sono simili ai seguenti: . Il motivo di questo tipo di problema è in genere una mancata corrispondenza della scala delle unità. Per compensare, specificare un valore di scala durante la [conversione](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) o contrassegnare il modello di origine con le unità corrette. Il ridimensionamento può essere applicato anche al nodo radice durante il caricamento del modello in fase di esecuzione.
 
 **La pipeline di rendering Unity non include gli hook di rendering:The Unity render pipeline doesn't include the render hooks:**
 

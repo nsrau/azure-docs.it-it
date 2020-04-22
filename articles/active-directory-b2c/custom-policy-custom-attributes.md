@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bc5204518cb6e801ba661aecd5498a501122225f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5990f79891a9cbc0d18c3499691a3d7ef309a73
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473660"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678265"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Abilitare gli attributi personalizzati in un criterio del profilo personalizzatoAzure Active Directory B2C: Enable custom attributes in a custom profile policy
 
@@ -46,7 +46,7 @@ I termini *proprietà di estensione*, *attributo personalizzato* e *attestazione
 
 ## <a name="get-the-application-properties"></a>Ottenere le proprietà dell'applicazioneGet the application properties
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Registrazioni app (anteprima)**, quindi **Tutte le applicazioni**.
@@ -75,13 +75,13 @@ Per abilitare gli attributi personalizzati nei criteri, specificare **l'ID appli
             <Item Key="ApplicationObjectId"></Item>
           </Metadata>
         </TechnicalProfile>
-      <TechnicalProfiles> 
+      </TechnicalProfiles> 
     </ClaimsProvider>
     ```
 
 ## <a name="upload-your-custom-policy"></a>Caricare i criteri personalizzati
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **di sottoscrizione Directory** e sottoscrizione nel menu in alto e scegliendo la directory che contiene il tenant B2C di Azure AD.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 4. Selezionare **Identity Experience Framework**.

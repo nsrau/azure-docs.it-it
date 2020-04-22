@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 929938bba9c9512ecfd663a540cf4a7ebbf68e2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8be0882452dc120f538394a5481769e26e3fa15
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371818"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682816"
 ---
 # <a name="create-python-model-module"></a>Crea modulo modello Python
 
@@ -31,13 +31,21 @@ Dopo aver creato il modello, è possibile usare il modello di training per esegu
 ## <a name="configure-the-module"></a>Configurare il modulo
 
 L'uso di questo modulo richiede una conoscenza intermedia o esperta di Python. The module supports use of any learner that's included in the Python packages already installed in Azure Machine Learning. Vedere l'elenco dei pacchetti Python preinstallato in [Esegui Python Script](execute-python-script.md).
-  
 
+> [!NOTE]
+> Prestare molta attenzione quando si scrive lo script e si assicura che non vi sia alcun errore di sintassi, ad esempio utilizzando un oggetto non dichiarato o un modulo non importato.
+
+> [!NOTE]
+Prestare anche ulteriori attenzioni all'elenco dei moduli preinstallati in [Execute Python Script](execute-python-script.md). Importare solo moduli preinstallati. Si prega di non installare pacchetti aggiuntivi come "pip install xgboost" in questo script, altrimenti verranno generati errori durante la lettura di modelli in moduli down-stream.
+  
 Questo articolo illustra come usare **Create Python Model** con una pipeline semplice. Ecco un diagramma della pipeline:Here's a diagram of the pipeline:
 
 ![Diagramma della creazione di un modello Python](./media/module/create-python-model.png)
 
 1. Selezionare **Crea modello Python**e modificare lo script per implementare il processo di modellazione o gestione dei dati. È possibile basare il modello su qualsiasi allievo incluso in un pacchetto Python nell'ambiente Azure Machine Learning.You can base the model on any learner that's included in a Python package in the Azure Machine Learning environment.
+
+> [!NOTE]
+> Prestare particolare attenzione ai commenti nel codice di esempio dello script e assicurarsi che lo script segua rigorosamente il requisito, inclusi il nome della classe, i metodi e la firma del metodo. La violazione porterà a eccezioni. 
 
    Il codice di esempio seguente del classificatore Naive Bayes a due classi utilizza il pacchetto *sklearn* più diffuso:
 
@@ -50,7 +58,9 @@ Questo articolo illustra come usare **Create Python Model** con una pipeline sem
        # predict: which generates prediction result, the input argument and the prediction result MUST be pandas DataFrame.
    # The signatures (method names and argument names) of all these methods MUST be exactly the same as the following example.
 
-
+   # Please do not install extra packages such as "pip install xgboost" in this script,
+   # otherwise errors will be raised when reading models in down-stream modules.
+   
    import pandas as pd
    from sklearn.naive_bayes import GaussianNB
 
@@ -61,10 +71,15 @@ Questo articolo illustra come usare **Create Python Model** con una pipeline sem
            self.feature_column_names = list()
 
        def train(self, df_train, df_label):
+           # self.feature_column_names records the column names used for training.
+           # It is recommended to set this attribute before training so that the
+           # feature columns used in predict and train methods have the same names.
            self.feature_column_names = df_train.columns.tolist()
            self.model.fit(df_train, df_label)
 
        def predict(self, df):
+           # The feature columns used for prediction MUST have the same names as the ones for training.
+           # The name of score column ("Scored Labels" in this case) MUST be different from any other columns in input data.
            return pd.DataFrame(
                {'Scored Labels': self.model.predict(df[self.feature_column_names]), 
                 'probabilities': self.model.predict_proba(df[self.feature_column_names])[:, 1]}

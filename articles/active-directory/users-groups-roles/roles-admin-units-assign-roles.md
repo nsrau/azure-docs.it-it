@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a518ff070ea021726ee382169e87cca55cad36d0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c900b2a363a4ff271e7a436b358ecf170daca163
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428251"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687029"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Assegnare ruoli con ambito a un'unità amministrativaAssign scoped roles to an administrative unit
 
 In Azure Active Directory (Azure AD) è possibile assegnare gli utenti a un ruolo di Azure AD con un ambito limitato a una o più unità amministrative (AU) per un controllo amministrativo più granulare.
 
-Per la procedura di preparazione all'utilizzo di PowerShell e Microsoft Graph per la gestione delle unità amministrative, vedere [Introduzione.](roles-admin-units-manage.md#getting-started)
+Per la procedura di preparazione all'utilizzo di PowerShell e Microsoft Graph per la gestione delle unità amministrative, vedere [Introduzione.](roles-admin-units-manage.md#get-started)
 
 ## <a name="roles-available"></a>Ruoli disponibili
 

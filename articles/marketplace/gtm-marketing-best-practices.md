@@ -1,18 +1,18 @@
 ---
-title: Servizi Go-To-Market - Procedure consigliate per il marketing | Azure
+title: Servizi Go-To-Market - Best practice di marketing Azure Marketplace
 description: Servizi Go-To-Market - Questa sezione descrive le procedure di marketing consigliate per gli editori di Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 6/24/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 2926752884576bcf3a7a15d68eecb6f1248f7e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e874343b5bb38928ae2fc429d901d8f7ec163580
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286269"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684590"
 ---
 # <a name="marketing-best-practices"></a>Procedure consigliate di marketing
 
@@ -22,6 +22,6 @@ Un marketplace ottimizzato e campagne go-to-market può aiutarti ad accelerare l
 
 Per altre informazioni sui servizi GTM del marketplace, vedere [Servizi per l'immissione sul mercato](https://partner.microsoft.com/reach-customers/gtm).
 
-Accedere al [portale Cloud Partner](https://cloudpartner.azure.com) per creare e configurare l'offerta.
+Accedi al [Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare e configurare la tua offerta.
 
 ---

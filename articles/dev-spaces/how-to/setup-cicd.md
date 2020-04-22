@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Informazioni su come configurare l'integrazione continua/distribuzione continua usando DevOps di Azure con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438455"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685626"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
 
@@ -99,7 +99,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
 1. Per la **versione predefinita,** scegliere Più recente dal ramo predefinito della pipeline di **compilazione con tag**.
 1. Lasciare vuoto **i tag.**
 1. Impostare **Alias di origine** su `drop`. Il valore **dell'alias di origine** viene utilizzato dalle attività di rilascio predefinite, pertanto deve essere impostato.
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 1. Fare ora clic sull'icona del fulmine sull'origine dell'elemento `drop` appena creato, come illustrato sotto:
 
     ![Configurazione della distribuzione continua dell'elemento della versione](../media/common/release-artifact-cd-setup.png)
@@ -131,7 +131,7 @@ Inizierà ora un processo di rilascio automatizzato, che distribuirà i grafici 
 Il rilascio viene eseguito al termine di tutte le attività.
 
 > [!TIP]
-> Se la versione ha esito negativo con un messaggio di errore simile a *AGGIORNAMENTO NON RIUSCITO: timeout in attesa della condizione*, provare a esaminare i pod nel cluster [usando il dashboard di Kubernetes](../../aks/kubernetes-dashboard.md). Se i pod non vengono avviati con messaggi di errore come *Impossibile estrarre l'immagine "azdsexample.azurecr.io/mywebapi:122": errore https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: rpc: codice , desc sconosciuto , risposta di errore da daemon: Ottenere non autorizzato: autenticazione necessaria*, è possibile che il cluster non sia stato autorizzato a estrarre dal Registro di sistema del contenitore di Azure. Verificare di avere completato il prerequisito [Autorizzare il cluster del servizio Azure Kubernetes a eseguire il pull dal Registro Azure Container](../../aks/cluster-container-registry-integration.md).
+> Se la versione ha esito negativo con un messaggio di errore simile a *AGGIORNAMENTO NON RIUSCITO: timeout in attesa della condizione*, provare a esaminare i pod nel cluster [usando il dashboard di Kubernetes](../../aks/kubernetes-dashboard.md). Se i pod non vengono avviati con messaggi di errore come *Impossibile estrarre l'immagine "azdsexample.azurecr.io/mywebapi:122": errore rpc:\/codice , desc sconosciuto , risposta di errore da daemon: Get https: /azdsexample.azurecr.io/v2/mywebapi/manifests/122: unauthorized: authentication required*, è possibile che il cluster non sia stato autorizzato a estrarre dal Registro di sistema di Azure del contenitore. Verificare di avere completato il prerequisito [Autorizzare il cluster del servizio Azure Kubernetes a eseguire il pull dal Registro Azure Container](../../aks/cluster-container-registry-integration.md).
 
 È ora disponibile una pipeline CI/CD completamente automatizzata per il fork di GitHub delle app di esempio di Dev Spaces. Ogni volta che si eseguono il commit e il push del codice, la pipeline di compilazione compilerà ed eseguirà il push delle immagini *mywebapi* e *webfrontend* nell'istanza del Registro Azure Container personalizzata. La pipeline di versione distribuirà quindi il grafico Helm per ogni app nello spazio _dev_ nel cluster abilitato per Dev Spaces.
 

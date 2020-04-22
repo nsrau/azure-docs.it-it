@@ -8,18 +8,18 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 0014b67443797f45de51ec1bc459f71bde55cdc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f8e93cf34ac56344ff7e3d145ce8c7c3529767b7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774432"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678663"
 ---
-Nell'esempio riportato di seguito viene illustrato come creare una connessione di Exchange presso Equinix Internet Exchange a Seattle . Se si usa un altro provider e impostazioni diverse, sostituire tali informazioni al momento della richiesta.
+Nell'esempio seguente viene illustrato come creare una connessione di Exchange presso Equinix Internet Exchange a Seattle. Se si usa un altro provider e impostazioni diverse, sostituire tali informazioni al momento della richiesta.
 
-Utilizzare il cmdlet di PowerShell **New-AzPeeringExchangeConnectionObject** per creare oggetti connessione di PowerShell che verranno utilizzati per generare la nuova richiesta di peering:
+Utilizzare il cmdlet di PowerShell **New-AzPeeringExchangeConnectionObject** per creare oggetti connessione di PowerShell, che verranno utilizzati per generare la nuova richiesta di peering.
 
-Di seguito è riportato un esempio per creare una connessione di Exchange:
+In questo esempio viene illustrato come creare una connessione di Exchange.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -30,7 +30,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Creare un'altra connessione nel caso in cui sia necessaria la ridondanza in una determinata posizione di peering:Create another connection in case you need redundancy at given peering location:
+Creare un'altra connessione nel caso in cui sia necessaria la ridondanza nella posizione di peering specificata.
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Il cmdlet di PowerShell **New-AzPeering** può essere utilizzato per creare un nuovo peering di Exchange:
+Il cmdlet di PowerShell **New-AzPeering** può essere utilizzato per creare un nuovo peering di Exchange.
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Di seguito è riportata una risposta di esempio quando la richiesta è stata eseguita utilizzando una connessione:Below is an example response when the request was executed using one connection:
+Questa risposta di esempio mostra quando la richiesta è stata eseguita utilizzando una connessione.
 
 ```powershell
 
@@ -73,10 +73,10 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> Microsoft avvierà il provisioning del `ConnectionState` peering richiesto e rifletterà lo stato di avanzamento.
-> Fare riferimento al documento della procedura dettagliata di [peering](../walkthrough-exchange-all.md) di Exchange per i passaggi correlati al provisioning.
+> Microsoft avvia il provisioning del `ConnectionState` peering richiesto e riflette lo stato di avanzamento.
+> Per ulteriori informazioni sui passaggi correlati al provisioning, vedere la [procedura dettagliata exchange peering](../walkthrough-exchange-all.md).
 
-È possibile controllare il ConnectionState come mostrato di seguito:
+È possibile controllare lo stato della connessione, come illustrato di seguito.
 
 ```powershell
 

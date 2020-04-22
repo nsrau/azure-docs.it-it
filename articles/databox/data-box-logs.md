@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260020"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676416"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Monitoraggio e registrazione degli eventi per Azure Data Box e Azure Data Box Heavy
 
@@ -47,7 +47,7 @@ Per limitare l'accesso a un ordine, è possibile:
 - Assegnare un ruolo a livello di ordine. L'utente dispone solo di tali autorizzazioni definite dai ruoli per interagire solo con l'ordine specifico di Data Box e nient'altro.
 - Assegnare un ruolo a livello di gruppo di risorse, l'utente ha accesso a tutti gli ordini di Data Box all'interno di un gruppo di risorse.
 
-Per ulteriori informazioni sull'utilizzo suggerito del controllo degli accessi in base al ruolo, vedere [Procedure consigliate per il controllo degli accessi in base](../role-based-access-control/overview.md#best-practice-for-using-rbac)al ruolo.
+Per altre informazioni sull'uso consigliato del controllo degli accessi in base al ruolo, vedere Procedure consigliate per il [controllo degli accessi in base](../role-based-access-control/best-practices.md)al ruolo di Azure.For more information on suggested RBAC use, see Best practices for Azure RBAC .
 
 ## <a name="track-the-order"></a>Monitorare l'ordine
 
