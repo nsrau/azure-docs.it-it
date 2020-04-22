@@ -3,12 +3,12 @@ title: Modello per creare avvisi di integrità delle risorse
 description: Creare avvisi a livello di codice che inviano una notifica quando le risorse di Azure non sono disponibili.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: c01934cc88dc29d0503abfafc203ab0f04bf1761
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062902"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759008"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse
 
@@ -228,6 +228,9 @@ Se le risorse sono sottoposte a un evento di integrità, possono passare attrave
 ```
 
 Se si desidera ricevere una notifica per tutti i quattro passaggi degli eventi di integrità, è possibile rimuovere del tutto questa condizione in modo che l'avviso notifichi indipendentemente dalla proprietà dello`status`.
+
+> [!NOTE]
+> Ogni sezione "anyOf" deve contenere un solo tipo di campo valori.
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Modificare gli avvisi di Integrità risorse di Azure per evitare gli eventi "Sconosciuti"
 

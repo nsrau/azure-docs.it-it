@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 981e13e772ee21e0e4a680e6d07b4ad4892a7cee
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bfa16f59155e420209ab6370056a7c612b5327e4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417059"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759052"
 ---
 # <a name="security-control-secure-configuration"></a>Controllo di sicurezza: Configurazione sicura
 
@@ -30,7 +30,7 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JSON (Jav
 
 È anche possibile usare consigli dal Centro sicurezza di Azure come linea di base di configurazione sicura per le risorse di Azure.You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
-- [Come visualizzare gli alias dei criteri di Azure disponibiliHow to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias di Criteri di Azure disponibiliHow to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Esercitazione: Creare e gestire i criteri per applicare la conformitàTutorial: Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

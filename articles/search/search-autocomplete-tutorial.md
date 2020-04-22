@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1d8085c6056cb0d2541999c3e9c249cde3da8834
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641265"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758117"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Aggiungere il completamento automatico e suggerimenti alle app client
 
@@ -22,7 +22,7 @@ La ricerca come si digita è una tecnica comune per migliorare la produttività 
 Per implementare queste esperienze in Ricerca cognitiva di Azure, è necessario:To implement these experiences in Azure Cognitive Search, you will need:
 
 + Un *suggeritore* sul back-end.
-+ Query *query* che specifica il completamento automatico o l'API di suggerimenti nella richiesta.
++ Query *query* che specifica il [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) o [l'API di suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) nella richiesta.
 + Un *controllo dell'interfaccia utente* per gestire le interazioni di ricerca come di te nell'app client. Ti consigliamo di utilizzare una libreria JavaScript esistente a questo scopo.
 
 In Ricerca cognitiva di Azure le query completate automaticamente e i risultati suggeriti vengono recuperati dall'indice di ricerca dai campi selezionati registrati con un suggerimento. Un suggerimento fa parte dell'indice e specifica quali campi forniranno il contenuto che completa una query, suggerisce un risultato o esegue entrambe le operazioni. Quando l'indice viene creato e caricato, una struttura di dati del suggerimento viene creata internamente per archiviare i prefissi utilizzati per la corrispondenza nelle query parziali. Per i suggerimenti, la scelta di campi adatti che sono unici, o almeno non ripetitivi, è essenziale per l'esperienza. Per ulteriori informazioni, consultate [Creare un suggerimento.](index-add-suggesters.md)
@@ -31,7 +31,7 @@ Il resto di questo articolo è incentrato sulle query e sul codice client. Per i
 
 ## <a name="set-up-a-request"></a>Impostare una richiesta
 
-Gli elementi di una richiesta includono l'API ([Autocomplete REST](https://docs.microsoft.com/rest/api/searchservice/autocomplete) o [Suggestion REST](https://docs.microsoft.com/rest/api/searchservice/suggestions)), una query parziale e un suggerimento.
+Gli elementi di una richiesta includono una delle API di ricerca durante la digitazione, una query parziale e un suggerimento. Lo script seguente illustra i componenti di una richiesta, usando l'API REST di completamento automatico come esempio.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
@@ -49,7 +49,7 @@ Le API non impongono requisiti di lunghezza minima alla query parziale; può ess
 
 Le corrispondenze si trovano all'inizio di un termine in qualsiasi punto della stringa di input. Data "la volpe marrone veloce", sia il completamento automatico che i suggerimenti corrisponderanno alle versioni parziali di "the", "quick", "brown" o "fox" ma non su termini parziali come "rown" o "ox". Inoltre, ogni partita imposta l'ambito per le espansioni a valle. Una query parziale di "quick br" corrisponderà su "marrone veloce" o "pane veloce", ma né "marrone" o "pane" da soli sarebbe abbinato a meno che "quick" non li preceda.
 
-### <a name="apis"></a>API
+### <a name="apis-for-search-as-you-type"></a>API per la ricerca durante la digitazione
 
 Seguire questi collegamenti per le pagine di riferimento di REST e .NET SDK:Follow these links for the REST and .NET SDK reference pages:
 
@@ -64,12 +64,13 @@ Le risposte per il completamento automatico e i suggerimenti sono quelli che ci 
 
 Le risposte sono modellate dai parametri della richiesta. Per Completamento automatico, impostare [**autocompleteMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) per determinare se il completamento del testo si verifica su uno o due termini. Per Suggerimenti, il campo scelto determina il contenuto della risposta.
 
-Per perfezionare ulteriormente la risposta, includere più parametri nella richiesta. I parametri seguenti si applicano sia al completamento automatico che ai suggerimenti.
+Per suggerimenti, è necessario perfezionare ulteriormente la risposta per evitare duplicati o quelli che sembrano essere risultati non correlati. Per controllare i risultati, includere più parametri nella richiesta. I parametri seguenti si applicano sia al completamento automatico che ai suggerimenti, ma sono forse più necessari per i suggerimenti, soprattutto quando un suggerimento include più campi.
 
 | Parametro | Uso |
 |-----------|-------|
-| **$select** | Se si dispone di più **campi di origine,**`$select=GameTitle`utilizzare **$select** per scegliere quale campo contribuisce ai valori ( ). |
-| **$filter** | Applicare i criteri di`$filter=ActionAdventure`corrispondenza al set di risultati ( ). |
+| **$select** | Se in un suggerimento sono presenti più **campi sourceField,** `$select=GameTitle`utilizzare **$select** per scegliere il campo che contribuisce ai valori ( ). |
+| **searchFields** | Vincolare la query a campi specifici. |
+| **$filter** | Applicare i criteri di`$filter=Category eq 'ActionAdventure'`corrispondenza al set di risultati ( ). |
 | **$top** | Limitare i risultati a`$top=5`un numero specifico ( ).|
 
 ## <a name="add-user-interaction-code"></a>Aggiungere il codice di interazione utente
@@ -149,6 +150,8 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
     // Call suggest API and return results
     SuggestParameters sp = new SuggestParameters()
     {
+        Select = HotelName,
+        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
         Top = 5
     };

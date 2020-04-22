@@ -11,20 +11,17 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: f7a1eccd76313c5b3bc74a5b5ebdbcd202ca6841
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435761"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758065"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
-
-> [!NOTE]
-> Un sottoinsieme di soluzioni di sicurezza è stato ritirato il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [Retirement of Security Center features (luglio 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Soluzioni di sicurezza di Azure integrate
 Il Centro sicurezza semplifica l'abilitazione di soluzioni di sicurezza integrate in Azure. I vantaggi includono:
@@ -37,52 +34,57 @@ Attualmente, le soluzioni di sicurezza integrate includono la valutazione delle 
 
 > [!NOTE]
 > Il Centro sicurezza non installa l'agente Log Analytics nelle appliance virtuali partner perché la maggior parte dei fornitori di sicurezza proibisce gli agenti esterni in esecuzione sulle appliance.
->
->
+
+Per ulteriori informazioni sull'integrazione degli strumenti di scansione delle vulnerabilità da Qualys, incluso uno scanner integrato disponibile per i clienti di livello standard, vedere: 
+
+- [Scanner di vulnerabilità integrato per macchine virtuali](built-in-vulnerability-assessment.md).
+- [Distribuzione di una soluzione di analisi delle vulnerabilità dei partner](partner-vulnerability-assessment.md).
+
+Il Centro sicurezza offre anche l'analisi delle vulnerabilità per:
+
+* Database SQL - vedere Esplorare i report di [valutazione della vulnerabilità nel dashboard di valutazione della vulnerabilità](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
+* Immagini del Registro di sistema del contenitore di Azure: vedere Integrazione del Registro di sistema del contenitore di [Azure con il Centro sicurezza (anteprima)Azure](azure-container-registry-integration.md) Container Registry images - see Azure Container Registry integration with Security Center (Preview)
 
 ## <a name="how-security-solutions-are-integrated"></a>Modalità di integrazione delle soluzioni di sicurezza
 Le soluzioni di sicurezza di Azure distribuite dal Centro sicurezza vengono connesse automaticamente. È anche possibile connettere altre origini dati di sicurezza, inclusi i computer in esecuzione in locale o in altri cloud.
 
-![Integrazione di soluzioni di partner](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
+[![Integrazione di soluzioni di partner](./media/security-center-partner-integration/security-solutions-page.png)](./media/security-center-partner-integration/security-solutions-page.png#lightbox)
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gestire soluzioni di sicurezza di Azure integrate e altre origini dati
 
-1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/)aprire **Centro sicurezza**.
 
-2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
+1. Dal menu del Centro sicurezza, selezionare **Soluzioni**di sicurezza .
 
-3. Selezionare **Soluzioni di sicurezza** nel menu del Centro sicurezza.
-
-   ![Panoramica del Centro sicurezza](./media/security-center-partner-integration/overview.png)
-
-In **Soluzioni**di sicurezza è possibile visualizzare l'integrità delle soluzioni di sicurezza di Azure integrate ed eseguire attività di gestione di base.
+Nella pagina **Soluzioni** di sicurezza è possibile visualizzare l'integrità delle soluzioni di sicurezza di Azure integrate ed eseguire attività di gestione di base.
 
 ### <a name="connected-solutions"></a>Soluzioni connesse
 
 La sezione **Soluzioni connesse** include soluzioni di sicurezza attualmente connesse al Centro sicurezza. Mostra anche lo stato di integrità di ogni soluzione.  
 
-![Soluzioni connesse](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
+![Soluzioni connesse](./media/security-center-partner-integration/connected-solutions.png)
 
 Una soluzione partner può avere uno degli stati seguenti:
 
-* Sano (verde) - nessun problema di salute.
-* Non integro (rosso) - c'è un problema di salute che richiede attenzione immediata.
-* Problemi di integrità (arancione): la soluzione non segnala più lo stato di integrità.
-* Non segnalato (grigio) - la soluzione non ha ancora segnalato nulla e non sono disponibili dati sanitari. Lo stato di una soluzione potrebbe non essere segnalato se è stata connessa di recente ed è ancora in fase di distribuzione.
+* **Sano** (verde) - nessun problema di salute.
+* **Non integro** (rosso) - c'è un problema di salute che richiede attenzione immediata.
+* **Interruzione della segnalazione** (arancione) - la soluzione ha smesso di segnalarne l'integrità.
+* **Non segnalato** (grigio) - la soluzione non ha ancora segnalato nulla e non sono disponibili dati sanitari. Lo stato di una soluzione potrebbe non essere segnalato se è stata connessa di recente ed è ancora in fase di distribuzione.
 
 > [!NOTE]
 > Se i dati relativi allo stato di integrità non sono disponibili, il Centro sicurezza mostra la data e l'ora dell'ultimo evento ricevuto, per indicare se la soluzione invia segnalazioni o meno. Se non sono disponibili dati sull'integrità e non sono stati ricevuti avvisi negli ultimi 14 giorni, il Centro sicurezza indica che la soluzione non è integra o non è stata segnalata.
 >
 >
 
-1. Selezionare **VISTA** per ulteriori informazioni e opzioni quali:
+Selezionare **VISTA** per ulteriori informazioni e opzioni quali:
 
-   - **Console della soluzione**. Apre l'esperienza di gestione per questa soluzione.
-   - **Collega la macchina virtuale**. Apre la pagina Collega applicazioni. In questo pannello è possibile connettere risorse alla soluzione del partner.
-   - **Elimina soluzione**.
-   - **Configurare**.
+   - **Console soluzione:** apre l'esperienza di gestione per questa soluzione.
+   - **Collega macchina virtuale** - Apre la pagina Collega applicazioni. In questo pannello è possibile connettere risorse alla soluzione del partner.
+   - **Elimina soluzione**
+   - **Configurare**
 
-   ![Dettagli della soluzione di un partner](./media/security-center-partner-solutions/partner-solutions-detail.png)
+   ![Dettagli della soluzione di un partner](./media/security-center-partner-integration/partner-solutions-detail.png)
+
 
 ### <a name="discovered-solutions"></a>Discovered solutions (Soluzioni individuate)
 
@@ -91,7 +93,6 @@ Il Centro sicurezza individua automaticamente le soluzioni di sicurezza in esecu
 > [!NOTE]
 > Il livello Standard del Centro sicurezza è necessario a livello di sottoscrizione per la funzionalità di soluzioni individuate. Per altre informazioni sui piani tariffari, vedere [Prezzi.](security-center-pricing.md)
 >
->
 
 Selezionare **CONNECT** in una soluzione per l'integrazione con il Centro sicurezza e ricevere una notifica degli avvisi di sicurezza.
 
@@ -99,57 +100,13 @@ Selezionare **CONNECT** in una soluzione per l'integrazione con il Centro sicure
 
 La sezione **Aggiungi origini dati** include altre origini dati disponibili che è possibile connettere. Per istruzioni sull'aggiunta di dati da una qualsiasi di queste origini, fare clic su **AGGIUNGI**.
 
-![Origini dati](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
+![Origini dati](./media/security-center-partner-integration/add-data-sources.png)
 
-## <a name="exporting-data-to-a-siem"></a>Esportazione dei dati in un sistema di informazioni di sicurezza e gestione degli eventi
-
-> [!NOTE]
-> Per informazioni dettagliate su un metodo più semplice (attualmente in anteprima) per l'esportazione dei dati in un SIEM, vedere [Export security alerts and recommendations (Preview)](continuous-export.md). Il nuovo metodo non utilizza il registro attività come intermediatore e consente l'esportazione diretta dal Centro sicurezza agli hub eventi (e quindi al SIEM), supporta anche l'esportazione di raccomandazioni di sicurezza.
-
-
-È possibile configurare i SIEM o altri strumenti di monitoraggio per ricevere gli eventi del Centro sicurezza di Azure.You can configure your SIEMs or other monitoring tools to receive Azure Security Center events.
-
-Tutti gli eventi dal Centro sicurezza di Azure vengono pubblicati nel [log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)di Azure Monitor di Azure. Monitoraggio di Azure usa [una pipeline consolidata](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) per trasmettere i dati a un hub eventi in cui possono essere inseriti nello strumento di monitoraggio.
-
-Le sezioni seguenti spiegano come configurare i dati per poterli trasmettere a un hub eventi. In questi passaggi si presuppone che l'utente abbia già configurato Centro sicurezza di Azure nella sottoscrizione Azure.
-
-### <a name="high-level-overview"></a>Panoramica generale
-
-![Panoramica generale](media/security-center-export-data-to-siem/overview.png)
-
-### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Quali dati della sicurezza di Azure vengono esposti a SIEM?
-
-In questa versione vengono esposti gli avvisi di [sicurezza.](../security-center/security-center-managing-and-responding-alerts.md) Nelle prossime versioni il set di dati verrà ampliato con le raccomandazioni sulla sicurezza.
-
-### <a name="how-to-set-up-the-pipeline"></a>Come configurare la pipeline
-
-#### <a name="create-an-event-hub"></a>Creare un hub eventi
-
-Prima di iniziare, [creare uno spazio dei nomi Hub eventi,](../event-hubs/event-hubs-create.md) ovvero la destinazione per tutti i dati di monitoraggio.
-
-#### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Trasmettere il log attività di Azure a Hub eventi
-
-Vedere il seguente [registro attività flusso agli hub eventi](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
-
-#### <a name="install-a-partner-siem-connector"></a>Installare un connettore SIEM partner 
-
-Il routing dei dati di monitoraggio a un hub eventi con Monitoraggio di Azure consente di integrare facilmente gli strumenti di monitoraggio e le informazioni di sicurezza e gestione degli eventi di partner.
-
-Vedere l'articolo seguente per l'elenco dei [SIEM supportati](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
-
-### <a name="example-for-querying-data"></a>Esempio di query sui dati 
-
-Di seguito sono riportate alcune query Splunk che è possibile utilizzare per estrarre i dati degli avvisi:
-
-| **Descrizione della query** | **Query** |
-|----|----|
-| Tutti gli avvisi| index=main Microsoft.Security/locations/alerts|
-| Riepilogare il numero di operazioni in base al nome| index=main sourcetype="amal:security" \| table operationName \| stats count by operationName|
-| Ottenere le informazioni sugli avvisi: ora, nome, stato, ID e sottoscrizione | index=main Microsoft.Security/locations/alerts \| tabella \_time, properties.eventName, stato, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come integrare soluzioni partner nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
+In questo articolo è stato illustrato come integrare soluzioni partner nel Centro sicurezza. Per informazioni correlate, vedere gli articoli seguenti:For related information, see the following articles:
 
+* [Esportare avvisi e consigli di sicurezza](continuous-export.md). Informazioni su come configurare un'integrazione con Azure Sentinel o qualsiasi altro SIEM.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 0fa1b58547e0260ec5486003cf4cb85d855de33a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1a6106a45f5062850ceb12205528a05ed1d494be
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310222"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756677"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure
 
-*Questo argomento è rivolto ai responsabili della compilazione e agli amministratori.*
+*Questo argomento si applica agli sviluppatori di dispositivi e ai generatori di soluzioni.*
 
 Usare l'estensione IoT dell'interfaccia della riga di comando di Azure per visualizzare i messaggi inviati dai dispositivi a IoT Central e osservare le modifiche nel dispositivo gemello. È possibile usare questo strumento per eseguire il debug e osservare la connettività dei dispositivi e diagnosticare i problemi dei messaggi del dispositivo che non raggiungono il cloud o i dispositivi che non rispondono alle modifiche gemelle.
 
@@ -79,4 +79,4 @@ az iot central device-twin show --app-id <app-id> --device-id <device-id>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come usare Esplora centrale IoT, il passaggio successivo consigliato consiste nell'esplorare [la gestione dei dispositivi IoT Central](howto-manage-devices.md).
+Se sei uno sviluppatore di dispositivi, un passaggio successivo consigliato consiste nel leggere informazioni sulla connettività dei dispositivi [in Azure IoT Central.](./concepts-get-connected.md)

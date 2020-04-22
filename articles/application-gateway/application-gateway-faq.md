@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0e5a683c95e213a0fc37ec4f559e89abfecf034a
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312462"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758915"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -72,7 +72,7 @@ Per lo SKU v2, aprire la risorsa IP pubblica e selezionare **Configurazione**. I
 
 *Il timeout Keep-Alive* determina il tempo di attesa di un client per l'invio di un'altra richiesta HTTP su una connessione permanente prima di riutilizzarla o chiuderla. Il timeout di *inattività TCP* determina per quanto tempo una connessione TCP viene mantenuta aperta in caso di assenza di attività. 
 
-Il *timeout Keep-Alive* nello SKU del gateway applicazione v1 è 120 secondi e nello SKU v2 è 75 secondi. Il timeout di *inattività TCP* è un valore predefinito di 4 minuti nell'IP virtuale front-end (VIP) dello SKU v1 e v2 del gateway applicazione. 
+Il *timeout Keep-Alive* nello SKU del gateway applicazione v1 è 120 secondi e nello SKU v2 è 75 secondi. Il timeout di *inattività TCP* è un valore predefinito di 4 minuti nell'IP virtuale front-end (VIP) dello SKU v1 e v2 del gateway applicazione. Non è possibile modificare questi valori.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>L'IP o il nome DNS cambia nel corso della durata del gateway applicazione?
 

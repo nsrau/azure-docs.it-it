@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157671"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756655"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central
+
+*Questo articolo si applica ai generatori di soluzioni e agli sviluppatori di dispositivi.*
 
 Un modello di dispositivo è un progetto che definisce le caratteristiche e i comportamenti di un tipo di dispositivo che si connette a un'applicazione Azure IoT Central.
 
@@ -253,18 +255,6 @@ Per pubblicare un modello di dispositivo, passare all'utente il modello di dispo
 
 Dopo la pubblicazione di un modello di dispositivo, un operatore può accedere alla pagina **Dispositivi** e aggiungere i dispositivi reali o simulati che usano il modello. È possibile continuare a modificare e salvare il modello di dispositivo man mano che si apportano le modifiche. Per eseguire il push di queste modifiche affinché possano essere visualizzate dall'operatore nella pagina **Dispositivi**, è necessario selezionare **Pubblica** ogni volta.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
-
-* Creare un nuovo modello di dispositivo IoT.
-* Creare proprietà cloud.
-* Creare personalizzazioni.
-* Definire una visualizzazione per i dati di telemetria del dispositivo.
-* Pubblicare il modello di dispositivo.
-
-Successivamente, sarà possibile:
-
-> [!div class="nextstepaction"]
-> [Collegare un dispositivo](howto-connect-devkit.md)
+Se sei uno sviluppatore di dispositivi, un passaggio successivo consigliato consiste nel leggere informazioni sul controllo delle versioni dei modelli di [dispositivo.](./howto-version-device-template.md)

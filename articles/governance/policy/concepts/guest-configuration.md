@@ -3,12 +3,12 @@ title: Informazioni su come controllare il contenuto delle macchine virtualiLear
 description: Informazioni su come Criteri di Azure usa l'agente di configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4899f6b3108cabb4e9cdd36e4b2bc5cd2f1cbd4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538036"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759084"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -20,19 +20,25 @@ Oltre a controllare e [correggere le](../how-to/remediate-resources.md) risorse 
 
 Al momento, la maggior parte dei criteri di configurazione guest di Criteri di Azure controlla solo le impostazioni all'interno del computer. Non applicano configurazioni. L'eccezione è un criterio predefinito a [cui si fa riferimento di seguito.](#applying-configurations-using-guest-configuration)
 
+## <a name="resource-provider"></a>Provider di risorse
+
+Prima di poter usare la configurazione guest, è necessario registrare il provider di risorse. Il provider di risorse viene registrato automaticamente se l'assegnazione di un criterio di configurazione guest viene eseguita tramite il portale. È possibile eseguire manualmente la registrazione tramite il [portale,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)o [l'interfaccia della](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)riga di comando di Azure.
+
 ## <a name="extension-and-client"></a>Estensione e client
 
 Per controllare le impostazioni all'interno di una macchina, viene abilitata [un'estensione](../../../virtual-machines/extensions/overview.md) della macchina virtuale. L'estensione scarica l'assegnazione dei criteri applicabile e la configurazione corrispondente.
+
+> [!Important]
+> L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.The Guest Configuration extension is required to perform audits in Azure virtual machines.
+> Per distribuire l'estensione su larga scala, assegnare le definizioni dei criteri seguenti:To deploy the extension at scale, assign the following policy definitions:
+>   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Windows.
+>   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.
 
 ### <a name="limits-set-on-the-extension"></a>Limiti impostati sull'estensione
 
 Per limitare l'estensione dall'impatto delle applicazioni in esecuzione all'interno del computer, la configurazione guest non può superare più del 5% della CPU. Questa limitazione esiste sia per le definizioni predefinite che per le definizioni personalizzate.
 
-## <a name="register-guest-configuration-resource-provider"></a>Registrare il provider di risorse della configurazione guest
-
-Prima di poter usare la configurazione guest, è necessario registrare il provider di risorse. È possibile eseguire la registrazione tramite il [portale,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)o [l'interfaccia della](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)riga di comando di Azure. Il provider di risorse viene registrato automaticamente se l'assegnazione di un criterio di configurazione guest viene eseguita tramite il portale.
-
-## <a name="validation-tools"></a>Strumenti di convalida
+### <a name="validation-tools"></a>Strumenti di convalida
 
 All'interno del computer, il client di configurazione guest utilizza gli strumenti locali per eseguire il controllo.
 
@@ -40,7 +46,7 @@ La tabella seguente elenca gli strumenti locali usati on ciascun sistema operati
 
 |Sistema operativo|Strumento di convalida|Note|
 |-|-|-|
-|Windows|[Configurazione dello stato desiderato](/powershell/scripting/dsc/overview/overview) di Windows PowerShell v2| |
+|WINDOWS|[Configurazione dello stato desiderato](/powershell/scripting/dsc/overview/overview) di Windows PowerShell v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Se Ruby e Python non sono presenti nel computer, vengono installati dall'estensione Configurazione ospite. |
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
@@ -50,17 +56,17 @@ I risultati vengono inviati al provider di risorse Configurazione ospite al term
 
 ## <a name="supported-client-types"></a>Tipi di client supportati
 
-La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
+I criteri di configurazione guest sono inclusivi di nuove versioni. Le versioni precedenti dei sistemi operativi disponibili nel marketplace di Azure vengono escluse se l'agente di configurazione guest non è compatibile. La tabella seguente mostra un elenco dei sistemi operativi supportati nelle immagini di Azure:The following table shows a list of supported operating systems on Azure images:
 
 |Editore|Nome|Versioni|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
-|Credativ|Debian|8, 9|
-|Microsoft|Windows Server|Datacenter 2012, Datacenter 2012 R2, Datacenter 2016, Datacenter 2019 Datacenter|
+|Canonical|Ubuntu Server|14.04 e versioni successive|
+|Credativ|Debian|8 e versioni successive|
+|Microsoft|Windows Server|2012 e versioni successive|
 |Microsoft|Client Windows|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
-|SUSE|SLES|12 SP3|
+|OpenLogic|CentOS|7.3 e versioni successive|
+|Red Hat|Red Hat Enterprise Linux|7.4 e versioni successive|
+|SUSE|SLES|12 SP3 e versioni successive|
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 
@@ -139,7 +145,7 @@ Dove `<version>` si riferisce al numero di versione corrente.
 Il primo passaggio per la risoluzione dei `Test-GuestConfigurationPackage` problemi relativi alle configurazioni o ai moduli di Configurazione ospite deve essere quello di utilizzare il cmdlet seguendo la procedura relativa alla creazione di un criterio di [controllo della configurazione guest personalizzato per Windows.](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows)
 Se l'operazione non riesce, la raccolta dei log client consente di diagnosticare i problemi.
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a>WINDOWS
 
 Acquisire informazioni dai file di log usando [Azure VM Run Command](../../../virtual-machines/windows/run-command.md), lo script di PowerShell di esempio seguente può essere utile.
 

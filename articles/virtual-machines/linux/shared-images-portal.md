@@ -1,24 +1,21 @@
 ---
-title: Creare immagini di macchine virtuali di Azure condivise per Linux usando il portaleCreate shared Azure VM images for Linux using the portal
-description: Informazioni su come usare il portale di Azure per creare e condividere immagini di macchine virtuali.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+title: Creare immagini condivise di macchine virtuali di Azure Linux usando il portaleCreate shared Azure Linux VM images using the portal
+description: Informazioni su come usare il portale di Azure per creare e condividere immagini di macchine virtuali Linux.Learn how to use Azure portal to create and share Linux virtual machine images.
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.custom: ''
-ms.openlocfilehash: 44df85a94ad26d3abcd48f01c31e7aa093c1123f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: akjosh
+ms.openlocfilehash: 74c87d589f1c50551ac5685fe0fa126a82bffbde
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978697"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758444"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Creare una raccolta di immagini condivise di Azure usando il portaleCreate an Azure Shared Image Gallery using the portal
 
@@ -76,7 +73,7 @@ A questo punto è possibile creare una o più nuove macchine virtuali. Questo es
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non serve più, è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale, selezionare **Elimina**, quindi confermare il nome del gruppo di risorse da eliminare.
+Quando non servono più, è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale, selezionare **Elimina** e quindi confermare il nome del gruppo di risorse da eliminare.
 
 Se si desidera eliminare singole risorse, è necessario eliminarle in ordine inverso. Ad esempio, per eliminare una definizione di immagine, è necessario eliminare tutte le versioni dell'immagine create da tale immagine.
 

@@ -10,14 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: e8d1c4a605e8db2e9753bb80c9712dd6c2be7b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158242"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758947"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Connettere un sensore RuuviTag all'applicazione Azure IoT Central
+
+*Questo articolo si applica ai generatori di soluzioni e agli sviluppatori di dispositivi.*
 
 Questo articolo descrive come, in qualità di generatore di soluzioni, è possibile connettere un sensore RuuviTag all'applicazione Microsoft Azure IoT Central.This article describes how, as a solution builder, you can connect a RuuviTag sensor to your Microsoft Azure IoT Central application.
 
@@ -70,8 +72,11 @@ Per creare un RuuviTag simulato:
 1. Selezionare **+ Nuovo**.
 1. Specificare un **ID dispositivo** univoco e un **nome descrittivo del dispositivo.**  
 1. Attivare l'impostazione **Simulato.**
-1. Selezionare **Crea**.  
+1. Selezionare **Create** (Crea).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come connettere un RuuviTag all'applicazione Azure IoT Central, il passaggio successivo consigliato consiste nell'imparare a [personalizzare l'applicazione IoT Central](../retail/tutorial-in-store-analytics-customize-dashboard-pnp.md) per creare una soluzione end-to-end.
+Se sei uno sviluppatore di dispositivi, alcuni passaggi successivi suggeriti sono:If you're a device developer, some suggested next steps are to:
+
+- Informazioni sulla connettività dei dispositivi [in Azure IoT CentralRead about Device connectivity in Azure IoT Central](./concepts-get-connected.md)
+- Informazioni su come [monitorare la connettività dei dispositivi usando l'interfaccia della riga di comando di AzureLearn](./howto-monitor-devices-azure-cli.md) how to Monitor device connectivity using Azure CLI

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 04/12/2020
-ms.openlocfilehash: dbd217c7135172c52a5ec7459930977960c452aa
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 25fdb0aefacbdd9c2630a69981a67821ac155786
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260863"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758814"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configurazione della chiave gestita dal cliente di Azure MonitorAzure Monitor customer-managed key configuration 
 
@@ -211,7 +211,7 @@ Content-type: application/json
 ```
 L'identità viene assegnata alla risorsa *cluster* al momento della creazione.
 
-**Response**
+**Risposta**
 
 200 OK e intestazione.
 Durante il periodo di accesso anticipato della funzionalità, il provisioning del cluster ADX viene eseguito manualmente. Anche se il provisioning del cluster ADX non è necessario per il completamento, è possibile controllare lo stato del provisioning in due modi:
@@ -230,7 +230,7 @@ Authorization: Bearer <token>
 > [!IMPORTANT]
 > Copiare e salvare la risposta poiché saranno necessari i dettagli nei passaggi successivi.
 
-**Response**
+**Risposta**
 
 ```json
 {
@@ -281,7 +281,7 @@ Aggiornare la risorsa *cluster* KeyVaultProperties con i dettagli dell'identific
 
 **Aggiornamento**
 
-Questa richiesta di Gestione risorse è un'operazione asincrona.
+Questa richiesta di Gestione risorse è un'operazione asincrona durante l'aggiornamento dei dettagli dell'identificatore di chiave, mentre è sincrona durante l'aggiornamento del valore Capacity.This Resource Manager request is asynchronous operation when updating Key identifier details, while it is synchronous when updating Capacity value.
 
 > [!Warning]
 > È necessario fornire un corpo completo nell'aggiornamento delle risorse *del cluster* che includa *identity,* *sku,* *KeyVaultProperties* e *location*. Se mancano i dettagli *keyVaultProperties,* l'identificatore di chiave verrà rimosso dalla risorsa *cluster* e verrà [cautala dalla revoca della chiave](#cmk-kek-revocation).
@@ -311,10 +311,10 @@ Content-type: application/json
 ```
 "KeyVaultProperties" contiene i dettagli dell'identificatore della chiave Vault.
 
-**Response**
+**Risposta**
 
 200 OK e intestazione.
-Il completamento dell'identificatore di chiave richiede alcuni minuti. È possibile controllare lo stato del provisioning in due modi:You can check the provisioning state in two ways:
+Il completamento dell'identificatore di chiave richiede alcuni minuti. È possibile controllare lo stato dell'aggiornamento in due modi:
 1. Copiare il valore dell'URL Azure-AsyncOperation dalla risposta e seguire il controllo dello stato delle [operazioni asincrone.](#asynchronous-operations-and-status-check)
 2. Inviare una richiesta GET nella risorsa Cluster ed esaminare le proprietà *KeyVaultProperties.Send* a GET request on the *Cluster* resource and look at the KeyVaultProperties properties. I dettagli dell'identificatore di chiave aggiornati di recente devono restituire nella risposta.
 
@@ -376,7 +376,7 @@ Content-type: application/json
 }
 ```
 
-**Response**
+**Risposta**
 
 200 OK e intestazione.
 I dati ingeriti vengono archiviati crittografati con la chiave gestita dopo l'operazione di associazione, il cui completamento può richiedere fino a 90 minuti. È possibile controllare lo stato di associazione dell'area di lavoro in due modi:You can check the workspace association state in two ways:
@@ -387,7 +387,7 @@ I dati ingeriti vengono archiviati crittografati con la chiave gestita dopo l'op
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 ```
 
-**Response**
+**Risposta**
 
 ```json
 {
@@ -436,13 +436,13 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione della chiave, inclu
 
 - Il numero massimo di risorse *del cluster* per sottoscrizione è limitato a 2
 
-- *L'associazione* delle risorse cluster all'area di lavoro deve essere eseguita SOLO dopo aver verificato che il provisioning del cluster ADX sia stato eseguito. I dati inviati prima di questo provisioning verranno eliminati e non saranno recuperabili.
+- *L'associazione* delle risorse cluster all'area di lavoro deve essere eseguita SOLO dopo aver verificato il completamento del provisioning del cluster ADX. I dati inviati all'area di lavoro prima del completamento del provisioning verranno eliminati e non saranno recuperabili.
 
 - La crittografia CMK si applica ai dati appena ingeriti dopo la configurazione CMK. I dati che sono stati ingeriti prima della configurazione CMK, rimangono crittografati con la chiave Microsoft. È possibile eseguire query sui dati ingeriti prima e dopo la configurazione CMK senza problemi.
 
-- Una volta che l'area di lavoro è associata a una risorsa *Cluster,* non può essere de-associata dalla risorsa *Cluster,* poiché i dati sono crittografati con la chiave e non sono accessibili senza la chiave KEK in Azure Key Vault.
+- È possibile deassociare un'area di lavoro da una risorsa *Cluster* quando si decide che CMK non è necessario per un'area di lavoro specifica. Nuovi dati ingeriti dopo l'operazione di dissociazione vengono archiviati nell'archivio condiviso di Log Analytics com'era prima di essere associati alla risorsa *cluster.* È possibile eseguire una query sui dati ingeriti prima e dopo la dissociazione dell'associazione senza problemi se viene eseguito il provisioning e la configurazione della risorsa *cluster* con una chiave dell'insieme di credenziali delle chiavi valida.
 
-- L'insieme di credenziali delle chiavi di Azure deve essere configurato come recuperabile. Queste proprietà non sono abilitate per impostazione predefinita e devono essere configurate tramite l'interfaccia della riga di comando e PowerShell:These properties aren't enabled by default and should be configured using CLI and PowerShell:
+- L'insieme di credenziali delle chiavi di Azure deve essere configurato come recuperabile. Queste proprietà non sono abilitate per impostazione predefinita e devono essere configurate tramite l'interfaccia della riga di comando o PowerShell:These properties aren't enabled by default and should be configured using CLI or PowerShell:
 
   - [L'opzione Eliminazione temporanea](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) deve essere attivata
   - [La protezione dall'eliminazione](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) deve essere attivata per evitare la cancellazione forzata del segreto/vault anche dopo l'eliminazione temporanea
@@ -470,6 +470,8 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione della chiave, inclu
 
 - Se si tenta di eliminare una risorsa *cluster* associata a un'area di lavoro, l'operazione di eliminazione avrà esito negativo.
 
+- Se si verifica un errore di conflitto durante la creazione di una risorsa *Cluster:* è possibile che la risorsa *cluster* sia stata eliminata negli ultimi 14 giorni e che si trovi in un periodo di eliminazione temporanea. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Il nome viene rilasciato dopo il periodo di eliminazione temporanea quando la risorsa *Cluster* viene eliminata definitivamente.
+
 - Ottenere tutte le risorse cluster per un gruppo di risorse:Get all *Cluster* resources for a resource group:
 
   ```rst
@@ -477,7 +479,7 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione della chiave, inclu
   Authorization: Bearer <token>
   ```
     
-  **Response**
+  **Risposta**
   
   ```json
   {
@@ -488,6 +490,11 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione della chiave, inclu
           "tenantId": "tenant-id",
           "principalId": "principal-Id"
         },
+        "sku": {
+          "name": "capacityReservation",
+          "capacity": 1000,
+          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
+          },
         "properties": {
            "KeyVaultProperties": {
               KeyVaultUri: "https://key-vault-name.vault.azure.net",
@@ -514,23 +521,24 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione della chiave, inclu
   Authorization: Bearer <token>
   ```
     
-  **Response**
+  **Risposta**
     
   La stessa risposta di *'Risorse cluster* per un gruppo di risorse', ma nell'ambito della sottoscrizione.
-    
-- Eliminare la risorsa *cluster:* viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino della risorsa cluster, i dati e le aree di lavoro associate entro 14 giorni, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Dopo il periodo di eliminazione temporanea, *la* risorsa cluster e i dati non sono recuperabili. Le aree di lavoro associate vengono deassociate dalla risorsa *cluster* e i nuovi dati vengono ingeriti nell'archiviazione condivisa e crittografati con la chiave Microsoft.
+
+- Aggiornare la *prenotazione* della capacità nella risorsa *cluster:* quando il volume di dati alle aree di lavoro associate cambia e si desidera aggiornare il livello di prenotazione della capacità per considerazioni sulla fatturazione, seguire l'aggiornamento [Risorsa *cluster* ](#update-cluster-resource-with-key-identifier-details) e fornire il nuovo valore di capacità. Il livello di prenotazione della capacità può essere compreso tra 1.000 e 2.000 GB al giorno e nei passaggi da 100. Per un livello superiore a 2.000 GB al giorno, contatta il contatto Microsoft per abilitarlo.
+
+- Eliminare la risorsa *cluster:* viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino della risorsa *cluster,* inclusi i dati entro 14 giorni, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Dopo il periodo di eliminazione temporanea, il nome della risorsa *Cluster* viene rilasciato, la risorsa *cluster* e i dati vengono eliminati definitivamente e non sono recuperabili. Qualsiasi area di lavoro associata viene deassociata dalla risorsa *cluster* durante l'operazione di eliminazione. I nuovi dati ingeriti vengono archiviati nell'archiviazione condivisa di Log Analytics e crittografati con la chiave Microsoft.New ingested data is stored in shared Log Analytics storage and encrypted with Microsoft key. L'operazione di deassociata delle aree di lavoro è asincrona.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
 
-  **Response**
+  **Risposta**
 
   200 - OK
 
-- Ripristinare la risorsa *cluster* e i dati, durante il periodo di eliminazione temporanea, creare una risorsa *cluster* con lo stesso nome e nella stessa sottoscrizione, gruppo di risorse e area. Seguire il passaggio **Crea *risorsa cluster* ** per ripristinare la risorsa *cluster.*
-
+- Ripristinare la risorsa *cluster* e i dati: una risorsa *cluster* eliminata negli ultimi 14 giorni è in stato di eliminazione temporanea e può essere ripristinata. Questa operazione viene eseguita manualmente dal gruppo di prodotti attualmente. Utilizzare il canale Microsoft per le richieste di ripristino.
 
 ## <a name="appendix"></a>Appendice
 
@@ -579,7 +587,7 @@ Content-type: application/json
 }
 ```
 
-**Response**
+**Risposta**
 
 200 OK e intestazione.
 Durante il periodo di accesso anticipato della funzionalità, il provisioning del cluster ADX viene eseguito manualmente. Anche se il provisioning del cluster ADX non è necessario per il completamento, è possibile controllare lo stato del provisioning in due modi:
@@ -602,7 +610,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 Authorization: Bearer <token>
 ```
 
-**Response**
+**Risposta**
 ```json
 {
   "identity": {
@@ -653,7 +661,7 @@ Content-type: application/json
 "clusterDefinitionId" è il valore "clusterId" fornito nella risposta dal passaggio precedente.
 "tipo" dell'esempio è "web".
 
-**Response**
+**Risposta**
 
 ```json
 {

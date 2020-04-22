@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08107874598a68fb5ce2a1a8a98b6a81d7b94d4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472776"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756785"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -127,7 +127,7 @@ Crea un'attestazione stringa dal parametro di input fornito nella trasformazione
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | Stringa da impostare. Questo parametro di input supporta le espressioni di [trasformazione delle attestazioni stringa.](string-transformations.md#string-claim-transformations-expressions) |
+| InputParameter | Valore | string | Stringa da impostare. Questo parametro di input supporta le espressioni di [trasformazione delle attestazioni stringa.](string-transformations.md#string-claim-transformations-expressions) |
 | OutputClaim | createdClaim | string | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
 Usare questa trasformazione di attestazioni per impostare un valore ClaimType di stringa.
@@ -615,13 +615,17 @@ Verifica `claimToMatch` che un'attestazione di stringa e `matchTo` un parametro 
 | inputClaim | claimToMatch | string | Tipo dell'attestazione di cui eseguire il confronto. |
 | InputParameter | matchTo | string | L'espressione regolare per cui cercare una corrispondenza. |
 | InputParameter | outputClaimIfMatched | string | Valore da impostare se le stringhe sono uguali. |
+| InputParameter | extractGroups (gruppi di dati) | boolean | [Facoltativo] Specifica se la corrispondenza Regex deve estrarre i valori dei gruppi. Valori possibili: `true` `false` , o (impostazione predefinita). | 
 | OutputClaim | outputClaim | string | Se l'espressione regolare corrisponde, questa `outputClaimIfMatched` attestazione di output contiene il valore del parametro di input. O null, se nessuna corrispondenza. |
 | OutputClaim | regexCompareResultClaim | boolean | Tipo di attestazione di output del risultato `true` `false` della corrispondenza dell'espressione regolare, che deve essere impostato come o in base al risultato della corrispondenza. |
+| OutputClaim| Il nome della rivendicazione| string | Se il parametro di input extractGroups è impostato su true, è stato richiamato l'elenco dei tipi di attestazione generati dopo che è stata richiamata questa trasformazione delle attestazioni. Il nome dell'claimType deve corrispondere al nome del gruppo Regex. | 
 
-Ad esempio, controlla se il numero di telefono fornito è valido, in base al modello di espressione regolare del numero di telefono.
+### <a name="example-1"></a>Esempio 1
+
+Controlla se il numero di telefono fornito è valido, in base al modello di espressione regolare del numero di telefono.
 
 ```XML
-<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
   </InputClaims>
@@ -636,8 +640,6 @@ Ad esempio, controlla se il numero di telefono fornito è valido, in base al mod
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Esempio
-
 - Attestazioni di input:
     - **claimToMatch**: "64854114520"
 - Parametri di input:
@@ -647,6 +649,39 @@ Ad esempio, controlla se il numero di telefono fornito è valido, in base al mod
     - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: true
 
+### <a name="example-2"></a>Esempio 2
+
+Controlla se l'indirizzo di posta elettronica fornito è valido e restituisce l'alias di posta elettronica.
+
+```XML
+<ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="(?&lt;mailAlias&gt;.*)@(.*)$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
+    <InputParameter Id="extractGroups" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isEmailString" TransformationClaimType="regexCompareResultClaim" />
+    <OutputClaim ClaimTypeReferenceId="mailAlias" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Attestazioni di input:
+    - **claimToMatch**:emily@contoso.com" "
+- Parametri di input:
+    - **matchTo**:`(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**: "isEmail"
+    - **extractGroups**: true
+- Attestazioni di output:
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: true
+    - **mailAlias**: emily
+    
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
 Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano uguali e imposta le attestazioni di output con il valore presente nei parametri di input `stringMatchMsg` e `stringMatchMsgCode`, insieme all'attestazione di output del risultato di confronto che deve essere impostato come `true` o `false` in base al risultato del confronto.

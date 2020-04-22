@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78384818"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767035"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurare l'accelerazione dell'unità di elaborazione grafica (GPU) per Windows Virtual Desktop
 
@@ -88,7 +88,7 @@ Per verificare che Desktop remoto utilizzi la codifica accelerata da GPU:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Queste istruzioni dovrebbero avere l'utente operativo con l'accelerazione GPU in una singola sessione host VM. Alcune considerazioni aggiuntive per abilitare l'accelerazione GPU in un pool host più grande:Some additional considerations for enabling GPU acceleration across a larger host pool:
+Queste istruzioni dovrebbero avere l'utente operativo con l'accelerazione GPU in un host di sessione (una macchina virtuale). Alcune considerazioni aggiuntive per abilitare l'accelerazione GPU in un pool host più grande:Some additional considerations for enabling GPU acceleration across a larger host pool:
 
 * Prendere in considerazione [l'uso di un'estensione di macchina virtuale](/azure/virtual-machines/extensions/overview) per semplificare l'installazione e gli aggiornamenti dei driver in un numero di macchine virtuali. Usare l'estensione del driver [NVIDIA GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) per le macchine virtuali con GPU NVIDIA e usare l'estensione del driver AMD GPU (disponibile a breve) per le macchine virtuali con GPU AMD.
 * Prendere in considerazione l'utilizzo di Criteri di gruppo di Active Directory per semplificare la configurazione dei criteri di gruppo in un numero di macchine virtuali. Per informazioni sulla distribuzione di Criteri di gruppo nel dominio di Active Directory, vedere [Utilizzo degli oggetti Criteri di gruppo](https://go.microsoft.com/fwlink/p/?LinkId=620889).

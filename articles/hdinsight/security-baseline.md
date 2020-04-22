@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 93a5bcd77bb4f42d9099cc1ddb1b5c3130c19059
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 2ddb9a9c205135707d7d96beb106074baa1ce324
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010138"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758269"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Azure Security Baseline for HDInsight
 
@@ -144,7 +144,7 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 È anche possibile usare Blueprint di Azure per semplificare le distribuzioni di Azure su larga scala creando una creazione di pacchetti di elementi dell'ambiente chiave, ad esempio modelli di Azure Resource Manager, controlli RBAC e criteri, in una singola definizione del blueprint. Applica facilmente il blueprint a nuove sottoscrizioni e ambienti e ottimizza il controllo e la gestione tramite il controllo delle versioni.
 
-Come visualizzare gli alias dei criteri di Azure disponibili:How to view available Azure Policy Aliases:
+Come visualizzare gli alias di Criteri di Azure disponibili:How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -704,7 +704,7 @@ Facoltativamente, se si dispone di una sottoscrizione rapid7, Qualys o di qualsi
 
 Come installare l'agente Rapid7 manualmente:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/install
 
 Come installare Qualys Agent manualmente:
 
@@ -774,7 +774,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 Anche se le risorse di Azure classiche possono essere individuate tramite Resource Graph, è consigliabile creare e usare le risorse di Azure Resource Manager in futuro.
 
-Come creare query con Azure Graph:How to create queries with Azure Graph:
+Come creare query con Azure Resource Graph:How to create queries with Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -940,7 +940,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso a Azure Resource 
 
 **Linee guida:** usare gli alias dei criteri di Azure nello spazio dei nomi "Microsoft.HDInsight" per creare criteri personalizzati per controllare o applicare la configurazione di rete del cluster HDInsight.Guidance : Use Azure Policy aliases in the "Microsoft.HDInsight" namespace to create custom policies to audit or enforce the network configuration of your HDInsight cluster.
 
-Come visualizzare gli alias dei criteri di Azure disponibili:How to view available Azure Policy Aliases:
+Come visualizzare gli alias di Criteri di Azure disponibili:How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -1034,7 +1034,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Linee guida:** usare gli alias dei criteri di Azure nello spazio dei nomi "Microsoft.HDInsight" per creare criteri personalizzati per controllare o applicare la configurazione del cluster HDInsight.Guidance : Use Azure Policy aliases in the "Microsoft.HDInsight" namespace to create custom policies to audit or enforce the configuration of your HDInsight cluster.
 
-Come visualizzare gli alias dei criteri di Azure disponibili:How to view available Azure Policy Aliases:
+Come visualizzare gli alias di Criteri di Azure disponibili:How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 

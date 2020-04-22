@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 0bdede482b79c82e6e05b1429cb7c17399bc2277
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396075"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756619"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -90,7 +90,14 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Context:IPAddress} | Indirizzo IP utente. | 11.111.111.11 |
 | "Contesto:KMSI" | Indica se la casella di controllo [Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  true |
 
-### <a name="non-protocol-parameters"></a>Parametri non di protocollo
+### <a name="claims"></a>Claims 
+
+| Attestazione | Descrizione | Esempio |
+| ----- | ----------- | --------|
+| -Claim:tipo di attestazione | Identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file di criteri padre.  Ad esempio: `{Claim:displayName}` `{Claim:objectId}`, o . | Valore del tipo di attestazione.|
+
+
+### <a name="oauth2-key-value-parameters"></a>Parametri chiave-valore OAuth2
 
 I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappati a un'attestazione nel percorso utente Ad esempio, la richiesta generata dall'applicazione può includere un parametro di stringa di query denominato `app_session`, `loyalty_number` o qualsiasi stringa di query personalizzata.
 
@@ -118,6 +125,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 | SAML:AllowCreate | Valore `AllowCreate` dell'attributo, dall'elemento `NameIDPolicy` della richiesta SAML. | True |
 | SAML:ForceAuthn | Valore `ForceAuthN` dell'attributo, dall'elemento `AuthnRequest` della richiesta SAML. | True |
 | SAML:NomeProvider | Valore `ProviderName` dell'attributo, dall'elemento `AuthnRequest` della richiesta SAML.| Contoso.com |
+| SAML:RelayState | Parametro di stringa di query `RelayState`.| 
 
 ## <a name="using-claim-resolvers"></a>Utilizzo dei resolver di attestazioniUsing claim resolvers
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1c7e18214ec175b8b21d25643098631a044da19c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549036"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758309"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Azure Security Baseline for Event Hubs
 
@@ -335,7 +335,7 @@ Come usare Criteri di Azure:How to use Azure Policy:https://docs.microsoft.com/a
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Usare Single Sign-On (SSO) con Azure Active Directory
 
-**Indicazioni:** Microsoft Azure offre la gestione integrata del controllo di accesso per le risorse e le applicazioni basate su Azure Active Directory (AD). Un vantaggio chiave dell'uso di Azure AD con hub eventi di Azure è che non è più necessario archiviare le credenziali nel codice. Al contrario, è possibile richiedere un token di accesso OAuth 2.0 dalla piattaforma Microsoft Identity.Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. Il nome della risorsa https://eventhubs.azure.net/per richiedere un token è . Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse di Hub eventi di Azure.If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Event Hubs resources.
+**Indicazioni:** Microsoft Azure offre la gestione integrata del controllo di accesso per le risorse e le applicazioni basate su Azure Active Directory (AD). Un vantaggio chiave dell'uso di Azure AD con hub eventi di Azure è che non è più necessario archiviare le credenziali nel codice. Al contrario, è possibile richiedere un token di accesso OAuth 2.0 dalla piattaforma Microsoft Identity.Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. Il nome della risorsa per\/richiedere un token è https: /eventhubs.azure.net/. Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse di Hub eventi di Azure.If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Event Hubs resources.
 
 Come autenticare un'applicazione con Azure AD per accedere alle risorse di Hub eventi:How to authenticate an application with Azure AD to access Event Hubs resources:https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -631,7 +631,7 @@ Come creare avvisi per gli eventi del log attività di Azure:How to create alert
 
 **Indicazioni:** usare Azure Resource Graph per eseguire query e individuare tutte le risorse (inclusi gli spazi dei nomi di Hub eventi di Azure) all'interno delle sottoscrizioni. Assicurarsi di disporre delle autorizzazioni appropriate (di lettura) nel tenant e di essere in grado di enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni.
 
-Come creare query con Azure Graph:How to create queries with Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Come creare query con Azure Resource Graph:How to create queries with Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Come visualizzare le sottoscrizioni di Azure:How to view your Azure Subscriptions:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -779,7 +779,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso a Azure Resource 
 
 Criteri predefiniti di Azure per lo spazio dei nomi Hub eventi:Azure Built-in Policy for Event Hubs namespace:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-Come visualizzare gli alias dei criteri di Azure disponibili:How to view available Azure Policy Aliases:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Come visualizzare gli alias di Criteri di Azure disponibili:How to view available Azure Policy aliases:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 Come configurare e gestire Criteri di Azure:How to configure and manage Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bb77d1a09cb2692765c4c834ce617d13465d4d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37c7bc99881c8d1106c8464cfe18c9e63b8a1b02
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157569"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756732"
 ---
 # <a name="create-a-new-device-template-version"></a>Creare una nuova versione di un modello di dispositivo
 
-
+*Questo articolo si applica ai generatori di soluzioni e agli sviluppatori di dispositivi.*
 
 Azure IoT Central consente lo sviluppo rapido di applicazioni IoT. È possibile scorrere rapidamente i progetti di modelli di dispositivo aggiungendo, modificando o eliminando funzionalità, visualizzazioni e personalizzazioni del dispositivo. Dopo aver pubblicato il modello di dispositivo, il modello di funzionalità del dispositivo viene visualizzato come Pubblicato con le icone **di** blocco accanto al modello. Per apportare modifiche al modello di funzionalità del dispositivo, è necessario creare una nuova versione del modello di dispositivo. Nel frattempo le proprietà cloud, le personalizzazioni e le visualizzazioni possono essere modificate in qualsiasi momento senza dover eseguire il versioning del modello di dispositivo. Dopo aver salvato una di queste modifiche, è possibile pubblicare il modello di dispositivo per rendere le modifiche più recenti disponibili per la visualizzazione da parte dell'operatore in Esplora dispositivi.
 
@@ -81,7 +81,4 @@ Per la versione di un'interfaccia:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si conosce la procedura per usare le versioni dei modelli di dispositivo nell'applicazione Azure IoT Central, il prossimo passaggio suggerito è:
-
-> [!div class="nextstepaction"]
-> [Come creare regole dei dati di telemetria](tutorial-create-telemetry-rules.md)
+Se sei uno sviluppatore di dispositivi, un passaggio successivo consigliato consiste nel leggere informazioni sui [dispositivi Azure IoT Edge e Azure IoT Central](./concepts-iot-edge.md).

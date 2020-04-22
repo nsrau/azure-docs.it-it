@@ -2,17 +2,17 @@
 title: Crittografia lato server dei dischi gestiti di Azure - Interfaccia della riga di comando di AzureServer-side encryption of Azure Managed Disks - Azure CLI
 description: Archiviazione di Azure protegge i dati crittografandoli inattivi prima di essere salvati in modo permanente nei cluster di archiviazione. È possibile fare affidamento sulle chiavi gestite da Microsoft per la crittografia dei dischi gestiti oppure utilizzare chiavi gestite dal cliente per gestire la crittografia con chiavi personalizzate.
 author: roygara
-ms.date: 04/02/2020
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 68341de82ae15df91477947664c500caaa96a09a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 151c84424e33233cd48414875230a63df598d8e2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81452724"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757440"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server dei dischi gestiti di AzureServer-side encryption of Azure managed disks
 
@@ -72,7 +72,7 @@ Per il momento, le chiavi gestite dal cliente hanno le restrizioni seguenti:For 
 
 - Se questa funzionalità è abilitata per il disco, non è possibile disabilitarla.
     Se è necessario risolvere questo problema, è necessario [copiare tutti i dati](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) in un disco gestito completamente diverso che non utilizza chiavi gestite dal cliente.
-- Sono supportate solo [chiavi RSA "soft" e "hard"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) di dimensioni 2048, senza altre chiavi o dimensioni.
+- Sono supportate solo [chiavi RSA "soft" e "hard"](../../key-vault/keys/about-keys.md) di dimensioni 2048, senza altre chiavi o dimensioni.
 - I dischi creati da immagini personalizzate crittografate utilizzando la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati utilizzando le stesse chiavi gestite dal cliente e devono trovarsi nella stessa sottoscrizione.
 - Gli snapshot creati da dischi crittografati con crittografia lato server e chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente.
 - Le immagini personalizzate crittografate utilizzando la crittografia lato server e le chiavi gestite dal cliente non possono essere utilizzate nella raccolta immagini condivise.

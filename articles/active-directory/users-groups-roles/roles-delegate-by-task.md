@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284875"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81755403"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -76,9 +76,9 @@ Configurare le proprietà aziendali | Amministratore globale |
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Autenticazione pass-through | Amministratore globale | 
-Leggere tutta la configurazione | Lettore globale | 
-Accesso Single Sign-On facile (Seamless SSO) | Amministratore globale | 
+Autenticazione pass-through | Amministratore ibrido identità | 
+Leggere tutta la configurazione | Lettore globale | Amministratore ibrido identità |
+Accesso Single Sign-On facile (Seamless SSO) | Amministratore ibrido identità | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -346,7 +346,7 @@ Aggiornare le impostazioni dell'utente | Amministratore globale |
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Inviare un ticket di supporto | Amministratore del servizio | Amministratore dell'applicazione, Amministratore di Azure Information Protection, Amministratore fatturazione, Amministratore applicazioni cloud, Amministratore conformità, Amministratore di Dynamics 365, Amministratore di Analisi desktop, Amministratore di Exchange, Password Amministratore, Amministratore di Intune, Amministratore di Skype for Business, Amministratore di Power BI, Amministratore autenticazione con privilegi, Amministratore di SharePoint, Amministratore di Teams Communications, Amministratore team, Amministratore utenti, Amministratore dell'analisi dell'area di lavoro
+Inviare un ticket di supporto | Amministratore del servizio | Amministratore dell'applicazione, Amministratore di Azure Information Protection, Amministratore dell'applicazione cloud, Amministratore applicazioni di conformità, Amministratore di Dynamics 365, Amministratore di Analisi desktop, Amministratore di Exchange, Amministratore password, Amministratore di Intune, Amministratore di Skype for Business, Amministratore di Power BI, Amministratore autenticazione con privilegi, Amministratore di SharePoint, Amministratore delle comunicazioni Teams, Amministratore utenti, Amministratore di Workplace Analytics
 
 ## <a name="next-steps"></a>Passaggi successivi
 

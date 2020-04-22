@@ -7,14 +7,16 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 69660152458de26e9dbcbf1f50db6ce6824351d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77027069"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759095"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connettere i dispositivi Azure IoT Edge a un'applicazione Azure IoT CentralConnect Azure IoT Edge devices to an Azure IoT Central application
+
+*Questo articolo si applica ai generatori di soluzioni e agli sviluppatori di dispositivi.*
 
 IoT Edge è costituito da tra componenti:
 
@@ -72,4 +74,4 @@ Se il dispositivo IoT Edge è stato selezionato per fungere da dispositivo gatew
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si conosce i modelli di applicazione IoT Central, iniziare [a creare un'applicazione centrale IoT](quick-deploy-iot-central.md).
+Se sei uno sviluppatore di dispositivi, un passaggio successivo consigliato consiste nell'apprendere i [tipi di dispositivi gateway in IoT Central](./tutorial-define-gateway-device-type.md).

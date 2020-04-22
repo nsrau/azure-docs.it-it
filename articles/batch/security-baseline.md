@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fef1afb9748fd6f2f59b972c451d95ae1204ef70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 8bda712523faa90f32a12fe7eecce27dccf3a55c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011634"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756628"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Azure Security Baseline for Batch
 
@@ -712,7 +712,7 @@ Facoltativamente, se si dispone di una piattaforma di gestione delle vulnerabili
 
 Anche se le risorse di Azure classiche possono essere individuate tramite Resource Graph, è consigliabile creare e usare le risorse di Azure Resource Manager (ARM) in futuro.
 
-Come creare query con Azure Graph:How to create queries with Azure Graph:
+Come creare query con Azure Resource Graph:How to create queries with Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -877,7 +877,7 @@ Ciò non è applicabile ad Azure Batch, poiché gli utenti (non amministratori) 
 
 **Linee guida:** usare gli alias di Criteri di Azure nello spazio dei nomi "Microsoft.Batch" per creare criteri personalizzati per controllare o applicare la configurazione degli account e dei pool di Azure Batch.Guidance : Use Azure Policy aliases in the "Microsoft.Batch" namespace to create custom policies to audit or enforce the configuration of your Azure Batch accounts and pools.
 
-Come visualizzare gli alias dei criteri di Azure disponibili:How to view available Azure Policy Aliases:
+Come visualizzare gli alias di Criteri di Azure disponibili:How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -899,7 +899,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7.3: Gestire le configurazioni sicure per tutte le risorse di Azure7.3: Maintain Secure Configurations for all Azure Resources
 
-**Linee guida:** usare i criteri di Azure [nega] e [distribuire se non esistono] per applicare impostazioni sicure per le risorse di Azure correlate all'account Batch e ai pool (ad esempio reti virtuali, subnet, firewall di Azure, account di archiviazione di Azure e così via). È possibile usare alias dei criteri di Azure dagli spazi dei nomi seguenti per creare criteri personalizzati:You may use Azure Policy Aliases from the following namespaces to create custom policies:
+**Linee guida:** usare i criteri di Azure [nega] e [distribuire se non esistono] per applicare impostazioni sicure per le risorse di Azure correlate all'account Batch e ai pool (ad esempio reti virtuali, subnet, firewall di Azure, account di archiviazione di Azure e così via). È possibile usare gli alias di Criteri di Azure dagli spazi dei nomi seguenti per creare criteri personalizzati:You may use Azure Policy aliases from the following namespaces to create custom policies:
 
 - Microsoft.Batch
 
@@ -987,7 +987,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 - È consigliabile abilitare i log di diagnostica negli account Batch
 
-Come visualizzare gli alias dei criteri di Azure disponibili:How to view available Azure Policy Aliases:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Come visualizzare gli alias di Criteri di Azure disponibili:How to view available Azure Policy aliases:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 Come configurare e gestire Criteri di Azure:How to configure and manage Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

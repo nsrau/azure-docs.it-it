@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 46fa0160dd8b37e89cdd77ba8acdae294fddbefe
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 6e660c1244dd5566fbfb45a6da37d39294354ccb
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616889"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756994"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Baseline di sicurezza di Azure per Key Vault
 
@@ -881,7 +881,7 @@ Distribuisci le impostazioni di diagnostica per Key Vault nell'hub eventi
 
 Usare le raccomandazioni del Centro sicurezza di Azure come linea di base di configurazione sicura per le istanze dell'insieme di credenziali delle chiavi di Azure.Use recommendations from Azure Security Center as a secure configuration baseline for your Azure Key Vault instances.
 
-Come visualizzare gli alias dei criteri di Azure disponibili:How to view available Azure Policy Aliases:
+Come visualizzare gli alias di Criteri di Azure disponibili:How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 

@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: bed6736fda0c1815964f9017adb1e6fffa9335d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 82139eef9708ff8d76e1087c71aa5445ba898385
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110681"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759602"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorare, diagnosticare e risolvere i problemi di disconnessione con l'hub IoT di AzureMonitor, diagnose, and troubleshoot disconnects with Azure IoT Hub
 
@@ -27,7 +28,7 @@ Usare Monitoraggio di Azure per ricevere avvisi e scrivere log quando i disposit
 
 Per registrare gli eventi e gli errori di connessione dei dispositivi, attivare la diagnostica per l'hub IoT. È consigliabile attivare questi log il prima possibile, perché se i log di diagnostica non sono abilitati, quando si disconnettono il dispositivo, non si dia alcuna informazione per risolvere il problema.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Passare all'hub IoT.
 
@@ -47,7 +48,7 @@ Per altre informazioni, vedere [Monitorare l'integrità dell'hub IoT di Azure ed
 
 Per ricevere avvisi quando i dispositivi si disconnettono, configurare gli avvisi nella metrica **Dispositivi connessi (anteprima).**
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Passare all'hub IoT.
 
@@ -69,7 +70,7 @@ Per rilevare le disconnessioni *per dispositivo,* ad esempio quando è necessari
 
 Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi, si ricevono avvisi in caso di problemi. In questa sezione viene descritto come cercare problemi comuni quando si riceve un avviso. I passaggi seguenti presuppongono che siano stati impostati i log di Monitoraggio di Azure per i log di diagnostica.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Passare all'hub IoT.
 

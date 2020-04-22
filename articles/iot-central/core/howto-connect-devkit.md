@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 0a393ae8629f1742002344ee717a6719269a6722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcf1dd2f89cf049d7da5b56170b2c13874c83ba4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158593"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756800"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
+
+*Questo articolo si applica agli sviluppatori di dispositivi.*
 
 Questo articolo illustra come connettere un dispositivo MXChip IoT DevKit (DevKit) a un'applicazione Azure IoT Central.This article shows you how to connect an MXChip IoT DevKit (DevKit) device to an Azure IoT Central application. Il dispositivo utilizza il modello IoT Plug and Play (anteprima) certificato per il dispositivo DevKit per configurare la connessione a IoT Central.
 
@@ -44,7 +46,7 @@ Per seguire la procedura descritta in questo articolo, sono necessarie le risors
 
     ![Nuovo dispositivo](media/howto-connect-devkit/new-device.png)
 
-1. Nella finestra pop-up, immettere `SampleDevKit` l'ID **dispositivo** come e **il nome del dispositivo** come `MXChip IoT DevKit - Sample`. Assicurarsi che l'opzione Simulato sia **disattivata.** Quindi selezionare **Crea**.
+1. Nella finestra pop-up, immettere `SampleDevKit` l'ID **dispositivo** come e **il nome del dispositivo** come `MXChip IoT DevKit - Sample`. Assicurarsi che l'opzione Simulato sia **disattivata.** Selezionare quindi **Crea**.
 
     ![ID e nome del dispositivo](media/howto-connect-devkit/device-id-name.png)
 
@@ -104,4 +106,7 @@ Per esaminare il codice o modificarlo e compilarlo, passare a [Esempi di codice]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come connettere un dispositivo DevKit all'applicazione Azure IoT Central, il passaggio successivo consigliato consiste nell'apprendere come [configurare un modello](./howto-set-up-template.md) di dispositivo personalizzato per il proprio dispositivo IoT.Now that you've learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to learn how to set up a custom device template for your own IoT device.
+Se sei uno sviluppatore di dispositivi, alcuni passaggi successivi suggeriti sono:If you're a device developer, some suggested next steps are to:
+
+- Informazioni sulla connettività dei dispositivi [in Azure IoT CentralRead about Device connectivity in Azure IoT Central](./concepts-get-connected.md)
+- Informazioni su come [monitorare la connettività dei dispositivi usando l'interfaccia della riga di comando di AzureLearn](./howto-monitor-devices-azure-cli.md) how to Monitor device connectivity using Azure CLI

@@ -3,12 +3,12 @@ title: Come creare criteri di configurazione guest per WindowsHow to create Gues
 description: Informazioni su come creare criteri di configurazione guest dei criteri di Azure per Windows.Learn how to create an Azure Policy Guest Configuration policy for Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b06aa0a70bfa17d67da9c6af447138f8bb9e712
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313987"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757409"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di configurazione guest per WindowsHow to create Guest Configuration policies for Windows
 
@@ -25,6 +25,11 @@ Usare le azioni seguenti per creare una configurazione personalizzata per la con
 
 > [!IMPORTANT]
 > I criteri personalizzati con Configurazione ospite sono una funzionalità di anteprima.
+>
+> L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.The Guest Configuration extension is required to perform audits in Azure virtual machines.
+> Per distribuire l'estensione su larga scala, assegnare le definizioni dei criteri seguenti:To deploy the extension at scale, assign the following policy definitions:
+>   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Windows.
+>   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.
 
 ## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
 
@@ -176,8 +181,10 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./Config
+AuditBitLocker ./Config
 ```
+
+Salvare il file `config.ps1` con il nome nella cartella del progetto. Eseguirlo in PowerShell `./config.ps1` eseguendo nel terminale. Verrà creato un nuovo file mof.
 
 Il `Node AuditBitlocker` comando non è tecnicamente richiesto, `AuditBitlocker.mof` ma produce un `localhost.mof`file denominato anziché il valore predefinito, . Avere il nome del file .mof seguire la configurazione rende facile organizzare molti file quando si opera su larga scala.
 

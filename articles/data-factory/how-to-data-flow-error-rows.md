@@ -6,14 +6,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: makromer
-ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8225143bb75118620b45c2520bb62ea30501a617
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414365"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732696"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Gestire le righe di errore di troncamento SQL nei flussi di dati di mapping di Data FactoryHandle SQL truncation error rows in Data Factory mapping data flows
 
@@ -30,6 +30,9 @@ Uno scenario comune in Data Factory quando si usano i flussi di dati di mapping 
     ![Flusso di dati filmato 1](media/data-flow/error4.png)
     
 3. Il problema è che il titolo del film non rientra affatto all'interno di una colonna sink che può contenere solo 5 caratteri. Quando si esegue questo flusso di dati, si riceverà un errore simile al seguente:When you execute this data flow, you will receive an error like this one:```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+
+Questo video illustra un esempio di impostazione della logica di gestione delle righe di errore nel flusso di dati:This video walks through an example of setting-up error row handling logic in your data flow:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]
 
 ## <a name="how-to-design-around-this-condition"></a>Come progettare intorno a questa condizione
 

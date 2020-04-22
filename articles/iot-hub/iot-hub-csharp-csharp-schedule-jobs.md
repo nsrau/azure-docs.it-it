@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 7925ca5c69d01b098764ff744fb832eaa43118d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 4c71a108d1967027465d127db50737119af3e2c1
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77108965"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733377"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Pianificare e trasmettere processi (.NET)
 
@@ -83,7 +84,7 @@ In questa sezione viene creata un'app console .NET che risponde a un metodo dire
 
     Questo passaggio scarica, installa e aggiunge un riferimento al pacchetto [NuGet dell'SDK del dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e alle relative dipendenze.
 
-1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le `using` seguenti istruzioni all'inizio del file **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -166,7 +167,7 @@ In questa sezione viene creata un'app console .NET che risponde a un metodo dire
 
 In questa sezione viene creata un'app console .NET (tramite C)) che usa i processi per chiamare il metodo diretto **LockDoor** e inviare gli aggiornamenti delle proprietà desiderati a più dispositivi.
 
-1. In Visual Studio selezionare **File** > **nuovo** > **progetto**. In **Crea un nuovo progetto**scegliere App console **(.NET Framework)** e quindi scegliere **Avanti**.
+1. In Visual Studio selezionare **File** > **Nuovo** > **Progetto**. In **Crea un nuovo progetto**scegliere App console **(.NET Framework)** e quindi scegliere **Avanti**.
 
 1. In **Configura il nuovo progetto assegnare**al progetto il nome *ScheduleJob*. In **Soluzione**scegliere **Aggiungi a soluzione**, quindi **selezionare Crea**.
 
@@ -178,7 +179,7 @@ In questa sezione viene creata un'app console .NET (tramite C)) che usa i proces
 
    Questa procedura scarica, installa e aggiunge un riferimento al pacchetto NuGet [Azure IoT SDK per servizi](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e alle relative dipendenze.
 
-1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le `using` seguenti istruzioni all'inizio del file **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices;

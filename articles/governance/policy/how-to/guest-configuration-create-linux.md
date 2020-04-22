@@ -3,12 +3,12 @@ title: Come creare criteri di configurazione guest per LinuxHow to create Guest 
 description: Informazioni su come creare criteri di configurazione guest dei criteri di Azure per Linux.Learn how to create an Azure Policy Guest Configuration policy for Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 65e0082f87f05104e9a57ff0342cd3d2950b63e8
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 24442a89d55e34f9ce9697c2f6a32cfc740bcd85
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617937"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758969"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di configurazione guest per LinuxHow to create Guest Configuration policies for Linux
 
@@ -24,6 +24,11 @@ Usare le azioni seguenti per creare una configurazione personalizzata per la con
 
 > [!IMPORTANT]
 > I criteri personalizzati con Configurazione ospite sono una funzionalità di anteprima.
+>
+> L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.The Guest Configuration extension is required to perform audits in Azure virtual machines.
+> Per distribuire l'estensione su larga scala, assegnare le definizioni dei criteri seguenti:To deploy the extension at scale, assign the following policy definitions:
+>   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Windows.
+>   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.
 
 ## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
 
@@ -101,7 +106,7 @@ end
 
 Salvare il file `linux-path.rb` con nome `controls` in `linux-path` una nuova cartella denominata all'interno della directory.
 
-Infine, creare una configurazione, importare il modulo `ChefInSpecResource` di risorsa **GuestConfiguration** e utilizzare la risorsa per impostare il nome del profilo InSpec.
+Infine, creare una configurazione, importare il modulo di risorsa **PSDesiredStateConfiguration** e compilare la configurazione.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -119,10 +124,15 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
+import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
+Salvare il file `config.ps1` con il nome nella cartella del progetto. Eseguirlo in PowerShell `./config.ps1` eseguendo nel terminale. Verrà creato un nuovo file mof.
+
 Il `Node AuditFilePathExists` comando non è tecnicamente richiesto, `AuditFilePathExists.mof` ma produce un `localhost.mof`file denominato anziché il valore predefinito, . Avere il nome del file .mof seguire la configurazione rende facile organizzare molti file quando si opera su larga scala.
+
+
 
 A questo punto dovrebbe essere una struttura di progetto come indicato di seguito:You should now have a project structure as below:
 
@@ -150,8 +160,8 @@ Eseguire il comando seguente per creare un pacchetto usando la configurazione sp
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditFilePathExists' `
-  -Configuration './Config/AuditFilePathExists.mof'
-  -ChefProfilePath './'
+  -Configuration './Config/AuditFilePathExists.mof' `
+  -ChefInSpecProfilePath './'
 ```
 
 Dopo aver creato il pacchetto di configurazione ma prima di pubblicarlo in Azure, è possibile testare il pacchetto dalla workstation o dall'ambiente CI/CD. Il cmdlet `Test-GuestConfigurationPackage` GuestConfiguration include nell'ambiente di sviluppo lo stesso agente usato nei computer di Azure.The GuestConfiguration cmdlet includes the same agent in your development environment as is used inside Azure machines. Utilizzando questa soluzione, è possibile eseguire il test di integrazione in locale prima del rilascio in ambienti cloud fatturati.
@@ -168,7 +178,7 @@ Eseguire il comando seguente per testare il pacchetto creato nel passaggio prece
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage `
-  -Path ./AuditFilePathExists.zip
+  -Path ./AuditFilePathExists/AuditFilePathExists.zip
 ```
 
 Il cmdlet supporta anche l'input dalla pipeline di PowerShell.The cmdlet also supports input from the PowerShell pipeline. Eseguire il `New-GuestConfigurationPackage` pipamento `Test-GuestConfigurationPackage` dell'output del cmdlet al cmdlet.

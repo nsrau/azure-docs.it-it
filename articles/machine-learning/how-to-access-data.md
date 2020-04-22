@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 4a2102f442fc176762b7d5d69f7b367a94633ef5
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383449"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758801"
 ---
 # <a name="connect-to-azure-storage-services"></a>Connettersi ai servizi di archiviazione di AzureConnect to Azure storage services
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,7 +99,7 @@ Selezionare **Account di archiviazione** nel riquadro sinistro e scegliere l'acc
 * Per gli elementi dell'entità servizio, ad esempio l'ID tenant e l'ID client, passare alle **registrazioni dell'app** e selezionare l'app da usare. La pagina **Panoramica** corrispondente conterrà questi elementi.
 
 > [!IMPORTANT]
-> Se l'account di archiviazione si trova in una rete virtuale, è supportata solo la creazione di BLOB, condivisione file, archivi dati ADLS gen 1 e ADLS Gen 2 **tramite l'SDK.** Per concedere all'area di lavoro l'accesso all'account di archiviazione, impostare il parametro `grant_workspace_access` su `True`.
+> Se l'account di archiviazione si trova in una rete virtuale, è supportata solo la creazione di archivi dati **tramite l'SDK.**
 
 Gli esempi seguenti illustrano come registrare un contenitore BLOB di Azure, una condivisione file di Azure e Azure Data Lake Storage Generation 2 come archivio dati. Per altri servizi di archiviazione, vedere la [documentazione di riferimento per i metodi applicabili `register_azure_*` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
@@ -121,6 +121,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
+Se il contenitore BLOB si `skip_validation=True` [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)trova in una rete virtuale, impostare l'uso di .
 
 #### <a name="file-share"></a>Condivisione file
 
@@ -140,6 +141,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      account_name=account_name,
                                                      account_key=account_key)
 ```
+Se la condivisione file si `skip_validation=True` [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)trova in una rete virtuale, impostare utilizzando . 
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Generazione di Archiviazione data Lake di Azure 2Azure Data Lake Storage Generation 2
 
@@ -176,7 +178,7 @@ Creare un nuovo archivio dati in pochi passaggi in Azure Machine Learning Studio
 
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Selezionare **Datastores** nel riquadro sinistro in **Manage**.
-1. Selezionare **: Nuovo archivio dati**.
+1. Selezionare **+ Nuovo archivio dati**.
 1. Compilare il modulo per un nuovo archivio dati. Il modulo si aggiorna in modo intelligente in base alle selezioni per il tipo di archiviazione e il tipo di autenticazione di Azure.The form intelligently updates itself based on your selections for Azure storage type and authentication type.
   
 È possibile trovare le informazioni necessarie per popolare il modulo nel portale di [Azure.](https://portal.azure.com) Selezionare **Account di archiviazione** nel riquadro sinistro e scegliere l'account di archiviazione da registrare. La pagina **Panoramica** fornisce informazioni quali il nome dell'account, il contenitore e il nome della condivisione file. 

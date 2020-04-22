@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6bf34f8fb15bf8fddb1ba398ed678d5c98b8c84f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 265e15713f8159e370ef22a197ffe931200a88f7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667791"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758989"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagire con i cluster Apache Kafka in Azure HDInsight usando un proxy RESTInteract with Apache Kafka clusters in Azure HDInsight using a REST proxy
 
@@ -32,7 +32,7 @@ Per la specifica completa delle operazioni supportate dall'API, vedere [Apache K
 
 La creazione di un cluster Kafka HDInsight con proxy REST crea un nuovo endpoint pubblico per il cluster, che è possibile trovare nelle proprietà del cluster HDInsight nel portale di Azure.Creating an HDInsight Kafka cluster with REST proxy creates a new public endpoint for your cluster, which you can find in your HDInsight cluster **Properties** on the Azure portal.
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 L'accesso al proxy REST Kafka viene gestito con i gruppi di sicurezza di Azure Active Directory.Access to the Kafka REST proxy is managed with Azure Active Directory security groups. Quando si crea il cluster Kafka, fornire al gruppo di sicurezza di Azure AD l'accesso all'endpoint REST. I client Kafka che devono accedere al proxy REST devono essere registrati in questo gruppo dal proprietario del gruppo. The group owner can register via the Portal or via PowerShell.
 
@@ -74,7 +74,7 @@ Per le richieste di endpoint proxy REST, le applicazioni client devono ottenere 
 È possibile usare il codice python riportato di seguito per interagire con il proxy REST nel cluster Kafka.You can use the python code below to interact with the REST proxy on your Kafka cluster. Per utilizzare l'esempio di codice, attenersi alla seguente procedura:
 
 1. Salvare il codice di esempio in un computer in cui è installato Python.Save the sample code on a machine with Python installed.
-1. Installare le dipendenze python `pip3 install adal` `pip install msrestazure`necessarie eseguendo e .
+1. Installare le dipendenze python `pip3 install msal`necessarie eseguendo .
 1. Modificare la sezione di codice **Configurare queste proprietà** e aggiornare le proprietà seguenti per l'ambiente:
 
     |Proprietà |Descrizione |
@@ -84,7 +84,7 @@ Per le richieste di endpoint proxy REST, le applicazioni client devono ottenere 
     |Client Secret|Segreto per l'applicazione registrata nel gruppo di sicurezza.|
     |Kafkarest_endpoint|Ottenere questo valore dalla scheda **Proprietà** della panoramica del cluster, come descritto nella sezione relativa alla [distribuzione.](#create-a-kafka-cluster-with-rest-proxy-enabled) Dovrebbe essere nel seguente formato –`https://<clustername>-kafkarest.azurehdinsight.net`|
 
-1. Dalla riga di comando, eseguire il file python eseguendo`python <filename.py>`
+1. Dalla riga di comando, eseguire il file python eseguendo`sudo python3 <filename.py>`
 
 Questo codice esegue l'azione seguente:This code does the following action:
 
@@ -95,13 +95,9 @@ Per ulteriori informazioni su come ottenere i token OAuth in python, vedere [Pyt
 
 ```python
 #Required python packages
-#pip3 install adal
-#pip install msrestazure
+#pip3 install msal
 
-import adal
-from msrestazure.azure_active_directory import AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-import requests
+import msal
 
 #--------------------------Configure these properties-------------------------------#
 # Tenant ID for your Azure Subscription
@@ -114,19 +110,24 @@ client_secret = 'password'
 kafkarest_endpoint = "https://<clustername>-kafkarest.azurehdinsight.net"
 #--------------------------Configure these properties-------------------------------#
 
-#getting token
-login_endpoint = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-resource = "https://hib.azurehdinsight.net"
-context = adal.AuthenticationContext(login_endpoint + '/' + tenant_id)
+# Scope
+scope = 'https://hib.azurehdinsight.net/.default'
+#Authority
+authority = 'https://login.microsoftonline.com/' + tenant_id
 
-token = context.acquire_token_with_client_credentials(
-    resource,
-    client_id,
-    client_secret)
+# Create a preferably long-lived app instance which maintains a token cache.
+app = msal.ConfidentialClientApplication(
+    client_id , client_secret, authority,
+    #cache - For details on how look at this example: https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py
+    )
 
-accessToken = 'Bearer ' + token['accessToken']
+# The pattern to acquire a token looks like this.
+result = None
 
-print(accessToken)
+result = app.acquire_token_for_client(scopes=[scope])
+
+print(result)
+accessToken = result['access_token']
 
 # relative url
 getstatus = "/v1/metadata/topics"
@@ -137,10 +138,10 @@ response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
 
-Trovare di seguito un altro esempio su come ottenere un token da Azure per il proxy REST usando un comando curl. Si noti `resource=https://hib.azurehdinsight.net` che è necessario il specificato durante il recupero di un token.
+Trovare di seguito un altro esempio su come ottenere un token da Azure per il proxy REST usando un comando curl. **Si noti `scope=https://hib.azurehdinsight.net/.default` che è necessario il specificato durante il recupero di un token.**
 
 ```cmd
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&resource=https://hib.azurehdinsight.net' 'https://login.microsoftonline.com/<tenantid>/oauth2/token'
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,12 +9,15 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 7805b9b3f000b2bc2e45272ab9ff469d5711e581
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 41c29e55f04f9edf06ba375ad4539e5fb3f82c18
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110209"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733426"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Inviare messaggi dal cloud al dispositivo con Hub IoT (.NET)
 
@@ -128,7 +131,7 @@ A questo punto si scrive un'app console .NET che invia messaggi da cloud a dispo
    static string connectionString = "{iot hub connection string}";
    ```
 
-1. Aggiungere il metodo seguente alla classe **Program.** Impostare il nome del dispositivo su quello usato quando si definisce il dispositivo in [Invia dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md).
+1. Aggiungere il metodo seguente alla classe **Program**. Impostare il nome del dispositivo su quello usato quando si definisce il dispositivo in [Invia dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()

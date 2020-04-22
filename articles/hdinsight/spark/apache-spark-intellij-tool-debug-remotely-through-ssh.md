@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 67660e3e98f5a12236798d74cc61f71616e6751d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a012c3ce8f7c9e105a42d8383a502f3608c84070
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934757"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732916"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Debug Apache Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH
 
@@ -25,11 +25,11 @@ Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDIn
 
 * Per gli utenti di Windows: durante l'esecuzione dell'applicazione locale Spark Scala in un computer Windows, è possibile che venga generata un'eccezione, come illustrato in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). che si verifica a causa di un file WinUtils.exe mancante in Windows.
 
-    Per risolvere l'errore, scaricare [Winutils.exe](https://github.com/steveloughran/winutils) in un percorso quale **C:** Aggiungere quindi la variabile di ambiente **HADOOP_HOME**, quindi impostare il valore della variabile su **C:.**
+    Per risolvere l'errore, scaricare [Winutils.exe](https://github.com/steveloughran/winutils) in un percorso quale **C:** È quindi necessario aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C:\WinUtils**.
 
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) (L'edizione Community è gratuita.).
 
-* [Azure Toolkit per IntelliJ](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-installation).
+* [Azure Toolkit per IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * [Plug-in Scala per IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 
@@ -45,12 +45,12 @@ Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDIn
 
 1. Nell'elenco **Strumento di compilazione** selezionare uno degli strumenti seguenti:
 
-    * Supporto per la creazione guidata progetto **Maven** for Scala.
-    * **SBT** per la gestione delle dipendenze e la compilazione per il progetto Scala.
+    * **Maven**, per ottenere supporto per la creazione guidata di un progetto Scala.
+    * **SBT**, per la gestione delle dipendenze e la compilazione per il progetto Scala.
 
      ![Intellij Crea nuovo progetto Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-1. Fare clic su **Avanti**.
+1. Selezionare **Avanti**.
 
 1. Nella finestra **Nuovo progetto** successiva, fornire le seguenti informazioni:
 
@@ -63,7 +63,7 @@ Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDIn
 
    ![Intellij Nuovo progetto selezionare versione Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
 
-1. Fare clic su **Fine**. Potrebbero occorrere alcuni minuti prima che il progetto diventi disponibile. Guarda l'angolo in basso a destra per progredire.
+1. Selezionare **Fine**. Potrebbero occorrere alcuni minuti prima che il progetto diventi disponibile. Guarda l'angolo in basso a destra per progredire.
 
 1. Espandere il progetto e **src** > passare all'esempio**scala** > **sample****principale** > . Fare doppio clic **su SparkCore_WasbIOTest**.
 
@@ -73,11 +73,11 @@ Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDIn
 
 1. Al termine dell'esecuzione locale, è possibile visualizzare il salvataggio del file di output nei **dati** > di Esplora progetti correnti.**__default__**
 
-    ![Risultato dell'esecuzione locale del progetto IntellijIntellij Project local run result](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
+    ![Risultato dell'esecuzione locale del progetto IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
 1. Per questi strumenti la configurazione dell'esecuzione in locale predefinita viene impostata automaticamente quando l'esecuzione e il debug vengono eseguiti in modalità locale. Aprire la configurazione **[Spark su HDInsight] XXX** nell'angolo superiore destro, è possibile visualizzare **[Spark on HDInsight]XXX** già creato in **Apache Spark in HDInsight**. Passare alla scheda **Locally Run** (Esecuzione in locale).
 
-    ![Intellij Esegue l'esecuzione locale delle configurazioni di debug](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
+    ![Esecuzione locale del debug delle configurazioni in IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
 
     - [Environment variables](#prerequisites) (Variabili di ambiente): se la variabile di ambiente di sistema **HADOOP_HOME** è già stata impostata su **C:\WinUtils**, viene automaticamente rilevato che l'aggiunta manuale non è necessaria.
     - [WinUtils.exe Location](#prerequisites) (Posizione WinUtils.exe): se la variabile di ambiente di sistema non è stata impostata, per trovare la posizione è sufficiente fare clic sul relativo pulsante.

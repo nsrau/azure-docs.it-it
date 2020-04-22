@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: 07ed22879180d8126711eba9af0a2cac5b7b2953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ae9190213f753f8b9440ced52e4d04626af13f9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272110"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732989"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for Eclipse per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -35,7 +35,7 @@ Usare gli strumenti HDInsight in Azure Toolkit for [Eclipse](https://www.eclipse
 
 ### <a name="install-azure-toolkit-for-eclipse"></a>Installare Azure Toolkit for Eclipse
 
-Le istruzioni di installazione sono disponibili in [Installazione di Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/java/eclipse/azure-toolkit-for-eclipse-installation).
+Le istruzioni di installazione sono disponibili in [Installazione di Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation).
 
 ### <a name="install-the-scala-plug-in"></a>Installare il plug-in di Scala
 
@@ -111,7 +111,7 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
 
 1. Nell'area di lavoro IDE eclipse selezionare **File** > **Nuovo** > **progetto...**.
 
-1. Nella procedura guidata **Nuovo progetto** selezionare **HDInsight Project** > **Spark in HDInsight (Scala)**. Quindi selezionare **Avanti**.
+1. Nella procedura guidata **Nuovo progetto** selezionare **HDInsight Project** > **Spark in HDInsight (Scala)**. Fare quindi clic su **Avanti**.
 
    ![Selezione del progetto Spark on HDInsight (Scala)](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 
@@ -128,7 +128,7 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
 
 1. In **Esplora pacchetti**espandere il progetto creato in precedenza. Fare clic con il pulsante destro del mouse su **src**, selezionare **Nuovo** > **altro...**.
 
-1. Nella finestra di dialogo **Seleziona procedura guidata** selezionare Scala **Wizards** > **Scala Object**. Quindi selezionare **Avanti**.
+1. Nella finestra di dialogo **Seleziona procedura guidata** selezionare Scala **Wizards** > **Scala Object**. Fare quindi clic su **Avanti**.
 
    ![Selezionare una procedura guidata Crea un oggetto Scala](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 
@@ -240,7 +240,7 @@ Per impostazione predefinita, gli strumenti di HDInsight in Azure Toolkit for Ec
 
 ### <a name="prerequisite"></a>Prerequisito
 
-Quando si esegue l'applicazione Spark Scala locale in un computer Windows, potrebbe essere restituita un'eccezione, come spiegato in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356), che si verifica a causa di un file **WinUtils.exe** mancante in Windows.
+Mentre si esegue l'applicazione locale Spark Scala in un computer Windows, è possibile che venga generata un'eccezione, come spiegato in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). che si verifica a causa di un file **WinUtils.exe** mancante in Windows.
 
 Per risolvere l'errore, è necessario [che Winutils.exe](https://github.com/steveloughran/winutils) si trovi in un percorso quale **C:,** quindi aggiungere la variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C .**
 
@@ -248,7 +248,7 @@ Per risolvere l'errore, è necessario [che Winutils.exe](https://github.com/stev
 
 1. Avviare Eclipse e creare un progetto. Nella finestra di dialogo **New Project** (Nuovo progetto) selezionare le opzioni seguenti e quindi fare clic su **Next** (Avanti).
 
-1. Nella procedura guidata **Nuovo progetto** selezionare **HDInsight Project** > **Spark on HDInsight Local Run Sample (Scala)**. Quindi selezionare **Avanti**.
+1. Nella procedura guidata **Nuovo progetto** selezionare **HDInsight Project** > **Spark on HDInsight Local Run Sample (Scala)**. Fare quindi clic su **Avanti**.
 
    ![Nuovo progetto seleziona una finestra di dialogo della procedura guidata](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 

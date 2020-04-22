@@ -9,12 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: db3da5ff2d7e8b6fa493f5338fac93df0d1a7fe2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: af9743233a61e8e6d816b362d35e6a38735df35b
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110906"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732240"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Caricare file dal dispositivo al cloud con L'hub IoT (Node.js)
 
@@ -228,4 +229,4 @@ In questa esercitazione si è appreso come usare le funzionalità di caricamento
 
 * [Introduzione a C SDK](iot-hub-device-sdk-c-intro.md)
 
-* [Azure IoT SDKs](iot-hub-devguide-sdks.md) (SDK di IoT di Azure)
+* [Azure IoT SDK](iot-hub-devguide-sdks.md)

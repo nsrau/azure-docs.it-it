@@ -9,12 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b37d7e049e7daabbbb4fe1a7b49feb654e8accc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 3cc74faa39b21b1ab275149db4f85de8f55fd07e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110248"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733464"
 ---
 # <a name="get-started-with-device-management-net"></a>Introduzione alla gestione dei dispositivi (.NET)Get started with device management (.NET)
 
@@ -64,7 +65,7 @@ In questa sezione viene creata un'app console .NET, con c'è c'è, che avvia un 
 
 1. In **Crea un nuovo progetto**individuare e selezionare il modello di progetto App console **(.NET Framework)** e quindi scegliere **Avanti**.
 
-1. In **Configura il nuovo progetto**assegnare al progetto il nome *TriggerReboot*e selezionare .NET Framework versione 4.5.1 o successiva. Selezionare **Crea**.
+1. In **Configura il nuovo progetto**assegnare al progetto il nome *TriggerReboot*e selezionare .NET Framework versione 4.5.1 o successiva. Selezionare **Create** (Crea).
 
     ![Nuovo progetto desktop di Windows classico in Visual C#](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png)
 
@@ -76,7 +77,7 @@ In questa sezione viene creata un'app console .NET, con c'è c'è, che avvia un 
 
    Questa procedura scarica, installa e aggiunge un riferimento al pacchetto NuGet [Azure IoT SDK per servizi](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e alle relative dipendenze.
 
-1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le `using` seguenti istruzioni all'inizio del file **Program.cs:**
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -92,7 +93,7 @@ In questa sezione viene creata un'app console .NET, con c'è c'è, che avvia un 
    static string targetDevice = "myDeviceId";
    ```
 
-1. Aggiungere il metodo seguente alla classe **Program.**  Questo codice ottiene il dispositivo gemello per il dispositivo in fase di riavvio e restituisce le proprietà segnalate.
+1. Aggiungere il metodo seguente alla classe **Program**.  Questo codice ottiene il dispositivo gemello per il dispositivo in fase di riavvio e restituisce le proprietà segnalate.
 
    ```csharp
    public static async Task QueryTwinRebootReported()
@@ -102,7 +103,7 @@ In questa sezione viene creata un'app console .NET, con c'è c'è, che avvia un 
    }
    ```
 
-1. Aggiungere il metodo seguente alla classe **Program.**  Il codice attiva il riavvio nel dispositivo usando un metodo diretto.
+1. Aggiungere il metodo seguente alla classe **Program**.  Il codice attiva il riavvio nel dispositivo usando un metodo diretto.
 
    ```csharp
    public static async Task StartReboot()
@@ -147,7 +148,7 @@ Per creare l'app per dispositivi simulata, attenersi alla seguente procedura:
 
 1. In Visual Studio, nella soluzione TriggerReboot già creata selezionare **File** > **Nuovo** > **progetto**. In **Crea un nuovo progetto**individuare e selezionare il modello di progetto App console **(.NET Framework)** e quindi scegliere **Avanti**.
 
-1. In **Configura il nuovo progetto**assegnare al progetto il nome *SimulateManagedDevice*e in **Soluzione**selezionare Aggiungi **a soluzione**. Selezionare **Crea**.
+1. In **Configura il nuovo progetto**assegnare al progetto il nome *SimulateManagedDevice*e in **Soluzione**selezionare Aggiungi **a soluzione**. Selezionare **Create** (Crea).
 
     ![Assegnare un nome e aggiungere il progetto alla soluzione](./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png)
 
@@ -159,7 +160,7 @@ Per creare l'app per dispositivi simulata, attenersi alla seguente procedura:
 
    Questo passaggio scarica, installa e aggiunge un riferimento al pacchetto [NuGet dell'SDK del dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e alle relative dipendenze.
 
-1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le `using` seguenti istruzioni all'inizio del file **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;

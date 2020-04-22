@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5aa7abf7aafc14e71af5618cec892ef9f843d88a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933853"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733060"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di Azure Media Services Video IndexerAzure Media Video Indexer release notes
 
@@ -29,6 +29,20 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="april-2020"></a>Aprile 2020
+
+### <a name="new-widget-parameters-capabilities"></a>Nuove funzionalità dei parametri dei widget
+
+Il widget **Insights** include `language` `control`nuovi parametri: e .
+
+Il widget **Player** `locale` ha un nuovo parametro. Entrambi `locale` `language` i parametri controllano la lingua del giocatore.
+
+Per ulteriori informazioni, consultate la sezione [dei tipi di widget.](video-indexer-embed-widgets.md#widget-types) 
+
+## <a name="new-player-skin"></a>Nuova skin del giocatore
+
+Una nuova skin giocatore lanciato con design aggiornato.
 
 ## <a name="january-2020"></a>Gennaio 2020
  
@@ -46,7 +60,7 @@ L'azione Elimina account ora elimina l'account entro 90 giorni anziché 48 ore.
  
 ### <a name="swagger-update"></a>Aggiornamento Swagger
 
-Autenticazioni e **operazioni** unificate dell'indicizzatore video in una singola [specifica OpenAPI dell'indicizzatore video (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). **authentications** Develpers può trovare le API nel [portale per sviluppatori dell'indicizzatore video.](https://api-portal.videoindexer.ai/)
+Autenticazioni e **operazioni** unificate dell'indicizzatore video in una singola [specifica OpenAPI dell'indicizzatore video (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). **authentications** Gli sviluppatori possono trovare le API nel [portale per sviluppatori dell'indicizzatore video.](https://api-portal.videoindexer.ai/)
 
 ## <a name="december-2019"></a>Dicembre 2019
 
@@ -129,7 +143,7 @@ Ora puoi creare un account a pagamento dell'Indicizzatore Video nella regione su
 
 ### <a name="new-editorial-shot-type-insights-available"></a>Nuove informazioni sul tipo di scatto editoriale disponibili
 
-Nuovi tag aggiunti alle riprese video fornisce "tipi di scatto" editoriali per identificarli con frasi editoriali comuni utilizzate nel flusso di lavoro di creazione dei contenuti, come: primo piano estremo, primo piano, ampio, medio, due scatto, esterno, interno, faccia sinistra e faccia destra (Disponibile nel JSON).
+I nuovi tag aggiunti alle riprese video forniscono "tipi di scatto" editoriali per identificarli con frasi editoriali comuni utilizzate nel flusso di lavoro di creazione dei contenuti, ad esempio: primo piano estremo, primo piano, ampio, medio, due scatto, esterno, interno, faccia sinistra e faccia destra (disponibile nel codice JSON).
 
 ### <a name="new-people-and-locations-entities-extraction-available"></a>Estrazione di nuove entità di persone e località disponibile
 
@@ -204,4 +218,4 @@ Oltre al formato di sottotitoli codificati già supportato (SRT, VTT e TTML), Vi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](video-indexer-overview.md)
+[Overview](video-indexer-overview.md)

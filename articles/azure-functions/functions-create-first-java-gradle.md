@@ -5,19 +5,19 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: 5e18e035bd237fd489b715986e58d7ede726348d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 34aab24bf39e387715cfa5783b801d45ed488750
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886603"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732719"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usare Java e Gradle per creare e pubblicare una funzione in AzureUse Java and Gradle to create and publish a function to Azure
 
 Questo articolo illustra come compilare e pubblicare un progetto di funzione Java in Funzioni di Azure con lo strumento da riga di comando Gradle.This article shows you how to build and publish a Java function project to Azure Functions with the Gradle command-line tool. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](functions-scale.md#consumption-plan) e viene attivato da una richiesta HTTP. 
 
 > [!NOTE]
-> Se Gradle non è il tuo strumento di sviluppo preferito, dai un'occhiata ai nostri tutorial simili per gli sviluppatori Java che utilizzano [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Se Gradle non è il tuo strumento di sviluppo preferito, dai un'occhiata ai nostri tutorial simili per gli sviluppatori Java che utilizzano [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,7 +31,7 @@ Per sviluppare funzioni con Java, è necessario che siano installati gli element
 È anche necessaria una sottoscrizione di Azure attiva. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Per completare questa guida introduttiva, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
+> Per completare questa guida di avvio rapido, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
 
 ## <a name="prepare-a-functions-project"></a>Preparare un progetto di funzioniPrepare a Functions project
 
@@ -173,4 +173,4 @@ Hello AzureFunctions!
 
 
 [Interfaccia della riga di comando di Azure]: /cli/azure
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

@@ -9,12 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 426430c075cfcb084cfe3238ebd83a19e909369b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 620e0213733d278a28ec1bcad4b031f5764ccda9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110762"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733124"
 ---
 # <a name="get-started-with-device-twins-net"></a>Introduzione ai dispositivi gemelli (.NET)Get started with device twins (.NET)
 
@@ -72,7 +73,7 @@ In questa sezione viene creata un'app console .NET, con C, che aggiunge metadati
 
    Questa procedura scarica, installa e aggiunge un riferimento al pacchetto NuGet [Azure IoT SDK per servizi](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e alle relative dipendenze.
 
-1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le `using` seguenti istruzioni all'inizio del file **Program.cs:**
 
     ```csharp  
     using Microsoft.Azure.Devices;
@@ -140,7 +141,7 @@ Nella sezione successiva si crea un'app per dispositivo che segnala le informazi
 
 In questa sezione si crea un'app console .NET che si connette all'hub come **myDeviceId** e quindi aggiorna le proprietà segnalate per poter contenere le informazioni relative alla connessione usando una rete cellulare.
 
-1. In Visual Studio selezionare **File** > **nuovo** > **progetto**. In **Crea nuovo progetto**scegliere App console **(.NET Framework)** e quindi scegliere **Avanti**.
+1. In Visual Studio selezionare **File** > **Nuovo** > **Progetto**. In **Crea nuovo progetto**scegliere App console **(.NET Framework)** e quindi scegliere **Avanti**.
 
 1. In **Configura il nuovo progetto assegnare**al progetto il nome **ReportConnectivity**. In **Soluzione**scegliere **Aggiungi a soluzione**, quindi **selezionare Crea**.
 
@@ -150,7 +151,7 @@ In questa sezione si crea un'app console .NET che si connette all'hub come **myD
 
    Questo passaggio scarica, installa e aggiunge un riferimento al pacchetto [NuGet dell'SDK del dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e alle relative dipendenze.
 
-1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le `using` seguenti istruzioni all'inizio del file **Program.cs:**
 
     ```csharp  
     using Microsoft.Azure.Devices.Client;

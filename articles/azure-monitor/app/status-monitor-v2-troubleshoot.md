@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671155"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732948"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Risoluzione dei problemi di Application Insights Agent (precedentemente denominato Status Monitor v2)Troubleshooting Application Insights Agent (formerly named Status Monitor v2)
 
@@ -116,7 +116,7 @@ Eseguire `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` il comando 
    - Versione di Application Insights SDK
    - Percorsi dei file del modulo PowerShell
     
-Esaminare le informazioni di [riferimento sull'API](status-monitor-v2-api-get-status.md) per una descrizione dettagliata di come utilizzare questo cmdlet.
+Esaminare le informazioni di [riferimento sull'API](status-monitor-v2-api-reference.md) per una descrizione dettagliata di come utilizzare questo cmdlet.
 
 
 ### <a name="troubleshooting-running-processes"></a>Risoluzione dei problemi relativi ai processi in esecuzioneTroubleshooting running processes
@@ -126,7 +126,7 @@ Se il monitoraggio funziona, è necessario caricare almeno 12 DLL.
 
 Utilizzare `Get-ApplicationInsightsMonitoringStatus -InspectProcess` il comando per controllare le DLL.
 
-Esaminare le informazioni di [riferimento sull'API](status-monitor-v2-api-get-status.md) per una descrizione dettagliata di come utilizzare questo cmdlet.
+Esaminare le informazioni di [riferimento sull'API](status-monitor-v2-api-reference.md) per una descrizione dettagliata di come utilizzare questo cmdlet.
 
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Raccogliere i registri ETW tramite PerfViewCollect ETW logs by using PerfView

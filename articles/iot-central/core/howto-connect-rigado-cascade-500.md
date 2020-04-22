@@ -10,15 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: d52366684d772f91b53a1ab385b51ae4f11f0a5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158362"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758257"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo gateway Rigado Cascade 500 all'applicazione Azure IoT CentralConnect a Rigado Cascade 500 gateway device to your Azure IoT Central application
 
+*Questo articolo si applica ai generatori di soluzioni e agli sviluppatori di dispositivi.*
 
 In questo articolo viene descritto come, in qualità di generatore di soluzioni, è possibile connettere un dispositivo gateway Rigado Cascade 500 all'applicazione Microsoft Azure IoT Central.This article describes how, as a solution builder, you can connect a Rigado Cascade 500 gateway device to your Microsoft Azure IoT Central application. 
 
@@ -70,4 +71,7 @@ Ora sei pronto per usare il tuo dispositivo C500 nell'applicazione IoT Central!
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che hai imparato a connettere un Rigado Cascade 500 all'applicazione Azure IoT Central, il passaggio successivo consigliato consiste nell'imparare a [creare un'applicazione di analisi nell'archivio](../retail/tutorial-in-store-analytics-create-app-pnp.md) per creare una soluzione end-to-end. 
+Se sei uno sviluppatore di dispositivi, alcuni passaggi successivi suggeriti sono:If you're a device developer, some suggested next steps are to:
+
+- Informazioni sulla connettività dei dispositivi [in Azure IoT CentralRead about Device connectivity in Azure IoT Central](./concepts-get-connected.md)
+- Informazioni su come [monitorare la connettività dei dispositivi usando l'interfaccia della riga di comando di AzureLearn](./howto-monitor-devices-azure-cli.md) how to Monitor device connectivity using Azure CLI

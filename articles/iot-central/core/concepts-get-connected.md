@@ -8,14 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8178e585ecb7b1cdfd5e530f3d3406b7397f0968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: f37b070c74abd8511fc597f9b159312d91281083
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476050"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759124"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Connettersi ad Azure IoT Central
+
+*Questo articolo si applica agli operatori e agli sviluppatori di dispositivi.*
 
 Questo articolo descrive le opzioni per la connessione dei dispositivi a un'applicazione Azure IoT Central.This article describes the options for connecting your devices to an Azure IoT Central application.
 
@@ -259,13 +264,14 @@ Per informazioni sulle differenze fra questi protocolli e indicazioni su come sc
 
 Se il dispositivo non può usare i protocolli supportati, è possibile usare Azure IoT Edge per la conversione del protocollo. IoT Edge supporta altri scenari di intelligence di perimetro per scaricare l'elaborazione sul perimetro dall'applicazione Azure IoT Central.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 Tutti i dati scambiati tra i dispositivi e Azure IoT Central vengono crittografati. L'hub IoT autentica ogni richiesta da un dispositivo che si connette a qualsiasi endpoint dell'hub IoT a contatto con i dispositivi. Per evitare lo scambio di credenziali nella rete, un dispositivo usa i token firmati per l'autenticazione. Per altre informazioni, vedere [Controllo dell'accesso all'hub IoT](../../iot-hub/iot-hub-devguide-security.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso la connettività dei dispositivi in Azure IoT Central, ecco i passaggi successivi suggeriti:Now that you've learn about device connectivity in Azure IoT Central, here are the suggested next steps:
+Se sei uno sviluppatore di dispositivi, alcuni passaggi successivi suggeriti sono:If you're a device developer, some suggested next steps are to:
 
-- [Preparare e connettere un dispositivo DevKit](howto-connect-devkit.md)
-- [C SDK: Provisioning dell'SDK del client del dispositivo](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+- Informazioni su come [monitorare la connettività dei dispositivi usando l'interfaccia della riga di comando di AzureLearn](./howto-monitor-devices-azure-cli.md) how to Monitor device connectivity using Azure CLI
+- Informazioni su come definire un nuovo tipo di [dispositivo IoT nell'applicazione Azure IoT Central](./howto-set-up-template.md)
+- Informazioni sui [dispositivi Azure IoT Edge e su Azure IoT Central](./concepts-iot-edge.md)

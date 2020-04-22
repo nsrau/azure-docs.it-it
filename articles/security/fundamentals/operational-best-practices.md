@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5724a9e4308f05a82df84ae6a7d5602747f5a140
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500298"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757364"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 Questo articolo fornisce un set di procedure consigliate operative per la protezione di dati, applicazioni e altri asset in Azure.This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
@@ -108,7 +108,7 @@ Di seguito sono riportate alcune procedure consigliate per la prevenzione, il ri
 **Dettaglio**: esaminare le caratteristiche e le funzionalità di [Azure Sentinel](/azure/sentinel/overview) e confrontarle con le funzionalità attualmente in uso in locale. Valutare la possibilità di adottare Azure Sentinel se soddisfa i requisiti SIEM dell'organizzazione.
 
 **Best practice**: Individuare le vulnerabilità di sicurezza più gravi in modo da poter assegnare priorità all'analisi.   
-**Dettaglio:** esaminare il [punteggio sicuro](../../security-center/security-center-secure-score.md) di Azure per visualizzare i suggerimenti risultanti dai criteri e dalle iniziative di Azure incorporate nel Centro sicurezza di Azure.Detail: Review your Azure secure score to see the recommendations resulting from the Azure policies and initiatives built into Azure Security Center. Questi consigli consentono di affrontare i principali rischi come gli aggiornamenti della sicurezza, la protezione degli endpoint, la crittografia, le configurazioni di sicurezza, WAF mancanti, le macchine virtuali connesse a Internet e molte altre.
+**Dettaglio:** esaminare il [punteggio sicuro](../../security-center/secure-score-security-controls.md) di Azure per visualizzare i suggerimenti risultanti dai criteri e dalle iniziative di Azure incorporate nel Centro sicurezza di Azure.Detail: Review your Azure secure score to see the recommendations resulting from the Azure policies and initiatives built into Azure Security Center. Questi consigli consentono di affrontare i principali rischi come gli aggiornamenti della sicurezza, la protezione degli endpoint, la crittografia, le configurazioni di sicurezza, WAF mancanti, le macchine virtuali connesse a Internet e molte altre.
 
 Il punteggio sicuro, basato sui controlli ciS (Center for Internet Security), consente di valutare la sicurezza di Azure dell'organizzazione con origini esterne. La convalida esterna consente di convalidare e arricchire la strategia di sicurezza del team.
 
@@ -116,7 +116,7 @@ Il punteggio sicuro, basato sui controlli ciS (Center for Internet Security), co
 **Dettaglio**: Seguire le [raccomandazioni](../../security-center/security-center-recommendations.md) di sicurezza in Centro sicurezza a partire, con gli elementi con la priorità più alta.
 
 **Procedura consigliata:** integrare gli avvisi del Centro sicurezza nella soluzione SIEM (Security Information and Event Management).   
-**Dettaglio**: La maggior parte delle organizzazioni con un SIEM lo usa come centro di compensazione per gli avvisi di sicurezza che richiedono una risposta di un analista. Gli eventi elaborati prodotti dal Centro sicurezza vengono pubblicati nel log attività di Azure, ovvero uno dei log disponibili tramite Monitoraggio di Azure.Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Monitoraggio di Azure offre una pipeline consolidata per eseguire il routing dei dati di monitoraggio in uno strumento SIEM. Per istruzioni, vedere [Integrare soluzioni](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) di sicurezza nel Centro sicurezza. Se si usa Azure Sentinel, vedere [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Dettaglio**: La maggior parte delle organizzazioni con un SIEM lo usa come centro di compensazione per gli avvisi di sicurezza che richiedono una risposta di un analista. Gli eventi elaborati prodotti dal Centro sicurezza vengono pubblicati nel log attività di Azure, ovvero uno dei log disponibili tramite Monitoraggio di Azure.Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Monitoraggio di Azure offre una pipeline consolidata per eseguire il routing dei dati di monitoraggio in uno strumento SIEM. Per istruzioni, vedere [Esportare avvisi e suggerimenti](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) per la sicurezza. Se si usa Azure Sentinel, vedere [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Procedura consigliata:** integrare i log di Azure con il SIEM.   
 **Dettaglio**: Usare [Monitoraggio di Azure per raccogliere ed esportare dati](/azure/azure-monitor/overview#integrate-and-export-data). Questa procedura è fondamentale per abilitare l'analisi degli incidenti di sicurezza e la conservazione dei log online è limitata. Se si usa Azure Sentinel, vedere [Connettere origini dati.](../../sentinel/connect-data-sources.md)

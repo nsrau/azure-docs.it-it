@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a1fd22772e72cba4cce3f9fa2751dc0df0e15bb9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535599"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758897"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -125,7 +125,7 @@ Nella versione 3. *x*, il limite di connessione viene impostato per impostazione
 
 Nella versione 2. *x*, è possibile controllare il numero di connessioni simultanee a un host utilizzando l'API [ServicePointManager.DefaultConnectionLimit.](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) In 2. *x*, è necessario aumentare questo valore dal valore predefinito di 2 prima di avviare l'host WebJobs.
 
-Tutte le richieste HTTP in uscita `HttpClient` effettuate `ServicePointManager`da una funzione tramite flow attraverso . Dopo aver raggiunto `DefaultConnectionLimit`il `ServicePointManager` valore impostato in , avvia la coda delle richieste prima di inviarle. Si supponga che il valore `DefaultConnectionLimit` sia impostato su 2 e che il codice effettui 1000 richieste HTTP. All'inizio sono consentite solo due richieste al sistema operativo. Le altre 998 vengono inserite nella coda finché ci sarà spazio. Ciò `HttpClient` significa che il tuo potrebbe sorpassare perché sembra aver effettuato la richiesta, ma la richiesta non è mai stata inviata dal sistema operativo al server di destinazione. Pertanto si potrebbe osservare un comportamento apparentemente senza senso: `HttpClient` locale richiede 10 secondi per completare una richiesta, ma il servizio restituisce ogni richiesta in 200 ms. 
+Tutte le richieste HTTP in uscita `HttpClient` effettuate `ServicePointManager`da una funzione tramite flow attraverso . Dopo aver raggiunto `DefaultConnectionLimit`il `ServicePointManager` valore impostato in , avvia la coda delle richieste prima di inviarle. Si supponga che il valore `DefaultConnectionLimit` sia impostato su 2 e che il codice effettui 1000 richieste HTTP. All'inizio sono consentite solo due richieste al sistema operativo. Gli altri 998 sono in coda fino a quando non c'è spazio per loro. Ciò `HttpClient` significa che il tuo potrebbe sorpassare perché sembra aver effettuato la richiesta, ma la richiesta non è mai stata inviata dal sistema operativo al server di destinazione. Pertanto si potrebbe osservare un comportamento apparentemente senza senso: `HttpClient` locale richiede 10 secondi per completare una richiesta, ma il servizio restituisce ogni richiesta in 200 ms. 
 
 Il valore predefinito per `Int32.MaxValue`ASP.NET applicazioni è ed è probabile che funzioni correttamente per I processi Web in esecuzione in un piano di servizio app di base o superiore. I processi Web in genere richiedono l'impostazione Always On e sono supportati solo dai piani di servizio app di base e superiori.
 
@@ -277,9 +277,9 @@ Per usare il trigger Timer o l'associazione File, che fanno parte dei servizi di
 
 Questi tipi di trigger e associazione sono inclusi nella versione 2.These trigger and binding types are included in version 2. *x* del `Microsoft.Azure.WebJobs` pacchetto:
 
-* Archiviazione BLOB
-* Archiviazione code
-* Archiviazione tabelle
+* Archiviazione - BLOB
+* Archiviazione - Code
+* Archiviazione - Tabelle
 
 Per usare altri tipi di trigger e associazioni, installare il pacchetto NuGet che li contiene e chiamare un metodo `Use<binding>` nell'oggetto `JobHostConfiguration`. Ad esempio, se si desidera utilizzare `Microsoft.Azure.WebJobs.Extensions` un `UseTimers` trigger `Main` Timer, installare e chiamare il metodo, come illustrato di seguito:For example, if you want to use a Timer trigger, install and call in the method, as shown here:
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-Per altre informazioni, vedere l'articolo [sull'associazione hub eventi.](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings)
+Per altre informazioni, vedere l'articolo [sull'associazione hub eventi.](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json)
 
 ### <a name="queue-storage-trigger-configuration"></a>Configurazione del trigger di archiviazione delle code
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187594"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756750"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
 
@@ -223,6 +223,39 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae l'elemento `id
 - Attestazioni di output:
     - **extractedClaim**: 6353399
 
+## <a name="getsingleitemfromjson"></a>GetSingleItemFromJson
+
+Ottiene il primo elemento da un dato JSON.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputJson | string | I ClaimTypes che vengono utilizzati dalla trasformazione delle attestazioni per ottenere l'elemento dai dati JSON. |
+| OutputClaim | Key | string | La prima chiave dell'elemento in JSON. |
+| OutputClaim | Valore | string | Valore del primo elemento in JSON. |
+
+Nell'esempio seguente la trasformazione delle attestazioni estrae il primo elemento (nome specificato) dai dati JSON.
+
+```XML
+<ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="givenNameKey" TransformationClaimType="key" />
+    <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+  - **inputJson**: "GivenName": "Emilty", "lastName": "Smith"
+- Attestazioni di output:
+  - **chiave**: givenName
+  - **valore**: Emilty
+
+
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
 
 Consente di ottenere il primo elemento da una matrice di dati JSON.
@@ -294,3 +327,5 @@ Attestazione di output:
   }
 }
 ```
+
+

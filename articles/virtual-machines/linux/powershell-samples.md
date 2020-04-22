@@ -1,24 +1,18 @@
 ---
 title: Esempi di macchina virtuale di Azure PowerShell
 description: Esempi di macchina virtuale di Azure PowerShell
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-service-management
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: c726678578e3972ae57bdf99b75d0ddd52cd2d38
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 8d7db5fe88890b7f807263e50757e637ad808eb1
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460971"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759315"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Esempi di macchina virtuale di Azure PowerShell
 
@@ -26,7 +20,7 @@ La tabella seguente include collegamenti a esempi di script PowerShell che crean
 
 | | |
 |---|---|
-|**Creare macchine virtualiCreate virtual machines**||
+|**Creare macchine virtuali**||
 | [Creare una macchina virtuale completamente configurata](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Consente di creare un gruppo di risorse, una macchina virtuale e tutte le risorse correlate.|
 | [Creare una macchina virtuale con Docker abilitato](./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Consente di creare una macchina virtuale, di configurarla come host Docker e di eseguire un contenitore NGINX. |
 | [Creare una macchina virtuale ed eseguire script di configurazione](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Consente di creare una macchina virtuale e usa l'estensione dello script personalizzato di Azure per installare NGINX. |

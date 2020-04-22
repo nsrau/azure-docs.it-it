@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 08177165439ff7d3205e31757e5d1e28759a9836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274190"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733094"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi
 Monitoraggio di Azure offre una soluzione completa di monitoraggio dello stack completo per applicazioni e servizi in Azure, in altri cloud e in locale. Oltre a usare Monitoraggio di Azure per analizzare i dati e sfruttarli per scenari di monitoraggio diversi, potrebbe essere necessario inviarli ad altri strumenti di monitoraggio nell'ambiente. Il metodo più efficace per trasmettere i dati di monitoraggio a strumenti esterni nella maggior parte dei casi consiste nell'usare Hub eventi di Azure.The most effective method to stream monitoring data to external tools in most cases is using [Azure Event Hubs](/azure/event-hubs/). Questo articolo fornisce una breve descrizione su come è possibile trasmettere i dati di monitoraggio da origini diverse a un hub eventi e collegamenti a indicazioni dettagliate.
@@ -32,10 +32,10 @@ Prima di configurare il flusso per qualsiasi origine dati, è necessario creare 
 ## <a name="monitoring-data-available"></a>Dati di monitoraggio disponibili
 [Origini dei dati di monitoraggio per Monitoraggio di Azure](data-sources.md) descrive i diversi livelli di dati per le applicazioni di Azure e i tipi di dati di monitoraggio disponibili per ognuno. Nella tabella seguente sono elencati ognuno di questi livelli e una descrizione della modalità di flusso dei dati a un hub eventi. Seguire i collegamenti forniti per ulteriori dettagli.
 
-| Livello | Dati | Metodo |
+| Livello | Data | Metodo |
 |:---|:---|:---|
 | [Tenant di Azure](data-sources.md#azure-tenant) | Log di controllo di Azure Active DirectoryAzure Active Directory audit logs | Configurare un'impostazione di diagnostica tenant nel tenant di AAD. Per informazioni dettagliate, vedere [Esercitazione: Trasmettere i log di Azure Active Directory a un hub eventi di Azure.See Tutorial: Stream Azure Active Directory logs to an Azure event hub for](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) details. |
-| [Sottoscrizione di AzureAzure subscription](data-sources.md#azure-subscription) | Azure Activity Log | Creare un profilo di log per esportare gli eventi del log attività negli hub eventi.  Per informazioni dettagliate, vedere Trasmettere in streaming i log della piattaforma Azure agli hub eventi di [Azure.See Stream Azure platform logs to Azure Event Hubs](resource-logs-stream-event-hubs.md) for details. |
+| [Sottoscrizione di Azure](data-sources.md#azure-subscription) | Azure Activity Log | Creare un profilo di log per esportare gli eventi del log attività negli hub eventi.  Per informazioni dettagliate, vedere Trasmettere in streaming i log della piattaforma Azure agli hub eventi di [Azure.See Stream Azure platform logs to Azure Event Hubs](resource-logs-stream-event-hubs.md) for details. |
 | [Risorse di Azure](data-sources.md#azure-resources) | Metriche della piattaforma<br> Log risorse |Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione di diagnostica delle risorse. Per informazioni dettagliate, vedere Eseguire lo streaming dei log delle risorse di [Azure in un hub eventi.](resource-logs-stream-event-hubs.md) |
 | [Sistema operativo (ospite)](data-sources.md#operating-system-guest) | Macchine virtuali di Azure | Installare [l'estensione Diagnostica di Azure](diagnostics-extension-overview.md) nelle macchine virtuali Windows e Linux in Azure.Install the Azure Diagnostics Extension on Windows and Linux virtual machines in Azure. Per [Streaming Azure Diagnostics data in the hot path by using Event Hubs](diagnostics-extension-stream-event-hubs.md) informazioni dettagliate sulle macchine virtuali Windows e [Usare l'estensione di diagnostica Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) per informazioni dettagliate sulle macchine virtuali Linux. |
 | [Codice dell'applicazione](data-sources.md#application-code) | Application Insights | Application Insights non fornisce un metodo diretto per trasmettere i dati agli hub eventi. È possibile [configurare l'esportazione continua](../../azure-monitor/app/export-telemetry.md) dei dati di Application Insights in un account di archiviazione e quindi usare un'app per la logica per inviare i dati a un hub eventi come descritto in [Streaming manuale con app per](#manual-streaming-with-logic-app)la logica . |
@@ -56,7 +56,7 @@ Il routing dei dati di monitoraggio a un hub eventi con Monitoraggio di Azure co
 | ArcSight | No | Lo smart connector ArcSight Azure Event Hub è disponibile come parte della raccolta smart [connector ArcSight.](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852) |
 | Server Syslog | No | Se si desidera trasmettere i dati di Monitoraggio di Azure direttamente in un server syslog, è possibile usare una [soluzione basata su](https://github.com/miguelangelopereira/azuremonitor2syslog/)una funzione di Azure.
 | LogRhythm | No| Le istruzioni per configurare LogRhythm per raccogliere i log da un hub eventi sono disponibili [qui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Sì | Per altre informazioni, vedere Introduzione al monitoraggio e alla [registrazione usando Logz.io per le app Java in esecuzione in AzureFor more information, see Getting started with monitoring and logging using Logz.io for Java apps running on Azure](https://docs.microsoft.com/azure/java/java-get-started-with-logzio)
+|Logz.io | Sì | Per altre informazioni, vedere Introduzione al monitoraggio e alla [registrazione usando Logz.io per le app Java in esecuzione in AzureFor more information, see Getting started with monitoring and logging using Logz.io for Java apps running on Azure](https://docs.microsoft.com/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

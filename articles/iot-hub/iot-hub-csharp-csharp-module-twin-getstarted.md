@@ -8,12 +8,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: e728d0ef8f52927687d56bd1d4c64f03c53ef401
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 919d1e37e6066c78e83d58be4fe4667ec67e45ad
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73947671"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733383"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Introduzione all'identità del modulo Hub IoT e al modulo gemello (.NET)
 
@@ -53,7 +54,7 @@ Al termine di questa esercitazione si ottengono due app console .NET:
 
 In questa sezione, nel dispositivo simulato viene creata un'app console .NET che aggiorna le proprietà segnalate del modulo gemello.
 
-Prima di iniziare, ottenere la stringa di connessione del modulo. Accedere al [portale](https://portal.azure.com/)di Azure . Passare all'hub e selezionare **Dispositivi IoT**. Trovare **myFirstDevice**. Selezionare **myFirstDevice** per aprirlo, quindi **selezionare myFirstModule** per aprirlo. In **Dettagli identità modulo**copiare la stringa di connessione **(chiave primaria)** quando necessario nella procedura seguente.
+Prima di iniziare, ottenere la stringa di connessione del modulo. Accedere al [portale di Azure](https://portal.azure.com/). Passare all'hub e selezionare **Dispositivi IoT**. Trovare **myFirstDevice**. Selezionare **myFirstDevice** per aprirlo, quindi **selezionare myFirstModule** per aprirlo. In **Dettagli identità modulo**copiare la stringa di connessione **(chiave primaria)** quando necessario nella procedura seguente.
 
    ![Dettagli del modulo nel portale di Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
@@ -71,7 +72,7 @@ Prima di iniziare, ottenere la stringa di connessione del modulo. Accedere al [p
 
     ![Installare la versione corrente di Azure IoT Hub .NET service SDKInstall Azure IoT Hub .NET service SDK current version](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
-1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le `using` seguenti istruzioni all'inizio del file **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;

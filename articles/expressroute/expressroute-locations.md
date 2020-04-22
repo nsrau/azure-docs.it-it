@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: b99bd20b9b9e18bbc09edd5bb49f34147ccfaabd
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: b825ed513f530733d7552e32206c12422a956b14
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390255"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81766930"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -74,7 +74,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 
 ### <a name="global-commercial-azure"></a>Azure commerciale globale
 
-| **Provider di servizi** | **Microsoft Azure** | **Office 365**  | **Percorsi** |
+| **Fornitore di servizi** | **Microsoft Azure** | **Office 365**  | **Percorsi** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Supportato |Supportato |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Supportato | Supportato | Chennai2, Mumbai2 |
@@ -84,7 +84,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Francoforte, Londra, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[A TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Supportato | Supportato | Tokyo2 |
 | **[BBIX (informazioni in stato di BBIX](https://www.bbix.net/en/service/ix/)** | Supportato | Supportato | Tokyo |
-| **[BCX (informazioni in due)](https://www.bcx.co.za/solutions)** |Supportato |Supportato |Città del Capo|
+| **[BCX (informazioni in due)](https://www.bcx.co.za/solutions)** |Supportato |Supportato |Città del Capo, Johannesburg|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supportato |Supportato |Montreal, Toronto, Quebec |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Supportato |Supportato |Amsterdam, Hong Kong SAR, Johannesburg, Londra, Newport (Galles), San Paolo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Supportato |Supportato |Miami |
@@ -174,7 +174,7 @@ I cloud nazionali di Azure sono isolati l'uno dall'altro e da Azure commerciale 
 
 ### <a name="us-government-cloud"></a>Cloud del US Gov
 
-| **Provider di servizi** | **Microsoft Azure** | **Office 365** | **Percorsi** |
+| **Fornitore di servizi** | **Microsoft Azure** | **Office 365** | **Percorsi** |
 | --- | --- | --- | --- |
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supportato |Supportato |Chicago, Phoenix, Silicon Valley, Washington D.C. |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Supportato |Supportato |New York, Phoenix, San Antonio, Washington DC |
@@ -185,7 +185,7 @@ I cloud nazionali di Azure sono isolati l'uno dall'altro e da Azure commerciale 
 
 ### <a name="china"></a>Cina
 
-| **Provider di servizi** | **Microsoft Azure** | **Office 365** | **Percorsi** |
+| **Fornitore di servizi** | **Microsoft Azure** | **Office 365** | **Percorsi** |
 | --- | --- | --- | --- |
 | **China Telecom** |Supportato |Non supportato |Pechino, Pechino2, Shanghai, Shanghai2 |
 | **Cinese Unicom** | Supportato | Non supportato | Beijing2 |
@@ -195,7 +195,7 @@ Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn
 
 ### <a name="germany"></a>Germania
 
-| **Provider di servizi** | **Microsoft Azure** | **Office 365** | **Percorsi** |
+| **Fornitore di servizi** | **Microsoft Azure** | **Office 365** | **Percorsi** |
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Supportato |Non supportato |Francoforte |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supportato |Non supportato |Francoforte |
@@ -279,7 +279,7 @@ Se sei remoto e non hai connettività in fibra ottica o vuoi esplorare altre opz
 | **[RETN (ReTN)](https://retn.net/services/cloud-connect/)** | Equinix | Amsterdam |
 | **Rogers** | Cologix, Equinix | Montreal, Toronto |
 | **[Impresa Spectrum](https://enterprise.spectrum.com/services/cloud/cloud-connect.html)** | Equinix | Chicago, Dallas, Los Angeles, New York, Silicon Valley | 
-| **[Tamares Telecom](https://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | Londra | 
+| **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | Londra | 
 | **[TDC Erhverv](https://tdc.dk/Produkter/cloudaccessplus)** | Equinix | Amsterdam | 
 | **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Amsterdam |
 | **[Telekom Deutschland GmbH](https://cloud.telekom.de/de/infrastruktur/managed-it-services/managed-hybrid-infrastructure-mit-microsoft-azure)** | Interxion | Amsterdam, Francoforte |

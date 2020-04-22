@@ -9,12 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954610"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759774"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
 
@@ -94,7 +95,7 @@ Le funzionalità di identità del modulo e di modulo gemello sono disponibili in
 
 È necessaria la stringa di connessione del modulo per l'app console. A tale scopo, seguire questa procedura:
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Passare all'hub IoT e selezionare **Dispositivi IoT**. Aprire **myFirstDevice** e si nota che **myFirstModule** è stato creato correttamente.
 
@@ -106,7 +107,7 @@ Le funzionalità di identità del modulo e di modulo gemello sono disponibili in
 
 Per creare l'app, procedi nel seguente modo:
 
-1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le `using` seguenti istruzioni all'inizio del file **Program.cs:**
 
   ```csharp
   using Microsoft.Azure.Devices.Client;

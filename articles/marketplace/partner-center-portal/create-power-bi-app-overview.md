@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: c348a172b16e12334d33cf2718609694147fdce3
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 8f050a43cbdf4ab29df55cd5526eb231c301b271
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674527"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732669"
 ---
 # <a name="power-bi-app-creation-overview"></a>Panoramica della creazione di app Power BI
 
@@ -69,7 +69,7 @@ L'asset tecnico principale di cui hai bisogno è [un'app Power BI.](https://go.m
 2. Creare e testare l'app in Power BI.
 3. Quando si riceve l'indirizzo Web di installazione dell'app, aggiungerlo alla pagina **Configurazione tecnica** nel Centro per i partner.
 
-Dopo aver creato e testato l'app in Power BI, salvare l'indirizzo Web di installazione dell'applicazione, in base alle esigenze per [creare un'offerta](https://aka.ms/AzureCreatePBIServiceApp)di app Power BI.
+Dopo aver creato e testato l'app in Power BI, salvare l'indirizzo Web di installazione dell'applicazione, in base alle esigenze per [creare un'offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)di app Power BI.
 
 ### <a name="business-requirements"></a>Requisiti aziendali
 
@@ -81,4 +81,4 @@ I requisiti aziendali includono obblighi procedurali, contrattuali e legali. È 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un'offerta di app Power BI nel Centro per i partner](https://aka.ms/AzureCreatePBIServiceApp)
+- [Creare un'offerta di app Power BI nel Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)
