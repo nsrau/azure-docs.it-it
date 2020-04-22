@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a5f6ac76d509a0a63c2d641f91cd91cdb2e0d19d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 88392e4e61c28d4fe821c8176242246d10e52b23
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313816"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770887"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creare cluster basati su Linux in HDInsight tramite il portale di Azure
 
@@ -94,7 +94,7 @@ Nella scheda **Sicurezza e rete,** fornire le seguenti informazioni:
 |Proprietà |Descrizione |
 |---|---|
 |Pacchetto di sicurezza aziendale|Facoltativo: selezionare la casella di controllo per utilizzare **Enterprise Security Package**. Per altre informazioni, vedere [Configurare un cluster HDInsight con un pacchetto](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)di sicurezza aziendale tramite Servizi di dominio Azure Active Directory.For more information, see Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services .|
-|TLS|Facoltativo: selezionare una versione TLS dall'elenco a discesa. Per ulteriori informazioni, vedere [Transport Layer Security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security).|
+|TLS|Facoltativo: selezionare una versione TLS dall'elenco a discesa. Per ulteriori informazioni, vedere [Transport Layer Security](./transport-layer-security.md).|
 |Rete virtuale|Facoltativo: selezionare una rete virtuale e una subnet esistenti dall'elenco a discesa. Per informazioni, vedere Pianificare una distribuzione di rete virtuale per i cluster di Azure HDInsight.For information, see Plan a [virtual network deployment for Azure HDInsight clusters.](hdinsight-plan-virtual-network-deployment.md) L'articolo include i requisiti di configurazione specifici per la rete virtuale.|
 |Impostazioni di crittografia del disco|Facoltativo: selezionare la casella di controllo per utilizzare la crittografia. Per ulteriori informazioni, vedere Crittografia del [disco di chiave gestita dal cliente](./disk-encryption.md).|
 |Proxy REST Kafka|Questa impostazione è disponibile solo per il tipo di cluster Kafka. Per ulteriori informazioni, vedere [Utilizzo di un proxy REST](./kafka/rest-proxy.md).|
@@ -139,7 +139,7 @@ Alcune delle icone nella finestra sono spiegate come segue:
 |Panoramica|Fornisce tutte le informazioni essenziali sul cluster. Ad esempio, il nome, il gruppo di risorse a cui appartiene, il percorso, il sistema operativo e l'URL per il dashboard del cluster.|
 |Dashboard del cluster|Consente di accedere al portale Ambari associato al cluster.|
 |SSH - Accesso al cluster|Fornisce le informazioni necessarie per accedere al cluster tramite SSH.|
-|Delete|consente di eliminare il cluster HDInsight.|
+|Eliminazione|consente di eliminare il cluster HDInsight.|
 
 ## <a name="customize-clusters"></a>Personalizzare i cluster
 

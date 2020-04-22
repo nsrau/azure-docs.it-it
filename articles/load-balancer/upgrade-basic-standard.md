@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: a4c8b029b199915cce9a417430e67675a03d327f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2d6f41756d87e43ac7db9e6a8670c453920c834
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659952"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770360"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Aggiornare il servizio di bilanciamento del carico pubblico di AzureUpgrade Azure Public Load Balancer
 [Azure Standard Load Balancer](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza delle zone. Per altre informazioni sullo SKU di Load Balancer, vedere la tabella di [confronto](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
@@ -21,7 +21,6 @@ Ci sono tre fasi in un aggiornamento:
 
 1. Eseguire la migrazione della configurazione
 2. Aggiungere macchine virtuali ai pool back-end di Load Balancer StandardAdd VMs to backend pools of Standard Load Balancer
-3. Creare una regola in uscita nel servizio di bilanciamento del carico per la connessione in uscitaCreate an outbound rule on the load balancer for outbound connection
 
 In questo articolo viene illustrata la migrazione della configurazione. L'aggiunta di macchine virtuali ai pool back-end può variare a seconda dell'ambiente specifico. Tuttavia, [vengono fornite](#add-vms-to-backend-pools-of-standard-load-balancer)alcune raccomandazioni generali di alto livello .
 
@@ -31,17 +30,18 @@ In questo articolo viene illustrata la migrazione della configurazione. L'aggiun
 
 * Crea un servizio di bilanciamento del carico SKU Standard nel gruppo di risorse e nel percorso specificato dall'utente.
 * Copia senza problemi le configurazioni di Basic SKU Load Balancer nel nuovo servizio di bilanciamento del carico Standard.
+* Crea una regola in uscita predefinita che abilita la connettività in uscita.
 
 ### <a name="caveatslimitations"></a>Avvertenze - Limitazioni
 
-* Lo script supporta solo l'aggiornamento di Public Load Balancer.Script only supports Public Load Balancer upgrade. Per l'aggiornamento di Load Balancer di base interno, creare un servizio di bilanciamento del carico interno standard se la connettività in uscita non è desiderata e creare un servizio di bilanciamento del carico interno standard e un servizio di bilanciamento del carico pubblico standard se è necessaria la connettività in uscita.
+* Lo script supporta solo l'aggiornamento di Public Load Balancer.Script only supports Public Load Balancer upgrade. Per l'aggiornamento di Internal Basic Load Balancer, fare riferimento a [questa pagina](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) per istruzioni.
 * Il servizio di bilanciamento del carico standard ha un nuovo indirizzo pubblico. È impossibile spostare senza problemi gli indirizzi IP associati a Basic Load Balancer esistenti in Load Balancer standard poiché hanno SKU diversi.
 * Se il servizio di bilanciamento del carico Standard viene creato in un'area diversa, non sarà possibile associare le macchine virtuali esistenti nell'area precedente al servizio di bilanciamento del carico Standard appena creato. Per aggirare questa limitazione, assicurarsi di creare una nuova macchina virtuale nella nuova area.
 * Se il servizio di bilanciamento del carico non dispone di alcuna configurazione IP front-end o pool di back-end, è probabile che si ripresenti un errore durante l'esecuzione dello script. Si prega di assicurarsi che non siano vuoti.
 
 ## <a name="download-the-script"></a>Scarica lo script
 
-Scaricare lo script di migrazione da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Scaricare lo script di migrazione da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Utilizzare lo script
 
 Sono disponibili due opzioni a seconda dell'installazione e delle preferenze dell'ambiente PowerShell locale:There are two options for you depending on your local PowerShell environment setup and preferences:

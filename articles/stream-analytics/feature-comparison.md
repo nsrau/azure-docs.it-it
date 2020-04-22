@@ -6,28 +6,31 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cdae6a3b7319aefa9d4f19b5d613d1afb8b6804a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3b27a50fa86916b71c84b30ecdbf45deb0ec45c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235318"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770764"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Confronto tra le funzionalità di Analisi di flusso di AzureAzure Stream Analytics feature comparison
 
 Con Analisi di flusso di Azure è possibile creare soluzioni di streaming nel cloud e in Edge Edge utilizzando il portale di [Azure,](stream-analytics-quick-create-portal.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code](quick-create-vs-code.md). Le tabelle in questo articolo mostrano le funzionalità supportate da ogni piattaforma per entrambi i tipi di processo.
+
+> [!NOTE]
+> Gli strumenti Visual Studio e Visual Studio Code non supportano i processi nelle aree NordEst di Cina Orientale, Cina settentrionale, Germania centrale e Germania.
 
 ## <a name="cloud-job-features"></a>Funzionalità dei lavori cloud
 
 
 |Funzionalità  |Portale  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
-|Multipiattaforma     |Mac</br>Linux</br>WINDOWS         |WINDOWS        |Mac</br>Linux</br>WINDOWS          |
+|Multipiattaforma     |Mac</br>Linux</br>Windows         |WINDOWS        |Mac</br>Linux</br>Windows          |
 |Creazione di script     |Sì         |Sì         |Sì         |
 |Script Intellisense     |Evidenziazione della sintassi         |Evidenziazione della sintassi</br>Completamento del codice</br>Indicatore di errore         |Evidenziazione della sintassi</br>Completamento del codice</br>Indicatore di errore         |
 |Definire tutti i tipi di input, output e configurazioni di processo     |Sì         |Sì         |Sì         |
 |Controllo del codice sorgente     |No         |Sì         |Sì         |
-|Supporto CI/CD     |Parziale         |Sì         |Sì         |
+|Supporto CI/CD     |Partial         |Sì         |Sì         |
 |Condividere input e output tra più query     |No         |Sì         |Sì         |
 |Test di query con un file di esempioQuery testing with a sample file     |Sì         |Sì        |Sì         |
 |Test locali dei dati in tempo reale     |No         |Sì       |Sì      |
@@ -57,7 +60,7 @@ Con Analisi di flusso di Azure è possibile creare soluzioni di streaming nel cl
 |Esportare un processo in un progetto locale     |No         |Sì         |No         |
 |Test di query con un file di esempioQuery testing with a sample file     |Sì         |Sì         |No         |
 |Condividere input e output tra più query     |No         |Sì         |No         |
-|Funzione definita dall'utente di C     |No         |Sì         |No         |
+|Funzione definita dall'utente in C#     |No         |Sì         |No         |
 |Inviare i processi     |Sì         |Sì         |No         |
 |Elencare i processi e visualizzare le entità processo     |Sì         |Sì         |No         |
 |Visualizzare le metriche e il diagramma dei processi     |Sì         |Parziale         |No         |

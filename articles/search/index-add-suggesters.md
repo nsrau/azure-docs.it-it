@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 1e2a837acef976b6b872c2d4002ee49d662ad594
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.date: 04/21/2020
+ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641332"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770092"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
-In Ricerca cognitiva di Azure la funzione "ricerca come tipo" viene abilitata tramite un costrutto **di suggerimenti** aggiunto a un indice di [ricerca.](search-what-is-an-index.md) Un suggerimento supporta due esperienze: *completamento automatico*, che completa il termine o la frase, e *suggerimenti* che restituiscono un breve elenco di documenti corrispondenti.  
+In Ricerca cognitiva di Azure la funzione "ricerca come tipo" viene abilitata tramite un costrutto **di suggerimenti** aggiunto a un indice di [ricerca.](search-what-is-an-index.md) Un suggerimento supporta due esperienze: *completamento automatico*, che completa un input parziale per una query a tutto il termine e *suggerimenti* che invitano a fare clic su di una determinata corrispondenza. Il completamento automatico produce una query. I suggerimenti producono un documento corrispondente.
 
 La schermata seguente di [Creare la prima app in C .](tutorial-csharp-type-ahead-and-suggestions.md) Completamento automatico anticipa un termine potenziale, finendo "tw" con "in". I suggerimenti sono risultati di ricerca mini, in cui un campo come il nome dell'hotel rappresenta un documento di ricerca dell'hotel corrispondente dall'indice. Per i suggerimenti, è possibile visualizzare qualsiasi campo che fornisca informazioni descrittive.
 
@@ -33,27 +33,36 @@ Il supporto search-as-you-type è abilitato in base al campo per i campi stringa
 
 ## <a name="what-is-a-suggester"></a>Che cos'è un suggeritore?
 
-Un suggerimento è una struttura di dati che supporta i comportamenti di ricerca come si digitaarchiviano i prefissi per la corrispondenza nelle query parziali. Analogamente ai termini in formato token, i prefissi vengono archiviati in indici invertiti, uno per ogni campo specificato in una raccolta di campi del suggerimento.
-
-Quando si creano prefissi, un suggerimento ha una propria catena di analisi, simile a quella utilizzata per la ricerca full-text. Tuttavia, a differenza dell'analisi nella ricerca full-text, un suggerimento può operare solo su campi che utilizzano l'analizzatore Lucene standard (impostazione predefinita) o un [analizzatore di lingua](index-add-language-analyzers.md). I campi che [utilizzano analizzatori personalizzati](index-add-custom-analyzers.md) o [analizzatori predefiniti](index-add-custom-analyzers.md#predefined-analyzers-reference) (ad eccezione dello standard Lucene) non sono esplicitamente autorizzati a evitare risultati scadenti.
-
-> [!NOTE]
-> Se è necessario aggirare il vincolo dell'analizzatore, utilizzare due campi separati per lo stesso contenuto. Ciò consentirà a uno dei campi di avere un suggerimento, mentre l'altro può essere impostato con una configurazione analizzatore personalizzata.
+Un suggerimento è una struttura di dati interna che supporta i comportamenti di ricerca durante la digitazione archiviando i prefissi per la corrispondenza nelle query parziali. Come per i termini in formato token, i prefissi vengono archiviati in indici invertiti, uno per ogni campo specificato in una raccolta di campi del suggerimento.
 
 ## <a name="define-a-suggester"></a>Definire un suggerimento
 
-Per creare un suggerimento, aggiungerne uno a [uno schema](https://docs.microsoft.com/rest/api/searchservice/create-index) di indice e [impostare ogni proprietà](#property-reference). Nell'indice, si può avere un suggeritore (in particolare, un suggeritore nella raccolta di suggerimenti). Il momento migliore per creare un suggerimento è quando si definisce anche il campo che lo utilizzerà.
+Per creare un suggerimento, aggiungerne uno a [uno schema](https://docs.microsoft.com/rest/api/searchservice/create-index) di indice e [impostare ogni proprietà](#property-reference). Il momento migliore per creare un suggerimento è quando si definisce anche il campo che lo utilizzerà.
+
++ Utilizzare solo campi stringa
+
++ Utilizzare l'analizzatore`"analyzer": null`Lucene standard predefinito ( `"analyzer": "en.Microsoft"`) o un [analizzatore del linguaggio](index-add-language-analyzers.md) (ad esempio, ) nel campo
 
 ### <a name="choose-fields"></a>Selezionare i campi
 
-Anche se un suggerimento ha diverse proprietà, è principalmente una raccolta di campi per i quali si sta abilitando un'esperienza di ricerca durante la digitazione. Per i suggerimenti in particolare, scegliere i campi che meglio rappresentano un singolo risultato. I nomi, i titoli o altri campi univoci che distinguono tra più corrispondenze funzionano meglio. Se i campi sono costituiti da valori ripetitivi, i suggerimenti sono costituiti da risultati identici e un utente non saprà su quale fare clic.
+Anche se un suggerimento dispone di diverse proprietà, è principalmente una raccolta di campi stringa per i quali si sta abilitando un'esperienza di ricerca durante la digitazione. C'è un suggerimento per ogni indice, quindi l'elenco dei suggerimenti deve includere tutti i campi che contribuiscono al contenuto sia per i suggerimenti che per il completamento automatico.
 
-Assicurarsi che ogni campo utilizzi un analizzatore che esegue l'analisi lessicale durante l'indicizzazione. È possibile utilizzare l'analizzatore`"analyzer": null`Lucene standard predefinito ( `"analyzer": "en.Microsoft"`) o un [analizzatore del linguaggio](index-add-language-analyzers.md) (ad esempio, ). 
+Il completamento automatico trae vantaggio da un pool più ampio di campi da cui attingere perché il contenuto aggiuntivo ha un potenziale di completamento dei termini maggiore.
 
-La scelta di un analizzatore determina il modo in cui i campi vengono tokenizzati e successivamente preceduti. Ad esempio, per una stringa sillabata come "sensibile al contesto", l'utilizzo di un analizzatore di linguaggio comporterà queste combinazioni di token: "context", "sensitive", "context-sensitive". Se avessi usato l'analizzatore Lucene standard, la stringa sillabata non esisterebbe.
+I suggerimenti, d'altra parte, producono risultati migliori quando la scelta sul campo è selettiva. Tenere presente che il suggerimento è un proxy per un documento di ricerca, pertanto si desidera che i campi che meglio rappresentano un singolo risultato. I nomi, i titoli o altri campi univoci che distinguono tra più corrispondenze funzionano meglio. Se i campi sono costituiti da valori ripetitivi, i suggerimenti sono costituiti da risultati identici e un utente non saprà su quale fare clic.
 
-> [!TIP]
-> Prendi in considerazione l'uso [dell'API Analizza testo](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) per informazioni dettagliate su come i termini vengono suddivisi in token e successivamente con il prefisso. Dopo aver creato un indice, è possibile provare vari analizzatori su una stringa per visualizzare i token che genera.
+Per soddisfare entrambe le esperienze di ricerca durante la digitazione, aggiungere tutti i campi necessari per il completamento automatico, ma utilizzare **$select**, **$top**, **$filter e**campi **di ricerca** per controllare i risultati per i suggerimenti.
+
+### <a name="choose-analyzers"></a>Scegliere gli analizzatori
+
+La scelta di un analizzatore determina il modo in cui i campi vengono tokenizzati e successivamente preceduti. Ad esempio, per una stringa sillabata come "sensibile al contesto", l'utilizzo di un analizzatore di linguaggio comporterà queste combinazioni di token: "context", "sensitive", "context-sensitive". Se avessi usato l'analizzatore Lucene standard, la stringa sillabata non esisterebbe. 
+
+Quando si valutano gli analizzatori, è consigliabile usare [l'API Analizza testo](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) per informazioni dettagliate su come i termini vengono suddivisi in token e successivamente con il prefisso. Dopo aver compilato un indice, è possibile provare vari analizzatori su una stringa per visualizzare l'output del token.
+
+I campi che [utilizzano analizzatori personalizzati](index-add-custom-analyzers.md) o [analizzatori predefiniti](index-add-custom-analyzers.md#predefined-analyzers-reference) (ad eccezione dello standard Lucene) non sono esplicitamente autorizzati a evitare risultati scadenti.
+
+> [!NOTE]
+> Se è necessario aggirare il vincolo dell'analizzatore, ad esempio se è necessaria una parola chiave o un analizzatore di ngrammi per determinati scenari di query, è necessario utilizzare due campi separati per lo stesso contenuto. Ciò consentirà a uno dei campi di avere un suggerimento, mentre l'altro può essere impostato con una configurazione analizzatore personalizzata.
 
 ### <a name="when-to-create-a-suggester"></a>Quando creare un suggerimento
 
@@ -161,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Si consiglia di vedere come vengono formulate le richieste.
+Si consiglia il seguente articolo per saperne di più su come richiede la formulazione.
 
 > [!div class="nextstepaction"]
 > [Aggiungere il completamento automatico e suggerimenti al codice clientAdd autocomplete and suggestions to client code](search-autocomplete-tutorial.md) 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659986"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770409"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Aggiornare il servizio di bilanciamento del carico interno di Azure - Connessione in uscita necessariaUpgrade Azure Internal Load Balancer - Outbound Connection Required
 [Azure Standard Load Balancer](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza delle zone. Per altre informazioni sullo SKU di Load Balancer, vedere la tabella di [confronto](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Poiché Il servizio di bilanciamento del carico interno standard non fornisce una connessione in uscita, viene fornita una soluzione per creare un servizio di bilanciamento del carico pubblico standard.
@@ -21,8 +21,7 @@ In un aggiornamento sono disponibili quattro fasi:There are four stages in a upg
 
 1. Eseguire la migrazione della configurazione al servizio di bilanciamento del carico pubblico standardMigrate the configuration to Standard Public Load Balancer
 2. Aggiungere macchine virtuali ai pool back-end di Standard Public Load BalancerAdd VMs to backend pools of Standard Public Load Balancer
-3. Creare una regola in uscita nel servizio di bilanciamento del carico per la connessione in uscitaCreate an outbound rule on the Load Balancer for outbound connection
-4. Configurare le regole del gruppo di sicurezza di rete per subnet/macchine virtuali che devono essere astenuti da/a InternetSet up NSG rules for Subnet/VMs that should be refrained from/to the Internet
+3. Configurare le regole del gruppo di sicurezza di rete per subnet/macchine virtuali che devono essere astenuti da/a InternetSet up NSG rules for Subnet/VMs that should be refrained from/to the Internet
 
 In questo articolo viene illustrata la migrazione della configurazione. L'aggiunta di macchine virtuali ai pool back-end può variare a seconda dell'ambiente specifico. Tuttavia, [vengono fornite](#add-vms-to-backend-pools-of-standard-load-balancer)alcune raccomandazioni generali di alto livello .
 
@@ -32,6 +31,7 @@ In questo articolo viene illustrata la migrazione della configurazione. L'aggiun
 
 * Crea un servizio di bilanciamento del carico pubblico SKU Standard nel gruppo di risorse e nel percorso specificati.
 * Copia senza problemi le configurazioni di Basic SKU Internal Load Balancer nel nuovo servizio di bilanciamento del carico pubblico Standard.
+* Crea una regola in uscita che consente la connettività in uscita.
 
 ### <a name="caveatslimitations"></a>Avvertenze - Limitazioni
 
@@ -42,7 +42,7 @@ In questo articolo viene illustrata la migrazione della configurazione. L'aggiun
 
 ## <a name="download-the-script"></a>Scarica lo script
 
-Scaricare lo script di migrazione da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Scaricare lo script di migrazione da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Utilizzare lo script
 
 Sono disponibili due opzioni a seconda dell'installazione e delle preferenze dell'ambiente PowerShell locale:There are two options for you depending on your local PowerShell environment setup and preferences:

@@ -4,12 +4,12 @@ description: Panoramica degli avvisi in Azure. Avvisi, avvisi classici e l'inter
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274788"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769777"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -125,7 +125,10 @@ Per visualizzare la pagina **Regole,** selezionare **Gestisci regole di avviso**
 
 
 ## <a name="create-an-alert-rule"></a>Creare una regola di avviso
-È possibile creare avvisi in modo coerente, indipendentemente dal servizio di monitoraggio o dal tipo di segnale. Tutti gli avvisi attivati e i relativi dettagli sono disponibili in un'unica pagina.
+È possibile creare regole di avviso in modo coerente, indipendentemente dal servizio di monitoraggio o dal tipo di segnale.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
+
  
 Ecco come creare una nuova regola di avviso:Here's how to create a new alert rule:
 1. Selezionare la _destinazione_ per l'avviso.
@@ -169,7 +172,7 @@ La pagina Dettagli avviso include le sezioni seguenti:The Alert details page inc
 
 | Sezione | Descrizione |
 |:---|:---|
-| Riepilogo | Mostra le proprietà e altre informazioni significative sull'avviso. |
+| Summary | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
 | Diagnostica | Informazioni sul gruppo intelligente in cui è incluso l'avviso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include altri avvisi nello stesso gruppo intelligente creati negli ultimi 30 giorni, indipendentemente dal filtro temporale nella pagina di elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
 

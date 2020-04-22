@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 4042fc05f278915fe72bf8fc4e6afd69a5bbb4b9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537424"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770954"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuire Azure Monitor Application Insights Agent per i server localiDeploy Azure Monitor Application Insights Agent for on-premises servers
 
@@ -36,14 +36,14 @@ Application Insights Agent si https://www.powershellgallery.com/packages/Az.Appl
 - Consulta le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md) per un'immersione approfondita su come iniziare.
 
 ## <a name="powershell-api-reference"></a>Informazioni di riferimento sulle API di PowerShellPowerShell API reference
-- [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
-- [Disable-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Enable-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Enable-InstrumentationEngine (Abilitazione-InstrumentationEngine)](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
-- [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
-- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
+- [Disable-ApplicationInsightsMonitoring](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-applicationinsightsmonitoring)
+- [Disable-InstrumentationEngine](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-instrumentationengine)
+- [Enable-ApplicationInsightsMonitoring](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)
+- [Enable-InstrumentationEngine (Abilitazione-InstrumentationEngine)](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-instrumentationengine)
+- [Get-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringconfig)
+- [Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus)
+- [Set-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#set-applicationinsightsmonitoringconfig)
+- [Start-ApplicationInsightsMonitoringTrace](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#start-applicationinsightsmonitoringtrace)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 - [Risoluzione dei problemi](status-monitor-v2-troubleshoot.md)
@@ -64,7 +64,7 @@ Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate.](status-mon
 
 - Come è possibile verificare che l'abilitazione sia stata eseguita correttamente?
 
-  - Il cmdlet [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) può essere utilizzato per verificare che l'abilitazione sia stata eseguita correttamente.
+  - Il cmdlet [Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus) può essere utilizzato per verificare che l'abilitazione sia stata eseguita correttamente.
   - È consigliabile usare [metriche dinamiche](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) per determinare rapidamente se l'app invia dati di telemetria.
 
   - È anche possibile usare Log Analytics per elencare tutti i ruoli cloud che attualmente inviano dati di telemetria:You can also use [Log Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry:

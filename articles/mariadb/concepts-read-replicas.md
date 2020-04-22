@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 39edaa32b0695f4ab83206cd5701629f12295a0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: b2e8bec18f4f5df6fb78a3c31aa0956ec7333eb5
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527912"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770117"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliche in lettura in Database di Azure per MariaDB
 
@@ -73,7 +73,7 @@ Informazioni su come [creare una replica di lettura nel portale di Azure](howto-
 
 ## <a name="connect-to-a-replica"></a>Connessione a una replica
 
-Al momento della creazione, una replica eredita le regole del firewall o l'endpoint del servizio VNet del server master. Successivamente, queste regole sono indipendenti dal server master.
+Al momento della creazione, una replica eredita le regole del firewall del server master. Successivamente, queste regole sono indipendenti dal server master.
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
@@ -126,7 +126,7 @@ Una replica viene creata usando la stessa configurazione server del master. Dopo
 > [!IMPORTANT]
 > Prima che la configurazione del server master venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
 
-Le regole del firewall, le regole di rete virtuale e le impostazioni dei parametri vengono ereditate dal server master alla replica quando viene creata la replica. Successivamente, le regole della replica sono indipendenti.
+Le regole del firewall e le impostazioni dei parametri vengono ereditate dal server master alla replica quando viene creata la replica. Successivamente, le regole della replica sono indipendenti.
 
 ### <a name="stopped-replicas"></a>Repliche arrestate
 

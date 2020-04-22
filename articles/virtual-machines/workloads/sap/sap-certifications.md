@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
-ms.openlocfilehash: e803da238ebdd728e772a15b0f29ae36d401a699
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: c19471fee9235faffba12a12d9f92de77f60fd4d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536404"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770527"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Configurazioni e certificazioni SAP in esecuzione su Microsoft Azure
 
@@ -54,7 +54,7 @@ Riferimenti:
 | --- | --- | --- | --- |
 | Software SAP Business Suite | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
 | SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
-| SAP BusinessObjects BI | Windows |N/D |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
+| SAP BusinessObjects BI | WINDOWS |N/D |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
 | SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Altri carichi di lavoro SAP supportati in Azure
@@ -65,6 +65,7 @@ Riferimenti:
 | SAP BPC 10.01 MS SP08 | Windows e Linux | | Tutti i tipi di VM certificati per NetWeaver<br /> Nota SAP n. 2451795 |
 | Piattaforma di business intelligence SAP Business Objects | Windows e Linux | | Nota SAP n. 2145537 |
 | SAP Data Services 4.2 | | | Nota SAP n. 2288344 |
-| Piattaforma SAP Hybris Commerce  | Windows | SQL Server, Oracle | Tutti i tipi di VM certificati per NetWeaver <br /> [Wiki di Hybris](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
+| Piattaforma SAP Hybris Commerce  | WINDOWS | SQL Server, Oracle | Tutti i tipi di VM certificati per NetWeaver <br /> [Wiki di Hybris](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
 | Piattaforma SAP Hybris Commerce  | SLES 12 o più recenti | SAP HANA | Tutti i tipi di VM certificati per NetWeaver <br /> [Wiki di Hybris](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
 | Piattaforma SAP Hybris Commerce  | RHEL 7 o più recente | SAP HANA | Tutti i tipi di VM certificati per NetWeaver <br /> [Wiki di Hybris](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
+| SAP (Hybris) Commerce Platform 1811 e versioni successive  | Windows, SLES o RHEL | DATABASE di SQL Azure | Tutti i tipi di VM certificati per NetWeaver <br /> [Documentazione di Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html) |

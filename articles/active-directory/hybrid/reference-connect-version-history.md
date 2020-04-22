@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 04/21/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815d3afe68003f56a5748584b322b731ef5a3dc7
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 3a03a03557fbb2e71ff79ff42fd9d9c72cd5907c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639639"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770501"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -48,6 +48,14 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 >
 >Fare riferimento a [questo articolo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) per altre informazioni su come aggiornare Azure AD Connect alla versione più recente.
 
+## <a name="15220"></a>1.5.22.0
+
+### <a name="release-status"></a>Stato della versione
+20/04/2020: Rilasciato per il download
+
+### <a name="fixed-issues"></a>Problemi risolti
+Questo hotfix per la creazione di correzioni di un problema nella build 1.5.20.0 se è stata clonata la regola **In da Active Directory - Join di gruppo** e non è stata clonata la regola In da AD - Gruppo **comune.**
+
 ## <a name="15200"></a>1.5.20.0
 
 ### <a name="release-status"></a>Stato della versione
@@ -57,12 +65,13 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 Questo hotfix per la creazione di correzioni di un problema con la build 1.5.18.0 se è attivata la funzionalità Di filtering di gruppo e si utilizza mS-DS-ConsistencyGuid come ancoraggio di origine.
 
 > [!IMPORTANT]
-> Se si utilizza mS-DS-ConsistencyGuid come ancoraggio di origine ed è stata clonata la regola di sincronizzazione **In da AD - Join di gruppo** e si prevede di eseguire l'aggiornamento, completare i passaggi seguenti come parte dell'aggiornamento:
+> Se è stata clonata la regola di sincronizzazione **In da AD - Join di gruppo** e non è stata clonata la regola di sincronizzazione In da AD - Gruppo **comune** e si prevede di eseguire l'aggiornamento, completare i passaggi seguenti durante l'aggiornamento:
 > 1. Durante l'aggiornamento, deselezionare l'opzione **Avvia il processo di sincronizzazione**al termine della configurazione.
 > 2. Modificare la regola di sincronizzazione join clonata e aggiungere le due trasformazioni seguenti:Edit the cloned join sync rule and add the following two transformations:
 >     - Impostare `objectGUID` flusso `sourceAnchorBinary`diretto su .
 >     - Impostare `ConvertToBase64([objectGUID])` il `sourceAnchor`flusso dell'espressione su .     
 > 3. Abilitare l'utilità di pianificazione utilizzando `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+
 
 
 ## <a name="15180"></a>1.5.18.0
@@ -880,7 +889,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Seleziona|
+    |CertVersion|CertSignatureAlgorithmOid|Select|
     |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 

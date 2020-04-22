@@ -13,12 +13,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: c5804d9e386ff1b17c08fc4ce4f3a232ebe1a39b
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 29c27c876e90bce6a38226f68adf44a26465cfea
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81394436"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770860"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>Delegare la gestione degli utenti con Personale personale personale (anteprima)
 
@@ -30,7 +30,7 @@ Gestire i membri del team in Il mio personale è semplice. Per iniziare, [vai a 
 
 Se gestisci più di una sede, quando vai a Il mio personale devi selezionare una posizione per vedere il membro del team assegnato alla posizione.
 
-Se non disponi ancora di autorizzazioni sufficienti per accedere al mio staff, vedrai il seguente messaggio "Ops, sembra che non sei autorizzato a vedere Il mio staff in questo momento. Per ulteriori informazioni, contatta il tuo amministratore."
+Se non si dispone ancora di autorizzazioni sufficienti per accedere al personale personale, verrà visualizzato il seguente messaggio "Ops, sembra che non si è autorizzati a vedere Il mio personale in questo momento. Per ulteriori informazioni, contatta il tuo amministratore."
 
 ### <a name="find-a-staff-member-in-my-staff"></a>Trova un membro del personale in Il mio staff
 

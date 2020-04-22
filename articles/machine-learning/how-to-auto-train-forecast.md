@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9f80156f61ad82e5563f1c38764c81297f5979f2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605883"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767299"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello previsionale di serie temporaliAuto-train a time-series forecast model
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,13 +36,13 @@ Questo approccio, a differenza dei metodi classici di serie temporali, ha il van
 
 Le funzionalità estratte dai dati di training svolgono un ruolo fondamentale. Inoltre, ML automatizzato esegue procedure di pre-elaborazione standard e genera funzionalità aggiuntive di serie temporali per catturare gli effetti stagionali e massimizzare la precisione predittiva.
 
-## <a name="time-series-and-deep-learning-models"></a>Modelli di serie temporali e Deep Learning
+## <a name="time-series-and-deep-learning-models"></a>Modelli di time-series e deep learning
 
 
 L'ML automatizzato fornisce agli utenti sia modelli di serie temporali native che modelli di deep learning come parte del sistema di raccomandazione. Questi studenti includono:
-+ Profeta
-+ ARIMA automatico
-+ PrevistoTCN
++ Profeta (anteprima)
++ Auto-ARIMA (anteprima)Auto-ARIMA (Preview)
++ ForecastTCN (anteprima)
 
 Il deep learning automatizzato di ML consente di prevedere dati di serie temporali univariati e multivariati.
 
@@ -51,7 +51,7 @@ I modelli di deep learning hanno tre funzionalità intrinseche:Deep learning mod
 1. Supportano più ingressi e uscite
 1. Possono estrarre automaticamente i modelli nei dati di input che si estendono su sequenze lunghe
 
-Dati più grandi, i modelli di deep learning, ad esempio ForecastTCN di Microsoft, possono migliorare i punteggi del modello risultante. 
+Dati più grandi, i modelli di deep learning, ad esempio ForecastTCN di Microsoft, possono migliorare i punteggi del modello risultante. Scopri come [configurare l'esperimento per il deep learning.](#configure-a-dnn-enable-forecasting-experiment)
 
 Gli allievi nativi di serie temporali sono anche forniti come parte di ML automatizzato. Profeta funziona meglio con serie temporali che hanno forti effetti stagionali e diverse stagioni di dati storici. Profeta è preciso & veloce, robusto agli outlier, dati mancanti e cambiamenti drammatici nella tua serie temporale. 
 
@@ -181,6 +181,17 @@ Vedere i blocchi appunti di esempio di previsione per esempi di codice dettaglia
 > Il supporto DNN per le previsioni in Automated Machine Learning è in anteprima e non è supportato per le esecuzioni locali.
 
 Per sfruttare i DNN per la previsione, `enable_dnn` è necessario impostare il parametro in AutoMLConfig su true. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             **time_series_settings)
+```
+Ulteriori informazioni su [AutoMLConfig](#configure-and-run-experiment).
+
+In alternativa, è `Enable deep learning` possibile selezionare l'opzione in studio.
+![testo alternativo](./media/how-to-auto-train-forecast/enable_dnn.png)
 
 È consigliabile usare un cluster AML Compute con SKU GPU e almeno due nodi come destinazione di calcolo. Per concedere tempo sufficiente per il completamento del training DNN, è consigliabile impostare il timeout dell'esperimento su un minimo di un paio d'ore.
 Per altre informazioni sul calcolo AML e sulle dimensioni delle macchine virtuali che includono GPU, vedere la documentazione di [AML Compute](how-to-set-up-training-targets.md#amlcompute) e la documentazione sulle [dimensioni delle macchine virtuali ottimizzate per GPU.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)

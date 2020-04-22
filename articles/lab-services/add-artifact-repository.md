@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/21/2019
 ms.author: spelluru
-ms.openlocfilehash: a0dbd92533703a56f1ec2478fab8944656129247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bb871119bece71c705ad9621a7c76c4b5ed0bc7
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295516"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770249"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Aggiungere un repository di elementi al lab in DevTest LabsAdd an artifact repository to your lab in DevTest Labs
 DevTest Labs consente di specificare un elemento da aggiungere a una macchina virtuale al momento della creazione della macchina virtuale o dopo la creazione della macchina virtuale. Questo elemento può essere uno strumento o un'applicazione che si vuole installare nella macchina virtuale. Gli elementi vengono definiti in un file JSON caricato da un repository GitHub o Azure DevOps Git.Artifacts are defined in a JSON file loaded from a GitHub or Azure DevOps Git repository.
@@ -52,20 +52,20 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
 4. Salvare l'URL. L'URL verrà usato in seguito.
 5. Per creare un token di accesso personale, nel menu a discesa dell'account utente selezionare **Profilo personale**.
 6. Nella pagina delle informazioni del profilo selezionare **Sicurezza**.
-7. Selezionare **Aggiungi** nella scheda **Sicurezza**.
-8. Nella pagina **Crea un token di accesso personale**:
-   1. Immettere una **Descrizione** per il token.
-   2. Nell'elenco **Scadenza tra** selezionare **180 giorni**.
-   3. Nell'elenco **Account** selezionare **Tutti gli account accessibili**.
-   4. Selezionare l'opzione **Tutti gli ambiti**.
-   5. Selezionare **Crea token**.
+7. Nella scheda Token di **accesso di sicurezza > personali** , selezionare Nuovo **token**.
+8. Nella pagina Crea un nuovo token di **accesso personale:**
+   1. Immettere un **Nome** per il token.
+   2. Nell'elenco **Organizzazione** selezionare **Tutte le organizzazioni accessibili**.
+   3. Nell'elenco **Scadenza (UTC)** selezionare **90 giorni**o un periodo di scadenza definito personalizzato.
+   4. Selezionare l'opzione **Accesso completo** per Ambiti.
+   5. Selezionare **Create** (Crea).
 9. Il nuovo token verrà visualizzato nell'elenco **Token di accesso personali**. Selezionare **Copia token**e quindi salvare il valore del token da usare in un momento successivo.
 10. Passare alla sezione Connettere il lab al repository .
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
 Questa sezione illustra i passaggi per aggiungere un repository di elementi a un lab nel portale di Azure.This section provides steps to add an artifact repository to a lab in the Azure portal.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Altri servizi** e quindi **DevTest Labs** nell'elenco di servizi.
 3. Nell'elenco di lab selezionare il proprio lab.
 4. Selezionare **Configurazione e criteri** nel menu a sinistra.

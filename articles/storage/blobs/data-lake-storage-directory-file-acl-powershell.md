@@ -1,27 +1,24 @@
 ---
-title: Azure Data Lake Storage Gen2 PowerShell per file & ACL (anteprima)Azure Data Lake Storage Gen2 PowerShell for files & ACLs (preview)
+title: Azure Data Lake Storage Gen2 PowerShell per file & ACL
 description: Utilizzare i cmdlet di PowerShell per gestire le directory e gli elenchi di controllo di accesso (ACL) di file e directory negli account di archiviazione con spazio dei nomi gerarchico abilitato.
 services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: b59c68e3f2edc0fbe5eee3c3861a3e5116d4fac6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 68ffe40f93be3d10666ebad2eaa153fc9dc9687f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262384"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768028"
 ---
-# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2 (anteprima)Use PowerShell to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
+# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2Use PowerShell to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 Questo articolo illustra come usare PowerShell per creare e gestire directory, file e autorizzazioni negli account di archiviazione con spazio dei nomi gerarchico abilitato. 
-
-> [!IMPORTANT]
-> Il modulo Di PowerShell presente in questo articolo è attualmente in anteprima pubblica.
 
 [Mapping da Gen1 a Gen2](#gen1-gen2-map) | [Inviare commenti e suggerimentiGen1](https://github.com/Azure/azure-powershell/issues) to Gen2 mapping Give feedback
 
@@ -33,7 +30,7 @@ Questo articolo illustra come usare PowerShell per creare e gestire directory, f
 > * .NET Framework è 4.7.2 o versione successiva. Vedere [Scaricare .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 > * Versione `5.1` di PowerShell o versione successiva.
 
-## <a name="install-powershell-modules"></a>Installare i moduli di PowerShell
+## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
 
 1. Verificare che la versione di `5.1` PowerShell installata sia o successiva utilizzando il comando seguente.    
 
@@ -43,16 +40,10 @@ Questo articolo illustra come usare PowerShell per creare e gestire directory, f
     
    Per aggiornare la versione di PowerShell, vedere [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
-2. Installare il modulo **PowershellGet** più recente. Chiudere quindi e riaprire la console di PowerShell.Then, close and reopen the PowerShell console.
+2. Installare il modulo **Az.Storage.**
 
    ```powershell
-   Install-Module PowerShellGet –Repository PSGallery –Force 
-   ```
-
-3. Installare il modulo di anteprima **Az.Storage.Install Az.Storage** preview module.
-
-   ```powershell
-   Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force 
+   Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
    Per altre informazioni su come installare i moduli di PowerShell, vedere [Installare il modulo di Azure PowerShellFor](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) more information about how to install PowerShell modules, see Install the Azure PowerShell module

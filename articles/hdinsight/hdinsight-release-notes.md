@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e5a96d2eb67937ce4eeaa1999d8168e7f5d3d926
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb31f1a46d7f46b69e9e0ad47a77ba6b32a50a0
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130197"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770824"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
 Questo articolo include informazioni sugli aggiornamenti di versione di Azure HDInsight **più recenti**. Per informazioni sulle versioni precedenti, vedere [Archivio delle note di versione di HDInsight](hdinsight-release-notes-archive.md).
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
@@ -34,7 +34,7 @@ Questa versione si applica sia per HDInsight 3.6 e 4.0.This release applies both
 ### <a name="tls-12-enforcement"></a>Imposizione di TLS 1.2
 Transport Layer Security (TLS) e Secure Sockets Layer (SSL) sono protocolli di crittografia che consentono di proteggere le comunicazioni su una rete di computer. Ulteriori informazioni su [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight usa TLS 1.2 negli endpoint HTTP pubblici, ma TLS 1.1 è ancora supportato per la compatibilità con le versioni precedenti. 
 
-Con questa versione, i clienti possono scegliere TLS 1.2 solo per tutte le connessioni tramite l'endpoint del cluster pubblico. A tale scopo, viene introdotta la nuova proprietà **minSupportedTlsVersion** che può essere specificata durante la creazione del cluster. Se la proprietà non è impostata, il cluster supporta ancora TLS 1.0, 1.1 e 1.2, che è lo stesso del comportamento di oggi. I clienti possono impostare il valore di questa proprietà su "1.2", il che significa che il cluster supporta solo TLS 1.2 e versioni successive. Per altre informazioni, vedere [Pianificare una rete virtuale - Transport Layer Security](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security).
+Con questa versione, i clienti possono scegliere TLS 1.2 solo per tutte le connessioni tramite l'endpoint del cluster pubblico. A tale scopo, viene introdotta la nuova proprietà **minSupportedTlsVersion** che può essere specificata durante la creazione del cluster. Se la proprietà non è impostata, il cluster supporta ancora TLS 1.0, 1.1 e 1.2, che è lo stesso del comportamento di oggi. I clienti possono impostare il valore di questa proprietà su "1.2", il che significa che il cluster supporta solo TLS 1.2 e versioni successive. Per ulteriori informazioni, vedere [Transport Layer Security](./transport-layer-security.md).
 
 ### <a name="bring-your-own-key-for-disk-encryption"></a>Porta la tua chiave per la crittografia del disco
 Tutti i dischi gestiti in HDInsight sono protetti con Crittografia del servizio di archiviazione di Azure. I dati su tali dischi vengono crittografati dalle chiavi gestite da Microsoft per impostazione predefinita. A partire da questa versione, è possibile portare la propria chiave (BYOK) per la crittografia del disco e gestirla usando l'insieme di credenziali delle chiavi di Azure.Starting from this release, you can Bring Your Own Key (BYOK) for disk encryption and manage it using Azure Key Vault. La crittografia BYOK è una configurazione in un solo passaggio durante la creazione del cluster senza costi aggiuntivi. È sufficiente registrare HDInsight come identità gestita con L'insieme di credenziali delle chiavi di Azure e aggiungere la chiave di crittografia quando si crea il cluster. Per ulteriori informazioni, vedere Crittografia del [disco di chiave gestita dal cliente](https://docs.microsoft.com/azure/hdinsight/disk-encryption).

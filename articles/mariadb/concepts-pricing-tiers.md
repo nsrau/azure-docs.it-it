@@ -1,23 +1,23 @@
 ---
 title: Piani tariffari - Database di Azure per MariaDB
 description: Informazioni sui vari piani tariffari per Database di Azure per MariaDB, inclusi generazioni di elaborazione, tipi di archiviazione, dimensioni di archiviazione, vCore, memoria e periodi di conservazione dei backup.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 39af6850810fa471003cea27ed274972fb2ff046
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c057bebf94362b3b9e42db9d311e99f1e35c651
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528031"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770137"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Piani tariffari di Database di Azure per MariaDB
 
 È possibile creare un Database di Azure per il server MariaDB in uno dei tre piani tariffari disponibili: Basic, Utilizzo generico e Con ottimizzazione per la memoria. I piani tariffari si differenziano per le risorse di calcolo in vCore di cui è possibile effettuare il provisioning, per la memoria in ogni vCore e per la tecnologia usata per l'archiviazione dei dati. Il provisioning di tutte le risorse viene effettuato a livello di server MariaDB. Un server può avere uno o più database.
 
-|    | **Base** | **Scopo generale** | **Ottimizzazione della memoria** |
+|    | **Basic** | **Scopo generale** | **Ottimizzazione della memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Generazione di calcolo | Generazione 5 |Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -43,7 +43,7 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 
 Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per MariaDB. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server MariaDB. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
-|    | **Base** | **Scopo generale** | **Ottimizzazione della memoria** |
+|    | **Basic** | **Scopo generale** | **Ottimizzazione della memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo di archiviazione | Archiviazione di base | Archiviazione per uso generale | Archiviazione per uso generale |
 | Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |

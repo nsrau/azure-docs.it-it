@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0ecb7ee7f5c7c0ebaa87eb6b32eee1926d9e294d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547373"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768961"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 <a name="required-ports"> </a> Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, vengono utilizzate le porte nella tabella seguente.
 
-| Porte di origine/destinazione | Direction          | Protocollo di trasporto |   [Tag di servizio](../virtual-network/security-overview.md#service-tags) <br> Origine/Destinazione   | Scopo (*)                                                 | Tipo di rete virtuale |
+| Porte di origine/destinazione | Direction          | Protocollo di trasporto |   [Tag di servizio](../virtual-network/security-overview.md#service-tags) <br> Origine/Destinazione   | Scopo\*( )                                                 | Tipo di rete virtuale |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | In ingresso            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicazione tra client e Gestione API                      | Esterno             |
 | */3443                     | In ingresso            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Endpoint di gestione per il portale di Azure e PowerShell         | Esterno e interno  |
@@ -132,9 +132,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 + **Accesso a DNS**: l'accesso in uscita sulla porta 53 è necessario per la comunicazione con i server DNS. Se è presente un server DNS personalizzato all'altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che ospita Gestione API.
 
-+ **Metriche e monitoraggio dell'integrità**: la connettività di rete in uscita agli endpoint di Monitoraggio di Azure, che si risolve nei domini seguenti:
-
-+ **Tag del servizio regionale**": le regole del gruppo di sicurezza di rete che consentono la connettività in uscita ai tag del servizio Archiviazione, SQL e EventHubs possono utilizzare le versioni regionali dei tag corrispondenti all'area contenente l'istanza di Gestione API (ad esempio, Storage.WestUS per un'istanza di Gestione API nell'area Stati Uniti occidentali). Nelle distribuzioni in più aree, il gruppo di sicurezza di rete in ogni area deve consentire il traffico verso i tag del servizio per tale area.
++ **Metriche e monitoraggio dell'integrità:** connettività di rete in uscita agli endpoint di monitoraggio di Azure, che vengono risolti nei domini seguenti. Come illustrato nella tabella, questi URL sono rappresentati nel tag del servizio AzureMonitor per l'uso con i gruppi di sicurezza di rete.
 
     | Ambiente Azure | Endpoint                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -142,8 +140,10 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com(**nuovo**)</li><li>shoebox2.metrics.nsatc.net(**da predecidere**)</li><li>prod3.metrics.microsoftmetrics.com(**nuovo**)</li><li>prod3.metrics.nsatc.net(**per essere deprecato**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
     | 21Vianet per Azure Cina     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com(**nuovo**)</li><li>shoebox2.metrics.nsatc.net(**da predecidere**)</li><li>prod3.metrics.microsoftmetrics.com(**nuovo**)</li><li>prod3.metrics.nsatc.net(**per essere deprecato**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
 
->[!IMPORTANT]
-> Il cambiamento dei cluster di cui sopra con la zona DNS **.nsatc.net** a **.microsoftmetrics.com** è per lo più una modifica DNS. L'indirizzo IP del cluster non cambierà.
+  >[!IMPORTANT]
+  > Il cambiamento dei cluster di cui sopra con la zona DNS **.nsatc.net** a **.microsoftmetrics.com** è per lo più una modifica DNS. L'indirizzo IP del cluster non cambierà.
+
++ **Tag del servizio regionale:** le regole del gruppo di sicurezza di rete che consentono la connettività in uscita ai tag del servizio Archiviazione, SQL e Hub eventi possono utilizzare le versioni regionali di tali tag corrispondenti all'area contenente l'istanza di Gestione API ( ad esempio Storage.WestUS per un'istanza di Gestione API nell'area Stati Uniti occidentali). Nelle distribuzioni in più aree, il gruppo di sicurezza di rete in ogni area deve consentire il traffico verso i tag del servizio per tale area e l'area primaria.
 
 + **Smtp Relay**: Connettività di rete in uscita `smtpi-co1.msn.com`per `smtpi-ch1.msn.com` `smtpi-db3.msn.com`l'inoltro SMTP, che viene risolto nell'host , , e `smtpi-sin.msn.com``ies.global.microsoft.com`
 
@@ -151,7 +151,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 + **Diagnostica del portale di Azure**: per abilitare il flusso dei log di diagnostica dal portale di Azure quando si usa l'estensione di Gestione API dall'interno di una rete virtuale, è richiesto l'accesso in uscita a `dc.services.visualstudio.com` sulla porta 443. Ciò consente di risolvere eventuali problemi che potrebbero verificarsi quando si usa l'estensione.
 
-+ **Forzare il tunneling del traffico al firewall locale tramite Express Route o Network Virtual Appliance:** una configurazione comune del cliente consiste nel definire la propria route predefinita (0.0.0.0/0) che impone il flusso di tutto il traffico dalla subnet delegata di Gestione API attraverso un firewall locale o verso un'appliance virtuale di rete. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. La soluzione richiede di eseguire un paio di operazioni:The solution requires you to do a couple of things:
++ Forzare il tunneling del traffico al firewall locale **tramite Express Route o Network Virtual Appliance:** una configurazione cliente comune consiste nel definire la propria route predefinita (0.0.0.0/0) che impone il flusso di tutto il traffico dalla subnet delegata di Gestione API attraverso un firewall locale o verso un'appliance virtuale di rete. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. La soluzione richiede di eseguire un paio di operazioni:The solution requires you to do a couple of things:
 
   * Abilitare gli endpoint del servizio nella subnet in cui è distribuito il servizio Gestione API. [Gli endpoint di servizio][ServiceEndpoints] devono essere abilitati per Azure Sql, Archiviazione di Azure, Azure EventHub e Azure ServiceBus.Service Endpoints need to be enabled for Azure Sql, Azure Storage, Azure EventHub and Azure ServiceBus. L'abilitazione degli endpoint direttamente dalla subnet delegata di Gestione API a questi servizi consente loro di usare la rete backbone di Microsoft Azure che fornisce un routing ottimale per il traffico dei servizi. Se si usano gli endpoint di servizio con una gestione forzata delle api con tunneling, il traffico dei servizi di Azure precedente non viene sottoposto a tunneling forzato. L'altro traffico di dipendenza del servizio Gestione API è forzato tunneling e non può essere perso o il servizio Gestione API non funzionerebbe correttamente.
     
@@ -201,7 +201,7 @@ Ogni unità di scala aggiuntiva di Gestione API richiede altri due indirizzi IP.
 
 Gli indirizzi IP sono divisi per **Ambiente di Azure.** Quando si consentono richieste in ingresso, l'indirizzo IP contrassegnato con **Globale** deve essere inserito nella whitelist insieme all'indirizzo IP specifico **dell'area.**
 
-| **Ambiente Azure**|   **Regione**|  **Indirizzo IP**|
+| **Ambiente Azure**|   **Area**|  **Indirizzo IP**|
 |-----------------|-------------------------|---------------|
 | Azure Public| Stati Uniti centro-meridionali (globale)| 104.214.19.224|
 | Azure Public| Stati Uniti centro-settentrionali (globale)| 52.162.110.80|

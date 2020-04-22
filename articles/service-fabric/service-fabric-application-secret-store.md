@@ -3,12 +3,12 @@ title: Azure Service Fabric Central Secrets Store
 description: Questo articolo descrive come usare Central Secrets Store in Azure Service Fabric.This article describes how to use Central Secrets Store in Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 11fb94a9fba40e6f2474ad64f5eb0c454be28ca0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4087e7ccdcb2281c4a08af155d35a10c66147a85
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77589165"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770422"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Archivio dei segreti centrale nell'infrastruttura del servizio di AzureCentral Secrets Store in Azure Service Fabric 
 Questo articolo descrive come usare Central Secrets Store (CSS) in Azure Service Fabric per creare segreti nelle applicazioni di Service Fabric.This article describes how to use Central Secrets Store (CSS) in Azure Service Fabric to create secrets in Service Fabric applications. CSS è una cache dell'archivio segreto locale che mantiene crittografati in memoria i dati sensibili, ad esempio una password, token e chiavi.
@@ -47,31 +47,9 @@ Aggiungere lo script seguente alla `fabricSettings` configurazione del cluster i
      ]
 ```
 ## <a name="declare-a-secret-resource"></a>Dichiarare una risorsa segreta
-È possibile creare una risorsa segreta usando il modello di Azure Resource Manager o l'API REST.
-
-### <a name="use-resource-manager"></a>Usare Resource Manager
-
-Usare il modello seguente per usare Resource Manager per creare la risorsa segreta. Il modello `supersecret` crea una risorsa segreta, ma non è ancora impostato alcun valore per la risorsa segreta.
-
-
-```json
-   "resources": [
-      {
-        "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-          }
-        }
-      ]
-```
-
-### <a name="use-the-rest-api"></a>Usare l'API REST
+È possibile creare una risorsa segreta usando l'API REST.
+  > [!NOTE] 
+  > Se il cluster utilizza l'autenticazione di Windows, la richiesta REST viene inviata tramite un canale HTTP non protetto. È consigliabile usare un cluster basato su X509 con endpoint sicuri.
 
 Per creare `supersecret` una risorsa segreta utilizzando l'API `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`REST, effettuare una richiesta PUT a . Per creare una risorsa segreta, è necessario il certificato del cluster o il certificato client di amministrazione.
 
@@ -81,48 +59,6 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
 ```
 
 ## <a name="set-the-secret-value"></a>Impostare il valore segreto
-
-### <a name="use-the-resource-manager-template"></a>Usare il modello Resource ManagerUse the Resource Manager template
-
-Usare il modello di Resource Manager seguente per creare e impostare il valore segreto. Questo modello imposta il `supersecret` valore segreto `ver1`per la risorsa segreta come versione .
-```json
-  {
-  "parameters": {
-  "supersecret": {
-      "type": "string",
-      "metadata": {
-        "description": "supersecret value"
-      }
-   }
-  },
-  "resources": [
-    {
-      "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-        }
-    },
-    {
-      "apiVersion": "2018-07-01-preview",
-      "name": "supersecret/ver1",
-      "type": "Microsoft.ServiceFabricMesh/secrets/values",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "Microsoft.ServiceFabricMesh/secrets/supersecret"
-      ],
-      "properties": {
-        "value": "[parameters('supersecret')]"
-      }
-    }
-  ],
-  ```
-### <a name="use-the-rest-api"></a>Usare l'API REST
 
 Usare lo script seguente per usare l'API REST per impostare il valore segreto.
 ```powershell

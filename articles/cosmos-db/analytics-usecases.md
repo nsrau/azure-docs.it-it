@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b9bac14ff47107a4b39f12989685e2e510569ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf1db2d737de7004b5ab71c8e0e44d61d1da8c9
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72757071"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768506"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Casi d'uso per l'analisi incorporata con Azure Cosmos DBUse-cases for built-in analytics with Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Con Apache Spark integrato in modo nativo, Azure Cosmos DB offre un modo rapido,
 
 In alcuni casi, potrebbe essere necessario rispondere a domande basate su dati come in un momento specifico rispetto agli eventi completati in passato. Ad esempio, per ottenere il conteggio degli stati degli impegno CRM in una determinata data. Se il report fosse stato eseguito una settimana fa, il conteggio degli stati sarebbe in base allo stato di ogni attività in quel momento. L'esecuzione dello stesso rapporto di oggi vi darà il conteggio delle attività i cui stati sono come sono oggi, che possono essere cambiati dalla scorsa settimana, come passano attraverso il loro ciclo di vita da aperto a chiusura. Pertanto, è necessario creare report sullo snapshot in ogni fase del ciclo di vita del caso.
 
-Negli scenari di data warehouse tradizionali, il concetto di snapshot non è possibile perché i data warehouse non sono progettati per incorporarlo e i dati forniscono solo una visualizzazione corrente di ciò che sta accadendo. Con Azure Cosmos DB, gli utenti hanno la possibilità di implementare il concetto di viaggio nel tempo, essendo in grado di eseguire query ed eseguire analisi sui dati in modo retrospettivo e chiedere come i dati hanno guardato a un momento specifico nella storia. Ciò significa che gli utenti possono visualizzare facilmente sia le viste attuali che storiche dei dati ed eseguire analisi su di essi.
+Con Azure Cosmos DB, gli utenti hanno la possibilità di implementare il concetto di viaggio nel tempo, essendo in grado di eseguire query ed eseguire analisi sui dati in modo retrospettivo e chiedere come i dati hanno guardato a un momento specifico nella storia. Ciò significa che gli utenti possono visualizzare facilmente sia le viste attuali che storiche dei dati ed eseguire analisi su di essi.
 
 ## <a name="globally-distributed-machine-learning-and-ai"></a>Apprendimento automatico e AI distribuiti a livello globale
 

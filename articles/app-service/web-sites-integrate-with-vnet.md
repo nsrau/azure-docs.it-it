@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4866397af244ffb3c6aa9c7547b0a9413b10ccfd
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 78b49b8b7e17f12d49825390a302e28a61e10d16
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604872"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770849"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare l'app con una rete virtuale di AzureIntegrate your app with an Azure virtual network
 
@@ -23,6 +23,10 @@ Il servizio app di Azure presenta due varianti:Azure App Service has two variati
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## <a name="enable-vnet-integration"></a>Abilitare l'integrazione della rete virtualeEnable VNet Integration
+
+> [!NOTE]
+> Se il pannello "Rete" è disabilitato (visualizzato in grigio) nel menu per le app Linux, significa che la funzionalità non è attualmente disponibile.
+>
 
 1. Passare all'interfaccia utente **Rete** nel portale del servizio app. In **Integrazione rete virtuale**selezionare Fare clic qui per **configurare**.
 

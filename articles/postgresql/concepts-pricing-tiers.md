@@ -1,23 +1,23 @@
 ---
 title: Livelli di prezzo - Database di Azure per PostgreSQL - Server singolo
 description: Questo articolo descrive le opzioni di calcolo e archiviazione nel database di Azure per PostgreSQL - Server singolo.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 2e5b01a271eb290229904fc98d1268760e01620d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e4e69b63e51bafe8ca0b032c22ca509f5a7e6a2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243562"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770573"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari nel Database di Azure per PostgreSQL: server singolo
 
 È possibile creare un server di Database di Azure per PostgreSQL in uno dei tre piani tariffari disponibili: Basic, Utilizzo generico e Con ottimizzazione per la memoria. I piani tariffari si differenziano per le risorse di calcolo in vCore di cui è possibile effettuare il provisioning, per la memoria in ogni vCore e per la tecnologia usata per l'archiviazione dei dati. Il provisioning di tutte le risorse viene effettuato a livello di server PostgreSQL. Un server può avere uno o più database.
 
-|    | **Base** | **Scopo generale** | **Ottimizzazione della memoria** |
+|    | **Basic** | **Scopo generale** | **Ottimizzazione della memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -43,7 +43,7 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 
 Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per PostgreSQL. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server PostgreSQL. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
-|    | **Base** | **Scopo generale** | **Ottimizzazione della memoria** |
+|    | **Basic** | **Scopo generale** | **Ottimizzazione della memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo di archiviazione | Archiviazione di base | Archiviazione per uso generale | Archiviazione per uso generale |
 | Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 16 TB | Da 5 GB a 16 TB |
@@ -51,7 +51,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!NOTE]
-> Lo storage fino a 16 TB e 20.000 IOPS è supportato nelle seguenti regioni: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-settentrionali, Nord Europa, Europa occidentale, Regno Unito meridionale, Ovest, Sud-est asiatico, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale , Corea del Sud, Australia Est, Australia Sud Est.
+> Lo spazio di archiviazione fino a 16 TB e 20.000 IOPS è supportato nelle seguenti aree geografiche: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-settentrionali, Europa occidentale, Regno Unito meridionale, Ovest, Asia sud-orientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea del Sud, Corea meridionale, Australia orientale, Australia Sud-orientale.
 >
 > Tutte le altre aree supportano fino a 4 TB di spazio di archiviazione e 6000 IOPS.
 >

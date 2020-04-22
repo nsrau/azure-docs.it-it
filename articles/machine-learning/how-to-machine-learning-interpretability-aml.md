@@ -1,5 +1,5 @@
 ---
-title: Spiegare i modelli e le previsioni di apprendimento automaticoExplain machine learning models and predictions
+title: Interpretazione & spiegare i modelli di Machine Learning in Python
 titleSuffix: Azure Machine Learning
 description: Informazioni su come ottenere spiegazioni su come il modello di apprendimento automatico determina l'importanza delle funzionalità ed esegue stime quando si usa Azure Machine Learning SDK.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: c1282ed16c9e3b92e7d5ec3f9969bee6fc3d917f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 45eef976fe10bbb5acda2cd348a77b28c3ffbe02
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257202"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769799"
 ---
-# <a name="explain-machine-learning-models-and-predictions"></a>Spiegare i modelli e le previsioni di apprendimento automaticoExplain machine learning models and predictions
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Usare il pacchetto di interpretabilità per spiegare i modelli di Machine Learning & le stime in PythonUse the interpretability package to explain ML models & predictions in Python
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -41,10 +41,10 @@ Per altre informazioni sulle tecniche di interpretabilità supportate e sui mode
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Genera il valore dell'importanza delle funzionalità sul tuo computer personale 
 L'esempio seguente mostra come usare il pacchetto di interpretabilità nel computer personale senza contattare i servizi di Azure.The following example shows how to use the interpretability package on your personal machine without contacting Azure services.
 
-1. Installazione `azureml-interpret` `azureml-interpret-contrib` e pacchetti.
+1. Installazione `azureml-interpret` `azureml-contrib-interpret` e pacchetti.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 
 2. Eseguire il training di un modello di esempio in un blocco appunti Jupyter locale.

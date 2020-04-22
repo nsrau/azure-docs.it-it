@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/25/2020
-ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 18774ae4a98b795846459251174ee47671aef39c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272266"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769893"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Pianificare una rete virtuale per Azure HDInsightPlan a virtual network for Azure HDInsight
 
@@ -243,7 +243,7 @@ Se si usano gruppi di sicurezza di rete o route definite dall'utente per control
 
 ## <a name="required-ports"></a><a id="hdinsight-ports"></a> Porte richieste
 
-Se si intende usare un **firewall** e accedere al cluster dall'esterno su determinate porte, potrebbe essere necessario consentire il traffico sulle porte necessarie per lo scenario. Per impostazione predefinita, non è necessario definire uno speciale elenco delle porte consentite, purché al traffico di gestione di Azure illustrato nella sezione precedente venga consentito di raggiungere il cluster sulla porta 443.
+Se si intende usare un **firewall** e accedere al cluster dall'esterno su determinate porte, potrebbe essere necessario consentire il traffico sulle porte necessarie per lo scenario. Per impostazione predefinita, non è necessaria alcuna whitelist speciale delle porte, purché il traffico di gestione di Azure illustrato nella sezione precedente possa raggiungere il cluster sulla porta 443.By default, no special whitelisting of ports is needed as long as the Azure management traffic explained in the previous section is allowed to reach cluster on port 443.
 
 Per un elenco di porte per servizi specifici, vedere il documento [Porte usate dai servizi Apache Hadoop su HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
@@ -253,21 +253,10 @@ Per altre informazioni sulle regole del firewall per le appliance virtuali, vede
 
 Quando si crea un cluster HDInsight, viene creato anche un servizio di bilanciamento del carico. Il tipo di questo servizio di bilanciamento del carico è al [livello SKU di base,](../load-balancer/concepts-limitations.md#skus)che presenta determinati vincoli. Uno di questi vincoli è che se si dispone di due reti virtuali in aree diverse, non è possibile connettersi ai servizi di bilanciamento del carico di base. Per altre informazioni, vedere Domande frequenti sulle [reti virtuali: vincoli sul peering vnet globale.](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
-## <a name="transport-layer-security"></a>Transport Layer Security
-
-Le connessioni al cluster tramite l'endpoint `https://<clustername>.azurehdinsight.net` del cluster pubblico vengono sottoposte a proxy tramite nodi gateway del cluster. Queste connessioni sono protette utilizzando un protocollo denominato TLS. L'applicazione di versioni successive di TLS sui gateway migliora la sicurezza per queste connessioni. Per ulteriori informazioni sui motivi per cui è consigliabile utilizzare le versioni più recenti di TLS, vedere [Risoluzione del problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
-
-Per impostazione predefinita, i cluster di Azure HDInsight accettano connessioni TLS 1.2 su endpoint HTTPS pubblici, nonché versioni precedenti per la compatibilità con le versioni precedenti. È possibile controllare la versione TLS minima supportata nei nodi del gateway durante la creazione del cluster usando il portale di Azure o un modello di gestore delle risorse. Per il portale, selezionare la versione TLS dalla scheda **Sicurezza e rete** durante la creazione del cluster. Per un modello di manager delle risorse in fase di distribuzione, usare la proprietà **minSupportedTlsVersion.For** a resource manager template at deployment time, use the minSupportedTlsVersion property. Per un modello di esempio, vedere Modello minimo di guida TLS 1.2 di HDInsight.For a sample template, see [HDInsight minimum TLS 1.2 Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Questa proprietà supporta tre valori: "1.0", "1.1" e "1.2", che corrispondono rispettivamente a TLS 1.0, TLS 1.1 e TLS 1.2.
-
-> [!IMPORTANT]
-> A partire dal 30 giugno 2020, Azure HDInsight applicherà TLS 1.2 o versioni successive per tutte le connessioni HTTPS. È consigliabile assicurarsi che tutti i client siano pronti per gestire TLS 1.2 o versioni successive. Per altre informazioni, vedere Applicazione di [Azure HDInsight TLS 1.2.For](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/)more information, see Azure HDInsight TLS 1.2 Enforcement .
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per esempi di codice ed esempi di creazione di reti virtuali di Azure, vedere Creare reti virtuali per cluster Azure HDInsight.For code samples and examples of creating Azure Virtual Networks, see [Create virtual networks for Azure HDInsight clusters.](hdinsight-create-virtual-network.md)
 * Per un esempio completo di configurazione di HDInsight per la connessione a una rete locale, vedere [Connettere HDInsight alla rete locale](./connect-on-premises-network.md).
-* Per configurare i cluster Apache HBase nelle reti virtuali di Azure, vedere Creare cluster Apache HBase in HDInsight nella rete virtuale di Azure.For configuring Apache HBase clusters in Azure virtual networks, see [Create Apache HBase clusters on HDInsight in Azure Virtual Network.](hbase/apache-hbase-provision-vnet.md)
-* Per la configurazione della replica geografica di Apache HBase, vedere [Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure](hbase/apache-hbase-replication.md).
 * Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
 * Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 * Per altre informazioni sulle route definite dall'utente, vedere [Route definite dall'utente e inoltro IP](../virtual-network/virtual-networks-udr-overview.md).

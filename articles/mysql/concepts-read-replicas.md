@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76167340"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767881"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -45,7 +45,6 @@ Australia Orientale, Australia Sud-Est, Stati Uniti centrali, Asia orientale, St
 
 -West US 2 è temporaneamente non disponibile come posizione di replica tra aree.
 
-
 ### <a name="paired-regions"></a>Aree abbinate
 Oltre alle aree di replica universali, è possibile creare una replica di lettura nell'area associata di Azure del server master. Se non si conosce la coppia dell'area, è possibile ottenere altre informazioni [dall'articolo Aree associate](../best-practices-availability-paired-regions.md)di Azure.If you don't know your region's pair, you can learn more from the Azure Paired Regions article .
 
@@ -71,7 +70,7 @@ Informazioni su come [creare una replica di lettura nel portale di Azure](howto-
 
 ## <a name="connect-to-a-replica"></a>Connessione a una replica
 
-Al momento della creazione, una replica eredita le regole del firewall o l'endpoint del servizio VNet del server master. Successivamente, queste regole sono indipendenti dal server master.
+Al momento della creazione, una replica eredita le regole del firewall del server master. Successivamente, queste regole sono indipendenti dal server master.
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
@@ -124,7 +123,7 @@ Una replica viene creata usando la stessa configurazione server del master. Dopo
 > [!IMPORTANT]
 > Prima che la configurazione del server master venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
 
-Le regole del firewall, le regole di rete virtuale e le impostazioni dei parametri vengono ereditate dal server master alla replica quando viene creata la replica. Successivamente, le regole della replica sono indipendenti.
+Le regole del firewall e le impostazioni dei parametri vengono ereditate dal server master alla replica quando viene creata la replica. Successivamente, le regole della replica sono indipendenti.
 
 ### <a name="stopped-replicas"></a>Repliche arrestate
 

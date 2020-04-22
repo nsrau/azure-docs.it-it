@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406724"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770292"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy
 
@@ -48,8 +48,6 @@ Questo articolo offre le informazioni necessarie per configurare la pubblicazion
 Ad esempio: `http(s)://*.adventure-works.com`.
 
 Anche se gli URL interni ed esterni possono usare domini diversi, la procedura consigliata è quella di usare lo stesso dominio. Quando si pubblica l'applicazione, viene visualizzato un errore se uno degli URL non contiene un carattere jolly.
-
-Se sono presenti altre applicazioni con impostazioni di configurazione diverse, è necessario pubblicare queste eccezioni come applicazioni separate per sovrascrivere i valori predefiniti impostati per il carattere jolly. Le applicazioni senza carattere jolly hanno sempre la precedenza sulle applicazioni con carattere jolly. Dal punto di vista della configurazione, si tratta di applicazioni normali.
 
 La creazione di un'applicazione con carattere jolly è basata sullo stesso [flusso di pubblicazione](application-proxy-add-on-premises-application.md) disponibile per tutte le altre applicazioni. L'unica differenza è che viene incluso un carattere jolly negli URL e potenzialmente nella configurazione SSO.
 

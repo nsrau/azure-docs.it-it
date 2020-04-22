@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115334"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767969"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -62,14 +62,11 @@ I dischi di macchine virtuali non gestiti non sono supportati negli account con 
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="file-system-support-in-sdks"></a>Supporto del file system negli SDK
+## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>File system support in SDKs, PowerShell, and Azure CLI
 
-Le operazioni Get e set ACL non sono attualmente ricorsive.
-
-## <a name="file-system-support-in-powershell-and-azure-cli"></a>File system support in PowerShell and Azure CLI
-
-- Il supporto di [PowerShell](data-lake-storage-directory-file-acl-powershell.md) e [dell'interfaccia della riga di](data-lake-storage-directory-file-acl-cli.md) comando di Azure è in anteprima pubblica.
 - Le operazioni Get e set ACL non sono attualmente ricorsive.
+- Il supporto [dell'interfaccia della riga di](data-lake-storage-directory-file-acl-cli.md) comando di Azure è in anteprima pubblica.
+
 
 ## <a name="lifecycle-management-policies"></a>Criteri di gestione del ciclo di vita
 

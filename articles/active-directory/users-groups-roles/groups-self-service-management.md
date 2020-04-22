@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52c37e293941a767621cf56ef75f8cc83b1925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298004"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768553"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurare la gestione dei gruppi self-service in Azure Active DirectorySet up self-service group management in Azure Active Directory 
 
@@ -33,7 +33,7 @@ Quando i gruppi di sicurezza vengono creati nel portale di Azure o usando Azure 
 Gruppi creati in | Comportamento predefinito del gruppo di sicurezza | Comportamento predefinito del gruppo di Office 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Solo i proprietari possono aggiungere membri<br>Visibile ma non disponibile per l'aggiunta nel pannello Accesso | Apri per partecipare a tutti gli utenti
-[Portale di Azure](https://portal.azure.com) | Solo i proprietari possono aggiungere membri<br>Visibile ma non disponibile per l'aggiunta nel pannello Accesso<br>Il proprietario non viene assegnato automaticamente al momento della creazione del gruppo | Apri per partecipare a tutti gli utenti
+[Azure portal](https://portal.azure.com) | Solo i proprietari possono aggiungere membri<br>Visibile ma non disponibile per l'aggiunta nel pannello Accesso<br>Il proprietario non viene assegnato automaticamente al momento della creazione del gruppo | Apri per partecipare a tutti gli utenti
 [Pannello di accesso](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Apri per partecipare a tutti gli utenti<br>Le opzioni di appartenenza possono essere modificate quando il gruppo viene creato | Apri per partecipare a tutti gli utenti<br>Le opzioni di appartenenza possono essere modificate quando il gruppo viene creato
 
 ## <a name="self-service-group-management-scenarios"></a>Scenari di gestione dei gruppi in modalità self-service
@@ -56,6 +56,9 @@ Gruppi creati in | Comportamento predefinito del gruppo di sicurezza | Comportam
 
 Quando gli utenti possono creare gruppi, tutti gli utenti dell'organizzazione sono autorizzati a creare nuovi gruppi e quindi possono, come proprietario predefinito, aggiungere membri a questi gruppi. Non è possibile specificare individui che possono creare i propri gruppi. È possibile specificare individui solo per rendere un proprietario di un gruppo a un membro del gruppo di un altro membro del gruppo.
 
+> [!NOTE]
+> Una licenza di Azure Active Directory Premium (P1 o P2) è necessaria per consentire agli utenti di richiedere di partecipare a un gruppo di sicurezza o a un gruppo di Office 365 e ai proprietari di approvare o rifiutare le richieste di appartenenza. Senza una licenza di Azure Active Directory Premium, gli utenti possono comunque gestire i propri gruppi nel pannello di accesso, ma non possono creare un gruppo che richiede l'approvazione del proprietario nel pannello di accesso e non possono richiedere l'aggiunta a un gruppo. 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
@@ -63,5 +66,5 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](groups-settings-cmdlets.md)
 * [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Che cos'è Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+* [Informazioni su Azure Active Directory](../fundamentals/active-directory-whatis.md)
 * [Integrare le identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

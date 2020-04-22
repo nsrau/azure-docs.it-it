@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 8fe9e551a4ca7dea8f53e0f8c2975ca3d88c48f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b25e9d860f118c1b044b13e01a80aaf7a24963cf
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366258"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768239"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop personalizzate in Azure HDInsight
 
@@ -51,7 +51,7 @@ File necessari per distribuire questa applicazione (Hue):
 
 1. Selezionare la casella di controllo **Accetto i termini e le condizioni sopra indicati**.
 
-1. Selezionare **Acquista**.
+1. Selezionare **Acquisto**.
 
 È possibile visualizzare lo stato dell'installazione dal riquadro aggiunto al dashboard del portale e dalla notifica del portale facendo clic sull'icona a forma di campana nella parte superiore del portale.  Sono necessari circa 10 minuti per installare l'applicazione.
 
@@ -77,7 +77,7 @@ Per **Tonalità**, è possibile utilizzare la seguente procedura:
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il cluster in cui è stata installata l'applicazione.
 1. Dal menu **Impostazioni,** selezionare **Applicazioni**.
 1. Selezionare **tonalità** dall'elenco per visualizzare le proprietà.  
@@ -119,13 +119,13 @@ Se l'installazione di un'applicazione non è riuscita, è possibile visualizzare
 
 * Interfaccia utente Web Apache Ambari: se lo script di installazione è la causa dell'errore, utilizzare Ambari Web UI per controllare i log completi sugli script di installazione.
 
-    Per altre informazioni, vedere [Risoluzione dei problemi](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+    Per ulteriori informazioni, consultate [Risolvere i problemi relativi alle azioni script.](./troubleshoot-script-action.md)
 
 ## <a name="remove-hdinsight-applications"></a>Rimuovere applicazioni HDInsight
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il cluster in cui è stata installata l'applicazione.
 1. Dal menu **Impostazioni,** selezionare **Applicazioni**.
 1. Fare clic con il pulsante destro del mouse sull'applicazione che si desidera rimuovere e quindi **scegliere Elimina**.

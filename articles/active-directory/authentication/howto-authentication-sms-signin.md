@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b199854867c48906061cff65bad21e514456c911
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 845948d9aec28ee79a11fb11aaef4cfbf1b263fa
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81378704"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770559"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configurare e abilitare gli utenti per l'autenticazione basata su SMS usando Azure Active Directory (anteprima)Configure and enable users for SMS-based authentication using Azure Active Directory (preview)
 
@@ -34,13 +34,14 @@ Questo articolo illustra come abilitare l'autenticazione basata su SMS per utent
 Per completare questo articolo, sono necessarie le risorse e i privilegi seguenti:To complete this article, you need the following resources and privileges:
 
 * Una sottoscrizione di Azure attiva.
-    * Se non si dispone di una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Per abilitare l'autenticazione basata su SMS sono necessari privilegi di *amministratore globale* nel tenant di Azure AD.
 * Ogni utente abilitato nei criteri del metodo di autenticazione tramite SMS deve essere concesso in licenza, anche se non lo usa. Ogni utente abilitato deve disporre di una delle seguenti licenze di Azure AD o Microsoft 365:
     * [Azure AD Premium P1 o P2][azuread-licensing]
-    * [Microsoft 365 F1 o F3][m365-firstline-workers-licensing]
+    * [Microsoft 365 (M365) F1 o F3][m365-firstline-workers-licensing]
+    * [Mobilità aziendale - Sicurezza (EMS) E3 o E5][ems-licensing] o [Microsoft 365 (M365) E3 o E5][m365-licensing]
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -161,3 +162,5 @@ Per altri modi per accedere ad Azure AD senza una password, ad esempio l'app Mic
 [office]: https://www.office.com
 [m365-firstline-workers-licensing]: https://www.microsoft.com/licensing/news/m365-firstline-workers
 [azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/
+[ems-licensing]: https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing
+[m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans
