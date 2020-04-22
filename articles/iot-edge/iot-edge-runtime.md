@@ -8,12 +8,15 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c184972789c412406f264f725f8b94e1f7f162ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284902"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730898"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -48,7 +51,7 @@ Per ridurre la larghezza di banda utilizzata dalla soluzione IoT Edge, l'hub IoT
 
 ![L'hub di IoT Edge è un gateway tra dispositivi fisici e l'hub IoT](./media/iot-edge-runtime/Gateway.png)
 
-L'hub di IoT Edge può determinare se è connesso all'hub IoT. Se la connessione viene persa, l'hub di IoT Edge salva i messaggi o gli aggiornamenti gemelli in locale. Quando viene ristabilita la connessione, tutti i dati vengono sincronizzati. Il percorso usato per questa cache temporanea è determinato da una proprietà del modulo gemello dell'hub di IoT Edge. Le dimensioni della cache non sono limitate e aumentano fino a quando il dispositivo ha capacità di archiviazione.Per ulteriori informazioni, consultate [Funzionalità offline.](offline-capabilities.md)
+L'hub di IoT Edge può determinare se è connesso all'hub IoT. Se la connessione viene persa, l'hub di IoT Edge salva i messaggi o gli aggiornamenti gemelli in locale. Quando viene ristabilita la connessione, tutti i dati vengono sincronizzati. La posizione utilizzata per questa cache temporanea è determinata da una proprietà del modulo gemello dell'hub IoT Edge. Le dimensioni della cache non sono limitate e aumentano fino a quando il dispositivo ha capacità di archiviazione.Per ulteriori informazioni, consultate [Funzionalità offline.](offline-capabilities.md)
 
 ### <a name="module-communication"></a>Comunicazione del modulo
 
@@ -82,7 +85,7 @@ L'agente di IoT Edge è l'altro modulo che costituisce il runtime di Azure IoT E
 
 Il [daemon di sicurezza di IoT Edge](iot-edge-security-manager.md) avvia l'agente di IoT Edge all'avvio del dispositivo. L'agente recupera il modulo gemello dall'hub IoT e controlla il manifesto della distribuzione. Il manifesto della distribuzione è un file JSON che dichiara i moduli da avviare.
 
-Ogni elemento nel manifesto della distribuzione contiene informazioni specifiche su un modulo e viene usato dall'agente di IoT Edge per controllare il ciclo di vita del modulo. Di seguito sono riportate alcune delle proprietà più interessanti:
+Ogni elemento nel manifesto di distribuzione contiene informazioni specifiche su un modulo e viene utilizzato dall'agente IoT Edge per controllare il ciclo di vita del modulo. Di seguito sono riportate alcune delle proprietà più interessanti:
 
 * **settings.image**: l'immagine del contenitore usata dall'agente di IoT Edge per avviare il modulo. Se l'immagine è protetta da password, l'agente di IoT Edge deve essere configurato con le credenziali per il registro contenitori. È possibile configurare in remoto le credenziali per il registro contenitori usando il manifesto della distribuzione o aggiornando il file `config.yaml` nella cartella di programma IoT Edge del dispositivo IoT Edge.
 * **settings.createOptions** – Una stringa che viene passata direttamente al daemon contenitore Moby quando si avvia il contenitore di un modulo. L'aggiunta di opzioni in questa proprietà consente configurazioni avanzate come port forwarding o mounting volumes nel contenitore di un modulo.  
@@ -117,9 +120,9 @@ L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di ri
 
 Per ulteriori informazioni, consultate [Informazioni su come distribuire moduli e stabilire percorsi in IoT Edge.](module-composition.md)
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
-L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica di un'immagine del modulo prima di avviarla.
+L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica dell'immagine di un modulo prima di avviarlo.
 
 Per altre informazioni sul framework di sicurezza di Azure IoT Edge, vedere [Gestione sicurezza IoT Edge.](iot-edge-security-manager.md)
 

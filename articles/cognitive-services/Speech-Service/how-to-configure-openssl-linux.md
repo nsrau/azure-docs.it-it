@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331145"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683172"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurare OpenSSL per Linux
 
@@ -50,6 +50,8 @@ Impostare `SSL_CERT_FILE` la variabile di ambiente in modo che punti a tale file
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+> [!NOTE]
+> Vale anche la pena notare che alcune distribuzioni di Linux non hanno una variabile di ambiente TMP o TMPDIR definita. In questo modo l'SDK vocale scaricherà l'elenco di revoche di certificati (CRL) ogni volta, anziché memorizzare nella cache il CRL su disco per il riutilizzo fino alla scadenza. Per migliorare le prestazioni iniziali della connessione è possibile creare una [variabile di ambiente denominata TMPDIR e impostarla sul percorso della directory temporanea scelta.](https://help.ubuntu.com/community/EnvironmentVariables)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

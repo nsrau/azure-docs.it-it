@@ -8,12 +8,15 @@ ms.date: 12/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff9415ca20b859468528b56d27355430c4fc5a0f
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 3113f01341d2a1ec6160cfea3eb9d12d18b8495c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652063"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687175"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -90,7 +93,7 @@ sudo update-ca-certificates
 
 Verrà visualizzato il messaggio "Aggiornamento dei certificati in /etc/ssl/certs... 1 aggiunto, 0 rimosso; fatto.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 I passaggi seguenti offrono un esempio di come installare un certificato della CA in un host Windows. Questo esempio presuppone che si stia usando il certificato **azure-iot-test-only.root.ca.cert.pem** dagli articoli sui prerequisiti e che il certificato sia stato copiato in un percorso nel dispositivo downstream.
 

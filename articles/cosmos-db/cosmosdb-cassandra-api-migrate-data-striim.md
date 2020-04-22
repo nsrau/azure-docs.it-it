@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: af99f369245d6006d0d4784e572020b820e406a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50028e81c4ca130aa3266c164a431dc935a271cb
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71266051"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730046"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Eseguire la migrazione dei dati all'account API Cassandra DB di Azure usando StriimMigrate data to Azure Cosmos DB Cassandra API account using Striim
 
@@ -22,13 +22,13 @@ Questo articolo illustra come usare Striim per eseguire la migrazione dei dati d
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si dispone di una sottoscrizione di [Azure,](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+* Se non si ha una [sottoscrizione di Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 * Un database Oracle in esecuzione in locale con alcuni dati in esso.
 
 ## <a name="deploy-the-striim-marketplace-solution"></a>Distribuire la soluzione Striim marketplace
 
-1. Accedere al portale di [Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Selezionare **Crea una risorsa** e cercare Striim nel marketplace di Azure.Select Create a resource and search for **Striim** in the Azure marketplace. Selezionare la prima opzione e **Crea**.
 
@@ -155,7 +155,7 @@ In questa sezione verrà configurato l'account API Cassandra di Azure Cosmos DB 
 
    ![Connessione a destinazione](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Prima di configurare la destinazione, assicurarsi di aver aggiunto un certificato radice di [Baltimora all'ambiente Java di Striim.](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store)
+1. Prima di configurare la destinazione, assicurarsi di aver aggiunto un certificato radice di [Baltimora all'ambiente Java di Striim.](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store)
 
 1. Immettere le proprietà di configurazione dell'istanza del database Cosmos di Azure di destinazione e selezionare **Salva** per continuare. Ecco i parametri chiave da notare:
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4d2d33f9d83132147b5b257ffcd6d659f272b8ec
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457400"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730725"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Creare gli asset tecnici della macchina virtuale di AzureCreate your Azure Virtual Machine technical assets
 
@@ -75,7 +75,7 @@ Le sezioni seguenti si concentrano principalmente sui dischi rigidi virtuali bas
 
 Selezionare il sistema operativo Windows o Linux come base.
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a>WINDOWS
 
 Il disco rigido virtuale del sistema operativo per l'immagine della macchina virtuale basata su Windows deve essere basato su un'immagine di base approvata da Azure che contiene Windows Server o SQL Server.The operating system VHD for your Windows-based VM image must be based on an Azure-approved base image that contains Windows Server or SQL Server. Per iniziare, creare una macchina virtuale da una delle immagini seguenti dal portale di Azure:To begin, create a VM from one of the following images from the Azure portal:
 
@@ -109,7 +109,7 @@ Seguire questi passaggi per creare l'immagine della macchina virtuale di base ne
 
 Azure avvia il provisioning della macchina virtuale specificata. È possibile tenere traccia dello stato di avanzamento selezionando la scheda **Macchine virtuali** a sinistra. Una volta creato, lo stato cambierà in **In esecuzione**.
 
-Se si riscontrano difficoltà nella creazione del nuovo disco rigido virtuale basato su Azure, vedere [Problemi comuni durante](https://aka.ms/VHDcreationIssues)la creazione di un disco rigido virtuale .
+Se si riscontrano difficoltà nella creazione del nuovo disco rigido virtuale basato su Azure, vedere [Problemi comuni durante](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation)la creazione di un disco rigido virtuale .
 
 ### <a name="connect-to-your-azure-vm"></a>Connettersi alla macchina virtuale di Azure
 
@@ -256,7 +256,7 @@ Per altre informazioni sulle personalizzazioni di Linux, vedere [Estensioni dell
 
 Tutte le immagini in Azure Marketplace devono poter essere riutilizzate in modo generico. A tale scopo, il disco rigido virtuale del sistema operativo deve essere generalizzato, un'operazione che rimuove tutti gli identificatori specifici dell'istanza e i driver software da una macchina virtuale.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 La generalizzazione dei dischi con sistema operativo Windows viene eseguita con lo [strumento sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Se in seguito si aggiorna o si riconfigura il sistema operativo, è necessario eseguire nuovamente sysprep.
 

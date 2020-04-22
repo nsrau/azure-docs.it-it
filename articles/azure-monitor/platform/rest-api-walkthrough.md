@@ -4,12 +4,12 @@ description: Come autenticare le richieste e usare l'API REST di monitoraggio di
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: f52776fc6b5f5f530cc368a2f148a2ff63fb5b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b0e321747e0f84be5a75ab96749311ff0071e8d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294630"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687423"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procedura dettagliata sull'API REST di monitoraggio di Azure
 
@@ -238,7 +238,7 @@ Usare il nome "value" della metrica (non "localizedValue") per tutte le richiest
 
 **Metodo**: GET
 
-**URI della**\:richiesta : https //management.azure.com/subscriptions/*"idsottoscrizione/idsottoscrizione/unità"/*/resource-group-name/ /providers/*/providers/ "resource-provider-namespace"*/*s 'tipo-risorsa''//providers/microsoft.insights/metrics?metricsnames''''metri'&*/*{resource-name}* timespan''''&''''''$filter&''indirizzodi-data-type'&'api-version'.'/microsoft.insights/metrics?metri *{resource-group-name}**{metric}* *{starttime/endtime}* *{filter}* * }*
+**URI della**\:richiesta : https //management.azure.com/subscriptions/*"id-sottoscrizione"*/resourceGroups/*nome-gruppo-risorse /providers/**.ometra-provider-risorse&*/*{filter}* 'resource-type'&'//////microsoft.insights/metrics?metricsnames'''&*{resource-type}*/*{resource-name}* timespan''''''starttime/endtime'&$filter'&'&type-di *{metric}* risorse''api-version''.apiVersion'. *{starttime/endtime}* *{apiVersion}*
 
 Ad esempio, per recuperare l'elenco dei valori di dimensione creati per la “dimensione Nome API' per la metrica "Transazioni", in cui la dimensione del GeoType è pari a "Primary" durante l'intervallo di tempo specificato, la richiesta sarà la seguente:
 
@@ -311,7 +311,7 @@ Usare il nome "value" della metrica (non "localizedValue") per tutte le richiest
 
 **Metodo**: GET
 
-**URI**di https://management.azure.com/subscriptions/richiesta : */idsottoscrizione*/resourceGroups/*/nome-gruppo-risorse /providers/*"spazio dei nomi*del provider di risorse-spazio dei nomi"*/*.resource-type,*/*"resource-type"*/providers/microsoft.insights/metrics?metricnames,*&* timespan,*{starttime/endtime}*&timespan,&*&* $filter&&' di'&*{aggreation}* aggregazione *&* * APIVersion*
+**URI**di richiesta\/: https: /management.azure.com/subscriptions/ idsottoscrizione /resource-id */*/resourceGroups/*nome-gruppo-risorse /*/providers/*''auto-provider-spazio dei nomi''''''''''resource-type'///utilisateur/microsoft.insights/metrics?metricsnames'''time/endtime'&'$filter'&'interval''&'&'id-risorsa'''added'microsoft.insights/metrics?metrics'''metric'*/*{resource-type}*/*{resource-name}* time''oradi&'ultima'&'$filter'indirizzo di pagamento-'&'&'aggregazione&'aggregazione di *{metric}* api'.'.*{starttime/endtime}* *{filter}* *{timeGrain}* *{aggreation}* *{apiVersion}*
 
 Ad esempio, per recuperare le prime 3 API, con valori decrescenti, per il numero di "Transazioni" durante un intervallo di 5 min, in cui il GeotType era "Primary", la richiesta sarà la seguente:
 
@@ -463,7 +463,7 @@ Una volta che le definizioni delle metriche disponibili sono note, è possibile 
 
 **Metodo**: GET
 
-**URI richiesta**:`https://management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**URI richiesta**:`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 Ad esempio, per recuperare i dati della metrica RunsSucceeded per la finestra temporale specificata e per un intervallo di tempo di 1 ora, la richiesta sarà come mostrato di seguito:
 

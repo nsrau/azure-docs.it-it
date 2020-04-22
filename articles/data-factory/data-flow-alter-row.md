@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 77c58bb8dfa7d21b108d2aa63e90142f66877fb7
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/20/2020
+ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606514"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729129"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Modificare la trasformazione di riga nel mapping del flusso di datiAlter row transformation in mapping data flow
 
@@ -48,10 +48,12 @@ Affinché i criteri di modifica delle righe funzionino, il flusso di dati deve s
 
 ![Altera sink di riga](media/data-flow/alter-row2.png "Altera sink di riga")
 
- Il comportamento predefinito prevede che vengano consentiti solo gli inserimenti. Per consentire aggiornamenti, upsert o eliminazioni, selezionare la casella nel sink corrispondente a tale condizione. Se gli aggiornamenti, gli upsert o le eliminazioni sono abilitati, è necessario specificare in quali colonne chiave del sink trovare la corrispondenza.
+Il comportamento predefinito prevede che vengano consentiti solo gli inserimenti. Per consentire aggiornamenti, upsert o eliminazioni, selezionare la casella nel sink corrispondente a tale condizione. Se gli aggiornamenti, gli upsert o le eliminazioni sono abilitati, è necessario specificare in quali colonne chiave del sink trovare la corrispondenza.
 
 > [!NOTE]
 > Se gli inserimenti, gli aggiornamenti o gli upsert modificano lo schema della tabella di destinazione nel sink, il flusso di dati avrà esito negativo. Per modificare lo schema di destinazione nel database, scegliere **Ricrea tabella** come azione tabella. In questo modo la tabella verrà rilasciata e ricreata con la nuova definizione dello schema.
+
+La trasformazione sink richiede una singola chiave o una serie di chiavi per l'identificazione di riga univoca nel database di destinazione. Per i sink SQL, impostare le chiavi nella scheda Impostazioni sink. Per CosmosDB, impostare la chiave di partizione nelle impostazioni e anche il campo di sistema CosmosDB "id" nella mappatura sink. Per CosmosDB, è obbligatorio includere la colonna di sistema "id" per gli aggiornamenti, upserts, e le eliminazioni.
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 

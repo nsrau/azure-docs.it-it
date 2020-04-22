@@ -2,13 +2,13 @@
 title: Struttura e sintassi dei modelli
 description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 4e8334e4ddfaee52c5d1aa68fb8689fcde0a6cbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 60d800eb5251fb3454ba60a67bd109261c6ff9d4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79459991"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687876"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendere la struttura e la sintassi dei modelli ARM
 
@@ -95,7 +95,7 @@ Le stringhe sicure e gli oggetti protetti non possono essere letti dopo la distr
 
 Per esempi di formattazione dei tipi di dati, vedere Formati dei tipi di [parametro](parameter-files.md#parameter-type-formats).
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 
 Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse.
 
@@ -238,7 +238,7 @@ Le risorse vengono definite con la struttura seguente:
 | Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | condizione | No | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. Vedere [condizione](conditional-resource-deployment.md). |
-| type |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft.Storage/storageAccounts**. Per determinare i valori disponibili, vedere riferimento al [modello](/azure/templates/). Per una risorsa figlio, il formato del tipo dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
+| type |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa (ad esempio **Microsoft.Storage/storageAccounts**). Per determinare i valori disponibili, vedere riferimento al [modello](/azure/templates/). Per una risorsa figlio, il formato del tipo dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
 | apiVersion |Sì |Versione dell'API REST da utilizzare per la creazione della risorsa. Per determinare i valori disponibili, vedere riferimento al [modello](/azure/templates/). |
 | name |Sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi di Azure che espongono il nome della risorsa a parti esterne convalidano il nome per assicurarsi che non si tratti di un tentativo di spoofing di un'altra identità. Per una risorsa figlio, il formato del nome dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
 | comments |No |Le note per documentare le risorse nel modello. Per altre informazioni, consultare la sezione [Comments in templates](template-syntax.md#comments) (Commenti nel modello). |
@@ -277,7 +277,7 @@ L'esempio seguente illustra la struttura di una definizione di output:
 | nome-output |Sì |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
 | condizione |No | Valore booleano che indica se questo valore di output viene restituito. Quando è `true`, il valore è incluso nell'output per la distribuzione. Quando è `false`, il valore dell'output viene ignorato per questa distribuzione. Quando non è specificato, il valore predefinito è `true`. |
 | type |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. Se si specifica **securestring** per il tipo di output, il valore non viene visualizzato nella cronologia di distribuzione e non può essere recuperato da un altro modello. Per utilizzare un valore segreto in più di un modello, archiviare il segreto in un insieme di credenziali delle chiavi e fare riferimento al segreto nel file dei parametri. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](key-vault-parameter.md). |
-| value |No |Espressione del linguaggio di modello valutata e restituita come valore di output. Specificare **il valore** o la **copia**. |
+| Valore |No |Espressione del linguaggio di modello valutata e restituita come valore di output. Specificare **il valore** o la **copia**. |
 | copy |No | Utilizzato per restituire più di un valore per un output. Specificare **il valore** o **copiare**. Per altre informazioni, vedere Iterazione dell'output nei modelli di Azure Resource Manager.For more information, see [Output iteration in Azure Resource Manager templates.](copy-outputs.md) |
 
 Per esempi su come usare gli output, vedere Output nel modello di Azure Resource Manager.For examples of how to use [outputs, see Outputs in Azure Resource Manager template.](template-outputs.md)
@@ -293,7 +293,7 @@ Sono disponibili diverse opzioni per aggiungere commenti e metadati al modello.
 Per i commenti inline, `//` è `/* ... */` possibile utilizzare o ma questa sintassi non funziona con tutti gli strumenti. Non è possibile utilizzare l'editor di modelli del portale per lavorare su modelli con commenti in linea. Se si aggiunge questo stile di commento, assicurarsi che gli strumenti usati supportino i commenti JSON inline.
 
 > [!NOTE]
-> Per distribuire modelli con commenti tramite l'interfaccia della riga di comando di Azure, è necessario usare l'opzione. `--handle-extended-json-format`
+> Per distribuire modelli con commenti usando l'interfaccia della riga di comando `--handle-extended-json-format` di Azure con la versione 2.3.0 o precedente, è necessario usare l'opzione.
 
 ```json
 {
@@ -404,7 +404,7 @@ Non è possibile aggiungere un oggetto metadata alle funzioni definite dall'uten
   ],
 ```
 
-Per distribuire modelli con stringhe su più righe tramite l'interfaccia della riga della riga della riga di comando di Azure, è necessario usare l'opzione. `--handle-extended-json-format`
+Per distribuire modelli con stringhe su più righe usando l'interfaccia della riga `--handle-extended-json-format` della riga di comando di Azure con la versione 2.3.0 o precedente, è necessario usare l'opzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

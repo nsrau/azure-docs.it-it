@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c228f3d6591cd72845101c00188f3fc4a55be644
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 740a42dc94cdfa8d5c5a91b32b58cbff4c1bcda0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087356"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687778"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -435,7 +435,7 @@ Aggiunge un nuovo processo.
 #### <a name="syntax"></a>Sintassi  
   
 
-```sql
+```syntaxsql
 [jobs].sp_add_job [ @job_name = ] 'job_name'  
     [ , [ @description = ] 'description' ]   
     [ , [ @enabled = ] enabled ]
@@ -500,7 +500,7 @@ Aggiorna un processo esistente.
 
 #### <a name="syntax"></a>Sintassi
 
-```sql
+```syntaxsql
 [jobs].sp_update_job [ @job_name = ] 'job_name'  
     [ , [ @new_name = ] 'new_name' ]
     [ , [ @description = ] 'description' ]   
@@ -563,7 +563,7 @@ Elimina il processo esistente.
 
 #### <a name="syntax"></a>Sintassi
 
-```sql
+```syntaxsql
 [jobs].sp_delete_job [ @job_name = ] 'job_name'
     [ , [ @force = ] force ]
 ```
@@ -596,7 +596,7 @@ Aggiunge un passaggio a un processo.
 #### <a name="syntax"></a>Sintassi
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] step_name ]   
@@ -721,7 +721,7 @@ Aggiorna un passaggio di un processo.
 
 #### <a name="syntax"></a>Sintassi
 
-```sql
+```syntaxsql
 [jobs].sp_update_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] 'step_name' ]   
@@ -847,7 +847,7 @@ Rimuove un passaggio di un processo.
 #### <a name="syntax"></a>Sintassi
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]
      [ , [ @step_name = ] 'step_name' ]   
@@ -893,7 +893,7 @@ Avvia l'esecuzione di un processo.
 #### <a name="syntax"></a>Sintassi
 
 
-```sql
+```syntaxsql
 [jobs].sp_start_job [ @job_name = ] 'job_name'   
      [ , [ @job_execution_id = ] job_execution_id OUTPUT ]   
 ```
@@ -924,7 +924,7 @@ Arresta l'esecuzione di un processo.
 #### <a name="syntax"></a>Sintassi
 
 
-```sql
+```syntaxsql
 [jobs].sp_stop_job [ @job_execution_id = ] ' job_execution_id '
 ```
 
@@ -953,7 +953,7 @@ Aggiunge un gruppo di destinazione.
 #### <a name="syntax"></a>Sintassi
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group [ @target_group_name = ] 'target_group_name'   
      [ , [ @target_group_id = ] target_group_id OUTPUT ]
 ```
@@ -984,7 +984,7 @@ Elimina un gruppo di destinazione.
 #### <a name="syntax"></a>Sintassi
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group [ @target_group_name = ] 'target_group_name'
 ```
 
@@ -1011,7 +1011,7 @@ Aggiunge un database o un gruppo di database a un gruppo di destinazione.
 
 #### <a name="syntax"></a>Sintassi
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
          [ @membership_type = ] 'membership_type' ]   
         [ , [ @target_type = ] 'target_type' ]   
@@ -1101,7 +1101,7 @@ Rimuove un membro del gruppo di destinazione da un gruppo di destinazione.
 #### <a name="syntax"></a>Sintassi
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
         [ , [ @target_id = ] 'target_id']
 ```
@@ -1152,7 +1152,7 @@ Rimuove i record della cronologia relativi a un processo.
 #### <a name="syntax"></a>Sintassi
 
 
-```sql
+```syntaxsql
 [jobs].sp_purge_jobhistory [ @job_name = ] 'job_name'   
       [ , [ @job_id = ] job_id ]
       [ , [ @oldest_date = ] oldest_date []
@@ -1195,7 +1195,7 @@ GO
 Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-automation-overview.md#job-database).
 
 
-|Visualizza  |Descrizione  |
+|Visualizzazione  |Descrizione  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  Mostra la cronologia di esecuzione dei processi.      |
 |[Lavori](#jobs-view)     |   Mostra tutti i processi.      |
@@ -1334,8 +1334,8 @@ Mostra tutti i membri di tutti i gruppi di destinazione.
 |**refresh_credential_name**    |nvarchar(128)  |Nome delle credenziali con ambito database usate per la connessione al membro del gruppo di destinazione.|
 |**subscription_id**    |UNIQUEIDENTIFIER|  ID univoco della sottoscrizione.|
 |**resource_group_name**    |nvarchar(128)| Nome del gruppo di risorse in cui si trova il membro del gruppo di destinazione.|
-|**Nome_server**    |nvarchar(128)  |Nome del server di database SQL contenuto nel gruppo di destinazione. Specificato solo se target_type è "SqlServer". |
-|**Database_name**  |nvarchar(128)  |Nome del database contenuto nel gruppo di destinazione. Specificato solo quando target_type è "SqlDatabase".|
+|**server_name**    |nvarchar(128)  |Nome del server di database SQL contenuto nel gruppo di destinazione. Specificato solo se target_type è "SqlServer". |
+|**database_name**  |nvarchar(128)  |Nome del database contenuto nel gruppo di destinazione. Specificato solo quando target_type è "SqlDatabase".|
 |**elastic_pool_name**  |nvarchar(128)| Nome del pool elastico contenuto nel gruppo di destinazione. Specificato solo quando target_type è "SqlElasticPool".|
 |**shard_map_name** |nvarchar(128)| Nome della mappa partizioni contenuta nel gruppo di destinazione. Specificato solo quando target_type è "SqlShardMap".|
 

@@ -3,12 +3,12 @@ title: Informazioni dettagliate sulle applicazioni di Azure per applicazioni ASP
 description: Monitorare le applicazioni Web ASP.NET Core per identificare disponibilità, prestazioni e utilizzo.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: d6a0e507022452f1491e71651ba3bc8db3d1c090
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a9a81d76df7f14fb99b8521e7bfa2edff6c9e9e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284790"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687380"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per applicazioni ASP.NET Core
 
@@ -162,11 +162,11 @@ I passaggi precedenti sono sufficienti per iniziare a raccogliere dati di teleme
     
 In alternativa, `FullScript` è `ScriptBody` possibile utilizzare il è disponibile a partire da SDK v2.14. Utilizzare questa opzione se `<script>` è necessario controllare il tag per impostare un criterio di sicurezza del contenuto:Use this if you need to control the tag to set a Content Security Policy:
 
-    ```cshtml
-        <script> // apply custom changes to this script tag.
-            @Html.Raw(JavaScriptSnippet.ScriptBody)
-        </script>
-    ```
+```cshtml
+ <script> // apply custom changes to this script tag.
+     @Html.Raw(JavaScriptSnippet.ScriptBody)
+ </script>
+```
 
 I `.cshtml` nomi di file a cui si fa riferimento in precedenza provengono da un modello di applicazione MVC predefinito. In definitiva, se si desidera abilitare correttamente il monitoraggio lato client `<head>` per l'applicazione, lo snippet JavaScript deve essere visualizzato nella sezione di ogni pagina dell'applicazione che si desidera monitorare. È possibile raggiungere questo obiettivo per questo modello `_Layout.cshtml`di applicazione aggiungendo lo snippet JavaScript a . 
 

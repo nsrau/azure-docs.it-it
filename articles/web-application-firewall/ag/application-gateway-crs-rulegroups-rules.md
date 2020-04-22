@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 563aa701c1403a1ef26c6073496e7e59c7c5096c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 59409c428aba938c49fc37647db82f30d783a629
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521853"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730567"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regole e regole CRS di Web Application Firewall
 
@@ -218,6 +218,7 @@ I gruppi di regole e le regole seguenti sono disponibili quando si utilizza Web 
 |932120|Esecuzione comandi in remoto: trovato comando di Windows PowerShell|
 |932130|Esecuzione comandi in remoto: trovata espressione shell Unix|
 |932140|Esecuzione comandi in remoto: trovato comando FOR/IF di Windows|
+|932150|Esecuzione di comandi remoti: esecuzione diretta del comando UnixRemote Command Execution: Direct Unix Command Execution|
 |932160|Esecuzione comandi in remoto: trovato codice shell Unix|
 |932170|Esecuzione comandi in remoto: Shellshock (CVE-2014-6271)|
 |932171|Esecuzione comandi in remoto: Shellshock (CVE-2014-6271)|

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 69ef68dafc2385eb5614179c3d04265250383104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471541"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687800"
 ---
 # <a name="front-door-routing-methods"></a>Metodi di routing di Frontdoor
 
@@ -27,7 +27,7 @@ Esistono quattro concetti principali in relazione al routing del traffico in Fro
 * **[Latenza](#latency):** il routing basato sulla latenza assicura che le richieste vengano inviate al back-end con la latenza più bassa accettabile all'interno di un intervallo di sensibilità. Sostanzialmente, le richieste utente vengono inviate al set di back-end "più vicino" rispetto alla latenza della rete.
 * ** [Priorità](#priority):** È possibile assegnare priorità ai diversi back-end quando si desidera utilizzare un back-end del servizio primario per tutto il traffico e fornire backup nel caso in cui il server primario o il back-end di backup non siano disponibili.
 * **[Peso](#weighted):** è possibile assegnare un peso ai diversi back-end quando si vuole distribuire il traffico in un set back-end, in modo uniforme o in base ai coefficienti di peso.
-* **Affinità di sessione:** È possibile configurare l'affinità di sessione per gli host o i domini front-end quando si desidera che le richieste successive di un utente vengano inviate allo stesso back-end finché la sessione utente è ancora attiva e l'istanza back-end continua a essere integra in base ai probe di integrità. 
+* **[Affinità di sessione](#affinity):** è possibile configurare l'affinità di sessione per gli host o i domini front-end quando le richieste successive da un utente devono essere inviate allo stesso back-end, a condizione che la sessione utente sia ancora attiva e l'istanza di back-end sia ancora segnalata come integra in base ai probe di integrità. 
 
 Tutte le configurazioni di Frontdoor includono il monitoraggio dell'integrità back-end e il failover globale immediato automatizzato. Per altre informazioni, vedere [Front Door Backend Monitoring](front-door-health-probes.md) (Monitoraggio del back-end Frontdoor). Frontdoor può essere configurato per operare in base a un singolo metodo di routing. A seconda delle esigenze dell'applicazione, è comunque possibile usare diversi o tutti questi metodi di routing in combinazione per creare una topologia di routing ottimale.
 
@@ -71,7 +71,7 @@ Il metodo "Ponderato" abilita alcuni scenari utili:
 * **Espansione del cloud per capacità aggiuntiva**: espandere rapidamente una distribuzione locale nel cloud posizionandola dietro Frontdoor. In caso di necessità di capacità aggiuntiva nel cloud, si possono aggiungere o abilitare più back-end e si può specificare la quantità di traffico da indirizzare a ogni back-end.
 
 ## <a name="session-affinity"></a><a name = "affinity"></a>Affinità di sessione
-Per impostazione predefinita, senza affinità di sessione, Front Door inoltra le richieste provenienti dallo stesso client a back-end diversi in base alla configurazione di bilanciamento del carico, in particolare quando le latenze a back-end diversi cambiano o se richieste diverse dallo stesso l'utente atterra su un ambiente diverso della porta anteriore. Tuttavia, per alcune applicazioni con stato o in determinati scenari è preferibile inoltrare le richieste successive dallo stesso utente allo stesso back-end che ha elaborato la richiesta iniziale. L'affinità di sessione basata su cookie è utile quando si vuole mantenere una sessione utente nello stesso back-end. Utilizzando i cookie gestiti Front Door, il front door di Azure può indirizzare il traffico successivo da una sessione utente allo stesso back-end per l'elaborazione, purché il back-end sia integro e la sessione utente non sia scaduta. 
+Per impostazione predefinita, senza affinità di sessione, Front Door inoltra le richieste provenienti dallo stesso client a back-end diversi in base alla configurazione di bilanciamento del carico, in particolare quando le latenze a back-end diversi cambiano o se richieste diverse dello stesso utente atterrano su un ambiente Front Door diverso. Tuttavia, per alcune applicazioni con stato o in determinati scenari è preferibile inoltrare le richieste successive dallo stesso utente allo stesso back-end che ha elaborato la richiesta iniziale. L'affinità di sessione basata su cookie è utile quando si vuole mantenere una sessione utente nello stesso back-end. Utilizzando i cookie gestiti Front Door, il front door di Azure può indirizzare il traffico successivo da una sessione utente allo stesso back-end per l'elaborazione, purché il back-end sia integro e la sessione utente non sia scaduta. 
 
 L'affinità di sessione può essere abilitata a livello di host front-end per tutti i domini (o i sottodomini) configurati. Una volta abilitata, Frontdoor aggiunge un cookie alla sessione dell'utente. L'affinità di sessione basata su cookie consente a Frontdoor di identificare i diversi utenti, anche se usano lo stesso indirizzo IP, permettendo una distribuzione più uniforme del traffico tra back-end differenti.
 

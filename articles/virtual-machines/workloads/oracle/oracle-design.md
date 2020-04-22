@@ -3,7 +3,7 @@ title: Progettare e implementare un database Oracle in Azure | Microsoft Docs
 description: Progettare e implementare un database Oracle nell'ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: mimckitt
+author: BorisB2015
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: mimckitt
-ms.openlocfilehash: 41e1720dfeaa98a9d0bc2227c58083ce769b06e0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: borisb
+ms.openlocfilehash: ad446180b3bd864c5b6df808e6e4efac7d6c1c65
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263404"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687529"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
@@ -53,7 +53,7 @@ La tabella seguente elenca alcune differenze tra un'implementazione locale e un'
 > | **Risorsa** |Dedicated  |Condivisa con altri client|
 > | **Regioni** |Data center |[Coppie di aree](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **Storage** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Scalabilità** |Scalabilità verticale |Scalabilità orizzontale|
+> | **Ridimensionare** |Scalabilità verticale |Scalabilità orizzontale|
 
 
 ### <a name="requirements"></a>Requisiti
@@ -139,7 +139,7 @@ La velocità effettiva totale della rete viene stimata in base alle informazioni
 
 In base ai requisiti di larghezza di banda della rete, sono disponibili diversi tipi di gateway tra cui scegliere, ad esempio Basic, VpnGw e Azure ExpressRoute. Per altre informazioni, vedere la [pagina Prezzi di Gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
-**Consigli**
+**Indicazioni**
 
 - La latenza di rete è superiore rispetto a una distribuzione locale. La riduzione dei round trip di rete può migliorare notevolmente le prestazioni.
 - Per ridurre i round trip, consolidare le applicazioni con transazioni elevate o con un livello di comunicazioni elevato nella stessa macchina virtuale.
@@ -179,7 +179,7 @@ Le operazioni di I/O al secondo corrispondono a 12.200.000/2.358 = 5.174.
 
 Dopo avere ottenuto un quadro preciso dei requisiti di I/O, è possibile scegliere la combinazione delle unità più adatte per soddisfare tali requisiti.
 
-**Consigli**
+**Indicazioni**
 
 - Per lo spazio di tabella dei dati, ripartire il carico di lavoro di I/O tra diversi dischi usando l'archiviazione gestita o Oracle ASM.
 - Con l'aumento della dimensione dei blocchi di I/O, per le operazioni intensive di lettura e di scrittura, aggiungere più dischi dati.
@@ -199,7 +199,7 @@ Sono disponibili tre opzioni per la memorizzazione nella cache dell'host:
 
 - *Nessuna* (disabilitata): usando questa opzione, è possibile ignorare la cache. Tutti i dati vengono trasferiti sul disco e resi persistenti in Archiviazione di Azure. Questo metodo offre la massima frequenza di I/O per i carichi di lavoro con un uso intensivo dell'I/O. È anche necessario considerare il costo delle transazioni.
 
-**Consigli**
+**Indicazioni**
 
 Per ottimizzare la velocità effettiva, è consigliabile iniziare con **None** per la memorizzazione nella cache dell'host. Per Archiviazione Premium, tenere presente che è necessario disabilitare le "barriere" quando si esegue il montaggio del file system con le opzioni **Sola lettura** o **Nessuna**. Aggiornare il file /etc/fstab con l'UUID dei dischi.
 

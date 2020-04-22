@@ -1,19 +1,19 @@
 ---
-title: Guida tecnica alla pubblicazione di applicazioni SaaS in Azure Marketplace
+title: Azure Marketplace SaaS Applications Publishing Guide
 description: Guida dettagliata ed elenchi di controllo per la pubblicazione di applicazioni SaaS in Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: kevidal
-ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.author: dsindona
+ms.openlocfilehash: 1bc2feb4d8f3f103802bd823c66cd3f54ac5d74a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544291"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687548"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di applicazioni SaaS
 
@@ -35,7 +35,7 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 | --- | --- | --- |  
 | **contattaci** | Sì | No |  
 | **PowerBI/Dynamics** | Sì | Sì (integrazione di Azure AD) |  
-| **Applicazioni SaaS**| Sì | Sì (integrazione di Azure AD) |     
+| **App SaaS**| Sì | Sì (integrazione di Azure AD) |     
 
 ## <a name="saas-list"></a>Elenco SaaS
 
@@ -110,8 +110,8 @@ Certificare l'integrazione di Azure AD in diversi modi, a seconda che l'applicaz
 **Per le applicazioni multi-tenant:**  
 
 Se Azure AD è già supportato, eseguire le operazioni seguenti:
-1.  Registrare l'applicazione nel portale di Azure
-2.  Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Registrare l'applicazione nel portale di Azure
+2.    Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Se non si ha familiarità con l'accesso SSO federato di Azure AD, eseguire queste operazioni: 
 1.  Registrare l'applicazione nel portale di Azure
@@ -144,9 +144,9 @@ Microsoft gestisce la transazione commerciale. Microsoft invia gli addebiti al c
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è già stato fatto,
 
-- [Registrati](https://azuremarketplace.microsoft.com/sell) nel marketplace.
+* [Scopri](https://azuremarketplace.microsoft.com/sell) di più sul mercato.
 
-Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
+Per registrarti al Centro per i partner, inizia a creare una nuova offerta o a lavorarla su una esistente:
 
-- [Accedi al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare la tua offerta.
-- Vedere [Offerta di applicazioni SaaS di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) per altre informazioni.
+* [Accedi al Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare la tua offerta.
+* Per ulteriori informazioni, vedere [Creare un'offerta di applicazione SaaS.](./partner-center-portal/create-new-saas-offer.md)

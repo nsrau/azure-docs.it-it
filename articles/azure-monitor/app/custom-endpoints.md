@@ -3,20 +3,25 @@ title: Azure Application Insights sostituisce gli endpoint SDK predefinitiAzure 
 description: Modificare gli endpoint SDK di Azure Monitor Application Insights predefiniti per aree come Azure per enti pubblici.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298328"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729521"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights esegue l'override degli endpoint predefiniti
 
 Per inviare dati da Application Insights a determinate aree, è necessario eseguire l'override degli indirizzi degli endpoint predefiniti. Ogni SDK richiede modifiche leggermente diverse, tutte descritte in questo articolo. Queste modifiche richiedono la modifica del codice di `QuickPulse_Endpoint_Address` `TelemetryChannel_Endpoint_Address`esempio `Profile_Query_Endpoint_address` e la sostituzione dei valori segnaposto per , e con gli indirizzi endpoint effettivi per l'area specifica. La fine di questo articolo contiene collegamenti agli indirizzi degli endpoint per le aree in cui è necessaria questa configurazione.
 
+> [!NOTE]
+> [Le stringhe](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) di connessione sono il nuovo metodo preferito per impostare endpoint personalizzati in Application Insights.Connection strings are the new preferred method of setting custom endpoints within Application Insights.
+
+---
+
 ## <a name="sdk-code-changes"></a>Modifiche al codice SDK
 
-### <a name="net-with-applicationinsightsconfig"></a>.NET con applicationinsights.config
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > Il file applicationinsights.config viene automaticamente sovrascritto ogni volta che viene eseguito un aggiornamento SDK. Dopo aver eseguito un aggiornamento SDK, assicurarsi di immettere nuovamente i valori dell'endpoint specifici dell'area.
@@ -41,7 +46,7 @@ Per inviare dati da Application Insights a determinate aree, è necessario esegu
 </ApplicationInsights>
 ```
 
-### <a name="aspnet-core"></a>ASP.NET Core
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Modificare il file appsettings.json nel progetto come segue per regolare l'endpoint principale:
 
@@ -68,6 +73,8 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
     //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
+
+# <a name="azure-functions"></a>[Funzioni di Azure](#tab/functions)
 
 ### <a name="azure-functions-v2x"></a>Funzioni di Azure v2.xAzure Functions v2.x
 
@@ -120,7 +127,7 @@ namespace Example
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="java"></a>[Java](#tab/java)
 
 Modificare il file applicationinsights.xml per modificare l'indirizzo dell'endpoint predefinito.
 
@@ -155,7 +162,7 @@ Modificare `application.properties` il file e aggiungere:
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,7 +181,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 ```javascript
 <script type="text/javascript">
@@ -187,9 +194,11 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
-### <a name="python"></a>Python
+# <a name="python"></a>[Python](#tab/python)
 
 Per indicazioni sulla modifica dell'endpoint di inserimento per l'SDK opencensus-python, consultare il [repository opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
+---
 
 ## <a name="regions-that-require-endpoint-modification"></a>Aree che richiedono la modifica dell'endpointRegions that require endpoint modification
 

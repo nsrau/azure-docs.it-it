@@ -4,15 +4,15 @@ description: In questo articolo viene descritto come Azure Cosmos DB garantisce 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2afeae937d56a84c39167ad55a57c86f2623e52d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 0a67360ab840b7897c85a382dfc3965bd27f6a3e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382713"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688065"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -97,6 +97,8 @@ Questa funzionalità è disponibile nelle aree di Azure seguenti:This feature is
 - Europa occidentale
 
 - Stati Uniti occidentali 2
+
+- Australia orientale
 
 > [!NOTE]
 > L'abilitazione delle zone di disponibilità per un account Cosmos di Azure a singola area comporterà addebiti equivalenti all'aggiunta di un'area aggiuntiva all'account. Per informazioni dettagliate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) e il costo in più aree negli articoli di Azure [Cosmos DB.](optimize-cost-regions.md)

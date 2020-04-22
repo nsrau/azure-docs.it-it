@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce1bb3760ae73a9eaeee3cde957cc94841ebdf29
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70390184"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731946"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -59,7 +59,7 @@ Per filtrare i valori nei campi dati e specificare l'operatore di confronto, usa
 
 * operator type: il tipo di confronto.
 * key: il campo nei dati dell'evento che viene usato per il filtro. Può essere un numero, un valore booleano o una stringa.
-* valore o valori: i valori da confrontare con la chiave.
+* values - Il valore o i valori da confrontare con la chiave.
 
 Se si specifica un singolo filtro con più valori, viene eseguita un'operazione **OR,** pertanto il valore del campo chiave deve essere uno di questi valori. Esempio:
 

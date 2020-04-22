@@ -2,17 +2,17 @@
 title: Configurare la gestione dei lead in Marketo Azure Marketplace
 description: Configurare la gestione dei lead per i clienti del marketplace di Marketo per Azure.Configure lead management for Marketo for Azure marketplace customers.
 author: qianw211
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 04eae529efcf9509d8cd43a7629bb0b76b593cd0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 90f42954fd4d7324a7684795fca6ec302411790c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252471"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731106"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurare la gestione dei lead in Marketo
 
@@ -21,16 +21,21 @@ In questo articolo viene descritto come configurare il sistema MARKETo CRM per e
 ## <a name="set-up-your-marketo-crm-system"></a>Configurare il sistema MARKETo CRM
 
 1. Accedere a Marketo.
+
 2. Selezionare **Design Studio**.
+
     ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
 3.  Selezionare **Nuovo modulo**.
+
     ![Nuovo modulo di Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
 4.  Compilare i campi obbligatori nel nuovo modulo e quindi selezionare **Crea**.
+
     ![Creazione nuovo modulo di Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
 5.  Nei dettagli del campo selezionare **Fine**.
+
     ![Completamento modulo di Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
 6.  Approvare e chiudere.
@@ -41,7 +46,7 @@ In questo articolo viene descritto come configurare il sistema MARKETo CRM per e
 
 8. L'opzione Codice di incorporamento di Marketo visualizza un codice simile all'esempio seguente.
 
-    ```
+    ```html
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
@@ -60,9 +65,10 @@ In questo articolo viene descritto come configurare il sistema MARKETo CRM per e
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configura la tua offerta per inviare lead a Marketo
 
-Quando si è pronti a configurare le informazioni di gestione dei lead per l'offerta nel portale di pubblicazione, attenersi alla seguente procedura: 
+Quando si è pronti per configurare le informazioni di gestione dei lead per l'offerta nel portale di pubblicazione, attenersi alla seguente procedura: 
 
 1. Accedi alla pagina **Configurazione offerta** per la tua offerta.
+
 1. Selezionare **Connetti** nella sezione Gestione lead. 
 
     ![Gestione dei lead - Connect](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
@@ -73,12 +79,13 @@ Quando si è pronti a configurare le informazioni di gestione dei lead per l'off
 
 4. Specificare **l'ID server**, **l'ID account munching**e **l'ID modulo**.
 
-    >[!Note]
-    >È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta. 
+    > [!Note]
+    > È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta. 
 
 5. **Email di contatto:** fornisci email alle persone della tua azienda che devono ricevere notifiche e-mail quando viene ricevuto un nuovo lead. È possibile fornire più messaggi di posta elettronica separandoli con un punto e virgola.
+
 6. Selezionare **OK**.
 
-Per assicurarsi di aver eseguito correttamente la connessione a una destinazione lead, fare clic sul pulsante di convalida. In caso di esito positivo, si avrà un lead di test nella destinazione del lead.
+   Per assicurarsi di aver eseguito correttamente la connessione a una destinazione lead, fare clic sul pulsante di convalida. In caso di esito positivo, si avrà un lead di test nella destinazione del lead.
 
-![Dettagli della connessione](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![Dettagli della connessione](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

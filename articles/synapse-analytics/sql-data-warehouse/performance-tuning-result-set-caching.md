@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 42f8f51545f643e1ed9e1a23c9445f6e216fdabe
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: eadbe13269ce1259b4560af117f5b15b3b294151
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273410"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730594"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati
 
@@ -42,10 +42,11 @@ Dopo l'attivazione della memorizzazione nella cache dei set di risultati per un 
 - Query che usano funzioni definite dall'utente
 - Query che utilizzano tabelle con sicurezza a livello di riga o di colonna abilitata
 - Query che restituiscono dati con dimensioni di riga maggiori di 64 KB
+- Query che restituiscono dati di grandi dimensioni (>10 GB) 
 
 > [!IMPORTANT]
 > Le operazioni per creare la cache del set di risultati e recuperare i dati dalla cache si verificano nel nodo di controllo di un'istanza del pool SQL Synapse.
-> Quando la memorizzazione nella cache del set di risultati è attivata, l'esecuzione di query che restituiscono set di risultati di grandi dimensioni, ad esempio più di un milione di righe, può causare un utilizzo elevato della CPU nel nodo di controllo e rallentare nel complesso la risposta alle query nell'istanza.  Queste query vengono in genere usate durante l'esplorazione dei dati o le operazioni ETL (estrazione, trasformazione e caricamento). Per evitare il sovraccarico del nodo di controllo e la comparsa di problemi di prestazioni, gli utenti devono DISATTIVARE la memorizzazione nella cache del set di risultati nel database prima di eseguire query di questo tipo.  
+> Quando la memorizzazione nella cache del set di risultati è attivata, l'esecuzione di query che restituiscono set di risultati di grandi dimensioni (ad esempio, >1 GB) può causare una limitazione elevata del nodo di controllo e rallentare la risposta complessiva delle query nell'istanza.  Queste query vengono in genere usate durante l'esplorazione dei dati o le operazioni ETL (estrazione, trasformazione e caricamento). Per evitare il sovraccarico del nodo di controllo e la comparsa di problemi di prestazioni, gli utenti devono DISATTIVARE la memorizzazione nella cache del set di risultati nel database prima di eseguire query di questo tipo.  
 
 Eseguire questa query per il tempo impiegato dalle operazioni di memorizzazione nella cache del set di risultati per una query:Run this query for the time taken by result set caching operations for a query:
 
@@ -71,7 +72,7 @@ Il set di risultati memorizzato nella cache viene riutilizzato per una query se 
 - È presente una corrispondenza esatta tra la nuova query e la query precedente che ha generato la cache dei set di risultati.
 - Non sono presenti dati o modifiche dello schema nelle tabelle da cui è stato generato il set di risultati memorizzato nella cache.
 
-Eseguire questo comando per verificare se una query è stata eseguita con un riscontro nella cache dei risultati. La colonna result_cache_hit restituisce 1 per l'hit della cache, 0 per i valori negativi della cache e negativi per motivi per cui non è stata utilizzata la memorizzazione nella cache del set di risultati. Controllare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per i dettagli.
+Eseguire questo comando per verificare se una query è stata eseguita con un riscontro nella cache dei risultati. La colonna result_cache_hit restituisce 1 per l'hit della cache, 0 per i valori negativi della cache e negativi per motivi per cui non è stata utilizzata la memorizzazione nella cache del set di risultati. Per informazioni dettagliate, vedere [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests

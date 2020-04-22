@@ -4,12 +4,12 @@ description: Application Insights esegue un'analisi intelligente dei dati di tel
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671733"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687682"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -71,7 +71,7 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 
   * Non ancora, ma è possibile:
     * [Impostare avvisi](../../azure-monitor/app/alerts.md) che indichino quando una metrica supera una soglia.
-    * [Esportare dati di telemetria](../../azure-monitor/app/export-telemetry.md) in un [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) o in [PowerBI](../../azure-monitor/app/export-power-bi.md ), in cui è possibile analizzarli personalmente.
+    * [Esportare](../../azure-monitor/app/export-telemetry.md) i dati di telemetria in un [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) o in [Power BI,](../../azure-monitor/app/export-power-bi.md )in cui è possibile analizzarli manualmente.
 * *Con quale frequenza viene eseguita l'analisi?*
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente, giornata completa nel fuso orario UTC.
@@ -125,11 +125,11 @@ La notifica di riduzione del tempo di risposta indica:
   * Le tracce del profiler che consentono di visualizzare dove viene impiegato il tempo dell'operazione. Il collegamento è disponibile se, per questa operazione durante il periodo di rilevamento, sono stati raccolti esempi di analisi del Profiler. 
   * I report di prestazioni in Metric Explorer (Esplora metriche), in cui è possibile suddividere e ripartire filtri/intervalli di tempo per questa operazione.
   * Cercare questa chiamata per visualizzare le proprietà specifiche della chiamata.
-  * Report relativo a un errore: se il conteggio è maggiore di 1 significa che questa operazione conteneva errori che potrebbe aver contribuito al calo delle prestazioni.
+  * Rapporti di errore: se il conteggio > 1 significa che si sono verificati errori in questa operazione che potrebbero aver contribuito a una riduzione delle prestazioni.
 
 ## <a name="dependency-duration-degradation"></a>Riduzione della durata delle dipendenze
 
-L'applicazione moderna adotta con sempre maggiore frequenza l'approccio di progettazione ai micro servizi, che in molti casi comporta l'affidarsi ai servizi esterni. Ad esempio, se l'applicazione si basa su piattaforme di dati o se si compila il proprio servizio Bot, probabilmente ci si baserà su provider di servizi cognitivi che abilitino i bot all'interazione in modi più umani e su alcuni servizi di archiviazione dati da cui i bot possano estrarre le risposte.  
+Le applicazioni moderne adottano sempre più un approccio di progettazione dei microservizi, che in molti casi porta a una forte affidabilità sui servizi esterni. Ad esempio, se l'applicazione si basa su piattaforme di dati o se si compila il proprio servizio Bot, probabilmente ci si baserà su provider di servizi cognitivi che abilitino i bot all'interazione in modi più umani e su alcuni servizi di archiviazione dati da cui i bot possano estrarre le risposte.  
 
 Esempio di notifica di riduzione delle dipendenze:
 
@@ -174,8 +174,8 @@ Modificare l'intervallo di tempo e i filtri per esplorare i dati di telemetria.
 Gli strumenti di diagnostica seguenti consentono di controllare la telemetria dall'app:
 
 * [Profiler](profiler.md) 
-* [Debugger di snapshot](../../azure-monitor/app/snapshot-debugger.md)
-* [Analitica](../../azure-monitor/log-query/get-started-portal.md)
+* [Debugger snapshot](../../azure-monitor/app/snapshot-debugger.md)
+* [Analisi](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnostica intelligenti di Analisi](../../azure-monitor/app/analytics.md)
 
 Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.

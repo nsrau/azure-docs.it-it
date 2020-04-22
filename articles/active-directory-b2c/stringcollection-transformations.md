@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186778"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729710"
 ---
 # <a name="stringcollection-claims-transformations"></a>Trasformazioni delle attestazioni StringCollection
 
@@ -159,4 +159,38 @@ Nell'esempio riportato di seguito viene verificato se il `roles` tipo di attesta
 - Attestazioni di output:
     - **outputClaim**: "true"
 
+## <a name="stringcollectioncontainsclaim"></a>StringCollectionContainsClaim
 
+Controlla se un tipo di attestazione StringCollection contiene un valore di attestazione.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | collection | stringCollection | Tipo di attestazione da cercare. |
+| InputClaim | item|string| Tipo di attestazione che contiene il valore da cercare.|
+|InputParameter|ignoreCase|string|Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare.|
+| OutputClaim | outputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. Un indicatore booleano se la raccolta contiene una stringa di questo tipo |
+
+Nell'esempio seguente `roles` viene verificato se il `role` tipo di attestazione stringCollection contiene il valore del tipo di attestazione.
+
+```XML
+<ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="role" TransformationClaimType="item" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="hasAccess" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation> 
+```
+
+- Attestazioni di input:
+    - **raccolta**: ["lettore", "autore", "admin"]
+    - **elemento**: "Admin"
+- Parametri di input:
+    - **ignoreCase**: "true"
+- Attestazioni di output:
+    - **outputClaim**: "true"

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658050"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687336"
 ---
 # <a name="workbook-text-parameters"></a>Parametri di testo della cartella di lavoro
 
@@ -59,6 +59,8 @@ Questo è l'aspetto della cartella di lavoro in modalità di lettura.
 
     ![Immagine che mostra un parametro di testo a cui si fa riferimento in KQL](./media/workbooks-text/text-reference.png)
 
+> [!NOTE]
+> Nell'esempio precedente, `{SlowRequestThreshold}` rappresenta un valore intero. Se si esegue una query `{ComputerName}` per una stringa come se fosse necessario `"{ComputerName}"` modificare la query Kusto per aggiungere preventivi affinché il campo del parametro a un input di accettazione senza virgolette.
 
 ## <a name="setting-default-values"></a>Impostazione dei valori predefiniti
 1. Iniziare con una cartella di lavoro vuota in modalità di modifica.

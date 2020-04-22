@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 161fd9276427db0d0d7d56da1bfc0bb8ccf52a52
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d5626f00e9627338349d9b579bcf26256148b551
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536659"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731257"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Creare un'offerta di macchina virtuale di AzureCreate an Azure virtual machine offer
 
@@ -34,19 +34,19 @@ La pubblicazione in Azure Marketplace offre i vantaggi seguenti:Publishing to Az
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
-Se non è ancora stato fatto, vedere la guida alla pubblicazione dell'offerta di macchine virtuali e il materiale della macchina virtuale di Azure:If you haven't done so yet, review the [Virtual machine offer publishing guide](https://aka.ms/Virtualmachineofferpublishingguide) and this Azure virtual machine material:
+Se non è ancora stato fatto, vedere la guida alla pubblicazione dell'offerta di macchine virtuali e il materiale della macchina virtuale di Azure:If you haven't done so yet, review the [Virtual machine offer publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) and this Azure virtual machine material:
 
 - Guide introduttive
-  - [Modelli di guida introduttiva di AzureAzure Quickstart templates](https://azure.microsoft.com/resources/templates/)
+  - [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/)
   - [Modelli di avvio rapido di Azure in GitHub](https://github.com/azure/azure-quickstart-templates)
 - Esercitazioni
-  - [Macchine virtuali di Linux](https://aka.ms/LinuxVMtutorial)
-  - [Macchine virtuali di Windows](https://aka.ms/windowsvms)
+  - [Macchine virtuali di Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+  - [Macchine virtuali di Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - Esempi
-  - [Azure CLI Samples for Linux VMs](https://aka.ms/linuxclisamples)
-  - [Azure PowerShell for Linux VMs](https://aka.ms/linuxpowershellsamples)
-  - [Azure CLI Samples for Windows VMs](https://aka.ms/windowsclisamples)
-  - [Azure PowerShell for Windows VMs](https://aka.ms/windowspowershellvmsamples)
+  - [Azure CLI Samples for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
+  - [Azure PowerShell for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
+  - [Azure CLI Samples for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
+  - [Azure PowerShell for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>Fondamenti nella conoscenza tecnica
 
@@ -66,7 +66,7 @@ Prima di poter creare un'offerta di macchine virtuali di Azure, è necessario di
 2. Nella barra di spostamento sinistra selezionare **Mercato commerciale**, quindi **Panoramica**.
 3. Nella pagina **Panoramica** selezionare **Nuova offerta**, quindi **Macchina virtuale di Azure**. Viene visualizzata la finestra di dialogo **Nuova offerta.**
 
-![Illustra la pagina Panoramica nel Centro per i partner con il pulsante Nuova offerta e l'offerta Macchina virtuale di Azure selezionata.](media/avm-create7.png)
+    ![Illustra la pagina Panoramica nel Centro per i partner con il pulsante Nuova offerta e l'offerta Macchina virtuale di Azure selezionata.](media/avm-create7.png)
 
 ## <a name="offer-id-and-alias"></a>ID e alias dell'offerta
 
@@ -91,7 +91,7 @@ Per abilitare un'unità di test, selezionare la casella di controllo **Abilita u
 Risorse aggiuntive per il test drive:
 
 - [Procedure consigliate tecniche](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Procedure consigliate di marketing](https://aka.ms/TestDriveMarketingBestPractices)
+- [Procedure consigliate di marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Panoramica dei test Drive](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (assicurarsi che il blocco popup sia disattivato).
 
 ### <a name="lead-management"></a>Lead management (Gestione di clienti potenziali)
@@ -99,12 +99,12 @@ Risorse aggiuntive per il test drive:
 Quando pubblichi l'offerta nel marketplace commerciale con il Centro per i partner, connettila al sistema CRM (Customer Relationship Management). Ciò consente di ricevere le informazioni di contatto del cliente non appena qualcuno esprime interesse o utilizza il prodotto. La connessione a un CRM è necessaria se si abilita **Test Drive** (vedere la sezione precedente), altrimenti è facoltativo.
 
 1. Selezionare la destinazione a cui si desidera che vengano inviati i lead. Il Centro per i partner supporta i seguenti sistemi CRM:
-    - [Dynamics 365](https://aka.ms/Dyn365LeadMgmt) per il coinvolgimento dei clienti
-    - [Marketo](https://aka.ms/LeadMgmtMarketo)
-    - [Salesforce](https://aka.ms/LeadMgmtSalesforce)
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) per il coinvolgimento dei clienti
+    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > Se il sistema CRM non è elencato in precedenza, usare [Tabella di Azure](https://aka.ms/AzureTableLeadMgmt) o Endpoint [https](https://aka.ms/LeadMgmtHTTPS) per archiviare i dati dei lead dei clienti. Esportare quindi i dati nel sistema CRM.
+    > Se il sistema CRM non è elencato in precedenza, usare [Tabella di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) o Endpoint [https](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) per archiviare i dati dei lead dei clienti. Esportare quindi i dati nel sistema CRM.
 
 2. Collegare l'offerta alla destinazione lead durante la pubblicazione nel Centro per i partner.
 3. Verificare che la connessione alla destinazione del lead sia configurata correttamente. Dopo averla pubblicata nel Centro per i partner, convalideremo la connessione e ti invieremo un responsabile di test. Durante l'anteprima dell'offerta prima che venga messa in diretta, è anche possibile testare la connessione lead provando a distribuire l'offerta manualmente nell'ambiente di anteprima.
@@ -274,7 +274,7 @@ Aggiungi fino a cinque screenshot che mostrano come funziona la tua offerta. Ogn
 
 Aggiungi fino a cinque video che dimostrano la tua offerta. Questi devono essere ospitati su un servizio video esterno. Inserisci il nome, l'indirizzo Web e un'immagine PNG in miniatura del video con dimensioni di 1280 x 720 pixel.
 
-Per altre risorse per la presentazione del marketplace, vedere Procedure consigliate per gli elenchi di offerte di [marketplace.](https://aka.ms/LdMgmtOfferListingBestPractices)
+Per altre risorse per la presentazione del marketplace, vedere Procedure consigliate per gli elenchi di offerte di [marketplace.](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 Selezionare **Salva bozza** prima di continuare.
 
@@ -554,4 +554,4 @@ Questi esempi mostrano come viene visualizzata l'offerta in Azure Marketplace.Th
 
 ## <a name="next-step"></a>Passaggio successivo
 
-- [Aggiornare un'offerta esistente nel mercato commerciale](https://aka.ms/UpdateOfferCM)
+- [Aggiornare un'offerta esistente nel mercato commerciale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

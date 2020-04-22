@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: ba1521581316d559eb4e67bafba0061c31cc666b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272951"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687130"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificare automaticamente la lingua parlata con il modello di identificazione della lingua
 
 Video Indexer supporta l'identificazione automatica della lingua (LID), che è il processo di identificazione automatica del contenuto linguistico vocale dall'audio e l'invio del file multimediale da trascrivere nella lingua preferita dominante. 
 
-Attualmente LID supporta: inglese, spagnolo, francese, tedesco, italiano, mandarino chines, giapponese, russo e portoghese (brasiliano). 
+Attualmente LID supporta: inglese, spagnolo, francese, tedesco, italiano, cinese mandarino, giapponese, russo e portoghese (brasiliano). 
 
 Assicurati di leggere la sezione [Linee guida e limitazioni](#guidelines-and-limitations) di seguito.
 
@@ -66,5 +66,5 @@ Il linguaggio dominante del modello `sourceLanguage` è disponibile nelle inform
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica](video-indexer-overview.md)
+* [Overview](video-indexer-overview.md)
 * [Identificare e trascrivere automaticamente contenuti multilingue](multi-language-identification-transcription.md)

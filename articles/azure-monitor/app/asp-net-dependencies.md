@@ -3,12 +3,12 @@ title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft D
 description: Monitorare le chiamate di dipendenza dall'applicazione Web locale o Microsoft Azure con Application Insights.Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 1d4e8d1a0482257c92f47a00bd440e786c09c7aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e30d8036c1fc624d39f027f38e314c6c57360f6
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80292115"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731504"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rilevamento delle dipendenze in Azure Application InsightsDependenc y Tracking in Azure Application Insights 
 
@@ -97,7 +97,7 @@ Per le applicazioni ASP.NET, la query SQL completa viene raccolta con l'aiuto de
 | Piattaforma | Passaggi necessari per ottenere una query SQL completaStep(s) Needed to get full SQL Query |
 | --- | --- |
 | App Web di Azure |Nel pannello di controllo dell'app Web [aprire il pannello Application Insights](../../azure-monitor/app/azure-web-apps.md) e abilitare i comandi SQL in .NET |
-| Server IIS (VM di Azure, locale e così via). | Utilizzare il modulo PowerShell di monitoraggio dello stato per installare il motore di [strumentazione](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) e riavviare IIS. |
+| Server IIS (VM di Azure, locale e così via). | Utilizzare il modulo PowerShell di monitoraggio dello stato per installare il motore di [strumentazione](../../azure-monitor/app/status-monitor-v2-api-reference.md) e riavviare IIS. |
 | Servizio cloud di Azure | Aggiungere [l'attività di avvio per installare StatusMonitorAdd startup task to install StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> L'app deve essere installata in ApplicationInsights SDK in fase di compilazione installando pacchetti NuGet per [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) o [ASP.NET applicazioni Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Non supportate
 

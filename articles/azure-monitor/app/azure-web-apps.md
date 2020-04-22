@@ -3,12 +3,13 @@ title: Monitorare le prestazioni dei servizi app di Azure | Microsoft Docs
 description: Monitoraggio delle prestazioni applicative per i servizi app di Azure. Grafico del tempo di caricamento e di risposta, delle informazioni sulle dipendenze e dell'impostazione di avvisi sulle prestazioni.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom: fasttrack-edit
+ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437173"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729803"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -55,15 +56,16 @@ Esistono due modi per abilitare il monitoraggio delle applicazioni per le applic
 2. Dopo aver specificato la risorsa da usare, è possibile scegliere il modo in cui Application Insights deve raccogliere i dati per ogni piattaforma per l'applicazione. ASP.NET monitoraggio delle app è attivato per impostazione predefinita con due diversi livelli di raccolta.
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new.png)
-
-   * Il livello di raccolta di .NET **Basic** offre funzionalità APM a istanza singola essenziali.
-
-   * Il livello di raccolta **Consigliato** di .NET:
-       * Aggiunge le tendenze di utilizzo della CPU, della memoria e delle operazioni di I/O.
-       * Mette in correlazione i microservizi attraverso i limiti di richiesta/dipendenza.
-       * Raccoglie le tendenze di utilizzo e consente la correlazione dei risultati di disponibilità con le transazioni.
-       * Raccoglie le eccezioni non gestite dal processo host.
-       * Migliora la precisione delle metriche di monitoraggio delle prestazioni applicative in condizioni di carico quando viene usato il campionamento.
+ 
+ Di seguito è riportato un riepilogo dei dati raccolti per ogni percorso:
+        
+|  | Raccolta .NET Basic | Raccolta consigliata .NET |
+| --- | --- | --- |
+| Aggiunge le tendenze di utilizzo della CPU, della memoria e delle operazioni di I/O |Sì |Sì |
+| Raccoglie le tendenze di utilizzo e consente la correlazione dei risultati di disponibilità con le transazioni | Sì |Sì |
+| Raccoglie le eccezioni non gestite dal processo host | Sì |Sì |
+| Migliora la precisione delle metriche APM in condizioni di carico quando viene usato il campionamento | Sì |Sì |
+| Mette in correlazione i microservizi attraverso i limiti di richiesta/dipendenza | No (solo funzionalità APM a istanza singola) |Sì |
 
 3. Per configurare impostazioni come il campionamento, che in precedenza era possibile controllare tramite il file applicationinsights.config, è ora possibile interagire con le stesse impostazioni tramite le impostazioni dell'applicazione con un prefisso corrispondente. 
 

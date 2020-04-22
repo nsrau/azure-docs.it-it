@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77206124"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684834"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -63,6 +63,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Francese|    `fr`    |   Neurale|
 |Tedesco|    `de`    |   Neurale|
 |Greco| `el`    |   Neurale|
+|Gujarati|  `gu`    |   Neurale|
 |Creolo haitiano|    `ht`        |Statistica|
 |Ebraico |`he`   |Neurale
 |Hindi| `hi`    |   Neurale|
@@ -85,6 +86,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Malayalam| `ml` | Neurale
 |Maltese|   `mt`    |   Statistica|
 |Maori| `mi`  | Neurale|
+|Marathi| `mr`  | Neurale|
 |Norvegese| `nb`    |   Neurale|
 |Persiano|   `fa`    |   Neurale|
 |Polacco|    `pl`    |   Neurale|

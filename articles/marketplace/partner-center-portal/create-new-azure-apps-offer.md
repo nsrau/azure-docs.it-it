@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 6b7ca1f10744bf38137c57d94d796655946c31b3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: a62551b31c51836dfa50534ee6db907c8a4e111a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390358"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730608"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -56,7 +56,7 @@ Rivedere la documentazione seguente relativa all'applicazione di Azure, che incl
 * [Comprendere modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 * Argomenti di avvio rapido:
 
-    * [Modelli di guida introduttiva di AzureAzure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
+    * [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/)
     * [Modelli di avvio rapido di Azure in GitHub](https://github.com/azure/azure-quickstart-templates)
     * [Pubblicare una definizione di applicazione](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Distribuire un'app del catalogo di servizi](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
@@ -93,7 +93,7 @@ Per la gestione dell'applicazione di Azure scegliere uno o entrambi gli ambienti
 
 È consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo:
 
-* [Esplora archivi Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Visual Studio Code](https://code.visualstudio.com/) con le estensioni seguenti:
     * Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -293,7 +293,7 @@ Questo piano deve essere reso disponibile in almeno un cloud.
 
 Selezionare l'opzione Azure pubblico per rendere la soluzione distribuibile ai clienti in tutte le aree di Azure pubbliche con l'integrazione del Marketplace.Select the **Public Azure** option to make your solution deployable to customers in all public Azure regions that have Marketplace integration.  Ulteriori informazioni sulla [disponibilità geografica](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Selezionare l'opzione **Cloud di Azure per** rendere la soluzione distribuibile in Azure Government [Cloud,](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)un cloud della comunità governativa con accesso controllato per i clienti della Fascia federale, statale, locale o tribale degli Stati Uniti e dei partner idonei a servire queste entità.  L'utente, in qualità di editore, è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per servire questa community cloud.  Azure per enti pubblici usa data center e reti fisicamente isolati (solo negli Stati Uniti).  Prima della pubblicazione in [Azure per enti pubblici](https://aka.ms/azuregovpublish), Microsoft consiglia di testare e convalidare la soluzione nell'ambiente in quanto determinati endpoint potrebbero essere diversi. Per eseguire la fase e il test della soluzione, richiedere un account di prova da questo [collegamento.](https://azure.microsoft.com/global-infrastructure/government/request/)
+Selezionare l'opzione **Cloud di Azure per** rendere la soluzione distribuibile in Azure Government [Cloud,](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)un cloud della comunità governativa con accesso controllato per i clienti della Fascia federale, statale, locale o tribale degli Stati Uniti e dei partner idonei a servire queste entità.  L'utente, in qualità di editore, è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per servire questa community cloud.  Azure per enti pubblici usa data center e reti fisicamente isolati (solo negli Stati Uniti).  Prima della pubblicazione in [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft consiglia di testare e convalidare la soluzione nell'ambiente in quanto determinati endpoint potrebbero essere diversi. Per eseguire la fase e il test della soluzione, richiedere un account di prova da questo [collegamento.](https://azure.microsoft.com/global-infrastructure/government/request/)
 
 >[!Note]
 >Una volta che un piano viene pubblicato come disponibile in un cloud specifico, tale cloud non può essere rimosso.

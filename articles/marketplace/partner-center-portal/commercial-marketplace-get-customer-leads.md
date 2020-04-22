@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a1ec89dfd2dda91a10f2cc00b6ca4d9d7abbf032
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252632"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731147"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Lead di clienti dall'offerta del marketplace
 
@@ -96,7 +96,7 @@ Le informazioni del cliente vengono inviate tramite più campi. Nell'esempio seg
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Dove è possibile ottenere assistenza per configurare la destinazione dei lead?
 
-Puoi trovare la documentazione [qui](#connect-to-your-crm-system) o inviare un ticket di supporto tramite aka.ms/marketplacepublishersupport quindi selezionare **'creazione dell'offerta'** - **il tuo tipo di offerta** - 'configurazione di gestione **dei lead'.**
+Puoi trovare la documentazione [qui](#connect-to-your-crm-system) https://partner.microsoft.com/support/v2/?stage=1 o inviare un ticket di supporto tramite quindi selezionare **'creazione dell'offerta'** - **il tuo tipo di offerta** - 'configurazione di gestione **dei lead'.**
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-on-the-marketplace"></a>È necessario configurare una destinazione lead per pubblicare un'offerta sul marketplace?
 
@@ -133,7 +133,7 @@ La destinazione di lead BLOB di Azure non è più supportata, pertanto mancano t
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>È stato ricevuto un messaggio di posta elettronica dal Marketplace, perché non si riesce a trovare il lead nel sistema CRM?
 
-È possibile che il dominio di posta elettronica dell'utente finale sia di tipo edu. Per motivi di privacy, non passiamo informazioni private identificabili dal dominio .edu. Inviare un ticket di supporto tramite aka.ms/marketplacepublishersupport.
+È possibile che il dominio di posta elettronica dell'utente finale sia di tipo edu. Per motivi di privacy, non passiamo informazioni private identificabili dal dominio .edu. Invia un ticket https://partner.microsoft.com/support/v2/?stage=1di supporto tramite .
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Ho configurato Tabella di Azure come destinazione principale, come è possibile visualizzare i lead?
 

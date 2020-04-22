@@ -6,14 +6,14 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 678dc8b058d0ae0694dafeb4222b2fc9f10ecda7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a930dfb38007349155581424d03ee7b3e7a6b46
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288700"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730213"
 ---
-# <a name="payout-reporting"></a>Report sui proventi
+# <a name="payout-reporting"></a>Segnalazioni sui proventi
 
 Il [**riepilogo dei proventi**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) mostra i dettagli sui soldi guadagnati con Microsoft. Sono visualizzate anche indicazioni su quando riceverai i pagamenti e sulle modalità di pagamento.
 
@@ -69,15 +69,15 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 
 |Descrizione    |    Data  | Ordini/Utilizzo  | Proventi |
 |----------|----------|-----------|-------------|
-|Periodo dell'ordine   | 15 agosto 2019 - 30 agosto 2019 | **Attributi di correlazione Ordini** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Utilizzo** <br> <ul> <li>CustomerId </li> <li>Nome del cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Addebito esteso stimato <br> Estimated Payout (PC) </li> </ul> |  |
+|Periodo dell'ordine   | 15 agosto 2019 - 30 agosto 2019 | **Attributi di correlazione Ordini** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Uso** <br> <ul> <li>CustomerId </li> <li>Nome del cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Addebito esteso stimato <br> Estimated Payout (PC) </li> </ul> |  |
 |Fine periodo (mese)   | 30 agosto 2019 | | |
 |Data di fatturazione | 1 settembre 2019 | | |
 |Data pagamento cliente | 1 settembre 2019 | | |
-|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2019 - 30 settembre 2019 | | **Ordini attributi di correlazione:** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId (Elemento LineItemId)</li> <li>importo transazione</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato pagamento:** Non elaborato |
+|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2019 - 30 settembre 2019 | | **Ordini attributi di correlazione:** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId (Elemento LineItemId)</li> <li>importo transazione</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato pagamento:** Non elaborato |
 |Inizio periodo riscossione | 1 settembre 2019 | | |
 |Fine periodo riscossione (massimo 30 giorni) | 30 settembre 2019 | | |
-|Data calcolo proventi (il giorno 15 di ogni mese) | 1o ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li>Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId (Elemento LineItemId)</li> <li>importo transazione</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato pagamento:** Prossimi |
-|Payout Date | giovedì 15 ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId (Elemento LineItemId)</li> <li>importo transazione</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato pagamento:** Pagamento inviato |
+|Data calcolo proventi (il giorno 15 di ogni mese) | 1o ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li>Nome del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId (Elemento LineItemId)</li> <li>importo transazione</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato pagamento:** Prossimi |
+|Payout Date | giovedì 15 ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId (Elemento LineItemId)</li> <li>importo transazione</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato pagamento:** Pagamento inviato |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contratto Enterprise (clienti trimestrali/mensili)
 
@@ -92,7 +92,7 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 |Fine periodo riscossione (massimo 90 giorni) | 15 gennaio 2020 | | |
 |Data pagamento cliente | dicembre 30, 2019 | | |
 |Calcolo dei proventi | 15 gennaio 2020 | | |
-|Payout Date | 15 feb 2020 | | **Per i clienti trimestrali** <br> <br> **Report Ordini** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId (Elemento LineItemId)</li> <li>importo transazione</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato pagamento:** inviato |
+|Payout Date | 15 feb 2020 | | **Per i clienti trimestrali** <br> <br> **Report Ordini** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Uso** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId (Elemento LineItemId)</li> <li>importo transazione</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato pagamento:** inviato |
 
 ## <a name="transaction-history-download-export"></a>Esportazione download cronologia transazioni
 
@@ -175,4 +175,4 @@ Questa opzione fornisce un download di ogni elemento pubblicitario di reddito vi
 
 ## <a name="billing-questions-and-support"></a>Domande sulla fatturazione e supporto
 
-Per ottenere assistenza per le domande sulla fatturazione, contattare il [supporto editore del marketplace commerciale.](https://aka.ms/marketplacepublishersupport)
+Per ottenere assistenza per le domande sulla fatturazione, contattare il [supporto editore del marketplace commerciale.](https://partner.microsoft.com/support/v2/?stage=1)

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: 9bea9e375e00d6fc0f6c33aa1bcc766773db2059
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 1c7156da171a101f04db9f83df587f5b8bc71e8f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81269942"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687105"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
@@ -70,8 +70,8 @@ L'elenco seguente mostra le informazioni dettagliate che puoi recuperare dai tuo
 
 ### <a name="audio-insights"></a>Informazioni dettagliate sui contenuti audio
 
-* **Trascrizione audio**: Converte il parlato in testo in 12 lingue e consente le estensioni. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, mandarino Chines, giapponese, arabo, russo, portoghese brasiliano, hindi e coreano.
-* **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, mandarino Chines, giapponese, russo e portoghese brasiliano. Se la lingua non può essere identificata con fiducia, Video Indexer presuppone che la lingua parlata sia l'inglese. Per ulteriori informazioni, vedere Modello di [identificazione del linguaggio](language-identification-model.md).
+* **Trascrizione audio**: Converte il parlato in testo in 12 lingue e consente le estensioni. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese mandarino, giapponese, arabo, russo, portoghese brasiliano, hindi e coreano.
+* **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese mandarino, giapponese, russo e portoghese brasiliano. Se la lingua non può essere identificata con fiducia, Video Indexer presuppone che la lingua parlata sia l'inglese. Per ulteriori informazioni, vedere Modello di [identificazione del linguaggio](language-identification-model.md).
 * **Identificazione e trascrizione vocale multilingue** (anteprima): identifica automaticamente la lingua parlata in segmenti diversi dall'audio. Invia ogni segmento del file multimediale da trascrivere e quindi combina la trascrizione a una trascrizione unificata. Per ulteriori informazioni, consultate [Identificare e trascrivere automaticamente il contenuto multilingue.](multi-language-identification-transcription.md)
 * **Sottotitoli codificati**: consente di creare sottotitoli in tre formati: VTT, TTML, SRT.
 * **Elaborazione a due canali**: Rileva automaticamente la trascrizione separata e si unisce a una singola sequenza temporale.
