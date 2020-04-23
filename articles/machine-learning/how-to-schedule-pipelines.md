@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: d9e1bff3d25a978b5159d8e6ab8ab2453df77ca3
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 8e1e718fa4e6660d72203ac98bb6d427cdba2059
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81640504"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024558"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Pianificare pipeline di Machine Learning con Azure Machine Learning SDK per Python
 
@@ -91,7 +91,7 @@ Se la pipeline è stata costruita con un [DataPath](https://docs.microsoft.com/p
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
 
-reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on time",
+reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on input file change.",
                             pipeline_id=pipeline_id, experiment_name=experiment_name, datastore=datastore, data_path_parameter_name="input_data")
 ```
 

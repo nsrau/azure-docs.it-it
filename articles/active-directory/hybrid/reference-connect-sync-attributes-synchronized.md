@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253611"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082119"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
@@ -375,7 +375,7 @@ Questo gruppo è un set di attributi usati come gli attributi minimi necessari p
 * Yammer (viene usato solo Utente)
 * [Scenari di collaborazione tra organizzazioni Business-to-Business (B2B) ibridi offerti da risorse come SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Questo gruppo è un set di attributi che può essere usato se non si utilizza la directory di Azure AD per supportare Office 365, Dynamics o Intune. Contiene un piccolo set di attributi principali.
+Questo gruppo è un set di attributi che può essere usato se non si utilizza la directory di Azure AD per supportare Office 365, Dynamics o Intune. Contiene un piccolo set di attributi principali. Si noti che l'accesso Single Sign-On o il provisioning in alcune applicazioni di terze parti richiede la configurazione della sincronizzazione degli attributi oltre agli attributi descritti di seguito. I requisiti dell'applicazione sono descritti [nell'esercitazione sull'app SaaS](../saas-apps/tutorial-list.md) per ogni applicazione.
 
 | Nome attributo | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 5c28697b27e9cf910302b7379e1443f7e78e96b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/21/2020
+ms.openlocfilehash: 20d8e46d6fa6b031c809d629a6af41e8e682bcef
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530615"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025085"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando il portale di AzureHow to create and manage read replicas in Azure Database for MariaDB using the Azure portal
 
@@ -28,7 +28,7 @@ In questo articolo verrà illustrato come creare e gestire le repliche di lettur
 
 È possibile creare un server di replica in lettura seguendo questa procedura:
 
-1. Accedere al portale di [Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Selezionare il database di Azure esistente per il server MariaDB che si vuole usare come master. Questa azione apre la pagina **Panoramica**.
 
@@ -45,9 +45,6 @@ In questo articolo verrà illustrato come creare e gestire le repliche di lettur
 6. Selezionare il percorso per il server di replica. Il percorso predefinito è lo stesso del server master.
 
     ![Database di Azure per MariaDB - Percorso di replicaAzure Database for MariaDB - Replica location](./media/howto-read-replica-portal/replica-location.png)
-
-   > [!NOTE]
-   > La replica tra aree è in anteprima. Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo sui concetti relativi alla replica di [lettura.](concepts-read-replicas.md) 
 
 7. Selezionare **OK** per confermare la creazione della replica.
 

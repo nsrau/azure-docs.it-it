@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 45559978f710549088d75d0f0706b798ebad3821
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a39e1e19f65722b4b5ae809ca943da719a3c6e22
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314079"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869782"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -290,6 +290,9 @@ Utilizzare le istruzioni seguenti per utilizzare l'editor RTF:
 
 Ricordarsi di **salvare** prima di passare alla sezione successiva.
 
+>[!Note]
+>Se si verifica un problema durante il caricamento dei https://upload.xboxlive.com file, assicurarsi che la rete locale non blocchi il servizio utilizzato dal Centro per i partner.
+
 #### <a name="additional-marketplace-listing-resources"></a>Risorse aggiuntive per la presentazione del marketplace
 
 - [Procedure consigliate per le inserzioni con offerte di marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
@@ -399,7 +402,7 @@ Selezionare la frequenza con cui i clienti devono pagare il prezzo indicato. È 
 
 - **Prezzo**: USD al mese o USD all'anno
 
-I prezzi impostati in valuta locale (USD e dollaro degli Stati Uniti) vengono convertiti nella valuta locale di tutti i mercati selezionati utilizzando i tassi di cambio correnti disponibili durante l'impostazione. Convalidare questi prezzi prima della pubblicazione esportando il foglio di calcolo dei prezzi e rivedendo il prezzo in ogni mercato. Se si desidera impostare prezzi personalizzati in un singolo mercato, modificare e importare il foglio di calcolo dei prezzi. L'utente è responsabile della convalida di questi prezzi e possiede queste impostazioni.
+I prezzi impostati in USD (USD - Dollaro degli Stati Uniti) vengono convertiti nella valuta locale di tutti i mercati selezionati utilizzando i tassi di cambio correnti al momento del salvataggio. Convalidare questi prezzi prima della pubblicazione esportando il foglio di calcolo dei prezzi e rivedendo il prezzo in ogni mercato. Se si desidera impostare prezzi personalizzati in un singolo mercato, modificare e importare il foglio di calcolo dei prezzi. L'utente è responsabile della convalida di questi prezzi e possiede queste impostazioni.
 *\*È innanzitutto necessario salvare le modifiche dei prezzi per consentire l'esportazione dei dati sui prezzi.*
 
 Rivedi attentamente i tuoi prezzi prima della pubblicazione, poiché ci sono alcune restrizioni su ciò che può cambiare dopo la pubblicazione di un piano:

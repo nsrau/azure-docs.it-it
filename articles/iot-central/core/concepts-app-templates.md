@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: fde46ddfe85ca2cd1aa4ba65c8bd93d4db328410
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 244de9a3236977308a9f7bcaf5106e86a0984201
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77019044"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024677"
 ---
 # <a name="what-are-application-templates"></a>Che cosa i modelli di applicazione?
 
@@ -41,7 +41,7 @@ Scegliere il modello di **applicazione personalizzata** a meno che non si dispon
 
 Azure IoT Central è una piattaforma applicativa indipendente dal settore. I modelli di applicazione sono esempi incentrati sul settore disponibili per questi settori oggi, con altri a venire in futuro:
 
-- [Vendita al dettaglio](../retail/overview-iot-central-retail-pnp.md)
+- [Retail](../retail/overview-iot-central-retail.md)
   - Logistica connessa
   - Centro di distribuzione digitale
   - Analisi punti vendita - Monitoraggio delle condizioni

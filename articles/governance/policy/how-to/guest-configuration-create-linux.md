@@ -3,12 +3,12 @@ title: Come creare criteri di configurazione guest per LinuxHow to create Guest 
 description: Informazioni su come creare criteri di configurazione guest dei criteri di Azure per Linux.Learn how to create an Azure Policy Guest Configuration policy for Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 24442a89d55e34f9ce9697c2f6a32cfc740bcd85
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 219b38bd81cae8d16241d1ee16cfdd2f400ae91e
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758969"
+ms.locfileid: "82024983"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di configurazione guest per LinuxHow to create Guest Configuration policies for Linux
 
@@ -26,9 +26,8 @@ Usare le azioni seguenti per creare una configurazione personalizzata per la con
 > I criteri personalizzati con Configurazione ospite sono una funzionalità di anteprima.
 >
 > L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.The Guest Configuration extension is required to perform audits in Azure virtual machines.
-> Per distribuire l'estensione su larga scala, assegnare le definizioni dei criteri seguenti:To deploy the extension at scale, assign the following policy definitions:
->   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Windows.
->   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.
+> Per distribuire l'estensione su larga scala in tutti i computer Linux, assegnare la definizione dei criteri seguente:To deploy the extension at scale on all Linux machines, assign the following policy definition:
+>   - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
 

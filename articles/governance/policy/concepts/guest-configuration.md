@@ -3,12 +3,12 @@ title: Informazioni su come controllare il contenuto delle macchine virtualiLear
 description: Informazioni su come Criteri di Azure usa l'agente di configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 89f7cc3931971d70b441490f77b67ace89434c2b
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759084"
+ms.locfileid: "82025221"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -31,8 +31,8 @@ Per controllare le impostazioni all'interno di una macchina, viene abilitata [un
 > [!Important]
 > L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.The Guest Configuration extension is required to perform audits in Azure virtual machines.
 > Per distribuire l'estensione su larga scala, assegnare le definizioni dei criteri seguenti:To deploy the extension at scale, assign the following policy definitions:
->   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Windows.
->   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.
+>   - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>   - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>Limiti impostati sull'estensione
 
@@ -46,7 +46,7 @@ La tabella seguente elenca gli strumenti locali usati on ciascun sistema operati
 
 |Sistema operativo|Strumento di convalida|Note|
 |-|-|-|
-|WINDOWS|[Configurazione dello stato desiderato](/powershell/scripting/dsc/overview/overview) di Windows PowerShell v2| |
+|Windows|[Configurazione dello stato desiderato](/powershell/scripting/dsc/overview/overview) di Windows PowerShell v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Se Ruby e Python non sono presenti nel computer, vengono installati dall'estensione Configurazione ospite. |
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
@@ -67,6 +67,8 @@ I criteri di configurazione guest sono inclusivi di nuove versioni. Le versioni 
 |OpenLogic|CentOS|7.3 e versioni successive|
 |Red Hat|Red Hat Enterprise Linux|7.4 e versioni successive|
 |SUSE|SLES|12 SP3 e versioni successive|
+
+Le immagini delle macchine virtuali personalizzate sono supportate dai criteri di configurazione guest, purché siano uno dei sistemi operativi nella tabella precedente.
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 
@@ -145,7 +147,7 @@ Dove `<version>` si riferisce al numero di versione corrente.
 Il primo passaggio per la risoluzione dei `Test-GuestConfigurationPackage` problemi relativi alle configurazioni o ai moduli di Configurazione ospite deve essere quello di utilizzare il cmdlet seguendo la procedura relativa alla creazione di un criterio di [controllo della configurazione guest personalizzato per Windows.](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows)
 Se l'operazione non riesce, la raccolta dei log client consente di diagnosticare i problemi.
 
-#### <a name="windows"></a>WINDOWS
+#### <a name="windows"></a>Windows
 
 Acquisire informazioni dai file di log usando [Azure VM Run Command](../../../virtual-machines/windows/run-command.md), lo script di PowerShell di esempio seguente può essere utile.
 

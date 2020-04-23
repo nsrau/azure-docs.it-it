@@ -3,15 +3,16 @@ title: Convertire i dischi non gestiti di una VM Windows in dischi gestiti
 description: Come convertire i dischi non gestiti di una VM Windows in dischi gestiti usando PowerShell nel modello di distribuzione Resource Manager
 author: roygara
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 8c180cfc597c0ade27b1fe8cca5a8751176ea12e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8069b174b7a69cc2e6c47171159569c56a15563
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460123"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081949"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertire i dischi non gestiti di una VM Windows in dischi gestiti
 
@@ -94,7 +95,7 @@ Prima di eseguire la conversione, assicurarsi che lo stato di tutte le estension
 
 È anche possibile convertire i dischi non gestiti in dischi gestiti usando il portale di Azure.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare la macchina virtuale dall'elenco di macchine virtuali nel portale.
 3. Nel pannello della macchina virtuale selezionare **Dischi** dal menu.
 4. Nella parte superiore del pannello **Dischi** selezionare **Eseguire la migrazione a Managed Disks**.

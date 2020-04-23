@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: eff37750f0580a28c9644ee1ffb7fe4e95038709
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873821"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869788"
 ---
 # <a name="create-a-consulting-service-offer"></a>Crea un'offerta di servizio di consulenza
 
@@ -158,7 +158,7 @@ Per rendere la descrizione più coinvolgente, usa l'editor RTF per formattare la
 
 Immettere fino a tre parole chiave di ricerca rilevanti per il prodotto principale e il servizio di consulenza. Questi renderanno più facile trovare la tua offerta.
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Durata
 
 Impostare la durata prevista di questo impegno con il cliente.
 
@@ -173,6 +173,9 @@ Aggiungi fino a tre (ma almeno uno) documenti PDF a supporto per la tua offerta.
 ### <a name="marketplace-images"></a>Immagini del Marketplace
 
 Fornisci loghi e immagini da utilizzare con la tua offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfocate verranno rifiutate.
+
+>[!Note]
+>Se si verifica un problema durante il caricamento dei https://upload.xboxlive.com file, assicurarsi che la rete locale non blocchi il servizio utilizzato dal Centro per i partner.
 
 #### <a name="store-logos"></a>Loghi del Negozio
 

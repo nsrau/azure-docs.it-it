@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 1fa8f7a48c03ead7e939185b23834b3049b3e21c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6216b56c8e8f0de4f9cd60306bbf9c5ed49a11ad
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064854"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025204"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizzare l'accesso alle risorse di Hub eventi usando Azure Active DirectoryAuthorize access to Event Hubs resources using Azure Active Directory
 Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di Hub di eventi. Con Azure AD è possibile usare il controllo degli accessi in base al ruolo per concedere autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [Understanding the different roles](../role-based-access-control/overview.md).
@@ -65,7 +65,7 @@ Per ulteriori informazioni sulla modalità di definizione dei ruoli predefiniti,
 ## <a name="samples"></a>Esempi
 - Esempi di [Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Questi esempi usano la vecchia libreria **Microsoft.Azure.EventHubs,** ma è possibile aggiornarla facilmente usando la libreria **Azure.Messaging.EventHubs** più recente. Per spostare l'esempio dall'uso della libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft.Azure.EventHubs ad Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+    Questi esempi usano la vecchia libreria **Microsoft.Azure.EventHubs,** ma è possibile aggiornarla facilmente usando la libreria **Azure.Messaging.EventHubs** più recente. Per spostare l'esempio dall'uso della libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft.Azure.EventHubs ad Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Esempi di Azure.Messaging.EventHubsAzure.Messaging.EventHubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Questo esempio è stato aggiornato per usare la libreria **Azure.Messaging.EventHubs** più recente.

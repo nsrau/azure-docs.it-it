@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457179"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870549"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accesso sicuro e dati nelle app per la logica di AzureSecure access and data in Azure Logic Apps
 
@@ -655,7 +655,7 @@ Se l'opzione [Certificato client](../active-directory/authentication/active-dire
 
 | Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Tipo di autenticazione da utilizzare per i certificati client TLS/SSL. Sebbene i certificati autofirmati siano supportati, i certificati autofirmati per TLS/SSL non sono supportati. |
+| **autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Tipo di autenticazione da utilizzare per i certificati client TLS/SSL <p><p>**Nota:** sebbene i certificati autofirmati siano supportati, i certificati autofirmati per TLS/SSL non sono supportati. Il connettore HTTP non supporta i certificati TLS/SSL intermedi. |
 | **Pfx (in stato di** | `pfx` | Sì | <*encoded-pfx-contenuto del file*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) <p><p>Per convertire il file PFX in formato con codifica base64, è possibile usare PowerShell attenendosi alla procedura seguente:To convert the PFX file into base64-encoded format, you can use PowerShell by following these steps: <p>1. Salvare il contenuto del certificato in una variabile: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convertire il contenuto `ToBase64String()` del certificato utilizzando la funzione e salvarlo in un file di testo: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Password** | `password`| No | <*file password per pfx*> | Password per accedere al file PFX. |
 |||||
@@ -698,7 +698,7 @@ Se l'opzione [OAuth di Active Directory](../active-directory/develop/about-micro
 | **Authority** | `authority` | No | <*Emittente DI URL per autorità*> | URL dell'autorità che fornisce il token di autenticazione. Per impostazione predefinita, questo valore è `https://login.windows.net`. |
 | **Tenant** | `tenant` | Sì | <*ID tenant*> | L'ID tenant per il tenant di Azure AD |
 | **Pubblico** | `audience` | Sì | <*risorsa da autorizzare*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
-| **Client ID** | `clientId` | Sì | <*ID client*> | L'ID client per l'app richiedente l'autorizzazione |
+| **ID client** | `clientId` | Sì | <*ID client*> | L'ID client per l'app richiedente l'autorizzazione |
 | **Tipo di credenziali** | `credentialType` | Sì | Certificato <br>o <br>Segreto | Tipo di credenziale utilizzato dal client per richiedere l'autorizzazione. Questa proprietà e il valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà visualizzate per il tipo di credenziale selezionato. |
 | **Segreto** | `secret` | Sì, ma solo per il tipo di credenziale "Segreto" | <*segreto client*> | Il segreto client per la richiesta dell'autorizzazione |
 | **Pfx (in stato di** | `pfx` | Sì, ma solo per il tipo di credenziale "Certificato" | <*encoded-pfx-contenuto del file*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |

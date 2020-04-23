@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014275"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081711"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Esercitazione: Ottenere i dati usando l'API di creazione report di Azure Active Directory con i certificati
 
@@ -44,9 +44,9 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
     - Token di accesso dell'utente, chiavi dell'applicazione e certificati con ADAL
     - API Graph che gestisce i risultati di paging
 
-6. Se è la prima volta che si usa il modulo, eseguire **Install-MSCloudIdUtilsModule**; in caso contrario, è possibile importarlo tramite il comando **Import-Module** di Powershell. La sessione dovrebbe essere simile ![a questa schermata: Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Se è la prima volta che si utilizza il modulo **Install-MSCloudIdUtilsModule**, altrimenti importarlo utilizzando il comando **Import-Module** PowerShell. La sessione dovrebbe essere simile ![a questa schermata: Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Usare il cmdlet **New-SelfSignedCertificate** di Powershell per creare un certificato di test.
+7. Usare il comando **PowerShell New-SelfSignedCertificate** per creare un certificato di prova.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -63,13 +63,13 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
 
 1. Passare al [portale di Azure](https://portal.azure.com), selezionare **Azure Active Directory**, quindi selezionare **Registrazioni app** e scegliere l'app dall'elenco. 
 
-2. Selezionare**Chiavi** **impostazioni** > e selezionare **Carica chiave pubblica**.
+2. Selezionare **Certificati & segreti** in Sezione **Gestisci** nel pannello Registrazione applicazione e selezionare **Carica certificato**.
 
-3. Selezionare il file del certificato nel passaggio precedente e selezionare **Salva**. 
+3. Selezionare il file del certificato nel passaggio precedente e selezionare **Aggiungi**. 
 
-4. Si noti l'ID applicazione e l'identificazione personale del certificato appena registrato con l'applicazione. Per trovare l'identificazione personale, dalla pagina dell'applicazione del portale, passare a **Impostazioni** e fare clic su **Chiavi**. L'identificazione personale si troverà nell'elenco **Chiavi pubbliche**.
+4. Si noti l'ID applicazione e l'identificazione personale del certificato appena registrato con l'applicazione. Per trovare l'identificazione personale, dalla pagina dell'applicazione nel portale passare a **Certificati & i segreti** nella sezione Gestisci.To find the thumbprint, on your application page in the portal, go to Certificates & secrets under **Manage** section. L'identificazione personale sarà sotto l'elenco **Certificati.**
 
-5. Aprire il manifesto dell'applicazione nell'editor del manifesto inline e sostituire la proprietà *keyCredentials* con le nuove informazioni del certificato usando lo schema seguente. 
+5. Aprire il manifesto dell'applicazione nell'editor del manifesto inline e verificare che la proprietà *keyCredentials* venga aggiornata con le informazioni sul nuovo certificato, come illustrato di seguito: 
 
    ```
    "keyCredentials": [
@@ -81,23 +81,20 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
-
-6. Salvare il manifesto. 
-  
-7. A questo punto è possibile ottenere un token di accesso per l'API Graph usando questo certificato. Usare il cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** dal modulo MSCloudIdUtils di PowerShell passando l'ID dell'applicazione e l'identificazione personale ottenuta nel passaggio precedente. 
+   ``` 
+6. A questo punto è possibile ottenere un token di accesso per l'API Graph usando questo certificato. Usare il cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** dal modulo MSCloudIdUtils di PowerShell passando l'ID dell'applicazione e l'identificazione personale ottenuta nel passaggio precedente. 
 
    ![Portale di Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Usare il token di accesso nello script di PowerShell per eseguire una query sull'API Graph. Usare il cmdlet **Invoke-MSCloudIdMSGraphQuery** da MSCloudIDUtils per enumerare l'endpoit Signins e directoryAudits. Questo cmdlet gestisce i risultati di multi-paging e li invia alla pipeline di PowerShell.
+7. Usare il token di accesso nello script di PowerShell per eseguire una query sull'API Graph.Use the access token in your PowerShell script to query the Graph API. Usare il cmdlet **Invoke-MSCloudIdMSGraphQuery** da MSCloudIDUtils per enumerare l'endpoit Signins e directoryAudits. Questo cmdlet gestisce i risultati di multi-paging e li invia alla pipeline di PowerShell.
 
-9. Eseguire una query sull'endpoint directoryAudits per recuperare i log di controllo. 
+8. Eseguire una query sull'endpoint directoryAudits per recuperare i log di controllo. 
    ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Eseguire una query dell'endpoint Signins per recuperare i log di accesso.
+9. Eseguire una query dell'endpoint Signins per recuperare i log di accesso.
     ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. È ora possibile scegliere di esportare i dati in un file CSV e salvarlo in un sistema SIEM. È anche possibile eseguire il wrapping dello script in un'attività pianificata per ottenere periodicamente i dati di Azure AD dal tenant senza dover archiviare le chiavi dell'applicazione nel codice sorgente. 
+10. È ora possibile scegliere di esportare i dati in un file CSV e salvarlo in un sistema SIEM. È anche possibile eseguire il wrapping dello script in un'attività pianificata per ottenere periodicamente i dati di Azure AD dal tenant senza dover archiviare le chiavi dell'applicazione nel codice sorgente. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6102b1e1d6ddbac01033b9cecfeba96a7eb33777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473541"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868402"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -26,19 +26,19 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
+- Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 - Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizzare gli account per sviluppatori usando Azure AD
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Select ![freccia](./media/api-management-howto-aad/arrow.png).
 3. Digitare **api** nella casella di ricerca.
 4. Selezionare **Servizi di gestione API**.
 5. Selezionare l'istanza del servizio Gestione API in esecuzione.
-6. In **Sicurezza**selezionare **Identità**.
+6. In **Portale per sviluppatori**selezionare **Identità**.
 7. Selezionare **+Aggiungi** nella parte superiore.
 
     Sulla destra verrà visualizzato il riquadro **Aggiungi provider di identità**.
@@ -50,7 +50,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
    ![Passaggi per l'aggiunta di un provider di identità nel portale di Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. Nel browser aprire una scheda diversa. 
 11. Passare al [portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) per registrare un'app in Active Directory.Navigate to the Azure portal - App registrations to register an app in Active Directory.
-12. In **Gestisci**selezionare **Registrazioni app**.
+12. In **Gestisci** selezionare **Registrazioni app**.
 13. Selezionare **Nuova registrazione**. Nella pagina **Registra un'applicazione** impostare i valori come segue:
     
     * Impostare **Nome** su un nome significativo. ad esempio, *portale per sviluppatori*
@@ -74,7 +74,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
     > [!NOTE]
     > Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. Per concedere l'autorizzazione, l'amministratore globale deve: a. Passare a `https://<URL of your developer portal>/aadadminconsent` (ad esempio, https://contoso.portal.azure-api.net/aadadminconsent).
     > b. Digitare il nome di dominio del tenant di Azure AD a cui concedere l'accesso.
-    > c. Selezionare **Submit**. 
+    > c. Selezionare **Submit** (Invia). 
 
 20.  Dopo aver specificato la configurazione desiderata, selezionare **Aggiungi**.
 

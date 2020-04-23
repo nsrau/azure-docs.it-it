@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 48be73a6385c9690909cb70abe558a2def1ace88
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: f557753c61af1e57490ae2d10b7f42475bd7c0a6
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730521"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870228"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power AutomateReference guide to using functions in expressions for Azure Logic Apps and Power Automate
 
@@ -2426,9 +2426,11 @@ iterationIndexes('<loopName>')
 
 *Esempio* 
 
-Questo esempio crea una variabile contatore e la incrementa di una durante ogni iterazione in un ciclo Until fino a quando il valore del contatore non raggiunge cinque. Nell'esempio viene inoltre creata una variabile che tiene traccia dell'indice corrente per ogni iterazione. Nel ciclo Until, durante ogni iterazione, l'esempio incrementa il contatore, quindi assegna il valore del contatore al valore di indice corrente e quindi incrementa il contatore. In qualsiasi momento, è possibile determinare il numero di iterazione corrente recuperando il valore di indice corrente.
+Questo esempio crea una variabile contatore e la incrementa di una durante ogni iterazione in un ciclo Until fino a quando il valore del contatore non raggiunge cinque. Nell'esempio viene inoltre creata una variabile che tiene traccia dell'indice corrente per ogni iterazione. Nel ciclo Until, durante ogni iterazione, l'esempio incrementa il contatore, quindi assegna il valore del contatore al valore di indice corrente e quindi incrementa il contatore. Mentre nel ciclo, questo esempio fa riferimento `iterationIndexes` all'indice di iterazione corrente utilizzando la funzione:While in the loop, this example references the current iteration index by using the function:
 
-```
+`iterationIndexes('Until_Max_Increment')`
+
+```json
 {
    "actions": {
       "Create_counter_variable": {
@@ -2459,7 +2461,7 @@ Questo esempio crea una variabile contatore e la incrementa di una durante ogni 
             "Create_counter_variable": [ "Succeeded" ]
          }
       },
-      "Until": {
+      "Until_Max_Increment": {
          "type": "Until",
          "actions": {
             "Assign_current_index_to_counter": {
@@ -2472,6 +2474,15 @@ Questo esempio crea una variabile contatore e la incrementa di una durante ogni 
                   "Increment_variable": [ "Succeeded" ]
                }
             },
+            "Compose": {
+               "inputs": "'Current index: ' @{iterationIndexes('Until_Max_Increment')}",
+               "runAfter": {
+                  "Assign_current_index_to_counter": [
+                     "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },           
             "Increment_variable": {
                "type": "IncrementVariable",
                "inputs": {

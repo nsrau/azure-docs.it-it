@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80347166"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869716"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Accedere e avviare app dal portale App personali
 
@@ -110,7 +110,7 @@ Se si dispone dell'autorizzazione per accedere e usare le app basate su cloud de
 
 Visualizzare e usare le app dell'organizzazione da Un Intune Managed Browser nei dispositivi iOS e Android.View and use your organization's apps from an Intune Managed Browser on your iOS and Android devices.
 
-1. Nel dispositivo mobile scaricare e installare l'app Intune Managed Browser [dall'App Store di Apple](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e dal Google Play [Store.](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)
+1. Nel dispositivo mobile scaricare e installare l'app Intune Managed Browser dall'App Store di Apple e dal Google Play Store.
 
 2. Aprire l'app Intune Managed https://myapps.microsoft.comBrowser, passare a o usare il collegamento fornito dall'organizzazione https://myapps.microsoft.com/contoso.comse si indirizza a una pagina personalizzata, ad esempio .
 

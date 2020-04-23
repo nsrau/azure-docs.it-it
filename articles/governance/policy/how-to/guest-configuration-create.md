@@ -3,12 +3,12 @@ title: Come creare criteri di configurazione guest per WindowsHow to create Gues
 description: Informazioni su come creare criteri di configurazione guest dei criteri di Azure per Windows.Learn how to create an Azure Policy Guest Configuration policy for Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 7b06aa0a70bfa17d67da9c6af447138f8bb9e712
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: f09bb543f73e37bd211a55e2238808f57585bb18
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757409"
+ms.locfileid: "82024898"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di configurazione guest per WindowsHow to create Guest Configuration policies for Windows
 
@@ -27,9 +27,8 @@ Usare le azioni seguenti per creare una configurazione personalizzata per la con
 > I criteri personalizzati con Configurazione ospite sono una funzionalità di anteprima.
 >
 > L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.The Guest Configuration extension is required to perform audits in Azure virtual machines.
-> Per distribuire l'estensione su larga scala, assegnare le definizioni dei criteri seguenti:To deploy the extension at scale, assign the following policy definitions:
->   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Windows.
->   - Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.
+> Per distribuire l'estensione su larga scala in tutti i computer Windows, assegnare le definizioni dei criteri seguenti:To deploy the extension at scale on all Windows machines, assign the following policy definitions:
+>   - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
 ## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
 

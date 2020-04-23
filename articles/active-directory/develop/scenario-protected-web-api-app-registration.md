@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 997dd98d35b74effe5d195f9a781fa0935286ee9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537220"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868836"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protetta: registrazione dell'app
 
@@ -108,7 +108,7 @@ Per esporre le autorizzazioni dell'applicazione, è necessario modificare il man
 
 Nell'esempio seguente viene `appRoles`illustrato il `id` contenuto di , dove il valore di può essere qualsiasi GUID univoco.
 
-```JSon
+```json
 "appRoles": [
     {
     "allowedMemberTypes": [ "Application" ],

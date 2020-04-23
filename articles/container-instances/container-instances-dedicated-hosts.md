@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934138"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025034"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Eseguire la distribuzione in host dedicati
 
@@ -37,7 +37,7 @@ La `sku` proprietà può avere uno dei seguenti valori:
 ## <a name="modify-your-json-deployment-template"></a>Modificare il modello di distribuzione JSONModify your JSON deployment template
 
 Nel modello di distribuzione modificare o aggiungere le proprietà seguenti:In your deployment template, modify or add the following properties:
-* In `resources`, `apiVersion` `2012-12-01`impostare su .
+* In `resources`, `apiVersion` `2019-12-01`impostare su .
 * Nelle proprietà del gruppo `sku` di contenitori aggiungere una proprietà con valore `Dedicated`.
 
 Ecco un frammento di codice di esempio per la sezione delle risorse di un modello di distribuzione di gruppi di contenitori che usa lo sku dedicato:Here is an example snippet for the resources section of a container group deployment template that uses the dedicated sku:

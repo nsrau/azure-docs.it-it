@@ -4,12 +4,12 @@ description: Informazioni su come gestire e monitorare i backup dell'agente di M
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537356"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025102"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup dell'agente di Microsoft Azure Recovery Services (MARS) tramite il servizio Backup di AzureManage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -79,8 +79,8 @@ Quando si modificano i criteri di backup, è possibile aggiungere nuovi elementi
 
     ![Selezionare gli elementi](./media/backup-azure-manage-mars/select-items-remove.png)
 
-> [!NOTE]
-> Procedere con cautela quando si rimuove completamente un volume dal criterio.  Se è necessario aggiungerlo di nuovo, verrà considerato come un nuovo volume. Il successivo backup pianificato eseguirà un backup iniziale (backup completo) anziché un backup incrementale. Se è necessario rimuovere temporaneamente e aggiungere elementi in un secondo momento, è consigliabile utilizzare **Impostazioni esclusioni** anziché **Rimuovi elementi** per garantire il backup incrementale anziché il backup completo.
+    > [!NOTE]
+    > Procedere con cautela quando si rimuove completamente un volume dal criterio.  Se è necessario aggiungerlo di nuovo, verrà considerato come un nuovo volume. Il successivo backup pianificato eseguirà un backup iniziale (backup completo) anziché un backup incrementale. Se è necessario rimuovere temporaneamente e aggiungere elementi in un secondo momento, è consigliabile utilizzare **Impostazioni esclusioni** anziché **Rimuovi elementi** per garantire il backup incrementale anziché il backup completo.
 
 2. Completare i passaggi successivi e fare clic su **Fine** per completare l'operazione.
 
@@ -90,7 +90,7 @@ Esistono due modi per interrompere la protezione del backup di file e cartelle:
 
 - **Arrestare la protezione e conservare i dati**di backup .
   - Questa opzione interromperà la protezione di tutti i processi di backup futuri.
-  - Il servizio Backup di Azure manterrà tutti i punti di ripristino esistenti per un tempo indefinito. I punti di ripristino non verranno controllati per la scadenza fino a quando non viene ripresa la protezione.
+  - Il servizio Backup di Azure continuerà a mantenere tutti i punti di ripristino esistenti.  
   - Sarà possibile ripristinare i dati di cui è stato eseguito il backup per i punti di ripristino non scaduti.
   - Se si decide di riprendere la protezione, è possibile utilizzare l'opzione *Riattiva pianificazione backup.* Dopo di che, i dati verrebbero conservati in base al nuovo criterio di conservazione.
 - **Interrompere la protezione ed eliminare i dati di backup**.
@@ -167,7 +167,6 @@ Una passphrase viene usata per crittografare e decrittografare i dati durante il
 
     ![Generare la passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
 - Assicurarsi che la passphrase venga salvata in modo sicuro in un percorso alternativo (diverso dal computer di origine), preferibilmente nell'insieme di credenziali delle chiavi di Azure.Ensure that the passphrase is securely saved in an alternate location (other than the source machine), preferibilmente in the Azure Key Vault. Tenere traccia di tutte le passphrase se si dispone di più computer di cui viene eseguito il backup con gli agenti MARS.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

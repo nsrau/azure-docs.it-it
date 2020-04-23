@@ -1,19 +1,18 @@
 ---
 title: Gestione automatica dei dispositivi su larga scala con l'hub Di Azure IoT Documenti Microsoft
 description: Usare le configurazioni automatiche dell'hub IoT di Azure per gestire più dispositivi e moduli IoTUse Azure IoT Hub automatic configurations to manage multiple IoT devices and modules
-author: Philmea
-manager: bruz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: philmea
-ms.openlocfilehash: 1de7c34d8f8cbfa139212f29ca6be5d4eca64655
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.author: robinsh
+ms.openlocfilehash: 276f115f579fbd1ab077722b220a4a0c6c571850
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767498"
+ms.locfileid: "82025068"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gestione automatica di dispositivi e moduli IoT tramite il portale di AzureAutomatic IoT device and module management using the Azure portal
 

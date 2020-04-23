@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f307553a97973d03b0699248373e53e4845aa39a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78248853"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869908"
 ---
 # <a name="what-are-security-defaults"></a>Che cosa sono le impostazioni predefinite di sicurezza?
 
@@ -92,8 +92,6 @@ L'uso di Azure Resource Manager per gestire i servizi è un'azione con privilegi
 È importante verificare l'identità degli utenti che desiderano accedere alle configurazioni di aggiornamento e di Azure Resource Manager.It's important to verify the identity of users who want to access Azure Resource Manager and update configurations. Verificare la propria identità richiedendo l'autenticazione aggiuntiva prima di consentire l'accesso.
 
 Dopo aver abilitato le impostazioni predefinite di sicurezza nel tenant, qualsiasi utente che accede al portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure dovrà completare l'autenticazione aggiuntiva. Questo criterio si applica a tutti gli utenti che accedono ad Azure Resource Manager, sia che si tratti di un amministratore o di un utente. 
-
-Se l'utente non è registrato per Multi-Factor Authentication, l'utente dovrà registrarsi utilizzando l'app Microsoft Authenticator per procedere. Non verrà fornito alcun periodo di registrazione di 14 giorni di autenticazione a più fattori.
 
 > [!NOTE]
 > I tenant di Exchange Online pre-2017 hanno l'autenticazione moderna disabilitata per impostazione predefinita. Per evitare la possibilità di un ciclo di accesso durante l'autenticazione tramite questi tenant, è necessario [abilitare l'autenticazione moderna.](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)

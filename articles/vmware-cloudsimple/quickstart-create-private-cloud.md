@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 10831c0dc39fa241a43541850afae39593ae033b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678276"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867970"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva - Configurare un ambiente Cloud privato
 
@@ -148,7 +148,7 @@ Verrà creata la VLAN/subnet.  È ora possibile utilizzare questo ID VLAN per cr
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Connettere l'ambiente a una rete virtuale di AzureConnect your environment to an Azure virtual network
 
-CloudSimple fornisce un circuito ExpressRoute per il cloud privato. È possibile connettere la rete virtuale in Azure al circuito ExpressRoute.You can connect your virtual network on Azure to the ExpressRoute circuit. Per informazioni dettagliate sulla configurazione della connessione, seguire i passaggi in Connessione di rete virtuale di [Azure tramite ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/).
+CloudSimple fornisce un circuito ExpressRoute per il cloud privato. È possibile connettere la rete virtuale in Azure al circuito ExpressRoute.You can connect your virtual network on Azure to the ExpressRoute circuit. Per informazioni dettagliate sulla configurazione della connessione, seguire i passaggi in Connessione di rete virtuale di [Azure tramite ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-azure-network-connection).
 
 ## <a name="sign-in-to-vcenter"></a>Accedere a vCenter
 

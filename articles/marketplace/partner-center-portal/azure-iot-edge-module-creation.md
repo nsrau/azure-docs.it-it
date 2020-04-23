@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: c4eddf68e964b412e7270319630f41fc4d802241
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: cca54e4e456fe766b190f64657cd1aca1d9520e0
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733153"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869138"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -223,6 +223,9 @@ Per ulteriori informazioni sulla creazione di inserzioni di offerte, consulta Be
 ### <a name="marketplace-images"></a>Immagini del Marketplace
 
 Fornisci loghi e immagini da utilizzare con la tua offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfocate verranno rifiutate.
+
+>[!Note]
+>Se si verifica un problema durante il caricamento dei https://upload.xboxlive.com file, assicurarsi che la rete locale non blocchi il servizio utilizzato dal Centro per i partner.
 
 #### <a name="store-logos"></a>Loghi del Negozio
 

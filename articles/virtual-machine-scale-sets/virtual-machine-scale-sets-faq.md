@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 1dbc08e01b9a36b1bc80ee6b81ceb2d92ff831cc
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273716"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870208"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -61,7 +61,7 @@ Un set di scalabilità basato sull'area e non sulla zona usa i *gruppi di posizi
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>I set di scalabilità si integrano con le zone di disponibilità di Azure?
 
- Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
+Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -445,7 +445,7 @@ Esistono due modi per modificare la password delle VM nei set di scalabilità.
 
     Aggiornare le credenziali di amministratore direttamente nel modello del set di scalabilità (ad esempio tramite Azure Resource Explorer, PowerShell o CLI). Una volta aggiornato il set di scalabilità, tutte le nuove VM dispongono delle nuove credenziali. Le VM esistenti avranno le nuove credenziali solo se ne viene ricreata l'immagine.
 
-- Reimpostare la password usando le estensioni di accesso della VM.
+- Reimpostare la password usando le estensioni di accesso della VM. Assicurarsi di seguire i requisiti della password come descritto [di seguito](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
     Usare l'esempio di PowerShell seguente:
 

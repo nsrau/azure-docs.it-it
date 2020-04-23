@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d5626f00e9627338349d9b579bcf26256148b551
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: d598f741c5add58a89aa2b7aa01802a7e35f9a19
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731257"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869068"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Creare un'offerta di macchina virtuale di AzureCreate an Azure virtual machine offer
 
@@ -240,7 +240,7 @@ Fornisci il sito web di supporto dove i clienti possono contattare il tuo team d
 Fornire informazioni di contatto per i partner Microsoft da utilizzare quando i clienti aprono un ticket di supporto. Questo non sarà elencato nel marketplace.
 
 - Nome
-- Email
+- Posta elettronica
 - Telefono
 
 ### <a name="engineering-contact"></a>Contatto tecnico
@@ -248,12 +248,15 @@ Fornire informazioni di contatto per i partner Microsoft da utilizzare quando i 
 Fornire informazioni di contatto per Microsoft da utilizzare in caso di problemi con l'offerta, inclusi problemi di certificazione. Questo non sarà elencato nel marketplace.
 
 - Nome
-- Email
+- Posta elettronica
 - Telefono
 
 ### <a name="marketplace-media"></a>Media del Marketplace
 
 Fornisci loghi e immagini da utilizzare con la tua offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfocate causeranno il rifiuto dell'invio.
+
+>[!Note]
+>Se si verifica un problema durante il caricamento dei https://upload.xboxlive.com file, assicurarsi che la rete locale non blocchi il servizio utilizzato dal Centro per i partner.
 
 #### <a name="marketplace-logos"></a>Loghi del Marketplace
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73906878"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024881"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
 
@@ -62,11 +62,11 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
 1. Scegli tra le opzioni disponibili in questa pagina:
 
-    1. Per utilizzare i criteri di settore, fare clic su **Aggiungi altri standard**. Per ulteriori informazioni, consultate [Aggiornamento ai pacchetti di conformità dinamica.](update-regulatory-compliance-packages.md)
+    1. Per utilizzare i criteri di settore, selezionare **Aggiungi altri standard**. Per ulteriori informazioni, consultate [Aggiornamento ai pacchetti di conformità dinamica.](update-regulatory-compliance-packages.md)
 
-    1. Per assegnare e gestire iniziative personalizzate, fare clic su **Aggiungi iniziative personalizzate**. Per ulteriori informazioni, vedere [Utilizzo di criteri](custom-security-policies.md)di sicurezza personalizzati .
+    1. Per assegnare e gestire iniziative personalizzate, selezionare **Aggiungi iniziative personalizzate**. Per ulteriori informazioni, vedere [Utilizzo di criteri](custom-security-policies.md)di sicurezza personalizzati .
 
-    1. Per visualizzare e modificare il criterio predefinito, fare clic su **Visualizza criteri effettivi** e procedere come descritto di seguito. 
+    1. Per visualizzare e modificare il criterio predefinito, selezionare **Visualizza criteri effettivi** e procedere come descritto di seguito. 
 
        ![Schermata dei criteri](./media/security-center-policies/policy-screen.png)
        
@@ -96,20 +96,20 @@ Il Centro sicurezza usa il controllo degli accessi in base al ruolo, che fornisc
 Se i criteri di sicurezza predefiniti generano una raccomandazione non rilevante per l'ambiente, è possibile interromperla disabilitando la definizione dei criteri che invia la raccomandazione.
 Per ulteriori informazioni sui suggerimenti, vedere [Gestione dei suggerimenti per](security-center-recommendations.md)la sicurezza .
 
-1. Nella sezione **Criteri & Conformità** del Centro sicurezza fare clic su Criteri di **sicurezza.**
+1. Nel Centro sicurezza selezionare **Criteri di sicurezza**nella sezione Criteri & **Conformità.**
 
    ![gestione delle politiche](./media/tutorial-security-policy/policy-management.png)
 
-2. Fare clic sulla sottoscrizione o sul gruppo di gestione per cui si vuole disabilitare il suggerimento.
+2. Selezionare la sottoscrizione o il gruppo di gestione per cui si vuole disabilitare il suggerimento.
 
    > [!NOTE]
    > Tenere presente che un gruppo di gestione applica i propri criteri alle relative sottoscrizioni. Pertanto, se si disabilita un criterio di una sottoscrizione e la sottoscrizione appartiene a un gruppo di gestione che usa ancora lo stesso criterio, si continuerà a ricevere le raccomandazioni relative al criterio in questione. Il criterio verrà comunque applicato dal livello di gestione e le raccomandazioni continueranno a essere generate.
 
-1. Fare clic su **Visualizza criteri effettivi**.
+1. Selezionare **Visualizza criterio effettivo**.
 
    ![disattivare il criterio](./media/tutorial-security-policy/view-effective-policy.png)
 
-1. Fare clic sul criterio assegnato.
+1. Selezionare il criterio assegnato.
 
    ![disattivare il criterio](./media/tutorial-security-policy/security-policy.png)
 
@@ -117,7 +117,7 @@ Per ulteriori informazioni sui suggerimenti, vedere [Gestione dei suggerimenti p
 
    ![disattivare il criterio](./media/tutorial-security-policy/disable-policy.png)
 
-1. Fare clic su **Salva**.
+1. Selezionare **Salva**.
 
    > [!NOTE]
    > L'effetto di modifica dei criteri di disabilitazione può richiedere fino a 12 ore.

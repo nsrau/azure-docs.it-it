@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f625f5df4f33c6516bd5c50f97c52404d76757a0
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392569"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024456"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso di Azure ADConfigure your App Service or Azure Functions app to use Azure AD login
 
@@ -100,7 +100,7 @@ Eseguire la procedura seguente:
     |Campo|Descrizione|
     |-|-|
     |ID client| Utilizzare **l'ID applicazione (client)** della registrazione dell'app. |
-    |URL autorità emittente| Usare `https://login.microsoftonline.com/<tenant-id>/v2.0`e sostituire * \<>id-tenant* con l'ID **directory (tenant)** della registrazione dell'app. Questo valore viene usato per reindirizzare gli utenti al tenant di Azure AD corretto, nonché per scaricare i metadati appropriati per determinare, ad esempio, le chiavi di firma del token appropriate e il valore dell'attestazione dell'autorità emittente di token. La `/v2.0` sezione può essere omessa per le applicazioni che utilizzano AAD v1. |
+    |URL autorità emittente| Usare `<authentication-endpoint>/<tenant-id>/v2.0`e sostituire * \<authentication-endpoint>* con l'endpoint di [autenticazione per l'ambiente cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (ad esempio, "https://login.microsoft.com" per Azure globale), sostituendo * \<anche i>tenant-id* con l'ID directory **(tenant)** in cui è stata creata la registrazione dell'app. Questo valore viene usato per reindirizzare gli utenti al tenant di Azure AD corretto, nonché per scaricare i metadati appropriati per determinare, ad esempio, le chiavi di firma del token appropriate e il valore dell'attestazione dell'autorità emittente di token. La `/v2.0` sezione può essere omessa per le applicazioni che utilizzano AAD v1. |
     |Segreto client (facoltativo)| Usa il segreto client generato nella registrazione dell'app.|
     |Gruppi di destinatari di token consentiti| Se si tratta di un'app cloud o server e si desidera consentire i token di autenticazione da un'app Web, aggiungere qui **l'URI ID applicazione** dell'app Web. **L'ID client** configurato viene *sempre* considerato implicitamente come un gruppo di destinatari consentito. |
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f6cd9e17045fc400d32e9822cef870f1763179ab
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e0b43f7563c9dfac6374590f6b081197536fe31e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885268"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869001"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>App desktop che chiama le API Web: configurazione del codice
 
@@ -114,7 +114,7 @@ Per altre informazioni su come configurare un'applicazione desktop MSAL.NET:
 
 Si immagini un'applicazione console .NET Core con il file di configurazione seguente: `appsettings.json`
 
-```JSon
+```json
 {
   "Authentication": {
     "AzureCloudInstance": "AzurePublic",
@@ -216,7 +216,7 @@ Objective-C:
 ```objc
 NSError *msalError = nil;
 
-MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
+MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
 

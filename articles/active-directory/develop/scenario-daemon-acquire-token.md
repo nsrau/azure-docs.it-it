@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a81f3ffb7ec190943c50127b129523badf0ef0a7
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882982"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868989"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App Daemon che chiama le API Web- acquisisci un token
 
@@ -173,7 +173,7 @@ Se non si dispone ancora di una libreria per la lingua scelta, è possibile util
 
 #### <a name="first-case-access-the-token-request-by-using-a-shared-secret"></a>Primo caso: accedere alla richiesta di token utilizzando un segreto condiviso
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -186,7 +186,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 
 #### <a name="second-case-access-the-token-request-by-using-a-certificate"></a>Secondo caso: accedere alla richiesta di token usando un certificatoSecond case: Access the token request by using a certificate
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -215,7 +215,7 @@ Se viene visualizzato un messaggio di errore che indica che è `resource/.defaul
 Se si ottiene un **privilegio insufficiente per completare l'errore di operazione** quando si chiama l'API, l'amministratore tenant deve concedere le autorizzazioni per l'applicazione. Vedere il passaggio 6 di Registrare l'app client precedente.
 In genere viene visualizzato un errore simile a questo errore:You'll typically see an error that looks like this error:
 
-```JSon
+```json
 Failed to call the web API: Forbidden
 Content: {
   "error": {

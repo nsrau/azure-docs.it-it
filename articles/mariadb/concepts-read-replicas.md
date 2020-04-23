@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: b2e8bec18f4f5df6fb78a3c31aa0956ec7333eb5
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770117"
+ms.locfileid: "82024626"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliche in lettura in Database di Azure per MariaDB
 
@@ -33,9 +33,6 @@ La funzionalità di replica di lettura utilizza la replica asincrona. La funzion
 
 ## <a name="cross-region-replication"></a>Replica tra aree
 È possibile creare una replica di lettura in un'area diversa dal server master. La replica tra aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
-
-> [!NOTE]
-> La replica tra aree è in anteprima.
 
 È possibile avere un server master in qualsiasi database di [Azure per l'area MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un server master può avere una replica nella relativa area associata o nelle aree di replica universali. L'immagine seguente mostra quali aree di replica sono disponibili a seconda dell'area master.
 

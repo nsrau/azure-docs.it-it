@@ -1,25 +1,21 @@
 ---
 title: Servizio metadati dell'istanza di Azure
-description: ReSTful per ottenere informazioni sugli eventi di calcolo, rete e manutenzione imminenti delle macchine virtuali Windows.
-services: virtual-machines-windows
-documentationcenter: ''
+description: Interfaccia RESTful per ottenere informazioni sugli eventi di calcolo, rete e manutenzione imminente delle macchine virtuali.
 author: KumariSupriya
 manager: paulmey
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.subservice: monitoring
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f351bba9cd474eab0774efa5ffbd2b24499d105b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: cb9453e1a25f4042c45d4e89229b555c996d4c8b
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520965"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870073"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -71,7 +67,7 @@ Quando non viene specificata alcuna versione, viene restituito un errore con un 
 curl -H Metadata:true "http://169.254.169.254/metadata/instance"
 ```
 
-**Response**
+**Risposta**
 
 ```json
 {
@@ -119,7 +115,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE]
 > Per i `format=json` nodi foglia il non funziona. Per queste `format=text` query è necessario specificare in modo esplicito se il formato predefinito è json.
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 L'endpoint del Servizio metadati dell'istanza è accessibile solo dall'istanza della macchina virtuale in esecuzione su un indirizzo IP non instradabile. Inoltre, qualsiasi richiesta con intestazione `X-Forwarded-For` viene rifiutata dal servizio.
 È necessario anche che le richieste includano l'intestazione `Metadata: true` per garantire che la richiesta sia stata destinata direttamente e non faccia parte di un reindirizzamento non intenzionale.
@@ -151,7 +147,7 @@ Codice di stato HTTP | Motivo
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
-**Response**
+**Risposta**
 
 > [!NOTE]
 > La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
@@ -198,7 +194,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
 ```
 
-**Response**
+**Risposta**
 
 > [!NOTE]
 > La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
@@ -331,7 +327,7 @@ Oppure tramite il cmdlet PowerShell `Invoke-RestMethod`:
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-06-01 -Method get
 ```
 
-**Response**
+**Risposta**
 
 > [!NOTE]
 > La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
@@ -526,7 +522,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 Api-version è un campo obbligatorio. Fare riferimento alla [sezione relativa](#service-availability) alla disponibilità del servizio per le versioni delle API supportate.
 Nonce è una stringa facoltativa di 10 cifre. Se non viene specificato, IMDS restituisce il timestamp UTC corrente al suo posto. A causa del meccanismo di memorizzazione nella cache di IMDS, è possibile che venga restituito un valore nonce precedentemente memorizzato nella cache.
 
- **Response**
+ **Risposta**
 
 > [!NOTE]
 > La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
@@ -558,7 +554,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 Api-version è un campo obbligatorio. Fare riferimento alla sezione relativa alla disponibilità del servizio per le versioni delle API supportate.
 Nonce è una stringa facoltativa di 10 cifre. Se non viene specificato, IMDS restituisce il timestamp UTC corrente al suo posto. A causa del meccanismo di memorizzazione nella cache di IMDS, è possibile che venga restituito un valore nonce precedentemente memorizzato nella cache.
 
- **Response**
+ **Risposta**
 
 > [!NOTE]
 > La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
@@ -583,7 +579,7 @@ Come provider di servizi, potrebbe essere necessario tenere traccia del numero d
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
-**Response**
+**Risposta**
 
 ```text
 5c08b38e-4d57-4c23-ac45-aca61037f084
@@ -601,7 +597,7 @@ Per prendere decisioni di questo tipo è anche possibile basarsi sulle [zone di 
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
-**Response**
+**Risposta**
 
 ```text
 0
@@ -617,7 +613,7 @@ Come provider di servizi è possibile ricevere una chiamata di supporto per la q
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
 ```
 
-**Response**
+**Risposta**
 
 > [!NOTE]
 > La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
@@ -716,7 +712,7 @@ Azure offre vari cloud sovrani, ad esempio [Azure per enti pubblici](https://azu
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
-**Response**
+**Risposta**
 ```bash
 AzurePublicCloud
 ```
@@ -740,7 +736,7 @@ Le aree e i valori dell'ambiente di Azure sono elencati di seguito.
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
 ```
 
-**Response**
+**Risposta**
 
 ```text
 Department:IT;Environment:Test;Role:WebRole
@@ -754,7 +750,7 @@ Il `tags` campo è una stringa con i tag delimitati da punti e virgola. Questo p
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=JSON"
 ```
 
-**Response**
+**Risposta**
 
 ```json
 [
@@ -798,7 +794,7 @@ I fornitori di Marketplace vogliono garantire che il software venga concesso in 
   openssl smime -verify -in sign.pk7 -inform pem -noverify
  ```
 
- **Response**
+ **Risposta**
 
 ```json
 Verification successful
@@ -934,7 +930,7 @@ Data    | Descrizione
 memorizzazione nella cache | Requisiti di memorizzazione nella cacheCaching requirements
 createOption | Informazioni sulla creazione della macchina virtuale
 diffDiskSettings | Impostazioni del disco effimere
-diskSizeGB (DiscoSizeGB) | Dimensioni del disco in GB
+diskSizeGB | Dimensioni del disco in GB
 image   | Disco rigido virtuale immagine utente di origine
 lun     | Numero di unità logica del disco
 managedDisk | Parametri del disco gestito
@@ -949,7 +945,7 @@ Data    | Descrizione
 memorizzazione nella cache | Requisiti di memorizzazione nella cacheCaching requirements
 createOption | Informazioni sulla creazione della macchina virtuale
 diffDiskSettings | Impostazioni del disco effimere
-diskSizeGB (DiscoSizeGB) | Dimensioni del disco in GB
+diskSizeGB | Dimensioni del disco in GB
 encryptionImpostazioni | Impostazioni di crittografia per il disco
 image   | Disco rigido virtuale immagine utente di origine
 managedDisk | Parametri del disco gestito
@@ -966,7 +962,7 @@ Di seguito è riportato un esempio di come eseguire query sulle informazioni di 
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
 ```
 
-**Response**
+**Risposta**
 
 > [!NOTE]
 > La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.

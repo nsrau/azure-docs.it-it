@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b84e972584562be741919c7dccb6bdfe1bdea628
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 18ffb48b2e7978831155afaf2e675bb720e57544
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312863"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082204"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory Pass-through Authentication: Quickstart
 
@@ -37,6 +37,9 @@ Per distribuire l'autenticazione pass-through nel tenant, seguire queste istruzi
 ## <a name="step-1-check-the-prerequisites"></a>Passaggio 1: Verificare i prerequisiti
 
 Accertarsi che siano soddisfatti i prerequisiti seguenti.
+
+>[!IMPORTANT]
+>Dal punto di vista della sicurezza, gli amministratori devono considerare il server che esegue l'agente PTA come se si trattasse di un controller di dominio.  I server agente PTA devono essere protezione dall'altro lungo le stesse linee descritte in Protezione dei controller di [dominio dagli attacchi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>Nell'interfaccia di amministrazione di Azure Active Directory
 

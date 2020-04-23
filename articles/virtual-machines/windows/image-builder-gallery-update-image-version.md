@@ -4,15 +4,14 @@ description: Creare una nuova versione dell'immagine della macchina virtuale da 
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-windows
-manager: gwallace
-ms.openlocfilehash: 60a37588ddcac339d9545fb6f597ef7bdc17ccb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 766e7d5c4151000a582bcf07d80b89af3b7d8a65
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247368"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869528"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Anteprima: Creare una nuova versione dell'immagine della macchina virtuale da una versione dell'immagine esistente usando Azure Image BuilderPreview: Create a new VM image version from an existing image version using Azure Image Builder
 

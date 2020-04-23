@@ -9,25 +9,25 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025317"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870466"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalate private Cloud privilegi di vCenter dal portale CloudSimple
 
 Per l'accesso amministrativo al tuo vCenter cloud privato, puoi temporaneamente aumentare i tuoi privilegi CloudSimple.  Utilizzando privilegi elevati, è possibile installare soluzioni VMware, aggiungere origini di identità e gestire gli utenti.
 
-È possibile creare nuovi utenti nel dominio SSO di vCenter e accedere a vCenter.  Quando si creano nuovi utenti, aggiungerli ai gruppi incorporati CloudSimple per l'accesso a vCenter.  Per ulteriori informazioni, vedere [Modello di autorizzazione CloudSimple Private Cloud di VMware vCenter](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/).
+È possibile creare nuovi utenti nel dominio SSO di vCenter e accedere a vCenter.  Quando si creano nuovi utenti, aggiungerli ai gruppi incorporati CloudSimple per l'accesso a vCenter.  Per ulteriori informazioni, vedere [Modello di autorizzazione CloudSimple Private Cloud di VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
 
 > [!CAUTION]
 > Non apportare modifiche alla configurazione per i componenti di gestione. Le azioni eseguite durante l'escalation di stato privilegiato possono influire negativamente sul sistema o rendere il sistema non disponibile.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="escalate-privileges"></a>Riassegnare i privilegi
 
@@ -88,5 +88,5 @@ Una volta completate le attività amministrative, è necessario deimpostare i pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare le origini di identità del vCenter per l'utilizzo di Active Directory](https://docs.azure.cloudsimple.com/set-vcenter-identity/)
-* Installare la soluzione di backup nelle macchine virtuali del carico di lavoro di [backupInstall](https://docs.azure.cloudsimple.com/backup-workloads-veeam/) backup solution to backup workload virtual machines
+* [Configurare le origini di identità del vCenter per l'utilizzo di Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
+* Installare la soluzione di backup nelle macchine virtuali del carico di lavoro di [backupInstall](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/) backup solution to backup workload virtual machines

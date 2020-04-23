@@ -2,17 +2,18 @@
 title: Abilitare Crittografia disco di Azure per le macchine virtuali WindowsEnable Azure Disk Encryption for Windows VMs
 description: In questo articolo vengono fornite istruzioni sull'abilitazione di Crittografia disco di Microsoft Azure per le macchine virtuali Windows.This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: b2fe7e4fbe4830567533053580880315ceface5d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 8bed34e816207c9f0bd0565abab6af4adbaeb7fd
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458880"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081643"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption for Windows VMs 
 

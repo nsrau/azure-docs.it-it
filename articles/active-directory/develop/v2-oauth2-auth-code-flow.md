@@ -12,12 +12,12 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5e462c52c8b06af6da5081f84a082138cd53a3f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: fcd80c052edf659f93f97800da3112c1f11309cc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677938"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868500"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Piattaforma di identità Microsoft e flusso di codici di autorizzazione OAuth 2.0
 
@@ -35,7 +35,7 @@ In generale, l'intero flusso di autenticazione per un'applicazione nativa/mobile
 
 ## <a name="request-an-authorization-code"></a>Richiedere un codice di autorizzazione
 
-Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` . Nella richiesta, il client `openid` `offline_access`richiede `https://graph.microsoft.com/mail.read `le autorizzazioni , e dall'utente.  Alcune autorizzazioni sono limitate all'amministratore, ad esempio la `Directory.ReadWrite.All`scrittura di dati nella directory di un'organizzazione utilizzando . Se l'applicazione richiede l'accesso a una di queste autorizzazioni da un utente dell'organizzazione, riceve un messaggio di errore che indica che non è autorizzato ad accettare le autorizzazioni dell'app. Per richiedere l'accesso agli ambiti con restrizioni di amministratore, è necessario richiederli direttamente a un amministratore aziendale.  Per ulteriori informazioni, leggere [Autorizzazioni con restrizioni](v2-permissions-and-consent.md#admin-restricted-permissions)di amministratore .
+Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` . Nella richiesta, il client `openid` `offline_access`richiede `https://graph.microsoft.com/mail.read ` le autorizzazioni , e dall'utente.  Alcune autorizzazioni sono limitate all'amministratore, ad esempio la `Directory.ReadWrite.All`scrittura di dati nella directory di un'organizzazione utilizzando . Se l'applicazione richiede l'accesso a una di queste autorizzazioni da un utente dell'organizzazione, riceve un messaggio di errore che indica che non è autorizzato ad accettare le autorizzazioni dell'app. Per richiedere l'accesso agli ambiti con restrizioni di amministratore, è necessario richiederli direttamente a un amministratore aziendale.  Per ulteriori informazioni, leggere [Autorizzazioni con restrizioni](v2-permissions-and-consent.md#admin-restricted-permissions)di amministratore .
 
 ```
 // Line breaks for legibility only
@@ -76,7 +76,7 @@ Una volta che l'utente esegue l'autenticazione e concede il consenso, `redirect_
 
 Una risposta con esito positivo che usa `response_mode=query` ha un aspetto simile al seguente:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
@@ -91,7 +91,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 Le risposte di errore possono essere inviate anche a `redirect_uri` , in modo che l'app possa gestirle adeguatamente:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -122,7 +122,7 @@ La tabella seguente descrive i diversi codici errore che possono essere restitui
 
 Dopo avere ottenuto un codice di autorizzazione e l'autorizzazione dell'utente, è possibile riscattare il valore `code` per un `access_token` per la risorsa desiderata. A tale scopo, inviare una richiesta `POST` all'endpoint `/token`:
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -221,7 +221,7 @@ Dopo aver acquisito correttamente `access_token`un oggetto , è possibile utiliz
 > [!TIP]
 > Eseguire la richiesta in Postman. (Sostituisci `Authorization` prima l'intestazione) [Prova a eseguire questa richiesta in Postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
@@ -235,7 +235,7 @@ I token di aggiornamento non hanno una durata specificata. La durata dei token d
 
 Anche se i token di aggiornamento non vengono revocati quando vengono utilizzati per acquisire nuovi token di accesso, è previsto che elimini il token di aggiornamento precedente. La [specifica OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) dice: "Il server di autorizzazione può emettere un nuovo token di aggiornamento, nel qual caso il client DEVE eliminare il token di aggiornamento precedente e sostituirlo con il nuovo token di aggiornamento. Il server di autorizzazione può revocare il token di aggiornamento precedente dopo aver eseguito un nuovo token di aggiornamento al client."
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -276,6 +276,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
+
 | Parametro     | Descrizione         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | Token di accesso richiesto. L'app può usare questo token per l'autenticazione alla risorsa protetta, ad esempio un'API Web. |

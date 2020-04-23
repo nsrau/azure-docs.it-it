@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f9b39a672cb5640a36490f2cd088092f40065870
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ef715ed7df1cc203e66bb33cd1493a7f7a713327
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454782"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081609"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Avvisi di sicurezza - una guida di riferimento
 
@@ -399,8 +399,8 @@ Le finalità supportate dalla catena di uccisioni del Centro sicurezza si basano
 
 |Finalità|Descrizione|
 |------|-------|
-|**PreAttack**</br>(sostituisce Sonda)|PreAttack potrebbe essere un tentativo di accedere a una determinata risorsa indipendentemente da un intento dannoso o un tentativo non riuscito di ottenere l'accesso a un sistema di destinazione per raccogliere informazioni prima dello sfruttamento. Questo passaggio viene in genere rilevato come un tentativo, proveniente dall'esterno della rete, per eseguire la scansione del sistema di destinazione e identificare un punto di ingresso.</br>Ulteriori dettagli sullo stage PreAttack possono essere letti nella [pagina di MITRE](https://attack.mitre.org/matrices/pre/).|
-|**InitialAccess (Accesso iniziale)**</br>(sostituisce lo sfruttamento)|InitialAccess è la fase in cui un utente malintenzionato riesce a ottenere un punto d'appoggio sulla risorsa attaccata. Questa fase è rilevante per gli host di calcolo e le risorse, ad esempio account utente, certificati e così via. Gli attori delle minacce saranno spesso in grado di controllare la risorsa dopo questa fase.|
+|**PreAttack**|PreAttack potrebbe essere un tentativo di accedere a una determinata risorsa indipendentemente da un intento dannoso o un tentativo non riuscito di ottenere l'accesso a un sistema di destinazione per raccogliere informazioni prima dello sfruttamento. Questo passaggio viene in genere rilevato come un tentativo, proveniente dall'esterno della rete, per eseguire la scansione del sistema di destinazione e identificare un punto di ingresso.</br>Ulteriori dettagli sullo stage PreAttack possono essere letti nella [pagina di MITRE](https://attack.mitre.org/matrices/pre/).|
+|**InitialAccess (Accesso iniziale)**|InitialAccess è la fase in cui un utente malintenzionato riesce a ottenere un punto d'appoggio sulla risorsa attaccata. Questa fase è rilevante per gli host di calcolo e le risorse, ad esempio account utente, certificati e così via. Gli attori delle minacce saranno spesso in grado di controllare la risorsa dopo questa fase.|
 |**Persistenza**|La persistenza è qualsiasi modifica di accesso, azione o configurazione a un sistema che offre a un attore di minacce una presenza persistente in tale sistema. Gli attori delle minacce dovranno spesso mantenere l'accesso ai sistemi tramite interruzioni quali riavvii del sistema, perdita di credenziali o altri errori che richiederebbero uno strumento di accesso remoto per riavviare o fornire una backdoor alternativa per riottenere l'accesso.|
 |**PrivilegeEscalation**|L'escalation dei privilegi è il risultato di azioni che consentono a un avversario di ottenere un livello più elevato di autorizzazioni per un sistema o una rete. Alcuni strumenti o azioni richiedono un livello di privilegio più elevato per funzionare e sono probabilmente necessari in molti punti durante un'operazione. Gli account utente con autorizzazioni per accedere a sistemi specifici o eseguire funzioni specifiche necessarie agli avversari per raggiungere il loro obiettivo possono anche essere considerati un'escalation dei privilegi.|
 |**DefenseEvasion**|L'evasione della difesa consiste in tecniche che un avversario può utilizzare per eludere il rilevamento o evitare altre difese. A volte queste azioni sono le stesse (o variazioni di) tecniche in altre categorie che hanno il vantaggio aggiuntivo di sovvertire una particolare difesa o mitigazione.|

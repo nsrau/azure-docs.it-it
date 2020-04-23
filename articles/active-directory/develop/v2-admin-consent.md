@@ -12,16 +12,16 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c9f633e0d205adaf5cefb2e3c036ce7f48253651
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886382"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868675"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consenso dell'amministratore sulla piattaforma di identità Microsoft
 
-Alcune autorizzazioni richiedono il consenso di un amministratore prima di poter essere concesse all'interno di un tenant.  È anche possibile usare l'endpoint di consenso dell'amministratore per concedere autorizzazioni a un intero tenant.  
+Alcune autorizzazioni richiedono il consenso di un amministratore prima di poter essere concesse all'interno di un tenant.  È anche possibile usare l'endpoint di consenso dell'amministratore per concedere autorizzazioni a un intero tenant.
 
 ## <a name="recommended-sign-the-user-into-your-app"></a>Consigliato: accedi all'utente nella tua app
 
@@ -33,15 +33,15 @@ L'accesso dell'utente nell'app consente di identificarne l'organizzazione di app
 
 Quando si è pronti a richiedere le autorizzazioni all'amministratore dell'organizzazione, è possibile reindirizzare l'utente all'endpoint di *consenso dell'amministratore*della piattaforma di identità Microsoft.
 
-```
+```HTTP
 // Line breaks are for legibility only.
-    GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-    &scope=
-    https://graph.microsoft.com/calendars.read 
-    https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -51,7 +51,7 @@ Quando si è pronti a richiedere le autorizzazioni all'amministratore dell'organ
 | `client_id` | Obbligatoria | ID **applicazione (client)** assegnato all'app dal [portale di Azure.](https://go.microsoft.com/fwlink/?linkid=2083908) |
 | `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-|`scope`        | Obbligatoria      | Definisce il set di autorizzazioni richieste dall'applicazione. Può essere un ambito statico (tramite /.default) o dinamico.  Possono essere inclusi gli ambiti`openid`OIDC ( , `profile`, `email`). | 
+|`scope`        | Obbligatoria      | Definisce il set di autorizzazioni richieste dall'applicazione. Può essere un ambito statico (tramite /.default) o dinamico.  Possono essere inclusi gli ambiti`openid`OIDC ( , `profile`, `email`). |
 
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. All'amministratore viene chiesto di approvare tutte `scope` le autorizzazioni richieste nel parametro.  Se è stato utilizzato`/.default`un valore statico ( ), funzionerà come l'endpoint di consenso dell'amministratore v1.0 e richiedere il consenso per tutti gli ambiti trovati nelle autorizzazioni necessarie per l'app.

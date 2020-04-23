@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 70a6359923734c83590d4677bb2c93966c925d14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81a8c5030f716246caf3dcd8b540bb47fcaf6520
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76718140"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82023623"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizzare l'aggiunta di un utente lab a un lab in Azure DevTest LabsAutomate adding a lab user to a lab in Azure DevTest Labs
-Azure DevTest Labs consente di creare rapidamente ambienti di sviluppo-test self-service tramite il portale di Azure.Azure DevTest Labs allows you to quickly create self-service dev-test environments by using the Azure portal. Tuttavia, se si dispone di più team e diverse istanze di DevTest Labs, l'automazione del processo di creazione consente di risparmiare tempo. I modelli di [Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) consentono di creare lab, macchine virtuali lab, immagini personalizzate, formule e aggiungere utenti in modo automatico. Questo articolo è incentrato in particolare sull'aggiunta di utenti a un'istanza di DevTest Labs.This article specifically ees on adding users to a DevTest Labs instance.
+Azure DevTest Labs consente di creare rapidamente ambienti di sviluppo-test self-service tramite il portale di Azure.Azure DevTest Labs allows you to quickly create self-service dev-test environments by using the Azure portal. Tuttavia, se si dispone di più team e diverse istanze di DevTest Labs, l'automazione del processo di creazione consente di risparmiare tempo. I modelli di [Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) consentono di creare lab, macchine virtuali lab, immagini personalizzate, formule e aggiungere utenti in modo automatico. Questo articolo è incentrato in particolare sull'aggiunta di utenti a un'istanza di DevTest Labs.This article specifically ees on adding users to a DevTest Labs instance.
 
 Per aggiungere un utente a un lab, aggiungere l'utente al ruolo **utente DevTest Labs** per il lab. In questo articolo viene illustrato come automatizzare l'aggiunta di un utente a un lab utilizzando uno dei modi seguenti:This article shows you how to automate adding a user to a lab using one of the following ways:
 

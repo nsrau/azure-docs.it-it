@@ -4,15 +4,15 @@ description: Creare una macchina virtuale Windows con Azure Image Builder.Create
 author: cynthn
 ms.author: cynthn
 ms.date: 07/31/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-windows
-manager: gwallace
-ms.openlocfilehash: e82d82dac833f7455e3d83d7e11c0c57c4eea816
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.subservice: imaging
+ms.openlocfilehash: 269b2f4674f2c99fc438c1a7be65e5660ca58d08
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238797"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869500"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Anteprima: Creare una macchina virtuale Windows con Azure Image BuilderPreview: Create a Windows VM with Azure Image Builder
 

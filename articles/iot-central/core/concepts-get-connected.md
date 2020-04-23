@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f37b070c74abd8511fc597f9b159312d91281083
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 1398169c44dadcd11ad037e4e3a1cc0132e21f13
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759124"
+ms.locfileid: "82024694"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Connettersi ad Azure IoT Central
 
@@ -50,7 +50,7 @@ Questo approccio è utile quando si sperimentano i dispositivi IoT Central o di 
 
 ![Chiavi di accesso sAS per un singolo dispositivo](./media/concepts-get-connected/single-device-sas.png)
 
-Per altre informazioni, vedere l'esercitazione [Creare e connettere un'applicazione client Node.js all'applicazione Azure IoT Central.To](./tutorial-connect-device.md) learn more, see the Create and connect a Node.js client application to your Azure IoT Central application tutorial.
+Per altre informazioni, vedere l'esercitazione [Creare e connettere un'applicazione client Node.js all'applicazione Azure IoT Central.To](./tutorial-connect-device-nodejs.md) learn more, see the Create and connect a Node.js client application to your Azure IoT Central application tutorial.
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Connettere dispositivi su larga scala tramite SASConnect devices at scale using SAS
 

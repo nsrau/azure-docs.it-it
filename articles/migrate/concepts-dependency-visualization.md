@@ -3,12 +3,12 @@ title: Analisi delle dipendenze nella valutazione del server di migrazione di Az
 description: Viene descritto come usare l'analisi delle dipendenze per la valutazione usando Valutazione server di Azure migrate.Describes how to use dependency analysis for assessment using Azure Migrate Server Assessment.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f0b956620895ae2264b53916015d440f5e586eb2
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537747"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024762"
 ---
 # <a name="dependency-analysis"></a>Analisi delle dipendenze
 
@@ -51,7 +51,7 @@ Per l'analisi basata su agenti, la valutazione del server usa la [soluzione Mapp
 
 ### <a name="collected-data"></a>Dati raccolti
 
-Per la visualizzazione basata su agenti, vengono raccolti i dati seguenti:For agent-based visualization, the following data is collected:
+Per l'analisi basata su agenti, vengono raccolti i seguenti dati:
 
 - Nome del server del computer di origine, processo e nome dell'applicazione.
 - Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.

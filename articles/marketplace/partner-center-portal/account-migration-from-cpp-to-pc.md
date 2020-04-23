@@ -1,18 +1,18 @@
 ---
 title: Migrazione degli account dal portale Cloud Partner al Centro per i partner - mercato commerciale per Azure
-description: Come eseguire la migrazione dell'account da CPP al Centro per i partner. - mercato commerciale per Azure
+description: Come eseguire la migrazione dell'account da CPP al Centro per i partner - Marketplace commerciale per AzureHow to migrate your account from CPP to Partner Center - commercial marketplace for Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 3979be6f49f4ad01a6092fc0d5aa767d342c4642
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 49fb2da05b7284fff10e6271de177551000995ed
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730495"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024422"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migrazione degli account dal portale Cloud Partner al Centro per i partner
 
@@ -42,6 +42,16 @@ Fare clic sul banner per avviare il processo di migrazione dell'account. È nece
 2. Iscriversi al programma Microsoft Partner Network
 
     Se l'account CPP non dispone di un ID Microsoft Partner Network o ne ha uno non valido, sarà necessario iscriversi al programma Microsoft Partner Network come parte del processo di attivazione.
+
+## <a name="publishers-moving-from-cpp"></a>Editori che si spostano da CPP
+
+Se l'account è stato migrato dal [portale Cloud Partner (CPP),](https://cloudpartner.azure.com)non è necessario creare un nuovo account del Centro per i partner. Dovresti aver ricevuto un link personalizzato al tuo nuovo account del Centro per i partner tramite e-mail e in una notifica banner dopo aver effettuato l'accesso al tuo account CPP esistente.
+
+Dopo aver abilitato il nuovo account del Centro per i partner visitando questo collegamento personalizzato, è possibile tornare al proprio account visitando il dashboard del [marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) nel Centro per i partner.
+
+Il contratto di pubblicazione e le informazioni del profilo aziendale verranno migrati nel nuovo account del Centro per i partner, insieme a tutte le informazioni del profilo di pagamento dell'account configurate in precedenza, agli account utente e alle autorizzazioni e alle offerte attive associate al tuo account CPP.
+
+Dopo aver spostato le informazioni dell'account da CPP a Centro per i partner, non userai più CPP per effettuare aggiornamenti dell'account o gestire utenti, autorizzazioni e fatturazione. Per un periodo di tempo limitato, tutti gli aggiornamenti dell'account eseguiti nel Centro per i partner verranno aggiornati automaticamente nell'account CPP di sola lettura fino a quando il portale CPP non sarà deprecato.
 
 ## <a name="sign-up-for-microsoft-partner-network-program"></a>Iscriversi al programma Microsoft Partner Network
 

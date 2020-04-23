@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 10d5449cb77ea09f62db0a2f2bbdab6761646738
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ec62095f14b38d0c4ffebfabc14c4a0a27a70fb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295453"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869817"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creare una nuova offerta di PowerApps Dynamics 365 for Customer Engagement &
 
@@ -51,7 +51,7 @@ Elenca gratuitamente la tua offerta ai clienti fornendo un URL valido (a partire
 
 #### <a name="free-trial-listing"></a>Versione di prova gratuita (elenco)
 
-Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da *http* o *https)* in cui è possibile ottenere una versione di valutazione.  Ad esempio `https://contoso.com/trial/my-app`. L'offerta che elenca le versioni di valutazione gratuite viene creata, gestita e configurata dal servizio e non dispone di sottoscrizioni gestite da Microsoft.Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da *http* o *https)* in cui è possibile ottenere una versione di valutazione.  Ad esempio: `https://contoso.com/trial/my-app`. L'offerta che elenca le versioni di valutazione gratuite viene creata, gestita e configurata dal servizio e non dispone di sottoscrizioni gestite da Microsoft.Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento di valutazione possono essere usati solo per ottenere informazioni utente tramite Azure Active Directory (Azure AD) per automatizzare la creazione di account nell'app. Gli account Microsoft non sono supportati per l'autenticazione tramite questo token.
@@ -214,6 +214,9 @@ Nella sezione **Contatto supporto** è inoltre necessario fornire l'URL del **su
 ### <a name="marketplace-images"></a>Immagini del Marketplace
 
 In questa sezione, è possibile fornire loghi e immagini che verranno utilizzati quando si mostra l'offerta al cliente. Tutte le immagini devono essere in formato PNG.
+
+>[!Note]
+>Se si verifica un problema durante il caricamento dei https://upload.xboxlive.com file, assicurarsi che la rete locale non blocchi il servizio utilizzato dal Centro per i partner.
 
 #### <a name="store-logos"></a>Loghi del Negozio
 

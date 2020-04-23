@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 620c0226d3aca907352658ebbe1b94c7673d91cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13496a18f4c99b69a5b8095caf5b74a04d1bba88
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77014828"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869293"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Gestire le risorse e le attività del cloud privato
 
@@ -21,7 +21,7 @@ I cloud privati sono gestiti dal portale CloudSimple.Private clouds are managed 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="access-the-cloudsimple-portal"></a>Accedere al portale di CloudSimple
 
@@ -37,17 +37,17 @@ Selezionare un cloud privato per ulteriori informazioni e azioni.
 
 ## <a name="private-cloud-summary"></a>Riepilogo del cloud privato
 
-Visualizza un riepilogo completo del cloud privato selezionato.  La pagina di riepilogo include i server DNS distribuiti nel cloud privato.  È possibile configurare l'inoltro DNS dai server DNS locali ai server DNS private cloud.  Per ulteriori informazioni sull'inoltro DNS, vedere Configurare DNS per la [risoluzione dei nomi per Private Cloud vCenter da locale.](https://docs.azure.cloudsimple.com/on-premises-dns-setup/)
+Visualizza un riepilogo completo del cloud privato selezionato.  La pagina di riepilogo include i server DNS distribuiti nel cloud privato.  È possibile configurare l'inoltro DNS dai server DNS locali ai server DNS private cloud.  Per ulteriori informazioni sull'inoltro DNS, vedere Configurare DNS per la [risoluzione dei nomi per Private Cloud vCenter da locale.](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/)
 
 ![Riepilogo del cloud privato](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Azioni disponibili
 
-* [Avviare il client vSphere](https://docs.azure.cloudsimple.com/vsphere-access/). Accedi al vCenter per questo cloud privato.
+* [Avviare il client vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). Accedi al vCenter per questo cloud privato.
 * [Nodi di acquisto](create-nodes.md). Aggiungere nodi a questo cloud privato.
 * [Espandere](expand-private-cloud.md). Aggiungere nodi a questo cloud privato.
 * **Aggiorna**. Aggiornare le informazioni in questa pagina.
-* **Delete**. È possibile eliminare il cloud privato in qualsiasi momento. **Prima di eliminarli, assicurarsi di aver eseguito il backup di tutti i sistemi e i dati.** L'eliminazione di un cloud privato comporta l'eliminazione di tutte le macchine virtuali, la configurazione di vCenter e i dati. Fare clic su **Elimina** nella sezione di riepilogo per il cloud privato selezionato. Dopo l'eliminazione, tutti i dati del cloud privato vengono cancellati in un processo di cancellazione sicuro e altamente conforme.
+* **Elimina**. È possibile eliminare il cloud privato in qualsiasi momento. **Prima di eliminarli, assicurarsi di aver eseguito il backup di tutti i sistemi e i dati.** L'eliminazione di un cloud privato comporta l'eliminazione di tutte le macchine virtuali, la configurazione di vCenter e i dati. Fare clic su **Elimina** nella sezione di riepilogo per il cloud privato selezionato. Dopo l'eliminazione, tutti i dati del cloud privato vengono cancellati in un processo di cancellazione sicuro e altamente conforme.
 * [Modificare i privilegi di vSphere](escalate-private-cloud-privileges.md).  Aumenta i tuoi privilegi su questo cloud privato.
 
 ## <a name="private-cloud-vlanssubnets"></a>VLANS/subnet del cloud privato
@@ -58,10 +58,10 @@ Visualizzare l'elenco delle VLAN/subnet definite per il cloud privato selezionat
 
 ### <a name="available-actions"></a>Azioni disponibili
 
-* [Aggiungere VLANS/Subnets](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Aggiungere una VLAN/subset a questo cloud privato.
+* [Aggiungere VLANS/Subnets](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/). Aggiungere una VLAN/subset a questo cloud privato.
 
 Selezionare una VLAN/Subnet per le seguenti azioni
-* [Collegare la tabella del firewall](https://docs.azure.cloudsimple.com/firewall/). Collegare una tabella firewall a questo cloud privato.
+* [Collegare la tabella del firewall](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/). Collegare una tabella firewall a questo cloud privato.
 * **Modifica**
 * **Elimina** (solo VLAN/subnet definite dall'utente)
 

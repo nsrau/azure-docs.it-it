@@ -4,22 +4,22 @@ description: Informazioni su come identificare, diagnosticare e risolvere i prob
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/10/2020
+ms.date: 04/20/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 852ed8c49eda7f13542eb0bad63d84e1cf770e92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a8b61f3719a60af567d10f8839987e613babc9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131387"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870446"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query quando si usa Azure Cosmos DBTroubleshoot query issues when using Azure Cosmos DB
 
 Questo articolo illustra un approccio consigliato generale per la risoluzione dei problemi relativi alle query in Azure Cosmos DB. Anche se non è consigliabile considerare i passaggi descritti in questo articolo una difesa completa contro potenziali problemi di query, qui sono stati inclusi i suggerimenti sulle prestazioni più comuni. È consigliabile usare questo articolo come punto di partenza per la risoluzione dei problemi relativi alle query lente o costose nell'API di base del database di Azure.You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. È anche possibile usare [i log](cosmosdb-monitor-resource-logs.md) di diagnostica per identificare le query lente o che utilizzano quantità significative di velocità effettiva.
 
-È possibile classificare in modo generale le ottimizzazioni delle query in Azure Cosmos DB:You can broadly categorize query optimizations in Azure Cosmos DB: 
+È possibile classificare in modo generale le ottimizzazioni delle query in Azure Cosmos DB:You can broadly categorize query optimizations in Azure Cosmos DB:
 
 - Ottimizzazioni che riducono l'addebito dell'unità di richiesta (RU) della query
 - Ottimizzazioni che riducono semplicemente la latenza
@@ -28,19 +28,18 @@ Se si riduce l'addebito RU di una query, sarà quasi certamente ridurre la laten
 
 In questo articolo vengono forniti esempi che è possibile ricreare utilizzando il set di dati [nutrizionale.](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)
 
-## <a name="important"></a>Importante
+## <a name="common-sdk-issues"></a>Problemi comuni dell'SDK
 
 - Per ottenere prestazioni ottimali, seguire i [suggerimenti sulle prestazioni](performance-tips.md).
     > [!NOTE]
     > Per migliorare le prestazioni, è consigliabile l'elaborazione host di Windows a 64 bit. SQL SDK include un file ServiceInterop.dll nativo per analizzare e ottimizzare le query in locale. ServiceInterop.dll è supportato solo sulla piattaforma Windows x64. Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è disponibile, verrà effettuata una chiamata di rete aggiuntiva al gateway per ottenere la query ottimizzata.
-- Le query di Azure Cosmos DB non supportano un numero minimo di elementi.
-    - Il codice deve gestire qualsiasi dimensione di pagina, da zero al numero massimo di elementi.
-    - Il numero di elementi in una pagina può e cambierà senza preavviso.
-- Le pagine vuote sono previste per le query e possono essere visualizzate in qualsiasi momento.
-    - Le pagine vuote vengono esposte negli SDK perché tale esposizione consente più opportunità di annullare una query. Inoltre, rende chiaro che l'SDK sta eseguendo più chiamate di rete.
-    - Le pagine vuote possono essere visualizzate nei carichi di lavoro esistenti perché una partizione fisica è suddivisa in Azure Cosmos DB. La prima partizione avrà zero risultati, che causa la pagina vuota.
-    - Le pagine vuote sono causate dal back-end che preempting una query perché la query richiede più di un periodo di tempo fisso sul back-end per recuperare i documenti. Se il database Cosmos di Azure precede una query, restituirà un token di continuazione che consentirà alla query di continuare.
-- Assicurarsi di svuotare completamente la query. Esaminare gli esempi SDK `while` e `FeedIterator.HasMoreResults` usare un ciclo per svuotare l'intera query.
+- È possibile `MaxItemCount` impostare un per le query, ma non è possibile specificare un numero minimo di elementi.
+    - Il codice deve gestire qualsiasi dimensione `MaxItemCount`di pagina, da zero a .
+    - Il numero di elementi in una pagina `MaxItemCount`sarà sempre inferiore a quello specificato. Tuttavia, `MaxItemCount` è rigorosamente un massimo e ci potrebbero essere meno risultati di questo importo.
+- A volte le query possono avere pagine vuote anche quando sono presenti risultati in una pagina futura. Le ragioni di questo potrebbero essere:
+    - L'SDK potrebbe eseguire più chiamate di rete.
+    - La query potrebbe impiegare molto tempo per recuperare i documenti.
+- Tutte le query dispongono di un token di continuazione che consentirà alla query di continuare. Assicurarsi di svuotare completamente la query. Esaminare gli esempi SDK `while` e `FeedIterator.HasMoreResults` usare un ciclo per svuotare l'intera query.
 
 ## <a name="get-query-metrics"></a>Ottenere metriche di queryGet query metrics
 
@@ -61,6 +60,8 @@ Fare riferimento alle sezioni seguenti per comprendere le ottimizzazioni delle q
 - [Includere i percorsi necessari nei criteri di indicizzazione.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Comprendere quali funzioni di sistema utilizzano l'indice.](#understand-which-system-functions-use-the-index)
+
+- [Comprendere quali query di aggregazione utilizzano l'indice.](#understand-which-aggregate-queries-use-the-index)
 
 - [Modificare le query che dispongono sia di un filtro che di una clausola ORDER BY.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
@@ -190,7 +191,7 @@ Criteri di indicizzazione aggiornati:
 
 Se un'espressione può essere convertita in un intervallo di valori stringa, è possibile utilizzare l'indice. Altrimenti, non può.
 
-Ecco l'elenco delle funzioni stringa che possono utilizzare l'indice:
+Ecco l'elenco di alcune funzioni stringa comuni che possono usare l'indice:Here's the list of some common string functions that can use the index:
 
 - STARTSWITH(str_expr, str_expr)
 - LEFT(str_expr, num_expr) = str_expr
@@ -207,6 +208,50 @@ Di seguito sono riportate alcune funzioni di sistema comuni che non utilizzano l
 ------
 
 Altre parti della query potrebbero comunque utilizzare l'indice anche se le funzioni di sistema non lo fanno.
+
+### <a name="understand-which-aggregate-queries-use-the-index"></a>Informazioni sulle query di aggregazione che usano l'indice
+
+Nella maggior parte dei casi, le funzioni di sistema aggregate in Azure Cosmos DB utilizzeranno l'indice. Tuttavia, a seconda dei filtri o delle clausole aggiuntive in una query di aggregazione, potrebbe essere necessario caricare un numero elevato di documenti. In genere, il motore di query applicherà prima l'uguaglianza e i filtri di intervallo. Dopo aver applicato questi filtri, il motore di query può valutare filtri aggiuntivi e ricorrere al caricamento dei documenti rimanenti per calcolare l'aggregazione, se necessario.
+
+Ad esempio, date queste due query di esempio, la query con un filtro di uguaglianza e `CONTAINS` funzione di sistema sarà in genere più efficiente di una query con un `CONTAINS` solo filtro di funzione di sistema. Ciò è dovuto al fatto che il filtro di uguaglianza viene `CONTAINS` applicato per primo e utilizza l'indice prima che i documenti debbano essere caricati per il filtro più costoso.
+
+Interrogazione `CONTAINS` con solo filtro - carica RU più alta:
+
+```sql
+SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+Query con filtro `CONTAINS` di uguaglianza e filtro - carica RU inferiore:
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+```
+
+Di seguito sono riportati altri esempi di query di aggregazione che non utilizzeranno completamente l'indice:Here are additional examples of aggregates queries that will not fully use the index:
+
+#### <a name="queries-with-system-functions-that-dont-use-the-index"></a>Query con funzioni di sistema che non utilizzano l'indice
+
+È necessario fare riferimento alla [pagina della funzione](sql-query-system-functions.md) di sistema pertinente per verificare se utilizza l'indice.
+
+```sql
+SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+#### <a name="aggregate-queries-with-user-defined-functionsudfs"></a>Aggregare query con funzioni definite dall'utente (UDF)Aggregate queries with user-defined functions(UDF's)
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
+```
+
+#### <a name="queries-with-group-by"></a>Query con GROUP BY
+
+L'addebito `GROUP BY` RU di aumenterà con l'aumentare della cardinalità delle proprietà nella `GROUP BY` clausola. In questo esempio, il motore di query `c.foodGroup = "Sausages and Luncheon Meats"` deve caricare ogni documento che corrisponde al filtro in modo che l'addebito RU sia elevato.
+
+```sql
+SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
+```
+
+Se si prevede di eseguire spesso le stesse query di aggregazione, potrebbe essere più efficiente creare una vista materializzata in tempo reale con il feed di modifiche di [Azure Cosmos DB](change-feed.md) rispetto all'esecuzione di singole query.
 
 ### <a name="modify-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Modificare le query che dispongono sia di un filtro che di una clausola ORDER BY
 

@@ -8,19 +8,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 173f5c698ab44ea269995665bcbc33c726d4f03a
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cf2106302064df5ede02d18f253436047a5d33d8
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811452"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024609"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
 I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione. Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come distribuirli in Azure.
 
 Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dall'autore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorare questo problema. È consigliabile utilizzare i certificati autofirmati solo quando si sviluppano e si testano servizi cloud. 
 
-I certificati usati da Azure possono contenere una chiave privata o una pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate-portal.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare. 
+I certificati usati da Azure possono includere una chiave pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate-portal.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare. 
 
 >[!Note]
 >I servizi Cloud di Azure non accettano il certificato crittografato AES256-SHA256.
@@ -51,7 +51,7 @@ I certificati di gestione consentono di eseguire l'autenticazione con il modello
 È possibile usare qualsiasi strumento disponibile per creare un certificato autofirmato purché rispetti queste impostazioni:
 
 * Un certificato X.509.
-* Contiene una chiave privata.
+* Contiene una chiave pubblica.
 * Viene creato per lo scambio di chiave (file PFX).
 * Il nome del soggetto deve corrispondere al dominio usato per accedere al servizio cloud.
 

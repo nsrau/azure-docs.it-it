@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f789f82288c9820214c4ab32c271bb547945d4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48b9f2dc64d1d3ddd8253a253dcab8ef972032f9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77057380"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869735"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Esercitazione: Configurare LinkedIn Sales Navigator per il provisioning utenti automatico
 
@@ -99,7 +99,7 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 11. Compilare i campi seguenti in **Credenziali amministratore**:
 
-    * Nel campo **URL tenant** immettere https://api.linkedin.com.
+    * Nel campo **URL tenant** immettere https://developer.linkedin.com.
 
     * Nel campo **Token segreto** immettere il token di accesso generato nel passaggio 1 e fare clic su **Connessione di test**.
 
@@ -124,4 +124,4 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)

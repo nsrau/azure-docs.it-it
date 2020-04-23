@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc6cbbd0aa9cb0750e497c7cc7edbd42f21bda55
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62127345"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025000"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orchestrare l'implementazione di Azure DevTest Labs
 Questo articolo descrive un approccio consigliato per la distribuzione e l'implementazione rapide di Azure DevTest Labs. L'immagine seguente evidenzia il processo complessivo come indicazione prescrittiva e al contempo osserva la flessibilità necessaria per supportare vari scenari e requisiti di settore.
@@ -43,7 +43,7 @@ La prima area su cui concentrarsi quando si distribuisce una soluzione Azure Dev
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>Attività cardine 2: distribuire il lab pilota
 Dopo avere determinato la topologia di rete, è possibile creare il primo lab o lab pilota seguendo questi passaggi:
 
-1. Creare un ambiente DevTest Labs iniziale (le istruzioni dettagliate sono reperibili [qui](https://github.com/Azure/fta-devops/blob/master/devtest-labs/articles/devtest-labs-walkthrough-it.md))
+1. Creare un ambiente DevTest Labs iniziale.
 2. Determinare le immagini di macchine virtuali consentite e le dimensioni per l'uso con il lab. Decidere se è possibile caricare immagini personalizzate in Azure da usare con DevTest Labs.
 3. Proteggere l'accesso al lab creando Controlli degli accessi in base al ruolo per il lab (proprietari del lab e utenti del lab). È consigliabile usare account di Active Directory sincronizzati con Azure Active Directory per l'identità con DevTest Labs.
 4. Configurare DevTest Labs per l'uso di criteri, ad esempio le pianificazioni, gestione dei costi, macchine virtuali richiedibili, immagini personalizzate o formule.

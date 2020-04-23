@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 95d27bab243f6805436465f5027e519d33e20f6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91d3dd2eee6f771df23b72eae7a33122c42f1690
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244732"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869340"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Accedi al portale VMware Solution by CloudSimple dal portale di Azure
 
@@ -34,7 +34,7 @@ Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="access-the-cloudsimple-portal"></a>Accedere al portale di CloudSimple
 
@@ -71,5 +71,5 @@ Se le autorizzazioni non consentono l'accesso al portale CloudSimple, contattare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri come [creare un cloud privato](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* Scopri come [creare un cloud privato](https://docs.microsoft.com/azure/vmware-cloudsimple/create-private-cloud/)
 * Informazioni su come [configurare un ambiente di cloud privato](quickstart-create-private-cloud.md)

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
-ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56a7680de3127da06341ac03252a9ab0cff9da7c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266234"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024949"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure
 
@@ -66,7 +66,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Proprietà  |valore  |Descrizione  |
 |---------|---------|---------|
 |Nome     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
-|Type     | Una         | Usare un record A perché la risorsa è un indirizzo IP.        |
+|Type     | Una        | Usare un record A perché la risorsa è un indirizzo IP.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Indirizzo IP     | `<your ip address>`       | Indirizzo IP pubblico.|
@@ -134,7 +134,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Nome DNS per cui si crea l'alias, in questo esempio è il nome DNS asverify.adatumfunctiona9ed.blob.core.windows.net specificato per impostazione predefinita per l'account di archiviazione.        |
 
-Tornare all'account di archiviazione **facendo** > clic su**Account di**archiviazione , selezionare l'account di archiviazione e fare clic su Dominio **personalizzato**. Digitare l'alias creato senza il prefisso asverify nella casella di testo, selezionare **Usa convalida CNAME indiretta e fare clic su **Salva**. Al termine di questo passaggio, tornare alla zona DNS e creare un record CNAME senza il prefisso asverify.  A questo punto sarà possibile eliminare il record CNAME con il prefisso cdnverify.
+Tornare all'account di archiviazione **facendo** > clic su**Account di**archiviazione , selezionare l'account di archiviazione e fare clic su Dominio **personalizzato**. Digitare l'alias creato senza il prefisso asverify nella casella di testo , **selezionare Usa convalida CNAME indiretta**e fare clic su **Salva**. Al termine di questo passaggio, tornare alla zona DNS e creare un record CNAME senza il prefisso asverify.  A questo punto sarà possibile eliminare il record CNAME con il prefisso cdnverify.
 
 ![dominio personalizzato dell'archivio BLOB](./media/dns-custom-domain/indirectvalidate.png)
 

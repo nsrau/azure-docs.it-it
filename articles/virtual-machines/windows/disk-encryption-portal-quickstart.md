@@ -3,15 +3,16 @@ title: Creare e crittografare una macchina virtuale Windows con il portale di Az
 description: Questo argomento di avvio rapido illustra come usare il portale di Azure per creare e crittografare una macchina virtuale Windows
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 2518de3ad5d0f583cd4962796e4adda5751351df
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3a5fb354ab32dd560a94875dd84d891ce0b9d68c
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74151072"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081745"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale Windows con il portale di Azure
 

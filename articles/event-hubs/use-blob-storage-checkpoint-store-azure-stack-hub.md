@@ -8,20 +8,20 @@ ms.service: event-hubs
 ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: spelluru
-ms.openlocfilehash: 1f0e4dea44007ef82cb4b700ff0be4a5579541d8
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 2938099383c32eac493e4b4bb620f03c76ca5c44
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398922"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82023656"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Usare l'archiviazione BLOB come archivio di checkpoint : Hub eventi nell'hub di Azure Stack (anteprima)Use Blob Storage as checkpoint store - Event Hubs on Azure Stack Hub (preview)
 Se si usa Archiviazione BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di Storage Blob SDK rispetto a quelle in genere disponibili in Azure, è necessario usare il codice per modificare la versione dell'API del servizio di archiviazione alla versione specifica supportata da tale ambiente. Ad esempio, se si esegue Hub eventi in un Hub di Azure Stack versione 2002, la versione più alta disponibile per il servizio di archiviazione è la versione 2017-11-09.For example, if you're running [Event Hubs on an Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In questo caso, è necessario usare il codice per la versione dell'API del servizio di archiviazione a 2017-11-09.In this case, you need to use code to target the Storage service API version to 2017-11-09. Per un esempio su come scegliere come destinazione una versione dell'API di archiviazione specifica, vedere questi esempi in GitHub:For an example on how to target a specific Storage API version, see these samples on GitHub: 
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
-- [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java). 
-- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts), 
-- Python - [Sincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/event_processor_blob_storage_example_with_storage_api_version.py), [Asincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
+- [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
+- Python - [Sincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [Asincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 
 > [!IMPORTANT]
 > Gli hub eventi nell'hub di Azure Stack sono attualmente in [anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) ed è gratuito. 

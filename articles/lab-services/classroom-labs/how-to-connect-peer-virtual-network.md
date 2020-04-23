@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: b0efed83237c191f02bfffd9b26a0fd9cd2c871f
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 6ed0d743f9b9cdc136b8f52f4d9d02583fc63eb9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606588"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870186"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Connettere la rete del lab a una rete virtuale peer in Azure Lab ServicesConnect your lab's network with a peer virtual network in Azure Lab Services
 
@@ -46,7 +46,7 @@ Durante la creazione del nuovo [account lab,](tutorial-setup-lab-account.md)è p
 
 ### <a name="address-range"></a>Intervallo di indirizzi
 
-È inoltre disponibile un'opzione per fornire **l'intervallo** di indirizzi per le macchine virtuali per i lab. Se viene fornito l'intervallo di indirizzi, tutte le macchine virtuali nei lab con l'account lab verranno create in tale intervallo di indirizzi. L'intervallo di indirizzi deve essere in notazione CIDR (ad esempio 10.20.0.0/20) e non sovrapporsi ad alcun intervallo di indirizzi esistente.  Quando si fornisce un intervallo di indirizzi, è importante considerare il numero di *lab* che verranno creati e fornire un intervallo di indirizzi per adattarlo. Lab Services presuppone un massimo di 512 macchine virtuali per lab.  Ad esempio, un intervallo ip con '/23' può creare un solo lab.  Una gamma con un '/21' permetterà la creazione di quattro laboratori.
+È inoltre disponibile un'opzione per fornire **l'intervallo** di indirizzi per le macchine virtuali per i lab.  La proprietà **Intervallo di indirizzi** si applica solo se la **rete virtuale Peer** è abilitata per il lab.  Se viene fornito l'intervallo di indirizzi, tutte le macchine virtuali nei lab con l'account lab verranno create in tale intervallo di indirizzi. L'intervallo di indirizzi deve essere in notazione CIDR (ad esempio 10.20.0.0/20) e non sovrapporsi ad alcun intervallo di indirizzi esistente.  Quando si fornisce un intervallo di indirizzi, è importante considerare il numero di *lab* che verranno creati e fornire un intervallo di indirizzi per adattarlo. Lab Services presuppone un massimo di 512 macchine virtuali per lab.  Ad esempio, un intervallo ip con '/23' può creare un solo lab.  Una gamma con un '/21' permetterà la creazione di quattro laboratori.
 
 Se **l'intervallo** di indirizzi non è specificato, Lab Services utilizzerà l'intervallo di indirizzi predefinito fornito da Azure durante la creazione della rete virtuale per il peered con la rete virtuale.  L'intervallo è spesso qualcosa come 10.x.0.0/16.The range is often something like 10.x.0.0/16.  Ciò può causare la sovrapposizione dell'intervallo ip, quindi assicurarsi di specificare e l'intervallo di indirizzi nelle impostazioni lab o controllare l'intervallo di indirizzi della rete virtuale sottoposta a peering.
 

@@ -1,25 +1,20 @@
 ---
-title: Configurare l'insieme di credenziali delle chiavi per le macchine virtuali Windows in Azure Resource ManagerSet up Key Vault for Windows VMs in Azure Resource Manager
-description: Come configurare un insieme di credenziali delle chiavi da usare con una macchina virtuale di Azure Resource Manager.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Configurare l'insieme di credenziali delle chiavi
+description: Come configurare Key Vault per l'utilizzo con una macchina virtuale.
 author: mimckitt
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 098d4df3938f591cb72b3bfd59b7a5549469785c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: e4bff4d1826d9586495207095eccf8f6c66164a0
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451738"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870017"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager
 

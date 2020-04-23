@@ -1,23 +1,24 @@
 ---
-title: Controlli di sicurezza per Archiviazione di AzureSecurity controls for Azure Storage
-description: Elenco di controllo dei controlli di sicurezza per la valutazione di Archiviazione di Azure
+title: Controlli di sicurezza
+titleSuffix: Azure Storage
+description: Elenco di controllo dei controlli di sicurezza per la valutazione di Archiviazione di Azure.A checklist of security controls for evaluating Azure Storage.
 services: storage
 author: msmbaldwin
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 379acaf48c02f0a579c07773cd48366d962a44f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03f497051367d36bd229a3f358d28a1130ec620
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061122"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082357"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controlli di sicurezza per Archiviazione di AzureSecurity controls for Azure Storage
 
-Questo articolo documenta i controlli di sicurezza integrati in Archiviazione di Azure.This article documents the security controls built into Azure Storage. 
+Questo articolo documenta i controlli di sicurezza integrati in Archiviazione di Azure.This article documents the security controls built into Azure Storage.
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
@@ -36,6 +37,7 @@ Questo articolo documenta i controlli di sicurezza integrati in Archiviazione di
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Supporto dell'endpoint di servizioService endpoint support| Sì |  |
+| Supporto dei tag di servizio| Sì | Per altre informazioni sui tag di servizio supportati da Archiviazione di Azure, vedere [Panoramica](../../virtual-network/service-tags-overview.md) dei tag di servizio di Azure.See Azure service tags overview for more information about service tags supported by Azure Storage. |
 | Supporto per l'inserimento di vNet| N/D |  |
 | Isolamento della rete e supporto firewall| Sì | |
 | Supporto per il tunneling forzato| N/D |  |

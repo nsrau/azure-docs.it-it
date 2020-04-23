@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c4cb553ee7edc92b5cb3d319631a985de476b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 15b31bf14b01a215d99814ce57eb9cd5f2cb2773
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159297"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Esercitazione: Integrazione di Azure Active Directory con CS Stars
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con CS Stars, seguire quest
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di CS Stars](http://www.riskonnectclearsight.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di CS Stars](https://riskonnect.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -129,7 +129,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con CS Stars, seguire quest
 
 ### <a name="configure-cs-stars-single-sign-on"></a>Configurare l'accesso Single Sign-On per CS Stars
 
-Per configurare l'accesso Single Sign-On sul lato **CS Stars**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di CS Stars](http://www.riskonnectclearsight.com/support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **CS Stars**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di CS Stars](https://riskonnect.com/support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -184,7 +184,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-cs-stars-test-user"></a>Creare l'utente di test di CS Stars
 
-In questa sezione viene creato un utente di nome Britta Simon in CS Stars. Collaborare con il  [team di supporto di CS Stars](http://www.riskonnectclearsight.com/support/) per aggiungere gli utenti alla piattaforma CS Stars. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in CS Stars. Collaborare con il  [team di supporto di CS Stars](https://riskonnect.com/support/) per aggiungere gli utenti alla piattaforma CS Stars. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

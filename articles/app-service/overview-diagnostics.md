@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: e06e71d4436ac6c64ff2edc876d7849d084482f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671641"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869937"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Panoramica della diagnostica del servizio app di Azure
 
@@ -31,6 +31,10 @@ Per Funzioni di Azure passare all'app per le funzioni e nella barra di spostamen
 Nella home page di diagnostica del servizio app è possibile scegliere la categoria che meglio descrive il problema con l'app usando le parole chiave in ogni riquadro della home page. Inoltre, questa pagina è dove è possibile trovare Strumenti di **diagnostica** per le app di Windows. Vedere [Strumenti di diagnostica (solo per l'app Windows).](#diagnostic-tools-only-for-windows-app)
 
 ![Home page](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> Se l'app è inattivo o ha prestazioni lente, puoi raccogliere una traccia di [profilatura](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) per identificare la causa principale del problema. La profilazione è leggera ed è progettata per scenari di produzione.
+>
 
 ## <a name="interactive-interface"></a>Interfaccia interattiva
 

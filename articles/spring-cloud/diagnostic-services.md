@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adbcf28cfbbe2ea3b7cc9c7fd0d1c76246938344
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920043"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870398"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizzare i log e le metriche con le impostazioni di diagnosticaAnalyze logs and metrics with diagnostics settings
 
@@ -22,6 +22,9 @@ Usando la funzionalità di diagnostica di Azure Spring Cloud, è possibile anali
 * Eseguire lo streaming dei log all'hub eventi per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata.
 
 Scegliere la categoria di log e la categoria metrica da monitorare.
+
+> [!TIP]
+> Vuoi solo trasmettere i tuoi log? Dai un'occhiata a questo [comando dell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)di Azure!
 
 ## <a name="logs"></a>Log
 

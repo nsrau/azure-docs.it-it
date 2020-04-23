@@ -1,18 +1,18 @@
 ---
 title: Eliminare un insieme di credenziali di Servizi di ripristino di Microsoft AzureDelete a Microsoft Azure Recovery Services vault
-description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali MARS (Microsoft Azure Backup Recovery Services).
+description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali di Servizi di ripristino di Backup di Azure.In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69fed6c53914ed7aa16b04b5311ec69966734f25
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500400"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025136"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di Servizi di ripristino di AzureDelete an Azure Backup Recovery Services vault
 
-In questo articolo viene descritto come eliminare un insieme di credenziali MARS (Backup Recovery Services) di Microsoft [Azure.](backup-overview.md) Contiene istruzioni per rimuovere le dipendenze e quindi eliminare un vault.
+In questo articolo viene descritto come eliminare un insieme di credenziali di Servizi di ripristino di [Azure.This article](backup-overview.md) describes how to delete an Azure Backup Recovery Services vault. Contiene istruzioni per rimuovere le dipendenze e quindi eliminare un vault.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -107,7 +107,7 @@ Al termine di questo processo, è possibile eliminare gli elementi di backup dal
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Eliminare gli elementi di backup dalla console di gestione MARS
 
 1. Aprire la console di gestione MARS, passare al riquadro **Azioni** e selezionare **Pianifica backup**.
-2. Nella pagina **Modifica o interrompi backup pianificato** selezionare Interrompi utilizzando questa pianificazione di backup ed eliminare tutti i backup **archiviati.** Selezionare quindi **Avanti**.
+2. Nella pagina **Modifica o interrompi backup pianificato** selezionare Interrompi utilizzando questa pianificazione di backup ed eliminare tutti i backup **archiviati.** Quindi selezionare **Avanti**.
 
     ![Modificare o arrestare un backup pianificato.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 

@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 063f2e1005db177420da7f81b799ab01fd212d7e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 42c58a84c71b6573814e82517373db6900a83658
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478469"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025017"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Inviare o ricevere eventi da Hub eventi con JavaScript (azure/event-hubs versione 5)
 Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con il pacchetto JavaScript **azure/event-hubs versione 5**. 
@@ -185,7 +185,7 @@ Assicurarsi di prendere nota della stringa di connessione e del nome del conteni
 1. Eseguire `node receive.js` al prompt dei comandi per eseguire questo file. Nella finestra dovrebbero essere visualizzati i messaggi sugli eventi ricevuti.
 
     > [!NOTE]
-    > Per il codice sorgente completo, inclusi i commenti informativi aggiuntivi, passare alla [pagina receiveEventsUsingCheckpointStore.js di GitHub](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsUsingCheckpointStore.js).
+    > Per il codice sorgente completo, inclusi i commenti informativi aggiuntivi, passare alla [pagina receiveEventsUsingCheckpointStore.js di GitHub](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsUsingCheckpointStore.js).
 
 Congratulazioni! Sono stati ricevuti eventi dall'hub eventi. Il programma ricevente riceverà eventi da tutte le partizioni del gruppo di consumer predefinito nell'hub eventi.
 

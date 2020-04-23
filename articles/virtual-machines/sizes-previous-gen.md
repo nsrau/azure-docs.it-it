@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 6cf43df756e9bed0438169c9c01b868653d84b57
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: ac49d2da9d05c9677dbb6f5328874ab3a45ff661
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985729"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081541"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 
@@ -217,6 +217,8 @@ Memorizzazione nella cache di archiviazione Premium: non supportata
 
 ## <a name="preview-dc-series"></a>Anteprima: serie DC
 
+**Raccomandazione di nuova dimensione**: [Serie DCsv2](dcv2-series.md)
+
 Archiviazione Premium: supportata
 
 Memorizzazione nella cache di archiviazione Premium: supportata
@@ -368,7 +370,7 @@ Aggiornamenti di conservazione della memoria: non supportatiMemory Preserving Up
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-* [Scopo generico](sizes-general.md)
+* [Utilizzo generico](sizes-general.md)
 * [Ottimizzate per il calcolo](sizes-compute.md)
 * [Ottimizzate per la memoria](sizes-memory.md)
 * [Ottimizzate per l'archiviazione](sizes-storage.md)

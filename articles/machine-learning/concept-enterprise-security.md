@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1af1a1ccd8bff8fc4b578ecdeec3ac5f7c2352b1
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414636"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082136"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -183,7 +183,7 @@ Per abilitare il provisioning di un'istanza Cosmos DB nella sottoscrizione con c
         > [!NOTE]
         > Questa istanza dell'insieme di credenziali delle chiavi può essere diversa dall'insieme di credenziali delle chiavi creato da Azure Machine Learning quando si esegue il provisioning dell'area di lavoro. Se si desidera utilizzare la stessa istanza dell'insieme di credenziali delle chiavi per l'area di lavoro, passare lo stesso insieme di credenziali delle chiavi durante il provisioning dell'area di lavoro utilizzando il [parametro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Questa istanza Cosmos DB viene creata in un gruppo di risorse gestito da Microsoft nella sottoscrizione. 
+Questa istanza Cosmos DB viene creata in un gruppo di risorse gestito da Microsoft nella sottoscrizione. Il gruppo di risorse gestite è denominato nel formato<AML Workspace Resource Group Name><GUID>
 
 > [!IMPORTANT]
 > * Se è necessario eliminare questa istanza cosmo DB, è necessario eliminare l'area di lavoro di Azure Machine Learning che la usa. 
@@ -303,7 +303,7 @@ I dettagli della richiesta di punteggio vengono archiviati in Application Insigh
 * RichiestaUrl
 * StatusCode
 * RequestId
-* Duration
+* Durata
 
 > [!IMPORTANT]
 > Alcune azioni nell'area di lavoro di Azure Machine Learning non registrano informazioni nel log attività. Ad esempio, l'inizio di un'esecuzione di training e la registrazione di un modello non vengono registrati.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 98a160b361e316c87e61855825c2cc36fdbb06d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093188"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Rackspace SSO
 
@@ -187,7 +187,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Configurare il mapping degli attributi nel pannello di controllo di Rackspace
 
-Rackspace usa **criteri di mapping degli attributi** per assegnare ruoli e gruppi di Rackspace agli utenti con accesso Single Sign-On. I **criteri di mapping degli attributi** consentono di convertire le attestazioni SAML di Azure AD nei campi di configurazione utente richiesti da Rackspace. Per altre informazioni, vedere la [documentazione di base sul mapping degli attributi](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) di Rackspace. Alcune considerazioni:
+Rackspace usa **criteri di mapping degli attributi** per assegnare ruoli e gruppi di Rackspace agli utenti con accesso Single Sign-On. I **criteri di mapping degli attributi** consentono di convertire le attestazioni SAML di Azure AD nei campi di configurazione utente richiesti da Rackspace. Per altre informazioni, vedere la [documentazione di base sul mapping degli attributi](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/) di Rackspace. Alcune considerazioni:
 
 * Se si vogliono assegnare vari livelli di accesso a Rackspace usando i gruppi di Azure AD, sarà necessario abilitare l'attestazione gruppi nelle impostazioni dell'accesso Single Sign-On di **Rackspace SSO** in Azure. I **criteri di mapping degli attributi** verranno quindi usati per abbinare gruppi ai ruoli e gruppi desiderati di Rackspace:
 
@@ -226,7 +226,7 @@ mapping:
 > [!TIP]
 > Assicurarsi di usare un editor di testo che convalidi la sintassi di YAML durante la modifica del file dei criteri.
 
-Per altri esempi, vedere la [documentazione di base sul mapping degli attributi](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) di Rackspace.
+Per altri esempi, vedere la [documentazione di base sul mapping degli attributi](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/) di Rackspace.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
