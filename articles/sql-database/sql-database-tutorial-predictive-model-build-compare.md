@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: 52f4347fa545df88f11878709b4061662d5faffe
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0985b37280e3cd363ba1728a5ec33b0012611ab2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345747"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452928"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Creare ed eseguire un modello predittivo in R con i Machine Learning Services del database SQL di Azure (anteprima)
 
@@ -36,8 +37,6 @@ In questo articolo si apprenderà come:
 Nella [prima parte](sql-database-tutorial-predictive-model-prepare-data.md) si è appreso come importare un database di esempio e quindi preparare i dati da usare per il training di un modello predittivo in R.
 
 Nelle [terza parte](sql-database-tutorial-predictive-model-deploy.md) si spiegherà come archiviare il modello in un database e quindi creare le stored procedure dagli script R sviluppati nella prima e nella seconda parte. Le stored procedure verranno eseguite in un database SQL per effettuare stime basate sui nuovi dati.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 

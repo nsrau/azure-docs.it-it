@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -15,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d6624b9d5d77a8552584049463b63738bbf17627
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5527fbfc05eb5aadf5c5775fb9987a88d5ba81bb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222258"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460444"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Esercitazione: creare e gestire reti virtuali di Azure per macchine virtuali Linux con l'interfaccia della riga di comando di Azure
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Esercitazione: Creare e gestire reti virtuali di Azure per macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
 Le macchine virtuali di Azure usano la rete di Azure per la comunicazione di rete interna ed esterna. Questa esercitazione illustra la distribuzione di due macchine virtuali e la configurazione della rete di Azure per tali VM. Gli esempi in questa esercitazione presuppongono che le VM ospitino un'applicazione Web con un back-end di database, ma nell'esercitazione non viene distribuita un'applicazione. In questa esercitazione verranno illustrate le procedure per:
 
@@ -190,7 +189,7 @@ az network vnet subnet update \
 
 Quando è stata creata la VM front-end, è stata creata una regola del gruppo di sicurezza di rete per consentire il traffico in ingresso sulla porta 22. Questa regola consente le connessioni SSH alla VM. Per questo esempio deve essere consentito il traffico anche sulla porta *80*. Questa configurazione consente l'accesso a un'applicazione Web nella VM.
 
-Per creare una regola per la porta [80](/cli/azure/network/nsg/rule), usare il comando *az network nsg rule create*.
+Per creare una regola per la porta *80*, usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule).
 
 ```azurecli-interactive 
 az network nsg rule create \

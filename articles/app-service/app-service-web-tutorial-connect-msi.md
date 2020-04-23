@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 787809e4132defa101bb82659e8af1a2d9f1b9b6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897681"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453795"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -128,7 +128,7 @@ In *Web.config* apportare le modifiche seguenti partendo dall'inizio del file:
 - Trovare la stringa di connessione denominata `MyDbConnection` e sostituire il relativo valore `connectionString` con `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Sostituire _\<server-name>_ e _\<db-name>_ con i nomi del server e del database in uso.
 
 > [!NOTE]
-> Il provider SqlAuthenticationProvider appena registrato è basato sulla libreria AppAuthentication installata in precedenza. Per impostazione predefinita, usa un'identità assegnata dal sistema. Per sfruttare un'identità assegnata dall'utente, sarà necessario specificare una configurazione aggiuntiva. Per la libreria AppAuthentication, vedere le [opzioni supportate per la stringa di connessione](../key-vault/service-to-service-authentication.md#connection-string-support).
+> Il provider SqlAuthenticationProvider appena registrato è basato sulla libreria AppAuthentication installata in precedenza. Per impostazione predefinita, usa un'identità assegnata dal sistema. Per sfruttare un'identità assegnata dall'utente, sarà necessario specificare una configurazione aggiuntiva. Per la libreria AppAuthentication, vedere le [opzioni supportate per la stringa di connessione](../key-vault/general/service-to-service-authentication.md#connection-string-support).
 
 Per connettersi al database SQL non sono necessarie altre modifiche. Quando si esegue il debug in Visual Studio, il codice usa l'utente di Azure AD configurato in [Configurare Visual Studio](#set-up-visual-studio). Il server di database SQL verrà configurato in un secondo momento per consentire la connessione dall'identità gestita dell'app del servizio app.
 

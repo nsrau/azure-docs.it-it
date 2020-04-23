@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9f9fcc0b3d8dfe19961668e77da91bc9f14ff2d1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810599"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453898"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Aggiungere un certificato TLS/SSL nel Servizio app di Azure
 
@@ -94,7 +94,7 @@ Se si acquista un certificato del servizio app da Azure, Azure gestisce le attiv
 
 - Si occupa del processo di acquisto da GoDaddy.
 - Esegue la verifica del dominio del certificato.
-- Gestisce il certificato in [Azure Key Vault](../key-vault/key-vault-overview.md).
+- Gestisce il certificato in [Azure Key Vault](../key-vault/general/overview.md).
 - Gestisce il rinnovo del certificato (vedere [Rinnovare il certificato](#renew-certificate)).
 - Sincronizza automaticamente il certificato con le copie importate nelle app del servizio app.
 
@@ -140,8 +140,8 @@ Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Reposi
 | Resource group | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
 | Location | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Criteri di accesso| Definisce le applicazioni e l'accesso consentito alle risorse dell'insieme di credenziali. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Concedere a diverse applicazioni l'autorizzazione per accedere a un insieme di credenziali delle chiavi](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Accesso alla rete virtuale | Limitare l'accesso all'insieme di credenziali a determinate reti virtuali di Azure. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Configurare reti virtuali e firewall di Azure Key Vault](../key-vault/key-vault-network-security.md) |
+| Criteri di accesso| Definisce le applicazioni e l'accesso consentito alle risorse dell'insieme di credenziali. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Concedere a diverse applicazioni l'autorizzazione per accedere a un insieme di credenziali delle chiavi](../key-vault/general/group-permissions-for-apps.md). |
+| Accesso alla rete virtuale | Limitare l'accesso all'insieme di credenziali a determinate reti virtuali di Azure. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Configurare reti virtuali e firewall di Azure Key Vault](../key-vault/general/network-security.md) |
 
 Dopo aver selezionato l'insieme di credenziali, chiudere la pagina **Repository dell'insieme di credenziali delle chiavi**. L'opzione **Passaggio 1: archiviare** dovrebbe mostrare un segno di spunta verde, a indicare che l'operazione è riuscita. Mantenere aperta la pagina per proseguire con il passaggio successivo.
 
