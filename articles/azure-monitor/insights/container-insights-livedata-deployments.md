@@ -1,6 +1,6 @@
 ---
-title: Visualizzare Monitoraggio di Azure per le distribuzioni di contenitori (anteprima)View Azure Monitor for containers Deployments (preview) Documenti Microsoft
-description: Questo articolo descrive la visualizzazione in tempo reale delle distribuzioni di Kubernetes senza usare kubectl in Monitoraggio di Azure per i contenitori.
+title: Visualizzare monitoraggio di Azure per le distribuzioni di contenitori (anteprima) | Microsoft Docs
+description: Questo articolo descrive la visualizzazione in tempo reale delle distribuzioni Kubernetes senza usare kubectl in monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
@@ -12,58 +12,58 @@ ms.locfileid: "75404765"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Come visualizzare le distribuzioni (anteprima) in tempo reale
 
-Con Monitoraggio di Azure per i contenitori, la funzionalità Distribuzioni (anteprima) della visualizzazione emula l'accesso diretto agli oggetti di distribuzione di Kubernetes in tempo reale esponendo i comandi `kubeclt get deployments` e `kubectl describe deployment {your deployment}` . 
+Con monitoraggio di Azure per i contenitori, la funzionalità Visualizza distribuzioni (anteprima) emula l'accesso diretto agli oggetti di distribuzione Kubernetes in tempo reale esponendo i `kubeclt get deployments` comandi e. `kubectl describe deployment {your deployment}` 
 
 >[!NOTE]
->I cluster AKS abilitati come [cluster privati](https://azure.microsoft.com/updates/aks-private-cluster/) non sono supportati con questa funzionalità. Questa funzione si basa sull'accesso diretto all'API Kubernetes tramite un server proxy dal browser. L'abilitazione della sicurezza di rete per bloccare l'API Kubernetes da questo proxy bloccherà il traffico. 
+>I cluster AKS abilitati come [cluster privati](https://azure.microsoft.com/updates/aks-private-cluster/) non sono supportati con questa funzionalità. Questa funzionalità si basa sull'accesso diretto all'API Kubernetes tramite un server proxy dal browser. L'abilitazione della sicurezza di rete per bloccare l'API Kubernetes da questo proxy bloccherà il traffico. 
 
 >[!NOTE]
->Questa funzionalità è disponibile in tutte le aree di Azure, inclusa la Cina di Azure.This feature is available in all Azure regions, including Azure China. Attualmente non è disponibile in Azure US Government.It is currently not available in Azure US Government.
+>Questa funzionalità è disponibile in tutte le aree di Azure, tra cui Azure Cina. Attualmente non è disponibile in Azure per enti pubblici statunitensi.
 
-Per ulteriori informazioni, consultare la documentazione di Kubernetes sulle [distribuzioni](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
+Per altre informazioni, vedere la documentazione di Kubernetes sulle [distribuzioni](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
 
 ## <a name="how-it-works"></a>Funzionamento
 
-La funzionalità Live Data (anteprima) accede direttamente all'API Kubernetes e ulteriori informazioni sul modello di autenticazione sono disponibili [qui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+La funzionalità dati in tempo reale (anteprima) consente di accedere direttamente all'API Kubernetes e altre informazioni sul modello di autenticazione sono disponibili [qui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-La funzionalità Distribuzioni (anteprima) esegue un carico una tantera (aggiornabile) sull'endpoint `/apis/apps/v1/deployments`delle distribuzioni. Consente di selezionare una determinata distribuzione e caricare i dettagli `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`di definimento della distribuzione specifica sull'endpoint di distribuzione. 
+La funzionalità distribuzioni (anteprima) consente di eseguire un caricamento una volta (aggiornabile) nell'endpoint `/apis/apps/v1/deployments`distribuzioni. Consente di selezionare una distribuzione specifica e di caricare i dettagli della descrizione per la distribuzione specifica nell'endpoint `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`di distribuzione. 
 
-Se si seleziona **Aggiorna** nella parte superiore sinistra della pagina, l'elenco di distribuzione viene aggiornato. In questo modo si `kubectl` simula la riesecuzione del comando. 
+Selezionando **Aggiorna** nella parte superiore sinistra della pagina viene aggiornato l'elenco di distribuzione. Questa operazione simula la ripetizione dell'esecuzione `kubectl` del comando. 
 
 >[!IMPORTANT]
->Nessun dato viene memorizzato in modo permanente durante il funzionamento di questa funzione. Tutte le informazioni acquisite durante la sessione vengono eliminate quando si chiude il browser o ci si allontana da esso.  
+>Nessun dato viene archiviato in modo permanente durante il funzionamento di questa funzionalità. Tutte le informazioni acquisite durante la sessione vengono eliminate quando si chiude il browser o si esce dall'esplorazione.  
 
 >[!NOTE]
->Non è possibile aggiungere dati Live Data (anteprima) dalla console a un dashboard di Azure.You cannot pin Live Data (Preview) data from the console to an Azure dashboard.
+>Non è possibile aggiungere dati in tempo reale (anteprima) dalla console di a un dashboard di Azure.
 
-## <a name="deployments-describe"></a>Le distribuzioni descrivono
+## <a name="deployments-describe"></a>Descrizione delle distribuzioni
 
-Per visualizzare Descrivere i dettagli di una `kubectl describe deployment`distribuzione, che equivale a , eseguire la procedura seguente.
+Per visualizzare i dettagli della descrizione di una distribuzione, equivalente a `kubectl describe deployment`, seguire questa procedura.
 
-1. Nel portale di Azure passare al gruppo di risorse cluster AKS e selezionare la risorsa AKS.
+1. Nella portale di Azure passare al gruppo di risorse del cluster AKS e selezionare la risorsa AKS.
 
-2. Nel dashboard del cluster AKS, in **Monitoraggio** sul lato sinistro, scegliere **Insights**. 
+2. Nel dashboard del cluster AKS, in **monitoraggio** sul lato sinistro, scegliere **Insights**. 
 
-3. Selezionare la scheda **Distribuzioni (anteprima).**
+3. Selezionare la scheda **distribuzioni (anteprima)** .
 
-    ![Visualizzazione Distribuzioni nel portale di AzureDeployments view in the Azure portal](./media/container-insights-livedata-deployments/deployment-view.png)
+    ![Visualizzazione distribuzioni nel portale di Azure](./media/container-insights-livedata-deployments/deployment-view.png)
 
-La visualizzazione mostra un elenco di tutte le distribuzioni in esecuzione insieme allo spazio `kubectl get deployments –all-namespaces`dei nomi e ad altre informazioni dettagliate, emulando l'esecuzione del comando. È possibile ordinare i risultati selezionando una qualsiasi delle colonne. 
+La visualizzazione Mostra un elenco di tutte le distribuzioni in esecuzione insieme allo spazio dei nomi e altre informazioni dettagliate, emulando l'esecuzione `kubectl get deployments –all-namespaces`del comando. È possibile ordinare i risultati selezionando una delle colonne. 
 
-![Dettagli del riquadro delle proprietà delle distribuzioni](./media/container-insights-livedata-deployments/deployment-properties-pane-details.png)
+![Dettagli riquadro Proprietà distribuzioni](./media/container-insights-livedata-deployments/deployment-properties-pane-details.png)
 
-Quando si seleziona una distribuzione dall'elenco, viene visualizzato automaticamente un riquadro delle proprietà sul lato destro della pagina. Vengono visualizzate informazioni relative alla distribuzione selezionata che `kubectl describe deployment {deploymentName}`verrà visualizzata se è stato eseguito il comando . Avrete notato che le informazioni di descrivere mancano alcuni dettagli. In particolare manca il **modello.** Selezionando la scheda **Raw** è possibile passare ai dettagli di Descrivere non analizzati.  
+Quando si seleziona una distribuzione dall'elenco, un riquadro delle proprietà viene visualizzato automaticamente sul lato destro della pagina. Mostra informazioni correlate alla distribuzione selezionata che verrebbero visualizzate se è stato eseguito il comando `kubectl describe deployment {deploymentName}`. Si potrebbe notare che le informazioni di descrizione non contengono alcuni dettagli. In particolare, il **modello** è mancante. Selezionando la scheda non **elaborata** è possibile passare ai dettagli della descrizione non analizzata.  
 
-![Dettagli non elaborati del riquadro delle proprietà delle distribuzioni](./media/container-insights-livedata-deployments/deployment-properties-pane-raw.png)
+![Dettagli non elaborati riquadro Proprietà distribuzioni](./media/container-insights-livedata-deployments/deployment-properties-pane-raw.png)
 
-Mentre si esaminano i dettagli di distribuzione, è possibile visualizzare i log e gli eventi del contenitore in tempo reale. Selezionare Mostra **console live** e il riquadro della console Live Data (anteprima) verrà visualizzato sotto la griglia dei dati delle distribuzioni in cui è possibile visualizzare i dati del log in tempo reale in un flusso continuo. Se l'indicatore di stato di recupero mostra un segno di spunta verde, che si trova all'estrema destra del riquadro, significa che i dati possono essere recuperati e inizia lo streaming alla console.
+Mentre si esaminano i dettagli di distribuzione, è possibile visualizzare in tempo reale i log e gli eventi del contenitore. Selezionare la **console attiva e il** riquadro della console dati in tempo reale (anteprima) verranno visualizzati sotto la griglia dati distribuzioni in cui è possibile visualizzare i dati del log in tempo reale in un flusso continuo. Se l'indicatore di stato di recupero Mostra un segno di spunta verde, che si trova all'estrema destra del riquadro, significa che i dati possono essere recuperati e inizia lo streaming alla console.
 
-È inoltre possibile filtrare in base agli eventi a livello di spazio dei nomi o di cluster. Per altre informazioni sulla visualizzazione dei dati in tempo reale nella console, vedere [Visualizzare Live Data (anteprima) con Monitoraggio di Azure per i contenitori.](container-insights-livedata-overview.md) 
+È anche possibile filtrare in base agli eventi a livello di spazio dei nomi o cluster. Per altre informazioni sulla visualizzazione dei dati in tempo reale nella console, vedere [visualizzare i dati dinamici (anteprima) con monitoraggio di Azure per i contenitori](container-insights-livedata-overview.md). 
 
-![Le distribuzioni visualizzano i dati in tempo reale nella console](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
+![Le distribuzioni visualizzano i dati dinamici nella console](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per continuare a imparare a usare Monitoraggio di Azure e monitorare altri aspetti del cluster AKS, vedere Visualizzare l'integrità del [servizio Azure Kubernetes](container-insights-analyze.md).
+- Per informazioni su come usare monitoraggio di Azure e monitorare altri aspetti del cluster AKS, vedere [visualizzare l'integrità del servizio Azure Kubernetes](container-insights-analyze.md).
 
-- Visualizzare esempi di query di [log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query ed esempi predefiniti per creare avvisi, visualizzazioni o eseguire ulteriori analisi dei cluster.
+- Visualizzare gli [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query e esempi predefiniti per creare avvisi, visualizzazioni o eseguire ulteriori analisi dei cluster.

@@ -1,6 +1,6 @@
 ---
-title: Genera Heatmap per l'umidità del suolo
-description: Descrive come generare Soil Moisture Heatmap in Azure FarmBeats
+title: Genera mappa termica di umidità del suolo
+description: Viene descritto come generare mappa termica di umidità del suolo in Azure FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -12,85 +12,85 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75482569"
 ---
-# <a name="generate-soil-moisture-heatmap"></a>Genera Heatmap per l'umidità del suolo
+# <a name="generate-soil-moisture-heatmap"></a>Genera mappa termica di umidità del suolo
 
-L'umidità del suolo è l'acqua che si tiene negli spazi tra le particelle del suolo.Soil Moisture Heatmap ti aiuta a comprendere i dati sull'umidità a qualsiasi profondità e ad alta risoluzione all'interno delle tue aziende agricole. Per generare una mappa di calore dell'umidità del suolo accurata e utilizzabile, è necessaria una distribuzione uniforme di sensori dello stesso fornitore. Diversi fornitori avranno differenze nel modo in cui l'umidità del suolo viene misurata insieme alle differenze nella calibrazione. La Heatmap viene generata per una particolare profondità utilizzando i sensori dispiegati a quella profondità.
+L'umidità del suolo è l'acqua che viene mantenuta negli spazi tra le particelle del suolo.Il mappa termica di umidità del suolo ti aiuta a comprendere i dati di umidità a qualsiasi profondità e a risoluzione elevata nelle farm. Per generare un mappa termica di umidità del suolo accurato e utilizzabile, è necessaria una distribuzione uniforme dei sensori dallo stesso provider. Diversi provider avranno differenze nel modo in cui viene misurata l'umidità del suolo insieme alle differenze nella calibrazione. Il mappa termica viene generato per una particolare profondità usando i sensori distribuiti a tale profondità.
 
-In questo articolo viene descritto il processo di generazione di una mappa di calore per l'umidità del suolo per la farm, usando Azure FarmBeats Accelerator.This article describes the process of generating a Soil Moisture Heatmap for your farm, using the Azure FarmBeats Accelerator. In questo articolo verrà spiegato come:
+Questo articolo descrive il processo di generazione di un mappa termica di umidità del suolo per la farm, usando Azure FarmBeats Accelerator. In questo articolo verrà spiegato come:
 
-- [Creare farm](#create-a-farm)
-- [Assegnare sensori alle aziende agricole](#get-soil-moisture-sensor-data-from-partner)
-- [Genera Heatmap per l'umidità del suolo](#generate-soil-moisture-heatmap)
+- [Creazione di farm](#create-a-farm)
+- [Assegnare sensori alle farm](#get-soil-moisture-sensor-data-from-partner)
+- [Genera mappa termica di umidità del suolo](#generate-soil-moisture-heatmap)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Verificare quanto segue:  
 
 - Una sottoscrizione di Azure.
-- Un'istanza in esecuzione di Azure FarmBeats.
-- Per l'azienda sono disponibili almeno tre sensori di umidità del suolo.
+- Istanza in esecuzione di Azure FarmBeats.
+- Per la farm sono disponibili almeno tre sensori di umidità del suolo.
 
 ## <a name="create-a-farm"></a>Creazione di una farm
 
-Una fattoria è un'area geografica di interesse per la quale si desidera creare una mappa termica dell'umidità del suolo. È possibile creare una farm utilizzando [l'API Farms](https://aka.ms/FarmBeatsDatahubSwagger) o nell'interfaccia utente di [FarmsBeats Accelerator](manage-farms-in-azure-farmbeats.md#create-farms)
+Una farm è un'area geografica di interesse per la quale si vuole creare un mappa termica di umidità del suolo. È possibile creare una farm usando l' [API Farm](https://aka.ms/FarmBeatsDatahubSwagger) o nell' [interfaccia utente di FarmsBeats Accelerator](manage-farms-in-azure-farmbeats.md#create-farms)
 
-## <a name="deploy-sensors"></a>Distribuire i sensori
+## <a name="deploy-sensors"></a>Distribuire sensori
 
-È necessario distribuire fisicamente i sensori di umidità del suolo nella fattoria. È possibile acquistare sensori di umidità del suolo da uno dei nostri partner approvati - [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) e [Teralytic](https://teralytic.com/). È necessario coordinarsi con il provider di sensori per eseguire la configurazione fisica nella farm.
+È necessario distribuire fisicamente sensori di umidità del suolo nella farm. È possibile acquistare sensori di umidità del suolo da qualsiasi partner approvato, [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) e [Teralytic](https://teralytic.com/). È necessario coordinarsi con il provider di sensori per eseguire la configurazione fisica nella farm.
 
 ## <a name="get-soil-moisture-sensor-data-from-partner"></a>Ottenere i dati del sensore di umidità del suolo dal partner
 
-Quando i sensori iniziano lo streaming, i dati nel dashboard dei dati del partner abilitano i dati in Azure FarmBeats.As sensors start streaming, the data into the partner data dashboard, they enable the data into Azure FarmBeats. Questa operazione può essere eseguita dall'applicazione partner.
+Man mano che i sensori avviano lo streaming, i dati nel dashboard dei dati dei partner abilitano i dati in Azure FarmBeats. Questa operazione può essere eseguita dall'applicazione partner.
 
-Ad esempio, se sono stati acquistati sensori Davis, si accederà all'account di collegamento meteo e verranno fornite le credenziali necessarie per abilitare lo streaming dei dati in Azure FarmBeats.For example, if you have purchased Davis sensors, you will log into your weather link account, and provide the required credentials to enable the data streaming into Azure FarmBeats. Per ottenere le credenziali necessarie, seguire le istruzioni riportate in Ottenere i dati del [sensore.](get-sensor-data-from-sensor-partner.md#get-sensor-data-from-sensor-partners)
+Se, ad esempio, sono stati acquistati sensori Davis, sarà possibile accedere all'account di collegamento meteo e fornire le credenziali necessarie per abilitare lo streaming dei dati in Azure FarmBeats. Per ottenere le credenziali necessarie, seguire le istruzioni [riportate in ottenere i dati del sensore](get-sensor-data-from-sensor-partner.md#get-sensor-data-from-sensor-partners).
 
-Dopo aver immesso le credenziali e selezionato Invia nell'applicazione partner, è possibile fare in modo che i dati scorrino in Azure FarmBeats.Once you enter your credentials and select **Submit** on the partner application, you can have the data flowing into Azure FarmBeats.
+Dopo aver immesso le credenziali e selezionato **Invia** nell'applicazione partner, è possibile che il flusso di dati venga eseguito in Azure FarmBeats.
 
-### <a name="assign-soil-moisture-sensors-to-the-farm"></a>Assegnare sensori di umidità del suolo all'azienda agricola
+### <a name="assign-soil-moisture-sensors-to-the-farm"></a>Assegnare sensori di umidità del suolo alla farm
 
 Dopo aver collegato l'account del sensore in Azure FarmBeats, è necessario assegnare i sensori di umidità del suolo alla farm di interesse.
 
-1.  Nella home page selezionare **Farms** dal menu, viene visualizzata la pagina elenco **Farms.**
-2.  Selezionare **MyFarm** > Add Devices (**Aggiungi dispositivi**).
-3.  Viene visualizzata la finestra **Aggiungi dispositivi.** Selezionare qualsiasi dispositivo collegato ai sensori di umidità del suolo per la farm.
+1.  Nella home page selezionare **Farm** dal menu. viene visualizzata la pagina dell'elenco **Farm** .
+2.  Selezionare **Farm** > **Aggiungi dispositivi**.
+3.  Viene visualizzata la finestra **Aggiungi dispositivi** . Selezionare un dispositivo collegato ai sensori di umidità del suolo per la farm.
 
     ![Progetto FarmBeats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Selezionare **Aggiungi dispositivi**.     
 
-## <a name="generate-soil-moisture-heatmap"></a>Genera Heatmap per l'umidità del suolo
+## <a name="generate-soil-moisture-heatmap"></a>Genera mappa termica di umidità del suolo
 
-Questo passaggio consiste nel creare un processo o un'operazione a esecuzione prolungata che genererà Soil Moisture Heatmap per la tua azienda agricola.
+Questo passaggio consente di creare un processo o un'operazione a esecuzione prolungata che genera mappa termica di umidità del suolo per la farm.
 
-1.  Nella home page passare a **Farm dal** menu di spostamento sinistro per visualizzare la pagina delle farm.
-2.  Selezionare **MyFarm**.
-3.  Nella pagina **Dettagli farm** selezionare Genera mappa di **precisione**.
-4.  Dal menu a discesa, selezionare **Umidità del suolo**.
-5.  Nella finestra **Umidità suolo,** selezionare **Questa settimana**.
-6.  In **Select Soil Moisture** **Sensor Measure**immettere la misura che si desidera utilizzare per la mappa.
-    Per trovare la misura del sensore, in **Sensori**, selezionare qualsiasi sensore di umidità del suolo. In **Proprietà sensore**utilizzare il valore **Nome misura.**
+1.  Nella home page passare a **Farm** dal menu di spostamento a sinistra per visualizzare la pagina Farm.
+2.  Selezionare **Farm**.
+3.  Nella pagina **Dettagli Farm** selezionare **Genera mappa di precisione**.
+4.  Dal menu a discesa selezionare **Soil umidità**.
+5.  Nella finestra **umidità del terreno** selezionare **questa settimana**.
+6.  Nella misura **Seleziona** **sensore**di umidità del suolo immettere la misura che si vuole usare per la mappa.
+    Per trovare la misura del sensore, in **sensori**selezionare qualsiasi sensore di umidità del suolo. In **Proprietà sensore**usare il valore **Nome misura** .
 
     ![Progetto FarmBeats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
-7.  Selezionare **Genera mappe**.
-    Viene visualizzato un messaggio di conferma con i dettagli del processo. Per ulteriori informazioni, vedere Stato processo in Processi.For more information, see Job Status in Jobs.
+7.  Selezionare **genera mappe**.
+    Viene visualizzato un messaggio di conferma con i dettagli del processo. Per ulteriori informazioni, vedere stato del processo nei processi.
 
     >[!NOTE]
-    > Il completamento del processo richiede da tre a quattro ore.
+    > Il completamento del processo richiede circa tre-quattro ore.
 
-### <a name="download-the-soil-moisture-heatmap"></a>Scarica la mappa termica dell'umidità del suolo
+### <a name="download-the-soil-moisture-heatmap"></a>Scaricare la mappa termica di umidità del suolo
 
 Eseguire la procedura descritta di seguito:
 
-1. Nella pagina **Processi** controllare **lo stato** del processo creato nell'ultima procedura.
-2. Quando lo stato del processo è **Riuscito**, selezionare **Mappe** nel menu.
-3. Cercare la mappa per il giorno in cui è stata creata nel formato <> del suolo-moisture_MyFarm_YYYY-MM-DD.
-4. Selezionare una mappa nella colonna **Nome,** viene visualizzata una finestra popup con l'anteprima della mappa selezionata.
-5. Selezionare **Download**. La mappa viene scaricata e memorizzata nella cartella locale del computer.
+1. Nella pagina **processi** controllare lo stato del **processo** creato nell'ultima procedura.
+2. Quando lo stato del processo è indicato **succeeded**, selezionare **Maps** nel menu.
+3. Cercare la mappa in base al giorno in cui è stata creata nel formato <> Soil-moisture_MyFarm_YYYY-MM-GG.
+4. Selezionare una mappa nella colonna **nome** . verrà visualizzata una finestra popup con l'anteprima della mappa selezionata.
+5. Selezionare **Download**. La mappa viene scaricata e archiviata nella cartella locale del computer.
 
     ![Progetto FarmBeats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che hai generato con successo una Soil Moisture Heatmap, scopri come generare il [posizionamento del sensore](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e [inserire dati di telemetria cronologici.](ingest-historical-telemetry-data-in-azure-farmbeats.md) 
+Ora che è stato generato un mappa termica di umidità del suolo, viene illustrato come [generare il posizionamento dei sensori](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e inserire [i dati cronologici di telemetria](ingest-historical-telemetry-data-in-azure-farmbeats.md). 

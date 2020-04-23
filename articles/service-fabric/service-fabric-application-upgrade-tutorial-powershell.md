@@ -1,5 +1,5 @@
 ---
-title: Service Fabric App upgrade using PowerShell
+title: Aggiornamento dell'app Service Fabric tramite PowerShell
 description: In questo articolo vengono esaminati l'esperienza di distribuzione di un'applicazione di Service Fabric, la modifica del codice e l'implementazione di un aggiornamento tramite PowerShell.
 ms.topic: conceptual
 ms.date: 2/23/2018
@@ -12,7 +12,7 @@ ms.locfileid: "75426792"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Aggiornamento di un'applicazione di Service Fabric mediante PowerShell
 > [!div class="op_single_selector"]
-> * [Powershell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
@@ -23,7 +23,7 @@ Il metodo di aggiornamento consigliato usato più frequentemente è l'aggiorname
 
 L'aggiornamento di un'applicazione in modalità monitorata può essere eseguito usando le API gestite o native, PowerShell, l'interfaccia della riga di comando di Azure, Java o REST. Per istruzioni su come eseguire un aggiornamento usando Visual Studio, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente all'amministratore di applicazioni di configurare i criteri di valutazione dell'integrità usati da Service Fabric per determinare se l'applicazione è integra. Inoltre, l'amministratore può configurare l'azione da eseguire quando la valutazione dell'integrità ha esito negativo (ad esempio, eseguendo un rollback automatico). Questa sezione illustra un aggiornamento monitorato per uno degli esempi SDK che usa PowerShell.This section walks through a monitored upgrade for one of the SDK samples that uses PowerShell. 
+L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente all'amministratore di applicazioni di configurare i criteri di valutazione dell'integrità usati da Service Fabric per determinare se l'applicazione è integra. Inoltre, l'amministratore può configurare l'azione da intraprendere quando la valutazione dell'integrità ha esito negativo, ad esempio eseguendo un rollback automatico. Questa sezione illustra un aggiornamento monitorato per uno degli esempi di SDK che usano PowerShell. 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Passaggio 1: creare e distribuire l'esempio di oggetti visivi
 Compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjectsApplication**, e selezionando il comando **Pubblica**.  Per altre informazioni, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md).  In alternativa, è possibile usare PowerShell per distribuire l'applicazione.
@@ -35,7 +35,7 @@ Compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mo
 
 Dopo aver compilato il progetto in Visual Studio è possibile usare il comando di PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) per copiare il pacchetto dell'applicazione in ImageStore. Se si desidera verificare il pacchetto dell'applicazione in locale, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage). Il passaggio successivo consiste nel registrare l'applicazione nel runtime di Service Fabric usando il cmdlet [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype). Il passaggio seguente consiste nell'avviare un'istanza dell'applicazione con il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.  Al termine del provisioning, è consigliabile pulire il pacchetto dell'applicazione copiato dall'archivio immagini per ridurre le risorse utilizzate.  Se un tipo di applicazione non è più necessario, è consigliabile annullarne la registrazione per lo stesso motivo. Per altre informazioni, vedere [Distribuire e rimuovere applicazioni con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
 
-È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) è possibile accedere in Internet Explorer digitando nella barra degli indirizzi.  Verranno visualizzati alcuni oggetti visivi mobili sullo schermo.  È anche possibile usare [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) per verificare lo stato dell'applicazione.
+È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) nella barra degli indirizzi.  Verranno visualizzati alcuni oggetti visivi mobili sullo schermo.  È anche possibile usare [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) per verificare lo stato dell'applicazione.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passaggio 2: aggiornare l'applicazione Oggetti visivi di esempio
 È possibile osservare che con la versione distribuita al passaggio 1 gli oggetti visivi non ruotano. L'applicazione può essere aggiornata in modo che gli oggetti visivi ruotino.
@@ -124,7 +124,7 @@ In pochi minuti lo stato ottenuto usando il comando di PowerShell precedente ind
 Come esercizio provare a effettuare l'aggiornamento dalla versione 2 alla versione 3 o dalla versione 2 alla versione 1: anche il passaggio dalla versione 2 alla versione 1 è considerato un aggiornamento. Esercitarsi inoltre con i timeout e i criteri di integrità per acquisire familiarità anche con questi concetti. Quando si esegue la distribuzione in un cluster di Azure, è necessario impostare i parametri in modo appropriato. È consigliabile impostare i timeout su valori contenuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[L'aggiornamento dell'applicazione tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) illustra l'aggiornamento di un'applicazione tramite Visual Studio.Upgrading your application using Visual Studio walks you through an application upgrade using Visual Studio.
+L' [aggiornamento dell'applicazione con Visual Studio](service-fabric-application-upgrade-tutorial.md) illustra l'aggiornamento di un'applicazione con Visual Studio.
 
 Controllare l'aggiornamento dell'applicazione tramite [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
 
