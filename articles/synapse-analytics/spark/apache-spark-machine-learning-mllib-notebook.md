@@ -1,6 +1,6 @@
 ---
-title: Creare un'app di apprendimento automatico con Apache Spark MLlib e Azure Synapse Analytics
-description: Informazioni su come usare Apache Spark MLlib per creare un'app di apprendimento automatico che analizza un set di dati usando la classificazione tramite regressione logistica.
+title: Creare un'app di Machine Learning con Apache Spark MLlib e Azure sinapsi Analytics
+description: Informazioni su come usare Apache Spark MLlib per creare un'app di Machine Learning che analizza un set di dati usando la classificazione tramite la regressione logistica.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -8,18 +8,18 @@ ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 9dc4047b9e95b088bb614858091f43286cefe361
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 25d11d2cf41f8653c5a54007f121c1251bb24b1f
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430006"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096300"
 ---
-# <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Creare un'app di apprendimento automatico con Apache Spark MLlib e Azure Synapse Analytics
+# <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Creare un'app di Machine Learning con Apache Spark MLlib e Azure sinapsi Analytics
 
-In questo articolo viene illustrato come usare Apache Spark MLlib per creare un'applicazione di Apprendimento automatico che esegue un'analisi predittiva semplice in un set di dati aperto di Azure.In this article, you learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application that does simple predictive analysis on an Azure open dataset. Spark fornisce librerie di apprendimento automatico integrate. In questo esempio viene utilizzata *la classificazione* tramite regressione logistica.
+Questo articolo illustra come usare Apache Spark [MLlib](https://spark.apache.org/mllib/) per creare un'applicazione di Machine Learning che esegue un'analisi predittiva semplice su un set di dati aperto di Azure. Spark fornisce librerie di Machine Learning predefinite. In questo esempio viene usata la *classificazione* tramite la regressione logistica.
 
-MLlib è una libreria Spark di base che fornisce molte utilità utili per le attività di apprendimento automatico, incluse le utilità adatte per:MLlib is a core Spark library that provides many utilities that are useful for machine learning tasks, including utilities that are suitable for:
+MLlib è una libreria Spark di base che offre molte utilità utili per le attività di Machine Learning, incluse le utilità adatte a:
 
 - Classificazione
 - Regressione
@@ -30,25 +30,25 @@ MLlib è una libreria Spark di base che fornisce molte utilità utili per le att
 
 ## <a name="understand-classification-and-logistic-regression"></a>Informazioni sulla classificazione e la regressione logistica
 
-La *classificazione*, un'attività comune di apprendimento automatico, è il processo di ordinamento dei dati in categorie. È compito di un algoritmo di classificazione capire come assegnare *etichette* ai dati di input forniti. Ad esempio, è possibile pensare a un algoritmo di apprendimento automatico che accetta le informazioni sulle azioni come input e divide le azioni in due categorie: le azioni che è necessario vendere e le scorte che è necessario mantenere.
+La *classificazione*, un'attività comune di apprendimento automatico, è il processo di ordinamento dei dati in categorie. È compito di un algoritmo di classificazione determinare come assegnare *etichette* ai dati di input forniti dall'utente. Ad esempio, è possibile pensare a un algoritmo di Machine Learning che accetta informazioni sulle azioni come input e divide le scorte in due categorie: le scorte da vendere e le scorte che è opportuno tenere.
 
-*La regressione logistica* è un algoritmo che è possibile utilizzare per la classificazione. L'API di regressione logistica di Spark è utile per la *classificazione binaria*, ovvero la classificazione di dati di input in uno di due gruppi. Per altre informazioni sulle regressioni logistiche, vedere [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+La *regressione logistica* è un algoritmo che è possibile usare per la classificazione. L'API di regressione logistica di Spark è utile per la *classificazione binaria*, ovvero la classificazione di dati di input in uno di due gruppi. Per altre informazioni sulle regressioni logistiche, vedere [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 Riepilogando, il processo di regressione logistica genera una *funzione logistica* che può essere usata per stimare la probabilità che un vettore di input appartenga a un gruppo o all'altro.
 
-## <a name="predictive-analysis-example-on-nyc-taxi-data"></a>Esempio di analisi predittiva sui dati di NYC Taxi
+## <a name="predictive-analysis-example-on-nyc-taxi-data"></a>Esempio di analisi predittiva sui dati dei taxi di NYC
 
-In questo esempio si usa Spark per eseguire alcune analisi predittive sui dati dei suggerimenti per viaggi in taxi da New York. I dati sono disponibili tramite [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Questo sottoinsieme del set di dati contiene informazioni sui viaggi in taxi gialli, incluse informazioni su ogni viaggio, l'ora di inizio e di fine e le posizioni, il costo e altri attributi interessanti.
+In questo esempio, si usa Spark per eseguire un'analisi predittiva dei dati di Tip Trip in taxi di New York. I dati sono disponibili tramite i set di dati [aperti di Azure](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Questo subset del set di dati contiene informazioni sulle corse di taxi gialle, incluse le informazioni su ogni corsa, l'ora di inizio e di fine e le località, il costo e altri attributi interessanti.
 
 > [!IMPORTANT]
-> Potrebbero essere previsti costi aggiuntivi per estrarre questi dati dalla posizione di archiviazione.
+> Potrebbero essere previsti addebiti aggiuntivi per il pull dei dati dal percorso di archiviazione.
 
-Nei passaggi seguenti viene sviluppato un modello per prevedere se un determinato viaggio include o meno un suggerimento.
+Nei passaggi seguenti si sviluppa un modello per stimare se una particolare corsa include una mancia o meno.
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Creare una pipeline di apprendimento automatico MLlib Apache Spark
 
-1. Creare un notebook utilizzando il kernel PySpark. Per istruzioni, consultate [Creare un blocco appunti.](./apache-spark-notebook-create-spark-use-sql.md#create-a-notebook)
-2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice riportato di seguito in una cella vuota, quindi premere **MAIUSC e INVIO**oppure eseguire la cella utilizzando l'icona di riproduzione blu a sinistra del codice.
+1. Creare un notebook usando il kernel PySpark. Per le istruzioni, vedere [creare un notebook](../quickstart-apache-spark-notebook.md#create-a-notebook).
+2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**oppure eseguire la cella usando l'icona di riproduzione Blu a sinistra del codice.
 
     ```python
     import matplotlib.pyplot as plt
@@ -64,13 +64,13 @@ Nei passaggi seguenti viene sviluppato un modello per prevedere se un determinat
     from pyspark.ml.evaluation import BinaryClassificationEvaluator
     ```
 
-    Dato che è stato usato il kernel PySpark, non è necessario creare contesti in modo esplicito. Il contesto Spark viene creato automaticamente quando si esegue la prima cella di codice.
+    Dato che è stato usato il kernel PySpark, non è necessario creare contesti in modo esplicito. Il contesto di Spark viene creato automaticamente quando si esegue la prima cella di codice.
 
 ## <a name="construct-the-input-dataframe"></a>Creare il frame di dati di input
 
-Poiché i dati non elaborati sono in formato Parquet, è possibile usare il contesto Spark per estrarre direttamente il file come frame di dati. Mentre il codice seguente utilizza le opzioni predefinite, è possibile forzare il mapping dei tipi di dati e altri attributi dello schema, se necessario.
+Poiché i dati non elaborati sono in formato parquet, è possibile usare il contesto Spark per eseguire direttamente il pull del file in memoria come frame di dati. Mentre nel codice riportato di seguito vengono utilizzate le opzioni predefinite, è possibile forzare il mapping dei tipi di dati e di altri attributi dello schema, se necessario.
 
-1. Eseguire le righe seguenti per creare un frame di dati Spark incollando il codice in una nuova cella. La prima sezione assegna le informazioni di accesso all'archiviazione di Azure alle variabili. La seconda sezione consente a Spark di leggere dall'archiviazione BLOB in remoto. L'ultima riga di codice legge il parquet, ma a questo punto non viene caricato alcun dato.
+1. Eseguire le righe seguenti per creare un dataframe di Spark incollando il codice in una nuova cella. La prima sezione assegna le informazioni di accesso di archiviazione di Azure alle variabili. La seconda sezione consente a Spark di leggere dall'archivio BLOB in remoto. L'ultima riga di codice legge parquet, ma a questo punto non sono stati caricati dati.
 
     ```python
     # Azure storage access info
@@ -87,7 +87,7 @@ Poiché i dati non elaborati sono in formato Parquet, è possibile usare il cont
     df = spark.read.parquet(wasbs_path)
     ```
 
-2. Il pull di tutti questi dati genera circa 1,5 miliardi di righe. A seconda delle dimensioni del pool Spark (anteprima), i dati non elaborati potrebbero essere troppo grandi o richiedere troppo tempo per operare. È possibile filtrare questi dati in modo più piccolo. Se necessario, aggiungere le righe seguenti per filtrare i dati a circa 2 milioni di righe per un'esperienza più reattiva. Usare questi parametri per estrarre una settimana di dati.
+2. Il pull di tutti questi dati genera circa 1,5 miliardi righe. A seconda delle dimensioni del pool Spark (anteprima), i dati non elaborati potrebbero essere troppo grandi o richiedere troppo tempo per funzionare. È possibile filtrare i dati fino a un valore inferiore. Se necessario, aggiungere le righe seguenti per filtrare i dati fino a circa 2 milioni righe per un'esperienza più reattiva. Usare questi parametri per eseguire il pull di una settimana di dati.
 
     ```python
     # Create an ingestion filter
@@ -97,29 +97,29 @@ Poiché i dati non elaborati sono in formato Parquet, è possibile usare il cont
     filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
     ```
 
-3. Lo svantaggio del semplice filtraggio è che, da una prospettiva statistica, può introdurre distorsioni nei dati. Un altro approccio consiste nell'utilizzare il campionamento integrato in Spark. Il codice seguente riduce il set di dati fino a circa 2000 righe, se applicato dopo il codice precedente. Questo passaggio di campionamento può essere utilizzato al posto del filtro semplice o in combinazione con il filtro semplice.
+3. Lo svantaggio del semplice filtro è che, dal punto di vista statistico, può introdurre distorsioni nei dati. Un altro approccio consiste nell'usare il campionamento incorporato in Spark. Il codice seguente riduce il set di dati fino a circa 2000 righe, se applicato dopo il codice precedente. Questo passaggio di campionamento può essere utilizzato al posto del filtro semplice o insieme al filtro semplice.
 
     ```python
     # To make development easier, faster and less expensive down sample for now
     sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
     ```
 
-4. Ora è possibile esaminare i dati per vedere cosa è stato letto. In genere è preferibile esaminare i dati con un subset anziché il set completo a seconda delle dimensioni del set di dati. Il codice seguente offre due modi per visualizzare i dati: il primo è di base e il secondo fornisce un'esperienza di griglia molto più ricca, nonché la capacità di visualizzare i dati graficamente.
+4. È ora possibile esaminare i dati per vedere cosa è stato letto. In genere è preferibile rivedere i dati con un subset anziché il set completo a seconda delle dimensioni del set di dati. Il codice seguente offre due modi per visualizzare i dati: il primo è Basic e il secondo fornisce un'esperienza di griglia molto più ricca, oltre alla possibilità di visualizzare i dati graficamente.
 
     ```python
     sampled_taxi_df.show(5)
     display(sampled_taxi_df.show(5))
     ```
 
-5. A seconda delle dimensioni del set di dati generato e della necessità di sperimentare o eseguire il blocco appunti più volte, potrebbe essere consigliabile memorizzare il set di dati nella cache locale nell'area di lavoro. Esistono tre modi per eseguire la memorizzazione nella cache esplicita:There are three ways to do perform explicit caching:
+5. A seconda delle dimensioni della dimensione del set di dati generata e della necessità di sperimentare o eseguire il notebook più volte, potrebbe essere consigliabile memorizzare nella cache il set di dati in locale nell'area di lavoro. Esistono tre modi per eseguire la memorizzazione nella cache esplicita:
 
-   - Salvare il frame di dati in locale come file
-   - Salvare il frame di dati come tabella o vista temporanea
-   - Salvare il frame di dati come tabella permanente
+   - Salvare il frame di frame in locale come file
+   - Salvare il frame di frame come vista o tabella temporanea
+   - Salvare il frame di frame come tabella permanente
 
-I primi 2 di questi approcci sono inclusi negli esempi di codice seguenti.
+I primi due approcci sono inclusi negli esempi di codice seguenti.
 
-La creazione di una tabella o vista temporanea fornisce percorsi di accesso diversi ai dati, ma dura solo per la durata della sessione dell'istanza Spark.
+La creazione di una tabella o di una vista temporanea fornisce percorsi di accesso diversi ai dati, ma dura solo per la durata della sessione dell'istanza di Spark.
 
 ```Python
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
@@ -127,7 +127,7 @@ sampled_taxi_df.createOrReplaceTempView("nytaxi")
 
 ## <a name="understand-the-data"></a>Informazioni sui dati
 
-Normalmente si passerebbe attraverso una fase di *analisi esplorativa* dei dati (EDA) a questo punto per sviluppare una comprensione dei dati. Il codice seguente mostra tre diverse visualizzazioni dei dati correlati ai suggerimenti che portano a conclusioni sullo stato e sulla qualità dei dati.
+In genere, è possibile eseguire una fase di *analisi esplorativa dei dati* (EDA) a questo punto per sviluppare una comprensione dei dati. Il codice seguente mostra tre visualizzazioni diverse dei dati correlati ai suggerimenti che portano a conclusioni sullo stato e sulla qualità dei dati.
 
 ```python
 # The charting package needs a Pandas dataframe or numpy array do the conversion
@@ -159,20 +159,20 @@ plt.suptitle('')
 plt.show()
 ```
 
-![Grafico a](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
-![](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
-![dispersione del grafico a dispersione del grafico con riquadro di istogramma](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
+![Grafico](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
+![a dispersione](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
+![tracciato della casella istogramma](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
 
 ## <a name="preparing-the-data"></a>Preparazione dei dati
 
-I dati nella sua forma grezza spesso non sono adatti per il passaggio diretto a un modello. È necessario eseguire una serie di azioni sui dati per portarlo in uno stato in cui il modello può utilizzarli.
+I dati nel relativo formato non elaborato non sono spesso adatti per il passaggio diretto a un modello. È necessario eseguire una serie di azioni sui dati per ottenerli in uno stato in cui il modello può utilizzarlo.
 
-Nel codice seguente vengono eseguite quattro classi di operazioni:
+Nel codice riportato di seguito vengono eseguite quattro classi di operazioni:
 
-- Rimozione di outlier/valori non corretti tramite il filtro.
-- La rimozione delle colonne, che non sono necessarie.
-- La creazione di nuove colonne derivate dai dati non elaborati per rendere il modello più efficace, a volte chiamato featurization.
-- Etichettatura, come si sta intraprendendo la classificazione binaria (ci sarà un suggerimento o non in un determinato viaggio) c'è la necessità di convertire l'importo di suggerimento in un valore 0 o 1.
+- Rimozione dei valori outlier/non corretti tramite il filtro.
+- Rimozione delle colonne, che non sono necessarie.
+- La creazione di nuove colonne derivate dai dati non elaborati per far funzionare il modello in modo più efficace, talvolta chiamato conteggi.
+- Assegnazione di etichette, quando si sta intraprendendo la classificazione binaria (sarà presente una mancia o meno in un determinato viaggio), è necessario convertire l'importo della mancia in un valore 0 o 1.
 
 ```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
@@ -208,7 +208,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Creare un modello di regressione logistica
 
-L'ultima attività è la conversione dei dati con etichetta in un formato che possa essere analizzato dalla regressione logistica. L'input per un algoritmo di regressione logistica deve essere un set di *coppie vettoriali label-feature*, in cui il *vettore di entità geografiche* è un vettore di numeri che rappresentano il punto di input. Quindi, dobbiamo convertire le colonne categoriche in numeri. Le `trafficTimeBins` `weekdayString` colonne e devono essere convertite in rappresentazioni integer. Esistono diversi approcci per eseguire la conversione, tuttavia l'approccio adottato in questo esempio è *OneHotEncoding*, un approccio comune.
+L'ultima attività è la conversione dei dati con etichetta in un formato che possa essere analizzato dalla regressione logistica. L'input per un algoritmo di regressione logistica deve essere un set di *coppie di vettori di funzionalità etichetta*, in cui il *vettore di funzionalità* è un vettore di numeri che rappresentano il punto di input. Quindi, è necessario convertire le colonne categoriche in numeri. Le `trafficTimeBins` colonne `weekdayString` e devono essere convertite in rappresentazioni di tipo Integer. Esistono diversi approcci per eseguire la conversione. Tuttavia, l'approccio adottato in questo esempio è *OneHotEncoding*, un approccio comune.
 
 ```python
 # The sample uses an algorithm that only works with numeric features convert them so they can be consumed
@@ -221,11 +221,11 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-Il risultato è un nuovo frame di dati con tutte le colonne nel formato corretto per eseguire il training di un modello.
+In questo modo viene generato un nuovo frame di dati con tutte le colonne nel formato corretto per il training di un modello.
 
-## <a name="train-a-logistic-regression-model"></a>Eseguire il training di un modello di regressione logisticaTrain a logistic regression model
+## <a name="train-a-logistic-regression-model"></a>Eseguire il training di un modello di regressione logistica
 
-La prima attività consiste nel suddividere il set di dati in un set di training e in un set di test o convalida. La divisione qui è arbitraria e si dovrebbe giocare con diverse impostazioni di divisione per vedere se influenzano il modello.
+La prima attività consiste nel suddividere il set di dati in un set di training e in un set di testing o di convalida. La divisione qui è arbitraria ed è necessario ricorrere a diverse impostazioni di suddivisione per verificare se influiscano sul modello.
 
 ```python
 #Decide on the split between training and testing data from the dataframe
@@ -237,7 +237,7 @@ seed = 1234
 train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, testingFraction], seed=seed)
 ```
 
-Ora che sono presenti due frame di dati, l'attività successiva consiste nel creare la formula del modello ed eseguirla nel frame di dati di training, quindi eseguire la convalida in base al frame di dati di test. È consigliabile sperimentare con versioni diverse della formula del modello per vedere l'impatto di diverse combinazioni.
+Ora che sono presenti due dataframe, l'attività successiva consiste nel creare la formula del modello ed eseguirla nel frame di training, quindi convalidare i dataframe di testing. È consigliabile provare con versioni diverse della formula del modello per vedere l'effetto di combinazioni diverse.
 
 ```python
 ## Create a new LR object for the model
@@ -270,7 +270,7 @@ Area under ROC = 0.9779470729751403
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Creare una rappresentazione visiva della stima
 
-È ora possibile creare una visualizzazione finale per comprendere meglio i risultati di questo test. Una [curva ROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) è un modo per rivedere il risultato.
+È ora possibile creare una visualizzazione finale per comprendere meglio i risultati di questo test. Una [curva ROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) è un modo per esaminare il risultato.
 
 ```python
 ## Plot the ROC curve, no need for pandas as this uses the modelSummary object
@@ -284,21 +284,21 @@ plt.ylabel('True Positive Rate')
 plt.show()
 ```
 
-![Curva ROC per il modello di punta di regressione logistica](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "Curva ROC per il modello di punta di regressione logistica")
+![Curva ROC per il modello di suggerimento di regressione logistica](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "Curva ROC per il modello di suggerimento di regressione logistica")
 
 ## <a name="shut-down-the-spark-instance"></a>Arrestare l'istanza di Spark
 
-Al termine dell'esecuzione dell'applicazione, arrestare il blocco appunti per rilasciare le risorse chiudendo la scheda o selezionare **Termina sessione** dal riquadro di stato nella parte inferiore del blocco appunti.
+Al termine dell'esecuzione dell'applicazione, arrestare il notebook per rilasciare le risorse chiudendo la scheda o selezionando **Termina sessione** dal pannello stato nella parte inferiore del notebook.
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Panoramica: Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
+- [Panoramica: Apache Spark in Azure sinapsi Analytics](apache-spark-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [.NET per la documentazione di Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Documentazione di .NET per Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 - [Documentazione ufficiale di Apache Spark](https://spark.apache.org/docs/latest/)
 
 >[!NOTE]
-> Alcune delle documentazioni ufficiali di Apache Spark si basasullivano sull'uso della console Spark, che non è disponibile in Azure Synapse Spark.Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Azure Synapse Spark. Usare invece il [blocco appunti](../spark/apache-spark-notebook-create-spark-use-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) o le esperienze [IntelliJ.](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> Parte della documentazione ufficiale di Apache Spark si basa sull'uso della console Spark, che non è disponibile in Spark di Azure Synapse. Usare al suo posto un [notebook](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) o [IntelliJ](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

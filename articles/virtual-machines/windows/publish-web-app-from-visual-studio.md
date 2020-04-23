@@ -1,28 +1,25 @@
 ---
 title: Pubblicare un'app Web in una macchina virtuale di Azure da Visual Studio
 description: Pubblicare un'applicazione Web ASP.NET in una macchina virtuale di Azure da Visual Studio
-services: virtual-machines-windows
 author: ghogen
 manager: jillfra
-tags: azure-service-management
-ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abf0570ee9f01a2378e8c0370cfc3ba5fecc7406
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71970873"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098233"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Pubblicare un'app Web ASP.NET in una macchina virtuale di Azure da Visual Studio
 
-Questo documento descrive come pubblicare un'applicazione Web ASP.NET in una macchina virtuale di Azure usando la funzionalità di pubblicazione Macchine virtuali di Microsoft Azure in Visual Studio 2019.This document describes how to publish an ASP.NET web application to an Azure virtual machine (VM) using the **Microsoft Azure Virtual Machines** publishing feature in Visual Studio 2019.  
+Questo documento descrive come pubblicare un'applicazione Web ASP.NET in una macchina virtuale (VM) di Azure usando la funzionalità di pubblicazione **macchine virtuali di Microsoft Azure** in Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare Visual Studio per pubblicare un progetto ASP.NET in una macchina virtuale di Azure, la macchina virtuale deve essere configurata correttamente.
@@ -34,7 +31,7 @@ Per usare Visual Studio per pubblicare un progetto ASP.NET in una macchina virtu
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Pubblicare l'app Web ASP.NET nella macchina virtuale di Azure con Visual Studio
 La sezione seguente descrive come pubblicare un'applicazione Web ASP.NET esistente in una macchina virtuale di Azure.
 
-1. Aprire la soluzione dell'app Web in Visual Studio 2019.
+1. Aprire la soluzione app Web in Visual Studio 2019.
 2. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica**.
 3. Usare la freccia a destra della pagina per scorrere le opzioni di pubblicazione fino a trovare **Macchine virtuali di Microsoft Azure**.  
 
@@ -58,7 +55,7 @@ La sezione seguente descrive come pubblicare un'applicazione Web ASP.NET esisten
 
 7. Fare clic su OK per avviare la pubblicazione.
 
-8. Quando vengono richieste le credenziali, specificare il nome utente e la password di un account utente nella macchina virtuale di destinazione configurata con diritti di pubblicazione. Queste credenziali sono in genere il nome utente e la password di amministratore usati durante la creazione della macchina virtuale.  
+8. Quando vengono richieste le credenziali, fornire il nome utente e la password di un account utente nella macchina virtuale di destinazione configurata con diritti di pubblicazione. Queste credenziali sono in genere il nome utente amministratore e la password usati durante la creazione della macchina virtuale.  
 
    ![Accesso a WebDeploy]
 
@@ -99,12 +96,12 @@ Le impostazioni saranno simili a quanto segue:
 ![Impostazioni di pubblicazione - Pagina di connessione]
 
 #### <a name="save-user-name-and-password"></a>Salvare nome utente e password
-- Evitare di fornire informazioni di autenticazione ogni volta che si pubblica. A tale scopo, compilare i campi **Nome utente** e **Password** e selezionare la casella **Salva password.**
+- Evitare di fornire informazioni di autenticazione ogni volta che si pubblica. A tale scopo, popolare i campi **nome utente** e **password** e selezionare la casella **Salva password** .
 - Usare il pulsante **Convalida connessione** per verificare di avere immesso le informazioni esatte.
 
 #### <a name="deploy-to-clean-web-server"></a>Eseguire la distribuzione in un server Web pulito
 
-- Se si desidera assicurarsi che il server Web disponga di una copia pulita dell'applicazione Web dopo ogni caricamento e che non vengano lasciati altri file da una distribuzione precedente, è possibile selezionare la casella di controllo **Rimuovi file aggiuntivi nella destinazione** nella scheda **Impostazioni.**
+- Per assicurarsi che il server Web disponga di una copia pulita dell'applicazione Web dopo ogni caricamento e che nessun altro file venga lasciato da una distribuzione precedente, è possibile selezionare la casella di controllo **Rimuovi file aggiuntivi nella destinazione** nella scheda **Impostazioni** .
 
 - Avviso: se si esegue la pubblicazione con questa impostazione vengono eliminati tutti i file presenti nel server Web (directory wwwroot). Assicurarsi di conoscere lo stato del computer prima di eseguire la pubblicazione con questa opzione abilitata. 
 
@@ -125,7 +122,7 @@ Per configurare una pipeline di recapito continuo con Azure Pipelines, vedere [E
 [Selezione macchina virtuale di Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [Accesso a WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
 [Errore del certificato]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
-[Finestra Output]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
+[Finestra di output]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
 [Pagina di pubblicazione - Pulsante Pubblica]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
 [Pagina di pubblicazione - Pulsante Impostazioni]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [Impostazioni di pubblicazione - Pagina di connessione]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png

@@ -1,25 +1,20 @@
 ---
-title: Creare un'immagine non gestita di una macchina virtuale generalizzata in AzureCreate an unmanaged image of a generalized VM in Azure
+title: Creare un'immagine non gestita di una macchina virtuale generalizzata in Azure
 description: Creare un'immagine non gestita di una macchina virtuale Windows generalizzata da usare per creare più copie di una macchina virtuale in Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f44f30666ead84b2bd2fc63d8a8eb624f70c85c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: storage-accounts
+ms.openlocfilehash: 130764ad5504ded398a9fdf9fa27d6cb936fbacc
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458080"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099785"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Come creare un'immagine di macchina virtuale non gestita da una macchina virtuale di Azure
 
@@ -32,14 +27,14 @@ Questo articolo illustra come usare Azure PowerShell per creare un'immagine di u
 ## <a name="generalize-the-vm"></a>Generalizzare la VM 
 Questa sezione illustra come generalizzare la macchina virtuale di Windows da usare come immagine. Generalizzando una VM si rimuovono anche tutte le informazioni personali sull'account e si prepara la macchina da usare come immagine. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](https://technet.microsoft.com/library/bb457073.aspx).
 
-Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per altre informazioni, vedere Supporto di [Sysprep per i ruoli del serverFor more](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) information, see Sysprep Support for Server Roles
+Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [supporto Sysprep per i ruoli del server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Se si carica il disco rigido virtuale in Azure per la prima volta, verificare di aver [preparato la macchina virtuale](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) prima di eseguire Sysprep. 
 > 
 > 
 
-È possibile anche generalizzare una VM Linux tramite `sudo waagent -deprovision+user` e quindi usare PowerShell per acquisire la VM. Per informazioni sull'uso dell'interfaccia della riga di comando per acquisire una macchina virtuale, vedere [Come generalizzare e acquisire una macchina virtuale Linux usando l'interfaccia della riga di comando](../linux/capture-image.md)di Azure.For information about using the CLI to capture a VM, see How to generalize and capture a Linux virtual machine using the Azure CLI .
+È possibile anche generalizzare una VM Linux tramite `sudo waagent -deprovision+user` e quindi usare PowerShell per acquisire la VM. Per informazioni sull'uso dell'interfaccia della riga di comando per acquisire una VM, vedere [come generalizzare e acquisire una macchina virtuale Linux tramite l'interfaccia della](../linux/capture-image.md)riga di comando di Azure.
 
 
 1. Accedere alla macchina virtuale Windows.
@@ -110,7 +105,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -Path <C:\local\Filepath\Filename.json>
 ```
    
-È possibile ottenere l'URL dell'immagine dal modello del file JSON. Passare **alla** > sezione resources**storageProfile** > **osDisk** > **image** > **uri** per il percorso completo dell'immagine. L'URL dell'immagine è simile a questo: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+È possibile ottenere l'URL dell'immagine dal modello del file JSON. Passare alla sezione **Resources** > **storageProfile** > **osDisk** > **Image** > **URI** per il percorso completo dell'immagine. L'URL dell'immagine è simile a questo: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
    
 È anche possibile verificare l'URI nel portale. L'immagine viene copiata in un contenitore denominato **system** nell'account di archiviazione. 
 
@@ -128,7 +123,7 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
-Creare la rete virtuale e la subnet della [rete virtuale.](../../virtual-network/virtual-networks-overview.md)
+Creare la vNet e la subnet della [rete virtuale](../../virtual-network/virtual-networks-overview.md).
 
 1. Creare la subnet. Nell'esempio seguente viene creata una subnet denominata **mySubnet** nel gruppo di risorse **myResourceGroup** con il prefisso di indirizzo **10.0.0.0/24**.  
    

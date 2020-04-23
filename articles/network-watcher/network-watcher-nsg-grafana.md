@@ -1,5 +1,5 @@
 ---
-title: Gestire i registri di flusso del gruppo di sicurezza di rete tramite GrafanaManage NSG Flow Logs using Grafana
+title: Gestire i log di flusso NSG con Grafana
 titleSuffix: Azure Network Watcher
 description: Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Grafana.
 services: network-watcher
@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f038412079ad0620a445b85e4bbc3c325e1aa211
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840911"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100108"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete con Network Watcher e Grafana
 
 I [log di flusso dei gruppi di sicurezza di rete (NSG)](network-watcher-nsg-flow-logging-overview.md) contengono informazioni utili per comprendere il traffico IP in ingresso e in uscita nelle interfacce di rete. Questi log mostrano i flussi in ingresso e in uscita in base alle regole NSG, alla scheda di interfaccia di rete a cui si applica il flusso, a informazioni a 5 tuple sul flusso (IP di origine/destinazione, porta di origine/destinazione e protocollo) e al fatto che il traffico sia stato consentito o rifiutato.
-
-> [!Warning]  
-> I passaggi seguenti usano i log dei flussi versione 1. Per informazioni dettagliate, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md). Le istruzioni seguenti non funzioneranno con la versione 2 dei file di log, senza modifica.
 
 È possibile avere molti gruppi di sicurezza di rete in rete con i log di flusso abilitati. Questa quantità di dati di log rende più difficile l'analisi e il reperimento delle informazioni dettagliate nei log. Questo articolo offre una soluzione per gestire centralmente i log di flusso dei gruppi di sicurezza di rete usando Grafana, uno strumento grafico open source, ElasticSearch, un motore di analisi e di ricerca distribuita e Logstash, una pipeline di elaborazione di dati lato server open-source.  
 
@@ -40,7 +37,7 @@ I log di flusso dei gruppi di sicurezza di rete sono abilitati tramite Network W
 
 ### <a name="enable-network-security-group-flow-logging"></a>Abilitare la registrazione dei flussi dei gruppi di sicurezza di rete
 
-Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni sull'abilitazione dei registri del flusso di sicurezza di rete, vedere il seguente articolo [Introduzione alla registrazione del flusso per](network-watcher-nsg-flow-logging-overview.md)i gruppi di sicurezza di rete .
+Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni sull'abilitazione dei log del flusso di sicurezza di rete, vedere l'articolo [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 
 ### <a name="setup-considerations"></a>Considerazioni sull'installazione
 
@@ -107,6 +104,11 @@ Logstash consente di rendere flat i log di flusso in formato JSON a un livello d
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+      "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+      "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+      "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+      "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+      "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"

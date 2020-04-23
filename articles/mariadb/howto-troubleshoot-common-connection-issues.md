@@ -1,17 +1,17 @@
 ---
-title: Risolvere i problemi di connessione - Database di Azure per MariaDBTroubleshoot connection issues - Azure Database for MariaDB
+title: Risolvere i problemi di connessione-database di Azure per MariaDB
 description: Informazioni su come risolvere i problemi di connessione al database di Azure per MariaDB, inclusi errori temporanei che richiedono tentativi, problemi del firewall e interruzioni.
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 6817807d0a85b1465beafc86045ea1e0dd8a31ec
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770357"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101451"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Risolvere i problemi di connessione a database di Azure per MariaDB
 
@@ -47,14 +47,14 @@ Se l'applicazione continua a non riuscire a connettersi a Database di Azure per 
 
 * Configurazione del firewall: il firewall del server di Database di Azure per MariaDB o del lato client blocca le connessioni.
 * Riconfigurazione della rete lato client: è stato aggiunto un nuovo indirizzo IP o un server proxy.
-* Errore utente: ad esempio, è possibile che nel nome utente siano presenti parametri di connessione digitati in modo errato, ad esempio il nome del server nella stringa di connessione o un suffisso di * \@nome server* mancante.
+* Errore dell'utente: ad esempio, è possibile che i parametri di connessione digitati in modo non consentiti, ad esempio il nome del server nella stringa di connessione o un suffisso * \@ServerName* mancante nel nome utente.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 
-1. Impostare [le regole del firewall](howto-manage-firewall-portal.md) per consentire l'indirizzo IP del client. Ai soli fini di test temporanei, impostare una regola del firewall usando 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo IP finale. Il server verrà così aperto a tutti gli indirizzi IP. Se questo risolve il problema di connettività, rimuovere la regola e creare una regola del firewall per un indirizzo o un intervallo di indirizzi IP adeguatamente limitato.
+1. Configurare le [regole del firewall](howto-manage-firewall-portal.md) per consentire l'indirizzo IP del client. Ai soli fini di test temporanei, impostare una regola del firewall usando 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo IP finale. Il server verrà così aperto a tutti gli indirizzi IP. Se questo risolve il problema di connettività, rimuovere la regola e creare una regola del firewall per un indirizzo o un intervallo di indirizzi IP adeguatamente limitato.
 2. Verificare che la porta 3306 sia aperta per le connessioni in uscita in tutti i firewall tra il client e Internet.
 3. Verificare la stringa di connessione e le altre impostazioni di connessione. Vedere [Come connettere le applicazioni a Database di Azure per MariaDB](howto-connection-string.md).
-4. Controllare l'integrità del servizio nel dashboard. Se si ritiene che si sia verificato un'interruzione a livello di area, vedere [Panoramica della continuità aziendale con il database di Azure per MariaDB](concepts-business-continuity.md) per i passaggi per il ripristino in una nuova area.
+4. Controllare l'integrità del servizio nel dashboard. Se si ritiene che si verifichi un'interruzione a livello di area, vedere [Panoramica della continuità aziendale con database di Azure per MariaDB](concepts-business-continuity.md) per i passaggi da eseguire per il ripristino in una nuova area.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

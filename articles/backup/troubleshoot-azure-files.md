@@ -1,69 +1,280 @@
 ---
 title: Risolvere i problemi del backup delle condivisioni file di Azure
 description: Questo articolo contiene informazioni per la risoluzione dei problemi che si verificano quando si proteggono le condivisioni file di Azure.
-ms.date: 08/20/2019
+ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6ce613b8c0fe8a7a5df6397ba2f1eb508d61aae
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252389"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100057"
 ---
-# <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Risolvere i problemi del backup di condivisioni file di Azure
+# <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Risolvere i problemi durante il backup delle condivisioni file di Azure
 
-È possibile risolvere i problemi e gli errori rilevati durante l'uso del backup di condivisioni file di Azure con le informazioni elencate nelle tabelle seguenti.
+Questo articolo fornisce informazioni per la risoluzione dei problemi che si verificano durante la configurazione del backup o il ripristino delle condivisioni file di Azure con il servizio backup di Azure.
 
-## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitazioni per il backup delle condivisioni file di Azure durante l'anteprima
+## <a name="common-configuration-issues"></a>Problemi di configurazione comuni
 
-Il backup per le condivisioni file di Azure è disponibile in anteprima. Le condivisioni file di Azure sono supportate negli account di archiviazione per utilizzo generico sia v1 che v2. Gli scenari di backup seguenti non sono supportati nelle condivisioni file di Azure:
+### <a name="could-not-find-my-storage-account-to-configure-backup-for-the-azure-file-share"></a>Non è stato possibile trovare l'account di archiviazione per configurare il backup per la condivisione file di Azure
 
-- Per la protezione di File di Azure con Backup di Azure non è disponibile l'interfaccia della riga di comando.
-- Il numero massimo di backup pianificati al giorno è uno.
-- Il numero massimo di backup su richiesta al giorno è quattro.
-- Usare [i blocchi delle risorse](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) nell'account di archiviazione per impedire l'eliminazione accidentale dei backup nell'insieme di credenziali di Servizi di ripristino.
-- Non eliminare gli snapshot creati da Backup di Azure. L'eliminazione degli snapshot può comportare la perdita di punti di ripristino e/o errori di ripristino.
-- Non eliminare le condivisioni file protette mediante Backup di Azure. La soluzione corrente elimina tutti gli snapshot creati da Backup di Azure dopo l'eliminazione della condivisione file, causando la perdita di tutti i punti di ripristino
+- Attendere che termini l'individuazione.
+- Controllare se una condivisione file nell'account di archiviazione è già protetta con un altro insieme di credenziali di servizi di ripristino.
 
-Il backup per le condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) è attualmente disponibile solo nelle aree Stati Uniti centrali (CUS), Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa settentrionale (NE), Asia sud-orientale (SEA), Europa occidentale (WE) e Stati Uniti occidentali 2 (WUS2).
+  >[!NOTE]
+  >le condivisioni file di un account di archiviazione possono essere protette solo con un unico insieme di credenziali di Servizi di ripristino. È possibile usare [questo script](scripts/backup-powershell-script-find-recovery-services-vault.md) per trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione.
 
-## <a name="configuring-backup"></a>Configurazione del backup
+- Assicurarsi che la condivisione file non sia presente in uno degli account di archiviazione non supportati. Per trovare gli account di archiviazione supportati, è possibile fare riferimento alla [matrice di supporto per il backup di condivisioni file di Azure](azure-file-share-support-matrix.md) .
 
-La configurazione del backup è illustrata nella tabella seguente:
+### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Un errore visualizzato nel portale indica che non è possibile individuare gli account di archiviazione
 
-| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
-| ------------------ | ----------------------------- |
-| Impossibile trovare l'account di archiviazione per configurare il backup per la condivisione file di Azure | <ul><li>Attendere che termini l'individuazione. <li>Verificare se sono presenti condivisioni file dell'account di archiviazione già protette con un altro insieme di credenziali di Servizi di ripristino. **Nota**: le condivisioni file di un account di archiviazione possono essere protette solo con un unico insieme di credenziali di Servizi di ripristino. <li>Assicurarsi che la condivisione file non si trovi in account di archiviazione non supportati.<li> Assicurarsi che nell'account di archiviazione sia selezionata la casella di controllo **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. [Altre informazioni.](../storage/common/storage-network-security.md)|
-| Un errore visualizzato nel portale indica che non è possibile individuare gli account di archiviazione. | Se la sottoscrizione è partner (abilitata per CSP), ignorare l'errore. Se la sottoscrizione non è abilitata per CSP e non è possibile individuare gli account di archiviazione, contattare il supporto tecnico.|
-| La convalida o la registrazione dell'account di archiviazione selezionato non è riuscita.| Ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico.|
-| Impossibile elencare o trovare condivisioni file nell'account di archiviazione selezionato. | <ul><li> Verificare che l'account di archiviazione sia presente nel gruppo di risorse e che non sia stato eliminato o spostato dopo l'ultima convalida/registrazione nell'insieme di credenziali.<li>Verificare che la condivisione file da proteggere non sia stata eliminata. <li>Accertarsi che l'account di archiviazione sia supportato per il backup di condivisioni file.<li>Verificare se la condivisione file è già protetta nello stesso insieme di credenziali di Servizi di ripristino.|
-| La configurazione del backup della condivisione file (o la configurazione dei criteri di protezione) mostra errori. | <ul><li>Ripetere l'operazione per verificare se il problema persiste. <li> Verificare che la condivisione file da proteggere non sia stata eliminata. <li> Se si sta provando a proteggere più condivisioni file contemporaneamente e alcune condivisioni file mostrano errori, configurare di nuovo il backup per le condivisioni file con errori. |
-| Impossibile eliminare l'insieme di credenziali di Servizi di ripristino dopo aver rimosso la protezione di una condivisione file. | Nel portale di Azure aprire gli account di Vault > **Backup Infrastructure** > **Storage** e fare clic su Annulla **registrazione** per rimuovere l'account di archiviazione dall'insieme di credenziali di Servizi di ripristino.|
+Se si dispone di una sottoscrizione partner (abilitata per CSP), ignorare l'errore. Se la sottoscrizione non è abilitata per CSP e gli account di archiviazione non possono essere individuati, contattare il supporto tecnico.
 
-## <a name="error-messages-for-backup-or-restore-job-failures"></a>Messaggi di errore dei processi di backup o ripristino
+### <a name="selected-storage-account-validation-or-registration-failed"></a>Impossibile eseguire la convalida o la registrazione dell'account di archiviazione selezionato
 
-| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
-| -------------- | ----------------------------- |
-| L'operazione non è riuscita perché non è stata trovata la condivisione file. | Verificare che la condivisione file da proteggere non sia stata eliminata.|
-| Account di archiviazione non trovato o non supportato. | <ul><li>Verificare che l'account di archiviazione sia presente nel gruppo di risorse e che non sia stato eliminato o rimosso dal gruppo di risorse dopo l'ultima convalida. <li> Accertarsi che l'account di archiviazione sia supportato per il backup di condivisioni file.|
-| È stato raggiunto il limite massimo di snapshot per questa condivisione file. Sarà possibile creare altri snapshot alla scadenza di quelli meno recenti. | <ul><li> Questo errore può verificarsi quando si creano più backup su richiesta per un file. <li> È previsto un limite di 200 snapshot per ogni condivisione file, inclusi quelli creati da Backup di Azure. I backup (o gli snapshot) pianificati meno recenti vengono cancellati automaticamente. I backup (o gli snapshot) su richiesta devono essere eliminati se viene raggiunto il limite massimo.<li> Eliminare i backup su richiesta (snapshot di condivisione file di Azure) dal portale di File di Azure. **Nota**: eliminando gli snapshot creati da Azure Backup si perderanno i punti di ripristino. |
-| Il backup o il ripristino della condivisione file non è riuscito a causa della limitazione del servizio di archiviazione. Questo problema potrebbe dipendere dal fatto che il servizio di archiviazione sta già elaborando altre richieste per l'account di archiviazione specificato.| Ripetere l'operazione dopo alcuni minuti. |
-| Ripristino non riuscito con condivisione file di destinazione non trovata. | <ul><li>Assicurarsi che l'account di archiviazione selezionato esista e che la condivisione file di destinazione non sia stata eliminata. <li> Accertarsi che l'account di archiviazione sia supportato per il backup di condivisioni file. |
-| Il backup o il ripristino non è riuscito perché l'account di archiviazione è in stato bloccato. | Rimuovere il blocco nell'account di archiviazione oppure usare il blocco di eliminazione al posto del blocco di lettura e ripetere l'operazione. |
-| Il ripristino non è riuscito perché il numero di file con errori è superiore alla soglia. | <ul><li> Le cause dell'errore di ripristino sono elencate in un file il cui percorso è indicato nei dettagli del processo. Risolvere gli errori e ripetere l'operazione di ripristino solo per i file con errori. <li> Cause comuni degli errori di ripristino file: <br/> - verificare che i file con errori non siano in uso, <br/> - nella directory padre è presente una directory con lo stesso nome del file con errori. |
-| Il ripristino non è riuscito perché non è stato possibile ripristinare alcun file. | <ul><li> Le cause dell'errore di ripristino sono elencate in un file il cui percorso è indicato nei dettagli del processo. Risolvere gli errori e ripetere le operazioni di ripristino solo per i file con errori. <li> Cause comuni dell'errore di ripristino file: <br/> - verificare che i file con errori non siano in uso, <br/> - nella directory padre è presente una directory con lo stesso nome del file con errori. |
-| Il ripristino non riesce perché uno dei file nell'origine non esiste. | <ul><li> Gli elementi selezionati non sono presenti nei dati del punto di ripristino. Per ripristinare i file, fornire l'elenco di file corretto. <li> Lo snapshot di condivisione file che corrisponde al punto di ripristino è stato eliminato manualmente. Selezionare un altro punto di ripristino e ripetere l'operazione di ripristino. |
-| È in corso un processo di ripristino nella stessa destinazione. | <ul><li>Il backup di condivisioni file non supporta il ripristino parallelo nella stessa condivisione file di destinazione. <li>Attendere che termini il ripristino in corso e quindi riprovare. Se non si trova un processo di ripristino nell'insieme di credenziali di Servizi di ripristino, verificare altri insiemi di credenziali di Servizi di ripristino della stessa sottoscrizione. |
-| L'operazione di ripristino non è riuscita perché la condivisione file di destinazione è piena. | Aumentare la quota delle dimensioni della condivisione file di destinazione affinché possa contenere i dati di ripristino e ripetere l'operazione. |
-| Non è stato possibile completare l'operazione di ripristino perché si è verificato un errore durante l'esecuzione delle operazioni preliminari al ripristino nelle risorse del servizio Sincronizzazione file associate alla condivisione file di destinazione. | Attendere qualche minuto e riprovare. Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| Non è stato possibile ripristinare correttamente uno o più file. Per altre informazioni, vedere l'elenco di file con errori nel percorso sopra specificato. | <ul> <li> Le cause dell'errore di ripristino sono elencate in un file il cui percorso è indicato nei dettagli del processo. Risolvere gli errori e ripetere l'operazione di ripristino solo per i file con errori. <li> Cause comuni degli errori di ripristino file: <br/> - verificare che i file con errori non siano in uso; <br/> - nella directory padre è presente una directory con lo stesso nome del file con errori. |
+Ripetere la registrazione. Se il problema persiste, contattare il supporto tecnico.
 
-## <a name="modify-policy"></a>Modifica dei criteri
+### <a name="could-not-list-or-find-file-shares-in-the-selected-storage-account"></a>Impossibile elencare o trovare le condivisioni file nell'account di archiviazione selezionato
 
-| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
-| ------------------ | ----------------------------- |
-| È in corso un'altra operazione di configurazione della protezione per questo elemento. | Attendere il completamento dell'operazione di modifica criterio precedente e riprovare dopo qualche minuto.|
-| Nell'elemento selezionato è già in corso un'altra operazione. | Attendere il completamento dell'altra operazione in corso e riprovare dopo qualche minuto. |
+- Verificare che l'account di archiviazione esista nel gruppo di risorse e che non sia stato eliminato o spostato dopo l'ultima convalida o registrazione nell'insieme di credenziali.
+- Assicurarsi che la condivisione file che si sta cercando di proteggere non sia stata eliminata.
+- Verificare che l'account di archiviazione sia un account di archiviazione supportato per il backup della condivisione file. Per trovare gli account di archiviazione supportati, è possibile fare riferimento alla [matrice di supporto per il backup di condivisioni file di Azure](azure-file-share-support-matrix.md) .
+- Controllare se la condivisione file è già protetta nello stesso insieme di credenziali di servizi di ripristino.
+
+### <a name="backup-file-share-configuration-or-the-protection-policy-configuration-is-failing"></a>La configurazione della condivisione file di backup (o la configurazione dei criteri di protezione) non è riuscita
+
+- Ripetere la configurazione per verificare se il problema persiste.
+- Assicurarsi che la condivisione file da proteggere non sia stata eliminata.
+- Se si sta tentando di proteggere più condivisioni file in una sola volta e alcune delle condivisioni file hanno esito negativo, provare a configurare di nuovo il backup per le condivisioni file non riuscite.
+
+### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Non è possibile eliminare l'insieme di credenziali di servizi di ripristino dopo la rimozione della protezione di una condivisione file
+
+Nella portale di Azure **aprire** > gli**account di archiviazione** dell'**infrastruttura** > di backup dell'insieme di credenziali e fare clic su **Annulla registrazione** per rimuovere gli account di archiviazione dall'insieme di credenziali di servizi di ripristino.
+
+>[!NOTE]
+>Un insieme di credenziali di servizi di ripristino può essere eliminato solo dopo l'annullamento della registrazione di tutti gli account di archiviazione registrati con l'insieme di credenziali.
+
+## <a name="common-backup-or-restore-errors"></a>Errori comuni di backup o ripristino
+
+### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound-operazione non riuscita perché la condivisione file non è stata trovata
+
+Codice di errore: FileShareNotFound
+
+Messaggio di errore: l'operazione non è riuscita perché la condivisione file non è stata trovata
+
+Assicurarsi che la condivisione file che si sta tentando di proteggere non sia stata eliminata.
+
+### <a name="usererrorfileshareendpointunreachable--storage-account-not-found-or-not-supported"></a>UserErrorFileShareEndpointUnreachable-account di archiviazione non trovato o non supportato
+
+Codice di errore: UserErrorFileShareEndpointUnreachable
+
+Messaggio di errore: l'account di archiviazione non è stato trovato o non è supportato
+
+- Verificare che l'account di archiviazione esista nel gruppo di risorse e che non sia stato eliminato o rimosso dal gruppo di risorse dopo l'ultima convalida.
+
+- Verificare che l'account di archiviazione sia un account di archiviazione supportato per il backup della condivisione file.
+
+### <a name="afsmaxsnapshotreached--you-have-reached-the-max-limit-of-snapshots-for-this-file-share-you-will-be-able-to-take-more-once-the-older-ones-expire"></a>AFSMaxSnapshotReached: è stato raggiunto il limite massimo di snapshot per la condivisione file. sarà possibile richiedere più tempo alla scadenza di quelli meno recenti
+
+Codice di errore: AFSMaxSnapshotReached
+
+Messaggio di errore: è stato raggiunto il limite massimo di snapshot per la condivisione file. sarà possibile richiedere più tempo alla scadenza di quelli meno recenti.
+
+- Questo errore può verificarsi quando si creano più backup su richiesta per una condivisione file.
+- È previsto un limite di 200 snapshot per ogni condivisione file, inclusi quelli eseguiti da backup di Azure. I backup (o gli snapshot) pianificati meno recenti vengono cancellati automaticamente. I backup (o gli snapshot) su richiesta devono essere eliminati se viene raggiunto il limite massimo.
+
+Eliminare i backup su richiesta (snapshot di condivisione file di Azure) dal portale di File di Azure.
+
+>[!NOTE]
+> eliminando gli snapshot creati da Azure Backup si perderanno i punti di ripristino.
+
+### <a name="usererrorstorageaccountnotfound--operation-failed-as-the-specified-storage-account-does-not-exist-anymore"></a>UserErrorStorageAccountNotFound-operazione non riuscita perché l'account di archiviazione specificato non esiste più
+
+Codice di errore: UserErrorStorageAccountNotFound
+
+Messaggio di errore: l'operazione non è riuscita perché l'account di archiviazione specificato non esiste più.
+
+Verificare che l'account di archiviazione esista ancora e non sia stato eliminato.
+
+### <a name="usererrordtsstorageaccountnotfound--the-storage-account-details-provided-are-incorrect"></a>UserErrorDTSStorageAccountNotFound-i dettagli dell'account di archiviazione forniti non sono corretti
+
+Codice di errore: UserErrorDTSStorageAccountNotFound
+
+Messaggio di errore: i dettagli dell'account di archiviazione forniti non sono corretti.
+
+Verificare che l'account di archiviazione esista ancora e non sia stato eliminato.
+
+### <a name="usererrorresourcegroupnotfound--resource-group-doesnt-exist"></a>UserErrorResourceGroupNotFound: il gruppo di risorse non esiste
+
+Codice di errore: UserErrorResourceGroupNotFound
+
+Messaggio di errore: il gruppo di risorse non esiste
+
+Selezionare un gruppo di risorse esistente o crearne uno nuovo.
+
+### <a name="parallelsnapshotrequest--a-backup-job-is-already-in-progress-for-this-file-share"></a>ParallelSnapshotRequest-è già in corso un processo di backup per questa condivisione file
+
+Codice di errore: ParallelSnapshotRequest
+
+Messaggio di errore: è già in corso un processo di backup per questa condivisione file.
+
+- Il backup della condivisione file non supporta le richieste snapshot parallele sulla stessa condivisione file.
+
+- Attendere il completamento del processo di backup esistente, quindi riprovare. Se non è possibile trovare un processo di backup nell'insieme di credenziali di servizi di ripristino, controllare gli altri insiemi di credenziali dei servizi di ripristino nella stessa sottoscrizione.
+
+### <a name="filesharebackupfailedwithazurerprequestthrottling-filesharerestorefailedwithazurerprequestthrottling--file-share-backup-or-restore-failed-due-to-storage-service-throttling-this-may-be-because-the-storage-service-is-busy-processing-other-requests-for-the-given-storage-account"></a>FileshareBackupFailedWithAzureRpRequestThrottling/FileshareRestoreFailedWithAzureRpRequestThrottling-il backup o il ripristino della condivisione file non è riuscito a causa della limitazione del servizio di archiviazione. Questo potrebbe essere dovuto al fatto che il servizio di archiviazione è occupato ad elaborare altre richieste per l'account di archiviazione specificato
+
+Codice di errore: FileshareBackupFailedWithAzureRpRequestThrottling/FileshareRestoreFailedWithAzureRpRequestThrottling
+
+Messaggio di errore: il backup o il ripristino della condivisione file non è riuscito a causa della limitazione del servizio di archiviazione. Questo problema potrebbe dipendere dal fatto che il servizio di archiviazione sta già elaborando altre richieste per l'account di archiviazione specificato.
+
+Provare l'operazione di backup/ripristino in un secondo momento.
+
+### <a name="targetfilesharenotfound--target-file-share-not-found"></a>TargetFileShareNotFound-condivisione file di destinazione non trovata
+
+Codice di errore: TargetFileShareNotFound
+
+Messaggio di errore: condivisione file di destinazione non trovata.
+
+- Verificare che l'account di archiviazione selezionato esista e che la condivisione file di destinazione non sia stata eliminata.
+
+- Verificare che l'account di archiviazione sia un account di archiviazione supportato per il backup della condivisione file.
+
+### <a name="usererrorstorageaccountislocked--backup-or-restore-jobs-failed-due-to-storage-account-being-in-locked-state"></a>UserErrorStorageAccountIsLocked-i processi di backup o ripristino non sono riusciti perché l'account di archiviazione è in stato bloccato
+
+Codice di errore: UserErrorStorageAccountIsLocked
+
+Messaggio di errore: i processi di backup o ripristino non sono riusciti perché l'account di archiviazione è in stato bloccato.
+
+Rimuovere il blocco sull'account di archiviazione o usare il **blocco di eliminazione** anziché il blocco di **lettura** e ripetere l'operazione di backup o ripristino.
+
+### <a name="datatransferservicecoflimitreached--recovery-failed-because-number-of-failed-files-are-more-than-the-threshold"></a>DataTransferServiceCoFLimitReached-ripristino non riuscito perché il numero di file non riusciti è superiore alla soglia
+
+Codice di errore: DataTransferServiceCoFLimitReached
+
+Messaggio di errore: il ripristino non è riuscito perché il numero di file non riusciti è superiore alla soglia.
+
+- I motivi per gli errori di ripristino sono elencati in un file (percorso fornito nei dettagli del processo). Risolvere gli errori e ripetere l'operazione di ripristino solo per i file non riusciti.
+
+- Cause comuni degli errori di ripristino del file:
+
+  - i file che hanno avuto esito negativo sono attualmente in uso
+  - nella directory padre è presente una directory con lo stesso nome del file in cui si è verificato l'errore.
+
+### <a name="datatransferserviceallfilesfailedtorecover--recovery-failed-as-no-file-could-be-recovered"></a>DataTransferServiceAllFilesFailedToRecover-il ripristino non è riuscito perché non è stato possibile recuperare il file
+
+Codice di errore: DataTransferServiceAllFilesFailedToRecover
+
+Messaggio di errore: il ripristino non è riuscito perché non è stato possibile recuperare il file.
+
+- I motivi per gli errori di ripristino sono elencati in un file (percorso fornito nei dettagli del processo). Risolvere gli errori e ripetere le operazioni di ripristino solo per i file con errori.
+
+- Cause comuni degli errori di ripristino del file:
+
+  - i file che hanno avuto esito negativo sono attualmente in uso
+  - nella directory padre è presente una directory con lo stesso nome del file in cui si è verificato l'errore.
+
+### <a name="usererrordtssourceurinotvalid---restore-fails-because-one-of-the-files-in-the-source-does-not-exist"></a>UserErrorDTSSourceUriNotValid-il ripristino non riesce perché uno dei file nell'origine non esiste
+
+Codice di errore: DataTransferServiceSourceUriNotValid
+
+Messaggio di errore: il ripristino non riesce perché uno dei file nell'origine non esiste.
+
+- Gli elementi selezionati non sono presenti nei dati del punto di ripristino. Per ripristinare i file, fornire l'elenco di file corretto.
+- Lo snapshot di condivisione file che corrisponde al punto di ripristino è stato eliminato manualmente. Selezionare un altro punto di ripristino e ripetere l'operazione di ripristino.
+
+### <a name="usererrordtsdestlocked--a-recovery-job-is-in-process-to-the-same-destination"></a>UserErrorDTSDestLocked-è in corso un processo di ripristino per la stessa destinazione
+
+Codice di errore: UserErrorDTSDestLocked
+
+Messaggio di errore: processo di ripristino nella stessa destinazione.
+
+- Il backup della condivisione file non supporta il ripristino parallelo nella stessa condivisione file di destinazione.
+
+- Attendere che termini il ripristino in corso e quindi riprovare. Se non è possibile trovare un processo di ripristino nell'insieme di credenziali di servizi di ripristino, controllare gli altri insiemi di credenziali dei servizi di ripristino nella stessa sottoscrizione.
+
+### <a name="usererrortargetfilesharefull--restore-operation-failed-as-target-file-share-is-full"></a>UserErrorTargetFileShareFull-operazione di ripristino non riuscita perché la condivisione file di destinazione è piena
+
+Codice di errore: UserErrorTargetFileShareFull
+
+Messaggio di errore: l'operazione di ripristino non è riuscita perché la condivisione file di destinazione è piena.
+
+Aumentare la quota delle dimensioni della condivisione file di destinazione in modo da contenere i dati di ripristino e ripetere l'operazione di ripristino.
+
+### <a name="usererrortargetfilesharequotanotsufficient--target-file-share-does-not-have-sufficient-storage-size-quota-for-restore"></a>UserErrorTargetFileShareQuotaNotSufficient-la condivisione file di destinazione non ha una quota di dimensioni di archiviazione sufficiente per il ripristino
+
+Codice di errore: UserErrorTargetFileShareQuotaNotSufficient
+
+Messaggio di errore: la condivisione file di destinazione non ha una quota di dimensioni di archiviazione sufficiente per il ripristino
+
+Aumentare la quota delle dimensioni della condivisione file di destinazione in modo da contenere i dati di ripristino e ripetere l'operazione
+
+### <a name="file-sync-prerestorefailed--restore-operation-failed-as-an-error-occurred-while-performing-pre-restore-operations-on-file-sync-service-resources-associated-with-the-target-file-share"></a>Sincronizzazione file operazione di ripristino PreRestoreFailed non è riuscita perché si è verificato un errore durante l'esecuzione di operazioni di pre-ripristino nelle risorse del servizio Sincronizzazione file associate alla condivisione file di destinazione
+
+Codice di errore: Sincronizzazione file PreRestoreFailed
+
+Messaggio di errore: l'operazione di ripristino non è riuscita perché si è verificato un errore durante l'esecuzione di operazioni di pre-ripristino sulle risorse Sincronizzazione file servizio associate alla condivisione file di destinazione.
+
+Provare a ripristinare i dati in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft.
+
+### <a name="azurefilesyncchangedetectioninprogress--azure-file-sync-service-change-detection-is-in-progress-for-the-target-file-share-the-change-detection-was-triggered-by-a-previous-restore-to-the-target-file-share"></a>AzureFileSyncChangeDetectionInProgress-Sincronizzazione file di Azure il rilevamento delle modifiche del servizio è in corso per la condivisione file di destinazione. Il rilevamento delle modifiche è stato attivato da un ripristino precedente nella condivisione file di destinazione
+
+Codice di errore: AzureFileSyncChangeDetectionInProgress
+
+Messaggio di errore: Sincronizzazione file di Azure il rilevamento delle modifiche del servizio è in corso per la condivisione file di destinazione. Il rilevamento delle modifiche è stato attivato da un ripristino precedente nella condivisione file di destinazione.
+
+Usare una condivisione file di destinazione diversa. In alternativa, è possibile attendere il completamento del rilevamento delle modifiche del servizio Sincronizzazione file di Azure per la condivisione file di destinazione prima di ritentare il ripristino.
+
+### <a name="usererrorafsrecoverysomefilesnotrestored--one-or-more-files-could-not-be-recovered-successfully-for-more-information-check-the-failed-file-list-in-the-path-given-above"></a>UserErrorAFSRecoverySomeFilesNotRestored-non è stato possibile ripristinare correttamente uno o più file. Per ulteriori informazioni, controllare l'elenco di file con errori nel percorso specificato sopra.
+
+Codice di errore: UserErrorAFSRecoverySomeFilesNotRestored
+
+Messaggio di errore: Impossibile ripristinare correttamente uno o più file. Per altre informazioni, vedere l'elenco di file con errori nel percorso sopra specificato.
+
+- I motivi per gli errori di ripristino sono elencati nel file (percorso fornito nei dettagli del processo). Risolvere i motivi e ripetere l'operazione di ripristino solo per i file non riusciti.
+- Cause comuni degli errori di ripristino del file:
+
+  - i file che hanno avuto esito negativo sono attualmente in uso
+  - nella directory padre è presente una directory con lo stesso nome del file in cui si è verificato l'errore.
+
+### <a name="usererrorafssourcesnapshotnotfound--azure-file-share-snapshot-corresponding-to-recovery-point-cannot-be-found"></a>UserErrorAFSSourceSnapshotNotFound: Impossibile trovare lo snapshot di condivisione file di Azure corrispondente al punto di ripristino
+
+Codice di errore: UserErrorAFSSourceSnapshotNotFound
+
+Messaggio di errore: Impossibile trovare lo snapshot di condivisione file di Azure corrispondente al punto di ripristino
+
+- Verificare che lo snapshot di condivisione file, corrispondente al punto di ripristino che si sta tentando di usare per il ripristino, esista ancora.
+
+  >[!NOTE]
+  >Se si elimina uno snapshot di condivisione file creato da backup di Azure, i punti di ripristino corrispondenti diventano inutilizzabili. Si consiglia di non eliminare gli snapshot per garantire il ripristino garantito.
+
+- Provare a selezionare un altro punto di ripristino per ripristinare i dati.
+
+### <a name="usererroranotherrestoreinprogressonsametarget--another-restore-job-is-in-progress-on-the-same-target-file-share"></a>UserErrorAnotherRestoreInProgressOnSameTarget-è in corso un altro processo di ripristino nella stessa condivisione file di destinazione
+
+Codice di errore: UserErrorAnotherRestoreInProgressOnSameTarget
+
+Messaggio di errore: è in corso un altro processo di ripristino nella stessa condivisione file di destinazione
+
+Usare una condivisione file di destinazione diversa. In alternativa, è possibile annullare o attendere il completamento dell'altro ripristino.
+
+## <a name="common-modify-policy-errors"></a>Errori comuni relativi ai criteri di modifica
+
+### <a name="bmsusererrorconflictingprotectionoperation--another-configure-protection-operation-is-in-progress-for-this-item"></a>BMSUserErrorConflictingProtectionOperation-è in corso un'altra operazione di configurazione della protezione per questo elemento
+
+Codice di errore: BMSUserErrorConflictingProtectionOperation
+
+Messaggio di errore: è in corso un'altra operazione di configurazione della protezione per questo elemento.
+
+Attendere il completamento dell'operazione di modifica dei criteri precedente e riprovare in un secondo momento.
+
+### <a name="bmsusererrorobjectlocked--another-operation-is-in-progress-on-the-selected-item"></a>BMSUserErrorObjectLocked-è in corso un'altra operazione sull'elemento selezionato
+
+Codice di errore: BMSUserErrorObjectLocked
+
+Messaggio di errore: è in corso un'altra operazione sull'elemento selezionato.
+
+Attendere il completamento dell'altra operazione in corso e riprovare in un secondo momento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

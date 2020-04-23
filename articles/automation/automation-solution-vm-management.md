@@ -1,50 +1,50 @@
 ---
-title: Avviare/arrestare le macchine virtuali durante la soluzione fuori orarioStart/stop VMs during off-hours solution
-description: Questa soluzione di gestione delle macchine virtuali avvia e arresta le macchine virtuali di Azure in base a una pianificazione e monitora in modo proattivo dai log di Monitoraggio di Azure.This VM management solution starts and stops your Azure virtual machines on a schedule and proactively monitors from Azure Monitor logs.
+title: Soluzione di avvio/arresto di macchine virtuali durante gli orari di indisponibilità
+description: Questa soluzione di gestione delle VM avvia e arresta le macchine virtuali di Azure in base a una pianificazione e monitora in modo proattivo i log di monitoraggio di Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 369e3bcf4e5913f4a3ff82206d1e24a206db3f34
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 0331678b50d2448013556ab0694d0ca87045c3a3
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681305"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096917"
 ---
-# <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Avviare/arrestare le macchine virtuali durante la soluzione fuori orario in Automazione di AzureStart/stop VMs during off-hours solution in Azure Automation
+# <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Avviare/arrestare VM durante gli orari di indisponibilità in automazione di Azure
 
-Avvia/arresta macchine virtuali durante l'avvio o l'arresto delle macchine virtuali di Azure.The **Start/stop VMs during off-hours solution** starts or stops your Azure virtual machines. Avvia o arresta i computer in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite i log di Monitoraggio di Azure e invia messaggi di posta elettronica facoltativi usando i [gruppi di azioni.](../azure-monitor/platform/action-groups.md) La soluzione supporta sia Azure Resource Manager che le macchine virtuali classiche per la maggior parte degli scenari. 
+La soluzione **Avvia/arresta macchine virtuali durante gli orari di** indisponibilità avvia o interrompe le macchine virtuali di Azure. Avvia o arresta le macchine virtuali nelle pianificazioni definite dall'utente, fornisce informazioni dettagliate sui log di monitoraggio di Azure e invia messaggi di posta elettronica facoltativi tramite i [gruppi di azioni](../azure-monitor/platform/action-groups.md). Per la maggior parte degli scenari, la soluzione supporta macchine virtuali sia Azure Resource Manager che classiche. 
 
 Questa soluzione fornisce un'opzione di automazione decentralizzata a basso costo per gli utenti che vogliono ottimizzare i costi delle macchine virtuali. Con questa soluzione, è possibile:
 
-- [Pianificare l'avvio e l'arresto delle macchine virtuali.](automation-solution-vm-management-config.md#schedule)
-- Pianificare l'avvio e l'arresto delle macchine virtuali in ordine crescente [usando i tag](automation-solution-vm-management-config.md#tags) di Azure (non supportati per le macchine virtuali classiche).
-- Arresto automatico delle macchine virtuali in base [all'utilizzo ridotto della CPU.](automation-solution-vm-management-config.md#cpuutil)
+- [Pianificare l'avvio e l'arresto delle macchine virtuali](automation-solution-vm-management-config.md#schedule).
+- Pianificare le macchine virtuali per l'avvio e l'arresto in ordine crescente [usando i tag di Azure](automation-solution-vm-management-config.md#tags) (non supportati per le macchine virtuali classiche).
+- Arrestare le macchine virtuali in base a un [utilizzo ridotto della CPU](automation-solution-vm-management-config.md#cpuutil).
 
 > [!NOTE]
-> La soluzione **Avvia/arresta macchine virtuali durante le ore** non orariè è stata aggiornata per supportare le versioni più recenti dei moduli di Azure disponibili.
+> La soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità è stata aggiornata per supportare le versioni più recenti dei moduli di Azure disponibili.
 
-Di seguito sono riportate le limitazioni relative alla soluzione corrente:
+Di seguito sono riportate le limitazioni della soluzione corrente:
 
-- Gestisce le macchine virtuali in qualsiasi area, ma può essere usato solo nella stessa sottoscrizione dell'account di Automazione di Azure.It manages VMs in any region, but can only be used in the same subscription as your Azure Automation account.
-- È disponibile in Azure e Azure per enti pubblici in qualsiasi area che supporti un'area di lavoro di Log Analytics, un account di Automazione di Azure e avvisi. Le aree di Azure per enti pubblici attualmente non supportano la funzionalità di posta elettronica.
+- Gestisce le macchine virtuali in qualsiasi area, ma può essere usato solo nella stessa sottoscrizione dell'account di automazione di Azure.
+- È disponibile in Azure e in Azure per enti pubblici in qualsiasi area che supporta un'area di lavoro Log Analytics, un account di automazione di Azure e gli avvisi. Le aree di Azure per enti pubblici attualmente non supportano la funzionalità di posta elettronica.
 
 ## <a name="solution-prerequisites"></a>Prerequisiti della soluzione
 
-I runbook per questa soluzione funzionano con un [account RunAs di Azure](automation-create-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché utilizza l'autenticazione del certificato anziché una password che potrebbe scadere o modificare frequentemente.
+I runbook per questa soluzione funzionano con un [account RunAs di Azure](automation-create-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password che potrebbe scadere o modificare di frequente.
 
-È consigliabile usare un account di automazione separato per la soluzione **Start/stop VMs durante le ore non orari.** Le versioni dei moduli di Azure vengono aggiornate di frequente e i relativi parametri potrebbero cambiare. La soluzione non viene aggiornata alla stessa cadenza e potrebbe non funzionare con le versioni più recenti dei cmdlet utilizzati. Ti consigliamo di testare gli aggiornamenti dei moduli in un account di automazione di test prima di importarli negli account di Automazione di produzione.
+Si consiglia di usare un account di automazione separato per la soluzione **avvio/arresto di macchine virtuali durante gli orari di** indisponibilità. Le versioni dei moduli di Azure vengono aggiornate di frequente ed è possibile che i relativi parametri cambino. La soluzione non viene aggiornata alla stessa cadenza e potrebbe non funzionare con le versioni più recenti dei cmdlet usati. È consigliabile testare gli aggiornamenti dei moduli in un account di automazione di test prima di importarli negli account di automazione di produzione.
 
-## <a name="solution-permissions"></a>Autorizzazioni soluzione
+## <a name="solution-permissions"></a>Autorizzazioni della soluzione
 
-È necessario disporre di determinate autorizzazioni per distribuire le macchine virtuali di **avvio/arresto durante** la soluzione fuori orario. Le autorizzazioni sono diverse se la soluzione utilizza un account di automazione creato in precedena e un'area di lavoro di Log Analytics dalle autorizzazioni necessarie se la soluzione crea un nuovo account e un nuovo'area di lavoro durante la distribuzione. 
+È necessario disporre di determinate autorizzazioni per la distribuzione della soluzione **Avvia/arresta macchine virtuali durante gli orari** di indisponibilità. Le autorizzazioni sono diverse se la soluzione USA un account di automazione creato in precedenza e Log Analytics area di lavoro dalle autorizzazioni necessarie se la soluzione crea un nuovo account e un'area di lavoro durante la distribuzione. 
 
-Non è necessario configurare le autorizzazioni se si è un collaboratore della sottoscrizione e un amministratore globale nel tenant di Azure Active Directory.You don't need to configure permissions if you're a Contributor on the subscription and a Global Administrator in your Azure Active Directory tenant. Se non si dispone di questi diritti o è necessario configurare un ruolo personalizzato, assicurarsi di disporre delle autorizzazioni descritte di seguito.
+Non è necessario configurare le autorizzazioni se si è un collaboratore per la sottoscrizione e un amministratore globale nel tenant del Azure Active Directory. Se non si dispone di questi diritti o se è necessario configurare un ruolo personalizzato, assicurarsi di disporre delle autorizzazioni descritte di seguito.
 
-### <a name="permissions-for-pre-existing-automation-account-and-log-analytics-workspace"></a>Autorizzazioni per l'account di automazione preesistente e l'area di lavoro di Log Analytics
+### <a name="permissions-for-pre-existing-automation-account-and-log-analytics-workspace"></a>Autorizzazioni per l'account di automazione preesistente e l'area di lavoro Log Analytics
 
-Per distribuire le macchine virtuali di **avvio/arresto durante** la soluzione fuori orario in un account di automazione esistente e un'area di lavoro di Log Analytics, l'utente che distribuisce la soluzione richiede le autorizzazioni seguenti per l'ambito del gruppo di risorse. Per altre informazioni sui ruoli, vedere Ruoli personalizzati per le risorse di Azure.To learn more about roles, see [Custom roles for Azure resources.](../role-based-access-control/custom-roles.md)
+Per distribuire la soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità in un account di automazione esistente e in log Analytics area di lavoro, l'utente che distribuisce la soluzione richiede le autorizzazioni seguenti per l'ambito del gruppo di risorse. Per altre informazioni sui ruoli, vedere [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md).
 
 | Autorizzazione | Scope|
 | --- | --- |
@@ -56,30 +56,30 @@ Per distribuire le macchine virtuali di **avvio/arresto durante** la soluzione f
 | Microsoft.Automation/automationAccounts/certificates/write | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/modules/write | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/modules/read | Gruppo di risorse |
-| Microsoft.automation/automationAccounts/jobSchedules/write | Gruppo di risorse |
+| Microsoft. Automation/automationAccounts/jobSchedules/Write | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/jobs/write | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/jobs/read | Gruppo di risorse |
 | Microsoft.OperationsManagement/solutions/write | Gruppo di risorse |
-| Microsoft.OperationalInsights/workspaces/. | Gruppo di risorse |
-| Microsoft.Insights/diagnosticSettings/write | Gruppo di risorse |
+| Microsoft. OperationalInsights/Workspaces/* | Gruppo di risorse |
+| Microsoft. Insights/diagnosticSettings/scrittura | Gruppo di risorse |
 | Microsoft.Insights/ActionGroups/Write | Gruppo di risorse |
-| Microsoft.Insights/ActionGroups/lettura | Gruppo di risorse |
+| Microsoft. Insights/ActionGroups/lettura | Gruppo di risorse |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gruppo di risorse |
 | Microsoft.Resources/deployments/* | Gruppo di risorse |
 
-### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>Autorizzazioni per il nuovo account di automazione e la nuova area di lavoro di Log Analytics
+### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>Autorizzazioni per il nuovo account di automazione e la nuova area di lavoro Log Analytics
 
-È possibile distribuire le macchine virtuali di avvio/arresto durante la soluzione fuori orario in un nuovo account di automazione e nell'area di lavoro di Log Analytics.You can deploy the **Start/stop VMs during off-hours** solution to a new Automation account and Log Analytics workspace. In questo caso, l'utente che distribuisce la soluzione necessita delle autorizzazioni definite nella sezione precedente e delle autorizzazioni definite in questa sezione. 
+È possibile distribuire la soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità in un nuovo account di automazione e in log Analytics area di lavoro. In questo caso, l'utente che distribuisce la soluzione deve avere le autorizzazioni definite nella sezione precedente, nonché le autorizzazioni definite in questa sezione. 
 
-L'utente che distribuisce la soluzione ha bisogno dei ruoli seguenti:The user deploying the solution needs the following roles:
+Per l'utente che distribuisce la soluzione sono necessari i ruoli seguenti:
 
-- Coamministratore della sottoscrizione. Questo ruolo è necessario per creare l'account RunAs classico se si intende gestire le macchine virtuali classiche. [Gli account RunAs classici](automation-create-standalone-account.md#create-a-classic-run-as-account) non vengono più creati per impostazione predefinita.
-- Appartenenza al ruolo Sviluppatore applicazione [Azure Active Directory.Membership](../active-directory/users-groups-roles/directory-assign-admin-roles.md) in the Azure Active Directory Application Developer role. Per ulteriori informazioni sulla configurazione degli account [RunAs, vedere Autorizzazioni per configurare gli account RunAs](manage-runas-account.md#permissions).
-- Collaboratore per la sottoscrizione o le autorizzazioni seguenti.
+- Coamministratore per la sottoscrizione. Questo ruolo è necessario per creare l'account RunAs classico se si intende gestire le VM classiche. Per impostazione predefinita, gli [account RunAs classici](automation-create-standalone-account.md#create-a-classic-run-as-account) non vengono più creati.
+- Appartenenza al ruolo di sviluppatore dell'applicazione [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) . Per ulteriori informazioni sulla configurazione di account RunAs, vedere [autorizzazioni per la configurazione di account RunAs](manage-runas-account.md#permissions).
+- Collaboratore per la sottoscrizione o per le autorizzazioni seguenti.
 
 | Autorizzazione |Scope|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Subscription|
+| Microsoft. Authorization/Operations/Read | Subscription|
 | Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
@@ -91,146 +91,146 @@ L'utente che distribuisce la soluzione ha bisogno dei ruoli seguenti:The user de
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
-Le macchine virtuali di **avvio/arresto durante le ore non lavorative** includono runbook preconfigurati, pianificazioni e integrazione con i log di Monitoraggio di Azure.The Start/stop VMs during off-hours solution includes preconfigured runbooks, schedules, and integration with Azure Monitor logs. È possibile usare questi elementi per personalizzare l'avvio e l'arresto delle macchine virtuali in base alle esigenze aziendali.
+La **soluzione avvio/arresto di macchine virtuali durante gli orari** di indisponibilità include manuali operativi preconfigurati, pianificazioni e integrazione con i log di monitoraggio di Azure. È possibile usare questi elementi per personalizzare l'avvio e l'arresto delle macchine virtuali in base alle esigenze aziendali.
 
 ### <a name="runbooks"></a>Runbook
 
-Nella tabella seguente sono elencati i runbook che la soluzione distribuisce nell'account di automazione. NON apportare modifiche al codice del runbook. Scrivere invece il proprio runbook per le nuove funzionalità.
+La tabella seguente elenca i manuali operativi distribuiti dalla soluzione nell'account di automazione. Non apportare modifiche al codice Runbook. Scrivere invece il proprio runbook per le nuove funzionalità.
 
 > [!IMPORTANT]
-> Non eseguire direttamente alcun runbook con **figlio** aggiunto al nome.
+> Non eseguire direttamente alcun runbook con **child** aggiunto al nome.
 
-Tutti i runbook `WhatIf` padre includono il parametro. Se impostato su True, il parametro supporta i dettagli del comportamento esatto del runbook quando viene eseguito senza il parametro e verifica che le macchine virtuali corrette siano destinate. Un runbook esegue le azioni `WhatIf` definite solo quando il parametro è impostato su False.A runbook performs its defined actions only when the parameter is set to False.
+Tutti manuali operativi padre includono il `WhatIf` parametro. Quando è impostato su true, il parametro supporta il dettaglio del comportamento esatto che Runbook accetta quando viene eseguito senza il parametro e verifica che le VM corrette siano destinate. Un Runbook esegue le azioni definite solo quando il `WhatIf` parametro è impostato su false.
 
 |Runbook | Parametri | Descrizione|
 | --- | --- | ---|
-|AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chiamato dal runbook padre. Questo runbook crea avvisi per ogni risorsa per lo scenario di arresto automatico.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True o False  | Crea o aggiorna le regole di avviso di Azure nelle macchine virtuali nella sottoscrizione o nei gruppi di risorse selezionati. <br> `VMList`è un elenco separato da virgole di macchine virtuali. Ad esempio: `vm1, vm2, vm3`.<br> `WhatIf`consente la convalida della logica del runbook senza eseguire.|
+|AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chiamato dal runbook padre. Questo runbook crea avvisi in base alle singole risorse per lo scenario di arresto automatico.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True o False  | Crea o aggiorna le regole di avviso di Azure nelle macchine virtuali nella sottoscrizione o nei gruppi di risorse selezionati. <br> `VMList`è un elenco delimitato da virgole di macchine virtuali. Ad esempio: `vm1, vm2, vm3`.<br> `WhatIf`Abilita la convalida della logica Runbook senza eseguire.|
 |AutoStop_Disable | nessuno | Disabilita gli avvisi di arresto automatico e la pianificazione predefinita.|
-|AutoStop_VM_Child | WebHookData | Chiamato dal runbook padre. Le regole di avviso chiamano questo runbook per arrestare una macchina virtuale classica.|
-|AutoStop_VM_Child_ARM | WebHookData |Chiamato dal runbook padre. Le regole di avviso chiamano questo runbook per arrestare una macchina virtuale.  |
-|ScheduledStartStop_Base_Classic | CloudServiceName<br> Azione: avvio o arresto<br> VMList  | Esegue l'avvio o l'arresto dell'azione nel gruppo di macchine virtuali classico da parte di Servizi cloud. |
+|AutoStop_VM_Child | WebHookData | Chiamato dal runbook padre. Le regole di avviso chiamano questo Runbook per arrestare una macchina virtuale classica.|
+|AutoStop_VM_Child_ARM | WebHookData |Chiamato dal runbook padre. Le regole di avviso chiamano questo Runbook per arrestare una macchina virtuale.  |
+|ScheduledStartStop_Base_Classic | CloudServiceName<br> Azione: avvio o arresto<br> VMList  | Esegue l'avvio o l'arresto dell'azione nel gruppo di VM classico per servizi cloud. |
 |ScheduledStartStop_Child | VMName <br> Azione: avvio o arresto <br> ResourceGroupName | Chiamato dal runbook padre. Esegue un'azione di avvio o arresto per l'arresto pianificato.|
-|ScheduledStartStop_Child_Classic | VMName<br> Azione: avvio o arresto<br> ResourceGroupName | Chiamato dal runbook padre. Esegue un'azione di avvio o di arresto per l'arresto pianificato per le macchine virtuali classiche. |
-|ScheduledStartStop_Parent | Azione: avvio o arresto <br>VMList <br> WhatIf: True o False | Avvia o arresta tutte le macchine virtuali nella sottoscrizione. Modificare le `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` variabili ed eseguire solo su questi gruppi di risorse di destinazione. È anche possibile escludere macchine `External_ExcludeVMNames` virtuali specifiche aggiornando la variabile.|
-|SequencedStartStop_Parent | Azione: avvio o arresto <br> WhatIf: True o False<br>VMList| Crea tag denominati **sequencestart** e **sequencestop** in ogni macchina virtuale per cui si vuole sequenziare l'attività di avvio/arresto. I nomi dei tag distinguono tra maiuscole e minuscole. Il valore del tag deve essere un numero intero positivo (1, 2, 3) corrispondente all'ordine in cui si vuole eseguire l'avvio o l'arresto. <br>**Nota:** le macchine virtuali devono `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames`essere `External_ExcludeVMNames` all'interno di gruppi di risorse definiti in , e variabili. Devono avere i tag appropriati perché le azioni abbiano effetto.|
+|ScheduledStartStop_Child_Classic | VMName<br> Azione: avvio o arresto<br> ResourceGroupName | Chiamato dal runbook padre. Esegue un'azione di avvio o arresto per l'arresto pianificato per le macchine virtuali classiche. |
+|ScheduledStartStop_Parent | Azione: avvio o arresto <br>VMList <br> WhatIf: True o False | Avvia o arresta tutte le macchine virtuali nella sottoscrizione. Modificare le variabili `External_Start_ResourceGroupNames` ed `External_Stop_ResourceGroupNames` eseguire solo in questi gruppi di risorse di destinazione. È anche possibile escludere macchine virtuali specifiche aggiornando la `External_ExcludeVMNames` variabile.|
+|SequencedStartStop_Parent | Azione: avvio o arresto <br> WhatIf: True o False<br>VMList| Crea tag denominati **sequencestart** e **sequencestop** in ogni macchina virtuale per cui si vuole sequenziare l'attività di avvio/arresto. I nomi dei tag distinguono tra maiuscole e minuscole. Il valore del tag deve essere un numero intero positivo (1, 2, 3) corrispondente all'ordine in cui si vuole eseguire l'avvio o l'arresto. <br>**Nota**: le macchine virtuali devono trovarsi all'interno `External_Start_ResourceGroupNames`di `External_Stop_ResourceGroupNames`gruppi di `External_ExcludeVMNames` risorse definiti nelle variabili, e. Devono avere i tag appropriati perché le azioni abbiano effetto.|
 
 ### <a name="variables"></a>variables
 
-La tabella seguente elenca le variabili create nell'account di Automazione. Modifica solo le `External`variabili precedute da . La modifica di `Internal` variabili precedute da prefisso causa effetti indesiderati.
+La tabella seguente elenca le variabili create nell'account di Automazione. Modificare solo le variabili con `External`prefisso. La modifica delle variabili con `Internal` prefisso causa effetti indesiderati.
 
 > [!NOTE]
-> Le limitazioni relative al nome della macchina virtuale e al gruppo di risorse sono in gran parte il risultato della dimensione della variabile. Vedere [Asset variabili in Automazione di Azure.See Variable assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
+> Le limitazioni per il nome della macchina virtuale e il gruppo di risorse sono in gran parte un risultato di dimensioni variabili. Vedere [Asset variabili in automazione di Azure](https://docs.microsoft.com/azure/automation/shared-resources/variables).
 
 |Variabile | Descrizione|
 |---------|------------|
-|External_AutoStop_Condition | Operatore condizionale necessario per configurare la condizione prima che venga attivato un avviso. I valori `GreaterThan` `GreaterThanOrEqual`accettabili `LessThan`sono `LessThanOrEqual`, , , e .|
+|External_AutoStop_Condition | Operatore condizionale necessario per configurare la condizione prima che venga attivato un avviso. I valori accettabili `GreaterThanOrEqual`sono `LessThan` `GreaterThan`,, `LessThanOrEqual`e.|
 |External_AutoStop_Description | Avviso per l'arresto della macchina virtuale se la percentuale della CPU supera la soglia di avviso.|
 |External_AutoStop_Frequency | Frequenza di valutazione per la regola. Questo parametro accetta l'input nel formato timespan. I valori possibili sono compresi tra 5 minuti e 6 ore. |
 |External_AutoStop_MetricName | Nome della metrica delle prestazioni per cui deve essere configurata la regola di avviso di Azure.|
-|External_AutoStop_Severity | Gravità dell'avviso metrico, che può variare da 0 a 4. |
-|External_AutoStop_Threshold | Soglia per la regola di avviso `External_AutoStop_MetricName`di Azure specificata nella variabile . I valori percentuali sono compresi tra 1 e 100.|
-|External_AutoStop_TimeAggregationOperator | Operatore di aggregazione temporale applicato alla dimensione della finestra selezionata per valutare la condizione. I valori `Average` `Minimum`accettabili `Maximum` `Total`sono `Last`, , , , e .|
-|External_AutoStop_TimeWindow | Dimensioni della finestra durante la quale Azure analizza le metriche selezionate per l'attivazione di un avviso. Questo parametro accetta l'input nel formato timespan. I valori possibili sono compresi tra 5 minuti e 6 ore.|
-|External_EnableClassicVMs| Valore che specifica se le macchine virtuali classiche sono destinate alla soluzione. Il valore predefinito è True. Impostare questa variabile su False per le sottoscrizioni di Azure Cloud Solution Provider (CSP). Le macchine virtuali classiche richiedono un [account RunAs classico.](automation-create-standalone-account.md#create-a-classic-run-as-account)|
-|External_ExcludeVMNames | Elenco delimitato da virgole di nomi di macchine virtuali da escludere, limitato a 140 macchine virtuali. Se si aggiungono più di 140 macchine virtuali all'elenco, le macchine virtuali che sono impostate per l'esclusione potrebbero essere avviate o arrestate inavvertitamente.|
-|External_Start_ResourceGroupNames | Elenco delimitato da virgole di uno o più gruppi di risorse di destinazione per le azioni di avvio.|
-|External_Stop_ResourceGroupNames | Elenco delimitato da virgole di uno o più gruppi di risorse di destinazione per le azioni di arresto.|
-|External_WaitTimeForVMRetrySeconds |Tempo di attesa in secondi per l'esecuzione delle azioni nelle macchine virtuali per il runbook **SequencedStartStop_Parent.** Questa variabile consente al runbook di attendere le operazioni figlio per un numero specificato di secondi prima di procedere con l'azione successiva. Il tempo di attesa massimo è 10800 o tre ore. Il valore predefinito è 2100 secondi.|
+|External_AutoStop_Severity | Gravità dell'avviso della metrica, che può variare da 0 a 4. |
+|External_AutoStop_Threshold | Soglia per la regola di avviso di Azure specificata nella variabile `External_AutoStop_MetricName`. I valori percentuali sono compresi tra 1 e 100.|
+|External_AutoStop_TimeAggregationOperator | Operatore di aggregazione temporale applicato alle dimensioni della finestra selezionata per valutare la condizione. I `Average`valori accettabili `Minimum`sono `Maximum`, `Total`,, `Last`e.|
+|External_AutoStop_TimeWindow | Dimensioni della finestra durante le quali Azure analizza le metriche selezionate per l'attivazione di un avviso. Questo parametro accetta l'input nel formato timespan. I valori possibili sono compresi tra 5 minuti e 6 ore.|
+|External_EnableClassicVMs| Valore che specifica se le VM classiche sono destinate alla soluzione. Il valore predefinito è True. Impostare questa variabile su false per le sottoscrizioni Azure Cloud Solution Provider (CSP). Le macchine virtuali classiche richiedono un [account RunAs classico](automation-create-standalone-account.md#create-a-classic-run-as-account).|
+|External_ExcludeVMNames | Elenco delimitato da virgole di nomi di VM da escludere, limitato a 140 VM. Se si aggiungono più di 140 VM all'elenco, le macchine virtuali che sono impostate per essere escluse potrebbero essere inavvertitamente avviate o arrestate.|
+|External_Start_ResourceGroupNames | Elenco delimitato da virgole di uno o più gruppi di risorse destinati alle azioni di avvio.|
+|External_Stop_ResourceGroupNames | Elenco delimitato da virgole di uno o più gruppi di risorse destinati alle azioni di arresto.|
+|External_WaitTimeForVMRetrySeconds |Il tempo di attesa in secondi per l'esecuzione delle azioni sulle macchine virtuali per l' **SequencedStartStop_Parent** Runbook. Questa variabile consente al Runbook di attendere le operazioni figlio per un numero specificato di secondi prima di procedere con l'azione successiva. Il tempo di attesa massimo è 10800 o tre ore. Il valore predefinito è 2100 secondi.|
 |Internal_AutomationAccountName | Specifica il nome dell'account di Automazione.|
-|Internal_AutoSnooze_ARM_WebhookURI | L'URI webhook chiamato per lo scenario AutoStop per le macchine virtuali.|
-|Internal_AutoSnooze_WebhookUri | L'URI webhook chiamato per lo scenario AutoStop per le macchine virtuali classiche.|
+|Internal_AutoSnooze_ARM_WebhookURI | URI del webhook chiamato per lo scenario autostop per le macchine virtuali.|
+|Internal_AutoSnooze_WebhookUri | L'URI del webhook chiamato per lo scenario autostop per le macchine virtuali classiche.|
 |Internal_AzureSubscriptionId | ID sottoscrizione di Azure.|
-|Internal_ResourceGroupName | Nome del gruppo di risorse Account di automazione.|
+|Internal_ResourceGroupName | Nome del gruppo di risorse dell'account di automazione.|
 
 >[!NOTE]
->Per la `External_WaitTimeForVMRetryInSeconds`variabile , il valore predefinito è stato aggiornato da 600 a 2100. 
+>Per la variabile `External_WaitTimeForVMRetryInSeconds`, il valore predefinito è stato aggiornato da 600 a 2100. 
 
-In tutti gli `External_Start_ResourceGroupNames`scenari, le variabili `External_Stop_ResourceGroupNames`, e `External_ExcludeVMNames` sono necessarie per la destinazione delle macchine virtuali, ad eccezione degli elenchi di macchine virtuali separate da virgole per i AutoStop_CreateAlert_Parent, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** runbook. **AutoStop_CreateAlert_Parent** In altre parte, le macchine virtuali devono appartenere a gruppi di risorse di destinazione affinché si verifichino azioni di avvio e arresto. La logica funziona in modo simile ai criteri di Azure perché è possibile specificare come destinazione la sottoscrizione o il gruppo di risorse e lasciare che le azioni vengano ereditate dalle nuove macchine virtuali create. Questo approccio evita di dover mantenere una pianificazione separata per ogni macchina virtuale e di gestire gli avvii e gli arresti in scala.
+In tutti gli scenari, le `External_Start_ResourceGroupNames`variabili `External_Stop_ResourceGroupNames`, e `External_ExcludeVMNames` sono necessarie per la destinazione delle macchine virtuali, ad eccezione degli elenchi di VM delimitati da virgole per il **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** manuali operativi. In altre parole, è necessario che le macchine virtuali appartengano ai gruppi di risorse di destinazione per le azioni di avvio e arresto. La logica funziona in modo simile ai criteri di Azure perché è possibile specificare come destinazione la sottoscrizione o il gruppo di risorse e lasciare che le azioni vengano ereditate dalle nuove macchine virtuali create. Questo approccio evita di dover mantenere una pianificazione separata per ogni macchina virtuale e di gestire gli avvii e gli arresti in scala.
 
 ### <a name="schedules"></a>Pianificazioni
 
-Nella tabella seguente sono elencate le pianificazioni create nell'account di Automazione.È possibile modificarle o creare le proprie pianificazioni personalizzate.Per impostazione predefinita, tutte le pianificazioni sono disabilitate, ad eccezione delle **pianificazioni Scheduled_StartVM** e **Scheduled_StopVM.**
+Nella tabella seguente sono elencate le pianificazioni create nell'account di Automazione.È possibile modificarle o creare le proprie pianificazioni personalizzate.Per impostazione predefinita, tutte le pianificazioni sono disabilitate ad eccezione delle pianificazioni **Scheduled_StartVM** e **Scheduled_StopVM** .
 
-Non abilitare tutte le pianificazioni, perché questa operazione potrebbe creare azioni di pianificazione sovrapposte. È consigliabile determinare le ottimizzazioni che si desidera eseguire e modificarle di conseguenza. Per altre informazioni, vedere gli scenari di esempio nella sezione Panoramica.
+Non abilitare tutte le pianificazioni, perché questa operazione potrebbe creare azioni di pianificazione sovrapposte. È preferibile determinare quali ottimizzazioni si desidera eseguire e modificare di conseguenza. Per altre informazioni, vedere gli scenari di esempio nella sezione Panoramica.
 
 |Nome pianificazione | Frequenza | Descrizione|
 |--- | --- | ---|
-|Schedule_AutoStop_CreateAlert_Parent | Ogni 8 ore | Esegue il runbook **AutoStop_CreateAlert_Parent** ogni 8 ore, che `External_Start_ResourceGroupNames`a `External_Stop_ResourceGroupNames`sua `External_ExcludeVMNames` volta arresta i valori basati su macchine virtuali in , e variabili. In alternativa, è possibile specificare un elenco separato `VMList` da virgole di macchine virtuali usando il parametro .|
-|Scheduled_StopVM | Definito dall'utente, ogni giorno | Esegue il runbook **ScheduledStopStart_Parent** `Stop` con un parametro di ogni giorno all'ora specificata.Arresta automaticamente tutte le macchine virtuali che soddisfano le regole definite dagli asset variabili.Abilitare la pianificazione correlata **Scheduled-StartVM**.|
-|Scheduled_StartVM | Definito dall'utente, ogni giorno | Esegue il runbook **ScheduledStopStart_Parent** con `Start` un valore di parametro di ogni giorno all'ora specificata. Avvia automaticamente tutte le macchine virtuali che soddisfano le regole definite dagli asset variabili.Abilitare la pianificazione correlata **Scheduled-StopVM**.|
-|Sequenced-StopVM | 1:00 (UTC), ogni venerdì | Esegue il runbook **Sequenced_StopStop_Parent** con `Stop` un valore di parametro di ogni venerdì all'ora specificata.Arresterà in sequenza (crescente) tutte le macchine virtuali con un tag **SequenceStop** definito dalle variabili appropriate. Per ulteriori informazioni sui valori dei tag e sulle variabili delle risorse, consultate [Runbook.](#runbooks)Abilitare la pianificazione correlata, **Sequenced-StartVM**.|
-|Sequenced-StartVM | 13:00 (UTC), ogni lunedì | Esegue il runbook **SequencedStopStart_Parent** con `Start` un valore di parametro di ogni lunedì all'ora specificata. Avvia in sequenza (decrescente) tutte le macchine virtuali con un tag **SequenceStart** definito dalle variabili appropriate. Per ulteriori informazioni sui valori dei tag e sulle risorse variabili, consultate [Runbook.](#runbooks) Abilitare la pianificazione correlata, **Sequenced-StopVM**.
+|Schedule_AutoStop_CreateAlert_Parent | Ogni 8 ore | Esegue l' **AutoStop_CreateAlert_Parent** Runbook ogni 8 ore, che a sua volta arresta i valori basati su VM `External_Start_ResourceGroupNames`nelle `External_Stop_ResourceGroupNames`variabili, `External_ExcludeVMNames` e. In alternativa, è possibile specificare un elenco delimitato da virgole delle macchine virtuali `VMList` usando il parametro.|
+|Scheduled_StopVM | Definito dall'utente, giornaliero | Esegue l' **ScheduledStopStart_Parent** runbook con un parametro di `Stop` ogni giorno all'ora specificata.Arresta automaticamente tutte le macchine virtuali che soddisfano le regole definite dalle risorse variabili.Abilitare la pianificazione correlata scheduled **-StartVM**.|
+|Scheduled_StartVM | Definito dall'utente, giornaliero | Esegue l' **ScheduledStopStart_Parent** runbook con un valore di parametro `Start` di ogni giorno all'ora specificata. Avvia automaticamente tutte le macchine virtuali che soddisfano le regole definite dalle risorse variabili.Abilitare la pianificazione correlata scheduled **-StopVM**.|
+|Sequenced-StopVM | 1:00 (UTC), ogni venerdì | Esegue l' **Sequenced_StopStop_Parent** runbook con un valore di parametro `Stop` di ogni venerdì all'ora specificata.Arresterà in sequenza (crescente) tutte le macchine virtuali con un tag **SequenceStop** definito dalle variabili appropriate. Per ulteriori informazioni sui valori di tag e sulle variabili di asset, vedere [manuali operativi](#runbooks).Abilitare la pianificazione correlata, **Sequenced-StartVM**.|
+|Sequenced-StartVM | 13:00 (UTC), ogni lunedì | Esegue l' **SequencedStopStart_Parent** runbook con un valore di parametro `Start` di ogni lunedì all'ora specificata. Avvia in sequenza (decrescente) tutte le macchine virtuali con un tag **SequenceStart** definito dalle variabili appropriate. Per ulteriori informazioni sui valori dei tag e sugli Asset variabili, vedere [manuali operativi](#runbooks). Abilitare la pianificazione correlata, **Sequenced-StopVM**.
 
-## <a name="use-of-the-solution-with-classic-vms"></a>Uso della soluzione con le macchine virtuali classicheUse of the solution with classic VMs
+## <a name="use-of-the-solution-with-classic-vms"></a>Uso della soluzione con le VM classiche
 
-Se si usa la soluzione **Start/stop VMs durante le** macchine virtuali non orariper le macchine virtuali classiche, l'automazione elabora tutte le macchine virtuali in sequenza per ogni servizio cloud. Le macchine virtuali vengono comunque elaborate in parallelo tra diversi servizi cloud. 
+Se si usa la soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità per le macchine virtuali classiche, l'automazione elabora in sequenza tutte le VM per ogni servizio cloud. Le macchine virtuali vengono ancora elaborate in parallelo tra diversi servizi cloud. 
 
-Per usare la soluzione con le macchine virtuali classiche, è necessario un account RunAs classico, che non viene creato per impostazione predefinita. Per istruzioni sulla creazione di un account RunAs classico, consultate [Creare un account RunAs classico.](automation-create-standalone-account.md#create-a-classic-run-as-account)
+Per usare la soluzione con le macchine virtuali classiche, è necessario un account RunAs classico, che non viene creato per impostazione predefinita. Per istruzioni sulla creazione di un account RunAs classico, vedere [creare un account RunAs classico](automation-create-standalone-account.md#create-a-classic-run-as-account).
 
-Se si dispone di più di 20 macchine virtuali per servizio cloud, ecco alcuni consigli:If you have more than 20 VMs per cloud service, here are some recommendations:
+Se sono presenti più di 20 macchine virtuali per ogni servizio cloud, di seguito sono riportati alcuni suggerimenti:
 
-* Creare più pianificazioni con il runbook padre **ScheduledStartStop_Parent** e specificare 20 macchine virtuali per ogni pianificazione. 
-* Nelle proprietà della pianificazione `VMList` usare il parametro per specificare i nomi delle macchine virtuali come elenco separato da virgole. 
+* Creare più pianificazioni con la **ScheduledStartStop_Parent** padre Runbook e specificando 20 VM per ogni pianificazione. 
+* Nelle proprietà della pianificazione, usare il `VMList` parametro per specificare i nomi delle macchine virtuali come elenco delimitato da virgole. 
 
-In caso contrario, se il processo di automazione per questa soluzione viene eseguito più di tre ore, viene temporaneamente scaricato o interrotto in base al limite di [condivisione equa.](automation-runbook-execution.md#fair-share)
+In caso contrario, se il processo di automazione per questa soluzione viene eseguito più di tre ore, viene temporaneamente scaricato o arrestato in base al limite di [condivisione equa](automation-runbook-execution.md#fair-share) .
 
-Le sottoscrizioni di Azure CSP supportano solo il modello di Azure Resource Manager.Azure CSP subscriptions support only the Azure Resource Manager model. I servizi non di Azure Resource Manager non sono disponibili nel programma. Quando le macchine virtuali di **avvio/arresto durante** l'esecuzione della soluzione fuori orario, è possibile che vengano visualizzati errori poiché sono disponibili cmdlet per gestire le risorse classiche. Per altre informazioni su CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Se si usa una sottoscrizione CSP, è necessario impostare la variabile [External_EnableClassicVMs](#variables) su False dopo la distribuzione.
+Le sottoscrizioni di Azure CSP supportano solo il modello di Azure Resource Manager. I servizi non Azure Resource Manager non sono disponibili nel programma. Quando viene eseguita la **soluzione avvio/arresto di macchine virtuali durante gli orari** di indisponibilità, è possibile che si verifichino errori poiché sono presenti cmdlet per la gestione delle risorse classiche. Per altre informazioni su CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Se si usa una sottoscrizione CSP, è necessario impostare la variabile [External_EnableClassicVMs](#variables) su false dopo la distribuzione.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="enable-the-solution"></a>Abilitare la soluzione
 
-Per iniziare a usare la soluzione, seguire i passaggi descritti in [Abilitare la soluzione Start/stop VMs](automation-solution-vm-management-enable.md).
+Per iniziare a usare la soluzione, seguire la procedura descritta in [abilitare la soluzione di avvio/arresto di macchine virtuali](automation-solution-vm-management-enable.md).
 
 ## <a name="view-the-solution"></a>Visualizzare la soluzione
 
-Utilizzare uno dei meccanismi seguenti per accedere alla soluzione dopo averla abilitata:
+Usare uno dei meccanismi seguenti per accedere alla soluzione dopo averla abilitata:
 
-* Nell'account di automazione selezionare **Avvia/Arresta macchina virtuale** in **Risorse correlate**. Nella pagina Avvia/Interrompi macchina virtuale selezionare **Gestisci soluzione** sul lato destro della pagina, in **Gestisci soluzioni start/stop VM**.
+* Dall'account di automazione selezionare **Avvia/Arresta macchina virtuale** in **risorse correlate**. Nella pagina Avvia/Arresta macchina virtuale selezionare **Gestisci la soluzione** dal lato destro della pagina in **Gestisci soluzioni VM di avvio/arresto**.
 
-* Passare all'area di lavoro di Log Analytics collegata all'account di automazione. Dopo aver selezionato l'area di lavoro, scegliere **Soluzioni** nel riquadro sinistro. Nella pagina Soluzioni selezionare la soluzione **Start-Stop-VM [area di lavoro]** dall'elenco.  
+* Passare all'area di lavoro Log Analytics collegata all'account di automazione. Dopo aver selezionato l'area di lavoro, scegliere **soluzioni** dal riquadro sinistro. Nella pagina soluzioni selezionare la soluzione **Start-Stop-VM [workspace]** nell'elenco.  
 
-Selezionando la soluzione, viene visualizzata la pagina della soluzione **Start-Stop-VM[workspace]** (Avvio-Arresto-VM[Area di lavoro]), Qui è possibile esaminare i dettagli importanti, ad esempio le informazioni nel riquadro **StartStopVM.Here** you can review important details, such as the information in the StartStopVM tile. Come nell'area di lavoro Log Analytics, questo riquadro mostra un conteggio e una rappresentazione grafica dei processi di runbook della soluzione che sono stati avviati e completati.
+Selezionando la soluzione, viene visualizzata la pagina della soluzione **Start-Stop-VM[workspace]** (Avvio-Arresto-VM[Area di lavoro]), Qui è possibile esaminare i dettagli importanti, come le informazioni nel riquadro **StartStopVM** . Come nell'area di lavoro Log Analytics, questo riquadro mostra un conteggio e una rappresentazione grafica dei processi di runbook della soluzione che sono stati avviati e completati.
 
 ![Pagina della soluzione Gestione aggiornamenti di Automazione](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-È possibile eseguire un'ulteriore analisi dei record di processo facendo clic sul riquadro ciambella. Il dashboard della soluzione mostra la cronologia dei processi e le query di ricerca log predefinite. Passare al portale avanzato di analisi dei log per eseguire la ricerca in base alle query di ricerca.
+È possibile eseguire un'ulteriore analisi dei record del processo facendo clic sul riquadro ad anello. Il dashboard della soluzione Mostra la cronologia processo e le query di ricerca log predefinite. Passare al portale avanzato di log Analytics per eseguire la ricerca in base alle query di ricerca.
 
 ## <a name="update-the-solution"></a>Aggiornare la soluzione
 
-Se è stata distribuita una versione precedente di questa soluzione, eliminarla dall'account prima di distribuire una versione aggiornata. Seguire i passaggi per [rimuovere la soluzione](#remove-the-solution) e quindi seguire i passaggi per distribuire la [soluzione](automation-solution-vm-management-enable.md).
+Se è stata distribuita una versione precedente di questa soluzione, eliminarla dall'account prima di distribuire una versione aggiornata. Seguire i passaggi per [rimuovere la soluzione](#remove-the-solution) e quindi seguire i passaggi per la [distribuzione della soluzione](automation-solution-vm-management-enable.md).
 
 ## <a name="remove-the-solution"></a>Rimuovere la soluzione
 
-Se non è più necessario utilizzare la soluzione, è possibile eliminarla dall'account di automazione. Eliminando la soluzione, vengono rimossi solo i runbook. Non vengono eliminate le pianificazioni o le variabili create quando la soluzione è stata aggiunta. Rimuovi queste risorse manualmente se non le usi con altri runbook.
+Se non è più necessario usare la soluzione, è possibile eliminarla dall'account di automazione. Eliminando la soluzione, vengono rimossi solo i runbook. Non vengono eliminate le pianificazioni o le variabili create quando la soluzione è stata aggiunta. Rimuovere questi asset manualmente se non vengono usati con altri manuali operativi.
 
 Per eliminare la soluzione:
 
-1. Dall'account Automazione selezionare **Area di lavoro collegata** in **Risorse correlate**.
+1. Dall'account di automazione selezionare **area di lavoro collegata** in **risorse correlate**.
 
 2. Selezionare **Vai all'area di lavoro**.
 
-3. Fare clic su **Soluzioni** in **Generale**. 
+3. Fare clic su **soluzioni** in **generale**. 
 
 4. Nella pagina Soluzioni selezionare la soluzione **Start-Stop-VM[Workspace]** (Avvio-Arresto-VM[Area di lavoro]). 
 
-5. Nella pagina **VMManagementSolution[Workspace]** selezionare **Delete** dal menu.<br><br> ![Eliminare una soluzione di gestione di macchine virtuali](media/automation-solution-vm-management/vm-management-solution-delete.png)
+5. Nella pagina **VMManagementSolution [workspace]** selezionare **Elimina** dal menu.<br><br> ![Eliminare una soluzione di gestione di macchine virtuali](media/automation-solution-vm-management/vm-management-solution-delete.png)
 
 6. Nella finestra **Elimina soluzione** confermare che si desidera eliminare la soluzione.
 
-7. Mentre le informazioni vengono verificate e la soluzione viene eliminata, è possibile tenere traccia dello stato di avanzamento in **Notifiche**, scelto dal menu. Si torna alla pagina Soluzioni dopo l'avvio del processo di rimozione della soluzione.
+7. Mentre le informazioni vengono verificate e la soluzione viene eliminata, è possibile tenere traccia dello stato di avanzamento in **notifiche**, scelto dal menu. Dopo il processo di rimozione della soluzione, viene visualizzata nuovamente la pagina soluzioni.
 
-L'account di Automazione e l'area di lavoro Log Analytics non vengono eliminati come parte del processo. Se non si vuole mantenere l'area di lavoro log Analytics, è necessario eliminarla manualmente dal portale di Azure:If you don't want to keep the Log Analytics workspace, you must manually delete it from the Azure portal:
+L'account di Automazione e l'area di lavoro Log Analytics non vengono eliminati come parte del processo. Se non si vuole tenere l'area di lavoro Log Analytics, è necessario eliminarla manualmente dalla portale di Azure:
 
-1. Cercare e selezionare **Aree di lavoro**di Log Analytics .
+1. Cercare e selezionare **aree di lavoro log Analytics**.
 
-2. Nella pagina Area di lavoro di Log Analytics selezionare l'area di lavoro.
+2. Nella pagina area di lavoro Log Analytics selezionare l'area di lavoro.
 
 3. Scegliere **Elimina** dal menu nella pagina delle impostazioni dell'area di lavoro.
 
-4. Se non si vuole mantenere i [componenti](#solution-components)della soluzione dell'account di Automazione di Azure, è possibile eliminarli manualmente.
+4. Se non si vogliono tenere i [componenti della soluzione](#solution-components)dell'account di automazione di Azure, è possibile eliminarli manualmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Abilitare](automation-solution-vm-management-enable.md) la soluzione Start/stop VMs durante le ore non orari per le macchine virtuali di Azure.Enable the **Start/stop VMs during off-hours** solution for your Azure VMs.
+[Abilitare](automation-solution-vm-management-enable.md) la soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità per le macchine virtuali di Azure.

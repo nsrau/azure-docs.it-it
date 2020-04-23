@@ -1,24 +1,23 @@
 ---
-title: Controlli di sicurezza per macchine virtuali Windows di AzureSecurity controls for Azure Windows Virtual Machines
-description: Elenco di controllo dei controlli di sicurezza per la valutazione delle macchine virtuali Windows di Azure
-services: virtual-machines
+title: Controlli di sicurezza per Azure macchine virtuali Windows
+description: Elenco di controllo dei controlli di sicurezza per la valutazione di Azure macchine virtuali Windows
 ms.service: virtual-machines
-documentationcenter: ''
+ms.subservice: security
 author: msmbaldwin
 manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 569c989e8876bb7213d1469c7a70da99aa0b1e9c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ac1ed9ac25d65d0391175fc6d43b48048da74926
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455343"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101587"
 ---
-# <a name="security-controls-for-windows-virtual-machines"></a>Controlli di sicurezza per macchine virtuali WindowsSecurity controls for Windows Virtual Machines
+# <a name="security-controls-for-windows-virtual-machines"></a>Controlli di sicurezza per macchine virtuali Windows
 
-In questo articolo vengono documentati i controlli di sicurezza incorporati in Macchine virtuali Windows.This article documents the security controls built into Windows Virtual Machines.
+Questo articolo descrive i controlli di sicurezza incorporati in macchine virtuali Windows.
 
 [!INCLUDE [Security controls header](../../../includes/security-controls-header.md)]
 
@@ -26,18 +25,18 @@ In questo articolo vengono documentati i controlli di sicurezza incorporati in M
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Supporto dell'endpoint di servizioService endpoint support| Sì | |
-| Supporto per l'inserimento di vNet| Sì | |
-| Supporto per l'isolamento della rete e il firewall| Sì |  |
-| Supporto per il tunneling forzato| Sì | Vedere [Configurare il tunneling forzato usando il modello](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm)di distribuzione di Azure Resource Manager. |
+| Supporto per endpoint di servizio| Sì | |
+| Supporto di VNet Injection| Sì | |
+| Isolamento rete e supporto del firewall| Sì |  |
+| Supporto del tunneling forzato| Sì | Vedere [configurare il tunneling forzato usando il modello di distribuzione Azure Resource Manager](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
 
-## <a name="monitoring--logging"></a>Monitoraggio della registrazione dei &
+## <a name="monitoring--logging"></a>Monitoraggio & registrazione
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto per il monitoraggio di Azure (analisi dei log, informazioni dettagliate sulle app e così via)Azure monitoring support (Log analytics, App insights, etc.)| Sì | [Monitorare e aggiornare una macchina virtuale Windows in Azure.](tutorial-monitoring.md) |
-| Controllo e gestione del controllo e dell'audit degli aerei| Sì |  |
-| Registrazione e controllo dei piani dati | No |  |
+| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | [Monitorare e aggiornare una macchina virtuale Windows in Azure](tutorial-monitoring.md). |
+| Registrazione e controllo del piano di gestione e controllo| Sì |  |
+| Registrazione e controllo del piano dati | No |  |
 
 ## <a name="identity"></a>Identità
 
@@ -50,10 +49,10 @@ In questo articolo vengono documentati i controlli di sicurezza incorporati in M
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia lato server inattivi: chiavi gestite da MicrosoftServer-side encryption at rest: Microsoft-managed keys | Sì | Vedere [Crittografare i dischi virtuali in una macchina virtuale Windows](/azure/virtual-machines/windows/disk-encryption-overview). |
-| Crittografia in transito (ad esempio crittografia ExpressRoute, nella crittografia della rete virtuale e crittografia VNet-VNet )| Sì | Macchine virtuali di Azure supporta la crittografia ExpressRoute e VNet.Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNet encryption. Vedere [Crittografia in transito nelle macchine virtuali](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
-| Crittografia lato server inattivi: chiavi gestite dal cliente (BYOK)Server-side encryption at rest: customer-managed keys (BYOK) | Sì | Le chiavi gestite dal cliente sono uno scenario di crittografia di Azure supportato. vedere [Panoramica della crittografia](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)di Azure .|
-| Crittografia a livello di colonna (Azure Data Services)Column level encryption (Azure Data Services)| N/D | |
+| Crittografia lato server: chiavi gestite da Microsoft | Sì | Vedere [crittografare i dischi virtuali in una macchina virtuale Windows](/azure/virtual-machines/windows/disk-encryption-overview). |
+| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Macchine virtuali di Azure supporta la crittografia [ExpressRoute](/azure/expressroute) e VNet. Vedere [crittografia in transito nelle VM](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
+| Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Sì | Chiavi gestite dal cliente è uno scenario di crittografia di Azure supportato. vedere [Panoramica di crittografia di Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
+| Crittografia a livello di colonna (servizi dati di Azure)| N/D | |
 | Chiamate API crittografate| Sì | Tramite HTTPS e TLS. |
 
 
@@ -66,4 +65,4 @@ In questo articolo vengono documentati i controlli di sicurezza incorporati in M
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui controlli di sicurezza incorporati nei servizi di Azure.Learn more about the [built-in security controls across Azure services](../../security/fundamentals/security-controls.md).
+- Altre informazioni sui [controlli di sicurezza incorporati nei servizi di Azure](../../security/fundamentals/security-controls.md).

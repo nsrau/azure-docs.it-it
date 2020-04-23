@@ -1,20 +1,18 @@
 ---
-title: Creare una macchina virtuale da un disco rigido virtuale generalizzato caricatoCreate a VM from an uploaded generalized VHD
+title: Creare una macchina virtuale da un disco rigido virtuale generalizzato caricato
 description: Caricare un disco rigido virtuale generalizzato in Azure e usarlo per creare nuove macchine virtuali nel modello di distribuzione Azure Resource Manager.
-services: virtual-machines-windows
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 3c482caf2407c89ffdb6c55c9184c31e2e3197c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0947d1cc4e53763c0f31444b8f3d27ba45b19a4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464946"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096410"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure
 
@@ -30,7 +28,7 @@ Per uno script di esempio, vedere [Script di esempio per caricare un disco rigid
  
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalizzare la macchina virtuale di origine con Sysprep
 
-Se non è già stato fatto, è necessario Sysprep la macchina virtuale prima di caricare il disco rigido virtuale in Azure.If you haven't already, you need to Sysprep the VM before uploading the VHD to Azure. Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per i dettagli su Sysprep, vedere [Sysprep Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) (Panoramica di Sysprep).
+Se non è già stato fatto, è necessario eseguire Sysprep nella macchina virtuale prima di caricare il disco rigido virtuale in Azure. Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per i dettagli su Sysprep, vedere [Sysprep Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) (Panoramica di Sysprep).
 
 Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -51,20 +49,20 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
 
 ## <a name="upload-the-vhd"></a>Caricare il disco rigido virtuale 
 
-È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per istruzioni, vedere [Caricare un disco rigido virtuale in Azure usando Azure PowerShell.For instructions, see Upload a VHD to Azure using Azure PowerShell.](disks-upload-vhd-to-managed-disk-powershell.md)
+È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per istruzioni, vedere [caricare un disco rigido virtuale in Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
 
-Una volta caricato il disco rigido virtuale sul disco gestito, è necessario utilizzare [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) per ottenere il disco gestito.
+Una volta caricato il disco rigido virtuale nel disco gestito, è necessario usare [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) per ottenere il disco gestito.
 
 ```azurepowershell-interactive
 $disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 ```
 
 ## <a name="create-the-image"></a>Creare l'immagine
-Creare un'immagine gestita dal disco gestito del sistema operativo generalizzato. Sostituire i valori seguenti con le informazioni personali.
+Creare un'immagine gestita dal disco gestito generalizzato del sistema operativo. Sostituire i valori seguenti con le informazioni personali.
 
-In primo luogo, impostare alcune variabili:
+Impostare innanzitutto alcune variabili:
 
 ```powershell
 $location = 'East US'
@@ -72,7 +70,7 @@ $imageName = 'myImage'
 $rgName = 'myResourceGroup'
 ```
 
-Creare l'immagine utilizzando il disco gestito.
+Creare l'immagine usando il disco gestito.
 
 ```azurepowershell-interactive
 $imageConfig = New-AzImageConfig `

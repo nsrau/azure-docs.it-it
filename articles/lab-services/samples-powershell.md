@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 09b93cc1d1f05e185a1550fb8141423447e802b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44050ab9367572a8160f6e268781478ca3313419
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64730598"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100856"
 ---
 # <a name="azure-powershell-samples-for-azure-lab-services"></a>Esempi di Azure PowerShell per Azure Lab Services
 
@@ -25,9 +25,9 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 
 | |  |
 |---|---|
-|[Aggiungere un utente esterno a un lab](scripts/add-external-user-to-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell aggiunge un utente esterno a un lab in Azure DevTest Labs. |
-|[Aggiungere immagini del Marketplace a un lab](scripts/add-marketplace-images-to-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell aggiunge un'immagine del marketplace a un lab in Azure DevTest Labs. |
-|[Creare un'immagine personalizzata da un disco rigido virtuale](scripts/create-custom-image-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell crea un'immagine personalizzata in un lab di Azure DevTest Labs. |
-|[Creare un ruolo personalizzato in un lab](scripts/create-custom-role-in-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell crea un ruolo personalizzato in un lab di Azure Lab Services. |
-|[Impostare le dimensioni di macchina virtuale consentite in un lab](scripts/set-allowed-vm-sizes-in-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell imposta le dimensioni di macchina virtuale (VM) consentite in un lab. |
+|[Aggiungere un utente esterno a un lab](scripts/add-external-user-to-lab.md)| Questo script di PowerShell aggiunge un utente esterno a un lab in Azure DevTest Labs. |
+|[Aggiungere immagini del Marketplace a un lab](scripts/add-marketplace-images-to-lab.md)| Questo script di PowerShell aggiunge un'immagine del marketplace a un lab in Azure DevTest Labs. |
+|[Creare un'immagine personalizzata da un disco rigido virtuale](scripts/create-custom-image-from-vhd.md)| Questo script di PowerShell crea un'immagine personalizzata in un lab di Azure DevTest Labs. |
+|[Creare un ruolo personalizzato in un lab](scripts/create-custom-role-in-lab.md)| Questo script di PowerShell crea un ruolo personalizzato in un lab di Azure Lab Services. |
+|[Impostare le dimensioni di macchina virtuale consentite in un lab](scripts/set-allowed-vm-sizes-in-lab.md)| Questo script di PowerShell imposta le dimensioni di macchina virtuale (VM) consentite in un lab. |
 

@@ -1,5 +1,5 @@
 ---
-title: Utenti contrassegnati per il rischio nel portale di Azure Active Directory . Documenti Microsoft
+title: Utenti contrassegnati per il rischio nel portale di Azure Active Directory | Microsoft Docs
 description: Informazioni sul report di sicurezza Utenti contrassegnati per il rischio nel portale di Azure Active Directory
 services: active-directory
 author: MarkusVi
@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1360499c4f4f9b2f6cfa07e81d8f692d0353d3
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68989709"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100788"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Correggere gli utenti contrassegnati per il rischio nel portale di Azure Active Directory
 
@@ -32,7 +32,7 @@ Se vengono rilevate attività insolite che possono indicare l'accesso non autori
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Accedere al report Utenti contrassegnati per il rischio
 
-È possibile esaminare gli utenti contrassegnati per il rischio tramite il [report degli utenti a rischio](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) nel portale di Azure. Se non si dispone di Azure AD, è [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)possibile iscriversi gratuitamente all'indirizzo . 
+È possibile esaminare gli utenti contrassegnati per il rischio tramite il [report degli utenti a rischio](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) nel portale di Azure. Se non si dispone di Azure AD, è possibile iscriversi gratuitamente all' [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)indirizzo. 
 
 Nel report Utenti contrassegnati per il rischio è possibile eseguire le azioni seguenti per ogni utente:
 
@@ -46,7 +46,7 @@ Per altre informazioni, vedere il [report sulla sicurezza Utenti contrassegnati 
 
 È anche possibile usare le credenziali di Office 365 per accedere all'**interfaccia di amministrazione di Azure**. Dopo aver attivato l'accesso ad Azure AD, si viene reindirizzati al portale di Azure AD. Con la sottoscrizione di livello Basic, la quantità di dettagli forniti nei report è limitata. La sottoscrizione Premium di Azure mette a disposizione un maggior livello di dati e analisi.
 
-Per accedere al **gruppo Utenti contrassegnati per** i report sui rischi nell'interfaccia di amministrazione di Microsoft 365:
+Per accedere ai report sugli **utenti contrassegnati per il rischio** nell'interfaccia di amministrazione di Microsoft 365:
 
 1.  Nel riquadro di spostamento a sinistra selezionare **Interfacce di amministrazione**. 
 2.  Selezionare **Azure AD**.
@@ -87,7 +87,6 @@ Eseguire queste operazioni per correggere gli account interessati e proteggere l
 
 - Leggere e implementare queste [indicazioni sulla gestione delle attività anomale](https://aka.ms/fixaccount). 
 - [Abilitare la pipeline di controllo](https://aka.ms/improvesecurity) per agevolare l'analisi dell'attività nel tenant. Al termine dell'operazione, l'archivio di controllo avvia la compilazione dei log attività. A questo punto è anche possibile sfruttare [le risorse di ricerca e analisi del centro sicurezza e conformità](https://aka.ms/sccsearch). 
-- Usare questo [script per abilitare il controllo delle cassette postali](https://aka.ms/mailboxaudit1) per tutti gli account. 
 - Esaminare le autorizzazioni delegate e le regole di inoltro della posta per tutte le cassette postali. Per eseguire questa attività è possibile usare questo [script di PowerShell](https://aka.ms/delegateforwardrules). 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,24 +1,18 @@
 ---
-title: Come contrassegnare una risorsa di macchina virtuale Windows in AzureHow to tag a Windows VM resource in Azure
+title: Come contrassegnare una risorsa VM Windows in Azure
 description: Informazioni sull’assegnazione di tag a una macchina virtuale Windows creata in Azure con il modello di distribuzione di Resource Manager
-services: virtual-machines-windows
-documentationcenter: ''
 author: mmccrory
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 8f95c11f93ca2075eb2472ad5bb7360df7d69234
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6ecf0f047fe353d94ca901118d1f434e33e9c8d2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456448"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100567"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Come assegnare un tag a una macchina virtuale Windows in Azure
 Questo articolo descrive diversi modi per contrassegnare una macchina virtuale Windows in Azure tramite il modello di distribuzione Resource Manager. I tag sono coppie chiave/valore definite dall'utente che possono essere inserite direttamente in una risorsa o un gruppo di risorse. Azure supporta attualmente fino a 50 tag per risorsa e gruppo di risorse. I tag possono essere posizionati su una risorsa al momento della creazione o aggiunti a una risorsa esistente. Si noti che i tag sono supportati solo per le risorse create tramite il modello di distribuzione Resource Manager. Se si desidera assegnare un tag a una macchina virtuale Linux, vedere l'articolo relativo a [come assegnare un tag a una macchina virtuale Linux in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -62,7 +56,7 @@ Il secondo comando consente di visualizzare i tag per la variabile specificata.
     Environment   Production
 ```
 
-Il terzo comando aggiunge un altro tag alla variabile *$tags* . Si noti **+=** l'utilizzo di per aggiungere la nuova coppia chiave/valore all'elenco *$tags.*
+Il terzo comando aggiunge un altro tag alla variabile *$tags* . Si noti l'uso di **+=** per aggiungere la nuova coppia chiave/valore all'elenco *$Tags* .
 
         PS C:\> $tags += @{Location="MyLocation"}
 

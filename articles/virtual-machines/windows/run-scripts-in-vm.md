@@ -2,18 +2,18 @@
 title: Eseguire gli script in una macchina virtuale Windows di Azure
 description: In questo argomento viene descritto come eseguire gli script all'interno di una macchina virtuale di Windows
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: e10cab5261d6bd970135273bd4632b7c916641de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd65f33663dea3663f14fb4167448e39b9b7d0b7
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67476749"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099768"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Eseguire gli script nella macchina virtuale Windows
 
@@ -68,7 +68,7 @@ Il [console seriale](serial-console.md) fornisce l'accesso diretto a una macchin
 
 Altre informazioni sulle diverse funzioni che sono disponibili per eseguire script e comandi all'interno delle macchine virtuali.
 
-* [Estensione script personalizzato](../extensions/custom-script-windows.md)
+* [Estensione di script personalizzati](../extensions/custom-script-windows.md)
 * [Eseguire un comando](run-command.md)
-* [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
-* [Console seriale](serial-console.md)
+* [ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md)
+* [console seriale](serial-console.md)

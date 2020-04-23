@@ -1,25 +1,20 @@
 ---
-title: Caricare un disco rigido virtuale generalizzare per creare più macchine virtuali in AzureUpload a generalize VHD to create multiple VMs in Azure
+title: Caricare un disco rigido virtuale generalizzato per creare più macchine virtuali in Azure
 description: Caricare un disco rigido virtuale generalizzato in un account di archiviazione di Azure per creare una macchina virtuale Windows da usare con il modello di distribuzione di Resource Manager.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7a5aa05a9045548e15aba667fdcdbd14fc8990e6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: storage-accounts
+ms.openlocfilehash: e2ecdb6f436806f93610325b4d5adf28cb3253e2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460308"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099632"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Caricare un disco rigido virtuale generalizzato in Azure e creare una nuova macchina virtuale
 
@@ -35,13 +30,13 @@ In questo argomento viene illustrato l'uso degli account di archiviazione, ma si
 
 Tutte le informazioni sull'account personale sono state rimosse da un'immagine del disco rigido virtuale generalizzata tramite Sysprep. Se si vuole usare il disco rigido virtuale come immagine dalla quale creare nuove macchine virtuali, è necessario:
   
-  * Preparare un disco rigido virtuale di [Windows per il caricamento in Azure.Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md). 
+  * [Preparare un disco rigido virtuale Windows da caricare in Azure](prepare-for-upload-vhd-image.md). 
   * Generalizzare la macchina virtuale con Sysprep
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalizzare una macchina virtuale Windows mediante Sysprep
 Questa sezione illustra come generalizzare la macchina virtuale di Windows da usare come immagine. Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](https://technet.microsoft.com/library/bb457073.aspx).
 
-Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per altre informazioni, vedere Supporto di [Sysprep per i ruoli del serverFor more](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) information, see Sysprep Support for Server Roles
+Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [supporto Sysprep per i ruoli del server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Se si esegue Sysprep prima di caricare il disco rigido virtuale in Azure per la prima volta, verificare di aver [preparato la VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) prima di eseguire Sysprep. 
@@ -161,7 +156,7 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
-Creare la rete virtuale e la subnet della [rete virtuale.](../../virtual-network/virtual-networks-overview.md)
+Creare la vNet e la subnet della [rete virtuale](../../virtual-network/virtual-networks-overview.md).
 
 1. Creare la subnet. Nell'esempio seguente viene creata una subnet denominata **mySubnet** nel gruppo di risorse **myResourceGroup** con il prefisso di indirizzo **10.0.0.0/24**.  
    

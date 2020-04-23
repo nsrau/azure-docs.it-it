@@ -3,21 +3,21 @@ title: Informazioni sulle versioni più recenti del sistema operativo guest Azur
 description: Notizie sui rilasci più recenti e sulla compatibilità SDK per il sistema operativo guest di Servizi cloud di Azure.
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/2/2020
-ms.author: raiye
-ms.openlocfilehash: 95c27cd906717d52a232b5ed85eba2b93bc6569d
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.date: 4/22/2020
+ms.author: yohaddad
+ms.openlocfilehash: 83ecbf05ab892e0673b31df893f66b03373957b7
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618284"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101502"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -42,7 +42,7 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
 
-###### <a name="april-2-2020"></a>**giovedì 2 aprile 2020**
+###### <a name="april-2-2020"></a>**2 aprile 2020**
 È stato rilasciato il sistema operativo guest di marzo. 
 
 ###### <a name="march-5-2020"></a>**5 marzo 2020**
@@ -60,7 +60,7 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 ###### <a name="november-1-2019"></a>**1 novembre 2019**
 È stato rilasciato il sistema operativo guest di ottobre.
 
-###### <a name="october-7-2019"></a>**giovedì 7 ottobre 2019**
+###### <a name="october-7-2019"></a>**7 ottobre 2019**
 È stato rilasciato il sistema operativo guest di settembre.
 
 ###### <a name="september-4-2019"></a>**4 settembre 2019**
@@ -69,13 +69,13 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 ###### <a name="july-26-2019"></a>**26 luglio 2019**
 È stato rilasciato il sistema operativo guest di luglio.
 
-###### <a name="july-8-2019"></a>**giovedì 8 luglio 2019**
+###### <a name="july-8-2019"></a>**8 luglio 2019**
 È stato rilasciato il sistema operativo guest di giugno.
 
-###### <a name="june-6-2019"></a>**giovedì 6 giugno 2019**
+###### <a name="june-6-2019"></a>**6 giugno 2019**
 È stato rilasciato il sistema operativo guest di maggio.
 
-###### <a name="may-7-2019"></a>**giovedì 7 maggio 2019**
+###### <a name="may-7-2019"></a>**7 maggio 2019**
 È stato rilasciato il sistema operativo guest di aprile.
 
 ###### <a name="march-26-2019"></a>**26 marzo 2019**
@@ -107,38 +107,38 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 ## <a name="family-6-releases"></a>Versioni della famiglia 6
 **Windows Server 2019**
 
-.NET Framework installato: 3.5, 4.7.2
+.NET Framework installato: 3,5, 4.7.2
 
 > [!NOTE]
 > Windows Azure SDK per .NET - 3.0 può essere scaricato [qui][Windows Azure SDK].
 >
 >Passaggi dell'installazione:
->1. Disinstallare tutte le versioni precedenti di MicrosoftAzureAuthoringTools.msi
->2. Installare [Azure SDK per .NET - 3.0Install the Azure SDK for .NET - 3.0][Windows Azure SDK]
+>1. Disinstallare le versioni precedenti di MicrosoftAzureAuthoringTools*. msi
+>2. Installare [Azure SDK per .NET-3,0][Windows Azure SDK]
 >3. Riavviare il computer
->4. Creare un nuovo progetto di servizio cloud e aggiungere un singolo ruolo di lavoroCreate a new Cloud Service project and add a single Worker Role
->5. Cambia la famiglia di sistema operativo a 6 e crea un pacchetto
->6. Distribuire il pacchetto in Azure usando il portale di Azure o Visual StudioDeploy the package to Azure using the Azure portal or Visual Studio
+>4. Creare un nuovo progetto di servizio cloud e aggiungere un singolo ruolo di lavoro
+>5. Modificare la famiglia del sistema operativo in 6 e compilare un pacchetto
+>6. Distribuire il pacchetto in Azure usando il portale di Azure o Visual Studio
 >
->La versione guest OS Family 6 impone TLS 1.2 disabilitando in modo esplicito TLS 1.0 e 1.1 e definendo un set specifico di suite di crittografia. Ulteriori [more]informazioni .
+>La versione 6 della famiglia di sistemi operativi guest impone TLS 1,2 disabilitando in modo esplicito TLS 1,0 e 1,1 e definendo un set specifico di pacchetti di crittografia. [Altre]informazioni.
 
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.17_202003-01  |  giovedì 2 aprile 2020  |  Post 6.19  |  
-|  WA-GUEST-OS-6.16_202002-01  |  5 marzo 2020  |  Post 6.18  |  
-|~~WA-GUEST-OS-6.15_202001-01~~|  24 gennaio 2020  |  giovedì 2 aprile 2020  |  
-|~~WA-GUEST-OS-6.14_201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
-|~~WA-GUEST-OS-6.13_201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
-|~~WA-GUEST-OS-6.12_201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
-|~~WA-GUEST-OS-6.11_201909-01~~| giovedì 7 ottobre 2019 | 5 dicembre 2019 |  
-|~~WA-GUEST-OS-6.10_201908-01~~| giovedì 4 agosto 2019 | 1 novembre 2019  |  
-|~~WA-GUEST-OS-6.9_201907-0~~|26 luglio 2019 | giovedì 7 ottobre 2019 |
-|~~WA-GUEST-OS-6.8_201906-01~~|giovedì 8 luglio 2019 |giovedì 4 agosto 2019 |
-|~~WA-GUEST-OS-6.7_201905-01~~ |giovedì 6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-6.6_201904-01~~ |giovedì 7 maggio 2019 |giovedì 8 luglio 2019 |
-|~~WA-GUEST-OS-6.5_201903-01~~ |26 marzo 2019 |giovedì 6 giugno 2019 |
-|~~WA-GUEST-OS-6.4_201902-01~~ |12 marzo 2019 |giovedì 7 maggio 2019 |
+|  WA-GUEST-OS-6.17 _202003-01  |  2 aprile 2020  |  Post 6,19  |  
+|  WA-GUEST-OS-6.16 _202002-01  |  5 marzo 2020  |  Post 6,18  |  
+|~~WA-GUEST-OS-6.15 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
+|~~WA-GUEST-OS-6.14 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
+|~~WA-GUEST-OS-6.13 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
+|~~WA-GUEST-OS-6.12 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
+|~~WA-GUEST-OS-6.11 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
+|~~WA-GUEST-OS-6.10 _201908-01~~| 4 agosto 2019 | 1 novembre 2019  |  
+|~~WA-GUEST-OS-6.9 _201907-0~~|26 luglio 2019 | 7 ottobre 2019 |
+|~~WA-GUEST-OS-6.8 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-6.7 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-6.6 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-6.5 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-6.4 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-6.2_201812-01~~ |24 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 gennaio 2019 |5 febbraio 2019 |
@@ -146,7 +146,7 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
 **Windows Server 2016**
 
-.NET Framework installato: 3.5, 4.6
+Versione .NET Framework installata: 3.5, 4.6.2
 
 > [!NOTE]
 > La password di RDP per la famiglia di sistemi operativi 5 deve contenere almeno 10 caratteri.
@@ -155,20 +155,20 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.41_202003-01  |  giovedì 2 aprile 2020  |  Post 5.43  |  
-|  WA-GUEST-OS-5.40_202002-01  |  5 marzo 2020  |  Post 5.42  |  
-|~~WA-GUEST-OS-5.39_202001-01~~|  24 gennaio 2020  |  giovedì 2 aprile 2020  |  
-|~~WA-GUEST-OS-5.38_201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
-|~~WA-GUEST-OS-5.37_201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
-|~~WA-GUEST-OS-5.36_201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
-|~~WA-GUEST-OS-5.35_201909-01~~| giovedì 7 ottobre 2019 | 5 dicembre 2019 |  
-|~~WA-GUEST-OS-5.34_201908-01~~|  giovedì 4 agosto 2019  | 1 novembre 2019 |  
-|~~WA-GUEST-OS-5.33_201907-01~~| 26 luglio 2019 | giovedì 7 ottobre 2019 |  
-|~~WA-GUEST-OS-5.32_201906-01~~|giovedì 8 luglio 2019 |giovedì 4 agosto 2019 |
-|~~WA-GUEST-OS-5.31_201905-01~~ |giovedì 6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-5.30_201904-01~~ |giovedì 7 maggio 2019 |giovedì 8 luglio 2019 |
-|~~WA-GUEST-OS-5.29_201903-01~~ |26 marzo 2019 |giovedì 6 giugno 2019 |
-|~~WA-GUEST-OS-5.28_201902-01~~ |12 marzo 2019 |giovedì 7 maggio 2019 |
+|  WA-GUEST-OS-5.41 _202003-01  |  2 aprile 2020  |  Post 5,43  |  
+|  WA-GUEST-OS-5.40 _202002-01  |  5 marzo 2020  |  Post 5,42  |  
+|~~WA-GUEST-OS-5.39 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
+|~~WA-GUEST-OS-5.38 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
+|~~WA-GUEST-OS-5.37 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
+|~~WA-GUEST-OS-5.36 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
+|~~WA-GUEST-OS-5.35 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
+|~~WA-GUEST-OS-5.34 _201908-01~~|  4 agosto 2019  | 1 novembre 2019 |  
+|~~WA-GUEST-OS-5.33 _201907-01~~| 26 luglio 2019 | 7 ottobre 2019 |  
+|~~WA-GUEST-OS-5.32 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-5.31 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-5.30 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-5.29 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-5.28 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-5.26_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
@@ -178,24 +178,24 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 ## <a name="family-4-releases"></a>Versioni della famiglia 4
 **Windows Server 2012 R2**
 
-.NET Framework installato: 3.5, 4.5.1, 4.5.2
+.NET Framework installato: 3,5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.76_202003-01  |  giovedì 2 aprile 2020  |  Post 4.78  |  
-|  WA-GUEST-OS-4.75_202002-01  |  5 marzo 2020  |  Post 4.77  |  
-|~~WA-GUEST-OS-4.74_202001-01~~|  24 gennaio 2020  |  giovedì 2 aprile 2020  |  
-|~~WA-GUEST-OS-4.73_201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
-|~~WA-GUEST-OS-4.72_201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
-|~~WA-GUEST-OS-4.71_201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
-|~~WA-GUEST-OS-4.70_201909-01~~| giovedì 7 ottobre 2019 | 5 dicembre 2019 |  
-|~~WA-GUEST-OS-4.69_201908-01~~| giovedì 4 agosto 2019 | 1 novembre 2019 |  
-|~~WA-GUEST-OS-4.68_201907-01~~| 26 luglio 2019  | giovedì 7 ottobre 2019 |
-|~~WA-GUEST-OS-4.67_201906-01~~| giovedì 8 luglio 2019 |giovedì 4 agosto 2019 |
-|~~WA-GUEST-OS-4.66_201905-01~~ |giovedì 6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-4.65_201904-01~~ |giovedì 7 maggio 2019 |giovedì 8 luglio 2019 |
-|~~WA-GUEST-OS-4.64_201903-01~~ |26 marzo 2019 |giovedì 6 giugno 2019 |
-|~~WA-GUEST-OS-4.63_201902-01~~ |12 marzo 2019 |giovedì 7 maggio 2019 |
+|  WA-GUEST-OS-4.76 _202003-01  |  2 aprile 2020  |  Post 4,78  |  
+|  WA-GUEST-OS-4.75 _202002-01  |  5 marzo 2020  |  Post 4,77  |  
+|~~WA-GUEST-OS-4.74 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
+|~~WA-GUEST-OS-4.73 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
+|~~WA-GUEST-OS-4.72 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
+|~~WA-GUEST-OS-4.71 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
+|~~WA-GUEST-OS-4.70 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
+|~~WA-GUEST-OS-4.69 _201908-01~~| 4 agosto 2019 | 1 novembre 2019 |  
+|~~WA-GUEST-OS-4.68 _201907-01~~| 26 luglio 2019  | 7 ottobre 2019 |
+|~~WA-GUEST-OS-4.67 _201906-01~~| 8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-4.66 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-4.65 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-4.64 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-4.63 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-4.61_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
@@ -203,26 +203,26 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 ottobre 2018 |14 dicembre 2018 |
 
 ## <a name="family-3-releases"></a>Versioni della famiglia 3
-**Windows Server 2012 (informazioni in due)**
+**Windows Server 2012**
 
 Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.83_202003-01  |  giovedì 2 aprile 2020  |  Post 3.85  |  
-|  WA-GUEST-OS-3.82_202002-01  |  5 marzo 2020  |  Post 3.84  |  
-|~~WA-GUEST-OS-3.81_202001-01~~|  24 gennaio 2020  |  giovedì 2 aprile 2020  |  
-|~~WA-GUEST-OS-3.80_201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
-|~~WA-GUEST-OS-3.79_201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
-|~~WA-GUEST-OS-3.78_201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
-|~~WA-GUEST-OS-3.77_201909-01~~| giovedì 7 ottobre 2019 | 5 dicembre 2019 |  
-|~~WA-GUEST-OS-3.76_201908-01~~|  giovedì 4 agosto 2019  |  1 novembre 2019  |  
-|~~WA-GUEST-OS-3.75_201907-01~~| 26 luglio 2019 | giovedì 7 ottobre 2019 |
-|~~WA-GUEST-OS-3.74_201906-01~~| giovedì 8 luglio 2019 |giovedì 4 agosto 2019 |
-|~~WA-GUEST-OS-3.73_201905-01~~ |giovedì 6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-3.72_201904-01~~ |giovedì 7 maggio 2019 |giovedì 8 luglio 2019 |
-|~~WA-GUEST-OS-3.71_201903-01~~ |26 marzo 2019 |giovedì 6 giugno 2019 |
-|~~WA-GUEST-OS-3.70_201902-01~~ |12 marzo 2019 |giovedì 7 maggio 2019 |
+|  WA-GUEST-OS-3.83 _202003-01  |  2 aprile 2020  |  Post 3,85  |  
+|  WA-GUEST-OS-3.82 _202002-01  |  5 marzo 2020  |  Post 3,84  |  
+|~~WA-GUEST-OS-3.81 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
+|~~WA-GUEST-OS-3.80 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
+|~~WA-GUEST-OS-3.79 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
+|~~WA-GUEST-OS-3.78 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
+|~~WA-GUEST-OS-3.77 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
+|~~WA-GUEST-OS-3.76 _201908-01~~|  4 agosto 2019  |  1 novembre 2019  |  
+|~~WA-GUEST-OS-3,75 _201907-01~~| 26 luglio 2019 | 7 ottobre 2019 |
+|~~WA-GUEST-OS-3.74 _201906-01~~| 8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-3.73 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-3.72 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-3.71 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-3.70 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-3.68_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
@@ -232,24 +232,24 @@ Versione .NET Framework installata: 3.5, 4.5
 ## <a name="family-2-releases"></a>Versioni della famiglia 2
 **Windows Server 2008 R2 SP1**
 
-.NET Framework installato: 3.5 (include 2.0 e 3.0), 4.5
+.NET Framework installato: 3,5 (include 2,0 e 3,0), 4,5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.96_202003-01  |  giovedì 2 aprile 2020  |  Post 2.98  |  
-|  WA-GUEST-OS-2.95_202002-01  |  5 marzo 2020  |  Post 2.97  |  
-|~~WA-GUEST-OS-2.94_202001-01~~|  24 gennaio 2020  |  giovedì 2 aprile 2020  |  
-|~~WA-GUEST-OS-2.93_201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
-|~~WA-GUEST-OS-2.92_201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
-|~~WA-GUEST-OS-2.91_201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
-|~~WA-GUEST-OS-2.90_201909-01~~| giovedì 7 ottobre 2019 | 5 dicembre 2019 |  
-|~~WA-GUEST-OS-2.89_201908-01~~| giovedì 4 agosto 2019 | 1 novembre 2019 |  
-|~~WA-GUEST-OS-2.88_201907-01~~| 26 luglio 2019 | giovedì 7 ottobre 2019 |
-|~~WA-GUEST-OS-2.87_201906-01~~|giovedì 8 luglio 2019 | giovedì 4 agosto 2019 |
-|~~WA-GUEST-OS-2.86_201905-01~~ |giovedì 6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-2.85_201904-01~~ |giovedì 7 maggio 2019 |giovedì 8 luglio 2019 |
-|~~WA-GUEST-OS-2.84_201903-01~~ |26 marzo 2019 |giovedì 6 giugno 2019 |
-|~~WA-GUEST-OS-2.83_201902-01~~ |12 marzo 2019 |giovedì 7 maggio 2019 |
+|  WA-GUEST-OS-2.96 _202003-01  |  2 aprile 2020  |  Post 2,98  |  
+|  WA-GUEST-OS-2.95 _202002-01  |  5 marzo 2020  |  Post 2,97  |  
+|~~WA-GUEST-OS-2.94 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
+|~~WA-GUEST-OS-2.93 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
+|~~WA-GUEST-OS-2.92 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
+|~~WA-GUEST-OS-2.91 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
+|~~WA-GUEST-OS-2.90 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
+|~~WA-GUEST-OS-2.89 _201908-01~~| 4 agosto 2019 | 1 novembre 2019 |  
+|~~WA-GUEST-OS-2.88 _201907-01~~| 26 luglio 2019 | 7 ottobre 2019 |
+|~~WA-GUEST-OS-2.87 _201906-01~~|8 luglio 2019 | 4 agosto 2019 |
+|~~WA-GUEST-OS-2.86 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-2.85 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-2.84 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-2.83 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
@@ -281,7 +281,7 @@ Quando si supera la data di **scadenza** , qualsiasi servizio cloud che usa anco
 ## <a name="guest-os-family-version-explanation"></a>Spiegazione delle versioni delle famiglie di sistemi operativi guest
 Le famiglie dei sistemi operativi guest sono basate sulle versioni rilasciate di Microsoft Windows Server e il sistema operativo guest è il sistema operativo sottostante in cui viene eseguito Servizi cloud di Azure. A ogni sistema operativo guest sono associati una famiglia, una versione e un numero di rilascio.
 
-* **Famiglia di oS guest**  
+* **Famiglia del sistema operativo guest**  
    Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
 * **Versione del sistema operativo guest**  
   Specifica per l'immagine di una famiglia di sistemi operativi guest e per le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] disponibili al momento dell'introduzione della nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
@@ -334,4 +334,4 @@ I criteri relativi al supporto e al ritiro del sistema operativo guest sono desc
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
-[Più]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  
+[più]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  

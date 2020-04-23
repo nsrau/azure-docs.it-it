@@ -1,37 +1,30 @@
 ---
-title: Windows VM sizes in Azure
-description: Elenca le diverse dimensioni disponibili per le macchine virtuali Windows in Azure.
-services: virtual-machines-windows
-documentationcenter: ''
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: aabf0d30-04eb-4d34-b44a-69f8bfb84f22
-ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+title: Dimensioni delle macchine virtuali in Azure
+description: Elenca le diverse dimensioni disponibili per le macchine virtuali in Azure.
+author: ju-shim
+ms.service: virtual-machines
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-ms.openlocfilehash: 398575cc5c3dea96aa644533eb6ce8a262d1981c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: e37fea471bea91f2ac5219b5c423db38b369b692
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164492"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100669"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Dimensioni per le macchine virtuali Windows in Azure
 
-Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire le app Windows e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.  Questo articolo è disponibile anche per le [macchine virtuali Linux](../linux/sizes.md).
+Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire le app Windows e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.  Questo articolo si applica alle macchine virtuali Windows e Linux.
 
 | Type | Dimensioni | Descrizione |
 |------|-------|-------------|
-| [Finalità generale](../sizes-general.md) | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2 | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
+| [Utilizzo generico](../sizes-general.md) | B, Dsv3, dv3, Dasv4, Dav4, DSv2, dv2, AV2, DC, DCv2 | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
 | [Ottimizzate per il calcolo](../sizes-compute.md) | Fsv2 | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni. |
-| [Ottimizzate per la memoria](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria. |
+| [Ottimizzate per la memoria](../sizes-memory.md) | Esv3, EV3, Easv4, Eav4, Mv2, M, DSv2, dv2 | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria. |
 | [Ottimizzate per l'archiviazione](../sizes-storage.md)  | Lsv2 | I/O e velocità effettiva del disco elevati ideali per i database NoSQL, SQL e Big Data, data warehousing e database transazionali di grandi dimensioni.  |
-| [GPU](../sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (anteprima), NV, NVv3, NVv4 | Macchine virtuali specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video, nonché per il training e l'inferenza dei modelli (ND) con apprendimento profondo. disponibili con GPU singole o più GPU. |
+| [GPU](../sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3, NVv4 | Macchine virtuali specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video, nonché per il training e l'inferenza dei modelli (ND) con apprendimento profondo. disponibili con GPU singole o più GPU. |
 | [High Performance Computing (HPC)](../sizes-hpc.md) | HB, HBv2, HC, H | Le nostre macchine virtuali con CPU più veloci e potenti, con interfacce di rete ad alta velocità effettiva facoltative (RDMA). |
 
 - Per informazioni sui prezzi di varie dimensioni, vedere [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
@@ -59,7 +52,7 @@ Altre informazioni sulle prestazioni di calcolo per l'uso di macchine virtuali d
 
 Altre informazioni sulle diverse dimensioni di macchina virtuale disponibili:
 
-- [Finalità generale](../sizes-general.md)
+- [Utilizzo generico](../sizes-general.md)
 - [Ottimizzate per il calcolo](../sizes-compute.md)
 - [Ottimizzate per la memoria](../sizes-memory.md)
 - [Ottimizzate per l'archiviazione](../sizes-storage.md)

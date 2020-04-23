@@ -1,22 +1,21 @@
 ---
 title: Guida per la risoluzione dei problemi
 titleSuffix: Microsoft Genomics
-description: Informazioni sulle strategie di risoluzione dei problemi per l'utilizzo di Genomica di Microsoft, inclusi i messaggi di errore e su come risolverli.
+description: Informazioni sulle strategie di risoluzione dei problemi per l'utilizzo di genomica di Microsoft, inclusi i messaggi di errore e come risolverli.
 keywords: risoluzione dei problemi, errore, debug
 services: genomics
 author: ruchir
-editor: jasonwhowell
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: f6ef56e4188a7541036db096e4ab35a1b95fc141
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73486010"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100907"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -30,7 +29,7 @@ Per individuare i messaggi di errore associati al flusso di lavoro, è possibile
 1. Usare la riga di comando e digitare `msgen status`
 2. Esaminare il contenuto di standardoutput.txt.
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. Utilizzando la riga di comando`msgen status`
+### <a name="1-using-the-command-line-msgen-status"></a>1. uso della riga di comando`msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -82,7 +81,7 @@ Per un flusso di lavoro con ID 1001 e un file config.txt presente nello stesso p
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. Esaminare il contenuto di standardoutput.txt 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. esaminare il contenuto di StandardOutput. txt 
 Individuare il contenitore di output per il flusso di lavoro in questione. MSGEN crea una cartella `[workflowfilename].logs.zip` dopo ogni esecuzione del flusso di lavoro. Decomprimere la cartella per visualizzarne il contenuto:
 
 * outputFileList.txt - Elenco dei file di output generati durante il flusso di lavoro
@@ -102,7 +101,7 @@ Il servizio Genomica di Microsoft (msgen) può generare i due tipi di errori seg
 1. Errori interni del servizio: gli errori che sono interni al servizio e non possono essere risolti tramite la correzione di parametri o file di input. In alcuni casi, per risolvere questi errori può essere sufficiente inviare nuovamente il flusso di lavoro.
 2. Errori di input: gli errori che possono essere risolti usando gli argomenti corretti o correggendo formati di file.
 
-### <a name="1-internal-service-errors"></a>1. Errori di servizio interno
+### <a name="1-internal-service-errors"></a>1. errori interni del servizio
 
 Un errore interno del servizio non può essere corretto dall'utente. È possibile provare a inviare nuovamente il flusso di lavoro, ma se il problema persiste, contattare il supporto tecnico di Genomica di Microsoft.
 
@@ -110,7 +109,7 @@ Un errore interno del servizio non può essere corretto dall'utente. È possibil
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance. (Si è verificato un errore interno. Provare a inviare nuovamente il flusso di lavoro. Se l'errore persiste, contattare il supporto tecnico di Genomica di Microsoft per ottenere assistenza.) | Inviare nuovamente il flusso di lavoro. Se il problema persiste, contattare il supporto tecnico di Genomica di Microsoft per ottenere assistenza creando un [ticket](file-support-ticket-genomics.md ) di supporto. |
 
-### <a name="2-input-errors"></a>2. Errori di ingresso
+### <a name="2-input-errors"></a>2. errori di input
 
 Questi errori possono essere corretti dall'utente. A seconda del tipo di file e del codice di errore, il servizio Genomica di Microsoft restituisce codici di errore distinti. Seguire le procedure consigliate per la risoluzione dei problemi elencate di seguito.
 

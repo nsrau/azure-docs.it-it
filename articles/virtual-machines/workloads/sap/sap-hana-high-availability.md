@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata di SAP HANA in macchine virtuali di Azure in SLES . Documenti Microsoft
+title: Disponibilità elevata di SAP HANA in macchine virtuali di Azure in SLES | Microsoft Docs
 description: Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/31/2020
+ms.date: 04/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 215cfd033a3fe8eb0ad9896c1f45f1e0f788823f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: e04b37d0c95f2176581c7d13f3641a13ecddfd8f
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521376"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101213"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -60,8 +60,8 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
   * Software SAP e combinazioni di sistemi operativi e database supportati.
   * Versione del kernel SAP richiesta per Windows e Linux in Microsoft Azure.
 * Nota SAP [2015553], che elenca i prerequisiti per le distribuzioni di software SAP supportate da SAP in Azure.
-* Sap Nota [2205917] ha consigliato le impostazioni del sistema operativo per SUSE Linux Enterprise Server per applicazioni SAP.
-* SAP Note [1944799] include SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications.
+* La nota SAP [2205917] include impostazioni del sistema operativo consigliate per SUSE Linux Enterprise Server per le applicazioni SAP.
+* La nota SAP [1944799] include SAP Hana linee guida per SUSE Linux Enterprise Server per le applicazioni SAP.
 * Nota SAP [2178632], che contiene informazioni dettagliate su tutte le metriche di monitoraggio segnalate per SAP in Azure.
 * La nota SAP [2191498] contiene la versione dell'agente host SAP per Linux necessaria in Azure.
 * La nota SAP [2243692] contiene informazioni sulle licenze SAP in Linux in Azure.
@@ -105,14 +105,14 @@ Per distribuire il modello, seguire questi passaggi:
 
 1. Immettere i parametri seguenti:
     - **Sap System Id** (ID sistema SAP): immettere l'ID del sistema SAP da installare. L'ID viene usato come prefisso per le risorse distribuite.
-    - **Tipo di pila**: (questo parametro è applicabile solo se si utilizza il modello convergente.) Selezionare il tipo di stack SAP NetWeaver.
+    - **Tipo di stack**: questo parametro è applicabile solo se si usa il modello convergente. Selezionare il tipo di stack SAP NetWeaver.
     - **Tipo di sistema operativo**: selezionare una delle distribuzioni Linux. Per questo esempio, selezionare **SLES 12**.
     - **Tipo di database**: selezionare **HANA**.
     - **Sap System Size** (Dimensioni sistema SAP): immettere il numero di istanze SAP fornite dal nuovo sistema. Se non si è certi del numero di istanze SAP necessarie per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP.
     - **System Availability**: selezionare **HA**.
-    - **Nome utente amministratore e password amministratore:** viene creato un nuovo utente che può essere utilizzato per accedere al computer.
+    - **Nome utente amministratore e password amministratore**: viene creato un nuovo utente che può essere usato per accedere al computer.
     - **New Or Existing Subnet** (Subnet nuova o esistente): determina se devono essere create una nuova rete virtuale e una nuova subnet o se deve essere usata una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare **Esistente**.
-    - **ID subnet:** se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è definita una subnet a cui deve essere assegnata la macchina virtuale, assegnare un nome all'ID della subnet specifica. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>**.
+    - **ID subnet**: se si vuole distribuire la macchina virtuale in una VNet esistente a cui è stata definita una subnet, assegnare alla macchina virtuale il nome ID della subnet specifica. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>**.
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -124,7 +124,7 @@ Per distribuire il modello, seguire questi passaggi:
 1. Creare una rete virtuale.
 1. Creare un set di disponibilità.
    - Impostare il numero massimo di domini di aggiornamento.
-1. Creare un servizio di bilanciamento del carico (interno). È consigliabile il servizio di [bilanciamento del carico standard.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+1. Creare un servizio di bilanciamento del carico (interno). Si consiglia [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
    - Selezionare la rete virtuale creata nel passaggio 2.
 1. Creare la macchina virtuale 1.
    - Usare un'immagine SLES4SAP nella raccolta di Azure che sia supportata per SAP HANA nel tipo di macchina virtuale selezionato.
@@ -133,12 +133,12 @@ Per distribuire il modello, seguire questi passaggi:
    - Usare un'immagine SLES4SAP nella raccolta di Azure che sia supportata per SAP HANA nel tipo di macchina virtuale selezionato.
    - Selezionare il set di disponibilità creato nel passaggio 3. 
 1. Aggiungere dischi dati.
-1. Se si usa il servizio di bilanciamento del carico standard, seguire questi passaggi di configurazione:If using standard load balancer, follow these configuration steps:
+1. Se si usa Load Balancer standard, seguire questa procedura di configurazione:
    1. Prima, creare il pool di indirizzi IP front-end:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Pool di indirizzi IP front-end** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo pool di indirizzi IP front-end (ad esempio, **hana-frontend**).
-      1. Impostare **Assegnazione su** **Statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
+      1. Impostare l' **assegnazione** su **statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
       1. Selezionare **OK**.
       1. Dopo aver creato il nuovo pool di indirizzi IP front-end, annotare l'indirizzo IP del pool.
    
@@ -146,9 +146,9 @@ Per distribuire il modello, seguire questi passaggi:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Pool back-end** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo pool back-end (ad esempio, **hana-backend**).
-      1. Selezionare **Rete virtuale**.
+      1. Selezionare **rete virtuale**.
       1. Selezionare **Aggiungi una macchina virtuale**.
-      1. Selezionare la macchina virtuale .
+      1. Selezionare * * macchina virtuale * *.
       1. Selezionare le macchine virtuali del cluster SAP HANA e i relativi indirizzi IP.
       1. Selezionare **Aggiungi**.
    
@@ -159,25 +159,25 @@ Per distribuire il modello, seguire questi passaggi:
       1. Selezionare **TCP** come protocollo e la porta 625**03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
       1. Selezionare **OK**.
    
-   1. Successivamente, creare le regole di bilanciamento del carico:Next, create the load-balancing rules:
+   1. Successivamente, creare le regole di bilanciamento del carico:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-      1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **hana-lb**.
-      1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **hana-frontend**, **hana-backend** e **hana-hp**.
-      1. Selezionare **Porte HA**.
+      1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **Hana-lb**.
+      1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creato in precedenza (ad esempio, **Hana-frontend**, **Hana-backend** e **Hana-HP**).
+      1. Selezionare **porte a disponibilità elevata**.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
       1. Selezionare **OK**.
 
    > [!Note]
-   > Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico standard di Azure interno (nessun indirizzo IP pubblico), non sarà disponibile alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing agli endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere Connettività degli endpoint pubblici per macchine virtuali che [usano Azure Standard Load Balancer in scenari di disponibilità elevata SAP.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
+   > Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-1. In alternativa, se lo scenario prevede l'uso del servizio di bilanciamento del carico di base, seguire questi passaggi di configurazione:Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
+1. In alternativa, se lo scenario prevede l'uso del servizio di bilanciamento del carico di base, seguire questa procedura di configurazione:
    1. Prima, creare il pool di indirizzi IP front-end:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Pool di indirizzi IP front-end** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo pool di indirizzi IP front-end (ad esempio, **hana-frontend**).
-      1. Impostare **Assegnazione su** **Statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
+      1. Impostare l' **assegnazione** su **statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
       1. Selezionare **OK**.
       1. Dopo aver creato il nuovo pool di indirizzi IP front-end, annotare l'indirizzo IP del pool.
    
@@ -211,7 +211,7 @@ Per distribuire il modello, seguire questi passaggi:
    1. Per SAP HANA 2.0, creare le regole di bilanciamento del carico per il database di sistema:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-      1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio hana-lb-3**03**13.
+      1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio Hana-lb-3**03**13.
       1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
       1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**13.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
@@ -222,7 +222,7 @@ Per distribuire il modello, seguire questi passaggi:
    1. Per SAP HANA 2.0, creare prima le regole di bilanciamento del carico per il database tenant:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-      1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio hana-lb-3**03**40.
+      1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, Hana-lb-3**03**40).
       1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
       1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**40.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
@@ -233,7 +233,7 @@ Per distribuire il modello, seguire questi passaggi:
    Per altre informazioni sulle porte necessarie per SAP HANA, leggere il capitolo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connessioni a database tenant) della guida [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Database tenant SAP HANA) o la [nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> Non abilitare timestamp TCP nelle macchine virtuali di Azure posizionati dietro Azure Load Balancer.Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. L'abilitazione dei timestamp TCP causerà l'esito negativo dei probe di integrità. Impostare il parametro **net.ipv4.tcp_timestamps su** **0**. Per informazioni dettagliate, vedere [Sondati di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 > Vedere anche la nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Creare un cluster Pacemaker
@@ -277,11 +277,11 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Creare i volumi logici. Quando si usa `lvcreate` senza l'opzione `-i`, viene creato un volume lineare. È consigliabile creare un volume con striping per migliorare le prestazioni di I/O e allineare le dimensioni dello stripemento ai valori documentati nelle configurazioni di [archiviazione delle macchine virtuali SAP HANA.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) L'argomento `-i` deve essere il numero dei `-I` volumi fisici sottostanti e l'argomento è la dimensione dello stripe. In questo documento vengono usati due volumi fisici per il volume di dati, quindi l'argomento dell'opzione `-i` è impostato su **2**. La dimensione dello stripe per il volume di dati è **256KiB**. Un volume fisico viene utilizzato per `-i` il `-I` volume del log, pertanto non vengono utilizzate o opzioni in modo esplicito per i comandi del volume di log.  
+   Creare i volumi logici. Quando si usa `lvcreate` senza l'opzione `-i`, viene creato un volume lineare. Si consiglia di creare un volume con striping per migliorare le prestazioni di I/O e allineare le dimensioni di striping ai valori documentati in [SAP Hana configurazioni di archiviazione delle macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). L' `-i` argomento deve essere il numero dei volumi fisici sottostanti e l' `-I` argomento è la dimensione della striscia. In questo documento vengono usati due volumi fisici per il volume di dati, quindi l'argomento dell'opzione `-i` è impostato su **2**. La dimensione di striping per il volume di dati è **256KiB**. Per il volume di log viene usato un volume fisico, quindi `-i` non `-I` vengono usate in modo esplicito le opzioni o per i comandi del volume di log.  
 
    > [!IMPORTANT]
-   > Usare l'opzione `-i` e impostarla sul numero del volume fisico sottostante quando si usano più volumi fisici per ogni volume di dati, di log o condiviso. Utilizzare `-I` l'interruttore per specificare la dimensione dello stripe, durante la creazione di un volume con striping.  
-   > Vedere Configurazioni di [archiviazione DI VM SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) per le configurazioni di archiviazione consigliate, incluse le dimensioni dello striping e il numero di dischi.  
+   > Usare l'opzione `-i` e impostarla sul numero del volume fisico sottostante quando si usano più volumi fisici per ogni volume di dati, di log o condiviso. Usare l' `-I` opzione per specificare le dimensioni dello striping durante la creazione di un volume con striping.  
+   > Vedere [SAP Hana configurazioni di archiviazione delle macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) per le configurazioni di archiviazione consigliate, incluse le dimensioni di striping e il numero di dischi.  
 
    <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
@@ -407,14 +407,14 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
    Se si usa SAP HANA 2.0 o MDC, creare un database tenant per il sistema SAP NetWeaver. Sostituire **NW1** con il SID del sistema SAP.
 
-   Eseguire il comando seguente come\><hanasid adm :
+   Eseguire il comando seguente come <hanasid\>ADM:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
-1. **[1]** Configurare la replica di sistema sul primo nodo:
+1. **[1]** configurare la replica di sistema nel primo nodo:
 
-   Eseguire il backup dei database\>come <hanasid adm:
+   Eseguire il backup dei database come <\>hanasid ADM:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -434,7 +434,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[2]** Configurare la replica di sistema nel secondo nodo:
     
-   Registrare il secondo nodo per avviare la replica di sistema. Eseguire il comando seguente come\><hanasid adm :
+   Registrare il secondo nodo per avviare la replica di sistema. Eseguire il comando seguente come <hanasid\>ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -448,9 +448,9 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 * **[1]**: il passaggio si applica solo al nodo 1.
 * **[2]**: Il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
-1. **[1]** Creare gli utenti richiesti.
+1. **[1]** creare gli utenti necessari.
 
-   Eseguire il comando seguente come root. Assicurarsi di sostituire le stringhe in grassetto (HANA System ID **HN1** e numero di istanza **03**) con i valori dell'installazione SAP HANA:
+   Eseguire il comando seguente come radice. Assicurarsi di sostituire le stringhe in grassetto (ID di sistema HANA **HN1** e numero di istanza **03**) con i valori dell'installazione di SAP Hana:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -460,7 +460,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[T]** Creare una voce di archivio chiavi.
 
-   Eseguire il comando seguente come root per creare una nuova voce keystore:
+   Eseguire il comando seguente come root per creare una nuova voce dell'archivio chiavi:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -468,7 +468,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Eseguire il backup del database.
 
-   Eseguire il backup dei database come root:
+   Eseguire il backup dei database come radice:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -481,7 +481,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Configurare la replica di sistema nel primo nodo.
 
-   Creare il sito primario\>come <hanasid adm :
+   Creare il sito primario come <hanasid\>ADM:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -489,7 +489,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[2]** Configurare la replica di sistema nel nodo secondario.
 
-   Registrare il sito secondario\>come <hanasid adm:
+   Registrare il sito secondario come <hanasid\>ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -511,19 +511,19 @@ sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:sus
   params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
 
 sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-  meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
+  meta clone-node-max="1" target-role="Started" interleave="true"
 </code></pre>
 
 Creare quindi le risorse HANA:
 
 > [!IMPORTANT]
-> I test recenti hanno rivelato situazioni in cui netcat smette di rispondere alle richieste a causa del backlog e della sua limitazione della gestione di una sola connessione. La risorsa netcat interrompe l'ascolto delle richieste di bilanciamento di Azure Load e l'IP mobile non è più disponibile.  
-> Per i cluster Pacemaker esistenti, è stato consigliato in passato la sostituzione di netcat con socat. È attualmente consigliabile usare l'agente di risorse azure-lb, che fa parte degli agenti delle risorse del pacchetto, con i requisiti di versione del pacchetto seguenti:Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
-> - Per SLES 12 SP4/SP5, la versione deve essere almeno resource-agents-4.3.018.a7fb5035-3.30.1.  
-> - Per SLES 15/15 SP1, la versione deve essere almeno resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+> Sono state rilevate situazioni di test recenti, in cui netcat smette di rispondere alle richieste dovute al backlog e alla limitazione della gestione di una sola connessione. La risorsa netcat smette di restare in ascolto delle richieste del servizio di bilanciamento del carico di Azure e l'IP mobile diventa non disponibile.  
+> Per i cluster Pacemaker esistenti, è consigliabile sostituire Netcat con socat in passato. Attualmente è consigliabile usare l'agente di risorse di Azure-lb, che fa parte degli agenti di risorse del pacchetto, con i seguenti requisiti di versione del pacchetto:
+> - Per SLES 12 SP4/SP5, la versione deve essere almeno Resource-Agents-4.3.018. a7fb5035-3.30.1.  
+> - Per SLES 15/15 SP1, la versione deve essere almeno Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
 >
-> Si noti che la modifica richiederà tempi di inattività brevi.  
-> Per i cluster Pacemaker esistenti, se la configurazione è già stata modificata per usare socat come descritto in Protezione avanzata del rilevamento del bilanciamento del [carico di Azure,](https://www.suse.com/support/kb/doc/?id=7024128)non è necessario passare immediatamente all'agente di risorse azure-lb.
+> Si noti che la modifica richiederà un breve tempo di inattività.  
+> Per i cluster Pacemaker esistenti, se la configurazione è stata già modificata per usare socat come descritto in [protezione avanzata del rilevamento](https://www.suse.com/support/kb/doc/?id=7024128)del servizio di bilanciamento del carico di Azure, non è necessario passare immediatamente all'agente di risorse Azure-lb.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
@@ -538,11 +538,11 @@ sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHan
   DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
 sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
-  meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
+  meta notify="true" clone-max="2" clone-node-max="1" \
   target-role="Started" interleave="true"
 
 sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
-  meta target-role="Started" is-managed="true" \
+  meta target-role="Started" \
   operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
   op monitor interval="10s" timeout="20s" \
   params ip="<b>10.0.0.13</b>"
@@ -759,7 +759,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come\><hanasid adm sul nodo hn1-db-0:
+   Eseguire i comandi seguenti come <hanasid\>ADM sul nodo HN1-DB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -800,7 +800,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Eseguire i comandi seguenti come\><hanasid adm sul nodo hn1-db-1:
+   Eseguire i comandi seguenti come <hanasid\>ADM sul nodo HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -841,7 +841,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come\><hanasid adm sul nodo hn1-db-0:
+   Eseguire i comandi seguenti come <hanasid\>ADM sul nodo HN1-DB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -882,7 +882,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Eseguire i comandi seguenti come\><hanasid adm sul nodo hn1-db-1:
+   Eseguire i comandi seguenti come <hanasid\>ADM sul nodo HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1025,7 +1025,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come\><hanasid adm sul nodo hn1-db-1:
+   Eseguire i comandi seguenti come <hanasid\>ADM sul nodo HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1062,7 +1062,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come\><hanasid adm sul nodo hn1-db-1:
+   Eseguire i comandi seguenti come <hanasid\>ADM sul nodo HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>

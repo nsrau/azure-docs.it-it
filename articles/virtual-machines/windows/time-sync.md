@@ -1,23 +1,18 @@
 ---
 title: Sincronizzazione dell'ora per macchine virtuali Windows in Azure
 description: Sincronizzazione dell'ora per macchine virtuali Windows.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 33c8d58877a73c1ea3055fe52ef8470d8775b6e3
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: cd9a196e5f957782de91cff69c01fbfa5716369a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458029"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100499"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronizzazione dell'ora per macchine virtuali Windows in Azure
 
@@ -72,7 +67,7 @@ Per i computer appartenenti a un dominio, lo stesso dominio stabilisce una gerar
 
 ### <a name="host-only"></a>Solo host 
 
-Poiché time.windows.com è un server NTP pubblico, la sincronizzazione dell'ora con esso richiede l'invio di traffico su Internet, i diversi ritardi dei pacchetti possono influire negativamente sulla qualità della sincronizzazione dell'ora. La rimozione di time.windows.com passando alla sincronizzazione solo host può talvolta migliorare i risultati della sincronizzazione dell'ora.
+Poiché time.windows.com è un server NTP pubblico, la sincronizzazione con il tempo necessario per l'invio del traffico su Internet, la variazione dei ritardi dei pacchetti può influire negativamente sulla qualità della sincronizzazione dell'ora. La rimozione di time.windows.com passando alla sincronizzazione solo host può talvolta migliorare i risultati della sincronizzazione del tempo.
 
 Il passaggio alla sincronizzazione dell'ora solo per l'host ha senso se si verificano problemi di sincronizzazione dell'ora usando la configurazione predefinita. Provare la sincronizzazione solo per l'host per verificare se contribuisce a migliorare la sincronizzazione dell'ora nella macchina virtuale. 
 
@@ -152,7 +147,7 @@ net stop w32time && net start w32time
 
 ## <a name="windows-server-2012-and-r2-vms"></a>Windows Server 2012 e macchine virtuali R2 
 
-Windows Server 2012 e Windows Server 2012 R2 hanno impostazioni predefinite diverse per la sincronizzazione dell'ora. Il w32time per impostazione predefinita è configurato in modo da preferire un overhead ridotto del servizio rispetto all'ora precisa. 
+Windows Server 2012 e Windows Server 2012 R2 presentano impostazioni predefinite diverse per la sincronizzazione dell'ora. Per impostazione predefinita, la W32Time è configurata in modo che preferisca un sovraccarico ridotto del servizio rispetto all'ora esatta. 
 
 Per spostare le distribuzioni di Windows Server 2012 e 2012 R2 per usare le impostazioni predefinite più recenti, che preferiscono l'ora precisa, è possibile applicare le impostazioni seguenti.
 

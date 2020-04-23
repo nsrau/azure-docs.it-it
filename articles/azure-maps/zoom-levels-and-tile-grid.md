@@ -1,6 +1,6 @@
 ---
-title: Livelli di zoom e griglia dei riquadri Mappe di Microsoft Azure
-description: In this article, you will learn about zoom levels and tile grid in Microsoft Azure Maps.
+title: Livelli di zoom e griglia affiancata | Mappe Microsoft Azure
+description: In questo articolo vengono illustrati i livelli di zoom e la griglia dei riquadri nelle mappe Microsoft Azure.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 01/22/2020
@@ -17,26 +17,26 @@ ms.locfileid: "79530292"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Livelli di zoom e griglia riquadri
 
-Mappe di Azure usa il sistema di coordinate sferiche per le proiezioni di Mercatore (EPSG: 3857). Una proiezione è il modello matematico utilizzato per trasformare il globo sferico in una mappa piatta. La proiezione Spherical Mercator estende la mappa ai poli per creare una mappa quadrata. Questa proiezione distorce in modo significativo la scala e l'area della mappa, ma ha due proprietà importanti che superano questa distorsione:
+Mappe di Azure usa il sistema di coordinate sferiche per le proiezioni di Mercatore (EPSG: 3857). Una proiezione è il modello matematico usato per trasformare il globo sferico in una mappa piatta. La proiezione sferica Mercator allunga la mappa sui poli per creare una mappa quadrata. Questa proiezione deforma significativamente la scala e l'area della mappa, ma ha due proprietà importanti che superano questa distorsione:
 
-- È una proiezione conforme, il che significa che conserva la forma di oggetti relativamente piccoli. Mantenere la forma di piccoli oggetti è particolarmente importante quando si visualizzano immagini aeree. Per esempio, vogliamo evitare di distorcere la forma degli edifici. Gli edifici quadrati dovrebbero apparire quadrati, non rettangolari.
-- È una proiezione cilindrica. Nord e sud sono sempre su e giù, e ovest e est sono sempre a sinistra ea destra. 
+- Si tratta di una proiezione conforme, il che significa che conserva la forma degli oggetti relativamente piccoli. La conservazione della forma di oggetti di piccole dimensioni è particolarmente importante quando si visualizzano le immagini aeree. Si consiglia, ad esempio, di evitare la distorsione della forma degli edifici. Le costruzioni quadrate dovrebbero apparire quadrate, non rettangolari.
+- Si tratta di una proiezione cilindrica. Nord e sud sono sempre attivi e inattivi, mentre ovest e est sono sempre a sinistra e a destra. 
 
-Per ottimizzare le prestazioni del recupero e della visualizzazione della mappa, la mappa è suddivisa in riquadri quadrati. Azure Maps SDK usa riquadri con dimensioni 512 x 512 pixel per le mappe stradali e più piccoli di 256 x 256 pixel per le immagini satellitari. Mappe di Azure offre riquadri raster e vettoriali per 23 livelli di zoom, numerati da 0 a 22.Azure Maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. Al livello di zoom 0 il mondo è incluso in un unico riquadro:
+Per ottimizzare le prestazioni del recupero e della visualizzazione della mappa, la mappa è divisa in riquadri quadrati. Azure Maps SDK USA riquadri con una dimensione di 512 x 512 pixel per le mappe stradali e 256 x 256 pixel più piccoli per le immagini satellite. Azure Maps fornisce riquadri raster e vettoriali per 23 livelli di zoom, numerati da 0 a 22. Al livello di zoom 0 il mondo è incluso in un unico riquadro:
 
 <center>
 
-![Riquadro mappa del mondo](./media/zoom-levels-and-tile-grid/world0.png)</center>
+![Tessera mappa mondiale](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 Per il rendering del mondo il livello di zoom 1 usa quattro riquadri, ovvero un quadrato 2 x 2
 
 <center>
 
-![Layout del riquadro della mappa 2x2](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+![layout affiancato della mappa 2x2](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
 
-Ogni livello di zoom aggiuntivo divide quadruplicamente le tessere del precedente, creando una griglia di 2<sup>zoom</sup> x 2<sup>zoom.</sup> Il livello di zoom 22 è una griglia di 2<sup>22</sup> x 2<sup>22</sup> ovvero 4.194.304 x 4.194.304 riquadri (per un totale di 17.592.186.044.416 riquadri).
+Ogni livello di zoom aggiuntivo divide in quad i riquadri del precedente, creando una griglia<sup>di 2</sup>zoom<sup>x 2 zoom.</sup> Il livello di zoom 22 è una griglia di 2<sup>22</sup> x 2<sup>22</sup> ovvero 4.194.304 x 4.194.304 riquadri (per un totale di 17.592.186.044.416 riquadri).
 
-I controlli mappa interattivi di Azure Maps per Web e Android supportano 25 livelli di zoom, numerati da 0 a 24.The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Anche se i dati stradali saranno disponibili solo ai livelli di zoom quando le piastrelle sono disponibili.
+I controlli mappa interattiva di Azure Maps per il supporto per Web e Android 25, numerati da 0 a 24. Sebbene i dati stradali saranno disponibili solo ai livelli di zoom in quando sono disponibili i riquadri.
 
 La tabella seguente fornisce l'elenco completo dei valori per i livelli di zoom in cui la dimensione del riquadro è 512 pixel quadrati:
 
@@ -65,12 +65,12 @@ La tabella seguente fornisce l'elenco completo dei valori per i livelli di zoom 
 |20|0,15|38,2|
 |21|0,075|19,1|
 |22|0,0375|9,55|
-|23|0.01875|4.775|
-|24|0.009375|2.3875|
+|23|0,01875|4,775|
+|24|0,009375|2,3875|
 
 ## <a name="pixel-coordinates"></a>Coordinate pixel
 
-Dopo aver scelto la proiezione e la scala da utilizzare a ogni livello di zoom, possiamo convertire le coordinate geografiche in coordinate pixel. La larghezza e l'altezza in pixel complete di un'immagine mappa del mondo per un particolare livello di zoom vengono calcolate come:
+Avendo scelto la proiezione e la scala da utilizzare a ogni livello di zoom, è possibile convertire le coordinate geografiche in coordinate pixel. La larghezza e l'altezza completa dei pixel di un'immagine mappa del mondo per un particolare livello di zoom sono calcolate come:
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -78,15 +78,15 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Poiché la larghezza e l'altezza della mappa sono diverse a ogni livello di zoom, lo sono anche le coordinate in pixel. Il pixel nell'angolo superiore sinistro della mappa ha sempre coordinate in pixel (0, 0). Il pixel nell'angolo inferiore destro della mappa ha coordinate in pixel *(larghezza 1, altezza-1)* o che fanno riferimento alle equazioni nella sezione precedente *(tileSize \* 2<sup>zoom</sup>–1, tileSize \* 2<sup>zoom</sup>–1).* Ad esempio, quando si utilizzano riquadri quadrati 512 al livello 2, le coordinate dei pixel variano da (0, 0) a (2047, 2047), in questo modo:
+Poiché la larghezza e l'altezza della mappa sono diverse a ogni livello di zoom, quindi sono le coordinate dei pixel. Il pixel nell'angolo superiore sinistro della mappa presenta sempre le coordinate dei pixel (0,0). Il pixel nell'angolo inferiore destro della mappa presenta le coordinate dei pixel *(width-1, Height-1)* o fa riferimento alle equazioni nella sezione precedente, *(tileSize \* 2<sup>Zoom</sup>-1, tileSize \* 2<sup>Zoom</sup>-1)*. Ad esempio, quando si usano i riquadri quadrati 512 al livello 2, le coordinate dei pixel sono comprese tra (0, 0) e (2047, 2047), come indicato di seguito:
 
 <center>
 
-![Mappa che mostra le dimensioni dei pixel](media/zoom-levels-and-tile-grid/map-width-height.png)
+![Mappa che mostra le dimensioni del pixel](media/zoom-levels-and-tile-grid/map-width-height.png)
 
 </center>
 
-Data latitudine e longitudine in gradi e il livello di dettaglio, le coordinate XY dei pixel vengono calcolate come segue:
+Data la latitudine e la longitudine in gradi e il livello di dettaglio, le coordinate XY del pixel vengono calcolate come segue:
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -96,11 +96,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-Si presuppone che i valori di latitudine e longitudine siano riportati nel dato WGS 84. Anche se Mappe di Azure usa una proiezione sferica, è importante convertire tutte le coordinate geografiche in un dato comune. WGS 84 è il datum selezionato. Si presuppone che il valore di longitudine sia compreso tra -180 gradi e 180 gradi e il valore di latitudine deve essere ritagliato in modo da -85.05112878 a 85.05112878. Aderendo a questi valori si evita una singolarità ai poli, e assicura che la mappa proiettata sia una forma squadrata.
+Si presuppone che i valori di latitudine e longitudine si trovino nel riferimento WGS 84. Anche se Azure Maps usa una proiezione sferica, è importante convertire tutte le coordinate geografiche in un dato comune. WGS 84 è il datum selezionato. Si presuppone che il valore di longitudine sia compreso tra-180 e + 180 gradi e il valore di latitudine deve essere ritagliato per un intervallo compreso tra-85,05112878 e 85,05112878. L'adesione a questi valori evita una singolarità ai poli e garantisce che la mappa proiettata sia una forma quadrata.
 
 ## <a name="tile-coordinates"></a>Coordinate del riquadro
 
-Per ottimizzare le prestazioni del recupero e della visualizzazione della mappa, la mappa sottoposta a rendering viene tagliata in riquadri. Il numero di pixel e il numero di riquadri differiscono a ogni livello di zoom:
+Per ottimizzare le prestazioni del recupero e della visualizzazione della mappa, la mappa di cui è stato eseguito il rendering viene tagliata in riquadri. Il numero di pixel e il numero di riquadri variano a seconda del livello di zoom:
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -108,13 +108,13 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-A ogni tessera vengono assegnate coordinate XY che vanno da (0, 0) in alto a sinistra a *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* in basso a destra. Ad esempio, al livello di zoom 2, le coordinate del riquadro vanno da (0, 0) a (7, 7) come segue:
+Ogni riquadro è costituito da coordinate XY comprese tra (0, 0) in alto a sinistra e *(2<sup>Zoom</sup>-1, 2<sup>Zoom</sup>-1)* in basso a destra. Ad esempio, con il livello di zoom 2, le coordinate dei riquadri variano da (0,0) a (7, 7) come indicato di seguito:
 
 <center>
 
 ![Mappa delle coordinate dei riquadri](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
 
-Data una coppia di coordinate XY pixel, è possibile determinare facilmente le coordinate XY del riquadro contenente tale pixel:
+Data una coppia di coordinate XY del pixel, è possibile determinare facilmente le coordinate XY del riquadro che contengono il pixel:
 
 ```javascript
 var tileX = Math.floor(pixelX / tileSize);
@@ -122,15 +122,15 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-I riquadri vengono chiamati in base al livello di zoom. Le coordinate x e y corrispondono alla posizione del riquadro sulla griglia per quel livello di zoom.
+I riquadri vengono chiamati dal livello di zoom. Le coordinate x e y corrispondono alla posizione del riquadro nella griglia per il livello di zoom.
 
-Quando si determina il livello di zoom da utilizzare, ricordare che ogni posizione si trova in una posizione fissa sulla relativa tessera. Di conseguenza, il numero di tessere necessarie per visualizzare una determinata distesa di territorio dipende dal posizionamento specifico della griglia di zoom sulla mappa del mondo. Ad esempio, se sono presenti due punti distanti 900 metri l'uno dall'altro, *potrebbe* essere necessario usare solo tre riquadri per visualizzare il percorso tra i due punti con un livello di zoom 17. Se tuttavia il punto occidentale si trova sulla destra del relativo riquadro e il punto orientale si trova sulla sinistra del relativo riquadro, potrebbero essere necessari quattro riquadri:
+Quando si determina il livello di zoom da usare, tenere presente che ogni posizione si trova in una posizione fissa nel relativo riquadro. Di conseguenza, il numero di riquadri necessari per visualizzare una determinata estensione del territorio dipende dalla posizione specifica della griglia di zoom sulla mappa mondiale. Ad esempio, se sono presenti due punti distanti 900 metri l'uno dall'altro, *potrebbe* essere necessario usare solo tre riquadri per visualizzare il percorso tra i due punti con un livello di zoom 17. Se tuttavia il punto occidentale si trova sulla destra del relativo riquadro e il punto orientale si trova sulla sinistra del relativo riquadro, potrebbero essere necessari quattro riquadri:
 
 <center>
 
 ![Scala di zoom di esempio](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
 
-Dopo aver definito il livello di zoom, sarà possibile calcolare i valore x e y. Il riquadro in alto a sinistra in ogni griglia di zoom è x- 0, y-0; il riquadro in basso a destra si trova in corrispondenza di x-2<sup>zoom-1</sup>, y-2<sup>zoom-1</sup>.
+Dopo aver definito il livello di zoom, sarà possibile calcolare i valore x e y. Il riquadro superiore sinistro in ogni griglia di zoom è x = 0, y = 0; il riquadro inferiore destro è x = 2<sup>Zoom-1</sup>, y = 2<sup>Zoom-1</sup>.
 
 Di seguito è illustrata la griglia di zoom per il livello di zoom 1:
 
@@ -138,14 +138,14 @@ Di seguito è illustrata la griglia di zoom per il livello di zoom 1:
 
 ![Griglia di zoom per il livello di zoom 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
 
-## <a name="quadkey-indices"></a>Indici quadrupliche
+## <a name="quadkey-indices"></a>Indici quadkey
 
-Alcune piattaforme `quadkey` di mapping usano una convenzione di denominazione di `quadtree` indicizzazione `quadkeys` che combina le coordinate y del riquadro in una stringa unidimensionale denominata keys o in breve. Ogni `quadkey` identifica in modo univoco un singolo riquadro a un determinato livello di dettaglio e può essere utilizzato come chiave negli indici B-tree comuni del database. Gli SDK di Azure Maps supportano la `quadkey` sovrapposizione dei layer di sezioni che usano la convenzione di denominazione oltre ad altre convenzioni di denominazione, come documentato nel documento [Aggiungere un livello di riquadro.](map-add-tile-layer.md)
+Per alcune piattaforme di mapping `quadkey` viene usata una convenzione di denominazione di indicizzazione che combina le coordinate di un elemento `quadtree` di tipo `quadkeys` di elemento in una stringa unidimensionale denominata chiavi o per brevità. Ogni `quadkey` identifica in modo univoco un singolo riquadro a un particolare livello di dettaglio e può essere usato come chiave negli indici albero B di database comuni. Azure Maps SDK supporta la sovrapposizione dei livelli di sezione che usano `quadkey` la convenzione di denominazione oltre ad altre convenzioni di denominazione, come illustrato nel documento [aggiungere un livello sezione](map-add-tile-layer.md) .
 
 > [!NOTE]
-> La `quadkeys` convenzione di denominazione funziona solo per i livelli di zoom di uno o superiore. Il livello di zoom di supporto di Azure Maps SDK 0 è un singolo riquadro della mappa per tutto il mondo. 
+> La `quadkeys` convenzione di denominazione funziona solo per i livelli di zoom di uno o più. Il livello di zoom del supporto di Azure Maps SDK è costituito da una singola tessera mappa per l'intero mondo. 
 
-Per convertire le `quadkey`coordinate delle porzioni in un oggetto , i bit delle coordinate Y e X vengono interfogliati e il risultato viene interpretato come un numero in base 4 (con zeri iniziali mantenuti) e convertito in una stringa. Ad esempio, date le coordinate XY del riquadro `quadkey` di (3, 5) al livello 3, il viene determinato come segue:
+Per convertire le coordinate del riquadro `quadkey`in un oggetto, i bit delle coordinate Y e X sono con interfoliazione e il risultato viene interpretato come numero in base 4 (con zeri iniziali conservati) e convertito in una stringa. Ad esempio, date le `quadkey` coordinate XY del riquadro (3, 5) al livello 3, viene determinato come segue:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -155,19 +155,19 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`hanno diverse proprietà interessanti. In primo luogo, `quadkey` la lunghezza di un (il numero di cifre) è uguale al livello di zoom del riquadro corrispondente. In secondo `quadkey` luogo, l'oggetto di qualsiasi riquadro inizia con il `quadkey` riquadro padre (il riquadro contenitore al livello precedente). Come illustrato nell'esempio seguente, il riquadro 2 è l'elemento padre dei riquadri da 20 a 23:As shown in the example below, tile 2 is the parent of tiles 20 through 23:
+`Qquadkeys`hanno diverse proprietà interessanti. In primo luogo, la lunghezza `quadkey` di un valore (il numero di cifre) è uguale al livello di zoom del riquadro corrispondente. In secondo luogo `quadkey` , l'oggetto di qualsiasi riquadro `quadkey` inizia con la proprietà del riquadro padre (il riquadro che lo contiene al livello precedente). Come illustrato nell'esempio seguente, il riquadro 2 è l'elemento padre dei riquadri da 20 a 23:
 
 <center>
 
-![Piramide di piastrelle quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+![Piramide del riquadro quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Infine, `quadkeys` fornire una chiave di indice unidimensionale che in genere mantiene la vicinanza dei riquadri nello spazio XY. In altre parole, due tessere che `quadkeys` hanno le coordinate XY vicine di solito hanno che sono relativamente vicine tra loro. Questo è importante per ottimizzare le prestazioni del database, perché i riquadri vicini sono spesso richiesti in gruppi ed è consigliabile mantenere tali riquadri sugli stessi blocchi del disco, al fine di ridurre al minimo il numero di letture del disco.
+Infine, `quadkeys` fornire una chiave di indice unidimensionale che in genere conserva la prossimità dei riquadri nello spazio XY. In altre parole, due riquadri con coordinate XY vicine hanno `quadkeys` in genere un aspetto relativamente simile. Questa operazione è importante per l'ottimizzazione delle prestazioni del database, perché i riquadri adiacenti sono spesso richiesti in gruppi ed è consigliabile mantenerli negli stessi blocchi del disco, in modo da ridurre al minimo il numero di letture del disco.
 
-## <a name="tile-math-source-code"></a>Codice sorgente matematica tile
+## <a name="tile-math-source-code"></a>Codice sorgente Math del riquadro
 
-Il codice di esempio seguente illustra come implementare le funzioni descritte in questo documento. Queste funzioni possono essere facilmente tradotte in altri linguaggi di programmazione in base alle esigenze.
+Nell'esempio di codice seguente viene illustrato come implementare le funzioni descritte in questo documento. Queste funzioni possono essere facilmente convertite in altri linguaggi di programmazione in base alle esigenze.
 
-#### <a name="c"></a>[C #](#tab/csharp)
+#### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 using System;
@@ -948,23 +948,23 @@ module AzureMaps {
 * * *
 
 > [!NOTE]
-> I controlli mappa interattivi in Azure Maps SDK dispongono di funzioni di supporto per la conversione tra posizioni geospaziali e pixel del riquadro di visualizzazione. 
-> - [Web SDK: Mappare i calcoli di pixel e posizione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> I controlli della mappa interattiva in Azure Maps SDK hanno funzioni helper per la conversione tra le posizioni geospaziali e i pixel del viewport. 
+> - [Web SDK: eseguire il mapping di calcoli di pixel e posizioni](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Accedere direttamente ai riquadri della mappa dai servizi REST di Azure Maps:Directly access map tiles from the Azure Maps REST services:
+Accedere direttamente alle tessere mappa dai servizi REST di Maps di Azure:
 
 > [!div class="nextstepaction"]
-> [Ottenere riquadri della mappaGet map tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Ottenere le tessere mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Ottenere i riquadri del flusso di trafficoGet traffic flow tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Ottenere i riquadri del flusso di traffico](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Ottenere i riquadri degli incidenti stradaliGet traffic incident tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Ottenere i riquadri eventi imprevisti del traffico](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
 
-Ulteriori informazioni sui concetti geospaziali:
+Altre informazioni sui concetti geospaziali:
 
 > [!div class="nextstepaction"]
-> [Glossario di Mappe di AzureAzure Maps glossary](glossary.md)
+> [Glossario mappe di Azure](glossary.md)

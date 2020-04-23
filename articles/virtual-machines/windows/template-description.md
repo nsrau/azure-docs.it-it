@@ -1,25 +1,18 @@
 ---
 title: Macchine virtuali in un modello di Azure Resource Manager | Microsoft Azure
 description: Altre informazioni su come definire la risorsa della macchina virtuale in un modello di Azure Resource Manager.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: c9bf1cf0564655c932e066e5b74225382375e9c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235412"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100533"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -281,7 +274,7 @@ Per impostare questa proprietà, è necessario che esista l'interfaccia di rete.
 
 Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elementi di profilo. Alcuni sono necessari e alcuni sono facoltativi. Ad esempio, sono necessari gli elementi hardwareProfile, osProfile, storageProfile e networkProfile, ma diagnosticsProfile è facoltativo. Questi profili definiscono impostazioni, ad esempio:
    
-- [Dimensione](sizes.md)
+- [size](sizes.md)
 - [nome](/azure/architecture/best-practices/resource-naming) e credenziali
 - disco e [impostazioni del sistema operativo](cli-ps-findimage.md)
 - [interfaccia di rete](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 

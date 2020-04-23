@@ -1,26 +1,20 @@
 ---
-title: Creare una macchina virtuale da un disco specializzato in AzureCreate VM from a specialized disk in Azure
+title: Creare una macchina virtuale da un disco specializzato in Azure
 description: Creare una nuova macchina virtuale collegando un disco non gestito specializzato nel modello di distribuzione Resource Manager.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: d887ef2ef74bb433d6e8ae7f53cd0b77f5948303
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: storage-accounts
+ms.openlocfilehash: 60b0a0f0d83b9b83c9cf8d530881508af591de59
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073355"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099649"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -40,7 +34,7 @@ Sono disponibili due opzioni:
 ### <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 È possibile caricare un disco rigido virtuale specializzato creato usando una VM locale o un disco rigido virtuale esportato da un altro cloud. Un disco rigido virtuale specializzato gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. Se si intende usare il disco rigido virtuale così come è per creare una nuova macchina virtuale, assicurare il completamento delle operazioni seguenti. 
   
-  * Preparare un disco rigido virtuale di [Windows per il caricamento in Azure.Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Non** generalizzare la macchina Virtuale con Sysprep.
+  * [Preparare un disco rigido virtuale Windows da caricare in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Non** generalizzare la macchina Virtuale con Sysprep.
   * Rimuovere tutti gli strumenti di virtualizzazione guest e gli agenti installati nella macchina virtuale, ad esempio gli strumenti VMware.
   * Assicurarsi che la macchina virtuale sia configurata per eseguire il pull dell'indirizzo IP e delle impostazioni DNS tramite DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio. 
 
@@ -119,7 +113,7 @@ Verificare quanto segue:
 Deallocare la VM, operazione che consente di liberare il disco rigido virtuale da copiare. 
 
 * **Portale**: fare clic su **Macchine virtuali** > **myVM** &gt; Stop (Termina)
-* **Powershell:** usare [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) per arrestare (deallocare) la macchina virtuale denominata **myVM** nel gruppo di risorse **myResourceGroup**.
+* **PowerShell**: usare [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) per arrestare (deallocare) la macchina virtuale denominata **MyVM** nel gruppo di risorse **myResourceGroup**.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -133,7 +127,7 @@ Sono necessari gli URL degli account di archiviazione di origine e destinazione.
 Per ottenere l'URL è possibile usare il portale di Azure o Azure PowerShell:
 
 * **Portale**: fare clic su **>** per **Tutti i servizi** > **Account di archiviazione** > *account di archiviazione* > **BLOB**. Il file VHD di origine si trova probabilmente nel contenitore **vhds**. Fare clic su **Proprietà** per il contenitore e copiare il testo con l'etichetta **URL**. Sono necessari gli URL di entrambi i contenitori di origine e di destinazione. 
-* **Powershell:** usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per ottenere le informazioni per la macchina virtuale denominata **myVM** nel gruppo di risorse **myResourceGroup**. Nei risultati esaminare la sezione **Storage profile** (Profilo archiviazione) per l'**URI VHD**. La prima parte dell'URI è l'URL del contenitore, mentre l'ultima parte è il nome del disco rigido virtuale del sistema operativo della VM.
+* **PowerShell**: usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per ottenere le informazioni per la macchina virtuale denominata **MyVM** nel gruppo di risorse **myResourceGroup**. Nei risultati esaminare la sezione **Storage profile** (Profilo archiviazione) per l'**URI VHD**. La prima parte dell'URI è l'URL del contenitore, mentre l'ultima parte è il nome del disco rigido virtuale del sistema operativo della VM.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -143,7 +137,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 Trovare le chiavi di accesso per gli account di archiviazione di origine e destinazione. Per altre informazioni sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
 
 * **Portale**: fare clic su **Tutti i servizi** > **Account di archiviazione** > *account di archiviazione* > **Chiavi di accesso**. Copiare la chiave denominata **key1**.
-* **Powershell:** usare [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) per ottenere la chiave di archiviazione per l'account di archiviazione **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Copiare la chiave denominata **key1**.
+* **PowerShell**: usare [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) per ottenere la chiave di archiviazione per l'account di archiviazione **Mystorageaccount** nel gruppo di risorse **myResourceGroup**. Copiare la chiave denominata **key1**.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup

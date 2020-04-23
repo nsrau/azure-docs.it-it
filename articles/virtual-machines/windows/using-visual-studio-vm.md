@@ -1,43 +1,39 @@
 ---
-title: Uso di Visual Studio in una macchina virtuale di AzureUsing Visual Studio on an Azure virtual machine
+title: Uso di Visual Studio in una macchina virtuale di Azure
 description: Uso di Visual Studio in una macchina virtuale di Azure.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cathysull
 manager: cathys
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: 76c8ec8f3d691a897ec924e06b76beec746ad14a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 15de6a9aa7e49f680dcd953937d6b12cb9e16d4a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451585"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101604"
 ---
 # <a name="visual-studio-images-on-azure"></a>Immagini di Visual Studio in Azure
 L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è un modo semplice e rapido per avere subito a disposizione un ambiente di sviluppo pienamente operativo. In [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure) sono disponibili immagini di sistema con diverse configurazioni di Visual Studio.
 
-Non si è ancora provato Azure? [Creare un account Azure gratuito.](https://azure.microsoft.com/free)
+Non si è ancora provato Azure? [Creare un account Azure gratuito](https://azure.microsoft.com/free).
 
 > [!NOTE]
-> Non tutte le sottoscrizioni sono idonee a distribuire immagini di Windows 10.Not all subscriptions are eligible to deploy Windows 10 images. Per altre informazioni, vedere Usare il client Windows in Azure per gli scenari di [sviluppo/testFor](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) more information see Use Windows client in Azure for dev/test scenarios
+> Non tutte le sottoscrizioni sono idonee per la distribuzione di immagini di Windows 10. Per altre informazioni, vedere [usare il client Windows in Azure per scenari di sviluppo/test](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
 
 ## <a name="what-configurations-and-versions-are-available"></a>Quali configurazioni e versioni sono disponibili?
 In Azure Marketplace sono disponibili immagini per le versioni principali più recenti: Visual Studio 2019, Visual Studio 2017 e Visual Studio 2015.  Per ogni versione principale rilasciata vengono visualizzate la versione rilasciata in origine sul Web e le versioni aggiornate più recenti.  Ognuna di queste versioni offre le edizioni Visual Studio Enterprise e Visual Studio Community.  Queste immagini vengono aggiornate almeno una volta al mese in modo da includere gli aggiornamenti più recenti per Visual Studio e Windows.  Anche se i nomi delle immagini rimangono invariati, la descrizione di ogni immagine include la versione del prodotto installato e la data corrente dell'immagine.
 
 | Versione di rilascio                                                                                                                                                | Edizioni              | Versione del prodotto   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: Più recente (versione 16.4)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Versione 16.4.0Version 16.4.0    |
-| [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, Community | Versione 16.0.9Version 16.0.9    |
-| [Visual Studio 2017: più recente (versione 15.9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, Community | Versione 15.9.17Version 15.9.17   |
-| [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, Community | Versione 15.0.27Version 15.0.27  |
+| [Visual Studio 2019: versione più recente (versione 16,4)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Versione 16.4.0    |
+| [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, Community | Versione 16.0.9    |
+| [Visual Studio 2017: più recente (versione 15.9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, Community | Versione 15.9.17   |
+| [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, Community | Versione 15.0.27  |
 | [Visual Studio 2015: più recente (Update 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, Community | Versione 14.0.25431.01 |
 
 > [!NOTE]

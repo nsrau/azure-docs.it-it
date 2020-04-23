@@ -1,23 +1,23 @@
 ---
 title: Piani tariffari - Database di Azure per MariaDB
-description: Informazioni sui vari piani tariffari per Database di Azure per MariaDB, inclusi generazioni di elaborazione, tipi di archiviazione, dimensioni di archiviazione, vCore, memoria e periodi di conservazione dei backup.
-author: jasonwhowell
-ms.author: jasonh
+description: Informazioni sui vari piani tariffari per database di Azure per MariaDB, incluse le generazioni di calcolo, i tipi di archiviazione, le dimensioni di archiviazione, Vcore, la memoria e i periodi di conservazione dei backup.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 9c057bebf94362b3b9e42db9d311e99f1e35c651
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: f00d93a639bacd1d0862fed7b6b003302bb2920e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770137"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097660"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Piani tariffari di Database di Azure per MariaDB
 
 È possibile creare un Database di Azure per il server MariaDB in uno dei tre piani tariffari disponibili: Basic, Utilizzo generico e Con ottimizzazione per la memoria. I piani tariffari si differenziano per le risorse di calcolo in vCore di cui è possibile effettuare il provisioning, per la memoria in ogni vCore e per la tecnologia usata per l'archiviazione dei dati. Il provisioning di tutte le risorse viene effettuato a livello di server MariaDB. Un server può avere uno o più database.
 
-|    | **Basic** | **Scopo generale** | **Ottimizzazione della memoria** |
+|    | **Basic** | **per utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Generazione di calcolo | Generazione 5 |Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -33,7 +33,7 @@ Per scegliere un piano tariffario, usare la tabella seguente come punto di parte
 | Utilizzo generico | La maggior parte dei carichi di lavoro aziendali che richiedono risorse di calcolo e di memoria bilanciate con velocità effettiva di I/O scalabile. Ad esempio, server per l'hosting di app Web e di app per dispositivi mobili e altre applicazioni aziendali.|
 | Con ottimizzazione per la memoria | Carichi di lavoro di database ad alte prestazioni che richiedono prestazioni in memoria per l'elaborazione più rapida delle transazioni e una concorrenza maggiore. Ad esempio, server per l'elaborazione di dati in tempo reale e app transazionali o analitiche a prestazioni elevate.|
 
-Dopo aver creato un server, il numero di vCore e il piano tariffario (ad eccezione del passaggio da/a Basic) possono essere aumentati o ridotti in pochi secondi. È anche possibile aumentare autonomamente lo spazio di archiviazione e aumentare o ridurre il periodo di conservazione dei backup senza tempi di inattività per le applicazioni. Non è possibile modificare il tipo di archiviazione dei backup dopo aver creato il server. Per altre informazioni, vedere la sezione [Ridimensionare le risorse.](#scale-resources)
+Dopo aver creato un server, il numero di vCore e il piano tariffario (ad eccezione del passaggio da/a Basic) possono essere aumentati o ridotti in pochi secondi. È anche possibile aumentare autonomamente lo spazio di archiviazione e aumentare o ridurre il periodo di conservazione dei backup senza tempi di inattività per le applicazioni. Non è possibile modificare il tipo di archiviazione dei backup dopo aver creato il server. Per ulteriori informazioni, vedere la sezione [scale Resources](#scale-resources) .
 
 ## <a name="compute-generations-and-vcores"></a>Generazioni di calcolo e vCore
 
@@ -43,43 +43,43 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 
 Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per MariaDB. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server MariaDB. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
-|    | **Basic** | **Scopo generale** | **Ottimizzazione della memoria** |
+|    | **Basic** | **per utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
-| Tipo di archiviazione | Archiviazione di base | Archiviazione per uso generale | Archiviazione per uso generale |
+| Tipo di archiviazione | Archiviazione di base | Archiviazione per utilizzo generico | Archiviazione per utilizzo generico |
 | Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
 
-È possibile aggiungere ulteriore capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumentare automaticamente l'archiviazione in base all'utilizzo dello spazio di lavoro.
+È possibile aggiungere ulteriore capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumentare automaticamente le dimensioni di archiviazione in base al consumo di spazio di archiviazione del carico di lavoro.
 
 >[!NOTE]
-> Lo storage può essere aumentato solo, non verso il basso.
+> Lo spazio di archiviazione può essere scalato solo, non inattivo.
 
 Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 
-È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche rilevanti da monitorare sono il limite di archiviazione, la [percentuale di archiviazione, lo spazio di archiviazione utilizzato e](concepts-monitoring.md)la percentuale di I/O .
+È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche rilevanti per il monitoraggio sono il [limite di archiviazione, la percentuale di archiviazione, lo spazio di archiviazione usato e la percentuale di io](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
 
-I server con meno di 100 GB di spazio di archiviazione di cui è stato eseguito il provisioning sono contrassegnati come di sola lettura se lo spazio di archiviazione disponibile è inferiore al 5% delle dimensioni di archiviazione di cui è stato eseguito il provisioning. I server con più di 100 GB di spazio di archiviazione con provisioning sono contrassegnati come di sola lettura quando lo spazio di archiviazione disponibile è inferiore a 5 GB.
+I server con una risorsa di archiviazione con provisioning inferiore a 100 GB sono contrassegnati come di sola lettura se lo spazio di archiviazione disponibile è inferiore al 5% delle dimensioni di archiviazione di cui è stato effettuato il provisioning. I server con più di 100 GB di spazio di archiviazione con provisioning sono contrassegnati come di sola lettura quando lo spazio di archiviazione disponibile è inferiore a 5 GB.
 
-Ad esempio, se è stato eseguito il provisioning di 110 GB di spazio di archiviazione e l'utilizzo effettivo supera i 105 GB, il server viene contrassegnato come di sola lettura. In alternativa, se è stato eseguito il provisioning di 5 GB di spazio di archiviazione, il server viene contrassegnato in sola lettura quando lo spazio di archiviazione disponibile raggiunge meno di 256 MB.
+Se, ad esempio, è stato effettuato il provisioning di 110 GB di spazio di archiviazione e l'utilizzo effettivo supera 105 GB, il server è contrassegnato come di sola lettura. In alternativa, se è stato effettuato il provisioning di 5 GB di spazio di archiviazione, il server è contrassegnato come di sola lettura quando lo spazio di archiviazione disponibile è inferiore a 256 MB.
 
 Mentre il servizio tenta di impostare il server come sola lettura, tutte le nuove richieste di transazione di scrittura vengono bloccate e le transazioni attive esistenti continueranno a essere eseguite. Quando il server è impostato su sola lettura, tutte le operazioni di scrittura e i commit delle transazioni successivi avranno esito negativo. Le query in lettura continueranno a funzionare senza interruzioni. Dopo avere aumentato lo spazio di archiviazione sottoposto a provisioning, il server sarà pronto per accettare nuovamente le transazioni in scrittura.
 
-È consigliabile attivare l'aumento automatico dell'archiviazione o impostare un avviso per notificare quando lo spazio di archiviazione del server sta per raggiungere la soglia in modo da evitare di entrare nello stato di sola lettura. Per altre informazioni, vedere la documentazione sulla [procedura di configurazione di un avviso](howto-alert-metric.md).
+È consigliabile attivare l'aumento automatico delle dimensioni dell'archiviazione o impostare un avviso per ricevere una notifica quando l'archiviazione del server raggiunge la soglia, in modo da evitare di accedere allo stato di sola lettura. Per altre informazioni, vedere la documentazione sulla [procedura di configurazione di un avviso](howto-alert-metric.md).
 
-### <a name="storage-auto-grow"></a>Aumento automatico dello storage
+### <a name="storage-auto-grow"></a>Aumento automatico dell'archiviazione
 
-L'aumento automatico dello spazio di archiviazione impedisce al server di esaurire l'archiviazione e diventa di sola lettura. Se l'aumento automatico dell'archiviazione è abilitato, l'archiviazione cresce automaticamente senza influire sul carico di lavoro. Per i server con meno di 100 GB di spazio di archiviazione di cui è stato eseguito il provisioning, la dimensione dello spazio di archiviazione di cui è stato eseguito il provisioning viene aumentata di 5 GB quando lo spazio di archiviazione disponibile è inferiore al 10% dello spazio di archiviazione di cui è stato eseguito il provisioning. Per i server con più di 100 GB di spazio di archiviazione di cui è stato eseguito il provisioning, la dimensione dello spazio di archiviazione di cui è stato eseguito il provisioning viene aumentata del 5% quando lo spazio di archiviazione disponibile è inferiore a 10 GB della dimensione di archiviazione di cui è stato eseguito il provisioning. Si applicano i limiti di archiviazione massimi specificati in precedenza.
+L'aumento automatico delle dimensioni impedisce al server di esaurire lo spazio di archiviazione e diventa di sola lettura. Se l'opzione di aumento automatico delle dimensioni è abilitata, la risorsa di archiviazione aumenta automaticamente senza alcun effetto sul carico di lavoro. Per i server con archiviazione con provisioning inferiore a 100 GB, le dimensioni di archiviazione con provisioning vengono aumentate di 5 GB quando lo spazio di archiviazione disponibile è inferiore al 10% dello spazio di archiviazione di cui è stato effettuato il provisioning. Per i server con più di 100 GB di spazio di archiviazione di cui è stato effettuato il provisioning, le dimensioni di archiviazione di cui è stato effettuato il provisioning vengono aumentate del 5% quando lo spazio di archiviazione disponibile è inferiore a 10 GB delle dimensioni di archiviazione Si applicano i limiti di archiviazione massimi specificati sopra.
 
-Ad esempio, se è stato eseguito il provisioning di 1000 GB di spazio di archiviazione e l'utilizzo effettivo supera i 990 GB, la dimensione dello spazio di archiviazione del server viene aumentata a 1050 GB. In alternativa, se è stato eseguito il provisioning di 10 GB di spazio di archiviazione, le dimensioni dello spazio di archiviazione aumentano a 15 GB quando lo spazio di archiviazione è gratuito meno di 1 GB.
+Se, ad esempio, è stato effettuato il provisioning di 1000 GB di spazio di archiviazione e l'utilizzo effettivo supera 990 GB, le dimensioni di archiviazione del server vengono aumentate a 1050 GB. In alternativa, se è stato effettuato il provisioning di 10 GB di spazio di archiviazione, le dimensioni di archiviazione aumentano a 15 GB quando sono disponibili meno di 1 GB di spazio di archiviazione.
 
-Tenere presente che lo spazio di archiviazione può essere aumentato solo, non verso il basso.
+Tenere presente che lo spazio di archiviazione può essere scalato solo, non inattivo.
 
 ## <a name="backup"></a>Backup
 
-Il servizio esegue automaticamente il backup del server. È possibile selezionare un periodo di conservazione da un intervallo compreso tra 7 e 35 giorni. I server con scopo generale e ottimizzazione della memoria possono scegliere di disporre di un'archiviazione con ridondanza geografica per i backup. Ulteriori informazioni sui backup sono riportati [nell'articolo concetti.](concepts-backup.md)
+Il servizio esegue automaticamente il backup del server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. I server per utilizzo generico e con ottimizzazione per la memoria possono scegliere di disporre di archiviazione con ridondanza geografica per i backup. Per altre informazioni sui backup, vedere l' [articolo concetti](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Ridimensionare le risorse
 
@@ -96,7 +96,7 @@ Il ridimensionamento dello spazio di archiviazione e la modifica del periodo di 
 Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/mariadb/). Per informazioni sui costi della configurazione desiderata, consultare la scheda **Piano tariffario** del [portale di Azure](https://portal.azure.com/#create/Microsoft.MariaDBServer) che illustra il costo mensile in base alle opzioni selezionate. Se non è disponibile una sottoscrizione di Azure, è possibile usare il calcolatore dei prezzi di Azure per ottenere una stima. Passare al sito Web del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/), selezionare **Aggiungi elementi**, espandere la categoria **Database** e scegliere **Database di Azure per MariaDB** per personalizzare le opzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sulle [limitazioni](concepts-limits.md)del servizio .
+- Informazioni sulle [limitazioni del servizio](concepts-limits.md).
 - Informazioni su come [creare un server MariaDB nel portale di Azure](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 <!--
