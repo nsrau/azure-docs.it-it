@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 7103afc29e4021d950d9a3634b190f4439ecfe8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 23dc784586e85b8cbdc816ac5f4d54556fc1ffb7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768505"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456992"
 ---
 # <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Guida introduttiva: Usare R con Machine Learning Services per eseguire query su un database SQL di Azure (anteprima)
 
@@ -30,16 +31,13 @@ Questo argomento di avvio rapido illustra come usare R con Machine Learning Serv
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un [database SQL di Azure](sql-database-single-database-get-started.md)
-- [Machine Learning Services](sql-database-machine-learning-services-overview.md) con R abilitato. [Iscriversi per l'anteprima](sql-database-machine-learning-services-overview.md#signup).
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) con R abilitato.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
 > Gli script di questo articolo sono scritti in modo da usare il database **Adventure Works**.
 
-> [!NOTE]
-> Durante l'anteprima pubblica, Microsoft eseguirà l'onboarding degli utenti e abiliterà Machine Learning per i database nuovi o esistenti, tuttavia l'opzione per la distribuzione di istanze gestite non è attualmente supportata.
-
-Machine Learning Services con R è una funzionalità del database SQL di Azure, usata per l'esecuzione di script R nel database. Per altre informazioni, vedere il [progetto R](https://www.r-project.org/).
+Machine Learning Services con R è una funzionalità di Database SQL di Azure usata per l'esecuzione di script R nel database. Per altre informazioni, vedere il [progetto R](https://www.r-project.org/).
 
 ## <a name="get-sql-server-connection-information"></a>Ottenere informazioni di connessione SQL Server
 

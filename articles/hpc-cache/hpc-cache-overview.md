@@ -4,14 +4,14 @@ description: Illustra Cache HPC di Azure, una soluzione che accelera l'accesso a
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/15/2020
+ms.author: v-erkel
+ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216389"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536642"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Che cos'è Cache HPC di Azure?
 
@@ -49,22 +49,20 @@ Una distribuzione di Cache HPC di Azure consente di velocizzare i calcoli dell'a
 
 Cache HPC di Azure è disponibile in queste aree di Azure:
 
+| America del Nord      | Europa         | Asia            | Australia      |
+|--------------------|----------------|-----------------|----------------|
+| Stati Uniti orientali            | Europa settentrionale   | Corea centrale   | Australia orientale |
+| Stati Uniti orientali 2          | Europa occidentale    | Asia sud-orientale  |               |
+| Stati Uniti centro-meridionali | | | |
+| Stati Uniti occidentali 2        | | | |
+
+La [funzionalità delle chiavi gestite dal cliente](customer-keys.md) è supportata solo in queste aree:
+
 * Stati Uniti orientali
-* Stati Uniti orientali 2
-* Europa settentrionale
-* Europa occidentale
-* Asia sud-orientale
-* Sydney
+* Stati Uniti centro-meridionali
 * Stati Uniti occidentali 2
-* Corea centrale
 
 Per le informazioni più aggiornate sulla disponibilità, vedere la [pagina relativa al prodotto Cache HPC di Azure](https://azure.microsoft.com/services/hpc-cache).
-
-## <a name="service-availability"></a>Disponibilità del servizio
-
-È necessario richiedere l'accesso per ogni sottoscrizione che si userà con Cache HPC di Azure. Questa restrizione garantisce la qualità del servizio nei mesi iniziali della disponibilità generale.
-
-Per richiedere l'accesso, compilare [questo modulo](https://aka.ms/onboard-hpc-cache). Dopo aver aggiunto la sottoscrizione all'elenco di accesso, è possibile creare cache.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

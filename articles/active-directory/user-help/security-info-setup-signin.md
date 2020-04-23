@@ -1,28 +1,28 @@
 ---
-title: Configurare le informazioni di sicurezza (anteprima) da una richiesta di accesso - Azure AD
-description: Come configurare le informazioni di sicurezza (anteprima) per l'account aziendale o dell'istituto di istruzione, se richiesto nella pagina di accesso dell'organizzazione.
+title: Configurare le informazioni di sicurezza da una richiesta di accesso - Azure AD
+description: Come configurare le informazioni di sicurezza per l'account aziendale o dell'istituto di istruzione, se richiesto nella pagina di accesso dell'organizzazione.
 services: active-directory
 author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063986"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454450"
 ---
-# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurare le informazioni di sicurezza (anteprima) da una richiesta di accesso
+# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configurare le informazioni di sicurezza da una richiesta di accesso
 
 È possibile seguire questa procedura se subito dopo l'accesso all'account aziendale o dell'istituto di istruzione viene richiesto di configurare le informazioni di sicurezza.
 
-Questo messaggio di richiesta verrà visualizzato solo se non si sono ancora configurate le informazioni di sicurezza richieste dall'organizzazione. Se sono state configurate in precedenza ma si vogliono apportare modifiche, è possibile seguire i passaggi illustrati nei vari articoli sulle procedure in base al metodo. Per altre informazioni, vedere la [panoramica su come aggiungere o aggiornare le informazioni di sicurezza](security-info-add-update-methods-overview.md).
+Questa richiesta verrà visualizzata solo se non si sono ancora configurate le informazioni di sicurezza richieste dall'organizzazione. Se sono state configurate in precedenza ma si vogliono apportare modifiche, è possibile seguire i passaggi illustrati nei vari articoli sulle procedure in base al metodo. Per altre informazioni, vedere la [panoramica su come aggiungere o aggiornare le informazioni di sicurezza](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -122,7 +122,7 @@ Seguire questa procedura per configurare le informazioni di sicurezza per l'acco
 Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi nell'organizzazione, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
 
 >[!Note]
->Se questa opzione non viene visualizzata nella procedura guidata, significa che non è stata configurata dall'amministratore. Se l'opzione non è configurata ma si sa di dover usare password delle app, è possibile seguire la procedura descritta in [Configurare le password delle app dalla pagina Info di sicurezza (anteprima)](security-info-app-passwords.md).
+>Se questa opzione non viene visualizzata nella procedura guidata, significa che non è stata configurata dall'amministratore. Se l'opzione non è configurata ma si sa di dover usare password delle app, è possibile seguire la procedura descritta in [Configurare le password delle app dalla pagina Informazioni di sicurezza](security-info-app-passwords.md).
 
 Quando si usano password per le app, è importante tenere presente quanto segue:
 

@@ -1,213 +1,158 @@
 ---
 title: Creare un modello - Visual Studio Code
 description: Usare Visual Studio Code e l'estensione Strumenti di Azure Resource Manager per elaborare i modelli di Resource Manager.
-author: mumian
-ms.date: 03/04/2019
+author: neilpeterson
+ms.date: 04/17/2020
 ms.topic: quickstart
-ms.author: jgao
-ms.openlocfilehash: a0c80f18e9cd09b765804aaddbd178b4b3e32a9d
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.author: nepeters
+ms.openlocfilehash: cd107db5220a96d75092a94736e060ae46672926
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984453"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686620"
 ---
-# <a name="quickstart-create-arm-templates-by-using-visual-studio-code"></a>Guida di avvio rapido: Creare modelli di Resource Manager con Visual Studio Code
+# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Guida introduttiva: Creare modelli di Azure Resource Manager con Visual Studio Code
 
-Informazioni su come usare Visual Studio Code e l'estensione Strumenti di Azure Resource Manager per creare e modificare i modelli di Azure Resource Manager (ARM). È possibile creare modelli di Resource Manager in Visual Studio Code senza l'estensione, ma questa offre opzioni di completamento automatico che semplificano lo sviluppo di modelli. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere la [panoramica della distribuzione di modelli](overview.md).
+Gli strumenti di Azure Resource Manager per Visual Studio Code forniscono supporto per i linguaggi, frammenti di risorse e completamento automatico delle risorse. Questi strumenti consentono di creare e convalidare i modelli di Azure Resource Manager. In questa guida di avvio rapido si userà l'estensione per creare un modello di Azure Resource Manager da zero. In questo modo è possibile sperimentare le funzionalità delle estensioni, come i frammenti di modelli di Resource Manager, la convalida, i completamenti e il supporto per i file di parametri.
 
-In questa guida di avvio rapido si distribuisce un account di archiviazione:
-
-![modello di resource manager avvio rapido diagramma visual studio code](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
+Per completare questo argomento di avvio rapido, è necessario avere [Visual Studio Code](https://code.visualstudio.com/) con l'[estensione degli strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installata. È inoltre necessario aver installato e autenticato l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) o il [modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="create-an-arm-template"></a>Creare un modello di Azure Resource Manager
 
-Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
+Creare e aprire con Visual Studio Code un nuovo file denominato *azuredeploy.json*. Immettere `arm` nell'editor di codice, che avvia i frammenti di Azure Resource Manager per lo scaffolding di un modello di Resource Manager.
 
-- [Visual Studio Code](https://code.visualstudio.com/).
-- Estensione Strumenti di Azure Resource Manager. Per eseguirne l'installazione, seguire questa procedura:
+Selezionare `arm!` per creare un modello con ambito per la distribuzione di un gruppo di risorse di Azure.
 
-    1. Aprire Visual Studio Code.
-    2. Premere **CTRL+MAIUSC+X** per aprire il riquadro Estensioni.
-    3. Cercare **Strumenti di Azure Resource Manager** e quindi selezionare **Installa**.
-    4. Selezionare **Ricarica** per completare l'installazione dell'estensione.
+![Immagine che mostra lo scaffolding di Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
-## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
+Questo frammento di codice crea i blocchi predefiniti di base per un modello di Resource Manager.
 
-Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/). Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager.
+![Immagine che mostra un modello di Resource Manager con scaffolding completo](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-Il modello usato in questa guida di avvio rapido è denominato [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Creare un account di archiviazione Standard). Il modello definisce una risorsa account di archiviazione di Azure.
+Si noti che la modalità di linguaggio di Visual Studio Code è cambiata da *JSON* a *Modello di Azure Resource Manager*. L'estensione include un server di linguaggio specifico per i modelli di Resource Manager che fornisce appositi servizi di convalida, completamento e altri servizi di linguaggio.
 
-1. In Visual Studio Code selezionare **File**>**Apri file**.
-2. In **Nome file** incollare l'URL seguente:
+![Immagine che mostra Azure Resource Manager in modalità di linguaggio Visual Studio Code](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
-    ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
-    ```
+## <a name="add-an-azure-resource"></a>Aggiungere una risorsa di Azure
 
-3. Selezionare **Apri** per aprire il file.
-4. Selezionare **File**>**Salva con nome** per salvare il file con il nome **azuredeploy.json** nel computer locale.
+L'estensione include frammenti per molte risorse di Azure. Questi frammenti possono essere usati per aggiungere facilmente risorse alla distribuzione del modello.
 
-## <a name="edit-the-template"></a>Modificare il modello
+Posizionare il cursore nel blocco **resources** del modello, digitare `storage` e selezionare il frammento *arm-storage*.
 
-Per sperimentare la modifica di un modello con Visual Studio Code, aggiungere un altro elemento nella sezione `outputs` per visualizzare l'URI di archiviazione.
+![Immagine che mostra l'aggiunta di una risorsa al modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/4.png)
 
-1. Aggiungere un altro output al modello esportato:
+Questa azione aggiunge una risorsa di archiviazione al modello.
 
-    ```json
-    "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-    }
-    ```
+![Immagine che mostra una risorsa di archiviazione di Azure in un modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/5.png)
 
-    Al termine, la sezione outputs si presenta come segue:
+La chiave **tab** può essere usata per spostarsi tramite TAB tra le proprietà configurabili dell'account di archiviazione.
 
-    ```json
-    "outputs": {
-      "storageAccountName": {
-        "type": "string",
-        "value": "[variables('storageAccountName')]"
-      },
-      "storageUri": {
-        "type": "string",
-        "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-      }
-    }
-    ```
+![Immagine che mostra come usare TAB per spostarsi tra le opzioni di configurazione delle risorse](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
-    Se il codice è stato copiato e incollato in Visual Studio Code, provare a ridigitare l'elemento **value** per sperimentare la funzionalità IntelliSense dell'estensione Strumenti di Azure Resource Manager.
+## <a name="completion-and-validation"></a>Completamento e convalida
 
-    ![IntelliSense in Visual Studio Code: modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+Una delle funzionalità più avanzate dell'estensione è l'integrazione con gli schemi di Azure. Gli schemi di Azure forniscono all'estensione funzionalità di convalida e completamento con riconoscimento della risorsa. Modificare l'account di archiviazione per vedere il funzionamento di convalida e completamento. 
 
-2. Selezionare **File**>**Salva** per salvare il file.
+Aggiornare prima di tutto il tipo di account di archiviazione impostandolo su un valore non valido, ad esempio `megaStorage`. Si noti che questa azione genera un avviso che indica che `megaStorage` non è un valore valido.
+
+![Immagine che mostra una configurazione di archiviazione non valida](./media/quickstart-create-templates-use-visual-studio-code/7.png)
+
+Per usare le funzionalità di completamento, rimuovere `megaStorage`, posizionare il cursore all'interno delle virgolette doppie e premere `ctrl` + `space`. Questa azione presenta un elenco di completamento di valori validi.
+
+![Immagine che mostra il completamento automatico dell'estensione](./media/quickstart-create-templates-use-visual-studio-code/8.png)
+
+## <a name="add-template-parameters"></a>Aggiungere i parametri del modello
+
+A questo punto, creare e usare un parametro per specificare il nome dell'account di archiviazione.
+
+Posizionare il cursore nel blocco parameters, aggiungere un ritorno a capo, digitare `par`e quindi selezionare il frammento `arm-param-value`. Questa azione aggiunge un parametro generico al modello.
+
+![Immagine che mostra l'aggiunta di un parametro al modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/9.png)
+
+Aggiornare il nome del parametro in `storageAccountName` e la descrizione in `Storage Account Name`.
+
+![Immagine che mostra il parametro completato in un modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/10.png)
+
+I nomi degli account di archiviazione di Azure possono essere composti da un minimo di 3 e un massimo di 24 caratteri. Aggiungere sia `minLength` che `maxLength` al parametro e specificare i valori appropriati.
+
+![Immagine che mostra l'aggiunta di minLength e maxLength a un parametro del modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/11.png)
+
+A questo punto, nella risorsa di archiviazione aggiornare la proprietà name in modo da usare il parametro. A questo scopo, rimuovere il nome corrente. Immettere una virgoletta doppia e una parentesi quadra aperta `[`, che produce un elenco di funzioni del modello di Resource Manager. Selezionare *parameters* nell'elenco. 
+
+![Immagine che mostra il completamento automatico quando si usano i parametri nelle risorse del modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/12.png)
+
+L'immissione di una virgoletta singola `'` all'interno delle parentesi tonde produce un elenco di tutti i parametri definiti nel modello, in questo caso *storageAccountName*. Selezionare il parametro.
+
+![Immagine che mostra il parametro completato in una risorsa del modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/13.png)
+
+## <a name="create-a-parameter-file"></a>Creare un file di parametri
+
+Un file di parametri del modello di Resource Manager consente di archiviare valori di parametri specifici dell'ambiente e di passarli come gruppo in fase di distribuzione. Ad esempio, è possibile avere un file di parametri con valori specifici di un ambiente di test e un altro per un ambiente di produzione.
+
+L'estensione semplifica la creazione di un file di parametri dai modelli esistenti. A questo scopo, fare clic con il pulsante destro del mouse sul modello nell'editor di codice e scegliere `Select/Create Parameter File`.
+
+![Immagine che mostra il processo di clic con il pulsante destro del mouse per creare un file di parametri da un modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/14.png)
+
+Selezionare `New` > `All Parameters` e quindi un nome e un percorso per il file dei parametri.
+
+![Immagine che mostra la finestra di dialogo per il salvataggio del nome del file durante la creazione di un file di parametri da un modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/15.png)
+
+Questa azione crea un nuovo file di parametri e lo mappa al modello da cui è stato creato. È possibile visualizzare e modificare il mapping corrente tra modello e file di parametri sulla barra di stato di Visual Studio Code durante la sezione del modello.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+
+Ora che il file di parametri è stato mappato al modello, l'estensione convalida questi due elementi contemporaneamente. Per vedere la procedura di convalida, aggiungere un valore di due caratteri al parametro `storageAccountName` nel file di parametri e salvare il file.
+
+![Immagine che mostra un modello non convalidato a causa di un problema del file di parametri](./media/quickstart-create-templates-use-visual-studio-code/17.png)
+
+Tornare nel modello di Resource Manager. Come si può notare, è stato generato un errore indicante che il valore non soddisfa i criteri dei parametri.
+
+![Immagine che mostra un modello di Resource Manager valido](./media/quickstart-create-templates-use-visual-studio-code/18.png)
+
+Specificare un valore appropriato, salvare il file e tornare nel modello. Come si può notare, l'errore del parametro è stato risolto.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per distribuire i modelli sono disponibili molti metodi. In questa guida di avvio rapido si usa Azure Cloud Shell. Cloud Shell supporta sia l'interfaccia della riga di comando di Azure che Azure PowerShell. Usare il selettore di schede per scegliere tra l'interfaccia della riga di comando e PowerShell.
+Aprire il terminale integrato di Visual Studio Code con la combinazione di tasti `ctrl` + ```` ` ```` e usare l'interfaccia della riga di comando di Azure o il modulo di Azure PowerShell per distribuire il modello.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+# <a name="cli"></a>[CLI](#tab/CLI)
 
-1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
+```azurecli
+az group create --name arm-vscode --location eastus
 
-2. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (interfaccia della riga di comando) nell'angolo superiore sinistro.  Quando si cambia interfaccia, è necessario riavviare la shell.
+az deployment group create --resource-group arm-vscode --template-file azuredeploy.json --parameters azuredeploy.parameters.json
+```
 
-    # <a name="cli"></a>[CLI](#tab/CLI)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-    ![Interfaccia della riga di comando in Cloud Shell nel portale di Azure](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
+```azurepowershell
+New-AzResourceGroup -Name arm-vscode -Location eastus
 
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Portale di Azure Cloud Shell PowerShell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
-
-    ---
-
-3. Selezionare **Carica/Scarica file** e quindi **Carica**.
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ![Caricare file in Cloud Shell nel portale di Azure](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Caricare file in Cloud Shell nel portale di Azure](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
-
-    ---
-
-    Selezionare il file salvato nella sezione precedente. Il nome predefinito è **azuredeploy.json**. Il file del modello deve essere accessibile dalla shell.
-
-    Facoltativamente, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ![Elencare file in Cloud Shell nel portale di Azure](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Elencare file in Cloud Shell nel portale di Azure](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
-
-    ---
-4. In Cloud Shell eseguire i comandi riportati sotto. Selezionare la scheda per visualizzare il codice di PowerShell o il codice dell'interfaccia della riga di comando.
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ```azurecli
-    echo "Enter a project name that is used to generate resource group name:" &&
-    read projectName &&
-    echo "Enter the location (i.e. centralus):" &&
-    read location &&
-    resourceGroupName="${projectName}rg" &&
-    az group create --name $resourceGroupName --location "$location" &&
-    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
-    ```
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $resourceGroupName = "${projectName}rg"
-
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
-    ```
-
-    ---
-
-    Aggiornare il nome file del modello se si salva il file con un nome diverso da **azuredeploy.json**.
-
-    La schermata seguente mostra una distribuzione di esempio:
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ![Distribuire il modello in Cloud Shell nel portale di Azure](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Distribuire il modello in Cloud Shell nel portale di Azure](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
-
-    ---
-
-    Il nome dell'account di archiviazione e l'URL di archiviazione nella sezione outputs sono evidenziati nello screenshot. Il nome dell'account di archiviazione sarà necessario nel passaggio successivo.
-
-5. Eseguire questo comando dall'interfaccia della riga di comando o da PowerShell per visualizzare l'account di archiviazione appena creato:
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ```azurecli
-    echo "Enter the Resource Group name:" &&
-    read resourceGroupName &&
-    echo "Enter the Storage Account name:" &&
-    read storageAccountName &&
-    az storage account show --resource-group $resourceGroupName --name $storageAccountName
-    ```
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
-    Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-    ```
-
-    ---
-
-Per altre informazioni sull'uso degli account di archiviazione di Azure, vedere [Guida di avvio rapido: Caricare, scaricare ed elencare BLOB con il portale di Azure](../../storage/blobs/storage-quickstart-blobs-portal.md).
+New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.json -TemplateParameterFile ./azuredeploy.parameters.json
+```
+---
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse.
+Quando le risorse non sono più necessarie, usare l'interfaccia della riga di comando di Azure o il modulo di Azure PowerShell per eliminare il gruppo di risorse dell'argomento di avvio rapido.
 
-1. Nel portale di Azure selezionare **Gruppo di risorse** nel menu a sinistra.
-2. Immettere il nome del gruppo di risorse nel campo **Filtra per nome**.
-3. Selezionare il nome del gruppo di risorse.  Nel gruppo di risorse verranno visualizzate in totale sei risorse.
-4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+az group delete --name arm-vscode
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name arm-vscode
+```
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-L'obiettivo principale di questo avvio rapido consiste nell'uso di Visual Studio Code per modificare un modello esistente da modelli di avvio rapido di Azure. È stato anche illustrato come distribuire il modello con l'interfaccia della riga di comando o PowerShell da Azure Cloud Shell. I modelli di avvio rapido di Azure potrebbero non fornire tutto il necessario. Per altre informazioni sullo sviluppo dei modelli, vedere la nuova serie di esercitazioni per principianti:
 
 > [!div class="nextstepaction"]
 > [Esercitazioni per principianti](./template-tutorial-create-first-template.md)

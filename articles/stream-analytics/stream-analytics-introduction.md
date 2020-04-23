@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: f15a4605d28beaf97e877f337051a2ec13148a41
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 673c6e2ed0aedcc186baf8c7e1884dd537f9567d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80235753"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459849"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Informazioni su Analisi di flusso di Azure
 
@@ -49,9 +49,9 @@ Analisi di flusso di Azure è progettato in modo da essere facile da usare, fles
 
 ## <a name="ease-of-getting-started"></a>Semplicità delle operazioni iniziali
 
-È possibile iniziare a usare Analisi di flusso di Azure in tutta semplicità. Sono necessari solo pochi clic per connettersi a più origini o sink creando una pipeline end-to-end. Analisi di flusso può connettersi a [Hub eventi di Azure](/azure/event-hubs/) e [hub IoT di Azure](/azure/iot-hub/) per l'inserimento dei dati in streaming, nonché ad [Archiviazione BLOB di Azure](/azure/storage/storage-introduction) per l'inserimento dei dati cronologici. L'input del processo può anche includere dati di riferimento statici o a modifica lenta di Archiviazione BLOB di Azure o del [database SQL](stream-analytics-use-reference-data.md#azure-sql-database) che possono essere uniti a dati in streaming per eseguire operazioni di ricerca.
+È possibile iniziare a usare Analisi di flusso di Azure in tutta semplicità. Sono necessari solo pochi clic per connettersi a più origini o sink creando una pipeline end-to-end. Analisi di flusso può connettersi a [Hub eventi di Azure](/azure/event-hubs/) e [hub IoT di Azure](/azure/iot-hub/) per l'inserimento dei dati in streaming, nonché ad [Archiviazione BLOB di Azure](/azure/storage/common/storage-introduction) per l'inserimento dei dati cronologici. L'input del processo può anche includere dati di riferimento statici o a modifica lenta di Archiviazione BLOB di Azure o del [database SQL](stream-analytics-use-reference-data.md#azure-sql-database) che possono essere uniti a dati in streaming per eseguire operazioni di ricerca.
 
-Analisi di flusso può indirizzare l'output del processo a molti sistemi di archiviazione, tra cui [Archiviazione BLOB di Azure](/azure/storage/storage-introduction), il [database SQL di Azure](/azure/sql-database/), [Azure Data Lake Storage](/azure/data-lake-store/) e [Azure CosmosDB](/azure/cosmos-db/introduction). È possibile eseguire analisi in batch con Azure HDInsight sull'output archiviato o inviare l'output a un altro servizio, ad esempio Hub eventi per l'utilizzo o [Power BI](https://docs.microsoft.com/power-bi/) per la visualizzazione in tempo reale.
+Analisi di flusso può indirizzare l'output del processo a molti sistemi di archiviazione, tra cui [Archiviazione BLOB di Azure](/azure/storage/common/storage-introduction), il [database SQL di Azure](/azure/sql-database/), [Azure Data Lake Storage](/azure/data-lake-store/) e [Azure CosmosDB](/azure/cosmos-db/introduction). È possibile eseguire analisi in batch con Azure HDInsight sull'output archiviato o inviare l'output a un altro servizio, ad esempio Hub eventi per l'utilizzo o [Power BI](https://docs.microsoft.com/power-bi/) per la visualizzazione in tempo reale.
 
 Per l'intero elenco di output di Analisi di flusso, vedere [Informazioni sugli output di Analisi di flusso di Azure](stream-analytics-define-outputs.md).
 
@@ -65,7 +65,7 @@ Il linguaggio di query di Analisi di flusso offre un'ampia gamma di funzioni per
 
 ## <a name="fully-managed"></a>Soluzione completamente gestita
 
-Analisi di flusso di Azure è un'offerta senza server completamente gestita (PaaS) in Azure. Non è necessario effettuare il provisioning di hardware o gestire i cluster per l'esecuzione dei processi. Analisi di flusso di Azure gestisce completamente il processo configurando cluster di calcolo complessi nel cloud ed eseguendo l'attività di ottimizzazione delle prestazioni necessaria per l'esecuzione del processo. L'integrazione con Hub eventi di Azure e l'hub IoT di Azure permette a un processo di inserire milioni di eventi al secondo provenienti da numerose origini, tra cui dispositivi connessi, clickstream e file di log. Grazie alla funzionalità di partizionamento di Hub eventi, è possibile suddividere i calcoli in passaggi logici, ciascuno con la possibilità di essere ulteriormente suddiviso per aumentare la scalabilità.
+Analisi di flusso di Azure è un'offerta senza server completamente gestita (PaaS) in Azure. Per eseguire i processi, non è necessario effettuare il provisioning di hardware o gestire i cluster. Analisi di flusso di Azure gestisce completamente il processo configurando cluster di calcolo complessi nel cloud ed eseguendo l'attività di ottimizzazione delle prestazioni necessaria per l'esecuzione del processo. L'integrazione con Hub eventi di Azure e l'hub IoT di Azure permette a un processo di inserire milioni di eventi al secondo provenienti da numerose origini, tra cui dispositivi connessi, clickstream e file di log. Grazie alla funzionalità di partizionamento di Hub eventi, è possibile suddividere i calcoli in passaggi logici, ciascuno con la possibilità di essere ulteriormente suddiviso per aumentare la scalabilità.
 
 ## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>Eseguire nel cloud o nella rete perimetrale intelligente
 
@@ -87,7 +87,7 @@ Analisi di flusso di Azure include funzionalità di ripristino predefinite in ca
 
 Come servizio gestito, Analisi di flusso garantisce l'elaborazione di eventi con una disponibilità del 99,9% a un livello di granularità di un minuto. Per altre informazioni, vedere la pagina [Contratto di servizio per Analisi di flusso](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/). 
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 In termini di sicurezza, Analisi di flusso di Azure crittografa tutte le comunicazioni in ingresso e in uscita e supporta lo standard TLS 1.2. Anche i checkpoint incorporati sono crittografati. Analisi di flusso non archivia i dati in ingresso perché tutta l'elaborazione viene eseguita in memoria.
 

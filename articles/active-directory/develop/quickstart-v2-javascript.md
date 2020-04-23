@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: ac134dce5ad739d1d81ef0c62a6bfb04468cafff
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 1d22f66ad5f7adf5bb8196c3e72a2a343f4558b0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991110"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536098"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Guida introduttiva: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
@@ -39,7 +39,7 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account in alto a destra e quindi impostare la sessione del portale sul tenant di Azure Active Directory (Azure AD) che si vuole usare.
 > 1. Passare al nuovo riquadro [Portale di Azure - Registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
-> 1. Immettere un nome per l'applicazione. 
+> 1. Immettere un nome per l'applicazione.
 > 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
 > 1. Selezionare **Registra**.
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione.
@@ -99,7 +99,7 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 >      cacheLocation: "sessionStorage", // This configures where your cache will be stored
 >      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
 >    }
->  };  
+>  };
 >
 >```
 
@@ -122,10 +122,10 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione
-> Il progetto è stato configurato con i valori delle proprietà dell'app. 
+> Il progetto è stato configurato con i valori delle proprietà dell'app.
 
 > [!div renderon="docs"]
-> 
+>
 > Quindi, sempre nella stessa cartella modificare il file *graphConfig.js* per impostare `graphMeEndpoint` e `graphMeEndpoint` per l'oggetto `apiConfig`.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -199,7 +199,7 @@ Il codice di avvio rapido illustra anche come inizializzare la libreria MSAL:
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
-  };  
+  };
 
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 59c45497ea6d9fcb216c83060a858ee6c96f1151
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75499983"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81449970"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Supporto Gremlin Graph di Azure Cosmos DB
 Azure Cosmos DB supporta il linguaggio di attraversamento di grafi di [Apache Tinkerpop](https://tinkerpop.apache.org), noto come [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). È possibile usare il linguaggio Gremlin per creare le entità dei grafi (vertici e archi), modificare proprietà all'interno di tali entità, eseguire query e attraversamenti ed eliminare entità. 
@@ -46,11 +46,9 @@ La tabella seguente elenca le funzionalità di TinkerPop implementate da Azure C
 | Funzionalità dell'arco | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Supporta la creazione, la modifica e l'eliminazione di archi |
 | Funzionalità della proprietà dell'arco | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Supporta la creazione, la modifica e l'eliminazione di proprietà dell'arco |
 
-## <a name="gremlin-wire-format-graphson"></a>Formato wire Gremlin: GraphSON
+## <a name="gremlin-wire-format"></a>Formato wire Gremlin
 
-Azure Cosmos DB usa il [ formato GraphSON](https://tinkerpop.apache.org/docs/current/reference/#graphson) per la restituzione di risultati dalle operazioni Gremlin. Azure Cosmos DB attualmente supporta la versione "GraphSONv2". GraphSON è il formato standard Gremlin per la rappresentazione di vertici, archi e proprietà (singolo e multi-valore) tramite JSON.
-
-Ad esempio, il frammento di codice seguente mostra una rappresentazione GraphSON di un vertice *restituito al client* da Azure Cosmos DB. 
+Azure Cosmos DB usa il formato JSON per la restituzione di risultati dalle operazioni Gremlin. Azure Cosmos DB attualmente supporta il formato JSON. Ad esempio, il frammento di codice seguente mostra una rappresentazione JSON di un vertice *restituito al client* da Azure Cosmos DB:
 
 ```json
   {
@@ -89,7 +87,7 @@ Ad esempio, il frammento di codice seguente mostra una rappresentazione GraphSON
   }
 ```
 
-Le proprietà usate da GraphSON per i vertici sono descritte di seguito:
+Le proprietà usate dal formato JSON per i vertici sono descritte di seguito:
 
 | Proprietà | Descrizione | 
 | --- | --- | --- |

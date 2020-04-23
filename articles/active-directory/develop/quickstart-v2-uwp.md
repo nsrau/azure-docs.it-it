@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: feb1fa82653a0db7b3041a4f745d0563c220bd31
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 362f6d1f4e50e1cc78c8897499b9f6593096162b
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991093"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536013"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Guida introduttiva: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
@@ -72,7 +72,7 @@ Questo avvio rapido contiene un esempio di codice che illustra come un'applicazi
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione
-> Il progetto è stato configurato con i valori delle proprietà dell'app ed è pronto per essere eseguito. 
+> Il progetto è stato configurato con i valori delle proprietà dell'app ed è pronto per essere eseguito.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -80,7 +80,7 @@ Questo avvio rapido contiene un esempio di codice che illustra come un'applicazi
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
-> 
+>
 > 1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples**.
 > 1. Aprire il progetto in Visual Studio. È possibile che venga chiesto di installare UWP SDK. In tal caso, accettare.
 > 1. Modificare **MainPage.Xaml.cs** e sostituire il valore del campo `ClientId`:

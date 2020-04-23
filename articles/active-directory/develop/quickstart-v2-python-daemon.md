@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.openlocfilehash: ecbed58eabd2e835d8fa202916829d1da91210e7
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 3c6cb6303734b5336b3e9a7646e5eb3310d0f236
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991059"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536047"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app console Python usando l'identità dell'app
 
@@ -55,7 +55,7 @@ Per eseguire questo esempio, sono necessari:
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
 > 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
 > 1. Selezionare **Nuova registrazione**.
-> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione. 
+> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 > 1. Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato dagli utenti dell'app, ad esempio `Daemon-console`, quindi sezionare **Registra** per creare l'applicazione.
 > 1. Dopo la registrazione, selezionare il menu **Certificati e segreti**.
 > 1. In **Segreti client** selezionare **+ Nuovo segreto client**. Assegnargli un nome e selezionare **Aggiungi**. Copiare il segreto in una posizione sicura. Sarà necessario usarlo nel codice.
@@ -65,7 +65,7 @@ Per eseguire questo esempio, sono necessari:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Scaricare e configurare l'app della guida introduttiva
-> 
+>
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
 > Per fare in modo che l'esempio di codice per questo avvio rapido funzioni, è necessario creare un segreto client e aggiungere l'autorizzazione dell'applicazione **User.Read.All** dell'API Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -89,7 +89,7 @@ Per eseguire questo esempio, sono necessari:
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-python-project"></a>Passaggio 3: Configurare il progetto Python
-> 
+>
 > 1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples**.
 > 1. Passare alla sottocartella **1-Call-MsGraph-WithSecret"** .
 > 1. Modificare **parameters.json** e sostituire i valori dei campi `authority`, `client_id` e `secret` con il frammento di codice seguente:
@@ -106,7 +106,7 @@ Per eseguire questo esempio, sono necessari:
 >
 > > [!TIP]
 > > Per trovare i valori di **ID applicazione (client)** e **ID della directory (tenant)** , passare alla pagina **Panoramica** dell'app nel portale di Azure. Per generare una nuova chiave, passare alla pagina **Certificati e segreti**.
-    
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Passaggio 3: Consenso dell'amministratore
 

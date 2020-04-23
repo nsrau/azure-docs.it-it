@@ -5,18 +5,18 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 01/04/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b385136183fba5d1e64db3763453d2f4b23d4d96
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80045178"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535639"
 ---
 # <a name="app-service-overview"></a>Panoramica del Servizio app di Azure
 
 *Il Servizio app di Azure* è un servizio per l'hosting di applicazioni Web, API REST e back-end mobili, basato su HTTP. È possibile usare il linguaggio di sviluppo preferito tra .NET, .NET Core, Java, Ruby, Node.js, PHP o Python. Le applicazioni vengono eseguite e ridimensionate con facilità negli ambienti basati sia su Windows che su Linux. Per gli ambienti basati su Linux, vedere [Servizio app su Linux](containers/app-service-linux-intro.md). 
 
-Il servizio app non si limita ad aggiungere la potenza di Microsoft Azure all'applicazione, in termini di sicurezza, bilanciamento del carico, ridimensionamento automatico e gestione automatizzata. Permettono anche di usufruire delle funzionalità DevOps, come la distribuzione continua da Azure DevOps, GitHub, Hub Docker e altre origini, la gestione dei pacchetti, gli ambienti di gestione temporanea, il dominio personalizzato e i certificati SSL. 
+Il servizio app non si limita ad aggiungere la potenza di Microsoft Azure all'applicazione, in termini di sicurezza, bilanciamento del carico, ridimensionamento automatico e gestione automatizzata. Permettono anche di usufruire delle funzionalità DevOps, come la distribuzione continua da Azure DevOps, GitHub, Docker Hub e altre origini, la gestione dei pacchetti, gli ambienti di staging, il dominio personalizzato e i certificati TLS/SSL. 
 
 Il servizio app permette di pagare solo le risorse di calcolo di Azure usate. La quantità di risorse di calcolo usate è determinata dal _piano di servizio app_ in cui vengono eseguite le app. Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](overview-hosting-plans.md).
 

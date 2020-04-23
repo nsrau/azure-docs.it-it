@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80386129"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81737571"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
@@ -131,6 +131,8 @@ Sì. Vedere la pagina dei [Prezzi](https://azure.microsoft.com/pricing/details/v
 
 * Se il gateway ExpressRoute è dovuto a circuiti ExpressRoute che si connettono a un hub virtuale, è necessario pagare per il prezzo dell'unità di scala. Ogni unità di scala in ER è di 2 Gbps e ogni unità di connessione viene addebitata alla stessa tariffa dell'unità di connessione VPN.
 
+* Se all'hub sono state connesse reti virtuali Spoke, vengono comunque addebitati i costi del peering per le reti virtuali Spoke. 
+
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>In che modo vengono accettati i nuovi partner non inclusi nell'elenco dei partner iniziale?
 
 Tutte le API WAN virtuali sono API aperte. È possibile esaminare la documentazione per valutare la fattibilità tecnica. In caso di domande, inviare un messaggio di posta elettronica all'indirizzo azurevirtualwan@microsoft.com. Un partner ideale è quello che ha un dispositivo di cui è possibile eseguire il provisioning per la connettività IPSec IKEv1 o IKEv2.
@@ -206,6 +208,13 @@ Sì. Una connessione a Internet e un dispositivo fisico che supporti IPsec, pref
 ### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Come abilitare la route predefinita (0.0.0.0/0) in una connessione (VPN, ExpressRoute o Rete virtuale):
 
 Un hub virtuale può propagare una route predefinita appresa a una connessione di rete virtuale/VPN da sito a sito/ExpressRoute se il flag è su "Abilitato" nella connessione. Questo flag è visibile quando l'utente modifica una connessione di rete virtuale, VPN o ExpressRoute. Per impostazione predefinita, questo flag è disabilitato quando un sito o un circuito ExpressRoute sono connessi a un hub. Questa funzionalità è abilitata per impostazione predefinita quando si aggiunge una connessione di rete virtuale per connettere una rete virtuale a un hub virtuale. La route predefinita non ha origine nell'hub della rete WAN virtuale; la route predefinita viene propagata se è già stata appresa dall'hub della rete WAN virtuale a seguito della distribuzione di un firewall nell'hub o se per un altro sito connesso è abilitato il tunneling forzato.
+
+### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>In che modo l'hub virtuale in una rete WAN virtuale seleziona il percorso migliore per una route da più hub
+
+Se un hub virtuale apprende la stessa route da più hub remoti, l'ordine in cui decide è il seguente:
+1) Route di origine a) Route di rete: prefissi di rete virtuale direttamente appresi dai gateway dell'hub virtuale b) Tabella di route dell'hub (route configurate in modo statico) c) BGP d) Route tra hub
+2)  Metrica di route: La rete WAN virtuale preferisce ExpressRoute rispetto alla VPN. Il peer ExpressRoute prevede una ponderazione più elevata rispetto al peer VPN
+3)  Lunghezza percorso routing asimmetrico
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quali sono le differenze tra i tipi di rete WAN virtuale (Basic e Standard)?
 

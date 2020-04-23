@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 582afef8929da2ba75aab70c1ed0fa9e57fd3f19
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 084083a704a007e6675234883c62350d1d9a0849
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76703474"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536149"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Guida introduttiva: Chiamare un'API Web ASP.NET protetta da Microsoft Identity Platform
 
-In questo avvio rapido viene esposta e protetta un'API Web in modo che solo gli utenti autenticati possano accedervi. Questo esempio mostra come esporre un'API Web ASP.NET in modo che possa accettare token rilasciati sia da account personali (ad esempio outlook.com, live.com e altri) sia da account aziendali e di istituti di istruzione di qualsiasi organizzazione o azienda che abbia eseguito l'integrazione con Microsoft Identity Platform.
+In questo argomento di avvio rapido viene esposta e protetta un'API Web in modo che solo gli utenti autenticati possano accedervi. Questo esempio mostra come esporre un'API Web ASP.NET in modo che possa accettare token rilasciati sia da account personali (ad esempio outlook.com, live.com e altri) sia da account aziendali e di istituti di istruzione di qualsiasi organizzazione o azienda che abbia eseguito l'integrazione con Microsoft Identity Platform.
 
 L'esempio include anche un client dell'applicazione desktop di Windows (WPF) che illustra come richiedere un token di accesso per accedere a un'API Web.
 
@@ -69,13 +69,13 @@ Se si vuole registrare manualmente le app, come primo passaggio è necessario:
      - Come valore di **Nome ambito** usare `access_as_user`
      - Verificare che sia selezionata l'opzione **Amministratori e utenti** per **Utenti che possono fornire il consenso**
      - In **Nome visualizzato per il consenso amministratore** digitare `Access TodoListService as a user`
-     - In **Descrizione del consenso amministratore** digitare `Accesses the TodoListService Web API as a user`
+     - In **Descrizione del consenso amministratore** digitare `Accesses the TodoListService web API as a user`
      - In **Nome visualizzato per il consenso utente** digitare `Access TodoListService as a user`
-     - In **Descrizione del consenso utente** digitare `Accesses the TodoListService Web API as a user`
+     - In **Descrizione del consenso utente** digitare `Accesses the TodoListService web API as a user`
      - Mantenere **Stato** impostato su **Abilitato**
      - Selezionare **Aggiungi ambito**
 
-### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configurare il progetto del servizio in modo che corrisponda all'API Web registrata 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configurare il progetto del servizio in modo che corrisponda all'API Web registrata
 
 1. Aprire la soluzione in Visual Studio e quindi aprire il file **Web.config** nella radice del progetto **TodoListService**.
 1. Sostituire il valore del parametro `ida:ClientId` con il valore di **ID client (ID applicazione)** dell'applicazione appena registrata nel portale di registrazione delle applicazioni.
@@ -86,7 +86,7 @@ Se si vuole registrare manualmente le app, come primo passaggio è necessario:
 
    > Nota: Assicurarsi che usi il formato seguente:
    >
-   > `api://{TodoListService-Application-ID}/access_as_user` 
+   > `api://{TodoListService-Application-ID}/access_as_user`
    >
    >dove {TodoListService-Application-ID} è il GUID che rappresenta l'ID applicazione per TodoListService.
 
@@ -108,7 +108,7 @@ In questo passaggio viene configurato il progetto *TodoListClient* registrando u
 1. Selezionare la sezione **Autorizzazioni API**
    - Fare clic sul pulsante **Aggiungi un'autorizzazione** e quindi
    - Selezionare la scheda **Le mie API**.
-   - Nell'elenco di API selezionare l'API `AppModelv2-NativeClient-DotNet-TodoListService API` oppure il nome immesso per l'API Web.
+   - Nell'elenco di API selezionare `AppModelv2-NativeClient-DotNet-TodoListService API` oppure il nome immesso per l'API Web.
    - Selezionare l'autorizzazione **access_as_user** se non è già selezionata. Se necessario, usare la casella di ricerca.
    - Selezionare il pulsante **Aggiungi autorizzazioni**
 
@@ -126,7 +126,7 @@ In questo passaggio viene configurato il progetto *TodoListClient* registrando u
 
 ## <a name="pre-authorize-your-client-application"></a>Pre-autorizzare l'applicazione client
 
-Uno dei modi per consentire agli utenti di altre directory di accedere all'API Web consiste nel *pre-autorizzare* le applicazioni client ad accedere all'API Web aggiungendo gli ID applicazione delle applicazioni client all'elenco delle applicazioni *pre-autorizzate* per l'API Web. Se si aggiunge un client pre-autorizzato, non sarà necessario che l'utente acconsenta all'uso dell'API Web. Seguire questa procedura per pre-autorizzare l'applicazione Web:
+Uno dei modi per consentire agli utenti di altre directory di accedere all'API Web consiste nel *pre-autorizzare* tale accesso aggiungendo gli ID delle applicazioni client all'elenco di quelle *pre-autorizzate* per l'API Web. Se si aggiunge un client pre-autorizzato, non sarà necessario che l'utente acconsenta all'uso dell'API Web. Seguire questa procedura per pre-autorizzare l'applicazione Web:
 
 1. Tornare al *portale di registrazione delle applicazioni* e aprire le proprietà di **TodoListService**.
 1. Nella sezione **Esporre un'API** fare clic su **Aggiungi applicazione client** in *Applicazioni client autorizzate*.
@@ -141,7 +141,7 @@ Uno dei modi per consentire agli utenti di altre directory di accedere all'API W
 
 ## <a name="optional-restrict-sign-in-access-to-your-application"></a>Facoltativo: Limitare l'accesso all'applicazione
 
-Per impostazione predefinita, quando si carica questo esempio di codice e si configura l'applicazione per l'uso dell'endpoint Azure Active Directory v2 seguendo i passaggi precedenti, sia gli account personali, ad esempio outlook.com, live.com e altri, sia gli account aziendali o dell'istituto di istruzione di qualsiasi organizzazione integrata con Azure AD possono richiedere token e accedere all'API Web. 
+Per impostazione predefinita, quando si carica questo esempio di codice e si configura l'applicazione per l'uso dell'endpoint Azure Active Directory v2 seguendo i passaggi precedenti, sia gli account personali, ad esempio outlook.com, live.com e altri, sia gli account aziendali o di istituti di istruzione di qualsiasi organizzazione integrata con Azure AD possono richiedere token e accedere all'API Web.
 
 Per limitare l'accesso all'applicazione, usare una delle opzioni seguenti:
 

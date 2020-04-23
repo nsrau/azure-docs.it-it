@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/25/2020
+ms.date: 04/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282121"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682582"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
@@ -51,8 +51,12 @@ Sono disponibili due tipi di identità gestite:
 - Un'**identità gestita assegnata dall'utente** viene creata come risorsa di Azure autonoma. Tramite un processo di creazione, Azure crea un'identità nel tenant di Azure AD considerato attendibile dalla sottoscrizione in uso. Dopo la creazione, l'identità può essere assegnata a una o più istanze del servizio di Azure. Il ciclo di vita di un'identità assegnata dall'utente viene gestito separatamente dal ciclo di vita delle istanze del servizio di Azure a cui l'identità è assegnata.
 
 Internamente, le identità gestite sono entità servizio di un tipo speciale, bloccate per essere usate solo con le risorse di Azure. Quando l'identità gestita viene eliminata, l'entità servizio corrispondente viene automaticamente rimossa.
+Inoltre, quando viene creata un'identità assegnata dall'utente o dal sistema, il provider di risorse di Identità gestita emette un certificato internamente per tale identità. 
 
-Il codice può usare un'identità gestita per richiedere token di accesso per i servizi che supportano l'autenticazione di Azure AD. Azure gestisce le credenziali usate dall'istanza del servizio in sequenza.
+Il codice può usare un'identità gestita per richiedere token di accesso per i servizi che supportano l'autenticazione di Azure AD. Azure gestisce le credenziali usate dall'istanza del servizio in sequenza. 
+
+## <a name="credential-rotation"></a>Rotazione delle credenziali
+La rotazione delle credenziali è controllata dal provider di risorse che ospita la risorsa di Azure. La rotazione predefinita della credenziale si verifica ogni 46 giorni. Spetta al provider di risorse chiedere le nuove credenziali, quindi l'attesa potrebbe essere più lunga di 46 giorni.
 
 Il diagramma seguente illustra il funzionamento delle identità del servizio gestite con macchine virtuali di Azure:
 

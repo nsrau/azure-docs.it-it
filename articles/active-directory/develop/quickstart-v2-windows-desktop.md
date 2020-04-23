@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1c66779dc726c3c6366bc03282d5d3c2bdc8134a
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a464bb8a942c449e0b17751fbea7a810711cb48d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991042"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535996"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
 
@@ -62,7 +62,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 #### <a name="step-2-download-your-visual-studio-project"></a>Passaggio 2: Scaricare il progetto di Visual Studio
 
 > [!div renderon="docs"]
-> [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  
+> [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Eseguire il progetto con Visual Studio 2019.
@@ -71,7 +71,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione
-> Il progetto è stato configurato con i valori delle proprietà dell'app ed è pronto per essere eseguito. 
+> Il progetto è stato configurato con i valori delle proprietà dell'app ed è pronto per essere eseguito.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -87,7 +87,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 >    private static string ClientId = "Enter_the_Application_Id_here";
 >    private static string Tenant = "Enter_the_Tenant_Info_Here";
 >    ```
-> 
+>
 > Dove:
 > - `Enter_the_Application_Id_here` è l'**ID applicazione (client)** per l'applicazione registrata.
 > - `Enter_the_Tenant_Info_Here` è impostato su una delle opzioni seguenti:

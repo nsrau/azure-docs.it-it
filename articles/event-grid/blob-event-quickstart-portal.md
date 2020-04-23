@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 11/05/2019
+ms.date: 04/16/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 2daf17ccef1bca363fe92f71a332fbfa78637135
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ada451b6bb3578a2903e9bd832b98981d7029d1d
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76844778"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605649"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Guida introduttiva: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web con il portale di Azure
 
@@ -32,30 +32,50 @@ Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
 1. Per creare un account di archiviazione BLOB, selezionare **Crea una risorsa**. 
 
-   ![Creare una risorsa](./media/blob-event-quickstart-portal/create-resource.png)
-
 1. Selezionare **Archiviazione** per filtrare le opzioni disponibili e selezionare **Account di archiviazione: BLOB, File, Tabelle, Code**.
 
    ![Selezionare Archiviazione](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Per sottoscrivere gli eventi, è necessario creare un account di archiviazione per utilizzo generico v2 o un account di archiviazione BLOB. Per altre informazioni, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md).
+   Per sottoscrivere gli eventi, è necessario creare un account di archiviazione per utilizzo generico v2 o un account di archiviazione BLOB.
+   
+1. Nella pagina **Crea account di archiviazione** eseguire la procedura seguente:
+    1. Selezionare la sottoscrizione di Azure. 
+    2. In **Gruppo di risorse** creare un nuovo gruppo di risorse o selezionarne uno esistente. 
+    3. Immettere il nome dell'account di archiviazione. 
+    4. Selezionare **Rivedi e crea**. 
 
-   ![Passaggi iniziali](./media/blob-event-quickstart-portal/provide-blob-values.png)
+       ![Passaggi iniziali](./media/blob-event-quickstart-portal/provide-blob-values.png)    
+    5. Nella pagina **Rivedi e crea** controllare le impostazioni e selezionare **Crea**. 
 
->[!NOTE]
-> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con Griglia di eventi.
+        >[!NOTE]
+        > Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con Griglia di eventi.
 
 ## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 
 Prima di sottoscrivere gli eventi per l'account di archiviazione BLOB, creare l'endpoint per il messaggio dell'evento. L'endpoint richiede in genere azioni basate sui dati degli eventi. Per semplificare questa guida introduttiva, si distribuisce un'[app Web preesistente](https://github.com/Azure-Samples/azure-event-grid-viewer) che visualizza i messaggi di evento. La soluzione distribuita include un piano di servizio app, un'app Web del servizio app e codice sorgente da GitHub.
 
-1. Selezionare **Distribuisci in Azure** per distribuire la soluzione nella sottoscrizione. Nel portale di Azure specificare i valori per i parametri.
+1. Selezionare **Distribuisci in Azure** per distribuire la soluzione nella sottoscrizione. 
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+2. Nella pagina **Distribuzione personalizzata** procedere come segue: 
+    1. Per **Gruppo di risorse** selezionare il gruppo di risorse creato durante la creazione dell'account di archiviazione. Eliminando il gruppo di risorse, sarà più facile eseguire la pulizia dopo aver completato l'esercitazione.  
+    2. Per **Nome sito** immettere un nome per l'app Web.
+    3. Per **Nome piano di hosting** immettere un nome per il piano del servizio app da usare per l'hosting dell'app Web.
+    4. Selezionare la casella di controllo **Accetto le condizioni riportate sopra**. 
+    5. Selezionare **Acquisto**. 
 
-1. Per il completamento della distribuzione possono essere necessari alcuni minuti. Dopo il completamento della distribuzione, visualizzare l'app Web per assicurarsi che sia in esecuzione. In un Web browser passare a: `https://<your-site-name>.azurewebsites.net`
+       ![Parametri di distribuzione](./media/blob-event-quickstart-portal/template-deploy-parameters.png)
+1. Per il completamento della distribuzione possono essere necessari alcuni minuti. Selezionare Avvisi (icona della campana) nel portale e quindi **Vai al gruppo di risorse**. 
 
-1. Viene visualizzato il sito, ma nessun evento è ancora stato pubblicato.
+    ![Avviso - Passare al gruppo di risorse](./media/blob-event-quickstart-portal/navigate-resource-group.png)
+4. Nell'elenco di risorse della pagina **Gruppo di risorse** selezionare l'app Web creata. Questo elenco include anche il piano di servizio app e l'account di archiviazione. 
+
+    ![Selezionare il sito Web](./media/blob-event-quickstart-portal/resource-group-resources.png)
+5. Nella pagina **Servizio app** per l'app Web selezionare l'URL per passare al sito Web. Il file deve essere nel formato `https://<your-site-name>.azurewebsites.net`.
+    
+    ![Passare al sito Web](./media/blob-event-quickstart-portal/web-site.png)
+
+6. Verificare che venga visualizzato il sito ma che al suo interno non sono stati ancora pubblicati eventi.
 
    ![Visualizzare il nuovo sito](./media/blob-event-quickstart-portal/view-site.png)
 
@@ -65,15 +85,20 @@ Prima di sottoscrivere gli eventi per l'account di archiviazione BLOB, creare l'
 
 Si sottoscrive un argomento per indicare a Griglia di eventi gli eventi di cui si vuole tenere traccia e dove inviare tali eventi.
 
-1. Nel portale selezionare l'account di archiviazione BLOB e selezionare **Eventi**.
-
-   ![Selezionare Eventi](./media/blob-event-quickstart-portal/select-events.png)
-
-1. Per inviare gli eventi all'app per visualizzarli, usare un webhook per l'endpoint. Selezionare **Altre opzioni** e **Webhook**.
+1. Nel portale passare all'account di archiviazione di Azure creato in precedenza. Nel menu sinistro selezionare **Tutte le risorse** e quindi l'account di archiviazione. 
+2. Nel menu sinistro della pagina **Account di archiviazione** selezionare **Eventi**.
+1. Selezionare **Altre opzioni** e **Webhook**. Vengono inviati eventi all'app di visualizzazione tramite un webhook per l'endpoint. 
 
    ![Selezionare il webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
+3. Nella pagina **Crea sottoscrizione di eventi** seguire questa procedura: 
+    1. Specificare un **nome** per la sottoscrizione di eventi.
+    2. Selezionare **Webhook** per **Tipo di endpoint**. 
 
-1. La sottoscrizione dell'evento è precompilata con i valori dell'account di archiviazione BLOB. Per l'endpoint del webhook, specificare l'URL dell'app Web e aggiungere `api/updates` all'URL della home page. Specificare un nome per la sottoscrizione. Al termine, scegliere **Crea**.
+       ![Selezionare il tipo di endpoint webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
+4. Per **Endpoint**, fare clic su **Seleziona endpoint**, immettere l'URL dell'app Web e aggiungere `api/updates` all'URL della home page, ad esempio `https://spegridsite.azurewebsites.net/api/updates`, quindi selezionare **Conferma selezione**.
+
+   ![Confermare la selezione dell'endpoint](./media/blob-event-quickstart-portal/confirm-endpoint-selection.png)
+5. A questo punto, nella pagina **Crea sottoscrizione di eventi** selezionare **Crea** per creare la sottoscrizione di eventi. 
 
    ![Selezionare i log](./media/blob-event-quickstart-portal/create-subscription.png)
 
@@ -87,11 +112,11 @@ A questo punto, attivare un evento per vedere come la griglia di eventi distribu
 
 Per attivare un evento per l'account di archiviazione BLOB, caricare un file. Non sono necessari contenuti specifici per il file. Gli articoli presuppongono che si abbia un file denominato testfile.txt, ma è possibile usare qualsiasi file.
 
-1. Per l'account di archiviazione BLOB, selezionare **BLOB**.
+1. Nel portale di Azure passare all'account di archiviazione BLOB e selezionare **Contenitori** nella pagina **Panoramica**.
 
    ![Selezionare BLOB](./media/blob-event-quickstart-portal/select-blobs.png)
 
-1. Selezionare **+ Contenitore**. Assegnare un nome al contenitore e usare qualsiasi livello di accesso.
+1. Selezionare **+ Contenitore**. Assegnare un nome al contenitore e usare qualsiasi livello di accesso, quindi selezionare **Crea**. 
 
    ![Aggiungere il contenitore](./media/blob-event-quickstart-portal/add-container.png)
 
@@ -99,39 +124,15 @@ Per attivare un evento per l'account di archiviazione BLOB, caricare un file. No
 
    ![Selezionare un contenitore](./media/blob-event-quickstart-portal/select-container.png)
 
-1. Per caricare un file, selezionare **Carica**.
+1. Per caricare un file, selezionare **Carica**. Nella pagina **Carica BLOB** individuare e selezionare il file da caricare per i test, quindi selezionare **Carica** in tale pagina. 
 
    ![Selezionare Carica](./media/blob-event-quickstart-portal/upload-file.png)
 
 1. Passare al file di test e caricarlo.
 
-1. È stato attivato l'evento e Griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Il messaggio è in formato JSON e contiene una matrice con uno o più eventi. Nell'esempio seguente il messaggio JSON contiene una matrice con un solo evento. Visualizzare l'app Web. Si noterà che è stato ricevuto un evento creato da un BLOB. 
+1. È stato attivato l'evento e Griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Il messaggio è in formato JSON e contiene una matrice con uno o più eventi. Nell'esempio seguente il messaggio JSON contiene una matrice con un solo evento. Visualizzare l'app Web. Si noterà che è stato ricevuto un evento **creato da un BLOB**. 
 
-   ```json
-   [{
-    "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
-    "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
-    "eventType": "Microsoft.Storage.BlobCreated",
-    "eventTime": "2018-06-25T22:50:41.1823131Z",
-    "id": "89a2f9da-c01e-00bb-13d6-0c599506e4e3",
-    "data": {
-      "api": "PutBlockList",
-      "clientRequestId": "41341a9b-e977-4a91-9000-c64125039047",
-      "requestId": "89a2f9da-c01e-00bb-13d6-0c5995000000",
-      "eTag": "0x8D5DAEE13C8F9ED",
-      "contentType": "text/plain",
-      "contentLength": 4,
-      "blobType": "BlockBlob",
-      "url": "https://demoblob0625.blob.core.windows.net/eventcontainer/testfile.txt",
-      "sequencer": "00000000000000000000000000001C24000000000004712b",
-      "storageDiagnostics": {
-        "batchId": "ef633252-32fd-464b-8f5a-0d10d68885e6"
-      }
-    },
-    "dataVersion": "",
-    "metadataVersion": "1"
-   }]
-   ```
+   ![Evento creato dal BLOB](./media/blob-event-quickstart-portal/blob-created-event.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

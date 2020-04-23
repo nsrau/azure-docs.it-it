@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 4332755c1ee47cd648f048768307846f02503e20
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0a41165a77ff5f98a6a0bb408da62cb6c4cb35f8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407050"
+ms.locfileid: "81536081"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph usando l'identità dell'app console
 
@@ -50,7 +50,7 @@ Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/downl
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
 > 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
 > 1. Selezionare **Nuova registrazione**.
-> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione. 
+> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 > 1. Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato dagli utenti dell'app, ad esempio `Daemon-console`, quindi sezionare **Registra** per creare l'applicazione.
 > 1. Dopo la registrazione, selezionare il menu **Certificati e segreti**.
 > 1. In **Segreti client** selezionare **+ Nuovo segreto client**. Assegnargli un nome e selezionare **Aggiungi**. Copiare il segreto in una posizione sicura. Sarà necessario usarlo nel codice.
@@ -60,7 +60,7 @@ Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/downl
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Scaricare e configurare l'app della guida introduttiva
-> 
+>
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
 > Per fare in modo che l'esempio di codice per questo avvio rapido funzioni, è necessario creare un segreto client e aggiungere l'autorizzazione dell'applicazione **User.Read.All** dell'API Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -82,14 +82,14 @@ Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/downl
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
-    
+
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
-> 
+>
 > 1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples**.
 > 1. Aprire la soluzione **1-Call-MSGraph\daemon-console.sln** in Visual Studio (facoltativo).
 > 1. Modificare **appsettings.json** e sostituire i valori dei campi `ClientId`, `Tenant` e `ClientSecret` con il codice seguente:
-> 
+>
 >    ```json
 >    "Tenant": "Enter_the_Tenant_Id_Here",
 >    "ClientId": "Enter_the_Application_Id_Here",

@@ -1,6 +1,6 @@
 ---
 title: Aggiungere l'accesso Microsoft alle app Web Python - Microsoft Identity Platform | Azure
-description: Informazioni su come implementare l'accesso Microsoft in un'app Web Python usando Auth2
+description: Informazioni su come implementare l'accesso Microsoft in un'app Web Python usando OAuth2
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 0affae56ef6998efe4bb370287ff3688f83f3878
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: c0220a226b2095a4ec54bc3469abee08b8b29f4c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873957"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536030"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Guida di avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Python
+# <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web Python
 
 Questa guida di avvio rapido descrive come integrare un'app Web Python con Microsoft Identity Platform. L'app consentirà l'accesso di un utente, otterrà un token di accesso per chiamare l'API Microsoft Graph e creerà una richiesta all'API Microsoft Graph.
 
@@ -35,7 +35,7 @@ Ecco i prerequisiti per eseguire questo esempio:
 
 > [!div renderon="docs"]
 >
-> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida di avvio rapido
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
 >
 > Per avviare l'applicazione della guida di avvio rapido sono disponibili due opzioni: rapida (Opzione 1) e manuale (Opzione 2)
 >
@@ -141,7 +141,7 @@ Ecco i prerequisiti per eseguire questo esempio:
     python app.py
     ```
    > [!IMPORTANT]
-   > Questa applicazione della guida di avvio rapido usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni sull'uso di un certificato, vedere [queste istruzioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+   > Questa applicazione della guida introduttiva usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni sull'uso di un certificato, vedere [queste istruzioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## <a name="more-information"></a>Ulteriori informazioni
 
