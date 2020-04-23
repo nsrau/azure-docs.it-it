@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sul Centro sicurezza di Azure- domande sulle autorizzazioniAzure Security Center FAQ - questions about permissions
-description: Questa faq risponde alle domande sulle autorizzazioni nel Centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce.
+title: Domande frequenti sul centro sicurezza di Azure-Domande sulle autorizzazioni
+description: Queste domande frequenti rispondono alle domande sulle autorizzazioni nel centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 66a260fbb03f770ee98ec29a5f5e15e3d7dd1310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89b3233966ac53d6c384ca6bd5ac30322fbb0b02
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599392"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106594"
 ---
 # <a name="permissions"></a>Autorizzazioni
 
-## <a name="how-do-permissions-work-in-azure-security-center"></a>Come funzionano le autorizzazioni nel Centro sicurezza di Azure?
+## <a name="how-do-permissions-work-in-azure-security-center"></a>Come funzionano le autorizzazioni nel centro sicurezza di Azure?
 
 Il Centro sicurezza di Azure usa il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md), con [ruoli predefiniti](../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
 
@@ -34,6 +34,6 @@ Per altre informazioni sui ruoli e sulle azioni consentite in Centro sicurezza, 
 
 ## <a name="who-can-modify-a-security-policy"></a>Chi può modificare i criteri di sicurezza?
 
-Per modificare i criteri di sicurezza, è necessario essere Amministratore della protezione, proprietario o collaboratore di tale sottoscrizione.
+Per modificare i criteri di sicurezza, è necessario essere un amministratore della sicurezza o un proprietario o un collaboratore di tale sottoscrizione.
 
 Per informazioni su come configurare i criteri di sicurezza, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md).

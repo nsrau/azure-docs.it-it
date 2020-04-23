@@ -4,13 +4,13 @@ description: Eccezioni del firewall del server necessarie per Application Insigh
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 12/19/2019
-ms.openlocfilehash: 454138f8e0d92935126f446455810a444b0a053a
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/23/2020
+ms.openlocfilehash: 73147fe2e8c834fd4fc67c4c396bb095f616b6d8
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984147"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82105846"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Indirizzi IP usati da Application Insights e Log Analytics
 Il servizio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa diversi indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
@@ -31,12 +31,12 @@ Il servizio [Azure Application Insights](../../azure-monitor/app/app-insights-ov
 | Scopo | URL | IP | Porte |
 | --- | --- | --- | --- |
 | Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170 | 443 |
-| Flusso di metriche in tempo reale (Stati Uniti orientali) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
-| Flusso di metriche in tempo reale (Stati Uniti centro-meridionali) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
-| Flusso di metriche in tempo reale (Europa settentrionale) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
-| Flusso di metriche in tempo reale (Europa occidentale) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
-| Flusso di metriche in tempo reale (Asia orientale)Live Metrics Stream (East Asia) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
-| Flusso di metriche in tempo reale (Asia sudorientale) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
+| Live Metrics Stream (Stati Uniti orientali) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
+| Live Metrics Stream (Stati Uniti centro-meridionali) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
+| Live Metrics Stream (Europa settentrionale) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
+| Live Metrics Stream (Europa occidentale) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
+| Live Metrics Stream (Asia orientale) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
+| Live Metrics Stream (Asia sudorientale) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
 
 ## <a name="status-monitor"></a>Monitoraggio stato
 Configurazione di Status Monitor: necessaria solo quando si apportano modifiche.
@@ -55,22 +55,22 @@ Configurazione di Status Monitor: necessaria solo quando si apportano modifiche.
 ## <a name="availability-tests"></a>Test della disponibilità
 Questo è l'elenco di indirizzi da cui vengono eseguiti i [test Web della disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) . Se si vogliono eseguire test Web sull'app, ma il server Web è limitato alla fornitura di servizi a client specifici, è necessario consentire il traffico in ingresso dai server di test della disponibilità.
 
-### <a name="service-tag"></a>Tag di servizio
+### <a name="service-tag"></a>Tag servizio
 
-Se si usano gruppi di sicurezza di rete di Azure, è sufficiente aggiungere una regola di **porta in ingresso** per consentire il traffico dai test di disponibilità di Application Insights selezionando Tag del servizio come Tag **di** **origine** e **ApplicationInsightsAvailability** come tag del **servizio di origine**.
-
->[!div class="mx-imgBorder"]
->![In Impostazioni selezionare Regole di sicurezza in ingresso e quindi selezionare Aggiungi nella parte superiore della scheda](./media/ip-addresses/add-inbound-security-rule.png)
+Se si usano i gruppi di sicurezza di rete di Azure, è sufficiente aggiungere una regola per la **porta in ingresso** per consentire il traffico da Application Insights test di disponibilità selezionando **tag di servizio** come **origine** e **ApplicationInsightsAvailability** come tag del **servizio di origine**.
 
 >[!div class="mx-imgBorder"]
->![Aggiungere la scheda della regola di sicurezza in ingressoAdd inbound security rule tab](./media/ip-addresses/add-inbound-security-rule2.png)
+>![In impostazioni selezionare regole di sicurezza in ingresso e quindi selezionare Aggiungi nella parte superiore della scheda.](./media/ip-addresses/add-inbound-security-rule.png)
+
+>[!div class="mx-imgBorder"]
+>![Scheda Aggiungi regola di sicurezza in ingresso](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Aprire le porte 80 (http) e 443 (https) per il traffico in ingresso da questi indirizzi (gli indirizzi IP sono raggruppati per posizione):
 
 ### <a name="addresses-grouped-by-location"></a>Indirizzi raggruppati per località
 
 > [!NOTE]
-> Questi indirizzi sono elencati utilizzando la notazione CIDR (Classless Inter-Domain Routing). Ciò significa che `51.144.56.112/28` una voce simile equivale `51.144.56.112` a 16 indirizzi IP che iniziano e terminano da `51.144.56.127`.
+> Questi indirizzi vengono elencati utilizzando la notazione CIDR (Inter-Domain Routing). Ciò significa che una voce come `51.144.56.112/28` è equivalente a 16 indirizzi IP a `51.144.56.112` partire da e `51.144.56.127`che termina con.
 
 ```
 Australia East
@@ -180,19 +180,12 @@ East US
 
 ```  
 
-## <a name="application-insights-api"></a>API Application Insights
-| Scopo | URI | IP | Porte |
-| --- | --- | --- | --- |
-| API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
-| Documentazione API |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
-| Estensione delle annotazioni di Azure PipelineAzure Pipeline annotations extension |aigs1.aisvc.visualstudio.com |dinamico|443 |
+## <a name="application-insights--log-analytics-apis"></a>Application Insights & API Log Analytics
 
-## <a name="log-analytics-api"></a>API di Log Analytics
-
-| Scopo | URI | IP | Porte |
+| Scopo | URI |  IP | Porte |
 | --- | --- | --- | --- |
-| API |api.loganalytics.io<br/>*.api.loganalytics.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
-| Documentazione API |dev.loganalytics.io<br/>docs.loganalytics.io<br/>www.loganalytics.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
+| API |`api.applicationinsights.io`<br/>`api1.applicationinsights.io`<br/>`api2.applicationinsights.io`<br/>`api3.applicationinsights.io`<br/>`api4.applicationinsights.io`<br/>`api5.applicationinsights.io`<br/>`dev.applicationinsights.io`<br/>`dev.applicationinsights.microsoft.com`<br/>`dev.aisvc.visualstudio.com`<br/>`www.applicationinsights.io`<br/>`www.applicationinsights.microsoft.com`<br/>`www.aisvc.visualstudio.com`<br/>`api.loganalytics.io`<br/>`*.api.loganalytics.io`<br/>`dev.loganalytics.io`<br>`docs.loganalytics.io`<br/>`www.loganalytics.io` |20.37.52.188 <br/> 20.37.53.231 <br/> 20.36.47.130 <br/> 20.40.124.0 <br/> 20.43.99.158 <br/> 20.43.98.234 <br/> 13.70.127.61 <br/> 40.81.58.225 <br/> 20.40.160.120 <br/> 23.101.225.155 <br/> 52.139.8.32 <br/> 13.88.230.43 <br/> 52.230.224.237 <br/> 52.242.230.209 <br/> 52.173.249.138 <br/> 52.229.218.221 <br/> 52.229.225.6 <br/> 23.100.94.221 <br/> 52.188.179.229 <br/> 52.226.151.250 <br/> 52.150.36.187 <br/> 40.121.135.131 <br/> 20.44.73.196 <br/> 20.41.49.208 <br/> 40.70.23.205 <br/> 20.40.137.91 <br/> 20.40.140.212 <br/> 40.89.189.61 <br/> 52.155.118.97 <br/> 52.156.40.142 <br/> 23.102.66.132 <br/> 52.231.111.52 <br/> 52.231.108.46 <br/> 52.231.64.72 <br/> 52.162.87.50 <br/> 23.100.228.32 <br/> 40.127.144.141 <br/> 52.155.162.238 <br/> 137.116.226.81 <br/> 52.185.215.171 <br/> 40.119.4.128 <br/> 52.171.56.178 <br/> 20.43.152.45 <br/> 20.44.192.217 <br/> 13.67.77.233 <br/> 51.104.255.249 <br/> 51.104.252.13 <br/> 51.143.165.22 <br/> 13.78.151.158 <br/> 51.105.248.23 <br/> 40.74.36.208 <br/> 40.74.59.40 <br/> 13.93.233.49 <br/> 52.247.202.90 |80,443 |
+| Estensione delle annotazioni della pipeline di Azure |aigs1.aisvc.visualstudio.com |dinamico|443 | 
 
 ## <a name="application-insights-analytics"></a>Analytics in Application Insights
 

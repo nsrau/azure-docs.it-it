@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
-ms.openlocfilehash: 78c0d20c0f32a6d63d134e958b30d38fe11fcc5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: c32b3ee5c4689e960834d543de1ca377e918751d
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74790675"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106288"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode EDIFACT in App per la logica di Azure con Enterprise Integration Pack
 
@@ -24,17 +24,21 @@ Il connettore di messaggi EDIFACT convalida le proprietà EDI e specifiche del p
 Sono necessari gli elementi seguenti:
 
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
-* Un account di [integrazione](logic-apps-enterprise-integration-create-integration-account.md) già definito e associato alla sottoscrizione di Azure.An integration account that's already defined and associated with your Azure subscription. Per usare il connettore di messaggi Decode EDIFACT è necessario un account di integrazione. 
+* Un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) già definito e associato alla sottoscrizione di Azure. Per usare il connettore di messaggi Decode EDIFACT è necessario un account di integrazione. 
 * Almeno due [partner](logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione.
 * Un [contratto EDIFACT](logic-apps-enterprise-integration-edifact.md) già definito nell'account di integrazione.
 
 ## <a name="decode-edifact-messages"></a>Decodificare messaggi EDIFACT
 
+> [!IMPORTANT]
+> Il connettore EDIFACT supporta solo caratteri UTF-8.
+> Se l'output contiene caratteri imprevisti, controllare che i messaggi EDIFACT usino il set di caratteri UTF-8. 
+
 1. [Creare un'app per la logica](quickstart-create-first-logic-app-workflow.md).
 
 2. Il connettore di messaggi Decode EDIFACT non dispone di trigger, pertanto è necessario aggiungerne uno per avviare l'app per la logica, ad esempio un trigger di richiesta. In Progettazione app per la logica aggiungere un trigger e un'azione all'app per la logica.
 
-3. Nella casella di ricerca, digitare "EDIFACT" come filtro. Selezionare **Decodifica messaggio EDIFACT**.
+3. Nella casella di ricerca, digitare "EDIFACT" come filtro. Selezionare **decodifica messaggio EDIFACT**.
    
     ![ricerca di EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
@@ -95,5 +99,5 @@ Il connettore Decode EDIFACT esegue queste attività:
 Per visualizzare i dettagli di Swagger per il connettore EDIFACT, vedere [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Scopri di più su Enterprise Integration Pack") 
+[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack") 
 

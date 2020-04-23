@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 4d65ca8d97e1cca81886259d4f15cc880e45be9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46ff4d9c941af25fcec3a70d7a2e6da95da59f32
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604281"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106696"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
@@ -37,15 +37,47 @@ Il Centro sicurezza consiglia le entità da monitorare, in cui è possibile abil
 > [!NOTE]
 > La funzionalità di monitoraggio dell'integrità dei file viene eseguita nelle macchine virtuali e nei computer Windows e Linux ed è disponibile nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si dispone di una risorsa **di rilevamento delle** modifiche di tipo **Soluzione**. Per i dettagli relativi alla frequenza di raccolta dati, vedere Dettagli raccolta [dati rilevamento modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per Rilevamento modifiche di Azure.For data collection frequency details, see Change Tracking data collection details for Azure Change Tracking.
+Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **rilevamento modifiche** di tipo **soluzione**. Per informazioni dettagliate sulla frequenza di raccolta dati, vedere [rilevamento modifiche dettagli sulla raccolta dei dati](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per rilevamento modifiche di Azure.
 
 > [!NOTE]
-> Se si rimuove la risorsa **di rilevamento delle** modifiche, si disabiliterà anche la funzionalità Monitoraggio dell'integrità dei file nel Centro sicurezza.
+> Se si rimuove la risorsa di **rilevamento modifiche** , viene disabilitata anche la funzionalità di monitoraggio dell'integrità dei file nel centro sicurezza.
 
 ## <a name="which-files-should-i-monitor"></a>Quali file è necessario monitorare?
 Quando si scelgono i file da monitorare, è necessario considerare quali sono critici per il sistema e le applicazioni. Prendere in considerazione di scegliere i file che non si prevede di modificare senza pianificazione. Scegliendo i file che vengono modificati di frequente dalle applicazioni o dal sistema operativo (ad esempio file di log e file di testo) si crea molto disturbo, che rende difficile identificare un attacco.
 
-Il Centro sicurezza consiglia i file da monitorare per impostazione predefinita in base ai modelli di attacchi noti, che includono modifiche a file e registri di sistema.
+Il Centro sicurezza fornisce l'elenco seguente di elementi consigliati da monitorare in base ai modelli di attacco noti. Inclusi i file e le chiavi del registro di sistema di Windows. Tutte le chiavi sono sotto HKEY_LOCAL_MACHINE ("HKLM" nella tabella).
+
+|**File Linux**|**File di Windows**|**Chiavi del registro di sistema di Windows**|
+|:----|:----|:----|
+|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4b59-4E08-B724-D2C6297EF351}|
+|/etc/*. conf|C:\config.sys|NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot HKLM\SOFTWARE\Microsoft\Windows|
+|/usr/bin|C:\Windows\system.ini|CurrentVersion HKLM\SOFTWARE\Microsoft\Windows|
+|/usr/sbin|C:\Windows\win.ini|NT\CurrentVersion\Winlogon HKLM\SOFTWARE\Microsoft\Windows|
+|/bin|C:\Windows\regedit.exe|Cartelle HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell|
+|/sbin|C:\Windows\System32\userinit.exe|Cartelle della shell di HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User|
+|/Boot|C:\Windows\explorer.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run|
+|/usr/local/bin|C:\Programmi\Microsoft Security Client\msseces.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce|
+|/usr/local/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|/opt/bin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices|
+|/opt/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4b59-4E08-B724-D2C6297EF351}|
+|/etc/cron.hourly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot|
+|/etc/cron.daily||CurrentVersion HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows|
+|/etc/cron.weekly||NT\CurrentVersion\Winlogon HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows|
+|/etc/cron.monthly||Cartelle HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Shell|
+|||Cartelle della shell di HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\User|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServices|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|||HKLM\SYSTEM\CurrentControlSet\Control\hivelist|
+|||Manager\KnownDLLs HKLM\SYSTEM\CurrentControlSet\Control\Session|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\DomainProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
 ## <a name="using-file-integrity-monitoring"></a>Uso del monitoraggio dell'integrità dei file
 1. Aprire il dashboard **Centro sicurezza**.
@@ -85,15 +117,14 @@ Per abilitare il monitoraggio dell'integrità dei file in un'area di lavoro:
 
 > [!NOTE]
 > È possibile modificare le impostazioni in qualsiasi momento. Per altre informazioni, vedere Modificare le entità monitorate di seguito.
->
->
+
 
 ## <a name="view-the-fim-dashboard"></a>Visualizzare il dashboard Monitoraggio dell'integrità dei file
 Viene visualizzato il dashboard **Monitoraggio dell'integrità dei file** per le aree di lavoro in cui è abilitata la funzionalità. Il dashboard viene aperto dopo che il monitoraggio dell'integrità dei file è stato abilitato in un'area di lavoro o quando nella finestra **Monitoraggio dell'integrità dei file** viene selezionata un'area di lavoro in cui è già abilitata la funzionalità.
 
 ![Dashboard Monitoraggio dell'integrità dei file][6]
 
-Nel dashboard FIM di un'area di lavoro vengono visualizzati i dettagli seguenti:
+Il dashboard FIM per un'area di lavoro Visualizza i dettagli seguenti:
 
 - Numero totale di macchine virtuali connesse all'area di lavoro
 - Numero totale di modifiche che sono state effettuate durante il periodo di tempo selezionato
@@ -109,7 +140,7 @@ La scheda **Computer** (mostrata sopra) elenca tutti i computer che creano repor
 - Il numero totale di modifiche che sono state effettuate durante il periodo di tempo selezionato
 - Una suddivisione delle modifiche totali come modifiche al file o al registro di sistema
 
-**Ricerca log** si apre quando si immette un nome di computer nel campo di ricerca o si seleziona una macchina elencata nella scheda Computer. Per altre informazioni, è possibile espandere una modifica.
+La **Ricerca log** si apre quando si immette un nome di computer nel campo di ricerca o si seleziona un computer elencato nella scheda computer. Ricerca log consente di visualizzare tutte le modifiche apportate durante il periodo di tempo selezionato per il computer. Per altre informazioni, è possibile espandere una modifica.
 
 ![Ricerca log][8]
 
@@ -199,13 +230,10 @@ Usare i caratteri jolly per semplificare le attività di rilevamento nelle direc
 4. Selezionare **Rimuovi** per disabilitare.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si è appreso l'utilizzo di Monitoraggio dell'integrità dei file (FIM) nel Centro sicurezza PC. Per altre informazioni sul Centro sicurezza, vedere le pagine seguenti:To learn more about Security Center, see the following pages:
+In questo articolo si è appreso come usare il monitoraggio dell'integrità dei file (FIM) nel centro sicurezza. Per ulteriori informazioni sul centro sicurezza, vedere le pagine seguenti:
 
-* [Impostazione dei criteri](tutorial-security-policy.md) di sicurezza: informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.Setting security policies -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Impostazione dei criteri di sicurezza](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione dei consigli di sicurezza](security-center-recommendations.md): informazioni su come i consigli semplificano la protezione delle risorse di Azure.
-* [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-* [Gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md): informazioni su come gestire gli avvisi di sicurezza e rispondervi.
-* [Monitoraggio delle soluzioni dei partner:](security-center-partner-solutions.md) informazioni su come monitorare lo stato di integrità delle soluzioni partner.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
 <!--Image references-->

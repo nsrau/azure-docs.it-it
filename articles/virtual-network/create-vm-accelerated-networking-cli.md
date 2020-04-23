@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 54c4a673e654a0244183a84ffa841d553ae6db51
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245083"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106254"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Creare una macchina virtuale Linux con rete accelerata usando l'interfaccia della riga di comando di Azure
 
@@ -43,7 +43,7 @@ I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure: 
 * **Ubuntu 14,04 con il kernel Linux-Azure**
-* **Ubuntu 16,04 o versione successiva** 
+* **Ubuntu 16.04 o versione successiva** 
 * **SLES12 SP3 o versione successiva** 
 * **RHEL 7,4 o versione successiva**
 * **CentOS 7,4 o versione successiva**
@@ -58,7 +58,7 @@ Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure
 ### <a name="supported-vm-instances"></a>Istanze di VM supportate
 La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 2 o più vCPU.  Queste serie supportate sono D/DSv2 e F/Fs
 
-Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata nelle istanze di macchine virtuali con 4 o più vCPU. Le serie supportate sono: D/Dsv3, E/Esv3, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
+Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata nelle istanze di macchine virtuali con 4 o più vCPU. Le serie supportate sono: D/Dsv3, D/Dsv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
 Per altre informazioni sulle istanze di VM, vedere [Dimensioni per le macchine virtuali Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -97,7 +97,7 @@ az group create --name myResourceGroup --location centralus
 
 Selezionare un'area di Linux supportata nella [rete accelerata Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet). Nell'esempio seguente viene creata una rete virtuale denominata *myVnet* con una subnet:
+Creare una rete virtuale con [AZ Network VNET create](/cli/azure/network/vnet). Nell'esempio seguente viene creata una rete virtuale denominata *myVnet* con una subnet:
 
 ```azurecli
 az network vnet create \
@@ -109,7 +109,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
-Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg). L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
+Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -177,7 +177,7 @@ Per un elenco di tutte le dimensioni e le caratteristiche delle VM, vedere [Dime
 
 Dopo aver creato la macchina virtuale, viene restituito l'output simile al seguente output di esempio. Prendere nota di **publicIpAddress**. Questo indirizzo viene usato nei passaggi successivi per l'accesso alla macchina virtuale.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -208,7 +208,7 @@ Dalla shell Bash, immettere `uname -r` e verificare che la versione del kernel s
 
 Verificare che il dispositivo VF Mellanox sia esposto per la macchina virtuale con il comando `lspci`. L'output restituito è simile al seguente output:
 
-```bash
+```output
 0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)
 0000:00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 01)
 0000:00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
@@ -219,7 +219,7 @@ Verificare che il dispositivo VF Mellanox sia esposto per la macchina virtuale c
 
 Controllare l'attività sulla VF (funzione virtuale) con il comando`ethtool -S eth0 | grep vf_`. Se si riceve un output simile al seguente output di esempio, la rete accelerata è abilitata e in funzione.
 
-```bash
+```output
 vf_rx_packets: 992956
 vf_rx_bytes: 2749784180
 vf_tx_packets: 2656684

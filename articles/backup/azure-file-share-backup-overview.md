@@ -3,12 +3,12 @@ title: Informazioni sul backup di condivisioni file di Azure
 description: Informazioni su come eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: bea5035ff50eaf4047f56cde3bd671d81e21f5d3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101425"
+ms.locfileid: "82105744"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup di condivisioni file di Azure
 
@@ -47,12 +47,7 @@ Il backup di condivisioni file di Azure è una soluzione di backup nativa basata
 
 ## <a name="backup-costs"></a>Costi di backup
 
-Il backup di condivisioni file di Azure è una soluzione basata su snapshot e i costi di archiviazione per gli snapshot vengono fatturati insieme a File di Azure utilizzo in base ai dettagli sui prezzi indicati [qui](https://azure.microsoft.com/pricing/details/storage/files/).
-
-Tuttavia, la tariffa dell'istanza protetta per sfruttare la soluzione di backup è in base al modello di determinazione dei prezzi descritto nella sezione [backup per file di Azure](https://azure.microsoft.com/pricing/details/backup/) . Attualmente, il prezzo effettivo è stato aggiornato solo per gli Stati Uniti centro-occidentali. Per le altre aree, i prezzi esatti verranno aggiornati a breve con alcune variazioni a livello di area, ma con lo stesso modello di determinazione prezzi.
-
->[!NOTE]
->Attualmente non è disponibile una tariffa per l'istanza protetta e verranno addebitati solo gli snapshot in base ai prezzi indicati [qui](https://azure.microsoft.com/pricing/details/storage/files/).
+Attualmente verranno addebitati solo gli snapshot, poiché il backup della condivisione file di Azure è una soluzione basata su snapshot. Gli addebiti per lo spazio di archiviazione per gli snapshot vengono fatturati insieme all'utilizzo File di Azure in base ai dettagli sui prezzi indicati [qui](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

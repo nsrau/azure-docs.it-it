@@ -5,25 +5,27 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0331678b50d2448013556ab0694d0ca87045c3a3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82096917"
+ms.locfileid: "82106033"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Avviare/arrestare VM durante gli orari di indisponibilità in automazione di Azure
 
 La soluzione **Avvia/arresta macchine virtuali durante gli orari di** indisponibilità avvia o interrompe le macchine virtuali di Azure. Avvia o arresta le macchine virtuali nelle pianificazioni definite dall'utente, fornisce informazioni dettagliate sui log di monitoraggio di Azure e invia messaggi di posta elettronica facoltativi tramite i [gruppi di azioni](../azure-monitor/platform/action-groups.md). Per la maggior parte degli scenari, la soluzione supporta macchine virtuali sia Azure Resource Manager che classiche. 
 
-Questa soluzione fornisce un'opzione di automazione decentralizzata a basso costo per gli utenti che vogliono ottimizzare i costi delle macchine virtuali. Con questa soluzione, è possibile:
+Questa soluzione USA il cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) per avviare le VM. USA [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) per arrestare le macchine virtuali.
+
+> [!NOTE]
+> La soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità è stata aggiornata per supportare le versioni più recenti dei moduli di Azure disponibili.
+
+La soluzione fornisce un'opzione di automazione a basso costo decentralizzata per gli utenti che desiderano ottimizzare i costi delle macchine virtuali. Con questa soluzione, è possibile:
 
 - [Pianificare l'avvio e l'arresto delle macchine virtuali](automation-solution-vm-management-config.md#schedule).
 - Pianificare le macchine virtuali per l'avvio e l'arresto in ordine crescente [usando i tag di Azure](automation-solution-vm-management-config.md#tags) (non supportati per le macchine virtuali classiche).
 - Arrestare le macchine virtuali in base a un [utilizzo ridotto della CPU](automation-solution-vm-management-config.md#cpuutil).
-
-> [!NOTE]
-> La soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità è stata aggiornata per supportare le versioni più recenti dei moduli di Azure disponibili.
 
 Di seguito sono riportate le limitazioni della soluzione corrente:
 

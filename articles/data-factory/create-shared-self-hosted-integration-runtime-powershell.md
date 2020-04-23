@@ -1,5 +1,5 @@
 ---
-title: Creare un runtime di integrazione self-hosted condiviso con PowerShellCreate a shared self-hosted integration runtime with PowerShell
+title: Creare un runtime di integrazione self-hosted condiviso con PowerShell
 description: Informazioni su come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory, in modo che possano accedervi più data factory.
 services: data-factory
 documentationcenter: ''
@@ -11,22 +11,22 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: cabdb45467f71749184c5f9a6a112242a82d618b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416611"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106628"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data FactoryCreate a shared self-hosted integration runtime in Azure Data Factory
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Questa guida illustra come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory.This guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory. È quindi possibile usare il runtime di integrazione self-hosted condiviso in un'altra data factory.
+Questa guida illustra come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory. È quindi possibile usare il runtime di integrazione self-hosted condiviso in un'altra data factory.
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Creare un provider di riorso indipendente condiviso usando l'interfaccia utente di Azure Data FactoryCreate a shared self-hosted IR using Azure Data Factory UI
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Creare un runtime di integrazione self-hosted condiviso usando Azure Data Factory interfaccia utente
 
-Per creare un metodo di riutilizzo indipendente condiviso usando l'interfaccia utente di Azure Data Factory, è possibile eseguire le operazioni seguenti:To create a shared self-hosted IR using Azure Data Factory UI, you can take following steps:
+Per creare un runtime di integrazione self-hosted condiviso usando Azure Data Factory interfaccia utente, è possibile seguire questa procedura:
 
 1. Nel runtime di integrazione self-hosted da condividere concedere l'autorizzazione alla data factory in cui si intende creare il runtime di integrazione collegato.
       
@@ -44,9 +44,9 @@ Per creare un metodo di riutilizzo indipendente condiviso usando l'interfaccia u
       
     ![Caselle per nome e ID risorsa](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Creare un provider di mano condiviso self-hosted usando Azure PowerShellCreate a shared self-hosted IR using Azure PowerShell
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Creare un runtime di integrazione self-hosted condiviso usando Azure PowerShell
 
-Per creare un provider di mano condiviso con Azure PowerShell, è possibile eseguire le operazioni seguenti:To create a shared self-hosted IR using Azure PowerShell, you can take following steps: 
+Per creare un runtime di integrazione self-hosted condiviso usando Azure PowerShell, è possibile seguire questa procedura: 
 1. Creare una data factory. 
 1. Creare un runtime di integrazione self-hosted.
 1. Condividere il runtime di integrazione self-hosted con altre data factory.
@@ -174,7 +174,7 @@ Concedere l'autorizzazione alla data factory che deve accedere al runtime di int
 ```powershell
 New-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId ` #MSI of the Data Factory with which it needs to be shared
-    -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' ` #This is the Contributor role
+    -RoleDefinitionName 'Contributor' `
     -Scope $SharedIR.Id
 ```
 
@@ -201,7 +201,7 @@ Per revocare l'accesso di una data factory al runtime di integrazione condiviso,
 ```powershell
 Remove-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId `
-    -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' `
+    -RoleDefinitionName 'Contributor' `
     -Scope $SharedIR.Id
 ```
 
