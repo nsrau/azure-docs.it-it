@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283668"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086369"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -182,7 +182,7 @@ Nei test sono stati usati i criteri seguenti:
 I risultati danno un'idea di cosa è possibile ottenere con un cluster Hub eventi Dedicato. In un cluster dedicato, inoltre, la funzionalità di acquisizione di Hub eventi è abilitata per gli scenari per gli scenari di micro-batch e conservazione a lungo termine.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Come si crea un cluster Hub eventi Dedicato?
-Per crea un cluster Hub eventi Dedicato, inviare una [richiesta di supporto di aumento di quota](https://portal.azure.com/#create/Microsoft.Support) o contattare il [team di Hub eventi](mailto:askeventhubs@microsoft.com). La distribuzione del cluster per l'uso da parte dell'utente richiede in genere circa due settimane. Questo processo è temporaneo fino a quando non viene reso disponibile un self-service completo tramite il portale di Azure o i modelli di Azure Resource Manager, che richiedono circa due ore per distribuire il cluster.
+Per crea un cluster Hub eventi Dedicato, inviare una [richiesta di supporto di aumento di quota](https://portal.azure.com/#create/Microsoft.Support) o contattare il [team di Hub eventi](mailto:askeventhubs@microsoft.com). La distribuzione del cluster per l'uso da parte dell'utente richiede in genere circa due settimane. Questo processo è temporaneo fino a quando non viene resa disponibile una self-service completa tramite il portale di Azure.This process is temporary until a complete self-service is made available through the Azure portal.
 
 ## <a name="best-practices"></a>Procedure consigliate
 

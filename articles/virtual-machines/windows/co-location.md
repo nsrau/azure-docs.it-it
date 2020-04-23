@@ -1,22 +1,18 @@
 ---
-title: Co-localizzazione delle macchine virtuali di Windows AzureCo-locate Windows Azure VMs
+title: Colocalizzare le macchine virtuali per una migliore latenza
 description: Informazioni su come la co-localizzazione delle risorse delle macchine virtuali di Azure può migliorare la latenza.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: b61a84f2b284177b7443be00efeea65e7eb8aaef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 066b6d10dbe07b902abfd15565c5ccf1a5e9c115
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266793"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083173"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>Co-localizzare le risorse per una migliore latenza
 

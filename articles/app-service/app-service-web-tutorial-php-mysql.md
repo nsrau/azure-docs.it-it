@@ -6,12 +6,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 7c03e2b5e8c035b53b874a8e7751283fdbe3d516
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ee5a12b11e36f3d1e08d1154d21f198c0fd1b76e
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811297"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085227"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Esercitazione: Creare un'app PHP e MySQL in Azure
 
@@ -169,10 +169,10 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
 
 Al termine della creazione del server MySQL, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente:
 
-```json
+<pre>
 {
   "location": "westeurope",
-  "name": "<mysql_server_name>",
+  "name": "&lt;mysql_server_name&gt;",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "additionalProperties": {},
@@ -184,9 +184,9 @@ Al termine della creazione del server MySQL, l'interfaccia della riga di comando
   },
   "sslEnforcement": "Enabled",
   ...    +  
-  -  < Output has been truncated for readability >
+  -  &lt; Output has been truncated for readability &gt;
 }
-```
+</pre>
 
 ### <a name="configure-server-firewall"></a>Configurare il firewall del server
 
@@ -400,7 +400,7 @@ Per impostazione predefinita, il servizio app di Azure fa in modo che il percors
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -412,8 +412,8 @@ remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
 remote: Running deployment command...
 ...
-< Output has been truncated for readability >
-```
+&lt; Output has been truncated for readability &gt;
+</pre>
 
 > [!NOTE]
 > Si può notare che, alla fine, il processo di distribuzione installa i pacchetti [Composer](https://getcomposer.org/). Il servizio app non esegue tali automazioni durante la distribuzione predefinita, pertanto questo repository di esempio include tre file aggiuntivi nella directory radice per abilitarlo:

@@ -3,12 +3,12 @@ title: CI/CD con pipeline e modelli di Azure
 description: Viene descritto come configurare l'integrazione continua nelle pipeline di Azure usando i progetti di distribuzione del gruppo di risorse di Azure in Visual Studio per distribuire i modelli di Resource Manager.Describes how to set up continuous integration in Azure Pipelines by using Azure Resource Group deployment projects in Visual Studio to deploy Resource Manager templates.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153455"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084652"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrare i modelli ARM con le pipeline di AzureIntegrate ARM templates with Azure Pipelines
 
@@ -28,7 +28,7 @@ Questo articolo presuppone che il progetto di Visual Studio e l'organizzazione D
 
 * Si dispone di un'organizzazione DevOps di Azure.You have an Azure DevOps organization. Se non ne hai uno, [creane uno gratuitamente.](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops) Se il team dispone già di un'organizzazione DevOps di Azure, assicurarsi di essere un amministratore del progetto DevOps di Azure che si vuole usare.
 
-* È stata configurata una connessione al servizio per la sottoscrizione di Azure.You've configured a [service connection](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) to your Azure subscription. Le attività nella pipeline vengono eseguite con l'identità dell'entità servizio. Per la procedura di creazione della connessione, vedere [Creare un progetto DevOps](template-tutorial-use-azure-pipelines.md#create-a-devops-project).
+* È stata configurata una connessione al servizio per la sottoscrizione di Azure.You've configured a [service connection](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) to your Azure subscription. Le attività nella pipeline vengono eseguite con l'identità dell'entità servizio. Per la procedura di creazione della connessione, vedere [Creare un progetto DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
 * Si dispone di un progetto di Visual Studio che è stato creato dal modello di avvio del gruppo di risorse di Azure.You have a Visual Studio project that was created from the **Azure Resource Group** starter template. Per informazioni sulla creazione di tale tipo di progetto, vedere Creazione e distribuzione di gruppi di [risorse di Azure tramite Visual Studio](create-visual-studio-deployment-project.md).
 
@@ -261,4 +261,4 @@ A questo punto, per informazioni su come creare le attività, è possibile esegu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per il processo passo-passo sull'uso di Pipeline di Azure con i modelli ARM, vedere [Esercitazione: Integrazione continua di modelli ARM con le pipeline di Azure.For](template-tutorial-use-azure-pipelines.md)step-by-step process on using Azure Pipelines with ARM templates, see Tutorial: Continuous integration of ARM templates with Azure Pipelines.
+Per il processo passo-passo sull'uso di pipeline di Azure con i modelli ARM, vedere [Esercitazione: Integrazione continua dei modelli di Azure Resource Manager con le pipeline di Azure.For](deployment-tutorial-pipeline.md)step-by-step process on using Azure Pipelines with ARM templates, see Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines.

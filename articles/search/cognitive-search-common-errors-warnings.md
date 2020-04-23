@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671983"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086613"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Risoluzione degli errori e degli avvisi comuni dell'indicizzatore in Ricerca cognitiva di AzureTroubleshooting common indexer errors and warnings in Azure Cognitive Search
 
@@ -91,6 +91,8 @@ L'indicizzatore non è stato in grado di eseguire una competenza nel set di comp
 
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Errore: impossibile eseguire la competenza perché la richiesta API Web non è riuscita
 Esecuzione della competenza non riuscita perché la chiamata all'API Web non è riuscita. In genere, questa classe di errore si verifica quando vengono utilizzate competenze personalizzate, nel qual caso sarà necessario eseguire il debug del codice personalizzato per risolvere il problema. Se invece l'errore proviene da una competenza incorporata, fare riferimento al messaggio di errore per informazioni sulla risoluzione del problema.
+
+Durante il debug di questo problema, assicurarsi di prestare attenzione a tutti gli avvisi di [input di competenza](#warning-skill-input-was-invalid) per questa competenza. L'endpoint API Web potrebbe non riuscire perché l'indicizzatore gli sta passando un input imprevisto.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 

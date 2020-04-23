@@ -4,19 +4,19 @@ description: Usare questo articolo per acquisire competenze diagnostiche standar
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/20/2019
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3529d6a67c6c8c19c053fe3170298658e90b4a54
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 2e15dffac73b4a50b1ef9288feaeb6073dea91e0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729266"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086522"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -40,20 +40,19 @@ Il primo passaggio per la risoluzione `check` dei problemi relativi a IoT Edge d
   iotedge check
   ```
 
-I tipi di controlli eseguiti dallo strumento possono essere classificati come:
+Lo strumento di risoluzione dei problemi esegue molti controlli ordinati nelle tre categorie seguenti:
 
 * Controlli di configurazione: esamina i dettagli che potrebbero impedire ai dispositivi Edge di connettersi al cloud, inclusi i problemi con *config.yaml* e il motore contenitore.
 * Controlli di connessione: verifica che il runtime di IoT Edge possa accedere alle porte nel dispositivo host e che tutti i componenti IoT Edge possano connettersi all'hub IoT.
 * Controlli di conformità della produzione: cerca le procedure consigliate per la produzione, ad esempio lo stato dei certificati dell'autorità di certificazione (CA) del dispositivo e la configurazione del file di registro dei moduli.
 
-Per un elenco completo dei controlli diagnostici, vedere Funzionalità di [risoluzione dei problemi integrata](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+Per informazioni su ogni controllo diagnostico eseguito da questo strumento, incluse le operazioni da eseguire se viene visualizzato un errore o un avviso, vedere Controlli della risoluzione dei problemi di [Edge IoT](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
 ## <a name="gather-debug-information-with-iotedge-support-bundle-command"></a>Raccogliere informazioni di debug con il comando 'support-bundle' iotedge
 
 Quando è necessario raccogliere i log da un dispositivo IoT `support-bundle` Edge, il modo più pratico consiste nell'utilizzare il comando. Per impostazione predefinita, questo comando raccoglie modulo, Gestione sicurezza Edge IoT e i log del motore del contenitore, l'output JSON 'controllo iotedge' e altre utili informazioni di debug. Li comprime in un unico file per una facile condivisione. Il `support-bundle` comando è disponibile nella [versione 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) e versioni successive.
 
 Eseguire `support-bundle` il comando `--since` con il flag per specificare per quanto tempo dal passato si desidera ottenere i registri. Ad `6h` esempio, verranno ottenuti `6d` i registri dalle `6m` ultime 6 ore, dagli ultimi 6 giorni, dagli ultimi 6 minuti e così via. Includere `--help` il flag per visualizzare un elenco completo delle opzioni.
-
 
 * In Linux:
 
@@ -335,7 +334,7 @@ Nell'hub IoT selezionare il dispositivo IoT Edge e nella pagina dei dettagli del
 
 ![OptimizeForPerformance impostato su false](./media/troubleshoot/optimizeforperformance-false.png)
 
-**OR**
+**O**
 
 Nel manifesto della distribuzione:
 

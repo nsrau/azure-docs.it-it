@@ -2,13 +2,13 @@
 title: Restrizioni di denominazione delle risorse
 description: Mostra le regole e le restrizioni per la denominazione delle risorse di Azure.Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: f6203f987654b33b32da72bfec030a9d0ab69df8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981529"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086386"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
@@ -534,6 +534,13 @@ Nelle tabelle seguenti, il termine alfanumerico si riferisce a:
 > | --- | --- | --- | --- |
 > | clusters | gruppo di risorse | 4-63 | Alfanumerici e trattini.<br><br>Iniziare e terminare con alfanumerici. |
 > | aree di lavoro | gruppo di risorse | 4-63 | Alfanumerici e trattini.<br><br>Iniziare e terminare con alfanumerici. |
+
+## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+
+> [!div class="mx-tableFixed"]
+> | Entità | Scope | Length | Caratteri validi |
+> | --- | --- | --- | --- |
+> | solutions | area di lavoro | N/D | Per le soluzioni create da Microsoft, il nome deve essere nel modello:For solutions authored by Microsoft, the name must be in the pattern:<br>`SolutionType(WorkspaceName)`<br><br>Per le soluzioni create da terze parti, il nome deve essere nel modello:For solutions authored by third parties, the name must be in the pattern:<br>`SolutionType[WorkspaceName]`<br><br>Ad esempio, un nome valido è:For example, a valid name is:<br>`AntiMalware(contoso-IT)`<br><br>Per il tipo di soluzione viene fatta distinzione tra maiuscole e minuscole. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 

@@ -7,19 +7,19 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: 7834c8a32d4d85fc354bac209e13f19f3b8315fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d35e37e53b84d317446a93a2301fc3b703b426b7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80256930"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085723"
 ---
-# <a name="preview-dcsv2-series"></a>Anteprima: Serie DCsv2
+# <a name="dcsv2-series"></a>Serie DCsv2
 
 
 La serie DCsv2 consente di proteggere la riservatezza e l'integrità dei dati e del codice durante l'elaborazione nel cloud pubblico. Queste macchine sono supportate dall'ultima generazione di processore Intel XEON E-2288G con tecnologia SGX. Con la tecnologia Intel Turbo Boost queste macchine possono raggiungere i 5,0 GHz. Le istanze della serie DCsv2 consentono ai clienti di creare applicazioni sicure basate su enclave per proteggere il codice e i dati mentre sono in uso.
 
-Esempi di casi d'uso includono la condivisione di dati confidenziali di più parti, rilevamento di frodi, antiriciclaggio, blockchain, analisi di utilizzo confidenziale, analisi di intelligence e apprendimento automatico riservato.
+Esempi di casi d'uso includono: condivisione di dati confidenziali multiparte, rilevamento di frodi, antiriciclaggio, blockchain, analisi di utilizzo confidenziale, analisi di intelligence e apprendimento automatico riservato.
 
 Archiviazione Premium: Supportato
 
@@ -41,15 +41,15 @@ Aggiornamenti di conservazione della memoria: non supportatiMemory Preserving Up
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
 - Le macchine virtuali serie DCsv2 sono macchine `Gen2` virtuali di generazione [2](./linux/generation-2.md#creating-a-generation-2-vm) e supportano solo immagini.
-- Attualmente disponibile solo nel Regno Unito sud e Canada Central.
-- Generazione precedente di macchine virtuali di calcolo riservate: [serie DCPrevious](sizes-previous-gen.md) generation of Confidential Compute VMs: DC Series
-- Creare macchine virtuali DCsv2 usando La creazione di macchine virtuali del portale di [AzureCreate](./linux/quick-create-portal.md) DCsv2 VMs using Azure Portal Create VM - Portal
+- Attualmente disponibile solo nel Regno Unito sud, Canada centrale e Stati Uniti orientali.
+- Generazione precedente di macchine virtuali di calcolo riservato: [serie DC](sizes-previous-gen.md#preview-dc-series)
+- Creare macchine virtuali DCsv2 usando il portale di Azure o [Azure MarketplaceCreate](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview) DCsv2 VMs using the [Azure portal](./linux/quick-create-portal.md) or Azure Marketplace
 
 
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-- [Finalità generale](sizes-general.md)
+- [Utilizzo generico](sizes-general.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)

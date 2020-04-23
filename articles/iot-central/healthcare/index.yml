@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: e5b8498039b16f3a5e3a68fc0c4329b3579d494a
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: a2eda11682ccd3329d1a9447aca3741ddd264da7
+  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77623040"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "82024864"
 landingContent:
 - title: Creare soluzioni per il settore sanitario
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     - text: Configurare un modello di dispositivo
       url: ../core/howto-set-up-template.md
     - text: Collegare un dispositivo
-      url: ../core/tutorial-connect-device.md
+      url: ../core/tutorial-connect-device-nodejs.md
     - text: Connettere un dispositivo Plug and Play IoT (anteprima)
       url: ../core/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide

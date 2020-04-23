@@ -2,13 +2,13 @@
 title: Funzioni modello - data
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager per usare le date.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 75234a142b9f2fbe61c337bfeb378b47534bac79
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: 364b41e9e92cb248a7bd2fac5a41eb535adbf440
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986278"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084788"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funzioni di data per i modelli ARM
 
@@ -21,7 +21,7 @@ Resource Manager offre le funzioni seguenti per l'uso delle date nei modelli di 
 
 `dateTimeAdd(base, duration, [format])`
 
-Aggiunge una durata di tempo a un valore datetime di base.
+Aggiunge una durata a un valore di base. È previsto il formato ISO 8601.
 
 ### <a name="parameters"></a>Parametri
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 4a8b3cf47235e061e5dbcc08a409fce84d421771
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57ca5b0880d4b027e33bc0d01fc6225eb886029b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77562208"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084992"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando le azioni GitHubDeploy to App Service using GitHub Actions
 
@@ -27,8 +27,8 @@ Per un flusso di lavoro del servizio app di Azure, il file include tre sezioni:F
 
 |Sezione  |Attività  |
 |---------|---------|
-|**Autenticazione** | 1. Definire un'entità servizio <br /> 2. Creare un segreto GitHub |
-|**Costruire** | 1. Configurare l'ambiente <br /> 2. Creare l'app Web |
+|**autenticazione** | 1. Definire un'entità servizio <br /> 2. Creare un segreto GitHub |
+|**Build** | 1. Configurare l'ambiente <br /> 2. Creare l'app Web |
 |**Distribuire** | 1. Distribuire l'app Web |
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
@@ -62,7 +62,7 @@ In questo esempio sostituire i segnaposto nella risorsa con l'ID sottoscrizione,
 4. Ora nel file del flusso `.github/workflows/workflow.yml` di lavoro nel `publish-profile` ramo: sostituire il segreto per l'input dell'azione Distribuisci App Web di Azure.Now in the workflow file in your branch: replace the secret for the input of the deploy Azure Web App action.
     
     ```yaml
-        - uses: azure/webapps-deploy@v1
+        - uses: azure/webapps-deploy@v2
           with:
             creds: ${{ secrets.azureWebAppPublishProfile }}
     ```
@@ -79,12 +79,12 @@ La configurazione dell'ambiente può essere eseguita utilizzando una delle azion
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
-|**Javascript** | `actions/setup-node` |
+|**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
 Negli esempi seguenti viene illustrato la parte del flusso di lavoro che configura l'ambiente per le varie lingue supportate:
 
-**Javascript**
+**JavaScript**
 
 ```yaml
     - name: Setup Node 10.x
@@ -127,7 +127,7 @@ Questo dipende dalla lingua e per le lingue supportate dal servizio app di Azure
 
 Negli esempi seguenti viene illustrato la parte del flusso di lavoro che compila l'app Web nelle varie lingue supportate.
 
-**Javascript**
+**JavaScript**
 
 ```yaml
     - name: 'Run npm'
@@ -180,15 +180,15 @@ Negli esempi seguenti viene illustrato la parte del flusso di lavoro che compila
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 ```
-## <a name="deploy-to-app-service"></a>Eseguire la distribuzione nel servizio app
+## <a name="deploy-to-app-service"></a>Distribuire nel servizio app
 
-Per distribuire il codice a un'app del servizio app, usare l'azione. `azure/webapps-deploy@v1 ` Questa azione ha quattro parametri:
+Per distribuire il codice a un'app del servizio app, usare l'azione. `azure/webapps-deploy@v2` Questa azione ha quattro parametri:
 
 | **Parametro**  | **Spiegazione**  |
 |---------|---------|
 | **nome app** | (Obbligatorio) Nome dell'app del servizio app | 
 | **pubblicare-profilo** | (Facoltativo) Pubblicare il contenuto del file del profilo con i segreti di distribuzione Web |
-| **Pacchetto** | (Facoltativo) Percorso del pacchetto o della cartella. .zip, .war, .jar o una cartella da distribuire |
+| **package** | (Facoltativo) Percorso del pacchetto o della cartella. .zip, .war, .jar o una cartella da distribuire |
 | **nome-slot** | (Facoltativo) Immettere uno slot esistente diverso dallo slot di produzione |
 
 ### <a name="deploy-using-publish-profile"></a>Eseguire la distribuzione usando il profilo di pubblicazioneDeploy using Publish Profile
@@ -219,7 +219,7 @@ jobs:
         npm run test --if-present
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v1
+          uses: azure/webapps-deploy@v2
           with: 
             app-name: node-rn
             publish-profile: ${{ secrets.azureWebAppPublishProfile }}
@@ -258,7 +258,7 @@ jobs:
         npm run test --if-present
                
     # deploy web app using Azure credentials
-    - uses: azure/webapps-deploy@v1
+    - uses: azure/webapps-deploy@v2
       with:
         app-name: 'node-rn'
 

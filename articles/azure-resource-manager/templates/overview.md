@@ -3,12 +3,12 @@ title: Panoramica dei modelli
 description: Descrive i vantaggi dell'uso dei modelli di Azure Resource Manager per la distribuzione delle risorse.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885736"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086335"
 ---
 # <a name="what-are-arm-templates"></a>Che cosa sono i modelli di Azure Resource Manager?
 
@@ -50,7 +50,7 @@ Se si sta tentando di decidere tra l'utilizzo di modelli ARM e una delle altre i
 
 * **Blueprint di distribuzione**: È possibile sfruttare [i blueprint](../../governance/blueprints/overview.md) forniti da Microsoft per soddisfare gli standard normativi e di conformità. Questi blueprint includono modelli predefiniti per varie architetture.
 
-* **Integrazione CI/CD**: è possibile integrare i modelli negli strumenti di integrazione continua e distribuzione continua (CI/CD), in grado di automatizzare le pipeline di rilascio per aggiornamenti rapidi e affidabili dell'infrastruttura e delle applicazioni. Usando Azure DevOps e l'attività modello di Resource Manager, è possibile usare le pipeline di Azure per compilare e distribuire continuamente progetti di modello ARM. Per altre informazioni, vedere Progetto VS con pipeline e Integrazione continua con le pipeline di Azure.To learn more, see [VS project with pipelines](add-template-to-azure-pipelines.md) and [Continuous integration with Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+* **Integrazione CI/CD**: è possibile integrare i modelli negli strumenti di integrazione continua e distribuzione continua (CI/CD), in grado di automatizzare le pipeline di rilascio per aggiornamenti rapidi e affidabili dell'infrastruttura e delle applicazioni. Usando Azure DevOps e l'attività modello di Resource Manager, è possibile usare le pipeline di Azure per compilare e distribuire continuamente progetti di modello ARM. Per altre informazioni, vedere Progetto VS con pipeline ed [Esercitazione: Integrazione continua dei modelli di Azure Resource Manager con le pipeline di Azure.To](./deployment-tutorial-pipeline.md)learn more, see VS project [with pipelines](add-template-to-azure-pipelines.md) and Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines .
 
 * **Codice esportabile:** è possibile ottenere un modello per un gruppo di risorse esistente esportando lo stato corrente del gruppo di risorse o visualizzando il modello utilizzato per una distribuzione specifica. La visualizzazione del [modello esportato](export-template-portal.md) è un modo utile per conoscere la sintassi del modello.
 

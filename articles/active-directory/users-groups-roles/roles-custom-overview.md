@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c7919dcc89e34831cb4cae7921b60b35eb4c69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae244d93d679199aaa0bd08891cd34d4ca3a2ddc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74024960"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085111"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Ruoli di amministratore personalizzati in Azure Active Directory (anteprima)Custom administrator roles in Azure Active Directory (preview)
 
@@ -35,6 +35,22 @@ La concessione dell'autorizzazione tramite ruoli di Azure AD personalizzati è u
 Dopo aver creato la definizione di ruolo, è possibile assegnarla a un utente creando un'assegnazione di ruolo. Un'assegnazione di ruolo concede all'utente le autorizzazioni in una definizione di ruolo in un ambito specificato. Questo processo in due passaggi consente di creare una singola definizione di ruolo e assegnarla più volte in ambiti diversi. Un ambito definisce il set di risorse di Azure AD a cui il membro del ruolo ha accesso. L'ambito più comune è l'ambito a livello di organizzazione (a livello di organizzazione). Un ruolo personalizzato può essere assegnato nell'ambito a livello di organizzazione, ovvero il membro del ruolo dispone delle autorizzazioni del ruolo su tutte le risorse dell'organizzazione. Un ruolo personalizzato può essere assegnato anche in un ambito oggetto. Un esempio di ambito di oggetto potrebbe essere una singola applicazione. Lo stesso ruolo può essere assegnato a un utente su tutte le applicazioni dell'organizzazione e quindi a un altro utente con un ambito solo dell'app Contoso Expense Reports.  
 
 I ruoli predefiniti e personalizzati di Azure AD operano su concetti simili al controllo degli accessi basato sui ruoli di Azure.Azure AD built-in and custom roles operate on concepts similar to [Azure role-based access control](../../role-based-access-control/overview.md). La differenza tra questi due sistemi di controllo degli accessi in base al ruolo consiste nel fatto che il controllo degli accessi in base al ruolo di Azure controlla l'accesso alle risorse di Azure, ad esempio le macchine virtuali o l'archiviazione tramite Gestione risorse di Azure e i ruoli personalizzati di Azure AD controllano l'accesso alle risorse di Azure AD usando l'API Graph.The difference between these two [role-based access control](../../role-based-access-control/rbac-and-directory-admin-roles.md) systems is that Azure RBAC controls access to Azure resources such as virtual machines or storage using Azure Resource Management, and Azure AD custom roles control access to Azure AD resources using Graph API. Entrambi i sistemi sfruttano il concetto di definizioni di ruolo e assegnazioni di ruolo.
+
+### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Come Azure AD determina se un utente ha accesso a una risorsaHow Azure AD determines if a user has access to a resource
+
+Di seguito sono riportati i passaggi di alto livello utilizzati da Azure AD per determinare se si ha accesso a una risorsa di gestione. Utilizzare queste informazioni per risolvere i problemi di accesso.
+
+1. Un utente (o entità servizio) acquisisce un token per l'endpoint Microsoft Graph o Azure AD Graph.A user (or service principal) acquires a token to the Microsoft Graph or Azure AD Graph endpoint.
+
+1. L'utente effettua una chiamata API ad Azure Active Directory (Azure AD) tramite Microsoft Graph o Azure AD Graph usando il token rilasciato.
+
+1. A seconda delle circostanze, Azure AD esegue una delle azioni seguenti:
+
+    - Valuta le appartenenze ai ruoli dell'utente in base [all'attestazione Wids](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) nel token di accesso dell'utente.
+    - Recupera tutte le assegnazioni di ruolo che si applicano all'utente, direttamente o tramite l'appartenenza al gruppo, alla risorsa in cui viene intrapresa l'azione.
+
+1. Azure AD determina se l'azione nella chiamata API è inclusa nei ruoli di cui l'utente dispone per questa risorsa.
+1. Se l'utente non ha un ruolo con l'azione nell'ambito richiesto, l'accesso non è consentito. In caso contrario, l'accesso viene concesso.
 
 ### <a name="role-assignments"></a>Assegnazioni di ruoli
 

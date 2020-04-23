@@ -2,17 +2,18 @@
 title: Crittografia del disco di Azure con Azure AD per macchine virtuali Windows (versione precedente)Azure Disk Encryption with Azure AD for Windows VMs (previous release)
 description: Questo articolo offre informazioni sull'abilitazione di Crittografia dischi di Microsoft Azure per le macchine virtuali IaaS Windows.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d06be85e4d18bc0867835a307b44ec8813c79d7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8677fa2620c1edc646dcffe120938f03fd13a0e5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72245006"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085622"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Crittografia del disco di Azure con Azure AD per macchine virtuali Windows (versione precedente)Azure Disk Encryption with Azure AD for Windows VMs (previous release)
 

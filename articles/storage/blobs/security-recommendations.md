@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 0ceef2561d84a1fa491ab9577e1eac789b62bef7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 0b32f7e8fa2ec0d1d28f2fd42147e140d2d03341
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454629"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086114"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Consigli sulla sicurezza per l'archiviazione BLOBSecurity recommendations for Blob storage
 
@@ -57,6 +57,7 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 | Abilitare le regole del firewall | Configurare le regole del firewall per limitare l'accesso all'account di archiviazione alle richieste provenienti da intervalli o indirizzi IP specificati o da un elenco di subnet in una rete virtuale di Azure. Per altre informazioni sulla configurazione delle regole del firewall, vedere Impostazioni del firewall e del [proxy di Sincronizzazione file](../files/storage-sync-files-firewall-and-proxy.md)di Azure.For more information about configuring firewall rules, see Azure File Sync proxy and firewall settings . | - |
 | Consentire ai servizi Microsoft attendibili di accedere all'account di archiviazioneAllow trusted Microsoft services to access the storage account | L'attivazione delle regole del firewall per l'account di archiviazione blocca le richieste in ingresso per i dati per impostazione predefinita, a meno che non provengano da un servizio che opera all'interno di una rete virtuale di Azure o da indirizzi IP pubblici consentiti. Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. È possibile consentire le richieste da altri servizi di Azure aggiungendo un'eccezione per consentire ai servizi Microsoft attendibili di accedere all'account di archiviazione. Per altre informazioni sull'aggiunta di un'eccezione per i servizi Microsoft attendibili, vedere Impostazioni del firewall e del [proxy di Sincronizzazione file](../files/storage-sync-files-firewall-and-proxy.md)di Azure.For more information about adding an exception for trusted Microsoft services, see Azure File Sync proxy and firewall settings .| - |
 | Usare endpoint privati | Un endpoint privato assegna un indirizzo IP privato dalla rete virtuale di Azure all'account di archiviazione. Protegge tutto il traffico tra la rete virtuale e l'account di archiviazione tramite un collegamento privato. Per altre informazioni sugli endpoint privati, vedere [Connettersi privatamente a un account di archiviazione usando l'endpoint privato](../../private-link/create-private-endpoint-storage-portal.md)di Azure.For more information about private endpoints, see Connect privately to a storage account using Azure Private Endpoint. | - |
+| Usare i tag del servizio VNetUse VNet service tags | Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure.A service tag represents a group of IP address prefixes from a given Azure service. Microsoft gestisce i prefissi degli indirizzi inclusi nel tag del servizio e aggiorna automaticamente il tag del servizio quando gli indirizzi cambiano. Per altre informazioni sui tag di servizio supportati da Archiviazione di Azure, vedere Panoramica dei tag di servizio di Azure.For more information about service tags supported by Azure Storage, see [Azure service tags overview.](../../virtual-network/service-tags-overview.md) Per un'esercitazione che illustra come usare i tag di servizio per creare regole di rete in uscita, vedere [Limitare l'accesso alle risorse PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Limitare l'accesso alla rete a reti specifiche | La limitazione dell'accesso alla rete alle reti che ospitano i client che richiedono l'accesso riduce l'esposizione delle risorse agli attacchi alla rete. | [Sì](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>Registrazione/Monitoraggio
@@ -67,5 +68,5 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Documentazione sulla sicurezza di Azure](https://docs.microsoft.com//azure/security/)
+- [Documentazione sulla sicurezza di AzureAzure security documentation](https://docs.microsoft.com//azure/security/)
 - [Documentazione di sviluppo sicuro](https://docs.microsoft.com/azure/security/develop/).

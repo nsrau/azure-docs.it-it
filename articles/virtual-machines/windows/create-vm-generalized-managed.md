@@ -1,24 +1,18 @@
 ---
 title: Creare una macchina virtuale da un'immagine gestita in AzureCreate VM from a managed image in Azure
-description: Creare una macchina virtuale Windows da un'immagine gestita generalizzata usando Azure PowerShell o il portale Azure nel modello di distribuzione Gestione risorse.
-services: virtual-machines-windows
-documentationcenter: ''
+description: Creare una macchina virtuale Windows da un'immagine gestita generalizzata usando Azure PowerShell o il portale.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: de59edc2e2c702993efd6187a590264d9aac16a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0c6689b66037067a4c5174738945b7c6fabd5b5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74841932"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086318"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creare una macchina virtuale da un'immagine gestita
 

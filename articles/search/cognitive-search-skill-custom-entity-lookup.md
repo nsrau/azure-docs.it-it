@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369778"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085740"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competenza cognitiva ricerca entità personalizzata (anteprima)Custom Entity Lookup cognitive skill (Preview)
 
@@ -29,7 +29,7 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## <a name="data-limits"></a>Limiti dei dati
 + La dimensione massima del record di input supportata è 256 MB. Se è necessario suddividere i dati prima di inviarli alla competenza di ricerca di entità personalizzata, è consigliabile usare la [competenza Suddivisione testo](cognitive-search-skill-textsplit.md).
-+ La tabella di definizione delle entità massima supportata è 10 MB se viene fornita utilizzando il parametro *entitiesDefitionUri.* 
++ La tabella di definizione delle entità massima supportata è 10 MB se viene fornita utilizzando il parametro *entitiesDefinitionUri.* 
 + Se le entità sono definite inline, utilizzando il parametro *inlineEntitiesDefinition,* la dimensione massima supportata è 10 KB.
 
 ## <a name="skill-parameters"></a>Parametri della competenza
@@ -63,13 +63,13 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 Esistono 3 modi diversi per fornire l'elenco di entità personalizzate alla competenza Ricerca entità personalizzata. È possibile fornire l'elenco in un file . CSV, un file . File JSON o come definizione inline come parte della definizione di competenza.  
 
-Se il file di definizione è un file . CSV o . JSON, il percorso del file deve essere fornito come parte del parametro *entitiesDefitionUri.* In questo caso, il file viene scaricato una volta all'inizio di ogni esecuzione dell'indicizzatore. Il file deve essere accessibile finché è destinato all'esecuzione dell'indicizzatore. Inoltre, il file deve essere codificato UTF-8.
+Se il file di definizione è un file . CSV o . JSON, il percorso del file deve essere fornito come parte del parametro *entitiesDefinitionUri.* In questo caso, il file viene scaricato una volta all'inizio di ogni esecuzione dell'indicizzatore. Il file deve essere accessibile finché è destinato all'esecuzione dell'indicizzatore. Inoltre, il file deve essere codificato UTF-8.
 
 Se la definizione viene fornita inline, deve essere fornita come inline come contenuto del parametro di abilità *inlineEntitiesDefinition.* 
 
 ### <a name="csv-format"></a>Formato CSV
 
-È possibile fornire la definizione delle entità personalizzate da cercare in un file CSV (Comma-Separated Value) specificando il percorso del file e impostandolo nel parametro di abilità *entitiesDefitionUri.* Il percorso deve trovarsi in un percorso https. Le dimensioni del file di definizione possono avere una dimensione massima di 10 MB.
+È possibile fornire la definizione delle entità personalizzate da cercare in un file CSV (Comma-Separated Value) specificando il percorso del file e impostandolo nel parametro di abilità *entitiesDefinitionUri.* Il percorso deve trovarsi in un percorso https. Le dimensioni del file di definizione possono avere una dimensione massima di 10 MB.
 
 Il formato CSV è semplice. Ogni riga rappresenta un'entità univoca, come illustrato di seguito:Each line represents a unique entity, as shown below:
 
@@ -85,7 +85,7 @@ In questo caso, ci sono tre entità che possono essere restituite come entità t
 
 È possibile fornire la definizione delle entità personalizzate da cercare anche in un file JSON. Il formato JSON offre un po' più flessibilità poiché consente di definire le regole di corrispondenza per termine. Ad esempio, è possibile specificare la distanza di corrispondenza fuzzy (distanza damerau-Levenshtein) per ogni termine o se la corrispondenza deve essere tra maiuscole e minuscole o meno. 
 
- Proprio come con i file CSV, è necessario fornire il percorso del file JSON e impostarlo nel parametro di abilità *entitiesDefitionUri.* Il percorso deve trovarsi in un percorso https. Le dimensioni del file di definizione possono avere una dimensione massima di 10 MB.
+ Proprio come con i file CSV, è necessario fornire il percorso del file JSON e impostarlo nel parametro di abilità *entitiesDefinitionUri.* Il percorso deve trovarsi in un percorso https. Le dimensioni del file di definizione possono avere una dimensione massima di 10 MB.
 
 La definizione di elenco di entità personalizzate JSON più semplice può essere un elenco di entità di corrispondenza:The most basic JSON custom entity list definition can be a list of entities to match:
 

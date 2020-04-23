@@ -5,15 +5,15 @@ author: roygara
 ms.author: rogarana
 ms.date: 03/27/2020
 ms.topic: article
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 55606aeeb9f6445027f5da49821dbc4970764ade
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7c66507989357569828d4ef933cfdca735f71570
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421054"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085412"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Caricare un disco rigido virtuale in Azure o copiare un disco gestito in un'altra area - Azure PowerShellUpload a VHD to Azure or copy a managed disk to another region - Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "80421054"
 - Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale a dimensione fissa [preparato per Azure,](prepare-for-upload-vhd-image.md)archiviato in locale.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Se si preferisce caricare dischi tramite una GUI, è possibile farlo usando Azure Storage Explorer.If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. Per informazioni dettagliate, vedere: [Usare Azure Storage Explorer per gestire i dischi gestiti](disks-use-storage-explorer-managed-disks.md) di AzureFor details refer to: Use Azure Storage Explorer to manage Azure managed disks
 

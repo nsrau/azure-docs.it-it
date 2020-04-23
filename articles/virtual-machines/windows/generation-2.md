@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 239e339d1870060d95d6c7e7b602be7d61af5f77
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: HT
+ms.openlocfilehash: 53806a1a627c7ae6bc3470aa387be0982df914fa
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869635"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082259"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di generazione 2 in AzureSupport for generation 2 VMs on Azure
 
@@ -28,7 +28,7 @@ Le macchine virtuali di generazione 2 usano la nuova architettura di avvio basat
 Le macchine virtuali di generazione 1 sono supportate da tutte le dimensioni delle macchine virtuali in Azure (ad eccezione delle macchine virtuali di serie Mv2). Azure offre ora il supporto della generazione 2 per la serie di macchine virtuali selezionata seguente:Azure now offers generation 2 support for the following selected VM series:
 
 * [Serie B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
-* [Serie DC](../dcv2-series.md)
+* [Serie DCsv2](../dcv2-series.md)
 * [Serie DSv2](../dv2-dsv2-series.md) e [Dsv3](../dv3-dsv3-series.md)
 * [Serie Dasv4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
 * [Serie Esv3](../ev3-esv3-series.md)

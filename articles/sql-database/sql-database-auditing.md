@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 48cdbc8188604ce1992a1cb15289576ba92902a3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685196"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086148"
 ---
 # <a name="azure-sql-auditing"></a>Controllo di Azure SQL
 
@@ -89,7 +89,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
   
    ![opzioni di archiviazione](./media/sql-database-auditing-get-started/auditing-select-destination.png)
    
-### <a name=""></a><a id="audit-storage-destination">Controllo alla destinazione di archiviazioneAudit to storage destination</a>
+### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Controllo alla destinazione di archiviazioneAudit to storage destination
 
 Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I registri precedenti al periodo di conservazione vengono eliminati.
 
@@ -108,13 +108,13 @@ Per configurare la scrittura dei log per un account di archiviazione, selezionar
 - Quando si usa l'autenticazione di AAD, i record degli accessi non riusciti *non* vengono visualizzati nel log di controllo di SQL. Per visualizzare i record di controllo degli accessi non riusciti, è necessario visitare il [portale di Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), che registra i dettagli di questi eventi.
 - Il controllo nelle [repliche di sola lettura](sql-database-read-scale-out.md) viene abilitato automaticamente. Per ulteriori informazioni sulla gerarchia delle cartelle di archiviazione, sulle convenzioni di denominazione e sul formato del log, vedere Il formato del log di controllo del [database SQL](sql-database-audit-log-format.md). 
 
-### <a name=""></a><a id="audit-log-analytics-destination">Controllare la destinazione di Log Analytics</a>
+### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Controllare la destinazione di Log Analytics
   
 Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
    
    ![Area di lavoro di LogAnalytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
-### <a name=""></a><a id="audit-event-hub-destination">Controllo alla destinazione dell'hub eventi</a>
+### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Controllo alla destinazione dell'hub eventi
 
 > [!WARNING]
 > L'abilitazione del controllo in un server in cui è presente un pool SQL **comporta la ripresa e la sospensione del pool SQL,** che potrebbe comportare costi di fatturazione.
@@ -199,7 +199,7 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
 
 <!--The description in this section refers to preceding screen captures.-->
 
-#### <a name="auditing-geo-replicated-databases"></a>Controllo dei database con replica geografica
+### <a name="auditing-geo-replicated-databases"></a>Controllo dei database con replica geografica
 
 Con i database con replica geografica, quando si abilita il controllo nel database primario il database secondario disporrà di un criterio di controllo identico. È anche possibile impostare il controllo nel database secondario abilitando il controllo nel **server secondario**, in modo indipendente dal database primario.
 
@@ -211,7 +211,7 @@ Con i database con replica geografica, quando si abilita il controllo nel databa
     >[!IMPORTANT]
     >In caso di controllo a livello di database, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. È consigliabile abilitare solo il controllo a livello di server e lasciare disabilitato il controllo a livello di database per tutti i database.
 
-#### <a name="storage-key-regeneration"></a>Rigenerazione delle chiavi di archiviazione
+### <a name="storage-key-regeneration"></a>Rigenerazione delle chiavi di archiviazione
 
 Durante la produzione è probabile che periodicamente vengano aggiornate le chiavi di archiviazione. Quando si scrivono i log di controllo nell'archiviazione di Azure, è necessario salvare nuovamente i criteri di controllo quando si aggiornano le chiavi. Il processo è il seguente:
 
@@ -226,7 +226,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 ## <a name="manage-azure-sql-server-and-database-auditing"></a><a id="manage-auditing"></a>Gestire il controllo di SQL Server e database di AzureManage Azure SQL Server and Database auditing
 
-#### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
+### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 
 **Cmdlet PowerShell (incluso il supporto della clausola WHERE per altri filtri)**:
 
@@ -239,7 +239,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 Per un esempio di script, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-#### <a name="using-rest-api"></a>Uso dell'API REST
+### <a name="using-rest-api"></a>Uso dell'API REST
 
 **API REST**:
 
@@ -255,7 +255,7 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 - [Ottenere i criteri di controllo *estesi del* databaseGet Database Extended Auditing Policy](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Ottenere i criteri di controllo estesi del serverGet Server *Extended* Auditing Policy](/rest/api/sql/server%20auditing%20settings/get)
 
-#### <a name="using-azure-resource-manager-templates"></a>Uso dei modelli di Gestione risorse di Azure
+### <a name="using-azure-resource-manager-templates"></a>Uso dei modelli di Gestione risorse di Azure
 
 È possibile gestire il controllo del database SQL di Azure usando i modelli di [Azure Resource Manager](../azure-resource-manager/management/overview.md), come illustrato negli esempi seguenti:
 

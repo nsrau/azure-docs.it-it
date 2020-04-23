@@ -2,17 +2,18 @@
 title: Scenari di crittografia dischi di Azure per macchine virtuali Windows
 description: Questo articolo fornisce istruzioni sull'abilitazione di Crittografia disco di Microsoft Azure per macchine virtuali Windows per vari scenari
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7b6e667df95d9279ad5c44caa4ba33a17909935
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: deb2860c8d027a0a258c4a962fe33d6f516e10dc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113150"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085644"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Windows
 

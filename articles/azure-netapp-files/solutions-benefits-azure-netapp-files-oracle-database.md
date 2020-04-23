@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: b-juche
-ms.openlocfilehash: d28f5469174a2659869ebb01ef01653b7190e30e
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: a73da39dafcc8be78fbe1c023693ffa4a19aa1d3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772080"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085009"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Vantaggi dell'uso dei file NetApp di Azure con Oracle Database
+# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Vantaggi dell'uso di Azure NetApp Files con Oracle Database
 
 Oracle Direct NFS (dNFS) consente di ottenere prestazioni più elevate rispetto al driver NFS del sistema operativo. In questo articolo viene illustrata la tecnologia e viene fornito un confronto delle prestazioni tra dNFS e il client NFS tradizionale (Kernel NFS). Illustra inoltre i vantaggi e la facilità di utilizzo di dNFS con i file NetApp di Azure.It also shows the advantages and the ease of using dNFS with Azure NetApp Files.  
 
@@ -39,7 +39,7 @@ Al contrario, dNFS Oracle migliora le prestazioni bilanciando il traffico di ret
 
 Le [domande frequenti su Oracle per NFS diretto](http://www.orafaq.com/wiki/Direct_NFS) mostrano che Oracle dNFS è un client NFS ottimizzato. Fornisce un accesso rapido e scalabile all'archiviazione NFS che si trova su dispositivi di archiviazione NAS (accessibili tramite TCP/IP). dNFS è integrato nel kernel del database proprio come ASM, che viene utilizzato principalmente con l'archiviazione DAS o SAN. Di conseguenza, *la linea guida consiste nell'utilizzare dNFS quando si implementa l'archiviazione NAS e utilizzare ASM durante l'implementazione dell'archiviazione SAN.*
 
-dNFS è l'opzione predefinita in Oracle 18c e l'impostazione predefinita per RAC.
+dNFS è l'opzione predefinita in Oracle 18c.
 
 dNFS è disponibile a partire da Oracle Database 11g. Il diagramma seguente confronta il file DNFS con NFS nativo. Quando si usa dNFS, un database Oracle in esecuzione in una macchina virtuale di Azure può guidare più I/O rispetto al client NFS nativo.
 

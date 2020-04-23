@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247475"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086250"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -136,7 +136,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 | Standard_D12_v2 | 4         | 28           | 200                  | 4/alta |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8/alta |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/estremamente alta |
-| Standard_D15_v2 | 20        | 140          | 1.000                | 8/estremamente alta |
+| Standard_D15_v2 | 20        | 140          | 1\.000                | 8/estremamente alta |
 
 ## <a name="dv3-series"></a>Serie Dv3
 
@@ -147,6 +147,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 | Standard_D8_v3  | 8         | 32            | 200                  | 4/alta |
 | Standard_D16_v3 | 16        | 64            | 400                  | 8/estremamente alta |
 | Standard_D32_v3 | 32        | 128           | 800                  | 8/estremamente alta |
+| Standard_D48_v3 | 48        | 192           | 1200                 | 8/estremamente alta |
 | Standard_D64_v3 | 64        | 256           | 1600                 | 8/estremamente alta |
 
 ## <a name="ev3-series"></a>Serie Ev3
@@ -158,6 +159,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 | Standard_E8_v3  | 8         | 64            | 200                  | 4/alta |
 | Standard_E16_v3 | 16        | 128           | 400                  | 8/estremamente alta |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8/estremamente alta |
+| Standard_E48_v3 | 48        | 384           | 1200                 | 8/estremamente alta |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8/estremamente alta |
 
 

@@ -7,12 +7,13 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 3d014014b540e5ea5959483427dec4b239ceaf7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: zivr
+ms.openlocfilehash: 53a9cd33f7bd2223be1c9f199b7a6d10d876c322
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476791"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082935"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuire macchine virtuali in host dedicati tramite il portaleDeploy VMs to dedicated host using the portal
 
@@ -28,11 +29,11 @@ Questo articolo illustra come creare un [host dedicato di](dedicated-hosts.md) A
 1. Sotto **Dettagli dell'istanza**, digitare *myVM* come **nome della macchina virtuale** e scegliere *Stati Uniti orientali* come **Posizione**.
 1. In **Opzioni disponibilità** selezionare Area di **disponibilità**, selezionare *1* dall'elenco a discesa.
 1. Per le dimensioni, selezionare **Cambia dimensione**. Nell'elenco delle taglie disponibili, scegline una della serie Esv3, come **Standard E2s v3.** Potrebbe essere necessario cancellare il filtro per visualizzare tutte le dimensioni disponibili.
-1. In**Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. In **Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 1. In **Regole porta in ingresso** scegliere **Consenti porte selezionate**, quindi selezionare **RDP (3389)** dall'elenco a discesa.
 1. Nella parte superiore della pagina selezionare la scheda **Avanzate** e nella sezione **Host** selezionare *myHostGroup* per **gruppo Host** e *myHost* per **host**. 
     ![Selezionare il gruppo host e l'host](./media/dedicated-hosts-portal/advanced.png)
-1. Lasciare invariate le impostazioni predefinite rimanenti, quindi selezionare il pulsante **Rivedi + Crea** nella parte inferiore della pagina.
+1. Lasciare invariate le impostazioni predefinite rimanenti, quindi selezionare il pulsante **Rivedi e crea** nella parte inferiore della pagina.
 1. Quando viene visualizzato il messaggio che indica che la convalida è stata superata, selezionare **Crea**.
 
 ## <a name="add-an-existing-vm"></a>Aggiungere una macchina virtuale esistenteAdd an existing VM 

@@ -1,24 +1,18 @@
 ---
 title: Creare una macchina virtuale Windows da un disco rigido virtuale specializzato nel portale di AzureCreate a Windows VM from a specialized VHD in the Azure portal
 description: Creare una nuova macchina virtuale Windows da un disco rigido virtuale nel portale di Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 587acd37f465dda7e514b595f8451afe3d259dea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d360ac5a57fe72b092a6694721905c066527bba3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74039136"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086454"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creare una macchina virtuale da un disco rigido virtuale usando il portale di Azure
 
