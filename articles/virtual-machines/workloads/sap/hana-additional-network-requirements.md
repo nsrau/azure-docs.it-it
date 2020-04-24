@@ -38,7 +38,7 @@ Dopo aver inizialmente connesso una o più reti virtuali di Azure, è possibile 
 
 ## <a name="increase-expressroute-circuit-bandwidth"></a>Aumentare la larghezza di banda del circuito ExpressRoute
 
-Consultarsi con il team di gestione dei servizi SAP HANA in Microsoft. Se viene consigliato di aumentare la larghezza di banda del circuito ExpressRoute di SAP HANA in Azure (istanze Large), creare una richiesta di supporto di Azure È possibile richiedere un aumento della larghezza di banda di un singolo circuito fino a un massimo di 10 Gbps. Si riceve quindi una notifica al termine dell'operazione; non è necessario eseguire altre operazioni per abilitare questa velocità più elevata in Azure.You don't need to do anything else to enable this higher speed in Azure.
+Consultarsi con il team di gestione dei servizi SAP HANA in Microsoft. Se viene consigliato di aumentare la larghezza di banda del circuito ExpressRoute di SAP HANA in Azure (istanze Large), creare una richiesta di supporto di Azure È possibile richiedere un aumento della larghezza di banda di un singolo circuito fino a un massimo di 10 Gbps. Al termine dell'operazione si riceverà una notifica. non è necessario eseguire altre operazioni per abilitare questa velocità più elevata in Azure.
 
 ## <a name="add-an-additional-expressroute-circuit"></a>Aggiungere un circuito ExpressRoute supplementare
 
@@ -48,7 +48,7 @@ Una volta creato il nuovo circuito e completata la configurazione da parte del t
 
 ## <a name="delete-a-subnet"></a>Eliminare una subnet
 
-Per rimuovere una subnet di rete virtuale, è possibile usare il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Se l'intervallo di indirizzi IP o lo spazio di indirizzi della rete virtuale di Azure è un intervallo aggregato, non è necessario contattare Microsoft. Si noti, tuttavia, che la rete virtuale sta ancora propagando lo spazio degli indirizzi di route BGP che include la subnet eliminata. È possibile che l'intervallo di indirizzi della rete virtuale di Azure sia stato definito come più intervalli di indirizzi IP, di cui uno è stato assegnato alla subnet eliminata. assicurarsi di eliminarlo dallo spazio di indirizzi della rete virtuale. Comunicare quindi al team di gestione dei servizi di SAP HANA in Microsoft di rimuoverlo anche dagli intervalli con cui SAP HANA in Azure (istanze Large) può comunicare.
+Per rimuovere una subnet di rete virtuale, è possibile usare il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Se l'intervallo di indirizzi IP o lo spazio di indirizzi della rete virtuale di Azure è un intervallo aggregato, non è necessario contattare Microsoft. Si noti, tuttavia, che la rete virtuale sta ancora propagando lo spazio di indirizzi della route BGP che include la subnet eliminata. È possibile che sia stato definito l'intervallo di indirizzi della rete virtuale di Azure o lo spazio di indirizzi come più intervalli di indirizzi IP, di cui uno è stato assegnato alla subnet eliminata. assicurarsi di eliminarlo dallo spazio di indirizzi della rete virtuale. Comunicare quindi al team di gestione dei servizi di SAP HANA in Microsoft di rimuoverlo anche dagli intervalli con cui SAP HANA in Azure (istanze Large) può comunicare.
 
 Per altre informazioni, vedere [Eliminare una subnet](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet).
 

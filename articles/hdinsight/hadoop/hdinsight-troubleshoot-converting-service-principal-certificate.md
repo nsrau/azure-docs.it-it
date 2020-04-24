@@ -1,6 +1,6 @@
 ---
-title: Conversione del contenuto del certificato in base 64 - Azure HDInsightConverting certificate contents to base-64 - Azure HDInsight
-description: Conversione del contenuto del certificato dell'entità servizio nel formato stringa codificato base 64 in Azure HDInsightConverting service principal certificate contents to base-64 encoded string format in Azure HDInsight
+title: Conversione del contenuto del certificato in base-64-Azure HDInsight
+description: Conversione del contenuto del certificato dell'entità servizio nel formato stringa con codifica base 64 in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -14,21 +14,21 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894179"
 ---
-# <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Conversione del contenuto del certificato dell'entità servizio nel formato di stringa codificato base 64 in HDInsightConverting service principal certificate contents to base-64 encoded string format in HDInsight
+# <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Conversione del contenuto del certificato dell'entità servizio nel formato stringa con codifica base 64 in HDInsight
 
-Questo articolo descrive i passaggi per la risoluzione dei problemi e le possibili soluzioni per i problemi relativi all'interazione con i cluster HDInsight di Azure.This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
+Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
 
 ## <a name="issue"></a>Problema
 
-Viene visualizzato un messaggio di errore che indica che l'input non è una stringa Base 64 valida in quanto contiene un carattere non base 64, più di due caratteri di spaziatura interna o un carattere di spazio vuoto non vuoto tra i caratteri di spaziatura interna.
+Viene visualizzato un messaggio di errore che informa che l'input non è una stringa base 64 valida perché contiene un carattere non base 64, più di due caratteri di riempimento o uno spazio non vuoto tra i caratteri di riempimento.
 
 ## <a name="cause"></a>Causa
 
-Quando si usa la distribuzione di modelli di PowerShell o di Azure per creare cluster con Data Lake come archiviazione primaria o aggiuntiva, il contenuto del certificato dell'entità servizio fornito per accedere all'account di archiviazione di Data Lake è nel formato base 64. La conversione non corretta del contenuto del certificato pfx nella stringa codificata in base 64 può causare questo errore.
+Quando si usa PowerShell o la distribuzione di modelli di Azure per creare cluster con Data Lake come risorsa di archiviazione primaria o aggiuntiva, il contenuto del certificato dell'entità servizio fornito per accedere al Data Lake account di archiviazione è nel formato base 64. La conversione non corretta del contenuto del certificato pfx in una stringa con codifica base 64 può causare questo errore.
 
 ## <a name="resolution"></a>Risoluzione
 
-Dopo aver creato il certificato dell'entità servizio in formato pfx (vedere qui per i passaggi di creazione dell'entità servizio di esempio), usare il comando di PowerShell seguente o il frammento di codice C , per convertire il contenuto del certificato in formato base 64.Once you have the service principal certificate in pfx format (see [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage) for sample service principal creation steps), use the following PowerShell command or C's snippet to convert the certificate contents to base-64 format.
+Una volta ottenuto il certificato dell'entità servizio in formato pfx (vedere [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage) per i passaggi di esempio per la creazione dell'entità servizio), usare il comando di PowerShell seguente o il frammento di codice C# per convertire il contenuto del certificato in formato base-64.
 
 ```powershell
 $servicePrincipalCertificateBase64 = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(path-to-servicePrincipalCertificatePfxFile))
@@ -56,8 +56,8 @@ namespace ConsoleApplication
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-* Ottieni risposte dagli esperti di Azure tramite il supporto della community di [Azure.](https://azure.microsoft.com/support/community/)
+* Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
-* Connettiti [@AzureSupport](https://twitter.com/azuresupport) con l'account ufficiale di Microsoft Azure per migliorare l'esperienza dei clienti connettendo la community di Azure alle risorse giuste: risposte, supporto ed esperti.
+* Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-* Per altre informazioni, è possibile inviare una richiesta di supporto dal portale di [Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selezionare **Supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** tecnico. Per informazioni più dettagliate, vedere [Come creare](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)una richiesta di supporto di Azure . L'accesso al supporto per la gestione e la fatturazione delle sottoscrizioni è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei piani di supporto di [Azure.](https://azure.microsoft.com/support/plans/)
+* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

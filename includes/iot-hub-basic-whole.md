@@ -16,4 +16,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "76159415"
 ---
 >[!NOTE]
->The features described in this article are available only in the standard tier of IoT Hub. Per altre informazioni sui livelli dell'hub IoT di base e standard/gratuito, vedere [Scegliere il livello dell'hub IoT corretto.](../articles/iot-hub/iot-hub-scaling.md)
+>Le funzionalità descritte in questo articolo sono disponibili solo nel livello standard dell'hub Internet. Per altre informazioni sui livelli Basic e standard/free per gli hub, vedere [scegliere il livello dell'hub degli elementi appropriati](../articles/iot-hub/iot-hub-scaling.md).

@@ -17,7 +17,7 @@ ms.locfileid: "77137715"
 ---
 **Modelli di applicazione**
 
-| Modello                 | Name        | Descrizione |
+| Modello                 | Nome        | Descrizione |
 | ------------------------ | ----------- | ----------- |
 | iotc-pnp-preview@1.0.0   | Applicazione personalizzata | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
 | iotc-default@1.0.0       | Applicazione personalizzata (legacy) | Consente di creare un'applicazione legacy vuota da popolare con i propri dispositivi e modelli di dispositivo.
@@ -27,7 +27,7 @@ ms.locfileid: "77137715"
 | iotc-inventory@1.0.0     | Gestione Smart Inventory | Crea un'applicazione per automatizzare la ricezione, lo spostamento del prodotto, il conteggio del ciclo e il rilevamento. |
 | iotc-logistics@1.0.0     | Logistica connessa | Crea un'applicazione per tenere traccia delle spedizioni in tempo reale tra aria, acqua e terra con il monitoraggio della posizione e della condizione. |
 | iotc-meter@1.0.0         | Analisi intelligente del contatore | Crea un'applicazione per monitorare il consumo di energia, lo stato della rete e identificare le tendenze per migliorare il supporto tecnico e la gestione intelligente dei contatori.  |
-| iotc-mfc@1.0.0           | Centro di micro-evasione | Consente di creare un'applicazione per la connessione digitale e la gestione di un centro evasione completamente automatizzato. |
+| iotc-mfc@1.0.0           | Centro di micro-adempimenti | Consente di creare un'applicazione per la connessione digitale e la gestione di un centro evasione completamente automatizzato. |
 | iotc-patient@1.0.0       | Monitoraggio continuo del paziente | Consente di creare un'applicazione per estendere la cura del paziente, ridurre le riammissioni e gestire le patologie. |
 | iotc-power@1.0.0         | Monitoraggio dell'energia solare | Crea un'applicazione per monitorare lo stato del pannello solare e le tendenze di generazione dell'energia. |
 | iotc-quality@1.0.0       | Monitoraggio della qualità dell'acqua | Crea un'applicazione per il monitoraggio digitale della qualità dell'acqua. |

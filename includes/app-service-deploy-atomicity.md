@@ -17,8 +17,8 @@ ms.locfileid: "75945171"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>Cosa accade all'app durante la distribuzione?
 
-Tutti i metodi di distribuzione ufficialmente supportati `/home/site/wwwroot` apportano modifiche ai file nella cartella dell'app. Questi file vengono usati per eseguire l'app. Pertanto, la distribuzione può non riuscire a causa di file bloccati. L'app può anche comportarsi in modo imprevedibile durante la distribuzione, perché non tutti i file aggiornati contemporaneamente. Questo è indesiderabile per un'app rivolta al cliente. Per evitare questi problemi sono disponibili varie alternative:
+Tutti i metodi di distribuzione ufficialmente supportati consentono di apportare modifiche ai file `/home/site/wwwroot` nella cartella dell'app. Questi file vengono usati per eseguire l'app. Pertanto, la distribuzione può avere esito negativo a causa di file bloccati. L'app può anche comportarsi in modo imprevedibile durante la distribuzione, perché non tutti i file vengono aggiornati contemporaneamente. Questa operazione non è auspicabile per un'app rivolte ai clienti. Per evitare questi problemi sono disponibili varie alternative:
 
-- [Esegui direttamente l'app dal pacchetto zip](../articles/app-service/deploy-run-package.md) senza decomprimerla.
-- Arresta l'app o abilitare la modalità offline per l'app durante la distribuzione. Per ulteriori informazioni, vedere [Gestire i file bloccati durante](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment)la distribuzione .
+- [Eseguire l'app direttamente dal pacchetto zip](../articles/app-service/deploy-run-package.md) senza decomprimerla.
+- Arresta l'app o abilitare la modalità offline per l'app durante la distribuzione. Per altre informazioni, vedere [gestire i file bloccati durante la distribuzione](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
 - Eseguire la distribuzione in uno [slot di staging](../articles/app-service/deploy-staging-slots.md) con lo [scambio automatico](../articles/app-service/deploy-staging-slots.md#configure-auto-swap) abilitato. 

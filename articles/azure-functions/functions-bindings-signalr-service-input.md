@@ -1,6 +1,6 @@
 ---
-title: Associazione di input del servizio SignalR di Funzioni di AzureAzure Functions SignalR Service input binding
-description: Informazioni su come restituire l'URL di un endpoint del servizio SignalR e un token di accesso in Funzioni di Azure.Learn to return a SignalR service endpoint URL and access token in Azure Functions.
+title: Binding di input del servizio SignalR di funzioni di Azure
+description: Informazioni su come restituire un URL dell'endpoint del servizio SignalR e un token di accesso in funzioni di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/20/2020
@@ -12,17 +12,17 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77530263"
 ---
-# <a name="signalr-service-input-binding-for-azure-functions"></a>SignalR Service input binding for Azure Functions
+# <a name="signalr-service-input-binding-for-azure-functions"></a>Binding di input del servizio SignalR per funzioni di Azure
 
 Prima che un client possa connettersi al servizio Azure SignalR, deve recuperare l'URL dell'endpoint di servizio e un token di accesso valido. L'associazione di input *SignalRConnectionInfo*genera l'URL dell'endpoint del servizio SignalR e un token valido per la connessione al servizio. Poiché il token ha una durata limitata e può essere usato per autenticare un utente specifico per una connessione, non deve essere memorizzato nella cache né condiviso tra client. I client possono usare un trigger HTTP con questa associazione per recuperare le informazioni di connessione.
 
-Per altre informazioni su come questa associazione viene usata per creare una funzione di "negoziazione" che può essere utilizzata da un SDK del client SignalR, vedere l'articolo sullo sviluppo e la configurazione di Funzioni di Azure nella documentazione relativa ai concetti relativi al servizio SignalR.For more information on how this binding is used to create a "negotiate" function that can be consumed by a SignalR client SDK, see the [Azure Functions development and configuration article](../azure-signalr/signalr-concept-serverless-development-config.md) in the SignalR Service concepts documentation.
+Per altre informazioni su come questa associazione viene usata per creare una funzione "Negotiate" che può essere usata da un SDK client SignalR, vedere l' [articolo sviluppo e configurazione di funzioni di Azure](../azure-signalr/signalr-concept-serverless-development-config.md) nella documentazione relativa ai concetti del servizio SignalR.
 
-Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-signalr-service.md).
+Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](functions-bindings-signalr-service.md).
 
 ## <a name="example"></a>Esempio
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che acquisisce le informazioni di connessione a SignalR usando l'associazione di input e le restituisce tramite HTTP.
 
@@ -38,7 +38,7 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Nell'esempio seguente viene illustrata un'associazione di input delle informazioni di connessione SignalR in un file *function.json* e in una [funzione di script di C,](functions-reference-csharp.md) che usa l'associazione per restituire le informazioni di connessione.
+L'esempio seguente illustra un'associazione di input di informazioni sulla connessione SignalR in un file *Function. JSON* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione per restituire le informazioni di connessione.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -54,7 +54,7 @@ Function.json di esempio:
 }
 ```
 
-Di seguito è riportato il codice di script di C:Here's the C's Script code:
+Ecco il codice script C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -66,7 +66,7 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente mostra un'associazione di input delle informazioni di connessione a SignalR in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione per restituire le informazioni di connessione.
 
@@ -94,7 +94,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-L'esempio seguente mostra un'associazione di input delle informazioni di connessione SignalR in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione per restituire le informazioni di connessione.
+L'esempio seguente illustra un'associazione di input di informazioni sulla connessione SignalR in un file *Function. JSON* e una [funzione Python](functions-reference-python.md) che usa l'associazione per restituire le informazioni di connessione.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -125,7 +125,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nell'esempio seguente viene illustrata una [funzione Java](functions-reference-java.md) che acquisisce le informazioni di connessione SignalR usando l'associazione di input e le restituisce tramite HTTP.
+Nell'esempio seguente viene illustrata una [funzione Java](functions-reference-java.md) che acquisisce le informazioni di connessione SignalR usando l'associazione di input e le restituisce tramite http.
 
 ```java
 @FunctionName("negotiate")
@@ -145,13 +145,13 @@ public SignalRConnectionInfo negotiate(
 
 ## <a name="authenticated-tokens"></a>Token autenticati
 
-Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. È possibile aggiungere facilmente l'autenticazione a un'app per le funzioni usando [l'autenticazione](../app-service/overview-authentication-authorization.md)del servizio app.
+Se la funzione viene attivata da un client autenticato, è possibile aggiungere un'attestazione ID utente al token generato. È possibile aggiungere facilmente l'autenticazione a un'app per le funzioni usando [l'autenticazione del servizio app](../app-service/overview-authentication-authorization.md).
 
 Autenticazione servizio App imposta le intestazioni HTTP denominate `x-ms-client-principal-id` e `x-ms-client-principal-name` contenenti rispettivamente l'ID e il nome dell'entità client dell'utente autenticato.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-È possibile `UserId` impostare la proprietà dell'associazione sul valore `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`da una delle due intestazioni utilizzando [un'espressione di associazione](./functions-bindings-expressions-patterns.md): o .
+È possibile impostare la `UserId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
 
 ```cs
 [FunctionName("negotiate")]
@@ -168,7 +168,7 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-È possibile `userId` impostare la proprietà dell'associazione sul valore `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`da una delle due intestazioni utilizzando [un'espressione di associazione](./functions-bindings-expressions-patterns.md): o .
+È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
 
 Function.json di esempio:
 
@@ -183,7 +183,7 @@ Function.json di esempio:
 }
 ```
 
-Di seguito è riportato il codice di script di C:Here's the C's Script code:
+Ecco il codice script C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -197,9 +197,9 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-È possibile `userId` impostare la proprietà dell'associazione sul valore `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`da una delle due intestazioni utilizzando [un'espressione di associazione](./functions-bindings-expressions-patterns.md): o .
+È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
 
 Function.json di esempio:
 
@@ -226,7 +226,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-È possibile `userId` impostare la proprietà dell'associazione sul valore `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`da una delle due intestazioni utilizzando [un'espressione di associazione](./functions-bindings-expressions-patterns.md): o .
+È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
 
 Function.json di esempio:
 
@@ -258,7 +258,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-È possibile `userId` impostare la proprietà dell'associazione sul valore `{headers.x-ms-client-principal-id}` `{headers.x-ms-client-principal-name}`da una delle due intestazioni utilizzando [un'espressione di associazione](./functions-bindings-expressions-patterns.md): o .
+È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
 
 ```java
 @FunctionName("negotiate")
@@ -279,4 +279,4 @@ public SignalRConnectionInfo negotiate(
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Invia messaggi del servizio SignalR (associazione di uscita)](./functions-bindings-signalr-service-output.md) 
+- [Inviare messaggi del servizio SignalR (associazione di output)](./functions-bindings-signalr-service-output.md) 

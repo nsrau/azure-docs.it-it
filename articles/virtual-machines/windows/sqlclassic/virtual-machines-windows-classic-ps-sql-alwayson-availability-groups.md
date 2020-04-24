@@ -30,7 +30,7 @@ ms.locfileid: "75978154"
 Prima di iniziare, considerare che ora è possibile completare questa attività nel modello di gestione risorse di Azure. Per le nuove distribuzioni è consigliabile usare il modello di Azure Resource Manager. Vedere [gruppi di disponibilità Always On di SQL Server in macchine virtuali di Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager. Azure include due diversi modelli di distribuzione per la creazione e l'utilizzo delle risorse: [Resource Manager e classico.](../../../azure-resource-manager/management/deployment-models.md) Questo articolo illustra l'uso del modello di distribuzione classica.
+> Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager. Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e classica](../../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica.
 
 Le macchine virtuali di Azure possono consentire agli amministratori di database di abbassare i costi di un sistema di SQL Server a disponibilità elevata. Questa esercitazione illustra come implementare un gruppo di disponibilità tramite un end-to-end di SQL Server Always On in un ambiente Azure. Al termine dell'esercitazione la soluzione SQL Server AlwaysOn in Azure sarà composta dagli elementi seguenti:
 
@@ -46,7 +46,7 @@ Questa esercitazione ha lo scopo di illustrare la procedura necessaria per confi
 
 * Si dispone già di un account Azure con la sottoscrizione della macchina virtuale.
 * Sono stati installati i [cmdlet di Azure PowerShell](/powershell/azure/overview).
-* Si ha già una conoscenza approfondita dei gruppi di disponibilità Always On per soluzioni locali. Per altre informazioni, vedere Gruppi di [disponibilità AlwaysOnAlways On (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* Si ha già una conoscenza approfondita dei gruppi di disponibilità Always On per soluzioni locali. Per ulteriori informazioni, vedere [gruppi di disponibilità always on (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Connettersi alla sottoscrizione di Azure e creare la rete virtuale
 1. In una finestra di PowerShell nel computer locale importare il modulo Azure, scaricare il file di impostazioni di pubblicazione nel computer e connettere la sessione di PowerShell alla sottoscrizione di Azure importando le impostazioni di pubblicazione scaricate.
@@ -352,7 +352,7 @@ A questo punto, il provisioning del server del controller di dominio è completa
    * **New-AzureVMConfig** usa lo stesso nome del set di disponibilità del server del controller di dominio e l'immagine di SQL Server 2012 Service Pack 1 Enterprise Edition nella raccolta di macchine virtuali. Consente inoltre di impostare il disco del sistema operativo sulla modalità sola lettura della cache (scrittura non consentita). È consigliabile eseguire la migrazione dei file di database in un disco dati separato collegato alla macchina virtuale e configurarlo senza lettura né scrittura nella cache. Il passaggio successivo consigliato consiste tuttavia nel rimuovere la scrittura nella cache sul disco del sistema operativo, non essendo possibile rimuovere la lettura della cache su tale disco.
    * **Add-AzureProvisioningConfig** consente di aggiungere la macchina virtuale al dominio di Active Directory creato.
    * **Set AzureSubnet** consente di inserire la macchina virtuale nella subnet posteriore.
-   * **Add-AzureEndpoint** aggiunge endpoint di accesso in modo che le applicazioni client possano accedere a queste istanze dei servizi SQL Server su Internet.Add-AzureEndpoint adds access endpoints so that client applications can access these SQL Server services instances on the Internet. A ContosoSQL1 e ContosoSQL2 vengono assegnate porte diverse.
+   * **Add-AzureEndpoint** aggiunge gli endpoint di accesso in modo che le applicazioni client possano accedere a queste istanze di SQL Server Services in Internet. A ContosoSQL1 e ContosoSQL2 vengono assegnate porte diverse.
    * **New-AzureVM** consente di creare la nuova macchina virtuale di SQL Server nello stesso servizio cloud di ContosoQuorum. È necessario inserire le macchine virtuali nello stesso servizio cloud se si desidera includerle nello stesso set di disponibilità.
 4. Attendere il provisioning di ogni macchina virtuale e per ciascuna macchina virtuale scaricare il relativo file del desktop remoto nella directory di lavoro. Il ciclo `for` si ripete nelle tre nuove macchine virtuali ed esegue i comandi all'interno delle parentesi graffe di livello principale per ognuna di esse.
 
@@ -380,14 +380,14 @@ A questo punto, il provisioning del server del controller di dominio è completa
 In questa sezione è necessario modificare i tre server da usare nel cluster di failover e nell'installazione di SQL Server. In particolare:
 
 * Tutti i server: è necessario installare la funzionalità **Failover Clustering**.
-* Tutti i server: è necessario aggiungere **CORP-Install** come **amministratore**del computer.
-* ContosoSQL1 e ContosoSQL2 solo: è necessario aggiungere **CORP- Installa** come ruolo **sysadmin** nel database predefinito.
+* Tutti i server: è necessario aggiungere **CORP\Install** come **amministratore**del computer.
+* Solo ContosoSQL1 e ContosoSQL2: è necessario aggiungere **CORP\Install** come ruolo **sysadmin** nel database predefinito.
 * Solo ContosoSQL1 e ContosoSQL2: è necessario aggiungere **NT AUTHORITY\System** come account di accesso con le autorizzazioni seguenti:
 
   * Alterare eventuali gruppi di disponibilità
   * Connettersi a SQL
   * Visualizzare lo stato del server
-* ContosoSQL1 e ContosoSQL2 solo: il protocollo **TCP** è già abilitato nella macchina virtuale di SQL Server. Sarà tuttavia necessario aprire il firewall per l'accesso remoto di SQL Server.
+* Solo ContosoSQL1 e ContosoSQL2: il protocollo **TCP** è già abilitato nella macchina virtuale SQL Server. Sarà tuttavia necessario aprire il firewall per l'accesso remoto di SQL Server.
 
 A questo punto è possibile iniziare. A partire da **ContosoQuorum**, effettuare la procedura seguente:
 
@@ -486,7 +486,7 @@ A questo punto, è possibile procedere con la configurazione del gruppo di dispo
 
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
-9. Abilitare i gruppi di disponibilità AlwaysOnAlways On availability groups for the default SQL Server instances on **ContosoSQL1** and **ContosoSQL2**.
+9. Abilitare Gruppi di disponibilità Always On per le istanze di SQL Server predefinite in **ContosoSQL1** e **ContosoSQL2**.
 
         Enable-SqlAlwaysOn `
             -Path SQLSERVER:\SQL\$server1\Default `
@@ -565,6 +565,6 @@ A questo punto, è possibile procedere con la configurazione del gruppo di dispo
              -Database $db
 
 ## <a name="next-steps"></a>Passaggi successivi
-SQL Server Always On è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere Configurare un listener ILB per i gruppi di disponibilità AlwaysOnAlways On availability groups in Azure.To configure a listener for this availability group, see [Configure an ILB listener for Always On availability groups in Azure.](../classic/ps-sql-int-listener.md)
+SQL Server Always On è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere [configurare un listener ILB per gruppi di disponibilità always on in Azure](../classic/ps-sql-int-listener.md).
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [Panoramica di SQL Server in macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

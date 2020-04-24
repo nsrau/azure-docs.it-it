@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi al debugger snapshot di Azure Application InsightsTroubleshoot Azure Application Insights Snapshot Debugger
-description: Questo articolo presenta procedure di risoluzione dei problemi e informazioni che consentono agli sviluppatori che riscontrano problemi nell'abilitazione o nell'utilizzo del debugger snapshot di Application Insights.This article presents troubleshooting steps and information to help developers who having having trouble enabling or using Application Insights Snapshot Debugger.
+title: Risolvere i problemi relativi a applicazione Azure Insights Snapshot Debugger
+description: Questo articolo presenta le informazioni e i passaggi per la risoluzione dei problemi per aiutare gli sviluppatori che non riescono ad abilitare o usare Application Insights Snapshot Debugger.
 ms.topic: conceptual
 author: brahmnes
 ms.date: 03/07/2019
@@ -12,8 +12,8 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671410"
 ---
-# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Risolvere i problemi relativi all'abilitazione del debugger snapshot di Application Insights o alla visualizzazione di snapshotTroubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots
-Se è stato abilitato Application Insights Snapshot Debugger per l'applicazione, ma non vengono rilevati snapshot per le eccezioni, è possibile usare queste istruzioni per risolvere i problemi. Ci possono essere molti motivi diversi per cui gli snapshot non vengono generati. È possibile eseguire il controllo di integrità dello snapshot per identificare alcune delle possibili cause comuni.
+# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Risolvere i problemi abilitando Application Insights Snapshot Debugger o visualizzando gli snapshot
+Se è stata abilitata Application Insights Snapshot Debugger per l'applicazione, ma non vengono visualizzati snapshot per le eccezioni, è possibile utilizzare queste istruzioni per la risoluzione dei problemi. Possono esserci diversi motivi per cui non vengono generati snapshot. È possibile eseguire il controllo integrità snapshot per identificare alcune delle possibili cause comuni.
 
 ## <a name="use-the-snapshot-health-check"></a>Usare il controllo integrità dello snapshot
 Alcuni problemi comuni riguardano la mancata visualizzazione di Apri snapshot di debug. Ad esempio, se si usa un agente di raccolta snapshot obsoleto, se si raggiunge il limite giornaliero di caricamento o se il caricamento dello snapshot richiede molto tempo. Per la risoluzione di problemi comuni, usare il controllo integrità dello snapshot.
@@ -33,12 +33,12 @@ Se il problema non viene risolto, fare riferimento ai passaggi manuali di risolu
 Verificare di usare la chiave di strumentazione corretta nell'applicazione pubblicata. In genere, la chiave di strumentazione viene letta dal file ApplicationInsights.config. Verificare che il valore sia lo stesso della chiave di strumentazione per la risorsa di Application Insights visualizzata nel portale.
 
 ## <a name="preview-versions-of-net-core"></a>Versioni di anteprima di .NET Core
-Se l'applicazione utilizza una versione di anteprima di .NET Core e il debugger snapshot è stato abilitato tramite il [riquadro Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) nel portale, è possibile che il debugger snapshot non venga avviato. Seguire le istruzioni in [Abilitare](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) il debugger snapshot per altri ambienti prima di includere il pacchetto [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet con l'applicazione ***oltre*** all'abilitazione tramite il [riquadro Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Se l'applicazione usa una versione di anteprima di .NET Core e Snapshot Debugger è stata abilitata tramite il [riquadro Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) nel portale, snapshot debugger potrebbe non essere avviata. Per prima cosa includere il pacchetto NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con l'applicazione, ***oltre*** ad abilitare il [riquadro Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), seguire le istruzioni riportate in [Enable snapshot debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) .
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Eseguire l'aggiornamento alla versione più recente del pacchetto NuGet
 
-Se Snapshot Debugger è stato abilitato tramite il [riquadro Application Insights nel portale](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), l'applicazione dovrebbe già eseguire il pacchetto NuGet più recente. Se Snapshot Debugger è stato abilitato includendo il pacchetto [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, utilizzare Gestione pacchetti NuGet di Visual Studio per assicurarsi di utilizzare la versione più recente di Microsoft.ApplicationInsights.SnapshotCollector. Le note sulla versione sono disponibili all'indirizzo https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Se Snapshot Debugger è stato abilitato tramite il [riquadro Application Insights nel portale](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), è necessario che l'applicazione esegua già il pacchetto NuGet più recente. Se Snapshot Debugger è stato abilitato includendo il pacchetto NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , usare Gestione pacchetti NuGet di Visual Studio per assicurarsi che si stia usando la versione più recente di Microsoft. ApplicationInsights. SnapshotCollector. Le note sulla versione sono disponibili all'indirizzo https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
 ## <a name="check-the-uploader-logs"></a>Controllare i log dell'utilità di caricamento
 
@@ -216,4 +216,4 @@ Se ancora non vengono visualizzate eccezioni con tale ID snapshot, significa che
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Modificare le regole proxy o firewall di rete
 
-Se l'applicazione si connette a Internet tramite un proxy o un firewall, può essere necessario modificare le regole per consentire all'applicazione di comunicare con il servizio Snapshot Debugger. Gli indirizzi IP usati dal debugger snapshot sono inclusi nel tag del servizio Monitoraggio di Azure.The IPs used by Snapshot Debugger are included in the Azure Monitor service tag.
+Se l'applicazione si connette a Internet tramite un proxy o un firewall, può essere necessario modificare le regole per consentire all'applicazione di comunicare con il servizio Snapshot Debugger. Gli IP usati da Snapshot Debugger sono inclusi nel tag del servizio di monitoraggio di Azure.

@@ -1,5 +1,5 @@
 ---
-title: Chef extension for Azure VMs
+title: Estensione chef per macchine virtuali di Azure
 description: Distribuire Chef Client in una macchina virtuale usando l'estensione macchina virtuale Chef.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -104,9 +104,9 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. È possibile usare i modelli per distribuire una o più macchine virtuali, installare il client Chef, connettersi al server Chef e quindi eseguire la configurazione iniziale nel server come definito da [Run-list](https://docs.chef.io/run_lists.html)
 
-Un modello di Resource Manager di esempio che include l'estensione di una macchina virtuale Chef è disponibile nella raccolta di guide rapide di Azure.A sample Resource Manager template that includes the Chef VM Extension can be found in the [Azure quickstart gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Un modello di Gestione risorse di esempio che include l'estensione della macchina virtuale chef è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
-La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per ulteriori informazioni, consultate [Impostare il nome e](../../azure-resource-manager/resource-manager-template-child-resource.md)il tipo per le risorse figlio.
+La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [impostare il nome e il tipo per le risorse figlio](../../azure-resource-manager/resource-manager-template-child-resource.md).
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
@@ -138,7 +138,7 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 /var/lib/waagent/Chef.Bootstrap.WindowsAzure.LinuxChefClient
 ```
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 ```powershell
 C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
@@ -153,8 +153,8 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 Altre informazioni sulla risoluzione dei problemi sono disponibili nel [file Leggimi dell'estensione macchina virtuale Chef](https://github.com/chef-partners/azure-chef-extension).
 
 > [!NOTE]
-> Per qualsiasi altra cosa direttamente correlata a Chef, contattare [il supporto Chef](https://www.chef.io/support/).
+> Per qualsiasi altro elemento direttamente correlato a chef, contatta il [supporto tecnico chef](https://www.chef.io/support/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se è necessaria ulteriore assistenza in qualsiasi momento di questo articolo, è possibile contattare gli esperti di Azure nei [forum MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77202099"
 ---
-È possibile eseguire l'associazione ai tipi seguenti per scrivere BLOB:You can bind to the following types to write blobs:
+Per scrivere i BLOB, è possibile associare i tipi seguenti:
 
 * `TextWriter`
 * `out string`

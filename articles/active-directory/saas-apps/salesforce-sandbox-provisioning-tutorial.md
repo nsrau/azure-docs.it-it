@@ -66,7 +66,7 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
 
 1. Selezionare l'istanza di Salesforce Sandbox e quindi la scheda **Provisioning**.
 
-1. Impostare la **modalità di provisioning** su **Automatico**.
+1. Impostare la **modalità di provisioning** su **automatico**.
 
     ![provisioning](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
@@ -113,5 +113,5 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](tutorial-list.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurare Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* [Configura accesso Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)

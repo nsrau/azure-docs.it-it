@@ -1,7 +1,7 @@
 ---
-title: Usare le funzionalità di accessibilità nella finestra di progettazione (anteprima)Use accessibility features in the designer (preview)
+title: Usare le funzionalità di accessibilità nella finestra di progettazione (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni sui tasti di scelta rapida e sulle funzionalità di accessibilità delle utilità per la lettura dello schermo disponibili nella finestra di progettazione.
+description: Informazioni sulle scelte rapide da tastiera e sulle funzionalità di accessibilità per la lettura schermo disponibili nella finestra di progettazione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,65 +16,65 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77366190"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Usare una tastiera per usare la finestra di progettazione di Azure Machine Learning (anteprima)Use a keyboard to use Azure Machine Learning designer (preview)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Utilizzare una tastiera per utilizzare Azure Machine Learning Designer (anteprima)
 
-Informazioni su come usare una tastiera e un'utilità per la lettura dello schermo per usare la finestra di progettazione di Azure Machine Learning.Learn how to use a keyboard and screen reader to use Azure Machine Learning designer. Per un elenco dei tasti di scelta rapida che funzionano ovunque nel portale di Azure, vedere Scelte rapide da tastiera nel portale di [AzureFor](../azure-portal/azure-portal-keyboard-shortcuts.md) a list of keyboard shortcuts that work everywhere in the Azure portal, see Keyboard shortcuts in the Azure portal
+Informazioni su come usare una tastiera e un'utilità per la lettura dello schermo per usare Azure Machine Learning Designer. Per un elenco di tasti di scelta rapida che funzionano ovunque nella portale di Azure, vedere [tasti di scelta rapida nella portale di Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
-Questo flusso di lavoro è stato testato con [Narrator](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) e [JAWS](https://www.freedomscientific.com/products/software/jaws/), ma dovrebbe funzionare con altre utilità per la lettura dello schermo standard.
+Questo flusso di lavoro è stato testato con [Assistente vocale](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) e [Jaws](https://www.freedomscientific.com/products/software/jaws/), ma dovrebbe funzionare con altre utilità per la lettura dello schermo standard.
 
 ## <a name="navigate-the-pipeline-graph"></a>Esplorare il grafico della pipeline
 
-Il grafico della pipeline è organizzato come elenco nidificato. L'elenco esterno è un elenco di moduli, che descrive tutti i moduli nel grafico della pipeline. L'elenco interno è un elenco di connessione, che descrive tutte le connessioni di un modulo specifico.  
+Il grafico della pipeline è organizzato come elenco annidato. L'elenco esterno è un elenco di moduli, che descrive tutti i moduli nel grafico della pipeline. L'elenco interno è un elenco di connessioni che descrive tutte le connessioni di un modulo specifico.  
 
-1. Nell'elenco dei moduli, utilizzare il tasto freccia per passare da un modulo all'altro.
-1. Utilizzare la scheda per aprire l'elenco di connessione per il modulo di destinazione.
-1. Utilizzare il tasto freccia per passare da una porta di connessione all'altra per il modulo.
-1. Utilizzare "G" per passare al modulo di destinazione.
+1. Nell'elenco modulo usare il tasto freccia per cambiare i moduli.
+1. Usare TAB per aprire l'elenco di connessioni per il modulo di destinazione.
+1. Usare il tasto freccia per passare tra le porte di connessione per il modulo.
+1. Usare "G" per passare al modulo di destinazione.
 
 ## <a name="edit-the-pipeline-graph"></a>Modificare il grafico della pipeline
 
-### <a name="add-a-module-to-the-graph"></a>Aggiungere un modulo al grafico
+### <a name="add-a-module-to-the-graph"></a>Aggiungere un modulo al grafo
 
-1. Utilizzare CTRL s F6 per spostare lo stato attivo dall'area di disegno all'albero del modulo.
-1. Individuare il modulo desiderato nell'albero del modulo utilizzando il controllo treeview standard.
+1. Usare Ctrl + F6 per spostare lo stato attivo dall'area di disegno all'albero del modulo.
+1. Trovare il modulo desiderato nell'albero del modulo usando il controllo TreeView standard.
 
 ### <a name="edit-a-module"></a>Modificare un modulo
 
-Per collegare un modulo a un altro modulo:
+Per connettere un modulo a un altro modulo:
 
-1. Per aprire l'helper di connessione, utilizzare Ctrl , Maiusc e H.
+1. Usare Ctrl + Maiusc + H quando la destinazione è un modulo nell'elenco dei moduli per aprire l'helper della connessione.
 1. Modificare le porte di connessione per il modulo.
 
-Per regolare le proprietà del modulo:
+Per modificare le proprietà del modulo:
 
-1. Per aprire le proprietà del modulo, utilizzare Ctrl , Maiusc e E.
+1. Usare Ctrl + Maiusc + E quando la destinazione è un modulo per aprire le proprietà del modulo.
 1. Modificare le proprietà del modulo.
 
-## <a name="navigation-shortcuts"></a>Tasti di scelta rapida per la navigazione
+## <a name="navigation-shortcuts"></a>Collegamenti di navigazione
 
 | Tasto o combinazione di tasti | Descrizione |
 |-|-|
-| CTRL + F6 | Attiva/disattiva lo stato attivo tra l'area di disegno e l'albero del modulo |
-| Premere CTRL e F1   | Aprire la scheda informazioni quando ci si concentra su un nodo nell'albero dei moduli |
-| Premere CTRL e MAIUSC e quindi Fare Clic su H | Aprire l'helper di connessione quando lo stato attivo si trova su un nodoOpen the connection helper when focus is on a node |
-| Premere CTRL e MAIUSC e quindi E | Aprire le proprietà del modulo quando lo stato attivo si trova su un nodoOpen module properties when focus is on a node |
-| CTRL+G | Spostare lo stato attivo sul primo nodo non riuscito se l'esecuzione della pipeline non è riuscita |
+| CTRL + F6 | Attiva/Nascondi lo stato attivo tra Canvas e albero del modulo |
+| CTRL + F1   | Aprire la scheda informazioni quando si concentra su un nodo nell'albero del modulo |
+| CTRL + MAIUSC + H | Apre l'helper di connessione quando lo stato attivo si trova in un nodo |
+| CTRL + MAIUSC + E | Apre le proprietà del modulo quando lo stato attivo si trova in un nodo |
+| CTRL+G | Sposta lo stato attivo al primo nodo non riuscito se l'esecuzione della pipeline non è riuscita |
 
-## <a name="action-shortcuts"></a>Tasti di scelta rapida per le azioni
+## <a name="action-shortcuts"></a>Collegamenti azione
 
-Utilizzare i seguenti tasti di scelta rapida con il tasto di scelta. Per ulteriori informazioni sui https://en.wikipedia.org/wiki/Access_keytasti di scelta, vedere .
+Usare i collegamenti seguenti con la chiave di accesso. Per ulteriori informazioni sulle chiavi di accesso, https://en.wikipedia.org/wiki/Access_keyvedere.
 
 | Tasto o combinazione di tasti | Azione |
 |-|-|
-| Tasto di scelta: R | Esegui |
-| Tasto di scelta: P | Pubblica |
-| Tasto di scelta: C | Clone |
-| Tasto di scelta : D | Distribuire |
-| Tasto di scelta: I | Creare/aggiornare la pipeline di inferenzaCreate/update inference pipeline |
-| Tasto di scelta: B | Creare/aggiornare la pipeline di inferenza batchCreate/update batch inference pipeline |
-| Tasto di scelta: K | Aprire l'elenco a discesa "Crea pipeline di inferenza" |
-| Tasto di scelta : U | Aprire l'elenco a discesa "Aggiorna pipeline di inferenza" |
-| Tasto di scelta : M | Apri il menu a discesa Apri altro(...) |
+| Chiave di accesso + R | Esegui |
+| Chiave di accesso + P | Pubblica |
+| Chiave di accesso + C | Clone |
+| Chiave di accesso + D | Distribuisci |
+| Chiave di accesso + I | Crea/aggiorna pipeline di inferenza |
+| Chiave di accesso + B | Crea/aggiorna la pipeline di inferenza batch |
+| Chiave di accesso + K | Aprire l'elenco a discesa "crea pipeline di inferenza" |
+| Chiave di accesso + U | Aprire l'elenco a discesa "Aggiorna pipeline inferenza" |
+| Chiave di accesso + M | Apri altro menu a discesa (...) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

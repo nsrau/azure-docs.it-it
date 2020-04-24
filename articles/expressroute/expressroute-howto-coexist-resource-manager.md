@@ -1,5 +1,5 @@
 ---
-title: 'Configurare le connessioni coesistenti di ExpressRoute e S2S VPN: Azure PowerShellConfigure ExpressRoute and S2S VPN coexisting connections: Azure PowerShell'
+title: 'Configurare connessioni coesistenti VPN ExpressRoute e S2S: Azure PowerShell'
 description: Come configurare connessioni VPN da sito a sito ed ExpressRoute coesistenti per il modello di distribuzione di Azure Resource Manager tramite PowerShell.
 services: expressroute
 author: charwen
@@ -18,7 +18,7 @@ ms.locfileid: "76905468"
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurare connessioni coesistenti da sito a sito ed ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell - Gestione risorse](expressroute-howto-coexist-resource-manager.md)
-> * [PowerShell - Classico](expressroute-howto-coexist-classic.md)
+> * [PowerShell-classico](expressroute-howto-coexist-classic.md)
 > 
 > 
 
@@ -38,10 +38,10 @@ Questo articolo illustra i passaggi necessari per configurare entrambi questi sc
 ## <a name="limits-and-limitations"></a>Limiti e limitazioni
 * **L'instradamento del transito non è supportato.** Con Azure non è possibile attivare il routing tra la rete locale connessa tramite la VPN da sito a sito e la rete locale connessa tramite ExpressRoute.
 * **Il gateway SKU Basic non è supportato.** È necessario usare un gateway SKU non Basic sia per il [gateway ExpressRoute](expressroute-about-virtual-network-gateways.md) che per il [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* **È supportato solo il gateway VPN basato su route.** È necessario utilizzare un [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)basato su route. È inoltre possibile utilizzare un gateway VPN basato sulla route con una connessione VPN configurata per i "selettori di traffico basati su criteri", come descritto in [Connettersi a più dispositivi VPN basati su criteri.](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)
+* **È supportato solo il gateway VPN basato su route.** È necessario usare un [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)basato su route. È anche possibile usare un gateway VPN basato su route con una connessione VPN configurata per i selettori di traffico basati su criteri, come descritto in [connettersi a più dispositivi VPN basati su criteri](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 * **Deve essere configurata una route statica per il gateway VPN.** Se la rete locale è connessa sia a ExpressRoute che a una VPN da sito a sito, per il routing della connessione VPN da sito a sito alla rete Internet pubblica è necessario che nella rete locale sia configurata una route statica.
 * **Il gateway VPN viene automaticamente impostato su ASN 65515, se non altrimenti specificato.** Il gateway VPN di Azure supporta il protocollo di routing BGP. È possibile specificare il codice ASN (AS Number) per la rete virtuale aggiungendo il parametro -Asn. Se non si specifica questo parametro, il codice ASN predefinito è 65515. È possibile usare qualsiasi codice ASN per la configurazione, ma se si seleziona un valore diverso da 65515, è necessario reimpostare il gateway per rendere effettiva la modifica.
-* La subnet del **gateway deve essere /27 o un prefisso più breve**(ad esempio /26, /25) oppure verrà visualizzato un messaggio di errore quando si aggiunge il gateway di rete virtuale ExpressRoute.
+* **La subnet del gateway deve essere/27 o un prefisso più breve**, ad esempio/26,/25, oppure verrà visualizzato un messaggio di errore quando si aggiunge il gateway di rete virtuale ExpressRoute.
 
 ## <a name="configuration-designs"></a>Progetti di configurazione
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurare una VPN da sito a sito come percorso di failover per ExpressRoute
@@ -217,7 +217,7 @@ I cmdlet usati per questa configurazione possono essere leggermente diversi da q
    ```azurepowershell-interactive
    $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
-4. A questo punto, la rete virtuale è priva di gateway. Per creare nuovi gateway e configurare le connessioni, utilizzare gli esempi seguenti:To create new gateways and set up the connections, use the following examples:
+4. A questo punto, la rete virtuale è priva di gateway. Per creare nuovi gateway e configurare le connessioni, usare gli esempi seguenti:
 
    Impostare le variabili.
 
@@ -242,7 +242,7 @@ I cmdlet usati per questa configurazione possono essere leggermente diversi da q
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Per aggiungere una configurazione da punto a sito al gateway VPN
 
-Per aggiungere una configurazione da punto a sito al gateway VPN in una configurazione di coesistenza, è possibile seguire questa procedura. Per caricare il certificato radice VPN, è necessario installare PowerShell in locale nel computer o usare il portale di Azure.To upload the VPN root certificate, you must either install PowerShell locally to your computer, or use the Azure portal.
+Per aggiungere una configurazione da punto a sito al gateway VPN in una configurazione di coesistenza, è possibile seguire questa procedura. Per caricare il certificato radice VPN, è necessario installare PowerShell localmente nel computer oppure usare il portale di Azure.
 
 1. Aggiungere un pool di indirizzi client VPN.
 
@@ -250,7 +250,7 @@ Per aggiungere una configurazione da punto a sito al gateway VPN in una configur
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
    Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. Caricare il certificato radice VPN in Azure per il gateway VPN. In questo esempio si presuppone che il certificato radice sia archiviato nel computer locale in cui vengono eseguiti i cmdlet di PowerShell seguenti e che Si esegua PowerShell in locale. È anche possibile caricare il certificato usando il portale di Azure.You can also upload the certificate using the Azure portal.
+2. Caricare il certificato radice VPN in Azure per il gateway VPN. In questo esempio si presuppone che il certificato radice sia archiviato nel computer locale in cui vengono eseguiti i cmdlet di PowerShell seguenti e che sia in esecuzione in locale PowerShell. È anche possibile caricare il certificato usando il portale di Azure.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 

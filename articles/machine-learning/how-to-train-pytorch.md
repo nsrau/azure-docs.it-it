@@ -1,7 +1,7 @@
 ---
-title: Allenati modelli PyTorch deep learning
+title: Training di modelli PyTorch per Deep Learning
 titleSuffix: Azure Machine Learning
-description: Informazioni su come eseguire gli script di formazione PyTorch su scala aziendale usando la classe di stima Di torchatura di Azure Machine Learning.Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's PyTorch estimator class.  Gli script di esempio classificano le immagini di pollo e tacchino per creare una rete neurale di deep learning basata sul tutorial di apprendimento di trasferimento di PyTorch.
+description: Informazioni su come eseguire gli script di training di PyTorch su scala aziendale usando la classe PyTorch Estimator di Azure Machine Learning.  Gli script di esempio classificano le immagini Chicken e Turkey per creare una rete neurale Deep Learning basata sull'esercitazione per il trasferimento di PyTorch.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,41 +18,41 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75834867"
 ---
-# <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Addestrare i modelli di deep learning Pytorch su larga scala con Azure Machine Learning
+# <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Esegui il training di modelli di Deep Learning Pytorch su larga scala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questo articolo viene illustrato come eseguire gli script di training PyTorch su scala aziendale usando la classe di stima PyTorch di Azure Machine Learning.In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning's [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) class.  
+Questo articolo illustra come eseguire gli script di training di [PyTorch](https://pytorch.org/) su scala aziendale usando la classe [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) di Azure Machine Learning.  
 
-Gli script di esempio in questo articolo vengono usati per classificare le immagini di pollo e tacchino per creare una rete neurale di deep learning basata [sull'esercitazione](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)sull'apprendimento del trasferimento di PyTorch. 
+Gli script di esempio in questo articolo vengono usati per classificare le immagini di pollo e tacchino per creare una rete neurale di apprendimento avanzato basata sull' [esercitazione](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)per il trasferimento dell'apprendimento di PyTorch. 
 
-Sia che tu stia eseguendo il training di un modello PyTorch di deep learning da zero o che tu stia portando un modello esistente nel cloud, puoi usare Azure Machine Learning per scalare orizzontalmente i processi di formazione open source usando le risorse di calcolo cloud elastiche. È possibile creare, distribuire, versione e monitorare modelli di livello di produzione con Azure Machine Learning.You can build, deploy, version, and monitor production-grade models with Azure Machine Learning. 
+Sia che si stia eseguendo il training di un modello PyTorch di apprendimento avanzato da zero o si stia portando un modello esistente nel cloud, è possibile usare Azure Machine Learning per scalare i processi di training open source con risorse di calcolo elastiche del cloud. Con Azure Machine Learning è possibile compilare, distribuire, eseguire la versione e monitorare i modelli a livello di produzione. 
 
-Ulteriori informazioni sul [deep learning e sull'apprendimento automatico](concept-deep-learning-vs-machine-learning.md).
+Scopri di più sull'apprendimento avanzato [rispetto a Machine Learning](concept-deep-learning-vs-machine-learning.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Eseguire questo codice in uno di questi ambienti:Run this code on either of these environments:
+Eseguire questo codice in uno degli ambienti seguenti:
 
-- Istanza di calcolo di Azure Machine Learning: non sono necessari download o installazioni
+- Azure Machine Learning istanza di calcolo: nessun download o installazione necessaria
 
-    - Completare [l'esercitazione: Ambiente](tutorial-1st-experiment-sdk-setup.md) di installazione e area di lavoro per creare un server notebook dedicato precaricato con l'SDK e il repository di esempio.
-    - Nella cartella di deep learning degli esempi nel server notebook, trovare un blocco appunti completato ed espanso passando a questa directory: **how-to-use-azureml > training-with-deep-learning > cartella train-hyperparameter-tune-deploy-with-pytorch.** 
+    - Completare l' [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) per creare un server notebook dedicato precaricato con l'SDK e il repository di esempio.
+    - Nella cartella Samples Deep learning nel server notebook trovare un notebook completato e espanso passando a questa directory: **How-to-use-azureml > training-with-Deep-learning > Train-iperparameter-Tune-deploy-with-pytorch** Folder. 
  
  - Server Jupyter Notebook personale
 
     - [Installare Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Creare un file di [configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
-    - Scaricare i file di script di [esempioDownload the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/deployment/train-hyperparameter-tune-deploy-with-pytorch)`pytorch_train.py`
+    - [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
+    - [Scaricare i file script di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/deployment/train-hyperparameter-tune-deploy-with-pytorch)`pytorch_train.py`
      
-    È inoltre possibile trovare una [versione completata Di Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/deployment/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) di questa guida nella pagina degli esempi di GitHub.You can also find a completed Jupyter Notebook version of this guide on the GitHub samples page. Il blocco appunti include sezioni espanse che includono l'ottimizzazione intelligente degli iperparametri, la distribuzione dei modelli e i widget per i blocchi appunti.
+    È anche possibile trovare una [versione di Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/deployment/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) completata di questa guida nella pagina degli esempi di GitHub. Il notebook include sezioni espanse che coprono l'ottimizzazione intelligente dei parametri, la distribuzione di modelli e i widget del notebook.
 
 ## <a name="set-up-the-experiment"></a>Configurare l'esperimento
 
-Questa sezione configura l'esperimento di training caricando i pacchetti pitone necessari, inizializzando un'area di lavoro, creando un esperimento e caricando i dati di training e gli script di training.
+Questa sezione Configura l'esperimento di training caricando i pacchetti Python necessari, inizializzando un'area di lavoro, creando un esperimento e caricando i dati di training e gli script di training.
 
 ### <a name="import-packages"></a>Importare pacchetti
 
-In primo luogo, importare le librerie Python necessarie.
+Prima di tutto, importare le librerie Python necessarie.
 
 ```Python
 import os
@@ -68,17 +68,17 @@ from azureml.train.dnn import PyTorch
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-[L'area di lavoro](concept-workspace.md) di Azure Machine Learning è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli elementi creati. In Python SDK è possibile accedere agli [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) elementi dell'area di lavoro creando un oggetto .
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
 
-Creare un oggetto `config.json` dell'area di lavoro dal file creato nella [sezione Prerequisiti.](#prerequisites)
+Creare un oggetto dell'area di `config.json` lavoro dal file creato nella [sezione Prerequisiti](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-deep-learning-experiment"></a>Creare un esperimento di deep learning
+### <a name="create-a-deep-learning-experiment"></a>Creare un esperimento di apprendimento approfondito
 
-Creare un esperimento e una cartella per contenere gli script di formazione. In questo esempio, creare un esperimento chiamato "pytorch-birds".
+Creare un esperimento e una cartella che contengano gli script di training. In questo esempio, creare un esperimento denominato "pytorch-Birds".
 
 ```Python
 project_folder = './pytorch-birds'
@@ -90,23 +90,23 @@ experiment = Experiment(ws, name=experiment_name)
 
 ### <a name="get-the-data"></a>Ottenere i dati
 
-Il set di dati è costituito da circa 120 immagini di training ciascuna per tacchini e polli, con 100 immagini di convalida per ogni classe. Il set di dati verrà scaricato ed `pytorch_train.py`estratto come parte dello script di training. Le immagini sono un sottoinsieme del set di dati [Open Images v5](https://storage.googleapis.com/openimages/web/index.html).
+Il set di dati è costituito da circa 120 di immagini di training per tacchini e polling, con immagini di convalida 100 per ogni classe. Il set di dati viene scaricato ed estratto come parte dello script `pytorch_train.py`di training. Le immagini sono un subset del [set di dati V5 Open images V5](https://storage.googleapis.com/openimages/web/index.html).
 
-### <a name="prepare-training-scripts"></a>Preparare gli script di formazione
+### <a name="prepare-training-scripts"></a>Preparare gli script di training
 
-In questa esercitazione viene `pytorch_train.py`già fornito lo script di training , . In practice, you can take any custom training script, as is, and run it with Azure Machine Learning.
+In questa esercitazione, lo script `pytorch_train.py`di training è già disponibile. In pratica, è possibile usare qualsiasi script di training personalizzato, così come è, ed eseguirlo con Azure Machine Learning.
 
-Caricare lo script di `pytorch_train.py`allenamento Pytorch, .
+Caricare lo script di training di `pytorch_train.py`Pytorch,.
 
 ```Python
 shutil.copy('pytorch_train.py', project_folder)
 ```
 
-Tuttavia, se si desidera usare le funzionalità di rilevamento e metriche di Azure Machine Learning, sarà necessario aggiungere un codice di piccola quantità all'interno dello script di training. Esempi di monitoraggio delle `pytorch_train.py`metriche sono disponibili in .
+Tuttavia, se si vuole usare Azure Machine Learning funzionalità di rilevamento e metrica, è necessario aggiungere un codice di piccola entità all'interno dello script di training. Esempi di rilevamento delle metriche sono disponibili in `pytorch_train.py`.
 
 ## <a name="create-a-compute-target"></a>Creare una destinazione di calcolo
 
-Creare una destinazione di calcolo per il processo PyTorch in cui eseguire. In questo esempio creare un cluster di calcolo di Azure Machine Learning abilitato per GPU.
+Creare una destinazione di calcolo per l'esecuzione del processo PyTorch. In questo esempio, creare un cluster di calcolo Azure Machine Learning abilitato per GPU.
 
 ```Python
 cluster_name = "gpucluster"
@@ -124,15 +124,15 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-Per altre informazioni sulle destinazioni di calcolo, vedere l'articolo [che cos'è un obiettivo](concept-compute-target.md) di calcolo.
+Per altre informazioni sulle destinazioni di calcolo, vedere l'articolo [che cos'è un calcolo di destinazione](concept-compute-target.md) .
 
-## <a name="create-a-pytorch-estimator"></a>Creare uno stimatore di PitorchCreate a PyTorch estimator
+## <a name="create-a-pytorch-estimator"></a>Creare un PyTorch Estimator
 
-Lo [stimatore PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) fornisce un modo semplice per avviare un processo di formazione PyTorch su una destinazione di calcolo.
+[PyTorch Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) fornisce un modo semplice per avviare un processo di formazione PyTorch su una destinazione di calcolo.
 
-Lo stimatore PyTorch viene implementato [`estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) tramite la classe generica, che può essere utilizzata per supportare qualsiasi framework. Per altre informazioni sui modelli di training usando lo stimatore generico, vedere Eseguire il training dei [modelli con Azure Machine Learning usando estimator](how-to-train-ml-models.md)
+Lo strumento di stima PyTorch viene implementato tramite [`estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) la classe generica, che può essere usata per supportare qualsiasi Framework. Per altre informazioni sui modelli di training con lo strumento di stima generico, vedere eseguire il training dei [modelli con Azure Machine Learning usando Estimator](how-to-train-ml-models.md)
 
-Se lo script di training richiede pacchetti pip o conda aggiuntivi per l'esecuzione, è `pip_packages` possibile `conda_packages` fare in modo che i pacchetti siano installati nell'immagine docker risultante passando i relativi nomi attraverso gli argomenti e .
+Se lo script di training richiede l'esecuzione di pacchetti PIP o conda aggiuntivi, è possibile fare in modo che i pacchetti siano installati nell'immagine Docker risultante passando `pip_packages` i `conda_packages` relativi nomi tramite gli argomenti e.
 
 ```Python
 script_params = {
@@ -148,39 +148,39 @@ estimator = PyTorch(source_directory=project_folder,
                     pip_packages=['pillow==5.4.1'])
 ```
 
-Per ulteriori informazioni sulla personalizzazione dell'ambiente Python, vedere [Creare e gestire ambienti per la formazione e](how-to-use-environments.md)la distribuzione .
+Per altre informazioni sulla personalizzazione dell'ambiente Python, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md).
 
-## <a name="submit-a-run"></a>Inviare una corsa
+## <a name="submit-a-run"></a>Invia un'esecuzione
 
-[L'oggetto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
+L' [oggetto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
 
 ```Python
 run = experiment.submit(estimator)
 run.wait_for_completion(show_output=True)
 ```
 
-Durante l'esecuzione dell'esecuzione, l'esecuzione passa attraverso le seguenti fasi:
+Quando l'esecuzione viene eseguita, vengono eseguite le fasi seguenti:
 
-- **Preparazione**: Viene creata un'immagine docker in base allo stimatore PyTorch. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per esecuzioni successive. I log vengono trasmessi anche alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento.
+- **Preparazione**: viene creata un'immagine Docker in base allo strumento di stima PyTorch. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per le esecuzioni successive. Anche i log vengono trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento.
 
-- **Scalabilità:** il cluster tenta di aumentare le scalabilità se il cluster Batch AI richiede più nodi per eseguire l'esecuzione di quelli attualmente disponibili.
+- **Ridimensionamento**: il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione rispetto al momento disponibile.
 
-- **In esecuzione:** tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e viene eseguito il entry_script. Gli output di stdout e della cartella ./logs vengono trasmessi alla cronologia di esecuzione e possono essere utilizzati per monitorare l'esecuzione.
+- **Running**: tutti gli script nella cartella di script vengono caricati nella destinazione di calcolo, vengono montati o copiati gli archivi dati e viene eseguita la entry_script. Gli output da stdout e la cartella./logs vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
 
-- **Post-elaborazione:** la cartella ./outputs dell'esecuzione viene copiata nella cronologia di esecuzione.
+- **Post-elaborazione**: la cartella./Outputs dell'esecuzione viene copiata nella cronologia di esecuzione.
 
 ## <a name="register-or-download-a-model"></a>Registrare o scaricare un modello
 
-Dopo aver eseguito il training del modello, è possibile registrarlo nell'area di lavoro. La registrazione dei modelli consente di archiviare e versione i modelli nell'area di lavoro per semplificare [la gestione e](concept-model-management-and-deployment.md)la distribuzione dei modelli.
+Dopo aver eseguito il training del modello, è possibile registrarlo nell'area di lavoro. Con la registrazione del modello è possibile archiviare e deversionere i modelli nell'area di lavoro per semplificare la [gestione e la distribuzione del modello](concept-model-management-and-deployment.md).
 
 ```Python
 model = run.register_model(model_name='pt-dnn', model_path='outputs/')
 ```
 
 > [!TIP]
-> Il modello appena registrato viene distribuito esattamente come qualsiasi altro modello registrato in Azure Machine Learning, indipendentemente dallo stimatore usato per il training. La procedura di distribuzione contiene una sezione sulla registrazione dei modelli, ma è possibile passare direttamente alla creazione di una destinazione di [calcolo](how-to-deploy-and-where.md#choose-a-compute-target) per la distribuzione, poiché si dispone già di un modello registrato.
+> Il modello appena registrato viene distribuito esattamente come qualsiasi altro modello registrato in Azure Machine Learning, indipendentemente dallo strumento di stima utilizzato per il training. La procedura di distribuzione contiene una sezione sulla registrazione dei modelli, ma è possibile passare direttamente alla [creazione di una destinazione di calcolo](how-to-deploy-and-where.md#choose-a-compute-target) per la distribuzione, poiché si dispone già di un modello registrato.
 
-È inoltre possibile scaricare una copia locale del modello utilizzando l'oggetto Run. Nello script `pytorch_train.py`di training , un oggetto di salvataggio PyTorch rende persistente il modello in una cartella locale (locale alla destinazione di calcolo). È possibile utilizzare l'oggetto Run per scaricare una copia.
+È inoltre possibile scaricare una copia locale del modello utilizzando l'oggetto Esegui. Nello script `pytorch_train.py`di training, un oggetto PyTorch Save Salva in modo permanente il modello in una cartella locale (locale nella destinazione di calcolo). È possibile usare l'oggetto Run per scaricare una copia.
 
 ```Python
 # Create a model folder in the current directory
@@ -195,12 +195,12 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Training distribuito
 
-Lo [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) stimatore supporta anche il training distribuito tra i cluster CPU e GPU. È possibile eseguire facilmente processi di seto-1/ distribuita e Azure Machine Learning gestirà l'orchestrazione per l'utente.
+Lo [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) strumento di stima supporta anche il training distribuito nei cluster CPU e GPU. È possibile eseguire facilmente processi PyTorch distribuiti e Azure Machine Learning gestirà l'orchestrazione.
 
 ### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod) è un quadro open source, tutti riducono la formazione distribuita sviluppata da Uber. Offre un percorso semplice per i processi GPU PyTorch distribuiti.
+[Horovod](https://github.com/uber/horovod) è un framework open source di riduzione per la formazione distribuita sviluppata da uber. Offre un percorso facile ai processi PyTorch GPU distribuiti.
 
-Per utilizzare Horovod, [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) specificare `distributed_training` un oggetto per il parametro nel costruttore PyTorch. Questo parametro assicura che la libreria Horovod sia installata per l'utilizzo nello script di training.
+Per usare Horovod, specificare un [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) oggetto per il `distributed_training` parametro nel costruttore PyTorch. Questo parametro assicura che la libreria Horovod sia installata per l'uso nello script di training.
 
 
 ```Python
@@ -216,7 +216,7 @@ estimator= PyTorch(source_directory=project_folder,
                       framework_version='1.13',
                       use_gpu=True)
 ```
-Horovod e le relative dipendenze verranno installati per l'utente, in modo da poterlo importare nello script `train.py` di training come segue:
+Horovod e le relative dipendenze verranno installate per l'utente, in modo che sia possibile importarlo nello script `train.py` di training come indicato di seguito:
 
 ```Python
 import torch
@@ -224,16 +224,16 @@ import horovod
 ```
 ## <a name="export-to-onnx"></a>Esporta in ONNX
 
-Per ottimizzare l'inferenza con [ONNX Runtime](concept-onnx.md), convertire il modello PyTorch sottoposto a training nel formato ONNX. L'inferenza, o punteggio del modello, è la fase in cui il modello distribuito viene usato per la stima, in genere nei dati di produzione. Vedere [l'esercitazione](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) per un esempio.
+Per ottimizzare l'inferenza con il [Runtime ONNX](concept-onnx.md), convertire il modello PyTorch sottoposto a training nel formato ONNX. L'inferenza o il punteggio del modello è la fase in cui il modello distribuito viene usato per la stima, più comunemente sui dati di produzione. Per un esempio, vedere l' [esercitazione](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione del modello.
+In questo articolo è stato eseguito il training e la registrazione di una rete neurale di apprendimento avanzato con PyTorch in Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione del modello.
 
 > [!div class="nextstepaction"]
 > [Come e dove distribuire i modelli](how-to-deploy-and-where.md)
 * [Tracciare le metriche di esecuzione durante il training](how-to-track-experiments.md)
 * [Ottimizzare gli iperparametri](how-to-tune-hyperparameters.md)
 * [Distribuire un modello con training](how-to-deploy-and-where.md)
-* [Architettura di riferimento per la formazione sul deep learning distribuito in AzureReference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
+* [Architettura di riferimento per il training di Deep learning distribuito in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
 

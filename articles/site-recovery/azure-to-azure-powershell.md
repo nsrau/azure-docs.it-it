@@ -16,7 +16,7 @@ ms.locfileid: "77212289"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell
 
-In this article, you see how to set up and test disaster recovery for Azure virtual machines using Azure PowerShell.
+Questo articolo illustra come configurare e testare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell.
 
 Si apprenderà come:
 
@@ -41,25 +41,25 @@ Si apprenderà come:
 Prima di iniziare:
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
 - Esaminare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
-- Si dispone del `Az` modulo di Azure PowerShell.You have the Azure PowerShell module. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+- Si dispone del modulo `Az` Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Accedere alla sottoscrizione di Microsoft AzureSign in to your Microsoft Azure subscription
+## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Accedere alla sottoscrizione di Microsoft Azure
 
-Accedere alla sottoscrizione di `Connect-AzAccount` Azure con il cmdlet.
+Accedere alla sottoscrizione di Azure con il `Connect-AzAccount` cmdlet.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Selezionare la sottoscrizione di Azure. Usare `Get-AzSubscription` il cmdlet per ottenere l'elenco delle sottoscrizioni di Azure a cui si ha accesso. Selezionare la sottoscrizione di `Set-AzContext` Azure con cui usare il cmdlet.
+Selezionare la sottoscrizione di Azure. Usare il `Get-AzSubscription` cmdlet per ottenere l'elenco delle sottoscrizioni di Azure a cui si ha accesso. Selezionare la sottoscrizione di Azure da usare con il `Set-AzContext` cmdlet.
 
 ```azurepowershell
 Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>Ottenere i dettagli della macchina virtuale da replicareGet details of the virtual machine to be replicated
+## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>Ottenere i dettagli della macchina virtuale da replicare
 
-In questo articolo, una macchina virtuale nell'area Stati Uniti orientali viene replicata e ripristinata nell'area Stati Uniti occidentali 2. La macchina virtuale da replicare dispone di un disco del sistema operativo e di un singolo disco dati. Il nome della macchina virtuale utilizzata `AzureDemoVM`nell'esempio è .
+In questo articolo, una macchina virtuale nell'area Stati Uniti orientali viene replicata e ripristinata nell'area Stati Uniti occidentali 2. La macchina virtuale da replicare ha un disco del sistema operativo e un singolo disco dati. Il nome della macchina virtuale usata nell'esempio è `AzureDemoVM`.
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -100,7 +100,7 @@ Creare il gruppo di risorse in cui creare l'insieme di credenziali di Servizi di
 > * Il gruppo di risorse dell'insieme di credenziali di Servizi di ripristino deve trovarsi in una località di Azure diversa rispetto alle macchine virtuali da proteggere.
 > * L'insieme di credenziali di Servizi di ripristino e il gruppo di risorse a cui appartiene possono trovarsi nella stessa località di Azure.
 
-Nell'esempio descritto in questo articolo, la macchina virtuale da proteggere si trova nell'area Stati Uniti orientali. L'area di ripristino selezionata per il ripristino di emergenza si trova nell'area Stati Uniti occidentali 2. L'insieme di credenziali dei servizi di ripristino e il gruppo di risorse dell'insieme di credenziali si trovano entrambi nell'area di ripristino, Stati Uniti occidentali 2.
+Nell'esempio descritto in questo articolo, la macchina virtuale da proteggere si trova nell'area Stati Uniti orientali. L'area di ripristino selezionata per il ripristino di emergenza si trova nell'area Stati Uniti occidentali 2. L'insieme di credenziali di servizi di ripristino e il gruppo di risorse dell'insieme di credenziali sono entrambi nell'area di ripristino, Stati Uniti occidentali 2.
 
 ```azurepowershell
 #Create a resource group for the recovery services vault in the recovery Azure region
@@ -115,7 +115,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
-Creare un insieme di credenziali di Servizi di ripristino. In questo esempio, un `a2aDemoRecoveryVault` insieme di credenziali di Servizi di ripristino denominato viene creato nell'area Stati Uniti occidentali 2.
+Creare un insieme di credenziali di Servizi di ripristino. In questo esempio viene creato un insieme di credenziali `a2aDemoRecoveryVault` di servizi di ripristino denominato nell'area Stati Uniti occidentali 2.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -136,7 +136,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="set-the-vault-context"></a>Impostare il contesto dell'insieme di credenziali
 
-Impostare il contesto dell'insieme di credenziali da usare nella sessione di PowerShell. Dopo aver impostato il contesto dell'insieme di credenziali, le operazioni di Azure Site Recovery nella sessione di PowerShell vengono eseguite nel contesto dell'insieme di credenziali selezionato.
+Impostare il contesto dell'insieme di credenziali da usare nella sessione di PowerShell. Una volta impostato il contesto dell'insieme di credenziali, Azure Site Recovery operazioni nella sessione di PowerShell vengono eseguite nel contesto dell'insieme di credenziali selezionato.
 
 ```azurepowershell
 #Setting the vault context.
@@ -154,7 +154,7 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 
-Per una migrazione da Azure ad Azure, è possibile impostare il contesto dell'insieme di credenziali sull'insieme di credenziali appena creato:For an Azure-to-Azure migration, you can set the vault context to the newly created vault:
+Per una migrazione da Azure ad Azure, è possibile impostare il contesto dell'insieme di credenziali per l'insieme di credenziali appena creato:
 
 ```azurepowershell
 #Set the vault context for the PowerShell session.
@@ -170,7 +170,7 @@ L'oggetto di infrastruttura nell'insieme di credenziali rappresenta un'area di A
 - È possibile creare un solo oggetto di infrastruttura per ogni area.
 - Se è già stata abilitata la replica di Site Recovery per una VM nel portale di Azure, Site Recovery crea automaticamente un oggetto di infrastruttura. Se per un'area esiste un oggetto di infrastruttura, non è possibile crearne un altro.
 
-Prima di iniziare, tenere in mente che le operazioni di Site Recovery vengono eseguite in modo asincrono. Quando si avvia un'operazione, viene inviato un processo di Azure Site Recovery e viene restituito un oggetto di monitoraggio del processo, Utilizzare l'oggetto di rilevamento dei processi`Get-AzRecoveryServicesAsrJob`per ottenere lo stato più recente per il processo ( ) e per monitorare lo stato dell'operazione.
+Prima di iniziare, è importante comprendere che Site Recovery operazioni vengono eseguite in modo asincrono. Quando si avvia un'operazione, viene inviato un processo di Azure Site Recovery e viene restituito un oggetto di monitoraggio del processo, Usare l'oggetto di rilevamento del processo per ottenere lo stato più recente del`Get-AzRecoveryServicesAsrJob`processo () e per monitorare lo stato dell'operazione.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -193,7 +193,7 @@ Se le macchine virtuali di più aree di Azure vengono protette per lo stesso ins
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Creare un oggetto di infrastruttura di Site Recovery per rappresentare l'area di ripristino
 
-L'oggetto di infrastruttura di ripristino rappresenta l'area di Azure di ripristino. In caso di failover, le macchine virtuali vengono replicate e ripristinate nell'area di ripristino rappresentata dall'infrastruttura di ripristino. L'area di Azure di ripristino usata in questo esempio è Stati Uniti occidentali 2.
+L'oggetto di infrastruttura di ripristino rappresenta l'area di Azure di ripristino. Se si verifica un failover, le macchine virtuali vengono replicate e ripristinate nell'area di ripristino rappresentata dall'infrastruttura di ripristino. L'area di Azure di ripristino usata in questo esempio è Stati Uniti occidentali 2.
 
 ```azurepowershell
 #Create Recovery ASR fabric
@@ -289,7 +289,7 @@ $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -Protec
 
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Creare un mapping del contenitore di protezione per il failback (replica inversa dopo un failover)
 
-Dopo un failover, quando si è pronti a riportare la macchina virtuale di cui è stato eseguito il failover nell'area originale di Azure, si esegue un failback. Per eseguire il failback, la macchina virtuale di cui è stato eseguito il failover viene replicata in modo inverso dall'area di failover all'area originale. Per la replica inversa, vengono invertiti i ruoli dell'area di origine e dell'area di ripristino. L'area di origine diventa la nuova area di ripristino e quella che in origine era l'area di ripristino diventa l'area primaria. Il mapping del contenitore di protezione per la replica inversa rappresenta i ruoli invertiti delle aree di origine e di ripristino.
+Dopo un failover, quando si è pronti per riportare la macchina virtuale di cui è stato eseguito il failover nell'area di Azure originale, si esegue un failback. Per eseguire il failback, la macchina virtuale sottoposta a failover viene replicata in modo inverso dall'area di cui è stato eseguito il failover all'area originale. Per la replica inversa, vengono invertiti i ruoli dell'area di origine e dell'area di ripristino. L'area di origine diventa la nuova area di ripristino e quella che in origine era l'area di ripristino diventa l'area primaria. Il mapping del contenitore di protezione per la replica inversa rappresenta i ruoli invertiti delle aree di origine e di ripristino.
 
 ```azurepowershell
 #Create Protection container mapping (for fail back) between the Recovery and Primary Protection Containers with the Replication policy
@@ -307,16 +307,16 @@ Write-Output $TempASRJob.State
 $WusToEusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $RecoveryProtContainer -Name "A2ARecoveryToPrimary"
 ```
 
-## <a name="create-cache-storage-account-and-target-storage-account"></a>Creare l'account di archiviazione della cache e l'account di archiviazione di destinazioneCreate cache storage account and target storage account
+## <a name="create-cache-storage-account-and-target-storage-account"></a>Creare l'account di archiviazione della cache e l'account di archiviazione di destinazione
 
-Un account di archiviazione della cache è un account di archiviazione standard nella stessa area di Azure della macchina virtuale replicata. L'account di archiviazione della cache viene usato per conservare temporaneamente le modifiche della replica prima che vengano spostate nell'area di Azure di ripristino. È possibile scegliere di, ma non è necessario, specificare account di archiviazione della cache diversi per i diversi dischi di una macchina virtuale.
+Un account di archiviazione della cache è un account di archiviazione standard nella stessa area di Azure della macchina virtuale replicata. L'account di archiviazione della cache viene usato per conservare temporaneamente le modifiche della replica prima che vengano spostate nell'area di Azure di ripristino. È possibile scegliere, ma non è necessario, specificare diversi account di archiviazione della cache per i diversi dischi di una macchina virtuale.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Per le macchine virtuali **che non usano dischi gestiti,** l'account di archiviazione di destinazione è l'account di archiviazione nell'area di ripristino in cui vengono replicati i dischi della macchina virtuale. L'account di archiviazione di destinazione può essere un account di archiviazione standard o un account di archiviazione Premium. Selezionare il tipo di account di archiviazione richiesto in base alla frequenza di scrittura I/O per i dischi e ai limiti di varianza supportati da Azure Site Recovery per il tipo di archiviazione.
+Per le macchine virtuali che **non usano Managed disks**, l'account di archiviazione di destinazione è l'account di archiviazione nell'area di ripristino in cui vengono replicati i dischi della macchina virtuale. L'account di archiviazione di destinazione può essere un account di archiviazione standard o un account di archiviazione Premium. Selezionare il tipo di account di archiviazione necessario in base alla frequenza di modifica dei dati (velocità di scrittura i/o) per i dischi e i limiti di varianza supportati Azure Site Recovery per il tipo di archiviazione.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -325,9 +325,9 @@ $WestUSTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" -Res
 
 ## <a name="create-network-mappings"></a>Creare i mapping di rete
 
-Un mapping di rete esegue il mapping delle reti virtuali nell'area primaria alle reti virtuali nell'area di ripristino. Il mapping di rete specifica la rete virtuale di Azure nell'area di ripristino in cui deve eseguire il failover di una macchina virtuale nella rete virtuale primaria. Una rete virtuale di Azure può essere mappata solo a un'unica rete virtuale di Azure in un'area di ripristino.
+Un mapping di rete esegue il mapping delle reti virtuali nell'area primaria alle reti virtuali nell'area di ripristino. Il mapping di rete specifica la rete virtuale di Azure nell'area di ripristino, in cui deve essere eseguito il failover di una macchina virtuale nella rete virtuale primaria. Una rete virtuale di Azure può essere mappata solo a un'unica rete virtuale di Azure in un'area di ripristino.
 
-- Creare una rete virtuale di Azure nell'area di ripristino per eseguire il failover a:Create an Azure virtual network in the recovery region to fail over to:
+- Creare una rete virtuale di Azure nell'area di ripristino per eseguire il failover:
 
    ```azurepowershell
     #Create a Recovery Network in the recovery region
@@ -338,7 +338,7 @@ Un mapping di rete esegue il mapping delle reti virtuali nell'area primaria alle
     $WestUSRecoveryNetwork = $WestUSRecoveryVnet.Id
    ```
 
-- Recuperare la rete virtuale primaria. Rete virtuale a cui è connessa la macchina virtuale:
+- Recuperare la rete virtuale primaria. VNet a cui è connessa la macchina virtuale:
 
    ```azurepowershell
     #Retrieve the virtual network that the virtual machine is connected to
@@ -362,7 +362,7 @@ Un mapping di rete esegue il mapping delle reti virtuali nell'area primaria alle
     $EastUSPrimaryNetwork = (Split-Path(Split-Path($PrimarySubnet.Id))).Replace("\","/")
    ```
 
-- Creare il mapping di rete tra la rete virtuale primaria e la rete virtuale di ripristino:Create network mapping between the primary virtual network and the recovery virtual network:
+- Creare il mapping di rete tra la rete virtuale primaria e la rete virtuale di ripristino:
 
    ```azurepowershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
@@ -378,7 +378,7 @@ Un mapping di rete esegue il mapping delle reti virtuali nell'area primaria alle
     Write-Output $TempASRJob.State
    ```
 
-- Creare il mapping di rete per la direzione inversa (fail back):
+- Creare il mapping di rete per la direzione inversa (eseguire il failback):
 
     ```azurepowershell
     #Create an ASR network mapping for fail back between the recovery Azure virtual network and the primary Azure virtual network
@@ -465,7 +465,7 @@ Quando l'operazione di avvio della replica ha esito positivo, i dati della macch
 
 Il processo di replica inizia eseguendo il seeding di una copia dei dischi replicati della macchina virtuale nell'area di ripristino. Questa fase viene denominata fase di replica iniziale.
 
-La replica iniziale di AFter viene completata, la replica passa alla fase di sincronizzazione differenziale. A questo punto la macchina virtuale è protetta ed è possibile eseguire un'operazione di failover di test. Lo stato di replica dell'elemento replicato che rappresenta la macchina virtuale passa allo stato **Protetto** al termine della replica iniziale.
+Al termine della replica iniziale, la replica passa alla fase di sincronizzazione differenziale. A questo punto la macchina virtuale è protetta ed è possibile eseguire un'operazione di failover di test. Lo stato di replica dell'elemento replicato che rappresenta la macchina virtuale passa allo stato **protected** dopo il completamento della replica iniziale.
 
 Per monitorare lo stato e l'integrità della replica della macchina virtuale, ottenere i dettagli dell'elemento della macchina virtuale protetto dalla replica.
 
@@ -479,9 +479,9 @@ FriendlyName ProtectionState ReplicationHealth
 AzureDemoVM  Protected       Normal
 ```
 
-## <a name="do-a-test-failover-validate-and-cleanup-test-failover"></a>Eseguire un failover di test, convalidare e pulire il failover di testDo a test failover, validate, and cleanup test failover
+## <a name="do-a-test-failover-validate-and-cleanup-test-failover"></a>Eseguire un failover di test, convalidare e pulire il failover di test
 
-Dopo che la replica per la macchina virtuale ha raggiunto uno stato protetto, è possibile eseguire un'operazione di failover di test nella macchina virtuale (nell'elemento protetto dalla replica della macchina virtuale).
+Dopo che la replica per la macchina virtuale ha raggiunto uno stato protetto, è possibile eseguire un'operazione di failover di test sulla macchina virtuale (nell'elemento di replica protetto della macchina virtuale).
 
 ```azurepowershell
 #Create a separate network for test failover (not connected to my DR network)
@@ -526,7 +526,7 @@ Tasks            : {Prerequisites check for test failover, Create test virtual m
 Errors           : {}
 ```
 
-Al termine del processo di failover di test, è possibile connettersi al test ha esito negativo sulla macchina virtuale e convalidare il failover di test.
+Al termine del processo di failover di test, è possibile connettersi alla macchina virtuale con failover del test e convalidare il failover di test.
 
 Al termine del test sulla macchina virtuale sottoposta al failover di test, eseguire la pulizia della copia di test avviando l'operazione di pulizia del failover di test. Questa operazione elimina la copia di test della macchina virtuale creata nell'ambito del failover di test.
 
@@ -601,9 +601,9 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
-## <a name="reprotect-and-fail-back-to-the-source-region"></a>Riproteggere ed eseguire il failback nell'area di origineReprotect and fail back to the source region
+## <a name="reprotect-and-fail-back-to-the-source-region"></a>Riproteggere ed eseguire il failback nell'area di origine
 
-Dopo un failover, quando si è pronti per tornare all'area originale, `Update-AzRecoveryServicesAsrProtectionDirection` avviare la replica inversa per l'elemento protetto dalla replica utilizzando il cmdlet.
+Dopo un failover, quando si è pronti per tornare all'area originale, avviare la replica inversa per l'elemento replica protetto usando il `Update-AzRecoveryServicesAsrProtectionDirection` cmdlet.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -616,11 +616,11 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 -ProtectionContainerMapping $WusToEusPCMapping -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.ResourceId
 ```
 
-Al termine della riprotezione, è possibile eseguire il failover nella direzione inversa, dagli Stati Uniti occidentali agli Stati Uniti orientali e il failback nell'area di origine.
+Al termine della riprotezione, è possibile eseguire il failover in direzione inversa, Stati Uniti occidentali verso Stati Uniti orientali ed eseguire il failback nell'area di origine.
 
 ## <a name="disable-replication"></a>Disabilitare la replica
 
-È possibile disabilitare `Remove-AzRecoveryServicesAsrReplicationProtectedItem` la replica con il cmdlet.
+È possibile disabilitare la replica con `Remove-AzRecoveryServicesAsrReplicationProtectedItem` il cmdlet.
 
 ```azurepowershell
 Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
@@ -628,4 +628,4 @@ Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizzare il riferimento PowerShell di Azure Site Recovery per informazioni su come eseguire altre attività, ad esempio la creazione di piani di ripristino e il test del failover dei piani di ripristino con PowerShell.View the [Azure Site Recovery PowerShell reference](/powershell/module/az.RecoveryServices) to learn how you can do other tasks such as creating recovery plans and testing failover of recovery plans with PowerShell.
+Per informazioni su come eseguire altre attività, ad esempio creare piani di ripristino e testare il failover dei piani di ripristino con PowerShell, vedere le informazioni di [riferimento su Azure Site Recovery PowerShell](/powershell/module/az.RecoveryServices) .

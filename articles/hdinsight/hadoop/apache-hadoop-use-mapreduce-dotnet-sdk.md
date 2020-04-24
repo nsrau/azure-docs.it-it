@@ -19,30 +19,30 @@ ms.locfileid: "76157051"
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Informazioni su come inviare processi MapReduce con HDInsight .NET SDK. I cluster HDInsight includono un file JAR con alcuni esempi di MapReduce. Il file `/example/jars/hadoop-mapreduce-examples.jar`jar è .  Uno degli esempi è **wordcount**. Per inviare un processo wordcount, è necessario sviluppare un'applicazione console C#.  Il processo legge `/example/data/gutenberg/davinci.txt` il file e restituisce i risultati in `/example/data/davinciwordcount`.  Se si vuole eseguire di nuovo l'applicazione, è necessario pulire la cartella di output.
+Informazioni su come inviare processi MapReduce con HDInsight .NET SDK. I cluster HDInsight includono un file JAR con alcuni esempi di MapReduce. Il file jar è `/example/jars/hadoop-mapreduce-examples.jar`.  Uno degli esempi è **wordcount**. Per inviare un processo wordcount, è necessario sviluppare un'applicazione console C#.  Il processo legge il `/example/data/gutenberg/davinci.txt` file e restituisce i risultati in `/example/data/davinciwordcount`.  Se si vuole eseguire di nuovo l'applicazione, è necessario pulire la cartella di output.
 
 > [!NOTE]  
 > I passaggi descritti in questo articolo devono essere eseguiti da un client Windows. Per informazioni sull'uso di un client Linux, OS X o Unix con Hive, usare il selettore di schede visualizzato all'inizio dell'articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Apache Hadoop in HDInsight. Vedere [Creare cluster Apache Hadoop tramite il portale](../hdinsight-hadoop-create-linux-clusters-portal.md)di Azure.
+* Un cluster Apache Hadoop in HDInsight. Vedere [creare cluster Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 * [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>Inviare processi MapReduce mediante HDInsight .NET SDK
 
-HDInsight .NET SDK fornisce librerie client .NET, che semplificano l'utilizzo dei cluster HDInsight da .NET.
+HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET.
 
-1. Avviare Visual Studio e creare un'applicazione console di C.
+1. Avviare Visual Studio e creare un'applicazione console C#.
 
-1. Passare a Strumenti NuGet Package Manager Package Manager Console e immettere il comando seguente:Navigate to **Tools** > **NuGet Package Manager** > **Package Manager Console** and enter the following command:
+1. Passare a **strumenti** > **gestione** > pacchetti NuGet**console di gestione pacchetti** e immettere il comando seguente:
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Copiare il codice riportato di seguito in **Program.cs**. Modificare quindi il codice impostando `existingClusterName`i `existingClusterPassword` `defaultStorageAccountName`valori `defaultStorageAccountKey`per: , , , , e `defaultStorageContainerName`.
+1. Copiare il codice seguente in **Program.cs**. Modificare quindi il codice impostando i valori per: `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey`e `defaultStorageContainerName`.
 
     ```csharp
     using System.Collections.Generic;
@@ -163,9 +163,9 @@ HDInsight .NET SDK fornisce librerie client .NET, che semplificano l'utilizzo de
 
 1. Premere **F5** per eseguire l'applicazione.
 
-Per eseguire nuovamente il processo, è necessario modificare il nome `/example/data/davinciwordcount`della cartella di output del processo, nell'esempio è .
+Per eseguire di nuovo il processo, è necessario modificare il nome della cartella di output del processo, nell' `/example/data/davinciwordcount`esempio.
 
-Quando il processo viene completato correttamente, l'applicazione `part-r-00000`stampa il contenuto del file di output.
+Quando il processo viene completato correttamente, l'applicazione stampa il contenuto del file `part-r-00000`di output.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

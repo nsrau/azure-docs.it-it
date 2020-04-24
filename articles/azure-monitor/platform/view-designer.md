@@ -1,6 +1,6 @@
 ---
-title: Creare visualizzazioni per analizzare i dati di log in Monitoraggio di Azure Documenti Microsoft
-description: Usando Progettazione viste in Monitoraggio di Azure, è possibile creare visualizzazioni personalizzate visualizzate nel portale di Azure e contengono un'ampia gamma di visualizzazioni sui dati nell'area di lavoro log Analytics.By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. Questo articolo include una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
+title: Creare visualizzazioni per analizzare i dati di log in monitoraggio di Azure | Microsoft Docs
+description: Usando Progettazione viste in monitoraggio di Azure, è possibile creare visualizzazioni personalizzate che vengono visualizzate nel portale di Azure e contengono un'ampia gamma di visualizzazioni sui dati nell'area di lavoro Log Analytics. Questo articolo include una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -13,11 +13,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658490"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creare visualizzazioni personalizzate usando Progettazione viste in Monitoraggio di AzureCreate custom views by using View Designer in Azure Monitor
-Usando Progettazione viste in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics.By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creare visualizzazioni personalizzate usando Progettazione viste in monitoraggio di Azure
+Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
 
 > [!IMPORTANT]
-> Le visualizzazioni in Monitoraggio di Azure vengono eliminate gradualmente e [sostituite](workbooks-overview.md) con cartelle di lavoro che forniscono funzionalità aggiuntive. Per informazioni dettagliate sulla conversione delle visualizzazioni esistenti in cartelle di lavoro, vedere [Progettazione della visualizzazione di Monitoraggio di Azure.](view-designer-conversion-overview.md)
+> Le visualizzazioni in monitoraggio di Azure vengono gradualmente eliminate e sostituite con [cartelle di lavoro](workbooks-overview.md) che forniscono funzionalità aggiuntive. Per informazioni dettagliate sulla conversione delle visualizzazioni esistenti nelle cartelle di lavoro di, vedere la [Guida alla transizione di Progettazione viste di monitoraggio di Azure alla cartella di lavoro](view-designer-conversion-overview.md) .
 
 Per altre informazioni su Progettazione visualizzazioni, vedere:
 
@@ -26,7 +26,7 @@ Per altre informazioni su Progettazione visualizzazioni, vedere:
 
 
 ## <a name="concepts"></a>Concetti
-Le visualizzazioni vengono visualizzate nella pagina **Panoramica** di Monitoraggio di Azure nel portale di Azure.Views are displayed in the Azure Monitor Overview page in the Azure portal. Aprire questa pagina dal menu **Monitoraggio di Azure** facendo clic su **Altro** sotto la sezione **Informazioni dettagliate**. I riquadri in ogni visualizzazione personalizzata vengono visualizzati in ordine alfabetico e i riquadri per le soluzioni di monitoraggio vengono installati nella stessa area di lavoro.
+Le visualizzazioni vengono visualizzate nella pagina **Panoramica** di monitoraggio di Azure nel portale di Azure. Aprire questa pagina dal menu **Monitoraggio di Azure** facendo clic su **Altro** sotto la sezione **Informazioni dettagliate**. I riquadri in ogni visualizzazione personalizzata vengono visualizzati in ordine alfabetico e i riquadri per le soluzioni di monitoraggio vengono installati nella stessa area di lavoro.
 
 ![Pagina di panoramica](media/view-designer/overview-page.png)
 
@@ -34,12 +34,12 @@ Le visualizzazioni create con Progettazione visualizzazioni contengono gli eleme
 
 | Parte | Descrizione |
 |:--- |:--- |
-| Riquadri | Vengono visualizzate nella pagina Panoramica di Monitoraggio di Azure.Are displayed on your Azure Monitor **Overview page.** Ogni riquadro mostra un riepilogo visivo della visualizzazione personalizzata che rappresenta. Ciascun tipo di riquadro offre una visualizzazione diversa dei record. Selezionare un riquadro per mostrare una visualizzazione personalizzata. |
+| Riquadri | Vengono visualizzati nella pagina **Panoramica** di monitoraggio di Azure. Ogni riquadro mostra un riepilogo visivo della visualizzazione personalizzata che rappresenta. Ciascun tipo di riquadro offre una visualizzazione diversa dei record. Selezionare un riquadro per mostrare una visualizzazione personalizzata. |
 | Visualizzazione personalizzata | Viene mostrata quando si seleziona un riquadro. Ciascuna visualizzazione contiene una o più parti della visualizzazione. |
-| Parti della visualizzazione | Presentare una visualizzazione dei dati nell'area di lavoro di Log Analytics in base a una o più query di [log.](../log-query/log-query-overview.md) La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro Log Analytics. Selezionare gli elementi nella parte per eseguire una query di log che fornisce record dettagliati. |
+| Parti della visualizzazione | Presentare una visualizzazione dei dati nell'area di lavoro Log Analytics in base a una o più [query di log](../log-query/log-query-overview.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro Log Analytics. Per eseguire una query di log che fornisce record dettagliati, selezionare gli elementi nella parte. |
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
-Per creare o modificare le visualizzazioni sono necessarie almeno autorizzazioni a livello di [collaboratore](manage-access.md#manage-access-using-azure-permissions) nell'area di lavoro di Log Analytics. Se non si dispone di questa autorizzazione, l'opzione Progettazione viste non verrà visualizzata nel menu.
+Per creare o modificare le visualizzazioni, è necessario disporre almeno [delle autorizzazioni a livello di collaboratore](manage-access.md#manage-access-using-azure-permissions) nell'area di lavoro log Analytics. Se non si dispone di questa autorizzazione, l'opzione Progettazione viste non verrà visualizzata nel menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Usare una visualizzazione esistente
@@ -52,7 +52,7 @@ Le opzioni sono descritte nella tabella seguente:
 | Opzione | Descrizione |
 |:--|:--|
 | Aggiorna   | Aggiorna la visualizzazione con i dati più recenti. | 
-| Log      | Apre [Log Analytics](../log-query/portals.md) per analizzare i dati con le query di log. |
+| Log      | Apre il [log Analytics](../log-query/portals.md) per analizzare i dati con le query di log. |
 | Modifica       | Apre la visualizzazione in Progettazione visualizzazioni per modificarne il contenuto e la configurazione.  |
 | Clone      | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
 | Intervallo di date | Impostare l'intervallo di tempo e di date per i dati inclusi nella vista. Questo intervallo di date viene applicato prima di eventuali intervalli di date impostati nelle query nella vista.  |
@@ -106,4 +106,4 @@ Le opzioni per l'uso delle visualizzazioni in modalità di modifica sono descrit
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Aggiungere [Riquadri](view-designer-tiles.md) alla vista personalizzata.
-* Aggiungere [parti di visualizzazione](view-designer-parts.md) alla visualizzazione personalizzata.
+* Aggiungere [parti della visualizzazione](view-designer-parts.md) alla visualizzazione personalizzata.

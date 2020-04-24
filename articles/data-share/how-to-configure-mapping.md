@@ -1,6 +1,6 @@
 ---
-title: Configurare un mapping del set di dati nella condivisione dati di AzureConfigure a dataset mapping in Azure Data Share
-description: Informazioni su come configurare un mapping del set di dati per una condivisione ricevuta usando la condivisione dati di Azure.Learn how to configure a dataset mapping for a received share using Azure Data Share.
+title: Configurare un mapping del set di dati nella condivisione dati di Azure
+description: Informazioni su come configurare un mapping del set di dati per una condivisione ricevuta usando la condivisione di dati di Azure.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
@@ -13,29 +13,29 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964244"
 ---
-# <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Come configurare un mapping del set di dati per una condivisione ricevuta nella condivisione dati di AzureHow to configure a dataset mapping for a received share in Azure Data Share
+# <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Come configurare un mapping del set di dati per una condivisione ricevuta in una condivisione dati di Azure
 
-Questo articolo illustra come configurare un mapping del set di dati per una condivisione ricevuta usando la condivisione dati di Azure.This article explains how to configure a dataset mapping for a Received Share using Azure Data Share. È consigliabile eseguire questa operazione se è stato accettato un invito alla condivisione dati, ma si è scelto di "Accettare e configurare in un secondo momento" o se i dati vengono condivisi sul posto. You may want to configure a dataset mapping if you need to change the destination for data being shared with you, or if you want to receive data into a SQL Server. 
+Questo articolo illustra come configurare un mapping del set di dati per una condivisione ricevuta usando la condivisione di dati di Azure. Questa operazione può essere eseguita se è stato accettato un invito alla condivisione dati ma si è scelto di "accettare e configurare in un secondo momento" oppure se i dati sono condivisi sul posto. È possibile configurare un mapping del set di dati se è necessario modificare la destinazione per i dati condivisi con l'utente o se si desidera ricevere dati in un SQL Server. 
 
-## <a name="navigate-to-a-received-data-share"></a>Passare a una condivisione dati ricevuta
+## <a name="navigate-to-a-received-data-share"></a>Passare a una condivisione di dati ricevuta
 
-Nel servizio Condivisione dati di Azure passare alla condivisione ricevuta e selezionare la scheda **Dettagli.In** the Azure Data Share service, navigate to your received share and select the Details tab. 
+Nel servizio Condivisione dati di Azure passare alla condivisione ricevuta e selezionare la scheda **Dettagli** . 
 
-![Mapping dei set di dati](./media/dataset-mapping.png "Mapping dei set di dati") 
+![Mapping del set di dati](./media/dataset-mapping.png "Mapping del set di dati") 
 
-Seleziona la casella accanto al set di dati a cui desideri assegnare una destinazione. Selezionare **Annulla mapping** per annullare il mapping del mapping esistente. Selezionare **Mappa di destinazione** per scegliere un nuovo punto vendita di destinazione. 
+Selezionare la casella accanto al set di dati a cui si vuole assegnare una destinazione. Selezionare **annullare** per annullare il mapping esistente. Selezionare **+ mappa per** scegliere un nuovo archivio di destinazione. 
 
-![Mappa al target](./media/dataset-map-target.png "Mappa al target") 
+![Mappa a destinazione](./media/dataset-map-target.png "Mappa a destinazione") 
 
-## <a name="select-a-new-target-store"></a>Selezionare un nuovo punto vendita di destinazione
+## <a name="select-a-new-target-store"></a>Selezionare un nuovo archivio di destinazione
 
-Selezionare un tipo di dati di destinazione in cui si desidera ottenere i dati. Per la condivisione basata su snapshot, tutti i dati già esistenti in tutti gli account di archiviazione mappati in precedenza non verranno spostati automaticamente nel nuovo archivio di destinazione. Per la condivisione sul posto, selezionare un archivio dati nel percorso specificato. Il percorso è il data center di Azure in cui si trova l'archivio dati di origine del provider di dati.
+Selezionare un tipo di dati di destinazione in cui si desidera che vengano inseriti i dati. Per la condivisione basata su snapshot, tutti i dati già esistenti in tutti gli account di archiviazione con mapping in precedenza non verranno spostati automaticamente nel nuovo archivio di destinazione. Per la condivisione sul posto selezionare un archivio dati nel percorso specificato. Il percorso è il data center di Azure in cui si trova l'archivio dati di origine del provider di dati.
 
 ![Account di archiviazione di destinazione](./media/dataset-map-target-sql.png "Archiviazione di destinazione") 
 
-## <a name="select-a-file-format-sql-sources-only"></a>Selezionare un formato di file (solo origini SQL)Select a file format (SQL sources only)
+## <a name="select-a-file-format-sql-sources-only"></a>Selezionare un formato di file (solo origini SQL)
 
-Se i dati di origine provengono da un'origine basata su SQL, è possibile scegliere il formato in cui vengono ricevuti. 
+Se i dati di origine provengano da un'origine basata su SQL, è possibile scegliere il formato in cui vengono ricevuti. 
 
 ![Scegli il formato](./media/sql-file-formats.png "Formati di file SQL")
 

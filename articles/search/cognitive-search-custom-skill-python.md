@@ -1,7 +1,7 @@
 ---
-title: Esempio di abilità personalizzate (Python)
+title: Esempio di abilità personalizzata (Python)
 titleSuffix: Azure Cognitive Search
-description: For Python developers, learn the tools and techniques for building a custom skill using Azure Functions and Visual Studio. Le competenze personalizzate contengono modelli o logiche definiti dall'utente che è possibile aggiungere a una pipeline di indicizzazione con arricchimento dell'iatura in Ricerca cognitiva di Azure.Custom skills contain user-defined models or logic that you can add to an AI-enriched indexing pipeline in Azure Cognitive Search.
+description: Per gli sviluppatori Python, Scopri gli strumenti e le tecniche per la creazione di competenze personalizzate con funzioni di Azure e Visual Studio. Le competenze personalizzate contengono modelli o logica definiti dall'utente che è possibile aggiungere a una pipeline di indicizzazione arricchita con intelligenza artificiale in Azure ricerca cognitiva.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -15,22 +15,22 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77210466"
 ---
-# <a name="example-create-a-custom-skill-using-python"></a>Esempio: Creare una competenza personalizzata usando PythonExample: Create a custom skill using Python
+# <a name="example-create-a-custom-skill-using-python"></a>Esempio: creare una competenza personalizzata usando Python
 
-In questo esempio di competenze di Ricerca cognitiva di Azure si apprenderà come creare una competenza personalizzata dell'API Web usando Python e il codice di Visual Studio.In this Azure Cognitive Search skillset, you will learn how to create a web API custom skill using Python and Visual Studio Code. Nell'esempio viene utilizzata [una funzione](https://azure.microsoft.com/services/functions/) di Azure che implementa l'interfaccia [delle competenze personalizzata.](cognitive-search-custom-skill-interface.md)
+In questo esempio di competenze di Azure ricerca cognitiva si apprenderà come creare una competenza personalizzata dell'API Web usando Python e Visual Studio Code. Nell'esempio viene usata una [funzione di Azure](https://azure.microsoft.com/services/functions/) che implementa l' [interfaccia skill personalizzata](cognitive-search-custom-skill-interface.md).
 
-L'abilità personalizzata è semplice da progettazione (concatena due stringhe) in modo che è possibile concentrarsi sugli strumenti e le tecnologie utilizzati per lo sviluppo di competenze personalizzate in Python. Una volta che si riesce con una semplice abilità, è possibile diramarsi con scenari più complessi.
+L'abilità personalizzata è semplice in base alla progettazione (concatena due stringhe), in modo da potersi concentrare sugli strumenti e sulle tecnologie usati per lo sviluppo di competenze personalizzate in Python. Una volta completata una semplice esperienza, è possibile creare un ramo con scenari più complessi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Esaminare [l'interfaccia delle competenze personalizzate](cognitive-search-custom-skill-interface.md) per un'introduzione all'interfaccia di input/output che deve essere implementata da una competenza personalizzata.
++ Esaminare l' [interfaccia skill personalizzata](cognitive-search-custom-skill-interface.md) per un'introduzione all'interfaccia di input/output che deve essere implementata da un'abilità personalizzata.
 
-+ Configurare l'ambiente. Abbiamo seguito [questa esercitazione end-to-end](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) per configurare la funzione di Azure senza server usando le estensioni di Visual Studio Code e Python.We followed this tutorial end-to-end to set up serverless Azure Function using Visual Studio Code and Python extensions. L'esercitazione consente l'installazione dei seguenti strumenti e componenti: 
++ Configurare l'ambiente. Abbiamo seguito [questa esercitazione end-to-end](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) per configurare la funzione di Azure senza server usando le estensioni Visual Studio Code e Python. Questa esercitazione consente di installare gli strumenti e i componenti seguenti: 
 
-  + [Pitone 3.75](https://www.python.org/downloads/release/python-375/)
+  + [Python 3,75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Strumenti di base di Funzioni di AzureAzure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
   + [Estensione Funzioni di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Creare una funzione di Azure
@@ -46,18 +46,18 @@ Il modello di progetto Funzioni di Azure in Visual Studio Code crea un progetto 
 1. Scegliere una posizione della directory per l'area di lavoro del progetto e quindi scegliere **Seleziona**.
 
     > [!NOTE]
-    > Questa procedura è stata progettata per il completamento all'esterno di un'area di lavoro. Per questo motivo, non selezionare una cartella di progetto che fa parte di un'area di lavoro.
+    > Questa procedura è stata progettata per il completamento all'esterno di un'area di lavoro. Per questo motivo, non selezionare una cartella del progetto che fa parte di un'area di lavoro.
 
-1. Selezionare una lingua per il progetto dell'app per le funzioni. Per questa esercitazione, selezionare **Python**.
-1. Selezionare la versione Python (la versione 3.7.5 è supportata da Funzioni di Azure)Select the Python version, (version 3.7.5 is supported by Azure Functions)
-1. Selezionare un modello per la prima funzione del progetto. Selezionare **Trigger HTTP** per creare una funzione attivata HTTP nella nuova app per le funzioni.
+1. Selezionare una lingua per il progetto di app per le funzioni. Per questa esercitazione, selezionare **Python**.
+1. Selezionare la versione di Python, (la versione 3.7.5 è supportata da funzioni di Azure)
+1. Selezionare un modello per la prima funzione del progetto. Selezionare **trigger http** per creare una funzione attivata tramite HTTP nella nuova app per le funzioni.
 1. Specificare un nome di funzione. In questo caso, usiamo **Concatenator** 
-1. Selezionare **Funzione** come livello di autorizzazione. Ciò significa che forniremo un [tasto funzione](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) per chiamare l'endpoint HTTP della funzione. 
-1. Selezionare la modalità di apertura del progetto. Per questo passaggio, selezionare **Aggiungi all'area di lavoro** per creare l'app per le funzioni nell'area di lavoro corrente.
+1. Selezionare **funzione** come livello di autorizzazione. Ciò significa che verrà fornito un [tasto funzione](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) per chiamare l'endpoint HTTP della funzione. 
+1. Selezionare il modo in cui si desidera aprire il progetto. Per questo passaggio, selezionare **Aggiungi a area di lavoro** per creare l'app per le funzioni nell'area di lavoro corrente.
 
 Visual Studio Code crea il progetto di app per le funzioni in una nuova area di lavoro. Questo progetto contiene i file di configurazione [host.json](../azure-functions/functions-host-json.md) e [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), oltre ad altri file di progetto specifici per il linguaggio. 
 
-Viene inoltre creata una nuova funzione attivata HTTP nella cartella **Concatenator** del progetto di app per le funzioni. Al suo interno ci sarà\_\_un file chiamato " init__.py", con questo contenuto:
+Viene anche creata una nuova funzione attivata tramite HTTP nella cartella **Concatenator** del progetto di app per le funzioni. Al suo interno sarà presente un file denominato "\_\_init__. py" con il contenuto seguente:
 
 ```py
 import logging
@@ -87,7 +87,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ```
 
-È ora possibile modificare il codice per seguire [l'interfaccia di abilità personalizzata](cognitive-search-custom-skill-interface.md). Modificare il codice con il contenuto seguente:Modify the code with the following content:
+A questo punto è necessario modificare il codice per seguire l' [interfaccia personalizzata Skills](cognitive-search-custom-skill-interface.md). Modificare il codice con il contenuto seguente:
 
 ```py
 import logging
@@ -167,37 +167,37 @@ def transform_value(value):
             })
 ```
 
-Il **metodo transform_value** esegue un'operazione su un singolo record. È possibile modificare il metodo in base alle proprie esigenze specifiche. Ricordarsi di eseguire qualsiasi convalida dell'input necessaria e di restituire eventuali errori e avvisi generati se non è stato possibile completare l'operazione per il record.
+Il metodo **transform_value** esegue un'operazione su un singolo record. È possibile modificare il metodo in modo che soddisfi le esigenze specifiche. Ricordarsi di eseguire qualsiasi convalida dell'input necessaria e di restituire eventuali errori e avvisi generati se non è stato possibile completare l'operazione per il record.
 
-### <a name="debug-your-code-locally"></a>Eseguire il debug del codice in localeDebug your code locally
+### <a name="debug-your-code-locally"></a>Eseguire il debug del codice localmente
 
-Visual Studio Code semplifica il debug del codice. Premere 'F5' o accedere al menu **Debug** e selezionare **Avvia debug**.
+Visual Studio Code semplifica il debug del codice. Premere ' F5' o scegliere **Avvia debug**dal menu **debug** .
 
-È possibile impostare qualsiasi punto di interruzione sul codice premendo 'F9' sulla riga di interesse.
+Per impostare i punti di interruzione nel codice, è possibile premere ' F9' sulla riga di interesse.
 
-Una volta avviato il debug, la funzione verrà eseguita in locale. È possibile utilizzare uno strumento come Postman o Fiddler per inviare la richiesta a localhost. Prendere nota della posizione dell'endpoint locale nella finestra Terminale. 
+Una volta avviato il debug, la funzione viene eseguita localmente. Per inviare la richiesta a localhost, è possibile usare uno strumento come subuser o Fiddler. Prendere nota del percorso dell'endpoint locale nella finestra del terminale. 
 
-## <a name="publish-your-function"></a>Pubblica la tua funzione
+## <a name="publish-your-function"></a>Pubblicare la funzione
 
-Quando si è soddisfatti del comportamento della funzione, è possibile pubblicarlo.
+Quando si è soddisfatti del comportamento della funzione, è possibile pubblicarla.
 
-1. In Visual Studio Code premere F1 per aprire il riquadro comandi. Nella tavolozza dei comandi cercare e selezionare **Distribuisci in un'app per**le funzioni... . 
+1. In Visual Studio Code premere F1 per aprire il riquadro comandi. Nel riquadro comandi cercare e selezionare **Distribuisci in app per le funzioni...**. 
 
 1. Selezionare la sottoscrizione di Azure in cui si vuole distribuire l'applicazione.
 
-1. Selezionare : crea una nuova app per le funzioni **in AzureSelect - Create New Function App in Azure**
+1. Selezionare **+ Crea nuovo app per le funzioni in Azure**
 
 1. Immettere un nome univoco globale per l'app per le funzioni.
 
-1. Selezionare la versione Python (Python 3.7.x funziona per questa funzione).
+1. Selezionare la versione di Python (per questa funzione è compatibile Python 3.7. x).
 
-1. Selezionare una posizione per la nuova risorsa (ad esempio, Stati Uniti occidentali 2).
+1. Selezionare un percorso per la nuova risorsa (ad esempio, Stati Uniti occidentali 2).
 
-A questo punto, le risorse necessarie verranno create nella sottoscrizione di Azure per ospitare la nuova funzione di Azure in Azure.At this point, the necessary resources will be created in your Azure subscription to host the new Azure Function on Azure. Attendere il completamento della distribuzione. La finestra di output mostrerà lo stato del processo di distribuzione.
+A questo punto, verranno create le risorse necessarie nella sottoscrizione di Azure per ospitare la nuova funzione di Azure in Azure. Attendere il completamento della distribuzione. Nella finestra output viene visualizzato lo stato del processo di distribuzione.
 
-1. Nel [portale di Azure](https://portal.azure.com)passare a **Tutte le risorse** e cercare la funzione pubblicata in base al nome. Se è stato denominato **Concatenatore**, selezionare la risorsa.
+1. Nella [portale di Azure](https://portal.azure.com)passare a tutte le **risorse** e cercare la funzione pubblicata in base al nome. Se è stato denominato **concatenatore**, selezionare la risorsa.
 
-1. Fare clic sul pulsante **URL</> Get Function.** In questo modo sarà possibile copiare l'URL per chiamare la funzione.
+1. Fare clic sul pulsante **</> Ottieni URL della funzione** . Ciò consentirà di copiare l'URL per chiamare la funzione.
 
 ## <a name="test-the-function-in-azure"></a>Testare la funzione in Azure
 
@@ -227,11 +227,11 @@ POST [Function URL you copied above]
 }
 ```
 
-Questo esempio dovrebbe produrre lo stesso risultato visto in precedenza durante l'esecuzione della funzione nell'ambiente locale.
+Questo esempio dovrebbe produrre lo stesso risultato visualizzato in precedenza durante l'esecuzione della funzione nell'ambiente locale.
 
 ## <a name="connect-to-your-pipeline"></a>Connettersi alla pipeline
 
-A questo punto è possibile aggiungere la competenza personalizzata al proprio set di competenze. L'esempio seguente mostra come chiamare la competenza per concatenare il titolo e l'autore del documento in un singolo campo che chiamiamo merged_title_author. Sostituire `[your-function-url-here]` con l'URL della nuova funzione di Azure.
+A questo punto è possibile aggiungere la competenza personalizzata al proprio set di competenze. Nell'esempio seguente viene illustrato come chiamare l'abilità per concatenare il titolo e l'autore del documento in un singolo campo che viene chiamato merged_title_author. Sostituire `[your-function-url-here]` con l'URL della nuova funzione di Azure.
 
 ```json
 {
@@ -264,10 +264,10 @@ A questo punto è possibile aggiungere la competenza personalizzata al proprio s
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni! Hai creato la tua prima abilità personalizzata. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. Per ulteriori informazioni, fare clic sui collegamenti seguenti.
+Congratulazioni! Sono state create le prime competenze personalizzate. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. Per ulteriori informazioni, fare clic sui collegamenti seguenti.
 
-+ [Power Skills: un archivio di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [Aggiungere una competenza personalizzata a una pipeline di arricchimento AIAdd a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
++ [Power Skills: un repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Aggiungere un'abilità personalizzata a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

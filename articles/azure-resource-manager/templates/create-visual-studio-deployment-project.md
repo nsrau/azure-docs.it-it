@@ -20,7 +20,7 @@ Questo articolo illustra come usare [Visual Studio 2019 o versione successiva co
 
 In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un modello **App Web**.
 
-1. In Visual Studio scegliere **File**>**nuovo**>**progetto**.
+1. In Visual Studio scegliere **file**>**nuovo**>**progetto**.
 1. Selezionare il modello di progetto **Gruppo di risorse di Azure** e **Avanti**.
 
     ![Crea progetto](./media/create-visual-studio-deployment-project/create-project.png)
@@ -139,7 +139,7 @@ Per lo script del modulo Az aprire una console di PowerShell ed eseguire:
 
 Per lo script del modulo AzureRM usare Visual Studio:
 
-1. Scegliere **Distribuisci** > **nuovo**dal menu di scelta rapida del nodo del progetto di distribuzione.
+1. Nel menu di scelta rapida del nodo del progetto di distribuzione scegliere **Distribuisci** > **nuovo**.
 
     ![Voce di menu per una nuova distribuzione](./media/create-visual-studio-deployment-project/deploy.png)
 
@@ -384,7 +384,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In this article, you learned how to create and deploy templates using Visual Studio. Per altre informazioni sullo sviluppo dei modelli, vedere la nuova serie di esercitazioni per principianti:
+In questo articolo si è appreso come creare e distribuire modelli usando Visual Studio. Per altre informazioni sullo sviluppo dei modelli, vedere la nuova serie di esercitazioni per principianti:
 
 > [!div class="nextstepaction"]
 > [Esercitazioni per principianti](./template-tutorial-create-first-template.md)

@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un'applicazione non di raccolta - Piattaforma di identità Microsoft Documenti Microsoft
-description: Aggiungere un'applicazione non di raccolta al tenant di Azure AD.
+title: Aggiungere un'applicazione non della raccolta-piattaforma di identità Microsoft | Microsoft Docs
+description: Aggiungere un'applicazione non della raccolta al tenant di Azure AD.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -19,42 +19,42 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063612"
 ---
-# <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Aggiungere un'applicazione non in elenco (non raccolta) all'organizzazione di Azure ADAdd an unlisted (non-gallery) application to your Azure AD organization
+# <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Aggiungere un'applicazione non in elenco (non di raccolta) all'organizzazione Azure AD
 
-Oltre alle scelte nella raccolta di applicazioni di [Azure AD,](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)è possibile aggiungere **un'applicazione non di raccolta.** È possibile aggiungere qualsiasi applicazione già esistente nell'organizzazione o qualsiasi applicazione di terze parti di un fornitore che non fa già parte della raccolta di Azure AD. A seconda del [contratto di licenza,](https://azure.microsoft.com/pricing/details/active-directory/)sono disponibili le seguenti funzionalità:
+Oltre alle opzioni disponibili nella raccolta di [applicazioni di Azure ad](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/), è possibile aggiungere un' **applicazione non della raccolta**. È possibile aggiungere qualsiasi applicazione già esistente nell'organizzazione o qualsiasi applicazione di terze parti da un fornitore che non fa già parte della raccolta di Azure AD. A seconda del [contratto di licenza](https://azure.microsoft.com/pricing/details/active-directory/), sono disponibili le seguenti funzionalità:
 
-- Integrazione self-service di qualsiasi applicazione che supporta provider di identità [SAML (Security Assertion Markup Language) 2.0](https://wikipedia.org/wiki/SAML_2.0) avviati da SP o avviati da IdP
+- Integrazione self-service di qualsiasi applicazione che supporta i provider di identità di [Security Assertion Markup Language (SAML) 2,0](https://wikipedia.org/wiki/SAML_2.0) (avviata da SP o IDP)
 - Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](what-is-single-sign-on.md#password-based-sso)
-- Connessione self-service di applicazioni che utilizzano il [protocollo SCIM (System for Cross-Domain Identity Management) per il provisioning degli utenti](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+- Connessione self-service di applicazioni che usano il [sistema per il protocollo di gestione delle identità tra domini (SCIM) per il provisioning degli utenti](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 - Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](what-is-single-sign-on.md#linked-sign-on)
 
-Questo articolo descrive come aggiungere un'applicazione non di raccolta alle **applicazioni aziendali** nel portale di Azure senza scrivere codice. Se invece si cercano indicazioni per gli sviluppatori su come integrare app personalizzate con Azure AD, vedere Scenari di [autenticazione per Azure AD.](../develop/authentication-scenarios.md) Quando si sviluppa un'app che usa un protocollo moderno come OpenId Connect/OAuth per autenticare gli utenti, è possibile registrarla con la piattaforma di identità Microsoft usando l'esperienza di registrazione delle app nel portale di Azure.When you develop an app that uses a modern protocol like [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) to authenticate users, you can register it with the Microsoft identity platform by using the [App registrations](../develop/quickstart-register-app.md) experience in the Azure portal.
+Questo articolo descrive come aggiungere un'applicazione non della raccolta alle **applicazioni aziendali** nel portale di Azure senza scrivere codice. Se invece si sta cercando informazioni aggiuntive per gli sviluppatori su come integrare app personalizzate con Azure AD, vedere [scenari di autenticazione per Azure ad](../develop/authentication-scenarios.md). Quando si sviluppa un'app che usa un protocollo moderno come [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) per autenticare gli utenti, è possibile registrarlo con la piattaforma di identità Microsoft usando l'esperienza [registrazioni app](../develop/quickstart-register-app.md) nel portale di Azure.
 
 ## <a name="add-a-non-gallery-application"></a>Aggiungere un'applicazione non inclusa nella raccolta
 
-1. Accedere al [portale](https://aad.portal.azure.com/) di Azure Active Directory utilizzando l'account di amministratore della piattaforma di identità Microsoft.Sign in to the Azure Active Directory portal using your Microsoft identity platform administrator account.
+1. Accedere al portale di [Azure Active Directory](https://aad.portal.azure.com/) usando l'account amministratore di Microsoft Identity Platform.
 
-2. Selezionare **Applicazioni** > aziendali**Nuova applicazione**.
+2. Selezionare **applicazioni** > aziendali**nuova applicazione**.
 
-3. (Facoltativo ma consigliato) Nella casella di ricerca **Sfoglia raccolta Azure AD** immettere il nome visualizzato dell'applicazione. 
+3. (Facoltativo ma consigliato) Nella casella di ricerca **sfoglia Azure ad Gallery** immettere il nome visualizzato dell'applicazione. 
 
-4. Selezionare **Crea applicazione personalizzata**. Viene visualizzata la pagina **Crea applicazione personalizzata.**
+4. Selezionare **Crea un'applicazione personalizzata**. Verrà visualizzata la pagina **Crea applicazione personalizzata** .
 
    ![Aggiunta di un'applicazione](media/add-non-gallery-app/create-your-own-application.png)
 
-5. Iniziare a digitare il nome visualizzato per la nuova applicazione. Se sono presenti applicazioni della raccolta con nomi simili, verranno visualizzati in un elenco dei risultati della ricerca.
+5. Iniziare a digitare il nome visualizzato per la nuova applicazione. Se sono presenti applicazioni della raccolta con nomi simili, verranno visualizzate nell'elenco dei risultati della ricerca.
 
    > [!NOTE]
-   > Si consiglia di utilizzare la versione galleria dell'applicazione quando possibile. Se l'applicazione che si desidera aggiungere viene visualizzata nei risultati della ricerca, selezionare l'applicazione e ignorare il resto di questa procedura.
+   > Quando possibile, è consigliabile usare la versione della raccolta dell'applicazione. Se l'applicazione che si desidera aggiungere viene visualizzata nei risultati della ricerca, selezionare l'applicazione e ignorare il resto della procedura.
 
-6. In **Che cosa si sta cercando di fare con l'applicazione?** scegliere **Integra qualsiasi altra applicazione che non si trova nella raccolta**. Questa opzione viene in genere utilizzata per le applicazioni SAML e WS-Fed.
+6. In **che cosa si vuole fare con l'applicazione?** scegliere **integra qualsiasi altra applicazione che non si trova nella raccolta**. Questa opzione viene in genere utilizzata per le applicazioni SAML e WS-Fed.
 
    > [!NOTE]
-   > Le altre due opzioni vengono utilizzate negli scenari seguenti:The other two options are used in the following scenarios:
-   >* **Configura proxy di applicazione per l'accesso remoto sicuro a un'applicazione locale** apre la pagina di configurazione per il proxy di applicazione e i connettori di Azure AD.
-   >* **Registra un'applicazione su cui stai lavorando per l'integrazione con Azure AD** apre la pagina **Registrazioni app.** Questa opzione viene in genere utilizzata per le applicazioni OpenID Connect.
+   > Le altre due opzioni vengono usate negli scenari seguenti:
+   >* **Configurare il proxy di applicazione per l'accesso remoto sicuro a un'applicazione locale** apre la pagina di configurazione per Azure ad proxy di applicazione e i connettori.
+   >* **Registrare un'applicazione a cui si sta lavorando per l'integrazione con Azure ad** apre la pagina di **registrazioni app** . Questa opzione viene in genere usata per le applicazioni OpenID Connect.
 
-7. Selezionare **Crea**. Viene visualizzata la pagina **Panoramica** dell'applicazione.
+7. Seleziona **Crea**. Viene visualizzata la pagina **Panoramica** dell'applicazione.
 
 ## <a name="configure-user-sign-in-properties"></a>Configurare le proprietà di accesso degli utenti
 
@@ -65,7 +65,7 @@ Questo articolo descrive come aggiungere un'applicazione non di raccolta alle **
 2. Impostare le opzioni seguenti per determinare il modo in cui gli utenti assegnati o non assegnati all'applicazione possono accedere all'applicazione e se un utente può visualizzare l'applicazione nel pannello di accesso.
 
     - **Abilitata per l'accesso degli utenti** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
-    - **L'assegnazione dell'utente richiesta** determina se gli utenti non assegnati all'applicazione possono accedere.
+    - L' **assegnazione utente necessaria** determina se gli utenti che non sono assegnati all'applicazione possono accedere.
     - **Visibile agli utenti** determina se un'app verrà visualizzata agli utenti assegnati nel pannello di accesso e nell'icona di avvio delle app di O365.
 
       Comportamento per gli utenti **assegnati**:

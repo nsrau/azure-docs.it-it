@@ -35,7 +35,7 @@ Azure AD Connect esegue la sincronizzazione di Active Directory e Azure AD. Ques
 Questo documento descrive i fattori che influenzano le prestazioni del motore di provisioning di Azure AD Connect. Le organizzazioni complesse o di grandi dimensioni (organizzazioni che effettuano il provisioning di più di 100.000 oggetti) possono usare le raccomandazioni per ottimizzare l'implementazione di Azure AD Connect, se si verificano i problemi relativi alle prestazioni indicati in questo documento. Questo documento non fornisce informazioni sugli altri componenti di Azure AD Connect, ad esempio [Azure AD Connect Health](how-to-connect-health-agent-install.md), e sugli agenti.
 
 > [!IMPORTANT]
-> Microsoft non supporta la modifica o l'uso del servizio Azure AD Connect al di fuori delle azioni descritte in modo formale. Ognuna di queste azioni potrebbe causare uno stato incoerente o non supportato della sincronizzazione di Azure AD Connect.Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. Di conseguenza, Microsoft non può fornire supporto tecnico per tali distribuzioni.
+> Microsoft non supporta la modifica o l'uso del servizio Azure AD Connect al di fuori delle azioni descritte in modo formale. Una qualsiasi di queste azioni può causare uno stato incoerente o non supportato della sincronizzazione Azure AD Connect. Di conseguenza, Microsoft non è in grado di fornire supporto tecnico per tali distribuzioni.
 
 ## <a name="azure-ad-connect-component-factors"></a>Fattori dei componenti di Azure AD Connect
 

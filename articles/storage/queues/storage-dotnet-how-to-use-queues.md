@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione delle code di Azure con .NET - Archiviazione di AzureGet started with Azure Queue storage using .NET - Azure Storage
+title: Introduzione all'archiviazione code di Azure con .NET-archiviazione di Azure
 description: Le code di Azure forniscono una messaggistica asincrona affidabile tra i componenti dell'applicazione. La messaggistica cloud consente di ridimensionare i componenti dell'applicazione in modo indipendente.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -34,10 +34,10 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 ### <a name="prerequisites"></a>Prerequisiti
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Libreria client comune di Archiviazione di Azure per .NETAzure Storage common client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-* [Libreria client della coda di Archiviazione di Azure per .NETAzure Storage Queue client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Libreria client comune di archiviazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+* [Libreria client della coda di archiviazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [Gestione configurazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* Un account di archiviazione di [AzureAn Azure storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* Un [account di archiviazione di Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -51,36 +51,36 @@ Configurare quindi l'ambiente di sviluppo in Visual Studio per poter provare gli
 
 In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2019. La procedura è simile per le altre versioni di Visual Studio.
 
-1. Seleziona **file** > **nuovo** > **progetto**
-2. Seleziona **Piattaforma** > **Windows**
-3. Selezionare **l'app console (.NET Framework)**
+1. Selezionare **file** > **nuovo** > **progetto**
+2. Selezionare le**finestre** della **piattaforma** > 
+3. Selezionare l' **app console (.NET Framework)**
 4. Fare clic su **Avanti**.
-5. Nel campo **Nome progetto** immettere un nome per l'applicazione
+5. Nel campo **nome progetto** , immettere un nome per l'applicazione
 6. Selezionare **Crea**
 
-Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al metodo **Main()** del **file Program.cs** dell'applicazione console.
+Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al metodo **Main ()** del file **Program.cs** dell'applicazione console.
 
-È possibile usare le librerie client di Archiviazione di Azure in qualsiasi tipo di applicazione .NET, incluso un servizio cloud o un'app Web di Azure e le applicazioni desktop e mobili. Per semplicità, in questa guida si usa un'applicazione console.
+È possibile usare le librerie client di archiviazione di Azure in qualsiasi tipo di applicazione .NET, tra cui un servizio cloud o un'app Web di Azure, nonché applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Usare NuGet per installare i pacchetti necessari
 
-Per completare questa esercitazione, è necessario fare riferimento ai tre pacchetti seguenti:You need to reference the following three packages in your project to complete this tutorial:
+Per completare questa esercitazione, è necessario fare riferimento ai tre pacchetti seguenti nel progetto:
 
-* [Libreria client comune di archiviazione di Microsoft Azure per .NET:](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)questo pacchetto fornisce l'accesso a livello di codice alle risorse dati nell'account di archiviazione.
-* Libreria di code di archiviazione di [Microsoft Azure per .NET:](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)questa libreria client consente di utilizzare il servizio Coda di archiviazione di Microsoft Azure per archiviare i messaggi a cui può accedere un client.
+* [Archiviazione di Microsoft Azure libreria client comune per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): questo pacchetto fornisce l'accesso a livello di codice alle risorse di dati nell'account di archiviazione.
+* [Archiviazione di Microsoft Azure Library Queue per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): questa libreria client consente di utilizzare il archiviazione di Microsoft Azure servizio di Accodamento per archiviare i messaggi a cui è possibile accedere da un client.
 * [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
 
-È possibile utilizzare NuGet per ottenere questi pacchetti. A tale scopo, seguire questa procedura:
+È possibile usare NuGet per ottenere questi pacchetti. A tale scopo, seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**e scegliere **Gestisci pacchetti NuGet**.
-2. Selezionare **Esplora**.
-3. Cercare online "Microsoft.Azure.Storage.Queue" e selezionare **Installa** per installare la libreria client di archiviazione e le relative dipendenze. Verrà installata anche la libreria Microsoft.Azure.Storage.Common, che è una dipendenza della libreria di code.
-4. Cercare online "Microsoft.Azure.ConfigurationManager" e selezionare **Installa** per installare Azure Configuration Manager.
+2. Selezionare **Sfoglia**
+3. Cercare online "Microsoft. Azure. storage. Queue" e selezionare **Installa** per installare la libreria client di archiviazione e le relative dipendenze. Verrà installata anche la libreria Microsoft. Azure. storage. Common, che è una dipendenza della libreria di Accodamento.
+4. Cercare online "Microsoft. Azure. ConfigurationManager" e selezionare **Installa** per installare il Configuration Manager di Azure.
 
 > [!NOTE]
-> I pacchetti delle librerie client di archiviazione sono inclusi anche in [Azure SDK per .NET.](https://azure.microsoft.com/downloads/) Tuttavia, è consigliabile installare anche le librerie client di archiviazione da NuGet per assicurarsi di disporre sempre delle versioni più recenti.
+> I pacchetti delle librerie client di archiviazione sono inclusi anche in [Azure SDK per .NET](https://azure.microsoft.com/downloads/). Tuttavia, è consigliabile installare anche le librerie client di archiviazione da NuGet per assicurarsi di avere sempre le versioni più recenti.
 >
-> Le dipendenze ODataLib nelle librerie client di archiviazione per .NET vengono risolte dai pacchetti ODataLib disponibili in NuGet, non da WCF Data ServicesWCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici utilizzati dalle librerie client Storage sono [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/)e [Spatial](https://nuget.org/packages/System.Spatial/). Sebbene queste librerie vengano usate dalle classi di archiviazione tabelle di Azure, sono dipendenze necessarie per la programmazione con le librerie client di archiviazione.
+> Le dipendenze ODataLib nelle librerie client di archiviazione per .NET vengono risolte dai pacchetti ODataLib disponibili in NuGet, non da WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici usati dalle librerie client di archiviazione sono [OData](https://nuget.org/packages/Microsoft.Data.OData/), [EDM](https://nuget.org/packages/Microsoft.Data.Edm/)e [Spatial](https://nuget.org/packages/System.Spatial/). Sebbene queste librerie vengano usate dalle classi di archiviazione tabelle di Azure, sono dipendenze necessarie per la programmazione con le librerie client di archiviazione.
 
 ### <a name="determine-your-target-environment"></a>Determinare l'ambiente di destinazione
 
@@ -96,14 +96,14 @@ Se si specifica come destinazione un account di archiviazione nel cloud, immette
 
 ### <a name="configure-your-storage-connection-string"></a>Configurare la stringa di connessione di archiviazione
 
-Le librerie client di Archiviazione di Azure per .NET supportano l'uso di una stringa di connessione di archiviazione per configurare endpoint e credenziali per l'accesso ai servizi di archiviazione. Per gestire nel modo migliore la stringa di connessione di archiviazione, usare un file di configurazione.
+Le librerie client di archiviazione di Azure per .NET supportano l'uso di una stringa di connessione di archiviazione per configurare gli endpoint e le credenziali per l'accesso ai servizi di archiviazione. Per gestire nel modo migliore la stringa di connessione di archiviazione, usare un file di configurazione.
 
 Per altre informazioni sulle stringhe di connessione, vedere [Configurare le stringhe di connessione di archiviazione di Azure](../common/storage-configure-connection-string.md).
 
 > [!NOTE]
 > La chiave dell’account di archiviazione è simile alla password radice per l'account di archiviazione. È consigliabile proteggere sempre la chiave dell'account di archiviazione. Evitare di distribuirla ad altri utenti, impostarla come hardcoded o salvarla in un file di testo normale accessibile ad altri. Rigenerare la chiave tramite il portale di Azure se si ritiene che possa essere stata compromessa.
 
-Per configurare la stringa di connessione, aprire il file app.config da Esplora soluzioni in Visual Studio.To configure your connection string, open the **app.config** file from Solution Explorer in Visual Studio. Aggiungi il contenuto dell'elemento ** \<appSettings\> ** mostrato di seguito. Sostituire *account-name* con il nome dell'account di archiviazione e *account-key* con la chiave di accesso dell'account:
+Per configurare la stringa di connessione, aprire il file **app. config** da Esplora soluzioni in Visual Studio. Aggiungere il contenuto dell'elemento ** \<appSettings\> ** illustrato di seguito. Sostituire *account-name* con il nome dell'account di archiviazione e la *chiave di account* con la chiave di accesso dell'account:
 
 ```xml
 <configuration>
@@ -184,7 +184,7 @@ queue.CreateIfNotExists();
 
 ## <a name="insert-a-message-into-a-queue"></a>Inserire un messaggio in una coda
 
-Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet). Successivamente, chiamare il [AddMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet) metodo. Un **CloudQueueMessage** può essere creato da una stringa (in formato UTF-8) o da una matrice di **byte.** Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World':
+Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet). Chiamare quindi il metodo [AddMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet) . È possibile creare un **CloudQueueMessage** da una stringa (in formato UTF-8) o da una matrice di **byte** . Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World':
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -207,7 +207,7 @@ queue.AddMessage(message);
 
 ## <a name="peek-at-the-next-message"></a>Visualizzare il messaggio successivo
 
-È possibile visualizzare il messaggio nella parte anteriore di una coda senza rimuoverlo dalla coda chiamando il [PeekMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet) metodo.
+È possibile visualizzare il messaggio nella parte anteriore di una coda senza rimuoverlo dalla coda chiamando il metodo [PeekMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet) .
 
 ```csharp
 // Retrieve storage account from connection string
@@ -274,7 +274,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Utilizzare il modello Async-Await modello con API comuni di archiviazione coda
 
-In questo esempio viene illustrato come utilizzare il modello Async-Await con API comuni di archiviazione coda. Nell'esempio viene chiamata la versione asincrona di ogni metodo specificato, come indicato dal suffisso *Async* di ciascun metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per altre informazioni sull'uso del modello Async-Await in .NET, vedere [Async e Await (C](https://msdn.microsoft.com/library/hh191443.aspx)
+In questo esempio viene illustrato come utilizzare il modello Async-Await con API comuni di archiviazione coda. Nell'esempio viene chiamata la versione asincrona di ogni metodo specificato, come indicato dal suffisso *Async* di ciascun metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per altri dettagli sull'uso del modello async-await in .NET, vedere [Async e await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
 ```csharp
 // Create the queue if it doesn't already exist
@@ -305,7 +305,7 @@ Console.WriteLine("Deleted message");
 
 ## <a name="leverage-additional-options-for-de-queuing-messages"></a>Usufruire di opzioni aggiuntive per rimuovere i messaggi dalla coda
 
-È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo [GetMessages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet) per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **foreach** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i 5 minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo 5 minuti sono trascorsi dalla chiamata a **GetMessages**, tutti i messaggi che non sono stati eliminati diventeranno nuovamente visibili.
+È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo [GetMessages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet) per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **foreach** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i 5 minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi 5 minuti dalla chiamata a **GetMessages**, tutti i messaggi che non sono stati eliminati diventeranno nuovamente visibili.
 
 ```csharp
 // Retrieve storage account from connection string.

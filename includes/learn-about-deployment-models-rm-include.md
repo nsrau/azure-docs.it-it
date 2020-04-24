@@ -12,4 +12,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "75978840"
 ---
 > [!NOTE]
-> Azure include due modelli di distribuzione diversi che è possibile usare per creare e usare le risorse: [Azure Resource Manager e classico.](../articles/azure-resource-manager/management/deployment-models.md) In questo articolo viene illustrato l'utilizzo del modello di distribuzione di Resource Manager.This article covers the use of the Resource Manager deployment model. È consigliabile il modello di distribuzione di Resource Manager per le nuove distribuzioni anziché il modello di distribuzione classica.
+> Azure offre due diversi modelli di distribuzione che è possibile usare per creare e usare le risorse: [Azure Resource Manager e classica](../articles/azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione Gestione risorse. È consigliabile usare il modello di distribuzione Gestione risorse per le nuove distribuzioni anziché il modello di distribuzione classica.

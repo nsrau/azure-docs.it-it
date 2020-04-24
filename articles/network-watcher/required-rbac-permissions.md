@@ -1,5 +1,5 @@
 ---
-title: Autorizzazioni RBAC necessarie per l'utilizzo delle funzionalità
+title: Autorizzazioni RBAC necessarie per usare le funzionalità
 titleSuffix: Azure Network Watcher
 description: Informazioni su quali autorizzazioni di controllo degli accessi in base al ruolo di Azure sono necessarie per lavorare con le funzionalità di Network Watcher.
 services: network-watcher
@@ -102,15 +102,15 @@ Il controllo degli accessi in base al ruolo (RBAC) di Azure consente di assegnar
 
 Le funzionalità di Network Watcher richiedono anche le azioni seguenti:
 
-| Azione(e)                                                           | Descrizione                                                    |
+| Azione/i                                                           | Descrizione                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Authorization/\*/Read                                     | Utilizzato per recuperare le assegnazioni di ruolo RBAC e le definizioni dei criteri          |
-| Microsoft.Resources/subscriptions/resourceGroups/Read               | Utilizzato per enumerare tutti i gruppi di risorse in una sottoscrizioneUsed to enumerate all the resource groups in a subscription    |
-| Microsoft.Storage/storageAccounts/Read                              | Utilizzato per ottenere le proprietà per l'account di archiviazione specificatoUsed to get the properties for the specified storage account   |
-| Microsoft.Storage/storageAccounts/listServiceSas/Azione, </br> Microsoft.Storage/storageAccounts/listAccountSas/Azione, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Utilizzato per recuperare le firme di accesso condiviso (SAS) consentendo [l'accesso sicuro all'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) e scrivere nell'account di archiviazione |
-| Microsoft.Compute/virtualMachines/Lettura, </br> Microsoft.Compute/virtualMachines/Write| Utilizzato per accedere alla macchina virtuale, eseguire un'acquisizione di pacchetti e caricarla nell'account di archiviazioneUsed to log in to the VM, do a packet capture and upload it to storage account|
-| Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Utilizzato per verificare se l'estensione Network Watcher è presente e installare se necessario |
-| Microsoft.Compute/virtualMachineScaleSets/Lettura, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Utilizzato per accedere ai set di scalabilità delle macchine virtuali, eseguire acquisizioni di pacchetti e caricarli nell'account di archiviazione|
-| Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Utilizzato per verificare se l'estensione Network Watcher è presente e installare se necessario |
-| Microsoft.Insights/alertRules/*                                     | Utilizzato per impostare avvisi di metrica                                     |
-| Microsoft.Support/*                                                 | Utilizzato per creare e aggiornare i ticket di supporto da Network Watcher |
+| Microsoft.Authorization/\*/Read                                     | Utilizzato per recuperare le assegnazioni di ruolo e le definizioni dei criteri RBAC          |
+| Microsoft.Resources/subscriptions/resourceGroups/Read               | Utilizzato per enumerare tutti i gruppi di risorse in una sottoscrizione    |
+| Microsoft.Storage/storageAccounts/Read                              | Usato per ottenere le proprietà per l'account di archiviazione specificato   |
+| Microsoft. storage/storageAccounts/listServiceSas/Action, </br> Microsoft. storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Usato per recuperare le firme di accesso condiviso (SAS) che abilitano [l'accesso sicuro all'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) e la scrittura nell'account di archiviazione |
+| Microsoft. Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Usato per accedere alla macchina virtuale, eseguire un'acquisizione di pacchetti e caricarla nell'account di archiviazione|
+| Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Usato per verificare se è presente Network Watcher estensione e installarlo se necessario |
+| Microsoft. Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Usato per accedere ai set di scalabilità di macchine virtuali, eseguire acquisizioni di pacchetti e caricarli nell'account di archiviazione|
+| Microsoft. Compute/virtualMachineScaleSets/Extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Usato per verificare se è presente Network Watcher estensione e installarlo se necessario |
+| Microsoft.Insights/alertRules/*                                     | Usato per impostare gli avvisi delle metriche                                     |
+| Microsoft.Support/*                                                 | Usato per creare e aggiornare i ticket di supporto da Network Watcher |

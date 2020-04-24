@@ -16,8 +16,8 @@ ms.locfileid: "76277388"
 ---
 Informazioni di riferimento per gli sviluppatori delle Funzioni di Azure. Se non si ha familiarità con le Funzioni di Azure, iniziare con le seguenti risorse:
 
-* Creare la prima funzione: [C,](../articles/azure-functions/functions-create-first-azure-function.md) [JavaScript,](../articles/azure-functions/functions-create-first-azure-function.md) [Java](../articles/azure-functions/functions-create-first-java-maven.md)o [Python](../articles/azure-functions/functions-create-first-function-python.md).
-* [Informazioni di riferimento per gli sviluppatori di Funzioni di Azure.Azure Functions developer reference.](../articles/azure-functions/functions-reference.md)
-* Riferimento specifico specifico del linguaggio: [C'è](../articles/azure-functions/functions-dotnet-class-library.md), [script C](../articles/azure-functions/functions-reference-csharp.md), [F ,](../articles/azure-functions/functions-reference-fsharp.md) [Java](../articles/azure-functions/functions-reference-java.md), [JavaScript](../articles/azure-functions/functions-reference-node.md)o [Python](../articles/azure-functions/functions-reference-python.md).
-* [Concetti relativi ai trigger e alle associazioni di Funzioni di Azure.Azure Functions triggers and bindings concepts.](../articles/azure-functions/functions-triggers-bindings.md)
-* [Codificare e testare le funzioni di Azure in locale.](../articles/azure-functions/functions-develop-local.md)
+* Creare la prima funzione: [C#](../articles/azure-functions/functions-create-first-azure-function.md), [JavaScript](../articles/azure-functions/functions-create-first-azure-function.md), [Java](../articles/azure-functions/functions-create-first-java-maven.md)o [Python](../articles/azure-functions/functions-create-first-function-python.md).
+* [Informazioni di riferimento per gli sviluppatori di funzioni di Azure.](../articles/azure-functions/functions-reference.md)
+* Riferimento specifico per il linguaggio: [c#](../articles/azure-functions/functions-dotnet-class-library.md), [script c#](../articles/azure-functions/functions-reference-csharp.md), [F #](../articles/azure-functions/functions-reference-fsharp.md), [Java](../articles/azure-functions/functions-reference-java.md), [JavaScript](../articles/azure-functions/functions-reference-node.md)o [Python](../articles/azure-functions/functions-reference-python.md).
+* [Concetti relativi a trigger e associazioni di funzioni di Azure.](../articles/azure-functions/functions-triggers-bindings.md)
+* [Codice e test di funzioni di Azure in locale.](../articles/azure-functions/functions-develop-local.md)

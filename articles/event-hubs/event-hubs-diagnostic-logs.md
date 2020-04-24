@@ -48,7 +48,7 @@ I log di diagnostica sono disabilitati per impostazione predefinita. Per abilita
 
     ![Modifica dello lo stato dei log di diagnostica](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Impostare la destinazione di archiviazione desiderata; ad esempio, un account di archiviazione, un hub eventi o log di Monitoraggio di Azure.for example, a storage account, an event hub, or Azure Monitor logs.
+5.  Impostare la destinazione dell'archivio desiderata; ad esempio, un account di archiviazione, un hub eventi o i log di monitoraggio di Azure.
 
 6.  Salvare le nuove impostazioni di diagnostica.
 
@@ -140,9 +140,9 @@ Example:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Introduzione a Hub eventi](event-hubs-what-is-event-hubs.md)
-- [Panoramica dell'API Hub eventi](event-hubs-api-overview.md)
+- [Panoramica dell'API di hub eventi](event-hubs-api-overview.md)
 - Introduzione all'Hub eventi
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [Javascript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)

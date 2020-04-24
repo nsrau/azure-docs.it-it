@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Migrate classic VNets to Resource Manager'
+title: 'Azure ExpressRoute: eseguire la migrazione di reti virtuali classiche a Gestione risorse'
 description: Questa pagina illustra come eseguire la migrazione di reti virtuali associate ad ExpressRoute in Resource Manager dopo lo spostamento del circuito.
 services: expressroute
 author: cherylmc
@@ -22,7 +22,7 @@ Questo articolo illustra come eseguire la migrazione delle reti virtuali associa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Verificare di disporre delle versioni più recenti dei moduli di Azure PowerShell.Verify that you have the latest versions of the Azure PowerShell modules. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell.For](/powershell/azure/overview)more information, see How to install and configure Azure PowerShell . Per installare il modulo Gestione servizio PowerShell (necessario per il modello di distribuzione classica), vedere Installazione del modulo di gestione del [servizio Azure PowerShell.](/powershell/azure/servicemanagement/install-azure-ps)
+* Verificare che siano disponibili le versioni più recenti dei moduli Azure PowerShell. Per ulteriori informazioni, vedere [come installare e configurare Azure PowerShell](/powershell/azure/overview). Per installare il modulo di gestione dei servizi di PowerShell (necessario per il modello di distribuzione classica), vedere [installazione del modulo di gestione dei servizi Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps).
 * Prima di procedere con la configurazione, assicurarsi di avere verificato i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 * Rivedere le informazioni disponibili in [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](expressroute-move.md). Assicurarsi di aver compreso pienamente i limiti e le limitazioni.
 * Verificare che il circuito sia completamente operativo nel modello di distribuzione classica.
@@ -40,7 +40,7 @@ Questo articolo illustra come eseguire la migrazione delle reti virtuali associa
 * È possibile eseguire la migrazione nell'ambiente Resource Manager di reti virtuali, gateway e distribuzioni associate che si trovano nella rete virtuale e sono associati al circuito ExpressRoute nella stessa sottoscrizione, senza tempi di inattività. È possibile seguire la procedura illustrata più avanti per eseguire la migrazione di risorse come reti virtuali, gateway e macchine virtuali distribuiti nella rete virtuale. È necessario assicurare che le reti virtuali siano configurate correttamente prima della migrazione. 
 * Le reti virtuali, i gateway e le distribuzioni associate che si trovano nella rete virtuale ma non sono inclusi nella stessa sottoscrizione del circuito ExpressRoute richiedono del tempo di inattività per il completamento della migrazione. L'ultima sezione del documento illustra la procedura da seguire per eseguire la migrazione delle risorse.
 * Non è possibile eseguire la migrazione di una rete virtuale con Gateway ExpressRoute e Gateway VPN.
-* La migrazione tra sottoscrizioni del circuito ExpressRoute non è supportata. Per ulteriori informazioni, vedere Supporto per [lo spostamento di Microsoft.Network](../azure-resource-manager/management/move-support-resources.md#microsoftnetwork).
+* La migrazione tra sottoscrizioni del circuito ExpressRoute non è supportata. Per ulteriori informazioni, vedere [supporto di Microsoft. Network Move](../azure-resource-manager/management/move-support-resources.md#microsoftnetwork).
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Spostare un circuito ExpressRoute dal modello di distribuzione classica a Resource Manager
 È necessario spostare un circuito ExpressRoute da una distribuzione classica a un ambiente Resource Manager prima di provare a eseguire la migrazione delle risorse associate al circuito ExpressRoute. Per ottenere questo risultato, vedere gli articoli seguenti:

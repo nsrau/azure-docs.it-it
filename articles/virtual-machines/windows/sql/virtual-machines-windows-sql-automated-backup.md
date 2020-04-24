@@ -1,5 +1,5 @@
 ---
-title: Backup automatico per macchine virtuali di Azure di SQL Server 2014
+title: Backup automatico per macchine virtuali di Azure SQL Server 2014
 description: Viene illustrata la funzionalità di backup automatico per macchine virtuali SQL Server 2014 in esecuzione in Azure. Questo articolo si applica alle macchine virtuali che usano Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
@@ -48,7 +48,7 @@ Per usare il backup automatico, tenere in considerazione i seguenti prerequisiti
 > [!IMPORTANT]
 > Il backup automatico funziona con SQL Server 2014. Se si usa SQL Server 2016/2017, è possibile usare il backup automatico versione 2 per eseguire il backup dei database. Per altre informazioni, vedere [Automated Backup v2 for SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md) (Backup automatico versione 2 per macchine virtuali SQL Server 2016 in Azure).
 
-**Configurazione database**:
+**Configurazione del database**:
 
 - I database di destinazione devono usare il modello di recupero con registrazione completa. Per altre informazioni sull'impatto del modello di recupero con registrazione completa sui backup, vedere [Backup con il modello di recupero con registrazione completa](https://technet.microsoft.com/library/ms190217.aspx).
 - I database di destinazione devono trovarsi nell'istanza predefinita di SQL Server. L'estensione SQL Server IaaS non supporta le istanze denominate.
@@ -63,8 +63,8 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 | Impostazione | Intervallo (impostazione predefinita) | Descrizione |
 | --- | --- | --- |
 | **Backup automatico** | Enable/Disable (disabilitato) | Abilita o disabilita il backup automatico per una macchina virtuale di Azure in cui viene eseguito SQL Server 2014 Standard o Enterprise. |
-| **Periodo di conservazione** | 1-30 giorni (30 giorni) | Numero di giorni di conservazione di un backup. |
-| **Account di archiviazione** | Account di archiviazione di Azure | Account di archiviazione di Azure da usare per archiviare i file del backup automatico nell'archiviazione BLOB. In questa posizione viene creato un contenitore per archiviare tutti i file di backup. La convenzione di denominazione dei file di backup include la data, l'ora e il nome del computer. |
+| **Periodo di memorizzazione** | 1-30 giorni (30 giorni) | Numero di giorni di conservazione di un backup. |
+| **Storage Account** | Account di archiviazione di Azure | Account di archiviazione di Azure da usare per archiviare i file del backup automatico nell'archiviazione BLOB. In questa posizione viene creato un contenitore per archiviare tutti i file di backup. La convenzione di denominazione dei file di backup include la data, l'ora e il nome del computer. |
 | **Crittografia** | Enable/Disable (disabilitato) | Abilita o disabilita la crittografia. Quando è abilitata la crittografia, i certificati usati per ripristinare il backup sono contenuti nell'account di archiviazione specificato, nello stesso contenitore `automaticbackup` con la stessa convenzione di denominazione. Se la password viene modificata, viene generato un nuovo certificato con tale password, ma il certificato precedente viene mantenuto per ripristinare i backup precedenti. |
 | **Password** | Testo della password | Password per le chiavi di crittografia. Questa impostazione è necessaria solo se la crittografia è abilitata. Per ripristinare un backup crittografato, è necessario disporre della password corretta e del certificato correlato usato al momento dell'esecuzione del backup. |
 
@@ -73,7 +73,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 Usare il portale di Azure per configurare il backup automatico quando si crea una nuova macchina virtuale di SQL Server 2014 nel modello di distribuzione di Resource Manager.
 
-Nella scheda Impostazioni di **SQL Server** scorrere verso il basso fino a **Backup automatico** e selezionare **Abilita**. Nella seguente schermata del portale di Azure vengono mostrate le impostazioni del **Backup automatico di SQL**.
+Nella scheda **impostazioni SQL Server** scorrere fino a **backup automatico** e selezionare **Abilita**. Nella seguente schermata del portale di Azure vengono mostrate le impostazioni del **Backup automatico di SQL**.
 
 ![Configurazione del backup automatico di SQL nel Portale di Azure](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
@@ -81,15 +81,15 @@ Nella scheda Impostazioni di **SQL Server** scorrere verso il basso fino a **Bac
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Per le macchine virtuali di SQL Server esistenti, è possibile abilitare e disabilitare i backup automatici, modificare il periodo di conservazione, specificare l'account di archiviazione e abilitare la crittografia dal portale di Azure.For existing SQL Server virtual machines, you can enable and disable automated backups, change the retention period, specify the storage account, and enable encryption from the Azure portal. 
+Per le macchine virtuali SQL Server esistenti, è possibile abilitare e disabilitare i backup automatici, modificare il periodo di memorizzazione, specificare l'account di archiviazione e abilitare la crittografia dall'portale di Azure. 
 
-Passare alla [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) per la macchina virtuale SQL Server 2014SQL Server 2014 e quindi selezionare **Backup**. 
+Passare alla [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) per la macchina virtuale SQL Server 2014 e quindi selezionare **backup**. 
 
 ![Backup automatico di SQL per le VM esistenti](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-Al termine, selezionare il pulsante **Applica** nella parte inferiore della pagina **Backup** per salvare le modifiche.
+Al termine, selezionare il pulsante **applica** nella parte inferiore della pagina **backup** per salvare le modifiche.
 
-Se si intende abilitare il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel portale di Azure potrebbe non essere visualizzata l'informazione relativa alla configurazione del backup automatico. Attendere alcuni minuti per l'installazione e la configurazione dell'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
+Se si intende abilitare il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel portale di Azure potrebbe non essere visualizzata l'informazione relativa alla configurazione del backup automatico. Attendere alcuni minuti per installare e configurare l'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
 
 > [!NOTE]
 > È inoltre possibile configurare il backup automatico mediante un modello. Per altre informazioni, vedere l'articolo relativo al [modello di avvio rapido di Azure per il backup automatico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
@@ -98,7 +98,7 @@ Se si intende abilitare il backup automatico per la prima volta, Azure configura
 
 È possibile usare PowerShell per configurare Backup automatico. Prima di iniziare, è necessario eseguire queste operazioni:
 
-- Scaricare e installare la versione più recente di [Azure PowerShell.](https://aka.ms/webpi-azps)
+- [Scaricare e installare la Azure PowerShell più recente](https://aka.ms/webpi-azps).
 - Aprire Windows PowerShell e associarlo al proprio account con il comando **Connect-AzAccount**. 
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
@@ -115,7 +115,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se l'estensione Agente IaaS di SQL Server è installata, verrà visualizzata come "SqlIaaSAgent" o "SQLIaaSExtension". La proprietà **ProvisioningState** per l'estensione deve inoltre mostrare lo stato "Succeeded".
 
-Nel caso in cui l'estensione non sia installata o non ne sia stato eseguito il provisioning, è possibile installarla con il comando seguente. Oltre al nome della macchina virtuale e al gruppo di risorse, è necessario anche specificare l'area (**$region**) in cui si trova la macchina virtuale. Specificare il tipo di licenza per la macchina virtuale di SQL Server, scegliendo tra pay-as-you-go o bring-your-own-license tramite il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). Per ulteriori informazioni sulle licenze, vedere Modello di [licenza](virtual-machines-windows-sql-ahb.md). 
+Nel caso in cui l'estensione non sia installata o non ne sia stato eseguito il provisioning, è possibile installarla con il comando seguente. Oltre al nome della macchina virtuale e al gruppo di risorse, è necessario anche specificare l'area (**$region**) in cui si trova la macchina virtuale. Specificare il tipo di licenza per la macchina virtuale SQL Server, scegliendo tra con pagamento in base al consumo o bring your own License tramite il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). Per ulteriori informazioni sulle licenze, vedere [modello di licenza](virtual-machines-windows-sql-ahb.md). 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `

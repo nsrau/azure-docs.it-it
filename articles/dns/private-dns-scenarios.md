@@ -1,6 +1,6 @@
 ---
-title: Scenari per le zone private - DNS di AzureScenarios for Private zones - Azure DNS
-description: In this article, learn about common scenarios for using Azure DNS Private Zones.
+title: Scenari per le zone private-DNS di Azure
+description: In questo articolo vengono fornite informazioni sugli scenari comuni per l'utilizzo di Zone private di DNS di Azure.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939334"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Scenari di zone private DNS di AzureAzure DNS Private zones scenarios
+# <a name="azure-dns-private-zones-scenarios"></a>Scenari di zone private di DNS di Azure
 
 Il servizio Zone private di DNS di Azure consente la risoluzione dei nomi all'interno di una rete virtuale e tra reti virtuali. In questo articolo vengono esaminati alcuni scenari comuni che è possibile attuare con questa funzionalità.
 
@@ -52,7 +52,7 @@ Per altre informazioni sulle zone DNS private, vedere [Using Azure DNS for priva
 
 Informazioni su come [creare una zona DNS privata](./private-dns-getstarted-powershell.md) in DNS di Azure.
 
-Per informazioni sulle zone e sui record DNS, visitare: [Panoramica delle zone DNS e dei record](dns-zones-records.md).
+Per informazioni sulle zone e sui record DNS, visitare la pagina relativa alla [Panoramica di zone e record DNS](dns-zones-records.md).
 
-Informazioni su alcune delle altre funzionalità di rete chiave di Azure.Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.
 

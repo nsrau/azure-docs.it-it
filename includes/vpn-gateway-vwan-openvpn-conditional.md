@@ -15,31 +15,31 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471535"
 ---
-L'accesso condizionale consente un controllo dell'accesso granulare in base all'applicazione. Per usare l'accesso condizionale, è necessario applicare alle utenti le licenze di Azure AD Premium 1 o superiore che saranno soggette alle regole di accesso condizionale.
+L'accesso condizionale consente il controllo di accesso con granularità fine in base alle singole applicazioni. Per usare l'accesso condizionale, è necessario che siano state applicate Azure AD Premium 1 o più licenze agli utenti che saranno soggette alle regole di accesso condizionale.
 
-1. Passare alla pagina **Applicazioni aziendali - Tutte le applicazioni** e fare clic su VPN di **Azure.**
+1. Passare alla pagina **applicazioni aziendali-tutte le applicazioni** e fare clic su **VPN di Azure**.
 
-   - Fare clic su **Accesso condizionale**.
+   - Fare clic su **accesso condizionale**.
    - Fare clic su **Nuovi criteri** per aprire il riquadro **Nuovo**.
-2. Nel riquadro **Nuovo** passare a **Assegnazioni -> Utenti e gruppi**. Nella scheda **>Includi** **di Utenti e gruppi:**
+2. Nel riquadro **nuovo** passare a **assegnazioni-> utenti e gruppi**. Nella scheda **utenti e gruppi->** **Includi** :
 
    - Fare clic su **Seleziona utenti e gruppi**.
-   - Selezionare **Utenti e gruppi**.
-   - Fare clic su **Seleziona** per selezionare un gruppo o un gruppo di utenti interessati dall'autenticazione a più fattori.
-   - Fare clic su **Fine**.
+   - Controllare **utenti e gruppi**.
+   - Fare clic su **Seleziona** per selezionare un gruppo o un set di utenti che saranno interessati dall'autenticazione a più fattori.
+   - Fare clic su **Done**.
 
    ![Assegnazioni](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
-3. Nel riquadro **Nuovo** passare al riquadro **Concessione > controlli** di accesso:
+3. Nel riquadro **nuovo** passare al riquadro **Access controls-> Grant** :
 
    - Fare clic su **Concedi accesso**.
    - Fare clic su **Richiedi autenticazione a più fattori**.
    - Fare clic su **Richiedi tutti i controlli selezionati**.
    - Fare clic su **Seleziona**.
    
-   ![Concedere l'accesso - Autenticazione a più fattoriGrant access - MFA](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
-4. Nella sezione **Abilita criteri:**
+   ![Concedi accesso-autenticazione a più fattori](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
+4. Nella sezione **abilitare i criteri** :
 
-   - Selezionare **On (Attivato).**
+   - Selezionare **on**.
    - Fare clic su **Crea**.
 
-   ![Abilita criterio](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)
+   ![Abilita criteri](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)

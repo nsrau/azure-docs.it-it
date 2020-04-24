@@ -35,7 +35,7 @@ No. L'assistenza è limitata solo alle versioni dei sistemi operativi Windows el
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Quanti endpoint client VPN possono esistere nella configurazione da punto sito?
 
-La quantità di endpoint client VPN dipende dal protocollo e dallo sku del gateway.
+La quantità di endpoint client VPN dipende dallo SKU e dal protocollo del gateway.
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>È possibile usare la CA radice della PKI interna per la connettività da punto a sito?

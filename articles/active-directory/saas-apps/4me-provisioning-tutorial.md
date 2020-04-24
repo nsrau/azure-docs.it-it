@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Configurare 4me per il provisioning automatico degli utenti con Azure Active Directory . Documenti Microsoft'
-description: Informazioni su come configurare Azure Active Directory per il provisioning e il deprovisioning automatico degli account utente a 4me.Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to 4me.
+title: 'Esercitazione: configurare 4me per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in 4me.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -22,9 +22,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77059167"
 ---
-# <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Esercitazione: Configurare 4me per il provisioning automatico degli utentiTutorial: Configure 4me for automatic user provisioning
+# <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Esercitazione: configurare 4me per il provisioning utenti automatico
 
-L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in 4me e Azure Active Directory (Azure AD) per configurare Azure AD per il provisioning e il deprovisioning automatico di utenti e/o gruppi a 4me.The objective of this tutorial is to demonstrate the steps to be performed in 4me and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to 4me.
+Questa esercitazione descrive i passaggi da eseguire in 4me e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in 4me.
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -36,55 +36,55 @@ L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in 4me 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * Un tenant di Azure AD
-* [Un inquilino 4me](https://www.4me.com/trial/)
+* [Tenant di 4me](https://www.4me.com/trial/)
 * Un account utente in 4me con autorizzazioni di amministratore.
 
-## <a name="add-4me-from-the-gallery"></a>Aggiungi 4me dalla galleria
+## <a name="add-4me-from-the-gallery"></a>Aggiungere 4me dalla raccolta
 
-Prima di configurare 4me per il provisioning automatico degli utenti con Azure AD, è necessario aggiungere 4me dalla raccolta di applicazioni di Azure AD all'elenco delle applicazioni SaaS gestite.
+Prima di configurare 4me per il provisioning utenti automatico con Azure AD, è necessario aggiungere 4me dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
 
-**Per aggiungere 4me dalla raccolta di applicazioni di Azure AD, eseguire la procedura seguente:To add 4me from the Azure AD application gallery, perform the following steps:**
+**Per aggiungere 4me dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**nel riquadro di spostamento sinistro.
+1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali**, quindi selezionare Tutte **le applicazioni**.
+2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **4me**, selezionare **4me** nel riquadro dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **4me**, selezionare **4me** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![4me nell'elenco risultati](common/search-new-app.png)
 
-## <a name="assigning-users-to-4me"></a>Assegnazione di utenti a 4meAssigning users to 4me
+## <a name="assigning-users-to-4me"></a>Assegnazione di utenti a 4me
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare quali utenti devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning automatico degli utenti, vengono sincronizzati solo gli utenti e/o i gruppi assegnati a un'applicazione in Azure AD.
+Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning automatico degli utenti, è necessario decidere quali utenti e/o gruppi in Azure AD devono accedere a 4me. Una volta deciso, è possibile assegnare questi utenti e/o gruppi a 4me seguendo le istruzioni qui:
+Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a 4me. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a 4me seguendo le istruzioni riportate qui:
 
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-4me"></a>Suggerimenti importanti per l'assegnazione di utenti a 4me
 
-* È consigliabile assegnare un singolo utente di Azure AD a 4me per testare la configurazione del provisioning automatico degli utenti. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+* È consigliabile assegnare un singolo Azure AD utente a 4me per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-* Quando si assegna un utente a 4me, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido (se disponibile) nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** sono esclusi dal provisioning.
+* Quando si assegna un utente a 4me, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di **accesso predefinito** vengono esclusi dal provisioning.
 
-## <a name="configuring-automatic-user-provisioning-to-4me"></a>Configurazione del provisioning automatico degli utenti su 4me 
+## <a name="configuring-automatic-user-provisioning-to-4me"></a>Configurazione del provisioning utenti automatico in 4me 
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in 4me in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in 4ME in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È inoltre possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per 4me, seguendo le istruzioni fornite [nell'esercitazione sul single sign-on 4me](4me-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per 4me, seguendo le istruzioni fornite nell' [esercitazione su 4me Single Sign-on](4me-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
-### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Per configurare il provisioning automatico degli utenti per 4me in Azure AD:To configure automatic user provisioning for 4me in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Per configurare il provisioning utenti automatico per 4ME in Azure AD:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -92,29 +92,29 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
     ![Collegamento di 4me nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning.**
+3. Selezionare la scheda **provisioning** .
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare la **modalità di provisioning** su **Automatico**.
+4. Impostare la **modalità di provisioning** su **automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Per recuperare **l'URL tenant** e il token **segreto** dell'account 4me, seguire la procedura dettagliata descritta nel passaggio 6.
+5. Per recuperare l' **URL del tenant** e il **token segreto** dell'account 4me, seguire la procedura dettagliata descritta nel passaggio 6.
 
-6. Accedi alla tua 4me Admin Console. Passare a **Impostazioni**.
+6. Accedere a 4me Admin Console. Passare a **Impostazioni**.
 
     ![Impostazioni 4me](media/4me-provisioning-tutorial/4me01.png)
 
-    Digita **le app** nella barra di ricerca.
+    Digitare **app** nella barra di ricerca.
 
-    ![App 4me](media/4me-provisioning-tutorial/4me02.png)
+    ![app 4me](media/4me-provisioning-tutorial/4me02.png)
 
-    Aprire l'elenco a discesa **SCIM** per recuperare il token segreto e l'endpoint SCIM.
+    Aprire l'elenco a discesa **scim** per recuperare il token Secret e l'endpoint SCIM.
 
-    ![4me SCIM](media/4me-provisioning-tutorial/4me03.png)
+    ![SCIM 4me](media/4me-provisioning-tutorial/4me03.png)
 
-7. Al momento del popolamento dei campi illustrati nel passaggio 5, fare clic su Test connessione per verificare che Azure AD possa connettersi a 4me.Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to 4me. Se la connessione non riesce, verificare che l'account 4me disponga delle autorizzazioni di amministratore e riprovare.
+7. Quando si popolano i campi indicati nel passaggio 5, fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a 4me. Se la connessione non riesce, verificare che l'account 4me disponga delle autorizzazioni di amministratore e riprovare.
 
     ![token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -122,31 +122,31 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-9. Fare clic su **Salva**.
+9. Fare clic su **Save**.
 
-10. Nella sezione **Mapping** selezionare **Sincronizza utenti di Azure Active Directory con 4me.**
+10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a 4me**.
 
-    ![Mappature utente 4me](media/4me-provisioning-tutorial/4me-user-mapping.png)
+    ![Mapping utente 4me](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Esaminare gli attributi utente sincronizzati da Azure AD a 4me nella sezione **Mapping attributi.** Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare gli account utente in 4me per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi utente sincronizzati da Azure AD a 4me nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in 4me per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Mappature utente 4me](media/4me-provisioning-tutorial/4me-user-attributes.png)
+    ![Mapping utente 4me](media/4me-provisioning-tutorial/4me-user-attributes.png)
     
-12. Nella sezione **Mapping** selezionare Sincronizza gruppi di **Azure Active Directory con 4me.**
+12. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to 4me**.
 
-    ![Mappature utente 4me](media/4me-provisioning-tutorial/4me-group-mapping.png)
+    ![Mapping utente 4me](media/4me-provisioning-tutorial/4me-group-mapping.png)
     
-13. Esaminare gli attributi di gruppo sincronizzati da Azure AD a 4me nella sezione **Mapping attributi.** Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare i gruppi in 4me per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+13. Esaminare gli attributi di gruppo sincronizzati da Azure AD a 4me nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in 4me per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Mappature di gruppi 4me](media/4me-provisioning-tutorial/4me-group-attribute.png)
+    ![Mapping del gruppo 4me](media/4me-provisioning-tutorial/4me-group-attribute.png)
 
 14. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Per abilitare il servizio di provisioning di Azure AD per 4me, modificare lo stato di provisioning su Attivato nella sezione Impostazioni.To enable the Azure AD provisioning service for 4me, change the **Provisioning Status** to **On** in the **Settings** section.
+15. Per abilitare il servizio di provisioning Azure AD per 4me, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-16. Definire gli utenti e/o i gruppi di cui si desidera eseguire il provisioning in 4me scegliendo i valori desiderati in **Ambito** nella sezione **Impostazioni.**
+16. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in 4me selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -154,20 +154,20 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e seguire i collegamenti al report attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD in 4me.You can use the Synchronization Details section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on 4me.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su 4me.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
-* 4me ha diversi URL di endpoint SCIM per gli ambienti di test e produzione. Il primo termina con **.qa** mentre il secondo termina con **.com**
-* I token segreti generati da 4me hanno una data di scadenza di un mese dalla generazione.
-* 4me non supporta le operazioni **DELETE**
+* 4me ha URL di endpoint SCIM diversi per gli ambienti di test e di produzione. Il primo termina con **. QA** mentre quest'ultimo termina con **. com**
+* i token segreti generati da 4me hanno una data di scadenza di un mese dalla generazione.
+* 4me non supporta operazioni **Delete**
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

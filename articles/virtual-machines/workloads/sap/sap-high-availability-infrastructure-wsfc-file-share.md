@@ -1,5 +1,5 @@
 ---
-title: Infrastruttura di Azure per SAP ASCS/SCS HA con WSFC&condivisione file Documenti Microsoft
+title: Infrastruttura di Azure per la disponibilità elevata di SAP ASC/SCS con WSFC&condivisione file | Microsoft Docs
 description: Preparazione dell'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -252,21 +252,21 @@ Per preparare l'infrastruttura di Azure, completare la procedura seguente:
 
 * [Preparare l'infrastruttura per i modelli architetturali 1, 2 e 3][sap-high-availability-infrastructure-wsfc-shared-disk].
 
-* Creare una [rete virtuale di Azure.][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]
+* [Creare una rete virtuale di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
 
 * [Impostare gli indirizzi IP DNS necessari][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
 
-* [Impostare indirizzi IP statici per le macchine virtuali SAP.][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]
+* [Impostare indirizzi IP statici per le macchine virtuali SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
 
-* [Impostare un indirizzo IP statico per il servizio][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]di bilanciamento del carico interno di Azure.
+* [Impostare un indirizzo IP statico per il servizio di bilanciamento del carico interno di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
 
 * [Impostare delle regole di bilanciamento del carico predefinite di ASCS/SCS per il servizio di bilanciamento del carico interno di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
 
-* Modificare le regole di [bilanciamento del carico predefinite di ASCS/SCS per il servizio][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]di bilanciamento del carico interno di Azure.
+* [Modificare le regole di bilanciamento del carico predefinite di ASC/SCS per il servizio di bilanciamento del carico interno di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
 
 * [Aggiungere macchine virtuali Windows al dominio][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* [Aggiungere voci del Registro di sistema su entrambi i nodi del cluster dell'istanza SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+* [Aggiungere le voci del registro di sistema in entrambi i nodi del cluster dell'istanza di SAP ASC/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
 * Se si usa Windows Server 2016, è consigliabile configurare il [controllo cloud di Azure][deploy-cloud-witness].
 
@@ -324,7 +324,7 @@ Il modello di Azure Resource Manager per la distribuzione del file server di sca
 
 ![Figura 1: Schermata dell'interfaccia utente per il modello di Resource Manager del file server di scalabilità orizzontale con dischi gestiti][sap-ha-guide-figure-8010]
 
-_**Figura 1:** schermata dell'interfaccia utente per il modello di Resource Manager file server con scalabilità orizzontale con dischi gestiti_
+_**Figura 1**: schermata dell'interfaccia utente per file server di scalabilità orizzontale modello di gestione risorse con Managed Disks_
 
 Nel modello eseguire le operazioni seguenti:
 1. Nella casella **Conteggio macchine virtuali** inserire un numero minimo di **2**.
@@ -338,19 +338,19 @@ Il modello di Azure Resource Manager per la distribuzione del file server di sca
 
 ![Figura 2: Schermata dell'interfaccia utente per il modello di Azure Resource Manager del file server di scalabilità orizzontale con dischi gestiti][sap-ha-guide-figure-8011]
 
-_**Figura 2:** schermata dell'interfaccia utente per il modello di Azure Resource Manager di Azure File Server con scalabilità orizzontale senza dischi gestitiFigure 2: UI screen for the Scale-Out File Server Azure Resource Manager template without managed disks_
+_**Figura 2**: schermata dell'interfaccia utente per il modello di Azure Resource Manager file server di scalabilità orizzontale senza dischi gestiti_
 
 Nella casella **Tipo di account di archiviazione** selezionare **Archiviazione Premium**. Le altre impostazioni sono le stesse usate con i dischi gestiti.
 
-## <a name="adjust-cluster-timeout-settings"></a>Regolare le impostazioni di timeout del cluster
+## <a name="adjust-cluster-timeout-settings"></a>Modificare le impostazioni di timeout del cluster
 
-Dopo aver installato correttamente il cluster Windows Scale-Out File Server, adattare le soglie di timeout per il rilevamento del failover alle condizioni in Azure.After you successfully install the Windows Scale-Out File Server cluster, adapt timeout thresholds for failover detection to conditions in Azure. I parametri da modificare sono documentati nel blog [Tuning Failover Cluster Network Thresholds][tuning-failover-cluster-network-thresholds] (Definire le soglie di rete per il cluster di failover). Supponendo che le macchine virtuali in cluster si trovino nella stessa subnet, modificare i parametri seguenti in questi valori:Assuming that your clustered VMs are in the same subnet, change the following parameters to these values:
+Dopo aver installato correttamente il cluster di Windows File server di scalabilità orizzontale, adattare le soglie di timeout per il rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati nel blog [Tuning Failover Cluster Network Thresholds][tuning-failover-cluster-network-thresholds] (Definire le soglie di rete per il cluster di failover). Supponendo che le macchine virtuali in cluster si trovino nella stessa subnet, modificare i parametri seguenti in questi valori:
 
-- SameSubNetDelay - 2000
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
-- RoutingHistoryLength : 30
+- RoutingHistoryLength = 30
 
-Queste impostazioni sono state testate con i clienti e rappresentano un buon compromesso. Sono sufficientemente resilienti, ma forniscono anche un failover abbastanza veloce in condizioni di errore reali o in un errore di macchina virtuale.
+Queste impostazioni sono state testate con i clienti e rappresentano un buon compromesso. Sono sufficientemente resilienti, ma forniscono anche un failover sufficientemente rapido in condizioni di errore reale o errore della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

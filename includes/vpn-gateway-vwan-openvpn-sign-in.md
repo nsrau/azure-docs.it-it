@@ -15,10 +15,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471534"
 ---
-Nella pagina **VPN di Azure - Proprietà** configurare le impostazioni di accesso.
+Nella pagina **VPN di Azure-Proprietà** configurare le impostazioni di accesso.
 
-1. Impostare **Abilitato per l'accesso degli utenti?** su **Sì**. Questa impostazione consente a tutti gli utenti nel tenant di Active Directory di connettersi correttamente alla VPN.
-2. Impostare **Assegnazione utente obbligatoria?** su Sì se si vuole limitare l'accesso solo agli utenti che dispongono delle autorizzazioni per la VPN di Azure.Set User assignment required? to **Yes** if you want to limit sign-in to only users that have permissions to the Azure VPN.
+1. Impostare **abilitata per l'accesso degli utenti?** a **Sì**. Questa impostazione consente a tutti gli utenti nel tenant di Active Directory di connettersi alla VPN correttamente.
+2. Impostare **assegnazione utente obbligatoria?** su **Sì** se si vuole limitare l'accesso solo agli utenti che dispongono delle autorizzazioni per la VPN di Azure.
 3. Salvare le modifiche.
 
    ![Autorizzazioni](./media/vpn-gateway-vwan-openvpn-sign-in/user2.jpg)

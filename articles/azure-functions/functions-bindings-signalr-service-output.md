@@ -1,6 +1,6 @@
 ---
-title: Associazione di output del servizio SignalR di Funzioni di AzureAzure Functions SignalR Service output binding
-description: Informazioni su come inviare messaggi del servizio SignalR da Funzioni di Azure.Learn to send SignalR Service messages from Azure Functions.
+title: Binding di output del servizio SignalR di funzioni di Azure
+description: Informazioni su come inviare messaggi del servizio SignalR da funzioni di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/20/2020
@@ -12,22 +12,22 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77530250"
 ---
-# <a name="signalr-service-output-binding-for-azure-functions"></a>SignalR Service output binding for Azure Functions
+# <a name="signalr-service-output-binding-for-azure-functions"></a>Binding di output del servizio SignalR per funzioni di Azure
 
 Usare l'associazione di output *SignalR* per inviare uno o più messaggi con il servizio Azure SignalR. È possibile trasmettere un messaggio a:
 
 - Tutti i client connessi
-- Client connessi autenticati a un utente specificoConnected clients authenticated to a specific user
+- Client connessi autenticati per un utente specifico
 
 L'associazione di output consente inoltre di gestire i gruppi.
 
-Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-signalr-service.md).
+Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](functions-bindings-signalr-service.md).
 
 ## <a name="broadcast-to-all-clients"></a>Trasmettere a tutti i client
 
-Nell'esempio seguente viene illustrata una funzione che invia un messaggio usando l'associazione di output a tutti i client connessi. La *destinazione* è il nome del metodo da richiamare su ogni client. Il *Arguments* proprietà è una matrice di zero o più oggetti da passare al metodo client.
+Nell'esempio seguente viene illustrata una funzione che invia un messaggio utilizzando l'associazione di output a tutti i client connessi. La *destinazione* è il nome del metodo da richiamare in ogni client. La proprietà *arguments* è una matrice di zero o più oggetti da passare al metodo client.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -60,7 +60,7 @@ Function.json di esempio:
 }
 ```
 
-Di seguito è riportato il codice di script di C:Here's the C's Script code:
+Ecco il codice script C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -79,7 +79,7 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -155,9 +155,9 @@ public SignalRMessage sendMessage(
 
 ## <a name="send-to-a-user"></a>Inviare a un utente
 
-È possibile inviare un messaggio solo alle connessioni autenticate a un utente impostando *l'ID utente* nel messaggio SignalR.
+È possibile inviare un messaggio solo alle connessioni autenticate a un utente impostando l' *ID utente* nel messaggio SignalR.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -190,7 +190,7 @@ Function.json di esempio:
 }
 ```
 
-Di seguito è riportato il codice di script di C:Here's the C's Script code:
+Ecco il codice script C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -211,7 +211,7 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Function.json di esempio:
 
@@ -288,11 +288,11 @@ public SignalRMessage sendMessage(
 
 ---
 
-## <a name="send-to-a-group"></a>Inviare a un gruppo
+## <a name="send-to-a-group"></a>Invia a un gruppo
 
-È possibile inviare un messaggio solo alle connessioni aggiunte a un gruppo impostando il nome del *gruppo* nel messaggio SignalR.
+È possibile inviare un messaggio solo alle connessioni aggiunte a un gruppo impostando il *nome del gruppo* nel messaggio SignalR.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -325,7 +325,7 @@ Function.json di esempio:
 }
 ```
 
-Di seguito è riportato il codice di script di C:Here's the C's Script code:
+Ecco il codice script C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -346,7 +346,7 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Function.json di esempio:
 
@@ -425,9 +425,9 @@ public SignalRMessage sendMessage(
 
 ## <a name="group-management"></a>Gestione dei gruppi
 
-SignalR Service consente agli utenti di essere aggiunti ai gruppi. I messaggi possono quindi essere inviati a un gruppo. È possibile `SignalR` utilizzare l'associazione di output per gestire l'appartenenza al gruppo di un utente.
+Il servizio SignalR consente agli utenti di essere aggiunti ai gruppi. I messaggi possono quindi essere inviati a un gruppo. È possibile usare l' `SignalR` associazione di output per gestire l'appartenenza a un gruppo di un utente.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="add-user-to-a-group"></a>Aggiungere un utente a un gruppo
 
@@ -476,7 +476,7 @@ public static Task RemoveFromGroup(
 ```
 
 > [!NOTE]
-> Per ottenere l'associazione `ClaimsPrincipal` corretta, è necessario aver configurato le impostazioni di autenticazione in Funzioni di Azure.In order to get the correctly bound, you must have configured the authentication settings in Azure Functions.
+> Per ottenere il `ClaimsPrincipal` corretto binding, è necessario aver configurato le impostazioni di autenticazione in funzioni di Azure.
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
@@ -484,7 +484,7 @@ public static Task RemoveFromGroup(
 
 Nell'esempio seguente viene aggiunto un utente a un gruppo.
 
-Esempio *function.json*
+Esempio di *Function. JSON*
 
 ```json
 {
@@ -496,7 +496,7 @@ Esempio *function.json*
 }
 ```
 
-*Eseguire.csx*
+*Esegui. CSX*
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -522,7 +522,7 @@ public static Task Run(
 
 Nell'esempio seguente viene rimosso un utente da un gruppo.
 
-Esempio *function.json*
+Esempio di *Function. JSON*
 
 ```json
 {
@@ -534,7 +534,7 @@ Esempio *function.json*
 }
 ```
 
-*Eseguire.csx*
+*Esegui. CSX*
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -557,15 +557,15 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Per ottenere l'associazione `ClaimsPrincipal` corretta, è necessario aver configurato le impostazioni di autenticazione in Funzioni di Azure.In order to get the correctly bound, you must have configured the authentication settings in Azure Functions.
+> Per ottenere il `ClaimsPrincipal` corretto binding, è necessario aver configurato le impostazioni di autenticazione in funzioni di Azure.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ### <a name="add-user-to-a-group"></a>Aggiungere un utente a un gruppo
 
 Nell'esempio seguente viene aggiunto un utente a un gruppo.
 
-Esempio *function.json*
+Esempio di *Function. JSON*
 
 ```json
 {
@@ -593,7 +593,7 @@ module.exports = async function (context, req) {
 
 Nell'esempio seguente viene rimosso un utente da un gruppo.
 
-Esempio *function.json*
+Esempio di *Function. JSON*
 
 ```json
 {
@@ -623,7 +623,7 @@ module.exports = async function (context, req) {
 
 Nell'esempio seguente viene aggiunto un utente a un gruppo.
 
-Esempio *function.json*
+Esempio di *Function. JSON*
 
 ```json
 {
@@ -635,7 +635,7 @@ Esempio *function.json*
 }
 ```
 
-*\_\_init.py__*
+*\_\_init. py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -650,7 +650,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 
 Nell'esempio seguente viene rimosso un utente da un gruppo.
 
-Esempio *function.json*
+Esempio di *Function. JSON*
 
 ```json
 {
@@ -662,7 +662,7 @@ Esempio *function.json*
 }
 ```
 
-*\_\_init.py__*
+*\_\_init. py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -725,31 +725,31 @@ public SignalRGroupAction removeFromGroup(
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `SignalRConnectionInfo` .
+La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `SignalRConnectionInfo` attributo.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type**| n/d | Il valore deve essere impostato su `signalRConnectionInfo`.|
-|**direction**| n/d | Il valore deve essere impostato su `in`.|
+|**direzione**| n/d | Il valore deve essere impostato su `in`.|
 |**name**| n/d | Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
-|**hubName (nomehub)**|**NomeHubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
-|**Userid**|**UserId**| Facoltativo: valore dell'attestazione dell'identificatore utente da impostare nel token della chiave di accesso. |
-|**connectionStringSetting (Impostazione connessione Stringa)**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
+|**hubName**|**HubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
+|**userId**|**UserId**| Facoltativo: valore dell'attestazione dell'identificatore utente da impostare nel token della chiave di accesso. |
+|**connectionStringSetting**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR
 
-Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `SignalR` .
+La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `SignalR` attributo.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type**| n/d | Il valore deve essere impostato su `signalR`.|
-|**direction**| n/d | Il valore deve essere impostato su `out`.|
+|**direzione**| n/d | Il valore deve essere impostato su `out`.|
 |**name**| n/d | Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
-|**hubName (nomehub)**|**NomeHubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
-|**connectionStringSetting (Impostazione connessione Stringa)**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
+|**hubName**|**HubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
+|**connectionStringSetting**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Restituire l'URL dell'endpoint del servizio e il token di accesso (associazione di input)Return the service endpoint URL and access token (Input binding)](./functions-bindings-signalr-service-input.md)
+- [Restituire l'URL dell'endpoint del servizio e il token di accesso (associazione di input)](./functions-bindings-signalr-service-input.md)

@@ -15,66 +15,66 @@ ms.locfileid: "77671631"
 ---
 # <a name="configure-application-insights-profiler"></a>Configura Application Insights Profiler
 
-## <a name="updated-profiler-agent"></a>Agente profiler aggiornato
-Le funzionalità di trigger funzionano solo con la versione 2.6 o successiva dell'agente del profiler. Se si esegue un servizio app di Azure, l'agente verrà aggiornato automaticamente. È possibile visualizzare la versione dell'agente in esecuzione se si passa all'URL di Kudu per il https://yourwebsite.scm.azurewebsites.net/diagnosticservicessito Web e si aggiunge l'opzione .DiagnosticServices alla fine, in questo modo: . Il processo Web di Application Insights Profiler deve essere versione 2.6 o successiva. È possibile forzare un aggiornamento riavviando l'app Web. 
+## <a name="updated-profiler-agent"></a>Agente Profiler aggiornato
+Le funzionalità del trigger funzionano solo con la versione 2,6 o una versione successiva dell'agente del profiler. Se si esegue un servizio app Azure, l'agente verrà aggiornato automaticamente. È possibile visualizzare la versione dell'agente in esecuzione se si passa all'URL Kudu per il sito Web e si aggiunge \DiagnosticServices alla fine, come segue: https://yourwebsite.scm.azurewebsites.net/diagnosticservices. Il Application Insights Profiler processo Web dovrebbe essere 2,6 o versione successiva. È possibile forzare un aggiornamento riavviando l'app Web. 
 
-Se si esegue il profiler in una macchina virtuale o un servizio cloud, è necessario che sia installata l'estensione di Diagnostica di Windows Azure (WAD) versione 16.0.4 o successiva. È possibile controllare la versione di WAD accedendo alla macchina virtuale e cercando questa directory: C: Il nome della directory è la versione di WAD installata. L'agente di macchine virtuali di Azure aggiornerà automaticamente WAD quando saranno disponibili nuove versioni.
+Se il profiler viene eseguito in una macchina virtuale o in un servizio cloud, è necessario che sia installata la versione 16.0.4 di Windows Diagnostica di Azure (WAD) o versione successiva. È possibile controllare la versione di WAD eseguendo l'accesso alla macchina virtuale e cercando la directory seguente: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. Il nome della directory è la versione di WAD installata. L'agente di macchine virtuali di Azure aggiornerà automaticamente WAD quando saranno disponibili nuove versioni.
 
-## <a name="profiler-settings-page"></a>Pagina Impostazioni profiler
+## <a name="profiler-settings-page"></a>Pagina delle impostazioni del profiler
 
-Per aprire il riquadro delle impostazioni di Azure Application Insights Profiler, passare al riquadro Prestazioni di Application Insights e quindi selezionare il **pulsante Configura Profiler.To** open the Azure Application Insights Profiler pane, go to the Application Insights Performance pane, and then select the Configure Profiler button.
+Per aprire il riquadro impostazioni del profiler di applicazione Azure Insights, passare al riquadro prestazioni Application Insights e quindi selezionare il pulsante **Configura Profiler** .
 
-![Collegamento alla pagina delle impostazioni del profiler][configure-profiler-entry]
+![Collegamento per aprire la pagina delle impostazioni del profiler][configure-profiler-entry]
 
-Si apre una pagina simile alla seguente:
+Verrà visualizzata una pagina simile alla seguente:
 
-![Pagina Impostazioni profiler][configure-profiler-page]
+![Pagina delle impostazioni del profiler][configure-profiler-page]
 
-Nella pagina Configura Application Insights Profiler sono disponibili le funzionalità seguenti:The **Configure Application Insights Profiler** page has these features:
+La pagina **configura Application Insights Profiler** presenta le seguenti funzionalità:
 
 | | |
 |-|-|
 Profilo ora | avvia sessioni di profilatura sessioni per tutte le app collegate a questa istanza di Application Insights.
-Trigger | Consente di configurare i trigger che causano l'esecuzione del profiler. 
+Trigger | Consente di configurare i trigger che provocano l'esecuzione del profiler. 
 Sessioni di profilatura recenti | visualizza informazioni sulle ultime sessioni di profilatura.
 
 ## <a name="profile-now"></a>Profilo ora
-Questa opzione consente di avviare una sessione di profilatura su richiesta. Quando si fa clic su questo collegamento, tutti gli agenti del profiler che inviano dati a questa istanza di Application Insights inizieranno ad acquisire un profilo. Dopo 5-10 minuti, la sessione del profilo verrà visualizzata nell'elenco sottostante.
+Questa opzione consente di avviare una sessione di profilatura su richiesta. Quando si fa clic su questo collegamento, tutti gli agenti del profiler che inviano dati a questa istanza di Application Insights avvierà l'acquisizione di un profilo. Da 5 a 10 minuti, la sessione del profilo viene visualizzata nell'elenco seguente.
 
-Affinché un utente attivi manualmente una sessione del profiler, è necessario almeno l'accesso "scrittura" al proprio ruolo per il componente Application Insights.For a user to manually trigger a profiler session, they require at minimum "write" access on their role for the Application Insights component. Nella maggior parte dei casi, si ottiene questo accesso automaticamente e non è necessario alcun lavoro aggiuntivo. In caso di problemi, il ruolo dell'ambito della sottoscrizione da aggiungere sarà il ruolo "Collaboratore componente di Application Insights". Per altre informazioni sul controllo degli accessi ai [ruoli, vedere Monitoraggio di Azure .See more about role access control with Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+Per attivare manualmente una sessione del profiler, un utente richiede almeno l'accesso "Write" per il proprio ruolo per il componente Application Insights. Nella maggior parte dei casi, questo accesso viene eseguito automaticamente e non è necessario alcun lavoro aggiuntivo. In caso di problemi, il ruolo ambito della sottoscrizione da aggiungere sarà il ruolo "Application Insights collaboratore componente". [Vedere altre informazioni sul controllo di accesso ai ruoli con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
-## <a name="trigger-settings"></a>Impostazioni trigger
+## <a name="trigger-settings"></a>Impostazioni del trigger
 ![Riquadro a comparsa Impostazioni trigger][trigger-settings-flyout]
 
-Facendo clic sul pulsante Trigger sulla barra dei menu si apre la casella delle impostazioni del trigger. È possibile impostare il trigger per avviare la profilatura quando la percentuale di utilizzo della CPU o della memoria raggiunge il livello impostato.
+Facendo clic sul pulsante trigger sulla barra dei menu si apre la casella impostazioni trigger. È possibile configurare il trigger per avviare la profilatura quando la percentuale di utilizzo della CPU o della memoria raggiunge il livello impostato.
 
 | | |
 |-|-|
-Pulsante On/Off | On: il profiler può essere avviato da questo trigger; Disattivato: il profiler non verrà avviato da questo trigger.
-Soglia memoria | Quando questa percentuale di memoria è in uso, il profiler verrà avviato.
-Duration | Imposta il periodo di tempo per cui il profiler verrà eseguito quando viene attivato.
-Cooldown | Imposta il tempo di attesa del profiler prima di controllare nuovamente l'utilizzo della memoria o della CPU dopo l'attivazione.
+Pulsante attiva/disattiva | On: Profiler può essere avviato da questo trigger. Disattivato: il profiler non verrà avviato da questo trigger.
+Soglia memoria | Quando questa percentuale di memoria è in uso, il Profiler verrà avviato.
+Durata | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
+Cooldown | Imposta il tempo di attesa del profiler prima di verificare l'utilizzo della memoria o della CPU dopo che è stato attivato.
 
 ## <a name="recent-profiling-sessions"></a>Sessioni di profilatura recenti
-Questa sezione della pagina mostra informazioni sulle sessioni di profilatura recenti. Una sessione di profilatura rappresenta il periodo di tempo in cui l'agente profiler stava assumendo un profilo su uno dei computer che ospitano l'applicazione. È possibile aprire i profili da una sessione facendo clic su una delle righe. Per ogni sessione, mostriamo:
+Questa sezione della pagina Mostra informazioni sulle sessioni di profilatura recenti. Una sessione di profilatura rappresenta il periodo di tempo durante il quale l'agente del profiler sta prendendo un profilo in uno dei computer che ospitano l'applicazione. È possibile aprire i profili da una sessione facendo clic su una delle righe. Per ogni sessione, viene illustrato quanto segue:
 
 | | |
 |-|-|
-Attivato da | Modalità di avvio della sessione, tramite trigger, profilo ora o campionamento predefinito. 
+Attivato da | Come è stata avviata la sessione, da un trigger, da un profilo ora o da un campionamento predefinito. 
 Nome app | Nome dell'applicazione profilata.
-Istanza macchina | Nome del computer su cui è stato eseguito l'agente profiler.
-Timestamp | Ora in cui il profilo è stato acquisito.
-Traccia | Numero di tracce collegate a singole richieste.
+Istanza del computer | Nome del computer in cui è stato eseguito l'agente del profiler.
+Timestamp | Ora di acquisizione del profilo.
+Tracee | Numero di tracce associate a singole richieste.
 % CPU | Percentuale di CPU utilizzata durante l'esecuzione del profiler.
-% memoria | Percentuale di memoria utilizzata durante l'esecuzione del profiler.
+Memoria | Percentuale di memoria utilizzata durante l'esecuzione del profiler.
 
-## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a>Usare i test delle prestazioni Web per generare traffico per l'applicazioneUse web performance tests to generate traffic to your application
+## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a>Usare i test delle prestazioni Web per generare il traffico all'applicazione
 
-È possibile attivare il Profiler manualmente con un solo clic. Si supponga di eseguire un test delle prestazioni Web. Sono necessarie tracce per comprendere in che modo l'app Web viene eseguita sotto carico. Il controllo sul momento in cui le tracce vengono acquisite è fondamentale poiché l'utente conosce il momento in cui il test di carico viene eseguito, ma l'intervallo di campionamento casuale potrebbe non rilevarlo.
+È possibile attivare il Profiler manualmente con un solo clic. Si supponga di eseguire un test delle prestazioni Web. Sono necessarie tracce per comprendere in che modo l'app Web è in esecuzione in condizioni di carico. Il controllo sul momento in cui le tracce vengono acquisite è fondamentale poiché l'utente conosce il momento in cui il test di carico viene eseguito, ma l'intervallo di campionamento casuale potrebbe non rilevarlo.
 
 Le sezioni seguenti illustrano il funzionamento di questo scenario:
 
-### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Passaggio 1: Generare traffico nell'app Web avviando un test delle prestazioni WebStep 1: Generate traffic to your web app by starting a web performance test
+### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Passaggio 1: generare il traffico all'app Web avviando un test delle prestazioni Web
 
 Se l'app Web include già il traffico in ingresso o se si desidera solo generare manualmente il traffico, ignorare questa sezione e procedere al passaggio 2.
 
@@ -94,7 +94,7 @@ Se l'app Web include già il traffico in ingresso o se si desidera solo generare
 
     ![Test di carico in esecuzione e in corso][load-test-in-progress]
 
-### <a name="step-2-start-a-profiler-on-demand-session"></a>Passaggio 2: Avviare una sessione di profiler su richiestaStep 2: Start a Profiler on-demand session
+### <a name="step-2-start-a-profiler-on-demand-session"></a>Passaggio 2: avviare una sessione su richiesta del profiler
 
 1. Quando il test è in esecuzione, avviare Profiler per acquisire tracce nell'app Web durante la ricezione del carico.
 

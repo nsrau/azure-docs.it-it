@@ -1,6 +1,6 @@
 ---
-title: Usare il dashboard per un lab della classe in Azure Lab Services. Documenti Microsoft
-description: Informazioni su come usare il dashboard per un lab della classe in Azure Lab Services.Learn how to use dashboard for a classroom lab in Azure Lab Services.
+title: Usare il dashboard per un Lab della classe in Azure Lab Services | Microsoft Docs
+description: Informazioni su come usare il dashboard per un Lab della classe in Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -20,53 +20,53 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77538941"
 ---
-# <a name="dashboard-for-classroom-labs"></a>Dashboard per i laboratori in aula
-Questo articolo descrive la visualizzazione dashboard di un lab della classe in Azure Lab Services.This article describes the dashboard view of a classroom lab in Azure Lab Services. 
+# <a name="dashboard-for-classroom-labs"></a>Dashboard per laboratori in aula
+Questo articolo descrive la visualizzazione dashboard di un Lab della classe in Azure Lab Services. 
 
 ![Dashboard](../media/use-dashboard/dashboard.png)
 
-## <a name="costs-and-billing-tile"></a>Riquadro Costi e fatturazione
-Questo riquadro fornisce i seguenti dettagli di stima dei costi:
+## <a name="costs-and-billing-tile"></a>Riquadro costi e fatturazione
+Questo riquadro fornisce i dettagli di stima dei costi seguenti:
 
-| Impostazione | valore | 
+| Impostazione | Valore | 
 | ------- | ----- | 
-| Ore di quota | Numero massimo di ore in cui un utente può usare la macchina virtuale al di fuori delle ore pianificate. |
-| Ore pianificate | Ore che verranno sostenute in base alla pianificazione impostata nel lab. Questo valore è disponibile solo se è presente un da/per data impostato su tutti gli eventi di pianificazione. |
+| Ore quota | Numero massimo di ore in cui un utente può usare la VM al di fuori delle ore pianificate. |
+| Ore pianificate | Ore che verranno ricorrete in base alla pianificazione impostata nel Lab. Questo valore è disponibile solo se è presente una data da/a impostata su tutti gli eventi di pianificazione. |
 | Ore/utente | Somma delle ore di quota e delle ore pianificate. |
-| Numero massimo di utenti | Numero massimo di utenti nel lab in base a tutte le macchine virtuali da rivendicare. |
+| Numero massimo utenti | Numero massimo di utenti nel Lab in base a tutte le macchine virtuali da richiedere. |
 | Ore x utenti | Ore/utente moltiplicato per il numero di utenti. |
-| Quota rettificata | Somma delle ore di quota aggiunte a utenti specifici. |
-| Ore totali : /ora | Il costo orario in base alle dimensioni della macchina virtuale selezionata. Questo si basa sulla paga regolare come si va prezzo. |
-| Costo totale stimato | Questo è il prezzo massimo per questo lab in base alle impostazioni correnti. |
+| Quota regolata | Somma delle ore di quota aggiunte a utenti specifici. |
+| Ore totali * $/ora | Costo per ora in base alle dimensioni della macchina virtuale selezionata. Questo è basato sul prezzo normale con pagamento in base al consumo. |
+| Costo stimato totale | Questo è il prezzo massimo per questo Lab in base alle impostazioni correnti. |
 
-## <a name="template-tile"></a>Riquadro del modello
-In questo riquadro vengono visualizzate le informazioni seguenti:You see the following information on this tile:
+## <a name="template-tile"></a>Riquadro modello
+In questo riquadro vengono visualizzate le informazioni seguenti:
 
 - Data di creazione del modello 
 - Data dell'ultima pubblicazione del modello 
 
-Ha anche un collegamento per passare alla pagina **modello** in cui è possibile [gestire la macchina virtuale del modello](how-to-create-manage-template.md) per la classe. 
+Contiene anche un collegamento per passare alla pagina del **modello** in cui è possibile [gestire la macchina virtuale modello](how-to-create-manage-template.md) per la classe. 
 
-## <a name="virtual-machine-pool-tile"></a>Riquadro del pool di macchine virtualiVirtual machine Pool tile
+## <a name="virtual-machine-pool-tile"></a>Riquadro pool di macchine virtuali
 
-In questo riquadro vengono visualizzate le informazioni seguenti:You see the following information on this tile:
+In questo riquadro vengono visualizzate le informazioni seguenti:
 
-- Numero di macchine virtuali assegnate agli studenti (utenti)
-- Numero di macchine virtuali non ancora assegnate agli studenti
+- Numero di macchine virtuali assegnate a studenti (utenti)
+- Numero di macchine virtuali che non sono ancora state assegnate agli studenti
 
-Include inoltre un collegamento per passare alla pagina **Pool di macchine virtuali** in cui è possibile gestire il pool di macchine [virtuali](how-to-set-virtual-machine-passwords.md) nel lab. 
+Include anche un collegamento per passare alla pagina del **pool** di macchine virtuali in cui è possibile [gestire il pool di macchine virtuali](how-to-set-virtual-machine-passwords.md) nel Lab. 
 
-## <a name="users-tile"></a>Riquadro Utenti
+## <a name="users-tile"></a>Riquadro utenti
 
-In questo riquadro vengono visualizzate le informazioni seguenti:You see the following information on this tile:
+In questo riquadro vengono visualizzate le informazioni seguenti:
 
 - Numero di utenti registrati alla classe
-- Numero di utenti aggiunti al lab ma non registrati nella classe 
+- Numero di utenti aggiunti al Lab ma non registrati alla classe 
 
-Dispone inoltre di un collegamento per passare alla pagina **Utenti** in cui è possibile [gestire gli utenti](how-to-configure-student-usage.md) per il lab. 
+Include anche un collegamento per passare alla pagina **utenti** in cui è possibile [gestire gli utenti](how-to-configure-student-usage.md) per il Lab. 
 
-## <a name="schedules-tile"></a>Riquadro Pianificazioni
-Vengono visualizzati gli eventi pianificati correnti per il lab nel riquadro. Ha anche un link per passare alla pagina **Pianificazione** in cui è possibile [creare e gestire le pianificazioni.](how-to-create-schedules.md) Il riquadro mostra i dettagli solo per due eventi pianificati e il numero di eventi pianificati rimanenti per il lab. 
+## <a name="schedules-tile"></a>Riquadro pianificazioni
+Gli eventi pianificati correnti per il Lab sono visualizzati nel riquadro. Include anche un collegamento per passare alla pagina di **pianificazione** in cui è possibile [creare e gestire le pianificazioni](how-to-create-schedules.md). Il riquadro Mostra i dettagli per solo due eventi pianificati e il numero di eventi pianificati rimanenti per il Lab. 
 
 ![Eventi pianificati](../media/use-dashboard/scheduled-events.png)
 

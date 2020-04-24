@@ -10,7 +10,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594261"
 ---
-In una shell basata su bash su Linux, [Windows Subsystem per Linux][install-wsl] o MacOS, utilizzare `curl` per scaricare la versione del grafico Consul Helm come segue:
+In una shell basata su bash in Linux, [sottosistema Windows per Linux][install-wsl] o MacOS, usare `curl` per scaricare il rilascio del grafico Helm console come indicato di seguito:
 
 ```bash
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions

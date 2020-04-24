@@ -1,6 +1,6 @@
 ---
-title: Configurare la regola limite di frequenza WAF per Front Door - Azure PowerShellConfigure WAF rate limit rule for Front Door - Azure PowerShell
-description: Informazioni su come configurare una regola di limite di frequenza per un endpoint Front Door esistente.
+title: Configurare la regola limite di velocità WAF per sportello anteriore-Azure PowerShell
+description: Informazioni su come configurare una regola per il limite di velocità per un endpoint della porta anteriore esistente.
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
@@ -14,25 +14,25 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77649365"
 ---
-# <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurare una regola di limite di frequenza di Web Application Firewall tramite Azure PowerShellConfigure a Web Application Firewall rate limit rule using Azure PowerShell
-La regola del limite di frequenza WAF (Web Application Firewall) di Azure per la porta anteriore di Azure controlla il numero di richieste consentite dai client durante una durata di un minuto.
-Questo articolo illustra come configurare una regola di limite di frequenza WAF che controlla il numero di richieste consentite dai client a un'applicazione Web che contiene /promo nell'URL usando Azure PowerShell.This article shows how to configure a WAF rate limit rule that controlla the number of requests allowed from clients to a web application that contains */promo* in the URL using Azure PowerShell.
+# <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurare una regola di limitazione della frequenza del firewall applicazione Web usando Azure PowerShell
+La regola relativa al limite di velocità del firewall applicazione Web di Azure (WAF) per la porta anteriore di Azure controlla il numero di richieste consentite dai client durante una durata di un minuto.
+Questo articolo illustra come configurare una regola di limitazione della velocità WAF che controlla il numero di richieste consentite dai client a un'applicazione Web che contiene */promo* nell'URL usando Azure PowerShell.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare a configurare un criterio di limite di frequenza, configurare l'ambiente PowerShell e creare un profilo Front Door.
+Prima di iniziare a configurare un criterio di limite di velocità, configurare l'ambiente di PowerShell e creare un profilo di sportello anteriore.
 ### <a name="set-up-your-powershell-environment"></a>Configurare l'ambiente PowerShell
 Azure PowerShell offre un set di cmdlet che usano il modello [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per la gestione delle risorse di Azure. 
 
-È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere con le credenziali di Azure e installare il modulo Az PowerShell.Follow the instructions on the page, to sign in with your Azure credentials, and install Az PowerShell module.
+È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere con le credenziali di Azure e installare il modulo AZ PowerShell.
 
-#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Connettersi ad Azure con una finestra di dialogo interattiva per l'accessoConnect to Azure with an interactive dialog for sign in
+#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Connettersi ad Azure con una finestra di dialogo interattiva per l'accesso
 ```
 Connect-AzAccount
 
 ```
-Prima di installare il modulo Front Door, assicurarsi che sia installata la versione corrente di PowerShellGet. Eseguire il comando seguente e riaprire PowerShell.Run the following command and reopen PowerShell.
+Prima di installare il modulo front door, verificare che sia installata la versione corrente di PowerShellGet. Eseguire il comando seguente e riaprire PowerShell.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber
@@ -44,11 +44,11 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 ### <a name="create-a-front-door-profile"></a>Creare un profilo Frontdoor
-Creare un profilo Della porta anteriore seguendo le istruzioni descritte in [Guida introduttiva: Creare un profilo Porta frontale](../../frontdoor/quickstart-create-front-door.md)
+Creare un profilo di porta anteriore seguendo le istruzioni descritte nella [Guida introduttiva: creare un profilo di sportello anteriore](../../frontdoor/quickstart-create-front-door.md)
 
-## <a name="define-url-match-conditions"></a>Definire le condizioni di corrispondenza degli URL
-Definire una condizione di corrispondenza URL (URL contiene /promo) utilizzando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
-L'esempio seguente corrisponde *a /promo* come valore della variabile *RequestUri:*
+## <a name="define-url-match-conditions"></a>Definire le condizioni di corrispondenza URL
+Definire una condizione di corrispondenza URL (l'URL contiene/promo) usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
+L'esempio seguente corrisponde a */promo* come valore della variabile *requestUri* :
 
 ```powershell-interactive
    $promoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -56,8 +56,8 @@ L'esempio seguente corrisponde *a /promo* come valore della variabile *RequestUr
      -OperatorProperty Contains `
      -MatchValue "/promo"
 ```
-## <a name="create-a-custom-rate-limit-rule"></a>Creare una regola di limite di frequenza personalizzataCreate a custom rate limit rule
-Impostare un limite di frequenza utilizzando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). Nell'esempio seguente, il limite è impostato su 1000.In the following example, the limit is set to 1000. Le richieste da qualsiasi client alla pagina promo superiore a 1000 durante un minuto vengono bloccate fino all'inizio del minuto successivo.
+## <a name="create-a-custom-rate-limit-rule"></a>Creare una regola per il limite di velocità personalizzato
+Impostare un limite di velocità utilizzando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). Nell'esempio seguente il limite è impostato su 1000. Le richieste da qualsiasi client alla pagina promo che superano 1000 durante un minuto vengono bloccate fino all'avvio del minuto successivo.
 
 ```powershell-interactive
    $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
@@ -71,9 +71,9 @@ Impostare un limite di frequenza utilizzando [New-AzFrontDoorWafCustomRuleObject
 
 ## <a name="configure-a-security-policy"></a>Configurare un criterio di sicurezza
 
-Individuare il nome del gruppo di risorse contenente il profilo Frontdoor usando `Get-AzureRmResourceGroup`. Configurare quindi un criterio di protezione con una regola di limite di frequenza personalizzata utilizzando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) nel gruppo di risorse specificato che contiene il profilo Front Door.
+Individuare il nome del gruppo di risorse contenente il profilo Frontdoor usando `Get-AzureRmResourceGroup`. Configurare quindi un criterio di sicurezza con una regola di limitazione della frequenza personalizzata usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) nel gruppo di risorse specificato che contiene il profilo di porta anteriore.
 
-Nell'esempio seguente viene utilizzato il nome *myResourceGroupFD1* del gruppo di risorse con l'presupposto che sia stato creato il profilo Front Door utilizzando le istruzioni fornite nell'articolo [Guida introduttiva: Creare una porta](../../frontdoor/quickstart-create-front-door.md) frontale.
+Nell'esempio seguente viene usato il nome del gruppo di risorse *myResourceGroupFD1* , supponendo che sia stato creato il profilo di porta anteriore usando le istruzioni fornite nell'articolo [introduttivo: creare una porta anteriore](../../frontdoor/quickstart-create-front-door.md) .
 
  utilizzando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
@@ -85,11 +85,11 @@ Nell'esempio seguente viene utilizzato il nome *myResourceGroupFD1* del gruppo d
      -Mode Prevention `
      -EnabledState Enabled
 ```
-## <a name="link-policy-to-a-front-door-front-end-host"></a>Collegare i criteri a un host front-end Front Door anteriore
-Collegare l'oggetto criterio di protezione a un host front-end Front Door esistente e aggiornare le proprietà di Front Door. Recuperare innanzitutto l'oggetto Porta anteriore utilizzando il comando [Get-AzFrontDoor.](/powershell/module/Az.FrontDoor/Get-AzFrontDoor)
-Impostare quindi la proprietà *front-end WebApplicationFirewallPolicyLink* sull'ID *risorsa* del "$ratePolicy" creato nel passaggio precedente utilizzando il comando [Set-AzFrontDoor.](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) 
+## <a name="link-policy-to-a-front-door-front-end-host"></a>Collegare i criteri a un host front-end front-end
+Collegare l'oggetto Criteri di sicurezza a un host front-end della porta anteriore esistente e aggiornare le proprietà della porta anteriore. Recuperare prima l'oggetto porta anteriore usando il comando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor) .
+Impostare quindi la proprietà front-end *WebApplicationFirewallPolicyLink* su *resourceId* di "$ratePolicy" creato nel passaggio precedente usando il comando [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) . 
 
-Nell'esempio seguente viene utilizzato il nome *myResourceGroupFD1* del gruppo di risorse con l'presupposto che sia stato creato il profilo Front Door utilizzando le istruzioni fornite nell'articolo [Guida introduttiva: Creare una porta](../../frontdoor/quickstart-create-front-door.md) frontale. Inoltre, nell'esempio seguente, sostituire $frontDoorName con il nome del profilo Front Door. 
+Nell'esempio seguente viene usato il nome del gruppo di risorse *myResourceGroupFD1* , supponendo che sia stato creato il profilo di porta anteriore usando le istruzioni fornite nell'articolo [introduttivo: creare una porta anteriore](../../frontdoor/quickstart-create-front-door.md) . Nell'esempio seguente, inoltre, sostituire $frontDoorName con il nome del profilo della porta anteriore. 
 
 ```powershell-interactive
    $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -100,10 +100,10 @@ Nell'esempio seguente viene utilizzato il nome *myResourceGroupFD1* del gruppo d
  ```
 
 > [!NOTE]
-> È sufficiente impostare la proprietà *WebApplicationFirewallPolicyLink* una sola volta per collegare un criterio di sicurezza a un front-end Front Door. Gli aggiornamenti dei criteri successivi vengono applicati automaticamente al front-end.
+> È necessario impostare la proprietà *WebApplicationFirewallPolicyLink* una sola volta per collegare un criterio di sicurezza a un front-end di sportello anteriore. Gli aggiornamenti dei criteri successivi vengono applicati automaticamente al front-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ulteriori informazioni su [Front Door](../../frontdoor/front-door-overview.md). 
+- Altre informazioni su [sportello anteriore](../../frontdoor/front-door-overview.md). 
 
 

@@ -15,4 +15,4 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "76279270"
 ---
 > [!IMPORTANT]
-> L'anteprima 2 del runtime di Funzioni di Azure supporta solo la versione 1.x del runtime di Funzioni di Azure.The Azure Functions Runtime preview 2 supports only version 1.x of the Azure Functions Runtime runtime. Questa funzionalità di anteprima non viene aggiornata per supportare la versione 2.x e successiva del runtime e non sono previsti aggiornamenti futuri. Se è necessario ospitare il runtime di Funzioni di Azure all'esterno di Azure, è consigliabile usare Funzioni di [Azure in Kubernetes con KEDA](../articles/azure-functions/functions-kubernetes-keda.md)
+> Il runtime di Funzioni di Azure Preview 2 supporta solo la versione 1. x del runtime di funzioni di Azure. Questa funzionalità di anteprima non viene aggiornata per supportare la versione 2. x e successive del runtime e non sono previsti aggiornamenti futuri. Se è necessario ospitare il runtime di funzioni di Azure all'esterno di Azure, è consigliabile [usare funzioni di Azure in Kubernetes con Keda](../articles/azure-functions/functions-kubernetes-keda.md)

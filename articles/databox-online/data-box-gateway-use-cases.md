@@ -1,5 +1,5 @@
 ---
-title: Casi d'uso di Gateway data Box di Microsoft Azure Documenti Microsoft
+title: Casi d'uso di Microsoft Azure Data Box Gateway | Microsoft Docs
 description: Descrive i casi d'uso per Azure Data Box Gateway, una soluzione di archiviazione di appliance virtuale che consente di trasferire dati in Azure
 services: databox
 author: alkohli
@@ -44,10 +44,10 @@ che è ottimizzato per archiviare i dati a cui si accede di rado per almeno 180 
 
 ### <a name="move-data-to-archive-tier"></a>Spostare i dati nel livello di archiviazione archivio
 
-Prima di iniziare, verificare di avere un dispositivo Data Box Gateway funzionante. Seguire i passaggi descritti in [Esercitazione: Preparare la distribuzione](data-box-gateway-deploy-prep.md) di Gateway casella dati di Azure e continuare a passare all'esercitazione successiva fino a ottenere un dispositivo operativo.
+Prima di iniziare, verificare di avere un dispositivo Data Box Gateway funzionante. Seguire i passaggi descritti in [esercitazione: preparare la distribuzione di Azure Data Box gateway](data-box-gateway-deploy-prep.md) e continuare con l'esercitazione successiva fino a quando non si dispone di un dispositivo operativo.
 
 - Usare il dispositivo Data Box Gateway per caricare i dati in Azure tramite la consueta procedura di trasferimento, come descritto in [Esercitazione: Trasferire i dati con Azure Data Box Gateway](data-box-gateway-deploy-add-shares.md).
-- Dopo aver caricato i dati, sarà necessario spostarli nel livello Archivio. È possibile impostare il livello BLOB in due modi: script di Azure PowerShell o criteri di gestione del ciclo di vita di Archiviazione di Azure.You can set the blob tier in two ways: Azure PowerShell script or an Azure Storage Lifecycle Management policy.  
+- Dopo aver caricato i dati, sarà necessario spostarli nel livello Archivio. È possibile impostare il livello BLOB in due modi: Azure PowerShell script o un criterio di gestione del ciclo di vita di archiviazione di Azure.  
     - Se si usa Azure PowerShell, seguire questi [passaggi](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) per spostare i dati nel livello Archivio.
     - Se si usano i criteri di gestione del ciclo di vita di Azure, seguire questi passaggi per spostare i dati nel livello Archivio.
         - [Eseguire la registrazione](/azure/storage/common/storage-lifecycle-management-concepts) per l'anteprima del servizio di gestione del ciclo di vita a livello di BLOB per poter usare il livello Archivio.

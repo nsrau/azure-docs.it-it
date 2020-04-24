@@ -1,6 +1,6 @@
 ---
-title: Distribuire moduli da Visual Studio Code - Azure IoT EdgeDeploy modules from Visual Studio Code - Azure IoT Edge
-description: Usare il codice di Visual Studio con gli strumenti IoT di Azure per eseguire il push di un modulo IoT Edge dall'hub IoT al dispositivo IoT Edge, come configurato da un manifesto di distribuzione.
+title: Distribuire moduli da Visual Studio Code-Azure IoT Edge
+description: Usare Visual Studio Code con gli strumenti di Azure Internet per eseguire il push di un modulo di IoT Edge dall'hub Internet al dispositivo IoT Edge, come configurato da un manifesto della distribuzione.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -20,13 +20,13 @@ ms.locfileid: "77209206"
 
 Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne l'uso a livello perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono.
 
-Questo articolo illustra come creare un manifesto della distribuzione JSON e quindi usare tale file per eseguire il push della distribuzione in un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione destinata a più dispositivi in base ai relativi tag condivisi, vedere [Distribuire moduli IoT Edge su larga scala utilizzando Visual Studio Code](how-to-deploy-monitor-vscode.md).
+Questo articolo illustra come creare un manifesto della distribuzione JSON e quindi usare tale file per eseguire il push della distribuzione in un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione destinata a più dispositivi in base ai tag condivisi, vedere [distribuire IOT Edge moduli su larga scala con Visual Studio Code](how-to-deploy-monitor-vscode.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un hub IoT nella sottoscrizione di Azure.An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+* Un [Hub](../iot-hub/iot-hub-create-through-portal.md) Internet delle cose nella sottoscrizione di Azure.
 * Un [dispositivo IoT Edge](how-to-register-device.md#register-with-visual-studio-code) con il runtime di IoT Edge installato.
-* [Codice di Visual Studio](https://code.visualstudio.com/).
+* [Visual Studio Code](https://code.visualstudio.com/).
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) per Visual Studio Code.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
@@ -107,11 +107,11 @@ Per eseguire operazioni con l'hub IoT, è possibile usare le estensioni Azure Io
 
 1. In Visual Studio Code aprire la **finestra di esplorazione**.
 
-1. Nella parte inferiore di Esplora risorse espandere la sezione Hub IoT di Azure.At the bottom of the Explorer, expand the **Azure IoT Hub** section.
+1. Nella parte inferiore della finestra di esplorazione espandere la sezione **Hub Azure** .
 
-   ![Espandere la sezione Hub IoT di AzureExpand Azure IoT Hub section](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Espandi la sezione Hub Azure.](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. Fare clic su ... nell'intestazione della sezione Hub IoT di Azure.Click on **the ...** in the **Azure IoT Hub** section header. Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione.
+1. Fare clic su **..** . nell'intestazione della sezione **Hub Azure** . Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione.
 
 1. Scegliere **Select IoT Hub** (Seleziona l'hub IoT).
 
@@ -125,7 +125,7 @@ Per eseguire operazioni con l'hub IoT, è possibile usare le estensioni Azure Io
 
 I moduli vengono distribuiti nel dispositivo applicando il manifesto della distribuzione configurato con le informazioni relative ai moduli.
 
-1. Nella visualizzazione Esplora codice di Visual Studio espandere la sezione **Hub IoT** di Azure e quindi il nodo **Dispositivi.**
+1. Nella visualizzazione Visual Studio Code Explorer espandere la sezione **Hub Azure** Internet Explorer, quindi espandere il nodo **dispositivi** .
 
 1. Fare clic con il pulsante destro del mouse sul dispositivo IoT Edge che si vuole configurare con il manifesto di distribuzione.
 
@@ -142,7 +142,7 @@ I risultati della distribuzione vengono stampati nell'output di VS Code. Le dist
 
 ## <a name="view-modules-on-your-device"></a>Visualizzare i moduli nel dispositivo
 
-Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti nella sezione Hub IoT di Azure.Once you've deployed modules to your device, you can view them all of the **Azure IoT Hub** section. Selezionare la freccia accanto al dispositivo IoT Edge per espanderlo. Vengono visualizzati tutti i moduli attualmente in esecuzione.
+Dopo aver distribuito i moduli al dispositivo, è possibile visualizzarli tutti nella sezione **Hub Azure** . Selezionare la freccia accanto al dispositivo IoT Edge per espanderlo. Vengono visualizzati tutti i moduli attualmente in esecuzione.
 
 Se sono stati distribuiti di recente nuovi moduli in un dispositivo, passare il mouse sull'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure) e selezionare l'icona di aggiornamento per aggiornare la visualizzazione.
 
@@ -150,4 +150,4 @@ Fare clic con il pulsante destro del mouse sul nome di un modulo per visualizzar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [distribuire e monitorare i moduli IoT Edge su larga scala con Visual Studio Code](how-to-deploy-monitor.md)
+Informazioni su come [distribuire e monitorare IOT Edge moduli su larga scala usando Visual Studio Code](how-to-deploy-monitor.md)

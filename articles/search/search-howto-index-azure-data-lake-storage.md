@@ -1,7 +1,7 @@
 ---
-title: Ricerca in Azure Data Lake Storage Gen2 (anteprima)Search over Azure Data Lake Storage Gen2 (preview)
+title: Cerca in Azure Data Lake Storage Gen2 (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come indicizzare contenuto e metadati in Azure Data Lake Storage Gen2. Questa funzione è attualmente in anteprima pubblica
+description: Informazioni su come indicizzare il contenuto e i metadati in Azure Data Lake Storage Gen2. Questa funzionalità è attualmente disponibile in anteprima pubblica
 manager: nitinme
 author: markheff
 ms.author: maheff
@@ -16,41 +16,41 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905653"
 ---
-# <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indicizzazione di documenti in Azure Data Lake Storage Gen2Indexing documents in Azure Data Lake Storage Gen2
+# <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indicizzazione di documenti in Azure Data Lake Storage Gen2
 
 > [!IMPORTANT] 
-> Il supporto di Azure Data Lake Storage Gen2 è attualmente in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). È possibile richiedere l'accesso alle anteprime compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Attualmente non è disponibile alcun supporto per il portale o .NET SDK.
+> Il supporto Azure Data Lake Storage Gen2 è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). È possibile richiedere l'accesso alle anteprime compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Attualmente non è disponibile alcun portale o supporto per .NET SDK.
 
 
-Quando si configura un account di archiviazione di Azure, è possibile abilitare [lo spazio dei nomi gerarchico.](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) In questo modo la raccolta di contenuto in un account può essere organizzata in una gerarchia di directory e sottodirectory nidificate. Abilitando lo spazio dei nomi gerarchico, si abilita [Archiviazione di Azure Data Lake Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+Quando si configura un account di archiviazione di Azure, è possibile abilitare lo [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). Ciò consente di organizzare la raccolta di contenuti in un account in una gerarchia di directory e sottodirectory nidificate. Abilitando lo spazio dei nomi gerarchico, si abilita [Azure Data Lake storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
-Questo articolo descrive come iniziare a usare l'indicizzazione dei documenti disponibili in Azure Data Lake Storage Gen2.This article describes how to get started with indexing documents that are in Azure Data Lake Storage Gen2.
+Questo articolo descrive come iniziare a usare l'indicizzazione di documenti in Azure Data Lake Storage Gen2.
 
-## <a name="set-up-azure-data-lake-storage-gen2-indexer"></a>Configurare l'indicizzatore Gen2 di Archiviazione di Azure Data Lake
+## <a name="set-up-azure-data-lake-storage-gen2-indexer"></a>Configurare Azure Data Lake Storage Gen2 indicizzatore
 
-Per indicizzare il contenuto da Data Lake Storage Gen2, è necessario completare alcuni passaggi.
+È necessario completare alcuni passaggi per indicizzare il contenuto da Data Lake Storage Gen2.
 
-### <a name="step-1-sign-up-for-the-preview"></a>Passaggio 1: iscriviti all'anteprima
+### <a name="step-1-sign-up-for-the-preview"></a>Passaggio 1: iscriversi per l'anteprima
 
-Iscriversi all'anteprima dell'indicizzatore Data Lake Storage Gen2 compilando [questo modulo.](https://aka.ms/azure-cognitive-search/indexer-preview) Riceverai un'e-mail di conferma una volta che sarai stato accettato nell'anteprima.
+Per iscriversi all'anteprima di Data Lake Storage Gen2 indexer, compilare [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Si riceverà un messaggio di posta elettronica di conferma dopo che l'utente è stato accettato nell'anteprima.
 
-### <a name="step-2-follow-the-azure-blob-storage-indexing-setup-steps"></a>Passaggio 2: Seguire i passaggi di configurazione dell'indicizzazione dell'archiviazione BLOB di AzureStep 2: Follow the Azure Blob indexing setup steps
+### <a name="step-2-follow-the-azure-blob-storage-indexing-setup-steps"></a>Passaggio 2: seguire la procedura di configurazione dell'indicizzazione dell'archiviazione BLOB di Azure
 
-Dopo aver ricevuto la conferma che l'iscrizione all'anteprima è stata eseguita correttamente, è possibile creare la pipeline di indicizzazione.
+Dopo aver ricevuto la conferma dell'avvenuta iscrizione all'anteprima, si è pronti per creare la pipeline di indicizzazione.
 
-È possibile indicizzare il contenuto e i metadati da Data Lake Storage Gen2 usando [l'API REST versione 2019-05-06-Preview](search-api-preview.md). Al momento non è disponibile alcun supporto per il portale o .NET SDK.
+È possibile indicizzare il contenuto e i metadati da Data Lake Storage Gen2 usando l' [API REST versione 2019-05-06-Preview](search-api-preview.md). Al momento non è disponibile alcun supporto per il portale o .NET SDK.
 
-L'indicizzazione del contenuto in Data Lake Storage Gen2 è identica all'indicizzazione del contenuto nell'archiviazione BLOB di Azure.Indexing content in Data Lake Storage Gen2 is identical to indexing content in Azure Blob storage. Per tanto informazioni su come configurare l'origine dati, l'indice e l'indicizzatore di Data Lake Storage Gen2, vedere [Come indicizzare](search-howto-indexing-azure-blob-storage.md)documenti in Archiviazione BLOB di Azure con Ricerca cognitiva di Azure. L'articolo Archiviazione BLOB fornisce inoltre informazioni sui formati di documento supportati, sulle proprietà dei metadati BLOB estratte, sull'indicizzazione incrementale e altro ancora. Queste informazioni saranno le stesse per Data Lake Storage Gen2.
+L'indicizzazione del contenuto nel Data Lake Storage Gen2 è identica a quella di indicizzazione del contenuto nell'archiviazione BLOB di Azure. Per informazioni su come configurare l'origine dati Data Lake Storage Gen2, l'indice e l'indicizzatore, vedere [come indicizzare i documenti nell'archivio BLOB di Azure con ricerca cognitiva di Azure](search-howto-indexing-azure-blob-storage.md). L'articolo archiviazione BLOB fornisce anche informazioni sui formati di documento supportati, sulle proprietà dei metadati del BLOB estratti, sull'indicizzazione incrementale e altro ancora. Queste informazioni saranno identiche per Data Lake Storage Gen2.
 
 ## <a name="access-control"></a>Controllo di accesso
 
-Azure Data Lake Storage Gen2 implementa un modello di controllo di [accesso](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) che supporta sia il controllo degli accessi in base al ruolo di Azure che gli elenchi di controllo di accesso (ACL) di tipo POSIX. Quando si indicizza il contenuto da Data Lake Storage Gen2, Ricerca cognitiva di Azure non estrarrà le informazioni sul controllo degli accessi in base al ruolo e degli ACL dal contenuto. Di conseguenza, queste informazioni non verranno incluse nell'indice di Ricerca cognitiva di Azure.As a result, this information will not be included in your Azure Cognitive Search index.
+Azure Data Lake Storage Gen2 implementa un [modello di controllo di accesso](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) che supporta il controllo degli accessi in base al ruolo di Azure (RBAC) e gli elenchi di controllo di accesso (ACL) di tipo POSIX. Quando si indicizza il contenuto da Data Lake Storage Gen2, Azure ricerca cognitiva non estrae le informazioni RBAC e ACL dal contenuto. Di conseguenza, queste informazioni non verranno incluse nell'indice del ricerca cognitiva di Azure.
 
-Se il mantenimento del controllo di accesso su ogni documento nell'indice è importante, spetta allo sviluppatore dell'applicazione implementare la limitazione per [motivi di sicurezza.](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)
+Se la gestione del controllo di accesso in ogni documento nell'indice è importante, spetta allo sviluppatore dell'applicazione implementare il [taglio di sicurezza](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
 
 ## <a name="change-detection"></a>Rilevamento delle modifiche
 
-L'indicizzatore Gen2 di Data Lake Storage supporta il rilevamento delle modifiche. Ciò significa che quando l'indicizzatore viene eseguito reindicizza solo `LastModified` i BLOB modificati come determinato dal timestamp del BLOB.
+L'indicizzatore Data Lake Storage Gen2 supporta il rilevamento delle modifiche. Ciò significa che quando l'indicizzatore viene eseguito, indicizza solo i BLOB modificati in base a quanto determinato dal `LastModified` timestamp del BLOB.
 
 > [!NOTE] 
-> Data Lake Storage Gen2 consente di rinominare le directory. Quando una directory viene rinominata, i timestamp per i BLOB in tale directory non vengono aggiornati. Di conseguenza, l'indicizzatore non reindicizzerà tali BLOB. Se è necessario che i BLOB in una directory vengano reindicizzati dopo una ridenominazione `LastModified` della directory perché ora hanno nuovi URL, sarà necessario aggiornare il timestamp per tutti i BLOB nella directory in modo che l'indicizzatore sappia reindicizzarli durante un'esecuzione futura.
+> Data Lake Storage Gen2 consente la ridenominazione delle directory. Quando una directory viene rinominata, i timestamp per i BLOB in tale directory non vengono aggiornati. Di conseguenza, l'indicizzatore non effettuerà la reindicizzazione dei BLOB. Se è necessario reindicizzare i BLOB in una directory dopo la ridenominazione di una directory perché ora hanno nuovi URL, sarà necessario aggiornare il `LastModified` timestamp per tutti i BLOB nella directory in modo che l'indicizzatore sappia reindicizzarli durante un'esecuzione futura.

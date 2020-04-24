@@ -1,6 +1,6 @@
 ---
-title: Configurazione della connettività dalla rete virtuale a SAP HANA in Azure (istanze di grandi dimensioni) Documenti Microsoft
-description: Configurazione della connettività dalla rete virtuale per l'uso di SAP HANA in Azure (istanze di grandi dimensioni).
+title: Connettività configurata dalla rete virtuale al SAP HANA in Azure (istanze large) | Microsoft Docs
+description: Connettività configurata dalla rete virtuale per l'uso di SAP HANA in Azure (istanze large).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -22,20 +22,20 @@ ms.locfileid: "77617193"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Collegare una rete virtuale alle istanze Large di HANA
 
-Dopo aver creato una rete virtuale di Azure, è possibile connettere la rete a SAP HANA in istanze Large di Azure. Creare un gateway ExpressRoute di Azure nella rete virtuale. Questo gateway consente di collegare la rete virtuale al circuito ExpressRoute che si connette al tenant del cliente nel timbro Istanza di grandi dimensioni HANA.
+Dopo aver creato una rete virtuale di Azure, è possibile connettere la rete a SAP HANA in istanze Large di Azure. Creare un gateway ExpressRoute di Azure nella rete virtuale. Questo gateway consente di collegare la rete virtuale al circuito ExpressRoute che si connette al tenant del cliente sul timbro di istanze large di HANA.
 
 > [!NOTE] 
 > Questo passaggio può richiedere fino a 30 minuti. Il nuovo gateway viene creato nella sottoscrizione di Azure specificata e viene quindi connesso alla rete virtuale di Azure indicata.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-Se esiste già un gateway, controllare che sia un gateway ExpressRoute. Se non si tratta di un gateway ExpressRoute, eliminare il gateway e ricrearlo come gateway ExpressRoute.If it is not an ExpressRoute gateway, delete the gateway, and re-create it as an ExpressRoute gateway. Se è già stato definito un gateway ExpressRoute, vedere la sezione seguente di questo articolo: "Collegare reti virtuali". 
+Se esiste già un gateway, controllare che sia un gateway ExpressRoute. Se non si tratta di un gateway ExpressRoute, eliminare il gateway e ricrearlo come gateway ExpressRoute. Se è già stato definito un gateway ExpressRoute, vedere la sezione seguente di questo articolo: "Collegare reti virtuali". 
 
 - Usare il [portale di Azure](https://portal.azure.com/) o PowerShell per creare un gateway VPN ExpressRoute connesso alla rete virtuale.
   - Se si usa il portale di Azure, aggiungere un nuovo **gateway di rete virtuale**e quindi selezionare **ExpressRoute** come tipo di gateway.
   - Se si usa PowerShell, è necessario prima scaricare e usare la versione più recente di [Azure PowerShell SDK](https://azure.microsoft.com/downloads/). 
  
-I seguenti comandi creano un gateway ExpressRoute. I testi preceduti _$_ da un sono variabili definite dall'utente che devono essere aggiornate con le informazioni specifiche.
+I seguenti comandi creano un gateway ExpressRoute. I testi preceduti da un _$_ sono variabili definite dall'utente che devono essere aggiornate con le informazioni specifiche.
 
 ```powershell
 # These Values should already exist, update to match your environment
@@ -70,9 +70,9 @@ In questo esempio è stato usato lo SKU del gateway HighPerformance. Le opzioni 
 
 ## <a name="link-virtual-networks"></a>Collegare reti virtuali
 
-La rete virtuale di Azure dispone ora di un gateway ExpressRoute. Usare le informazioni di autorizzazione fornite da Microsoft per connettere il gateway ExpressRoute al circuito SAP HANA Large Instances ExpressRoute. Questa operazione può essere eseguita nel portale di Azure o con PowerShell. Le istruzioni di PowerShell sono le seguenti. 
+La rete virtuale di Azure dispone ora di un gateway ExpressRoute. Usare le informazioni di autorizzazione fornite da Microsoft per connettere il gateway ExpressRoute al circuito ExpressRoute SAP HANA in istanze Large. Questa operazione può essere eseguita nel portale di Azure o con PowerShell. Di seguito sono riportate le istruzioni di PowerShell. 
 
-Eseguire i comandi seguenti per ogni gateway ExpressRoute usando un AuthGUID diverso per ogni connessione. Le prime due voci illustrate nello script seguente provengono dalle informazioni ottenute da Microsoft. Il codice AuthGUID, inoltre, è specifico per ogni rete virtuale e il relativo gateway. Se si vuole aggiungere un'altra rete virtuale di Azure, è necessario ottenere un altro AuthID per il circuito ExpressRoute che connette le istanze di grandi dimensioni HANA in Azure da Microsoft.If you want to add another Azure virtual network, you need to get another AuthID for your ExpressRoute circuit that connects HANA large instances into Azure from Microsoft. 
+Eseguire i comandi seguenti per ogni gateway ExpressRoute usando un AuthGUID diverso per ogni connessione. Le prime due voci illustrate nello script seguente provengono dalle informazioni ottenute da Microsoft. Il codice AuthGUID, inoltre, è specifico per ogni rete virtuale e il relativo gateway. Se si vuole aggiungere un'altra rete virtuale di Azure, è necessario ottenere un altro AuthID per il circuito ExpressRoute che connette le istanze large di HANA in Azure da Microsoft. 
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
@@ -96,12 +96,12 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> L'ultimo parametro nel comando New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** è un nuovo parametro che abilita ExpressRoute Fast Path. Funzionalità che riduce la latenza di rete tra le unità DI istanza di grandi dimensioni HANA e le macchine virtuali di Azure.A functionality that reduces network latency between your HANA Large Instance units and Azure VMs. La funzionalità è stata aggiunta nel maggio 2019. Per ulteriori informazioni, vedere l'articolo Architettura di [rete SAP HANA (Large Instances).](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) Assicurarsi di eseguire la versione più recente dei cmdlet di PowerShell prima di eseguire i comandi.
+> L'ultimo parametro nel comando New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** è un nuovo parametro che Abilita il percorso veloce ExpressRoute. Funzionalità che riduce la latenza di rete tra le unità di istanze large di HANA e le VM di Azure. La funzionalità è stata aggiunta nel 2019 maggio. Per altri dettagli, vedere l'articolo [SAP Hana architettura di rete (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Assicurarsi di eseguire la versione più recente dei cmdlet di PowerShell prima di eseguire i comandi.
 
 Se si vuole collegare il gateway a più circuiti ExpressRoute associati alla sottoscrizione, è possibile che sia necessario eseguire più volte questo passaggio. Ad esempio, sarà probabilmente necessario connettere lo stesso gateway di rete virtuale al circuito ExpressRoute che si connette alla rete virtuale locale.
 
-## <a name="applying-expressroute-fast-path-to-existing-hana-large-instance-expressroute-circuits"></a>Applicazione di ExpressRoute Fast Path ai circuiti HANA Large Instance ExpressRoute esistentiApplying ExpressRoute Fast Path to existing HANA Large Instance ExpressRoute circuits
-La documentazione finora è stata illustrata come connettere un nuovo circuito ExpressRoute creato con una distribuzione di un'istanza di grandi dimensioni HANA a un gateway ExpressRoute di una delle reti virtuali di Azure.The documentation finora explained how to connect a new ExpressRoute circuit that got created with a HANA Large Instance deployment to an Azure ExpressRoute gateway of one of your Azure virtual networks. Tuttavia, molti clienti hanno già configurato i circuiti ExpressRoute e le reti virtuali sono già connesse a istanze di grandi dimensioni HANA. Poiché il nuovo percorso rapido ExpressRoute riduce la latenza di rete, è consigliabile applicare la modifica per usare questa funzionalità. I comandi per connettere un nuovo circuito ExpreesRoute e per modificare un circuito ExpressRoute esistente sono gli stessi. Di conseguenza, è necessario eseguire questa sequenza di comandi di PowerShell per modificare un circuito esistente da usare 
+## <a name="applying-expressroute-fast-path-to-existing-hana-large-instance-expressroute-circuits"></a>Applicazione del percorso rapido ExpressRoute ai circuiti ExpressRoute di istanze large di HANA esistenti
+La documentazione ha illustrato finora come connettere un nuovo circuito ExpressRoute creato con una distribuzione di istanze large di HANA a un gateway ExpressRoute di Azure di una delle reti virtuali di Azure. Tuttavia, molti clienti hanno già installato i circuiti ExpressRoute e le reti virtuali sono già connesse alle istanze large di HANA. Poiché il nuovo percorso rapido ExpressRoute riduce la latenza di rete, è consigliabile applicare la modifica per usare questa funzionalità. I comandi per connettere un nuovo circuito ExpreesRoute e per modificare un circuito ExpressRoute esistente sono gli stessi. Di conseguenza, è necessario eseguire questa sequenza di comandi di PowerShell per modificare un circuito esistente da usare 
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
@@ -124,35 +124,35 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID -ExpressRouteGatewayBypass
 ```
 
-È importante aggiungere l'ultimo parametro visualizzato in precedenza per abilitare la funzionalità Percorso rapido ExpressRoute
+È importante aggiungere l'ultimo parametro visualizzato sopra per abilitare la funzionalità del percorso rapido ExpressRoute
 
 
 ## <a name="expressroute-global-reach"></a>Copertura globale di ExpressRoute
-Come si desidera abilitare la copertura globale per uno o entrambi i due scenari:
+Quando si desidera abilitare Copertura globale per uno o entrambi i due scenari:
 
- - Replica del sistema HANA senza proxy o firewall aggiuntivi
- - Copia di backup tra unità di istanza di grandi dimensioni HANA in due aree diverse per eseguire copie di sistema o aggiornamenti di sistema
+ - Replica di sistema HANA senza proxy o firewall aggiuntivi
+ - Copia di backup tra unità di istanze large di HANA in due aree diverse per eseguire copie di sistema o aggiornamenti del sistema
 
-è necessario considerare che:
+è necessario considerare quanto segue:
 
-- È necessario fornire un intervallo di indirizzi di uno spazio di indirizzi /29. Tale intervallo di indirizzi potrebbe non sovrapporsi a nessuno degli altri intervalli di spazi di indirizzi usati finora che hanno usato finora la connessione di istanze di grandi dimensioni HANA ad Azure e non possono sovrapporsi a nessuno degli intervalli di indirizzi IP usati in un'altra posizione in Azure o in locale.
-- Esiste una limitazione degli ASN (Numero di sistema autonomo) che può essere utilizzata per annunciare le route locali a istanze di grandi dimensioni HANA. L'utente locale non deve annunciare route con ASN privati nell'intervallo da 65000 – 65020 o 65515. 
-- For the scenario of connecting on-premises direct access to HANA Large instances, you need to calculate a fee for the circuit that connects you to Azure. Per i prezzi, controlla i prezzi per [Global Reach Add-On](https://azure.microsoft.com/pricing/details/expressroute/).
+- È necessario specificare un intervallo di spazio degli indirizzi di uno spazio di indirizzi/29. Tale intervallo di indirizzi non può sovrapporsi ad altri intervalli di spazio degli indirizzi usati finora per la connessione di istanze large di HANA ad Azure e non può sovrapporsi ad altri intervalli di indirizzi IP usati altrove in Azure o in locale.
+- Esiste una limitazione per il ASN (numero sistema autonomo) che può essere usato per annunciare le route locali alle istanze large di HANA. Il sito locale non deve annunciare alcuna route con ASN privato nell'intervallo 65000 – 65020 o 65515. 
+- Per lo scenario di connessione dell'accesso diretto locale alle istanze large di HANA, è necessario calcolare una tariffa per il circuito che connette ad Azure. Per i prezzi, verificare i prezzi per [copertura globale componente](https://azure.microsoft.com/pricing/details/expressroute/)aggiuntivo.
 
-Per ottenere uno o entrambi gli scenari applicati alla distribuzione, aprire un messaggio di supporto con Azure come descritto in Aprire una richiesta di [supporto per istanze HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances) di grandi dimensioniTo get one or both of the scenarios applied to your deployment, open a support message with Azure as described in Open a support request for HANA large Instances
+Per ottenere uno o entrambi gli scenari applicati alla distribuzione, aprire un messaggio di supporto con Azure come descritto in [aprire una richiesta di supporto per le istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
 
-I dati necessari e le parole chiave che è necessario utilizzare per Microsoft per essere in grado di instradare ed eseguire sulla richiesta, si presenta come:
+I dati necessari e le parole chiave che è necessario usare per consentire a Microsoft di eseguire il routing e l'esecuzione sulla richiesta sono simili ai seguenti:
 
-- Servizio: istanza di grandi dimensioni SAP HANAService: SAP HANA Large Instance
-- Tipo di problema: Configurazione e configurazione
+- Servizio: SAP HANA istanza large
+- Tipo di problema: configurazione e configurazione
 - Sottotipo di problema: il problema non è elencato sopra
-- Oggetto 'Modifica rete - aggiungi copertura globale'
-- Dettagli: 'Aggiungi copertura globale a un'istanza di grandi dimensioni HANA al tenant di istanza di grandi dimensioni HANA o 'Aggiungi copertura globale a tenant di istanza di grandi dimensioni HANA.
-- Ulteriori dettagli per il caso del tenant di HANA Large Instance to HANA Large Instance: È necessario definire le **due aree** di Azure in cui si trovano i due tenant da connettere **E** è necessario inviare l'intervallo di **indirizzi IP /29**
-- Dettagli aggiuntivi per il caso del tenant da locale a istanza di grandi dimensioni HANA: è necessario definire l'area di **Azure** in cui viene distribuito il tenant dell'istanza di grandi dimensioni HANA a cui si vuole connettersi direttamente. Inoltre, è necessario fornire il GUID di **autenticazione** e **l'ID peer del circuito** ricevuti quando è stato stabilito il circuito ExpressRoute tra l'ambiente locale e Azure. Inoltre, è necessario denominare il proprio **ASN**. L'ultimo risultato finale è un intervallo di indirizzi IP /29 per la copertura globale ExpressRoute.The last deliverable is a **/29 IP address range** for ExpressRoute Global Reach.
+- Oggetto ' modifica la rete-Aggiungi Copertura globale '
+- Dettagli:' Aggiungi Copertura globale a un'istanza large di HANA al tenant di istanze large di HANA o ' Aggiungi Copertura globale al tenant di istanze large di Hana in locale.
+- Dettagli aggiuntivi per il caso del tenant di istanze large di HANA in istanze large di HANA: è necessario definire le **due aree di Azure** in cui si trovano i due tenant per la connessione **ed** è necessario inviare l' **intervallo di indirizzi IP/29**
+- Dettagli aggiuntivi per il caso del tenant di istanze large da locale a HANA: è necessario definire l' **area di Azure** in cui viene distribuito il tenant di istanze large di Hana a cui si vuole connettersi direttamente. Inoltre, è necessario fornire il **GUID di autenticazione** e l' **ID del peer del circuito** ricevuti quando è stato stabilito il circuito ExpressRoute tra l'ambiente locale e Azure. Inoltre, è necessario assegnare un nome all' **ASN**. L'ultimo risultato finale è un **intervallo di indirizzi IP/29** per ExpressRoute copertura globale.
 
 > [!NOTE]
-> Se si desidera che entrambi i casi vengano gestiti, è necessario fornire due diversi intervalli di indirizzi IP /29 che non si sovrappongono ad altri intervalli di indirizzi IP utilizzati finora. 
+> Per gestire entrambi i casi, è necessario fornire due diversi intervalli di indirizzi IP che non si sovrappongono a nessun altro intervallo di indirizzi IP usato finora. 
 
 
 

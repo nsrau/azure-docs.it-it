@@ -1,6 +1,6 @@
 ---
-title: Panoramica del benchmark di sicurezza di AzureAzure Security Benchmark Overview
-description: Panoramica di Security Benchmark
+title: Panoramica del benchmark di sicurezza di Azure
+description: Panoramica del benchmark di sicurezza
 author: msmbaldwin
 manager: rkarlin
 ms.service: security
@@ -15,13 +15,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587533"
 ---
-# <a name="overview-of-the-azure-security-benchmark"></a>Panoramica del benchmark di sicurezza di AzureOverview of the Azure Security Benchmark
+# <a name="overview-of-the-azure-security-benchmark"></a>Panoramica del benchmark di sicurezza di Azure
 
-The Azure Security Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
+Il benchmark di sicurezza di Azure contiene raccomandazioni che consentono di migliorare la sicurezza delle applicazioni e dei dati in Azure.
 
-Questo Benchmark si concentra sulle aree di controllo incentrate sul cloud. Questi controlli sono coerenti con i benchmark di sicurezza noti, come quelli descritti dal Center for Internet Security (CIS) Controls Version 7.1.
+Questo benchmark è incentrato sulle aree di controllo incentrate sul cloud. Questi controlli sono coerenti con i benchmark di sicurezza noti, ad esempio quelli descritti dalla versione 7,1 dei controlli Center for Internet Security (CIS).
 
-The following controls are used in the Azure Security Benchmark: 
+Nel benchmark di sicurezza di Azure vengono usati i controlli seguenti: 
 
 - [Sicurezza di rete](security-control-network-security.md)
 - [Registrazione e monitoraggio](security-control-logging-monitoring.md)
@@ -32,24 +32,24 @@ The following controls are used in the Azure Security Benchmark:
 - [Configurazione sicura](security-control-secure-configuration.md)
 - [Difesa da malware](security-control-malware-defense.md)
 - [Ripristino dei dati](security-control-data-recovery.md)
-- [Risposta agli incidenti](security-control-incident-response.md)
+- [Risposta agli eventi imprevisti](security-control-incident-response.md)
 - [Test di penetrazione ed esercizi Red Team](security-control-penetration-tests-red-team-exercises.md)
 
-È anche possibile scaricare il foglio di [calcolo Excel Benchmark di Azure Security Benchmark v1.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)
+È anche possibile scaricare il [foglio di calcolo di Excel Security benchmark V1 di Azure](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets).
 
-## <a name="azure-security-benchmark-recommendations"></a>Suggerimenti per il benchmark di sicurezza di AzureAzure Security Benchmark Recommendations 
+## <a name="azure-security-benchmark-recommendations"></a>Raccomandazioni sui benchmark di sicurezza di Azure 
 
-Ogni raccomandazione include le seguenti informazioni: 
+Ogni raccomandazione include le informazioni seguenti: 
 
-- **ID di Azure:** l'ID di benchmark di sicurezza di Azure che corrisponde alla raccomandazione. 
-- **ID CIS**: Le raccomandazioni di benchmark CIS che corrispondono a questa raccomandazione.  
-- **Responsabilità**: Se il cliente o il fornitore di servizi (o entrambi) è (sono) responsabili dell'implementazione di questa raccomandazione. Le responsabilità di sicurezza sono condivise nel cloud pubblico. Alcuni controlli di sicurezza sono disponibili solo per il provider di servizi cloud e pertanto il provider è responsabile dell'indirizzamento di tali controlli. Si tratta di osservazioni generali: per alcuni singoli servizi, la responsabilità sarà diversa da quella elencata nel benchmark di sicurezza di Azure.These are general observations – for some individual services, the responsibility will be different than what is listed in the Azure Security Benchmark. Tali differenze sono descritte nelle raccomandazioni di base per il singolo servizio. 
-- **Dettagli**: La motivazione della raccomandazione e i collegamenti alle linee guida su come implementarla. Se la raccomandazione è supportata dal Centro sicurezza di Azure, verranno elencate anche tali informazioni.
+- **ID di Azure**: ID del benchmark di sicurezza di Azure corrispondente all'indicazione. 
+- **ID SID**: raccomandazioni per i benchmark di CIS che corrispondono a questa raccomandazione.  
+- **Responsabilità**: se il cliente o il provider di servizi (o entrambi) è responsabile dell'implementazione di questa raccomandazione. Le responsabilità di sicurezza sono condivise nel cloud pubblico. Alcuni controlli di sicurezza sono disponibili solo per il provider di servizi cloud e pertanto il provider è responsabile di risolverli. Queste sono osservazioni generali: per alcuni singoli servizi, la responsabilità sarà diversa da quella elencata nel benchmark di sicurezza di Azure. Queste differenze sono descritte nelle raccomandazioni di base per il singolo servizio. 
+- **Dettagli**: la logica per la raccomandazione e i collegamenti alle indicazioni su come implementarla. Se la raccomandazione è supportata dal centro sicurezza di Azure, verranno elencate anche le informazioni.
 
-Accogliamo con favore il feedback dettagliato e la partecipazione attiva allo sforzo di Azure Security Benchmark.We welcome your detailed feedback and active participation in the Azure Security Benchmark effort. Se si desidera fornire l'input diretto del team [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark)Benchmark, compilare il modulo all'indirizzo .
+Siamo lieti di ricevere commenti e suggerimenti dettagliati e partecipare attivamente allo sforzo di benchmark di sicurezza di Azure. Per fornire l'input diretto del team di benchmark, compilare il modulo all'indirizzo [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il primo controllo di sicurezza: [Sicurezza di rete](security-control-network-security.md)
-- Leggere l'introduzione al [benchmark di sicurezza di AzureRead](introduction.md) the Azure Security Benchmark Introduction
-- Scaricare il foglio di calcolo di [Azure Security Benchmark v1 ExcelDownload](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets) the Azure Security Benchmark v1 excel spreadsheet
+- Vedere il primo controllo di sicurezza: [sicurezza di rete](security-control-network-security.md)
+- Leggi l' [Introduzione al benchmark di sicurezza di Azure](introduction.md)
+- Scaricare il [foglio di calcolo di Excel di benchmark di sicurezza di Azure V1](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)

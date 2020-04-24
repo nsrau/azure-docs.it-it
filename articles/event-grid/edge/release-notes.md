@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione - Azure Event Grid IoT Edge Documenti Microsoft
-description: Azure Event Grid on IoT Edge Release Notes
+title: 'Note sulla versione: griglia di eventi di Azure IoT Edge | Microsoft Docs'
+description: Note sulla versione di griglia di eventi di Azure in IoT Edge
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -15,36 +15,36 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76849708"
 ---
-# <a name="release-notes-azure-event-grid-on-iot-edge"></a>Note sulla versione: Griglia di eventi di Azure in Edge Edge
+# <a name="release-notes-azure-event-grid-on-iot-edge"></a>Note sulla versione: griglia di eventi di Azure in IoT Edge
 
-## <a name="100-preview1"></a>1.0.0-anteprima1
+## <a name="100-preview1"></a>1.0.0-preview1
 
-Rilascio iniziale di Griglia di eventi di Azure in Edge Edge.Initial release of Azure Event Grid on IoT Edge. Caratteristiche incluse:
+Versione iniziale di griglia di eventi di Azure in IoT Edge. Funzionalità incluse:
 
-* Creazione di argomenti
-* Creazione sottoscrizione di eventi
+* Creazione di un argomento
+* Creazione della sottoscrizione di eventi
 * filtri avanzati
 * Suddivisione in batch per l'output
 * Criteri di ripetizione dei tentativi
-* Pubblicazione da modulo a modulo
-* Pubblica in WebHook come destinazione
-* Pubblicare nell'Hub Edge IoT come destinazione
-* Pubblicare nel servizio cloud Griglia eventi di Azure come destinazionePublish to Azure Event Grid cloud service as a destination
-* Stato persistente per i metadatiPersisted state for metadata
-* Integrazione del modulo di archiviazione BLOBBlob storage module integration
+* Da modulo a pubblicazione modulo
+* Pubblica su webhook come destinazione
+* Pubblicare nell'hub IoT Edge come destinazione
+* Pubblicare nel servizio cloud di griglia di eventi di Azure come destinazione
+* Stato permanente per i metadati
+* Integrazione del modulo di archiviazione BLOB
 
-Tag:`1.0.0-preview1`
+Tag`1.0.0-preview1`
 
-## <a name="100-preview2"></a>1.0.0-anteprima2
+## <a name="100-preview2"></a>1.0.0-Preview2
 
-Anteprima 2 di Griglia di eventi di Azure in IoT Edge aggiunto:Preview 2 of Azure Event Grid on IoT Edge added:
+Anteprima 2 di griglia di eventi di Azure IoT Edge aggiunta:
 
-* Eventi persistenti configurabili su discoConfigurable persisting events to disk
-* Metriche degli argomenti
+* Eventi di salvataggio permanente configurabili sul disco
+* Metriche dell'argomento
 * Metriche della sottoscrizione di eventi
-* Pubblicare in Hub eventi come destinazione
+* Pubblicare in hub eventi come destinazione
 * Pubblicare nelle code del bus di servizio come destinazione
-* Pubblicare sugli argomenti del bus di servizio come destinazione
-* Pubblicare nelle code di archiviazione come destinazionePublish to Storage Queues as a destination
+* Pubblicare negli argomenti del bus di servizio come destinazione
+* Pubblicare nelle code di archiviazione come destinazione
 
-Tag: `1.0.0-preview2` `1.0`, ,`latest`
+Tag: `1.0.0-preview2`, `1.0`,`latest`

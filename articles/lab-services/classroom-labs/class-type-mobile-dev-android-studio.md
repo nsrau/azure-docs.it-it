@@ -1,7 +1,7 @@
 ---
-title: Configurare un lab per insegnare lo sviluppo di applicazioni per dispositivi mobili con Android StudioSet up a lab to teach mobile application development with Android Studio
+title: Configurare un Lab per insegnare lo sviluppo di applicazioni per dispositivi mobili con Android Studio
 titleSuffix: Azure Lab Services
-description: Informazioni su come configurare un lab per insegnare la classe di sviluppo di applicazioni per dispositivi mobili dati che usa Android Studio.Learn how to set up a lab to teach data mobile application development class that uses Android Studio.  Articolo discuterà anche le modifiche da apportare quando si usa Android Studio in una macchina virtuale in Azure.Article will also discuss adjustments to make when using Android Studio on a virtual machine in Azure.
+description: Informazioni su come configurare un Lab per insegnare ai dati la classe di sviluppo di applicazioni per dispositivi mobili che usa Android Studio.  Verranno inoltre illustrate le regolazioni da effettuare quando si usa Android Studio in una macchina virtuale in Azure.
 services: lab-services
 author: emaher
 ms.service: lab-services
@@ -15,91 +15,91 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76849786"
 ---
-# <a name="set-up-a-lab-to-teach-data-mobile-application-development-with-android-studio"></a>Configurare un lab per insegnare lo sviluppo di applicazioni mobili dati con Android StudioSet up a lab to teach data mobile application development with Android Studio
+# <a name="set-up-a-lab-to-teach-data-mobile-application-development-with-android-studio"></a>Configurare un Lab per insegnare lo sviluppo di applicazioni per dispositivi mobili con Android Studio
 
-Questo articolo illustra come configurare una classe introduttiva di sviluppo di applicazioni per dispositivi mobili.  Questa lezione è incentrata sulle applicazioni per dispositivi mobili Android che possono essere pubblicate nel [Google Play Store](https://play.google.com/store/apps).  Gli studenti imparano a usare [Android Studio](https://developer.android.com/studio) per creare applicazioni.  Per testare l'applicazione a livello locale viene usato l'[Emulatore di Visual Studio per Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/).
+Questo articolo illustra come configurare una classe introduttiva per lo sviluppo di applicazioni per dispositivi mobili.  Questa lezione è incentrata sulle applicazioni per dispositivi mobili Android che possono essere pubblicate nel [Google Play Store](https://play.google.com/store/apps).  Gli studenti imparano a usare [Android Studio](https://developer.android.com/studio) per creare applicazioni.  Per testare l'applicazione a livello locale viene usato l'[Emulatore di Visual Studio per Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/).
 
 ## <a name="lab-configuration"></a>Configurazione del lab
 
-Per configurare questo lab, sono necessari una sottoscrizione di Azure e un account lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Dopo aver ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account lab in Azure Lab Services.Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account lab, vedere [esercitazione per configurare un account lab.](tutorial-setup-lab-account.md)  È inoltre possibile utilizzare un account lab esistente.
+Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere [esercitazione per la configurazione di un account Lab](tutorial-setup-lab-account.md).  È anche possibile usare un account lab esistente.
 
-Seguire [l'esercitazione](tutorial-setup-classroom-lab.md) del laboratorio di configurazione della classe per creare un nuovo lab e quindi applicare le impostazioni seguenti:
+Seguire l' [esercitazione](tutorial-setup-classroom-lab.md) per la configurazione del Lab per creare un nuovo Lab e quindi applicare le impostazioni seguenti:
 
 | Dimensioni della macchina virtuale | Immagine |
 | -------------------- | ----- |
-| Medio (virtualizzazione annidata) | Windows Server 2019 Datacenter |
+| Media (virtualizzazione annidata) | Windows Server 2019 Datacenter |
 
-## <a name="template-machine-configuration"></a>Configurazione macchina modello
+## <a name="template-machine-configuration"></a>Configurazione computer modello
 
-Al termine della creazione della macchina modello, [avviare la macchina e connettersi ad essa](how-to-create-manage-template.md#update-a-template-vm) per completare le attività seguenti:
+Al termine della creazione del computer modello, [avviare il computer e connettersi](how-to-create-manage-template.md#update-a-template-vm) per completare le attività seguenti:
 
 1. Aggiungi ruolo Hyper-V
 2. Scaricare e installare Java.  
-3. Scaricare e installare l'emulatore di Visual Studio per Android.Download and install Visual Studio Emulator for Android.
+3. Scaricare e installare l'emulatore di Visual Studio per Android.
 4. Scaricare e installare Android Studio.
-5. Configurare l'emulatore di Visual Studio per Android Studio.Configure Visual Studio Emulator for Android Studio.
+5. Configurare l'emulatore di Visual Studio per Android Studio.
 
 ## <a name="add-hyper-v-role"></a>Aggiungi ruolo Hyper-V
 
-Hyper-V deve essere abilitato per la corretta installazione dell'emulatore di Visual Studio per Android.  Seguire le istruzioni nell'articolo Come abilitare la [virtualizzazione annidata in una macchina virtuale modello.](how-to-enable-nested-virtualization-template-vm.md)
+Hyper-V deve essere abilitato per la corretta installazione di Visual Studio Emulator per Android.  Seguire le istruzioni riportate nell'articolo [come abilitare la virtualizzazione annidata in un modello di macchina virtuale](how-to-enable-nested-virtualization-template-vm.md) .
 
 ## <a name="install-java"></a>Installare Java
 
-Android Studio richiede Java.  Attenersi alla seguente procedura per scaricare la versione più recente di Java.
+Android Studio richiede Java.  Per scaricare la versione più recente di Java, attenersi alla procedura riportata di seguito.
 
-1. Passare alla pagina di [download Java](https://www.java.com/download/). Fare clic sul pulsante **Download Java.**
-2. Nella pagina Web di Windows per Java a 64 bit, fare clic sul pulsante Con l'etichetta **Accetto e Avvia download gratuito**.
-3. Quando viene visualizzato il programma di **installazione del programma di installazione Java,** fare clic su **Installa**.
-4. Attendere che il titolo del programma di installazione venga modificato in **Installazione Java – Completata**.  Fare clic sul pulsante **Chiudi.**
+1. Passare alla [pagina di download Java](https://www.java.com/download/). Fare clic sul pulsante **Download Java** .
+2. Nella pagina Web di Windows per Java a 64 bit fare clic sul pulsante **Accetto e avviare il download gratuito**.
+3. Quando viene visualizzato programma di installazione di **Java** , fare clic su **Installa**.
+4. Attendere fino a quando il titolo del programma di installazione non viene modificato in **installazione Java: completato**.  Fare clic sul pulsante **Chiudi** .
 
-## <a name="install-visual-studio-emulator-for-android"></a>Installare l'emulatore di Visual Studio per AndroidInstall Visual Studio Emulator for Android
+## <a name="install-visual-studio-emulator-for-android"></a>Installare l'emulatore di Visual Studio per Android
 
-Per testare un'applicazione Android in locale, è necessario usare una versione virtualizzata di un dispositivo Android.To test an Android application locally, it must use a virtualized version of an Android device.  Ci sono alcuni emulatori Android disponibili che permetteranno a uno sviluppatore di testare la propria applicazione dal proprio computer.  Stiamo usando l'emulatore di Visual Studio per Android perché è un emulatore che supporta la virtualizzazione annidata.  Poiché la macchina virtuale del servizio lab è già una macchina virtuale, è necessario un emulatore che supporti la virtualizzazione annidata.  L'emulatore incorporato per Android Studio non supporta la virtualizzazione annidata.  Per vedere quali emulatori supportano la virtualizzazione annidata, vedere [accelerazione hardware per le prestazioni dell'emulatore (Hyper-V & HAXM)](https://docs.microsoft.com/xamarin/android/get-started/installation/android-emulator/hardware-acceleration).
+Per testare un'applicazione Android localmente, è necessario usare una versione virtualizzata di un dispositivo Android.  Sono disponibili alcuni emulatori Android che consentono a uno sviluppatore di testare la propria applicazione dal computer.  Si usa Visual Studio Emulator for Android perché è un emulatore che supporta la virtualizzazione nidificata.  Poiché la VM del servizio lab è già una macchina virtuale, è necessario un emulatore che supporti la virtualizzazione nidificata.  L'emulatore incorporato per Android Studio non supporta la virtualizzazione nidificata.  Per verificare quali emulatori supportano la virtualizzazione annidata, vedere [accelerazione hardware per le prestazioni dell'emulatore (Hyper-V & HAXM)](https://docs.microsoft.com/xamarin/android/get-started/installation/android-emulator/hardware-acceleration).
 
-Usare le istruzioni seguenti per scaricare e installare l'emulatore di Visual Studio per Android.Use the following instructions to download and install Visual Studio Emulator for Android.
+Usare le istruzioni seguenti per scaricare e installare l'emulatore di Visual Studio per Android.
 
-1. Passare alla home page [dell'emulatore di Visual Studio per Android.Navigate](https://visualstudio.microsoft.com/vs/msft-android-emulator/) to Visual Studio Emulator for Android home page.
-2. Fare clic sul pulsante **Scarica l'emulatore.**
-3. Quando vs_emulatorsetup.exe viene scaricato, eseguire l'eseguibile.
-4. Quando viene visualizzata la finestra di dialogo di installazione di Visual Studio, fare clic sul pulsante **Installa.When** the Visual Studio setup dialog appears, click the Install button.
+1. Passare a [Visual Studio Emulator for Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) Home page.
+2. Fare clic sul pulsante **Scarica l'emulatore** .
+3. Quando viene scaricato vs_emulatorsetup. exe, eseguire il file eseguibile.
+4. Quando viene visualizzata la finestra di dialogo di installazione di Visual Studio, fare clic sul pulsante **Installa** .
 5. Attendere il completamento del programma di installazione.  Fare clic sul pulsante **Riavvia ora** per riavviare il computer e completare l'installazione.
 
-Avviare l'emulatore prima di distribuire l'applicazione con Android Studio.Start the emulator first before deploying your application using Android Studio.  Per ulteriori informazioni sull'emulatore di Visual Studio per Android, vedere [Documentazione relativa all'emulatore di Visual Studio per Android.](https://docs.microsoft.com/visualstudio/cross-platform/visual-studio-emulator-for-android)
+Avviare l'emulatore prima di distribuire l'applicazione usando Android Studio.  Per altre informazioni su Visual Studio Emulator for Android, vedere la [documentazione di Visual Studio Emulator for Android](https://docs.microsoft.com/visualstudio/cross-platform/visual-studio-emulator-for-android).
 
-## <a name="install-android-studio"></a>Installare Android Studio
+## <a name="install-android-studio"></a>Installa Android Studio
 
-Segui le istruzioni riportate di seguito per scaricare e installare [Android Studio.](https://developer.android.com/studio)
+Seguire le istruzioni seguenti per scaricare e installare [Android Studio](https://developer.android.com/studio).
 
-1. Passare alla pagina di download di [Android Studio](https://developer.android.com/studio#downloads).  
+1. Passare alla [pagina di download Android Studio](https://developer.android.com/studio#downloads).  
     > [!NOTE]
     > Internet Explorer non è supportato da questo sito.
-2. Fare clic sul pacchetto eseguibile di Windows (64 bit) di Android Studio.
-3. Leggi i termini legali scritti nel pop-up.  Quando sei pronto a continuare, controlla **che ho letto e accetto i termini e le condizioni di cui sopra** e fai clic sul pulsante Scarica Android Studio per **Windows.**
-4. Una volta scaricato il file eseguibile di installazione di Android Studio, eseguire l'eseguibile.
-5. Nella pagina **di installazione** di Android Studio del programma di installazione di Android **Studio** fare clic su **Avanti**.
-6. Nella pagina **Impostazioni di configurazione** fare clic su **Avanti**.
-7. Nella pagina **Scegli cartella menu Start** fare clic su **Installa**.
-8. Attendere il completamento della configurazione.
-9. Nella pagina **Installazione completata** fare clic su **Avanti**.
-10. Nella pagina **Completamento della configurazione di Android Studio.**  Fare clic su **Fine**.
-11. Android Studio si avvierà automaticamente al termine della configurazione.
-12. Nella finestra di dialogo **Importa impostazioni Android da...,** selezionare **Non importare le impostazioni**. Fare clic su **OK**.
-13. Nella pagina **iniziale** **dell'Installazione guidata**di Android Studio fare clic su **Avanti**.
-14. Nella pagina **Tipo di installazione** scegliere **Standard**. Fare clic su **Avanti**.
-15. Nella pagina **Seleziona tema dell'interfaccia utente** selezionare il tema desiderato. Fare clic su **Avanti**.
+2. Fare clic sul pacchetto di Android Studio eseguibile di Windows (64 bit).
+3. Leggere le note legali scritte nella finestra popup.  Quando si è pronti per continuare, selezionare la casella di controllo **ho letto e accetto i termini e le condizioni indicati sopra** e fare clic sul pulsante **Scarica Android Studio per Windows** .
+4. Dopo aver scaricato il file eseguibile di installazione Android Studio, eseguire il file eseguibile.
+5. Nella pagina **Android Studio installazione** del programma di installazione del programma di installazione di **Android Studio** , fare clic su **Avanti**.
+6. Nella pagina **impostazioni di configurazione** fare clic su **Avanti**.
+7. Nella pagina **scegliere la cartella del menu Start** fare clic su **Installa**.
+8. Attendere il completamento dell'installazione.
+9. Nella pagina **installazione completata** fare clic su **Avanti**.
+10. Nella pagina **completamento Android Studio installazione** .  Fare clic su **Fine**.
+11. Android Studio verrà avviato automaticamente al termine dell'installazione.
+12. Nella finestra **di dialogo Importa impostazioni Android da...** selezionare non **importare le impostazioni**. Fare clic su **OK**.
+13. Nella pagina **iniziale** dell' **installazione guidata di Android Studio**fare clic su **Avanti**.
+14. Nella pagina **tipo di installazione** scegliere **standard**. Fare clic su **Avanti**.
+15. Nella pagina **Selezione tema dell'interfaccia utente** selezionare il tema desiderato. Fare clic su **Avanti**.
 16. Nella pagina **Verifica impostazioni** fare clic su **Avanti**.
-17. Nella pagina **Download dei componenti,** attendere il download di tutti i componenti.  Fare clic su **Fine**.
+17. Nella pagina **download dei componenti** attendere che tutti i componenti vengano scaricati.  Fare clic su **Fine**.
 
     > [!IMPORTANT]
-    > Si prevede che l'installazione HAXM non riesce.  HAXM non supporta la virtualizzazione annidata, motivo per cui è stato installato l'emulatore di Visual Studio per Android in precedenza in questo articolo.
+    > Si prevede che l'installazione di HAXM non riesca.  HAXM non supporta la virtualizzazione nidificata, motivo per cui è stato installato Visual Studio Emulator per Android in precedenza in questo articolo.
 
-18. Al termine dell'installazione guidata, verrà visualizzata la finestra di dialogo **Benvenuto in Android Studio.**
+18. Al termine dell'installazione guidata verrà visualizzata la finestra **di dialogo Introduzione a Android Studio** .
 
-## <a name="configure-android-studio-and-visual-studio-emulator-for-android"></a>Configurare Android Studio e l'emulatore di Visual Studio per AndroidConfigure Android Studio and Visual Studio Emulator for Android
+## <a name="configure-android-studio-and-visual-studio-emulator-for-android"></a>Configurare Android Studio e l'emulatore di Visual Studio per Android
 
-Android Studio è quasi pronto per l'uso.  Abbiamo ancora bisogno di comunicare Visual Studio Emulator per Android dove è installato l'SDK di Android.We still need to tell Visual Studio Emulator for Android where the Android SDK is installed.  In questo modo tutti gli emulatori in esecuzione in Visual Studio per Android verranno visualizzati come destinazioni di distribuzione per il debug di Android Studio.This will make any emulators running in Visual Studio for Android show as deployment targets for Android Studio debugging.
+Android Studio è quasi pronto per l'uso.  È comunque necessario indicare a Visual Studio Emulator for Android dove è installata la Android SDK.  In questo modo tutti gli emulatori in esecuzione in Visual Studio per Android vengono mostrati come destinazioni di distribuzione per il debug Android Studio.
 
-È necessario impostare una chiave del Registro di sistema specifico per indicare Visual Studio Emulator per Android in cui si trova Android Sdk.We need to set a specific registry key to tell Visual Studio Emulator for Android where the Android Sdk is located.  Per impostare la chiave del Registro di sistema necessaria, eseguire lo script riportato di seguito.  The PowerShell script below assumes the default install location for the Android Sdk.  Se Android Sdk è stato installato in `$androidSdkPath` un'altra posizione, modificare il valore di prima di eseguire lo script.
+È necessario impostare una chiave del registro di sistema specifica per indicare a Visual Studio Emulator for Android dove si trova Android SDK.  Per impostare la chiave del registro di sistema necessaria, eseguire lo script seguente.  Lo script di PowerShell riportato di seguito presuppone il percorso di installazione predefinito per Android SDK.  Se Android SDK è stato installato in un altro percorso, modificare il valore `$androidSdkPath` di prima di eseguire lo script.
 
 ```powershell
 $androidSdkPath = Resolve-Path $(Join-Path "$($env:APPDATA)" "../Local/Android/Sdk")
@@ -110,25 +110,25 @@ New-ItemProperty -Path $registryKeyPath -Name Path -PropertyType String -Value $
 ```
 
 > [!IMPORTANT]
-> Riavviare l'emulatore di Visual Studio per Android e Android Studio in modo che venga usata la nuova impostazione.
+> Riavviare l'emulatore di Visual Studio per Android e Android Studio in modo da usare la nuova impostazione.
 
-Avviare la versione necessaria nell'emulatore di Visual Studio.Start the version you need in the Visual Studio Emulator.  Verrà visualizzato come destinazione di distribuzione per l'app Android in Android Studio.  The minimum version for the Android Studio project must support the version running in the Visual Studio Emulator for Android.  A questo punto è possibile creare ed eseguire il debug di progetti usando Android Studio e l'emulatore di Visual Studio per Android.Now you are ready to create and debug projects using Android Studio and Visual Studio Emulator for Android.  In caso di problemi, vedere Risoluzione dei problemi relativi all'emulatore Android.If you have issues, see Android emulator troubleshooting.
+Avviare la versione necessaria nell'emulatore di Visual Studio.  Verrà visualizzato come destinazione di distribuzione per l'app Android in Android Studio.  La versione minima per il progetto Android Studio deve supportare la versione in esecuzione in Visual Studio Emulator for Android.  A questo punto si è pronti per creare ed eseguire il debug di progetti usando Android Studio e l'emulatore di Visual Studio per Android.  In caso di problemi, vedere Risoluzione dei problemi dell'emulatore Android.
 
 ## <a name="cost"></a>Costi
 
-Se si desidera stimare il costo di questo lab, è possibile seguire l'esempio riportato di seguito.
-Per una classe di 25 studenti con 20 ore di tempo programmato e 10 ore di quota per compiti a casa o compiti, il prezzo per il laboratorio sarebbe  
+Se si desidera stimare il costo di questo Lab, è possibile seguire l'esempio riportato di seguito.
+Per una classe di 25 studenti con 20 ore di tempo di classe pianificata e 10 ore di quota per il lavoro o le assegnazioni, il prezzo per il Lab sarà  
 
-25 \* studenti (20 ore programmate e 10) - 55 unità di laboratorio - 0,01 USD all'ora - 412,5 USD
+25 studenti \* (20 pianificati + 10 quote) ore * 55 unità Lab * 0,01 USD all'ora = 412,5 USD
 
-Ulteriori ulteriori dettagli sui prezzi, vedere Prezzi di [Servizi di laboratorio di Azure](https://azure.microsoft.com/pricing/details/lab-services/).
+Per ulteriori informazioni sui prezzi, vedere [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-I passaggi successivi sono comuni alla configurazione di qualsiasi lab.
+I passaggi successivi sono comuni per la configurazione di qualsiasi Lab.
 
 - [Creare e gestire un modello](how-to-create-manage-template.md)
 - [Aggiungi utenti](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Imposta quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Impostare una pianificazione](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Link di registrazione via e-mail agli studenti](how-to-configure-student-usage.md#send-invitations-to-users)
+- [Collegamenti per la registrazione tramite posta elettronica agli studenti](how-to-configure-student-usage.md#send-invitations-to-users)

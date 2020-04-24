@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Configurare Samanage per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come configurare Azure Active Directory per il provisioning e il deprovisioning automatico degli account utente in Samanage.Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Samanage.
+description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in samanage.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -25,33 +25,33 @@ ms.locfileid: "77060491"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Esercitazione: Configurare Samanage per il provisioning utenti automatico
 
-Questa esercitazione illustra i passaggi da eseguire in Samanage e Azure Active Directory (Azure AD) per configurare Azure AD per il provisioning e il deprovisioning automatico di utenti e gruppi in Samanage.This tutorial demonstrates the steps to perform in Samanage and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users and groups to Samanage.
+Questa esercitazione illustra i passaggi da eseguire in samanage e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e gruppi in samanage.
 
 > [!NOTE]
-> Questa esercitazione descrive un connettore basato sul servizio di provisioning degli utenti di Azure AD. Per informazioni sulle operazioni eseguite da questo servizio, sul suo funzionamento e sulle domande frequenti, vedere Automatizzare il provisioning e il deprovisioning degli utenti nelle [applicazioni SaaS (Software-as-A-Service) con Azure Active Directory.](../app-provisioning/user-provisioning.md)
+> Questa esercitazione descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni sul funzionamento di questo servizio, sul suo funzionamento e sulle domande frequenti, vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS (software-as-a-Service) con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Lo scenario descritto in questa esercitazione presuppone che si dispone di:The scenario outlined in this tutorial assumes that you have:
+Lo scenario descritto in questa esercitazione presuppone che siano disponibili:
 
 * Un tenant di Azure AD.
-* Un [tenant Samanage](https://www.samanage.com/pricing/) con il pacchetto Professional.
-* Un account utente in Samanage con autorizzazioni di amministratore.
+* Un [tenant](https://www.samanage.com/pricing/) di samanage con il pacchetto professionale.
+* Un account utente in samanage con autorizzazioni di amministratore.
 
 > [!NOTE]
-> L'integrazione di provisioning di Azure AD si basa [sull'API Samanage Rest.](https://www.samanage.com/api/) Questa API è disponibile per gli sviluppatori Samanage per gli account con il pacchetto Professional.
+> L'integrazione del provisioning Azure AD si basa sull' [API REST](https://www.samanage.com/api/)samanage. Questa API è disponibile per gli sviluppatori di samanage per gli account con il pacchetto Professional.
 
-## <a name="add-samanage-from-the-azure-marketplace"></a>Aggiungere Samanage da Azure MarketplaceAdd Samanage from the Azure Marketplace
+## <a name="add-samanage-from-the-azure-marketplace"></a>Aggiungi samanage da Azure Marketplace
 
-Prima di configurare Samanage per il provisioning automatico degli utenti con Azure AD, aggiungere Samanage da Azure Marketplace all'elenco delle applicazioni SaaS gestite.
+Prima di configurare samanage per il provisioning utenti automatico con Azure AD, aggiungere samanage da Azure Marketplace al proprio elenco di applicazioni SaaS gestite.
 
-Per aggiungere Samanage dal Marketplace, attenersi alla seguente procedura.
+Per aggiungere samanage dal Marketplace, seguire questa procedura.
 
-1. Nel [portale di Azure,](https://portal.azure.com)nel riquadro di spostamento a sinistra, selezionare **Azure Active Directory.**
+1. Nel [portale di Azure](https://portal.azure.com), nel riquadro di spostamento a sinistra, selezionare **Azure Active Directory**.
 
-    ![Icona di Azure Active Directory](common/select-azuread.png)
+    ![Icona Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali**, quindi selezionare Tutte **le applicazioni**.
+2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -59,106 +59,106 @@ Per aggiungere Samanage dal Marketplace, attenersi alla seguente procedura.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, immettere **Samanage** e selezionare **Samanage** dal pannello dei risultati. Per aggiungere l'applicazione, selezionare **Aggiungi**.
+4. Nella casella di **ricerca immettere** samanage e selezionare samanage nel **Pannello dei risultati** . Per aggiungere l'applicazione, selezionare **Aggiungi**.
 
     ![Samanage nell'elenco risultati](common/search-new-app.png)
 
-## <a name="assign-users-to-samanage"></a>Assegnare utenti a SamanageAssign users to Samanage
+## <a name="assign-users-to-samanage"></a>Assegnare gli utenti a samanage
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare quali utenti devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning automatico degli utenti, vengono sincronizzati solo gli utenti o i gruppi assegnati a un'applicazione in Azure AD.
+Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti o i gruppi assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning automatico degli utenti, decidere quali utenti o gruppi in Azure AD devono accedere a Samanage. Per assegnare questi utenti o gruppi a Samanage, seguire le istruzioni in [Assegnare un utente o un gruppo a un'app aziendale.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Prima di configurare e abilitare il provisioning utenti automatico, decidere quali utenti o gruppi in Azure AD necessario accedere a samanage. Per assegnare questi utenti o gruppi a samanage, seguire le istruzioni riportate in [assegnare un utente o un gruppo a un'app aziendale](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Suggerimenti importanti per l'assegnazione di utenti a Samanage
 
-*    Oggi, i ruoli Samanage vengono popolati automaticamente e dinamicamente nell'interfaccia utente del portale di Azure.Today, Samanage roles are automatically and dynamically populated in the Azure portal UI. Prima di assegnare i ruoli Samanage agli utenti, assicurarsi che venga completata una sincronizzazione iniziale in Samanage per recuperare i ruoli più recenti nel tenant Samanage.
+*    Attualmente, i ruoli di samanage vengono popolati automaticamente e dinamicamente nell'interfaccia utente di portale di Azure. Prima di assegnare i ruoli di samanage agli utenti, assicurarsi che una sincronizzazione iniziale venga completata con samanage per recuperare i ruoli più recenti nel tenant di samanage.
 
-*    È consigliabile assegnare un singolo utente di Azure AD a Samanage per testare la configurazione iniziale del provisioning automatico degli utenti. È possibile assegnare altri utenti e gruppi in un secondo momento dopo che i test hanno esito positivo.
+*    È consigliabile assegnare un singolo Azure AD utente a samanage per testare la configurazione iniziale del provisioning utenti automatico. È possibile assegnare utenti e gruppi aggiuntivi in un secondo momento dopo che i test hanno avuto esito positivo.
 
-*    Quando si assegna un utente a Samanage, selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** sono esclusi dal provisioning.
+*    Quando si assegna un utente a samanage, selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di **accesso predefinito** vengono esclusi dal provisioning.
 
-## <a name="configure-automatic-user-provisioning-to-samanage"></a>Configurare il provisioning automatico degli utenti in SamanageConfigure automatic user provisioning to Samanage
+## <a name="configure-automatic-user-provisioning-to-samanage"></a>Configurare il provisioning utenti automatico per samanage
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD. Utilizzarlo per creare, aggiornare e disabilitare utenti o gruppi in Samanage in base alle assegnazioni di utenti o gruppi in Azure AD.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD. È possibile usarlo per creare, aggiornare e disabilitare utenti o gruppi in samanage in base alle assegnazioni di utenti o gruppi in Azure AD.
 
 > [!TIP]
-> È inoltre possibile abilitare l'accesso Single Sign-On basato su SAML per Samanage. Seguire le istruzioni [dell'esercitazione Single Sign-On di Samanage](samanage-tutorial.md). Single Sign-On può essere configurato indipendentemente dal provisioning automatico degli utenti, anche se queste due funzionalità si completano a vicenda.
+> È anche possibile abilitare la Single Sign-On basata su SAML per samanage. Seguire le istruzioni riportate nell' [esercitazione Single Sign-on](samanage-tutorial.md)samanage. Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
-### <a name="configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Configurare il provisioning automatico degli utenti per Samanage in Azure ADConfigure automatic user provisioning for Samanage in Azure AD
+### <a name="configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Configurare il provisioning utenti automatico per samanage in Azure AD
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Selezionare **Applicazioni** > aziendali**Tutte le applicazioni** > **Samanage**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni** > **aziendali tutte le applicazioni** > **Samanage**samanage.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco di applicazioni selezionare **Samanage**.
 
-    ![Il collegamento Samanage nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento samanage nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning.**
+3. Selezionare la scheda **provisioning** .
 
     ![Provisioning di Samanage](./media/samanage-provisioning-tutorial/ProvisioningTab.png)
 
-4. Impostare la **modalità di provisioning** su **Automatico**.
+4. Impostare la **modalità di provisioning** su **automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **Credenziali amministratore** immettere l'URL **tenant** Samanage e il **token segreto**. Fare clic su Test connessione per verificare che Azure AD possa connettersi a Samanage.Click **Test Connection** to ensure Azure AD can connect to Samanage. Se la connessione non riesce, verificare che l'account Samanage abbia autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere l' **URL del tenant** di samanage e il **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a samanage. Se la connessione non riesce, verificare che l'account Samanage abbia autorizzazioni di amministratore e riprovare.
 
-    ![Connessione di prova Samanage](./media/samanage-provisioning-tutorial/provisioning.png)
+    ![Connessione test samanage](./media/samanage-provisioning-tutorial/provisioning.png)
 
-6. Nella casella **Email di notifica** immettere l'indirizzo di posta elettronica della persona o del gruppo per ricevere le notifiche di errore di provisioning. Selezionare la casella di controllo **Invia una notifica tramite posta elettronica quando si verifica un errore.**
+6. Nella casella **posta elettronica di notifica** immettere l'indirizzo di posta elettronica della persona o del gruppo per ricevere le notifiche degli errori di provisioning. Selezionare la casella di controllo **Invia una notifica di posta elettronica quando si verifica un errore** .
 
-    ![E-mail di notifica Samanage](./media/samanage-provisioning-tutorial/EmailNotification.png)
+    ![Posta elettronica di notifica di samanage](./media/samanage-provisioning-tutorial/EmailNotification.png)
 
 7. Selezionare **Salva**.
 
-8. Nella sezione **Mapping** selezionare Sincronizza utenti di **Azure Active Directory da gestire**.
+8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a**samanage.
 
-    ![Sincronizzazione utente Samanage](./media/samanage-provisioning-tutorial/UserMappings.png)
+    ![Sincronizzazione utente samanage](./media/samanage-provisioning-tutorial/UserMappings.png)
 
 9. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD a Samanage. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Samanage per le operazioni di aggiornamento. Per salvare le modifiche, selezionare **Salva**.
 
-    ![Samanage attributi utente corrispondenti](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
+    ![Samanage che corrisponde agli attributi utente](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
 
 10. Per consentire il mapping di gruppo, nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to Samanage** (Sincronizza gruppi di Azure Active Directory con Samanage).
 
-    ![Sincronizzazione dei gruppi Samanage](./media/samanage-provisioning-tutorial/GroupMappings.png)
+    ![Sincronizzazione del gruppo samanage](./media/samanage-provisioning-tutorial/GroupMappings.png)
 
 11. Impostare **Abilitato** su **Sì** per sincronizzare i gruppi. Esaminare gli attributi gruppo sincronizzati da Azure AD a Samanage nella sezione **Mapping attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Samanage per le operazioni di aggiornamento. Per salvare le modifiche, selezionare **Salva**.
 
-    ![Attributi del gruppo corrispondente Samanage](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
+    ![Attributi del gruppo corrispondenti samanage](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
-13. Per configurare i filtri di ambito, seguire le istruzioni nell'esercitazione sui [filtri di ambito.](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+13. Per configurare i filtri di ambito, seguire le istruzioni riportate nell'esercitazione relativa al [filtro di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Per abilitare il servizio di provisioning di Azure AD per Samanage, nella sezione **Impostazioni** modificare **Stato provisioning** su **Attivato**.
+13. Per abilitare il servizio di provisioning Azure AD per samanage, nella sezione **Impostazioni** impostare **stato del provisioning** **su**attivato.
 
-    ![Stato provisioning Samanage](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
+    ![Stato del provisioning di samanage](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-14. Definire gli utenti o i gruppi di cui si desidera eseguire il provisioning in Samanage. Nella sezione **Impostazioni** selezionare i valori desiderati in **Ambito**. Quando si seleziona l'opzione Sincronizza tutti gli utenti e i **gruppi,** considerare le limitazioni come descritto nella sezione seguente "Limitazioni del connettore".
+14. Definire gli utenti o i gruppi di cui si vuole eseguire il provisioning in samanage. Nella sezione **Impostazioni** selezionare i valori desiderati nell' **ambito**. Quando si seleziona l'opzione **Sincronizza tutti gli utenti e i gruppi** , prendere in considerazione le limitazioni descritte nella sezione seguente "limitazioni del connettore".
 
-    ![Ambito Samanage](./media/samanage-provisioning-tutorial/ScopeSync.png)
+    ![Ambito samanage](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
 15. Quando si è pronti per il provisioning, selezionare **Salva**.
 
-    ![Salva Samanage](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
+    ![Salvataggio samanage](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
 
 
-Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti o i gruppi definiti in **Ambito** nella sezione **Impostazioni.** L'esecuzione della sincronizzazione iniziale richiede più tempo rispetto alle sincronizzazioni successive. Si verificano approssimativamente ogni 40 minuti, purché venga eseguito il servizio di provisioning di Azure AD. 
+Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti o gruppi definiti nell' **ambito** nella sezione **Impostazioni** . La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive. Si verificano approssimativamente ogni 40 minuti a condizione che venga eseguito il servizio di provisioning Azure AD. 
 
-È possibile utilizzare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e seguire i collegamenti al report attività di provisioning. The report describes all the actions performed by the Azure AD provisioning service on Samanage.
+È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning. Il report descrive tutte le azioni eseguite dal servizio Azure AD provisioning in samanage.
 
 Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
-Se si seleziona l'opzione **Sincronizza tutti gli utenti e gruppi** e si configura un valore per l'attributo **Ruoli** sagesti, il valore nella casella Valore predefinito se **null (è facoltativo)** deve essere espresso nel formato seguente:
+Se si seleziona l'opzione **Sincronizza tutti gli utenti e i gruppi** e si configura un valore per l'attributo **ruoli** samanage, il valore nella casella **valore predefinito se null (facoltativo)** deve essere espresso nel formato seguente:
 
-- ""nomeVisualizzato":"ruolo", dove ruolo è il valore predefinito desiderato.
+- {"displayName": "Role"}, dove Role è il valore predefinito desiderato.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestire il provisioning degli account utente per le app aziendaliManage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gestire il provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

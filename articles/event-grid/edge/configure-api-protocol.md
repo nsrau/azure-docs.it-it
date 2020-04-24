@@ -1,6 +1,6 @@
 ---
-title: Configurare i protocolli API - Azure Event Grid IoT Edge Documenti Microsoft
-description: Configurare i protocolli API esposti da Griglia di eventi in Edge Edge.Configure API protocols exposed by Event Grid on IoT Edge.
+title: Configurare protocolli API-IoT Edge di griglia di eventi di Azure | Microsoft Docs
+description: Configurare i protocolli API esposti da griglia di eventi in IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -16,18 +16,18 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841811"
 ---
-# <a name="configure-event-grid-api-protocols"></a>Configurare i protocolli API griglia di eventi
+# <a name="configure-event-grid-api-protocols"></a>Configurare i protocolli API di griglia di eventi
 
-Questa guida fornisce esempi delle possibili configurazioni di protocollo di un modulo Griglia di eventi. Il modulo Griglia di eventi espone l'API per le operazioni di gestione e runtime. Nella tabella seguente vengono acquisiti i protocolli e le porte.
+Questa guida fornisce esempi delle possibili configurazioni di protocollo di un modulo di griglia di eventi. Il modulo di griglia di eventi espone l'API per le operazioni di gestione e di Runtime. Nella tabella seguente vengono acquisiti i protocolli e le porte.
 
 | Protocollo | Porta | Descrizione |
 | ---------------- | ------------ | ------------ |
-| HTTP | 5888 | Disattivato per impostazione predefinita. Utile solo durante il test. Non adatto per i carichi di lavoro di produzione.
-| HTTPS | 4438 | Predefinito
+| HTTP | 5888 | Disabilitato per impostazione predefinita. Utile solo durante i test. Non adatto per carichi di lavoro di produzione.
+| HTTPS | 4438 | Impostazione predefinita
 
-Per tutte le configurazioni possibili, vedere Guida alla [sicurezza e all'autenticazione.](security-authentication.md)
+Vedere la guida per la [sicurezza e l'autenticazione](security-authentication.md) per tutte le configurazioni possibili.
 
-## <a name="expose-https-to-iot-modules-on-the-same-edge-network"></a>Esporre HTTPS ai moduli IoT nella stessa rete perimetrale
+## <a name="expose-https-to-iot-modules-on-the-same-edge-network"></a>Esporre HTTPS ai moduli di Internet delle cose nella stessa rete perimetrale
 
 ```json
  {
@@ -38,7 +38,7 @@ Per tutte le configurazioni possibili, vedere Guida alla [sicurezza e all'autent
 }
  ```
 
-## <a name="enable-https-to-other-iot-modules-and-non-iot-workloads"></a>Abilitare HTTPS ad altri moduli IoT e carichi di lavoro non IoTEnable HTTPS to other IoT modules and non-IoT workloads
+## <a name="enable-https-to-other-iot-modules-and-non-iot-workloads"></a>Abilitare HTTPS ad altri moduli e carichi di lavoro non-Internet
 
 ```json
  {
@@ -59,9 +59,9 @@ Per tutte le configurazioni possibili, vedere Guida alla [sicurezza e all'autent
  ```
 
 >[!NOTE]
-> La sezione **PortBindings** consente di eseguire il mapping delle porte interne alle porte dell'host contenitore. Questa funzionalità consente di raggiungere il modulo Griglia di eventi dall'esterno della rete contenitore IoT Edge, se il dispositivo edge IoT è raggiungibile pubblicamente.
+> La sezione **PortBindings** consente di eseguire il mapping delle porte interne alle porte dell'host contenitore. Questa funzionalità consente di raggiungere il modulo di griglia di eventi dall'esterno della rete IoT Edge contenitore, se il dispositivo Edge è raggiungibile pubblicamente.
 
-## <a name="expose-http-and-https-to-iot-modules-on-the-same-edge-network"></a>Esporre HTTP e HTTPS ai moduli IoT nella stessa rete perimetrale
+## <a name="expose-http-and-https-to-iot-modules-on-the-same-edge-network"></a>Esporre HTTP e HTTPS ai moduli di Internet delle cose nella stessa rete perimetrale
 
 ```json
  {
@@ -72,7 +72,7 @@ Per tutte le configurazioni possibili, vedere Guida alla [sicurezza e all'autent
 }
  ```
 
-## <a name="enable-http-and-https-to-other-iot-modules-and-non-iot-workloads"></a>Abilitare HTTP e HTTPS ad altri moduli IoT e carichi di lavoro non IoTEnable HTTP and HTTPS to other IoT modules and non-IoT workloads
+## <a name="enable-http-and-https-to-other-iot-modules-and-non-iot-workloads"></a>Abilitare HTTP e HTTPS ad altri moduli e carichi di lavoro non-Internet
 
 ```json
  {
@@ -98,7 +98,7 @@ Per tutte le configurazioni possibili, vedere Guida alla [sicurezza e all'autent
  ```
 
 >[!NOTE]
-> Per impostazione predefinita, ogni modulo IoT fa parte del runtime IoT Edge creato dalla rete bridge. Consente a diversi moduli IoT sulla stessa rete di comunicare tra loro. **PortBindings** consente di eseguire il mapping di una porta interna del contenitore nel computer host, consentendo in tal modo a chiunque di accedere alla porta del modulo Griglia di eventi dall'esterno.
+> Per impostazione predefinita, ogni modulo delle cose è parte del runtime IoT Edge creato dalla rete Bridge. Consente la comunicazione tra i diversi moduli dell'it nella stessa rete. **PortBindings** consente di eseguire il mapping di una porta interna del contenitore nel computer host in modo da consentire a chiunque di accedere alla porta del modulo di griglia di eventi dall'esterno.
 
 >[!IMPORTANT]
-> Mentre le porte possono essere rese accessibili all'esterno della rete IoT Edge, l'autenticazione client impone a chi è effettivamente autorizzato a effettuare chiamate nel modulo.
+> Mentre le porte possono essere rese accessibili all'esterno della rete IoT Edge, l'autenticazione client impone a chi è effettivamente consentito effettuare chiamate al modulo.

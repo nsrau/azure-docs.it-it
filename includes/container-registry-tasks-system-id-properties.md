@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77112305"
 ---
-Nell'output del `identity` comando, la sezione `SystemAssigned` mostra un'identità di tipo impostata nell'attività. È `principalId` l'ID entità dell'identità dell'attività:
+Nell'output del comando, la `identity` sezione Mostra un'identità di tipo `SystemAssigned` è impostata nell'attività. `principalId` È l'ID principale dell'identità dell'attività:
 
 ```console
 [...]
@@ -28,7 +28,7 @@ Nell'output del `identity` comando, la sezione `SystemAssigned` mostra un'identi
   "location": "eastus",
 [...]
 ``` 
-Usare il comando [az acr task show][az-acr-task-show] per archiviare principalId in una variabile, da usare nei comandi successivi. Sostituire il nome dell'attività e del Registro di sistema nel comando seguente:
+Usare il comando [AZ ACR task show][az-acr-task-show] per archiviare il PrincipalId in una variabile, da usare nei comandi successivi. Sostituire il nome dell'attività e il registro di sistema con il comando seguente:
 
 ```azurecli
 principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)

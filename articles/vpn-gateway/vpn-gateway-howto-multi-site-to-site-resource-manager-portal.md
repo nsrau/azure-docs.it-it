@@ -1,5 +1,5 @@
 ---
-title: 'Aggiungere più connessioni da sito gateway VPN a una rete virtuale: portale di AzureAdd multiple VPN gateway Site-to-Site connections to a VNet: Azure Portal'
+title: 'Aggiungere più connessioni da sito a sito del gateway VPN a una VNet: portale di Azure'
 description: Come aggiungere più connessioni da sito a sito (S2S) a un gateway VPN con una connessione esistente
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -19,14 +19,14 @@ ms.locfileid: "75779689"
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (versione classica)](vpn-gateway-multi-site.md)
 >
 > 
 
 Questo articolo consente di aggiungere connessioni da sito a sito (S2S) a un gateway VPN con una connessione esistente usando il portale di Azure. Questo tipo di connessione è spesso definito configurazione "multisito". È possibile aggiungere una connessione da sito a sito a una rete virtuale che dispone già di una connessione da sito a sito, una connessione da punto a sito o una connessione da rete virtuale a rete virtuale. Quando si aggiungono delle connessioni, esistono alcune limitazioni di cui è necessario tenere conto. Prima di iniziare la configurazione, verificare quanto riportato nella sezione [Prima di iniziare](#before) di questo articolo. 
 
-Questo articolo si applica alle reti virtuali di Resource Manager con un gateway VPN RouteBased. Questi passaggi non si applicano alle nuove configurazioni di connessione coesistenti ExpressRoute/Site-to-Site.These steps do not apply to new ExpressRoute/Site-to-Site coexisting connection configurations. Tuttavia, se si aggiunge semplicemente una nuova connessione VPN a una configurazione coexista già esistente, è possibile utilizzare questi passaggi. Per informazioni sulle connessioni coesistenti vedere [Creare connessioni coesistenti da sito a sito ed ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md).
+Questo articolo si applica alle reti virtuali di Resource Manager con un gateway VPN RouteBased. Questi passaggi non si applicano alle nuove configurazioni di connessione ExpressRoute/da sito a sito coesistente. Tuttavia, se si aggiunge semplicemente una nuova connessione VPN a una configurazione coesistente già esistente, è possibile usare questi passaggi. Per informazioni sulle connessioni coesistenti vedere [Creare connessioni coesistenti da sito a sito ed ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md).
 
 ### <a name="deployment-models-and-methods"></a>Metodi e modelli di distribuzione
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -38,7 +38,7 @@ Questa tabella viene aggiornata man mano che per questa configurazione diventano
 ## <a name="before-you-begin"></a><a name="before"></a>Prima di iniziare
 Verificare quanto segue:
 
-* Non si sta configurando una nuova configurazione Coesistente ExpressRoute e gateway VPN.
+* Non si sta configurando una nuova configurazione coesistente del gateway ExpressRoute e VPN.
 * Si dispone di una rete virtuale creata usando il modello di distribuzione Resource Manager con una connessione esistente.
 * Il gateway di rete virtuale per la rete virtuale è di tipo RouteBased. Se si dispone di un gateway VPN basato su criteri, è necessario eliminare il gateway di rete virtuale e creare un nuovo gateway VPN di tipo RouteBased.
 * Nessuno degli intervalli di indirizzi si sovrappone a una qualsiasi delle reti virtuali a cui si connette questa rete virtuale.
@@ -46,11 +46,11 @@ Verificare quanto segue:
 * Si dispone di un indirizzo IP pubblico esterno per il dispositivo VPN. L'indirizzo IP non può trovarsi dietro un NAT.
 
 ## <a name="part-1---configure-a-connection"></a><a name="part1"></a>Parte 1: Configurare una connessione
-1. Da un browser passare al portale di Azure e, se necessario, accedere con l'account Azure.From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
+1. Da un browser, passare al [portale di Azure](https://portal.azure.com) e, se necessario, accedere con l'account Azure.
 2. Fare clic su **All resources** (Tutte le risorse), individuare il **gateway di rete virtuale** nell'elenco di risorse e selezionarlo.
 3. Nella pagina **Gateway di rete virtuale**, fare clic su **Connessioni**.
    
-    ![Pagina Connessioni](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Pagina Connessioni")<br>
+    ![Pagina connessioni](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Pagina connessioni")<br>
 4. Nella pagina **Connessioni** fare clic su **+Aggiungi**.
    
     ![Pulsante Aggiungi connessione](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Pulsante Aggiungi connessione")<br>
@@ -67,7 +67,7 @@ Verificare quanto segue:
     ![Scegli gateway di rete virtuale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Scegli gateway di rete virtuale")<br>
 2. Fare clic su **Crea nuovo** per aprire la pagina **Crea un gateway di rete locale**.
    
-    ![Pagina Crea gateway di rete locale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Creare un gateway di rete localeCreate local network gateway")<br>
+    ![Pagina Crea gateway di rete locale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Creare un gateway di rete locale")<br>
 3. Nella pagina **Crea un gateway di rete locale** compilare i campi seguenti:
    
    * **Nome**: nome da assegnare alla risorsa gateway di rete locale.

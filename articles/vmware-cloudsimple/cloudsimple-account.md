@@ -1,5 +1,5 @@
 ---
-title: Gestione account cloud-Simple - Azure
+title: Gestione degli account CloudSimple-Azure
 description: Informazioni sulla gestione degli account CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -17,24 +17,24 @@ ms.locfileid: "77025113"
 ---
 # <a name="account-management-overview"></a>Panoramica della gestione di account
 
-Quando crei il tuo servizio CloudSimple, crea un account su CloudSimple.  L'account è associato alla sottoscrizione di Azure in cui si trova il servizio.  Tutti gli utenti con ruoli **di proprietario** e **collaboratore** nella sottoscrizione hanno accesso al portale CloudSimple.All users with owner and contributor roles in the subscription have access to the CloudSimple portal.  L'ID sottoscrizione di Azure e l'ID tenant associati al servizio CloudSimple sono disponibili nella [pagina Account](account.md).
+Quando si crea il servizio CloudSimple, viene creato un account in CloudSimple.  L'account è associato alla sottoscrizione di Azure in cui si trova il servizio.  Tutti gli utenti con ruoli **proprietario** e **collaboratore** nella sottoscrizione possono accedere al portale di CloudSimple.  L'ID sottoscrizione e l'ID tenant di Azure associati al servizio CloudSimple sono disponibili nella [pagina account](account.md).
 
-## <a name="additional-alert-emails"></a>Ulteriori e-mail di avviso
+## <a name="additional-alert-emails"></a>Messaggi di posta elettronica di avviso aggiuntivi
 
-È possibile configurare gli ID di posta elettronica in CloudSimple per ricevere avvisi:You can configure email IDs in CloudSimple to receive alerts:
+È possibile configurare gli ID di posta elettronica in CloudSimple per ricevere gli avvisi:
 
-* Relativo al servizio
+* Correlato al servizio
 * Per l'elaborazione automatica
 
-## <a name="cloudsimple-operator-access"></a>Accesso operatore CloudSimple
+## <a name="cloudsimple-operator-access"></a>Accesso dell'operatore CloudSimple
 
-È possibile controllare l'accesso al portale CloudSimple per il personale addetto alle operazioni di servizio.  Il personale addetto alle operazioni di servizio accede al portale quando si invia un ticket di supporto.  Le operazioni del servizio risolveranno eventuali problemi segnalati e le azioni eseguite sono disponibili nei registri di controllo.
+È possibile controllare l'accesso al portale di CloudSimple per il personale operativo del servizio.  Il personale operativo del servizio accede al portale quando si invia un ticket di supporto.  Le operazioni del servizio correggeranno eventuali problemi segnalati e le azioni intraprese saranno disponibili nei log di controllo.
 
 ## <a name="users"></a>Utenti
 
-Tutti gli utenti con ruolo di proprietario e **collaboratore** nella sottoscrizione hanno accesso al portale CloudSimple.All users who have **owner** and contributor role in the subscription have access to the CloudSimple portal.  Quando si accede al portale, l'utente viene creato nell'account CloudSimple.  È possibile disabilitare l'accesso al portale CloudSimple per utenti specifici dalla pagina Account.
+Tutti gli utenti che dispongono di un ruolo **proprietario** e **collaboratore** nella sottoscrizione possono accedere al portale di CloudSimple.  Quando si accede al portale, l'utente viene creato nell'account CloudSimple.  È possibile disabilitare l'accesso al portale di CloudSimple per utenti specifici dalla pagina accounts.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Visualizzare il riepilogo dell'account](account.md)
-* [Visualizzare l'elenco utenti](users.md)
+* [Visualizza riepilogo account](account.md)
+* [Visualizza elenco utenti](users.md)

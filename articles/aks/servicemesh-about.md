@@ -1,6 +1,6 @@
 ---
-title: Informazioni sulle maglie di servizio
-description: Ottenere una panoramica delle emagrifiche del servizio, la relativa architettura e funzionalità e i criteri da considerare quando si seleziona uno da distribuire.
+title: Informazioni sulle mesh del servizio
+description: Ottenere una panoramica delle reti mesh dei servizi, dell'architettura e delle funzionalità e dei criteri da considerare quando si seleziona uno per la distribuzione.
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
@@ -12,102 +12,102 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594312"
 ---
-# <a name="about-service-meshes"></a>Informazioni sulle maglie di servizio
+# <a name="about-service-meshes"></a>Informazioni sulle mesh del servizio
 
-Una rete mesh di servizio offre funzionalità come la gestione del traffico, la resilienza, i criteri, la sicurezza, l'identità avanzata e l'osservabilità dei carichi di lavoro. L'applicazione è disaccoppiata da queste funzionalità operative e la rete di servizio le sposta al di fuori del livello dell'applicazione e al livello dell'infrastruttura.
+Una rete mesh di servizi offre funzionalità come gestione del traffico, resilienza, criteri, sicurezza, identità avanzata e osservabilità ai carichi di lavoro. L'applicazione è disaccoppiata da queste funzionalità operative e la mesh dei servizi li sposta fuori dal livello dell'applicazione e fino al livello dell'infrastruttura.
 
 ## <a name="scenarios"></a>Scenari
 
-Di seguito sono riportati alcuni degli scenari che possono essere abilitati per i carichi di lavoro quando si usa una rete di servizi:These are some of the scenarios that can be enabled for your workloads when you use a service mesh:
+Questi sono alcuni degli scenari che possono essere abilitati per i carichi di lavoro quando si usa una rete mesh di servizi:
 
-- Crittografa tutto il **traffico nel cluster:** abilita Mutual TLS tra i servizi specificati nel cluster. Questo può essere esteso all'ingresso e all'uscita nel perimetro della rete. Fornisce un'opzione sicura per impostazione predefinita senza modifiche necessarie per il codice e l'infrastruttura dell'applicazione.
+- **Crittografare tutto il traffico nel cluster** : abilitare TLS reciproco tra i servizi specificati nel cluster. Questo può essere esteso all'ingresso e all'uscita al perimetro della rete. Fornisce un'opzione sicura per impostazione predefinita senza modifiche necessarie per il codice dell'applicazione e l'infrastruttura.
 
-- **Implementazioni canariche e graduali:** specificare le condizioni per un sottoinsieme di traffico da instradare a un set di nuovi servizi nel cluster. Al termine del test del rilascio canarino, rimuovere il routing condizionale e la fase che aumenta gradualmente la percentuale di tutto il traffico verso il nuovo servizio. Alla fine tutto il traffico sarà indirizzato a un nuovo servizio.
+- **Canary e rollout** in più fasi: specificare le condizioni per un subset di traffico da indirizzare a un set di nuovi servizi nel cluster. Al completamento del test della versione Canary, rimuovere il routing condizionale e la fase aumentando gradualmente il% di tutto il traffico al nuovo servizio. Infine tutto il traffico verrà indirizzato al nuovo servizio.
 
-- **Gestione e manipolazione del traffico:** creare un criterio in un servizio che limiterà tutto il traffico a una versione di un servizio da un'origine specifica. O un criterio che applica una strategia di ripetizione dei tentativi alle classi di errori tra i servizi specificati. Eseguire il mirroring del traffico in tempo reale verso nuove versioni dei servizi durante una migrazione o problemi di debug. Iniettare errori tra i servizi in un ambiente di test per testare la resilienza.
+- **Gestione del traffico e manipolazione** : creare criteri per un servizio che consentiranno di limitare tutto il traffico a una versione di un servizio da un'origine specifica. O un criterio che applica una strategia di ripetizione dei tentativi alle classi di errori tra i servizi specificati. Eseguire il mirroring del traffico in tempo reale alle nuove versioni dei servizi durante una migrazione o eseguire il debug dei problemi. Inserire gli errori tra i servizi in un ambiente di test per verificare la resilienza.
 
-- **Osservabilità:** consente di ottenere informazioni dettagliate su come i servizi sono connessi al traffico che scorre tra di essi. Ottenere metriche, log e tracce per tutto il traffico nel cluster e in ingresso/uscita. Aggiungi funzionalità di tracciamento distribuito alle tue applicazioni.
+- **Osservabilità** : ottenere informazioni sul modo in cui i servizi sono connessi al traffico tra di essi. Ottenere metriche, log e tracce per tutto il traffico in cluster e in ingresso/uscita. Aggiungere funzionalità di traccia distribuita alle applicazioni.
 
 ## <a name="architecture"></a>Architecture
 
-Una mesh di servizio è in genere composta da un piano di controllo e dal piano dati.
+Una mesh del servizio è in genere costituita da un piano di controllo e dal piano dati.
 
-Il piano di **controllo** dispone di una serie di componenti che supportano la gestione della rete di servizio. Questo includerà in genere un'interfaccia di gestione che potrebbe essere un'interfaccia utente o un'API. In genere sono inoltre presenti componenti che gestiscono le definizioni delle regole e dei criteri che definiscono il modo in cui la mesh di servizio deve implementare funzionalità specifiche. Ci sono anche componenti che gestiscono aspetti della sicurezza come l'identità forte e i certificati per mTLS. Le meshe del servizio hanno anche in genere una metrica o un componente di osservabilità che raccoglie e aggrega metriche e dati di telemetria dai carichi di lavoro.
+Il **piano di controllo** dispone di un numero di componenti che supportano la gestione della mesh dei servizi. In questo modo sarà inclusa un'interfaccia di gestione che può essere un'interfaccia utente o un'API. Sono inoltre in genere presenti componenti che gestiscono la regola e le definizioni dei criteri che definiscono il modo in cui la mesh del servizio deve implementare funzionalità specifiche. Sono inoltre presenti componenti che gestiscono aspetti della sicurezza, ad esempio identità e certificati avanzati per mTLS. Anche le mesh dei servizi avranno in genere un componente di metrica o di osservabilità che raccoglie e aggrega le metriche e i dati di telemetria dai carichi di lavoro.
 
-Il **piano dati** è in genere costituito da un proxy che viene iniettato in modo trasparente come sidecar per i carichi di lavoro. Questo proxy è configurato per controllare tutto il traffico di rete in e dentro e fuori dal pod contenente il carico di lavoro. Ciò consente di configurare il proxy per proteggere il traffico tramite mTLS, instradare dinamicamente il traffico, applicare criteri al traffico e raccogliere metriche e informazioni di tracciatura. 
+Il **piano dati** è in genere costituito da un proxy che viene inserito in modo trasparente come sidecar per i carichi di lavoro. Questo proxy è configurato per controllare tutto il traffico di rete all'interno e all'esterno del pod che contiene il carico di lavoro. Questo consente di configurare il proxy in modo da proteggere il traffico tramite mTLS, indirizzare dinamicamente il traffico, applicare criteri al traffico e raccogliere le metriche e le informazioni di traccia. 
 
-![Architettura tipica della rete mesh di servizioTypical service mesh architecture](media/servicemesh/typical-architecture.png)
+![Architettura tipica di mesh di servizi](media/servicemesh/typical-architecture.png)
 
 ## <a name="capabilities"></a>Capabilities
 
-Ognuna delle maglie del servizio ha un adattamento naturale e concentrarsi sul supporto di scenari specifici, ma in genere si noterà che la maggior parte implementerà un numero di, se non tutte, delle seguenti funzionalità.
+Ognuna delle reti mesh dei servizi ha una scelta naturale e si concentra sul supporto di scenari specifici, ma in genere si noterà che la maggior parte implementa alcune delle funzionalità seguenti, se non tutte.
 
 ### <a name="traffic-management"></a>Gestione del traffico 
 
-- **Protocollo** – livello 7 (http, grpc)
-- **Routing dinamico** – condizionale, ponderazione, mirroring
-- **Resilienza** – timeout, tentativi, interruttori di circuito
-- **Politica:** controllo degli accessi, limiti di frequenza, quote
-- **Test** - iniezione di guasto
+- **Protocollo** -Layer 7 (http, grpc)
+- **Routing dinamico** -condizionale, ponderazione, mirroring
+- **Resilienza** : timeout, tentativi, interruttori di circuito
+- **Criteri** : controllo di accesso, limiti di velocità, quote
+- **Test** -fault injection
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
-- **Crittografia** : mTLS, gestione dei certificati, CA esterna
-- **Identità forte** – SPIFFE o simili
-- **Autenticazione** – autenticazione, autorizzazione
+- **Crittografia** -MTLS, gestione certificati, CA esterna
+- **Identità complessa** : SPIFFE o simile
+- **AUTH** -autenticazione, autorizzazione
 
 ### <a name="observability"></a>Osservabilità
 
-- **Metriche** – metriche dorate, prometeo, grafana
-- **Traccia:** tracce tra carichi di lavoroTracing - traces across workloads
-- **Traffico** – cluster, ingresso/uscita
+- **Metriche** -metriche dorate, Prometeo, grafana
+- **Traccia** : tracce tra i carichi di lavoro
+- **Traffico** -cluster, in ingresso/in uscita
 
 ### <a name="mesh"></a>Mesh
 
-- **Calcolo supportato** - Kubernetes, macchine virtuali
-- **Multi-cluster** - gateway, federazione
+- Kubernetes di **calcolo supportati** , macchine virtuali
+- Più **cluster** -gateway, Federazione
 
 ## <a name="selection-criteria"></a>Criteri di selezione
 
-Prima di selezionare una rete mesh di servizio, assicurarsi di aver compreso i requisiti e i motivi dell'installazione di una rete di servizi. Prova a porre le seguenti domande.
+Prima di selezionare una mesh di servizi, assicurarsi di comprendere i requisiti e i motivi per l'installazione di una rete mesh di servizi. Provare a porre le domande seguenti.
 
-- **Un controller in ingresso è sufficiente per le mie esigenze?** - A volte avere una funzionalità come a/b test o suddivisione del traffico in ingresso è sufficiente per supportare lo scenario richiesto. Non aggiungere complessità al tuo ambiente senza alcun vantaggio.
+- **Il controller di ingresso è sufficiente per le mie esigenze?** -A volte è sufficiente avere una funzionalità come test a/b o la suddivisione del traffico in ingresso è sufficiente per supportare lo scenario richiesto. Non aggiungere complessità all'ambiente senza rialzo.
 
-- **I carichi di lavoro e l'ambiente possono tollerare i costi generali aggiuntivi?** - Tutti i componenti aggiuntivi necessari per supportare la rete mesh di servizio richiedono risorse aggiuntive come cpu e memoria. Inoltre, tutti i proxy e i controlli dei criteri associati aggiungono latenza al traffico. Se si dispone di carichi di lavoro molto sensibili alla latenza o che non è possibile fornire le risorse aggiuntive per coprire i componenti mesh di servizio, è consigliabile riconsiderare.
+- **I carichi di lavoro e l'ambiente possono tollerare gli overhead aggiuntivi?** -Tutti i componenti aggiuntivi necessari per supportare la mesh di servizi richiedono risorse aggiuntive, ad esempio CPU e memoria. Inoltre, tutti i proxy e i relativi criteri associati controllano l'aggiunta di latenza al traffico. Se si dispone di carichi di lavoro molto sensibili alla latenza o non è possibile fornire le risorse aggiuntive per coprire i componenti della mesh del servizio, riprendere in considerazione.
 
-- **Questo aggiunge ulteriore complessità inutilmente?** - Se il motivo per l'installazione di una rete mesh di servizio è quello di ottenere una capacità che non è necessariamente fondamentale per i team aziendali o operativi, quindi considerare se la complessità aggiuntiva di installazione, manutenzione e configurazione vale la pena.
+- **L'aggiunta di ulteriore complessità è inutilmente?** -Se il motivo per cui si installa una rete mesh di servizi è quello di ottenere una funzionalità non necessariamente cruciale per i team aziendali o operativi, valutare se la complessità aggiuntiva di installazione, manutenzione e configurazione valga la pena.
 
-- **Questo può essere adottato con un approccio incrementale?** - Alcune delle maglie del servizio che forniscono molte funzionalità possono essere adottate in un approccio più incrementale.- Some of the service meshes that provide a lot of capabilities can be adopted in a more incremental approach. Installa solo i componenti necessari per garantire il tuo successo. Una volta che si è più sicuri e sono necessarie funzionalità aggiuntive, quindi esplorare quelli. Resistere alla tentazione di installare *tutto* fin dall'inizio.
+- **È possibile adottare questo approccio in modo incrementale?** -Alcune delle reti mesh dei servizi che forniscono numerose funzionalità possono essere adottate in un approccio più incrementale. Installare solo i componenti necessari per garantire l'esito positivo dell'operazione. Una volta che si è più sicuri e sono necessarie funzionalità aggiuntive, è possibile esaminarle. Resistere alla necessità di installare *tutto* dall'inizio.
 
-Se, dopo un'attenta considerazione, si decide che è necessario un reticolo di servizio per fornire le funzionalità necessarie, la decisione successiva è la rete mesh di *servizio?*
+Se, dopo un'attenta valutazione, si decide che è necessario disporre di una rete di servizi per fornire le funzionalità necessarie, quindi la decisione successiva è la *mesh dei servizi?*
 
-Considerare le seguenti aree e quali di esse sono più allineate con le proprie esigenze. Questo ti guiderà verso la soluzione migliore per il tuo ambiente e i tuoi carichi di lavoro. La sezione [Passaggi successivi](#next-steps) consente di ulteriori informazioni dettagliate sulle maglie di servizio specifiche e su come vengono mappate a queste aree.
+Prendere in considerazione le aree seguenti e quali sono più allineate con i requisiti. In questo modo verrà illustrata la soluzione migliore per l'ambiente e i carichi di lavoro. La sezione [passaggi successivi](#next-steps) consente di passare ad altre informazioni dettagliate sulle mesh di servizi specifiche e sul modo in cui vengono mappate a queste aree.
 
-- **Tecnico** - gestione del traffico, politica, sicurezza, osservabilità
+- **Tecnica** -gestione del traffico, criteri, sicurezza, osservabilità
 
-- **Business** - supporto commerciale, fondazione (CNCF), licenza OSS, governance
+- Supporto **commerciale commerciale,** fondamento (CNCF), licenza OSS, governance
 
-- **Operativo:** installazione/aggiornamento, requisiti di risorse, requisiti di prestazioni, integrazioni (metriche, telemetria, dashboard, strumenti, SMI), carichi di lavoro misti (pool di nodi Linux e Windows), elaborazione (Kubernetes, macchine virtuali), multi-cluster
+- **Operativo** : installazione/aggiornamenti, requisiti delle risorse, requisiti delle prestazioni, integrazioni (metriche, telemetria, dashboard, strumenti, SMI), carichi di lavoro misti (pool di nodi Linux e Windows), calcolo (Kubernetes, macchine virtuali), multicluster
 
-- **Sicurezza** - autenticazione, identità, gestione e rotazione dei certificati, CA esterna collegabile
+- **Sicurezza** -autenticazione, identità, gestione dei certificati e rotazione, CA esterna collegabile
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La documentazione seguente fornisce ulteriori informazioni sulle maglie del servizio che è possibile provare nel servizio Azure Kubernetes (AKS):The following documentation provides more information about service meshes that you can try out on Azure Kubernetes Service (AKS):
+La documentazione seguente fornisce altre informazioni sulle mesh dei servizi che è possibile provare in Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
-> [Scopri di più su Istio ...][istio-about]
+> [Altre informazioni su Istio...][istio-about]
 
 > [!div class="nextstepaction"]
-> [Ulteriori informazioni su Linkerd ...][linkerd-about]
+> [Altre informazioni su Linkerd...][linkerd-about]
 
 > [!div class="nextstepaction"]
-> [Scopri di più su Consul ...][consul-about]
+> [Altre informazioni su Consul...][consul-about]
 
-È anche possibile esplorare Service Mesh Interface (SMI), un'interfaccia standard per le mesh di servizio su Kubernetes:
+È anche possibile esplorare Service mesh Interface (SMI), un'interfaccia standard per le mesh dei servizi in Kubernetes:
 
-- [Interfaccia SMI (Service Mesh Interface)][smi]
+- [SMI (Service mesh Interface)][smi]
 
 
 <!-- LINKS - external -->

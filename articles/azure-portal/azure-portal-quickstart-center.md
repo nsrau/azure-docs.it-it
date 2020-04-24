@@ -1,6 +1,6 @@
 ---
-title: Introduzione al Centro guide introduttive di Azure
-description: Usare l'esperienza guidata del Centro guide introduttive di Azure per iniziare a usare Azure.Use the Azure Quickstart Center guided experience to get started with Azure. Impara a configurare, migrare e innovare.
+title: Inizia a usare il centro di avvio rapido di Azure
+description: Per iniziare a usare Azure, usare l'esperienza guidata del centro di avvio rapido di Azure. Scopri come configurare, migrare e innovare.
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -16,34 +16,34 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76900697"
 ---
-# <a name="get-started-with-the-azure-quickstart-center"></a>Introduzione al Centro guide introduttive di Azure
+# <a name="get-started-with-the-azure-quickstart-center"></a>Inizia a usare il centro di avvio rapido di Azure
 
-Centro guide introduttive di Azure è un'esperienza guidata nel portale di Azure disponibile per chiunque desideri migliorare la propria conoscenza di Azure.Azure Quickstart Center is a guided experience in the Azure portal available to anyone wants to improve their knowledge of Azure. Per le organizzazioni che non hanno risorse di Azure, è il modo più rapido per eseguire l'onboarding e configurare l'ambiente cloud.
+Il centro avvio rapido di Azure è un'esperienza guidata nel portale di Azure disponibile per chiunque voglia migliorare la propria conoscenza di Azure. Per le organizzazioni che non hanno familiarità con Azure, è il modo più rapido per caricare e configurare l'ambiente cloud.
 
 ## <a name="overview"></a>Panoramica
 
-Centro informazioni introduttive di Azure sono disponibili tre opzioni per iniziare:Azure Quickstart Center has three options for getting started:
+Il centro di avvio rapido di Azure offre tre opzioni per iniziare:
 
-* Guide alla **configurazione:** progettato per l'amministratore IT e l'architetto cloud, le guide introducono concetti chiave per l'adozione di Azure.Setup guides : Designed for the IT admin and cloud architect, our guides introduce key concepts for Azure adoption. I passaggi strutturati consentono di intervenire man mano che si apprende, applicando le procedure consigliate da Microsoft. La guida alla migrazione consente di valutare la preparazione e pianificare il passaggio ad Azure.The migration guide helps you assess readiness and plan as you prepare to shift to Azure.
+* **Guide all'installazione**: progettate per l'amministratore IT e l'architetto del cloud, le nostre guide introducono concetti chiave per l'adozione di Azure. La procedura strutturata consente di intraprendere un'azione durante l'apprendimento, applicando le procedure consigliate di Microsoft. La guida alla migrazione consente di valutare la conformità e pianificare la preparazione per il passaggio ad Azure.
 
-* **Avviare un progetto:** se si è pronti a creare una risorsa, questa sezione consente di ottenere ulteriori informazioni sulle scelte prima di eseguire il commit a un'opzione di servizio. Scoprirai di più sul servizio e sul motivo per cui dovresti usarlo, esplorare i costi e identificare i prerequisiti. Dopo aver fatto la vostra scelta, si può andare direttamente a creare.
+* **Avviare un progetto**: se si è pronti per creare una risorsa, questa sezione consente di ottenere altre informazioni sulle scelte prima di eseguire il commit in un'opzione del servizio. Si scopriranno altre informazioni sul servizio e sul motivo per cui è consigliabile usarlo, esplorare i costi e identificare i prerequisiti. Dopo avere scelto, è possibile passare direttamente a crea.
 
-* **Apprendimento online:** questa sezione del Centro guide introduttive di Azure evidenzia i moduli dei corsi introduttivi gratuiti di Microsoft Learn. Selezionare un riquadro per avviare un corso e altre informazioni sui concetti relativi al cloud e sulla gestione delle risorse in Azure.Select a tile to launch a course and learn more about cloud concepts and managing resources in Azure.
+* **Formazione online**: questa sezione del centro di avvio rapido di Azure evidenzia i moduli gratuiti per i corsi introduttivi dal Microsoft Learn. Selezionare un riquadro per avviare un corso e altre informazioni sui concetti relativi al cloud e sulla gestione delle risorse in Azure.
 
-## <a name="how-to-use-azure-quickstart-center"></a>Come usare Centro guide introduttive di AzureHow to use Azure Quickstart Center
+## <a name="how-to-use-azure-quickstart-center"></a>Come usare il centro di avvio rapido di Azure
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Selezionare **Tutti i servizi** dal menu del portale di Azure.Select All services from the Azure portal menu.
+1. Selezionare **tutti i servizi** dal menu portale di Azure.
 
-1. Selezionare**Centro informazioni rapide** **generale** > .
+1. Selezionare **generale** > **QuickStart Center**.
 
-Per un'analisi approfondita delle operazioni che Azure Quickstart Center può eseguire per l'utente, vedere questo video:For an-depth look at what Azure Quickstart Center can do for you for you, check out this video:
+Per una descrizione approfondita del funzionamento del centro di avvio rapido di Azure, vedere questo video:
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]
 
-[Introduzione al Centro guide introduttive di AzureIntroduction to Azure Quickstart Center](https://www.youtube.com/watch?v=0bSA7RXrbAg)
+[Introduzione al centro di avvio rapido di Azure](https://www.youtube.com/watch?v=0bSA7RXrbAg)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su Configurazione e migrazione di Azure, vedere [Microsoft Cloud Adoption Framework for Azure.](/azure/architecture/cloud-adoption/)
-* Sblocca le tue competenze cloud con più corsi da [Microsoft Learn](/learn/azure/).
+* Altre informazioni sull'installazione e la migrazione di Azure sono disponibili nel [Framework di adozione Microsoft Cloud per Azure](/azure/architecture/cloud-adoption/).
+* Migliora le tue competenze nel cloud con altri corsi da [Microsoft Learn](/learn/azure/).

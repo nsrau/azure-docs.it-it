@@ -1,5 +1,5 @@
 ---
-title: Raccogliere le metriche del set di scalabilità di Windows in Monitoraggio di Azure con il modelloCollect Windows scale set metrics in Azure Monitor with template
+title: Raccogliere le metriche del set di scalabilità Windows in monitoraggio di Azure con il modello
 description: Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per un set di scalabilità di macchine virtuali Windows
 author: anirudhcavale
 services: azure-monitor
@@ -22,30 +22,30 @@ L'[estensione Diagnostica di Microsoft Azure (WAD)](diagnostics-extension-overvi
 
 In questo articolo viene descritto il processo per inviare le metriche delle prestazioni del sistema operativo guest per un set di scalabilità di macchine virtuali Windows all'archivio dati di Monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica di Microsoft Azure è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. L'archiviazione in questa posizione consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono la creazione di avvisi in tempo quasi reale, la creazione di grafici, il routing, l'accesso dall'API REST e altro ancora. Le versioni precedenti dell'estensione Diagnostica di Microsoft Azure eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.  
 
-Se non si ha familiarità con i modelli di Resource Manager, vedere Le [distribuzioni](../../azure-resource-manager/management/overview.md) dei modelli e la relativa struttura e sintassi.  
+Se non si ha familiarità con Gestione risorse modelli, vedere le informazioni sulle [distribuzioni](../../azure-resource-manager/management/overview.md) dei modelli e la relativa struttura e sintassi.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- L'abbonamento deve essere registrato con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- La sottoscrizione deve essere registrata con [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - È necessario avere installato [Azure PowerShell](/powershell/azure) oppure è possibile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
-- La risorsa VM deve trovarsi in [un'area che supporta metriche personalizzate.](metrics-custom-overview.md#supported-regions)
+- La risorsa VM deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurare Monitoraggio di Azure come sink dei dati 
-L'estensione Diagnostica di Azure usa una funzionalità denominata **sink di dati** per instradare metriche e log in posizioni diverse. Le procedure seguenti illustrano come usare un modello di Resource Manager e PowerShell per distribuire una VM usando il nuovo sink di dati Monitoraggio di Azure. 
+L'estensione Diagnostica di Azure usa una funzionalità denominata **sink di dati** per indirizzare le metriche e i log in posizioni diverse. Le procedure seguenti illustrano come usare un modello di Resource Manager e PowerShell per distribuire una VM usando il nuovo sink di dati Monitoraggio di Azure. 
 
 ## <a name="author-a-resource-manager-template"></a>Creare un modello di Resource Manager 
-Per questo esempio, è possibile utilizzare un [modello di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)disponibile pubblicamente:  
+Per questo esempio, è possibile usare un modello di [esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)disponibile pubblicamente:  
 
-- **Azuredeploy.json** è un modello di Resource Manager preconfigurato per la distribuzione di un set di scalabilità di macchine virtuali.
+- **File azuredeploy. JSON** è un modello di gestione risorse preconfigurato per la distribuzione di un set di scalabilità di macchine virtuali.
 
 - **Azuredeploy.parameters.json** è un file di parametri in cui sono archiviate alcune informazioni, ad esempio il nome utente e la password che si vogliono impostare per la macchina virtuale. Durante la distribuzione, il modello di Resource Manager usa i parametri impostati in questo file. 
 
 Scaricare e salvare entrambi i file in locale. 
 
 ###  <a name="modify-azuredeployparametersjson"></a>Modificare azuredeploy.parameters.json
-Aprire il file **azuredeploy.parameters.json:Open the azuredeploy.parameters.json** file:  
+Aprire il file **file azuredeploy. Parameters. JSON** :  
  
 - Specificare un valore per **vmSKU** da distribuire. È consigliabile usare Standard_D2_v3. 
 - Specificare un valore desiderato per **windowsOSVersion** per il set di scalabilità di macchine virtuali. È consigliabile usare 2016-Datacenter. 
@@ -55,7 +55,7 @@ Aprire il file **azuredeploy.parameters.json:Open the azuredeploy.parameters.jso
 
 
 ###  <a name="modify-azuredeployjson"></a>Modificare azuredeploy.json
-Aprire il file **azuredeploy.json.** 
+Aprire il file **file azuredeploy. JSON** . 
 
 Aggiungere una variabile per conservare le informazioni sull'account di archiviazione nel modello di Resource Manager. Tutti i log o i contatori delle prestazioni specificati nel file di configurazione di diagnostica verranno scritti sia nell'archivio delle metriche di Monitoraggio di Azure sia nell'account di archiviazione specificato di seguito: 
 
@@ -65,7 +65,7 @@ Aggiungere una variabile per conservare le informazioni sull'account di archivia
 "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
 ```
  
-Trovare la definizione del set di scalabilità della macchina virtuale nella sezione resources e aggiungere la sezione **identity** alla configurazione. In questo modo, Azure assegna alla configurazione un'identità di sistema. Questo passaggio assicura anche che le VM nel set di scalabilità possano inviare metriche guest su se stesse a Monitoraggio di Azure:  
+Individuare la definizione del set di scalabilità di macchine virtuali nella sezione risorse e aggiungere la sezione **Identity** alla configurazione. In questo modo, Azure assegna alla configurazione un'identità di sistema. Questo passaggio assicura anche che le VM nel set di scalabilità possano inviare metriche guest su se stesse a Monitoraggio di Azure:  
 
 ```json
     { 
@@ -197,7 +197,7 @@ Il codice seguente dell'estensione MSI aggiunge anche l'estensione Diagnostica e
 ```
 
 
-Aggiungere un dependsOn per l'account di archiviazione per assicurarsi che venga creato nell'ordine corretto:Add a **dependsOn** for the storage account to ensure it're created in the correct order: 
+Aggiungere un **dependsOn** per l'account di archiviazione per assicurarsi che venga creato nell'ordine corretto: 
 
 ```json
 "dependsOn": [ 
@@ -232,7 +232,7 @@ Salvare e chiudere entrambi i file.
 ## <a name="deploy-the-resource-manager-template"></a>Distribuire il modello di Resource Manager 
 
 > [!NOTE]  
-> È necessario eseguire l'estensione Diagnostica di Azure versione 1.5 o successiva e la proprietà autoUpgradeMinorVersion: è impostata su true nel modello di Resource Manager.You must be running the Azure Diagnostics extension version 1.5 or higher **and** have the **autoUpgradeMinorVersion:** property set to **true** in your Resource Manager template. Azure carica quindi l'estensione corretta all'avvio della macchina virtuale. Se nel modello sono specificate impostazioni diverse, modificarle e ridistribuire il modello. 
+> È necessario eseguire l'estensione Diagnostica di Azure 1,5 o versione successiva **e** impostare la proprietà **autoUpgradeMinorVersion:** su **true** nel modello di gestione risorse. Azure carica quindi l'estensione corretta all'avvio della macchina virtuale. Se nel modello sono specificate impostazioni diverse, modificarle e ridistribuire il modello. 
 
 
 Per distribuire il modello di Resource Manager, usare Azure PowerShell:  
@@ -283,7 +283,7 @@ Per distribuire il modello di Resource Manager, usare Azure PowerShell:
 
 1. Nell'elenco a discesa delle risorse selezionare il set di scalabilità di macchine virtuali creato.  
 
-1. Nel menu a discesa Spazi dei nomi selezionare **azure.vm.windows.guest**. 
+1. Nel menu a discesa spazi dei nomi selezionare **Azure. VM. Windows. Guest**. 
 
 1. Nell'elenco a discesa delle metriche selezionare **Memoria\%di byte vincolati in uso**.  
 

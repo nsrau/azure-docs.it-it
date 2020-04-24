@@ -43,7 +43,7 @@ Per testare la connettività, è consigliabile eseguire un ping di porta. Mentre
 Per altre informazioni, vedere [Use port pings instead of ICMP to test Azure VM connectivity](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/) (Usare i ping di porta per testare la connettività delle VM di Azure).
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>Come si può impedire la ricezione di migliaia di segnalazioni da indirizzi IP sconosciuti che potrebbero indicare un attacco dannoso al servizio cloud?
-Azure implementa una sicurezza di rete su più livelli per proteggere i servizi di piattaforma dagli attacchi Distributed Denial of Service (DDoS). Il sistema di difesa dagli attacchi DDoS di Azure fa parte del processo continuo di monitoraggio di Azure, che viene costantemente migliorato tramite test di penetrazione. Questo sistema di difesa dagli attacchi DDoS è progettato per contrastare attacchi non solo dall'esterno, ma anche da altri tenant di Azure. Per altre informazioni, vedere Sicurezza di rete di Azure.For more [information,](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf)see Azure network security .
+Azure implementa una sicurezza di rete su più livelli per proteggere i servizi di piattaforma dagli attacchi Distributed Denial of Service (DDoS). Il sistema di difesa dagli attacchi DDoS di Azure fa parte del processo continuo di monitoraggio di Azure, che viene costantemente migliorato tramite test di penetrazione. Questo sistema di difesa dagli attacchi DDoS è progettato per contrastare attacchi non solo dall'esterno, ma anche da altri tenant di Azure. Per altre informazioni, vedere [sicurezza di rete di Azure](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
 
 È anche possibile creare un'attività di avvio per bloccare selettivamente alcuni indirizzi IP specifici. Per altre informazioni, vedere [Bloccare un indirizzo IP specifico](cloud-services-startup-tasks-common.md#block-a-specific-ip-address).
 
@@ -65,14 +65,14 @@ L'algoritmo di distribuzione usato è un hash a 5 tuple (IP di origine, porta di
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>In che modo è possibile reindirizzare il traffico in ingresso per l'URL predefinito del servizio cloud a un URL personalizzato?
 
-URL Rewrite Module per IIS può essere usato per reindirizzare il traffico in arrivo all'URL predefinito per il servizio cloud (ad esempio, \*.cloudapp.net) ad alcuni nomi/URL personalizzati. Poiché il modulo di riscrittura URL è abilitato nei ruoli Web per impostazione predefinita e le relative regole sono configurate nel file web.config dell'applicazione, è sempre disponibile nella macchina virtuale indipendentemente dai riavvii/immagini. Per ulteriori informazioni, vedere:
+URL Rewrite Module per IIS può essere usato per reindirizzare il traffico in arrivo all'URL predefinito per il servizio cloud (ad esempio, \*.cloudapp.net) ad alcuni nomi/URL personalizzati. Poiché il modulo URL Rewrite è abilitato nei ruoli Web per impostazione predefinita e le regole sono configurate nel file Web. config dell'applicazione, è sempre disponibile nella macchina virtuale indipendentemente dai riavvii o dalle ricreazioni delle immagini. Per ulteriori informazioni, vedere:
 
 - [Create rewrite rules for the URL Rewrite module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creare regole di riscrittura per URL Rewrite Module)
 - [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top) (Rimuovere un collegamento predefinito)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Come posso bloccare/disabilitare il traffico in ingresso per l'URL predefinito del servizio cloud?
 
-È possibile impedire il traffico in ingresso per l'URL/nome predefinito del servizio cloud (ad esempio, \*.cloudapp.net). Impostare l'intestazione host su un\.nome DNS personalizzato (ad esempio, www MyCloudService.com) nella configurazione dell'associazione di siti nel file di definizione del servizio cloud (con estensione csdef), come indicato:
+È possibile impedire il traffico in ingresso per l'URL/nome predefinito del servizio cloud (ad esempio, \*.cloudapp.net). Impostare l'intestazione host su un nome DNS personalizzato (ad esempio, www\.MyCloudService.com) nella configurazione dell'associazione del sito nel file di definizione del servizio cloud (*. csdef), come indicato di seguito:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -104,13 +104,13 @@ Per assicurarsi che l'indirizzo IP pubblico del servizio cloud (noto anche come 
 - [Riservare l'indirizzo IP di un servizio cloud esistente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associare un indirizzo IP riservato a un servizio cloud usando un file cscfg](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Se si dispone di più di un'istanza per i ruoli, l'associazione del RIP con il servizio cloud non dovrebbe causare alcun tempo di inattività. In alternativa, è possibile aggiungere l'intervallo IP del data center di Azure a un elenco Consenti.Alternatively, you can add the IP range of your Azure datacenter to an allow list. È possibile trovare tutti gli intervalli IP di Azure nell'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Se si dispone di più di un'istanza per i ruoli, l'associazione del RIP con il servizio cloud non dovrebbe causare alcun tempo di inattività. In alternativa, è possibile aggiungere l'intervallo IP del Data Center di Azure a un elenco Consenti. È possibile trovare tutti gli intervalli IP di Azure nell'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 Questo file contiene gli intervalli di indirizzi IP, inclusi gli intervalli di calcolo, SQL e archiviazione, usati nei data center di Azure. Ogni settimana viene pubblicato un file aggiornato che riflette gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana. Scaricare il nuovo file con estensione xml ogni settimana e apportare le modifiche necessarie nel sito per identificare correttamente i servizi in esecuzione in Azure. Gli utenti di Azure ExpressRoute potrebbero notare che questo file viene usato per aggiornare l'annuncio BGP dello spazio di Azure la prima settimana del mese.
 
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Come è possibile usare le reti virtuali di Azure Resource Manager con i servizi cloud?
 
-I servizi cloud non possono trovarsi nelle reti virtuali di Azure Resource Manager. Le reti virtuali di Resource Manager e le reti virtuali della distribuzione classica possono essere connesse tramite peering. Per altre informazioni, vedere [Peering di rete virtuale](../virtual-network/virtual-network-peering-overview.md).
+I servizi cloud non possono trovarsi nelle reti virtuali di Azure Resource Manager. Le reti virtuali di Resource Manager e le reti virtuali della distribuzione classica possono essere connesse tramite peering. Per altre informazioni, vedere [peering di rete virtuale](../virtual-network/virtual-network-peering-overview.md).
 
 
 ## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>Come è possibile ottenere l'elenco di IP pubblici usati dai servizi cloud?

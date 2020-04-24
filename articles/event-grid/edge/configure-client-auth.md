@@ -1,6 +1,6 @@
 ---
-title: Configurare l'autenticazione client delle chiamate in arrivo - Azure Event Grid IoT Edge Documenti Microsoft
-description: Configurare i protocolli API esposti da Griglia di eventi in Edge Edge.Configure API protocols exposed by Event Grid on IoT Edge.
+title: Configurare l'autenticazione client per le chiamate in ingresso-griglia di eventi di Azure IoT Edge | Microsoft Docs
+description: Configurare i protocolli API esposti da griglia di eventi in IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -16,16 +16,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841792"
 ---
-# <a name="configure-client-authentication-of-incoming-calls"></a>Configurare l'autenticazione client delle chiamate in arrivo
+# <a name="configure-client-authentication-of-incoming-calls"></a>Configurare l'autenticazione client delle chiamate in ingresso
 
-In questa guida vengono forniti esempi delle possibili configurazioni di autenticazione client per il modulo Griglia di eventi. Il modulo Griglia di eventi supporta due tipi di autenticazione client:
+Questa guida fornisce esempi delle possibili configurazioni di autenticazione client per il modulo di griglia di eventi. Il modulo griglia di eventi supporta due tipi di autenticazione client:
 
-* Chiave della firma di accesso condiviso (SAS) basata
+* Firma di accesso condiviso (SAS) basata su chiavi
 * Basato su certificati
 
-Per tutte le configurazioni possibili, vedere Guida alla [sicurezza e all'autenticazione.](security-authentication.md)
+Vedere la guida per la [sicurezza e l'autenticazione](security-authentication.md) per tutte le configurazioni possibili.
 
-## <a name="enable-certificate-based-client-authentication-no-self-signed-certificates"></a>Abilitare l'autenticazione client basata su certificati, senza certificati autofirmatiEnable certificate-based client authentication, no self-signed certificates
+## <a name="enable-certificate-based-client-authentication-no-self-signed-certificates"></a>Abilitare l'autenticazione client basata su certificato, nessun certificato autofirmato
 
 ```json
  {
@@ -38,7 +38,7 @@ Per tutte le configurazioni possibili, vedere Guida alla [sicurezza e all'autent
 }
  ```
 
-## <a name="enable-certificate-based-client-authentication-allow-self-signed-certificates"></a>Abilitare l'autenticazione client basata su certificati, consentire i certificati autofirmatiEnable certificate-based client authentication, allow self-signed certificates
+## <a name="enable-certificate-based-client-authentication-allow-self-signed-certificates"></a>Abilitare l'autenticazione client basata su certificati, consentire i certificati autofirmati
 
 ```json
  {
@@ -52,9 +52,9 @@ Per tutte le configurazioni possibili, vedere Guida alla [sicurezza e all'autent
 ```
 
 >[!NOTE]
->Impostare la proprietà **inbound__clientAuth__clientCert__allowUnknownCA** **su true** solo negli ambienti di test, in quanto in genere è possibile utilizzare certificati autofirmati. Per i carichi di lavoro di produzione, è consigliabile impostare questa proprietà su **false** e i certificati di un'autorità di certificazione (CA).
+>Impostare la proprietà **inbound__clientAuth__clientCert__allowUnknownCA** su **true** solo negli ambienti di test, poiché in genere è possibile utilizzare certificati autofirmati. Per i carichi di lavoro di produzione, è consigliabile impostare questa proprietà su **false** e certificati da un'autorità di certificazione (CA).
 
-## <a name="enable-certificate-based-and-sas-key-based-client-authentication"></a>Abilitare l'autenticazione client basata su certificati e chiave sasEnable certificate-based and sas-key client authentication
+## <a name="enable-certificate-based-and-sas-key-based-client-authentication"></a>Abilitare l'autenticazione client basata sui certificati e sulla chiave SAS
 
 ```json
  {
@@ -70,4 +70,4 @@ Per tutte le configurazioni possibili, vedere Guida alla [sicurezza e all'autent
  ```
 
 >[!NOTE]
->L'autenticazione client basata su chiave SAS consente a un modulo perimetrale non IoT di eseguire operazioni di gestione e runtime, presupponendo ovviamente che le porte API siano accessibili all'esterno della rete IoT Edge.SAS key-based client authentication allows a non-IoT edge module to do management and runtime operations assuming course the API ports are accessible outside the IoT Edge network.
+>L'autenticazione client basata su chiave SAS consente a un modulo perimetrale non-Internet di eseguire operazioni di gestione e Runtime, presumendo che le porte API siano accessibili all'esterno della rete IoT Edge.

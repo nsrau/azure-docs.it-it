@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi comuni
-description: Informazioni su come risolvere i problemi relativi alla creazione, all'assegnazione e alla rimozione di blueprint, ad esempio violazioni dei criteri e funzioni dei parametri del blueprint.
+description: Informazioni su come risolvere i problemi relativi alla creazione, all'assegnazione e alla rimozione di progetti quali violazioni dei criteri e funzioni di parametri del progetto.
 ms.date: 01/15/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
@@ -12,7 +12,7 @@ ms.locfileid: "76157084"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
 
-È possibile che si verifichino errori durante la creazione, l'assegnazione o la rimozione di blueprint. Questo articolo descrive i diversi errori che possono verificarsi e come risolverli.
+È possibile che si verifichino errori durante la creazione, l'assegnazione o la rimozione di progetti. Questo articolo descrive i diversi errori che possono verificarsi e come risolverli.
 
 ## <a name="finding-error-details"></a>Ricerca dei dettagli di errore
 
@@ -20,9 +20,9 @@ L'assegnazione di un progetto a un ambito comporta una serie di errori. Quando s
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
-1. Selezionare **Blueprint assegnati** dalla pagina a sinistra e utilizzare la casella di ricerca per filtrare le assegnazioni dei blueprint e trovare l'assegnazione non riuscita. È inoltre possibile ordinare la tabella delle assegnazioni tramite la colonna **Stato di provisioning** per visualizzare tutte le assegnazioni non riuscite raggruppate.
+1. Selezionare **progetti assegnati** dalla pagina a sinistra e usare la casella di ricerca per filtrare le assegnazioni di progetto per trovare l'assegnazione non riuscita. È inoltre possibile ordinare la tabella delle assegnazioni tramite la colonna **Stato di provisioning** per visualizzare tutte le assegnazioni non riuscite raggruppate.
 
-1. Fare clic con il pulsante sinistro del mouse sul blueprint con lo stato _Non riuscito_ oppure fare clic con il pulsante destro del mouse e scegliere Visualizza **dettagli assegnazione**.
+1. Fare clic con il pulsante destro del mouse sul progetto con lo stato _non riuscito_ oppure fare clic con il pulsante destro del mouse e selezionare **Visualizza Dettagli assegnazione**.
 
 1. Nella parte superiore della pagina di assegnazione del progetto viene visualizzato un banner rosso che avvisa dell'esito negativo dell'assegnazione. Fare clic sul banner per ottenere altri dettagli.
 
@@ -59,28 +59,28 @@ Il passaggio di un parametro del progetto che usa una funzione, ad esempio `[res
 
 #### <a name="resolution"></a>Risoluzione
 
-Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. Per altre informazioni, vedere [Sintassi ed espressioni nei modelli](../../../azure-resource-manager/templates/template-expressions.md)di Azure Resource Manager.
+Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. Per altre informazioni, vedere [sintassi ed espressioni nei modelli Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
-## <a name="delete-errors"></a>Eliminare gli errori
+## <a name="delete-errors"></a>Elimina errori
 
-### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>Scenario: timeout eliminazione assegnazioneScenario: Assignment deletion timeout
+### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>Scenario: timeout dell'eliminazione dell'assegnazione
 
 #### <a name="issue"></a>Problema
 
-L'eliminazione di un'assegnazione di blueprint non viene completata.
+L'eliminazione di un'assegnazione di progetto non è stata completata.
 
 #### <a name="cause"></a>Causa
 
-Un'assegnazione del blueprint potrebbe rimanere bloccata in uno stato non terminale quando viene eliminata. Questo stato si verifica quando le risorse create dall'assegnazione del blueprint sono ancora in attesa di eliminazione o non restituiscono un codice di stato a Azure Blueprints.This state is caused when resources created by the blueprint assignment are still pending deletion or don't return a status code to Azure Blueprints.
+Un'assegnazione di progetto può rimanere bloccata in uno stato non terminale quando viene eliminata. Questo stato viene generato quando le risorse create dall'assegnazione del progetto sono ancora in attesa di eliminazione o non restituiscono un codice di stato ai progetti di Azure.
 
 #### <a name="resolution"></a>Risoluzione
 
-Le assegnazioni del blueprint in uno stato non terminale vengono contrassegnate automaticamente come **non riuscite** dopo un timeout _di 6 ore._ Una volta che il timeout ha regolato lo stato dell'assegnazione del blueprint, l'eliminazione può essere ritentata.
+Le assegnazioni di progetto in uno stato non terminale vengono contrassegnate automaticamente come **non riuscite** dopo un timeout di _6 ore_ . Una volta che il timeout ha regolato lo stato dell'assegnazione del progetto, è possibile ritentare l'eliminazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-- Ottieni risposte dagli esperti di Azure tramite i forum di [Azure.](https://azure.microsoft.com/support/forums/)
-- Connettiti [@AzureSupport](https://twitter.com/azuresupport) con l'account ufficiale di Microsoft Azure per migliorare l'esperienza dei clienti connettendo la community di Azure alle risorse giuste: risposte, supporto ed esperti.
-- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.
+- Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
+- Connetti con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.

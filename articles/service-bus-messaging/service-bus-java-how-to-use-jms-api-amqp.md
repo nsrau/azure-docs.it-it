@@ -1,5 +1,5 @@
 ---
-title: Usare AMQP con l'API del servizio messaggi Java & bus di servizio di AzureUse AMQP with Java Message Service API & Azure Service Bus
+title: Usare AMQP con l'API del servizio messaggi Java & il bus di servizio di Azure
 description: Come usare JMS (Java Message Service ) con il bus di servizio di Azure e il protocollo AMQP (Advanced Message Queuing Protocol) 1.0.
 services: service-bus-messaging
 documentationcenter: java
@@ -21,15 +21,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77371262"
 ---
-# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Usare Java Message Service (JMS) con il bus di servizio di Azure e AMQP 1.0Use the Java Message Service (JMS) with Azure Service Bus and AMQP 1.0
-In questo articolo viene illustrato come utilizzare le funzionalità di messaggistica del bus di servizio di Azure (code e argomenti di pubblicazione/sottoscrizione) dalle applicazioni Java utilizzando il più comune standard API Java Message Service (JMS). È disponibile un [articolo complementare](service-bus-amqp-dotnet.md) che spiega come eseguire la stessa operazione usando l'API .NET del bus di servizio di Azure.There is a companion article that explains how to do the same using the Azure Service Bus .NET API. È possibile consultare queste due guide per acquisire informazioni sulla messaggistica multipiattaforma con AMQP 1.0.
+# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Usare Java Message Service (JMS) con il bus di servizio di Azure e AMQP 1,0
+Questo articolo illustra come usare le funzionalità di messaggistica del bus di servizio di Azure (code e argomenti di pubblicazione/sottoscrizione) dalle applicazioni Java usando lo standard API JMS (Java Message Service) più diffuso. È disponibile un [Articolo complementare](service-bus-amqp-dotnet.md) che illustra come eseguire la stessa operazione usando l'API .NET del bus di servizio di Azure. È possibile consultare queste due guide per acquisire informazioni sulla messaggistica multipiattaforma con AMQP 1.0.
 
 AMQP (Advanced Message Queuing Protocol) 1.0 è un protocollo di messaggistica wire-level efficiente e affidabile che può essere utilizzato per creare potenti applicazioni di messaggistica multipiattaforma.
 
-Il supporto per AMQP 1.0 nel bus di servizio di Azure significa che è possibile usare le funzionalità di accodamento e pubblicazione/sottoscrizione di messaggistica negoziata da una vasta gamma di piattaforme usando un protocollo binario efficiente. Inoltre, è possibile creare applicazioni costituite da componenti creati con un insieme di linguaggi, framework e sistemi operativi.
+Il supporto per AMQP 1,0 nel bus di servizio di Azure significa che è possibile usare le funzionalità di Accodamento e di messaggistica negoziata di pubblicazione/sottoscrizione da una vasta gamma di piattaforme usando un protocollo binario efficiente. Inoltre, è possibile creare applicazioni costituite da componenti creati con un insieme di linguaggi, framework e sistemi operativi.
 
 ## <a name="get-started-with-service-bus"></a>Introduzione al bus di servizio
-In questa guida si presuppone che si disponga `basicqueue`già di uno spazio dei nomi del bus di servizio contenente una coda denominata . In caso contrario, è possibile [creare lo spazio dei nomi e la coda](service-bus-create-namespace-portal.md) usando il portale di [Azure.](https://portal.azure.com) Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md).
+Questa guida presuppone che sia già presente uno spazio dei nomi del bus di servizio `basicqueue`contenente una coda denominata. In caso contrario, è possibile [creare lo spazio dei nomi e la coda](service-bus-create-namespace-portal.md) usando il [portale di Azure](https://portal.azure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Le code e gli argomenti partizionati supportano anche AMQP. Per altre informazioni, vedere le [entità di messaggistica partizionate](service-bus-partitioning.md) e [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio](service-bus-partitioned-queues-and-topics-amqp-overview.md).
@@ -37,7 +37,7 @@ In questa guida si presuppone che si disponga `basicqueue`già di uno spazio dei
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Download della libreria client JMS basata su AMQP 1.0
-Per informazioni su dove scaricare la versione più recente della libreria client Apache [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html)Qpid JMS AMQP 1.0, visitare .
+Per informazioni su dove scaricare la versione più recente della libreria client di Apache Qpid JMS AMQP 1,0, visitare [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 È necessario aggiungere i seguenti quattro file JAR dall'archivio di distribuzione AMQP 1.0 di Apache Qpid al CLASSPATH Java durante la compilazione e l'esecuzione di applicazioni JMS con il bus di servizio:
 
@@ -49,7 +49,7 @@ Per informazioni su dove scaricare la versione più recente della libreria clien
 
 ## <a name="coding-java-applications"></a>Compilazione di applicazioni Java
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java Naming and Directory Interface (JNDI)
-JMS usa l'interfaccia JNDI (Java Naming and Directory Interface) per creare una separazione tra i nomi logici e i nomi fisici. Con JNDI vengono risolti due tipi di oggetti JMS: ConnectionFactory e Destination. JNDI utilizza un modello di provider in cui è possibile inserire diversi servizi directory per gestire le attività di risoluzione dei nomi. La libreria JMS AMQP 1.0 di Apache Qpid viene fornita con un semplice provider JNDI basato su file di proprietà configurato utilizzando un file delle proprietà nel seguente formato:
+JMS usa l'interfaccia JNDI (Java Naming and Directory Interface) per creare una separazione tra i nomi logici e i nomi fisici. Con JNDI vengono risolti due tipi di oggetti JMS: ConnectionFactory e Destination. JNDI utilizza un modello di provider in cui è possibile inserire diversi servizi directory per gestire le attività di risoluzione dei nomi. La libreria JMS AMQP 1,0 di Apache Qpid viene fornita con un semplice provider JNDI basato su file di proprietà configurato usando un file delle proprietà con il formato seguente:
 
 ```TEXT
 # servicebus.properties - sample JNDI configuration
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>Impostare il contesto JNDI e configurare ConnectionFactory
 
-La stringa di connessione a cui si fa riferimento in quella disponibile in 'Criteri di accesso condiviso' nel portale di Azure in **Stringa di connessione primariaThe** **ConnectionString** referenced in the one available in the 'Shared Access Policies' in the [Azure portal](https://portal.azure.com) under Primary Connection String
+**ConnectionString** a cui viene fatto riferimento in quello disponibile nei ' criteri di accesso condiviso ' nel [portale di Azure](https://portal.azure.com) nella **stringa di connessione primaria**
 ```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
@@ -136,7 +136,7 @@ Context context = new InitialContext(hashtable);
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Semplice applicazione JMS che usa la coda del bus di servizio
 L'applicazione di esempio seguente consente di inviare e ricevere messaggi di testo JMS verso e da una coda del bus di servizio con il nome JNDI logico QUEUE.
 
-È possibile accedere a tutti il codice sorgente e le informazioni di configurazione dalla [guida introduttiva](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart) della coda di esempi del bus di servizio di Azure
+È possibile accedere a tutte le informazioni sul codice sorgente e sulla configurazione dalla [Guida introduttiva della coda JMS degli esempi del bus di servizio di Azure](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart)
 
 ```java
 // Copyright (c) Microsoft. All rights reserved.
@@ -341,16 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>Argomenti JMS e argomenti del bus di servizio
-L'uso di argomenti e sottoscrizioni del bus di servizio di Azure tramite l'API Java Message Service (JMS) offre funzionalità di invio e ricezione di base. È una scelta comoda quando si trasportano applicazioni da altri broker di messaggi con API compatibili con JMS, anche se gli argomenti del bus di servizio differiscono dagli argomenti JMS e richiedono alcune modifiche. 
+## <a name="jms-topics-vs-service-bus-topics"></a>Argomenti di JMS e argomenti del bus di servizio
+L'uso di argomenti e sottoscrizioni del bus di servizio di Azure tramite l'API JMS (Java Message Service) fornisce funzionalità di base per l'invio e la ricezione. Si tratta di una scelta comoda quando si trasferiscono le applicazioni da altri broker di messaggi con API conformi a JMS, anche se gli argomenti del bus di servizio differiscono dagli argomenti JMS e richiedono alcune modifiche. 
 
-Gli argomenti del bus di servizio di Azure indirizzano i messaggi in sottoscrizioni denominate, condivise e durevoli gestite tramite l'interfaccia di Gestione risorse di Azure, gli strumenti della riga di comando di Azure o il portale di Azure.Azure Service Bus topics route into named, shared, durable subscriptions that are managed through the Azure Resource Management interface, the Azure command-line tools, or through the Azure portal. Ogni sottoscrizione consente fino a 2000 regole di selezione, ognuna delle quali può avere una condizione di filtro e, per i filtri SQL, anche un'azione di trasformazione dei metadati. Ogni corrispondenza della condizione di filtro seleziona il messaggio di input da copiare nella sottoscrizione.  
+Gli argomenti del bus di servizio di Azure instradano i messaggi in sottoscrizioni denominate, condivise e durevoli gestite tramite l'interfaccia di gestione risorse di Azure, gli strumenti da riga di comando di Azure o tramite la portale di Azure. Ogni sottoscrizione consente un massimo di 2000 regole di selezione, ciascuna delle quali può avere una condizione di filtro e, per i filtri SQL, anche un'azione di trasformazione dei metadati. Ogni corrispondenza di condizione di filtro consente di selezionare il messaggio di input da copiare nella sottoscrizione.  
 
-La ricezione di messaggi dalle sottoscrizioni è identica la ricezione di messaggi dalle code. A ogni sottoscrizione è associata una coda di messaggi non recapitabili e la possibilità di inoltrare automaticamente i messaggi a un'altra coda o a un altro argomento. 
+La ricezione di messaggi dalle sottoscrizioni è identico a ricevere messaggi dalle code. A ogni sottoscrizione è associata una coda di messaggi non recapitabili e la possibilità di inviare automaticamente i messaggi a un'altra coda o a altri argomenti. 
 
-Gli argomenti JMS consentono ai client di creare in modo dinamico sottoscrittori non durevoli e durevoli che consentono facoltativamente di filtrare i messaggi con selettori di messaggi. Queste entità non condivise non sono supportate dal bus di servizio. La sintassi della regola di filtro SQL per il bus di servizio è tuttavia simile alla sintassi del selettore di messaggi supportata da JMS. 
+Gli argomenti JMS consentono ai client di creare in modo dinamico Sottoscrittori non durevoli e durevoli che facoltativamente consentono di filtrare messaggi con selettori di messaggi. Queste entità non condivise non sono supportate dal bus di servizio. La sintassi della regola di filtro SQL per il bus di servizio è, tuttavia, simile alla sintassi del selettore dei messaggi supportata da JMS. 
 
-Il lato editore JMS Topic è compatibile con Service Bus, come illustrato in questo esempio, ma non con i sottoscrittori dinamici. Le API JMS correlate alla topologia seguenti non sono supportate con il bus di servizio. 
+Il lato Publisher dell'argomento JMS è compatibile con il bus di servizio, come illustrato in questo esempio, ma i sottoscrittori dinamici non lo sono. Le API JMS correlate alla topologia seguenti non sono supportate con il bus di servizio. 
 
 ## <a name="unsupported-features-and-restrictions"></a>Funzionalità non supportate e restrizioni
 Quando si utilizza JMS su AMQP 1.0 con il bus di servizio esistono le seguenti restrizioni:
@@ -358,7 +358,7 @@ Quando si utilizza JMS su AMQP 1.0 con il bus di servizio esistono le seguenti r
 * È consentito solo un oggetto **MessageProducer** o **MessageConsumer** per **sessione**. Se si vuole creare più oggetti **MessageProducers** o **MessageConsumers** in un'applicazione, creare una **sessione** dedicata per ognuno di essi.
 * Le sottoscrizioni di argomenti volatili non sono attualmente supportate.
 * **MessageSelectors** non sono attualmente supportati.
-* Le transazioni distribuite non sono supportate (ma le sessioni transazionali sono supportate).
+* Le transazioni distribuite non sono supportate, ma le sessioni transazionali sono supportate.
 
 Inoltre, il bus di servizio di Azure separa il piano di controllo dal piano dati e pertanto non supporta alcune delle funzioni di topologia dinamica di JMS:
 
@@ -374,7 +374,7 @@ Inoltre, il bus di servizio di Azure separa il piano di controllo dal piano dati
 | createBrowser               | Non supportato. Usare la funzionalità Peek() dell'API del bus di servizio                         |
 | createQueue                 | Creare una coda tramite portale/strumenti/API di gestione                                           | 
 | createTemporaryQueue        | Creare una coda tramite portale/strumenti/API di gestione con *AutoDeleteOnIdle* impostato su un periodo di scadenza |
-| receiveNoWait               | utilizzare il metodo receive() fornito dall'SDK del bus di servizio e specificare un timeout molto basso o zero |
+| receiveNoWait               | usare il metodo Receive () fornito da Service Bus SDK e specificare un timeout molto basso o zero |
 
 ## <a name="summary"></a>Riepilogo
 Questa guida dettagliata ha illustrato come accedere alle funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) del bus di servizio da Java usando la diffusa API JMS e AMQP 1.0.

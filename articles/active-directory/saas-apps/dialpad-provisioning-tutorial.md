@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Configurare la tastiera per il provisioning automatico degli utenti con Azure Active Directory . Documenti Microsoft'
-description: Informazioni su come configurare Azure Active Directory per il provisioning e il deprovisioning automatico degli account utente in Dialpad.Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Dialpad.
+title: 'Esercitazione: configurare un dispositivo per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -22,9 +22,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058366"
 ---
-# <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Esercitazione: Configurare Dialpad per il provisioning automatico degli utentiTutorial: Configure Dialpad for automatic user provisioning
+# <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Esercitazione: configurare il dispositivo per il provisioning utenti automatico
 
-L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in Dialpad e Azure Active Directory (Azure AD) per configurare Azure AD per il provisioning e il deprovisioning automatico di utenti e/o gruppi in Dialpad.
+L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in Dialpad e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in Dialpad.
 
 > [!NOTE]
 >  L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -36,100 +36,100 @@ L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in Dial
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * Un tenant di Azure AD.
-* [Un tenant Dialpad](https://www.dialpad.com/pricing/).
+* [Un tenant con realpad](https://www.dialpad.com/pricing/).
 * Un account utente in Dialpad con autorizzazioni di amministratore.
 
-## <a name="assign-users-to-dialpad"></a>Assegnazione di utenti a Tastiera
-Azure Active Directory usa un concetto denominato assegnazioni per determinare quali utenti devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning automatico degli utenti, vengono sincronizzati solo gli utenti e/o i gruppi assegnati a un'applicazione in Azure AD.
+## <a name="assign-users-to-dialpad"></a>Assegna utenti a Dialpad
+Azure Active Directory usa un concetto denominato assegnazioni per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning automatico degli utenti, è necessario decidere quali utenti e/o gruppi in Azure AD devono accedere a Dialpad. Una volta deciso, puoi assegnare questi utenti e/o gruppi a Dialpad seguendo le istruzioni qui:
+Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a Dialpad. Dopo aver stabilito questo, è possibile assegnare questi utenti e/o gruppi a realpad seguendo le istruzioni riportate qui:
  
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md) 
 
- ## <a name="important-tips-for-assigning-users-to-dialpad"></a>Suggerimenti importanti per l'assegnazione di utenti a Dialpad
+ ## <a name="important-tips-for-assigning-users-to-dialpad"></a>Suggerimenti importanti per l'assegnazione di utenti a realpad
 
- * È consigliabile assegnare un singolo utente di Azure AD a Dialpad per testare la configurazione del provisioning automatico degli utenti. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+ * Per testare la configurazione del provisioning utenti automatico, è consigliabile assegnare a un singolo Azure AD utente. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-* Quando si assegna un utente a Dialpad, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido (se disponibile) nella finestra di dialogo di assegnazione. Gli utenti con il ruolo Accesso predefinito sono esclusi dal provisioning.
+* Quando si assegna un utente a Dialpad, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di accesso predefinito vengono esclusi dal provisioning.
 
-## <a name="setup-dialpad-for-provisioning"></a>Configurazione della tastiera per il provisioning
+## <a name="setup-dialpad-for-provisioning"></a>Programma di installazione per il provisioning
 
-Prima di configurare Dialpad per il provisioning automatico degli utenti con Azure AD, è necessario recuperare alcune informazioni di provisioning da Dialpad.
+Prima di configurare il provisioning utenti automatico con Azure AD, è necessario recuperare alcune informazioni di provisioning da Dialpad.
 
-1. Accedi alla [Console di amministrazione di Dialpad](https://dialpadbeta.com/login) e seleziona **Impostazioni di amministrazione.** Assicurati che **la mia azienda** sia selezionata dall'elenco a discesa. Passare a **Chiavi API > di autenticazione**.
+1. Accedere alla console di [Amministrazione](https://dialpadbeta.com/login) di e selezionare **impostazioni di amministrazione**. Assicurarsi che l' **azienda** sia selezionata nell'elenco a discesa. Passare a **autenticazione > chiavi API**.
 
-    ![Tastiera Aggiungi SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
+    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
 
-2. Generare una nuova chiave facendo clic su **Aggiungi una chiave** e configurando le proprietà del token segreto.
+2. Per generare una nuova chiave, fare clic su **Aggiungi una chiave** e configurare le proprietà del token segreto.
 
-    ![Tastiera Aggiungi SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
+    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
 
-    ![Tastiera Aggiungi SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
+    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
 
-3. Fare clic sul pulsante **Fare clic per visualizzare** il valore per la chiave API creata di recente e copiare il valore visualizzato. Questo valore verrà immesso nel campo **Token segreto** nella scheda Provisioning dell'applicazione Dialpad nel portale di Azure.This value will be entered in the Secret Token field in the Provisioning tab of your Dialpad application in the Azure portal. 
+3. Fare clic sul pulsante **fare clic per visualizzare il valore** per la chiave API creata di recente e copiare il valore visualizzato. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione Dialpad nel portale di Azure. 
 
-    ![Token di creazione tastiera](media/dialpad-provisioning-tutorial/dialpad04.png)
+    ![Token di creazione Dialpad](media/dialpad-provisioning-tutorial/dialpad04.png)
 
 ## <a name="add-dialpad-from-the-gallery"></a>Aggiungere Dialpad dalla raccolta
 
-Per configurare Dialpad per il provisioning automatico degli utenti con Azure AD, è necessario aggiungere Dialpad dalla raccolta di applicazioni di Azure AD all'elenco delle applicazioni SaaS gestite.
+Per configurare il provisioning utenti automatico con Azure AD, è necessario aggiungere Dialpad dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
 
-**Per aggiungere Dialpad dalla raccolta di applicazioni di Azure AD, eseguire la procedura seguente:To add Dialpad from the Azure AD application gallery, perform the following steps:**
+**Per aggiungere Dialpad dalla raccolta di applicazioni di Azure AD, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**nel riquadro di spostamento sinistro.
+1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali**, quindi selezionare Tutte **le applicazioni**.
+2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, inserisci **Dialpad**, seleziona **Tastiera** nel pannello dei risultati.
-    ![Tastiera nell'elenco dei risultati](common/search-new-app.png)
+4. Nella casella di **ricerca immettere Dialpad**, selezionare **Dialpad** nel pannello dei risultati.
+    ![Dialpad nell'elenco dei risultati](common/search-new-app.png)
 
-5. Passare **all'URL** evidenziato di seguito in un browser separato. 
+5. Passare all' **URL** evidenziato di seguito in un browser separato. 
 
-    ![Tastiera Aggiungi SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
+    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
 
-6. Nell'angolo in alto a destra, seleziona **Accedi > Usa tastiera online**.
+6. Nell'angolo in alto a destra selezionare **accedi > usare il tastierino online**.
 
-    ![Tastiera Aggiungi SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
+    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
 
-7. Poiché Dialpad è un'app OpenIDConnect, scegli di accedere a Dialpad usando il tuo account aziendale Microsoft.
+7. Come dipassd è un'app OpenIDConnect, scegliere di eseguire l'accesso a realpad usando l'account Microsoft Work.
 
-    ![Tastiera Aggiungi SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
+    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
 
-8. Dopo una corretta autenticazione, accettare la richiesta di consenso per la pagina di consenso. L'applicazione verrà quindi aggiunta automaticamente al tenant e verrà reindirizzato all'account Dialpad.
+8. Una volta completata l'autenticazione, accettare la richiesta di consenso per la pagina di consenso. L'applicazione verrà quindi aggiunta automaticamente al tenant e si verrà reindirizzati al proprio account.
 
-    ![Tastiera Aggiungi SCIM](media/dialpad-provisioning-tutorial/redirect.png)
+    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/redirect.png)
 
- ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configurare il provisioning automatico degli utenti su Dialpad
+ ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configurare il provisioning utenti automatico in Dialpad
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Tastiera in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-dialpad-in-azure-ad"></a>Per configurare il provisioning automatico degli utenti per Dialpad in Azure AD:To configure automatic user provisioning for Dialpad in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-dialpad-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Dialpad in Azure AD:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni selezionare **Dialpad**.
 
-    ![Il collegamento Tastiera nell'elenco Applicazioni](common/all-applications.png)
+    ![Collegamento Dialpad nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning.**
+3. Selezionare la scheda **provisioning** .
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare la **modalità di provisioning** su **Automatico**.
+4. Impostare la **modalità di provisioning** su **automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **Credenziali di** `https://dialpad.com/scim` amministratore immettere **l'input**in URL tenant. Immettere il valore recuperato e salvato in precedenza da Tastiera in **Secret Token**. Fare clic su Test connessione per verificare che Azure AD possa connettersi a Dialpad.Click **Test Connection** to ensure Azure AD can connect to Dialpad. Se la connessione non riesce, verificare che l'account Dialpad disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere `https://dialpad.com/scim` in **URL tenant**. Immettere il valore recuperato e salvato in precedenza da Dialpad nel **token Secret**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a un. Se la connessione non riesce, verificare che l'account Dialpad disponga di autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -137,23 +137,23 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
-8. Nella sezione **Mapping** selezionare Sincronizza utenti di **Azure Active Directory con Tastiera**.
+8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Dialpad**.
 
-    ![Mapping utenti di dial-pad](media/dialpad-provisioning-tutorial/dialpad-user-mappings-new.png)
+    ![Mapping degli utenti Dialpad](media/dialpad-provisioning-tutorial/dialpad-user-mappings-new.png)
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD a Dialpad nella sezione **Mapping attributi.** Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare gli account utente in Dialpad per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Dialpad nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Dialpad per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente tastiera](media/dialpad-provisioning-tutorial/dialpad07.png)
+    ![Attributi utente Dialpad](media/dialpad-provisioning-tutorial/dialpad07.png)
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Per abilitare il servizio di provisioning di Azure AD per Dialpad, modificare lo stato di provisioning **su Attivato** nella sezione Impostazioni.To enable the Azure AD provisioning service for Dialpad, change the **Provisioning Status** to On in the **Settings** section.
+11. Per abilitare il servizio di provisioning di Azure AD per i Dialpad, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si desidera eseguire il provisioning in Dialpad scegliendo i valori desiderati in **Ambito** nella sezione **Impostazioni.**
+12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning per il provisioning selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -161,16 +161,16 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e seguire i collegamenti al report attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD in Dialpad.You can use the Synchronization Details section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Dialpad.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning Azure ad in Dialpad.
 
-Per altre informazioni su come leggere i log di provisioning di Azure AD, vedere Creazione di report sul provisioning automatico degli [account utenteFor](../app-provisioning/check-status-user-account-provisioning.md) more information on how to read the Azure AD provisioning logs, see Reporting on automatic user account provisioning
+Per altre informazioni su come leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md)
 ##  <a name="connector-limitations"></a>Limitazioni dei connettori
-* Dialpad non supporta le ridenominazioni di gruppo oggi. Ciò significa che le modifiche apportate al **displayName** di un gruppo in Azure AD non verranno aggiornate e riflesse in Dialpad.
+* Dialpad non supporta oggi i rinomi di gruppo. Ciò significa che tutte le modifiche apportate al **DisplayName** di un gruppo in Azure ad non verranno aggiornate e riflesse in Dialpad.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

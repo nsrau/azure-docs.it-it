@@ -1,7 +1,7 @@
 ---
-title: Creare un account che supporti le chiavi gestite dal cliente per tabelle e codeCreate an account that supports customer-managed keys for tables and queues
+title: Creazione di un account che supporta chiavi gestite dal cliente per tabelle e code
 titleSuffix: Azure Storage
-description: Informazioni su come creare un account di archiviazione che supporti la configurazione di chiavi gestite dal cliente per tabelle e code. Usare l'interfaccia della riga di comando di Azure o un modello di Azure Resource Manager per creare un account di archiviazione che si basa sulla chiave di crittografia dell'account per la crittografia di Archiviazione di Azure.Use the Azure CLI or an Azure Resource Manager template to create a storage account that relies on the account encryption key for Azure Storage encryption. È quindi possibile configurare le chiavi gestite dal cliente per l'account.
+description: Informazioni su come creare un account di archiviazione che supporta la configurazione delle chiavi gestite dal cliente per tabelle e code. Usare l'interfaccia della riga di comando di Azure o un modello di Azure Resource Manager per creare un account di archiviazione che si basa sulla chiave di crittografia dell'account per la crittografia di archiviazione di Azure. È quindi possibile configurare le chiavi gestite dal cliente per l'account.
 services: storage
 author: tamram
 ms.service: storage
@@ -17,29 +17,29 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083565"
 ---
-# <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creare un account che supporti le chiavi gestite dal cliente per tabelle e codeCreate an account that supports customer-managed keys for tables and queues
+# <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creazione di un account che supporta chiavi gestite dal cliente per tabelle e code
 
-Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivi. By default, Queue storage and Table storage use a key that is scoped to the service and managed by Microsoft. È inoltre possibile scegliere di utilizzare chiavi gestite dal cliente per crittografare i dati della coda o della tabella. Per usare le chiavi gestite dal cliente con code e tabelle, è innanzitutto necessario creare un account di archiviazione che usa una chiave di crittografia con ambito per l'account, anziché per il servizio. Dopo aver creato un account che usa la chiave di crittografia dell'account per i dati di code e tabelle, è possibile configurare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure per tale account di archiviazione.
+Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, l'archiviazione delle code e l'archiviazione tabelle usano una chiave con ambito limitato al servizio e gestita da Microsoft. È inoltre possibile scegliere di utilizzare chiavi gestite dal cliente per crittografare i dati della coda o della tabella. Per usare chiavi gestite dal cliente con code e tabelle, è necessario creare prima un account di archiviazione che usi una chiave di crittografia con ambito per l'account anziché per il servizio. Dopo aver creato un account che usa la chiave di crittografia dell'account per i dati della coda e della tabella, è possibile configurare le chiavi gestite dal cliente con Azure Key Vault per tale account di archiviazione.
 
-Questo articolo descrive come creare un account di archiviazione che si basa su una chiave con ambito per l'account. Quando l'account viene creato per la prima volta, Microsoft utilizza la chiave dell'account per crittografare i dati nell'account e Microsoft gestisce la chiave. Successivamente è possibile configurare le chiavi gestite dal cliente per l'account per sfruttare tali vantaggi, tra cui la possibilità di fornire chiavi personalizzate, aggiornare la versione della chiave, ruotare le chiavi e revocare i controlli di accesso.
+Questo articolo descrive come creare un account di archiviazione che si basa su una chiave con ambito definito per l'account. Quando l'account viene creato per la prima volta, Microsoft usa la chiave dell'account per crittografare i dati nell'account e Microsoft gestisce la chiave. È quindi possibile configurare le chiavi gestite dal cliente per l'account per sfruttare i vantaggi offerti, inclusa la possibilità di fornire chiavi personalizzate, aggiornare la versione della chiave, ruotare le chiavi e revocare i controlli di accesso.
 
 ## <a name="about-the-feature"></a>Informazioni sulla funzionalità
 
-To create a storage account that relies on the account encryption key for Queue and Table storage, you must first register to use this feature with Azure. A causa della capacità limitata, tenere presente che potrebbero essere necessari diversi mesi prima che le richieste di accesso vengano approvate.
+Per creare un account di archiviazione che si basa sulla chiave di crittografia dell'account per l'archiviazione di code e tabelle, è necessario prima registrarsi per usare questa funzionalità con Azure. A causa della capacità limitata, tenere presente che l'approvazione delle richieste di accesso potrebbe richiedere alcuni mesi.
 
-È possibile creare un account di archiviazione che si basa sulla chiave di crittografia dell'account per l'archiviazione di code e tabelle nelle aree seguenti:You can create a storage account that relies on the account encryption key for Queue and Table storage in the following regions:
+È possibile creare un account di archiviazione che si basa sulla chiave di crittografia dell'account per l'archiviazione delle code e tabelle nelle aree seguenti:
 
 - Stati Uniti orientali
 - Stati Uniti centro-meridionali
 - Stati Uniti occidentali 2  
 
-### <a name="register-to-use-the-account-encryption-key"></a>Registrati per utilizzare la chiave di crittografia dell'account
+### <a name="register-to-use-the-account-encryption-key"></a>Eseguire la registrazione per usare la chiave di crittografia dell'account
 
-To register to use the account encryption key with Queue or Table storage, use PowerShell or Azure CLI.
+Per eseguire la registrazione per usare la chiave di crittografia dell'account con l'archiviazione code o tabelle, usare PowerShell o l'interfaccia della riga di comando di Azure
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per eseguire la registrazione con PowerShell, chiamare il comando [Get-AzProviderFeature.To](/powershell/module/az.resources/get-azproviderfeature) register with PowerShell, call the Get-AzProviderFeature command.
+Per eseguire la registrazione con PowerShell, chiamare il comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
@@ -48,9 +48,9 @@ Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per eseguire la registrazione con l'interfaccia della riga di comando di Azure, chiamare il comando [az feature register.](/cli/azure/feature#az-feature-register)
+Per eseguire la registrazione con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ feature Register](/cli/azure/feature#az-feature-register) .
 
 ```azurecli
 az feature register --namespace Microsoft.Storage \
@@ -65,13 +65,13 @@ N/D
 
 ---
 
-### <a name="check-the-status-of-your-registration"></a>Controlla lo stato della tua registrazione
+### <a name="check-the-status-of-your-registration"></a>Verificare lo stato della registrazione
 
-Per controllare lo stato della registrazione per l'archiviazione della coda o della tabella, usare PowerShell o l'interfaccia della riga di comando di Azure.To check the status of your registration for Queue or Table storage, use PowerShell or Azure CLI.
+Per verificare lo stato della registrazione per la coda o l'archiviazione tabelle, usare PowerShell o l'interfaccia della riga di comando di Azure.
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per controllare lo stato della registrazione con PowerShell, chiamare il comando [Get-AzProviderFeature.](/powershell/module/az.resources/get-azproviderfeature)
+Per verificare lo stato della registrazione con PowerShell, chiamare il comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
@@ -80,9 +80,9 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per controllare lo stato della registrazione con l'interfaccia della riga di comando di Azure, chiamare il comando [az feature.](/cli/azure/feature#az-feature-show)
+Per verificare lo stato della registrazione con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ feature](/cli/azure/feature#az-feature-show) .
 
 ```azurecli
 az feature show --namespace Microsoft.Storage \
@@ -97,21 +97,21 @@ N/D
 
 ---
 
-### <a name="re-register-the-azure-storage-resource-provider"></a>Registrare nuovamente il provider di risorse di Archiviazione di AzureRe-register the Azure Storage resource provider
+### <a name="re-register-the-azure-storage-resource-provider"></a>Registrare di nuovo il provider di risorse di archiviazione di Azure
 
-Dopo l'approvazione della registrazione, è necessario registrare nuovamente il provider di risorse di Archiviazione di Azure.After your registration is approved, you must re-register the Azure Storage resource provider. Usare PowerShell o l'interfaccia della riga di comando di Azure per registrare nuovamente il provider di risorse.
+Dopo che la registrazione è stata approvata, è necessario registrare di nuovo il provider di risorse di archiviazione di Azure. Usare PowerShell o l'interfaccia della riga di comando di Azure per registrare nuovamente il provider di risorse.
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per registrare nuovamente il provider di risorse con PowerShell, chiamare il comando [Register-AzResourceProvider.To](/powershell/module/az.resources/register-azresourceprovider) re-register the resource provider with PowerShell, call the Register-AzResourceProvider command.
+Per registrare di nuovo il provider di risorse con PowerShell, chiamare il comando [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) .
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per registrare nuovamente il provider di risorse con l'interfaccia della riga di comando di Azure, chiamare il comando [az provider register.](/cli/azure/provider#az-provider-register)
+Per registrare di nuovo il provider di risorse con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ provider Register](/cli/azure/provider#az-provider-register) .
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
@@ -123,25 +123,25 @@ N/D
 
 ---
 
-## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Creare un account che utilizza la chiave di crittografia dell'accountCreate an account that uses the account encryption key
+## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Creare un account che usa la chiave di crittografia dell'account
 
 È necessario configurare un nuovo account di archiviazione per usare la chiave di crittografia dell'account per le code e le tabelle al momento della creazione dell'account di archiviazione. L'ambito della chiave di crittografia non può essere modificato dopo la creazione dell'account.
 
-L'account di archiviazione deve essere di tipo general purpose v2. È possibile creare l'account di archiviazione e configurarlo in base alla chiave di crittografia dell'account usando l'interfaccia della riga di comando di Azure o un modello di Azure Resource Manager.You can create the storage account and configure it to rely on the account encryption key by using either Azure CLI or an Azure Resource Manager template.
+L'account di archiviazione deve essere di tipo generico V2. È possibile creare l'account di archiviazione e configurarlo in modo che si basi sulla chiave di crittografia dell'account usando l'interfaccia della riga di comando di Azure o un modello di Azure Resource Manager.
 
 > [!NOTE]
-> Solo l'archiviazione di code e tabelle può essere configurato facoltativamente per crittografare i dati con la chiave di crittografia dell'account quando viene creato l'account di archiviazione. L'archiviazione BLOB e i file di Azure usano sempre la chiave di crittografia dell'account per crittografare i dati.
+> Quando viene creato l'account di archiviazione, è possibile configurare facoltativamente solo archiviazione code e tabelle per crittografare i dati con la chiave di crittografia dell'account. Archiviazione BLOB e File di Azure utilizzano sempre la chiave di crittografia dell'account per crittografare i dati.
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per usare PowerShell per creare un account di archiviazione che si basa sulla chiave di crittografia dell'account, assicurarsi di aver installato il modulo di Azure PowerShell, versione 3.4.0 o successiva. Per altre informazioni, vedere [Installare il modulo di Azure PowerShell.For](/powershell/azure/install-az-ps)more information, see Install the Azure PowerShell module .
+Per usare PowerShell per creare un account di archiviazione che si basa sulla chiave di crittografia dell'account, verificare di aver installato il modulo Azure PowerShell, versione 3.4.0 o successiva. Per altre informazioni, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
-Successivamente, creare un account di archiviazione v2 generico chiamando il comando [New-AzStorageAccount,](/powershell/module/az.storage/new-azstorageaccount) con i parametri appropriati:Next, create a general-purpose v2 storage account by calling the New-AzStorageAccount command, with the appropriate parameters:
+Successivamente, creare un account di archiviazione per utilizzo generico V2 chiamando il comando [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) con i parametri appropriati:
 
-- Includere `-EncryptionKeyTypeForQueue` l'opzione e `Account` impostarne il valore su di utilizzare la chiave di crittografia dell'account per crittografare i dati nell'archivio code.
-- Includere `-EncryptionKeyTypeForTable` l'opzione e `Account` impostarne il valore su di utilizzare la chiave di crittografia dell'account per crittografare i dati nell'archiviazione tabelle.
+- Includere l' `-EncryptionKeyTypeForQueue` opzione e impostarne il valore `Account` su per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio code.
+- Includere l' `-EncryptionKeyTypeForTable` opzione e impostarne il valore `Account` su per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio tabelle.
 
-Nell'esempio seguente viene illustrato come creare un account di archiviazione generico v2 configurato per l'archiviazione con ridondanza geografica di accesso in lettura (RA-GRS) e che usa la chiave di crittografia dell'account per crittografare i dati sia per l'archiviazione di code che per quella tabelle. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati:
+L'esempio seguente illustra come creare un account di archiviazione per utilizzo generico V2 configurato per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) e che usa la chiave di crittografia dell'account per crittografare i dati sia per l'archiviazione code che per quella tabella. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -153,16 +153,16 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
     -EncryptionKeyTypeForQueue Account
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per usare l'interfaccia della riga di comando di Azure per creare un account di archiviazione che si basa sulla chiave di crittografia dell'account, assicurarsi di aver installato l'interfaccia della riga di comando di Azure versione 2.0.80 o successiva. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Per usare l'interfaccia della riga di comando di Azure per creare un account di archiviazione che si basa sulla chiave di crittografia dell'account, verificare di aver installato l'interfaccia della riga di comando di Azure versione 2.0.80 o successiva. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-Successivamente, creare un account di archiviazione v2 generico chiamando il comando [az storage account create,](/cli/azure/storage/account#az-storage-account-create) con i parametri appropriati:Next, create a general-purpose v2 storage account by calling the az storage account create command, with the appropriate parameters:
+Successivamente, creare un account di archiviazione per utilizzo generico V2 chiamando il comando [AZ storage account create](/cli/azure/storage/account#az-storage-account-create) con i parametri appropriati:
 
-- Includere `--encryption-key-type-for-queue` l'opzione e `Account` impostarne il valore su di utilizzare la chiave di crittografia dell'account per crittografare i dati nell'archivio code.
-- Includere `--encryption-key-type-for-table` l'opzione e `Account` impostarne il valore su di utilizzare la chiave di crittografia dell'account per crittografare i dati nell'archiviazione tabelle.
+- Includere l' `--encryption-key-type-for-queue` opzione e impostarne il valore `Account` su per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio code.
+- Includere l' `--encryption-key-type-for-table` opzione e impostarne il valore `Account` su per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio tabelle.
 
-Nell'esempio seguente viene illustrato come creare un account di archiviazione generico v2 configurato per l'archiviazione con ridondanza geografica di accesso in lettura (RA-GRS) e che usa la chiave di crittografia dell'account per crittografare i dati sia per l'archiviazione di code che per quella tabelle. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati:
+L'esempio seguente illustra come creare un account di archiviazione per utilizzo generico V2 configurato per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) e che usa la chiave di crittografia dell'account per crittografare i dati sia per l'archiviazione code che per quella tabella. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
 ```azurecli
 az storage account create \
@@ -177,7 +177,7 @@ az storage account create \
 
 # <a name="template"></a>[Modello](#tab/template)
 
-L'esempio JSON seguente crea un account di archiviazione v2 generico configurato per l'archiviazione con ridondanza geografica di accesso in lettura (RA-GRS) e che usa la chiave di crittografia dell'account per crittografare i dati sia per l'archiviazione della coda che per quella delle tabelle. Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
+Nell'esempio JSON seguente viene creato un account di archiviazione per utilizzo generico V2 configurato per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) che usa la chiave di crittografia dell'account per crittografare i dati sia per l'archiviazione code che per quella di tabella. Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
 
 ```json
 "resources": [
@@ -214,19 +214,19 @@ L'esempio JSON seguente crea un account di archiviazione v2 generico configurato
 
 ---
 
-Dopo aver creato un account che si basa sulla chiave di crittografia dell'account, vedere uno degli articoli seguenti per configurare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure:After you have created an account that relies on the account encryption key, see one of the following articles to configure customer-managed keys with Azure Key Vault:
+Dopo aver creato un account che si basa sulla chiave di crittografia dell'account, vedere uno degli articoli seguenti per configurare le chiavi gestite dal cliente con Azure Key Vault:
 
-- [Configurare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure tramite il portale di AzureConfigure customer-managed keys with Azure Key Vault by using the Azure portal](storage-encryption-keys-portal.md)
-- [Configurare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure tramite PowerShellConfigure customer-managed keys with Azure Key Vault by using PowerShell](storage-encryption-keys-powershell.md)
-- [Configurare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure usando l'interfaccia della riga di comando di AzureConfigure customer-managed keys with Azure Key Vault by using Azure CLI](storage-encryption-keys-cli.md)
+- [Configurare chiavi gestite dal cliente con Azure Key Vault usando il portale di Azure](storage-encryption-keys-portal.md)
+- [Configurare chiavi gestite dal cliente con Azure Key Vault tramite PowerShell](storage-encryption-keys-powershell.md)
+- [Configurare chiavi gestite dal cliente con Azure Key Vault usando l'interfaccia della riga di comando di Azure](storage-encryption-keys-cli.md)
 
 ## <a name="verify-the-account-encryption-key"></a>Verificare la chiave di crittografia dell'account
 
-Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare il comando Dell'account di archiviazione dell'interfaccia della riga di comando di [Azure.To](/cli/azure/storage/account#az-storage-account-show) verify that a service in a storage account is using the account encryption key, call the Azure CLI az storage account command. Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `keyType` campo per ogni servizio all'interno della `Account`proprietà di crittografia e verificare che sia impostato su .
+Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare l'interfaccia della riga di comando di Azure [AZ storage account](/cli/azure/storage/account#az-storage-account-show) Command. Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `keyType` campo per ogni servizio all'interno della proprietà di crittografia e verificare che sia impostato su `Account`.
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare il comando [Get-AzStorageAccount.To](/powershell/module/az.storage/get-azstorageaccount) verify that a service in a storage account is using the account encryption key, call the Get-AzStorageAccount command. Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `KeyType` campo per ogni `Encryption` servizio all'interno della `Account`proprietà e verificare che sia impostato su .
+Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare il comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `KeyType` campo per ogni servizio all'interno della `Encryption` proprietà e verificare che sia impostato su `Account`.
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -235,9 +235,9 @@ $account.Encryption.Services.Queue
 $account.Encryption.Services.Table
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare il comando [az storage account.](/cli/azure/storage/account#az-storage-account-show) Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `keyType` campo per ogni servizio all'interno della `Account`proprietà di crittografia e verificare che sia impostato su .
+Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare il comando [AZ storage account](/cli/azure/storage/account#az-storage-account-show) . Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `keyType` campo per ogni servizio all'interno della proprietà di crittografia e verificare che sia impostato su `Account`.
 
 ```azurecli
 az storage account show /
@@ -253,5 +253,5 @@ N/D
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia di Archiviazione di Azure per i dati inattiviAzure Storage encryption for data at rest](storage-service-encryption.md) 
+- [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md) 
 - [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

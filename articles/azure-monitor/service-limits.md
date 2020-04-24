@@ -1,6 +1,6 @@
 ---
-title: Limiti del servizio di Monitoraggio di Azure - Documenti Microsoft
-description: Elenca i limiti in aree diverse di Monitoraggio di Azure.Lists limits in different areas of Azure Monitor.
+title: Limiti dei servizi di monitoraggio di Azure | Microsoft Docs
+description: Elenca i limiti in aree diverse di monitoraggio di Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
@@ -15,7 +15,7 @@ ms.locfileid: "77657912"
 ---
 # <a name="azure-monitor-service-limits"></a>Limiti del servizio Monitoraggio di Azure
 
-Questo articolo elenca i limiti nelle diverse aree di Monitoraggio di Azure.This article lists limits in different areas of Azure Monitor.
+Questo articolo elenca i limiti in diverse aree di monitoraggio di Azure.
 
 ## <a name="alerts"></a>Avvisi
 
@@ -25,7 +25,7 @@ Questo articolo elenca i limiti nelle diverse aree di Monitoraggio di Azure.This
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
 
-## <a name="log-queries-and-language"></a>Query di log e lingua
+## <a name="log-queries-and-language"></a>Query e linguaggio di log
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 
@@ -39,6 +39,6 @@ Questo articolo elenca i limiti nelle diverse aree di Monitoraggio di Azure.This
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Prezzi di Monitoraggio di AzureAzure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
+- [Prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/)
 - [Monitoraggio dell'utilizzo e dei costi stimati in Monitoraggio di Azure](platform/usage-estimated-costs.md)
 - [Gestire l'utilizzo e i costi per Application Insights](app/pricing.md)

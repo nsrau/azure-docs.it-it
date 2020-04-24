@@ -1,6 +1,6 @@
 ---
 title: Clausola SELECT in Azure Cosmos DB
-description: Informazioni sulla clausola SQL SELECT per il database Cosmos di Azure.Learn about SQL SELECT clause for Azure Cosmos DB. Usare SQL come linguaggio di query JSON del database cosmos di Azure.Use SQL as an Azure Cosmos DB JSON query language.
+description: Informazioni sulla clausola SQL SELECT per Azure Cosmos DB. Usare SQL come linguaggio di query JSON Azure Cosmos DB.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.locfileid: "77469936"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Clausola SELECT in Azure Cosmos DB
 
-Ogni query è costituita da una clausola SELECT e da clausole [FROM](sql-query-from.md) e [WHERE](sql-query-where.md) facoltative, in base agli standard SQL ANSI. In genere, l'origine nella clausola FROM viene enumerata e la clausola WHERE applica un filtro all'origine per recuperare un subset di elementi JSON. La clausola SELECT proietta quindi i valori JSON richiesti nell'elenco di selezione.
+Ogni query è costituita da una clausola SELECT e dalle clausole [from](sql-query-from.md) e [where](sql-query-where.md) facoltative per gli standard SQL ANSI. In genere, l'origine nella clausola FROM viene enumerata e la clausola WHERE applica un filtro sull'origine per recuperare un subset di elementi JSON. La clausola SELECT proietta quindi i valori JSON richiesti nell'elenco di selezione.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -78,7 +78,7 @@ La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esatt
   
 ## <a name="examples"></a>Esempi
 
-L'esempio di `address` query `Families` `id` SELECT `AndersenFamily`seguente restituisce le cui corrispondenze :
+L'esempio di query SELECT seguente `address` restituisce `Families` da `id` le `AndersenFamily`cui corrispondenze:
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ I risultati sono:
 ```
 
 ### <a name="quoted-property-accessor"></a>Funzione di accesso della proprietà di delimitazione
-È possibile accedere alle proprietà utilizzando l'operatore della proprietà quoted []. Ad esempio, la sintassi di `SELECT c.grade` and `SELECT c["grade"]` sono equivalenti. Questa sintassi è utile per eseguire l'escape di una proprietà che contiene spazi, caratteri speciali o ha lo stesso nome di una parola chiave SQL o di una parola riservata.
+È possibile accedere alle proprietà utilizzando l'operatore di proprietà tra virgolette []. Ad esempio, la sintassi di `SELECT c.grade` and `SELECT c["grade"]` sono equivalenti. Questa sintassi è utile per eseguire l'escape di una proprietà che contiene spazi, caratteri speciali o ha lo stesso nome di una parola chiave SQL o di una parola riservata.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ I risultati sono:
 
 ### <a name="nested-properties"></a>Proprietà annidate
 
-Nell'esempio riportato di `f.address.state` `f.address.city`seguito vengono proiettate due proprietà annidate e .
+Nell'esempio seguente vengono proiettate due proprietà `f.address.state` annidate, e `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -127,7 +127,7 @@ I risultati sono:
 ```
 ### <a name="json-expressions"></a>Espressioni JSON
 
-La proiezione supporta anche le espressioni JSON, come illustrato nell'esempio seguente:Projection also supports JSON expressions, as shown in the following example:
+La proiezione supporta anche le espressioni JSON, come illustrato nell'esempio seguente:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -147,7 +147,7 @@ I risultati sono:
     }]
 ```
 
-Nell'esempio precedente, la clausola SELECT deve creare un oggetto JSON e, poiché l'esempio non fornisce alcuna chiave, la clausola utilizza il nome `$1`della variabile di argomento implicito . La query seguente restituisce `$1` due `$2`variabili di argomento implicite: e .
+Nell'esempio precedente, la clausola SELECT deve creare un oggetto JSON e, poiché l'esempio non fornisce alcuna chiave, la clausola usa il nome `$1`della variabile dell'argomento implicito. La query seguente restituisce due variabili di argomento `$1` implicite `$2`: e.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -171,9 +171,9 @@ I risultati sono:
 ```
 ## <a name="reserved-keywords-and-special-characters"></a>Parole chiave riservate e caratteri speciali
 
-Se i dati contengono proprietà con gli stessi nomi delle parole chiave riservate, ad esempio "order" o "Group", le query su questi documenti genereranno errori di sintassi. È necessario includere in `[]` modo esplicito la proprietà in carattere per eseguire correttamente la query.
+Se i dati contengono proprietà con lo stesso nome delle parole chiave riservate, ad esempio "Order" o "Group", le query eseguite su questi documenti comporteranno errori di sintassi. Per eseguire correttamente la query, è necessario `[]` includere in modo esplicito la proprietà in carattere.
 
-Ad esempio, ecco un documento con `order` una `price($)` proprietà denominata e una proprietà che contiene caratteri speciali:For example, here's a document with a property named and a property that contains special characters:
+Ad esempio, di seguito è riportato un documento con una `order` proprietà denominata e `price($)` una proprietà che contiene caratteri speciali:
 
 ```json
 {
@@ -190,7 +190,7 @@ Ad esempio, ecco un documento con `order` una `price($)` proprietà denominata e
 }
 ```
 
-Se si eseguono query `order` che `price($)` includono la proprietà o la proprietà, verrà visualizzato un errore di sintassi.
+Se si eseguono query che includono la proprietà `order` o `price($)` la proprietà, verrà visualizzato un errore di sintassi.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -204,7 +204,7 @@ Il risultato è:
 Syntax error, incorrect syntax near 'order'
 `
 
-È necessario riscrivere le stesse query di seguito:You should rewrite the same queries as below:
+È necessario riscrivere le stesse query come indicato di seguito:
 
 ```sql
 SELECT * FROM c WHERE c["order"].orderId = "12345"
@@ -216,6 +216,6 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
+- [Guida introduttiva](sql-query-getting-started.md)
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Clausola WHERE](sql-query-where.md)

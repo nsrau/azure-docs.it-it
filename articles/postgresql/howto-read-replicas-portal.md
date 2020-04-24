@@ -1,6 +1,6 @@
 ---
-title: Gestire le repliche di lettura - Portale di Azure - Database di Azure per PostgreSQL - Server singoloManage read replicas - Azure portal - Azure Database for PostgreSQL - Single Server
-description: Informazioni su come gestire le repliche di lettura Database di Azure per PostgreSQL - Singolo server dal portale di Azure.Learn how to manage read replicas Azure Database for PostgreSQL - Single Server from the Azure portal.
+title: Gestire le repliche di lettura-portale di Azure-database di Azure per PostgreSQL-server singolo
+description: Informazioni su come gestire le repliche di lettura database di Azure per PostgreSQL-server singolo dal portale di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,7 +13,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76768953"
 ---
-# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Creare e gestire repliche di lettura nel database di Azure per PostgreSQL - Singolo server dal portale di AzureCreate and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Creare e gestire le repliche di lettura nel database di Azure per PostgreSQL: server singolo dal portale di Azure
 
 Questo articolo illustra come creare e gestire le repliche in lettura nel Database di Azure per PostgreSQL dal portale di Azure. Per altre informazioni sulle repliche in lettura, vedere la [panoramica](concepts-read-replicas.md).
 
@@ -22,32 +22,32 @@ Questo articolo illustra come creare e gestire le repliche in lettura nel Databa
 Un [server di Database di Azure per PostgreSQL](quickstart-create-server-database-portal.md) che verrà usato come server master.
 
 ## <a name="prepare-the-master-server"></a>Preparare il server master
-È necessario seguire questi passaggi per preparare un server master nei livelli Utilizzo generico o Con ottimizzazione per la memoria. Il server master viene preparato per la replica impostando il parametro azure.replication_support. Quando il parametro di replica viene modificato, è necessario un riavvio del server per rendere effettiva la modifica. Nel portale di Azure questi due passaggi sono incapsulati da un singolo pulsante, **Enable Replication Support**.
+È necessario seguire questi passaggi per preparare un server master nei livelli Utilizzo generico o Con ottimizzazione per la memoria. Il server master è pronto per la replica impostando il parametro Azure. replication_support. Quando il parametro Replication viene modificato, è necessario riavviare il server per rendere effettive le modifiche. Nel portale di Azure, questi due passaggi sono incapsulati da un singolo pulsante, **Abilitazione del supporto**per la replica.
 
 1. Nel portale di Azure selezionare il server Database di Azure per PostgreSQL esistente da usare come master.
 
-2. Nella barra laterale del server, in **IMPOSTAMENTI,** selezionare **Replica**.
+2. Nella barra laterale del server, in **Impostazioni**, selezionare **replica**.
 
 > [!NOTE] 
-> Se l'opzione **Disattiva supporto replica** è disattivata, le impostazioni di replica sono già impostate nel server per impostazione predefinita. È possibile ignorare i passaggi seguenti e passare alla creazione di una replica di lettura. 
+> Se viene visualizzato **Disabilita supporto della replica** disattivato, le impostazioni di replica sono già impostate nel server per impostazione predefinita. È possibile ignorare i passaggi seguenti e passare a creare una replica di lettura. 
 
-3. Selezionare **Abilita supporto replica**. 
+3. Selezionare **Abilita supporto**per la replica. 
 
-   ![Abilitare il supporto della replicaEnable replication support](./media/howto-read-replicas-portal/enable-replication-support.png)
+   ![Abilita supporto per la replica](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. Confermare che si desidera abilitare il supporto della replica. Questa operazione riavvierà il server master. 
+4. Confermare che si desidera abilitare il supporto per la replica. Questa operazione riavvierà il server master. 
 
-   ![Confermare l'abilitazione del supporto della replica](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   ![Confermare l'abilitazione del supporto per la replica](./media/howto-read-replicas-portal/confirm-enable-replication.png)
    
-5. Una volta completata l'operazione, riceverai due notifiche del portale di Azure.You will receive two Azure portal notifications once the operation is complete. Esiste una notifica per l'aggiornamento del parametro del server. C'è un'altra notifica per il riavvio del server che segue immediatamente.
+5. Al termine dell'operazione, si riceveranno due notifiche portale di Azure. È disponibile una notifica per l'aggiornamento del parametro Server. È presente un'altra notifica per il riavvio del server che segue immediatamente.
 
-   ![Notifiche riuscite - abilita](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   ![Notifiche di esito positivo-Abilita](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-6. Aggiornare la pagina del portale di Azure per aggiornare la barra degli strumenti Di replica. È ora possibile creare repliche di lettura per questo server.
+6. Aggiornare la pagina portale di Azure per aggiornare la barra degli strumenti di replica. È ora possibile creare repliche di lettura per questo server.
 
    ![Barra degli strumenti aggiornata](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-L'abilitazione del supporto della replica è un'operazione una tantera per ogni server master. Per comodità, viene fornito il pulsante **Disattiva supporto replica.** Non è consigliabile disabilitare il supporto della replica, a meno che non si sia certi di non creare mai una replica in questo server master. Non è possibile disabilitare il supporto della replica mentre il server master dispone di repliche esistenti.
+L'abilitazione del supporto della replica è un'operazione eseguita una sola volta per ogni server master. Un pulsante **Disabilita supporto replica** viene fornito per praticità. Non è consigliabile disabilitare il supporto per la replica, a meno che non si sia certi che non si crei mai una replica in questo server master. Non è possibile disabilitare il supporto della replica mentre nel server master sono presenti repliche esistenti.
 
 
 ## <a name="create-a-read-replica"></a>Creare una replica in lettura
@@ -55,7 +55,7 @@ Per creare una replica in lettura, seguire questi passaggi:
 
 1. Selezionare il server Database di Azure per PostgreSQL esistente da usare come server master. 
 
-2. Nella barra laterale del server, in **IMPOSTAMENTI,** selezionare **Replica**.
+2. Nella barra laterale del server, in **Impostazioni**, selezionare **replica**.
 
 3. Selezionare **Aggiungi replica**.
 
@@ -65,19 +65,19 @@ Per creare una replica in lettura, seguire questi passaggi:
 
     ![Assegnare un nome alla replica](./media/howto-read-replicas-portal/name-replica.png)
 
-5. Selezionare un percorso per la replica. Il percorso predefinito è lo stesso del server master.
+5. Selezionare un percorso per la replica. Il percorso predefinito è identico a quello del server master.
 
     ![Selezionare una località](./media/howto-read-replicas-portal/location-replica.png)
 
    > [!NOTE]
-   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo sui concetti relativi alla replica di [lettura.](concepts-read-replicas.md) 
+   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
 
 6. Fare clic su **OK** per confermare la creazione della replica.
 
-Una replica viene creata utilizzando le stesse impostazioni di calcolo e archiviazione del master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
+Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
 > [!IMPORTANT]
-> Prima che un'impostazione del server master venga aggiornata a un nuovo valore, aggiornare l'impostazione della replica su un valore uguale o maggiore. Questa azione consente alla replica di tenere il passo con le modifiche apportate al master.
+> Prima che un'impostazione del server master venga aggiornata a un nuovo valore, aggiornare l'impostazione della replica a un valore uguale o maggiore. Questa azione consente alla replica di rimanere al passo con le modifiche apportate al database master.
 
 Dopo la creazione, la replica in lettura può essere visualizzata nella finestra **Replica**:
 
@@ -162,7 +162,7 @@ La metrica **Max lag across replicas** (Ritardo massimo tra repliche) indica il 
 
 1.  Nel portale di Azure selezionare il server Database di Azure per PostgreSQL master.
 
-2.  Selezionare **Metriche**. Nella finestra **Metriche** selezionare **Max Lag Across Replicas** (Ritardo massimo tra repliche).
+2.  Selezionare **metrica**. Nella finestra **Metriche** selezionare **Max Lag Across Replicas** (Ritardo massimo tra repliche).
 
     ![Monitorare il Max Lag Across Replicas (Ritardo massimo tra repliche)](./media/howto-read-replicas-portal/select-max-lag.png)
  
@@ -174,7 +174,7 @@ La metrica **Replica Lag** (Ritardo metrica) indica il tempo trascorso dall'ulti
 
 1. Nel portale di Azure selezionare la replica in lettura per il Database di Azure per PostgreSQL.
 
-2. Selezionare **Metriche**. Nella finestra **Metriche** selezionare **Replica Lag**(Ritardo replica).
+2. Selezionare **metrica**. Nella finestra **Metriche** selezionare **Replica Lag**(Ritardo replica).
 
    ![Monitorare la Replica Lag (Ritardo replica)](./media/howto-read-replicas-portal/select-replica-lag.png)
  
@@ -182,4 +182,4 @@ La metrica **Replica Lag** (Ritardo metrica) indica il tempo trascorso dall'ulti
  
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere altre informazioni sulle [repliche in lettura in Database di Azure per PostgreSQL](concepts-read-replicas.md).
-* Informazioni su come creare e gestire repliche di [lettura nell'interfaccia della riga di comando di Azure e nell'API REST.](howto-read-replicas-cli.md)
+* Informazioni su come [creare e gestire le repliche di lettura nell'interfaccia della riga di comando di Azure e nell'API REST](howto-read-replicas-cli.md).

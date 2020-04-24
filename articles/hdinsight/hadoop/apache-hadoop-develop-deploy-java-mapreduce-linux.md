@@ -27,9 +27,9 @@ Informazioni sull'uso di Apache Maven per creare un'applicazione MapReduce basat
 
 ## <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
 
-L'ambiente utilizzato per questo articolo era un computer che esegue Windows 10. I comandi sono stati eseguiti in un prompt dei comandi e i vari file sono stati modificati con Blocco note. Modificare di conseguenza per l'ambiente.
+L'ambiente usato per questo articolo è un computer che esegue Windows 10. I comandi sono stati eseguiti in un prompt dei comandi e i vari file sono stati modificati con blocco note. Modificare di conseguenza per l'ambiente in uso.
 
-Da un prompt dei comandi, immettere i comandi seguenti per creare un ambiente di lavoro:From a command prompt, enter the commands below to create a working environment:
+Da un prompt dei comandi, immettere i comandi seguenti per creare un ambiente di lavoro:
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
@@ -44,13 +44,13 @@ cd C:\HDI
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    Questo comando crea una directory con `artifactID` il nome specificato dal parametro (**wordcountjava** in questo esempio). Questa directory contiene i seguenti elementi:
+    Questo comando crea una directory con il nome specificato dal `artifactID` parametro (**wordcountjava** in questo esempio). Questa directory contiene gli elementi seguenti:
 
     * `pom.xml`: il modello a oggetti dei progetti ([POM o Project Object Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) che contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
-    * Src, principale , quindi , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,
-    * Src, test, java , apache , hadoop , examples: contiene i test per l'applicazione.
+    * src\main\java\org\apache\hadoop\examples: contiene il codice dell'applicazione.
+    * src\test\java\org\apache\hadoop\examples: contiene i test per l'applicazione.
 
-1. Rimuovere il codice di esempio generato. Eliminare i file `AppTest.java`di test `App.java` e dell'applicazione generati e immettendo i comandi seguenti:
+1. Rimuovere il codice di esempio generato. Eliminare i file `AppTest.java`di test e dell'applicazione generati `App.java` e immettendo i comandi seguenti:
 
     ```cmd
     cd wordcountjava
@@ -60,7 +60,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>Aggiornare il modello a oggetti dei progetti
 
-Per informazioni di riferimento complete sul file pom.xml, vedere https://maven.apache.org/pom.html. Apri `pom.xml` inserendo il seguente comando:
+Per informazioni di riferimento complete sul file pom.xml, vedere https://maven.apache.org/pom.html. Aprire `pom.xml` immettendo il comando seguente:
 
 ```cmd
 notepad pom.xml
@@ -68,7 +68,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-In `pom.xml`, aggiungere il `<dependencies>` testo seguente nella sezione:
+In `pom.xml`aggiungere il testo seguente nella `<dependencies>` sezione:
 
 ```xml
 <dependency>
@@ -102,7 +102,7 @@ Questa operazione definisce le librerie richieste (elencate in &lt;artifactId\>)
 
 I plug-in di Maven consentono di personalizzare le fasi di compilazione del progetto. Questa sezione viene usata per aggiungere plug-in, risorse e altre opzioni di configurazione della compilazione.
 
-Aggiungere il codice `pom.xml` seguente al file, quindi salvare e chiudere il file. Nel file, il testo deve essere incluso tra i tag `<project>...</project>`, ad esempio tra `</dependencies>` e `</project>`.
+Aggiungere il codice seguente al `pom.xml` file, quindi salvare e chiudere il file. Nel file, il testo deve essere incluso tra i tag `<project>...</project>`, ad esempio tra `</dependencies>` e `</project>`.
 
 ```xml
 <build>
@@ -139,7 +139,7 @@ Aggiungere il codice `pom.xml` seguente al file, quindi salvare e chiudere il fi
 </build>
 ```
 
-Questa sezione configura il plug-in del compilatore Apache Maven e il plug-in Apache Maven Shade. Il plug-in compiler viene usato per compilare la topologia, mentre il plug-in shade viene usato per impedire la duplicazione della licenza nel pacchetto JAR compilato da Maven. Questo plug-in viene usato per evitare che i file di licenza duplicati causino un errore in fase di esecuzione sul cluster HDInsight. L'uso di maven-shade-plugin con l'implementazione di `ApacheLicenseResourceTransformer` previene il verificarsi di questo errore.
+Questa sezione Configura il plug-in Apache Maven Compiler e il plug-in shader per Apache Maven. Il plug-in compiler viene usato per compilare la topologia, mentre il plug-in shade viene usato per impedire la duplicazione della licenza nel pacchetto JAR compilato da Maven. Questo plug-in viene usato per evitare che i file di licenza duplicati causino un errore in fase di esecuzione sul cluster HDInsight. L'uso di maven-shade-plugin con l'implementazione di `ApacheLicenseResourceTransformer` previene il verificarsi di questo errore.
 
 Il plug-in maven-shade-plugin produce anche un file uberjar, che contiene tutte le dipendenze richieste dall'applicazione.
 
@@ -147,13 +147,13 @@ Salvare il file.`pom.xml`
 
 ## <a name="create-the-mapreduce-application"></a>Creare l'applicazione MapReduce
 
-1. Immettere il comando seguente per `WordCount.java`creare e aprire un nuovo file. Selezionare **Sì** al prompt per creare un nuovo file.
+1. Immettere il comando seguente per creare e aprire un nuovo file `WordCount.java`. Selezionare **Sì** quando viene richiesto di creare un nuovo file.
 
     ```cmd
     notepad src\main\java\org\apache\hadoop\examples\WordCount.java
     ```
 
-2. Quindi copiare e incollare il codice java riportato di seguito nel nuovo file. Quindi chiudere il file.
+2. Quindi copiare e incollare il codice Java riportato di seguito nel nuovo file. Chiudere quindi il file.
 
     ```java
     package org.apache.hadoop.examples;
@@ -247,13 +247,13 @@ Al completamento del comando, la directory `wordcountjava/target` contiene un fi
 
 La procedura seguente usa `scp` per copiare il file JAR nel nodo head primario di Apache HBase nel cluster HDInsight. Il comando `ssh` viene quindi usato per connettersi al cluster ed eseguire l'esempio direttamente nel nodo head.
 
-1. Caricare il jar nel cluster. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight e quindi immettere il comando seguente:Replace with your HDInsight cluster name and then enter the following command:
+1. Caricare il file jar nel cluster. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight e quindi immettere il comando seguente:
 
     ```cmd
     scp target/wordcountjava-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:
     ```
 
-1. Connettersi al cluster. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight e quindi immettere il comando seguente:Replace with your HDInsight cluster name and then enter the following command:
+1. Connettersi al cluster. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight e quindi immettere il comando seguente:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net

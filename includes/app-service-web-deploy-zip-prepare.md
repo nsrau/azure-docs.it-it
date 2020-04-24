@@ -25,7 +25,7 @@ In una finestra terminale locale, passare alla directory radice del progetto del
 
 Questa directory deve contenere il file di ingresso dell'app Web, ad esempio _index.html_, _index.php_ e _app.js_. Può inoltre contenere file di gestione del pacchetto come _project.json_, _composer.json_, _package.json_, _bower.json_ e _requirements.txt_.
 
-A meno che il servizio app non eseda l'automazione `bower` `gulp`della `composer`distribuzione, eseguire tutte le attività di compilazione (ad `pip` `npm`esempio, , , , e ) e assicurarsi di disporre di tutti i file necessari per eseguire l'app. Questo passaggio è necessario se si desidera [eseguire direttamente il pacchetto.](../articles/app-service/deploy-run-package.md)
+Se non si vuole che il servizio app esegua automaticamente l'automazione della distribuzione, eseguire tutte le attività di compilazione `npm`, `bower`ad `gulp`esempio `composer`,, `pip`, e, e assicurarsi di avere tutti i file necessari per eseguire l'app. Questo passaggio è obbligatorio se si desidera [eseguire direttamente il pacchetto](../articles/app-service/deploy-run-package.md).
 
 Creare un archivio ZIP per tutti gli elementi del progetto. Il comando seguente usa lo strumento predefinito nel terminale:
 

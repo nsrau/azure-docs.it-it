@@ -7,4 +7,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "77201519"
 ---
 > [!NOTE]
-> L'effetto di qualsiasi autorizzazione per l'insieme di credenziali delle chiavi può richiedere circa 10 minuti. Ciò include la revoca delle autorizzazioni di accesso alla protezione TDE in AKV e gli utenti entro questo intervallo di tempo possono ancora disporre delle autorizzazioni di accesso.
+> Per rendere effettive le modifiche alle autorizzazioni per l'insieme di credenziali delle chiavi potrebbero essere necessari circa 10 minuti. Ciò include la revoca delle autorizzazioni di accesso alla protezione Transparent Data Encryption in AKV e gli utenti in questo intervallo di tempo possono avere ancora le autorizzazioni di accesso.

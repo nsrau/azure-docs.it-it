@@ -29,42 +29,42 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Tenere traccia di un'applicazione nell'interfaccia utente di YARN
 
-1. Avviare l'interfaccia utente di YARN Selezionare **Filato** in **Dashboard cluster**.
+1. Avviare l'interfaccia utente di YARN Selezionare **Yarn** in **Dashboard cluster**.
 
-    ![Avvio dell'interfaccia utente YARN per il lancio del portale di AzureAzure portal launch YARN UI](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
+    ![portale di Azure avviare l'interfaccia utente di YARN](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
 
    > [!TIP]  
-   > In alternativa, è anche possibile avviare l'interfaccia utente di YARN dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente di Ambari, selezionare **Home page Ambari** in **Dashboard cluster**. Dall'interfaccia utente di Ambari, passare a**Collegamenti rapidi** **YARN** > >'interfaccia utente di Resource Manager > **Resource Manager**attiva.
+   > In alternativa, è anche possibile avviare l'interfaccia utente di YARN dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente di Ambariri, selezionare **Ambari Home** in **Dashboard cluster**. Dall'interfaccia utente di Ambari passare a **YARN** > **collegamenti rapidi** Yarn > **interfaccia utente**Active Gestione risorse > gestione risorse.
 
-2. Poiché il processo Spark è stato avviato con Jupyter Notebook, il nome dell'applicazione è **remotesparkmagics**. Si tratta del nome per tutte le applicazioni avviate dai notebook. Selezionare l'ID applicazione rispetto al nome dell'applicazione per ottenere ulteriori informazioni sul processo. Verrà avviata la visualizzazione dell'applicazione.
+2. Poiché il processo Spark è stato avviato con Jupyter Notebook, il nome dell'applicazione è **remotesparkmagics**. Si tratta del nome per tutte le applicazioni avviate dai notebook. Per ottenere altre informazioni sul processo, selezionare l'ID applicazione con il nome dell'applicazione. Verrà avviata la visualizzazione dell'applicazione.
 
-    ![Server di cronologia Spark Trova ID applicazione Spark](./media/apache-spark-job-debugging/find-application-id1.png)
+    ![Il server della cronologia Spark trova l'ID applicazione Spark](./media/apache-spark-job-debugging/find-application-id1.png)
 
     Per le applicazioni avviate da Jupyter Notebook lo stato è sempre **IN ESECUZIONE** fino a quando non si esce dal notebook.
 
 3. Nella visualizzazione dell'applicazione è possibile eseguire il drill-down per trovare i contenitori associati all'applicazione e i log (stdout o stderr). È anche possibile avviare l'interfaccia utente di Spark facendo clic sul collegamento corrispondente all' **URL di verifica**, come illustrato di seguito.
 
-    ![Registri del contenitore di download del server di cronologia Spark](./media/apache-spark-job-debugging/download-container-logs.png)
+    ![Log del contenitore di download del server cronologia Spark](./media/apache-spark-job-debugging/download-container-logs.png)
 
 ## <a name="track-an-application-in-the-spark-ui"></a>Tenere traccia di un'applicazione nell'interfaccia utente di Spark
 
 Nell'interfaccia utente di Spark è possibile eseguire il drill-down dei processi Spark generati dall'applicazione avviata in precedenza.
 
-1. Per avviare l'interfaccia utente di Spark, dalla visualizzazione dell'applicazione selezionare il collegamento **relativo all'URL di rilevamento,** come illustrato nell'acquisizione dello schermo precedente. È possibile visualizzare tutti i processi Spark avviati dall'applicazione in esecuzione in Jupyter Notebook.
+1. Per avviare l'interfaccia utente di Spark, nella visualizzazione dell'applicazione selezionare il collegamento all' **URL di rilevamento**, come illustrato nella schermata precedente. È possibile visualizzare tutti i processi Spark avviati dall'applicazione in esecuzione in Jupyter Notebook.
 
-    ![Scheda Processi server cronologia spark](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
+    ![Scheda processi server cronologia Spark](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 
-2. Selezionare la scheda **Esecutori** per visualizzare le informazioni di elaborazione e archiviazione per ogni esecutore. È inoltre possibile recuperare lo stack di chiamate selezionando il collegamento **Thread Dump.You** can also retrieve the call stack by selecting the Thread Dump link.
+2. Selezionare la scheda **esecutori** per visualizzare le informazioni di elaborazione e archiviazione per ogni Executor. È anche possibile recuperare lo stack di chiamate selezionando il collegamento del **dump del thread** .
 
-    ![Scheda Esecutori del server della cronologia Spark](./media/apache-spark-job-debugging/view-spark-executors.png)
+    ![Scheda esecutori Server cronologia Spark](./media/apache-spark-job-debugging/view-spark-executors.png)
 
-3. Selezionare la scheda **Fasi** per visualizzare le fasi associate all'applicazione.
+3. Selezionare la scheda **fasi** per visualizzare le fasi associate all'applicazione.
 
-    ![Scheda Fasi del server di cronologia Spark](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Visualizzare le fasi di Spark")
+    ![Scheda fasi Server cronologia Spark](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Visualizzare le fasi di Spark")
 
     Ogni fase può avere più attività per cui è possibile visualizzare le statistiche di esecuzione, come illustrato di seguito.
 
-    ![Dettagli della scheda Fasi del server di cronologia Spark](./media/apache-spark-job-debugging/view-spark-stages-details.png "Visualizzare i dettagli delle fasi Di Spark")
+    ![Dettagli scheda fasi Server cronologia Spark](./media/apache-spark-job-debugging/view-spark-stages-details.png "Visualizza i dettagli delle fasi di Spark")
 
 4. Nella pagina dei dettagli relativi alle fasi è possibile avviare la visualizzazione DAG. Espandere il collegamento **DAG Visualization** nella parte superiore della pagina, come illustrato di seguito.
 
@@ -83,8 +83,8 @@ Nell'interfaccia utente di Spark è possibile eseguire il drill-down dei process
 
 6. Altre schede nell'interfaccia utente di Spark forniscono anche informazioni utili sull'istanza di Spark.
 
-   * Scheda Archiviazione: se l'applicazione crea un RDD, è possibile trovare informazioni su tali informazioni nella scheda Archiviazione.Storage tab - If your application creates an RDD, you can find information about those in the Storage tab.
-   * Scheda Ambiente: questa scheda fornisce informazioni utili sull'istanza Spark, ad esempio:
+   * Scheda archiviazione: se l'applicazione crea un RDD, è possibile trovare informazioni su tali dati nella scheda archiviazione.
+   * Scheda Environment (ambiente): questa scheda fornisce informazioni utili sull'istanza di Spark, ad esempio:
      * Versione di Scala
      * Directory dei log eventi associata al cluster
      * Numero di core executor per l'applicazione
@@ -94,18 +94,18 @@ Nell'interfaccia utente di Spark è possibile eseguire il drill-down dei process
 
 Una volta completato un processo, le informazioni corrispondenti vengono salvate in modo permanente nel Server cronologia Spark.
 
-1. Per avviare Il server della cronologia Spark, nella pagina **Panoramica** selezionare **Server di cronologia Spark** in **Dashboard cluster**.
+1. Per avviare il server cronologia Spark, nella pagina **Panoramica** selezionare **Server cronologia Spark** in **Dashboard cluster**.
 
-    ![Il portale di Azure avvia il server della cronologia di SparkAzure portal launch Spark history server](./media/apache-spark-job-debugging/launch-spark-history-server.png "Avviare Spark History Server1")
+    ![portale di Azure avviare il server cronologia Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png "Avviare la cronologia Spark Server1")
 
    > [!TIP]  
-   > In alternativa, è anche possibile avviare l'interfaccia utente del Server cronologia Spark dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente di Ambari, nel pannello Panoramica selezionare **Home page Ambari** in **Dashboard cluster**. Dall'interfaccia utente di Ambari, accedere a **Spark2** > **Quick Links** > **Spark2 History Server UI**.
+   > In alternativa, è anche possibile avviare l'interfaccia utente del Server cronologia Spark dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente di Ambari, nel pannello Panoramica selezionare **Ambari Home** in **Dashboard cluster**. Dall'interfaccia utente di Ambari passare a **Spark2** > **Quick Links** > **Spark2 Cronologia server UI**.
 
-2. Vengono elencate tutte le applicazioni completate. Selezionare un ID applicazione per eseguire il drill-down in un'applicazione per ulteriori informazioni.
+2. Vengono elencate tutte le applicazioni completate. Per ulteriori informazioni, selezionare un ID applicazione per eseguire il drill-down in un'applicazione.
 
-    ![Applicazioni completate dal server della cronologia Spark](./media/apache-spark-job-debugging/view-completed-applications.png "Avviare Spark History Server2")
+    ![Applicazioni complete del server cronologia Spark](./media/apache-spark-job-debugging/view-completed-applications.png "Avviare la cronologia Spark Server2")
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 * [Eseguire il debug dei processi Apache Spark tramite il Server cronologia Spark esteso](apache-azure-spark-history-server.md)

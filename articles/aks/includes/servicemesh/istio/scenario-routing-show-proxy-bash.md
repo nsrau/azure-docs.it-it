@@ -14,7 +14,7 @@ ms.locfileid: "77594142"
 kubectl describe pod -l "app=voting-analytics, version=1.0" -n voting | egrep "istio-proxy:|voting-analytics:" -A2
 ```
 
-Il `istio-proxy` contenitore è stato automaticamente inserito da Istio per gestire il traffico di rete da e verso i componenti, come illustrato nell'output di esempio seguente:The container has automatically injected by Istio to manage the network traffic to and from your components, as shown in the following example output:
+Il `istio-proxy` contenitore è stato inserito automaticamente da Istio per gestire il traffico di rete da e verso i componenti, come illustrato nell'output di esempio seguente:
 
 ```console
   voting-analytics:

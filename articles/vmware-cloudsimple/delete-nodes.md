@@ -1,6 +1,6 @@
 ---
-title: Eliminare nodi per la soluzione VMware da CloudSimple - AzureDelete nodes for VMware Solution by CloudSimple - Azure
-description: Informazioni su come eliminare nodi dalla distribuzione DI VMWare con CloudSimple
+title: Eliminare i nodi per la soluzione VMware da CloudSimple-Azure
+description: Informazioni su come eliminare nodi da VMWare con la distribuzione di CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/05/2019
@@ -15,32 +15,32 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024739"
 ---
-# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Eliminare nodi dalla soluzione Azure VMware di CloudSimpleDelete nodes from Azure VMware Solution by CloudSimple
+# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Eliminare i nodi dalla soluzione VMware di Azure CloudSimple
 
-I nodi CloudSimple vengono misurati una volta creati.  I nodi devono essere eliminati per interrompere la misurazione dei nodi.  Eliminare i nodi che non vengono utilizzati dal portale di Azure.You delete the nodes that are not used from Azure portal.
+I nodi CloudSimple vengono misurati dopo la creazione.  Per arrestare la misurazione dei nodi, è necessario eliminare i nodi.  Si eliminano i nodi non utilizzati da portale di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Un nodo può essere eliminato solo nelle seguenti condizioni:
+Un nodo può essere eliminato solo nelle condizioni seguenti:
 
-* Un cloud privato creato con i nodi viene eliminato.  Per eliminare un cloud privato, vedere Eliminare una [soluzione Azure VMware dal](delete-private-cloud.md)cloud privato semplice .
-* Il nodo è stato rimosso dal cloud privato riducendo il cloud privato.  Per ridurre la riduzione di un cloud privato, vedere [Ridurre la soluzione Azure VMware dal cloudSimple Private Cloud](shrink-private-cloud.md).
+* Un cloud privato creato con i nodi viene eliminato.  Per eliminare un cloud privato, vedere [eliminare una soluzione VMware di Azure da CloudSimple cloud privato](delete-private-cloud.md).
+* Il nodo è stato rimosso dal cloud privato compattando il cloud privato.  Per compattare un cloud privato, vedere la pagina relativa alla [compattazione della soluzione VMware di Azure con CloudSimple private cloud](shrink-private-cloud.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="delete-cloudsimple-node"></a>Elimina nodo CloudSimple
 
 1. Selezionare **Tutti i servizi**.
 
-2. Cercare **nodi CloudSimple**.
+2. Cercare i **nodi CloudSimple**.
 
-   ![Nodi semplici search Cloud](media/create-cloudsimple-node-search.png)
+   ![Cerca nodi CloudSimple](media/create-cloudsimple-node-search.png)
 
-3. Selezionare **Nodi CloudSimple**.
+3. Selezionare i **nodi CloudSimple**.
 
-4. Selezionare i nodi che non appartengono a un cloud privato da eliminare.  **Private CLOUD NAME** mostra il nome del cloud privato a cui appartiene un nodo.  Se un nodo non viene utilizzato da un cloud privato, il valore sarà vuoto. 
+4. Selezionare i nodi che non appartengono a un cloud privato da eliminare.  Colonna **nome cloud privato** indica il nome del cloud privato a cui appartiene un nodo.  Se un nodo non è utilizzato da un cloud privato, il valore sarà vuoto. 
 
     ![Seleziona nodi CloudSimple](media/select-delete-cloudsimple-node.png)
 
@@ -49,4 +49,4 @@ Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sul [cloud privato](cloudsimple-private-cloud.md)
+* Informazioni sul [cloud privato](cloudsimple-private-cloud.md)

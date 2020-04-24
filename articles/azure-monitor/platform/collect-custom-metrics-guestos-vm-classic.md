@@ -1,5 +1,5 @@
 ---
-title: Inviare metriche di macchine virtuali di Windows classiche al database delle metriche di Monitoraggio di AzureSend classic Windows VM metrics to Azure Monitor metrics database
+title: Inviare metriche di macchine virtuali Windows classiche al database di metriche di monitoraggio di Azure
 description: Inviare le metriche del sistema operativo guest all'archivio dati di Monitoraggio di Azure per una macchina virtuale Windows (versione classica)
 author: anirudhcavale
 services: azure-monitor
@@ -14,13 +14,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655816"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Inviare metriche del sistema operativo guest al database delle metriche di Monitoraggio di Azure per una macchina virtuale Windows (classica)Send Guest OS metrics to the Azure Monitor metrics database for a Windows virtual machine (classic)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Inviare metriche del sistema operativo guest al database di metriche di monitoraggio di Azure per una macchina virtuale Windows (classico)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 L'[estensione Diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (conosciuta come "WAD" o "Diagnostica") di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-Questo articolo descrive il processo per l'invio delle metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows (classica) al database delle metriche di Monitoraggio di Azure.This article describes the process for sending Guest OS performance metrics for a Windows virtual machine (classic) to the Azure Monitor metric database. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
+Questo articolo descrive il processo per l'invio di metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows (classica) al database delle metriche di monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
 
 L'archiviazione in questo percorso consente di accedere alle stesse azioni eseguite per le metriche della piattaforma. Le azioni includono quasi in tempo reale gli avvisi, i grafici, il routing, l'accesso dall'API REST e altro ancora. Le versioni precedenti dell'estensione Diagnostica eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure. 
 
@@ -28,13 +28,13 @@ Il processo illustrato in questo articolo funziona solo sulle macchine virtuali 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario essere un amministratore del servizio o un coamministratore nella sottoscrizione di Azure.You must be a service administrator or [co-administrator](../../cost-management-billing/manage/add-change-subscription-administrator.md) on your Azure subscription. 
+- È necessario essere un [amministratore del servizio o un coamministratore](../../cost-management-billing/manage/add-change-subscription-administrator.md) nella sottoscrizione di Azure. 
 
-- L'abbonamento deve essere registrato con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- La sottoscrizione deve essere registrata con [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- È necessario disporre di [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installato.
+- È necessario che sia installato [Azure PowerShell](/powershell/azure) o [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
 
-- La risorsa VM deve trovarsi in [un'area che supporta metriche personalizzate.](metrics-custom-overview.md#supported-regions)
+- La risorsa VM deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Creare una macchina virtuale classica e un account di archiviazione
 
@@ -188,7 +188,7 @@ Assegnare all'app le autorizzazioni "Monitoring Metrics Publisher" (Autore delle
 
 1.  Accedere al portale di Azure. 
 
-1.  Nel menu a sinistra, seleziona **Monitor.**
+1.  Nel menu a sinistra selezionare **monitoraggio.**
 
 1.  Nel pannello **Monitoraggio** selezionare **Metriche**.
 
@@ -196,9 +196,9 @@ Assegnare all'app le autorizzazioni "Monitoring Metrics Publisher" (Autore delle
 
 1. Nell'elenco a discesa della risorsa selezionare la macchina virtuale classica.
 
-1. Nel menu a discesa Spazi dei nomi selezionare **azure.vm.windows.guest**.
+1. Nel menu a discesa spazi dei nomi selezionare **Azure. VM. Windows. Guest**.
 
-1. Nel menu a discesa delle metriche, selezionare **Memoria - Byte vincolati in uso**.
+1. Nel menu a discesa metriche selezionare **Memoria\Byte vincolati byte in uso**.
    ![Metriche del tracciato](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 

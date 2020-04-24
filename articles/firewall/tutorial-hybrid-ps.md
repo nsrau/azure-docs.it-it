@@ -1,6 +1,6 @@
 ---
-title: Distribuire & configurare Firewall di Azure nella rete ibrida tramite PowerShellDeploy to configure Azure Firewall in hybrid network using PowerShell
-description: In this article, you learn how to deploy and configure Azure Firewall using Azure PowerShell.
+title: Distribuire & configurare il firewall di Azure in una rete ibrida usando PowerShell
+description: Questo articolo illustra come distribuire e configurare il firewall di Azure con Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -21,11 +21,11 @@ Quando si connette la rete locale a una rete virtuale di Azure per creare una re
 
 È possibile usare il Firewall di Azure per controllare l'accesso alla rete in una rete ibrida usando le regole che definiscono il traffico di rete consentito e negato.
 
-Per questo articolo vengono create tre reti virtuali:For this article, you create three virtual networks:
+Per questo articolo vengono create tre reti virtuali:
 
 - **VNet-Hub**: in questa rete virtuale si trova la rete virtuale.
 - **VNet-Spoke**: la rete virtuale spoke rappresenta il carico di lavoro che si trova in Azure.
-- **VNet-Onprem**: rappresenta una rete locale. In una distribuzione reale la connessione può essere effettuata tramite una connessione VPN o ExpressRoute. Per semplicità, questo articolo usa una connessione gateway VPN e viene usata una rete virtuale situata in Azure per rappresentare una rete locale.
+- **VNet-Onprem**: rappresenta una rete locale. In una distribuzione reale la connessione può essere effettuata tramite una connessione VPN o ExpressRoute. Per semplicità, in questo articolo viene usata una connessione gateway VPN e una rete virtuale che si trova in Azure viene usata per rappresentare una rete locale.
 
 ![Firewall in una rete ibrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -43,13 +43,13 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Creare le macchine virtuali
 > * Testare il firewall
 
-Se si vuole usare invece il portale di Azure per completare questa esercitazione, vedere [Esercitazione: Distribuire e configurare Firewall](tutorial-hybrid-portal.md)di Azure in una rete ibrida usando il portale di Azure.If you want to use Azure portal instead to complete this tutorial, see Tutorial: Deploy and configure Azure Firewall in a hybrid network using the Azure portal .
+Se invece si vuole usare portale di Azure per completare questa esercitazione, vedere [esercitazione: distribuire e configurare il firewall di Azure in una rete ibrida usando il portale di Azure](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo richiede l'esecuzione di PowerShell in locale. È necessario aver installato il modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
+Per questo articolo è necessario eseguire PowerShell in locale. È necessario aver installato il modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
 
 Per il corretto funzionamento di questo scenario devono essere soddisfatti tre requisiti principali:
 
@@ -59,7 +59,7 @@ Per il corretto funzionamento di questo scenario devono essere soddisfatti tre r
    Non è richiesta alcuna route definita dall'utente nella subnet di Firewall di Azure, dal momento che le route vengono apprese dal protocollo BGP.
 - Assicurarsi di impostare **AllowGatewayTransit** durante il peering di VNet-Hub a VNet-Spoke e usare **UseRemoteGateways** durante il peering di VNet-Spoke a VNet-Hub.
 
-Vedere la sezione [Creare percorsi](#create-the-routes) in questo articolo per vedere come vengono creati questi percorsi.
+Vedere la sezione [creare le route](#create-the-routes) in questo articolo per vedere come vengono create queste route.
 
 >[!NOTE]
 >Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet.
@@ -119,7 +119,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Creare la rete virtuale dell'hub del firewall
 
-Creare innanzitutto il gruppo di risorse per contenere le risorse per questo articolo:First, create the resource group to contain the resources for this article:
+Per prima cosa, creare il gruppo di risorse per contenere le risorse per questo articolo:
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -464,7 +464,7 @@ Dal portale di Azure connettersi alla macchina virtuale **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-Aprire un Web browser in **VM-Onprem**e passare\<all'IP\>privato di http:// VM-spoke-01 .
+Aprire un Web browser in **VM-** locale e passare all'indirizzo IP\<\>privato http://VM-spoke-01.
 
 Dovrebbe essere visualizzata la pagina predefinita di Internet Information Services.
 

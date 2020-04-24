@@ -1,6 +1,6 @@
 ---
-title: Creare, modificare o estendere le definizioni del flusso di lavoro JSON dell'app per la logicaCreate, edit, or extend logic app JSON workflow definitions
-description: Come scrivere, modificare ed estendere le definizioni del flusso di lavoro JSON dell'app per la logica nelle app per la logica di AzureHow to write, edit, and extend your logic app's JSON workflow definitions in Azure Logic Apps
+title: Creare, modificare o estendere le definizioni del flusso di lavoro JSON dell'app per la logica
+description: Come scrivere, modificare ed estendere le definizioni del flusso di lavoro JSON dell'app per la logica in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -13,7 +13,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979383"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni del flusso di lavoro dell'app per la logica nelle app per la logica di AzureCreate, edit, or extend JSON for logic app workflow definitions in Azure Logic Apps
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni del flusso di lavoro delle app per la logica in app per la logica
 
 Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice.
 Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/management/overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md).
@@ -28,7 +28,7 @@ Se non si ha familiarità con le app per la logica, vedere [come creare la prima
 
 ## <a name="edit-json---azure-portal"></a>Modificare JSON - Portale di Azure
 
-1. Accedere al <a href="https://portal.azure.com" target="_blank">portale</a>di Azure .
+1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a>.
 
 2. Dal menu a sinistra scegliere **Tutti i servizi**.
 Nella casella di ricerca cercare "app per la logica" e quindi selezionare l'app per la logica desiderata nei risultati.
@@ -65,21 +65,21 @@ Selezionare **Open With Logic App Designer** (Apri con Progettazione app per la 
 
 ## <a name="parameters"></a>Parametri
 
-Il ciclo di vita della distribuzione include in genere ambienti diversi per lo sviluppo, il test, la gestione temporanea e la produzione. Quando si hanno valori che si desidera riutilizzare in tutta l'app per la logica senza hardcoded o che variano in base alle esigenze di distribuzione, è possibile creare un modello di [Azure Resource Manager](../azure-resource-manager/management/overview.md) per la definizione del flusso di lavoro in modo da poter automatizzare anche la distribuzione dell'app per la logica.
+Il ciclo di vita della distribuzione ha in genere ambienti diversi per lo sviluppo, il test, la gestione temporanea e la produzione. Quando si hanno valori che si vuole riusare nell'app per la logica senza hardcoded o che variano in base alle esigenze di distribuzione, è possibile creare un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md) per la definizione del flusso di lavoro, in modo da poter automatizzare la distribuzione delle app per la logica.
 
-Seguire questi passaggi generali per *parametrizzare*o definire e utilizzare i parametri per tali valori. È quindi possibile fornire i valori in un file di parametri separato che passa tali valori al modello. In questo modo, è possibile modificare tali valori più facilmente senza dover aggiornare e ridistribuire l'app per la logica. Per informazioni dettagliate, vedere [Panoramica: Automatizzare](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)la distribuzione per le app per la logica con i modelli di Azure Resource Manager.For full details, see Overview: Automate deployment for logic apps with Azure Resource Manager templates .
+Attenersi alla procedura generale per *parametrizzare*o definire e utilizzare i parametri per tali valori. È quindi possibile fornire i valori in un file di parametri separato che passa tali valori al modello. In questo modo, è possibile modificare i valori più facilmente senza dover aggiornare e ridistribuire l'app per la logica. Per informazioni dettagliate, vedere [Panoramica: automatizzare la distribuzione per le app per la logica con i modelli Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
-1. Nel modello definire i parametri del modello e i parametri di definizione del flusso di lavoro per accettare i valori da utilizzare rispettivamente in fase di distribuzione e in fase di esecuzione.
+1. Nel modello definire i parametri del modello e i parametri di definizione del flusso di lavoro per accettare i valori da usare rispettivamente in fase di distribuzione e di Runtime.
 
-   I parametri del modello vengono definiti in una sezione di parametri esterna alla definizione del flusso di lavoro, mentre i parametri di definizione del flusso di lavoro sono definiti in una sezione di parametri all'interno della definizione del flusso di lavoro.
+   I parametri del modello sono definiti in una sezione dei parametri all'esterno della definizione del flusso di lavoro, mentre i parametri di definizione del flusso di lavoro sono definiti in una sezione dei parametri all'interno della definizione del flusso di lavoro.
 
-1. Sostituire i valori hardcoded con espressioni che fanno riferimento a questi parametri. Le espressioni modello usano una sintassi diversa dalle espressioni di definizione del flusso di lavoro.
+1. Sostituire i valori hardcoded con espressioni che fanno riferimento a questi parametri. Nelle espressioni di modello viene utilizzata una sintassi diversa dalle espressioni di definizione del flusso di lavoro.
 
-   Evitare di complicare il codice non utilizzando espressioni di modello, che vengono valutate in fase di distribuzione, all'interno di espressioni di definizione del flusso di lavoro, che vengono valutate in fase di esecuzione. Utilizzare solo espressioni di modello all'esterno della definizione del flusso di lavoro. Usare solo espressioni di definizione del flusso di lavoro all'interno della definizione del flusso di lavoro.
+   Evitare di complicare il codice non usando le espressioni modello, che vengono valutate in fase di distribuzione, all'interno delle espressioni di definizione del flusso di lavoro, che vengono valutate in fase di esecuzione Usare solo espressioni di modello all'esterno della definizione del flusso di lavoro. Usare solo le espressioni di definizione del flusso di lavoro nella definizione del flusso di lavoro.
 
-   Quando si specificano i valori per i parametri di definizione del flusso di lavoro, è possibile fare riferimento ai parametri del modello usando la sezione dei parametri esterna alla definizione del flusso di lavoro, ma comunque all'interno della definizione di risorsa per l'app per la logica. In questo modo, è possibile passare i valori dei parametri di modello nei parametri di definizione del flusso di lavoro.
+   Quando si specificano i valori per i parametri di definizione del flusso di lavoro, è possibile fare riferimento ai parametri del modello usando la sezione Parameters che non rientra nella definizione del flusso di lavoro ma ancora all'interno della definizione di risorsa per l'app per la logica. In questo modo, è possibile passare i valori dei parametri di modello nei parametri della definizione del flusso di lavoro.
 
-1. Archiviare i valori per i parametri in un file di [parametri](../azure-resource-manager/templates/parameter-files.md) separato e includere tale file nella distribuzione.
+1. Archiviare i valori per i parametri in un [file di parametri](../azure-resource-manager/templates/parameter-files.md) separato e includere il file con la distribuzione.
 
 ## <a name="process-strings-with-functions"></a>Elaborare le stringhe con le funzioni
 
@@ -127,18 +127,18 @@ I passaggi seguenti descrivono come questa stringa viene elaborata nell'esempio,
 "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
-1. Ottenere [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) il per il nome della società, in modo da ottenere il numero totale di caratteri.
+1. Ottenere l' [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) oggetto per il nome della società, in modo da ottenere il numero totale di caratteri.
 
 2. Per ottenere una stringa più breve, sottrarre `5`.
 
-3. Ora ottenere [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md)un file .
+3. Ottenere ora un [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md).
 Iniziare dall'indice `5` e procedere alla parte rimanente della stringa.
 
-4. Convertire questa sottostringa [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) in una stringa.
+4. Converte questa sottostringa in [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) una stringa.
 
-5. Ora [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) tutti `+` i `-` personaggi con caratteri.
+5. Ora [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) tutti i `+` caratteri con `-` caratteri.
 
-6. Infine, [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) tutti `/` i `_` personaggi con caratteri.
+6. Infine, [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) tutti i `/` caratteri con `_` caratteri.
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Eseguire il mapping degli elementi di elenco ai valori delle proprietà, quindi usare le mappe come parametri
 
@@ -240,7 +240,7 @@ Questa espressione, ad esempio, trova quanto tempo richiedono i passaggi di ques
 
    Se il primo valore è minore del secondo valore, è trascorso più di un secondo dal momento in cui è stato inserito l'ordine.
 
-Per formattare le date, è possibile usare formattatori di stringa. Ad esempio, per ottenere il RFC1123, utilizzare [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
+Per formattare le date, è possibile usare formattatori di stringa. Ad esempio, per ottenere RFC1123, usare [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
 Altre informazioni sulla [formattazione delle date](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json

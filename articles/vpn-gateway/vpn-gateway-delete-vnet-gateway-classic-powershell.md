@@ -1,5 +1,5 @@
 ---
-title: 'Eliminare un gateway di rete virtuale: Azure classicoDelete a virtual network gateway: Azure classic'
+title: 'Eliminare un gateway di rete virtuale: Azure classico'
 description: Eliminare un gateway di rete virtuale usando PowerShell nel modello di distribuzione classico.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
@@ -27,15 +27,15 @@ Questo articolo illustra come eliminare un gateway VPN nel modello di distribuzi
 
 ## <a name="step-1-connect-to-azure"></a><a name="connect"></a>Passaggio 1: Connettersi ad Azure
 
-### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Installare i cmdlet di PowerShell più recenti.
+### <a name="1-install-the-latest-powershell-cmdlets"></a>1. installare i cmdlet di PowerShell più recenti.
 
 [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-### <a name="2-connect-to-your-azure-account"></a>2. Connettersi all'account Azure.2. Connect to your Azure account.
+### <a name="2-connect-to-your-azure-account"></a>2. connettersi all'account Azure.
 
 Aprire la console di PowerShell con diritti elevati e connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
 
-1. Aprire la console di PowerShell con diritti elevati. Per passare alla gestione dei servizi, utilizzare questo comando:To switch to service management, use this command:
+1. Aprire la console di PowerShell con diritti elevati. Per passare a gestione servizi, usare questo comando:
 
    ```powershell
    azure config mode asm
@@ -56,7 +56,7 @@ In questo esempio il file di configurazione di rete viene esportato in C:\AzureN
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Aprire il file con un editor di testo e visualizzare il nome di una rete virtuale classica. Quando si crea una rete virtuale nel portale di Azure, il nome completo che usa Azure non è visibile nel portale. Ad esempio, una rete virtuale che nel portale di Azure sembra avere il nome di "ClassicVNet1" potrebbe avere un nome molto più lungo nel file di configurazione di rete. Il nome potrebbe essere simile a: "Gruppo ClassicRG1 ClassicVNet1". I nomi delle reti virtuali sono elencati come **'NomeVirtualNetworkSite'.** Usare i nomi nel file di configurazione di rete durante l'esecuzione dei cmdlet di PowerShell.
+Aprire il file con un editor di testo e visualizzare il nome di una rete virtuale classica. Quando si crea una rete virtuale nel portale di Azure, il nome completo che usa Azure non è visibile nel portale. Ad esempio, una rete virtuale che nel portale di Azure sembra avere il nome di "ClassicVNet1" potrebbe avere un nome molto più lungo nel file di configurazione di rete. Il nome potrebbe essere simile a: "Gruppo ClassicRG1 ClassicVNet1". I nomi delle reti virtuali sono elencati come **' VirtualNetworkSite Name ='**. Usare i nomi nel file di configurazione di rete durante l'esecuzione dei cmdlet di PowerShell.
 
 ## <a name="step-3-delete-the-virtual-network-gateway"></a><a name="delete"></a>Passaggio 3: Eliminare il gateway di rete virtuale
 
@@ -80,7 +80,7 @@ Quando si elimina un gateway di rete virtuale, il cmdlet non modifica il file di
 
 ### <a name="local-network-site-references"></a><a name="lnsref"></a>Riferimento al sito di rete locale
 
-Per rimuovere le informazioni di riferimento al sito, apportare modifiche alla configurazione in **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. La rimozione di un riferimento al sito locale induce Azure a eliminare un tunnel. A seconda della configurazione creata, è possibile che non sia elencato **LocalNetworkSiteRef.**
+Per rimuovere le informazioni di riferimento al sito, apportare modifiche alla configurazione in **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. La rimozione di un riferimento al sito locale induce Azure a eliminare un tunnel. A seconda della configurazione creata, è possibile che non sia elencato un **LocalNetworkSiteRef** .
 
 ```
 <Gateway>
@@ -156,9 +156,9 @@ Esempio:
  </Gateway>
 ```
 
-### <a name="gatewaysubnet"></a><a name="gwsub"></a>Subnet Gateway
+### <a name="gatewaysubnet"></a><a name="gwsub"></a>GatewaySubnet
 
-Eliminare il **GatewaySubnet** che corrisponde alla rete virtuale.
+Eliminare il **GatewaySubnet** che corrisponde a VNet.
 
 ```
 <Subnets>

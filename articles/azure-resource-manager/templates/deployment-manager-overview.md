@@ -1,5 +1,5 @@
 ---
-title: Distribuzione sicura tra aree - Gestione distribuzione di AzureSafe deployment across regions - Azure Deployment Manager
+title: 'Distribuzione sicura tra aree: Azure Deployment Manager'
 description: Descrive come distribuire un servizio in più aree con Azure Deployment Manager. Illustra le procedure di distribuzione sicure per verificare la stabilità della distribuzione prima dell'implementazione in tutte le aree.
 ms.topic: conceptual
 ms.date: 11/21/2019
@@ -11,13 +11,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76152528"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare procedure di distribuzione sicure con Gestione distribuzione di Azure (anteprima pubblica)Enable safe deployment practices with Azure Deployment Manager (Public preview)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare procedure di distribuzione sicure con Deployment Manager di Azure (anteprima pubblica)
 
 Per distribuire il servizio in più aree e verificare che venga eseguito come previsto in ogni area, è possibile usare Azure Deployment Manager per coordinare un'implementazione a fasi del servizio. Proprio come per qualsiasi distribuzione di Azure, si definiscono le risorse per il servizio nei [modelli di Resource Manager](template-syntax.md). Dopo aver creato i modelli, si usa Deployment Manager per descrivere la topologia per il servizio e come deve essere implementato.
 
 Deployment Manager è una funzionalità di Resource Manager. Espande le funzionalità durante la distribuzione. Usare Deployment Manager quando è necessario distribuire un servizio complesso in più aree. Con l'implementazione temporanea del servizio, è possibile individuare potenziali problemi prima che il servizio sia distribuito in tutte le aree. Se le particolari precauzioni di un'implementazione a fasi non sono necessarie, usare le [opzioni di distribuzione](deploy-portal.md) standard per Resource Manager. Deployment Manager si integra perfettamente con tutti gli strumenti di terze parti esistenti che supportano le distribuzioni di Resource Manager, ad esempio le offerte di integrazione continua e recapito continuo (CI/CD).
 
-Gestione distribuzione di Azure è in anteprima. Aiutaci a migliorare la funzione fornendo [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager è in versione di anteprima. Aiutaci a migliorare la funzionalità fornendo [commenti e suggerimenti](https://aka.ms/admfeedback).
 
 Per usare Deployment Manager, è necessario creare quattro file:
 
@@ -31,15 +31,15 @@ Si distribuisce il modello di topologia prima di distribuire il modello di imple
 Risorse aggiuntive:
 
 - Il [riferimento all'API REST di Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
-- [Esercitazione: Usare Gestione distribuzione di Azure con](./deployment-manager-tutorial.md)i modelli di Resource Manager .
-- [Esercitazione: Usare il controllo dell'integrità in Gestione distribuzione](./deployment-manager-tutorial-health-check.md)di Azure .
+- [Esercitazione: usare Deployment Manager di Azure con modelli di gestione risorse](./deployment-manager-tutorial.md).
+- [Esercitazione: usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [Usare un esempio di Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identità e accesso
 
 Con Deployment Manager, un'[identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/overview.md) esegue le azioni di distribuzione. Si crea questa identità prima di avviare la distribuzione. Deve avere accesso alla sottoscrizione in cui si distribuisce il servizio e autorizzazioni sufficienti per completare la distribuzione. Per informazioni sulle azioni concesse tramite i ruoli, vedere [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
 
-L'identità deve trovarsi nella stessa posizione dell'implementazione.
+L'identità deve risiedere nella stessa posizione dell'implementazione.
 
 ## <a name="topology-template"></a>Modello di topologia
 
@@ -193,7 +193,7 @@ Nel modello di implementazione si crea un'origine artefatto per i file binari da
 
 ### <a name="steps"></a>Passaggi
 
-È possibile definire un passaggio da eseguire prima o dopo l'operazione di distribuzione. Attualmente, sono `wait` disponibili solo il passaggio e il passaggio 'healthCheck'.
+È possibile definire un passaggio da eseguire prima o dopo l'operazione di distribuzione. Attualmente sono disponibili solo `wait` il passaggio e il passaggio ' healthCheck '.
 
 Il passaggio wait sospende la distribuzione prima di continuare. Consente di verificare che il servizio sia in esecuzione come previsto prima di distribuire l'unità di servizio successiva. L'esempio seguente illustra il formato generale di un passaggio wait.
 
@@ -214,7 +214,7 @@ Il passaggio wait sospende la distribuzione prima di continuare. Consente di ver
 
 La proprietà duration usa lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L'esempio precedente specifica un'attesa di un minuto.
 
-Per altre informazioni sul passaggio di controllo dell'integrità, vedere [Introduzione all'implementazione dell'integrazione dell'integrità in Gestione distribuzione](./deployment-manager-health-check.md) di Azure ed Esercitazione: Usare il controllo di integrità in Gestione distribuzione di Azure.For more information about the health check step, see Introduce health integration rollout to Azure Deployment Manager and [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+Per altre informazioni sul passaggio del controllo integrità, vedere [Introduzione all'integrazione dell'integrità in azure Deployment Manager](./deployment-manager-health-check.md) e [esercitazione: usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Per altre informazioni, vedere [steps template reference](/azure/templates/Microsoft.DeploymentManager/steps) (Informazioni di riferimento sul modello steps).
 
@@ -339,4 +339,4 @@ In questo articolo è stato illustrato Deployment Manager. Passare all'articolo 
 > [!div class="nextstepaction"]
 > [Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md)
 >
-> [Guida introduttiva: prova Gestione distribuzione di Azure in pochi minuti](https://github.com/Azure-Samples/adm-quickstart)
+> [Guida introduttiva: provare Deployment Manager di Azure in pochi minuti](https://github.com/Azure-Samples/adm-quickstart)

@@ -1,5 +1,5 @@
 ---
-title: Configurare MPIO sull'host StorSimple Linux
+title: Configurare MPIO nell'host StorSimple Linux
 description: Configurare MPIO in dispositivi StorSimple connessi all'host Linux che esegue CentOS 6.6
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
@@ -328,19 +328,19 @@ Questa sezione contiene alcuni suggerimenti utili in caso di problemi durante la
 
 Q. Le modifiche apportate al file `multipath.conf` non hanno effetto.
 
-R. Se sono state apportate modifiche al file `multipath.conf` , è necessario riavviare il servizio di percorsi multipli. Digitare il comando seguente:
+A. Se sono state apportate modifiche al file `multipath.conf` , è necessario riavviare il servizio di percorsi multipli. Digitare il comando seguente:
 
     service multipathd restart
 
 Q. Sono state abilitate due interfacce di rete sul dispositivo StorSimple e due interfacce di rete sull'host. Nell'elenco dei percorsi disponibili sono visibili solo due percorsi, mentre dovrebbero essercene quattro.
 
-R. Assicurarsi che i due percorsi siano nella stessa subnet e instradabili. Se le interfacce di rete si trovano su VLAN diverse e non sono instradabili, verranno visualizzati solo due percorsi. Un modo per verificare questa condizione è assicurarsi che sia possibile raggiungere entrambe le interfacce host da un'interfaccia di rete nel dispositivo StorSimple. Sarà necessario [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) perché questa verifica può essere eseguita solo in una sessione di supporto.
+A. Assicurarsi che i due percorsi siano nella stessa subnet e instradabili. Se le interfacce di rete si trovano su VLAN diverse e non sono instradabili, verranno visualizzati solo due percorsi. Un modo per verificare questa condizione è assicurarsi che sia possibile raggiungere entrambe le interfacce host da un'interfaccia di rete nel dispositivo StorSimple. Sarà necessario [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) perché questa verifica può essere eseguita solo in una sessione di supporto.
 
 Q. Nell'elenco dei percorsi disponibili non è visualizzato alcun output.
 
-R. In genere, non vedere alcun percorso multipathed suggerisce un problema con il daemon multipathing, ed è molto probabile che qualsiasi problema qui si trova nel `multipath.conf` file.
+A. In genere, non viene visualizzato alcun percorso multipercorso che suggerisce un problema con il daemon percorsi multipli ed è molto probabile che qualsiasi problema si trovi nel `multipath.conf` file.
 
-Sarebbe anche la pena di controllare che si può effettivamente vedere alcuni dischi dopo la connessione alla destinazione, come nessuna risposta dagli elenchi multipath potrebbe anche significare che non si dispone di alcun disco.
+Sarebbe anche opportuno verificare che sia possibile visualizzare alcuni dischi dopo la connessione alla destinazione, poiché nessuna risposta dalle liste a percorsi multipli potrebbe significare che non sono presenti dischi.
 
 * Per ripetere la scansione del bus iSCSI, usare il comando seguente:
   
@@ -358,7 +358,7 @@ Sarebbe anche la pena di controllare che si può effettivamente vedere alcuni di
   
     `cat /sys/block/<DISK>/device/model`
   
-    Verrà restituita una stringa, che determinerà se si tratta di un disco StorSimple.This will return a string, which will determine if it's a StorSimple disk.
+    Verrà restituita una stringa che determina se si tratta di un disco StorSimple.
 
 Una causa meno probabile, ma possibile, potrebbe anche essere un PID iSCSI non aggiornato. Per disconnettersi dalle sessioni iSCSI usare il comando seguente:
 
@@ -371,7 +371,7 @@ Ripetere questo comando per tutte le interfacce di rete connesse nella destinazi
 
 Q. Come è possibile verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti?
 
-R. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti, usare il comando interattivo di risoluzione dei problemi seguente:
+A. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti, usare il comando interattivo di risoluzione dei problemi seguente:
 
     multipathd -k
     multipathd> show devices
@@ -410,7 +410,7 @@ R. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi con
     dm-3 devnode blacklisted, unmonitored
 
 
-Per ulteriori informazioni, vedere Risoluzione dei problemi relativi al [multipathing](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
+Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione dei problemi per percorsi multipli](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Elenco di comandi utili
 | Type | Comando | Descrizione |
@@ -428,7 +428,7 @@ Per ulteriori informazioni, vedere Risoluzione dei problemi relativi al [multipa
 | **Percorsi multipli** |`service multipathd start` |Avviare il daemon a percorsi multipli |
 | &nbsp; |`service multipathd stop` |Arrestare il daemon a percorsi multipli |
 | &nbsp; |`service multipathd restart` |Riavviare il daemon a percorsi multipli |
-| &nbsp; |`chkconfig multipathd on` </br> o </br> `mpathconf -with_chkconfig y` |Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer |
+| &nbsp; |`chkconfig multipathd on` </br> O </br> `mpathconf -with_chkconfig y` |Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer |
 | &nbsp; |`multipathd -k` |Avviare la console interattiva per la risoluzione dei problemi |
 | &nbsp; |`multipath -l` |Elencare le connessioni e i dispositivi a percorsi multipli |
 | &nbsp; |`mpathconf --enable` |Creare un file mulitpath.conf di esempio in `/etc/mulitpath.conf` |

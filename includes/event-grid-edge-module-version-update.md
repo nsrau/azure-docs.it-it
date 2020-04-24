@@ -16,4 +16,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "76844548"
 ---
 >[!NOTE]
-> Controlla sempre la versione della tua immagine per assicurarti che abbia le funzionalità che ti serve. Se si dispone di una versione precedente dell'immagine contenitore già trascinata nel computer, è necessario specificare `:latest` il tag di versione desiderato o eliminare l'immagine esistente prima di estrarre nuovamente con il tag. Per ulteriori informazioni sulle versioni delle immagini e sui tag, vedere [Note sulla versione](../articles/event-grid/edge/release-notes.md).
+> Controllare sempre la versione dell'immagine per assicurarsi che abbia il feautures richiesto. Se è già stata eseguito il pull di una versione precedente dell'immagine del contenitore nel computer, è necessario specificare il tag di versione desiderato oppure eliminare l'immagine esistente prima di ritirarla con `:latest` il tag. Per altre informazioni sulle versioni e sui tag delle immagini, vedere [Note sulla versione](../articles/event-grid/edge/release-notes.md).

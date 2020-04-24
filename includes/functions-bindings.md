@@ -12,21 +12,21 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77279576"
 ---
-Questa tabella mostra le associazioni supportate nelle versioni principali del runtime di Funzioni di Azure:This table shows the bindings that are supported in the major versions of the Azure Functions runtime:
+Questa tabella mostra le associazioni supportate nelle versioni principali del runtime di funzioni di Azure:
 
 
-| Type | 1.x | 2.x e versioni successive<sup>1</sup> | Trigger | Input | Output |
+| Type | 1.x | 2. x e versioni successive<sup>1</sup> | Trigger | Input | Output |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Archiviazione BLOB](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
 | [Griglia di eventi](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Hub eventi](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
-| [Webhook di & HTTP](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
-| [IoT Hub](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
+| [Webhook & HTTP](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
+| [Hub IoT](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
 | [Microsoft Graph<br/>Tabelle di Excel](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
 | [Microsoft Graph<br/>File di OneDrive](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
 | [Microsoft Graph<br/>Indirizzo e-mail Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
-| [Eventi<br/>di Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
+| [Eventi<br/>Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
 | [Microsoft Graph<br/>Token di autenticazione](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
 | [App per dispositivi mobili](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Hub di notifica](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
@@ -38,4 +38,4 @@ Questa tabella mostra le associazioni supportate nelle versioni principali del r
 | [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> A partire dal runtime versione 2.x, è necessario registrare tutte le associazioni ad eccezione di HTTP e Timer. Vedere [Registrare le estensioni delle associazioni](../articles/azure-functions/functions-bindings-register.md).
+<sup>1</sup> a partire dal runtime della versione 2. x, è necessario registrare tutte le associazioni eccetto http e timer. Vedere [Registrare le estensioni delle associazioni](../articles/azure-functions/functions-bindings-register.md).

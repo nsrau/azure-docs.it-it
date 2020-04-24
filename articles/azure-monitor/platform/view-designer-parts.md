@@ -1,6 +1,6 @@
 ---
-title: Una guida di riferimento per le parti di Progettazione viste in Monitoraggio di Azure . Documenti Microsoft
-description: Usando Progettazione viste in Monitoraggio di Azure, è possibile creare visualizzazioni personalizzate visualizzate nel portale di Azure e contengono un'ampia gamma di visualizzazioni sui dati nell'area di lavoro log Analytics.By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
+title: Guida di riferimento per le parti di Progettazione viste in monitoraggio di Azure | Microsoft Docs
+description: Usando Progettazione viste in monitoraggio di Azure, è possibile creare visualizzazioni personalizzate che vengono visualizzate nel portale di Azure e contengono un'ampia gamma di visualizzazioni sui dati nell'area di lavoro Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -13,8 +13,8 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658558"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento alle parti di visualizzazione di Progettazione viste in Monitoraggio di Azure
-Usando Progettazione viste in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics.By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in monitoraggio di Azure
+Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 
 Per altre informazioni su Progettazione visualizzazioni, vedere:
 
@@ -27,8 +27,8 @@ I tipi di riquadro di Progettazione viste disponibili sono descritti nella tabel
 | Tipo di vista | Descrizione |
 |:--- |:--- |
 | [Elenco di query](#list-of-queries-part) |Visualizza un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. |
-| [Numero ed elenco](#number-and-list-part) |L'intestazione visualizza un singolo numero che mostra un conteggio di record da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
-| [Due numeri ed elenco](#two-numbers-and-list-part) |Nell'intestazione vengono visualizzati due numeri che mostrano i conteggi dei record di query di log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Numero ed elenco](#number-and-list-part) |Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio dei record da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Due numeri ed elenco](#two-numbers-and-list-part) |L'intestazione Visualizza due numeri che mostrano i conteggi dei record da query di log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Grafico ad anello ed elenco](#donut-and-list-part) |L'intestazione presenta un singolo numero che riepiloga una colonna di valori in una query di log. L'anello visualizza graficamente i risultati dei tre record principali. |
 | [Due sequenze temporali ed elenco](#two-timelines-and-list-part) |L'intestazione presenta i risultati di due query di log nel corso del tempo sotto forma di istogrammi, con un callout in cui viene visualizzato un singolo numero che riepiloga una colonna di valori in una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Informazioni](#information-part) |L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visualizza uno o più elementi con titolo e testo statici. |
@@ -39,10 +39,10 @@ I tipi di riquadro di Progettazione viste disponibili sono descritti nella tabel
 Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative proprietà.
 
 > [!NOTE]
-> Le parti nelle viste sono basate su query di log nell'area di lavoro di Log Analytics.Parts in views are based on [log queries](../log-query/log-query-overview.md) in your Log Analytics workspace. Attualmente non supportano [le query tra risorse](../log-query/cross-workspace-query.md) per recuperare dati da Application Insights.They do not currently support cross resource queries to retrieve data from Application Insights.
+> Le parti nelle viste sono basate su [query di log](../log-query/log-query-overview.md) nell'area di lavoro log Analytics. Attualmente non supportano [query tra risorse](../log-query/cross-workspace-query.md) per recuperare dati da Application Insights.
 
 ## <a name="list-of-queries-part"></a>Parte relativa all'elenco delle query
-Nell'elenco delle query viene visualizzato un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. Per impostazione predefinita, la vista include una singola query ed è possibile aggiungerne altre facendo clic su **+ Query**.
+Nella parte elenco di query viene visualizzato un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. Per impostazione predefinita, la vista include una singola query ed è possibile aggiungerne altre facendo clic su **+ Query**.
 
 ![Visualizzazione dell'elenco delle query](media/view-designer-parts/view-list-queries.png)
 
@@ -58,7 +58,7 @@ Nell'elenco delle query viene visualizzato un elenco di query di log. È possibi
 | Nome descrittivo | Nome descrittivo che viene visualizzato. |
 
 ## <a name="number-and-list-part"></a>Parte relativa a Numero ed elenco
-L'intestazione visualizza un singolo numero che mostra un conteggio di record da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
+Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio dei record da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
 ![Visualizzazione dell'elenco delle query](media/view-designer-parts/view-number-list.png)
 
@@ -82,12 +82,12 @@ L'intestazione visualizza un singolo numero che mostra un conteggio di record da
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Parte relativa a Due numeri ed elenco
-L'intestazione ha due numeri che visualizzano un conteggio di record da query di log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
+L'intestazione contiene due numeri che visualizzano un conteggio di record da query di log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
 ![Visualizzazione Due numeri ed elenco](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -113,7 +113,7 @@ L'intestazione ha due numeri che visualizzano un conteggio di record da query di
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -154,7 +154,7 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -186,7 +186,7 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -203,9 +203,9 @@ L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visu
 | Colore |Colore di sfondo dell'intestazione. |
 | **Intestazione** | |
 | Immagine |File di immagine che viene visualizzato nell'intestazione. |
-| Etichetta |Testo che viene visualizzato nell'intestazione. |
+| Label |Testo che viene visualizzato nell'intestazione. |
 | **Intestazione** |**&gt; Collegamento** |
-| Etichetta |Testo del collegamento. |
+| Label |Testo del collegamento. |
 | URL |URL del collegamento. |
 | **Elementi informazioni** | |
 | Titolo |Testo che viene visualizzato per il titolo di ogni elemento. |
@@ -247,7 +247,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -283,7 +283,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -313,20 +313,20 @@ Lo stack presenta tre grafici a linee separati con più serie provenienti da una
 Le sezioni seguenti descrivono le impostazioni comuni a più parti di visualizzazione.
 
 ### <a name="name-and-value-separator"></a><a name="name-value-separator"></a>Separatore di nome e valore
-Il separatore di nome e valore è il delimitatore dei singoli caratteri da usare per analizzare la proprietà text da una query di elenco in più valori. Se si specifica un delimitatore, è possibile specificare i nomi per ogni campo, separati dallo stesso delimitatore nella casella **Nome.**
+Il separatore di nome e valore è il delimitatore dei singoli caratteri da usare per analizzare la proprietà text da una query di elenco in più valori. Se si specifica un delimitatore, è possibile specificare nomi per ogni campo, separati dallo stesso delimitatore nella casella **nome** .
 
 Si consideri, ad esempio, una proprietà denominata *Sede* nella quale vengono inclusi valori come *Redmond-Building 41* e *Bellevue-Building12*. È possibile specificare un trattino (-) come separatore di nome e valore e *City-Building* come nome. Ciò comporta l'analisi di ciascun valore in due proprietà chiamate *City* e *Building*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navigazione click-through
-Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Verrà aperta una query in [Log Analytics](../../azure-monitor/log-query/portals.md) o verrà avviata un'altra visualizzazione.
+Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Verrà aperta una query nel [log Analytics](../../azure-monitor/log-query/portals.md) o verrà avviata un'altra visualizzazione.
 
 La tabella seguente illustra le impostazioni relative alla navigazione click-through.
 
 | Impostazione           | Descrizione |
 |:--|:--|
-| Ricerca log (automatica) | Registrare la query da eseguire quando si seleziona un elemento di intestazione.  Si tratta della stessa query di log su cui si basa l'elemento.
-| Ricerca log        | Registrare la query da eseguire quando si seleziona un elemento in un elenco.  Digitare la query nella casella **Query di spostamento**.   Usare *{selected item}* per includere la sintassi per l'elemento selezionato dall'utente.  Se, ad esempio, la query include una colonna denominata *Computer* e la query di navigazione è *{selected item}*, viene eseguita una query del tipo *Computer="MyComputer"* quando si seleziona un computer. Se la query di navigazione è *Type=Event {selected item}* viene eseguita la query *Type=Event Computer="MyComputer"*. |
-| Visualizza              | Visualizzazione da aprire quando si seleziona un elemento intestazione o un elemento in un elenco.  Selezionare il nome di una visualizzazione nell'area di lavoro nella casella **Nome visualizzazione**. |
+| Ricerca log (automatica) | Query di log da eseguire quando si seleziona un elemento di intestazione.  Si tratta della stessa query di log su cui si basa l'elemento.
+| Ricerca log        | Query di log da eseguire quando si seleziona un elemento in un elenco.  Digitare la query nella casella **Query di spostamento**.   Usare *{selected item}* per includere la sintassi per l'elemento selezionato dall'utente.  Se, ad esempio, la query include una colonna denominata *Computer* e la query di navigazione è *{selected item}*, viene eseguita una query del tipo *Computer="MyComputer"* quando si seleziona un computer. Se la query di navigazione è *Type=Event {selected item}* viene eseguita la query *Type=Event Computer="MyComputer"*. |
+| Visualizzazione              | Visualizzazione da aprire quando si seleziona un elemento intestazione o un elemento in un elenco.  Selezionare il nome di una visualizzazione nell'area di lavoro nella casella **Nome visualizzazione**. |
 
 
 
@@ -357,4 +357,4 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Colore |Colore che indica il valore di soglia. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle query di [log](../log-query/log-query-overview.md) per supportare le query nelle parti di visualizzazione.
+* Informazioni sulle [query di log](../log-query/log-query-overview.md) per supportare le query nelle parti di visualizzazione.

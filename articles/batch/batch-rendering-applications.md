@@ -24,35 +24,35 @@ Alcune applicazioni supportano solo Windows, ma la maggior parte è supportata s
 
 ## <a name="applications-on-centos-7-rendering-images"></a>Applicazioni su immagini di rendering CentOS 7
 
-L'elenco seguente si applica alle immagini di rendering di CentOS 7.6, versione 1.1.6.
+L'elenco seguente si applica alle immagini di rendering CentOS 7,6, versione 1.1.6.
 
 * Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
 * Autodesk Maya I/O 2018 Update 2 (cut 201711281015)
-* Autodesk Maya I/O 2019 Aggiornamento 1
+* Autodesk Maya I/O 2019 aggiornamento 1
 * Autodesk Arnold per Maya 2017 (Arnold versione 5.3.1.1) MtoA-3.2.1.1-2017
 * Autodesk Arnold per Maya 2018 (Arnold versione 5.3.1.1) MtoA-3.2.1.1-2018
 * Autodesk Arnold per Maya 2019 (Arnold versione 5.3.1.1) MtoA-3.2.1.1-2019
 * Chaos Group V-Ray per Maya 2017 (versione 3.60.04)
 * Chaos Group V-Ray per Maya 2018 (versione 3.60.04)
 * Blender (2.68)
-* Frullatore (2.8)
+* Blender (2,8)
 
-## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Applicazioni sulle immagini di rendering di Windows Server 2016 più recenti
+## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Applicazioni sulle immagini di rendering più recenti di Windows Server 2016
 
-L'elenco seguente si applica alle immagini di rendering di Windows Server 2016, versione 1.3.8.The following list applies to Windows Server 2016, version 1.3.8 rendering images.
+L'elenco seguente si applica a Windows Server 2016, Version 1.3.8 rendering images.
 
 * Autodesk Maya I/O 2017 Update 5 (versione 17.4.5459)
 * Autodesk Maya I/O 2018 Update 6 (versione 18.4.0.7622)
 * Autodesk Maya I/O 2019
 * Autodesk 3ds Max I/O 2018 Update 4 (versione 20.4.0.4254)
 * Autodesk 3ds Max I/O 2019 Update 1 (versione 21.2.0.2219)
-* Autodesk 3ds Max I/O 2020 Aggiornamento 2
+* Aggiornamento 2 di Autodesk 3ds Max I/O 2020
 * Autodesk Arnold per Maya 2017 (Arnold versione 5.3.0.2) MtoA-3.2.0.2-2017
 * Autodesk Arnold per Maya 2018 (Arnold versione 5.3.0.2) MtoA-3.2.0.2-2018
 * Autodesk Arnold per Maya 2019 (Arnold versione 5.3.0.2) MtoA-3.2.0.2-2019
-* Autodesk Arnold per 3ds Max 2018 (Arnold versione 5.3.0.2)(versione 1.2.926)
-* Autodesk Arnold per 3ds Max 2019 (Arnold versione 5.3.0.2)(versione 1.2.926)
-* Autodesk Arnold per 3ds Max 2020 (Arnold versione 5.3.0.2)(versione 1.2.926)
+* Autodesk Arnold per 3ds Max 2018 (Arnold versione 5.3.0.2) (versione 1.2.926)
+* Autodesk Arnold per 3ds Max 2019 (Arnold versione 5.3.0.2) (versione 1.2.926)
+* Autodesk Arnold per 3ds Max 2020 (Arnold versione 5.3.0.2) (versione 1.2.926)
 * Chaos Group V-Ray per Maya 2017 (versione 4.12.01)
 * Chaos Group V-Ray per Maya 2018 (versione 4.12.01)
 * Chaos Group V-Ray per Maya 2019 (versione 4.04.03)
@@ -60,17 +60,17 @@ L'elenco seguente si applica alle immagini di rendering di Windows Server 2016, 
 * Chaos Group V-Ray per 3ds Max 2019 (versione 4.20.01)
 * Chaos Group V-Ray per 3ds Max 2020 (versione 4.20.01)
 * Blender (2.79)
-* Frullatore (2,80)
-* Az 10
+* Blender (2,80)
+* AZ 10
 
 > [!IMPORTANT]
-> Per eseguire V-Ray con Maya all'esterno `vrayses.exe` dei modelli di estensione Azure [Batch,](https://github.com/Azure/batch-extension-templates)iniziare prima di eseguire il rendering. Per avviare il file vrayses.exe all'esterno `%MAYA_2017%\vray\bin\vrayses.exe"`dei modelli, è possibile utilizzare il comando riportato di seguito.
+> Per eseguire V-Ray con Maya all'esterno dei [modelli di estensione Azure batch](https://github.com/Azure/batch-extension-templates), `vrayses.exe` avviare prima di eseguire il rendering. Per avviare il file Vrayes. exe all'esterno dei modelli, è possibile usare il `%MAYA_2017%\vray\bin\vrayses.exe"`comando seguente.
 >
-> Per un esempio, vedere l'attività di avvio del [modello Maya e V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) su GitHub.For an example, see the start task of the Maya and V-Ray template on GitHub.
+> Per un esempio, vedere l'attività di avvio del [modello Maya e V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) su GitHub.
 
 ## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Applicazioni su immagini di rendering precedenti di Windows Server 2016
 
-L'elenco seguente si applica alle immagini di rendering di Windows Server 2016, versione 1.3.7.The following list applies to Windows Server 2016, version 1.3.7 rendering images.
+L'elenco seguente si applica a Windows Server 2016, Version 1.3.7 rendering images.
 
 * Autodesk Maya I/O 2017 Update 5 (versione 17.4.5459)
 * Autodesk Maya I/O 2018 Update 4 (versione 18.4.0.7622)
@@ -78,8 +78,8 @@ L'elenco seguente si applica alle immagini di rendering di Windows Server 2016, 
 * Autodesk 3ds Max I/O 2018 Update 4 (versione 20.4.0.4254)
 * Autodesk Arnold per Maya 2017 (Arnold versione 5.2.0.1) MtoA-3.1.0.1-2017
 * Autodesk Arnold per Maya 2018 (Arnold versione 5.2.0.1) MtoA-3.1.0.1-2018
-* Autodesk Arnold per 3ds Max 2018 (Arnold versione 5.0.2.4)(versione 1.2.926)
-* Autodesk Arnold per 3ds Max 2019 (Arnold versione 5.0.2.4)(versione 1.2.926)
+* Autodesk Arnold per 3ds Max 2018 (Arnold versione 5.0.2.4) (versione 1.2.926)
+* Autodesk Arnold per 3ds Max 2019 (Arnold versione 5.0.2.4) (versione 1.2.926)
 * Chaos Group V-Ray per Maya 2018 (versione 3.52.03)
 * Chaos Group V-Ray per 3ds Max 2018 (versione 3.60.02)
 * Chaos Group V-Ray per Maya 2019 (versione 3.52.03)
@@ -87,7 +87,7 @@ L'elenco seguente si applica alle immagini di rendering di Windows Server 2016, 
 * Blender (2.79)
 
 > [!NOTE]
-> Chaos Group V-Ray per 3ds Max 2019 (versione 4.10.01) introduce modifiche di rilievo ai raggi V. Per usare la versione precedente (versione 3.60.02), usare Windows Server 2016, versione 1.3.2 dei nodi di rendering.
+> Chaos Group V-Ray per 3ds Max 2019 (Version 4.10.01) introduce le modifiche di rilievo apportate a V-Ray. Per usare la versione precedente (versione 3.60.02), usare i nodi di rendering di Windows Server 2016, versione 1.3.2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

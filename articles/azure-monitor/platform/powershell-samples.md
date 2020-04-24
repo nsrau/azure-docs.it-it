@@ -1,6 +1,6 @@
 ---
-title: Esempi di PowerShell di Monitoraggio di Azure Documenti Microsoft
-description: Esempi di PowerShell di Monitoraggio di AzureAzure Monitor PowerShell Samples
+title: Esempi di PowerShell per monitoraggio di Azure | Microsoft Docs
+description: Esempi di PowerShell per monitoraggio di Azure
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -14,13 +14,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659179"
 ---
-# <a name="azure-monitor-powershell-samples"></a>Esempi di Azure Monitor di PowerShellAzure Monitor PowerShell samples
+# <a name="azure-monitor-powershell-samples"></a>Esempi di PowerShell per monitoraggio di Azure
 
-La tabella seguente include collegamenti a esempi di script di PowerShell per eseguire varie funzioni in Monitoraggio di Azure.The following table includes links to PowerShell scripts samples to perform various functions in Azure Monitor.
+La tabella seguente include collegamenti a esempi di script di PowerShell per eseguire varie funzioni in monitoraggio di Azure.
 
 | | |
 |---|---|
 |**Creare un'area di lavoro**||
-| [Creare un'area di lavoro di Log AnalyticsCreate a Log Analytics workspace](../scripts/powershell-sample-create-workspace.md) | Crea un'area di lavoro di Log Analytics in Monitoraggio di Azure.|
+| [Creare un'area di lavoro Log Analytics](../scripts/powershell-sample-create-workspace.md) | Consente di creare un'area di lavoro Log Analytics in monitoraggio di Azure.|
 | | |
 

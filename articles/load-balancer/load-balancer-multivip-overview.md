@@ -1,6 +1,6 @@
 ---
-title: Frontend multipli - Azure Load BalancerMultiple frontends - Azure Load Balancer
-description: Con questo percorso di apprendimento, inizia con una panoramica di più front-end in Azure Load Balancer
+title: Front-end multipli-Azure Load Balancer
+description: Con questo percorso di apprendimento, iniziare con una panoramica di più front-end in Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75771258"
 ---
-# <a name="multiple-frontends-for-azure-load-balancer"></a>Front-end multipli per Azure Load BalancerMultiple frontends for Azure Load Balancer
+# <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
 
 Azure Load Balancer consente di eseguire il bilanciamento del carico dei servizi su più porte, più indirizzi IP o entrambi. È possibile usare le definizioni di servizio di bilanciamento del carico interno e pubblico per eseguire il bilanciamento del carico dei flussi in un set di macchine virtuali.
 
@@ -98,24 +98,24 @@ Per questo scenario, ogni macchina virtuale nel pool back-end ha tre interfacce 
 * Front-end 1: un'interfaccia di loopback all'interno del sistema operativo guest configurato con l'indirizzo IP di Front-end 1
 * Front-end 2: un'interfaccia di loopback all'interno del sistema operativo guest configurato con l'indirizzo IP di Front-end 2
 
-Per ogni macchina virtuale nel pool back-end, eseguire i comandi seguenti in un prompt dei comandi di Windows.For each VM in the backend pool, run the following commands at a Windows Command Prompt.
+Per ogni macchina virtuale nel pool back-end, eseguire i comandi seguenti al prompt dei comandi di Windows.
 
-Per ottenere l'elenco dei nomi di interfaccia disponibili nella macchina virtuale, digitare il comando seguente:To get the list of interface names you have on your VM, type this command:
+Per ottenere l'elenco dei nomi di interfaccia presenti nella macchina virtuale, digitare il comando seguente:
 
     netsh interface show interface 
 
-Per la scheda di interfaccia di rete della macchina virtuale (gestito da Azure), digitare il comando seguente:For the VM NIC (Azure managed), type this command:
+Per la scheda di interfaccia di rete della VM (gestione di Azure), digitare il comando seguente:
 
     netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (sostituire interfacename con il nome di questa interfaccia)
+   (sostituire interfacet con il nome di questa interfaccia)
 
-Per ogni interfaccia di loopback aggiunta, ripetere questi comandi:For each loopback interface you added, repeat these commands:
+Per ogni interfaccia di loopback aggiunta, ripetere i comandi seguenti:
 
     netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (sostituire interfacename con il nome di questa interfaccia di loopback)
+   (sostituire InterfaceName con il nome di questa interfaccia di loopback)
      
     netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (sostituire interfacename con il nome di questa interfaccia di loopback)
+   (sostituire InterfaceName con il nome di questa interfaccia di loopback)
 
 > [!IMPORTANT]
 > La configurazione delle interfacce di loopback viene eseguita all'interno del sistema operativo guest. Questa configurazione non viene eseguita o gestita da Azure. Senza questa configurazione, le regole non funzionano. Le definizioni dei probe di integrità usano il DIP della macchina virtuale anziché l'interfaccia di loopback che rappresenta il front-end DSR. Il servizio deve quindi mettere a disposizione le risposte probe su una porta DIP che rifletta lo stato del servizio offerto nell'interfaccia di loopback che rappresenta il front-end DSR.
@@ -151,7 +151,7 @@ Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di con
 ## <a name="limitations"></a>Limitazioni
 
 * Le configurazioni di più front-end sono supportate solo con le macchine virtuali IaaS.
-* Con la regola Floating IP, l'applicazione deve utilizzare la configurazione IP primaria per i flussi SNAT in uscita. Se l'applicazione esegue il binding all'indirizzo IP front-end configurato nell'interfaccia di loopback nel sistema operativo guest, sNAT in uscita di Azure non è disponibile per riscrivere il flusso in uscita e il flusso ha esito negativo.  Esaminare [gli scenari in uscita](load-balancer-outbound-connections.md).
+* Con la regola dell'indirizzo IP mobile, l'applicazione deve usare la configurazione IP primaria per i flussi SNAT in uscita. Se l'applicazione si associa all'indirizzo IP front-end configurato nell'interfaccia di loopback del sistema operativo guest, il SNAT in uscita di Azure non è disponibile per riscrivere il flusso in uscita e il flusso ha esito negativo.  Esaminare gli [scenari in uscita](load-balancer-outbound-connections.md).
 * Gli indirizzi IP pubblici hanno un effetto sulla fatturazione. Per altre informazioni, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Si applicano i limiti delle sottoscrizioni. Per altre informazioni, vedere i [limiti del servizio](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) .
 

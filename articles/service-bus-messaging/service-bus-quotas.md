@@ -1,6 +1,6 @@
 ---
-title: Quote e limiti del bus di servizio di Microsoft Azure
-description: Questo articolo elenca le quote di base e le soglie di limitazione nella messaggistica del bus di servizio di Azure.This article lists basic quotas and throttling thresholds in Azure Service Bus messaging. Ad esempio, numero massimo di spazi dei nomi per sottoscrizione.
+title: Quote e limiti bus di servizio di Microsoft Azure
+description: 'Questo articolo elenca le quote di base e le soglie di limitazione della messaggistica del bus di servizio di Azure. Ad esempio: numero massimo di spazi dei nomi per sottoscrizione.'
 services: service-bus-messaging
 documentationcenter: na
 author: axisc

@@ -16,8 +16,8 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "77179065"
 ---
 - [Archiviazione con ridondanza locale (LRS)](../articles/storage/common/storage-redundancy-lrs.md)
-- [Archiviazione con ridondanza di zona (RS)](../articles/storage/common/storage-redundancy-zrs.md)
+- [Archiviazione con ridondanza della zona (ZRS)](../articles/storage/common/storage-redundancy-zrs.md)
 - [Archiviazione con ridondanza geografica (GRS)](../articles/storage/common/storage-redundancy-grs.md)
-- [Archiviazione con ridondanza geografica di accesso in lettura (RA-GRS)Read-access geo-redundant storage (RA-GRS)](../articles/storage/common/storage-redundancy.md)
+- [Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../articles/storage/common/storage-redundancy.md)
 - [Archiviazione con ridondanza della zona geografica (GZRS)](../articles/storage/common/storage-redundancy-gzrs.md)
-- [Archiviazione con ridondanza geografica con zona geografica di accesso in lettura (RA-G-RS)](../articles/storage/common/storage-redundancy-gzrs.md)
+- [Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS)](../articles/storage/common/storage-redundancy-gzrs.md)

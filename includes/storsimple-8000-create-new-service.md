@@ -19,7 +19,7 @@ ms.locfileid: "76021264"
 
     ![Creare Gestione dispositivi StorSimple](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    Cercare _StorSimple Physical_ (Dispositivi fisici StorSimple). Selezionare e fare clic su **Serie di dispositivi fisici StorSimple** e quindi fare clic su **Crea**. In alternativa, nel portale **+** di Azure fare clic su e quindi in **Archiviazione**fare clic su **StorSimple Physical Device Series**.
+    Cercare _StorSimple Physical_ (Dispositivi fisici StorSimple). Selezionare e fare clic su **Serie di dispositivi fisici StorSimple** e quindi fare clic su **Crea**. In alternativa, nella portale di Azure fare clic **+** su e quindi in **archiviazione**fare clic su **serie di dispositivi fisici StorSimple**.
 
     ![Creare Gestione dispositivi StorSimple](./media/storsimple-8000-create-new-service/createssdevman11.png)
 

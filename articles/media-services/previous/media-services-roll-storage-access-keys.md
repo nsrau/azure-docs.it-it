@@ -26,7 +26,7 @@ ms.locfileid: "75981950"
 
 Quando si crea un nuovo account di Servizi multimediali di Azure (AMS), viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile aggiungere più di un account di archiviazione all'account di Servizi multimediali. Questo articolo illustra come far ruotare le chiavi di archiviazione. Viene inoltre illustrato come aggiungere gli account di archiviazione a un account multimediale. 
 
-Per eseguire le operazioni descritte in questo articolo è necessario usare [Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Per altre informazioni, vedere Come gestire le [risorse di Azure con PowerShell e Resource Manager.](../../azure-resource-manager/management/manage-resource-groups-powershell.md)
+Per eseguire le operazioni descritte in questo articolo è necessario usare [Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Per altre informazioni, vedere [come gestire le risorse di Azure con PowerShell e gestione risorse](../../azure-resource-manager/management/manage-resource-groups-powershell.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -45,7 +45,7 @@ Servizi multimediali dipende da una chiave di archiviazione fornita. In particol
 ## <a name="steps-to-rotate-storage-keys"></a>Passaggi per ruotare le chiavi di archiviazione 
  
  1. Modificare la chiave primaria dell'account di archiviazione tramite il cmdlet PowerShell o il portale di [Azure](https://portal.azure.com/).
- 2. Chiamare il cmdlet Sync-AzMediaServiceStorageKeys con parametri appropriati per forzare l'account multimediale a prelevare le chiavi dell'account di archiviazioneCall Sync-AzMediaServiceStorageKeys cmdlet with appropriate params to force media account to pick up storage account keys
+ 2. Chiamare il cmdlet Sync-AzMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prelevare le chiavi dell'account di archiviazione
  
     Nell'esempio seguente viene illustrato come sincronizzare le chiavi con gli account di archiviazione.
   
@@ -53,7 +53,7 @@ Servizi multimediali dipende da una chiave di archiviazione fornita. In particol
   
  3. Attendere circa un'ora. Verificare che gli scenari di streaming funzionino.
  4. Modificare la chiave secondaria dell'account di archiviazione tramite il cmdlet PowerShell o il portale di Azure.
- 5. Chiamare Sync-AzMediaServiceStorageKeys powershell con parametri appropriati per forzare l'account multimediale a prelevare nuove chiavi dell'account di archiviazione. 
+ 5. Chiamare Sync-AzMediaServiceStorageKeys PowerShell con i parametri appropriati per forzare l'account multimediale a prelevare nuove chiavi dell'account di archiviazione. 
  6. Attendere circa un'ora. Verificare che gli scenari di streaming funzionino.
  
 ### <a name="a-powershell-cmdlet-example"></a>Esempio di cmdlet PowerShell 
@@ -76,7 +76,7 @@ L'articolo seguente illustra come aggiungere gli account di archiviazione all'ac
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Ringraziamenti

@@ -52,11 +52,11 @@ Per abilitare Analisi del traffico, l'account deve soddisfare una delle seguenti
         
 Per verificare i ruoli assegnati a un utente per una sottoscrizione:
 
-1. Accedere ad Azure utilizzando **Login-AzAccount**. 
+1. Accedere ad Azure usando **login-AzAccount**. 
 
-2. Selezionare la sottoscrizione richiesta utilizzando **Select-AzSubscription**. 
+2. Selezionare la sottoscrizione necessaria usando **Select-AzSubscription**. 
 
-3. Per elencare tutti i ruoli assegnati a un utente specificato, utilizzare **Get-AzRoleAssignment -SignInName [e-mail utente] -IncludeClassicAdministrators**. 
+3. Per elencare tutti i ruoli assegnati a un utente specifico, usare **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
 
 Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbonamento per ottenere l'accesso ed eseguire i comandi. Per altre informazioni, consultare [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -126,7 +126,7 @@ Sì.
 
 ## <a name="can-i-use-an-existing-workspace"></a>È possibile usare un'area di lavoro esistente?
 
-Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere Aggiornamento dei log di [Monitoraggio di Azure alla nuova ricerca log.](../log-analytics/log-analytics-log-search-upgrade.md)
+Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere l' [aggiornamento dei log di monitoraggio di Azure alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>È possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro Log Analytics?
 
@@ -176,7 +176,7 @@ Le informazioni sulle risorse sono visualizzate nel dashboard, tuttavia non sono
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>È possibile configurare la funzionalità Analisi del traffico tramite PowerShell o un client o modello di Azure Resource Manager?
 
-È possibile configurare Analisi del traffico utilizzando Windows PowerShell a partire dalla versione 6.2.1. Per configurare la registrazione del flusso e l'analisi del traffico per un gruppo di sicurezza di rete specifico utilizzando il cmdlet Set, vedere [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Per ottenere la registrazione del flusso e lo stato di analisi del traffico per un gruppo di sicurezza di rete specifico, vedere [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+È possibile configurare Analisi del traffico utilizzando Windows PowerShell a partire dalla versione 6.2.1. Per configurare la registrazione del flusso e analisi del traffico per un NSG specifico usando il cmdlet Set, vedere [set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Per ottenere la registrazione del flusso e lo stato di analisi del traffico per uno specifico NSG, vedere [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Attualmente, non è possibile utilizzare un modello di Azure Resource Manager per configurare Analisi del traffico.
 
@@ -248,23 +248,23 @@ Viene eseguita la misurazione di Analisi del traffico. La misurazione si basa su
 
 Ad esempio, in base il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/), prendere in considerazione l'area degli Stati Uniti centro-occidentali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico è 10 GB e i log avanzati inseriti nell'area di lavoro Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
-## <a name="how-frequently-does-traffic-analytics-process-data"></a>Con quale frequenza l'analisi del traffico elabora i dati?
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Con quale frequenza Analisi del traffico elaborare i dati?
 
-Fare riferimento alla [sezione relativa all'aggregazione](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) dei dati in Schema analisi del traffico e Documento di aggregazione dei dati
+Vedere la [sezione aggregazione dei dati](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in analisi del traffico schema e il documento di aggregazione dei dati
 
-## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>In che modo Analisi traffico decide che un IP è dannoso? 
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>In che modo Analisi del traffico decide che un indirizzo IP è dannoso? 
 
-Traffic Analytics si basa su Microsoft sistemi interni di threat intelligence per ritenere un IP come dannoso. Questi sistemi sfruttano diverse fonti di telemetria come i prodotti e i servizi Microsoft, la Microsoft Digital Crimes Unit (DCU), il Microsoft Security Response Center (MSRC) e i feed esterni e creano molta intelligenza su di esso. Alcuni di questi dati sono Microsoft Internal. Se un IP noto viene contrassegnato come dannoso, si prega di sollevare un ticket di supporto per conoscere i dettagli.
+Analisi del traffico si basa su sistemi di intelligence per le minacce interne Microsoft per considerare un IP come dannoso. Questi sistemi sfruttano diverse origini di telemetria come prodotti e servizi Microsoft, Microsoft Digital Crimes Unit (DC), Microsoft Security Response Center (MSRC) e feed esterni e creano numerose funzionalità di intelligence. Alcuni di questi dati sono interni Microsoft. Se un indirizzo IP noto viene contrassegnato come dannoso, rivolgersi a un ticket di supporto per conoscere i dettagli.
 
-## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Come posso impostare avvisi sui dati di Analisi del traffico?
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Come è possibile impostare gli avvisi per Analisi del traffico dati?
 
-Analisi del traffico non dispone del supporto incorporato per gli avvisi. Tuttavia, poiché i dati di Analisi del traffico vengono archiviati in Log Analytics, è possibile scrivere query personalizzate e impostare avvisi su di esse. Passi:
-- Puoi usare il collegamento breve per Log Analytics in Analisi del traffico. 
-- Usare lo [schema qui documentato](traffic-analytics-schema.md) per scrivere le queryUse the schema documented here to write your queries 
-- Fare clic su "Nuova regola di avviso" per creare l'avviso
-- Fare riferimento alla [documentazione del log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) per creare l'avviso
+Analisi del traffico non dispone del supporto incorporato per gli avvisi. Tuttavia, poiché i dati Analisi del traffico vengono archiviati in Log Analytics è possibile scrivere query personalizzate e impostare avvisi su di essi. Passaggi
+- È possibile usare notifica per Log Analytics in Analisi del traffico. 
+- Usare lo [schema descritto qui](traffic-analytics-schema.md) per scrivere le query 
+- Fare clic su "nuova regola di avviso" per creare l'avviso
+- Vedere la [documentazione relativa agli avvisi di log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) per creare l'avviso
 
-## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Come verificare quali macchine virtuali ricevono il traffico localeHow do I Check which VMs are receiving most on-premise traffic
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Ricerca per categorie verificare quali macchine virtuali ricevono il traffico locale
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -286,9 +286,9 @@ Analisi del traffico non dispone del supporto incorporato per gli avvisi. Tuttav
             | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
             | render timechart
 
-Per l'ora, utilizzare il formato : aaaa-mm-gg 00:00:00
+Per il tempo, usare il formato: aaaa-mm-gg 00:00:00
 
-## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Come si verifica la deviazione standard nel traffico ricevuto dalle macchine virtuali da computer localiHow do I check standard deviation in traffic received by my VMs from on-premise machines
+## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Ricerca per categorie controllare la deviazione standard nel traffico ricevuto dalle VM da computer locali
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -309,7 +309,7 @@ Per gli IP:
             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
             | summarize deviation = stdev(traffic)  by IP
             
-## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Come faccio a controllare quali porte sono raggiungibili (o bocked) tra coppie IP con regole nsG
+## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Ricerca per categorie verificare quali porte sono raggiungibili (o Bock) tra coppie IP con regole NSG
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
@@ -324,8 +324,8 @@ Per gli IP:
 
 La pagina della mappa geografica contiene due sezioni principali:
     
-- **Banner:** il banner nella parte superiore della mappa geografica fornisce pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, Distribuzione, Traffico da paesi/aree geografiche e Malicious). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
-- **Mappa:** sotto il banner, la sezione della mappa mostra la distribuzione del traffico tra data center e paesi/aree geografiche di Azure.Map: Below the banner, the map section shows traffic distribution among Azure datacenters and countries/regions.
+- **Banner**: il banner nella parte superiore della mappa geografica include i pulsanti per selezionare i filtri per la distribuzione del traffico, ad esempio la distribuzione, il traffico da paesi/aree geografiche e dannosi. Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
+- **Map**: sotto l'intestazione la sezione Map mostra la distribuzione del traffico tra Data Center di Azure e paesi/aree geografiche.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigazione da tastiera sul banner
     

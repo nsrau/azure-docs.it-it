@@ -32,7 +32,7 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
 
 **Connettività di rete**
 
-- ExpressRoute tra l'ambiente locale e Azure: per la connessione del data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Pertanto, come cliente, non si incontrano costi aggiuntivi oltre il collegamento ExpressRoute tra locale e Azure.Therefore, you as customer, do not encounter additional costs beyond your ExpressRoute link between on-premises and Azure.
+- ExpressRoute tra l'ambiente locale e Azure: per la connessione del data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Per questo motivo, i clienti non rilevano costi aggiuntivi oltre il collegamento ExpressRoute tra l'ambiente locale e Azure.
 
 **Sistema operativo**
 
@@ -70,7 +70,7 @@ Per la matrice di compatibilità del sistema operativo e le versioni del firmwar
 - Licenze e componenti di installazione software per le applicazioni SAP che si connettono a SAP HANA e relativi contratti di supporto SAP.
 - Licenze e componenti di installazione software per tutte le applicazioni non SAP usate con ambienti SAP HANA in Azure (istanze Large) e i relativi contratti di supporto.
 
-**Abilità**
+**Competenze**
 
 - Esperienza e conoscenza di IaaS di Azure e dei relativi componenti.
 - Esperienza e conoscenza della distribuzione di un carico di lavoro SAP in Azure.

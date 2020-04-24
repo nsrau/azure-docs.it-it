@@ -1,6 +1,6 @@
 ---
-title: Come aggiungere BLOB agli oggetti - Gemelli digitali di Azure Documenti Microsoft
-description: Informazioni su come aggiungere BLOB a utenti, dispositivi e spazi in Azure Digital Twins.Learn how to add blobs to users, devices, and spaces in Azure Digital Twins.
+title: Come aggiungere BLOB a oggetti-dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Informazioni su come aggiungere BLOB a utenti, dispositivi e spazi nei dispositivi gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -118,7 +118,7 @@ I BLOB restituiti singolarmente sono conformi allo schema JSON seguente:
 | **sharing** | string | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
 | **Descrizione** | string | Descrizione personalizzata del BLOB |
 | **contentInfos** | Array | Specifica le informazioni dei metadati non strutturati, inclusa la versione |
-| **Fullname** | string | Nome completo del BLOB |
+| **fullName** | string | Nome completo del BLOB |
 | **spacePaths** | string | Percorso dello spazio |
 
 I metadati del BLOB deve sempre essere specificati come primo blocco con **Content-Type** `application/json` o come file `.json`. I dati dei file vengono specificati nel secondo blocco e possono essere di qualsiasi tipo MIME supportato.
@@ -157,7 +157,7 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| valore | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 
@@ -190,15 +190,15 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| valore | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOKEN | Il proprio token OAuth 2.0 valido |
 | YOUR_SPACE_ID | L'ID dello spazio a cui associare il BLOB |
 | PATH_TO_FILE | Il percorso del file di testo |
 
-[![Esempio di cURL](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
+[![esempio di cURL](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
 
-Un POST riuscito restituisce l'ID del nuovo BLOB.
+Un POST con esito positivo restituisce l'ID del nuovo BLOB.
 
 ## <a name="api-endpoints"></a>Endpoint API
 
@@ -278,9 +278,9 @@ Le richieste con esito positivo restituiscono un oggetto JSON, come [descritto i
      * `multipart/mixed`
      * `multipart/form-data`
 
-  Verificare inoltre che ogni *blocco multiparte* disponga di un **Content-Type**corrispondente appropriato.
+  Verificare inoltre che ogni *blocco multipart* disponga di un tipo di **contenuto**corrispondente appropriato.
 
-* Un secondo errore comune si verifica quando più BLOB vengono assegnati alla stessa risorsa nel [grafico della intelligenza spaziale:A](concepts-objectmodel-spatialgraph.md)second common error si verifichi when multiple blobs are assigned to the same resource in your spatial intelligence graph:
+* Si verifica un secondo errore comune quando più BLOB sono assegnati alla stessa risorsa nel grafico di [Intelligence spaziale](concepts-objectmodel-spatialgraph.md):
 
   ```JSON
   {
@@ -292,11 +292,11 @@ Le richieste con esito positivo restituiscono un oggetto JSON, come [descritto i
   ```
 
   > [!NOTE]
-  > L'attributo **del messaggio** varia in base alla risorsa. 
+  > L'attributo **Message** può variare in base alla risorsa. 
 
-  È possibile collegare un solo BLOB (di ogni tipo) a ogni risorsa all'interno del grafico spaziale. 
+  È possibile collegare solo un BLOB (di ogni tipo) a ogni risorsa nel grafico spaziale. 
 
-  Per risolvere questo errore, aggiornare il BLOB esistente utilizzando l'operazione HTTP PATCH API appropriata. In questo modo i dati BLOB esistenti verranno sostituiti con i dati desiderati.
+  Per correggere l'errore, aggiornare il BLOB esistente usando l'operazione di PATCH HTTP appropriata per l'API. In questo modo i dati BLOB esistenti vengono sostituiti con i dati desiderati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

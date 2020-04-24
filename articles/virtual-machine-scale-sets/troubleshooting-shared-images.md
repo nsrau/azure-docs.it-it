@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi alle immagini condivise in AzureTroubleshoot issues with shared images in Azure
-description: Informazioni su come risolvere i problemi relativi alle raccolte di immagini condivise nei set di scalabilità delle macchine virtuali di Azure.Learn how to troubleshoot issues with shared image galleries in Azure virtual machines scale sets.
+title: Risolvere i problemi relativi alle immagini condivise in Azure
+description: Informazioni su come risolvere i problemi relativi alle raccolte di immagini condivise nei set di scalabilità di macchine virtuali di Azure.
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
 tags: azure-resource-manager

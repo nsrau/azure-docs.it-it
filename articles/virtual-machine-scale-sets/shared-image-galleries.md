@@ -1,5 +1,5 @@
 ---
-title: Condividere immagini di macchine virtuali con raccolte condivise
+title: Condividere immagini di VM con raccolte condivise
 description: Informazioni su come usare raccolte di immagini condivise per condividere le immagini di VM all'interno dell'organizzazione.
 documentationcenter: virtual-machine-scale-sets
 author: axayjo

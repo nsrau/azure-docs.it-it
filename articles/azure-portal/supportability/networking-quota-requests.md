@@ -1,5 +1,5 @@
 ---
-title: Aumento del limite di rete Documenti Microsoft
+title: Incremento limite rete | Microsoft Docs
 description: Aumento del limite delle connessioni di rete
 author: anavinahar
 ms.author: anavin
@@ -16,24 +16,24 @@ ms.locfileid: "76547806"
 ---
 # <a name="networking-limit-increase"></a>Aumento del limite delle connessioni di rete
 
-Usare il portale di [Azure](https://portal.azure.com) per aumentare la quota di rete.
+Usare il [portale di Azure](https://portal.azure.com) per aumentare la quota di rete.
 
-Per visualizzare l'utilizzo e la quota **correnti**della rete nel portale di Azure, aprire la sottoscrizione, quindi selezionare Utilizzo , quote . È inoltre possibile utilizzare le opzioni seguenti per visualizzare l'utilizzo e i limiti della rete.
+Per visualizzare l'utilizzo e la quota di rete correnti in portale di Azure, aprire la sottoscrizione e quindi selezionare **utilizzi e quote**. È anche possibile usare le opzioni seguenti per visualizzare i limiti e l'utilizzo della rete.
 
-* [Interfaccia di comando per l'utilizzo](/cli/azure/network#az-network-list-usages)
-* [Powershell](/powershell/module/azurerm.network/get-azurermnetworkusage)
-* [L'API di utilizzo della rete](/rest/api/virtualnetwork/virtualnetworks/listusage)
+* [INTERFACCIA della riga di comando di utilizzo](/cli/azure/network#az-network-list-usages)
+* [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
+* [API utilizzo rete](/rest/api/virtualnetwork/virtualnetworks/listusage)
 
-È possibile richiedere un aumento utilizzando **guida , supporto** o in utilizzo e **quote** nel portale.
+È possibile richiedere un aumento usando **Guida e supporto tecnico** oppure in **utilizzi + quote** nel portale.
 
 > [!Note]
-> Per modificare la dimensione predefinita dei **prefissi IP pubblici**, selezionare **Lunghezza massima prefisso INTERrete IP pubblico** dall'elenco a discesa.
+> Per modificare le dimensioni predefinite dei **prefissi IP pubblici**, selezionare **lunghezza prefisso Internet IP pubblico minimo** dall'elenco a discesa.
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-help--support"></a>Richiedi aumento della quota di rete a livello di abbonamento utilizzando la Guida e il supporto
+## <a name="request-networking-quota-increase-at-subscription-level-using-help--support"></a>Richiedere l'aumento della quota di rete a livello di sottoscrizione usando guida e supporto
 
-Seguire le istruzioni riportate di seguito per creare una richiesta di supporto usando Guida e supporto nel portale di Azure.Follow the instructions below to create a support request by using **Help - support** in the Azure portal.
+Seguire le istruzioni riportate di seguito per creare una richiesta di supporto usando **Guida e supporto tecnico** nella portale di Azure.
 
-1. Accedere al portale di [Azure](https://portal.azure.com), quindi selezionare Guida **e supporto** dal menu del portale di Azure oppure cercare e selezionare Guida e **supporto**.
+1. Accedere a [portale di Azure](https://portal.azure.com), quindi scegliere Guida e **supporto** dal menu portale di Azure oppure cercare e selezionare **Guida e supporto**.
 
     ![Guida e supporto](./media/networking-quota-request/help-plus-support.png)
 
@@ -41,35 +41,35 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
     ![Nuova richiesta di supporto](./media/networking-quota-request/new-support-request.png)
 
-1. Per **Tipo di problema**scegliere Limiti di servizio e sottoscrizione **(quote)**.
+1. Per **tipo di problema**, scegliere **limiti per servizio e sottoscrizione (quote)**.
 
-    ![Selezionare i limiti di sottoscrizione dall'elenco a discesa Tipo di problema](./media/networking-quota-request/select-quota-issue-type.png)
+    ![Selezionare i limiti della sottoscrizione dall'elenco a discesa tipo di problema](./media/networking-quota-request/select-quota-issue-type.png)
 
 1. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
 
-    ![Selezionare la sottoscrizione newSRSelect subscription newSR](./media/networking-quota-request/select-subscription-support-request.png)
+    ![Seleziona newS Subscription](./media/networking-quota-request/select-subscription-support-request.png)
 
-1. In **Tipo di quota**selezionare **Rete**. Selezionare **Avanti: Soluzioni**.
+1. In **tipo di quota**selezionare **rete**. Selezionare **Avanti: soluzioni**.
 
-    ![Selezionare il tipo di quota](./media/networking-quota-request/select-quota-type-network.png)
+    ![Seleziona tipo di quota](./media/networking-quota-request/select-quota-type-network.png)
 
-1. In **DETTAGLI PROBLEMA**selezionare Fornire **dettagli** e immettere informazioni aggiuntive per l'elaborazione della richiesta.
+1. In **Dettagli problema**selezionare **specificare i dettagli** e immettere informazioni aggiuntive per facilitare l'elaborazione della richiesta.
 
-    ![Fornire i dettagli](./media/networking-quota-request/provide-details-link.png)
+    ![Specificare i dettagli](./media/networking-quota-request/provide-details-link.png)
 
-1. Nel riquadro **Dettagli quota** selezionare un modello di distribuzione, un percorso e le risorse da includere nella richiesta.
+1. Nel pannello **Dettagli quota** selezionare un modello di distribuzione, un percorso e le risorse da includere nella richiesta.
 
     ![Dettagli quota DM](./media/networking-quota-request/quota-details-network.png)
 
-1. Immettere i nuovi limiti da applicare alla sottoscrizione. Per rimuovere una riga, deseleziona la risorsa dal menu **Risorse** o seleziona l'icona di eliminazione della "x". Dopo aver immesso la quota per ogni risorsa, selezionare **Salva e continuare** con la creazione della richiesta di supporto.
+1. Immettere i nuovi limiti da applicare alla sottoscrizione. Per rimuovere una riga, deselezionare la risorsa dal menu **risorse** oppure selezionare l'icona Ignora "x". Dopo aver immesso la quota per ogni risorsa, selezionare **Salva e continua** per continuare con la creazione della richiesta di supporto.
 
     ![Nuovi limiti](./media/networking-quota-request/network-new-limits.png)
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quotas"></a>Richiedi aumento della quota di rete a livello di sottoscrizione utilizzando Usages - quote
+## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quotas"></a>Richiedi aumento della quota di rete a livello di sottoscrizione usando gli utilizzi e le quote
 
-Seguire queste istruzioni per creare una richiesta di supporto usando **L'utilizzo e** la quota nel portale di Azure.Follow these instructions to create a support request by using Usage - quota in the Azure portal.
+Seguire queste istruzioni per creare una richiesta di supporto usando l'utilizzo e la **quota** nella portale di Azure.
 
-1. Da https://portal.azure.com, cercare e selezionare **Abbonamenti**.
+1. Da https://portal.azure.comcercare e selezionare le **sottoscrizioni**.
 
     ![Sottoscrizioni](./media/networking-quota-request/search-for-suscriptions.png)
 
@@ -85,8 +85,8 @@ Seguire queste istruzioni per creare una richiesta di supporto usando **L'utiliz
 
     ![Richiedi aumento](./media/networking-quota-request/request-increase-from-subscription.png)
 
-1. Seguire i passaggi a partire dal passaggio 3 in Richiesta di [aumento della quota di rete a livello](#request-networking-quota-increase-at-subscription-level-using-help--support)di sottoscrizione.
+1. Seguire i passaggi a partire dal passaggio 3 in [richiedere l'aumento della quota di rete a livello di sottoscrizione](#request-networking-quota-increase-at-subscription-level-using-help--support).
 
 ## <a name="about-networking-limits"></a>Informazioni sui limiti di rete
 
-Per ulteriori informazioni sui limiti di rete, consulta la [sezione Rete](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) della pagina dei limiti o le nostre domande frequenti sui limiti di rete.
+Per altre informazioni sui limiti di rete, vedere la [sezione rete](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) della pagina limiti o domande frequenti sui limiti di rete.

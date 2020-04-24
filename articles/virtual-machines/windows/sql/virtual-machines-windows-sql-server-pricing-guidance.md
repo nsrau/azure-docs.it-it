@@ -24,7 +24,7 @@ ms.locfileid: "75981723"
 ---
 # <a name="pricing-guidance-for-azure-sql-server-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
 
-Questo articolo fornisce indicazioni sui prezzi per le macchine virtuali di SQL Server in Azure.This article provides pricing guidance for [SQL Server virtual machines](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. Sono disponibili diverse opzioni che influiscono sul costo ed è importante selezionare l'immagine giusta che consente di bilanciare i costi con i requisiti aziendali.
+Questo articolo fornisce indicazioni sui prezzi per [SQL Server macchine virtuali](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. Sono disponibili diverse opzioni che influiscono sul costo ed è importante selezionare l'immagine giusta che consente di bilanciare i costi con i requisiti aziendali.
 
 > [!TIP]
 > Se si vuole semplicemente una stima dei costi per una combinazione specifica dell'edizione di SQL Server e della dimensione di macchina virtuale, vedere la pagina dei prezzi per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Selezionare la piattaforma e l'edizione di SQL Server dall'elenco **Sistema operativo/Software**.
@@ -64,7 +64,7 @@ Sono disponibili due possibilità per il pagamento delle licenze di SQL Server p
 
 ## <a name="pay-per-usage"></a>Pagamento in base all'utilizzo
 
-**Pagare la licenza** di SQL Server per uso (noto anche come **pay as you go**) significa che il costo al secondo per l'esecuzione della macchina virtuale di Azure include il costo della licenza di SQL Server. È possibile vedere i prezzi delle diverse edizioni di SQL Server (Web, Standard, Enterprise) nella pagina dei prezzi delle VM di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+**Pagando la licenza di SQL Server per utilizzo** (anche nota come **pagamento**a consumo), il costo al secondo per l'esecuzione della macchina virtuale di Azure include il costo della licenza di SQL Server. È possibile vedere i prezzi delle diverse edizioni di SQL Server (Web, Standard, Enterprise) nella pagina dei prezzi delle VM di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 Il costo è lo stesso per tutte le versioni di SQL Server, dalla 2012 SP3 alla 2017. Il costo della licenza al secondo dipende dal numero di CPU virtuali della macchina virtuale.
 
@@ -74,7 +74,7 @@ Il pagamento della licenze di SQL Server in base all'utilizzo è consigliato per
 
 - **Carichi di lavoro con durata o dimensione sconosciuta**. Ad esempio un'app che potrebbe non essere necessaria per alcuni mesi o che potrebbe richiedere una maggiore o minore potenza di calcolo, in base alla richiesta.
 
-Per creare una macchina virtuale di Azure di SQL Server 2017 con una di queste immagini con pagamento in base al client, vedere i collegamenti seguenti:To create a SQL Server 2017 Azure VM with one of these pay-as-you-go images, see the following links:
+Per creare una macchina virtuale di Azure SQL Server 2017 con una di queste immagini con pagamento in base al consumo, vedere i collegamenti seguenti:
 
 | Piattaforma | Immagini con licenza |
 |---|---|
@@ -91,14 +91,14 @@ Per creare una macchina virtuale di Azure di SQL Server 2017 con una di queste i
 >Non include i costi di licenza aggiuntivi di SQL Server per le versioni Enterprise, Standard e Web. Per ottenere una stima più accurata, selezionare il sistema operativo e la versione di SQL Server nella pagina dei prezzi per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 > [!NOTE]
-> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere Come modificare il modello di [licenza per una macchina virtuale SQL.](virtual-machines-windows-sql-ahb.md) 
+> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per ulteriori informazioni, vedere [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). 
 
-## <a name="bring-your-own-license-byol"></a><a id="byol"></a>Portare la propria licenza (BYOL)
+## <a name="bring-your-own-license-byol"></a><a id="byol"></a>Bring Your Own License (BYOL)
 
 **Bringing Your Own License per SQL Server attraverso Mobilità delle licenze**, o **BYOL**, indica l'utilizzo di un contratto multilicenza di SQL Server esistente con Software Assurance in una VM di Azure. Per una macchina virtuale di SQL Server che usa l'opzione BYOL sarà addebitato solo il costo di esecuzione della macchina virtuale e non la licenza di SQL Server, dato che le licenze e Software Assurance sono già stati acquisiti tramite un programma di contratto multilicenza.
 
 > [!IMPORTANT]
-> Le immagini BYOL richiedono un contratto Enterprise con Software Assurance. Non sono disponibili come parte di Azure Cloud Solution Partner (CSP) in questo momento. I clienti CSP possono portare la propria licenza distribuendo un'immagine con pagamento in base al proprio utilizzo e quindi abilitando il [vantaggio Azure Hybrid](virtual-machines-windows-sql-ahb.md).
+> Le immagini BYOL richiedono un contratto Enterprise con Software Assurance. Non sono disponibili come parte di Azure Cloud Solution Partner (CSP) in questo momento. I clienti CSP possono usare la propria licenza distribuendo un'immagine con pagamento in base al consumo e quindi abilitando il [vantaggio Azure Hybrid](virtual-machines-windows-sql-ahb.md).
 
 > [!NOTE]
 > Le immagini BYOL sono attualmente disponibili solo per le macchine virtuali Windows. È tuttavia possibile installare manualmente SQL Server in una macchina virtuale solo Linux. Vedere le linee guida nelle [domande frequenti sulla macchina virtuale SQL di Linux](../../linux/sql/sql-server-linux-faq.md).
@@ -113,7 +113,7 @@ Per usare l'opzione BYOL con una macchina virtuale SQL Server è necessario aver
 
 | Vantaggio dell'opzione BYOL | Descrizione |
 |-----|-----|
-| **Risparmi sui costi** | Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) offre un risparmio fino al 55%. Per altre informazioni, vedere Cambia modello di [licenzaFor more](virtual-machines-windows-sql-ahb.md) information, see Switch licensing model |
+| **Risparmi sui costi** | Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) offre risparmi fino al 55%. Per ulteriori informazioni, vedere [Switch licensing model](virtual-machines-windows-sql-ahb.md) |
 | **Replica secondaria passiva gratuita** | Un altro vantaggio dell'opzione Bring Your Own License è la [licenza gratuita per una replica secondaria passiva](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server per scopi di disponibilità elevata. Questo dimezza il costo della licenza di una distribuzione di SQL Server a disponibilità elevata, ad esempio con gruppi di disponibilità Always On. I diritti per eseguire la replica secondaria passiva sono forniti attraverso i vantaggi di Software Assurance per i server di failover. |
 
 Per creare una VM di Azure con SQL Server 2017 con una di queste immagini Bring Your Own License, vedere le VM con il prefisso "{BYOL}":
@@ -125,7 +125,7 @@ Per creare una VM di Azure con SQL Server 2017 con una di queste immagini Bring 
 > Si prega di comunicare entro 10 giorni il numero di licenze di SQL Server in uso in Azure. Nei collegamenti alle immagini precedenti sono incluse le istruzioni su come eseguire questa operazione.
 
 > [!NOTE]
-> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere Come modificare il modello di [licenza per una macchina virtuale SQL.](virtual-machines-windows-sql-ahb.md) 
+> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per ulteriori informazioni, vedere [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). 
 
 
 

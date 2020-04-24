@@ -1,5 +1,5 @@
 ---
-title: Gestire le istanze di avviso in Monitoraggio di AzureManage alert instances in Azure Monitor
+title: Gestire le istanze di avviso in monitoraggio di Azure
 description: Gestione delle istanze di avviso in Azure
 ms.subservice: alerts
 ms.topic: conceptual
@@ -11,48 +11,48 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77667619"
 ---
-# <a name="manage-alert-instances-with-unified-alerts"></a>Gestire le istanze degli avvisi con avvisi unificatiManage alert instances with unified alerts
+# <a name="manage-alert-instances-with-unified-alerts"></a>Gestire le istanze di avviso con avvisi unificati
 
-Con l'esperienza degli [avvisi unificati](https://aka.ms/azure-alerts-overview) in Monitoraggio di Azure, è possibile visualizzare tutti i diversi tipi di avvisi in Azure.With the unified alerts experience in Azure Monitor, you can see all your different types of alerts across Azure. Si estende su più sottoscrizioni in un singolo riquadro. In questo articolo viene illustrato come visualizzare le istanze di avviso e come trovare istanze di avviso specifiche per la risoluzione dei problemi.
+Con l' [esperienza degli avvisi unificati](https://aka.ms/azure-alerts-overview) in monitoraggio di Azure, è possibile visualizzare tutti i diversi tipi di avvisi in Azure. Questa operazione si estende su più sottoscrizioni in un unico riquadro. In questo articolo viene illustrato come visualizzare le istanze di avviso e come individuare specifiche istanze di avviso per la risoluzione dei problemi.
 
 > [!NOTE]
-> È possibile accedere agli avvisi generati solo negli ultimi 30 giorni.
+> È possibile accedere solo agli avvisi generati negli ultimi 30 giorni.
 
 ## <a name="go-to-the-alerts-page"></a>Vai alla pagina degli avvisi
 
-È possibile passare alla pagina degli avvisi in uno dei modi seguenti:
+È possibile accedere alla pagina degli avvisi in uno dei modi seguenti:
 
-- Nel [portale di Azure](https://portal.azure.com/)selezionare **Monitora** > **avvisi**.  
+- Nella [portale di Azure](https://portal.azure.com/)selezionare **monitoraggio** > **avvisi**.  
 
-     ![Screenshot di Monitor Avvisi](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
+     ![Screenshot degli avvisi di monitoraggio](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   
-- Utilizzare il contesto di una risorsa specifica. Aprire una risorsa, passare alla sezione **Monitoraggio** e scegliere **Avvisi**. La pagina di destinazione viene prefiltrata per gli avvisi relativi a tale risorsa specifica.
+- Usare il contesto di una risorsa specifica. Aprire una risorsa, passare alla sezione **monitoraggio** e scegliere **avvisi**. La pagina di destinazione viene pre-filtrata per gli avvisi relativi a tale risorsa specifica.
 
-     ![Schermata degli avvisi di monitoraggio delle risorse](media/alerts-managing-alert-instances/alert-resource.JPG)
+     ![Screenshot degli avvisi di monitoraggio delle risorse](media/alerts-managing-alert-instances/alert-resource.JPG)
 
-- Usare il contesto di un gruppo di risorse specifico. Aprire un gruppo di risorse, passare alla sezione **Monitoraggio** e scegliere **Avvisi**. La pagina di destinazione viene prefiltrata per gli avvisi relativi a tale gruppo di risorse specifico.    
+- Usare il contesto di un gruppo di risorse specifico. Aprire un gruppo di risorse, passare alla sezione **monitoraggio** e scegliere **avvisi**. La pagina di destinazione è prefiltrata per gli avvisi relativi al gruppo di risorse specifico.    
 
-     ![Schermata del gruppo di risorse Monitoraggio avvisi](media/alerts-managing-alert-instances/alert-rg.JPG)
+     ![Screenshot degli avvisi di monitoraggio del gruppo di risorse](media/alerts-managing-alert-instances/alert-rg.JPG)
 
-## <a name="find-alert-instances"></a>Trovare istanze di avviso
+## <a name="find-alert-instances"></a>Trova istanze di avviso
 
-La pagina Riepilogo avvisi offre una panoramica di tutte le istanze di avviso in Azure.The **Alerts Summary** page gives you an overview of all your alert instances across Azure. È possibile modificare la visualizzazione di riepilogo selezionando **più sottoscrizioni** (fino a un massimo di 5) oppure filtrando tra gruppi di **risorse,** **risorse**specifiche o **intervalli di tempo**. Selezionare **Avvisi totali**o una delle bande di gravità per passare alla visualizzazione elenco degli avvisi.     
+La pagina di **Riepilogo degli avvisi** offre una panoramica di tutte le istanze di avviso in Azure. È possibile modificare la visualizzazione di riepilogo selezionando **più sottoscrizioni** (fino a un massimo di 5) o filtrando tra **gruppi di risorse**, **risorse**specifiche o intervalli di **tempo**. Selezionare **avvisi totali**o una qualsiasi delle bande di gravità per passare alla visualizzazione elenco per gli avvisi.     
 
-![Screenshot della pagina Riepilogo avvisi](media/alerts-managing-alert-instances/alerts-summary.jpg)
+![Screenshot della pagina di riepilogo degli avvisi](media/alerts-managing-alert-instances/alerts-summary.jpg)
  
-Nella pagina **Tutti gli avvisi** sono elencate tutte le istanze di avviso in Azure.On the All Alerts page, all the alert instances across Azure are listed. Se si arriva al portale da una notifica di avviso, è possibile usare i filtri disponibili per limitare l'ambito su tale istanza di avviso specifico.
+Nella pagina **tutti gli avvisi** sono elencate tutte le istanze di avviso in Azure. Se si arriva al portale da una notifica di avviso, è possibile usare i filtri disponibili per limitare l'ambito su tale istanza di avviso specifico.
 
 > [!NOTE]
-> Se si è venuti alla pagina selezionando una delle bande di gravità, l'elenco viene pre-filtrato per tale gravità.
+> Se si è arrivati alla pagina selezionando una delle bande di gravità, l'elenco viene pre-filtrato per tale gravità.
 
-Oltre ai filtri disponibili nella pagina precedente, è anche possibile filtrare in base al servizio di monitoraggio (ad esempio, piattaforma per le metriche), condizione di monitoraggio (attivata o risolta), gravità, stato di avviso (nuovo/riconosciuto/chiuso) o l'ID del gruppo intelligente.
+Oltre ai filtri disponibili nella pagina precedente, è anche possibile filtrare in base al servizio di monitoraggio (ad esempio, la piattaforma per le metriche), la condizione di monitoraggio (attivata o risolta), la gravità, lo stato di avviso (nuovo/riconosciuto/chiuso) o l'ID del gruppo intelligente.
 
-![Screenshot della pagina Tutti gli avvisi](media/alerts-managing-alert-instances/all-alerts.jpg)
+![Screenshot della pagina tutti gli avvisi](media/alerts-managing-alert-instances/all-alerts.jpg)
 
 > [!NOTE]
-> Se si è venuti alla pagina selezionando una delle bande di gravità, l'elenco viene pre-filtrato per tale gravità.
+> Se si è arrivati alla pagina selezionando una delle bande di gravità, l'elenco viene pre-filtrato per tale gravità.
 
-Se si seleziona un'istanza di avviso, viene aperta la pagina **Dettagli avviso,** che consente di visualizzare ulteriori dettagli sull'istanza di avviso specifica.   
+Selezionando un'istanza di avviso, viene visualizzata la pagina **Dettagli avviso** che consente di visualizzare altri dettagli sull'istanza di avviso specifica.   
 
-![Schermata della pagina Dettagli avviso](media/alerts-managing-alert-instances/alert-details.jpg)  
+![Screenshot della pagina dei dettagli dell'avviso](media/alerts-managing-alert-instances/alert-details.jpg)  
 

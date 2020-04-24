@@ -20,7 +20,7 @@ ms.locfileid: "76722493"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Spostare i dati da SQL Server locale a SQL Azure con Azure Data Factory
 
-Questo articolo illustra come spostare i dati da un database di SQL Server locale a un database di SQL Azure tramite Archiviazione BLOB di Azure usando Azure Data Factory (ADF): questo metodo è un approccio legacy supportato con i vantaggi di una copia di gestione temporanea replicata, anche se si consiglia di esaminare la pagina di migrazione dei [dati per le opzioni più recenti.](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1)
+Questo articolo illustra come spostare i dati da un database di SQL Server locale a un database di SQL Azure tramite l'archiviazione BLOB di Azure con il Azure Data Factory (ADF): questo metodo è un approccio legacy supportato che presenta i vantaggi di una copia di staging replicata, sebbene sia [consigliabile esaminare la pagina relativa alla migrazione dei dati per le opzioni più recenti](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 Per un tabella che riepiloga le varie opzioni per lo spostamento dei dati in un database SQL di Azure, vedere [Spostare i dati a un database SQL Azure per Azure Machine Learning](move-sql-azure.md).
 
@@ -32,7 +32,7 @@ Con ADF, i servizi di elaborazione dei dati esistenti possono essere composti in
 Considerare l'uso di ADF:
 
 * quando i dati sono soggetti a migrazione continua in uno scenario ibrido che accede alle risorse locali e cloud
-* quando i dati necessitano di trasformazioni o la logica di business viene aggiunta durante la migrazione.
+* Quando i dati devono essere trasformati o la logica di business viene aggiunta durante la migrazione.
 
 L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. ADF dispone anche di altre funzionalità quali il supporto di operazioni complesse. Per ulteriori informazioni sul file ADF, vedere la documentazione di [Data factory di Azure (ADF)](https://azure.microsoft.com/services/data-factory/).
 
@@ -43,16 +43,16 @@ Si configura una pipeline ADF che compone due attività di migrazione dei dati. 
 * Copiare i dati dall'account di archiviazione BLOB di Azure a un database SQL di Azure.
 
 > [!NOTE]
-> I passaggi illustrati di seguito sono stati adattati dall'esercitazione più dettagliata fornita dal team ADF: [Copiare i dati da un database di SQL Server locale ai](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) riferimenti di archiviazione BLOB di Azure alle sezioni pertinenti di tale argomento vengono forniti quando appropriato.
+> I passaggi illustrati in questo articolo sono stati adattati dall'esercitazione più dettagliata fornita dal team di ADF: [copiare i dati da un database di SQL Server locale ai riferimenti di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) ai riferimenti alle sezioni pertinenti dell'argomento, quando appropriato.
 >
 >
 
 ## <a name="prerequisites"></a><a name="prereqs"></a>Prerequisiti
 Il tutorial presuppone:
 
-* Una **sottoscrizione di Azure.** Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Un account di archiviazione di **Azure.** In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md) . Dopo avere creato l'account di archiviazione, è necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere Gestire le chiavi di [accesso dell'account di archiviazione.](../../storage/common/storage-account-keys-manage.md)
-* Accesso a un **database SQL di Azure**. Se è necessario configurare un database SQL di Azure, l'argomento Introduzione al database SQL di Microsoft Azure fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database SQL di Azure.If you must set up an Azure SQL [Database,](../../sql-database/sql-database-get-started.md) the topic Getting Started with Microsoft Azure SQL Database provides information on how to provision a new instance of an Azure SQL Database.
+* Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un **account di archiviazione di Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md) . Dopo avere creato l'account di archiviazione, è necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
+* Accesso a un **database SQL di Azure**. Se è necessario configurare un database SQL di Azure, l'argomento [Introduzione con database SQL di Microsoft Azure](../../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database SQL di Azure.
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -65,20 +65,20 @@ Utilizziamo il [set di dati NYC Taxi](https://chriswhong.com/open-data/foil_nyc_
 
 È possibile adattare le procedure riportate di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server locale, seguire la procedura descritta in [Importazione in blocco dei dati nel database SQL Server](sql-walkthrough.md#dbload). Queste istruzioni sono per SQL Server in una macchina virtuale di Azure, ma la procedura per il caricamento in SQL Server locale è la stessa.
 
-## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a>Creare una data factory di AzureCreate an Azure Data Factory
+## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a>Creare una Azure Data Factory
 Le istruzioni per la creazione di una nuova data factory di Azure e un gruppo di risorse nel [portale di Azure](https://portal.azure.com/) sono disponibili in [Creazione di un'istanza di Data factory di Azure](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Denominare la nuova istanza ADF *adfdsp*e assegnare il nome *adfdsprg* al gruppo di risorse creato.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installare e configurare Integration Runtime di Azure Data Factory
-Il runtime di integrazione è un'infrastruttura di integrazione dei dati gestita dal cliente usata da Azure Data Factory per fornire funzionalità di integrazione dei dati in ambienti di rete diversi. In precedenza Questo runtime era chiamato "gateway di gestione dati".
+Il Integration Runtime è un'infrastruttura di integrazione dei dati gestita dal cliente utilizzata da Azure Data Factory per fornire funzionalità di integrazione dei dati in diversi ambienti di rete. In precedenza Questo runtime era chiamato "gateway di gestione dati".
 
-Per configurare, [seguire le istruzioni per la creazione di una pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Per la configurazione, [seguire le istruzioni per la creazione di una pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="create-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>Creare servizi collegati per connettersi alle risorse di dati
 I servizi collegati definiscono le informazioni necessarie affinché il servizio data factory si connetta a risorse dati. Sono disponibili tre risorse in questo scenario per il quale sono necessari servizi collegati:
 
 1. Server SQL locale
 2. Archiviazione BLOB di Azure
-3. database SQL di Azure
+3. Database SQL di Azure
 
 In [Creazione di servizi collegati](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)viene fornita la procedura dettagliata per la creazione di servizi collegati.
 
@@ -136,7 +136,7 @@ La definizione della tabella per SQL Server locale viene specificata nel file JS
 }
 ```
 
-Qui non sono inclusi i nomi di colonna. È possibile effettuare una sottoselezione dei nomi delle colonne includendoli qui (per informazioni dettagliate consultare l'argomento della [documentazione di ADF.](../../data-factory/copy-activity-overview.md)
+Qui non sono inclusi i nomi di colonna. È possibile sottoselezionare i nomi di colonna inserendoli qui. per informazioni dettagliate, vedere l'argomento della [documentazione di ADF](../../data-factory/copy-activity-overview.md) .
 
 Copiare la definizione JSON della tabella in un file denominata *onpremtabledef.json* e salvarlo in una posizione nota (generalmente *C:\temp\onpremtabledef.json*). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
 
@@ -302,4 +302,4 @@ I valori del parametro *startdate* ed *enddate* devono essere sostituiti con le 
 
 Una volta eseguita la pipeline, si dovrebbe poter visualizzare i dati visualizzati nel contenitore selezionato per il blob, un file al giorno.
 
-Non è stata sfruttata la funzionalità fornita da ADF per reindirizzare i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](https://azure.microsoft.com/services/data-factory/).
+Non è stata sfruttata la funzionalità fornita da ADF per inviare i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](https://azure.microsoft.com/services/data-factory/).

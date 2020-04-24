@@ -39,10 +39,10 @@ Gli agenti e le soluzioni di gestione usano diverse strategie per raccogliere i 
 ### <a name="agent-upload-frequency"></a>Frequenza di caricamento dell'agente
 Per assicurarsi che l'agente di Log Analytics sia leggero, l'agente memorizza nel buffer i log e li carica periodicamente in Monitoraggio di Azure. La frequenza di caricamento varia tra 30 secondi e 2 minuti a seconda del tipo di dati. La maggior parte dei dati viene caricata in meno di 1 minuto. Le condizioni della rete possono influire negativamente sulla latenza di questi dati per raggiungere il punto di inserimento di Monitoraggio di Azure.
 
-### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Log attività, log delle risorse e metriche di AzureAzure activity logs, resource logs and metrics
+### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Log attività, log delle risorse e metriche di Azure
 I dati di Azure richiedono altro tempo prima che siano disponibili nel punto di inserimento di Log Analytics per l'elaborazione:
 
-- I dati dei log delle risorse richiedono da 2 a 15 minuti, a seconda del servizio Azure.Data from resource logs take 2-15 minutes, depending on the Azure service. Vedere la [query più avanti](#checking-ingestion-time) per esaminare questa latenza nell'ambiente
+- I dati dei log delle risorse sono necessari 2-15 minuti, a seconda del servizio di Azure. Vedere la [query più avanti](#checking-ingestion-time) per esaminare questa latenza nell'ambiente
 - L'invio delle metriche della piattaforma Azure al punto di inserimento di Log Analytics richiede 3 minuti.
 - L'invio dei dati dei log attività al punto di inserimento di Log Analytics richiederà circa 10-15 minuti.
 
@@ -57,7 +57,7 @@ Alcune soluzioni non raccolgono i dati da un agente e possono usare un metodo di
 Per determinare la frequenza di raccolta specifica, consultare la documentazione relativa a ciascuna soluzione.
 
 ### <a name="pipeline-process-time"></a>Tempo di elaborazione della pipeline
-Dopo aver inserito i record di log nella pipeline di Monitoraggio di Azure (come identificato nella proprietà [_TimeReceived),](log-standard-properties.md#_timereceived) vengono scritti nell'archiviazione temporanea per garantire l'isolamento del tenant e per assicurarsi che i dati non vengano persi. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
+Una volta che i record di log vengono inseriti nella pipeline di monitoraggio di Azure (come indicato nella proprietà [_TimeReceived](log-standard-properties.md#_timereceived) ), vengono scritti nell'archiviazione temporanea per garantire l'isolamento dei tenant e per assicurarsi che i dati non vadano perduti. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisioning di nuovi tipi di dati personalizzati
 Quando viene creato un nuovo tipo di dati personalizzati da un [log personalizzato](data-sources-custom-logs.md) o dall'[API dell'agente di raccolta dati](data-collector-api.md), il sistema crea un contenitore di archiviazione dedicato. Questo sovraccarico è occasionale poiché si verifica solo alla prima occorrenza di questo tipo di dati.
@@ -73,18 +73,18 @@ Attualmente questo processo richiede circa 5 minuti in caso di un volume ridotto
 
 
 ## <a name="checking-ingestion-time"></a>Controllo del tempo di inserimento dei dati
-Il tempo di inserimento può variare a seconda delle risorse e delle circostanze. Per identificare il comportamento specifico dell'ambiente è possibile usare le query di log. The following table specifies how you can determine the different times for a record as it's created and sent to Azure Monitor.
+Il tempo di inserimento può variare a seconda delle risorse e delle circostanze. Per identificare il comportamento specifico dell'ambiente è possibile usare le query di log. La tabella seguente specifica come è possibile determinare le ore diverse per un record quando viene creato e inviato a monitoraggio di Azure.
 
 | Passaggio | Proprietà o funzione | Commenti |
 |:---|:---|:---|
-| Record creato nell'origine dati | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se l'origine dati non imposta questo valore, verrà impostato sullo stesso momento di _TimeReceived. |
-| Record ricevuto dall'endpoint di inserimento di Monitoraggio di AzureRecord received by Azure Monitor ingestion endpoint | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| Registrare archiviati nell'area di lavoro e disponibili per le query | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| Record creato nell'origine dati | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se l'origine dati non imposta questo valore, verrà impostato sulla stessa ora _TimeReceived. |
+| Record ricevuto dall'endpoint di inserimento di monitoraggio di Azure | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Record archiviato nell'area di lavoro e disponibile per le query | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Valori della latenza di inserimento
-È possibile misurare la latenza di un record specifico confrontando il risultato della funzione [ingestion_time()](/azure/kusto/query/ingestiontimefunction) con la proprietà _TimeGenerated._ Questi dati possono essere usati con varie aggregazioni per individuare il comportamento della latenza di inserimento. Esaminare qualche percentile del tempo di inserimento per ottenere informazioni dettagliate per una grande quantità di dati. 
+È possibile misurare la latenza di un record specifico confrontando il risultato della funzione [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) con la proprietà _TimeGenerated_ . Questi dati possono essere usati con varie aggregazioni per individuare il comportamento della latenza di inserimento. Esaminare qualche percentile del tempo di inserimento per ottenere informazioni dettagliate per una grande quantità di dati. 
 
-Ad esempio, la query seguente mostra quali computer hanno avuto il tempo di inserimento più alto nelle 8 ore precedenti: 
+Ad esempio, la query seguente indicherà i computer con il tempo di inserimento più elevato nelle 8 ore precedenti: 
 
 ``` Kusto
 Heartbeat
@@ -95,9 +95,9 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-I precedenti controlli percentili sono adatti per trovare tendenze generali nella latenza. Per identificare un picco di latenza a`max()`breve termine, l'utilizzo del valore massimo ( ) potrebbe essere più efficace.
+I controlli percentile precedenti sono ideali per individuare le tendenze generali nella latenza. Per identificare un picco a breve termine nella latenza, l'utilizzo del`max()`valore massimo () potrebbe essere più efficace.
 
-Se si desidera eseguire il drill-down del tempo di inserimento per un computer specifico in un determinato periodo di tempo, utilizzare la query seguente, che visualizza anche i dati del giorno precedente in un grafico: 
+Se si desidera eseguire il drill-down del tempo di inserimento per un computer specifico in un periodo di tempo, utilizzare la query seguente, che visualizza anche i dati del giorno precedente in un grafico: 
 
 
 ``` Kusto
@@ -109,7 +109,7 @@ Heartbeat
 | render timechart
 ```
  
-Utilizzare la query seguente per visualizzare il tempo di inserimento del computer in base al paese in cui si trovano in base al relativo indirizzo IP: 
+Usare la query seguente per visualizzare il tempo di inserimento del computer in base al paese/area geografica in cui si trovano, in base all'indirizzo IP: 
 
 ``` Kusto
 Heartbeat 

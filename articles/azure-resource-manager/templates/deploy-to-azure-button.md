@@ -1,6 +1,6 @@
 ---
 title: Pulsante Deploy to Azure per la distribuzione in Azure
-description: Pulsante Usa per distribuire i modelli di Azure Resource Manager da un repository GitHub.Use button to deploy Azure Resource Manager templates from a GitHub repository.
+description: Usare il pulsante per distribuire modelli di Azure Resource Manager da un repository GitHub.
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 88436eac970b252d7b0bc7bccee4131e06e9e0cf
@@ -10,23 +10,23 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77109040"
 ---
-# <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHubUse a deployment button to deploy templates from GitHub repository
+# <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub
 
-Questo articolo descrive come usare il pulsante **Distribuisci** in Azure per distribuire modelli da un repository GitHub.This article describes how to use the Deploy to Azure button to deploy templates from a GitHub repository. È possibile aggiungere il pulsante direttamente al file README.md nel repository GitHub o a una pagina Web che fa riferimento al repository.
+Questo articolo descrive come usare il pulsante **Distribuisci in Azure** per distribuire i modelli da un repository GitHub. È possibile aggiungere il pulsante direttamente al file README.md nel repository GitHub o a una pagina Web che fa riferimento al repository.
 
 ## <a name="use-common-image"></a>Usa immagine comune
 
-Per aggiungere il pulsante alla pagina Web o al repository, utilizzare l'immagine seguente:
+Per aggiungere il pulsante alla pagina Web o al repository, usare l'immagine seguente:
 
 ```html
 <img src="https://aka.ms/deploytoazurebutton"/>
 ```
 
-L'immagine viene visualizzata come:
+L'immagine viene visualizzata come segue:
 
 ![Pulsante Deploy to Azure per la distribuzione in Azure](https://aka.ms/deploytoazurebutton)
 
-## <a name="create-url-for-deploying-template"></a>Creare un URL per la distribuzione del modelloCreate URL for deploying template
+## <a name="create-url-for-deploying-template"></a>Crea URL per la distribuzione del modello
 
 Per creare l'URL per il modello, iniziare con l'URL non elaborato del modello nel repository:
 
@@ -34,13 +34,13 @@ Per creare l'URL per il modello, iniziare con l'URL non elaborato del modello ne
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Quindi, URL codificarlo. È possibile utilizzare un codificatore online o eseguire un comando. Nell'esempio di PowerShell seguente viene illustrato come codificare un valore tramite URL.
+Quindi, l'URL lo codifica. È possibile usare un codificatore online o eseguire un comando. L'esempio di PowerShell seguente illustra come codificare un valore in URL.
 
 ```powershell
 [uri]::EscapeDataString($url)
 ```
 
-L'URL di esempio ha il valore seguente quando l'URL è codificato.
+L'URL di esempio ha il valore seguente quando viene codificato l'URL.
 
 ```html
 https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json
@@ -52,25 +52,25 @@ Ogni collegamento inizia con lo stesso URL di base:
 https://portal.azure.com/#create/Microsoft.Template/uri/
 ```
 
-Aggiungi il link al modello con codifica URL alla fine dell'URL di base.
+Aggiungere il collegamento al modello con codifica URL alla fine dell'URL di base.
 
 ```html
 https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json
 ```
 
-Hai il tuo URL completo per il link.
+Si dispone dell'URL completo per il collegamento.
 
-## <a name="create-deploy-to-azure-button"></a>Creare il pulsante Distribuisci in AzureCreate Deploy to Azure button
+## <a name="create-deploy-to-azure-button"></a>Pulsante Crea Deploy to Azure
 
-Infine, mettere insieme il collegamento e l'immagine.
+Infine, inserire il collegamento e l'immagine insieme.
 
-Per aggiungere il pulsante con Markdown nel file README.md nel repository GitHub o in una pagina Web, utilizzare:
+Per aggiungere il pulsante con Markdown nel file README.md nel repository GitHub o in una pagina Web, usare:
 
 ```markdown
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
 ```
 
-Per HTML, utilizzare:
+Per HTML, usare:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
@@ -80,14 +80,14 @@ Per HTML, utilizzare:
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per testare la soluzione completa, selezionare il pulsante seguente:To test the full solution, select the following button:
+Per testare la soluzione completa, selezionare il pulsante seguente:
 
-[![Distribuire in AzureDeploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
+[![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
 
-Il portale visualizza un riquadro che consente di fornire facilmente i valori dei parametri. I parametri vengono precompilati con i valori predefiniti del modello.
+Nel portale viene visualizzato un riquadro che consente di specificare facilmente i valori dei parametri. I parametri vengono precompilati con i valori predefiniti del modello.
 
-![Usare il portale per la distribuzioneUse portal to deploy](./media/deploy-to-azure-button/portal.png)
+![Usare il portale per la distribuzione](./media/deploy-to-azure-button/portal.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sui modelli, vedere [Informazioni sulla struttura e la sintassi dei modelli di Azure Resource Manager.](template-syntax.md)
+- Per altre informazioni sui modelli, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).

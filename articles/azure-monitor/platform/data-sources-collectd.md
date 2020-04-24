@@ -63,7 +63,7 @@ L'agente di Log Analytics per Linux resta in ascolto delle metriche di CollectD 
     </filter>
 
 > [!NOTE]
-> CollectD per impostazione predefinita è impostato per leggere i valori a [intervalli](https://collectd.org/wiki/index.php/Interval)di 10 secondi. Poiché questo influisce direttamente sul volume di dati inviati ai log di Monitoraggio di Azure, potrebbe essere necessario ottimizzare questo intervallo all'interno della configurazione CollectD per trovare un buon equilibrio tra i requisiti di monitoraggio e i costi e l'utilizzo associati per i log di Monitoraggio di Azure.As this directly affects the volume of data sent to Azure Monitor Logs, you might need to tune this interval within the CollectD configuration to strike a good balance between the monitoring requirements and associated costs and usage for Azure Monitor Logs.
+> Collectd per impostazione predefinita è impostato su Read values a un [intervallo](https://collectd.org/wiki/index.php/Interval)di 10 secondi. Poiché questo influisca direttamente sul volume dei dati inviati ai log di monitoraggio di Azure, potrebbe essere necessario ottimizzare questo intervallo nella configurazione di collectd per ottenere un giusto equilibrio tra i requisiti di monitoraggio e i costi e l'utilizzo associati per i log di monitoraggio di Azure.
 
 ## <a name="versions-supported"></a>Versioni supportate
 - Monitoraggio di Azure supporta attualmente CollectD versione 4.8 e versioni successive.

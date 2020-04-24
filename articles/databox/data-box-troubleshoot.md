@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi in Azure Data Box, Azure Data Box HeavyTroubleshoot issues on your Azure Data Box, Azure Data Box Heavy
-description: Viene descritto come risolvere i problemi riscontrati in Azure Data Box e Azure Data Box Heavy durante la copia dei dati in questi dispositivi.
+title: Risolvere i problemi relativi alla Azure Data Box, Azure Data Box Heavy
+description: Viene descritto come risolvere i problemi riscontrati in Azure Data Box e Azure Data Box Heavy durante la copia dei dati in tali dispositivi.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,234 +15,234 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560066"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Risolvere i problemi relativi ad Azure Data Box e Azure Data Box HeavyTroubleshoot issues related to Azure Data Box and Azure Data Box Heavy
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Risolvere i problemi relativi a Azure Data Box e Azure Data Box Heavy
 
-Questo articolo descrive in dettaglio le informazioni su come risolvere i problemi che possono essere visualizzati quando si usa Azure Data Box o Azure Data Box Heavy.This article details information on how to troubleshoot issues you may see when using the Azure Data Box or Azure Data Box Heavy. L'articolo include l'elenco dei possibili errori visualizzati quando i dati vengono copiati nella casella dati o quando i dati vengono caricati da Data Box.
+In questo articolo vengono fornite informazioni dettagliate su come risolvere i problemi che possono verificarsi quando si utilizza il Azure Data Box o Azure Data Box Heavy. L'articolo include l'elenco dei possibili errori visualizzati quando i dati vengono copiati nel Data Box o quando i dati vengono caricati da Data Box.
 
 ## <a name="error-classes"></a>Classi di errore
 
 Gli errori in Data Box e Data Box Heavy sono riepilogati come segue:
 
-| Categoria di errore        | Descrizione        | Azione consigliata    |
+| Categoria di errore *        | Descrizione        | Azione consigliata    |
 |----------------------------------------------|---------|--------------------------------------|
-| Nomi di contenitori o condivisioni | I nomi di contenitore o condivisione non seguono le regole di denominazione di Azure.The container or share names do not follow the Azure naming rules.  |Scaricare gli elenchi di errori. <br> Rinominare i contenitori o le condivisioni. [Scopri di più](#container-or-share-name-errors).  |
-| Limite di dimensione del contenitore o della condivisione | I dati totali in contenitori o condivisioni superano il limite di Azure.The total data in containers or shares exceeds the Azure limit.   |Scaricare gli elenchi di errori. <br> Ridurre i dati complessivi nel contenitore o nella condivisione. [Scopri di più](#container-or-share-size-limit-errors).|
-| Limite di dimensione dell'oggetto o del file | L'oggetto o i file in contenitori o condivisioni superano il limite di Azure.The object or files in containers or shares exceeds the Azure limit.|Scaricare gli elenchi di errori. <br> Ridurre le dimensioni del file nel contenitore o nella condivisione. [Scopri di più](#object-or-file-size-limit-errors). |    
-| Tipo di dati o file | Il formato dei dati o il tipo di file non è supportato. |Scaricare gli elenchi di errori. <br> Per i BLOB di pagine o i dischi gestiti, verificare che i dati siano allineati a 512 byte e copiati nelle cartelle create in precedenazione. [Scopri di più](#data-or-file-type-errors). |
-| Errori di file o BLOB non critici  | I nomi BLOB o file non seguono le regole di denominazione di Azure o il tipo di file non è supportato. | Questi BLOB o file potrebbero non essere copiati o i nomi potrebbero essere modificati. [Informazioni su come correggere questi errori](#non-critical-blob-or-file-errors). |
+| Nomi di contenitori o condivisioni | I nomi di contenitore o condivisione non seguono le regole di denominazione di Azure.  |Scaricare gli elenchi degli errori. <br> Rinominare i contenitori o le condivisioni. [Altre informazioni](#container-or-share-name-errors)  |
+| Limite dimensioni contenitore o condivisione | Il totale dei dati in contenitori o condivisioni supera il limite di Azure.   |Scaricare gli elenchi degli errori. <br> Ridurre i dati complessivi nel contenitore o nella condivisione. [Altre informazioni](#container-or-share-size-limit-errors)|
+| Limite dimensioni oggetti o file | L'oggetto o i file in contenitori o condivisioni superano il limite di Azure.|Scaricare gli elenchi degli errori. <br> Ridurre le dimensioni del file nel contenitore o nella condivisione. [Altre informazioni](#object-or-file-size-limit-errors) |    
+| Tipo di dati o di file | Il formato dei dati o il tipo di file non è supportato. |Scaricare gli elenchi degli errori. <br> Per i BLOB di pagine o i dischi gestiti, assicurarsi che i dati siano allineati a 512 byte e che vengano copiati nelle cartelle create in precedenza. [Altre informazioni](#data-or-file-type-errors) |
+| Errori di BLOB o file non critici  | I nomi di BLOB o file non seguono le regole di denominazione di Azure o il tipo di file non è supportato. | È possibile che questi BLOB o file non vengano copiati o che i nomi vengano modificati. [Informazioni su come risolvere questi errori](#non-critical-blob-or-file-errors). |
 
-\*Le prime quattro categorie di errore sono errori critici e devono essere corrette prima di poter procedere alla preparazione della spedizione.
+\*Le prime quattro categorie di errore sono errori critici e devono essere corrette prima di procedere alla preparazione per la spedizione.
 
 
-## <a name="container-or-share-name-errors"></a>Errori relativi al nome del contenitore o della condivisione
+## <a name="container-or-share-name-errors"></a>Errori del nome del contenitore o della condivisione
 
-Si tratta di errori correlati ai nomi di contenitori e condivisioni.
+Si tratta di errori relativi ai nomi di contenitori e condivisioni.
 
 ### <a name="error_container_or_share_name_length"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
-**Descrizione errore:** Il nome del contenitore o della condivisione deve essere compreso tra 3 e 63 caratteri. 
+**Descrizione errore:** Il nome del contenitore o della condivisione deve avere una lunghezza compresa tra 3 e 63 caratteri. 
 
-**Risoluzione suggerita:** La cartella nella condivisione Data Box o Data Box Heavy (SMB/NFS) in cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
+**Risoluzione suggerita:** La cartella sotto la Data Box o la condivisione Data Box Heavy (SMB/NFS) in cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
 
-- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale del dispositivo scaricare ed esaminare i file di errore per identificare i nomi delle cartelle con problemi.
-- Modificare il nome della cartella nella casella dati o nella condivisione Data Box Heavy per assicurarsi che:
+- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale del dispositivo scaricare ed esaminare i file di errore per identificare i nomi di cartella con i problemi.
+- Modificare il nome della cartella nella Data Box o nella condivisione Data Box Heavy per assicurarsi che:
 
-    - Il nome ha un numero di caratteri compreso tra 3 e 63 caratteri.
-    - I nomi possono avere solo lettere, numeri e trattini.
-    - I nomi non possono iniziare o terminare con i trattini.
+    - Il nome ha una lunghezza compresa tra 3 e 63 caratteri.
+    - I nomi possono contenere solo lettere, numeri e trattini.
+    - I nomi non possono iniziare o terminare con trattini.
     - I nomi non possono avere trattini consecutivi.
-    - Esempi di nomi `my-folder-1`validi: ,`my-really-extra-long-folder-111`
-    - Esempi di nomi non `my-folder_1`validi: `my` `--myfolder`, `myfolder--`, , , ,`myfolder!`
+    - Esempi di nomi validi: `my-folder-1`,`my-really-extra-long-folder-111`
+    - Esempi di nomi non validi `my-folder_1`:, `my`, `--myfolder`,, `myfolder--``myfolder!`
 
-    Per altre informazioni, vedere Convenzioni di denominazione di Azure per i nomi dei [contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e i nomi di [condivisione.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)
+    Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 
 ### <a name="error_container_or_share_name_alpha_numeric_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
 
 **Descrizione errore:** Il nome del contenitore o della condivisione deve essere costituito solo da lettere, numeri o trattini.
 
-**Risoluzione suggerita:** La cartella nella condivisione Data Box o Data Box Heavy (SMB/NFS) in cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
+**Risoluzione suggerita:** La cartella sotto la Data Box o la condivisione Data Box Heavy (SMB/NFS) in cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
 
-- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale del dispositivo scaricare ed esaminare i file di errore per identificare i nomi delle cartelle con problemi.
-- Modificare il nome della cartella nella casella dati o nella condivisione Data Box Heavy per assicurarsi che:
+- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale del dispositivo scaricare ed esaminare i file di errore per identificare i nomi di cartella con i problemi.
+- Modificare il nome della cartella nella Data Box o nella condivisione Data Box Heavy per assicurarsi che:
 
-    - Il nome ha un numero di caratteri compreso tra 3 e 63 caratteri.
-    - I nomi possono avere solo lettere, numeri e trattini.
-    - I nomi non possono iniziare o terminare con i trattini.
+    - Il nome ha una lunghezza compresa tra 3 e 63 caratteri.
+    - I nomi possono contenere solo lettere, numeri e trattini.
+    - I nomi non possono iniziare o terminare con trattini.
     - I nomi non possono avere trattini consecutivi.
-    - Esempi di nomi `my-folder-1`validi: ,`my-really-extra-long-folder-111`
-    - Esempi di nomi non `my-folder_1`validi: `my` `--myfolder`, `myfolder--`, , , ,`myfolder!`
+    - Esempi di nomi validi: `my-folder-1`,`my-really-extra-long-folder-111`
+    - Esempi di nomi non validi `my-folder_1`:, `my`, `--myfolder`,, `myfolder--``myfolder!`
 
-    Per altre informazioni, vedere Convenzioni di denominazione di Azure per i nomi dei [contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e i nomi di [condivisione.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)
+    Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 ### <a name="error_container_or_share_name_improper_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
 
-**Descrizione errore:** I nomi dei contenitori e delle condivisioni non possono iniziare o terminare con trattini e non possono avere trattini consecutivi.
+**Descrizione errore:** I nomi di contenitore e di condivisione non possono iniziare o terminare con trattini e non possono avere trattini consecutivi.
 
-**Risoluzione suggerita:** La cartella nella condivisione Data Box o Data Box Heavy (SMB/NFS) in cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
+**Risoluzione suggerita:** La cartella sotto la Data Box o la condivisione Data Box Heavy (SMB/NFS) in cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
 
-- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale del dispositivo scaricare ed esaminare i file di errore per identificare i nomi delle cartelle con problemi.
-- Modificare il nome della cartella nella casella dati o nella condivisione Data Box Heavy per assicurarsi che:
+- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale del dispositivo scaricare ed esaminare i file di errore per identificare i nomi di cartella con i problemi.
+- Modificare il nome della cartella nella Data Box o nella condivisione Data Box Heavy per assicurarsi che:
 
-    - Il nome ha un numero di caratteri compreso tra 3 e 63 caratteri.
-    - I nomi possono avere solo lettere, numeri e trattini.
-    - I nomi non possono iniziare o terminare con i trattini.
+    - Il nome ha una lunghezza compresa tra 3 e 63 caratteri.
+    - I nomi possono contenere solo lettere, numeri e trattini.
+    - I nomi non possono iniziare o terminare con trattini.
     - I nomi non possono avere trattini consecutivi.
-    - Esempi di nomi `my-folder-1`validi: ,`my-really-extra-long-folder-111`
-    - Esempi di nomi non `my-folder_1`validi: `my` `--myfolder`, `myfolder--`, , , ,`myfolder!`
+    - Esempi di nomi validi: `my-folder-1`,`my-really-extra-long-folder-111`
+    - Esempi di nomi non validi `my-folder_1`:, `my`, `--myfolder`,, `myfolder--``myfolder!`
 
-    Per altre informazioni, vedere Convenzioni di denominazione di Azure per i nomi dei [contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e i nomi di [condivisione.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)
+    Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
-## <a name="container-or-share-size-limit-errors"></a>Errori di limite di dimensione del contenitore o della condivisione
+## <a name="container-or-share-size-limit-errors"></a>Errori limite dimensioni contenitore o condivisione
 
-Si tratta di errori correlati a dati superiori alle dimensioni dei dati consentiti in un contenitore o in una condivisione.
+Si tratta di errori relativi ai dati che superano le dimensioni dei dati consentiti in un contenitore o in una condivisione.
 
 ### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Descrizione errore:** La condivisione file di Azure limita una condivisione a 5 TB di dati. Questo limite è stato superato per alcune azioni.
+**Descrizione errore:** La condivisione file di Azure limita una condivisione a 5 TB di dati. Questo limite è stato superato per alcune condivisioni.
 
-**Risoluzione suggerita:** Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file di errore.
+**Risoluzione suggerita:** Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
 
-Identificare le cartelle che presentano questo problema dai log degli errori e assicurarsi che i file in tale cartella sono sotto 5 TB.
+Identificare le cartelle che presentano questo problema nei log degli errori e verificare che i file in tale cartella siano di 5 TB.
 
 
-## <a name="object-or-file-size-limit-errors"></a>Errori di limite di dimensioni di oggetti o file
+## <a name="object-or-file-size-limit-errors"></a>Errori limite dimensioni oggetti o file
 
-Si tratta di errori correlati adati relativi a dati che superano le dimensioni massime dell'oggetto o del file consentito in Azure.These are errors related to data exceeding the maximum size of object or the file that is allowed in Azure. 
+Si tratta di errori relativi ai dati che superano le dimensioni massime dell'oggetto o del file consentito in Azure. 
 
 ### <a name="error_blob_or_file_size_limit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
-**Descrizione errore:** La dimensione del file supera la dimensione massima del file per il caricamento.
+**Descrizione errore:** Le dimensioni del file superano le dimensioni massime del file per il caricamento.
 
 **Risoluzione suggerita:** Il BLOB o le dimensioni del file superano il limite massimo consentito per il caricamento.
 
-- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file di errore.
-- Assicurarsi che il BLOB e le dimensioni dei file non superino i limiti delle dimensioni degli oggetti di Azure.Make sure that the blob and file sizes do not exceed the Azure object size limits.
+- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
+- Assicurarsi che le dimensioni del BLOB e del file non superino i limiti delle dimensioni degli oggetti di Azure.
 
 ## <a name="data-or-file-type-errors"></a>Errori relativi ai dati o ai tipi di file
 
-Si tratta di errori relativi al tipo di file o al tipo di dati non supportato trovato nel contenitore o nella condivisione. 
+Si tratta di errori correlati al tipo di file non supportato o al tipo di dati trovato nel contenitore o nella condivisione. 
 
 ### <a name="error_blob_or_file_size_alignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
 
-**Descrizione errore:** Il BLOB o il file non è allineato correttamente.
+**Descrizione errore:** Il BLOB o il file è allineato in modo errato.
 
-**Risoluzione suggerita:** La condivisione BLOB di pagine in Data Box o Data Box Heavy supporta solo file allineati a 512 byte, ad esempio VHD/VHDX. Tutti i dati copiati nella condivisione BLOB di pagine vengono caricati in Azure come BLOB di pagine.
+**Risoluzione suggerita:** La condivisione BLOB di pagine in Data Box o Data Box Heavy supporta solo file di 512 byte allineati, ad esempio VHD/VHDX. Tutti i dati copiati nella condivisione BLOB di pagine vengono caricati in Azure come BLOB di pagine.
 
-Rimuovere tutti i dati non VHD/VHDX dalla condivisione BLOB di pagine. È possibile usare condivisioni per i file BLOB a blocchi o di Azure per i dati generici.
+Rimuovere tutti i dati non VHD/VHDX dalla condivisione BLOB di pagine. È possibile usare le condivisioni per i BLOB in blocchi o i file di Azure per i dati generici.
 
-Per altre informazioni, vedere [Panoramica dei BLOB di pagine.](../storage/blobs/storage-blob-pageblob-overview.md)
+Per altre informazioni, vedere [Panoramica dei BLOB di pagine](../storage/blobs/storage-blob-pageblob-overview.md).
 
 ### <a name="error_blob_or_file_type_unsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
 
-**Descrizione errore:** Un tipo di file non supportato è presente in una condivisione su disco gestito. Sono consentiti solo dischi rigidi virtuali fissi.
+**Descrizione errore:** Un tipo di file non supportato è presente in una condivisione disco gestita. Sono consentiti solo dischi rigidi virtuali fissi.
 
 **Risoluzione suggerita:**
 
-- Assicurarsi di caricare solo i dischi rigidi fissi per creare dischi gestiti.
+- Assicurarsi di caricare solo i VHD fissi per creare dischi gestiti.
 - I file VHDX o i dischi rigidi virtuali **dinamici** e **differenze** non sono supportati.
 
 ### <a name="error_directory_disallowed_for_type"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
 
-**Descrizione errore:** Una directory non è consentita in nessuna delle cartelle preesistenti per i dischi gestiti. In queste cartelle sono consentiti solo dischi rigidi virtuali fissi.
+**Descrizione errore:** Una directory non è consentita in alcuna cartella preesistente per i dischi gestiti. In queste cartelle sono consentiti solo dischi rigidi virtuali fissi.
 
-**Risoluzione suggerita:** Per i dischi gestiti, all'interno di ogni condivisione, vengono create le tre cartelle seguenti che corrispondono ai contenitori nell'account di archiviazione: Premium SSD, Standard HDD e SSD standard. Queste cartelle corrispondono al livello di prestazioni per il disco gestito.
+**Risoluzione suggerita:** Per i dischi gestiti, all'interno di ogni condivisione vengono create le tre cartelle seguenti che corrispondono ai contenitori nell'account di archiviazione: SSD Premium, HDD Standard e SDD Standard. Queste cartelle corrispondono al livello di prestazioni per il disco gestito.
 
-- Assicurarsi di copiare i dati BLOB di pagina (VHD) in una di queste cartelle esistenti.
+- Assicurarsi di copiare i dati dei BLOB di pagine (VHD) in una di queste cartelle esistenti.
 - Una cartella o una directory non è consentita in queste cartelle esistenti. Rimuovere tutte le cartelle create all'interno delle cartelle preesistenti.
 
-Per ulteriori informazioni, consultate Copiare su [dischi gestiti.](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box)
+Per altre informazioni, vedere [Copy to Managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 
 ### <a name="reparse_point_error"></a>REPARSE_POINT_ERROR
 
-**Descrizione errore:** I collegamenti simbolici non sono consentiti in Linux.Symbolic links are not allowed in Linux. 
+**Descrizione errore:** I collegamenti simbolici non sono consentiti in Linux. 
 
 **Risoluzione suggerita:** I collegamenti simbolici sono in genere collegamenti, pipe e altri file di questo tipo. Rimuovere i collegamenti o risolvere i collegamenti e copiare i dati.
 
 
-## <a name="non-critical-blob-or-file-errors"></a>Errori di file o BLOB non critici
+## <a name="non-critical-blob-or-file-errors"></a>Errori di BLOB o file non critici
 
-Tutti gli errori non critici correlati ai nomi di BLOB, file o contenitori visualizzati durante la copia dei dati sono riepilogati nella sezione seguente. Se questi errori sono presenti, i nomi verranno modificati in modo conforme alle convenzioni di denominazione di Azure.If these errors are present, then the names will be modified to conform to the Azure naming conventions. Lo stato dell'ordine corrispondente per il caricamento dei dati sarà **Completato con avvisi**.  
+Tutti gli errori non critici relativi ai nomi di BLOB, file o contenitori visualizzati durante la copia dei dati sono riepilogati nella sezione seguente. Se questi errori sono presenti, i nomi verranno modificati in modo da essere conformi alle convenzioni di denominazione di Azure. Lo stato dell'ordine corrispondente per il caricamento dei dati verrà **completato con avvisi**.  
 
 ### <a name="error_blob_or_file_name_character_control"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL
 
-**Descrizione errore:** I nomi BLOB o file contengono caratteri di controllo non supportati.
+**Descrizione errore:** I nomi di BLOB o file contengono caratteri di controllo non supportati.
 
 **Risoluzione suggerita:** I BLOB o i file copiati contengono nomi con caratteri non supportati.
 
-Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file di errore.
+Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
 Rimuovere o rinominare i file per rimuovere i caratteri non supportati.
 
-Per altre informazioni, vedere Convenzioni di denominazione di Azure per [i nomi BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i nomi di [file.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)
+Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi di BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi di file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 ### <a name="error_blob_or_file_name_character_illegal"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL
 
-**Descrizione errore:** I nomi BLOB o file contengono caratteri non validi.
+**Descrizione errore:** I nomi di BLOB o file contengono caratteri non validi.
 
 **Risoluzione suggerita:** I BLOB o i file copiati contengono nomi con caratteri non supportati.
 
-Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file di errore.
+Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
 Rimuovere o rinominare i file per rimuovere i caratteri non supportati.
 
-Per altre informazioni, vedere Convenzioni di denominazione di Azure per [i nomi BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i nomi di [file.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)
+Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi di BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi di file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
 ### <a name="error_blob_or_file_name_ending"></a>ERROR_BLOB_OR_FILE_NAME_ENDING
 
-**Descrizione errore:** I nomi BLOB o file terminano con caratteri non validi.
+**Descrizione errore:** I nomi di BLOB o file terminano con caratteri non validi.
 
 **Risoluzione suggerita:** I BLOB o i file copiati contengono nomi con caratteri non supportati.
 
-Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file di errore.
+Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
 Rimuovere o rinominare i file per rimuovere i caratteri non supportati.
 
-Per altre informazioni, vedere Convenzioni di denominazione di Azure per [i nomi BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i nomi di [file.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)
+Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi di BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi di file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
 ### <a name="error_blob_or_file_name_segment_count"></a>ERROR_BLOB_OR_FILE_NAME_SEGMENT_COUNT
 
 **Descrizione errore:** Il nome del BLOB o del file contiene troppi segmenti di percorso.
 
-**Risoluzione suggerita:** I BLOB o i file copiati superano il numero massimo di segmenti di percorso. Un segmento di percorso è la stringa tra caratteri delimitatori consecutivi, ad esempio la barra /.
+**Risoluzione suggerita:** I BLOB o i file copiati superano il numero massimo di segmenti di percorso. Un segmento di percorso è la stringa tra i caratteri delimitatori consecutivi, ad esempio la barra/.
 
-- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file di errore.
-- Assicurarsi che [i nomi dei BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i nomi di file siano conformi alle convenzioni di denominazione di Azure.Make sure that the blob names and file [names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) conform to Azure naming conventions.
+- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
+- Verificare che i [nomi dei BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi dei file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) siano conformi alle convenzioni di denominazione di Azure.
 
 ### <a name="error_blob_or_file_name_aggregate_length"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
 
-**Descrizione errore:** Il BLOB o il nome del file è troppo lungo.
+**Descrizione errore:** Il nome del BLOB o del file è troppo lungo.
 
 **Risoluzione suggerita:** Il BLOB o i nomi dei file superano la lunghezza massima.
 
-- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file di errore.
+- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
 - Il nome del BLOB non deve superare i 1.024 caratteri.
-- Rimuovere o rinominare il BLOB o i file in modo che i nomi non superino i 1024 caratteri.
+- Rimuovere o rinominare i BLOB o i file in modo che i nomi non superino 1024 caratteri.
 
-Per altre informazioni, vedere Convenzioni di denominazione di Azure per i nomi BLOB e i nomi di file.
+Per altre informazioni, vedere convenzioni di denominazione di Azure per i nomi di BLOB e i nomi di file.
 
 ### <a name="error_blob_or_file_name_component_length"></a>ERROR_BLOB_OR_FILE_NAME_COMPONENT_LENGTH
 
-**Descrizione errore:** Uno dei segmenti nel BLOB o nel nome del file è troppo lungo.
+**Descrizione errore:** Uno dei segmenti nel BLOB o nel nome file è troppo lungo.
 
-**Risoluzione suggerita:** Uno dei segmenti di percorso nel BLOB o nel nome file supera il numero massimo di caratteri. Un segmento di percorso è la stringa tra caratteri delimitatori consecutivi, ad esempio la barra /.
+**Risoluzione suggerita:** Uno dei segmenti di percorso nel BLOB o nel nome file supera il numero massimo di caratteri. Un segmento di percorso è la stringa tra i caratteri delimitatori consecutivi, ad esempio la barra/.
 
-- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file di errore.
-- Assicurarsi che [i nomi dei BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i nomi di file siano conformi alle convenzioni di denominazione di Azure.Make sure that the blob names and file [names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) conform to Azure naming conventions.
+- Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
+- Verificare che i [nomi dei BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi dei file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) siano conformi alle convenzioni di denominazione di Azure.
 
 
 ### <a name="error_container_or_share_name_disallowed_for_type"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
 
-**Descrizione errore:** Per le condivisioni disco gestite vengono specificati nomi di contenitori non corretti.
+**Descrizione errore:** Per le condivisioni disco gestite sono specificati nomi di contenitore non corretti.
 
-**Risoluzione suggerita:** Per i dischi gestiti, all'interno di ogni condivisione, vengono create le cartelle seguenti che corrispondono ai contenitori nell'account di archiviazione: SSD Premium, HDD standard e SSD standard. Queste cartelle corrispondono al livello di prestazioni per il disco gestito.
+**Risoluzione suggerita:** Per i dischi gestiti, all'interno di ogni condivisione vengono create le cartelle seguenti che corrispondono ai contenitori nell'account di archiviazione: SSD Premium, HDD Standard e SDD Standard. Queste cartelle corrispondono al livello di prestazioni per il disco gestito.
 
-- Assicurarsi di copiare i dati BLOB di pagina (VHD) in una di queste cartelle esistenti. Solo i dati di questi contenitori esistenti vengono caricati in Azure.Only data from these existing containers is uploaded to Azure.
-- Qualsiasi altra cartella creata allo stesso livello di Premium SSD, Standard HDD e SSD Standard non corrisponde a un livello di prestazioni valido e non può essere utilizzata.
-- Rimuovere file o cartelle creati all'esterno dei livelli di prestazioni.
+- Assicurarsi di copiare i dati dei BLOB di pagine (VHD) in una di queste cartelle esistenti. Solo i dati di questi contenitori esistenti vengono caricati in Azure.
+- Qualsiasi altra cartella creata allo stesso livello di SSD Premium, HDD Standard e SDD Standard non corrisponde a un livello di prestazioni valido e non può essere utilizzata.
+- Rimuovere i file o le cartelle creati all'esterno dei livelli di prestazioni.
 
-Per ulteriori informazioni, consultate Copiare su [dischi gestiti.](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box)
+Per altre informazioni, vedere [Copy to Managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sui requisiti di [sistema di archiviazione Data Box Blob](data-box-system-requirements-rest.md).
+- Informazioni sui requisiti di sistema per l' [archiviazione Blob Data Box](data-box-system-requirements-rest.md).

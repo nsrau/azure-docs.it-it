@@ -1,6 +1,6 @@
 ---
-title: Monitor B2B messages by using Azure Monitor
-description: Risolvere i problemi relativi ai messaggi AS2, X12 ed EDIFACT configurando i log di Monitoraggio di Azure e raccogliendo dati di diagnostica per le app per la logica di AzureTroubleshoot AS2, X12, and EDIFACT messages by setting up Azure Monitor logs and collecting diagnostics data for Azure Logic Apps
+title: Monitorare i messaggi B2B usando monitoraggio di Azure
+description: Risolvere i problemi relativi ai messaggi AS2, X12 ed EDIFACT impostando log di monitoraggio di Azure e raccogliendo i dati di diagnostica per app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
@@ -13,20 +13,20 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76907981"
 ---
-# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurare i log di Monitoraggio di Azure e raccogliere i dati di diagnostica per i messaggi B2B nelle app per la logica di AzureSet up Azure Monitor logs and collect diagnostics data for B2B messages in Azure Logic Apps
+# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per i messaggi B2B nelle app per la logica di Azure
 
-Dopo aver impostato la comunicazione B2B tra partner commerciali nell'account di integrazione, tali partner possono scambiare messaggi utilizzando protocolli quali AS2, X12 ed EDIFACT. Per verificare che questa comunicazione funzioni nel modo previsto, è possibile configurare [i log](../azure-monitor/platform/data-platform-logs.md) di Monitoraggio di Azure per l'account di integrazione. [Monitoraggio di Azure](../azure-monitor/overview.md) consente di monitorare gli ambienti cloud e locali in modo da poterne gestire più facilmente la disponibilità e le prestazioni. Utilizzando i log di Monitoraggio di Azure, è possibile registrare e archiviare dati su dati ed eventi di runtime, ad esempio eventi trigger, eventi di esecuzione ed eventi azione in un'area di lavoro di [Log Analytics.](../azure-monitor/platform/resource-logs-collect-workspace.md) Per i messaggi, la registrazione raccoglie anche informazioni quali:
+Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account di integrazione, tali partner possono scambiare messaggi utilizzando protocolli quali AS2, X12 ed EDIFACT. Per verificare che questa comunicazione funzioni come previsto, è possibile configurare i log di [monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md) per l'account di integrazione. [Monitoraggio di Azure](../azure-monitor/overview.md) consente di monitorare gli ambienti cloud e locali in modo da mantenere la disponibilità e le prestazioni più semplici. Usando i log di monitoraggio di Azure, è possibile registrare e archiviare i dati relativi a eventi e dati di runtime, ad esempio eventi trigger, eventi di esecuzione ed eventi di azione in un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Per i messaggi, la registrazione raccoglie anche informazioni come:
 
 * Conteggio e stato dei messaggi
 * Stato degli acknowledgment
 * Correlazioni tra messaggi e riconoscimenti
 * Descrizione dettagliata degli errori
 
-Monitoraggio di Azure consente di creare [query di log](../azure-monitor/log-query/log-query-overview.md) per trovare ed esaminare queste informazioni. È anche possibile usare questi dati di diagnostica con altri servizi di [Azure,](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data)ad esempio Archiviazione di Azure e Hub eventi di Azure.You can also use this diagnostics data with other Azure services , such as Azure Storage and Azure Event Hubs.
+Monitoraggio di Azure consente di creare [query di log](../azure-monitor/log-query/log-query-overview.md) che consentono di trovare e rivedere queste informazioni. È anche possibile [usare questi dati di diagnostica con altri servizi di Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), ad esempio archiviazione di Azure e hub eventi di Azure.
 
-Per configurare la registrazione per l'account di integrazione, [installare la soluzione B2B app per la logica](#install-b2b-solution) nel portale di Azure.To set up logging for your integration account, install the Logic Apps B2B solution in the Azure portal. Questa soluzione fornisce informazioni aggregate per gli eventi dei messaggi B2B. Quindi, per abilitare la registrazione e la creazione di query per queste informazioni, configurare i log di [Monitoraggio di Azure.](#set-up-resource-logs)
+Per configurare la registrazione per l'account di integrazione, [installare la soluzione app per la logica B2B](#install-b2b-solution) nel portale di Azure. Questa soluzione fornisce informazioni aggregate per gli eventi del messaggio B2B. Quindi, per abilitare la registrazione e la creazione di query per queste informazioni, configurare i [log di monitoraggio di Azure](#set-up-resource-logs).
 
-Questo articolo illustra come abilitare la registrazione di Monitoraggio di Azure per l'account di integrazione.
+Questo articolo illustra come abilitare la registrazione di monitoraggio di Azure per l'account di integrazione.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -34,102 +34,102 @@ Questo articolo illustra come abilitare la registrazione di Monitoraggio di Azur
 
 * Un'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-* Un'app per la logica configurata con la registrazione di Monitoraggio di Azure e che invia tali informazioni a un'area di lavoro di Log Analytics.A logic app that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Informazioni su come configurare i log di Monitoraggio di [Azure per l'app per la logica.](../logic-apps/monitor-logic-apps.md)
+* Un'app per la logica configurata con la registrazione di monitoraggio di Azure e invia tali informazioni a un'area di lavoro Log Analytics. Informazioni su [come configurare i log di monitoraggio di Azure per l'app per la logica](../logic-apps/monitor-logic-apps.md).
 
-* Un account di integrazione collegato all'app per la logica. Informazioni su [come collegare l'account di integrazione all'app per la logica.](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* Un account di integrazione collegato all'app per la logica. Informazioni [su come collegare l'account di integrazione all'app per la logica](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 <a name="install-b2b-solution"></a>
 
 ## <a name="install-logic-apps-b2b-solution"></a>Installare la soluzione di App per la logica B2B
 
-Prima che i log di Monitoraggio di Azure possano tenere traccia dei messaggi B2B per l'app per la logica, aggiungere la soluzione **B2B per le app per** la logica all'area di lavoro di Log Analytics.Before Azure Monitor logs can track the B2B messages for your logic app, add the Logic Apps B2B solution to your Log Analytics workspace.
+Prima che i log di monitoraggio di Azure possano tenere traccia dei messaggi B2B per l'app per la logica, aggiungere la soluzione **app per la logica B2B** all'area di lavoro di log Analytics.
 
-1. Nella casella di ricerca del `log analytics workspaces`portale di [Azure](https://portal.azure.com)immettere e quindi selezionare **Aree di lavoro**di Log Analytics .
+1. Nella casella di ricerca del [portale di Azure](https://portal.azure.com)immettere `log analytics workspaces`e quindi selezionare **log Analytics aree di lavoro**.
 
-   ![Selezionare "Aree di lavoro di Log Analytics"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
+   ![Selezionare "aree di lavoro Log Analytics"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
 
-1. In **Aree di lavoro**di Log Analytics selezionare l'area di lavoro.
+1. In **log Analytics aree di lavoro**selezionare l'area di lavoro.
 
    ![Selezionare l'area di lavoro Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. Nel riquadro Panoramica, in **Introduzione a Log Analytics** > **Configura soluzioni**di monitoraggio, selezionare **Visualizza soluzioni**.
+1. Nel riquadro Panoramica, in Introduzione **a log Analytics** > **configurare le soluzioni di monitoraggio**, selezionare **Visualizza soluzioni**.
 
-   ![Nel riquadro Panoramica selezionare "Visualizza soluzioni"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
+   ![Nel riquadro Panoramica selezionare "Visualizza soluzioni".](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
 1. Nel riquadro Panoramica selezionare **Aggiungi**.
 
    ![Nel riquadro Panoramica aggiungere una nuova soluzione](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
 
-1. Dopo l'apertura del **Marketplace,** `logic apps b2b`nella casella di ricerca immettere e selezionare **App per la logica B2B**.
+1. Dopo l'apertura del **Marketplace** , nella casella di ricerca immettere `logic apps b2b`e selezionare **app per la logica B2B**.
 
-   ![Su Marketplace, seleziona "Gestione app per la logica"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
+   ![Da Marketplace selezionare "gestione app per la logica"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
 
-1. Nel riquadro descrizione soluzione selezionare **Crea**.
+1. Nel riquadro Descrizione soluzione selezionare **Crea**.
 
    ![Selezionare "Crea" per aggiungere la soluzione "App per la logica B2B"](./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png)
 
-1. Esaminare e confermare l'area di lavoro di Log Analytics in cui si desidera installare la soluzione e selezionare di nuovo **Crea.**
+1. Verificare e confermare l'area di lavoro Log Analytics in cui si vuole installare la soluzione e selezionare di nuovo **Crea** .
 
    ![Selezionare "Crea" per "App per la logica B2B"](./media/monitor-b2b-messages-log-analytics/confirm-log-analytics-workspace.png)
 
-   Dopo che Azure distribuisce la soluzione nel gruppo di risorse di Azure che contiene l'area di lavoro di Log Analytics, la soluzione viene visualizzata nel riquadro di riepilogo dell'area di lavoro. Quando i messaggi B2B vengono elaborati, il conteggio dei messaggi in questo riquadro viene aggiornato.
+   Quando Azure distribuisce la soluzione al gruppo di risorse di Azure che contiene l'area di lavoro Log Analytics, la soluzione viene visualizzata nel riquadro di riepilogo dell'area di lavoro. Quando vengono elaborati i messaggi B2B, il numero di messaggi in questo riquadro viene aggiornato.
 
-   ![Riquadro di riepilogo dell'area di lavoro](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
+   ![Riquadro di riepilogo area di lavoro](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
 <a name="set-up-resource-logs"></a>
 
 ## <a name="set-up-azure-monitor-logs"></a>Configurare i log di Monitoraggio di Azure
 
-È possibile abilitare la registrazione di Monitoraggio di Azure direttamente dall'account di integrazione.
+È possibile abilitare la registrazione di monitoraggio di Azure direttamente dall'account di integrazione.
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'account di integrazione.
 
    ![Trovare e selezionare l'account di integrazione](./media/monitor-b2b-messages-log-analytics/find-integration-account.png)
 
-1. Nel menu dell'account di integrazione, in **Monitoraggio,** selezionare **Impostazioni di diagnostica.** Selezionare **Aggiungi impostazione diagnostica**.
+1. Dal menu dell'account di integrazione, in **monitoraggio**selezionare **impostazioni di diagnostica**. Selezionare **Aggiungi impostazioni di diagnostica**.
 
-   ![In "Monitoraggio", seleziona "Impostazioni di diagnostica"](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
+   ![In "monitoraggio" selezionare "impostazioni di diagnostica".](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
 
 1. Per creare l'impostazione, attenersi alla seguente procedura:
 
-   1. Specificare un nome per l'impostazione.
+   1. Consente di specificare un nome per l'impostazione.
 
    1. Selezionare **Invia a Log Analytics**.
 
-   1. In Sottoscrizione selezionare la sottoscrizione di Azure associata all'area di lavoro di Log Analytics.For **Subscription**, select the Azure subscription that's associated with your Log Analytics workspace.
+   1. Per **Subscription (sottoscrizione**) selezionare la sottoscrizione di Azure associata all'area di lavoro log Analytics.
 
-   1. Per **Log Analytics Workspace**, selezionare l'area di lavoro che si desidera utilizzare.
+   1. Per **log Analytics area di lavoro**, selezionare l'area di lavoro che si desidera utilizzare.
 
-   1. In **Log**selezionare la categoria **IntegrationAccountTrackingEvents,** che specifica la categoria di eventi che si desidera registrare.
+   1. In **log**selezionare la categoria **IntegrationAccountTrackingEvents** , che specifica la categoria di eventi che si desidera registrare.
 
    1. Al termine, selezionare **Salva**.
 
    Ad esempio: 
 
-   ![Configurare i log di Monitoraggio di Azure per raccogliere dati di diagnosticaSet up Azure Monitor logs to collect diagnostic data](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
+   ![Configurare i log di monitoraggio di Azure per raccogliere i dati di diagnostica](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
 <a name="view-message-status"></a>
 
 ## <a name="view-message-status"></a>Visualizzare lo stato dei messaggi
 
-Dopo l'esecuzione dell'app per la logica, è possibile visualizzare lo stato e i dati relativi ai messaggi nell'area di lavoro di Log Analytics.After your logic app runs, you can view the status and data about those messages in your Log Analytics workspace.
+Dopo l'esecuzione dell'app per la logica, è possibile visualizzare lo stato e i dati relativi a tali messaggi nell'area di lavoro Log Analytics.
 
-1. Nella casella di ricerca del portale di Azure individuare e aprire l'area di lavoro Log Analytics.In the [Azure portal](https://portal.azure.com) search box, find and open your Log Analytics workspace.
+1. Nella casella di ricerca [portale di Azure](https://portal.azure.com) individuare e aprire l'area di lavoro log Analytics.
 
-1. Nel menu dell'area di lavoro selezionare **Riepilogo area di lavoro** > **App per la logica B2B**.
+1. Nel menu dell'area di lavoro selezionare **Workspace summary** > **app per la logica B2B**di riepilogo dell'area di lavoro.
 
-   ![Riquadro di riepilogo dell'area di lavoro](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
+   ![Riquadro di riepilogo area di lavoro](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
    > [!NOTE]
-   > Se il riquadro B2B app per la logica non mostra immediatamente i risultati dopo un'esecuzione, provare a selezionare **Aggiorna** o attendere un breve periodo di tempo prima di riprovare.
+   > Se il riquadro App per la logica B2B non visualizza immediatamente i risultati dopo un'esecuzione, provare a selezionare **Aggiorna** o attendere un breve periodo di tempo prima di riprovare.
 
-   Per impostazione predefinita, il riquadro **App per la logica B2B** visualizza i dati relativi a un solo giorno. Per modificare l'ambito dei dati in un intervallo diverso, selezionare il controllo ambito nella parte superiore della pagina:
+   Per impostazione predefinita, il riquadro **App per la logica B2B** visualizza i dati relativi a un solo giorno. Per impostare l'ambito dei dati su un intervallo diverso, selezionare il controllo ambito nella parte superiore della pagina:
 
    ![Modifica intervallo](./media/monitor-b2b-messages-log-analytics/change-summary-interval.png)
 
 1. Quando viene aperto il dashboard con lo stato dei messaggi, è possibile visualizzare altri dettagli per un tipo di messaggio specifico, con i dati relativi a un solo giorno. Selezionare il riquadro per **AS2**, **X12**o **EDIFACT**.
 
-   ![Visualizzare gli stati dei messaggi](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
+   ![Visualizzare gli Stati dei messaggi](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
 
    Un elenco di messaggi viene visualizzato per il riquadro scelto. Ecco, ad esempio, come può risultare un elenco di messaggi AS2:
 
@@ -186,9 +186,9 @@ Ecco le descrizioni delle proprietà per ogni messaggio AS2.
 | **Ricevitore** | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo AS2 |
 | **App per la logica** | App per la logica in cui sono configurate le azioni AS2 |
 | **Stato** | Stato dei messaggi AS2 <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata e ricevuta o è stata inviata. <br>Operazione non riuscita = ricevuto un messaggio AS2 non valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>In sospeso = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata ed è prevista. |
-| **Ack** | Stato dei messaggi di notifica sulla ricezione del messaggio <br>Accettato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio positivo. <br>In sospeso = in attesa di ricevere o inviare un messaggio di notifica sulla ricezione del messaggio. <br>Rifiutato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio negativo. <br>Non richiesto = notifica sulla ricezione del messaggio non configurata nell'accordo. |
-| **Direzione** | Direzione dei messaggi AS2 |
-| **ID monitoraggio** | ID che correla tutti i trigger e le azioni in un'app per la logica |
+| **ACK** | Stato dei messaggi di notifica sulla ricezione del messaggio <br>Accettato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio positivo. <br>In sospeso = in attesa di ricevere o inviare un messaggio di notifica sulla ricezione del messaggio. <br>Rifiutato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio negativo. <br>Non richiesto = notifica sulla ricezione del messaggio non configurata nell'accordo. |
+| **Direction** | Direzione dei messaggi AS2 |
+| **ID di traccia** | ID che correla tutti i trigger e le azioni in un'app per la logica |
 | **ID messaggio** | ID del messaggio AS2 dalle intestazioni del messaggio AS2 |
 | **Timestamp** | Ora in cui l'azione AS2 ha elaborato il messaggio |
 |||
@@ -219,9 +219,9 @@ Ecco le descrizioni delle proprietà per ogni messaggio X12.
 | **Ricevitore** | Partner host specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | **App per la logica** | App per la logica in cui sono configurate le azioni X12 |
 | **Stato** | Stato dei messaggi X12 <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 non valido. <br>In sospeso = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato ed è previsto. |
-| **Ack** | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
-| **Direzione** | Direzione dei messaggi X12 |
-| **ID monitoraggio** | ID che correla tutti i trigger e le azioni in un'app per la logica |
+| **ACK** | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
+| **Direction** | Direzione dei messaggi X12 |
+| **ID di traccia** | ID che correla tutti i trigger e le azioni in un'app per la logica |
 | **Tipo di messaggio** | Tipo di messaggio EDI X12 |
 | **ICN** | Numero di controllo interscambio del messaggio X12 |
 | **TSCN** | Numero di controllo del set di transazioni del messaggio X12 |
@@ -254,9 +254,9 @@ Ecco le descrizioni delle proprietà per ogni messaggio EDIFACT.
 | **Ricevitore** | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | **App per la logica** | App per la logica in cui sono configurate le azioni EDIFACT |
 | **Stato** | Stato dei messaggi EDIFACT <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio EDIFACT non valido <br>In sospeso = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato ed è previsto. |
-| **Ack** | Stato Ack funzionale (CONTRL) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
-| **Direzione** | Direzione dei messaggi EDIFACT |
-| **ID monitoraggio** | ID che correla tutti i trigger e le azioni in un'app per la logica |
+| **ACK** | Stato ACK funzionali (CONTRL) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
+| **Direction** | Direzione dei messaggi EDIFACT |
+| **ID di traccia** | ID che correla tutti i trigger e le azioni in un'app per la logica |
 | **Tipo di messaggio** | Tipo di messaggio EDIFACT |
 | **ICN** | Numero di controllo interscambio del messaggio EDIFACT |
 | **TSCN** | Numero di controllo del set di transazioni del messaggio EDIFACT |

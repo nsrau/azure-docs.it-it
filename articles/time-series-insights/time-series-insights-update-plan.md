@@ -1,6 +1,6 @@
 ---
-title: Pianificare l'ambiente di anteprima - Approfondimenti sulle serie temporali di Azure Documenti Microsoft
-description: Procedure consigliate per configurare, gestire, pianificare e distribuire l'ambiente Azure Time Series Insights Preview.
+title: Pianificare l'ambiente di anteprima-Azure Time Series Insights | Microsoft Docs
+description: Procedure consigliate per configurare, gestire, pianificare e distribuire l'ambiente di Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -19,36 +19,36 @@ ms.locfileid: "76045715"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Pianificare un ambiente di anteprima di Azure Time Series Insights
 
-Questo articolo descrive le procedure consigliate per pianificare e iniziare rapidamente usando Azure Time Series Insights Preview.This article describes best practices to plan and get started quickly by using Azure Time Series Insights Preview.
+Questo articolo descrive le procedure consigliate per pianificare e iniziare rapidamente a usare Azure Time Series Insights Preview.
 
 > [!NOTE]
-> Per le procedure consigliate per pianificare un'istanza di Time Series Insights a disponibilità generale, vedere [Plan your Azure Time Series Insights general availability environment](time-series-insights-environment-planning.md).
+> Per le procedure consigliate per pianificare un'istanza di Time Series Insights di disponibilità generale, vedere [pianificare l'Azure Time Series Insights ambiente di disponibilità generale](time-series-insights-environment-planning.md).
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Procedure consigliate per la pianificazione e preparazione
 
-Le procedure consigliate per la pianificazione e la preparazione dell'ambiente sono descritte più avanti negli articoli seguenti:Best practices surrounding planning for and preparing your environment are described further in the following articles:
+Gli articoli seguenti illustrano le procedure consigliate per la pianificazione e la preparazione dell'ambiente.
 
-* Cosa si ottiene quando si esegue il provisioning di [un ambiente Time Series Insights Preview](#the-preview-environment).
-* Che cosa [sono gli ID serie temporali e le proprietà Timestamp](#configure-time-series-ids-and-timestamp-properties).
-* Che cos'è il nuovo [modello Time Series](#understand-the-time-series-model)e come crearne uno personalizzato.
+* Cosa si ottiene quando si effettua [il provisioning di un ambiente Time Series Insights Preview](#the-preview-environment).
+* Quali [sono gli ID e le proprietà timestamp delle serie temporali](#configure-time-series-ids-and-timestamp-properties).
+* Qual è il nuovo [modello Time Series](#understand-the-time-series-model)e come crearne di personalizzati.
 * Come [inviare eventi in modo efficiente in JSON](#shape-your-events).
-* Opzioni di [ripristino di emergenza aziendale](#business-disaster-recovery)di Time Series Insights .
+* Time Series Insights [Opzioni di ripristino di emergenza aziendale](#business-disaster-recovery).
 
-Azure Time Series Insights usa un modello di business con pagamento in base al tuo utilizzo. Per ulteriori informazioni sugli addebiti e sulla capacità, leggere Prezzi di [Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Azure Time Series Insights usa un modello di business con pagamento in base al consumo. Per ulteriori informazioni sugli addebiti e sulla capacità, vedere [Time Series Insights prezzi](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## <a name="the-preview-environment"></a>L'ambiente di anteprima
+## <a name="the-preview-environment"></a>Ambiente di anteprima
 
 Quando si esegue il provisioning di un ambiente di anteprima di Time Series Insights, vengono create due risorse di Azure:
 
 * Un ambiente Anteprima di Azure Time Series Insights
 * Un account di archiviazione di Azure per utilizzo generico V1
 
-Come parte del processo di provisioning, specificare se si desidera abilitare un archivio a caldo. L'archivio caldo offre un'esperienza di query a più livelli. Se abilitata, è necessario specificare un periodo di conservazione compreso tra 7 e 30 giorni. Le query eseguite entro il periodo di conservazione dell'archivio caldo in genere forniscono tempi di risposta più rapidi. Quando una query si estende nel periodo di conservazione dell'archivio caldo, viene servita dal cold store.
+Come parte del processo di provisioning, specificare se si vuole abilitare un archivio a caldo. Warm Store offre un'esperienza di query a più livelli. Se abilitata, è necessario specificare un periodo di conservazione compreso tra 7 e 30 giorni. Le query eseguite entro il periodo di conservazione dell'archivio caldo forniscono in genere tempi di risposta più rapidi. Quando una query si estende sul periodo di conservazione del negozio a caldo, viene servita dall'archivio a freddo.
 
-Le query sul negozio caldo sono gratuite, mentre le query sui costi dell'archivio freddo comportano costi. È importante comprendere i modelli di query e pianificare di conseguenza la configurazione del punto vendita a caldo. Consigliamo che l'analisi interattiva sui dati più recenti si trovi nel tuo archivio caldo e nell'analisi dei modelli e che le tendenze a lungo termine risiedano a freddo.
+Le query sull'archivio a caldo sono gratuite, mentre le query sull'archivio a freddo sono soggette a costi. È importante comprendere i modelli di query e pianificare la configurazione del negozio a caldo di conseguenza. È consigliabile che le analisi interattive sui dati più recenti risiedano nel negozio a caldo e l'analisi dei modelli e le tendenze a lungo termine risiedano a freddo.
 
 > [!NOTE]
-> Per ulteriori informazioni su come eseguire query sui dati caldi, leggere la Guida [di riferimento all'API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+> Per altre informazioni su come eseguire query sui dati caldi, vedere le informazioni di [riferimento sulle API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 Per iniziare, sono necessari altri tre elementi:
 
@@ -60,27 +60,27 @@ Per iniziare, sono necessari altri tre elementi:
 
 [!INCLUDE [Review Time Series Insights Preview limits](../../includes/time-series-insights-preview-limits.md)]
 
-## <a name="configure-time-series-ids-and-timestamp-properties"></a>Configurare gli URL delle serie temporali e le proprietà timestamp
+## <a name="configure-time-series-ids-and-timestamp-properties"></a>Configurare gli ID della serie temporale e le proprietà timestamp
 
 Per creare un nuovo ambiente Time Series Insights, selezionare un ID Time Series. Tale operazione funge da partizione logica per i dati. Come accennato, assicurarsi di disporre dell'ID Time Series a portata di mano.
 
 > [!IMPORTANT]
-> Gli ID serie temporali *non possono essere modificati in un secondo momento.* Verificare ognuno di essi prima della selezione finale e del primo uso.
+> Gli ID delle serie temporali *non possono essere modificati in seguito*. Verificare ognuno di essi prima della selezione finale e del primo uso.
 
-È possibile selezionare fino a tre chiavi per differenziare in modo univoco le risorse. Per altre informazioni, leggere [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedure consigliate per la scelta di un ID Time Series) e [Storage and ingress](./time-series-insights-update-storage-ingress.md) (Archiviazione e ingresso).
+È possibile selezionare fino a tre chiavi per distinguere in modo univoco le risorse. Per altre informazioni, leggere [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedure consigliate per la scelta di un ID Time Series) e [Storage and ingress](./time-series-insights-update-storage-ingress.md) (Archiviazione e ingresso).
 
-Anche la proprietà **Timestamp** è importante. È possibile definire questa proprietà quando si aggiungono origini evento. Ogni origine evento include una proprietà Timestamp facoltativa, usata per tenere traccia delle origini evento nel tempo. I valori di Timestamp fanno distinzione tra maiuscole/minuscole e devono essere formattati in base alle singole specifiche di ogni origine evento.
+Anche la proprietà **timestamp** è importante. È possibile definire questa proprietà quando si aggiungono origini evento. Ogni origine evento include una proprietà Timestamp facoltativa, usata per tenere traccia delle origini evento nel tempo. I valori di Timestamp fanno distinzione tra maiuscole/minuscole e devono essere formattati in base alle singole specifiche di ogni origine evento.
 
 > [!TIP]
 > Verificare i requisiti di formattazione e analisi per le origini evento.
 
-Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodamento dell'evento di un origine evento. Se si inviano dati cronologici o eventi in batch, la personalizzazione della proprietà Timestamp è più utile rispetto al tempo di accodamento dell'evento. Per altre informazioni, vedere come aggiungere origini eventi nell'hub IoT di Azure.For more information, read about how to [add event sources in Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodamento dell'evento di un origine evento. Se si inviano dati cronologici o eventi in batch, la personalizzazione della proprietà Timestamp è più utile rispetto al tempo di accodamento dell'evento. Per altre informazioni, vedere come [aggiungere origini evento nell'hub Azure](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 ## <a name="understand-the-time-series-model"></a>Comprendere il modello Time Series
 
 È ora possibile configurare il modello Time Series dell'ambiente Time Series Insights. Il nuovo modello semplifica l'individuazione e l'analisi dei dati IoT, consentendo la cura, la manutenzione e l'arricchimento dei dati Time Series e la preparazione di set di dati di livello consumer. Il modello usa ID Time Series, che esegue il mapping a un'istanza che associa la risorsa univoca a variabili, note come tipi, e gerarchie. Informazioni sul nuovo [modello Time Series](./time-series-insights-update-tsm.md).
 
-Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilarlo e caricarlo prima di eseguire il push dei dati in Time Series Insights. Per creare il modello, leggere Usare il modello [Time Series](./time-series-insights-update-how-to-tsm.md).
+Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilarlo e caricarlo prima di eseguire il push dei dati in Time Series Insights. Per compilare il modello, vedere [usare il modello Time Series](./time-series-insights-update-how-to-tsm.md).
 
 Per molti clienti, il modello Time Series esegue il mapping a un modello di risorse esistente o al sistema ERP già in uso. Se non si dispone di un modello esistente, viene [offerta](https://github.com/Microsoft/tsiclient) un'esperienza utente predefinita per ottenerlo rapidamente. Per conoscere i vantaggi di un modello, visualizzare l'[ambiente demo di esempio](https://insights.timeseries.azure.com/preview/demo).
 
@@ -91,14 +91,14 @@ Per molti clienti, il modello Time Series esegue il mapping a un modello di riso
 Una buona norma:
 
 * Archiviare i metadati nel modello Time Series.
-* Assicurarsi che la modalità Time Series, i campi di istanza e gli eventi includano solo le informazioni necessarie, ad esempio un ID serie temporali o una proprietà Timestamp.
+* Verificare che la modalità della serie temporale, i campi dell'istanza e gli eventi includano solo le informazioni necessarie, ad esempio un ID della serie temporale o una proprietà timestamp.
 
-Per ulteriori informazioni, leggere [Eventi Shape](./time-series-insights-send-events.md#supported-json-shapes).
+Per ulteriori informazioni, leggere [eventi forma](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare [Azure Advisor](../advisor/advisor-overview.md) per pianificare le opzioni di configurazione del ripristino aziendale.
-- Per altre informazioni [sull'archiviazione e l'ingresso,](./time-series-insights-update-storage-ingress.md) vedere Time Series Insights Preview.Read more about storage and ingress in the Time Series Insights Preview.
+- Esaminare [Azure Advisor](../advisor/advisor-overview.md) per pianificare le opzioni di configurazione per il ripristino di business.
+- Per altre informazioni sull'archiviazione e sul traffico in [ingresso,](./time-series-insights-update-storage-ingress.md) vedere la Time Series Insights Preview.
 - Informazioni sulla [modellazione dei dati](./time-series-insights-update-tsm.md) in Time Series Insights Preview.

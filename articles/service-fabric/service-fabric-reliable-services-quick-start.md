@@ -1,5 +1,5 @@
 ---
-title: 'Creare la prima applicazione Di Service Fabric in CCreate your first Service Fabric application in C #'
+title: 'Creare la prima applicazione Service Fabric in C #'
 description: Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato.
 ms.topic: conceptual
 ms.date: 07/10/2019
@@ -14,7 +14,7 @@ ms.locfileid: "77083779"
 # <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
 
 > [!div class="op_single_selector"]
-> * [C'è su Windows](service-fabric-reliable-services-quick-start.md)
+> * [C# in Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java su Linux](service-fabric-reliable-services-quick-start-java.md)
 
 Un'applicazione di Azure Service Fabric contiene uno o più servizi che consentono l'esecuzione del codice. Questa guida illustra come creare applicazioni di Service Fabric con e senza stato con i servizi [Reliable Services](service-fabric-reliable-services-introduction.md).  
@@ -32,11 +32,11 @@ Per iniziare a usare Reliable Services, è sufficiente comprendere solo alcuni c
 
 Il servizio senza stato è il tipo di servizio di norma presente nelle applicazioni cloud. Viene considerato senza stato perché il servizio stesso non contiene dati che devono essere archiviati in modo affidabile o resi a disponibilità elevata. Se un'istanza di un servizio senza stato si arresta, il relativo stato interno viene perso. In questi tipi di servizio lo stato deve essere reso persistente mediante un archivio esterno, ad esempio tabelle di Azure o un database SQL, in modo da assicurare elevata disponibilità e affidabilità.
 
-Avviare Visual Studio 2017 o Visual Studio 2019 come amministratore e creare un nuovo progetto di applicazione Di Service Fabric denominato *HelloWorld*:
+Avviare Visual Studio 2017 o Visual Studio 2019 come amministratore e creare un nuovo progetto di applicazione Service Fabric denominato *HelloWorld*:
 
 ![Uso della finestra di dialogo New Project per creare una nuova applicazione di Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Creare quindi un progetto di servizio senza stato utilizzando **.NET Core 2.0** denominato *HelloWorldStateless*:
+Creare quindi un progetto di servizio senza stato usando **.NET Core 2,0** denominato *HelloWorldStateless*:
 
 ![Nella seconda finestra di dialogo creare un progetto di servizio senza stato](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -71,7 +71,7 @@ Questa esercitazione si concentra sul metodo del punto di ingresso `RunAsync()` 
 Il modello di progetto include un esempio di implementazione di `RunAsync()` che gestisce un conteggio incrementale.
 
 > [!NOTE]
-> Per informazioni dettagliate su come utilizzare uno stack di comunicazione, vedere [Comunicazione del servizio con ASP.NET CoreFor](service-fabric-reliable-services-communication-aspnetcore.md) details about how to work with a communication stack, see Service communication with ASP.NET Core
+> Per informazioni dettagliate sull'uso di uno stack di comunicazione, vedere [comunicazione dei servizi con ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ### <a name="runasync"></a>RunAsync
 
@@ -119,13 +119,13 @@ Nella stessa applicazione *HelloWorld* aggiungere un nuovo servizio facendo clic
 
 ![Aggiungere un servizio all'applicazione di Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Selezionare **.NET Core 2.0 -> servizio con stato** e denominarlo *HelloWorldStateful*. Fare clic su **OK**.
+Selezionare **.NET Core 2,0-> servizio con stato** e denominarlo *HelloWorldStateful*. Fare clic su **OK**.
 
 ![Uso della finestra di dialogo New Project per creare un nuovo servizio di Service Fabric con stato](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
 A questo punto l'applicazione ha due servizi: il servizio senza stato *HelloWorldStateless* e il servizio con stato *HelloWorldStateful*.
 
-Un servizio con stato ha gli stessi punti di ingresso di un servizio senza stato. La differenza principale è la disponibilità di un provider di *stato* in grado di archiviare lo stato in modo affidabile. Service Fabric viene fornito con un'implementazione del provider di stato denominata [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), che consente di creare strutture di dati replicate tramite Reliable State Manager. Un servizio Reliable Services con stato usa questo provider di stato per impostazione predefinita.
+Un servizio con stato ha gli stessi punti di ingresso di un servizio senza stato. La differenza principale è la disponibilità di un *provider di stato* che può archiviare lo stato in modo affidabile. Service Fabric viene fornita con un'implementazione del provider di stato denominata [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), che consente di creare strutture di dati replicate tramite Reliable state Manager. Un servizio Reliable Services con stato usa questo provider di stato per impostazione predefinita.
 
 Aprire **HelloWorldStateful.cs** in *HelloWorldStateful*che contiene il metodo RunAsync seguente:
 
@@ -176,7 +176,7 @@ Le raccolte Reliable Collections possono archiviare qualsiasi tipo .NET, inclusi
 * Service Fabric garantisce la disponibilità elevata dello stato *replicando* lo stato nei nodi, mentre Reliable Collections archivia i dati nel disco locale a ogni replica. Questo significa che tutti gli elementi archiviati in Reliable Collections devono essere *serializzabili*. Per impostazione predefinita, le raccolte Reliable Collections usano [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) per la serializzazione. Quando si usa il serializzatore predefinito, è quindi importante assicurarsi che i tipi siano [supportati dal serializzatore dei contratti dati](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx).
 * Quando si esegue il commit di transazioni nelle raccolte Reliable Collections, gli oggetti vengono replicati per assicurare disponibilità elevata. Gli oggetti archiviati nelle raccolte Reliable Collections vengono conservati nella memoria locale del servizio. Ciò significa che è presente un riferimento locale all'oggetto.
   
-   È importante non apportare modifiche alle istanze locali degli oggetti senza prima eseguire un'operazione di aggiornamento sulla raccolta Reliable Collections in una transazione. Le modifiche apportate alle istanze locali di oggetti, infatti, non vengono replicate automaticamente. È necessario reinserire l'oggetto nel dizionario o utilizzare uno dei metodi di *aggiornamento* nel dizionario.
+   È importante non apportare modifiche alle istanze locali degli oggetti senza prima eseguire un'operazione di aggiornamento sulla raccolta Reliable Collections in una transazione. Le modifiche apportate alle istanze locali di oggetti, infatti, non vengono replicate automaticamente. È necessario reinserire nuovamente l'oggetto nel dizionario o utilizzare uno dei metodi di *aggiornamento* sul dizionario.
 
 Reliable State Manager gestisce automaticamente le raccolte Reliable Collections. In qualunque momento e in qualsiasi posizione del servizio è possibile chiedere a Reliable State Manager una raccolta Reliable Collections indicandone il nome. Reliable State Manager restituirà un riferimento. Non si consiglia di salvare riferimenti alle istanze di raccolte Reliable Collections in proprietà o variabili membri di classe. Prestare particolare attenzione per assicurarsi che il riferimento sia sempre impostato su un'istanza durante il ciclo di vita del servizio. Reliable State Manager gestisce queste operazioni automaticamente ed è ottimizzato per le visite ripetute.
 
@@ -193,7 +193,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Gli insiemi Reliable Collections `System.Collections.Generic` `System.Collections.Concurrent` hanno molte delle stesse operazioni eseguite dalle rispettive e controparti, ad eccezione di Language Integrated Query (LINQ). Le operazioni sulle raccolte Reliable Collections sono asincrone. Questo avviene perché le operazioni di scrittura sulle raccolte Reliable Collections eseguono operazioni di I/O per replicare e rendere persistenti i dati su disco.
+Le raccolte Reliable Collections hanno molte delle stesse `System.Collections.Generic` operazioni `System.Collections.Concurrent` eseguite dalle relative controparti e, ad eccezione di Language Integrated Query (LINQ). Le operazioni sulle raccolte Reliable Collections sono asincrone. Questo avviene perché le operazioni di scrittura sulle raccolte Reliable Collections eseguono operazioni di I/O per replicare e rendere persistenti i dati su disco.
 
 Le operazioni sulle raccolte Reliable Collections sono *transazionali*e consentono di mantenere lo stato coerente tra più raccolte Reliable Collections e operazioni. Ad esempio, è possibile rimuovere un elemento di lavoro da un oggetto ReliableQueue, eseguire un'operazione su tale elemento e salvare il risultato in un oggetto ReliableDictionary, il tutto all'interno di una singola transazione. Questa viene considerata come un'operazione atomica e garantisce la riuscita o il rollback dell'intera operazione. Se si verifica un errore dopo aver rimosso l'elemento dalla coda ma prima di aver salvato il risultato, viene eseguito il rollback dell'intera transazione e l'elemento rimane nella coda per l'elaborazione.
 

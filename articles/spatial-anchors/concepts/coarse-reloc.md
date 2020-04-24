@@ -1,6 +1,6 @@
 ---
 title: Rilocalizzazione grossolana
-description: Scopri come usare la rilocalizzazione grossolana per trovare le ancore vicino a te.
+description: Informazioni sull'uso della rilocalizzazione grossolana per trovare gli ancoraggi più vicini.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -17,27 +17,27 @@ ms.locfileid: "76844395"
 ---
 # <a name="coarse-relocalization"></a>Rilocalizzazione grossolana
 
-Rilocalizzazione grossolana è una caratteristica che fornisce una risposta iniziale alla domanda: *Dove è il mio dispositivo ora / Quale contenuto devo osservare?* La risposta non è precisa, ma invece è nella forma: *sei vicino a questi ancoraggi; prova a localizzarne uno.*
+La rilocalizzazione grossolana è una funzionalità che fornisce una risposta iniziale alla domanda: *dove si trova il dispositivo ora/quale contenuto è opportuno osservare?* La risposta non è precisa, ma è nel formato: *si è vicini a questi ancoraggi; provare a individuarne uno*.
 
-La rilocalizzazione grossolana funziona associando varie letture del sensore sul dispositivo sia alla creazione che all'interrogazione degli ancoraggi. Per gli scenari esterni, i dati del sensore sono in genere la posizione GPS (Global Positioning System) del dispositivo. Quando il GPS non è disponibile o inaffidabile (ad esempio in ambienti interni), i dati del sensore sono costituiti dai punti di accesso WiFi e dai beacon Bluetooth nel raggio d'azione. Tutti i dati dei sensori raccolti contribuiscono a mantenere un indice spaziale, usati dagli ancoraggi spaziali di Azure per determinare rapidamente gli ancoraggi che si trovano entro circa 100 metri dal dispositivo.
+La rilocalizzazione grossolana funziona associando varie letture del sensore sul dispositivo con la creazione e l'esecuzione di query degli ancoraggi. Per gli scenari esterni, i dati del sensore sono in genere la posizione GPS (Global Positioning System) del dispositivo. Quando il GPS non è disponibile o non è affidabile (ad esempio, in ingresso), i dati del sensore sono costituiti dai punti di accesso Wi-Fi e dai beacon Bluetooth nell'intervallo. Tutti i dati dei sensori raccolti contribuiscono alla gestione di un indice spaziale. questa operazione viene usata dagli ancoraggi spaziali di Azure per determinare rapidamente gli ancoraggi entro circa 100 metri dal dispositivo.
 
-La rapida ricerca di ancore abilitate da una rilocalizzazione grossolana semplifica lo sviluppo di applicazioni supportate da collezioni su scala mondiale di (diciamo, milioni di ancoraggi geo-distribuiti). La complessità della gestione dell'ancora è tutto nascosto, consentendo di concentrarsi di più sulla logica dell'applicazione impressionante. Tutto l'ancoraggio di sollevamento pesante viene eseguito per l'utente dietro le quinte da Azure Spatial Anchors.All the anchor heavy-lifting is done for you by you by you by Azure Spatial Anchors.
+La ricerca rapida di ancoraggi abilitati dalla rilocalizzazione grossolana semplifica lo sviluppo di applicazioni supportate da raccolte su scala globale di ancoraggi, ad affermare milioni di ancoraggi con distribuzione geografica. La complessità della gestione degli ancoraggi è completamente nascosta, consentendo di concentrarsi maggiormente sulla logica dell'applicazione. Tutto il lifting di ancoraggio viene eseguito automaticamente dietro le quinte dagli ancoraggi spaziali di Azure.
 
 ## <a name="collected-sensor-data"></a>Dati dei sensori raccolti
 
-I dati del sensore che è possibile inviare al servizio di ancoraggio sono i seguenti:
+I dati del sensore che è possibile inviare al servizio di ancoraggio sono uno dei seguenti:
 
-* Posizione GPS: latitudine, longitudine, altitudine.
-* Potenza di segnale dei punti di accesso WiFi nel raggio d'azione.
-* Potenza del segnale dei fari Bluetooth in gamma.
+* Posizione GPS: Latitudine, Longitudine, altitudine.
+* Potenza del segnale dei punti di accesso Wi-Fi nell'intervallo.
+* Livello di attendibilità dei segnali Bluetooth nell'intervallo.
 
-In generale, l'applicazione dovrà acquisire autorizzazioni specifiche del dispositivo per accedere ai dati GPS, WiFi o BLE. Inoltre, alcuni dei dati del sensore di cui sopra non sono disponibili in base alla progettazione su alcune piattaforme. Per tenere conto di queste situazioni, la raccolta dei dati del sensore è facoltativa ed è disattivata per impostazione predefinita.
+In generale, l'applicazione dovrà acquisire autorizzazioni specifiche del dispositivo per accedere ai dati GPS, Wi-Fi o BLE. Inoltre, alcuni dei dati dei sensori precedenti non sono disponibili in base alla progettazione su determinate piattaforme. Per tenere conto di queste situazioni, la raccolta di dati del sensore è facoltativa ed è disattivata per impostazione predefinita.
 
-## <a name="set-up-the-sensor-data-collection"></a>Configurare la raccolta dei dati del sensore
+## <a name="set-up-the-sensor-data-collection"></a>Configurare la raccolta di dati del sensore
 
-Iniziamo creando un provider di impronte digitali del sensore e rendendo la sessione consapevole di esso:
+Si inizierà con la creazione di un provider di impronte digitali del sensore e la sessione ne sarà a conoscenza:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 // Create the sensor fingerprint provider
@@ -64,7 +64,7 @@ cloudSpatialAnchorSession = [[ASACloudSpatialAnchorSession alloc] init];
 cloudSpatialAnchorSession.locationProvider = sensorProvider;
 ```
 
-# <a name="swift"></a>[Repentino](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 // Create the sensor fingerprint provider
@@ -91,7 +91,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndk"></a>[NDK di C](#tab/cpp)
+# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -105,7 +105,7 @@ cloudSpatialAnchorSession = std::make_shared<CloudSpatialAnchorSession>();
 cloudSpatialAnchorSession->LocationProvider(sensorProvider);
 ```
 
-# <a name="c-winrt"></a>[WinRT in C](#tab/cppwinrt)
+# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
 ```cpp
 // Create the sensor fingerprint provider
 PlatformLocationProvider sensorProvider = PlatformLocationProvider();
@@ -118,21 +118,21 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-Successivamente, è necessario decidere quali sensori si desidera utilizzare per la rilocalizzazione grossolana. Questa decisione è specifica per l'applicazione che si sta sviluppando, ma i consigli nella tabella seguente dovrebbero fornire un buon punto di partenza:
+Successivamente, è necessario decidere quali sensori si vuole usare per la rilocalizzazione approssimativa. Questa decisione è specifica dell'applicazione che si sta sviluppando, ma i consigli indicati nella tabella seguente dovrebbero fornire un valido punto di partenza:
 
 
-|             | All' interno | All' aperto |
+|             | Interni | Autunno |
 |-------------|---------|----------|
-| Gps         | Disattivato | Attivato |
-| WiFi        | Attivato | Attivato (opzionale) |
-| Fari BLE | Attivato (opzionale con avvertenze, vedere di seguito) | Disattivato |
+| GPS         | Disattivato | Attivato |
+| WiFi        | Attivato | On (facoltativo) |
+| Beacon BLE | On (facoltativo con avvertenze, vedere più avanti) | Disattivato |
 
 
-### <a name="enabling-gps"></a>Abilitazione del GPS
+### <a name="enabling-gps"></a>Abilitazione di GPS
 
-Supponendo che l'applicazione disponga già dell'autorizzazione per accedere alla posizione GPS del dispositivo, è possibile configurare gli ancoraggi spaziali di Azure per usarlo:Assuming your application already have permission to access the device's GPS position, you can configure Azure Spatial Anchors to use it:
+Supponendo che l'applicazione disponga già dell'autorizzazione per accedere alla posizione GPS del dispositivo, è possibile configurare gli ancoraggi spaziali di Azure per usarla:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.GeoLocationEnabled = true;
@@ -145,7 +145,7 @@ ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.geoLocationEnabled = true;
 ```
 
-# <a name="swift"></a>[Repentino](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let sensors = locationProvider?.sensors
@@ -159,14 +159,14 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[NDK di C](#tab/cpp)
+# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->GeoLocationEnabled(true);
 ```
 
-# <a name="c-winrt"></a>[WinRT in C](#tab/cppwinrt)
+# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -175,20 +175,20 @@ sensors.GeoLocationEnabled(true);
 
 ---
 
-Quando si utilizza il GPS nell'applicazione, tenere presente che le letture fornite dall'hardware sono in genere:
+Quando si usa il GPS nell'applicazione, tenere presente che le letture fornite dall'hardware sono in genere:
 
-* frequenza asincrona e bassa (meno di 1 Hz).
-* inaffidabile / rumoroso (in media deviazione standard di 7 m).
+* asincrona e bassa frequenza (minore di 1 Hz).
+* non affidabile/rumoroso (in media deviazione standard 7-m).
 
-In generale, sia il sistema operativo del dispositivo che gli ancoraggi spaziali di Azure eseguiranno alcuni filtri ed estrapolazioni sul segnale GPS non elaborato nel tentativo di ridurre questi problemi. Questa elaborazione aggiuntiva richiede più tempo per la convergenza, pertanto per ottenere risultati ottimali è consigliabile provare a:
+In generale, il sistema operativo del dispositivo e gli ancoraggi spaziali di Azure eseguiranno alcune operazioni di filtro e estrapolazione sul segnale GPS non elaborato nel tentativo di attenuare questi problemi. Questa elaborazione aggiuntiva richiede ulteriore tempo per la convergenza, quindi per ottenere risultati ottimali è consigliabile:
 
-* creare un sensore di impronte digitali il più presto possibile nella vostra applicazione
-* mantenere attivo il provider di impronte digitali del sensore tra più sessioni
+* creare un provider di impronte digitali del sensore il prima possibile nell'applicazione
+* Mantieni attivo il provider di impronte digitali del sensore tra più sessioni
 * condividere il provider di impronte digitali del sensore tra più sessioni
 
-Se si prevede di utilizzare il provider di impronte digitali del sensore al di fuori di una sessione di ancoraggio, assicurarsi di avviarlo prima di richiedere le stime del sensore. Ad esempio, il codice seguente si occuperà dell'aggiornamento della posizione del dispositivo sulla mappa in tempo reale:
+Se si prevede di usare il provider di impronte digitali del sensore al di fuori di una sessione di ancoraggio, assicurarsi di avviarlo prima di richiedere le stime dei sensori. Ad esempio, il codice seguente si occuperà di aggiornare la posizione del dispositivo sulla mappa in tempo reale:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 // Game about to start, start tracking the sensors
@@ -231,7 +231,7 @@ while (m_isRunning)
 [sensorProvider stop];
 ```
 
-# <a name="swift"></a>[Repentino](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 // Game about to start, start tracking the sensors
@@ -272,7 +272,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndk"></a>[NDK di C](#tab/cpp)
+# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -292,7 +292,7 @@ while (m_isRunning)
 sensorProvider->Stop();
 ```
 
-# <a name="c-winrt"></a>[WinRT in C](#tab/cppwinrt)
+# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -314,11 +314,11 @@ sensorProvider.Stop();
 
 ---
 
-### <a name="enabling-wifi"></a>Abilitazione del WiFi
+### <a name="enabling-wifi"></a>Abilitazione di Wi-Fi
 
-Supponendo che l'applicazione disponga già dell'autorizzazione per accedere allo stato WiFi del dispositivo, è possibile configurare gli ancoraggi spaziali di Azure per usarlo:Assuming your application already have permission to access the device's WiFi state, you can configure Azure Spatial Anchors to use it:
+Supponendo che l'applicazione disponga già dell'autorizzazione per accedere allo stato Wi-Fi del dispositivo, è possibile configurare gli ancoraggi spaziali di Azure per l'uso:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.WifiEnabled = true;
@@ -331,7 +331,7 @@ ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.wifiEnabled = true;
 ```
 
-# <a name="swift"></a>[Repentino](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let sensors = locationProvider?.sensors
@@ -345,14 +345,14 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[NDK di C](#tab/cpp)
+# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->WifiEnabled(true);
 ```
 
-# <a name="c-winrt"></a>[WinRT in C](#tab/cppwinrt)
+# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -361,22 +361,22 @@ sensors.WifiEnabled(true);
 
 ---
 
-Quando si utilizza il WiFi nell'applicazione, tenere presente che le letture fornite dall'hardware sono in genere:
+Quando si usa il Wi-Fi nell'applicazione, tenere presente che le letture fornite dall'hardware sono in genere:
 
-* frequenza asincrona e bassa (meno di 0,1 Hz).
+* asincrona e bassa frequenza (inferiore a 0,1 Hz).
 * potenzialmente limitato a livello di sistema operativo.
-* inaffidabile / rumoroso (in media 3-dBBm deviazione standard).
+* non affidabile/rumoroso (in media, la deviazione standard 3-dBm).
 
-Gli ancoraggi spaziali di Azure tenteranno di creare una mappa della potenza del segnale WiFi filtrata durante una sessione nel tentativo di ridurre questi problemi. Per ottenere i migliori risultati si dovrebbe cercare di:
+Gli ancoraggi spaziali di Azure tenterà di creare una mappa del livello di attendibilità del segnale Wi-Fi filtrato durante una sessione nel tentativo di attenuare questi problemi. Per ottenere risultati ottimali, provare a:
 
-* creare bene la sessione prima di posizionare il primo ancoraggio.
-* mantenere attiva la sessione il più a lungo possibile (ovvero, creare tutti gli ancoraggi e interrogare in una sessione).
+* creare correttamente la sessione prima di posizionare il primo ancoraggio.
+* Mantieni la sessione attiva per il periodo di tempo più lungo possibile, ovvero crea tutti gli ancoraggi e le query in una sessione.
 
-### <a name="enabling-bluetooth-beacons"></a>Abilitazione dei beacon Bluetooth
+### <a name="enabling-bluetooth-beacons"></a>Abilitazione di Beacon Bluetooth
 
-Supponendo che l'applicazione disponga già dell'autorizzazione per accedere allo stato Bluetooth del dispositivo, è possibile configurare gli ancoraggi spaziali di Azure per usarlo:Assuming your application already have permission to access the device's Bluetooth state, you can configure Azure Spatial Anchors to use it:
+Supponendo che l'applicazione disponga già dell'autorizzazione per accedere allo stato Bluetooth del dispositivo, è possibile configurare gli ancoraggi spaziali di Azure per usarla:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.BluetoothEnabled = true;
@@ -389,7 +389,7 @@ ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.bluetoothEnabled = true;
 ```
 
-# <a name="swift"></a>[Repentino](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let sensors = locationProvider?.sensors
@@ -403,14 +403,14 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[NDK di C](#tab/cpp)
+# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->BluetoothEnabled(true);
 ```
 
-# <a name="c-winrt"></a>[WinRT in C](#tab/cppwinrt)
+# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors();
@@ -419,13 +419,13 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-I beacon sono in genere dispositivi versatili, in cui è possibile configurare tutto, inclusi gli UUID e gli indirizzi MAC. Questa flessibilità può essere problematica per gli ancoraggi spaziali di Azure in quanto considera i beacon come identificati in modo univoco dai relativi UUID. Non riuscire a garantire questa unicità molto probabilmente causerà wormhole spaziali. Per ottenere i migliori risultati è necessario:
+I beacon sono in genere dispositivi versatili, in cui è possibile configurare tutti gli elementi, inclusi UUID e indirizzi MAC. Questa flessibilità può essere problematica per gli ancoraggi spaziali di Azure poiché considera i beacon come identificati in modo univoco dai rispettivi UUID. Il mancato assicurando che questa unicità provochi molto probabilmente i wormhole spaziali. Per ottenere risultati ottimali, è necessario:
 
 * assegnare UUID univoci ai beacon.
 * distribuirli, in genere in un modello regolare, ad esempio una griglia.
-* passare l'elenco degli UUID dei beacon univoci al provider di impronte digitali del sensore:
+* passare l'elenco degli UUID del Beacon univoco al provider di impronte digitali del sensore:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
@@ -445,7 +445,7 @@ ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.knownBeaconProximityUuids = uuids;
 ```
 
-# <a name="swift"></a>[Repentino](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let uuids = [String]()
@@ -467,7 +467,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndk"></a>[NDK di C](#tab/cpp)
+# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -478,7 +478,7 @@ const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->KnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-winrt"></a>[WinRT in C](#tab/cppwinrt)
+# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
 
 ```cpp
 std::vector<winrt::hstring> uuids;
@@ -491,15 +491,15 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Gli ancoraggi spaziali di Azure terranno traccia solo dei beacon Bluetooth presenti nell'elenco degli UUID di prossimità dei beacon noti. I fari dannosi programmati per avere UUID consentiti possono comunque avere un impatto negativo sulla qualità del servizio. Per questo motivo, è consigliabile utilizzare i beacon solo in spazi curati in cui è possibile controllare la loro distribuzione.
+Gli ancoraggi spaziali di Azure rileveranno solo i beacon Bluetooth presenti nell'elenco UUID di prossimità di Beacon noti. I beacon dannosi programmati in modo da consentire gli UUID elencati possono comunque influire negativamente sulla qualità del servizio. Per questo motivo, è consigliabile usare Beacon solo negli spazi curati in cui è possibile controllare la distribuzione.
 
 ## <a name="querying-with-sensor-data"></a>Esecuzione di query con i dati del sensore
 
-Dopo aver creato gli ancoraggi con i dati del sensore associati, è possibile iniziare a recuperarli utilizzando le letture del sensore segnalate dal dispositivo. Non sei più tenuto a fornire al servizio un elenco di ancoraggi noti che ti aspetti di trovare, invece di far sapere al servizio la posizione del tuo dispositivo come riportato dai suoi sensori di bordo. Gli ancoraggi spaziali di Azure scopriranno quindi il set di ancoraggi vicino al dispositivo e tenteranno di abbinarli visivamente.
+Dopo aver creato gli ancoraggi con i dati del sensore associati, è possibile iniziare a recuperarli usando le letture del sensore segnalate dal dispositivo. Non è più necessario fornire al servizio un elenco di ancoraggi noti che si prevede di trovare. al contrario, è sufficiente lasciare che il servizio conosca la posizione del dispositivo come segnalato dai sensori di onboarding. Gli ancoraggi spaziali di Azure rileveranno quindi il set di ancoraggi vicino al dispositivo e tenterà di trovare una corrispondenza visiva.
 
-Per fare in modo che le query utilizzino i dati del sensore, iniziare creando criteri "vicino al dispositivo":
+Per fare in modo che le query usino i dati del sensore, iniziare creando i criteri "near Device":
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
@@ -529,7 +529,7 @@ ASAAnchorLocateCriteria *anchorLocateCriteria = [[ASAAnchorLocateCriteria alloc]
 anchorLocateCriteria.nearDevice = nearDeviceCriteria;
 ```
 
-# <a name="swift"></a>[Repentino](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let nearDeviceCriteria = ASANearDeviceCriteria()!
@@ -559,7 +559,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndk"></a>[NDK di C](#tab/cpp)
+# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -574,7 +574,7 @@ auto anchorLocateCriteria = std::make_shared<AnchorLocateCriteria>();
 anchorLocateCriteria->NearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-winrt"></a>[WinRT in C](#tab/cppwinrt)
+# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
 
 ```cpp
 NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
@@ -592,13 +592,13 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 ---
 
-Il `DistanceInMeters` parametro controlla la distanza di esplorazione del grafico di ancoraggio per recuperare il contenuto. Si supponga, ad esempio, di aver popolato dello spazio con ancoraggi a densità costante di 2 ogni metro. Inoltre, la fotocamera del dispositivo sta osservando una singola ancora e il servizio l'ha individuata con successo. Molto probabilmente sei interessato a recuperare tutti gli ancoraggi che hai posizionato nelle vicinanze piuttosto che il singolo ancoraggio che stai osservando. Supponendo che gli ancoraggi che hai posizionato siano collegati in un grafico, il servizio può recuperare tutti gli ancoraggi vicini seguendo i bordi nel grafico. La quantità di attraversamento del `DistanceInMeters`grafico fatto è controllato da ; ti verranno date tutte le ancore collegate a quella che `DistanceInMeters`hai localizzato, che sono più vicine di .
+Il `DistanceInMeters` parametro controlla il punto in cui si esplorerà il grafico di ancoraggio per recuperare il contenuto. Si supponga, ad esempio, di avere popolato uno spazio con ancoraggi a densità costante pari a 2 ogni contatore. Inoltre, la fotocamera del dispositivo sta osservando un singolo ancoraggio e il servizio lo ha individuato correttamente. È molto probabile che si sia interessati a recuperare tutti gli ancoraggi posizionati nelle vicinanze, anziché il singolo ancoraggio attualmente in osservazione. Supponendo che gli ancoraggi posizionati siano connessi in un grafico, il servizio può recuperare tutti gli ancoraggi adiacenti per l'utente seguendo i bordi nel grafico. La quantità di attraversamento del grafico eseguita è controllata `DistanceInMeters`da; verranno assegnati tutti gli ancoraggi connessi a quello individuato, più vicino a `DistanceInMeters`.
 
-Tenere presente che i `MaxResultCount` valori di grandi dimensioni per possono influire negativamente sulle prestazioni. Impostarlo su un valore ragionevole per l'applicazione.
+Tenere presente che i valori di grandi `MaxResultCount` dimensioni per potrebbero influire negativamente sulle prestazioni. Impostarla su un valore ragionevole per l'applicazione.
 
-Infine, è necessario indicare alla sessione di utilizzare la ricerca basata su sensori:
+Infine, sarà necessario indicare alla sessione di utilizzare la ricerca basata su sensori:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
@@ -610,7 +610,7 @@ cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 [cloudSpatialAnchorSession createWatcher:anchorLocateCriteria];
 ```
 
-# <a name="swift"></a>[Repentino](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
@@ -622,13 +622,13 @@ cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndk"></a>[NDK di C](#tab/cpp)
+# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-winrt"></a>[WinRT in C](#tab/cppwinrt)
+# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
 
 ```cpp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
@@ -638,45 +638,45 @@ cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 
 ## <a name="expected-results"></a>Risultati previsti
 
-I dispositivi GPS di qualità consumer sono in genere piuttosto imprecisi. Uno studio condotto da [Sandenbergen e Barbeau (2011)][6] riporta la precisione mediana dei telefoni cellulari con GPS assistito (A-GPS) per essere di circa 7 metri - un valore piuttosto grande da ignorare! Per tenere conto di questi errori di misurazione, il servizio considera gli ancoraggi come distribuzioni di probabilità nello spazio GPS. Come tale, un'ancora è ora la regione dello spazio che più probabilmente (cioè, con più del 95% di confidenza) contiene la sua vera posizione GPS sconosciuta.
+I dispositivi GPS di livello consumer sono in genere piuttosto imprecisi. Uno studio di [Zandenbergen e Barbeau (2011)][6] segnala l'accuratezza mediana dei telefoni cellulari con il GPS assistito (a-GPS) a circa 7 metri, un valore piuttosto elevato da ignorare. Per tenere conto di questi errori di misurazione, il servizio considera gli ancoraggi come distribuzioni di probabilità nello spazio GPS. Di conseguenza, un ancoraggio è ora l'area di spazio che più probabilmente, ovvero con una confidenza superiore al 95%, contiene la relativa posizione GPS vera e sconosciuta.
 
-Lo stesso ragionamento viene applicato quando si esegue una query con GPS. Il dispositivo è rappresentato come un'altra regione di confidenza spaziale intorno alla sua posizione GPS vera e sconosciuta. Scoprire le ancore vicine si traduce in una semplice ricerca delle ancore con regioni di confidenza *abbastanza vicine* alla regione di confidenza del dispositivo, come illustrato nell'immagine seguente:
+Lo stesso ragionamento viene applicato quando si esegue una query con il GPS. Il dispositivo è rappresentato come un'altra area di confidenza spaziale attorno alla sua vera e propria posizione GPS sconosciuta. L'individuazione degli ancoraggi vicini si traduce nella semplice ricerca di ancoraggi con aree di confidenza *sufficientemente vicine* all'area di confidenza del dispositivo, come illustrato nell'immagine seguente:
 
-![Selezione dei candidati di ancoraggio con GPS](media/coarse-reloc-gps-separation-distance.png)
+![Selezione di candidati di ancoraggio con GPS](media/coarse-reloc-gps-separation-distance.png)
 
-La precisione del segnale GPS, sia sulla creazione di ancoraggio che durante le query, ha una grande influenza sul set di ancoraggi restituiti. Al contrario, le query basate su WiFi / beacon prenderanno in considerazione tutti gli ancoraggi che hanno almeno un punto di accesso / beacon in comune con la query. In questo senso, il risultato di una query basata su WiFi / fari è per lo più determinato dalla gamma fisica dei punti di accesso / fari, e ostacoli ambientali.
+L'accuratezza del segnale GPS, sia nella creazione di ancoraggio che durante le query, ha un'influenza notevole sul set di ancoraggi restituiti. Al contrario, le query basate su Wi-Fi/Beacon considereranno tutti gli ancoraggi con almeno un punto di accesso/Beacon in comune con la query. In questo senso, il risultato di una query basata su Wi-Fi/Beacon è determinato principalmente dall'intervallo fisico dei punti di accesso/Beacon e dalle ostruzioni ambientali.
 
-La tabella seguente stima lo spazio di ricerca previsto per ogni tipo di sensore:
+Nella tabella seguente viene stimato lo spazio di ricerca previsto per ogni tipo di sensore:
 
-| Sensore      | Raggio dello spazio di ricerca (approssimativo) | Dettagli |
+| Sensore      | Raggio dello spazio di ricerca (circa) | Dettagli |
 |-------------|:-------:|---------|
-| Gps         | 20 m - 30 m | Determinato dall'incertezza GPS tra gli altri fattori. I numeri riportati sono stimati per la precisione GPS mediana dei telefoni cellulari con A-GPS, cioè 7 metri. |
-| WiFi        | 50 m - 100 m | Determinato dalla gamma dei punti di accesso wireless. Dipende dalla frequenza, dalla forza del trasmettitore, dagli ostacoli fisici, dalle interferenze e così via. |
-| Fari BLE |  70 m | Determinato dalla gamma del faro. Dipende dalla frequenza, dalla forza di trasmissione, dagli ostacoli fisici, dalle interferenze e così via. |
+| GPS         | 20 m-30 m | Determinato dall'incertezza GPS tra gli altri fattori. I numeri segnalati sono stimati per l'accuratezza GPS mediana dei telefoni cellulari con A-GPS, ovvero 7 contatori. |
+| WiFi        | 50 m-100 m | Determinato dall'intervallo dei punti di accesso wireless. Dipende dalla frequenza, dalla potenza del trasmettitore, dalle ostruzioni fisiche, dall'interferenza e così via. |
+| Beacon BLE |  70 m | Determinato dall'intervallo del Beacon. Dipende dalla frequenza, dalla potenza di trasmissione, dagli ostacoli fisici, dall'interferenza e così via. |
 
 ## <a name="per-platform-support"></a>Supporto per piattaforma
 
-La tabella seguente riepiloga i dati dei sensori raccolti su ciascuna delle piattaforme supportate, insieme a tutte le avvertenze specifiche della piattaforma:
+La tabella seguente riepiloga i dati dei sensori raccolti in ognuna delle piattaforme supportate, insieme a eventuali avvertenze specifiche della piattaforma:
 
 
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
-| Gps         | N/D | Supportato tramite le API [LocationManager][3] (sia GPS che NETWORK) | Supportato tramite le API [CLLocationManagerSupported through CLLocationManager][4] APIs |
-| WiFi        | Supportato a una velocità di circa una scansione ogni 3 secondi | Supportato. A partire dal livello API 28, le scansioni WiFi vengono limitate a 4 chiamate ogni 2 minuti. Da Android 10, la limitazione delle richieste può essere disabilitata dal menu Impostazioni sviluppatore. Per ulteriori informazioni, vedere la [documentazione di Android][5]. | N/D - nessuna API pubblica |
-| Fari BLE | Limitato a [Eddystone][1] e [iBeacon][2] | Limitato a [Eddystone][1] e [iBeacon][2] | Limitato a [Eddystone][1] e [iBeacon][2] |
+| GPS         | N/D | Supportato tramite le API [LocationManager][3] (GPS e rete) | Supportato tramite le API di [CLLocationManager][4] |
+| WiFi        | Supportato con una frequenza di circa un'analisi ogni 3 secondi | Supportato. A partire dal livello API 28, le analisi Wi-Fi sono limitate a 4 chiamate ogni 2 minuti. Da Android 10, la limitazione può essere disabilitata dal menu impostazioni sviluppatore. Per ulteriori informazioni, vedere la [documentazione di Android][5]. | N/A-nessuna API pubblica |
+| Beacon BLE | Limitato a [Eddystone][1] e [Impedisci iBeacon][2] | Limitato a [Eddystone][1] e [Impedisci iBeacon][2] | Limitato a [Eddystone][1] e [Impedisci iBeacon][2] |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usa la rilocalizzazione grossolana in un'app.
+Usare la rilocalizzazione grossolana in un'app.
 
 > [!div class="nextstepaction"]
-> [Unità](../how-tos/set-up-coarse-reloc-unity.md)
+> [Unity](../how-tos/set-up-coarse-reloc-unity.md)
 
 > [!div class="nextstepaction"]
 > [Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
 
 > [!div class="nextstepaction"]
-> [Repentino](../how-tos/set-up-coarse-reloc-swift.md)
+> [Swift](../how-tos/set-up-coarse-reloc-swift.md)
 
 > [!div class="nextstepaction"]
 > [Java](../how-tos/set-up-coarse-reloc-java.md)

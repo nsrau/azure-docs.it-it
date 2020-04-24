@@ -12,10 +12,10 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "75912234"
 ---
 > [!div class="op_single_selector"]
-> * [Portale di Azure](../articles/iot-hub/iot-hub-create-through-portal.md)
+> * [Azure portal](../articles/iot-hub/iot-hub-create-through-portal.md)
 > * [Hub IoT di Azure per VS Code](../articles/iot-hub/iot-hub-create-use-iot-toolkit.md)
-> * [Powershell](../articles/iot-hub/iot-hub-create-using-powershell.md)
-> * [Interfaccia della riga di comando di AzureAzure](../articles/iot-hub/iot-hub-create-using-cli.md)
+> * [PowerShell](../articles/iot-hub/iot-hub-create-using-powershell.md)
+> * [Interfaccia della riga di comando di Azure](../articles/iot-hub/iot-hub-create-using-cli.md)
 > * [PowerShell con modello](../articles/iot-hub/iot-hub-rm-template-powershell.md)
 > * [C# con REST](../articles/iot-hub/iot-hub-rm-rest.md)
 > * [C# con modello](../articles/iot-hub/iot-hub-rm-template.md)

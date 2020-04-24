@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Reimpostare il peering del circuitoAzure ExpressRoute: Reset circuit peering'
+title: 'Azure ExpressRoute: reimpostare il peering del circuito'
 description: Informazioni su come abilitare e disabilitare i peering di un circuito ExpressRoute.
 services: expressroute
 author: charwen
@@ -20,7 +20,7 @@ Questo articolo descrive come abilitare e disabilitare i peering di un circuito 
 
 La reimpostazione dei peering ExpressRoute può essere utile in un paio di scenari.
 * Esecuzione di test della progettazione e dell'implementazione del ripristino di emergenza. Ad esempio, sono presenti due circuiti ExpressRoute. È possibile disabilitare i peering di un circuito e forzare il failover del traffico di rete nell'altro circuito.
-* Abilitare il rilevamento dell'inoltro bidirezionale (BFD) nel peering privato di Azure o nel peering Microsoft del circuito ExpressRoute.Enable Bidirectional Forwarding Detection (BFD) on Azure Private Peering or Microsoft Peering of your ExpressRoute circuit. BFD è abilitato per impostazione predefinita nel peering privato di Azure se il circuito ExpressRoute viene creato dopo il 1 agosto 2018 e in Microsoft Peering se il circuito ExpressRoute viene creato dopo il 10 gennaio 2020. Se il circuito è stato creato prima di questa data, il rilevamento dell'inoltro bidirezionale non è stato abilitato. È possibile abilitarlo disabilitando il peering e riabilitandolo. 
+* Abilitare il rilevamento di inoltri bidirezionali (BFD) nel peering privato di Azure o nel peering Microsoft del circuito ExpressRoute. BFD è abilitato per impostazione predefinita nel peering privato di Azure se il circuito ExpressRoute viene creato dopo il 1 2018 agosto e nel peering Microsoft se il circuito ExpressRoute è stato creato dopo il gennaio 10 2020. Se il circuito è stato creato prima di questa data, il rilevamento dell'inoltro bidirezionale non è stato abilitato. È possibile abilitarlo disabilitando il peering e riabilitandolo. 
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 
@@ -143,5 +143,5 @@ La reimpostazione dei peering ExpressRoute può essere utile in un paio di scena
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se sono necessarie informazioni per la risoluzione di un problema relativo a ExpressRoute, vedere gli articoli seguenti:
-* [Verifica della connettività ExpressRouteVerifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
+* [Verifica della connettività di ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Risoluzione dei problemi di prestazioni di rete](expressroute-troubleshooting-network-performance.md)

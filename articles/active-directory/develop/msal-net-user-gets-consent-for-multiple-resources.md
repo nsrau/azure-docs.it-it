@@ -1,7 +1,7 @@
 ---
-title: Ottenere il consenso per diverse risorse (MSAL.NET) Azure
+title: Ottenere il consenso per diverse risorse (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come un utente può ottenere il preconsenso per diverse risorse utilizzando la libreria di autenticazione Microsoft per .NET (MSAL.NET).
+description: Informazioni su come un utente può ottenere il consenso preliminare per diverse risorse tramite Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -20,18 +20,18 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085833"
 ---
-# <a name="user-gets-consent-for-several-resources-using-msalnet"></a>L'utente ottiene il consenso per diverse risorse utilizzando MSAL.NET
-L'endpoint della piattaforma di identità Microsoft non consente di ottenere un token per più risorse contemporaneamente. Quando si usa la libreria di autenticazione Microsoft per .NET (MSAL.NET), il parametro scopes nel metodo del token acquire deve contenere solo ambiti per una singola risorsa. Tuttavia, è possibile pre-acconsentire a diverse risorse `.WithExtraScopeToConsent` in anticipo specificando ambiti aggiuntivi utilizzando il metodo builder.
+# <a name="user-gets-consent-for-several-resources-using-msalnet"></a>L'utente ottiene il consenso per diverse risorse usando MSAL.NET
+L'endpoint della piattaforma di identità Microsoft non consente di ottenere un token per più risorse contemporaneamente. Quando si usa Microsoft Authentication Library per .NET (MSAL.NET), il parametro Scopes nel metodo di acquisizione del token deve contenere solo ambiti per una singola risorsa. Tuttavia, è possibile pre-concedere il consenso a più risorse in anticipo specificando gli ambiti aggiuntivi tramite il metodo del `.WithExtraScopeToConsent` generatore.
 
 > [!NOTE]
 > Ottenere il consenso per diverse risorse funziona per la piattaforma di identità Microsoft, ma non per Azure AD B2C. Azure AD B2C supporta solo il consenso dell'amministratore, non il consenso dell'utente.
 
-Ad esempio, se si dispone di due risorse con due ambiti ciascuno:For example, if you have two resources that have 2 scopes each:
+Ad esempio, se si dispone di due risorse con due ambiti ciascuno:
 
-- https:\//mytenant.onmicrosoft.com/customerapi (con `customer.read` 2 `customer.write`ambiti e )
-- https:\//mytenant.onmicrosoft.com/vendorapi (con `vendor.read` 2 `vendor.write`ambiti e )
+- https:\//mytenant.onmicrosoft.com/customerapi (con 2 ambiti `customer.read` e `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (con 2 ambiti `vendor.read` e `vendor.write`)
 
-È necessario `.WithExtraScopeToConsent` utilizzare il modificatore che dispone del parametro *extraScopesToConsent,* come illustrato nell'esempio seguente:
+Usare il `.WithExtraScopeToConsent` modificatore con il parametro *extraScopesToConsent* , come illustrato nell'esempio seguente:
 
 ```csharp
 string[] scopesForCustomerApi = new string[]
@@ -52,7 +52,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-In questo modo si otterrà un token di accesso per la prima API Web. Quindi, quando è necessario accedere alla seconda API Web è possibile acquisire automaticamente il token dalla cache dei token:Then, when you need to access the second web API you can silently acquire the token from the token cache:
+In questo modo si otterrà un token di accesso per la prima API Web. Quindi, quando è necessario accedere alla seconda API Web, è possibile acquisire automaticamente il token dalla cache dei token:
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

@@ -1,5 +1,5 @@
 ---
-title: Crittografia disco di Azure e scalabilità della macchina virtuale di Azure imposta la sequenza di estensioneAzure Disk Encryption and Azure virtual machine scale sets extension sequencing
+title: Crittografia dischi di Azure e sequenza di estensioni di set di scalabilità di macchine virtuali di Azure
 description: Questo articolo offre informazioni sull'abilitazione di Crittografia dischi di Microsoft Azure per le macchine virtuali IaaS Linux.
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
@@ -15,20 +15,20 @@ ms.locfileid: "76279023"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Usare Crittografia dischi di Azure con sequenziazione delle estensioni del set di scalabilità di macchine virtuali
 
-Estensioni come la crittografia del disco di Azure possono essere aggiunte a un set di scalabilità delle macchine virtuali di Azure in un ordine specificato. A tale scopo, utilizzare [la sequenza delle estensioni](virtual-machine-scale-sets-extension-sequencing.md). 
+È possibile aggiungere estensioni come crittografia dischi di Azure a un set di scalabilità di macchine virtuali di Azure in un ordine specificato. A tale scopo, usare la [sequenziazione delle estensioni](virtual-machine-scale-sets-extension-sequencing.md). 
 
-In generale, la crittografia deve essere applicata a un disco:In general, encryption should be applied to a disk:
+In generale, la crittografia deve essere applicata a un disco:
 
-- Dopo estensioni o script personalizzati che preparano i dischi o i volumi.
-- Prima delle estensioni o degli script personalizzati che accedono o utilizzano i dati nei volumi o nei dischi crittografati.
+- Dopo le estensioni o gli script personalizzati che preparano i dischi o i volumi.
+- Prima delle estensioni o degli script personalizzati che accedono o utilizzano i dati nei dischi o volumi crittografati.
 
-In entrambi i `provisionAfterExtensions` casi, la proprietà indica quale estensione deve essere aggiunta in un secondo momento nella sequenza.
+In entrambi i casi, `provisionAfterExtensions` la proprietà indica quale estensione deve essere aggiunta successivamente nella sequenza.
 
 ## <a name="sample-azure-templates"></a>Modelli di Azure di esempio
 
-Se si vuole applicare Crittografia disco di Azure `provisionAfterExtensions` dopo un'altra estensione, inserire la proprietà nel blocco di estensione AzureDiskEncryption.If you wish to have Azure Disk Encryption applied after another extension, put the property in the AzureDiskEncryption extension block. 
+Se si vuole che crittografia dischi di Azure venga applicato dopo un'altra estensione, `provisionAfterExtensions` inserire la proprietà nel blocco di estensione AzureDiskEncryption. 
 
-Di seguito è riportato un esempio di utilizzo di "CustomScriptExtension", uno script di PowerShell che inizializza e formatta un disco di Windows, seguito da "AzureDiskEncryption":Here is an example using "CustomScriptExtension", a Powershell script that initializes and formats a Windows disk, followed by "AzureDiskEncryption":
+Di seguito è riportato un esempio che usa "CustomScriptExtension", uno script di PowerShell che Inizializza e formatta un disco di Windows, seguito da "AzureDiskEncryption":
 
 ```json
 "virtualMachineProfile": {
@@ -84,9 +84,9 @@ Di seguito è riportato un esempio di utilizzo di "CustomScriptExtension", uno s
 }
 ```
 
-Se si vuole applicare Crittografia disco di Azure `provisionAfterExtensions` prima di un'altra estensione, inserire la proprietà nel blocco dell'estensione da seguire.
+Se si vuole che crittografia dischi di Azure venga applicato prima di un'altra estensione `provisionAfterExtensions` , inserire la proprietà nel blocco dell'estensione da seguire.
 
-Ecco un esempio di utilizzo di "AzureDiskEncryption" seguito da "VMDiagnosticsSettings", un'estensione che fornisce funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows:Here is an example using "AzureDiskEncryption" followed by "VMDiagnosticsSettings", an extension that provides monitoring and diagnostics capabilities on a Windows-based Azure VM:
+Di seguito è riportato un esempio che usa "AzureDiskEncryption" seguito da "VMDiagnosticsSettings", un'estensione che fornisce funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows:
 
 
 ```json
@@ -151,13 +151,13 @@ Ecco un esempio di utilizzo di "AzureDiskEncryption" seguito da "VMDiagnosticsSe
 }
 ```
 
-Per un modello più approfondito, vedere:For a more in-depth template, see:
-* Applicare l'estensione di Crittografia disco di Azure dopo uno script della shell personalizzato che formatta il disco (Linux): [deploy-extseq-linux-ADE-after-customscript.jsonApply](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json) the Azure Disk Encryption extension after a custom shell script that formats the disk (Linux): deploy-extseq-linux-ADE-after-customscript.json
+Per un modello più dettagliato, vedere:
+* Applicare l'estensione di crittografia dischi di Azure dopo uno script della shell personalizzato che formatta il disco (Linux): [deploy-extseq-Linux-Ade-after-CustomScript. JSON](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulla sequenza delle estensioni: sequenza di provisioning delle estensioni nei set di [scalabilità delle macchine virtuali.](virtual-machine-scale-sets-extension-sequencing.md)
-- Ulteriori informazioni `provisionAfterExtensions` sulla proprietà: [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
+- Altre informazioni sulla sequenziazione delle estensioni: [provisioning dell'estensione di sequenza nei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-extension-sequencing.md).
+- Altre informazioni sulla `provisionAfterExtensions` proprietà: [Microsoft. Compute virtualMachineScaleSets/Extensions template Reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
 - [Crittografia dischi di Azure per set di scalabilità di macchine virtuali](disk-encryption-overview.md)
 - [Crittografare set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure](disk-encryption-cli.md)
 - [Crittografare set di scalabilità di macchine virtuali con Azure PowerShell](disk-encryption-powershell.md)

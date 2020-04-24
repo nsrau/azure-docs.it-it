@@ -20,6 +20,6 @@ I valori delle impostazioni dell'app di funzione possono anche essere letti nel 
 * [Script C# (file con estensione csx)](../articles/azure-functions/functions-reference-csharp.md#environment-variables)
 * [Script F# (file con estensione fsx)](../articles/azure-functions/functions-reference-fsharp.md#environment-variables)
 * [Java](../articles/azure-functions/functions-reference-java.md#environment-variables)
-* [Javascript](../articles/azure-functions/functions-reference-node.md#environment-variables)
-* [Powershell](../articles/azure-functions/functions-reference-powershell.md#environment-variables)
+* [JavaScript](../articles/azure-functions/functions-reference-node.md#environment-variables)
+* [PowerShell](../articles/azure-functions/functions-reference-powershell.md#environment-variables)
 * [Python](../articles/azure-functions/functions-reference-python.md#environment-variables)

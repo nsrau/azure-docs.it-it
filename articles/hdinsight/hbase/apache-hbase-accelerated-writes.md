@@ -1,6 +1,6 @@
 ---
 title: Scritture accelerate di Azure HDInsight per Apache HBase
-description: Viene fornita una panoramica della funzionalità di scrittura accelerata di Azure HDInsight, che usa dischi gestiti premium per migliorare le prestazioni del log di scrittura Apache HBase.
+description: Offre una panoramica della funzionalità di scrittura accelerata di Azure HDInsight, che usa dischi gestiti Premium per migliorare le prestazioni del log write-ahead di Apache HBase.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -16,35 +16,35 @@ ms.locfileid: "76764601"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Scritture accelerate di Azure HDInsight per Apache HBase
 
-Questo articolo fornisce informazioni generali sulla funzionalità **Di scritture accelerate** per Apache HBase in Azure HDInsight e su come può essere usata in modo efficace per migliorare le prestazioni di scrittura. **Le scritture accelerate** usano [i dischi gestiti SSD premium](../../virtual-machines/linux/disks-types.md#premium-ssd) di Azure per migliorare le prestazioni del log WAL (Apache HBase Write Ahead Log). Per ulteriori informazioni su Apache HBase, vedere [Che cos'è Apache HBase in HDInsight](apache-hbase-overview.md).
+Questo articolo illustra in background la funzionalità di **scrittura accelerata** per Apache HBase in Azure HDInsight e come può essere usata in modo efficace per migliorare le prestazioni di scrittura. **Scritture accelerate** USA [dischi gestiti di unità SSD Premium di Azure](../../virtual-machines/linux/disks-types.md#premium-ssd) per migliorare le prestazioni del log di scrittura Ahead di Apache HBase. Per altre informazioni su Apache HBase, vedere [che cos'è Apache HBase in HDInsight](apache-hbase-overview.md).
 
-## <a name="overview-of-hbase-architecture"></a>Panoramica dell'architettura HBase
+## <a name="overview-of-hbase-architecture"></a>Panoramica dell'architettura di HBase
 
-In HBase, una **riga** è costituita da una o più **colonne** ed è identificata da una chiave di **riga**. Più righe costituiscono una **tabella**. Le colonne contengono **celle**, ovvero versioni con timestamp del valore in tale colonna. Le colonne vengono raggruppate in famiglie di **colonne**e tutte le colonne di una famiglia di colonne vengono archiviate insieme in file di archiviazione **denominati HFiles**.
+In HBase una **riga** è costituita da una o più **colonne** ed è identificata da una **chiave di riga**. Più righe costituiscono una **tabella**. Le colonne contengono **celle**, ovvero versioni con timestamp del valore in tale colonna. Le colonne vengono raggruppate in **famiglie di colonne**e tutte le colonne in una famiglia di colonne vengono archiviate insieme nei file di archiviazione denominati **HFiles**.
 
-**Le aree** in HBase vengono utilizzate per bilanciare il carico di elaborazione dei dati. HBase archivia innanzitutto le righe di una tabella in una singola area. Le righe vengono distribuite su più aree man mano che aumenta la quantità di dati nella tabella. **I server di** area possono gestire le richieste per più aree.
+Le **aree** in HBase vengono usate per bilanciare il carico di elaborazione dei dati. HBase archivia innanzitutto le righe di una tabella in una singola area. Le righe vengono distribuite in più aree con l'aumentare della quantità di dati nella tabella. I **server di area** possono gestire le richieste per più aree.
 
-## <a name="write-ahead-log-for-apache-hbase"></a>Scrivi ahead Log per Apache HBase
+## <a name="write-ahead-log-for-apache-hbase"></a>Log write-ahead per Apache HBase
 
-HBase scrive innanzitutto gli aggiornamenti dei dati in un tipo di log di commit denominato Write Ahead Log (WAL). Dopo l'aggiornamento è memorizzato nel WAL, viene scritto in memoria **MemStore**. Quando i dati in memoria raggiungono la capacità massima, vengono scritti su disco come **HFile**.
+HBase scrive prima di tutto gli aggiornamenti dei dati in un tipo di log di commit denominato log write-ahead (WAL). Dopo che l'aggiornamento è stato archiviato in WAL, viene scritto nella **MemStore**in memoria. Quando i dati in memoria raggiungono la capacità massima, vengono scritti su disco come **HFile**.
 
-Se un **RegionServer** si arresta in modo anomalo o non è più disponibile prima che il MemStore venga scaricato, è possibile utilizzare il registro Write Ahead per riprodurre gli aggiornamenti. Senza WAL, se un **RegionServer** si arresta in modo anomalo prima di scaricare gli aggiornamenti a un **HFile**, tutti gli aggiornamenti vengono persi.
+Se un **RegionServer** si arresta in modo anomalo o non è più disponibile prima dello scaricamento del MemStore, è possibile usare il log write-ahead per riprodurre gli aggiornamenti. Senza WAL, se si verifica un arresto anomalo di **RegionServer** prima di scaricare gli aggiornamenti in un **HFile**, tutti gli aggiornamenti andranno perduti.
 
-## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Funzionalità di scrittura accelerata in Azure HDInsight per Apache HBaseAccelerated Writes feature in Azure HDInsight for Apache HBase
+## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Funzionalità Scritture accelerate in Azure HDInsight per Apache HBase
 
-La funzionalità Scritture Accelerate d'accelerazione risolve il problema delle latenze di scrittura più elevate causate dall'utilizzo di write Ahead Logs presenti nell'archiviazione cloud.  La funzionalità di scrittura accelerata per i cluster HDInsight Apache HBase, collega dischi gestiti con SSD premium a ogni RegionServer (nodo di lavoro). I registri Write Ahead vengono quindi scritti nel file system Hadoop (HDFS) montato su questi dischi gestiti premium anziché nell'archiviazione cloud.  I dischi gestiti Premium utilizzano dischi a stato solido (SSD) e offrono prestazioni di I/O eccellenti con tolleranza di errore.  A differenza dei dischi non gestiti, se un'unità di archiviazione si arresta, non influirà sulle altre unità di archiviazione nello stesso set di disponibilità.  Di conseguenza, i dischi gestiti forniscono una bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni sui dischi gestiti da Azure, vedere [Introduzione ai dischi gestiti](../../virtual-machines/windows/managed-disks-overview.md)di Azure.To learn more about Azure-managed disks, see Introduction to Azure managed disks .
+La funzionalità Scritture accelerate risolve il problema delle latenze di scrittura più elevate causate dall'uso di log write-ahead presenti nell'archiviazione cloud.  La funzionalità di scrittura accelerata per i cluster Apache HBase di HDInsight, collega i dischi Premium gestiti da unità SSD a ogni RegionServer (nodo del ruolo di lavoro). I log write-ahead vengono quindi scritti nel file System Hadoop (HDFS) montato su questi dischi gestiti Premium anziché sull'archiviazione cloud.  Managed disks Premium usa dischi a stato solido (SSD) e offre ottime prestazioni di I/O con tolleranza di errore.  A differenza dei dischi non gestiti, se un'unità di archiviazione diventa inattiva, non influirà sulle altre unità di archiviazione nello stesso set di disponibilità.  Di conseguenza, i dischi gestiti garantiscono una bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni sui dischi gestiti di Azure, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
-## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Come abilitare le scritture accelerate per HBase in HDInsightHow to enable Accelerated Writes for HBase in HDInsight
+## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Come abilitare le Scritture accelerate per HBase in HDInsight
 
-Per creare un nuovo cluster HBase con la funzionalità di scrittura accelerata, seguire i passaggi descritti in [Configurare i cluster in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) fino a raggiungere il **passaggio 3, Archiviazione**. In **Impostazioni Metastore**selezionare la casella di controllo accanto a **Abilita scritture accelerate HBase**. Quindi, continuare con i passaggi rimanenti per la creazione del cluster.
+Per creare un nuovo cluster HBase con la funzionalità di scrittura accelerata, seguire la procedura descritta in [configurare i cluster in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) fino a raggiungere il **passaggio 3, archiviazione**. In **Impostazioni Metastore**selezionare la casella di controllo accanto a **Abilita scritture HBase accelerate**. Quindi, continuare con i passaggi rimanenti per la creazione del cluster.
 
-![Abilitare l'opzione di scrittura accelerata per HDInsight Apache HBaseEnable accelerated writes option for HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![Abilitare l'opzione di scrittura accelerata per HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
 
 ## <a name="other-considerations"></a>Altre considerazioni
 
 Per mantenere la durabilità dei dati, creare un cluster con un minimo di tre nodi di lavoro. Una volta creato, non è possibile ridurre il cluster a meno di tre nodi di lavoro.
 
-Svuotare o disabilitare le tabelle HBase prima di eliminare il cluster, in modo da non perdere i dati Write Ahead Log.
+Scaricare o disabilitare le tabelle di HBase prima di eliminare il cluster, in modo da non perdere i dati di log write-ahead.
 
 ```
 flush 'mytable'
@@ -54,13 +54,13 @@ flush 'mytable'
 disable 'mytable'
 ```
 
-Seguire passaggi simili quando si riduce il cluster: svuotare le tabelle e disabilitare le tabelle per arrestare i dati in ingresso. Non è possibile ridurre il cluster a meno di tre nodi.
+Seguire una procedura simile per la scalabilità verticale del cluster: svuotare le tabelle e disabilitare le tabelle per arrestare i dati in ingresso. Non è possibile ridimensionare il cluster a meno di tre nodi.
 
-Seguire questi passaggi garantirà una scalabilità ridotta corretta ed eviterà la possibilità che un nodo name vada in modalità provvisoria a causa di file sottoreplicati o temporanei.
+Seguendo questa procedura si garantisce una corretta riduzione delle prestazioni ed evitare la possibilità di un NameNode di passare alla modalità provvisoria a causa di file temporanei o sottoreplicati.
 
-Se il namenode passa in modalità provvisoria dopo una scalabilità verticale, usa i comandi hdfs per replicare nuovamente i blocchi sottoreplicati e uscire dalla modalità provvisoria. Questa ri-replica consentirà di riavviare HBase correttamente.
+Se il NameNode passa in modalità provvisoria dopo una riduzione, usare i comandi di HDFS per rireplicare i blocchi sottoreplicati e ottenere HDFS fuori dalla modalità provvisoria. Questa nuova replica consentirà di riavviare correttamente HBase.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Documentazione ufficiale di Apache HBase sulla [funzione Write Ahead Log](https://hbase.apache.org/book.html#wal)
-* Per aggiornare il cluster HDInsight Apache HBase per l'utilizzo di Scritture Accelerated Writes, vedere [Migrate an Apache HBase cluster to a new version.](apache-hbase-migrate-new-version.md)
+* Documentazione ufficiale di Apache HBase sulla [funzionalità log write-ahead](https://hbase.apache.org/book.html#wal)
+* Per aggiornare il cluster Apache HBase di HDInsight per l'uso di scritture accelerate, vedere [eseguire la migrazione di un cluster Apache HBase a una nuova versione](apache-hbase-migrate-new-version.md).

@@ -1,6 +1,6 @@
 ---
-title: Dischi del sistema operativo effimeri per i set di scalabilità delle macchine virtuali di AzureEphemeral OS disks for Azure Virtual Machine Scale Sets
-description: Altre informazioni sui dischi del sistema operativo effimeri per i set di scalabilità delle macchine virtuali di Azure.Learn more about ephemeral operating system disks for Azure Virtual Machine Scale Sets.
+title: Dischi del sistema operativo temporaneo per i set di scalabilità di macchine virtuali di Azure
+description: Altre informazioni sui dischi del sistema operativo effimeri per i set di scalabilità di macchine virtuali di Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -15,10 +15,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278950"
 ---
-# <a name="ephemeral-os-disks-for-vm-instances"></a>Dischi del sistema operativo effimeri per le istanze della macchina virtuale
+# <a name="ephemeral-os-disks-for-vm-instances"></a>Dischi del sistema operativo temporaneo per le istanze di VM
 
 [!INCLUDE [virtual-machines-common-ephemeral](../../includes/virtual-machines-common-ephemeral.md)]
  
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle diverse dimensioni disponibili per le macchine virtuali, vedere Dimensioni delle macchine virtuali di Azure.For more information about the different sizes available for virtual [machines,](../virtual-machines/linux/sizes.md)see Azure Virtual Machine sizes .
+Per altre informazioni sulle diverse dimensioni disponibili per le macchine virtuali, vedere [dimensioni](../virtual-machines/linux/sizes.md)delle macchine virtuali di Azure.
 

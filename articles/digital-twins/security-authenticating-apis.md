@@ -1,6 +1,6 @@
 ---
-title: Comprendere l'autenticazione API - Azure Digital Twins Documenti Microsoft
-description: Informazioni su come connettersi ed eseguire l'autenticazione con le API usando i gemelli digitali di Azure.Learn how to connect to and authenticate with APIs using Azure Digital Twins.
+title: Informazioni sull'autenticazione API-gemelli digitali di Azure | Microsoft Docs
+description: Informazioni su come connettersi ed eseguire l'autenticazione con le API con i dispositivi gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -15,16 +15,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513001"
 ---
-# <a name="connect-to-and-authenticate-with-apis"></a>Connettersi e eseguire l'autenticazione con le API
+# <a name="connect-to-and-authenticate-with-apis"></a>Connettersi ed eseguire l'autenticazione con le API
 
-Gemelli digitali di Azure usa Azure Active Directory (Azure AD) per l'autenticazione degli utenti e la protezione delle applicazioni. Azure AD supporta l'autenticazione per un'ampia gamma di architetture moderne. Tutte le architetture sono basate sui protocolli standard OAuth 2.0 oppure OpenID Connect. Inoltre, gli sviluppatori possono usare Azure AD per compilare applicazioni a tenant singolo e line-of-business (LOB). Gli sviluppatori possono anche usare Azure AD per sviluppare [applicazioni multi-tenant.](how-to-multitenant-applications.md)
+Gemelli digitali di Azure usa Azure Active Directory (Azure AD) per l'autenticazione degli utenti e la protezione delle applicazioni. Azure AD supporta l'autenticazione per un'ampia gamma di architetture moderne. Tutte le architetture sono basate sui protocolli standard OAuth 2.0 oppure OpenID Connect. Inoltre, gli sviluppatori possono usare Azure AD per compilare applicazioni a tenant singolo e line-of-business (LOB). Gli sviluppatori possono anche usare Azure AD per sviluppare [applicazioni multi-tenant](how-to-multitenant-applications.md).
 
 Per una panoramica di Azure AD, visitare la [pagina relativa ai concetti fondamentali](https://docs.microsoft.com/azure/active-directory/fundamentals/) per guide dettagliate, informazioni sui concetti e progetti di avvio rapido.
 
 > [!TIP]
-> Seguire [l'esercitazione](tutorial-facilities-setup.md) per configurare ed eseguire un'app di esempio Azure Digital Twins.Follow the Tutorial to set up and run an Azure Digital Twins sample app.
+> Seguire l' [esercitazione](tutorial-facilities-setup.md) per configurare ed eseguire un'app di esempio per i dispositivi digitali gemelli di Azure.
 
-Per integrare un'applicazione o un servizio con Azure AD, uno sviluppatore deve prima di tutto registrare l'applicazione con Azure AD. Per istruzioni dettagliate e screenshot, leggere [questa guida introduttiva](../active-directory/develop/quickstart-register-app.md).
+Per integrare un'applicazione o un servizio con Azure AD, uno sviluppatore deve prima di tutto registrare l'applicazione con Azure AD. Per istruzioni dettagliate e schermate, leggi [questa Guida introduttiva](../active-directory/develop/quickstart-register-app.md).
 
 Azure AD supporta [cinque scenari applicativi principali](../active-directory/develop/v2-app-types.md):
 
@@ -35,9 +35,9 @@ Azure AD supporta [cinque scenari applicativi principali](../active-directory/de
 * Da applicazione server o daemon ad API Web: un'applicazione daemon o un'applicazione server priva di interfaccia utente Web deve ottenere le risorse da un'API Web protetta da Azure AD.
 
 > [!IMPORTANT]
-> I gemelli digitali di Azure supportano entrambe le librerie di autenticazione seguenti:Azure Digital Twins supports both of the following authentication libraries:
-> * La libreria di autenticazione Microsoft più recente [(MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
-> * Azure [Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
+> I dispositivi gemelli digitali di Azure supportano entrambe le librerie di autenticazione seguenti:
+> * [Microsoft Authentication Library più recente (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * [Libreria di autenticazione Azure Active Directory (adal)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Chiamare Gemelli digitali da un'API Web di livello intermedio
 
@@ -49,7 +49,7 @@ Quando progettano soluzioni per Gemelli digitali, in genere gli sviluppatori cre
 
 1. Il token acquisito viene quindi usato per chiamare o eseguire l'autenticazione con API più a valle tramite il flusso On-Behalf-Of
 
-Per istruzioni su come orchestrare il flusso per conto di, leggere [Flusso OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). È anche possibile visualizzare esempi di codice in [Calling a downstream web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof) (Chiamare un'API Web downstream).
+Per istruzioni su come orchestrare il flusso per conto di, vedere [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)per il flusso. È anche possibile visualizzare esempi di codice in [Calling a downstream web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof) (Chiamare un'API Web downstream).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

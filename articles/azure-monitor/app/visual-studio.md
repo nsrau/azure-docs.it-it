@@ -1,5 +1,5 @@
 ---
-title: Debug in Visual Studio con Azure Application Insights
+title: Eseguire il debug in Visual Studio con applicazione Azure Insights
 description: Diagnostica e analisi delle prestazioni delle app Web durante il debug e nell'ambiente di produzione.
 ms.topic: conceptual
 author: NumberByColors
@@ -90,7 +90,7 @@ Questo è consigliabile se è già stata pubblicata una versione precedente dell
 * *Inizialmente, Application Insights è stato interamente configurato per inviare i dati di telemetria al portale. Ora però si vuole fare in modo che i dati di telemetria vengano visualizzati solo in Visual Studio.*
   
   * Nelle impostazioni della finestra di ricerca è disponibile un'opzione per cercare la diagnostica locale anche se l'app invia la telemetria al portale.
-  * Per interrompere l'invio di dati di `<instrumentationkey>...` telemetria al portale, impostare come commento la riga da ApplicationInsights.config.To stop telemetry being sent to the portal, comment out the line from ApplicationInsights.config. Quando si è pronti a inviare nuovamente dati di telemetria al portale, rimuovere il commento.
+  * Per arrestare l'invio dei dati di telemetria al portale, impostare `<instrumentationkey>...` come commento la riga da ApplicationInsights. config. Quando si è pronti per inviare di nuovo i dati di telemetria al portale, rimuovere il commento.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

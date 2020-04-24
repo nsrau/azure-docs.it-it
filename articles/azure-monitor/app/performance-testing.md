@@ -1,6 +1,6 @@
 ---
-title: Test di carico e prestazioni con Azure Application Insights Documenti Microsoft
-description: Configurare test di carico e prestazioni con Azure Application InsightsSet up performance and load tests with Azure Application Insights
+title: Test di carico e prestazioni con applicazione Azure Insights | Microsoft Docs
+description: Configurare test di carico e prestazioni con applicazione Azure Insights
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
@@ -14,25 +14,25 @@ ms.locfileid: "77669863"
 # <a name="performance-testing"></a>Test delle prestazioni
 
 > [!NOTE]
-> Il servizio di test di carico basato su cloud è deprecato. Ulteriori informazioni sulla deprecazione, sulla disponibilità del servizio e sui servizi alternativi sono disponibili [qui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> Il servizio di test di carico basato sul cloud è stato deprecato. Altre informazioni sulla deprecazione, sulla disponibilità del servizio e sui servizi alternativi sono disponibili [qui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
-Application Insights consente di generare test di carico per i siti Web. Analogamente ai test di [disponibilità,](monitor-web-app-availability.md)è possibile inviare richieste di base o [richieste in più passaggi](availability-multistep.md) da agenti di test di Azure in tutto il mondo. I test delle prestazioni consentono di simulare fino a 20.000 utenti simultanei per un massimo di 60 minuti.
+Application Insights consente di generare test di carico per i siti Web. Analogamente ai [test di disponibilità](monitor-web-app-availability.md), è possibile inviare richieste di base o richieste in più [passaggi](availability-multistep.md) dagli agenti di test di Azure in tutto il mondo. I test delle prestazioni consentono di simulare fino a 20.000 utenti simultanei per un massimo di 60 minuti.
 
 ## <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
-Per creare un test delle prestazioni, è innanzitutto necessario creare una risorsa di Application Insights.In order to create a performance test, you first need to create an Application Insights resource. Se è già stata creata una risorsa, passare alla sezione successiva.
+Per creare un test delle prestazioni, è prima di tutto necessario creare una risorsa Application Insights. Se è già stata creata una risorsa, procedere alla sezione successiva.
 
-Nel portale di Azure selezionare **Crea una risorsa** > Strumenti di sviluppo Application Insights e creare una risorsa di Application Insights.From the Azure portal, select Create a**resource Developer Tools** > **Application Insights** and create an Application Insights resource.
+Dal portale di Azure selezionare **Crea una risorsa** > **strumenti di sviluppo** > **Application Insights** e creare una risorsa Application Insights.
 
-## <a name="configure-performance-testing"></a>Configurare i test delle prestazioni
+## <a name="configure-performance-testing"></a>Configurare il test delle prestazioni
 
-Se è la prima volta che si crea il test delle prestazioni, selezionare **Imposta organizzazione** e scegliere un'organizzazione DevOps di Azure come origine per i test delle prestazioni.
+Se è la prima volta che si crea un test delle prestazioni, selezionare **imposta organizzazione** e scegliere un'organizzazione DevOps di Azure come origine per i test delle prestazioni.
 
-In **Configura**passare a **Test delle prestazioni** e fare clic su **Nuovo** per creare un test.
+In **Configura**passare a **test delle prestazioni** e fare clic su **nuovo** per creare un test.
 
 ![Fill at least the URL of your website](./media/performance-testing/new-performance-test.png)
 
-Per creare un test delle prestazioni di base, selezionare un tipo di test **Test manuale** e compilare le impostazioni desiderate per il test.
+Per creare un test delle prestazioni di base, selezionare un tipo di test **manuale** e compilare le impostazioni desiderate per il test.
 
 |Impostazione| Valore massimo
 |----------|------------|
@@ -41,17 +41,17 @@ Per creare un test delle prestazioni di base, selezionare un tipo di test **Test
 
 Dopo aver creato il test, fare clic su **Esegui test**.
 
-Una volta completato il test, vedrai risultati simili ai risultati seguenti:
+Al termine del test, vengono visualizzati risultati simili ai risultati seguenti:
 
 ![Risultati dei test](./media/performance-testing/test-results.png)
 
-## <a name="configure-visual-studio-web-test"></a>Configurare il test Web di Visual StudioConfigure Visual Studio web test
+## <a name="configure-visual-studio-web-test"></a>Configurare il test Web di Visual Studio
 
-Le funzionalità di test delle prestazioni avanzate di Application Insights si basano sui progetti di test di carico e prestazioni di Visual Studio.Application Insights advanced performance testing capabilities are built on top of Visual Studio performance and load test projects.
+Application Insights funzionalità avanzate di test delle prestazioni sono basate sui progetti di test di carico e prestazioni di Visual Studio.
 
 ![Visual Studio ](./media/performance-testing/visual-studio-test.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Test Web in più passaggi](availability-multistep.md)
-* [Test ping url](monitor-web-app-availability.md)
+* [Test ping URL](monitor-web-app-availability.md)

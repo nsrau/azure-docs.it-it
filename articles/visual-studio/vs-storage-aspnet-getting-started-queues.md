@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione delle code di Azure con Visual Studio (ASP.NET)
+title: Introduzione all'archiviazione code di Azure con Visual Studio (ASP.NET)
 description: Informazioni su come iniziare a usare l'archiviazione code di Azure in un progetto ASP.NET in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio
 services: storage
 author: ghogen
@@ -33,7 +33,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Account di archiviazione di AzureAzure storage account](../storage/common/storage-account-create.md)
+* [Account di archiviazione di Azure](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -84,7 +84,7 @@ I passaggi seguenti illustrano come creare una coda:
     }
     ```
 
-1. Nel metodo **CreateQueue** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Nel metodo **CreateQueue** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (modificare * &lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta accedendo).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -138,7 +138,7 @@ I passaggi seguenti illustrano come creare una coda:
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare Crea coda per visualizzare risultati simili alla schermata seguente:Run the application, and select **Create queue** to see results similar to the following screenshot:
+1. Eseguire l'applicazione e selezionare **Crea coda** per visualizzare risultati simili allo screenshot seguente:
   
     ![Crea coda](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
@@ -165,7 +165,7 @@ Dopo aver [creato una coda](#create-a-queue) è possibile aggiungervi dei messag
     }
     ```
  
-1. Nel metodo **AddMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Nel metodo **AddMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (modificare * &lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta accedendo).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -227,7 +227,7 @@ Dopo aver [creato una coda](#create-a-queue) è possibile aggiungervi dei messag
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare Aggiungi messaggio per visualizzare risultati simili alla schermata seguente:Run the application, and select **Add message** to see results similar to the following screenshot:
+1. Eseguire l'applicazione e selezionare **Aggiungi messaggio** per visualizzare risultati simili allo screenshot seguente:
   
     ![Aggiungi messaggio](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
@@ -254,7 +254,7 @@ Questa sezione illustra come visualizzare un messaggio in coda (leggere il primo
     }
     ```
  
-1. Nel metodo **PeekMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Nel metodo **PeekMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (modificare * &lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta accedendo).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -313,7 +313,7 @@ Questa sezione illustra come visualizzare un messaggio in coda (leggere il primo
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare Visualizza messaggio per visualizzare risultati simili alla schermata seguente:Run the application, and select **Peek message** to see results similar to the following screenshot:
+1. Eseguire l'applicazione e selezionare **Visualizza messaggio** per visualizzare risultati simili allo screenshot seguente:
   
     ![Visualizza il messaggio](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -338,7 +338,7 @@ In questa sezione viene illustrato come leggere e rimuovere un messaggio da una 
     }
     ```
  
-1. Nel metodo **ReadMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Nel metodo **ReadMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (modificare * &lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta accedendo).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -404,7 +404,7 @@ In questa sezione viene illustrato come leggere e rimuovere un messaggio da una 
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare Lettura/Elimina messaggio per visualizzare risultati simili alla schermata seguente:Run the application, and select **Read/Delete message** to see results similar to the following screenshot:
+1. Eseguire l'applicazione e selezionare **lettura/eliminazione messaggio** per visualizzare risultati simili allo screenshot seguente:
   
     ![Read/Delete message (Leggi/Elimina messaggio)](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -429,7 +429,7 @@ In questa sezione viene illustrato come ottenere la lunghezza della coda (numero
     }
     ```
  
-1. Nel metodo **ReadMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Nel metodo **ReadMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (modificare * &lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta accedendo).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -491,7 +491,7 @@ In questa sezione viene illustrato come ottenere la lunghezza della coda (numero
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare Ottieni lunghezza coda per visualizzare risultati simili alla schermata seguente:Run the application, and select **Get queue length** to see results similar to the following screenshot:
+1. Eseguire l'applicazione e selezionare **Ottieni lunghezza coda** per visualizzare risultati simili allo screenshot seguente:
   
     ![Recuperare la lunghezza della coda](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -516,7 +516,7 @@ Questa sezione illustra come eliminare una coda.
     }
     ```
  
-1. Nel metodo **DeleteQueue** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Nel metodo **DeleteQueue** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (modificare * &lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta accedendo).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -571,12 +571,12 @@ Questa sezione illustra come eliminare una coda.
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare Ottieni lunghezza coda per visualizzare risultati simili alla schermata seguente:Run the application, and select **Get queue length** to see results similar to the following screenshot:
+1. Eseguire l'applicazione e selezionare **Ottieni lunghezza coda** per visualizzare risultati simili allo screenshot seguente:
   
     ![Elimina coda](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
 
-  * [Introduzione all'archiviazione BLOB di Azure e aVisual Studio Connected Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
+  * [Introduzione all'archiviazione BLOB di Azure e a Visual Studio Servizi connessi (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
   * [Introduzione all'archiviazione tabelle di Azure e ai Servizi connessi di Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)

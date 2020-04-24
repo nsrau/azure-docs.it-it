@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione delle configurazioni di Firewall di Azure ai criteri di Firewall di Azure (anteprima)Migrate Azure Firewall configurations to Azure Firewall policy (preview) using PowerShell
-description: Informazioni su come eseguire la migrazione delle configurazioni di Firewall di Azure ai criteri di Firewall di Azure (anteprima)Learn How to migrate Azure Firewall configurations to Azure Firewall policy (preview)
+title: Eseguire la migrazione delle configurazioni del firewall di Azure ai criteri del firewall di Azure (anteprima) con PowerShell
+description: Informazioni su come eseguire la migrazione delle configurazioni del firewall di Azure ai criteri del firewall di Azure (anteprima)
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
@@ -14,17 +14,17 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443109"
 ---
-# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Eseguire la migrazione delle configurazioni di Firewall di Azure ai criteri di Firewall di Azure (anteprima)Migrate Azure Firewall configurations to Azure Firewall policy (preview) using Powershell
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Eseguire la migrazione delle configurazioni del firewall di Azure ai criteri del firewall di Azure (anteprima) con PowerShell
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-È possibile usare uno script di Azure PowerShell per eseguire la migrazione delle configurazioni di Firewall di Azure esistenti in una risorsa dei criteri di Firewall di Azure.You can use an Azure PowerShell script to migrate existing Azure Firewall configurations to an Azure Firewall policy resource. È quindi possibile usare Gestione firewall di Azure per distribuire i criteri.
+È possibile usare uno script di Azure PowerShell per eseguire la migrazione delle configurazioni del firewall di Azure esistenti a una risorsa di criteri del firewall di Azure. È quindi possibile usare gestione firewall di Azure per distribuire il criterio.
 
-Lo `AZFWMigrationScript.ps1` script crea un oggetto FirewallPolicy con tre oggetti RuleCollectionGroup rispettivamente per ApplicationRuleCollections, NetworkRuleCollections e NatRuleCollections. 
+Lo `AZFWMigrationScript.ps1` script crea un firewallpolicy con tre oggetti RuleCollectionGroup rispettivamente per ApplicationRuleCollections, NetworkRuleCollections e NatRuleCollections. 
 
-Oggetto RuleCollectionGroup è un nuovo raggruppamento di primo livello per le raccolte di regole per l'estensibilità futura. L'utilizzo delle impostazioni predefinite precedenti è consigliato e viene eseguito automaticamente dal portale.
+Un RuleCollectionGroup è un nuovo raggruppamento di primo livello per le raccolte di regole per l'estendibilità futura. L'uso dei valori predefiniti precedenti è consigliato e viene eseguito automaticamente dal portale.
 
-L'inizio dello script definisce il nome del firewall di origine e il gruppo di risorse e il nome e il percorso del criterio di destinazione. Modificare questi valori in base alle esigenze dell'organizzazione.
+L'inizio dello script definisce il nome del firewall di origine e il gruppo di risorse e il nome e il percorso dei criteri di destinazione. Modificare questi valori in modo appropriato per l'organizzazione.
 
 ## <a name="migration-script"></a>Script di migrazione
 
@@ -161,4 +161,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla distribuzione di Azure Firewall Manager: Panoramica della distribuzione di Azure Firewall Manager Preview.Learn more about Azure Firewall Manager deployment: [Azure Firewall Manager Preview overview](deployment-overview.md).
+Scopri di più sulla distribuzione di Azure Firewall Manager: [Panoramica della distribuzione di anteprima di Azure Firewall Manager](deployment-overview.md).

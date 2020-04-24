@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77202125"
 ---
-È possibile usare i tipi di parametro seguenti per l'associazione di input BLOB:You can use the following parameter types for the blob input binding:
+È possibile usare i tipi di parametro seguenti per l'associazione di input del BLOB:
 
 * `Stream`
 * `TextReader`

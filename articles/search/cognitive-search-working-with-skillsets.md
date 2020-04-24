@@ -1,7 +1,7 @@
 ---
-title: Concetti e flusso di lavoro delle competenze
+title: Concetti e flusso di lavoro di competenze
 titleSuffix: Azure Cognitive Search
-description: I set di competenze consentono di creare una pipeline di arricchimento dell'io in Ricerca cognitiva di Azure.Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Informazioni sui concetti e i dettagli importanti sulla composizione dei set di competenze.
+description: Skillsets è la posizione in cui si crea una pipeline di arricchimento per l'intelligenza artificiale in Azure ricerca cognitiva. Informazioni sui concetti e i dettagli importanti sulla composizione di competenze.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
@@ -15,124 +15,124 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191034"
 ---
-# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concetti e composizione delle competenze in Ricerca cognitiva di AzureSkillset concepts and composition in Azure Cognitive Search
+# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concetti e composizione di competenze in Azure ricerca cognitiva
 
-Questo articolo è destinato agli sviluppatori che necessitano di una comprensione più approfondita del funzionamento della pipeline di arricchimento e presuppone che si disponga di una comprensione concettuale del processo di arricchimento dell'iA. Se sei nuovo di questo concetto, inizia con:
-+ [Arricchimento dell'iA in Ricerca cognitiva di AzureAI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md)
+Questo articolo è per gli sviluppatori che necessitano di una conoscenza più approfondita del funzionamento della pipeline di arricchimento e presuppone che l'utente abbia una conoscenza concettuale del processo di arricchimento di intelligenza artificiale. Se si ha familiarità con questo concetto, iniziare con:
++ [Arricchimento di intelligenza artificiale in Azure ricerca cognitiva](cognitive-search-concept-intro.md)
 + [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md)
 
-## <a name="specify-the-skillset"></a>Specificare il set di competenze
-Un set di competenze è una risorsa riutilizzabile in Ricerca cognitiva di Azure che specifica una raccolta di competenze cognitive usate per analizzare, trasformare e arricchire il contenuto di testo o immagini durante l'indicizzazione. La creazione di un set di competenze consente di allegare gli arricchimenti di testo e immagini nella fase di inserimento dei dati, estraendo e creando nuove informazioni e strutture dal contenuto non elaborato.
+## <a name="specify-the-skillset"></a>Specificare il livello di competenze
+Un insieme di competenze è una risorsa riutilizzabile in Azure ricerca cognitiva che specifica una raccolta di competenze cognitive usate per l'analisi, la trasformazione e l'arricchimento di contenuto di testo o immagine durante l'indicizzazione. La creazione di un oggetto di competenze consente di aggiungere arricchimenti di testo e immagini nella fase di inserimento dei dati, estraendo e creando nuove informazioni e strutture da contenuto non elaborato.
 
-Un set di competenze ha tre proprietà:
+Un skillt dispone di tre proprietà:
 
-+   ```skills```, una raccolta non ordinata di competenze per le quali la piattaforma determina la sequenza di esecuzione in base agli input necessari per ogni competenza
-+   ```cognitiveServices```, la chiave dei servizi cognitivi necessaria per la fatturazione delle competenze cognitive
++   ```skills```, una raccolta non ordinata di competenze per le quali la piattaforma determina la sequenza di esecuzione in base agli input necessari per ogni Skill
++   ```cognitiveServices```, la chiave di servizi cognitivi necessaria per la fatturazione delle competenze cognitive richiamate
 +   ```knowledgeStore```, l'account di archiviazione in cui verranno proiettati i documenti arricchiti
 
 
 
-I set di competenze vengono creati in JSON. È possibile creare set di competenze complesse con looping e [diramazione](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) utilizzando il [linguaggio](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional)delle espressioni . Il linguaggio delle espressioni usa la notazione del percorso del [puntatore JSON](https://tools.ietf.org/html/rfc6901) con alcune modifiche per identificare i nodi nell'albero di arricchimento. Un ```"/"``` attraversa un livello inferiore nell'albero e ```"*"``` funge da operatore for-each nel contesto. Questi concetti sono meglio descritti con un esempio. Per illustrare alcuni dei concetti e delle funzionalità, esamineremo le recensioni degli hotel, il set di [competenze di esempio.](knowledge-store-connect-powerbi.md) Per visualizzare il set di competenze dopo aver seguito il flusso di lavoro di importazione dei dati, è necessario utilizzare un client DELL'API REST per [ottenere il set](https://docs.microsoft.com/rest/api/searchservice/get-skillset)di competenze.
+Skillsets vengono creati in JSON. È possibile compilare skillsets complessi con cicli e [diramazioni](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) usando il [linguaggio delle espressioni](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). Il linguaggio delle espressioni usa la notazione del percorso del [puntatore JSON](https://tools.ietf.org/html/rfc6901) con alcune modifiche per identificare i nodi nell'albero di arricchimento. Un ```"/"``` oggetto attraversa un livello inferiore nell'albero e ```"*"``` funge da operatore for-each nel contesto. Questi concetti sono descritti meglio con un esempio. Per illustrare alcuni dei concetti e delle funzionalità, verranno illustrate le procedure per l' [esempio delle recensioni degli hotel](knowledge-store-connect-powerbi.md) . Per visualizzare le competenze dopo aver seguito il flusso di lavoro di importazione dei dati, è necessario usare un client dell'API REST per [ottenere l'](https://docs.microsoft.com/rest/api/searchservice/get-skillset)insieme di competenze.
 
 ### <a name="enrichment-tree"></a>Albero di arricchimento
 
-Per immaginare come un set di competenze arricchisce progressivamente il documento, iniziamo con l'aspetto del documento prima di qualsiasi arricchimento. L'output del cracking del documento dipende dall'origine dati e dalla modalità di analisi specifica selezionata. Questo è anche lo stato del documento da cui [i mapping](search-indexer-field-mappings.md) dei campi possono originare il contenuto quando si aggiungono dati all'indice di ricerca.
+Per conoscere il modo in cui un insieme di competenze arricchisce progressivamente il documento, iniziamo con l'aspetto del documento prima di qualsiasi arricchimento. L'output di cracking del documento dipende dall'origine dati e dalla modalità di analisi specifica selezionata. Questo è anche lo stato del documento per il quale i [mapping dei campi](search-indexer-field-mappings.md) possono essere originati da durante l'aggiunta di dati all'indice di ricerca.
 ![Archivio conoscenze nel diagramma della pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Archivio conoscenze nel diagramma della pipeline")
 
-Una volta che un documento è nella pipeline di arricchimento, è rappresentato come un albero di contenuto e gli arricchimenti associati. Viene creata un'istanza di questo albero come output della fessurazione del documento. Il formato dell'albero di arricchimento consente alla pipeline di arricchimento di associare metadati anche a tipi di dati primitivi, non è un oggetto JSON valido, ma può essere proiettato in un formato JSON valido. Nella tabella seguente viene illustrato lo stato di un documento che entra nella pipeline di arricchimento:
+Quando un documento si trova nella pipeline di arricchimento, viene rappresentato come albero di contenuto e arricchimenti associati. Viene creata un'istanza di questo albero come output di cracking del documento. Il formato dell'albero di arricchimento consente alla pipeline di arricchimento di alleghi i metadati ai tipi di dati ancora primitivi, non è un oggetto JSON valido, ma può essere proiettato in un formato JSON valido. La tabella seguente illustra lo stato di un documento che entra nella pipeline di arricchimento:
 
-|Origine dati - Modalità di analisi|Predefinito|JSON, Linee JSON & CSV|
+|Modalità Source\Parsing dati|Impostazione predefinita|JSON, righe JSON & CSV|
 |---|---|---|
-|Archiviazione BLOB|/documento/contenuto<br>/documento/normalized_images/<br>…|/document/ "chiave1"<br>/document/ "chiave2"<br>…|
-|SQL|/document/ colonna1<br>/document/ colonna2<br>…|N/D |
-|Cosmos DB|/document/ "chiave1"<br>/document/ "chiave2"<br>…|N/D|
+|Archiviazione BLOB|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/D|
 
- Quando le competenze vengono eseguite, aggiungono nuovi nodi all'albero di arricchimento. Questi nuovi nodi possono quindi essere utilizzati come input per le competenze a valle, la proiezione nel Knowledge Store o il mapping ai campi dell'indice. Gli arricchimenti non sono modificabili: una volta creati, i nodi non possono essere modificati. Man mano che i set di competenze diventeranno più complessi, anche l'albero di arricchimento, ma non tutti i nodi nell'albero di arricchimento devono essere resi nell'indice o nell'archivio informazioni. 
+ Quando le competenze vengono eseguite, aggiungono nuovi nodi all'albero di arricchimento. Questi nuovi nodi possono quindi essere utilizzati come input per le competenze downstream, proiettando nell'archivio informazioni o eseguendo il mapping a campi di indice. Gli arricchimenti non sono modificabili: una volta creati, i nodi non possono essere modificati. Poiché il skillsets è più complesso, l'albero di arricchimento, ma non tutti i nodi dell'albero di arricchimento, deve renderlo nell'indice o nell'archivio informazioni. 
 
-È possibile rendere persistente solo un sottoinsieme degli arricchimenti con l'indice o l'archivio informazioni.
-Per il resto di questo documento, presumiamo che stiamo lavorando con [l'esempio](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi)di recensioni di hotel , ma gli stessi concetti si applicano per arricchire i documenti provenienti da tutte le altre fonti di dati.
+È possibile salvare in modo selettivo solo un subset degli arricchimenti nell'indice o nell'archivio informazioni.
+Per la parte restante di questo documento si presuppone che si stia lavorando all' [esempio di recensioni degli Alberghi](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), ma gli stessi concetti si applicano all'arricchimento dei documenti da tutte le altre origini dati.
 
 ### <a name="context"></a>Context
-Ogni abilità richiede un contesto. Un contesto determina:
-+   Il numero di volte in cui la competenza viene eseguita, in base ai nodi selezionati. Per i valori di contesto di raccolta di tipi, l'aggiunta di un ```/*``` alla fine comporterà la competenza viene richiamata una volta per ogni istanza nella raccolta. 
-+   Dove nell'albero di arricchimento vengono aggiunti i risultati delle competenze. Gli output vengono sempre aggiunti alla struttura ad albero come elementi figlio del nodo di contesto. 
-+   Forma degli ingressi. Per le raccolte a più livelli, l'impostazione del contesto sulla raccolta padre influirà sulla forma dell'input per la competenza. Ad esempio, se si dispone di un albero di arricchimento con un elenco di paesi, ognuno arricchito con un elenco di stati contenente un elenco di codici postali.
+Ogni competenza richiede un contesto. Un contesto determina:
++   Il numero di volte in cui viene eseguita l'abilità, in base ai nodi selezionati. Per i valori di contesto della raccolta di tipi ```/*``` , l'aggiunta di un oggetto alla fine comporterà la richiamata della capacità una volta per ogni istanza nella raccolta. 
++   Dove nell'albero di arricchimento vengono aggiunti gli output delle competenze. Gli output vengono sempre aggiunti all'albero come elementi figlio del nodo di contesto. 
++   Forma degli input. Per le raccolte a più livelli, l'impostazione del contesto sulla raccolta padre influirà sulla forma dell'input per la competenza. Ad esempio, se si dispone di un albero di arricchimento con un elenco di paesi, ciascuno arricchito con un elenco di stati contenente un elenco di zipcodes.
 
-|Context|Input|Forma dell'ingresso|Invocazione delle competenze|
+|Context|Input|Forma dell'input|Chiamata di competenze|
 |---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Un elenco di tutti i codici postali nel paese |Una volta per paese |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Un elenco di codici postali nello stato | Una volta per combinazione di paese e stato|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Elenco di tutti ZipCodes nel paese |Una volta per paese |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Elenco di ZipCodes nello stato | Una volta per ogni combinazione di paese e stato|
 
 ### <a name="sourcecontext"></a>SourceContext
 
-Il `sourceContext` viene utilizzato solo in input di abilità e [proiezioni](knowledge-store-projection-overview.md). Viene utilizzato per costruire oggetti annidati a più livelli. Potrebbe essere necessario creare un nuovo oggetto per passarlo come input a una competenza o un progetto nel Knowledge Store. Poiché i nodi di arricchimento potrebbero non essere un oggetto JSON valido nell'albero di arricchimento e il riferimento a un nodo nell'albero restituisce solo lo stato del nodo al momento della creazione, l'uso degli arricchimenti come input o proiezioni di competenze richiede la creazione di un oggetto JSON ben formato. Consente `sourceContext` di costruire un oggetto di tipo anonimo gerarchico, che richiederebbe più competenze se si utilizzasse solo il contesto. L'utilizzo `sourceContext` è illustrato nella sezione successiva. Esaminare l'output delle competenze che ha generato un arricchimento per determinare se si tratta di un oggetto JSON valido e non di un tipo primitivo.
+`sourceContext` Viene utilizzato solo in input e [proiezioni](knowledge-store-projection-overview.md)di competenze. Viene utilizzato per costruire oggetti annidati a più livelli. Potrebbe essere necessario creare un nuovo oggetto per passarlo come input a una competenza o a un progetto nell'archivio informazioni. Poiché i nodi di arricchimento non possono essere un oggetto JSON valido nell'albero di arricchimento e fare riferimento a un nodo nell'albero restituisce solo lo stato del nodo al momento della creazione, l'uso degli arricchimenti per le proiezioni o gli input delle competenze richiede la creazione di un oggetto JSON ben formato. `sourceContext` Consente di creare un oggetto di tipo gerarchico e anonimo, che richiederebbe più competenze se si utilizzasse solo il contesto. L' `sourceContext` uso di è illustrato nella sezione successiva. Esaminare l'output delle competenze che ha generato un arricchimento per determinare se si tratta di un oggetto JSON valido e non di un tipo primitivo.
 
 ### <a name="projections"></a>Proiezioni
 
-La proiezione è il processo di selezione dei nodi dall'albero di arricchimento da salvare nel Knowledge Store. Le proiezioni sono forme personalizzate del documento (contenuto e arricchimenti) che possono essere emesse come proiezioni di tabelle o oggetti. Per ulteriori informazioni sull'utilizzo delle proiezioni, consultate [Operazioni con le proiezioni.](knowledge-store-projection-overview.md)
+La proiezione è il processo di selezione dei nodi dall'albero di arricchimento da salvare nell'archivio informazioni. Le proiezioni sono forme personalizzate del documento (contenuto e arricchimenti) che possono essere restituite come proiezioni di tabelle o oggetti. Per ulteriori informazioni sull'utilizzo delle proiezioni, vedere [utilizzo delle proiezioni](knowledge-store-projection-overview.md).
 
-![Opzioni di mappatura dei campi](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Opzioni di mappatura dei campi per la pipeline di arricchimento")
+![Opzioni di mapping dei campi](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Opzioni di mapping dei campi per la pipeline di arricchimento")
 
-Il diagramma precedente descrive il selettore con cui si lavora in base alla posizione in cui ci si trova nella pipeline di arricchimento.
+Il diagramma precedente descrive il selettore che si utilizza in base alla posizione della pipeline di arricchimento.
 
-## <a name="generate-enriched-data"></a>Generare dati arricchiti 
+## <a name="generate-enriched-data"></a>Genera dati arricchiti 
 
-Esaminiamo ora il set di competenze delle recensioni dell'hotel, è possibile seguire il [tutorial](knowledge-store-connect-powerbi.md) per creare il set di competenze o [visualizzare](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) il set di competenze. Vedremo:
+A questo punto, è possibile seguire l' [esercitazione](knowledge-store-connect-powerbi.md) per creare il proprio Skills o [visualizzare](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) le competenze. Verrà esaminato:
 
-* come si evolve l'albero di arricchimento con l'esecuzione di ogni abilità 
-* come funzionano il contesto e gli input per determinare quante volte un'abilità viene eseguita 
-* la forma dell'input è basata sul contesto. 
+* evoluzione dell'albero di arricchimento con l'esecuzione di ogni competenza 
+* funzionamento del contesto e degli input per determinare il numero di esecuzioni di un'abilità 
+* Qual è la forma dell'input basata sul contesto. 
 
-Poiché si usa la modalità di analisi del testo delimitata per l'indicizzatore, un documento all'interno del processo di arricchimento rappresenta una singola riga all'interno del file CSV.
+Poiché si sta usando la modalità di analisi del testo delimitata per l'indicizzatore, un documento all'interno del processo di arricchimento rappresenta una singola riga all'interno del file CSV.
 
-### <a name="skill-1-split-skill"></a>#1 abilità: abilità divisa 
+### <a name="skill-1-split-skill"></a>#1 Skill: suddivisione skill 
 
-![albero di arricchimento dopo il cracking del documento](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Albero di arricchimento dopo la fessurazione del documento e prima dell'esecuzione delle abilità")
+![albero di arricchimento dopo la screpolatura del documento](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Struttura ad albero di arricchimento dopo il cracking del documento e prima dell'esecuzione delle competenze")
 
-Con il contesto di abilità di ```"/document/reviews_text"``` `reviews_text`, questa abilità verrà eseguita una volta per il . L'output delle competenze `reviews_text` è un elenco in cui l'oggetto viene suddiviso in 5000 segmenti di caratteri. L'output della competenza `pages` divisa viene denominato e aggiunto all'albero di arricchimento. La `targetName` funzione consente di rinominare un output di abilità prima di essere aggiunto all'albero di arricchimento.
+Con il contesto di competenza ```"/document/reviews_text"```di, questa skill viene eseguita una sola `reviews_text`volta per il. L'output delle competenze è un elenco in `reviews_text` cui l'oggetto è suddiviso in segmenti di 5000 caratteri. L'output dell'abilità Split è denominato `pages` e aggiunto all'albero di arricchimento. La `targetName` funzionalità consente di rinominare un output di competenze prima di essere aggiunto all'albero di arricchimento.
 
-L'albero di arricchimento ora ha un nuovo nodo posto nel contesto della competenza. Questo nodo è disponibile per qualsiasi mapping di competenze, proiezioni o campi di output.
+L'albero di arricchimento dispone ora di un nuovo nodo inserito nel contesto della competenza. Questo nodo è disponibile per qualsiasi mapping dei campi di competenze, proiezione o output.
 
 
-Il nodo radice per tutti `"/document"`gli arricchimenti è . Quando si utilizzano indicizzatori BLOB, il `"/document"` nodo diverrà costituito da nodi figlio di `"/document/content"` e `"/document/normalized_images"`. Quando si lavora con dati CSV, come in questo esempio, `"/document"`i nomi delle colonne verranno mappati ai nodi al di sotto di . Per accedere a uno qualsiasi degli arricchimenti aggiunti a un nodo da una competenza, è necessario il percorso completo per l'arricchimento. Ad esempio, se si desidera utilizzare ```pages``` il testo del nodo come input per ```"/document/reviews_text/pages/*"```un'altra competenza, sarà necessario specificarlo come .
+Il nodo radice per tutti gli arricchimenti è `"/document"`. Quando si utilizzano gli indicizzatori BLOB, `"/document"` il nodo avrà nodi figlio di `"/document/content"` e `"/document/normalized_images"`. Quando si usano i dati CSV, come in questo esempio, i nomi delle colonne vengono mappati ai nodi `"/document"`sotto. Per accedere a uno qualsiasi degli arricchimenti aggiunti a un nodo da un'abilità, è necessario il percorso completo per l'arricchimento. Se ad esempio si vuole usare il testo del ```pages``` nodo come input per un'altra abilità, sarà necessario specificarlo come. ```"/document/reviews_text/pages/*"```
  
- ![arricchimento dopo #1 di abilità](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "L'albero di arricchimento dopo l'esecuzione di #1 di abilitàEnrichment tree after skill #1 executes")
+ ![struttura ad albero di arricchimento dopo #1 skill](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Albero di arricchimento dopo l'esecuzione di skill #1")
 
-### <a name="skill-2-language-detection"></a>Rilevamento delle competenze #2 della lingua
- Mentre la competenza di rilevamento della lingua è la terza abilità (#3 di abilità) definita nel set di competenze, è la competenza successiva da eseguire. Poiché non è bloccato richiedendo alcun input, verrà eseguito in parallelo con la competenza precedente. Come l'abilità di divisione che l'ha preceduta, anche l'abilità di rilevamento della lingua viene richiamata una volta per ogni documento. L'albero di arricchimento ora ha un nuovo nodo per il linguaggio.
- ![arricchimento dopo #2 di abilità](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Albero di arricchimento dopo l'esecuzione di #2 di abilitàEnrichment tree after skill #2 executes")
+### <a name="skill-2-language-detection"></a>Rilevamento di competenze #2 lingua
+ Sebbene la competenza del rilevamento della lingua sia la terza competenza (skill #3) definita in competenze, è la capacità successiva da eseguire. Poiché non è bloccata richiedendo gli input, verrà eseguita in parallelo con la competenza precedente. Analogamente all'abilità Split che lo precede, viene richiamata anche una volta per ogni documento. L'albero di arricchimento dispone ora di un nuovo nodo per la lingua.
+ ![struttura ad albero di arricchimento dopo #2 Skill](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Albero di arricchimento dopo l'esecuzione di Skill #2")
  
- ### <a name="skill-3-key-phrases-skill"></a>#3: abilità delle frasi chiave 
+ ### <a name="skill-3-key-phrases-skill"></a>Skill #3: abilità di frasi chiave 
 
-Dato il ```/document/reviews_text/pages/*``` contesto delle frasi chiave skill verrà richiamato una `pages` volta per ciascuno degli elementi nella raccolta. L'output della competenza sarà un nodo sotto l'elemento di pagina associato. 
+Dato che il contesto ```/document/reviews_text/pages/*``` delle frasi chiave verrà richiamato una volta per ogni elemento della `pages` raccolta. L'output dell'abilità sarà un nodo sotto l'elemento della pagina associato. 
 
- Ora dovresti essere in grado di guardare il resto delle abilità nel set di competenze e visualizzare come l'albero degli arricchimenti continuerà a crescere con l'esecuzione di ogni abilità. Alcune abilità, come la competenza di unione e la competenza shaper, creano anche nuovi nodi, ma utilizzano solo i dati dei nodi esistenti e non creano nuovi arricchimenti netti.
+ A questo punto dovrebbe essere possibile esaminare le altre competenze del insieme di competenze e visualizzare il modo in cui l'albero degli arricchimenti continuerà a crescere con l'esecuzione di ogni competenza. Alcune competenze, ad esempio la capacità di Unione e la capacità dell'shaper, creano anche nuovi nodi, ma usano solo i dati provenienti da nodi esistenti e non creano nuovi arricchimenti di rete.
 
-![arricchimento dopo tutte le competenze](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Albero di arricchimento dopo tutte le competenze")
+![struttura ad albero di arricchimento dopo tutte le competenze](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Struttura ad albero di arricchimento dopo tutte le competenze")
 
-I colori dei connettori nell'albero sopra indicati indicano che gli arricchimenti sono stati creati da competenze diverse e i nodi dovranno essere indirizzati singolarmente e non faranno parte dell'oggetto restituito quando si seleziona il nodo padre.
+I colori dei connettori nell'albero sopra indicati indicano che gli arricchimenti sono stati creati con competenze diverse e che i nodi devono essere risolti singolarmente e non faranno parte dell'oggetto restituito quando si seleziona il nodo padre.
 
-## <a name="save-enrichments-in-a-knowledge-store"></a>Salvare gli arricchimenti in un archivio di conoscenze 
+## <a name="save-enrichments-in-a-knowledge-store"></a>Salvare gli arricchimenti in un archivio informazioni 
 
-I set di competenze definiscono anche un Knowledge Store in cui i documenti arricchiti possono essere proiettati come tabelle o oggetti. Per salvare i dati arricchiti nel Knowledge Store, è necessario definire un set di proiezioni per il documento arricchito. Per ulteriori informazioni sull'archivio informazioni, vedere [Panoramica dell'archivio informazioni](knowledge-store-concept-intro.md)
+Skillsets definisce inoltre un archivio informazioni in cui è possibile proiettare i documenti arricchiti come tabelle o oggetti. Per salvare i dati arricchiti nell'archivio informazioni, è necessario definire un set di proiezioni per il documento arricchito. Per ulteriori informazioni sull'archivio informazioni, vedere [Cenni preliminari sull'archivio](knowledge-store-concept-intro.md) informazioni
 
-### <a name="slicing-projections"></a>Proiezioni di affettatura
+### <a name="slicing-projections"></a>Proiezioni di sezionamento
 
-Quando si definisce un gruppo di proiezione di tabelle, un singolo nodo nell'albero di arricchimento può essere suddiviso in più tabelle correlate. Se si aggiunge una tabella con un percorso di origine figlio di una proiezione di tabella esistente, il nodo figlio risultante non sarà un elemento figlio della proiezione di tabella esistente, ma verrà proiettato nella nuova tabella correlata. Questa tecnica di affettatura consente di definire un singolo nodo in una competenza di shaper che può essere l'origine per tutte le proiezioni della tabella. 
+Quando si definisce un gruppo di proiezione della tabella, è possibile suddividere in più tabelle correlate un singolo nodo nell'albero di arricchimento. Se si aggiunge una tabella con un percorso di origine figlio di una proiezione di tabella esistente, il nodo figlio risultante non sarà un figlio della proiezione della tabella esistente, ma verrà proiettato nella nuova tabella correlata. Questa tecnica di sezionamento consente di definire un singolo nodo in un'abilità di shaper che può essere l'origine di tutte le proiezioni di tabella. 
 
-### <a name="shaping-projections"></a>Modellare le proiezioni
+### <a name="shaping-projections"></a>Modellazione delle proiezioni
 
-Esistono due modi per definire una proiezione. È possibile utilizzare una competenza shaper per creare un nuovo nodo che è il nodo radice per tutti gli arricchimenti che si stanno proiettando. Quindi, nelle vostre proiezioni, farete riferimento solo all'uscita dell'abilità shaper. È anche possibile formare in linea una proiezione all'interno della definizione di proiezione stessa.
+Esistono due modi per definire una proiezione. Per creare un nuovo nodo che rappresenta il nodo radice per tutti gli arricchimenti che si sta proiettando, è possibile usare un'abilità di shaper. Quindi, nelle proiezioni, si fa riferimento solo all'output della capacità dell'shaper. È anche possibile definire in linea una proiezione all'interno della definizione di proiezione.
 
-L'approccio shaper è più dettagliato della forma in linea, ma assicura che tutte le mutazioni dell'albero di arricchimento siano contenute all'interno delle competenze e che l'output sia un oggetto che può essere riutilizzato. La forma in linea consente di creare la forma necessaria, ma è un oggetto anonimo ed è disponibile solo per la proiezione per cui è definita. Gli approcci possono essere utilizzati insieme o separatamente. Il set di competenze creato automaticamente nel flusso di lavoro del portale contiene entrambi. Utilizza una abilità shaper per le proiezioni della tabella, ma usa anche la forma in linea per proiettare la tabella delle frasi chiave.
+L'approccio shaper è più dettagliato rispetto al data shaping, ma garantisce che tutte le mutazioni dell'albero di arricchimento siano contenute all'interno delle competenze e che l'output sia un oggetto che può essere riutilizzato. La formazione in linea consente di creare la forma necessaria, ma è un oggetto anonimo ed è disponibile solo per la proiezione per la quale è definita. Gli approcci possono essere utilizzati insieme o separatamente. Le competenze create nel flusso di lavoro del portale contengono entrambe. Usa un'abilità shaper per le proiezioni di tabella, ma usa anche il data shaping per proiettare la tabella delle frasi chiave.
 
-Per estendere l'esempio, è possibile scegliere di rimuovere la forma in linea e utilizzare una competenza di shaper per creare un nuovo nodo per le frasi chiave. Per creare una forma proiettata in `hotelReviewsDocument` `hotelReviewsPages`tre `hotelReviewsKeyPhrases`tabelle, ovvero , e , le due opzioni sono descritte nelle sezioni seguenti.
+Per estendere l'esempio, è possibile scegliere di rimuovere il data shaping in linea e di usare un'abilità shaper per creare un nuovo nodo per le frasi chiave. Per creare una forma proiettata in tre tabelle, vale a dire `hotelReviewsDocument` `hotelReviewsPages`,, e `hotelReviewsKeyPhrases`, le due opzioni vengono descritte nelle sezioni riportate di seguito.
 
 
-#### <a name="shaper-skill-and-projection"></a>Abilità e proiezione di Shaper 
+#### <a name="shaper-skill-and-projection"></a>Capacità e proiezione del shaper 
 
 > [!Note]
-> Alcune delle colonne della tabella documenti sono state rimosse da questo esempio per brevità.
+> Alcune colonne della tabella Document sono state rimosse da questo esempio per brevità.
 >
 ```json
 {
@@ -204,10 +204,10 @@ Per estendere l'esempio, è possibile scegliere di rimuovere la forma in linea e
 }
 ```
 
-Con `tableprojection` il nodo `outputs` definito nella sezione precedente, è ora possibile usare `tableprojection` la funzionalità di sezionamento per proiettare parti del nodo in tabelle diverse:With the node defined in the section above, we can now use the slicing feature to project parts of the node into different tables:
+Con il `tableprojection` nodo definito nella `outputs` sezione precedente, è ora possibile usare la funzionalità di sezionamento per proiettare parti del `tableprojection` nodo in tabelle diverse:
 
 > [!Note]
-> Si tratta solo di un frammento della proiezione all'interno della configurazione del knowledge store.
+> Si tratta solo di un frammento della proiezione nella configurazione dell'archivio informazioni.
 >
 ```json
 "projections": [
@@ -233,9 +233,9 @@ Con `tableprojection` il nodo `outputs` definito nella sezione precedente, è or
 ]
 ```
 
-#### <a name="inline-shaping-projections"></a>Proiezioni di sagomatura in linea
+#### <a name="inline-shaping-projections"></a>Proiezioni di data shaping in linea
 
-L'approccio di sagomatura in linea non richiede un'abilità di shaper in quanto tutte le forme necessarie per le proiezioni vengono create nel momento in cui sono necessarie. Per proiettare gli stessi dati dell'esempio precedente, l'opzione di proiezione inline sarà simile alla seguente:
+L'approccio di data shaping in linea non richiede una capacità di formatore perché tutte le forme necessarie per le proiezioni vengono create nel momento in cui sono necessarie. Per proiettare gli stessi dati dell'esempio precedente, l'opzione di proiezione inline avrà un aspetto simile al seguente:
 
 ```json
 "projections": [
@@ -295,11 +295,11 @@ L'approccio di sagomatura in linea non richiede un'abilità di shaper in quanto 
 ]
 ```
   
-Un'osservazione da entrambi gli `"Keyphrases"` approcci è come `"sourceContext"`i valori di vengono proiettati utilizzando il . Il `"Keyphrases"` nodo, che contiene una raccolta di stringhe, è a sua volta un elemento figlio del testo della pagina. Tuttavia, poiché le proiezioni richiedono un oggetto JSON `"sourceContext"` e la pagina è una primitiva (stringa), l'oggetto viene utilizzato per eseguire il wrapping della frase chiave in un oggetto con una proprietà denominata. Questa tecnica consente anche di proiettare le primitive in modo indipendente.
+Un'osservazione da entrambi gli approcci è il modo in `"Keyphrases"` cui i valori di vengono `"sourceContext"`proiettati usando. Il `"Keyphrases"` nodo che contiene una raccolta di stringhe è a sua volta un elemento figlio del testo della pagina. Tuttavia, poiché le proiezioni richiedono un oggetto JSON e la pagina è un primitivo (stringa) `"sourceContext"` , viene usato per eseguire il wrapping della frase chiave in un oggetto con una proprietà denominata. Questa tecnica consente di proiettare anche le primitive in modo indipendente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Come passaggio successivo, crea il tuo primo set di competenze con abilità cognitive.
+Come passaggio successivo, è possibile creare il primo insieme di competenze con competenze cognitive.
 
 > [!div class="nextstepaction"]
-> [Creare il primo set di competenze](cognitive-search-defining-skillset.md).
+> [Creare il primo sistema di competenze](cognitive-search-defining-skillset.md).

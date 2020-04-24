@@ -1,5 +1,5 @@
 ---
-title: Usare Automazione di Azure per avviare un processo in StorSimple Data ManagerUse Azure Automation to launch a job in StorSimple Data Manager
+title: Usare automazione di Azure per avviare un processo in StorSimple Data Manager
 description: Informazioni su come usare Automazione di Azure per attivare i processi di StorSimple Data Manager
 author: alkohli
 ms.service: storsimple
@@ -29,13 +29,13 @@ Prima di iniziare, assicurarsi di disporre di:
 *   Azure PowerShell installato nel computer client. [Scaricare Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 *   Una definizione di processo configurata correttamente nel servizio StorSimple Data Manager all'interno di un gruppo di risorse.
 *   Scaricare [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) il file dal repository GitHub. 
-*   Scaricare [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) lo script dal repository GitHub.Download script from the GitHub repository.
+*   Scaricare [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) lo script dal repository GitHub.
 
 ## <a name="step-by-step-procedure"></a>Procedura dettagliata
 
 ### <a name="set-up-the-automation-account"></a>Configurare l'account di Automazione
 
-1. Creare un account di automazione RunAs di Azure nel portale di Azure. A tale scopo, passare ad **Azure Marketplace > Tutto** e quindi cercare **Automazione**. Selezionare **Account di automazione**.
+1. Creare un account di automazione RunAs di Azure nel portale di Azure. A tale scopo, passare ad **Azure Marketplace > Tutto** e quindi cercare **Automazione**. Selezionare **account di automazione**.
 
     ![Creare un account di Automazione RunAs](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
@@ -48,7 +48,7 @@ Prima di iniziare, assicurarsi di disporre di:
    1. Specificare il **nome** dell'account di automazione.
    2. Selezionare la **sottoscrizione** collegata al servizio StorSimple Data Manager.
    3. Creare un nuovo gruppo di risorse o selezionarne uno esistente.
-   4. Selezionare una **posizione**.
+   4. Selezionare una **località**.
    5. Lasciare selezionata l'opzione predefinita **Crea account RunAs**.
    6. Per ottenere un collegamento per l'accesso rapido nel dashboard, selezionare **Aggiungi al dashboard**. Fare clic su **Crea**.
 
@@ -110,7 +110,7 @@ Seguire questa procedura per importare, pubblicare ed eseguire il runbook per at
 
     ![Aggiungere un runbook 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
 
-9. **Avviare** il runbook. In **Avvia runbook** immettere tutti i parametri. Fare clic su **OK** per inviare e avviare il processo di trasformazione dei dati.
+9. **Avviare** il Runbook. In **Avvia runbook** immettere tutti i parametri. Fare clic su **OK** per inviare e avviare il processo di trasformazione dei dati.
 
 10. Per monitorare l'avanzamento del processo nel portale di Azure, passare a **Processi** nell'area personale del servizio StorSimple Data Manager. Selezionare e fare clic sul processo per visualizzarne i dettagli.
 
@@ -118,4 +118,4 @@ Seguire questa procedura per importare, pubblicare ed eseguire il runbook per at
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Utilizzare StorSimple Data Manager UI per trasformare i dati](storsimple-data-manager-ui.md).
+[Usare StorSimple Data Manager interfaccia utente per trasformare i dati](storsimple-data-manager-ui.md).

@@ -16,9 +16,9 @@ I provider di servizi che usano la [gestione risorse delegate di Azure](../conce
 
 Per accedere alla pagina **Clienti personali** nel portale di Azure, selezionare **Tutti i servizi**, quindi cercare **Clienti personali** e selezionarla. È possibile trovarla anche immettendo "Clienti personali" nella casella di ricerca nella parte superiore del portale di Azure.
 
-Tieni presente che la sezione **Clienti** superiore della pagina **I miei clienti** mostra solo le informazioni sui clienti che hanno delegato sottoscrizioni o gruppi di risorse. Se si lavora con altri clienti (ad esempio tramite il programma Cloud Solution Provider , non verranno visualizzate informazioni su tali clienti nella sezione Clienti a meno che non siano state create operazioni di onboarding delle risorse per la gestione delle risorse delegate di Azure.If you work with other customers (such as through the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview), you won not see details about those customers in the **Customers** section unless you have onboarded their resources onboarded resources for Azure delegated resource management.
+Tenere presente che la sezione **clienti** principali della pagina **clienti personali** Mostra solo le informazioni sui clienti che hanno sottoscrizioni delegate o gruppi di risorse. Se si lavora con altri clienti, ad esempio tramite il [programma Cloud Solution Provider](https://docs.microsoft.com/partner-center/csp-overview), non verranno visualizzate informazioni sui clienti nella sezione **Customers** , a meno che non siano state caricate le risorse per la gestione delle risorse delegate di Azure.
 
-Più in basso nella pagina, una sezione separata **denominata Cloud Solution Provider (anteprima)** mostra le informazioni di fatturazione e le risorse per i clienti CSP che hanno [firmato il Contratto clienti Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e sono [sotto il piano di Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../billing/mpa-overview.md). Si noti che tali clienti CSP vengono visualizzati in questa sezione indipendentemente dal fatto che siano stati caricati o meno anche per la gestione delle risorse delegate di Azure.Note that such CSP customers appear in this section whether or not you have also onboarded them for Azure delegated resource management. Analogamente, un cliente CSP non deve essere visualizzato nella sezione Cloud Solution Provider (Preview) di Clienti personali per poterli eseguire l'onboarding per la gestione delle risorse delegate di Azure.Similarly, a CSP customer does not have to appear in the **Cloud Solution Provider (Preview)** section of My **customers** in order to you to onboard them for Azure delegated resource management.
+Nella parte inferiore della pagina, una sezione separata denominata **Cloud Solution Provider (anteprima)** Mostra le informazioni e le risorse di fatturazione per i clienti CSP che hanno [firmato il contratto](https://docs.microsoft.com/partner-center/confirm-customer-agreement) per i clienti Microsoft e si trovano nel [piano Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../billing/mpa-overview.md). Si noti che questi clienti CSP vengono visualizzati in questa sezione indipendentemente dal fatto che siano stati caricati o meno anche per la gestione delle risorse delegate di Azure. Analogamente, non è necessario che un cliente CSP venga visualizzato nella sezione del **provider di soluzioni cloud (anteprima)** dei **clienti** per poterli caricare per la gestione delle risorse delegate di Azure.
 
 > [!NOTE]
 > I clienti possono visualizzare le informazioni sui provider di servizi passando a **Provider di servizi** nel portale di Azure. Per altre informazioni, vedere [Visualizzare e gestire i provider di servizi](view-manage-service-providers.md).
@@ -40,7 +40,7 @@ Da questa pagina è possibile visualizzare le informazioni seguenti:
 - Per visualizzare altri dettagli su un'offerta e le relative deleghe, selezionare il nome dell'offerta.
 - Per visualizzare altri dettagli sulle assegnazioni di ruolo per le sottoscrizioni o i gruppi di risorse delegati, selezionare la voce nella colonna **Deleghe**.
 
-## <a name="view-and-manage-delegations"></a>Visualizzare e gestire le deleghe
+## <a name="view-and-manage-delegations"></a>Visualizzazione e gestione delle deleghe
 
 Le deleghe mostrano la sottoscrizione o il gruppo di risorse che è stato delegato, insieme agli utenti e alle autorizzazioni che possono accedervi. Per visualizzare queste informazioni, selezionare **Deleghe** sul lato sinistro della pagina **Clienti personali**.
 
@@ -50,14 +50,14 @@ I filtri nella parte superiore della pagina consentono di ordinare e raggruppare
 
 Gli utenti e le autorizzazioni associati a ogni delega vengono visualizzati nella colonna **Assegnazioni di ruoli**. È possibile selezionare ogni voce per visualizzare l'elenco completo di utenti, gruppi ed entità servizio a cui è stato concesso l'accesso alla sottoscrizione o al gruppo di risorse. Da qui è possibile selezionare un utente, un gruppo o un nome dell'entità servizio specifico per ottenere altri dettagli.
 
-### <a name="remove-delegations"></a>Rimuovere le deleghe
+### <a name="remove-delegations"></a>Rimuovi delega
 
-Se sono stati inclusi utenti con il ruolo di eliminazione [assegnazione registrazione servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) durante l'onboarding di un cliente per la gestione delle risorse delegate di Azure, tali utenti possono rimuovere una delega selezionando l'icona del cestino visualizzata nella riga della delega. In questo caso, nessun utente nel tenant del provider di servizi sarà in grado di accedere alle risorse delegate in precedenza.
+Se sono stati inclusi utenti con il [ruolo di eliminazione della registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) durante l'onboarding di un cliente per la gestione delle risorse delegate di Azure, gli utenti possono rimuovere una delega selezionando l'icona del Cestino visualizzata nella riga relativa alla delega. In tal caso, nessun utente nel tenant del provider di servizi sarà in grado di accedere alle risorse precedentemente Delegate.
 
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Lavorare nel contesto di una sottoscrizione delegata
 
-È possibile lavorare direttamente nel contesto di una sottoscrizione delegata all'interno del portale di Azure, senza cambiare la directory che si sta usando. A tale scopo, procedere come indicato di seguito:
+È possibile lavorare direttamente nel contesto di una sottoscrizione delegata all'interno del portale di Azure, senza cambiare la directory che si sta usando. A tale scopo:
 
 1. Selezionare l'icona **Directory e sottoscrizione** nella parte superiore del portale di Azure.
 2. Nel filtro **sottoscrizioni globali** verificare che sia selezionata solo la casella di tale sottoscrizione delegata. È possibile usare la casella a discesa **Directory corrente e delegate** per mostrare solo le sottoscrizioni in una directory specifica. Non usare l'opzione **Cambia directory** perché cambierebbe la directory a cui è stato eseguito l'accesso.

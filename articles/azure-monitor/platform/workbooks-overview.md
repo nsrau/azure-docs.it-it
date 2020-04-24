@@ -17,29 +17,29 @@ ms.locfileid: "77658235"
 ---
 # <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di Monitoraggio di Azure
 
-Le cartelle di lavoro forniscono un'area di disegno flessibile per l'analisi dei dati e la creazione di report visivi avanzati all'interno del portale di Azure.Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. Consentono di accedere a più origini dati da Azure e di combinarle in esperienze interattive unificate. 
+Le cartelle di lavoro di forniscono un'area di disegno flessibile per l'analisi dei dati e la creazione di report visivi avanzati all'interno del portale di Azure. Consentono di accedere a più origini dati da Azure e combinarle in esperienze interattive unificate. 
 
 ## <a name="data-sources"></a>Origini dati
 
-Le cartelle di lavoro possono eseguire query sui dati da più origini all'interno di Azure.Workbooks can query data from multiple sources within Azure. Gli autori delle cartelle di lavoro possono trasformare questi dati per fornire informazioni dettagliate sulla disponibilità, le prestazioni, l'utilizzo e l'integrità generale dei componenti sottostanti. Ad esempio, l'analisi dei log delle prestazioni dalle macchine virtuali per identificare istanze di CPU o memoria insufficiente elevata e la visualizzazione dei risultati come griglia in un report interattivo.
+Le cartelle di lavoro possono eseguire query sui dati da più origini in Azure. Gli autori delle cartelle di lavoro possono trasformare questi dati per fornire informazioni dettagliate sulla disponibilità, le prestazioni, l'utilizzo e l'integrità complessiva dei componenti sottostanti. Ad esempio, l'analisi dei log delle prestazioni dalle macchine virtuali per identificare le istanze di CPU elevata o di memoria insufficiente e visualizzare i risultati come griglia in un report interattivo.
   
-Ma il vero potere delle cartelle di lavoro è la possibilità di combinare dati provenienti da fonti diverse all'interno di un singolo report. Ciò consente la creazione di visualizzazioni o join di risorse composite tra risorse che consentono dati e informazioni dettagliate più dettagliate che altrimenti sarebbero impossibili.
+Ma la vera potenza delle cartelle di lavoro è la possibilità di combinare i dati provenienti da origini diverse all'interno di un singolo report. Ciò consente la creazione di visualizzazioni di risorse Composite o join tra le risorse che consentono dati e informazioni dettagliate più completi che altrimenti sarebbero impossibili.
 
-Le cartelle di lavoro sono attualmente compatibili con le origini dati seguenti:Workbooks are currently compatible with the following data sources:
+Le cartelle di lavoro sono attualmente compatibili con le origini dati seguenti:
 
-* [Registri](workbooks-data-sources.md#logs)
+* [Log](workbooks-data-sources.md#logs)
 * [Metriche](workbooks-data-sources.md#metrics)
-* [Grafico delle risorse di AzureAzure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
+* [Diagramma delle risorse di Azure](workbooks-data-sources.md#azure-resource-graph)
 * [Avvisi (anteprima)](workbooks-data-sources.md#alerts-preview)
-* [Integrità del carico di lavoro (anteprima)Workload Health (Preview)](workbooks-data-sources.md#workload-health-preview)
-* [Integrità risorse di Azure (anteprima)Azure Resource Health (Preview)](workbooks-data-sources.md#azure-resource-health)
-* [Esplora dati di Azure (anteprima)Azure Data Explorer (Preview)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Stato del carico di lavoro (anteprima)](workbooks-data-sources.md#workload-health-preview)
+* [Integrità risorse di Azure (anteprima)](workbooks-data-sources.md#azure-resource-health)
+* [Esplora dati di Azure (anteprima)](workbooks-data-sources.md#azure-data-explorer-preview)
 
 ## <a name="visualizations"></a>Visualizzazioni
 
-Le cartelle di lavoro offrono un set completo di funzionalità per la visualizzazione dei dati. Per esempi dettagliati di ogni tipo di visualizzazione è possibile consultare i collegamenti di esempio riportati di seguito:
+Le cartelle di lavoro di offrono un set completo di funzionalità per la visualizzazione dei dati. Per esempi dettagliati di ogni tipo di visualizzazione, è possibile consultare i collegamenti di esempio seguenti:
 
-* [Testo](workbooks-visualizations.md#text)
+* [Text](workbooks-visualizations.md#text)
 * [Grafici](workbooks-visualizations.md#charts)
 * [Griglie](workbooks-visualizations.md#grids)
 * [Riquadri](workbooks-visualizations.md#tiles)
@@ -50,81 +50,81 @@ Le cartelle di lavoro offrono un set completo di funzionalità per la visualizza
 
 ## <a name="getting-started"></a>Introduzione
 
-Per esplorare l'esperienza delle cartelle di lavoro, passare innanzitutto al servizio Monitoraggio di Azure.To explore the workbooks experience, first navigate to the Azure Monitor service. Questa operazione può essere eseguita digitando Monitor nella casella di ricerca nel portale di Azure.This can be done by typing **Monitor** into the search box in the Azure portal.
+Per esplorare l'esperienza delle cartelle di lavoro, passare prima al servizio monitoraggio di Azure. Questa operazione può essere eseguita digitando **monitoraggio** nella casella cerca della portale di Azure.
 
-Selezionare **quindi Cartelle di lavoro (anteprima)**.
+Selezionare quindi **cartelle di lavoro (anteprima)**.
 
-![Screenshot del pulsante di anteprima Cartelle di lavoro evidenziato in una casella rossa](./media/workbooks-overview/workbooks-preview.png)
+![Screenshot del pulsante di anteprima delle cartelle di lavoro evidenziato in una casella rossa](./media/workbooks-overview/workbooks-preview.png)
 
 ### <a name="gallery"></a>Gallery
 
-Verrà visualizzata la raccolta di cartelle di lavoro:
+In questo modo si passa alla raccolta cartelle di lavoro:
 
-![Screenshot della visualizzazione della raccolta di cartelle di lavoro di Monitoraggio di Azure](./media/workbooks-overview/gallery.png)
+![Screenshot della visualizzazione della raccolta di cartelle di lavoro di monitoraggio di Azure](./media/workbooks-overview/gallery.png)
 
-### <a name="workbooks-versus-workbook-templates"></a>Modelli di cartelle di lavoro e cartelle di lavoro
+### <a name="workbooks-versus-workbook-templates"></a>Cartelle di lavoro e modelli di cartella di lavoro
 
-È possibile visualizzare una _cartella di lavoro_ in verde e numerosi modelli di cartella di _lavoro_ in viola. I modelli fungono da report selezionati progettati per un riutilizzo flessibile da parte di più utenti e team. L'apertura di un modello crea una cartella di lavoro temporanea popolata con il contenuto del modello. 
+È possibile visualizzare una _cartella di lavoro_ in verde e un numero di _modelli di cartella di lavoro_ in viola. I modelli vengono usati come report curati progettati per un riutilizzo flessibile da parte di più utenti e team. L'apertura di un modello consente di creare una cartella di lavoro temporanea popolata con il contenuto del modello. 
 
-È possibile regolare i parametri della cartella di lavoro basata su modelli ed eseguire l'analisi senza temere di interrompere l'esperienza di creazione di report futura per i colleghi. Se si apre un modello, apportare alcune modifiche e quindi selezionare l'icona di salvataggio si salverà il modello come una cartella di lavoro che verrebbe quindi visualizzata in verde lasciando intatto il modello originale. 
+È possibile modificare i parametri della cartella di lavoro basata su modelli ed eseguire l'analisi senza temere che si verifichi un'esperienza di Reporting futura per i colleghi. Se si apre un modello, si apportano alcune modifiche e quindi si seleziona l'icona Salva, il modello verrà salvato come cartella di lavoro che verrebbe visualizzata in verde lasciando invariato il modello originale. 
 
-Sotto il cofano, i modelli differiscono anche dalle cartelle di lavoro salvate. Il salvataggio di una cartella di lavoro crea una risorsa di Azure Resource Manager associata, mentre la cartella di lavoro temporanea creata quando si apre un modello non è associata alcuna risorsa univoca. Per ulteriori informazioni sulla gestione del controllo di accesso nelle cartelle di lavoro, consultare l'articolo sul controllo di [accesso delle cartelle di lavoro.](workbooks-access-control.md)
+Dietro le quinte, i modelli differiscono anche dalle cartelle di lavoro salvate. Il salvataggio di una cartella di lavoro crea una risorsa Azure Resource Manager associata, mentre la cartella di lavoro temporanea creata quando si apre solo un modello non dispone di una risorsa univoca associata. Per altre informazioni sulla gestione del controllo di accesso nelle cartelle di lavoro, vedere l'articolo relativo al [controllo di accesso delle cartelle di lavoro](workbooks-access-control.md).
 
 ### <a name="exploring-a-workbook-template"></a>Esplorazione di un modello di cartella di lavoro
 
-Selezionare **Analisi errori applicazione** per visualizzare uno dei modelli di cartella di lavoro dell'applicazione predefiniti.
+Selezionare **analisi degli errori dell'applicazione** per visualizzare uno dei modelli di cartella di lavoro delle applicazioni predefinite.
 
-![Schermata del modello di analisi degli errori dell'applicazione](./media/workbooks-overview/failure-analysis.png)
+![Screenshot del modello di analisi degli errori dell'applicazione](./media/workbooks-overview/failure-analysis.png)
 
-Come indicato in precedenza, l'apertura del modello crea una cartella di lavoro temporanea con cui interagire. Per impostazione predefinita, la cartella di lavoro viene aperta in modalità di lettura che visualizza solo le informazioni per l'esperienza di analisi desiderata creata dall'autore del modello originale.
+Come indicato in precedenza, l'apertura del modello consente di creare una cartella di lavoro temporanea per consentire l'interazione con. Per impostazione predefinita, la cartella di lavoro viene aperta in modalità di lettura che visualizza solo le informazioni per l'esperienza di analisi desiderata creata dall'autore del modello originale.
 
-Nel caso di questa particolare cartella di lavoro, l'esperienza è interattiva. È possibile regolare l'abbonamento, le app di destinazione e l'intervallo di tempo dei dati che si desidera visualizzare. Una volta effettuate tali selezioni, la griglia delle richieste HTTP è interattiva, per cui la selezione di una singola riga modificherà i dati di cui viene eseguito il rendering nei due grafici nella parte inferiore del report.
+Nel caso di questa particolare cartella di lavoro, l'esperienza è interattiva. È possibile modificare la sottoscrizione, le app di destinazione e l'intervallo di tempo dei dati che si desidera visualizzare. Una volta effettuate le selezioni, la griglia delle richieste HTTP è interattiva, in modo che la selezione di una singola riga modifichi i dati di cui viene eseguito il rendering nei due grafici nella parte inferiore del report.
 
 ### <a name="editing-mode"></a>Modalità di modifica
 
-Per capire come questo modello di cartella di lavoro viene messo insieme è necessario passare alla modalità di modifica selezionando **Modifica**. 
+Per comprendere il modo in cui il modello di cartella di lavoro viene combinato, è necessario passare alla modalità di modifica selezionando **modifica**. 
 
-![Schermata del modello di analisi degli errori dell'applicazione](./media/workbooks-overview/edit.png)
+![Screenshot del modello di analisi degli errori dell'applicazione](./media/workbooks-overview/edit.png)
 
-Una volta che si è passati alla modalità di modifica si noterà un certo numero di **caselle** di modifica appaiono a destra corrispondente con ogni singolo aspetto della cartella di lavoro.
+Dopo aver impostato la modalità di modifica, si noterà che un numero di caselle di **modifica** viene visualizzato a destra corrispondente a ogni singolo aspetto della cartella di lavoro.
 
-![Screenshot del pulsante Modifica](./media/workbooks-overview/edit-mode.png)
+![Screenshot del pulsante modifica](./media/workbooks-overview/edit-mode.png)
 
-Se si seleziona il pulsante di modifica immediatamente sotto la griglia dei dati della richiesta, è possibile vedere che questa parte della cartella di lavoro è costituita da una query Kusto sui dati di una risorsa di Application Insights.
+Se si seleziona il pulsante modifica immediatamente sotto la griglia dei dati della richiesta, è possibile osservare che questa parte della cartella di lavoro è costituita da una query kusto sui dati di una risorsa Application Insights.
 
-![Schermata della query Kusto sottostante](./media/workbooks-overview/kusto.png)
+![Screenshot della query kusto sottostante](./media/workbooks-overview/kusto.png)
 
-Facendo clic sugli altri pulsanti **Modifica** a destra verrà visualizzato un numero di componenti di base che costituiscono cartelle di lavoro come [caselle](workbooks-visualizations.md#text)di testo basate su markdown, elementi dell'interfaccia utente di selezione dei [parametri](workbooks-parameters.md) e altri tipi [di grafico/visualizzazione.](workbooks-visualizations.md) 
+Facendo clic sugli altri pulsanti di **modifica** a destra si riveleranno alcuni componenti di base che compongono cartelle di lavoro quali [caselle di testo](workbooks-visualizations.md#text)basate su Markdown, elementi dell'interfaccia utente per la [selezione dei parametri](workbooks-parameters.md) e altri [tipi di grafico/visualizzazione](workbooks-visualizations.md). 
 
-Esplorare i modelli predefiniti in modalità di modifica e modificarli in base alle proprie esigenze e salvare la propria cartella di lavoro personalizzata è un ottimo modo per iniziare a scoprire cosa è possibile fare con le cartelle di lavoro di Monitoraggio di Azure.Exploring the pre-built templates in edit-mode and then modifying them to your needs and save your own custom workbook is an excellent way to learn to learn about what is possible with Azure Monitor workbooks.
+Esplorare i modelli predefiniti in modalità di modifica e quindi modificarli in base alle proprie esigenze e salvare la cartella di lavoro personalizzata è un modo eccellente per iniziare a conoscere le funzionalità possibili con le cartelle di lavoro di monitoraggio di Azure.
 
 ## <a name="pinning-visualizations"></a>Aggiunta di visualizzazioni
 
-I passaggi di testo, query e metriche in una cartella di lavoro possono essere aggiunti usando il pulsante di aggiunta a tali elementi mentre la cartella di lavoro è in modalità pin o se l'autore della cartella di lavoro ha abilitato le impostazioni per tale elemento per rendere visibile l'icona a forma di puntina. 
+I passaggi relativi a testo, query e metriche in una cartella di lavoro possono essere aggiunti usando il pulsante Aggiungi su tali elementi quando la cartella di lavoro è in modalità PIN oppure se l'autore della cartella di lavoro ha abilitato le impostazioni per tale elemento per rendere visibile l'icona del PIN. 
 
-Per accedere alla modalità pin, fare clic su **Modifica** per attivare la modalità di modifica e selezionare l'icona a forma di puntina blu nella barra superiore. Una singola icona a forma di puntina verrà quindi visualizzata sopra la casella *Modifica* di ogni parte della cartella di lavoro corrispondente sul lato destro dello schermo.
+Per accedere alla modalità PIN, fare clic su **modifica** per passare alla modalità di modifica e selezionare l'icona del pin blu nella barra superiore. Una singola icona PIN verrà visualizzata sopra ogni casella di *modifica* della parte della cartella di lavoro corrispondente sul lato destro dello schermo.
 
-![Esperienza Pin](./media/workbooks-overview/pin-experience.png)
+![Aggiungi esperienza](./media/workbooks-overview/pin-experience.png)
 
 > [!NOTE]
-> Lo stato della cartella di lavoro viene salvato al momento del pin e le cartelle di lavoro aggiunte in un dashboard non verranno aggiornate se la cartella di lavoro sottostante viene modificata. Per aggiornare una parte della cartella di lavoro bloccata, è necessario eliminare e aggiungere nuovamente tale parte.
+> Lo stato della cartella di lavoro viene salvato al momento del PIN e le cartelle di lavoro aggiunte in un dashboard non vengono aggiornate se la cartella di lavoro sottostante viene modificata. Per aggiornare una parte della cartella di lavoro bloccata, è necessario eliminare e aggiungere nuovamente tale parte.
 
 ## <a name="dashboard-time-ranges"></a>Intervalli di tempo del dashboard
 
-Le parti di query della cartella di lavoro aggiunte rispetteranno l'intervallo di tempo del dashboard se l'elemento aggiunto è configurato per l'utilizzo di un parametro *Intervallo* di tempo. Il valore dell'intervallo di tempo del dashboard verrà utilizzato come valore del parametro dell'intervallo di tempo e qualsiasi modifica dell'intervallo di tempo del dashboard causerà l'aggiornamento dell'elemento aggiunto. Se una parte aggiunta utilizza l'intervallo di tempo del dashboard, verrà visualizzato il sottotitolo dell'aggiornamento della parte aggiunta per mostrare l'intervallo di tempo del dashboard ogni volta che l'intervallo di tempo cambia. 
+Le parti della query della cartella di lavoro bloccata rispetteranno l'intervallo di tempo del dashboard se l'elemento bloccato è configurato per l'utilizzo di un parametro di *intervallo di tempo* . Il valore dell'intervallo di tempo del dashboard verrà usato come valore del parametro dell'intervallo di tempo e qualsiasi modifica dell'intervallo di tempo del dashboard provocherà l'aggiornamento dell'elemento bloccato. Se una parte bloccata usa l'intervallo di tempo del dashboard, verrà visualizzato il sottotitolo dell'aggiornamento della parte bloccata per visualizzare l'intervallo di tempo del dashboard ogni volta che viene modificato l'intervallo di tempo. 
 
-Inoltre, le parti della cartella di lavoro aggiunte che utilizzano un parametro dell'intervallo di tempo verranno aggiornate automaticamente a una frequenza determinata dall'intervallo di tempo del dashboard. L'ultima volta che la query è stata eseguita verrà visualizzata nel sottotitolo della parte bloccata.
+Inoltre, le parti della cartella di lavoro bloccate che usano un parametro di intervallo di tempo vengono aggiornate automaticamente a una velocità determinata dall'intervallo di tempo del dashboard. L'ultima esecuzione della query verrà visualizzata nel sottotitolo della parte bloccata.
 
-Se un passaggio bloccato ha un intervallo di tempo impostato in modo esplicito (non utilizza un parametro di intervallo di tempo), tale intervallo di tempo verrà sempre utilizzato per il dashboard, indipendentemente dalle impostazioni del dashboard. Il sottotitolo della parte aggiunta non mostrerà l'intervallo di tempo del dashboard e la query non verrà aggiornata automaticamente nel dashboard. Il sottotitolo mostrerà l'ultima volta che la query è stata eseguita.
+Se un passaggio aggiunto ha un intervallo di tempo impostato in modo esplicito (non usa un parametro di intervallo di tempo), l'intervallo di tempo verrà sempre usato per il dashboard, indipendentemente dalle impostazioni del dashboard. Il sottotitolo della parte bloccata non visualizzerà l'intervallo di tempo del dashboard e la query non viene aggiornata automaticamente nel dashboard. Il sottotitolo mostrerà l'ultima esecuzione della query.
 
 > [!NOTE]
-> Le query che utilizzano l'origine dati *di unione* non sono attualmente supportate durante l'aggiunta ai dashboard.
+> Le query che utilizzano l'origine dati di *merge* non sono attualmente supportate durante l'aggiunta ai dashboard.
 
 ## <a name="sharing-workbook-templates"></a>Condivisione di modelli di cartella di lavoro
 
-Una volta che si inizia a creare i propri modelli di cartella di lavoro, è possibile condividerlo con la comunità più ampia. Per altre informazioni ed esplorare altri modelli che non fanno parte della visualizzazione predefinita della raccolta di Monitoraggio di Azure, visitare il [repository GitHub.](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md) Per esplorare le cartelle di lavoro esistenti, visitare la libreria di cartelle di lavoro in GitHub.To browse existing workbooks, visit the [Workbook library](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) on GitHub.
+Una volta avviata la creazione di modelli di cartella di lavoro personalizzati, può essere utile condividerla con la community più ampia. Per altre informazioni e per esplorare altri modelli che non fanno parte della visualizzazione raccolta predefinita di monitoraggio di Azure, visitare il [repository GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). Per esplorare le cartelle di lavoro esistenti, visitare la [libreria delle cartelle di lavoro](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) in GitHub.
 
 ## <a name="next-step"></a>Passaggio successivo
 
-* [Iniziare a](workbooks-visualizations.md) conoscere le cartelle di lavoro su molte opzioni di visualizzazione avanzate.
+* Per [iniziare ad](workbooks-visualizations.md) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
 * [Controllare](workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.

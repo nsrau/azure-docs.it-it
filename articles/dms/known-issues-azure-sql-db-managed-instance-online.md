@@ -1,6 +1,6 @@
 ---
-title: Problemi noti e limitazioni con le migrazioni online all'istanza gestita del database SQL di AzureKnown issues and limitations with online migrations to Azure SQL Database managed instance
-description: Informazioni sui problemi noti/limitazioni di migrazione associate alle migrazioni online all'istanza gestita del database SQL di Azure.Learn about known issues/migration limitations associated with online migrations to Azure SQL Database managed instance.
+title: Problemi noti e limitazioni delle migrazioni online per istanza gestita di database SQL di Azure
+description: Informazioni sui problemi noti e sulle limitazioni della migrazione associate alle migrazioni online per istanza gestita di database SQL di Azure.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -18,9 +18,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77648666"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database-managed-instance"></a>Problemi noti/limitazioni di migrazione con le migrazioni online all'istanza gestita del database SQL di AzureKnown issues/migration limitations with online migrations to Azure SQL Database managed instance
+# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database-managed-instance"></a>Problemi noti/limitazioni della migrazione con migrazioni online in istanza gestita di database SQL di Azure
 
-Di seguito sono descritti i problemi noti e le limitazioni associati alle migrazioni online da SQL Server all'istanza gestita del database SQL di Azure.Known issues and limitations that are associated with online migrations from SQL Server to Azure SQL Database managed instance are described below.
+Di seguito sono descritti i problemi noti e le limitazioni associate alle migrazioni online da SQL Server all'istanza gestita di database SQL di Azure.
 
 > [!IMPORTANT]
 > Con le migrazioni online di SQL Server al database SQL di Azure, la migrazione dei tipi di dati SQL_variant non è supportata.
@@ -29,39 +29,39 @@ Di seguito sono descritti i problemi noti e le limitazioni associati alle migraz
 
 - **Backup con checksum**
 
-    Il servizio Migrazione del database di Azure usa il metodo di backup e ripristino per eseguire la migrazione dei database locali nell'istanza gestita del database SQL. Il servizio Migrazione del database di Azure supporta solo i backup creati usando il checksum.
+    Il servizio migrazione del database di Azure usa il metodo di backup e ripristino per eseguire la migrazione dei database locali all'istanza gestita di database SQL. Il servizio migrazione del database di Azure supporta solo i backup creati con checksum.
 
-    [Abilitare o disabilitare i checksum di backup durante il backup o il ripristino (SQL Server)Enable or Disable Backup Checksums during Backup or Restore (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
+    [Abilitazione o disabilitazione di checksum di backup durante il backup o il ripristino (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
 
     > [!NOTE]
-    > Se si accettano i backup del database con la compressione, il checksum è un comportamento predefinito, a meno che non sia disabilitato in modo esplicito.
+    > Se si esegue il backup del database con la compressione, il checksum è un comportamento predefinito a meno che non sia esplicitamente disabilitato.
 
-    Con le migrazioni offline, se si sceglie **Consentirà al Servizio migrazione database**di Azure... , quindi il servizio Migrazione del database di Azure eseguirà il backup del database con l'opzione checksum abilitata.
+    Con le migrazioni offline, se si sceglie di eseguire il **servizio migrazione del database di Azure...**, il servizio migrazione del database di Azure eseguirà il backup del database con l'opzione checksum abilitata.
 
 - **Supporti di backup**
 
-    Assicurarsi di eseguire ogni backup su un supporto di backup separato (file di backup). Il servizio Migrazione del database di Azure non supporta i backup aggiunti a un singolo file di backup. Eseguire backup completi e i backup del log in file di backup separati.
+    Assicurarsi di eseguire ogni backup su un supporto di backup separato (file di backup). Il servizio migrazione del database di Azure non supporta i backup aggiunti a un singolo file di backup. Eseguire backup completi e backup del log per separare i file di backup.
 
-## <a name="data-and-log-file-layout"></a>Layout dei file di dati e di registro
+## <a name="data-and-log-file-layout"></a>Layout del file di dati e di log
 
-- **Numero di file di registro**
+- **Numero di file di log**
 
-    Il servizio Migrazione del database di Azure non supporta i database con più file di log. Se si dispone di più file di registro, compattarli e riorganizzarli in un unico file di registro delle transazioni. Poiché non è possibile eseguire il backup del file di registro da remoto, è necessario eseguire prima il backup del file di registro.
+    Il servizio migrazione del database di Azure non supporta i database con più file di log. Se si dispone di più file di log, compattarli e riorganizzarli in un unico file di log delle transazioni. Poiché non è possibile eseguire la modalità remota per i file di log non vuoti, è necessario innanzitutto eseguire il backup del file di log.
 
 ## <a name="sql-server-features"></a>caratteristiche di SQL Server
 
-- **FileStream/Tabelle File**
+- **FileStream/FileTable**
 
-    L'istanza gestita del database SQL attualmente non supporta FileStream e FileTables. Per i carichi di lavoro dipendenti da queste funzionalità, è consigliabile optare per SQL Server in esecuzione nelle macchine virtuali di Azure come destinazione di Azure.For workloads dependent on these features, we recommend that you opt for SQL Servers running on Azure VMs as your Azure target.
+    Istanza gestita di database SQL attualmente non supporta FileStream e tabelle FileTable. Per i carichi di lavoro che dipendono da queste funzionalità, è consigliabile optare per i server SQL in esecuzione nelle macchine virtuali di Azure come destinazione di Azure.
 
 - **Tabelle in memoria**
 
-    OLTP in memoria è disponibile nei livelli Premium e Business Critical per l'istanza gestita del database SQL. il livello Scopo generale non supporta OLTP in memoria.
+    OLTP in memoria è disponibile nei livelli Premium e business critical per istanza gestita di database SQL. il livello per utilizzo generico non supporta OLTP in memoria.
 
 ## <a name="migration-resets"></a>Reimpostazioni della migrazione
 
-- **Distribuzioni**
+- **Deployments**
 
-    L'istanza gestita del database SQL è un servizio PaaS con applicazione automatico di patch e aggiornamenti delle versioni. Durante la migrazione dell'istanza gestita del database SQL, gli aggiornamenti non critici consentono di eseguire fino a 36 ore. Successivamente (e per gli aggiornamenti critici), se la migrazione viene interrotta, il processo viene reimpostato su uno stato di ripristino completo.
+    Istanza gestita di database SQL è un servizio PaaS con aggiornamenti automatici delle patch e della versione. Durante la migrazione dell'istanza gestita di database SQL, gli aggiornamenti non critici sono utili fino a 36 ore. In seguito (e per gli aggiornamenti critici), se la migrazione viene interrotta, il processo Reimposta lo stato di ripristino completo.
 
-    Il cutover della migrazione può essere chiamato solo dopo il ripristino del backup completo e viene aggiornato con tutti i backup del log. Se i cutover della migrazione di produzione sono interessati, contattare l'alias di feedback di [Azure DMS](mailto:dmsfeedback@microsoft.com).
+    La migrazione di cutover può essere chiamata solo dopo il ripristino del backup completo e l'aggiornamento di tutti i backup del log. Se le complete della migrazione di produzione sono interessate, contattare l' [alias di feedback DMS di Azure](mailto:dmsfeedback@microsoft.com).

@@ -1,6 +1,6 @@
 ---
 title: Uso di PowerShell per Gestione traffico in Azure
-description: Con questo percorso di apprendimento, iniziare a usare Azure PowerShell per Gestione traffico.
+description: Con questo percorso di apprendimento, iniziare a usare Azure PowerShell per gestione traffico.
 services: traffic-manager
 documentationcenter: na
 author: rohinkoul
@@ -125,7 +125,7 @@ In ogni caso:
 * "Weight" è facoltativo ed è possibile scegliere se specificarlo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di routing del traffico "Weighted". In caso contrario, vengono ignorate. Il valore deve essere un numero compreso tra 1 e 1000. il cui valore predefinito è 1.
 * "Priority" è facoltativo ed è possibile scegliere se specificarlo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di routing del traffico "Priority". In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000 con i valori più bassi che indicano una priorità più alta. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da "1" nell'ordine in cui sono elencati gli endpoint.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Esempio 1: Aggiunta di endpoint del servizio app tramite Example 1: Adding App Service endpoints using`Add-AzTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Esempio 1: aggiunta di endpoint del servizio app con`Add-AzTrafficManagerEndpointConfig`
 
 In questo esempio viene creato un profilo di Gestione traffico e vengono aggiunti due endpoint di servizio app usando il cmdlet `Add-AzTrafficManagerEndpointConfig`.
 
@@ -210,7 +210,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>Aggiunta di endpoint da un'altra sottoscrizione
 
-Gestione traffico può usare endpoint da sottoscrizioni diverse. È necessario passare alla sottoscrizione con l'endpoint da aggiungere per recuperare l'input necessario in Gestione traffico. È quindi necessario passare alle sottoscrizioni con il profilo Gestione traffico e aggiungervi l'endpoint. L'esempio seguente mostra come eseguire questa operazione con un indirizzo IP pubblico.
+Gestione traffico può usare endpoint da sottoscrizioni diverse. È necessario passare alla sottoscrizione con l'endpoint da aggiungere per recuperare l'input necessario in Gestione traffico. Sarà quindi necessario passare alle sottoscrizioni con il profilo di gestione traffico e aggiungervi l'endpoint. L'esempio seguente mostra come eseguire questa operazione con un indirizzo IP pubblico.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription

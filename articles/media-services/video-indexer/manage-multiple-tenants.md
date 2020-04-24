@@ -68,7 +68,7 @@ Durante il [caricamento dei video](https://api-portal.videoindexer.ai/docs/servi
 
 ## <a name="azure-subscription-per-tenant"></a>Sottoscrizione di Azure per tenant 
 
-Quando si usa questa architettura, ogni tenant avrà la propria sottoscrizione di Azure.When using this architecture, each tenant will have their own Azure subscription. Per ciascun utente, si creerà un nuovo account Video Indexer nella sottoscrizione del tenant.
+Quando si usa questa architettura, ogni tenant avrà la propria sottoscrizione di Azure. Per ciascun utente, si creerà un nuovo account Video Indexer nella sottoscrizione del tenant.
 
 ![Sottoscrizione di Azure per tenant](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 

@@ -17,13 +17,13 @@ ms.locfileid: "77112316"
 ---
 ### <a name="create-a-user-assigned-identity"></a>Creare un'identità assegnata dall'utente
 
-Creare un'identità *denominata myACRTasksId* nella sottoscrizione usando il comando [az identity create.][az-identity-create] È possibile usare lo stesso gruppo di risorse usato in precedenza per creare un registro contenitori o un altro.
+Creare un'identità denominata *myACRTasksId* nella sottoscrizione usando il comando [AZ Identity create][az-identity-create] . È possibile usare lo stesso gruppo di risorse usato in precedenza per creare un registro contenitori o uno diverso.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRTasksId
 ```
 
-Per configurare l'identità assegnata dall'utente nei passaggi seguenti, usare il comando [az identity show][az-identity-show] per archiviare l'ID risorsa, l'ID entità e l'ID client dell'identità nelle variabili.
+Per configurare l'identità assegnata dall'utente nei passaggi seguenti, usare il comando [AZ Identity Show][az-identity-show] per archiviare l'ID risorsa dell'identità, l'ID entità e l'ID client nelle variabili.
 
 ```azurecli
 # Get resource ID of the user-assigned identity

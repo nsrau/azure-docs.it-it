@@ -44,13 +44,13 @@ L'architettura illustrata è suddivisa in tre sezioni.
   -  [Usare SAP nelle macchine virtuali Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Usare soluzioni SAP nelle macchine virtuali di Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Sezione sinistra**: mostra l'hardware con certificazione SAP HANA TDI nel modulo per istanze Large in Azure. The HANA Large Instance units are connected to the virtual networks of your Azure subscription by using the same technology as the connectivity from on-premises into Azure. A partire da maggio 2019, è stata introdotta un'ottimizzazione che consente di comunicare tra le unità HANA Large Instance e le macchine virtuali di Azure senza il coinvolgimento del gateway ExpressRoute. Questa ottimizzazione denominata Percorso rapido ExpressRoute viene visualizzata in questa architettura (linee rosse). 
+- **Sezione sinistra**: mostra l'hardware con certificazione SAP HANA TDI nel modulo per istanze Large in Azure. Le unità di istanze large di HANA sono connesse alle reti virtuali della sottoscrizione di Azure usando la stessa tecnologia della connettività da locale ad Azure. Al 2019 maggio è stata introdotta un'ottimizzazione che consente di comunicare tra le unità di istanze large di HANA e le macchine virtuali di Azure senza coinvolgere il gateway ExpressRoute. Questa ottimizzazione denominata percorso rapido ExpressRoute viene visualizzata in questa architettura (linee rosse). 
 
 Il modulo per istanze di grandi dimensioni di Azure include i componenti seguenti:
 
-- **Computing**: Server basati su diversi processori Intel Xeon che forniscono le funzionalità di elaborazione necessarie e sono certificati SAP HANA.
-- **Rete**: Un'infrastruttura di rete unificata ad alta velocità che interconnette i componenti di elaborazione, archiviazione e LAN.
-- **Storage**: Un'infrastruttura di archiviazione a cui si accede tramite un'infrastruttura di rete unificata. La capacità di archiviazione fornita dipende dalla specifica configurazione di SAP HANA in Azure (istanze Large) distribuita. Maggiore capacità di archiviazione è disponibile a un costo mensile aggiuntivo.
+- **Calcolo**: server basati su diversi tipi di processori Intel Xeon che forniscono le funzionalità di calcolo necessarie e sono SAP Hana certificate.
+- **Rete**: un'infrastruttura di rete ad alta velocità unificata che interconnette i componenti di calcolo, archiviazione e LAN.
+- **Archiviazione**: un'infrastruttura di archiviazione a cui si accede tramite un'infrastruttura di rete unificata. La capacità di archiviazione fornita dipende dalla specifica configurazione di SAP HANA in Azure (istanze Large) distribuita. Maggiore capacità di archiviazione è disponibile a un costo mensile aggiuntivo.
 
 Nell'infrastruttura multi-tenant del modulo per istanze di grandi dimensioni i clienti vengono distribuiti come tenant isolati. Al momento della distribuzione del tenant si specifica una sottoscrizione di Azure nell'ambito della propria iscrizione ad Azure. Questa è la sottoscrizione a cui vengono fatturati i costi delle istanze Large di HANA. Questi tenant hanno una relazione 1:1 con la sottoscrizione di Azure. Per una rete, è possibile accedere a un'unità di istanze Large di HANA distribuita in un singolo tenant all'interno di un'area di Azure da diverse reti virtuali appartenenti a diverse sottoscrizioni di Azure. Tali sottoscrizioni devono appartenere alla stessa iscrizione ad Azure. 
 

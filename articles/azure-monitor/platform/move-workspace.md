@@ -1,6 +1,6 @@
 ---
-title: Spostare un'area di lavoro di Log Analytics in Monitoraggio di Azure . Documenti Microsoft
-description: Informazioni su come spostare l'area di lavoro di Log Analytics in un'altra sottoscrizione o gruppo di risorse.
+title: Spostare un'area di lavoro Log Analytics in monitoraggio di Azure | Microsoft Docs
+description: Informazioni su come spostare l'area di lavoro di Log Analytics in un'altra sottoscrizione o in un altro gruppo di risorse.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -13,15 +13,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659493"
 ---
-# <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro di Log Analytics in una sottoscrizione o in un gruppo di risorse diversoMove a Log Analytics workspace to different subscription or resource group
+# <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
-In questo articolo verranno illustrati i passaggi per spostare l'area di lavoro di Log Analytics in un altro gruppo di risorse o sottoscrizione nella stessa area. Altre informazioni sullo spostamento delle risorse di Azure tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. in [Sposta le risorse in un nuovo gruppo](../../azure-resource-manager/management/move-resource-group-and-subscription.md)di risorse o in una nuova sottoscrizione . 
+Questo articolo illustra i passaggi per spostare Log Analytics area di lavoro in un altro gruppo di risorse o sottoscrizione nella stessa area. Per altre informazioni sullo scorrimento delle risorse di Azure, è possibile usare la portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. in [spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 > [!IMPORTANT]
-> Non è possibile spostare un'area di lavoro in un'area geografica diversa.
+> Non è possibile spostare un'area di lavoro in un'area diversa.
 
-## <a name="verify-active-directory-tenant"></a>Verificare il tenant di Active Directory
-Le sottoscrizioni di origine e di destinazione dell'area di lavoro devono esistere all'interno dello stesso tenant di Azure Active Directory.The workspace source and destination subscriptions must exist within the same Azure Active Directory tenant. Usare Azure PowerShell per verificare che entrambe le sottoscrizioni abbiano lo stesso ID tenant.
+## <a name="verify-active-directory-tenant"></a>Verificare Active Directory tenant
+Le sottoscrizioni di origine e di destinazione dell'area di lavoro devono esistere nello stesso tenant Azure Active Directory. Usare Azure PowerShell per verificare che entrambe le sottoscrizioni abbiano lo stesso ID tenant.
 
 ``` PowerShell
 (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
@@ -29,7 +29,7 @@ Le sottoscrizioni di origine e di destinazione dell'area di lavoro devono esiste
 ```
 
 ## <a name="workspace-move-considerations"></a>Considerazioni sullo spostamento dell'area di lavoro
-Le soluzioni gestite installate nell'area di lavoro verranno spostate con l'operazione di spostamento dell'area di lavoro di Log Analytics.Managed solutions that are installed in the workspace will be moved with the Log Analytics workspace move operation. Gli agenti connessi rimarranno connessi e manterranno i dati di invio all'area di lavoro dopo lo spostamento. Poiché l'operazione di spostamento richiede che non vi sia alcun collegamento dall'area di lavoro a qualsiasi account di automazione, le soluzioni che si basano su tale collegamento devono essere rimosse.
+Le soluzioni gestite installate nell'area di lavoro verranno spostate con l'operazione di spostamento dell'area di lavoro Log Analytics. Gli agenti connessi rimarranno connessi e continueranno a inviare i dati all'area di lavoro dopo lo spostamento. Poiché l'operazione di spostamento richiede che non vi sia alcun collegamento dall'area di lavoro a un account di automazione, è necessario rimuovere le soluzioni che si basano su tale collegamento.
 
 Soluzioni che devono essere rimosse prima di poter scollegare l'account di automazione:
 
@@ -39,17 +39,17 @@ Soluzioni che devono essere rimosse prima di poter scollegare l'account di autom
 
 
 ### <a name="delete-in-azure-portal"></a>Eseguire l'eliminazione nel portale di Azure
-Usare la procedura seguente per rimuovere le soluzioni usando il portale di Azure:Use the following procedure to remove the solutions using the Azure portal:
+Usare la procedura seguente per rimuovere le soluzioni usando il portale di Azure:
 
-1. Aprire il menu per il gruppo di risorse in cui sono installate tutte le soluzioni.
+1. Aprire il menu per il gruppo di risorse in cui sono installate le soluzioni.
 2. Selezionare le soluzioni da rimuovere.
-3. Fare clic su **Elimina risorse** e quindi confermare la rimozione delle risorse facendo clic su **Elimina**.
+3. Fare clic su **Elimina risorse** e confermare le risorse da rimuovere facendo clic su **Elimina**.
 
 ![Eliminare soluzioni](media/move-workspace/delete-solutions.png)
 
-### <a name="delete-using-powershell"></a>Eliminare tramite PowerShellDelete using PowerShell
+### <a name="delete-using-powershell"></a>Eliminare con PowerShell
 
-Per rimuovere le soluzioni tramite PowerShell, utilizzare il cmdlet Remove-AzResource come illustrato nell'esempio seguente:To remove the solutions using PowerShell, use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) cmdlet as shown in the following example:
+Per rimuovere le soluzioni usando PowerShell, usare il cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) , come illustrato nell'esempio seguente:
 
 ``` PowerShell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>
@@ -57,12 +57,12 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-### <a name="remove-alert-rules"></a>Rimuovere le regole di avviso
-Per la soluzione **Avvia/Arresta macchine virtuali,** è inoltre necessario rimuovere le regole di avviso create dalla soluzione. Usare la procedura seguente nel portale di Azure per rimuovere queste regole.
+### <a name="remove-alert-rules"></a>Rimuovi regole di avviso
+Per la soluzione di **avvio/arresto di macchine virtuali** , è necessario rimuovere anche le regole di avviso create dalla soluzione. Utilizzare la procedura seguente nel portale di Azure per rimuovere queste regole.
 
-1. Aprire il menu **Monitoraggio** , quindi selezionare **Avvisi**.
-2. Fare clic su **Gestisci regole di avviso.**
-3. Selezionare le tre regole di avviso seguenti e quindi fare clic su **Elimina**.
+1. Aprire il menu **monitoraggio** , quindi selezionare **avvisi**.
+2. Fare clic su **Gestisci regole di avviso**.
+3. Selezionare le seguenti tre regole di avviso e quindi fare clic su **Elimina**.
 
    - AutoStop_VM_Child
    - ScheduledStartStop_Parent
@@ -71,29 +71,29 @@ Per la soluzione **Avvia/Arresta macchine virtuali,** è inoltre necessario rimu
     ![Eliminare regole](media/move-workspace/delete-rules.png)
 
 ## <a name="unlink-automation-account"></a>Scollega account di automazione
-Usare la procedura seguente per scollegare l'account di automazione dall'area di lavoro usando il portale di Azure:Use the following procedure to unlink the Automation account from the workspace using the Azure portal:
+Usare la procedura seguente per scollegare l'account di automazione dall'area di lavoro usando il portale di Azure:
 
-1. Apri il menu **Account di automazione** e quindi seleziona l'account da rimuovere.
-2. Nella sezione **Risorse correlate** del menu selezionare Area di **lavoro collegata**. 
-3. Fare clic su **Scollega area di lavoro** per scollegare l'area di lavoro dall'account di Automazione.
+1. Aprire il menu **account di automazione** e quindi selezionare l'account da rimuovere.
+2. Nella sezione **risorse correlate** del menu selezionare **area di lavoro collegata**. 
+3. Fare clic su **Scollega area di lavoro** per scollegare l'area di lavoro dall'account di automazione.
 
     ![Unlink workspace (Scollega area di lavoro)](media/move-workspace/unlink-workspace.png)
 
 ## <a name="move-your-workspace"></a>Spostare l'area di lavoro
 
 ### <a name="azure-portal"></a>Portale di Azure
-Usare la procedura seguente per spostare l'area di lavoro usando il portale di Azure:Use the following procedure to move your workspace using the Azure portal:
+Usare la procedura seguente per spostare l'area di lavoro usando il portale di Azure:
 
-1. Aprire il menu **Aree** di lavoro di Log Analytics e quindi selezionare l'area di lavoro.
-2. Nella pagina **Panoramica** fare clic su **Cambia** accanto a **Gruppo** di risorse o **Sottoscrizione**.
-3. Viene visualizzata una nuova pagina con un elenco di risorse correlate all'area di lavoro. Selezionare le risorse da spostare nella stessa sottoscrizione di destinazione e nello stesso gruppo di risorse dell'area di lavoro. 
-4. Selezionare una **sottoscrizione** di destinazione e un **gruppo di risorse**. Se si sposta l'area di lavoro in un altro gruppo di risorse nella stessa sottoscrizione, l'opzione **Sottoscrizione** non verrà visualizzata.
-5. Fare clic **su OK** per spostare l'area di lavoro e le risorse selezionate.
+1. Aprire il menu **aree di lavoro log Analytics** , quindi selezionare l'area di lavoro.
+2. Nella pagina **Panoramica** fare clic su **Cambia** accanto a **gruppo di risorse** o **sottoscrizione**.
+3. Verrà visualizzata una nuova pagina con un elenco di risorse correlate all'area di lavoro. Selezionare le risorse da spostare nella stessa sottoscrizione di destinazione e nel gruppo di risorse dell'area di lavoro. 
+4. Selezionare una **sottoscrizione** di destinazione e un **gruppo di risorse**. Se si sta migrando l'area di lavoro a un altro gruppo di risorse nella stessa sottoscrizione, non verrà visualizzata l'opzione di **sottoscrizione** .
+5. Fare clic su **OK** per spostare l'area di lavoro e le risorse selezionate.
 
     ![Portale](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
-Per spostare l'area di lavoro tramite PowerShell, usare Move-AzResource come nell'esempio seguente:To move your workspace using PowerShell, use the [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) as in the following example:
+Per spostare l'area di lavoro usando PowerShell, usare il comando [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) come nell'esempio seguente:
 
 ``` PowerShell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
@@ -102,8 +102,8 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 
 
 > [!IMPORTANT]
-> Dopo l'operazione di spostamento, le soluzioni rimosse e il collegamento dell'account di automazione devono essere riconfigurati per riportare l'area di lavoro allo stato precedente.
+> Al termine dell'operazione di spostamento, è necessario riconfigurare le soluzioni rimosse e il collegamento dell'account di automazione per ripristinare lo stato precedente dell'area di lavoro.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per un elenco delle risorse che supportano lo spostamento, vedere [Move operation support for resources](../../azure-resource-manager/management/move-support-resources.md).
+- Per un elenco delle risorse che supportano lo spostamento, vedere [spostare il supporto delle operazioni per le risorse](../../azure-resource-manager/management/move-support-resources.md).

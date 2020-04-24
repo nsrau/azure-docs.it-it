@@ -84,17 +84,17 @@ L'account usato deve avere le [autorizzazioni](required-rbac-permissions.md) nec
 
 I comandi descritti nei passaggi seguenti possono essere eseguiti in due modi:
 - In Azure Cloud Shell, selezionando **Prova** nell'angolo in alto a destra di ogni comando. Azure Cloud Shell è una shell interattiva gratuita in cui sono disponibili gli strumenti comuni di Azure preinstallati e configurati per l'uso con un account.
-- Tramite PowerShell dal computer. Se si esegue PowerShell dal computer, questo `Az` articolo richiede il modulo di Azure PowerShell.If you run PowerShell from your computer, this article requires the Azure PowerShell module. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+- Tramite PowerShell dal computer. Se si esegue PowerShell dal computer, questo articolo richiede il modulo Azure PowerShell `Az` . Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 L'account usato deve avere le [autorizzazioni](required-rbac-permissions.md) necessarie.
 
-1. Se è già presente un'istanza di Network Watcher nella stessa area della rete virtuale per cui si vuole creare una topologia, andare al passaggio 3. Creare un gruppo di risorse per contenere un network watcher con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L'esempio seguente crea il gruppo di risorse nell'area *eastus*:
+1. Se è già presente un'istanza di Network Watcher nella stessa area della rete virtuale per cui si vuole creare una topologia, andare al passaggio 3. Creare un gruppo di risorse che contenga un Network Watcher con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L'esempio seguente crea il gruppo di risorse nell'area *eastus*:
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Creare un network watcher con [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). L'esempio seguente crea un'istanza di Network Watcher nell'area eastus:
+2. Creare un Network Watcher con [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). L'esempio seguente crea un'istanza di Network Watcher nell'area eastus:
 
     ```azurepowershell-interactive
     New-AzNetworkWatcher `

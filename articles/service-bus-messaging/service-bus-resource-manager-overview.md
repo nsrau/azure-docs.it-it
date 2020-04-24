@@ -1,5 +1,5 @@
 ---
-title: Creare risorse del bus di servizio di Azure usando i modelliCreate Azure Service Bus resources using templates
+title: Creare risorse del bus di servizio di Azure usando i modelli
 description: Usare i modelli di Azure Resource Manager per automatizzare la creazione di risorse del bus di servizio
 services: service-bus-messaging
 documentationcenter: .net
@@ -36,7 +36,7 @@ I modelli di Azure Resource Manager aiutano a definire le risorse da distribuire
 
 I modelli di Azure Resource Manager del bus di servizio sono disponibili per il download e la distribuzione. Fare clic sui collegamenti seguenti per informazioni dettagliate su ognuno di essi, con collegamenti ai modelli su GitHub:
 
-* [Creare uno spazio dei nomi del bus di servizioCreate a Service Bus namespace](service-bus-resource-manager-namespace.md)
+* [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
 * [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
 * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 * [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
@@ -181,7 +181,7 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Impostare il gruppo di risorse
 
-Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup.If** you do not have an existing resource group, create a new resource group with the New-AzResourceGroup command. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
+Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -207,7 +207,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path t
 
 ### <a name="create-the-deployment"></a>Creare la distribuzione
 
-Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene utilizzato il valore predefinito **Incremental.** Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
+Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **mode** non è specificato, viene usato il valore predefinito **Incremental** . Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
 
 Il comando seguente richiede tre parametri nella finestra di PowerShell:
 
@@ -255,7 +255,7 @@ Parameters        :
 ## <a name="next-steps"></a>Passaggi successivi
 Finora sono stati illustrati il flusso di lavoro di base e i comandi per la distribuzione di un modello di Azure Resource Manager. Per informazioni più dettagliate, visitare i collegamenti seguenti:
 
-* [Panoramica di Azure Resource ManagerAzure Resource Manager overview][Azure Resource Manager overview]
+* [Panoramica di Azure Resource Manager][Azure Resource Manager overview]
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell][Deploy resources with Azure Resource Manager templates]
 * [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Tipi di risorsa Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/allversions)

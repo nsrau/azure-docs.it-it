@@ -1,6 +1,6 @@
 ---
-title: Elencare le assegnazioni di ruolo usando Controllo degli accessi in base al ruolo di Azure e Azure PowerShellList role assignments using Azure RBAC and Azure PowerShell
-description: Informazioni su come determinare a quali risorse hanno accesso utenti, gruppi, entità servizio o identità gestite tramite il controllo degli accessi in base al ruolo di Azure e Azure PowerShell.Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and Azure PowerShell.
+title: Elencare le assegnazioni di ruolo usando RBAC di Azure e Azure PowerShell
+description: Informazioni su come determinare le risorse a cui utenti, gruppi, entità servizio o identità gestite possono accedere usando il controllo degli accessi in base al ruolo di Azure (RBAC) e Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -21,22 +21,22 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75931143"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Elencare le assegnazioni di ruolo usando Controllo degli accessi in base al ruolo di Azure e Azure PowerShellList role assignments using Azure RBAC and Azure PowerShell
+# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Elencare le assegnazioni di ruolo usando RBAC di Azure e Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Questo articolo descrive come elencare le assegnazioni di ruolo usando Azure PowerShell.This article describes how to list role assignments using Azure PowerShell.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Questo articolo descrive come elencare le assegnazioni di ruolo usando Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Se l'organizzazione ha esternalizzato le funzioni di gestione a un provider di servizi che utilizza la gestione delle risorse delegate di [Azure,](../lighthouse/concepts/azure-delegated-resource-management.md)le assegnazioni di ruolo autorizzate da tale provider di servizi non verranno visualizzate qui.
+> Se l'organizzazione dispone di funzioni di gestione esternalizzate a un provider di servizi che usa la [gestione delle risorse delegate di Azure](../lighthouse/concepts/azure-delegated-resource-management.md), le assegnazioni di ruolo autorizzate dal provider di servizi non verranno visualizzate qui.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview) o Azure [PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell in Azure cloud Shell](/azure/cloud-shell/overview) o [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="list-role-assignments-for-the-current-subscription"></a>Elencare le assegnazioni di ruolo per la sottoscrizione correnteList role assignments for the current subscription
+## <a name="list-role-assignments-for-the-current-subscription"></a>Elencare le assegnazioni di ruolo per la sottoscrizione corrente
 
-Il modo più semplice per ottenere un elenco di tutte le assegnazioni di ruolo nella sottoscrizione corrente (incluse le assegnazioni di ruolo ereditate dai gruppi di gestione e root) consiste nell'utilizzare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) senza parametri.
+Il modo più semplice per ottenere un elenco di tutte le assegnazioni di ruolo nella sottoscrizione corrente (incluse le assegnazioni di ruolo ereditate dai gruppi di gestione e radice) consiste nell'usare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) senza parametri.
 
 ```azurepowershell
 Get-AzRoleAssignment
@@ -70,7 +70,7 @@ CanDelegate        : False
 
 ## <a name="list-role-assignments-for-a-subscription"></a>Elencare i ruoli assegnati a una sottoscrizione
 
-Per elencare tutte le assegnazioni di ruolo in un ambito di sottoscrizione, utilizzare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Per ottenere l'ID sottoscrizione, è possibile trovarlo nel pannello **Sottoscrizioni** nel portale di Azure oppure usare [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
+Per elencare tutte le assegnazioni di ruolo nell'ambito di una sottoscrizione, usare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Per ottenere l'ID sottoscrizione, è possibile trovarlo nel pannello **sottoscrizioni** nella portale di Azure oppure è possibile usare [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
@@ -108,7 +108,7 @@ Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | F
 
 ## <a name="list-role-assignments-for-a-resource-group"></a>Elencare le assegnazioni di ruolo per un gruppo di risorse
 
-Per elencare tutte le assegnazioni di ruolo in un ambito di gruppo di risorse, utilizzare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+Per elencare tutte le assegnazioni di ruolo in un ambito del gruppo di risorse, usare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
@@ -132,7 +132,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 
 ## <a name="list-role-assignments-for-a-management-group"></a>Elencare le assegnazioni di ruolo per un gruppo di gestione
 
-Per elencare tutte le assegnazioni di ruolo in un ambito del gruppo di gestione, utilizzare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Per ottenere l'ID del gruppo di gestione, è possibile trovarlo nel pannello **Gruppi** di gestione nel portale di Azure oppure è possibile usare [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+Per elencare tutte le assegnazioni di ruolo in un ambito del gruppo di gestione, usare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Per ottenere l'ID del gruppo di gestione, è possibile trovarlo nel pannello **gruppi di gestione** nel portale di Azure oppure è possibile usare [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -150,17 +150,17 @@ Per elencare le assegnazioni di ruolo per l'amministratore e i coamministratori 
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="list-role-assignments-for-a-managed-identity"></a>Elencare le assegnazioni di ruolo per un'identità gestitaList role assignments for a managed identity
+## <a name="list-role-assignments-for-a-managed-identity"></a>Elencare le assegnazioni di ruolo per un'identità gestita
 
 1. Ottenere l'ID oggetto dell'identità gestita assegnata dal sistema o dall'utente. 
 
-    Per ottenere l'ID oggetto di un'identità gestita assegnata dall'utente, è possibile utilizzare [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+    Per ottenere l'ID oggetto di un'identità gestita assegnata dall'utente, è possibile usare [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
     ```azurepowershell
     Get-AzADServicePrincipal -DisplayNameBeginsWith "<name> or <vmname>"
     ```
 
-1. Per elencare le assegnazioni di ruolo, utilizzare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+1. Per elencare le assegnazioni di ruolo, usare [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
     ```azurepowershell
     Get-AzRoleAssignment -ObjectId <objectid>
@@ -168,4 +168,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere o rimuovere assegnazioni di ruolo usando Controllo degli accessi in base al ruolo di Azure e Azure PowerShellAdd or remove role assignments using Azure RBAC and Azure PowerShell](role-assignments-powershell.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e Azure PowerShell](role-assignments-powershell.md)

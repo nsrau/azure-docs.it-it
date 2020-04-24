@@ -32,14 +32,14 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
-* **Linux:** Seguire le istruzioni fornite nella pagina Libreria del client di archiviazione di Azure per il file LEGGIMA di [Archiviazione di C: Guida introduttiva a Linux.](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux)
-* **Le finestre Windows:** In Windows, utilizzare [vcpkg](https://github.com/microsoft/vcpkg) come gestore delle dipendenze. Seguire l'argomento di [avvio rapido](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
+* **Linux:** Seguire le istruzioni fornite nella pagina del [file Leggimi della libreria client di archiviazione di Azure per C++: introduzione in Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) .
+* **Windows:** In Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come gestore delle dipendenze. Seguire l'argomento di [avvio rapido](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-È possibile trovare una guida su come compilare il codice sorgente ed esportare in NuGet nel file [README.](https://github.com/Azure/azure-storage-cpp#download--install)
+È possibile trovare una guida su come compilare il codice sorgente ed esportare in NuGet nel file [Leggimi](https://github.com/Azure/azure-storage-cpp#download--install) .
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>Configurazione dell'applicazione per l'accesso all'archiviazione BLOB
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere ai BLOB:  
@@ -52,7 +52,7 @@ Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desi
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configurare una stringa di connessione di archiviazione di Azure
-I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso alle risorse di archiviazione per l'account di archiviazione elencato nel [portale di Azure](https://portal.azure.com) per i valori di *AccountName* e *AccountKey*. Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere Informazioni sugli account di archiviazione di [Azure.](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:  
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso alle risorse di archiviazione per l'account di archiviazione elencato nel [portale di Azure](https://portal.azure.com) per i valori di *AccountName* e *AccountKey*. Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere [informazioni sugli account di archiviazione di Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:  
 
 ```cpp
 // Define the connection-string with your values.
@@ -70,8 +70,8 @@ Per avviare l'emulatore di archiviazione di Azure, fare clic sul pulsante **Star
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.  
 
-## <a name="retrieve-your-storage-account"></a>Recuperare l'account di archiviazioneRetrieve your storage account
-È possibile usare la classe **cloud_storage_account** per rappresentare le informazioni sull'account di archiviazione. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse** .  
+## <a name="retrieve-your-storage-account"></a>Recuperare l'account di archiviazione
+È possibile usare la classe **cloud_storage_account** per rappresentare le informazioni dell'account di archiviazione. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse** .  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -188,7 +188,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 Per ulteriori informazioni sull'elenco di operazioni, vedere [elenco risorse di archiviazione Azure in C++](../storage-c-plus-plus-enumeration.md).
 
 ## <a name="how-to-download-blobs"></a>Procedura: scaricare i BLOB
-Per scaricare i BLOB, recuperare innanzitutto un riferimento al BLOB e quindi chiamare il **metodo download_to_stream.** L'esempio seguente usa il **metodo download_to_stream** per trasferire il contenuto del BLOB in un oggetto flusso che è quindi possibile mantenere in un file locale.  
+Per scaricare i BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il metodo **download_to_stream** . Nell'esempio seguente viene usato il metodo **download_to_stream** per trasferire il contenuto del BLOB in un oggetto Stream che è quindi possibile salvare in modo permanente in un file locale.  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -260,8 +260,8 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 
 * [Come usare l'archiviazione delle code da C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Come usare l’archiviazione tabelle da C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Elencare le risorse di archiviazione di Azure in C](../storage-c-plus-plus-enumeration.md)
-* [Libreria del client di archiviazione per i riferimenti di C](https://azure.github.io/azure-storage-cpp)
-* [Documentazione di Archiviazione di AzureAzure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Elencare le risorse di archiviazione di Azure in C++](../storage-c-plus-plus-enumeration.md)
+* [Informazioni di riferimento sulla libreria client di archiviazione per C++](https://azure.github.io/azure-storage-cpp)
+* [Documentazione di archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](../storage-use-azcopy.md)
 

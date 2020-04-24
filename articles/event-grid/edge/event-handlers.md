@@ -1,6 +1,6 @@
 ---
-title: Gestori di eventi e destinazioni - Azure Event Grid IoT Edge Documenti Microsoft
-description: Event Handlers and destinations in Event Grid on Edge
+title: Gestori eventi e destinazioni-IoT Edge di griglia di eventi di Azure | Microsoft Docs
+description: Gestori di eventi e destinazioni in griglia di eventi sul perimetro
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -15,17 +15,17 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76849747"
 ---
-# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Event Handlers and destinations in Event Grid on Edge
+# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Gestori di eventi e destinazioni in griglia di eventi sul perimetro
 
-Un gestore eventi è la posizione in cui l'evento per ulteriori azioni o per elaborare l'evento. Con il modulo Griglia di eventi in Edge, il gestore eventi può trovarsi sullo stesso dispositivo perimetrale, in un altro dispositivo o nel cloud. È possibile usare qualsiasi WebHook per gestire gli eventi o inviare eventi a uno dei gestori nativi come Griglia di eventi di Azure.You can use any WebHook to handle events, or send events to one of the native handlers like Azure Event Grid.
+Un gestore eventi è il punto in cui l'evento viene sottoposto a un'ulteriore azione o per l'elaborazione dell'evento. Con la griglia di eventi sul modulo Edge, il gestore eventi può trovarsi nello stesso dispositivo perimetrale, in un altro dispositivo o nel cloud. È possibile usare qualsiasi webhook per gestire eventi o inviare eventi a uno dei gestori nativi come griglia di eventi di Azure.
 
-In questo articolo vengono fornite informazioni su come configurare ciascuno di essi.
+Questo articolo fornisce informazioni su come configurare ognuno di essi.
 
 ## <a name="webhook"></a>WebHook
 
-Per pubblicare in un endpoint `endpointType` `WebHook` WebHook, impostare l'oggetto su e fornire:
+Per pubblicare in un endpoint di Webhook, impostare `endpointType` su `WebHook` e specificare:
 
-* endpointUrl: URL dell'endpoint WebHook
+* endpointUrl: URL dell'endpoint del webhook
 
     ```json
         {
@@ -42,11 +42,11 @@ Per pubblicare in un endpoint `endpointType` `WebHook` WebHook, impostare l'ogge
 
 ## <a name="azure-event-grid"></a>Griglia di eventi di Azure
 
-Per pubblicare in un endpoint cloud `endpointType` `eventGrid` di Griglia di eventi di Azure, impostare l'endpoint su e fornire:To publish to an Azure Event Grid cloud endpoint, set the to and provide:
+Per pubblicare in un endpoint cloud di griglia di eventi di Azure `endpointType` , `eventGrid` impostare su e fornire:
 
-* endpointUrl: URL dell'argomento della griglia degli eventi nel cloud
-* sasKey: chiave di accesso della porta di accesso a la data di accesso a la dall'ora dell'argomento della griglia degli eventiSasKey: Event Grid Topic's S
-* topicName: nome per l'elenco di tutti gli eventi in uscita in Griglia di eventi. Il nome dell'argomento è utile quando si pubblica un argomento Dominio griglia eventi.
+* endpointUrl: URL dell'argomento della griglia di eventi nel cloud
+* sasKey: chiave SAS dell'argomento della griglia di eventi
+* topicName: nome per contrassegnare tutti gli eventi in uscita in griglia di eventi. Il nome dell'argomento è utile quando si esegue la pubblicazione in un argomento di dominio di griglia di eventi.
 
    ```json
         {
@@ -63,11 +63,11 @@ Per pubblicare in un endpoint cloud `endpointType` `eventGrid` di Griglia di eve
     }
    ```
 
-## <a name="iot-edge-hub"></a>IoT Edge Hub
+## <a name="iot-edge-hub"></a>Hub IoT Edge
 
-Per pubblicare in un modulo `endpointType` `edgeHub` Hub Edge, impostare l'opzione su e fornire:
+Per pubblicare in un modulo Hub Edge, impostare `endpointType` su `edgeHub` e fornire:
 
-* outputName: l'output in cui il modulo Griglia di eventi instrada gli eventi che corrispondono a questa sottoscrizione a edgeHub.outputName: The output on which the Event Grid module will route events that match this subscription to edgeHub. Ad esempio, gli eventi che corrispondono alla sottoscrizione seguente verranno scritti in /messages/modules/eventgridmodule/outputs/sampleSub4.
+* outputName: output in cui il modulo di griglia di eventi instraderà gli eventi che corrispondono a questa sottoscrizione a edgeHub. Ad esempio, gli eventi che corrispondono alla sottoscrizione seguente verranno scritti in/messages/modules/eventgridmodule/outputs/sampleSub4.
 
     ```json
         {
@@ -84,12 +84,12 @@ Per pubblicare in un modulo `endpointType` `edgeHub` Hub Edge, impostare l'opzio
 
 ## <a name="event-hubs"></a>Hub eventi
 
-Per pubblicare in un `endpointType` hub `eventHub` eventi, impostare l'opzione su e fornire:
+Per pubblicare in un hub eventi, impostare `endpointType` su `eventHub` e specificare:
 
-* connectionString: stringa di connessione per l'hub eventi specifico di destinazione generato tramite criteri di accesso condiviso.connectionString: Connection string for the specific Event Hub you're targeting generated via a Shared Access Policy.
+* connectionString: stringa di connessione per l'hub eventi specifico di destinazione generato tramite criteri di accesso condiviso.
 
     >[!NOTE]
-    > La stringa di connessione deve essere specifica dell'entità. L'utilizzo di una stringa di connessione dello spazio dei nomi non funzionerà. È possibile generare una stringa di connessione specifica dell'entità passando all'hub eventi specifico in cui si vuole pubblicare nel portale di Azure e facendo clic su **Criteri di accesso condiviso** per generare una nuova stringa di connessione specifica dell'entità.
+    > La stringa di connessione deve essere specifica dell'entità. L'uso di una stringa di connessione dello spazio dei nomi non funzionerà. È possibile generare una stringa di connessione specifica dell'entità passando all'hub eventi specifico in cui si vuole eseguire la pubblicazione nel portale di Azure e facendo clic su **criteri di accesso condivisi** per generare una nuova stringa connecection specifica dell'entità.
 
     ```json
         {
@@ -106,12 +106,12 @@ Per pubblicare in un `endpointType` hub `eventHub` eventi, impostare l'opzione s
 
 ## <a name="service-bus-queues"></a>Code del bus di servizio
 
-Per pubblicare in una coda `endpointType` `serviceBusQueue` del bus di servizio, impostare l'opzione su e fornire:
+Per pubblicare in una coda del `endpointType` bus di servizio, impostare `serviceBusQueue` su e specificare:
 
-* connectionString: stringa di connessione per la coda del bus di servizio specifica di destinazione generata tramite criteri di accesso condiviso.connectionString: Connection string for the specific Service Bus Queue you're targeting generated via a Shared Access Policy.
+* connectionString: stringa di connessione per la coda del bus di servizio specifica di destinazione generata tramite criteri di accesso condiviso.
 
     >[!NOTE]
-    > La stringa di connessione deve essere specifica dell'entità. L'utilizzo di una stringa di connessione dello spazio dei nomi non funzionerà. Generare una stringa di connessione specifica dell'entità passando alla coda del bus di servizio specifica in cui si vuole pubblicare nel portale di Azure e facendo clic su **Criteri di accesso condiviso** per generare una nuova stringa di connessione specifica dell'entità.
+    > La stringa di connessione deve essere specifica dell'entità. L'uso di una stringa di connessione dello spazio dei nomi non funzionerà. Per generare una stringa di connessione specifica dell'entità, passare alla coda del bus di servizio specifica in cui si vuole eseguire la pubblicazione nel portale di Azure e fare clic su **criteri di accesso condiviso** per generare una nuova stringa connecection specifica dell'entità.
 
     ```json
         {
@@ -128,12 +128,12 @@ Per pubblicare in una coda `endpointType` `serviceBusQueue` del bus di servizio,
 
 ## <a name="service-bus-topics"></a>Argomenti del bus di servizio
 
-Per pubblicare in un argomento `endpointType` `serviceBusTopic` del bus di servizio, impostare l'opzione su e fornire:
+Per pubblicare in un argomento del `endpointType` bus di servizio, impostare `serviceBusTopic` su e specificare:
 
-* connectionString: stringa di connessione per l'argomento del bus di servizio specifico di destinazione generato tramite criteri di accesso condiviso.connectionString: Connection string for the specific Service Bus Topic you're targeting generated via a Shared Access Policy.
+* connectionString: stringa di connessione per l'argomento del bus di servizio specifico di destinazione generato tramite criteri di accesso condiviso.
 
     >[!NOTE]
-    > La stringa di connessione deve essere specifica dell'entità. L'utilizzo di una stringa di connessione dello spazio dei nomi non funzionerà. Generare una stringa di connessione specifica dell'entità passando all'argomento del bus di servizio specifico in cui si vuole pubblicare nel portale di Azure e facendo clic su **Criteri di accesso condiviso** per generare una nuova stringa di connessione specifica dell'entità.
+    > La stringa di connessione deve essere specifica dell'entità. L'uso di una stringa di connessione dello spazio dei nomi non funzionerà. Per generare una stringa di connessione specifica dell'entità, passare all'argomento del bus di servizio specifico in cui si vuole eseguire la pubblicazione nel portale di Azure e fare clic su **criteri di accesso condiviso** per generare una nuova stringa connecection specifica dell'entità.
 
     ```json
         {
@@ -150,13 +150,13 @@ Per pubblicare in un argomento `endpointType` `serviceBusTopic` del bus di servi
 
 ## <a name="storage-queues"></a>Code di archiviazione
 
-Per pubblicare in una `endpointType` coda `storageQueue` di archiviazione, impostare l'opzione su e fornire:
+Per pubblicare in una coda di archiviazione, impostare `endpointType` su `storageQueue` e specificare:
 
-* queueName: nome della coda di archiviazione in cui si sta pubblicando.
-* connectionString: stringa di connessione per l'account di archiviazione in cui si trova la coda di archiviazione.connectionString: Connection string for the Storage Account the Storage Queue is in.
+* QueueName: nome della coda di archiviazione in cui si sta eseguendo la pubblicazione.
+* connectionString: stringa di connessione per l'account di archiviazione in cui si trova la coda di archiviazione.
 
     >[!NOTE]
-    > Hub eventi unline, code del bus di servizio e argomenti del bus di servizio, la stringa di connessione utilizzata per le code di archiviazione non è specifica dell'entità. Al contrario, deve fare la stringa di connessione per l'account di archiviazione.
+    > Gli hub eventi unline, le code del bus di servizio e gli argomenti del bus di servizio, la stringa di connessione usata per le code di archiviazione non è specifica dell'entità. Ma deve essere invece la stringa di connessione per l'account di archiviazione.
 
     ```json
         {

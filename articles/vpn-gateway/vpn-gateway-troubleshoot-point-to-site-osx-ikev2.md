@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: risolvere i problemi relativi alle connessioni da punto a sito: client Mac OS X'
+title: 'Gateway VPN di Azure: risolvere i problemi relativi alle connessioni da punto a sito: Mac OS X client'
 description: Procedura per risolvere i problemi di connessione client VPN da punto a sito in Mac OS X
 services: vpn-gateway
 author: anzaman
@@ -60,7 +60,7 @@ Se si segue la procedura precedente e tutto viene configurato correttamente, sca
 
    ![pacchetto](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. Se non è presente alcuna risposta del server nelle tracce di rete, verificare di aver abilitato il protocollo IKEv2 nella pagina Configurazione gateway di Azure nel Portale Web di Azure.If there is no server response on the network traces, verify you enabled IKEv2 protocol on the Azure Gateway Configuration page on the Azure portal website.
+3. Se non è presente alcuna risposta server sulle tracce di rete, verificare di aver abilitato il protocollo IKEv2 nella pagina di configurazione del gateway di Azure nel sito Web portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, contattare [il supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

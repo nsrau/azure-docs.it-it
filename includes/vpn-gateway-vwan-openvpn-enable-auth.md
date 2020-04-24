@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471531"
 ---
-1. Passare ad **Azure Active Directory -> applicazioni Enterprise -> Tutte le applicazioni**.
-2. Nella pagina **Applicazioni aziendali - Tutte le applicazioni** selezionare VPN di **Azure.**
+1. Passare a **Azure Active Directory-> applicazioni aziendali-> tutte le applicazioni**.
+2. Nella pagina **applicazioni aziendali-tutte le applicazioni** selezionare **VPN di Azure**.
 
    ![ID directory](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/user1.jpg)

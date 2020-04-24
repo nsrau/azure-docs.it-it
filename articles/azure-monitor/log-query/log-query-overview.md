@@ -1,6 +1,6 @@
 ---
-title: Panoramica delle query di log in Monitoraggio di Azure Documenti Microsoft
-description: Risponde alle domande comuni relative alle query di log e viene iniziato a utilizzarle.
+title: Panoramica delle query di log in monitoraggio di Azure | Microsoft Docs
+description: Risposte alle domande comuni relative alle query di log e all'avvio dell'uso.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -13,44 +13,44 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670118"
 ---
-# <a name="overview-of-log-queries-in-azure-monitor"></a>Panoramica delle query di log in Monitoraggio di AzureOverview of log queries in Azure Monitor
-Le query di log consentono di sfruttare appieno il valore dei dati raccolti nei log di monitoraggio di [Azure.](../platform/data-platform-logs.md) Un potente linguaggio di query consente di unire dati da più tabelle, aggregare set di dati di grandi dimensioni ed eseguire operazioni complesse con codice minimo. Praticamente qualsiasi domanda può essere risolta e l'analisi eseguita fino a quando i dati di supporto sono stati raccolti, e si capisce come costruire la query giusta.
+# <a name="overview-of-log-queries-in-azure-monitor"></a>Panoramica delle query di log in monitoraggio di Azure
+Le query di log consentono di sfruttare appieno il valore dei dati raccolti nei [log di monitoraggio di Azure](../platform/data-platform-logs.md). Un linguaggio di query avanzato consente di unire dati da più tabelle, aggregare set di dati di grandi dimensioni ed eseguire operazioni complesse con codice minimo. È possibile rispondere a qualsiasi domanda ed eseguire l'analisi fino a quando i dati di supporto sono stati raccolti e si comprende come costruire la query corretta.
 
-Alcune funzionalità di Monitoraggio di Azure, ad esempio [informazioni dettagliate](../insights/insights-overview.md) e [soluzioni,](../insights/solutions-inventory.md) elaborano i dati del log senza esporre l'utente alle query sottostanti. To fully leverage other features of Azure Monitor, you should understand how queries are constructed and how you can use them to interactively analyze data in Azure Monitor Logs.
+Alcune funzionalità di monitoraggio di Azure, ad esempio [Insights](../insights/insights-overview.md) e [Solutions](../insights/solutions-inventory.md) , elaborano i dati di log senza esporre le query sottostanti. Per sfruttare appieno le altre funzionalità di monitoraggio di Azure, è necessario comprendere come vengono costruite le query e come usarle per analizzare in modo interattivo i dati nei log di monitoraggio di Azure.
 
-Usare questo articolo come punto di partenza per ottenere informazioni sulle query di log in Monitoraggio di Azure.Use this article as a starting point to learning about log queries in Azure Monitor. Risponde alle domande più comuni e fornisce collegamenti ad altra documentazione che fornisce ulteriori dettagli e lezioni.
+Usare questo articolo come punto di partenza per acquisire familiarità con le query di log in monitoraggio di Azure. Risponde a domande comuni e fornisce collegamenti ad altra documentazione che fornisce ulteriori dettagli e lezioni.
 
-## <a name="how-can-i-learn-how-to-write-queries"></a>Come posso imparare a scrivere query?
-Se si desidera saltare a destra nelle cose, si può iniziare con i seguenti tutorial:
+## <a name="how-can-i-learn-how-to-write-queries"></a>Come è possibile imparare a scrivere query?
+Se si vuole passare direttamente a qualcosa, è possibile iniziare con le esercitazioni seguenti:
 
-- [Introduzione a Log Analytics in Monitoraggio di Azure.](get-started-portal.md)
-- [Introduzione alle query di log in Monitoraggio di Azure](get-started-queries.md).
+- [Inizia a usare log Analytics in monitoraggio di Azure](get-started-portal.md).
+- [Introduzione alle query di log in monitoraggio di Azure](get-started-queries.md).
 
-Una volta che hai le nozioni di base verso il basso, camminare attraverso più lezioni utilizzando i propri dati o dati dal nostro ambiente demo a partire da: 
+Una volta apportate le nozioni di base, esaminare più lezioni usando i dati o i dati dell'ambiente demo a partire da: 
 
 - [Usare le stringhe nelle query di log di Monitoraggio di Azure](string-operations.md)
  
-## <a name="what-language-do-log-queries-use"></a>Quale lingua utilizzano le query di log?
-I log di Monitoraggio di Azure sono basati su [Azure Data Explorer](/azure/data-explorer)e le query di log vengono scritte usando lo stesso linguaggio di query Kusto (KQL). Questo è un linguaggio ricco progettato per essere facile da leggere e autore, e si dovrebbe essere in grado di iniziare a usarlo con una guida minima.
+## <a name="what-language-do-log-queries-use"></a>Che lingua usa le query di log?
+I log di monitoraggio di Azure si basano su [Esplora dati di Azure](/azure/data-explorer)e le query di log vengono scritte usando lo stesso linguaggio di query kusto (KQL). Si tratta di un linguaggio avanzato progettato per essere facile da leggere e creare e dovrebbe essere possibile iniziare a usarlo con istruzioni minime.
 
-Vedere la [documentazione KQL](/azure/kusto/query) di Azure Data Explorer per la documentazione completa su KQL e informazioni di riferimento sulle diverse funzioni disponibili.<br>
-Vedere Introduzione alle query di log in Monitoraggio di Azure per una rapida procedura dettagliata del linguaggio usando i dati dai log di Monitoraggio di Azure.See [Get started with log queries in Azure Monitor](get-started-queries.md) for a quick walkthrough of the language using data from Azure Monitor Logs.
-Vedere Differenze del [linguaggio](data-explorer-difference.md) di query del log di Monitoraggio di Azure per differenze minori nella versione di KQL usata da Monitoraggio di Azure.See Azure Monitor log query language differences for minor differences in the version of KQL used by Azure Monitor.
+Vedere la [documentazione di Azure Esplora dati KQL](/azure/kusto/query) per la documentazione completa su KQL e informazioni di riferimento sulle diverse funzioni disponibili.<br>
+Per una rapida procedura dettagliata del linguaggio usando i dati dei log di monitoraggio di Azure, vedere [Introduzione alle query di log in monitoraggio di Azure](get-started-queries.md) .
+Vedere le [differenze del linguaggio di query del log di monitoraggio di Azure](data-explorer-difference.md) per le differenze minime nella versione di KQL usata da monitoraggio di Azure.
 
-## <a name="what-data-is-available-to-log-queries"></a>Quali dati sono disponibili per registrare le query?
-Tutti i dati raccolti nei log di Monitoraggio di Azure sono disponibili per il recupero e l'analisi nelle query di log. Origini dati diverse scriveranno i dati in tabelle diverse, ma è possibile includere più tabelle in una singola query per analizzare i dati tra più origini. Quando si compila una query, si inizia determinando quali tabelle conto dei dati che si stanno cercando, pertanto è necessario avere almeno una conoscenza di base della struttura dei dati nei log di monitoraggio di Azure.When you build a query, you start by determining which tables have the data that you're looking to, so you should have at least a basic understanding of how data in Azure Monitor Logs is structured.
+## <a name="what-data-is-available-to-log-queries"></a>Quali dati sono disponibili per le query di log?
+Tutti i dati raccolti nei log di monitoraggio di Azure sono disponibili per il recupero e l'analisi nelle query di log. Origini dati diverse scriveranno i dati in tabelle diverse, ma è possibile includere più tabelle in una singola query per analizzare i dati in più origini. Quando si compila una query, si inizia determinando le tabelle che contengono i dati che si stanno cercando, quindi è necessario avere almeno una conoscenza di base della struttura dei dati nei log di monitoraggio di Azure.
 
-Vedere Origini dei log di monitoraggio di Azure per un elenco di origini dati diverse che popolano i log di Monitoraggio di Azure.See [Sources of Azure Monitor Logs](../platform/data-platform-logs.md#sources-of-azure-monitor-logs), for a list of different data sources that populate Azure Monitor Logs.<br>
-Vedere [Struttura dei log di Monitoraggio](logs-structure.md) di Azure per una spiegazione della struttura dei dati.
+Vedere [origini dei log di monitoraggio di Azure](../platform/data-platform-logs.md#sources-of-azure-monitor-logs)per un elenco di origini dati diverse che popolano i log di monitoraggio di Azure.<br>
+Per una spiegazione del modo in cui sono strutturati i dati, vedere [struttura dei log di monitoraggio di Azure](logs-structure.md) .
 
 ## <a name="what-does-a-log-query-look-like"></a>Che aspetto ha una query di log?
-Una query può essere semplice come un singolo nome di tabella per recuperare tutti i record da tale tabella:A query could be as simple as a single table name for retrieving all records from that table:
+Una query può essere semplice come un nome di tabella singolo per recuperare tutti i record da tale tabella:
 
 ```Kusto
 Syslog
 ```
 
-Oppure potrebbe filtrare record specifici, riepilogarli e visualizzare i risultati in un grafico:
+In alternativa, è possibile filtrare per record specifici, riepilogarli e visualizzare i risultati in un grafico:
 
 ```
 SecurityEvent
@@ -60,7 +60,7 @@ SecurityEvent
 | render timechart 
 ```
 
-Per un'analisi più complessa, è possibile recuperare i dati da più tabelle usando un join per analizzare i risultati insieme.
+Per un'analisi più complessa, è possibile recuperare i dati da più tabelle utilizzando un join per analizzare i risultati insieme.
 
 ```Kusto
 app("ContosoRetailWeb").requests
@@ -70,35 +70,35 @@ app("ContosoRetailWeb").requests
       by bin(TimeGenerated,1hr))
 on $left.timestamp == $right.TimeGenerated
 ```
-Anche se non hai familiarità con KQL, dovresti essere in grado di capire almeno la logica di base utilizzata da queste query. Iniziano con il nome di una tabella e quindi aggiungono più comandi per filtrare ed elaborare i dati. Una query può utilizzare un numero qualsiasi di comandi ed è possibile scrivere query più complesse man mano che si acquisisce familiarità con i diversi comandi KQL disponibili.
+Anche se non si ha familiarità con KQL, si dovrebbe essere in grado di determinare almeno la logica di base usata da queste query. Iniziano con il nome di una tabella e quindi aggiungono più comandi per filtrare ed elaborare i dati. Una query può usare un numero qualsiasi di comandi ed è possibile scrivere query più complesse Man mano che si acquisiscono familiarità con i diversi comandi KQL disponibili.
 
-Per un'esercitazione sulle query di log che introduce il linguaggio e le funzioni comuni, vedere Introduzione alle query di [log in Monitoraggio di Azure.See Get started with log queries in Azure Monitor](get-started-queries.md) for a tutorial on log queries that introduces the language and common functions, .<br>
+Per un'esercitazione sulle query di log che introduce il linguaggio e le funzioni comuni, vedere [Introduzione alle query di log in monitoraggio di Azure](get-started-queries.md) .<br>
 
 
 ## <a name="what-is-log-analytics"></a>Cos'è Log Analytics?
-Log Analytics è lo strumento principale nel portale di Azure per la scrittura di query di log e l'analisi interattiva dei risultati. Anche se una query di log viene utilizzata altrove in Monitoraggio di Azure, normalmente la query viene prima scritta e testata usando Log Analytics.
+Log Analytics è lo strumento principale nell'portale di Azure per la scrittura di query di log e l'analisi interattiva dei risultati. Anche se una query di log viene utilizzata altrove in Monitoraggio di Azure, normalmente la query viene prima scritta e testata usando Log Analytics.
 
-È possibile avviare Log Analytics da diverse posizioni nel portale di Azure.You can start Log Analytics from several places in the Azure portal. L'ambito dei dati disponibili per Log Analytics è determinato dalla modalità di avvio. Per ulteriori dettagli, vedere [Ambito della query.](scope.md)
+È possibile avviare Log Analytics da diverse posizioni nell'portale di Azure. L'ambito dei dati disponibili per Log Analytics è determinato dalla modalità di avvio. Per altri dettagli, vedere [ambito della query](scope.md) .
 
-- Selezionare Log dal menu **Monitoraggio di Azure** o dal menu Delle aree di lavoro di Log Analytics.Select **Logs** from the Azure Monitor menu or Log Analytics **workspaces** menu.
-- Selezionare Analytics nella pagina **Panoramica** di un'applicazione Application Insights.Select **Analytics** from the Overview page of an Application Insights application.
-- Selezionare Registri dal menu di una risorsa di Azure.Select **Logs** from the menu of an Azure resource.
+- Selezionare **registri** dal menu **monitoraggio di Azure** o dal menu **aree di lavoro log Analytics** .
+- Selezionare **Analytics** dalla pagina **Panoramica** di un'applicazione Application Insights.
+- Selezionare **registri** dal menu di una risorsa di Azure.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)
 
-Vedere Introduzione a [Log Analytics in Monitoraggio di Azure](get-started-portal.md) per una procedura dettagliata di Log Analytics che introduce molte delle relative funzionalità.
+Per una procedura dettagliata relativa all'Log Analytics in cui sono state introdotte diverse funzionalità, vedere [Introduzione a log Analytics in monitoraggio di Azure](get-started-portal.md) .
 
-## <a name="where-else-are-log-queries-used"></a>In quale altro luogo vengono utilizzate le query di log?
-Oltre a lavorare in modo interattivo con le query di log e i relativi risultati in Log Analytics, le aree di Monitoraggio di Azure in cui si useranno le query includono quanto segue:In addition to interactively working with log queries and their results in Log Analytics, areas in Azure Monitor where you will use queries include the following:
+## <a name="where-else-are-log-queries-used"></a>In quali altri casi vengono usate le query di log?
+Oltre a lavorare in modo interattivo con le query di log e i relativi risultati in Log Analytics, le aree di monitoraggio di Azure in cui si utilizzeranno le query includono quanto segue:
 
 - **Regole di avviso.** Le [regole di avviso](../platform/alerts-overview.md) consentono di identificare in modo proattivo i problemi dai dati nell'area di lavoro.  Ogni regola di avviso è basata su una ricerca log che viene eseguita automaticamente a intervalli regolari.  I risultati vengono esaminati per determinare se è necessario creare un avviso.
 - **Dashboard.** È possibile aggiungere i risultati di qualsiasi query in un [dashboard Azure](../learn/tutorial-logs-dashboards.md) che consente di visualizzare i dati di metriche e log insieme ed eventualmente condividerli con altri utenti di Azure.
 - **Visualizzazioni.**  È possibile creare visualizzazioni dei dati da includere nei dashboard degli utenti con [Progettazione viste](../platform/view-designer.md).  Le query di log forniscono i dati usati da [riquadri](../platform/view-designer-tiles.md) e [parti della visualizzazione](../platform/view-designer-parts.md) in ogni vista.  
 - **Esportazione.**  Quando si importano dati di log da Monitoraggio di Azure in Excel o [Power BI](../platform/powerbi.md), si crea una query di log per definire i dati da esportare.
-- **Powershell.** È possibile eseguire uno script di PowerShell da una riga di comando o un runbook di Automazione di Azure che usa Get-AzOperationalInsightsSearchResults per recuperare i dati del log da Monitoraggio di Azure.You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) to retrieve log data from Azure Monitor.  Questo cmdlet richiede una query per determinare i dati da recuperare.
+- **PowerShell.** È possibile eseguire uno script di PowerShell da una riga di comando o da un Runbook di automazione di Azure che usa [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) per recuperare i dati di log da monitoraggio di Azure.  Questo cmdlet richiede una query per determinare i dati da recuperare.
 - **API di log di Monitoraggio di Azure.**  L'[API di log di Monitoraggio di Azure](https://dev.loganalytics.io) consente a qualsiasi client API REST di recuperare dati di log dall'area di lavoro.  La richiesta dell'API include una query eseguita su Monitoraggio di Azure per determinare i dati da recuperare.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Eseguire [un'esercitazione sull'uso](get-started-portal.md)di Log Analytics nel portale di Azure.Walk through a tutorial on using Log Analytics in the Azure portal .
-- Scorrere [un'esercitazione sulla scrittura di query](get-started-queries.md).
+- Esaminare un' [esercitazione sull'uso di log Analytics nel portale di Azure](get-started-portal.md).
+- Esaminare un' [esercitazione sulla scrittura di query](get-started-queries.md).

@@ -15,21 +15,21 @@ ms.locfileid: "77669014"
 
 ## <a name="overview"></a>Panoramica
 
-Gli avvisi del log attività sono avvisi che vengono attivati quando si verifica un nuovo [evento del log attività](activity-log-schema.md) che soddisfa le condizioni specificate nell'avviso. In base all'ordine e al volume degli eventi registrati nel log attività di [Azure,](platform-logs-overview.md)verrà attivata la regola di avviso. Le regole di avviso del log attività sono risorse di Azure, pertanto possono essere create usando un modello di Azure Resource Manager.Activity log alert rules are Azure resources, so they can be created by using an Azure Resource Manager template. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Per ulteriori informazioni sulla creazione o l'utilizzo delle regole di avviso del log attività, vedere [Creare e gestire avvisi del log attività](alerts-activity-log.md).
+Gli avvisi del log attività sono avvisi che vengono attivati quando si verifica un nuovo [evento del log attività](activity-log-schema.md) che corrisponde alle condizioni specificate nell'avviso. In base all'ordine e al volume degli eventi registrati nel [log attività di Azure](platform-logs-overview.md), viene attivata la regola di avviso. Le regole di avviso del log attività sono risorse di Azure, pertanto è possibile crearle usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Per altre informazioni sulla creazione o l'uso di regole di avviso del log attività, vedere [creare e gestire gli avvisi del log attività](alerts-activity-log.md).
 
 > [!NOTE]
-> Non **è possibile** creare avvisi per gli eventi nella categoria Avvisi del log attività.
+> **Non è possibile** creare avvisi per gli eventi nella categoria avvisi del log attività.
 
 In genere, si creano avvisi del log attività per ricevere notifiche quando:
 
 * Vengono effettuate operazioni specifiche nelle risorse nella sottoscrizione di Azure. Questi avvisi sono spesso limitati a risorse o gruppi di risorse specifici. Potrebbe ad esempio essere utile ricevere una notifica quando viene eliminata una macchina virtuale in myProductionResourceGroup o se vengono assegnati nuovi ruoli a un utente nella sottoscrizione.
 * Si verifica un evento di integrità del servizio. Gli eventi di integrità del servizio includono la notifica di eventi imprevisti e di manutenzione che si applicano alle risorse nella sottoscrizione.
 
-Una semplice analogia per comprendere le condizioni in cui è possibile creare regole di avviso nel log attività consiste nell'esplorare o filtrare gli eventi tramite Log attività nel portale di [Azure.](activity-log-view.md#azure-portal) In Monitoraggio di Azure - Log attività è possibile filtrare o trovare l'evento necessario e quindi creare un avviso usando il pulsante **Aggiungi avviso log attività.**
+Una semplice analogia per comprendere le condizioni in cui è possibile creare regole di avviso nel log attività, consiste nell'esplorare o filtrare gli eventi tramite [log attività in portale di Azure](activity-log-view.md#azure-portal). In monitoraggio di Azure-log attività, è possibile filtrare o trovare un evento necessario, quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività** .
 
 In ogni caso, un avviso del log attività monitora solo degli eventi nella sottoscrizione in cui è stato creato l'evento.
 
-È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività. Per ulteriori informazioni, vedere [Categorie nel Log attività](activity-log-view.md#categories-in-the-activity-log). Per altre informazioni sugli eventi di integrità del servizio, vedere [Ricevere gli avvisi del log attività sulle notifiche del servizio](alerts-activity-log-service-notifications.md). 
+È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività. Per altre informazioni, vedere [categorie nel log attività](activity-log-view.md#categories-in-the-activity-log). Per altre informazioni sugli eventi di integrità del servizio, vedere [Ricevere gli avvisi del log attività sulle notifiche del servizio](alerts-activity-log-service-notifications.md). 
 
 Gli avvisi del log attività hanno alcune opzioni comuni:
 
@@ -40,7 +40,7 @@ Gli avvisi del log attività hanno alcune opzioni comuni:
     - Livello di sottoscrizione: ad esempio, tutte le macchine virtuali in una sottoscrizione oppure tutte le risorse in una sottoscrizione
 - **Gruppo di risorse**: per impostazione predefinita, la regola di avviso viene salvata nello stesso gruppo di risorse di quello di destinazione definito nell'ambito. L'utente può anche definire il gruppo di risorse in cui deve essere archiviata la regola di avviso.
 - **Tipo di risorsa**: spazio dei nomi definito da Resource Manager per la destinazione dell'avviso.
-- **Nome operazione**: nome [dell'operazione di Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizzata per il controllo degli accessi in base al ruolo . Le operazioni non registrate con Azure Resource Manager non possono essere usate in una regola di avviso del log attività.
+- **Nome dell'operazione**: il nome dell' [operazione Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) usato per il controllo degli accessi in base al ruolo. Non è possibile usare le operazioni non registrate con Azure Resource Manager in una regola di avviso del log attività.
 - **Livello**: il livello di gravità dell'evento (dettagliato, informativo, avvertenza, errore o critico).
 - **Stato**: lo stato dell'evento, in genere Avviato, Non riuscito o Riuscito.
 - **Evento avviato da**: noto anche come "chiamante". L'indirizzo di posta elettronica o un identificatore di Azure Active Directory dell'utente che ha eseguito l'operazione.
@@ -58,7 +58,7 @@ Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ottenere [una panoramica degli avvisi](alerts-overview.md).
+- Ottenere una [Panoramica degli avvisi](alerts-overview.md).
 - Altre informazioni sulla [creazione e modifica degli avvisi del log attività](alerts-activity-log.md).
-- Esaminare lo schema webhook degli avvisi del [log attività.](activity-log-alerts-webhook.md)
-- Informazioni sulle notifiche di integrità del [servizio](service-notifications.md).
+- Esaminare lo [schema webhook degli avvisi del log attività](activity-log-alerts-webhook.md).
+- Informazioni sulle [notifiche sull'integrità del servizio](service-notifications.md).

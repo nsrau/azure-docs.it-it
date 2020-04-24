@@ -1,6 +1,6 @@
 ---
 title: Clausola FROM in Azure Cosmos DB
-description: Informazioni sulla sintassi SQL e sull'esempio per la clausola FROM per Azure Cosmos DB. In questo articolo vengono inoltre illustrati esempi per definire l'ambito dei risultati e ottenere elementi secondari utilizzando la clausola FROM.
+description: Informazioni sulla sintassi SQL ed esempio per la clausola FROM per Azure Cosmos DB. Questo articolo illustra anche esempi per definire l'ambito dei risultati e ottenere gli elementi secondari usando la clausola FROM.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -15,15 +15,15 @@ ms.locfileid: "77587686"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Clausola FROM in Azure Cosmos DB
 
-La clausola FROM (`FROM <from_specification>`) è facoltativa, a meno che l'origine non venga filtrata o proiettata in un secondo momento nella query. Una query `SELECT * FROM Families` come enumera `Families` l'intero contenitore. È anche possibile usare l'identificatore speciale ROOT per il contenitore anziché usare il nome del contenitore.
+La clausola FROM`FROM <from_specification>`() è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Una query come `SELECT * FROM Families` enumera l'intero `Families` contenitore. È anche possibile usare la radice identificatore speciale per il contenitore invece di usare il nome del contenitore.
 
-La clausola FROM applica le regole seguenti per query:
+La clausola FROM applica le regole seguenti per ogni query:
 
-* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Ecco `f` l'alias `Families`per . AS è una parola chiave facoltativa [per](sql-query-aliasing.md) alias l'identificatore.  
+* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Ecco `f` l'alias per `Families`. COME è una parola chiave facoltativa per l' [alias](sql-query-aliasing.md) dell'identificatore.  
 
-* Una volta creato un alias, non è possibile associare il nome di origine originale. Ad esempio, `SELECT Families.id FROM Families f` non è sintatticamente valido perché l'identificatore `Families` è stato alias e non può più essere risolto.  
+* Una volta eseguito l'aliasing, non è possibile associare il nome di origine originale. Ad esempio, `SELECT Families.id FROM Families f` è sintatticamente non valido perché `Families` l'identificatore è stato associato a un alias e non è più possibile risolverlo.  
 
-* Tutte le proprietà a cui si fa riferimento devono essere completamente qualificate, per evitare associazioni ambigue in assenza di rigida aderenza allo schema. Ad esempio, `SELECT id FROM Families f` non è sintatticamente valido perché la proprietà `id` non è associata.
+* Tutte le proprietà a cui viene fatto riferimento devono essere complete per evitare qualsiasi binding ambiguo in assenza di una rigida aderenza allo schema. Ad esempio, `SELECT id FROM Families f` è sintatticamente non valido perché `id` la proprietà non è associata.
 
 ## <a name="syntax"></a>Sintassi
   
@@ -81,7 +81,7 @@ FROM <from_specification>
   
 - `<container_expression> '.' property_name`  
   
-  Specifica che il documento deve essere `property_name` recuperato accedendo alla proprietà.  
+  Specifica che il documento deve essere recuperato accedendo alla `property_name` proprietà.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
@@ -105,9 +105,9 @@ Un'espressione di contenitore può avere come ambito un contenitore o un documen
 
 ## <a name="examples"></a>Esempi
 
-### <a name="get-subitems-by-using-the-from-clause"></a>Ottenere elementi secondari utilizzando la clausola FROMGet subitems by using the FROM clause
+### <a name="get-subitems-by-using-the-from-clause"></a>Ottenere gli elementi secondari utilizzando la clausola FROM
 
-La clausola FROM può ridurre l'origine a un sottoinsieme più piccolo. Per enumerare solo un sottoalbero in ogni elemento, la sottoradice può diventare l'origine, come illustrato nell'esempio seguente:To enumerate only a subtree in each item, the subroot can become the source, as shown in the following example:
+La clausola FROM può ridurre l'origine a un subset più piccolo. Per enumerare solo un sottoalbero in ogni elemento, la sottoradice può diventare l'origine, come illustrato nell'esempio seguente:
 
 ```sql
     SELECT *
@@ -147,7 +147,7 @@ I risultati sono:
     ]
 ```
 
-La query precedente ha utilizzato una matrice come origine, ma è anche possibile usare un oggetto come origine. La query considera qualsiasi valore JSON valido e definito nell'origine per l'inclusione nel risultato. L'esempio seguente `Families` esclude che non `address.state` hanno un valore.
+Nella query precedente è stata usata una matrice come origine, ma è anche possibile usare un oggetto come origine. La query considera qualsiasi valore JSON valido e definito nell'origine per l'inclusione nel risultato. Nell'esempio seguente viene escluso `Families` che non è `address.state` presente alcun valore.
 
 ```sql
     SELECT *
@@ -165,6 +165,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
+- [Guida introduttiva](sql-query-getting-started.md)
 - [Clausola SELECT](sql-query-select.md)
 - [Clausola WHERE](sql-query-where.md)

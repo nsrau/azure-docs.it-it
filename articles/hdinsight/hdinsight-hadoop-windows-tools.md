@@ -27,8 +27,8 @@ Azure PowerShell è un ambiente di scripting che può essere usato per controlla
 
 Esempi di attività che è possibile eseguire con PowerShell:
 
-* [Creare cluster utilizzando PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
-* [Eseguire query Apache Hive utilizzando PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+* [Creare cluster con PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+* [Eseguire query Apache hive usando PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Gestire i cluster con PowerShell](hdinsight-administer-use-powershell.md).
 
 Attenersi alla procedura [installare e configurare Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) per ottenere la versione più recente.
@@ -36,7 +36,7 @@ Attenersi alla procedura [installare e configurare Azure Powershell](https://doc
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilità che è possibile eseguire in un browser
 
 Le seguenti utilità hanno un'interfaccia utente Web che viene eseguita in un browser:
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** è una shell interattiva della riga di comando che viene eseguita nel browser e dal portale di Azure.Azure Cloud Shell is an interactive, command-line shell that runs in your browser and from within the Azure portal.
+* **[Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** è una shell interattiva della riga di comando che viene eseguita nel browser e dall'interno del portale di Azure.
 
 * **[Interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md)** è un'utilità di gestione e monitoraggio disponibile nel portale di Azure che può essere usata per gestire diversi tipi di processi, ad esempio:
     * [Usare Apache Ambari con l'API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
@@ -58,9 +58,9 @@ Esempi di attività che è possibile eseguire con Visual Studio e gli strumenti 
 È possibile usare Visual Studio con .NET SDK per gestire i cluster e sviluppare applicazioni Big Data. È possibile usare altri IDE per le attività seguenti, ma gli esempi presentati sono in Visual Studio.
 
 Esempi di attività che è possibile eseguire con .NET SDK in Visual Studio:
-* [Azure HDInsight SDK per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
-* [Eseguire query Apache Hive utilizzando .NET SDK.](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Usare le funzioni definite dall'utente di C, con lo streaming di Apache Hive e Apache Pig su Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+* [Azure HDINSIGHT SDK per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+* [Eseguire query Apache hive usando .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+* [Usare le funzioni definite dall'utente C# con lo streaming di Apache hive e Apache Pig su Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA e IDE di Eclipse per cluster Spark
 
@@ -70,8 +70,8 @@ Esempi di attività che è possibile eseguire con .NET SDK in Visual Studio:
 * Sviluppare ed eseguire un'applicazione Spark in Scala localmente.
 
 Questi articoli mostrano come:
-* Intellij IDEA: [Creare applicazioni Apache Spark usando il toolkit di Azure per Intellij plug-in e Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
-* IDE di Eclipse o IDE Scala per Eclipse: [Creare applicazioni Apache Spark e Azure Toolkit per Eclipse](spark/apache-spark-eclipse-tool-plugin.md)
+* IntelliJ IDEA: [creare applicazioni Apache Spark usando il plug-in Azure Toolkit for IntelliJ e scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
+* IDE di Eclipse o IDE scala per Eclipse: [creare applicazioni Apache Spark e il Azure Toolkit for Eclipse](spark/apache-spark-eclipse-tool-plugin.md)
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>Notebook su Spark per data scientist
 
@@ -82,15 +82,15 @@ I cluster Apache Spark in HDInsight includono notebook e kernel Apache Zeppelin 
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Eseguire strumenti e tecnologie basate su Linux in Windows
 
-Se ci si imbatte in una situazione in cui è necessario utilizzare uno strumento o una tecnologia che è disponibile solo su Linux, considerare le seguenti opzioni:
+Se si incontra una situazione in cui è necessario usare uno strumento o una tecnologia disponibile solo in Linux, prendere in considerazione le opzioni seguenti:
 
-* **Bash su Ubuntu su Windows 10** fornisce un sottosistema Linux su Windows. Bash consente di eseguire direttamente le utilità di Linux senza dover gestire un'installazione di Linux dedicata. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).
+* **Bash in Ubuntu in Windows 10** fornisce un sottosistema Linux in Windows. Bash consente di eseguire direttamente le utilità di Linux senza dover gestire un'installazione di Linux dedicata. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).
 * **Docker per Windows** fornisce l'accesso a molti strumenti basati su Linux e può essere eseguito direttamente da Windows. Ad esempio è possibile usare Docker per eseguire il client Beeline per Hive direttamente da Windows. È possibile inoltre usare Docker per eseguire un notebook Jupyter locale e connettersi da remoto a Spark in HDInsight. [Introduzione a Docker per Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** consente di visualizzare graficamente il file system del cluster tramite una connessione SSH.
 
 ## <a name="cross-platform-tools"></a>Strumenti multipiattaforma
 
-L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.  Per altre informazioni, vedere Interfaccia della riga di comando di Azure .For more information, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.  Per altre informazioni, vedere [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: "Abilitare l'autenticazione a più fattori per gli utenti VPN: autenticazione di Azure ADEnable MFA for VPN users: Azure AD authentication"
-description: Abilitare l'autenticazione a più fattori per gli utenti VPNEnable multi-factor authentication for VPN users
+title: "Abilitare l'autenticazione a più fattori per gli utenti VPN: autenticazione Azure AD"
+description: Abilitare la funzionalità di autenticazione a più fattori per gli utenti VPN
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472350"
 ---
-# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Abilitare Azure Multi-Factor Authentication (MFA) per gli utenti VPNEnable Azure Multi-Factor Authentication (MFA) for VPN users
+# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Abilitare Azure Multi-Factor Authentication (multi-factor authentication) per gli utenti VPN
 
 [!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
@@ -26,14 +26,14 @@ ms.locfileid: "77472350"
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-vwan-openvpn-sign-in.md)]
 
-## <a name="option-1---per-user-access"></a><a name="peruser"></a>Opzione 1 - Accesso per utenteOption 1 - Per User access
+## <a name="option-1---per-user-access"></a><a name="peruser"></a>Opzione 1-accesso per utente
 
 [!INCLUDE [per user](../../includes/vpn-gateway-vwan-openvpn-per-user.md)]
 
-## <a name="option-2---conditional-access"></a><a name="conditional"></a>Opzione 2 - Accesso condizionaleOption 2 - Conditional Access
+## <a name="option-2---conditional-access"></a><a name="conditional"></a>Opzione 2-accesso condizionale
 
 [!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per connettersi alla rete virtuale, è necessario creare e configurare un profilo client VPN. Vedere Configurare un client VPN per le [connessioni VPN P2S.](openvpn-azure-ad-client.md)
+Per connettersi alla rete virtuale, è necessario creare e configurare un profilo client VPN. Vedere [configurare un client VPN per le connessioni VPN P2S](openvpn-azure-ad-client.md).

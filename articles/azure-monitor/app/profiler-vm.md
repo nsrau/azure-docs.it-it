@@ -1,5 +1,5 @@
 ---
-title: Profilare le app Web in una macchina virtuale di Azure - Application Insights ProfilerProfile web apps on an Azure VM - Application Insights Profiler
+title: Profilare le app Web in una macchina virtuale di Azure-Application Insights Profiler
 description: Profilare le app Web in esecuzione in una macchina virtuale di Azure con Application Insights Profiler.
 ms.topic: conceptual
 author: cweining
@@ -19,13 +19,13 @@ ms.locfileid: "77671580"
 
 È anche possibile distribuire Azure Application Insights Profiler in questi servizi:
 * [Servizio app di Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Servizi cloud di AzureAzure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric di Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Distribuire Profiler in una macchina virtuale o un set di scalabilità di macchine virtuali
 Questo articolo illustra come eseguire Application Insights Profiler nella macchina virtuale di Azure o nel set di scalabilità di macchine virtuali di Azure. Profiler viene installato con l'estensione Diagnostica di Azure per le macchine virtuali. Configurare l'estensione per l'esecuzione di Profiler e compilare Application Insights SDK nell'applicazione.
 
-1. Aggiungere Application Insights SDK [all'applicazione ASP.NET.](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net)
+1. Aggiungere il Application Insights SDK all' [applicazione ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
 
    Per visualizzare i profili per le richieste, è necessario inviare i dati di telemetria delle richieste ad Application Insights.
 
@@ -54,7 +54,7 @@ Questo articolo illustra come eseguire Application Insights Profiler nella macch
 
    Per applicare le modifiche, in genere è necessaria una distribuzione completa del modello o una pubblicazione basata su servizi cloud tramite i cmdlet di PowerShell o Visual Studio.  
 
-   I comandi di PowerShell seguenti sono un approccio alternativo per le macchine virtuali esistenti che toccano solo l'estensione Diagnostica di Azure.The following PowerShell commands are an alternate approach for existing virtual machines that touch only the Azure Diagnostics extension. Aggiungere il ProfilerSink menzionato in precedenza alla configurazione restituita dal comando Get-AzVMDiagnosticsExtension. Passare quindi la configurazione aggiornata al comando Set-AzVMDiagnosticsExtension.
+   I comandi di PowerShell seguenti rappresentano un approccio alternativo per le macchine virtuali esistenti che toccano solo l'estensione Diagnostica di Azure. Aggiungere il ProfilerSink indicato in precedenza alla configurazione restituita dal comando Get-AzVMDiagnosticsExtension. Passare quindi la configurazione aggiornata al comando set-AzVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -80,24 +80,24 @@ Questo articolo illustra come eseguire Application Insights Profiler nella macch
 
 1. Distribuire l'applicazione.
 
-## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Impostare il sink del profiler con Esplora risorse di AzureSet Profiler Sink using Azure Resource Explorer
-Non è ancora possibile impostare il sink di Application Insights Profiler dal portale. Invece di usare PowerShell come descritto in precedenza, puoi usare Azure Resource Explorer per impostare il sink. Si noti tuttavia che se si distribuisce di nuovo la macchina virtuale, il sink andrà perso. È necessario aggiornare la configurazione utilizzata durante la distribuzione della macchina virtuale per mantenere questa impostazione.
+## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Imposta sink Profiler con Azure Resource Explorer
+Non è ancora possibile impostare il sink Application Insights Profiler dal portale. Invece di usare PowerShell come descritto in precedenza, è possibile usare Azure Resource Explorer per impostare il sink. Si noti tuttavia che se si distribuisce di nuovo la macchina virtuale, il sink andrà perso. È necessario aggiornare la configurazione usata quando si distribuisce la macchina virtuale per mantenere questa impostazione.
 
-1. Verificare che l'estensione Diagnostica di Windows Azure sia installata visualizzando le estensioni installate per la macchina virtuale.  
+1. Verificare che l'estensione Windows Diagnostica di Azure sia installata visualizzando le estensioni installate per la macchina virtuale.  
 
-    ![Verificare se l'estensione WAD è installata][wadextension]
+    ![Controllare se l'estensione WAD è installata][wadextension]
 
-2. Trovare l'estensione Diagnostica macchina virtuale per la macchina virtuale. Andare [https://resources.azure.com](https://resources.azure.com)a . Espandere il gruppo di risorse, Microsoft.Compute virtualMachines, il nome della macchina virtuale e le estensioni.  
+2. Trovare l'estensione diagnostica VM per la VM. Passare a [https://resources.azure.com](https://resources.azure.com). Espandere il gruppo di risorse Microsoft. Compute virtualMachines, il nome della macchina virtuale e le estensioni.  
 
-    ![Passare alla configurazione di WAD in Esplora risorse di AzureNavigate to WAD config in Azure Resource Explorer][azureresourceexplorer]
+    ![Passare alla configurazione di WAD in Azure Resource Explorer][azureresourceexplorer]
 
-3. Aggiungere il sink di Application Insights Profiler al nodo SinksConfig in WadCfg. Se non si dispone già di una sezione SinksConfig, potrebbe essere necessario aggiungerne una. Assicurarsi di specificare l'iKey di Application Insights appropriato nelle impostazioni. È necessario passare alla modalità esploratori in Lettura/Scrittura nell'angolo in alto a destra e premere il pulsante blu 'Modifica'.
+3. Aggiungere il sink Application Insights Profiler al nodo SinksConfig in WadCfg. Se non si dispone già di una sezione SinksConfig, potrebbe essere necessario aggiungerne una. Assicurarsi di specificare il Application Insights corretto iKey nelle impostazioni. È necessario impostare la modalità esploratori su lettura/scrittura nell'angolo superiore destro e premere il pulsante blu "modifica".
 
-    ![Aggiungere il sink del profiler di Application InsightsAdd Application Insights Profiler Sink][resourceexplorersinksconfig]
+    ![Aggiungi Application Insights Profiler sink][resourceexplorersinksconfig]
 
-4. Al termine della modifica della configurazione, premere 'Put'. Se la messa ha esito positivo, verrà visualizzato un segno di spunta verde al centro dello schermo.
+4. Al termine della modifica della configurazione, premere ' Put '. Se il put ha esito positivo, al centro dello schermo verrà visualizzato un segno di spunta verde.
 
-    ![Invia richiesta di invio per applicare le modifiche][resourceexplorerput]
+    ![Inviare una richiesta PUT per applicare le modifiche][resourceexplorerput]
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi all'estensione della macchina virtuale di Azure per il ripristino di emergenza con Azure Site RecoveryTroubleshoot the Azure VM extension for disaster recovery with Azure Site Recovery
-description: Risolvere i problemi con l'estensione della macchina virtuale di Azure per il ripristino di emergenza con Azure Site Recovery.Troubleshoot issues with the Azure VM extension for disaster recovery with Azure Site Recovery.
+title: Risolvere i problemi relativi all'estensione VM di Azure per il ripristino di emergenza con Azure Site Recovery
+description: Risolvere i problemi relativi all'estensione della macchina virtuale di Azure per il ripristino di emergenza con Azure Site Recovery.
 author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
@@ -12,23 +12,23 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190731"
 ---
-# <a name="troubleshoot-azure-vm-extension-issues"></a>Risolvere i problemi relativi all'estensione della macchina virtuale di AzureTroubleshoot Azure VM extension issues
+# <a name="troubleshoot-azure-vm-extension-issues"></a>Risolvere i problemi dell'estensione VM di Azure
 
-Questo articolo illustra i passaggi per la risoluzione dei problemi che consentono di risolvere gli errori di Azure Site Recovery correlati all'agente e all'estensione della macchina virtuale.
+Questo articolo illustra i passaggi per la risoluzione dei problemi che consentono di risolvere Azure Site Recovery errori correlati all'agente di macchine virtuali e all'estensione.
 
 
-## <a name="azure-site-recovery-extension-time-out"></a>Timeout dell'estensione di Azure Site RecoveryAzure Site Recovery extension time-out  
+## <a name="azure-site-recovery-extension-time-out"></a>Timeout dell'estensione Azure Site Recovery  
 
 Messaggio di errore: "Task execution has timed out while tracking for extension operation to be started" (Timeout dell'esecuzione dell'attività in attesa dell'avvio dell'operazione di estensione)<br>
 Codice errore: "151076"
 
- Azure Site Recovery ha installato un'estensione nella macchina virtuale come parte di un processo di protezione dell'abilitazione. Una delle seguenti condizioni potrebbe impedire l'attivazione della protezione e causare l'esito negativo del processo. Completare questa procedura di risoluzione dei problemi e provare a eseguire di nuovo l'operazione:
+ Azure Site Recovery installata un'estensione nella macchina virtuale come parte di un processo di abilitazione della protezione. Una delle condizioni seguenti potrebbe impedire l'attivazione della protezione e causare l'esito negativo del processo. Completare questa procedura di risoluzione dei problemi e provare a eseguire di nuovo l'operazione:
 
 - [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [L'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 - [Non è possibile aggiornare o caricare l'estensione di Site Recovery](#the-site-recovery-extension-fails-to-update-or-load)
 
-Messaggio di errore: "Operazione precedente dell'estensione di Site Recovery richiede più tempo del previsto."<br>
+Messaggio di errore: "l'operazione di estensione Site Recovery precedente sta impiegando più tempo del previsto".<br>
 Codice errore: "150066"
 
 - [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
@@ -42,7 +42,7 @@ Codice errore: "151099"
 
 Questo errore può verificarsi se l'agente guest di Azure nella macchina virtuale non è nello stato pronto.
 
-È possibile controllare lo stato dell'agente guest di Azure nel portale di [Azure.](https://portal.azure.com/) Passare alla macchina virtuale che si sta tentando di proteggere e controllare lo stato in**Stato agente****proprietà** > **impostazioni** >  **VM** > . Nella maggior parte dei domini, lo stato dell'agente è pronto dopo il riavvio della macchina virtuale. Tuttavia, se non è possibile riavviare o si sta ancora verificando il problema, completare la procedura di risoluzione dei problemi seguente:However, if you can't reboot or you're still facing the issue, then complete the following troubleshooting steps:
+È possibile controllare lo stato dell'agente guest di Azure nella [portale di Azure](https://portal.azure.com/). Passare alla macchina virtuale che si sta tentando di proteggere e controllare lo stato in**Impostazioni** >  **VM** > **Proprietà** > **stato agente**. Nella maggior parte dei casi, lo stato dell'agente è pronto dopo il riavvio della macchina virtuale. Tuttavia, se non è possibile riavviare il computer o se il problema persiste, completare i passaggi seguenti per la risoluzione dei problemi:
 
 - [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [L'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
@@ -51,7 +51,7 @@ Questo errore può verificarsi se l'agente guest di Azure nella macchina virtual
 Messaggio di errore: "Task execution has timed out while tracking for extension operation to be started" (Timeout dell'esecuzione dell'attività in attesa dell'avvio dell'operazione di estensione).<br>
 Codice errore: "151095"
 
-Questo errore si verifica quando la versione dell'agente nel computer Linux non è aggiornata. Completare la seguente procedura di risoluzione dei problemi:
+Questo errore si verifica quando la versione dell'agente nel computer Linux non è aggiornata. Completare il passaggio seguente per la risoluzione dei problemi:
 
 - [L'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)  
 
@@ -62,14 +62,14 @@ Questo errore si verifica quando la versione dell'agente nel computer Linux non 
 #### <a name="solution"></a>Soluzione
 L'agente di macchine virtuali può essere danneggiato o il servizio può essere stato arrestato. Reinstallando l'agente di macchine virtuali è possibile ottenere la versione più recente. In questo modo sarà anche possibile riavviare la comunicazione con il servizio.
 
-1. Determinare se il servizio agente guest di Microsoft Azure è in esecuzione nei servizi delle macchine virtuali (services.msc). Riavviare il servizio Agente guest di Windows Azure.    
-1. Se il servizio Agente guest di Windows Azure non è visibile nei servizi, aprire il Pannello di controllo. Passare a **Programmi e funzionalità** per verificare se il servizio Agente guest di Windows è installato.
+1. Determinare se il servizio agente guest di Microsoft Azure è in esecuzione nei servizi delle macchine virtuali (services.msc). Riavviare il servizio agente guest di Windows Azure.    
+1. Se il servizio agente guest di Windows Azure non è visibile nei servizi, aprire il pannello di controllo. Passare a **programmi e funzionalità** per verificare se il servizio agente guest di Windows è installato.
 1. Se il servizio agente guest di Microsoft Azure è elencato in **Programmi e funzionalità**, disinstallarlo.
 1. Scaricare e installare la [versione più recente del file MSI dell'agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari i diritti di amministratore.
-1. Verificare che il servizio Agente guest di Windows Azure sia visualizzato nei servizi.
+1. Verificare che il servizio agente guest di Microsoft Azure venga visualizzato in servizi.
 1. Riavviare il processo di protezione.
 
-Verificare anche che [Microsoft .NET 4.5 sia installato](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nella macchina virtuale. È necessario .NET 4.5 per l'agente di macchine virtuali per comunicare con il servizio.
+Verificare anche che [Microsoft .NET 4.5 sia installato](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nella macchina virtuale. Per comunicare con il servizio, è necessario .NET 4,5 per l'agente di macchine virtuali.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>L'agente installato nella VM Linux non è aggiornato (per VM Linux)
 
@@ -93,7 +93,7 @@ La maggior parte degli errori relativi ad agenti o estensioni nelle macchine vir
 
 ### <a name="the-site-recovery-extension-fails-to-update-or-load"></a>Non è possibile aggiornare o caricare l'estensione di Site Recovery
 
-Lo stato dell'estensione è "Vuoto", "NotReady" o "Transizione".
+Lo stato dell'estensione è "Empty", "" nobattistrada "o" transitioning ".
 
 #### <a name="solution"></a>Soluzione
 
@@ -101,12 +101,12 @@ Disinstallare l'estensione e ripetere l'operazione.
 
 Per disinstallare l'estensione:
 
-1. Nel [portale di Azure](https://portal.azure.com/)passare alla macchina virtuale in cui si è verificato un errore di backup.
+1. Nella [portale di Azure](https://portal.azure.com/)passare alla macchina virtuale in cui si è verificato un errore di backup.
 1. Selezionare **Impostazioni**.
-1. Selezionare **Estensioni**.
+1. Selezionare **estensioni**.
 1. Selezionare **Estensione Site Recovery**.
 1. Selezionare **Disinstalla**.
 
-Per la macchina virtuale Linux, se l'estensione VMSnapshot non viene visualizzata nel portale di Azure, [aggiornare l'agente Linux](../virtual-machines/linux/update-agent.md)di Azure.For Linux VM, if the VMSnapshot extension does not show in the Azure portal, update the Azure Linux Agent . Quindi eseguire la protezione.
+Per la VM Linux, se l'estensione VMSnapshot non viene visualizzata nel portale di Azure, [aggiornare l'agente Linux di Azure](../virtual-machines/linux/update-agent.md). Eseguire quindi la protezione.
 
-Quando si completa questa procedura, l'estensione viene reinstallata durante la protezione.
+Quando si completano questi passaggi, l'estensione viene reinstallata durante la protezione.

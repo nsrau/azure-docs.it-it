@@ -21,7 +21,7 @@ ms.locfileid: "77111215"
 > * Un'intestazione **Content-Type**:
 >   * `application/json; charset=utf-8`
 >   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * A **Content-Disposition**:
+> * Una **disposizione del contenuto**:
 >   * `form-data; name="metadata"`
 > * Il contenuto del file da caricare
 >

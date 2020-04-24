@@ -1,6 +1,6 @@
 ---
-title: Video sui file netApp di Azure Documenti Microsoft
-description: Fornisce riferimenti avideo che contengono discussioni sull'utilizzo dei file NetApp di Azure.Provides references to videos that contain discussions about using Azure NetApp Files.
+title: Video Azure NetApp Files | Microsoft Docs
+description: Fornisce riferimenti a video contenenti discussioni sull'utilizzo di Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -21,10 +21,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75890985"
 ---
-# <a name="azure-netapp-files-videos"></a>Video sui file NetApp di AzureAzure NetApp Files videos
-Questo articolo fornisce riferimenti a video che contengono discussioni approfondite sull'uso dei file NetApp di Azure.This article provides references to videos that contain in-depth discussions about using Azure NetApp Files. 
+# <a name="azure-netapp-files-videos"></a>Video di Azure NetApp Files
+Questo articolo fornisce riferimenti a video che contengono discussioni approfondite sull'uso di Azure NetApp Files. 
 
-Sono disponibili diversi video che consentono di ottenere ulteriori informazioni sui file NetApp di Azure:Several videos are available to help you learn more about Azure NetApp Files:  
+Sono disponibili diversi video che consentono di ottenere ulteriori informazioni sui Azure NetApp Files:  
 
-* [Microsoft Ignite 2019: Eseguire i carichi di lavoro dei file aziendali più esigenti con i](https://myignite.techcommunity.microsoft.com/sessions/82938?source=sessions) file NetApp di Azure offre una breve introduzione ai file NetApp di Azure, inclusi i casi d'uso e la demo, e quindi approfondisce le funzionalità e la roadmap.
-* I discorsi sui [file di Azure NetApp](https://www.youtube.com/channel/UCq1jZkyVXqMsMSIvScBE2qg/playlists) di Kirk Ryan sono una serie di video, esercitazioni e dimostrazioni dedicate ai file NetApp di Azure.NetApp Files talks by Kirk Ryan are a series of videos, tutorials, and demonstrations dedicated to Azure NetApp Files. 
+* [Microsoft ignite 2019: eseguire i carichi di lavoro di file aziendali più complessi con Azure NetApp files](https://myignite.techcommunity.microsoft.com/sessions/82938?source=sessions) fornisce una breve introduzione ai Azure NetApp files, inclusi i casi d'uso e la demo, quindi approfondisce le funzionalità e la roadmap.
+* [Azure NetApp files colloqui di Kirk Ryan](https://www.youtube.com/channel/UCq1jZkyVXqMsMSIvScBE2qg/playlists) sono una serie di video, esercitazioni e dimostrazioni dedicate al Azure NetApp files. 

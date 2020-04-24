@@ -89,7 +89,7 @@ Heartbeat
 |Paesi Bassi      | 2                   |
 
 
-Per analizzare sottogruppi ancora più piccoli dei dati, aggiungere altri nomi di colonna nella sezione `by`. Ad esempio, è possibile contare i computer distinti da ogni paese/area geografica per OSType:For example, you might want to count the distinct computers from each country/region per OSType:
+Per analizzare sottogruppi ancora più piccoli dei dati, aggiungere altri nomi di colonna nella sezione `by`. Ad esempio, potrebbe essere necessario contare i computer distinti da ogni paese/area geografica per OSType:
 
 ```Kusto
 Heartbeat 

@@ -1,7 +1,7 @@
 ---
-title: Supporto di ADFS (MSAL per Java)
+title: Supporto di AD FS (MSAL per Java)
 titleSuffix: Microsoft identity platform
-description: Informazioni sul supporto di Active Directory Federation Services (ADFS) in Microsoft Authentication Library per Java (MSAL4j).
+description: Informazioni sul supporto di Active Directory Federation Services (AD FS) in Microsoft Authentication Library per Java (MSAL4j).
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -20,32 +20,32 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76696215"
 ---
-# <a name="active-directory-federation-services-support-in-msal-for-java"></a>Supporto di Active Directory Federation Services in MSAL per Java
+# <a name="active-directory-federation-services-support-in-msal-for-java"></a>Supporto Active Directory Federation Services in MSAL per Java
 
-Active Directory Federation Services (ADFS) in Windows Server consente di aggiungere l'autenticazione e l'autorizzazione basate su OpenID Connect e OAuth 2.0 all'app Microsoft Authentication Library for Java (MSAL for Java). Una volta integrata, l'app può autenticare gli utenti in ADFS, federati tramite Azure AD. Per ulteriori informazioni sugli scenari, vedere Scenari di [ADFS per gli sviluppatori](/windows-server/identity/ad-fs/ad-fs-development).
+Active Directory Federation Services (AD FS) in Windows Server consente di aggiungere l'autenticazione e l'autorizzazione basate su OpenID Connect e OAuth 2,0 all'app Microsoft Authentication Library per Java (MSAL per Java). Una volta integrato, l'app è in grado di autenticare gli utenti in AD FS, federati tramite Azure AD. Per ulteriori informazioni sugli scenari, vedere [ad FS scenari per gli sviluppatori](/windows-server/identity/ad-fs/ad-fs-development).
 
-Un'app che usa MSAL per Java rivolgerà Azure Active Directory (Azure AD), che quindi esegue la federazione ad AD FS.
+Un'app che usa MSAL per Java comunicherà con Azure Active Directory (Azure AD), che quindi federa a AD FS.
 
-MSAL per Java si connette ad Azure AD, che accede agli utenti gestiti in Azure AD (utenti gestiti) o agli utenti gestiti da un altro provider di identità, ad esempio AD FS (utenti federati). MSAL per Java non sa che un utente è federato. Viene semplice comunicato con Azure AD.
+MSAL per Java si connette a Azure AD, che consente di accedere agli utenti gestiti in Azure AD (utenti gestiti) o a utenti gestiti da un altro provider di identità, ad esempio AD FS (utenti federati). MSAL per Java non sa che un utente è federato. Semplicemente comunica con Azure AD.
 
-[L'autorità](msal-client-application-configuration.md#authority) utilizzata in questo caso è l'autorità usuale (nome host dell'autorità, tenant, comune o organizzazioni).
+L' [autorità](msal-client-application-configuration.md#authority) utilizzata in questo caso è l'autorità consueta (nome host autorità + tenant, comune o organizzazioni).
 
-## <a name="acquire-a-token-interactively-for-a-federated-user"></a>Acquisire un token in modo interattivo per un utente federatoAcquire a token interactively for a federated user
+## <a name="acquire-a-token-interactively-for-a-federated-user"></a>Acquisire un token in modo interattivo per un utente federato
 
-Quando si `ConfidentialClientApplication.AcquireToken()` `PublicClientApplication.AcquireToken()` chiama `AuthorizationCodeParameters` `DeviceCodeParameters`o con o , l'esperienza utente è in genere:
+Quando si chiama `ConfidentialClientApplication.AcquireToken()` o `PublicClientApplication.AcquireToken()` con `AuthorizationCodeParameters` o `DeviceCodeParameters`, l'esperienza utente è in genere:
 
-1. L'utente immette l'ID account.
-2. Azure AD visualizza brevemente "Passare alla pagina dell'organizzazione" e l'utente viene reindirizzato alla pagina di accesso del provider di identità. La pagina di accesso viene in genere personalizzata con il logo dell'organizzazione.
+1. L'utente immette il proprio ID account.
+2. Azure AD Visualizza brevemente "accesso alla pagina dell'organizzazione" e l'utente viene reindirizzato alla pagina di accesso del provider di identità. La pagina di accesso viene in genere personalizzata con il logo dell'organizzazione.
 
-Le versioni di ADFS supportate in questo scenario federato sono:The supported AD FS versions in this federated scenario are:
-- ADFS di Active Directory Federation Services v2
-- Active Directory Federation Services v3 (Windows Server 2012 R2)
-- Active Directory Federation Services v4 (ADFS 2016)
+Le versioni di AD FS supportate in questo scenario federato sono:
+- Active Directory Federation Services FS V2
+- Active Directory Federation Services V3 (Windows Server 2012 R2)
+- Active Directory Federation Services V4 (AD FS 2016)
 
 ## <a name="acquire-a-token-via-username-and-password"></a>Acquisire un token tramite nome utente e password
 
-Quando si acquisisce `ConfidentialClientApplication.AcquireToken()` `PublicClientApplication.AcquireToken()` un `IntegratedWindowsAuthenticationParameters` `UsernamePasswordParameters`token utilizzando o con o , MSAL per Java ottiene il provider di identità da contattare in base al nome utente. MSAL per Java ottiene un token [SAML 1.1](reference-saml-tokens.md) dal provider di identità, che fornisce quindi ad Azure AD che restituisce il token JSON Web (JWT).
+Quando si acquisisce un token `ConfidentialClientApplication.AcquireToken()` usando `PublicClientApplication.AcquireToken()` o `IntegratedWindowsAuthenticationParameters` con `UsernamePasswordParameters`o, MSAL per Java ottiene il provider di identità da contattare in base al nome utente. MSAL per Java ottiene un token [token SAML 1,1](reference-saml-tokens.md) dal provider di identità, che fornisce quindi a Azure ad che restituisce il token JSON Web (JWT).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per il caso federato, vedere Configurare il comportamento di accesso di [Azure Active Directory per un'applicazione usando un criterio di individuazione dell'area](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) di autenticazione principaleFor the federated case, see Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy
+Per il caso federato, vedere [configurare il comportamento di accesso Azure Active Directory per un'applicazione usando un criterio di individuazione dell'area di autenticazione principale](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

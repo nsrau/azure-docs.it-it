@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: configurare il tunneling forzato - Connessioni da sito a sito: classicoAzure VPN Gateway: Configure forced tunneling - Site-to-Site connections: classic'
+title: 'Gateway VPN di Azure: configurare il tunneling forzato-connessioni da sito a sito: versione classica'
 description: Come reindirizzare o forzare tutto il traffico associato a Internet verso il percorso locale.
 services: vpn-gateway
 author: cherylmc
@@ -20,10 +20,10 @@ Il tunneling forzato consente di reindirizzare o "forzare" tutto il traffico ass
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Questo articolo illustra la configurazione del tunneling forzato per le reti virtuali create usando il modello di distribuzione classico. Il tunneling forzato può essere configurato tramite PowerShell e non tramite il portale. Se si desidera configurare il tunneling forzato per il modello di distribuzione di Resource Manager, selezionare l'articolo di Resource Manager nell'elenco a discesa seguente:
+Questo articolo illustra la configurazione del tunneling forzato per le reti virtuali create usando il modello di distribuzione classico. Il tunneling forzato può essere configurato tramite PowerShell e non tramite il portale. Se si vuole configurare il tunneling forzato per il modello di distribuzione Gestione risorse, selezionare Gestione risorse articolo nell'elenco a discesa seguente:
 
 > [!div class="op_single_selector"]
-> * [PowerShell - Classico](vpn-gateway-about-forced-tunneling.md)
+> * [PowerShell-classico](vpn-gateway-about-forced-tunneling.md)
 > * [PowerShell - Gestione risorse](vpn-gateway-forced-tunneling-rm.md)
 > 
 > 
@@ -39,7 +39,7 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 * Con il rilascio di route definite dall'utente, è possibile creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alle subnet della rete virtuale per abilitare il tunneling forzato in tali subnet.
 * È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale.
 * Il tunneling forzato deve essere associato a una rete virtuale che disponga di un gateway VPN (non un gateway statico).
-* Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute. Per altre informazioni, vedere la documentazione di [ExpressRoute.See](https://azure.microsoft.com/documentation/services/expressroute/) the ExpressRoute Documentation for more information.
+* Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute. Per ulteriori informazioni, vedere la [documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) .
 
 ## <a name="configuration-overview"></a>Panoramica della configurazione
 Nell'esempio seguente il tunneling della subnet front-end non viene forzato. I carichi di lavoro nella subnet front-end possono continuare ad accettare e a rispondere alle richieste dei clienti direttamente da Internet. Il tunneling delle subnet di livello intermedio e back-end viene forzato. Tutte le connessioni in uscita da queste due subnet a Internet verranno forzate o reindirizzate verso un sito locale tramite uno dei tunnel VPN S2S.
@@ -57,7 +57,7 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 
 ### <a name="to-sign-in"></a>Per accedere
 
-1. Aprire la console di PowerShell con diritti elevati. Per passare alla gestione dei servizi, utilizzare questo comando:To switch to service management, use this command:
+1. Aprire la console di PowerShell con diritti elevati. Per passare a gestione servizi, usare questo comando:
 
    ```powershell
    azure config mode asm

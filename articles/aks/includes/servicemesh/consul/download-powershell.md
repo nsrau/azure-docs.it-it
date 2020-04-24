@@ -10,7 +10,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594263"
 ---
-In una shell basata su `Invoke-WebRequest` PowerShell in Windows, utilizzare per `Expand-Archive` scaricare la versione del grafico Consul Helm e quindi estrarre con come segue:
+In una shell basata su PowerShell in Windows, usare `Invoke-WebRequest` per scaricare il rilascio del grafico Helm console e quindi estrarre `Expand-Archive` con come indicato di seguito:
 
 ```powershell
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions

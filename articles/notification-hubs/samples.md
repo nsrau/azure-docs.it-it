@@ -1,6 +1,6 @@
 ---
-title: Esempi di Hub di notifica di AzureAzure Notification Hubs Samples
-description: Elenco di esempi di Hub di notifica di Azure disponibili.
+title: Esempi di hub di notifica di Azure
+description: Elenco di esempi di hub di notifica di Azure disponibili.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -20,9 +20,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263932"
 ---
-# <a name="azure-notification-hubs-samples"></a>Esempi di Hub di notifica di AzureAzure Notification Hubs Samples
+# <a name="azure-notification-hubs-samples"></a>Esempi di hub di notifica di Azure
 
-Questo articolo fornisce collegamenti a esempi che illustrano le funzionalità principali negli hub di notifica di Azure.This article provides links to samples that demonstrate key features in Azure Notification Hubs.
+Questo articolo fornisce collegamenti a esempi che illustrano le funzionalità principali di hub di notifica di Azure.
 
 ## <a name="samples"></a>Esempi
 
@@ -34,4 +34,4 @@ Questo articolo fornisce collegamenti a esempi che illustrano le funzionalità p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere esercitazioni nella sezione **Esercitazioni** del sommario.
+Vedere esercitazioni nella sezione **esercitazioni** del sommario.

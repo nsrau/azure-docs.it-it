@@ -16,5 +16,5 @@ ms.locfileid: "76279555"
 ---
 Esistono diversi modi per aggiungere, aggiornare ed eliminare le impostazioni dell'app per le funzioni:
 
-+ [Nel portale di Azure.In the Azure portal.](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#settings)
++ [Nel portale di Azure.](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#settings)
 + [Tramite l'uso dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)

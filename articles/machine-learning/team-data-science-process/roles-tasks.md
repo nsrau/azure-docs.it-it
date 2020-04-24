@@ -1,6 +1,6 @@
 ---
 title: Ruoli e attività del processo di data science per i team
-description: Struttura dei componenti chiave, dei ruoli del personale e delle attività associate per un gruppo di data science.
+description: Un contorno dei componenti chiave, dei ruoli del personale e delle attività associate per un gruppo di data science.
 author: marktab
 manager: marktab
 editor: marktab
@@ -20,110 +20,110 @@ ms.locfileid: "76720011"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Ruoli e attività del processo di data science per i team
 
-Il Team Data Science Process (TDSP) è un framework sviluppato da Microsoft che fornisce una metodologia strutturata per creare in modo efficiente soluzioni di analisi predittiva e applicazioni intelligenti. In questo articolo vengono descritti i ruoli chiave del personale e le attività associate per un team di data science che standardizza su questo processo.
+Il team Data Science Process (TDSP) è un framework sviluppato da Microsoft che fornisce una metodologia strutturata per compilare in modo efficiente soluzioni di analisi predittiva e applicazioni intelligenti. In questo articolo vengono illustrati i ruoli chiave del personale e le attività associate per un team data science la standardizzazione di questo processo.
 
-Questo articolo introduttivo contiene collegamenti a esercitazioni su come configurare l'ambiente TDSP. Le esercitazioni forniscono indicazioni dettagliate per l'uso di progetti DevOps di Azure, repository di Azure e schede di Azure.The tutorials provide detailed guidance for using Azure DevOps Projects, Azure Repos repositories, and Azure Boards.  L'obiettivo motivante è passare dal concetto alla modellazione e alla distribuzione.
+Questo articolo introduttivo include collegamenti alle esercitazioni su come configurare l'ambiente TDSP. Le esercitazioni forniscono istruzioni dettagliate per l'uso di Azure DevOps Projects, repository Azure Repos e Azure Boards.  L'obiettivo di motivazione è passare dal concetto alla modellazione e alla distribuzione.
 
-Le esercitazioni usano DevOps di Azure perché è come implementare TDSP in Microsoft.The tutorials use Azure DevOps because that is how to implement TDSP at Microsoft. Azure DevOps facilita la collaborazione integrando la sicurezza basata sui ruoli, la gestione e il rilevamento degli elementi di lavoro e l'hosting, la condivisione e il controllo del codice. Le esercitazioni usano anche una macchina virtuale di analisi scientifica dei dati (DSVM, [Data Science Virtual Machine)](https://aka.ms/dsvm) di Azure come desktop di analisi, che include diversi strumenti di analisi scientifica dei dati preconfigurati e integrati con il software Microsoft e i servizi di Azure.The tutorials also use an Azure Data Science Virtual Machine (DSVM) as the analytics desktop, which has several popular data science tools pre-configured and integrated with Microsoft software and Azure services. 
+Le esercitazioni usano Azure DevOps perché questo è l'implementazione di TDSP in Microsoft. Azure DevOps semplifica la collaborazione grazie all'integrazione della sicurezza basata sui ruoli, alla gestione e al rilevamento degli elementi di lavoro e all'hosting del codice, alla condivisione e al controllo del codice sorgente. Le esercitazioni usano anche un [Data Science Virtual Machine](https://aka.ms/dsvm) di Azure (DSVM) come desktop di analisi, che include diversi strumenti di Data Science più diffusi preconfigurati e integrati con il software Microsoft e i servizi di Azure. 
 
-È possibile usare le esercitazioni per implementare TDSP usando altri strumenti e ambienti di hosting del codice, pianificazione agile e sviluppo, ma alcune funzionalità potrebbero non essere disponibili.
+È possibile usare le esercitazioni per implementare TDSP usando altri strumenti e ambienti di hosting di codice, pianificazione agile e sviluppo, ma alcune funzionalità potrebbero non essere disponibili.
 
-## <a name="structure-of-data-science-groups-and-teams"></a>Struttura dei gruppi e dei team di data science
+## <a name="structure-of-data-science-groups-and-teams"></a>Struttura di gruppi e team di data science
 
-Le funzioni di data science nelle aziende sono spesso organizzate nella gerarchia seguente:Data science functions in enterprises are often organized in the following hierarchy:
+Le funzioni di Data Science nelle aziende sono spesso organizzate nella gerarchia seguente:
 
-- Gruppo di analisi scientifica dei datiData science group
-  - Team/i di data science all'interno del gruppo
+- Gruppo Data Science
+  - Team di Data Science all'interno del gruppo
 
-In una tale struttura, ci sono contatti di gruppo e lead di squadra. In genere, un progetto di data science viene eseguito da un team di data science. I team di data science hanno responsabili del progetto per le attività di gestione e governance dei progetti, nonché singoli data scientist e ingegneri per eseguire le parti di data science e di progettazione dei dati del progetto. La configurazione e la governance del progetto iniziali vengono eseguite dai responsabili del gruppo, del team o del progetto.
+In una struttura di questo tipo sono presenti lead di gruppo e lead del team. In genere, un progetto di data science viene eseguito da un team di data science. I team di Data Science hanno lead di progetto per le attività di gestione del progetto e di governance e singoli data scientist e tecnici per eseguire le parti di data science e di progettazione dei dati del progetto. La configurazione e la governance iniziali del progetto vengono eseguite dal gruppo, dal team o dai lead del progetto.
 
 ## <a name="definition-and-tasks-for-the-four-tdsp-roles"></a>Definizione e attività per i quattro ruoli TDSP
-Presupponendo che l'unità di data science sia costituita da team all'interno di un gruppo, esistono quattro ruoli distinti per il personale TDSP:
+Supponendo che l'unità di data science sia costituita da team all'interno di un gruppo, sono disponibili quattro ruoli distinti per il personale TDSP:
 
-1. **Group Manager**: Gestisce l'intera unità di data science in un'azienda. Un'unità di data science può comprendere più team, ognuno dei quali lavora a più progetti di data science in segmenti verticali aziendali distinti. Un responsabile del gruppo può delegare le attività a un sostituto, ma le attività associate al ruolo non cambiano.
+1. **Gestione gruppo**: gestisce l'intera unità di Data Science in un'organizzazione. Un'unità di data science può comprendere più team, ognuno dei quali lavora a più progetti di data science in segmenti verticali aziendali distinti. Un responsabile del gruppo può delegare le attività a un sostituto, ma le attività associate al ruolo non cambiano.
    
-2. **Team Lead**: Gestisce un team nell'unità di data science di un'azienda. Un team è costituito da più data scientist. Per una piccola unità di data science, il responsabile del gruppo e il responsabile del team potrebbero essere la stessa persona.
+2. **Responsabile del team**: gestisce un team nell'unità di Data Science di un'azienda. Un team è costituito da più data scientist. Per una piccola unità di data science, il responsabile del gruppo e il responsabile del team possono essere la stessa persona.
    
-3. **Project Lead**: Gestisce le attività quotidiane dei singoli data scientist su uno specifico progetto di data science.
+3. **Responsabile del progetto**: gestisce le attività quotidiane dei singoli data scientist in un progetto di Data Science specifico.
    
-4. **Project Individual Contributors**: Data Scientists, Business Analysts, Data Engineers, Architetti e altri utenti che eseguono un progetto di data science.
+4. **Singoli collaboratori del progetto**: data scientist, Business Analyst, data Engineers, architetti e altri utenti che eseguono un progetto Data Science.
 
 > [!NOTE]
-> A seconda della struttura e delle dimensioni di un'impresa, una singola persona può svolgere più di un ruolo o più di una persona può ricoprire un ruolo.
+> A seconda della struttura e della dimensione di un'organizzazione, è possibile che una singola persona riproduca più di un ruolo o che più di una persona possa occupare un ruolo.
 
-### <a name="tasks-to-be-completed-by-the-four-roles"></a>Compiti che devono essere completati dai quattro ruoli
+### <a name="tasks-to-be-completed-by-the-four-roles"></a>Attività da completare con i quattro ruoli
 
-Nel diagramma seguente vengono illustrate le attività di primo livello per ogni ruolo Del processo di analisi scientifica dei dati del team. Questo schema e la seguente struttura più dettagliata delle attività per ogni ruolo TDSP consentono di scegliere l'esercitazione necessaria in base alle proprie responsabilità.
+Il diagramma seguente illustra le attività di primo livello per ogni ruolo del processo di Data Science per i team. Questo schema e la seguente struttura più dettagliata delle attività per ogni ruolo TDSP possono aiutare a scegliere l'esercitazione necessaria in base alle proprie responsabilità.
 
 ![Panoramica di ruoli e attività](./media/roles-tasks/overview-tdsp-top-level.png)
 
 ## <a name="group-manager-tasks"></a>Attività del responsabile del gruppo
 
-Group Manager o un amministratore di sistema TDSP designato completa le seguenti attività per adottare il TDSP:
+Il responsabile del gruppo o un amministratore di sistema TDSP designato completa le attività seguenti per adottare il TDSP:
 
-- Crea **un'organizzazione** DevOps di Azure e un progetto di gruppo all'interno dell'organizzazione. 
-- Crea un repository di modelli di **progetto** nel progetto di gruppo DevOps di Azure ed esegue il seeding dal repository dei modelli di progetto sviluppato dal team di Microsoft TDSP. L'archivio dei modelli di progetto Microsoft TDSP fornisce:
-  - Struttura di **directory standardizzata**, incluse le directory per dati, codice e documenti.
-  - Un set di modelli di **documento standardizzati** per guidare un processo di analisi scientifica dei dati efficiente.
-- Crea un repository di **utilità**e ne esegue il seeding dal repository di utilità sviluppato dal team di Microsoft TDSP. L'archivio utilità TDSP di Microsoft fornisce una serie di utilità utili per rendere più efficiente il lavoro di un data scientist. Il repository delle utilità Microsoft include utilità per l'esplorazione interattiva dei dati, l'analisi, la creazione di report e la modellazione e la creazione di report di base.
-- Imposta i **criteri di controllo** di sicurezza per l'account dell'organizzazione.
+- Consente di creare un' **organizzazione** DevOps di Azure e un progetto di gruppo all'interno dell'organizzazione. 
+- Consente di creare un **repository di modelli di progetto** nel progetto di gruppo Azure DevOps e di deselezionarlo dal repository dei modelli di progetto sviluppato dal team Microsoft TDSP. Il repository di modelli di progetto Microsoft TDSP fornisce:
+  - **Struttura di directory standardizzata**, incluse le directory per i dati, il codice e i documenti.
+  - Un set di **modelli di documento standardizzati** per guidare un processo di Data Science efficiente.
+- Consente di creare un **repository di utilità**e di inizializzarlo dal repository di utilità sviluppato dal team TDSP di Microsoft. Il repository di utilità TDSP di Microsoft fornisce un set di utilità utili per rendere più efficiente il lavoro di un data scientist. Il repository Microsoft Utility include utilità per l'esplorazione interattiva dei dati, l'analisi, la creazione di report e la modellazione e la creazione di report di base.
+- Imposta i **criteri di controllo di sicurezza** per l'account dell'organizzazione.
 
-Per istruzioni dettagliate, vedere Attività di Group Manager per un team di [data science.](group-manager-tasks.md)
+Per istruzioni dettagliate, vedere [attività del responsabile del gruppo per un team di Data Science](group-manager-tasks.md).
 
 ## <a name="team-lead-tasks"></a>Attività del responsabile del team
 
 Il responsabile del team o un amministratore di progetto designato completa le attività seguenti per adottare il TDSP:
 
-- Crea un **progetto** team nell'organizzazione DevOps di Azure del gruppo.
-- Crea il repository dei modelli di progetto nel progetto ed esegue il seeding dal repository dei modelli di progetto del gruppo impostato dal responsabile del **gruppo** o dal delegato.
-- Crea il **repository dell'utilità del team,** ne esegue il seeding dal repository dell'utilità di gruppo e aggiunge utilità specifiche del team al repository.
-- Facoltativamente, crea [l'archiviazione dei file](https://azure.microsoft.com/services/storage/files/) di Azure per archiviare asset di dati utili per il team. Gli altri membri del team possono montare questo archivio file su cloud condiviso sui loro desktop di analisi.
-- Facoltativamente, monta l'archiviazione dei file di Azure nella **DSVM** del team e vi aggiunge gli asset di dati del team.
-- Imposta il controllo di **sicurezza** aggiungendo membri del team e configurando ne sono le autorizzazioni.
+- Consente di creare un **progetto** team nell'organizzazione DevOps di Azure del gruppo.
+- Crea il **repository del modello di progetto** nel progetto e ne effettua il seeding dal repository dei modelli di progetto di gruppo impostato dal gestore del gruppo o dal delegato.
+- Consente di creare il **repository di utilità team**, di eseguire il seeding dal repository di utilità del gruppo e di aggiungere al repository utilità specifiche del team.
+- Crea facoltativamente [archiviazione file di Azure](https://azure.microsoft.com/services/storage/files/) per archiviare gli asset di dati utili per il team. Gli altri membri del team possono montare questo archivio file su cloud condiviso sui loro desktop di analisi.
+- Facoltativamente, monta l'archiviazione file di Azure nel **DSVM** del team e aggiunge gli asset di dati del team.
+- Imposta il **controllo di sicurezza** aggiungendo i membri del team e configurando le autorizzazioni.
 
-Per istruzioni dettagliate, vedere [Attività di responsabile team per un team](team-lead-tasks.md)di data science.
+Per istruzioni dettagliate, vedere [attività del responsabile del team per un team di Data Science](team-lead-tasks.md).
 
 
 ## <a name="project-lead-tasks"></a>Attività del responsabile di progetto
 
-Il responsabile del progetto completa le seguenti attività per adottare il TDSP:
+Il responsabile del progetto completa le attività seguenti per adottare il TDSP:
 
-- Crea un repository di **progetto** nel progetto team ed esegue il seeding dal repository dei modelli di progetto.
-- Facoltativamente, crea **l'archiviazione dei file** di Azure per archiviare gli asset di dati del progetto.
-- Facoltativamente, monta l'archiviazione dei file di Azure nella **dSVM** e vi aggiunge gli asset di dati del progetto.
-- Imposta il controllo di **sicurezza** aggiungendo membri del progetto e configurandone le autorizzazioni.
+- Consente di creare un **repository del progetto** nel progetto team e di inizializzarlo dal repository del modello di progetto.
+- Crea facoltativamente **archiviazione file di Azure** per archiviare gli asset di dati del progetto.
+- Facoltativamente, monta la risorsa di archiviazione file di Azure in **DSVM** e aggiunge gli asset di dati del progetto.
+- Imposta il **controllo di sicurezza** aggiungendo i membri del progetto e configurando le relative autorizzazioni.
 
-Per istruzioni dettagliate, vedere Attività di project lead per un team di [data science.](project-lead-tasks.md)
+Per istruzioni dettagliate, vedere [attività del responsabile di progetto per un team di Data Science](project-lead-tasks.md).
 
 ## <a name="project-individual-contributor-tasks"></a>Attività del singolo collaboratore di progetto
 
-Il collaboratore individuale del progetto, in genere un data scientist, esegue le attività seguenti utilizzando il TDSP:
+Il progetto singolo collaboratore, in genere un data scientist, esegue le attività seguenti usando TDSP:
 
-- Clona il repository del **progetto** impostato dal responsabile del progetto.
-- Facoltativamente, il team condiviso e il progetto **Archiviazione file di Azure** nella macchina virtuale di data **science** (DSVM).
+- Clona il **repository di progetto** configurato dal responsabile del progetto.
+- Facoltativamente, consente di montare il team condiviso e il progetto di **archiviazione file di Azure** nel relativo **Data Science Virtual Machine** (DSVM).
 - Esegue il progetto.
 
-Per istruzioni dettagliate sull'onboarding di un progetto, vedere [Attività Collaboratore Individuale di progetto per un team](project-ic-tasks.md)di data science.
+Per istruzioni dettagliate sul caricamento di un progetto, vedere [attività dei singoli collaboratori del progetto per un team di Data Science](project-ic-tasks.md).
 
-## <a name="data-science-project-execution-workflow"></a>Flusso di lavoro di esecuzione del progetto di data scienceData science project execution workflow
+## <a name="data-science-project-execution-workflow"></a>Flusso di lavoro di esecuzione del progetto di Data Science
 
-Seguendo le esercitazioni, gli data scientist, i responsabili del progetto e i responsabili del team pertinenti è possibile creare elementi di lavoro per tenere traccia di tutte le attività e le fasi del progetto dall'inizio alla fine. L'uso di Azure Repos promuove la collaborazione tra i data scientist e garantisce che gli elementi generati durante l'esecuzione del progetto siano controllati dalla versione e condivisi da tutti i membri del progetto. DevOps di Azure consente di collegare gli elementi di lavoro di Azure Boards ai rami del repository di Azure Repos e di tenere facilmente traccia delle operazioni eseguite per un elemento di lavoro.
+Seguendo le esercitazioni pertinenti, i data scientist, i lead del progetto e i lead del team possono creare elementi di lavoro per tenere traccia di tutte le attività e le fasi per il progetto dall'inizio alla fine. L'uso di Azure Repos promuove la collaborazione tra i data scientist e garantisce che gli artefatti generati durante l'esecuzione del progetto siano controllati dalla versione e condivisi da tutti i membri del progetto. Azure DevOps consente di collegare gli elementi di lavoro Azure Boards ai rami del repository Azure Repos e di tenere traccia facilmente delle operazioni eseguite per un elemento di lavoro.
 
-Nella figura seguente viene descritto il flusso di lavoro TDSP per l'esecuzione del progetto:
+La figura seguente illustra il flusso di lavoro TDSP per l'esecuzione del progetto:
 
-![Flusso di lavoro tipico del progetto di data science](./media/roles-tasks/overview-project-execute.png)
+![Flusso di lavoro tipico del progetto data science](./media/roles-tasks/overview-project-execute.png)
 
 I passaggi del flusso di lavoro possono essere raggruppati in tre attività:
 
-- Pianificazione dello sprint di condotta dei lead di progetto
-- Gli scienziati dei `git` dati sviluppano artefatti sui rami per indirizzare gli elementi di lavoroData Scientists develop artifacts on branches to address work items
-- I responsabili del progetto o altri membri del team fanno revisioni del codice e uniscono rami di lavoro al ramo master
+- I lead di progetto eseguono la pianificazione dello sprint
+- I data scientist sviluppano gli `git` artefatti nei rami per indirizzare gli elementi di lavoro
+- I lead del progetto o altri membri del team eseguono revisioni del codice e uniscono rami di lavoro al ramo master
 
-Per istruzioni dettagliate sul flusso di lavoro di esecuzione dei progetti, vedere [Sviluppo Agile di progetti di data science](agile-development.md).
+Per istruzioni dettagliate sul flusso di lavoro di esecuzione del progetto, vedere [sviluppo agile di progetti Data Science](agile-development.md).
 
-## <a name="tdsp-project-template-repository"></a>Repository dei modelli di progetto TDSP
+## <a name="tdsp-project-template-repository"></a>Repository di modelli di progetto TDSP
 
-Utilizzare [l'archivio](https://github.com/Azure/Azure-TDSP-ProjectTemplate) dei modelli di progetto del team Microsoft TDSP per supportare l'esecuzione e la collaborazione efficienti del progetto. Il repository offre una struttura di directory standardizzata e modelli di documento che è possibile utilizzare per i propri progetti TDSP.
+Usare il repository di modelli di [progetto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) del team di Microsoft TDSP per supportare l'esecuzione e la collaborazione efficaci del progetto. Il repository offre una struttura di directory e modelli di documenti standardizzati che è possibile usare per i progetti TDSP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -132,4 +132,4 @@ Per descrizioni più dettagliate dei ruoli e delle attività definite dal proces
 - [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md)
 - [Team Lead tasks for a data science team (Attività del responsabile del team per un team di data science)](team-lead-tasks.md)
 - [Attività del responsabile di progetto per un team di data science](project-lead-tasks.md)
-- [Attività di Project Individual Contributor per un team di data scienceProject Individual Contributor tasks for a data science team](project-ic-tasks.md)
+- [Attività dei singoli collaboratori del progetto per un team di data science](project-ic-tasks.md)

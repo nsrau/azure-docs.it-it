@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sul Centro sicurezza di Azure- domande sulla fatturazioneAzure Security Center FAQ - questions about billing
-description: Queste domande frequenti rispondono alle domande di fatturazione sul Centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce.
+title: Domande frequenti sul centro sicurezza di Azure-Domande sulla fatturazione
+description: Queste domande frequenti rispondono alle domande di fatturazione sul centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -25,9 +25,9 @@ ms.locfileid: "77913838"
 ## <a name="how-does-billing-work-for-azure-security-center"></a>Come funziona la fatturazione per il Centro sicurezza di Azure?
 Il Centro sicurezza è disponibile in due livelli:
 
-- Il **livello gratuito** offre visibilità sullo stato di sicurezza delle risorse di Azure, sui criteri di sicurezza di base, sui consigli di sicurezza e sull'integrazione con i prodotti e i servizi di sicurezza dei partner.
+- Il **livello gratuito** offre visibilità sullo stato di sicurezza delle risorse di Azure, i criteri di sicurezza di base, le raccomandazioni sulla sicurezza e l'integrazione con i prodotti e i servizi di sicurezza dei partner.
 
-- Il **livello standard** aggiunge funzionalità di protezione dalle minacce che includono avvisi di sicurezza, informazioni sulle minacce, analisi comportamentale, rilevamento delle anomalie e report sull'attribuzione delle minacce. È possibile avviare una versione di valutazione gratuita a livello standard. Per eseguire l'aggiornamento, selezionare il [piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing) nei criteri di sicurezza. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+- Il **livello standard** aggiunge funzionalità di protezione dalle minacce che includono avvisi di sicurezza, Intelligence per le minacce, analisi del comportamento, rilevamento delle anomalie e report di attribuzione delle minacce. È possibile avviare una versione di valutazione gratuita del livello standard. Per eseguire l'aggiornamento, selezionare il [piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing) nei criteri di sicurezza. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Come è possibile tenere traccia di chi nell'organizzazione ha eseguito le modifiche del livello tariffario nel Centro sicurezza di AzureHow can Can Can Can Track who in my organization performed pricing tier changes in Azure Security Center
-Le sottoscrizioni di Azure possono avere più amministratori con autorizzazioni per modificare il piano tariffario. Per individuare l'utente che ha eseguito una modifica del piano tariffario, usare il log attività di Azure.To find out which user performed a pricing tier change, use the Azure Activity Log. Per altre informazioni, vedere [qui](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).
+## <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Come è possibile tenere traccia degli utenti dell'organizzazione che hanno eseguito modifiche ai livelli di prezzo nel centro sicurezza di Azure
+Le sottoscrizioni di Azure possono avere più amministratori con le autorizzazioni per modificare il piano tariffario. Per individuare l'utente che ha eseguito una modifica del piano tariffario, usare il log attività di Azure. Per altre informazioni, vedere [qui](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).
