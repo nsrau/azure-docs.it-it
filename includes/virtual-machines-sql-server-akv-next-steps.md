@@ -17,7 +17,7 @@ Dopo aver attivato l'integrazione dell'insieme di credenziali delle chiavi di Az
 
 Esistono diversi tipi di crittografia di cui è possibile usufruire:
 
-* [Crittografia dei dati trasparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Backup crittografati](https://msdn.microsoft.com/library/dn449489.aspx)
 * [Crittografia a livello di colonna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 

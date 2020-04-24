@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Gen1 performance tuning - MapReduce
+title: Ottimizzazione delle prestazioni Azure Data Lake Storage Gen1-MapReduce
 description: Linee guida per l'ottimizzazione delle prestazioni di MapReduce in Azure Data Lake Storage Gen1
 author: stewu
 ms.service: data-lake-store
@@ -17,11 +17,11 @@ ms.locfileid: "73904582"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere Introduzione a [Azure Data Lake Storage Gen1For](data-lake-store-get-started-portal.md) instructions on how to create one, see Get started with Azure Data Lake Storage Gen1
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Introduzione a Azure Data Lake storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
-* **Utilizzo di MapReduce su HDInsight**. Per ulteriori informazioni, vedere [Usare MapReduce in Hadoop su HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Esaminare le linee guida per l'ottimizzazione delle prestazioni per Data Lake Storage Gen1.** Per informazioni generali sulle prestazioni, vedere Indicazioni per l'ottimizzazione delle prestazioni di Data Lake Storage Gen1ForFor general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Uso di MapReduce in HDInsight**. Per ulteriori informazioni, vedere [Usare MapReduce in Hadoop su HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
+* **Esaminare le linee guida per l'ottimizzazione delle prestazioni per data Lake storage Gen1**. Per i concetti generali relativi alle prestazioni, vedere [Data Lake storage Gen1 linee guida per l'ottimizzazione delle prestazioni](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametri
 
@@ -29,38 +29,38 @@ Vengono ora illustrati i parametri più importanti da configurare per aumentare 
 
 |Parametro      | Descrizione  |
 |---------|---------|
-|`Mapreduce.map.memory.mb`  |  Quantità di memoria da allocare a ogni mappatore.  |
-|`Mapreduce.job.maps`     |  Numero di attività di mappa per processo.  |
+|`Mapreduce.map.memory.mb`  |  Quantità di memoria da allocare a ogni Mapper.  |
+|`Mapreduce.job.maps`     |  Numero di attività mappa per processo.  |
 |`Mapreduce.reduce.memory.mb`     |  Quantità di memoria da allocare a ogni riduttore.  |
 |`Mapreduce.job.reduces`    |   Numero di attività di riduzione per processo.  |
 
-### <a name="mapreducemapmemory--mapreducereducememory"></a>Mapreduce.map.memory / Mapreduce.reduce.memory
+### <a name="mapreducemapmemory--mapreducereducememory"></a>MapReduce. map. memory/MapReduce. reduce. memory
 
-Regolare questo numero in base alla quantità di memoria necessaria per la mappa e/o ridurre l'attività. È possibile visualizzare i `mapreduce.map.memory` `mapreduce.reduce.memory` valori predefiniti di e in Ambari tramite la configurazione Yarn. In Ambari, accedere a YARN e visualizzare la scheda **Configs (Configurazioni).** Verrà visualizzata la memoria YARN.
+Modificare questo numero in base alla quantità di memoria necessaria per l'attività di mapping e/o riduzione. È possibile visualizzare i valori predefiniti di `mapreduce.map.memory` e `mapreduce.reduce.memory` in Ambari tramite la configurazione Yarn. In Ambari passare a YARN e visualizzare la scheda **configs (configurazioni** ). Verrà visualizzata la memoria YARN.
 
-### <a name="mapreducejobmaps--mapreducejobreduces"></a>Mapreduce.job.maps / Mapreduce.job.reduces
+### <a name="mapreducejobmaps--mapreducejobreduces"></a>MapReduce. job. Maps/MapReduce. job. Reduces
 
-Questo determina il numero massimo di mappatori o riduttori da creare. Il numero di divisioni determina il numero di mappatori creati per il processo MapReduce. Pertanto, è possibile ottenere un numero inferiore di mappatori di quelli richiesti se sono presenti meno divisioni rispetto al numero di mappatori richiesti.
+Questo determina il numero massimo di Mapper o riduttori da creare. Il numero di divisioni determina il numero di Mapper creati per il processo MapReduce. Pertanto, è possibile ottenere un numero inferiore di Mapper rispetto a quello richiesto se sono presenti meno divisioni rispetto al numero di Mapper richiesti.
 
 ## <a name="guidance"></a>Materiale sussidiario
 
-### <a name="step-1-determine-number-of-jobs-running"></a>Passaggio 1: Determinare il numero di processi in esecuzioneStep 1: Determine number of jobs running
+### <a name="step-1-determine-number-of-jobs-running"></a>Passaggio 1: determinare il numero di processi in esecuzione
 
-Per impostazione predefinita, MapReduce userà l'intero cluster per il processo. È possibile utilizzare meno del cluster utilizzando un numero di mappatori inferiore a quello dei contenitori disponibili. Le indicazioni fornite in questo documento presuppongono che l'applicazione sia l'unica in esecuzione nel cluster.
+Per impostazione predefinita, MapReduce userà l'intero cluster per il processo. È possibile utilizzare un numero minore di BizTalk Mapper rispetto ai contenitori disponibili. Le indicazioni fornite in questo documento presuppongono che l'applicazione sia l'unica in esecuzione nel cluster.
 
-### <a name="step-2-set-mapreducemapmemorymapreducereducememory"></a>Passaggio 2: Impostare mapreduce.map.memory/mapreduce.reduce.memory
+### <a name="step-2-set-mapreducemapmemorymapreducereducememory"></a>Passaggio 2: impostare MapReduce. map. memory/MapReduce. reduce. memory
 
-Le dimensioni della memoria per le attività di mapping e riduzione dipenderanno dal processo specifico. Se si desidera aumentare la concorrenza, è possibile ridurre le dimensioni della memoria. Il numero di attività in esecuzione contemporaneamente dipende dal numero di contenitori. Riducendo la quantità di memoria per ogni mapper o riduttore, verranno creati più contenitori, che permetteranno l'esecuzione simultanea di più mapper o riduttori. Riducendo eccessivamente la quantità di memoria, potranno verificarsi degli errori di memoria insufficiente per alcuni procesis. Se viene visualizzato un errore di heap durante l'esecuzione del processo, aumentare la memoria per mapper o riduttore. Si consideri che l'aggiunta di più contenitori aggiunge un sovraccarico aggiuntivo per ogni contenitore aggiuntivo, che può potenzialmente ridurre le prestazioni. In alternativa è possibile ottenere una maggiore quantità di memoria usando un cluster con maggiore memoria oppure aumentando il numero di nodi nel cluster. Una maggiore quantità di memoria consentirà di usare più contenitori, ottenendo così più concorrenza.
+Le dimensioni della memoria per le attività di mapping e riduzione dipenderanno dal processo specifico. Se si desidera aumentare la concorrenza, è possibile ridurre le dimensioni della memoria. Il numero di attività in esecuzione contemporaneamente dipende dal numero di contenitori. Riducendo la quantità di memoria per ogni mapper o riduttore, verranno creati più contenitori, che permetteranno l'esecuzione simultanea di più mapper o riduttori. Riducendo eccessivamente la quantità di memoria, potranno verificarsi degli errori di memoria insufficiente per alcuni procesis. Se si verifica un errore dell'heap durante l'esecuzione del processo, aumentare la memoria per ogni Mapper o riduttore. Si consideri che l'aggiunta di più contenitori comporta un sovraccarico aggiuntivo per ogni contenitore aggiuntivo, che può potenzialmente peggiorare le prestazioni. In alternativa è possibile ottenere una maggiore quantità di memoria usando un cluster con maggiore memoria oppure aumentando il numero di nodi nel cluster. Una maggiore quantità di memoria consentirà di usare più contenitori, ottenendo così più concorrenza.
 
-### <a name="step-3-determine-total-yarn-memory"></a>Passaggio 3: Determinare la memoria YARN totaleStep 3: Determine total YARN memory
+### <a name="step-3-determine-total-yarn-memory"></a>Passaggio 3: determinare la memoria totale di YARN
 
-Per ottimizzare mapreduce.job.maps/mapreduce.job.reduces, considerare la quantità totale di memoria YARN disponibile per l'utilizzo. Le informazioni sono disponibili in Ambari. Passare a YARN e visualizzare la scheda **Configs (Configurazioni).** In questa finestra viene visualizzata la memoria YARN. Moltiplicare la memoria YARN con il numero di nodi nel cluster per ottenere la memoria YARN totale.
+Per ottimizzare MapReduce. job. Maps/MapReduce. job. Reduces, prendere in considerazione la quantità di memoria totale YARN disponibile per l'uso. Le informazioni sono disponibili in Ambari. Passare a YARN e visualizzare la scheda **configs (configurazioni** ). La memoria YARN viene visualizzata in questa finestra. Moltiplicare la memoria di YARN con il numero di nodi nel cluster per ottenere la memoria totale di YARN.
 
 `Total YARN memory = nodes * YARN memory per node`
 
-Se si utilizza un cluster vuoto, la memoria può essere la memoria YARN totale per il cluster. Se altre applicazioni stanno usando memoria, è possibile scegliere di usare solo parte della memoria del cluster, riducendo e portando il numero dei mapper o riduttori al numero di contenitori da usare.
+Se si usa un cluster vuoto, la memoria può essere la memoria totale di YARN per il cluster. Se altre applicazioni stanno usando memoria, è possibile scegliere di usare solo parte della memoria del cluster, riducendo e portando il numero dei mapper o riduttori al numero di contenitori da usare.
 
-### <a name="step-4-calculate-number-of-yarn-containers"></a>Passaggio 4: Calcolare il numero di contenitori YARNStep 4: Calculate number of YARN containers
+### <a name="step-4-calculate-number-of-yarn-containers"></a>Passaggio 4: calcolare il numero di contenitori YARN
 
 I contenitori YARN indicano la quantità di concorrenza disponibile per il processo. Prendere il valore della memoria totale di YARN e dividerlo per mapreduce.map.memory.
 
@@ -76,17 +76,17 @@ La pianificazione e l'isolamento della CPU sono disattivate per impostazione pre
 
 Si supponga di disporre di un cluster costituito da 8 nodi D14 e di voler eseguire un processo con attività di I/O intensive. Di seguito sono riportati i calcoli che è necessario eseguire:
 
-### <a name="step-1-determine-number-of-jobs-running"></a>Passaggio 1: Determinare il numero di processi in esecuzioneStep 1: Determine number of jobs running
+### <a name="step-1-determine-number-of-jobs-running"></a>Passaggio 1: determinare il numero di processi in esecuzione
 
-Per il nostro esempio, supponiamo che il nostro lavoro sia l'unico in esecuzione.
+Per questo esempio, si presuppone che il processo sia l'unico in esecuzione.
 
-### <a name="step-2-set-mapreducemapmemorymapreducereducememory"></a>Passaggio 2: Impostare mapreduce.map.memory/mapreduce.reduce.memory
+### <a name="step-2-set-mapreducemapmemorymapreducereducememory"></a>Passaggio 2: impostare MapReduce. map. memory/MapReduce. reduce. memory
 
-Per il nostro esempio, si esegue un processo con utilizzo intensivo di I/O e si decide che sono sufficienti 3 GB di memoria per le attività mappa.
+Per questo esempio, si esegue un processo con utilizzo intensivo di I/O e si decide che è sufficiente 3 GB di memoria per le attività della mappa.
 
 `mapreduce.map.memory = 3GB`
 
-### <a name="step-3-determine-total-yarn-memory"></a>Passaggio 3: Determinare la memoria YARN totaleStep 3: Determine total YARN memory
+### <a name="step-3-determine-total-yarn-memory"></a>Passaggio 3: determinare la memoria totale di YARN
 
 `total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB`
 
@@ -110,18 +110,18 @@ Per verificare la presenza di limitazioni, è necessario abilitare la registrazi
 
 2. Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
 
-3. Se si sta ottenendo limitato, vedrete il codice di errore HTTP 429 nel file di registro YARN. Il file di log di YARN si trova nel percorso /tmp/&lt;user&gt;/yarn.log
+3. Se viene applicata la limitazione, verrà visualizzato il codice di errore HTTP 429 nel file di log YARN. Il file di log di YARN si trova nel percorso /tmp/&lt;user&gt;/yarn.log
 
 ## <a name="examples-to-run"></a>Esempi di esecuzione
 
-Per illustrare l'esecuzione di MapReduce in Data Lake Storage Gen1, di seguito è riportato codice di esempio che è stato eseguito in un cluster con le impostazioni seguenti:To demonstrate how MapReduce runs on Data Lake Storage Gen1, the following is some sample code that was run on a cluster with the following settings:
+Per illustrare l'esecuzione di MapReduce in Data Lake Storage Gen1, di seguito è riportato un codice di esempio eseguito in un cluster con le impostazioni seguenti:
 
 * D14v2 a 16 nodi
 * Cluster Hadoop con HDI 3.6 in esecuzione
 
 Per iniziare, ecco alcuni comandi di esempio per eseguire MapReduce Teragen, Terasort e Teravalidate. È possibile modificare questi comandi in base alle risorse.
 
-### <a name="teragen"></a>Terageno
+### <a name="teragen"></a>Teragen
 
 ```
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input

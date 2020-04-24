@@ -1,6 +1,6 @@
 ---
-title: Come risolvere i problemi relativi a Azure Data CatalogHow to troubleshoot Azure Data Catalog
-description: Questo articolo descrive i problemi comuni relativi alla risoluzione dei problemi per le risorse di Azure Data Catalog.This article describes common troubleshooting concerns for Azure Data Catalog resources.
+title: Come risolvere i problemi Azure Data Catalog
+description: Questo articolo descrive le problematiche più comuni per la risoluzione dei problemi relativi alle risorse Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
@@ -15,17 +15,17 @@ ms.locfileid: "68879546"
 ---
 # <a name="troubleshooting-azure-data-catalog"></a>Risoluzione dei problemi di Azure Data Catalog
 
-Questo articolo descrive i problemi comuni relativi alla risoluzione dei problemi per le risorse di Azure Data Catalog.This article describes common troubleshooting concerns for Azure Data Catalog resources. 
+Questo articolo descrive le problematiche più comuni per la risoluzione dei problemi relativi alle risorse Azure Data Catalog. 
 
-## <a name="functionality-limitations"></a>Limitazioni di funzionalità
+## <a name="functionality-limitations"></a>Limitazioni delle funzionalità
 
-Quando si usa Azure Data Catalog, la funzionalità seguente è limitata:When using Azure Data Catalog, the following functionality is limited:
+Quando si usa Azure Data Catalog, le funzionalità seguenti sono limitate:
 
-- Gli account di tipo **Ruolo ospite** non sono supportati. Non è possibile aggiungere account guest come utenti di Azure [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com)Data Catalog e gli utenti guest non possono utilizzare il portale in .
+- Gli account con **ruolo Guest** di tipo non sono supportati. Non è possibile aggiungere account Guest come utenti di Azure Data Catalog e gli utenti guest non possono usare il [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com)portale all'indirizzo.
 
-- La creazione di risorse di Azure Data Catalog usando i modelli di Azure Resource Manager o i comandi di Azure PowerShell non è supportata.
+- La creazione di risorse di Azure Data Catalog usando modelli Azure Resource Manager o comandi Azure PowerShell non è supportata.
 
-- La risorsa Azure Data Catalog non può essere spostata tra tenant di Azure.The Azure Data Catalog resource cannot be moved between Azure Tenants.
+- Non è possibile spostare la risorsa Azure Data Catalog tra i tenant di Azure.
 
 ## <a name="azure-active-directory-policy-configuration"></a>Configurazione dei criteri di Azure Active Directory
 
@@ -33,7 +33,7 @@ In alcune situazioni è possibile accedere al portale di Azure Data Catalog, ma 
 
 Lo strumento di registrazione usa l' *autenticazione basata su form* per convalidare l'accesso utente in Azure Active Directory. Per completare l'accesso, un amministratore di Azure Active Directory deve abilitare l'autenticazione basata su form nei *criteri di autenticazione globali*.
 
-I criteri di autenticazione globali consentono di abilitare l'autenticazione separatamente per connessioni Intranet ed Extranet, come illustrato nell'immagine seguente. Possono verificarsi errori di accesso se l'autenticazione basata su form non è abilitata per la rete da cui ci si connette.
+I criteri di autenticazione globali consentono di abilitare l'autenticazione separatamente per connessioni Intranet ed Extranet, come illustrato nell'immagine seguente. Se l'autenticazione basata su form non è abilitata per la rete da cui ci si connette, è possibile che si verifichino errori di accesso.
 
  ![Criteri di autenticazione globali di Azure Active Directory](./media/troubleshoot-policy-configuration/global-auth-policy.png)
 

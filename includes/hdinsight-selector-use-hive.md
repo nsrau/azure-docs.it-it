@@ -13,15 +13,15 @@ ms.locfileid: "67180748"
 ---
 > [!div class="op_single_selector"]
 > * [Panoramica](../articles/hdinsight/hadoop/hdinsight-use-hive.md)
-> * [Visualizzazione Hive](../articles/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md)
-> * [Ssh](../articles/hdinsight/hdinsight-hadoop-use-hive-ssh.md)
+> * [Visualizzazione hive](../articles/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md)
+> * [SSH](../articles/hdinsight/hdinsight-hadoop-use-hive-ssh.md)
 > * [Beeline](../articles/hdinsight/hadoop/apache-hadoop-use-hive-beeline.md)
-> * [Curl](../articles/hdinsight/hadoop/apache-hadoop-use-hive-curl.md)
-> * [Powershell](../articles/hdinsight/hadoop/apache-hadoop-use-hive-powershell.md)
+> * [CURL](../articles/hdinsight/hadoop/apache-hadoop-use-hive-curl.md)
+> * [PowerShell](../articles/hdinsight/hadoop/apache-hadoop-use-hive-powershell.md)
 > * [.NET](../articles/hdinsight/hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 > * [Visual Studio](../articles/hdinsight/hadoop/apache-hadoop-use-hive-visual-studio.md)
 > * [Desktop remoto](../articles/hdinsight/hadoop/apache-hadoop-use-hive-remote-desktop.md)
-> * [Query Console](../articles/hdinsight/hadoop/apache-hadoop-use-hive-query-console.md)
+> * [Console query](../articles/hdinsight/hadoop/apache-hadoop-use-hive-query-console.md)
 > 
 > 
 

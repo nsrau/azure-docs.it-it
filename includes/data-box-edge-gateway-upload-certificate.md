@@ -11,14 +11,14 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "67448620"
 ---
-Un certificato SSL appropriato garantisce l'invio di informazioni crittografate al server giusto. Oltre alla crittografia, il certificato consente anche l'autenticazione. È possibile caricare il proprio certificato SSL attendibile tramite l'interfaccia di PowerShell del dispositivo.
+Un certificato SSL appropriato garantisce che vengano inviate informazioni crittografate al server appropriato. Oltre alla crittografia, il certificato consente anche l'autenticazione. È possibile caricare il proprio certificato SSL attendibile tramite l'interfaccia di PowerShell del dispositivo.
 
-1. [Connettersi all'interfaccia](#connect-to-the-powershell-interface)di PowerShell .
-2. Utilizzare `Set-HcsCertificate` il cmdlet per caricare il certificato. Quando richiesto, specificare i seguenti parametri:
+1. [Connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
+2. Usare il `Set-HcsCertificate` cmdlet per caricare il certificato. Quando richiesto, specificare i parametri seguenti:
 
-   - `CertificateFilePath`- Percorso della condivisione che contiene il file del certificato in formato *pfx.*
-   - `CertificatePassword`- Una password utilizzata per proteggere il certificato.
-   - `Credentials`- Nome utente per accedere alla condivisione che contiene il certificato. Fornire la password alla condivisione di rete quando richiesto.
+   - `CertificateFilePath`: Percorso della condivisione che contiene il file del certificato in formato *PFX* .
+   - `CertificatePassword`: Password usata per proteggere il certificato.
+   - `Credentials`-Username per accedere alla condivisione che contiene il certificato. Quando richiesto, fornire la password alla condivisione di rete.
 
      Nell'esempio seguente viene illustrato l'utilizzo di questo cmdlet:
 

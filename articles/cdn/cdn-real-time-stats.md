@@ -35,7 +35,7 @@ Sono disponibili i grafici seguenti:
 * [Connessioni](#connections)
 
 ## <a name="accessing-real-time-stats"></a>Accesso alle statistiche in tempo reale
-1. Nel [portale](https://portal.azure.com)di Azure passare al profilo della rete CDN.
+1. Nel [portale di Azure](https://portal.azure.com)passare al profilo di rete CDN.
    
     ![Pannello del profilo di rete CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
 2. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci** .
@@ -92,5 +92,5 @@ Questo grafico indica il numero di connessioni stabilite con i server perimetral
 ## <a name="next-steps"></a>Passaggi successivi
 * Per impostare la ricezione di notifiche, vedere [Avvisi in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-alerts.md)
 * Per un'analisi più approfondita, vedere [Report HTTP avanzati nella rete CDN di Microsoft Azure](cdn-advanced-http-reports.md)
-* Analizzare [i modelli di utilizzoAnalyze usage patterns](cdn-analyze-usage-patterns.md)
+* Analizzare i [modelli di utilizzo](cdn-analyze-usage-patterns.md)
 

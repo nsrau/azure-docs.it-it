@@ -11,10 +11,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180785"
 ---
-La chiave di attivazione utilizzata:
+Il codice di attivazione utilizzato:
 
 - È una chiave di autenticazione basata su Azure Active Directory (Azure AD).
 - Scade dopo tre giorni.
-- Non viene utilizzato dopo l'attivazione del dispositivo.
+- Non viene usato dopo l'attivazione del dispositivo.
 
-Dopo aver attivato un dispositivo, usa i token per comunicare con Azure.After you activate a device, it uses tokens to communicate with Azure.
+Dopo l'attivazione di un dispositivo, vengono usati i token per comunicare con Azure.

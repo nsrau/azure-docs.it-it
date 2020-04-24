@@ -11,13 +11,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "66240257"
 ---
-1. Aprire il progetto client scaricato utilizzando Xcode.
+1. Aprire il progetto client scaricato usando Xcode.
 
-2. Passare al portale di [Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel `Overview` pannello cercare l'URL che è l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il nome del sito per il nome https://test123.azurewebsites.netdell'app "test123" sarà .
+2. Passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. `Overview` Nel pannello cercare l'URL che rappresenta l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il SiteName per il nome dell'app "test123" https://test123.azurewebsites.netsarà.
 
-3. Per il progetto Swift, aprire il file `ToDoTableViewController.swift` in questa cartella: .UMOAPPNAME/'OMO.APPNAME/ToDoTableViewController.swift. Il nome `ZUMOAPPNAME`dell'applicazione è .
+3. Per SWIFT Project, aprire il file `ToDoTableViewController.swift` in questa cartella-ZUMOAPPNAME/ZUMOAPPNAME/ToDoTableViewController. Swift. Il nome dell'applicazione `ZUMOAPPNAME`è.
 
-4. Nel `viewDidLoad()` metodo `ZUMOAPPURL` sostituire il parametro con l'endpoint pubblico precedente.
+4. Nel `viewDidLoad()` metodo sostituire `ZUMOAPPURL` il parametro con l'endpoint pubblico precedente.
 
     `let client = MSClient(applicationURLString: "ZUMOAPPURL")`
 
@@ -25,9 +25,9 @@ ms.locfileid: "66240257"
     
     `let client = MSClient(applicationURLString: "https://test123.azurewebsites.net")`
     
-5. Per il progetto Objective-C, aprire il file `QSTodoService.m` in questa cartella, ovvero NOME.UOAPPNAME o .UMOAPPNAME. Il nome `ZUMOAPPNAME`dell'applicazione è .
+5. Per il progetto Objective-C, aprire il `QSTodoService.m` file in questa cartella-ZUMOAPPNAME/ZUMOAPPNAME. Il nome dell'applicazione `ZUMOAPPNAME`è.
 
-6. Nel `init` metodo `ZUMOAPPURL` sostituire il parametro con l'endpoint pubblico precedente.
+6. Nel `init` metodo sostituire `ZUMOAPPURL` il parametro con l'endpoint pubblico precedente.
 
     `self.client = [MSClient clientWithApplicationURLString:@"ZUMOAPPURL"];`
 
@@ -37,7 +37,7 @@ ms.locfileid: "66240257"
 
 7. Fare clic su **Esegui** per creare il progetto e avviare l'app nel simulatore iOS.
 
-8. Nell'app fare clic**+** sull'icona più ( ), digitare testo significativo, ad esempio *Completare l'esercitazione*, quindi fare clic sul pulsante Salva. Verrà inviata una richiesta POST al back-end di Azure distribuito in precedenza. Il back-end inserisce i dati della richiesta nella tabella SQL TodoItem e restituisce le informazioni sugli elementi appena archiviati all'app per dispositivi mobili. L'app per dispositivi mobili consente di visualizzare questi dati nell'elenco.
+8. Nell'app, fare clic sull'icona con**+** il segno più (), digitare un testo significativo, ad esempio *completare l'esercitazione*, quindi fare clic sul pulsante Salva. Verrà inviata una richiesta POST al back-end di Azure distribuito in precedenza. Il back-end inserisce i dati della richiesta nella tabella SQL TodoItem e restituisce le informazioni sugli elementi appena archiviati all'app per dispositivi mobili. L'app per dispositivi mobili consente di visualizzare questi dati nell'elenco.
 
    ![Guida introduttiva all'app che esegue iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 

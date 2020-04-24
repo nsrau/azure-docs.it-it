@@ -1,6 +1,6 @@
 ---
-title: Analizzare Azure Data Lake Storage Gen1 con HDInsight Apache SparkAnalyze Azure Data Lake Storage Gen1 with HDInsight Apache Spark
-description: Eseguire processi Apache Spark per analizzare i dati archiviati in Azure Data Lake Storage Gen1Run Apache Spark jobs to analyze data stored in Azure Data Lake Storage Gen1
+title: Analizzare Azure Data Lake Storage Gen1 con HDInsight Apache Spark
+description: Eseguire processi Apache Spark per analizzare i dati archiviati in Azure Data Lake Storage Gen1
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -17,7 +17,7 @@ ms.locfileid: "73818173"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Usare il cluster HDInsight Spark per analizzare i dati in Azure Data Lake Storage Gen1
 
-In questo articolo si usa Jupyter Notebook disponibile con i cluster HDInsight Spark per eseguire un processo che legge i dati da un account di archiviazione di Data Lake.In this article, you use [Jupyter Notebook](https://jupyter.org/) available with HDInsight Spark clusters to run a job that reads data from a Data Lake Storage account.
+In questo articolo si usa [Jupyter notebook](https://jupyter.org/) disponibile con i cluster HDInsight Spark per eseguire un processo che legge i dati da un account di data Lake storage.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,12 +56,12 @@ Se è stato creato un cluster HDInsight con Data Lake Storage come risorsa di ar
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Usare un cluster HDInsight Spark con Azure Data Lake Storage Gen1
 
-1. Dal [portale di Azure](https://portal.azure.com/), dalla schermata iniziale, fare clic sul riquadro del cluster Apache Spark (se è stato aggiunto alla schermata iniziale). È inoltre possibile passare al cluster in **Sfoglia tutti i** > **cluster HDInsight**.
+1. Dal [portale di Azure](https://portal.azure.com/), dal schermata iniziale, fare clic sul riquadro per il cluster di Apache Spark (se è stato aggiunto a schermata iniziale). È anche possibile passare al cluster in **Esplora tutti i** > **cluster HDInsight**.
 
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
    > [!NOTE]  
-   > È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. **Sostituire CLUSTERNAME** con il nome del cluster:
+   > È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire **clustername** con il nome del cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 

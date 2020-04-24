@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Configurare la VPN S2S tramite peering MicrosoftAzure ExpressRoute: Configure S2S VPN over Microsoft peering'
+title: 'Azure ExpressRoute: configurare VPN S2S tramite peering Microsoft'
 description: Configurare la connettività IPsec/IKE in Azure tramite un circuito di peering ExpressRoute Microsoft con un gateway VPN da sito a sito.
 services: expressroute
 author: cherylmc
@@ -43,7 +43,7 @@ I tunnel VPN tramite peering Microsoft possono essere terminati tramite gateway 
 >
 >
 
-## <a name="workflow"></a><a name="workflow"></a>Workflow
+## <a name="workflow"></a><a name="workflow"></a>Flusso di lavoro
 
 1. Configurare il peering Microsoft per un circuito ExpressRoute.
 2. Annunciare i prefissi pubblici regionali di Azure selezionati sulla rete locale tramite il peering Microsoft.
@@ -53,7 +53,7 @@ I tunnel VPN tramite peering Microsoft possono essere terminati tramite gateway 
 6. (Facoltativo) Configurare firewall/filtri sul dispositivo VPN locale.
 7. Test e convalida delle comunicazioni IPsec tramite il circuito ExpressRoute.
 
-## <a name="1-configure-microsoft-peering"></a><a name="peering"></a>1. Configurare il peering Microsoft
+## <a name="1-configure-microsoft-peering"></a><a name="peering"></a>1. configurare il peering Microsoft
 
 Per configurare una connessione VPN da sito a sito tramite ExpressRoute è necessario sfruttare il peering ExpressRoute Microsoft.
 
@@ -65,9 +65,9 @@ Dopo avere configurato il circuito e il peering Microsoft sarà possibile visual
 
 ![circuito](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
-## <a name="2-configure-route-filters"></a><a name="routefilter"></a>2. Configurare i filtri di route
+## <a name="2-configure-route-filters"></a><a name="routefilter"></a>2. configurare i filtri di route
 
-Un filtro di route consente di identificare i servizi da usare tramite il peering Microsoft del circuito di ExpressRoute. Si tratta essenzialmente di un elenco consentito di tutti i valori della comunità BGP. 
+Un filtro di route consente di identificare i servizi da usare tramite il peering Microsoft del circuito di ExpressRoute. Si tratta essenzialmente di un elenco di tutti i valori di community BGP consentiti. 
 
 ![filtro della route](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
@@ -91,7 +91,7 @@ In questo esempio viene usato un comando Cisco IOS-XE. Nell'esempio sono usati u
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-L'output parziale seguente mostra che sono stati \*ricevuti 68 prefissi dal vicino .243.229.34 con ASN 12076 (MSEE):
+L'output parziale seguente mostra che sono stati ricevuti 68 prefissi da Neighbor \*. 243.229.34 con ASN 12076 (MSEE):
 
 ```
 ...
@@ -112,7 +112,7 @@ Per confermare la ricezione del set di prefissi corretto è possibile effettuare
 Get-AzBgpServiceCommunity
 ```
 
-## <a name="3-configure-the-vpn-gateway-and-ipsec-tunnels"></a><a name="vpngateway"></a>3. Configurare il gateway VPN e i tunnel IPsec
+## <a name="3-configure-the-vpn-gateway-and-ipsec-tunnels"></a><a name="vpngateway"></a>3. configurare il gateway VPN e i tunnel IPsec
 
 In questa sezione vengono creati i tunnel VPN IPsec tra il gateway VPN di Azure e il dispositivo VPN locale. Gli esempi usano dispositivi VPN Cisco Router per servizio Cloud (CSR1000).
 
@@ -354,7 +354,7 @@ L'azione finale dello script crea tunnel IPsec tra il gateway VPN di Azure e il 
   }
 ```
 
-## <a name="4-configure-the-on-premises-vpn-device"></a><a name="device"></a>4. Configurare il dispositivo VPN locale
+## <a name="4-configure-the-on-premises-vpn-device"></a><a name="device"></a>4. configurare il dispositivo VPN locale
 
 Il gateway VPN di Azure è compatibile con molti dispositivi VPN di fornitori diversi. Per informazioni sulla configurazione e i dispositivi idonei all'uso con gateway VPN, vedere [Informazioni sui dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
@@ -365,7 +365,7 @@ Per la configurazione del dispositivo VPN è necessario quanto segue:
 
 In genere i peer eBGP sono connessi direttamente (spesso tramite una connessione WAN). Tuttavia, quando si configura eBGP tramite tunnel VPN IPsec con peering Microsoft ExpressRoute, esistono più domini di routing tra i peer eBGP. Usare il comando **ebgp multihop** per stabilire la relazione di adiacenza eBGP tra i due peer non connessi direttamente. Il valore intero che segue il comando ebgp-multihop specifica il valore TTL nei pacchetti BGP. Il comando **maximum-paths eibgp 2** consente il bilanciamento del carico del traffico tra i due percorsi BGP.
 
-### <a name="cisco-csr1000-example"></a><a name="cisco1"></a>Esempio Cisco CSR1000
+### <a name="cisco-csr1000-example"></a><a name="cisco1"></a>Esempio di Cisco CSR1000
 
 Nell'esempio seguente viene illustrata la configurazione per Cisco CSR1000 su una macchina virtuale Hyper-V come dispositivo VPN locale:
 
@@ -475,11 +475,11 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 !
 ```
 
-## <a name="5-configure-vpn-device-filtering-and-firewalls-optional"></a><a name="firewalls"></a>5. Configurare il filtro dei dispositivi VPN e i firewall (facoltativo)
+## <a name="5-configure-vpn-device-filtering-and-firewalls-optional"></a><a name="firewalls"></a>5. configurare i firewall e i filtri del dispositivo VPN (facoltativo)
 
 Configurare firewall e filtri in base alle esigenze.
 
-## <a name="6-test-and-validate-the-ipsec-tunnel"></a><a name="testipsec"></a>6. Testare e convalidare il tunnel IPsec
+## <a name="6-test-and-validate-the-ipsec-tunnel"></a><a name="testipsec"></a>6. testare e convalidare il tunnel IPsec
 
 Lo stato dei tunnel IPsec può essere verificato nel gateway VPN di Azure tramite comandi Powershell:
 
@@ -711,4 +711,4 @@ Total number of prefixes 2
 
 * [Configurare Monitoraggio prestazioni rete per ExpressRoute](how-to-npm.md)
 
-* [Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [Aggiungere una connessione da sito a sito a una VNet con una connessione gateway VPN esistente](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)

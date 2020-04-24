@@ -1,6 +1,6 @@
 ---
-title: Esempio di PowerShell - App proxy di applicazione con certificati identici
-description: Esempio di PowerShell in cui sono elencate tutte le applicazioni proxy di applicazione di Azure Active Directory (Azure AD) pubblicate con lo stesso certificato.
+title: Esempio di PowerShell-app proxy di applicazione con certificati identici
+description: Esempio di PowerShell che elenca tutte le applicazioni proxy di applicazione Azure Active Directory (Azure AD) pubblicate con lo stesso certificato.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -19,9 +19,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75482010"
 ---
-# <a name="get-all-azure-ad-proxy-application-apps-that-are-published-with-the-identical-certificate"></a>Ottenere tutte le app dell'applicazione proxy di Azure AD pubblicate con lo stesso certificatoGet all Azure AD Proxy application apps that are published with the identical certificate
+# <a name="get-all-azure-ad-proxy-application-apps-that-are-published-with-the-identical-certificate"></a>Ottenere tutte le app dell'applicazione proxy Azure AD pubblicate con il certificato identico
 
-Questo esempio di script di PowerShell elenca tutte le applicazioni proxy di applicazione di Azure Active Directory (Azure AD) pubblicate con lo stesso certificato.
+Questo esempio di script di PowerShell elenca tutte le applicazioni proxy di applicazione Azure Active Directory (Azure AD) pubblicate con lo stesso certificato.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ Questo esempio di script di PowerShell elenca tutte le applicazioni proxy di app
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Questo esempio richiede il [modulo AzureAD V2 PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) o la versione di anteprima del modulo [AzureAD V2 PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Per questo esempio è necessario [AzureAD V2 PowerShell for Graph Module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) o [AzureAD V2 PowerShell for Graph Module preview version](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -45,6 +45,6 @@ Questo esempio richiede il [modulo AzureAD V2 PowerShell per Graph](https://docs
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo Azure AD PowerShell, vedere Panoramica del modulo Azure AD PowerShell.For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview.](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)
+Per altre informazioni sul modulo Azure AD PowerShell, vedere [Cenni preliminari sui moduli Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Per altri esempi di PowerShell per il proxy di applicazione, vedere Esempi di [Azure AD PowerShell per](../application-proxy-powershell-samples.md)il proxy di applicazione di Azure AD.
+Per altri esempi di PowerShell per il proxy di applicazione, vedere [Azure ad esempi di PowerShell per Azure ad proxy di applicazione](../application-proxy-powershell-samples.md).

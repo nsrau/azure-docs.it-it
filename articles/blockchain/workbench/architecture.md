@@ -1,6 +1,6 @@
 ---
 title: Architettura di Azure Blockchain Workbench
-description: Panoramica dell'architettura di Azure Blockchain Workbench Preview e dei relativi componenti.
+description: Panoramica dell'architettura di anteprima di Azure blockchain Workbench e dei relativi componenti.
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -13,9 +13,9 @@ ms.locfileid: "74324889"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Architettura di Azure Blockchain Workbench
 
-Azure Blockchain Workbench Preview semplifica lo sviluppo di applicazioni blockchain fornendo una soluzione usando diversi componenti di Azure.Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. Blockchain Workbench può essere distribuito tramite un modello di soluzione disponibile in Azure Marketplace. Il modello permette di scegliere i moduli e i componenti da distribuire, ad esempio lo stack di blockchain, il tipo di applicazione client e il supporto per l'integrazione IoT. Una volta distribuito, Blockchain Workbench fornisce l'accesso a un'app Web, un'app per iOS e un'app per Android.
+Azure blockchain Workbench Preview semplifica lo sviluppo di applicazioni blockchain fornendo una soluzione che usa diversi componenti di Azure. Blockchain Workbench può essere distribuito tramite un modello di soluzione disponibile in Azure Marketplace. Il modello permette di scegliere i moduli e i componenti da distribuire, ad esempio lo stack di blockchain, il tipo di applicazione client e il supporto per l'integrazione IoT. Una volta distribuito, Blockchain Workbench fornisce l'accesso a un'app Web, un'app per iOS e un'app per Android.
 
-![Architettura Blockchain Workbench](./media/architecture/architecture.png)
+![Architettura di blockchain Workbench](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>Identità e autenticazione
 

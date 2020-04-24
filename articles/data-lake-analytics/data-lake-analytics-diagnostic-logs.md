@@ -25,7 +25,7 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Aprire l'account Data Lake Analytics e selezionare **Log di diagnostica** dalla sezione __Monitoraggio__. Selezionare quindi __Turn on diagnostics__ (Attiva diagnostica).
 
@@ -41,12 +41,12 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
 
      * Selezionare **Stream to an Event Hub** (Esegui streaming in un Hub eventi) per trasmettere i dati di log a un Hub eventi di Azure. Usare questa opzione se si ha una pipeline di elaborazione downstream che analizza in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
 
-     * Selezionare Invia a Log Analytics per inviare i dati al servizio Monitoraggio di Azure.Select __Send to Log Analytics__ to send the data to the Azure Monitor service. Usare questa opzione se si vuole usare i log di Monitoraggio di Azure per raccogliere e analizzare i log.
+     * Selezionare __Invia a log Analytics__ per inviare i dati al servizio monitoraggio di Azure. Usare questa opzione se si vogliono usare i log di monitoraggio di Azure per raccogliere e analizzare i log.
    * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.  Un log delle richieste acquisisce tutte le richieste API. Un log di controllo registra tutte le operazioni attivate dalla richiesta dell'API.
 
    * Per __Archivia in un account di archiviazione__ specificare il numero di giorni per cui i dati verranno conservati.
 
-   * Fare clic su __Salva__.
+   * Fare clic su __Save__.
 
         > [!NOTE]
         > È necessario selezionare una tra le opzioni __Archivia in un account di archiviazione__, __Streaming in un hub eventi__ o __Invia a Log Analytics__ prima di fare clic sul pulsante __Salva__.
@@ -185,7 +185,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | operationName |string |Il nome dell'operazione registrata. Ad esempio, JobSubmitted. |
 | resultType |string |Stato secondario per lo stato del processo (operationName). |
 | resultSignature |string |Informazioni aggiuntive sullo stato di processo (operationName). |
-| identity |string |L'utente che ha richiesto l'operazione. Ad esempio: susan@contoso.com. |
+| identity |string |L'utente che ha richiesto l'operazione. Ad esempio, susan@contoso.com |
 | properties |JSON |Per informazioni dettagliate, vedere la sezione successiva (Schema delle proprietà del log di controllo) |
 
 > [!NOTE]
@@ -210,7 +210,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 ## <a name="process-the-log-data"></a>Elaborare i dati di log
 
-Azure Data Lake Analytics fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)l'esempio in .
+Azure Data Lake Analytics fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio in [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)

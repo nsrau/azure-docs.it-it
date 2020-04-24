@@ -1,6 +1,6 @@
 ---
-title: Creare ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure AD. Documenti Microsoft
-description: Creare e assegnare ruoli di Azure AD personalizzati con ambito di risorsa nelle risorse di Azure Active Directory.Create and assign custom Azure AD roles with resource scope on Azure Active Directory resources.
+title: Creare ruoli personalizzati nel controllo degli accessi in base al ruolo Azure AD | Microsoft Docs
+description: Creare e assegnare ruoli di Azure AD personalizzati con ambito di risorse sulle risorse Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba
@@ -20,40 +20,40 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74025282"
 ---
-# <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Creare e assegnare un ruolo personalizzato in Azure Active DirectoryCreate and assign a custom role in Azure Active Directory
+# <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Creare e assegnare un ruolo personalizzato in Azure Active Directory
 
-Questo articolo descrive come creare nuovi ruoli personalizzati in Azure Active Directory (Azure AD). Per le nozioni di base sui ruoli personalizzati, vedere Panoramica dei [ruoli personalizzati.](roles-custom-overview.md) Il ruolo può essere assegnato solo nell'ambito a livello di directory o in un ambito di risorse di registrazione dell'app.
+Questo articolo descrive come creare nuovi ruoli personalizzati in Azure Active Directory (Azure AD). Per le nozioni di base sui ruoli personalizzati, vedere [Cenni preliminari sui ruoli personalizzati](roles-custom-overview.md). Il ruolo può essere assegnato solo a livello di directory o a un ambito di risorsa di registrazione dell'app.
 
-I ruoli personalizzati possono essere creati nella scheda [Ruoli e amministratori](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) della pagina Panoramica di Azure AD.
+I ruoli personalizzati possono essere creati nella scheda [ruoli e amministratori](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) della pagina Panoramica Azure ad.
 
-## <a name="create-a-role-in-the-azure-portal"></a>Creare un ruolo nel portale di AzureCreate a role in the Azure portal
+## <a name="create-a-role-in-the-azure-portal"></a>Creazione di un ruolo nel portale di Azure
 
-### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Creare un nuovo ruolo personalizzato per concedere l'accesso per gestire le registrazioni delle appCreate a new custom role to grant access to manage app registrations
+### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Creare un nuovo ruolo personalizzato per concedere l'accesso per gestire le registrazioni dell'app
 
-1. Accedere [all'interfaccia](https://aad.portal.azure.com) di amministrazione di Azure AD con le autorizzazioni di amministratore del ruolo Privileged o di amministratore globale nell'organizzazione di Azure AD.
-1. Selezionare**Ruoli e amministratori** > di **Azure Active Directory** > **Nuovo ruolo personalizzato**.
+1. Accedere al [centro](https://aad.portal.azure.com) di amministrazione di Azure ad con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
+1. Selezionare **Azure Active Directory** > **ruoli Azure Active Directory e amministratori** > **nuovo ruolo personalizzato**.
 
-   ![Creare o modificare ruoli dalla pagina Ruoli e amministratori](./media/roles-create-custom/new-custom-role.png)
+   ![Creazione o modifica dei ruoli dalla pagina ruoli e amministratori](./media/roles-create-custom/new-custom-role.png)
 
-1. Nella scheda **Nozioni di base** specificare un nome e una descrizione per il ruolo e quindi fare clic su **Avanti**.
+1. Nella scheda **nozioni di base** specificare un nome e una descrizione per il ruolo, quindi fare clic su **Avanti**.
 
-   ![specificare un nome e una descrizione per un ruolo personalizzato nella scheda Nozioni di base](./media/roles-create-custom/basics-tab.png)
+   ![specificare un nome e una descrizione per un ruolo personalizzato nella scheda nozioni di base](./media/roles-create-custom/basics-tab.png)
 
-1. Nella scheda **Autorizzazioni** selezionare le autorizzazioni necessarie per gestire le proprietà di base e le proprietà delle credenziali delle registrazioni di app. Per una descrizione dettagliata di ogni autorizzazione, vedere Sottotipi e autorizzazioni per la registrazione delle applicazioni [in Azure Active Directory.](./roles-custom-available-permissions.md)
-   1. In primo luogo, immettere "credenziali" `microsoft.directory/applications/credentials/update` nella barra di ricerca e selezionare l'autorizzazione.
+1. Nella scheda **autorizzazioni** selezionare le autorizzazioni necessarie per gestire le proprietà di base e le credenziali delle registrazioni dell'app. Per una descrizione dettagliata di ogni autorizzazione, vedere [sottotipi e autorizzazioni per la registrazione di applicazioni in Azure Active Directory](./roles-custom-available-permissions.md).
+   1. Immettere innanzitutto "credentials" nella barra di ricerca e selezionare l' `microsoft.directory/applications/credentials/update` autorizzazione.
 
-      ![Selezionare le autorizzazioni per un ruolo personalizzato nella scheda Autorizzazioni](./media/roles-create-custom/permissions-tab.png)
+      ![Selezionare le autorizzazioni per un ruolo personalizzato nella scheda autorizzazioni](./media/roles-create-custom/permissions-tab.png)
 
-   1. Successivamente, immettere "basic" nella barra `microsoft.directory/applications/basic/update` di ricerca, selezionare l'autorizzazione e quindi fare clic su **Avanti**.
-1. Nella scheda **Revisione e creazione** esaminare le autorizzazioni e selezionare **Crea**.
+   1. Immettere quindi "Basic" nella barra di ricerca, selezionare l' `microsoft.directory/applications/basic/update` autorizzazione e quindi fare clic su **Avanti**.
+1. Nella scheda **Verifica e crea** verificare le autorizzazioni e selezionare **Crea**.
 
-Il ruolo personalizzato verrà visualizzato nell'elenco dei ruoli disponibili da assegnare.
+Il ruolo personalizzato sarà visualizzato nell'elenco dei ruoli disponibili da assegnare.
 
-## <a name="create-a-role-using-powershell"></a>Creare un ruolo tramite PowerShellCreate a role using PowerShell
+## <a name="create-a-role-using-powershell"></a>Creare un ruolo con PowerShell
 
-### <a name="prepare-powershell"></a>Preparare PowerShellPrepare PowerShell
+### <a name="prepare-powershell"></a>Preparare PowerShell
 
-Innanzitutto, è necessario [scaricare il modulo PowerShell](https://www.powershellgallery.com/packages/AzureADPreview)di Azure AD Preview .
+Per prima cosa, è necessario [scaricare il modulo PowerShell di Azure ad Preview](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Per installare il modulo Azure AD PowerShell, usare i comandi seguenti:
 
@@ -73,7 +73,7 @@ get-module azureadpreview
 
 ### <a name="create-the-custom-role"></a>Creare il ruolo personalizzato
 
-Creare un nuovo ruolo usando lo script di PowerShell seguente:Create a new role using the following PowerShell script:
+Creare un nuovo ruolo usando il seguente script di PowerShell:
 
 ``` PowerShell
 # Basic role information
@@ -93,9 +93,9 @@ $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Assegnare il ruolo personalizzato usando Azure AD PowerShellAssign the custom role using Azure AD PowerShell
+### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Assegnare il ruolo personalizzato usando Azure AD PowerShell
 
-Assegnare il ruolo usando lo script di PowerShell seguente:Assign the role using the below PowerShell script:
+Assegnare il ruolo utilizzando lo script PowerShell seguente:
 
 ``` PowerShell
 # Get the user and role definition you want to link
@@ -110,7 +110,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="create-a-role-with-graph-api"></a>Creare un ruolo con l'API GraphCreate a role with Graph API
+## <a name="create-a-role-with-graph-api"></a>Creare un ruolo con API Graph
 
 1. Creare la definizione di ruolo.
 
@@ -161,20 +161,20 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
    }
     ```
 
-## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Assegnare un ruolo personalizzato con ambito a una risorsaAssign a custom role scoped to a resource
+## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Assegnare un ruolo personalizzato con ambito a una risorsa
 
-Analogamente ai ruoli predefiniti, i ruoli personalizzati vengono assegnati per impostazione predefinita nell'ambito predefinito a livello di organizzazione per concedere le autorizzazioni di accesso su tutte le registrazioni di app nell'organizzazione. A differenza dei ruoli predefiniti, i ruoli personalizzati possono anche essere assegnati nell'ambito di una singola risorsa di Azure AD. In questo modo è possibile concedere all'utente l'autorizzazione per aggiornare le credenziali e le proprietà di base di una singola app senza dover creare un secondo ruolo personalizzato.
+Analogamente ai ruoli predefiniti, i ruoli personalizzati vengono assegnati per impostazione predefinita nell'ambito predefinito a livello di organizzazione per concedere le autorizzazioni di accesso per tutte le registrazioni dell'app nell'organizzazione. Tuttavia, a differenza dei ruoli predefiniti, i ruoli personalizzati possono essere assegnati anche nell'ambito di una singola risorsa Azure AD. In questo modo è possibile concedere all'utente l'autorizzazione per aggiornare le credenziali e le proprietà di base di una singola app senza dover creare un secondo ruolo personalizzato.
 
-1. Accedere all'interfaccia di amministrazione di [Azure AD](https://aad.portal.azure.com) con le autorizzazioni per sviluppatori di applicazioni nell'organizzazione di Azure AD.
-1. Selezionare **Registrazioni app**.
-1. Selezionare la registrazione dell'app a cui si sta concedendo l'accesso da gestire. Potrebbe essere necessario selezionare **Tutte le applicazioni** per visualizzare l'elenco completo delle registrazioni delle app nell'organizzazione di Azure AD.
+1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con le autorizzazioni per sviluppatori di applicazioni nell'organizzazione Azure ad.
+1. Selezionare **registrazioni app**.
+1. Selezionare la registrazione dell'app a cui si concede l'accesso per la gestione. Potrebbe essere necessario selezionare **tutte le applicazioni** per visualizzare l'elenco completo delle registrazioni di app nell'organizzazione Azure ad.
 
     ![Selezionare la registrazione dell'app come ambito di risorsa per un'assegnazione di ruolo](./media/roles-create-custom/appreg-all-apps.png)
 
-1. Nella registrazione dell'app selezionare **Ruoli e amministratori**. Se non ne è già stato creato uno, le istruzioni sono riportate nella [procedura precedente.](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations)
+1. Nella registrazione dell'app selezionare **ruoli e amministratori**. Se non ne è già stato creato uno, le istruzioni sono incluse nella [procedura precedente](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
 
-1. Selezionare il ruolo per aprire la pagina **Assegnazioni.**
-1. Selezionare **Aggiungi assegnazione** per aggiungere un utente. All'utente verranno concesse tutte le autorizzazioni solo per la registrazione dell'app selezionata.
+1. Selezionare il ruolo per aprire la pagina **assegnazioni** .
+1. Selezionare **Aggiungi assegnazione** per aggiungere un utente. All'utente verranno concesse le autorizzazioni solo per la registrazione dell'app selezionata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

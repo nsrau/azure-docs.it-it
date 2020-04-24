@@ -1,7 +1,7 @@
 ---
-title: Gestire il traffico verso app multi-tenant tramite il portale
+title: Gestire il traffico per le app multi-tenant tramite il portale
 titleSuffix: Azure Application Gateway
-description: Questo articolo fornisce indicazioni su come configurare le app Web del servizio app di Azure come membri del pool back-end in un gateway applicazione nuovo o esistente.
+description: Questo articolo fornisce indicazioni su come configurare app Azure app Web del servizio come membri del pool back-end in un gateway applicazione nuovo o esistente.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -17,83 +17,83 @@ ms.locfileid: "74075170"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurare il servizio app con il gateway applicazione
 
-Poiché il servizio app è un servizio multi-tenant anziché una distribuzione dedicata, usa l'intestazione host nella richiesta in ingresso per risolvere la richiesta nell'endpoint del servizio app corretto. In genere, il nome DNS dell'applicazione, che a sua volta è il nome DNS associato al gateway applicazione che antepo al servizio app, è diverso dal nome di dominio del servizio app back-end. Pertanto, l'intestazione host nella richiesta originale ricevuta dal gateway applicazione non corrisponde al nome host del servizio back-end. Per questo motivo, a meno che l'intestazione host nella richiesta dal gateway applicazione al back-end non venga modificata nel nome host del servizio back-end, i back-end multi-tenant non sono in grado di risolvere la richiesta nell'endpoint corretto.
+Poiché il servizio app è un servizio multi-tenant anziché una distribuzione dedicata, usa l'intestazione host nella richiesta in ingresso per risolvere la richiesta all'endpoint corretto del servizio app. In genere, il nome DNS dell'applicazione, che a sua volta è il nome DNS associato al gateway applicazione che precede il servizio app, è diverso dal nome di dominio del servizio app back-end. Pertanto, l'intestazione host nella richiesta originale ricevuta dal gateway applicazione non corrisponde al nome host del servizio back-end. Per questo motivo, a meno che l'intestazione host nella richiesta dal gateway applicazione al back-end non venga modificata nel nome host del servizio back-end, i back-end multi-tenant non sono in grado di risolvere la richiesta nell'endpoint corretto.
 
-Il gateway applicazione `Pick host name from backend address` fornisce un'opzione denominata che esegue l'override dell'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end. Questa funzionalità abilita il supporto per i back-end multi-tenant, ad esempio il servizio app di Azure e la gestione delle API. 
+Il gateway applicazione fornisce un'opzione `Pick host name from backend address` denominata che sostituisce l'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end. Questa funzionalità consente il supporto per back-end multi-tenant, ad esempio servizio app di Azure e gestione API. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 >
-> - Creare un pool back-end e aggiungervi un servizio appCreate a backend pool and add an App Service to it
-> - Creare impostazioni HTTP e probe personalizzato con le opzioni "Seleziona nome host" abilitate
+> - Creare un pool back-end e aggiungervi un servizio app
+> - Creare le impostazioni HTTP e il probe personalizzato con le opzioni "pick hostname" abilitate
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Gateway applicazione: se non si dispone di un gateway applicazione esistente, vedere come [creare un gateway applicazione](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-- Servizio app: se non si dispone di un servizio app esistente, vedere [Documentazione del servizio app.](https://docs.microsoft.com/azure/app-service/)
+- Gateway applicazione: se non è presente un gateway applicazione, vedere come [creare un gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal) applicazione
+- Servizio app: se non si ha un servizio app esistente, vedere la [documentazione del servizio app](https://docs.microsoft.com/azure/app-service/).
 
-## <a name="add-app-service-as-backend-pool"></a>Aggiungere il servizio app come pool back-endAdd App service as backend pool
+## <a name="add-app-service-as-backend-pool"></a>Aggiungere il servizio app come pool back-end
 
-1. Nel portale di Azure aprire la visualizzazione di configurazione del gateway applicazione.
+1. Nella portale di Azure aprire la visualizzazione configurazione del gateway applicazione.
 
-2. In **Pool back-end**fare clic su **Aggiungi** per creare un nuovo pool back-end.
+2. In **pool back-end**fare clic su **Aggiungi** per creare un nuovo pool back-end.
 
-3. Specificare un nome appropriato per il pool back-end. 
+3. Consente di specificare un nome appropriato per il pool back-end. 
 
-4. In **Destinazioni**fare clic sull'elenco a discesa e scegliere **Servizi app** come opzione.
+4. In **destinazioni**fare clic sull'elenco a discesa e scegliere **Servizi app** come opzione.
 
-5. Apparirà un menu a discesa immediatamente sotto il menu a discesa **Destinazioni** che conterrà un elenco dei servizi app. Nell'elenco a discesa scegliere il servizio app che si desidera aggiungere come membro del pool back-end e fare clic su Aggiungi.From this dropdown, choose the App Service you want to add as a backend pool member and click Add.
+5. Verrà visualizzato un elenco a discesa immediatamente sotto l'elenco a discesa **destinazioni** che conterrà un elenco dei servizi app. Da questo elenco a discesa scegliere il servizio app che si vuole aggiungere come membro del pool back-end e fare clic su Aggiungi.
 
    ![Back-end del servizio app](./media/configure-web-app-portal/backendpool.png)
    
    > [!NOTE]
-   > L'elenco a discesa popolerà solo i servizi dell'app che si trovano nella stessa sottoscrizione del gateway applicazione. Se si vuole usare un servizio app in una sottoscrizione diversa da quella in cui si trova il gateway applicazione, anziché scegliere **Servizi app** nell'elenco a discesa **Destinazioni,** scegliere l'opzione **Indirizzo IP o nome host** e immettere il nome host (ad esempio). azurewebsites.net) del servizio app.
+   > L'elenco a discesa compilerà solo i servizi app che si trovano nella stessa sottoscrizione del gateway applicazione. Se si vuole usare un servizio app che si trova in una sottoscrizione diversa da quella in cui si trova il gateway applicazione, anziché scegliere **Servizi app** nell'elenco a discesa **destinazioni** , scegliere **indirizzo IP o opzione nome host** e immettere il nome host, ad esempio. azurewebsites.net) del servizio app.
 
-## <a name="create-http-settings-for-app-service"></a>Creare impostazioni HTTP per il servizio appCreate HTTP settings for App service
+## <a name="create-http-settings-for-app-service"></a>Creare le impostazioni HTTP per il servizio app
 
-1. In **Impostazioni HTTP**fare clic su **Aggiungi** per creare una nuova impostazione HTTP.
+1. In **impostazioni http**fare clic su **Aggiungi** per creare una nuova impostazione http.
 
-2. Immettere un nome per l'impostazione HTTP ed è possibile abilitare o disabilitare l'affinità basata su cookie in base alle proprie esigenze.
+2. Immettere un nome per l'impostazione HTTP ed è possibile abilitare o disabilitare l'affinità basata su cookie in base al requisito.
 
 3. Scegliere il protocollo come HTTP o HTTPS in base al caso d'uso. 
 
    > [!NOTE]
-   > Se si seleziona HTTPS, non è necessario caricare alcun certificato di autenticazione o certificato radice attendibile per autorizzare il back-end del servizio app poiché il servizio app è un servizio di Azure attendibile.
+   > Se si seleziona HTTPS, non è necessario caricare un certificato di autenticazione o un certificato radice trusted nell'elenco elementi consentiti del back-end del servizio app perché il servizio app è un servizio di Azure attendibile.
 
-4. Selezionare la casella **Usa per il servizio app** . Si noti `Create a probe with pick host name from backend address` `Pick host name from backend address` che gli interruttori e verranno abilitati automaticamente.`Pick host name from backend address` sovrascriverà l'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end.  
+4. Selezionare la casella da **usare per il servizio app** . Si noti che le `Create a probe with pick host name from backend address` opzioni `Pick host name from backend address` e vengono abilitate automaticamente.`Pick host name from backend address` eseguirà l'override dell'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end.  
 
-   `Create a probe with pick host name from backend address`creerà automaticamente un probe di integrità e lo associerà a questa impostazione HTTP. Non è necessario creare altri probe di integrità per questa impostazione HTTP. È possibile verificare che un <HTTP Setting name> <Unique GUID> nuovo probe con il nome sia stato aggiunto `Pick host name from backend http settings enabled`nell'elenco dei probe di stato e che sia già presente l'opzione .
+   `Create a probe with pick host name from backend address`creerà automaticamente un probe di integrità e lo associerà a questa impostazione HTTP. Non è necessario creare altri Probe di integrità per questa impostazione HTTP. È possibile verificare che sia stato aggiunto un nuovo probe con il nome <HTTP Setting name> <Unique GUID> nell'elenco di probe di integrità e che sia già presente `Pick host name from backend http settings enabled`l'opzione.
 
-   Se si dispone già di una o più impostazioni HTTP che vengono utilizzate per il servizio App e se tali impostazioni `Create a probe with pick host name from backend address` HTTP utilizzano lo stesso protocollo di quello che si sta creando in quello che si sta creando, anziché il pulsante di selezione, si otterrà un elenco a discesa per selezionare uno dei probe personalizzati . Questo perché, poiché esiste già un'impostazione HTTP con il servizio app, `Pick host name from backend http settings enabled` pertanto esisterebbe anche un probe di integrità con l'opzione . Scegliere il probe personalizzato dall'elenco a discesa.
+   Se si dispone già di una o più impostazioni HTTP che vengono usate per il servizio app e se le impostazioni HTTP usano lo stesso protocollo che si sta usando in quello che si sta creando, anziché l' `Create a probe with pick host name from backend address` opzione, si otterrà un elenco a discesa per selezionare uno dei probe personalizzati. Questo perché poiché esiste già un'impostazione HTTP con il servizio app, è necessario che esista anche un probe di integrità con l'opzione `Pick host name from backend http settings enabled` . Scegliere il probe personalizzato dall'elenco a discesa.
 
-5. Fare clic **su OK** per creare l'impostazione HTTP.
+5. Fare clic su **OK** per creare l'impostazione http.
 
-   ![Impostazione HTTP1](./media/configure-web-app-portal/http-setting1.png)
+   ![HTTP-Setting1](./media/configure-web-app-portal/http-setting1.png)
 
-   ![Impostazione HTTP2](./media/configure-web-app-portal/http-setting2.png)
+   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
 
 
 
-## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>Crea regola per legare il listener, il pool di back-end e l'impostazione HTTPCreate Rule to tie the Listener, Backend Pool and HTTP Setting
+## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>Creare una regola per collegare il listener, il pool back-end e l'impostazione HTTP
 
-1. In **Regole**fare clic su **Di base** per creare una nuova regola di base.
+1. In **regole**fare clic su di **base** per creare una nuova regola di base.
 
-2. Specificare un nome appropriato e selezionare il listener che accetterà le richieste in ingresso per il servizio app.
+2. Specificare un nome adatto e selezionare il listener che accetterà le richieste in ingresso per il servizio app.
 
-3. Nell'elenco a discesa **Pool back-end** scegliere il pool back-end creato in precedenza.
+3. Nell'elenco a discesa **pool back-end** scegliere il pool back-end creato in precedenza.
 
-4. Nell'elenco a discesa **Impostazione HTTP** scegliere l'impostazione HTTP creata in precedenza.
+4. Nell'elenco a discesa **impostazione http** scegliere l'impostazione http creata in precedenza.
 
-5. Fare clic **su OK** per salvare la regola.
+5. Fare clic su **OK** per salvare la regola.
 
    ![Regola](./media/configure-web-app-portal/rule.png)
 
-## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configurazione aggiuntiva in caso di reindirizzamento al percorso relativo del servizio appAdditional configuration in case of redirection to app service's relative path
+## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configurazione aggiuntiva in caso di reindirizzamento al percorso relativo del servizio app
 
-Quando il servizio app invia una risposta di reindirizzamento al client per reindirizzare al relativo percorso (ad esempio, un reindirizzamento da contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2), usa lo stesso nome host nell'intestazione del percorso della risposta come quella nella richiesta ricevuta dal gateway applicazione. In questo modo il client effettuerà la richiesta direttamente per contoso.azurewebsites.net/path2 anziché passare attraverso il gateway applicazione (contoso.com/path2). Ignorare il gateway applicazione non è auspicabile.
+Quando il servizio app invia una risposta di reindirizzamento al client per il reindirizzamento al percorso relativo (ad esempio, un Reindirizzamento da contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2), USA lo stesso nome host nell'intestazione Location della risposta come quello nella richiesta ricevuta dal gateway applicazione. Quindi, il client effettuerà la richiesta direttamente a contoso.azurewebsites.net/path2 anziché passare attraverso il gateway applicazione (contoso.com/path2). Non è consigliabile ignorare il gateway applicazione.
 
-Se nel caso d'uso, esistono scenari in cui il servizio app dovrà inviare una risposta di reindirizzamento al client, eseguire [i passaggi aggiuntivi per riscrivere l'intestazione del percorso.](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration)
+Se nel caso d'uso si verificano scenari in cui il servizio app deve inviare una risposta di reindirizzamento al client, eseguire i [passaggi aggiuntivi per riscrivere l'intestazione del percorso](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
 
 ## <a name="restrict-access"></a>Limitare l'accesso
 
@@ -103,4 +103,4 @@ Un modo per limitare l'accesso alle app Web è usare le [Restrizioni IP statico 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul servizio app e su altri supporti multi-tenant con gateway applicazione, vedere Supporto del [servizio multi-tenant con gateway applicazione.](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)
+Per altre informazioni sul servizio app e su altro supporto multi-tenant con il gateway applicazione, vedere [supporto del servizio multi-tenant con il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).

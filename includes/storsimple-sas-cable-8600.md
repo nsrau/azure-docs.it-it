@@ -18,7 +18,7 @@ ms.locfileid: "67180181"
    
     **Vista posteriore dell’enclosure principale e dell’enclosure EBOD**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    |:--- |:--- |
    | 1 |Enclosure principale |
    | 2 |Chassis EBOD |
@@ -28,7 +28,7 @@ ms.locfileid: "67180181"
    
     **Posizione dell'etichetta del numero di serie**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    |:--- |:--- |
    | 1 |Sporgenza dell'enclosure |
 3. Usare i cavi SAS forniti per collegare l'enclosure EBOD all'enclosure principale come segue:
@@ -41,9 +41,9 @@ ms.locfileid: "67180181"
       
       **Cablaggio SAS**
       
-      | Etichetta | Descrizione |
+      | Label | Descrizione |
       |:--- |:--- |
-      | Una  |Enclosure principale |
+      | Una |Enclosure principale |
       | b |Chassis EBOD |
       | 1 |Controller 0 |
       | 2 |Controller 1 |

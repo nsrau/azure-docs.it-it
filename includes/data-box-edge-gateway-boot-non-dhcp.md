@@ -11,10 +11,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180815"
 ---
-Se si esegue l'avvio in un ambiente non DHCP, attenersi alla seguente procedura per distribuire la macchina virtuale per il gateway della casella dati.
+Se si esegue l'avvio in un ambiente non DHCP, attenersi alla procedura seguente per distribuire la macchina virtuale per la Data Box Gateway.
 
 1. [Connettersi all'interfaccia di Windows PowerShell del dispositivo](#connect-to-the-powershell-interface).
-2. Utilizzare `Get-HcsIpAddress` il cmdlet per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `Ethernet`.
+2. Usare il `Get-HcsIpAddress` cmdlet per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `Ethernet`.
 
     Nell'esempio seguente viene illustrato l'utilizzo di questo cmdlet:
 

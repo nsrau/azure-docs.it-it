@@ -17,22 +17,22 @@ ms.locfileid: "75564757"
 ---
 ## <a name="register-extensions"></a>Registrare le estensioni
 
-Ad eccezione dei trigger HTTP e timer, le associazioni di funzioni in fase di esecuzione versione 2.x e successive vengono implementate come pacchetti di estensione. Nella versione 2.x e successive del runtime di Funzioni di Azure, è necessario registrare in modo esplicito le estensioni per i tipi di associazione usati nelle funzioni. Le eccezioni sono le associazioni HTTP e i trigger timer, che non richiedono estensioni.
+Fatta eccezione per i trigger HTTP e timer, le associazioni di funzioni in Runtime versione 2. x e successive vengono implementate come pacchetti di estensione. Nella versione 2. x e oltre al runtime di funzioni di Azure, è necessario registrare in modo esplicito le estensioni per i tipi di binding usati nelle funzioni. Le eccezioni sono associazioni HTTP e trigger timer, che non richiedono estensioni.
 
-È possibile scegliere di installare le estensioni di associazione singolarmente oppure aggiungere un riferimento al pacchetto di estensione al file di progetto host.json. I pacchetti di estensione eliminano la possibilità di avere problemi di compatibilità dei pacchetti quando si usano più tipi di associazione. È l'approccio consigliato per la registrazione delle estensioni di associazione. I pacchetti di estensione eliminano anche il requisito di installazione di .NET Core 2.x SDK. 
+È possibile scegliere di installare le estensioni di binding singolarmente oppure è possibile aggiungere un riferimento al bundle di estensione al file di progetto host. JSON. I bundle di estensione rimuovono la possibilità di problemi di compatibilità dei pacchetti quando si usano più tipi di binding. Si tratta dell'approccio consigliato per la registrazione delle estensioni di binding. I bundle di estensione eliminano anche il requisito di installazione di .NET Core 2. x SDK. 
 
-### <a name="extension-bundles"></a>Pacchetti di estensione
+### <a name="extension-bundles"></a>Bundle di estensione
 
 [!INCLUDE [Register extensions](functions-extension-bundles.md)]
 
-Per altre informazioni, vedere [Registrare le estensioni](../articles/azure-functions/functions-bindings-register.md#extension-bundles)di associazione di Funzioni di Azure.To learn more, see Register Azure Functions binding extensions . È necessario aggiungere pacchetti di estensione a host.json prima di aggiungere associazioni al file function.json.
+Per altre informazioni, vedere [registrare le estensioni di binding di funzioni di Azure](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Prima di aggiungere binding al file function. JSON, è necessario aggiungere i bundle di estensione al file host. JSON.
 
 ### <a name="register-individual-extensions"></a>Registrare singole estensioni
 
-Se è necessario installare estensioni non in un bundle, è possibile registrare manualmente singoli pacchetti di estensione per associazioni specifiche. 
+Se è necessario installare le estensioni che non sono incluse in un bundle, è possibile registrare manualmente i singoli pacchetti di estensione per binding specifici. 
 
 > [!NOTE]
-> Per registrare manualmente `func extensions install`le estensioni utilizzando , è necessario che sia installato .NET Core 2.x SDK.
+> Per registrare manualmente le estensioni usando `func extensions install`, è necessario che sia installato .NET Core 2. x SDK.
 
 Dopo avere aggiornato il file *function.json* per includere tutte le associazioni necessarie per la funzione, eseguire il seguente comando nella cartella del progetto.
 

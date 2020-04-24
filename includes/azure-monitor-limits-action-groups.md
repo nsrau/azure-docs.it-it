@@ -17,11 +17,11 @@ ms.locfileid: "67305295"
 ---
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| Push delle app di AzureAzure app push | 10 Azioni dell'app Azure per gruppo di azioni. | Chiamare il supporto tecnico. |
-| Email | 1.000 azioni di posta elettronica in un gruppo di azioni.<br>non più di 100 messaggi di posta elettronica in un'ora.<br>Vedere anche la [frequenza che limita le informazioni](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chiamare il supporto tecnico. |
-| Gestione dei servizi IT | 10 azioni ITSM in un gruppo di azioni. | Chiamare il supporto tecnico. | 
-| App per la logica | 10 azioni dell'app per la logica in un gruppo di azioni. | Chiamare il supporto tecnico. |
-| Runbook | 10 azioni del runbook in un gruppo di azioni. | Chiamare il supporto tecnico. |
-| sms | 10 azioni SMS in un gruppo di azioni.<br>Non più di 1 SMS ogni 5 minuti.<br>Vedere anche la [frequenza che limita le informazioni](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chiamare il supporto tecnico. |
-| Chiamata vocale | 10 azioni vocali in un gruppo di azioni.<br>Non più di una chiamata vocale ogni 5 minuti.<br>Vedere anche la [frequenza che limita le informazioni](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chiamare il supporto tecnico. |
-| webhook | 10 azioni webhook in un gruppo di azioni.  Il numero massimo di chiamate webhook è 1500 al minuto per sottoscrizione. Altri limiti sono disponibili a [informazioni specifiche dell'azione](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Chiamare il supporto tecnico. |
+| App push di Azure | 10 azioni dell'app di Azure per ogni gruppo di azioni. | Chiamare il supporto. |
+| Posta elettronica | 1.000 azioni di posta elettronica in un gruppo di azione.<br>non più di 100 messaggi di posta elettronica in un'ora.<br>Vedere anche le [informazioni sulla limitazione della frequenza](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chiamare il supporto. |
+| Gestione dei servizi IT | 10 azioni ITSM in un gruppo di azione. | Chiamare il supporto. | 
+| App per la logica | 10 azioni dell'app per la logica in un gruppo di azione. | Chiamare il supporto. |
+| Runbook | 10 azioni Runbook in un gruppo di azione. | Chiamare il supporto. |
+| sms | 10 azioni SMS in un gruppo di azione.<br>Non più di 1 messaggio SMS ogni 5 minuti.<br>Vedere anche le [informazioni sulla limitazione della frequenza](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chiamare il supporto. |
+| Chiamata vocale | 10 azioni vocali in un gruppo di azione.<br>Non più di una chiamata vocale ogni 5 minuti.<br>Vedere anche le [informazioni sulla limitazione della frequenza](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chiamare il supporto. |
+| webhook | 10 azioni webhook in un gruppo di azione.  Il numero massimo di chiamate al webhook è 1500 al minuto per sottoscrizione. Altri limiti sono disponibili in [informazioni specifiche dell'azione](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Chiamare il supporto. |

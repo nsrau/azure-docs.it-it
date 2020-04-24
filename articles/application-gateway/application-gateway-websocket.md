@@ -1,5 +1,5 @@
 ---
-title: WebSocket support in Azure Application Gateway
+title: Supporto di WebSocket nel gateway applicazione Azure
 description: Il gateway applicazione offre il supporto nativo per WebSocket in tutte le dimensioni di gateway. Non sono disponibili impostazioni configurabili dall'utente.
 author: vhorne
 ms.author: amsriva
@@ -26,13 +26,13 @@ Viene usato nelle app che sfruttano comunicazioni veloci e in tempo reale, ad es
 
 ## <a name="how-does-websocket-work"></a>Come funziona WebSocket
 
-Per stabilire una connessione WebSocket, un handshake specifico basato su HTTP viene scambiato tra il client e il server. In caso di esito positivo, il protocollo a livello di applicazione viene "aggiornato" da HTTP in WebSocket, usando la connessione TCP stabilita in precedenza. Una volta che questo si verifica, HTTP è completamente fuori dai giochi, i dati possono essere inviati o ricevuti tramite il protocollo WebSocket da entrambi gli endpoint, fino alla chiusura della connessione WebSocket. 
+Per stabilire una connessione WebSocket, viene scambiato uno specifico handshake basato su HTTP tra il client e il server. In caso di esito positivo, il protocollo a livello di applicazione viene "aggiornato" da HTTP in WebSocket, usando la connessione TCP stabilita in precedenza. Una volta che questo si verifica, HTTP è completamente fuori dai giochi, i dati possono essere inviati o ricevuti tramite il protocollo WebSocket da entrambi gli endpoint, fino alla chiusura della connessione WebSocket. 
 
-![Websocket](./media/application-gateway-websocket/websocket.png)
+![WebSocket](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Elemento di configurazione del listener
 
-Per supportare il traffico WebSocket è possibile usare un listener HTTP esistente. Di seguito è riportato il frammento dell'elemento httpListeners di un file modello di esempio. Per supportare WebSocket e il traffico WebSocket sicuro saranno necessari listener sia HTTP che HTTPS. Analogamente, è possibile usare il portale o Azure PowerShell per creare un gateway applicazione con listener sulla porta 80/443 per supportare il traffico WebSocket.Similarly you can use the portal or Azure PowerShell to create an application gateway with listeners on port 80/443 to support WebSocket traffic.
+Per supportare il traffico WebSocket è possibile usare un listener HTTP esistente. Di seguito è riportato il frammento dell'elemento httpListeners di un file modello di esempio. Per supportare WebSocket e il traffico WebSocket sicuro saranno necessari listener sia HTTP che HTTPS. Analogamente, è possibile usare il portale o Azure PowerShell per creare un gateway applicazione con listener sulla porta 80/443 per supportare il traffico WebSocket.
 
 ```json
 "httpListeners": [
@@ -68,7 +68,7 @@ Per supportare il traffico WebSocket è possibile usare un listener HTTP esisten
 
 ## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>Configurazione di BackendAddressPool, BackendHttpSetting e della regola di routing
 
-BackendAddressPool viene usato per definire un pool back-end con server abilitati per WebSocket. backendHttpSetting è definito con una porta back-end 80 e 443. Il valore di timeout della richiesta in Impostazioni HTTP si applica anche alla sessione WebSocket. Non è necessaria alcuna modifica nella regola di routing, che viene utilizzata per legare il listener appropriato al pool di indirizzi back-end corrispondente. 
+BackendAddressPool viene usato per definire un pool back-end con server abilitati per WebSocket. backendHttpSetting è definito con una porta back-end 80 e 443. Il valore di timeout della richiesta nelle impostazioni HTTP si applica anche alla sessione WebSocket. Non sono necessarie modifiche nella regola di routing, che viene usata per collegare il listener appropriato al pool di indirizzi back-end corrispondente. 
 
 ```json
 "requestRoutingRules": [{

@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di assegnazione delle licenze di gruppo - Azure Active Directory Documenti Microsoft
+title: Risolvere i problemi di assegnazione delle licenze del gruppo-Azure Active Directory | Microsoft Docs
 description: Come identificare e risolvere problemi di assegnazione delle licenze quando si usano le licenze basate sui gruppi in Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
@@ -30,17 +30,17 @@ Quando si assegnano le licenze direttamente a utenti singoli, senza l'uso di lic
 
 Quando si usano le licenze basate sui gruppi, è possibile che si verifichino gli stessi errori, che però rimangono in background mentre il servizio Azure AD assegna le licenze. Per questo motivo gli errori non possono essere comunicati immediatamente all'utente. Vengono invece registrati nell'oggetto utente e segnalati tramite il portale amministrativo. L'intento originale di assegnare una licenza all'utente resta, ma la licenza viene registrata in stato di errore che è possibile analizzare e risolvere in un secondo momento.
 
-## <a name="find-license-assignment-errors"></a>Trovare gli errori di assegnazione delle licenze
+## <a name="find-license-assignment-errors"></a>Individuare gli errori di assegnazione delle licenze
 
-### <a name="to-find-users-in-an-error-state-in-a-group"></a>Per trovare utenti in uno stato di errore in un gruppoTo find users in an error state in a group
+### <a name="to-find-users-in-an-error-state-in-a-group"></a>Per trovare gli utenti con stato di errore in un gruppo
 
-1. Aprire il gruppo nella relativa pagina di panoramica e selezionare **Licenze**. Se sono presenti utenti in stato di errore, viene visualizzata una notifica.
+1. Aprire il gruppo alla relativa pagina di panoramica e selezionare **licenze**. Viene visualizzata una notifica se sono presenti utenti in stato di errore.
 
-   ![Messaggio di notifiche di gruppo ed errore](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Messaggio di notifiche di gruppo e di errore](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 1. Selezionare la notifica per aprire un elenco di tutti gli utenti interessati. È possibile selezionare ogni singolo utente per visualizzare altri dettagli.
 
-   ![elenco di utenti nello stato di errore di licenza di gruppo](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![elenco di utenti in stato di errore di gestione licenze gruppo](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 1. Per trovare tutti i gruppi che contengono almeno un errore, nel pannello **Azure Active Directory** selezionare **Licenze** e quindi selezionare **Panoramica**. Se ci sono gruppi che richiedono attenzione, viene visualizzata una casella di informazioni.
 
@@ -48,7 +48,7 @@ Quando si usano le licenze basate sui gruppi, è possibile che si verifichino gl
 
 1. Selezionare la casella per visualizzare un elenco di tutti i gruppi con errori. È possibile selezionare ciascun gruppo per visualizzare altri dettagli.
 
-   ![Panoramica ed elenco di gruppi con errori](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Panoramica ed elenco dei gruppi con errori](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 Le sezioni seguenti riportano una descrizione di ogni potenziale problema con la relativa soluzione.
 
@@ -56,7 +56,7 @@ Le sezioni seguenti riportano una descrizione di ogni potenziale problema con la
 
 **Problema:** le licenze disponibili per uno dei prodotti specificati nel gruppo non sono sufficienti. È necessario acquistare altre licenze per il prodotto o liberare le licenze inutilizzate da altri utenti o gruppi.
 
-Per sapere quante licenze sono disponibili, passare a**Licenze** >  **di Azure Active Directory** > **Tutti i prodotti.**
+Per visualizzare il numero di licenze disponibili, passare a **Azure Active Directory** > **licenze** > **tutti i prodotti**.
 
 Per vedere quali utenti e gruppi utilizzano le licenze, selezionare un prodotto. In **Utenti con licenza** compare un elenco di tutti gli utenti a cui sono state assegnate licenze direttamente o tramite uno o più gruppi. In **Gruppi con licenza** compaiono tutti i gruppi a cui sono assegnati prodotti.
 
@@ -87,11 +87,11 @@ Per risolvere questo problema, è necessario assicurarsi che il piano richiesto 
 
 ## <a name="usage-location-isnt-allowed"></a>La località di utilizzo non è consentita
 
-**Problema:** alcuni servizi Microsoft non sono disponibili in tutte le località a causa di leggi e regolamenti locali. Prima di assegnare una licenza a un utente, è necessario specificare la proprietà **Località di utilizzo** per l'utente. È possibile specificare il percorso nella sezione Impostazioni**profilo utente** > nel portale di Azure.You can specify the location under the **User** > Profile**Settings** section in the Azure portal.
+**Problema:** alcuni servizi Microsoft non sono disponibili in tutte le località a causa di leggi e regolamenti locali. Prima di assegnare una licenza a un utente, è necessario specificare la proprietà **Località di utilizzo** per l'utente. È possibile specificare il percorso nella sezione **User** > **Profile** > **Impostazioni** profilo utente nel portale di Azure.
 
 Quando Azure AD tenta di assegnare una licenza di gruppo a un utente la cui località di utilizzo non è supportata, l'operazione non riesce e viene registrato un errore per l'utente.
 
-Per risolvere questo problema, rimuovere gli utenti da posizioni non supportate dal gruppo con licenza. In alternativa, se i valori correnti relativi alla località di utilizzo non rappresentano la località effettiva degli utenti, è possibile modificarli in modo che la volta successiva le licenze vengano assegnate correttamente (se la nuova località è supportata).
+Per risolvere questo problema, rimuovere gli utenti da percorsi non supportati dal gruppo con licenza. In alternativa, se i valori correnti relativi alla località di utilizzo non rappresentano la località effettiva degli utenti, è possibile modificarli in modo che la volta successiva le licenze vengano assegnate correttamente (se la nuova località è supportata).
 
 **PowerShell:** i cmdlet di PowerShell segnalano questo errore come _ProhibitedInUsageLocationViolation_.
 
@@ -111,18 +111,18 @@ Se si usa Exchange Online, alcuni utenti nel tenant potrebbero non essere config
 
 Dopo aver risolto i problemi di indirizzo proxy per gli utenti interessati, forzare l'elaborazione delle licenze nel gruppo per assicurarsi che ora sia possibile applicarle.
 
-## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Modifica degli attributi Mail e ProxyAddresses di Azure ADAzure AD Mail and ProxyAddresses attribute change
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Modifica dell'attributo Azure AD mail e ProxyAddresses
 
-**Problema:** Durante l'aggiornamento dell'assegnazione delle licenze in un utente o un gruppo, è possibile che l'attributo Mail e ProxyAddresses di Azure AD di alcuni utenti vengano modificati.
+**Problema:** Durante l'aggiornamento dell'assegnazione delle licenze per un utente o un gruppo, è possibile notare che l'attributo Azure AD mail e ProxyAddresses di alcuni utenti sono stati modificati.
 
-L'aggiornamento dell'assegnazione delle licenze per un utente determina l'attivazione del calcolo dell'indirizzo proxy, che può modificare gli attributi utente. Per comprendere il motivo esatto della modifica e risolvere il problema, vedere questo articolo su [come viene popolato l'attributo proxyAddresses in Azure AD.](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)
+L'aggiornamento dell'assegnazione delle licenze per un utente comporta l'attivazione del calcolo dell'indirizzo del proxy, che può modificare gli attributi utente. Per comprendere il motivo esatto della modifica e risolvere il problema, vedere questo articolo su [come viene popolato l'attributo proxyAddresses in Azure ad](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
-## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException nei log di controlloLicenseAssignmentAttributeConcurrencyException in audit logs
+## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException nei log di controllo
 
-**Problema:** L'utente dispone di LicenseAssignmentAttributeConcurrencyException per l'assegnazione delle licenze nei registri di controllo.
-Quando le licenze basate su gruppo tentano di elaborare l'assegnazione simultanea di licenze della stessa licenza a un utente, questa eccezione viene registrata nell'utente. Ciò si verifica in genere quando un utente è membro di più gruppi con la stessa licenza assegnata. L'adure AD tenterà di elaborare nuovamente la licenza utente e risolverà il problema. Non è richiesta alcuna azione da parte del cliente per risolvere il problema.
+**Problema:** L'utente ha LicenseAssignmentAttributeConcurrencyException per l'assegnazione delle licenze nei log di controllo.
+Quando le licenze basate sui gruppi tentano di elaborare l'assegnazione di licenze simultanee della stessa licenza a un utente, questa eccezione viene registrata nell'utente. Questa situazione si verifica in genere quando un utente è membro di più di un gruppo con la stessa licenza assegnata. AZure AD tenterà di ritentare l'elaborazione della licenza utente e risolverà il problema. Non è richiesta alcuna azione da parte del cliente per risolvere il problema.
 
-## <a name="more-than-one-product-license-assigned-to-a-group"></a>Più di una licenza del prodotto assegnata a un gruppo
+## <a name="more-than-one-product-license-assigned-to-a-group"></a>È stata assegnata più di una licenza del prodotto a un gruppo
 
 È possibile assegnare più di una licenza del prodotto a un gruppo. È ad esempio possibile assegnare Office 365 Enterprise E3 ed Enterprise Mobility + Security a un gruppo per abilitare facilmente tutti i servizi inclusi per gli utenti.
 
@@ -130,7 +130,7 @@ Azure AD prova ad assegnare a ogni utente tutte le licenze specificate nel grupp
 
 È possibile visualizzare gli utenti per i quali l'assegnazione non è riuscita e i relativi prodotti interessati.
 
-## <a name="when-a-licensed-group-is-deleted"></a>Quando un gruppo con licenza viene eliminato
+## <a name="when-a-licensed-group-is-deleted"></a>Quando viene eliminato un gruppo con licenza
 
 È necessario rimuovere tutte le licenze assegnate a un gruppo prima di poterlo eliminare. Tuttavia, la rimozione delle licenze da tutti gli utenti del gruppo può richiedere tempo. Quando si rimuovono le assegnazioni di licenza da un gruppo, possono verificarsi errori se a un utente è assegnata una licenza dipendente o se è presente un conflitto di indirizzi proxy che impedisce la rimozione delle licenze. Se un utente ha una licenza che dipende da una licenza che viene rimossa a causa dell'eliminazione del gruppo, l'assegnazione di licenza all'utente viene convertita da ereditata a diretta.
 
@@ -145,13 +145,13 @@ Microsoft Workplace Analytics è un componente aggiuntivo. Contiene un unico pia
 - Exchange Online (piano 1)
 - Exchange Online (piano 2)
 
-Se tentiamo di assegnare questo prodotto da solo a un gruppo, il portale restituisce un messaggio di notifica. Se selezioniamo i dettagli dell'elemento, viene visualizzato il seguente messaggio di errore:
+Se si tenta di assegnare questo prodotto a un gruppo, il portale restituisce un messaggio di notifica. Se si selezionano i dettagli dell'elemento, viene visualizzato il messaggio di errore seguente:
 
-  "Operazione di licenza non riuscita. Assicurarsi che il gruppo abbia i servizi necessari prima di aggiungere o rimuovere un servizio dipendente. **Il servizio Microsoft Workplace Analytics richiede l'abilitazione di Exchange Online (Piano 2).**"
+  "Operazione di licenza non riuscita. Assicurarsi che il gruppo abbia i servizi necessari prima di aggiungere o rimuovere un servizio dipendente. **Il servizio analisi dell'area di lavoro di Microsoft richiede anche l'abilitazione di Exchange Online (piano 2).**"
 
 Per assegnare questa licenza del componente aggiuntivo a un gruppo, è necessario assicurarsi che anche il gruppo contenga il piano di servizio del prerequisito. Ad esempio, è possibile aggiornare un gruppo esistente che contiene già il prodotto completo Office 365 E3 e quindi aggiungervi il componente aggiuntivo.
 
-È anche possibile creare un gruppo autonomo che contenga solo i prodotti minimi richiesti per far funzionare il componente aggiuntivo. Può essere utilizzato per concedere in licenza solo gli utenti selezionati per il prodotto add-on. In base all'esempio precedente, è necessario assegnare i seguenti prodotti allo stesso gruppo:
+È anche possibile creare un gruppo autonomo che contenga solo i prodotti minimi richiesti per far funzionare il componente aggiuntivo. Può essere utilizzato per concedere in licenza solo gli utenti selezionati per il prodotto componente aggiuntivo. In base all'esempio precedente, è necessario assegnare i prodotti seguenti allo stesso gruppo:
 
 - Office 365 Enterprise E3 solo con il piano di servizio Exchange Online (piano 2) abilitato
 - Microsoft Workplace Analytics
@@ -167,7 +167,7 @@ A seconda delle azioni intraprese per risolvere gli errori, potrebbe essere nece
 
 Ad esempio, se sono state liberate alcune licenze rimuovendo le assegnazioni di licenza dirette dagli utenti, sarà necessario attivare l'elaborazione dei gruppi che in precedenza è riuscita per poter assegnare licenze complete a tutti i membri utente. Per rielaborare un gruppo, passare al riquadro del gruppo, **Licenze**, quindi selezionare il pulsante **Rielabora** sulla barra degli strumenti.
 
-## <a name="force-user-license-processing-to-resolve-errors"></a>Forzare l'elaborazione della licenza utente per risolvere gli errori
+## <a name="force-user-license-processing-to-resolve-errors"></a>Forzare l'elaborazione delle licenze utente per la risoluzione degli errori
 
 A seconda delle azioni intraprese per risolvere gli errori, potrebbe essere necessario attivare manualmente l'elaborazione di un utente per aggiornare lo stato dell'utente.
 

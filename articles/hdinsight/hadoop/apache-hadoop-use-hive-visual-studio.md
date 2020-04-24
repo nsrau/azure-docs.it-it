@@ -1,5 +1,5 @@
 ---
-title: Apache Hive & strumenti Data Lake per Visual Studio - Azure HDInsight
+title: Apache Hive & Data Lake Tools per Visual Studio-Azure HDInsight
 description: Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query Apache Hive con Apache Hadoop in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -21,28 +21,28 @@ Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguir
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Apache Hadoop in HDInsight. Per informazioni sulla creazione di questo elemento, vedere Creare un cluster Apache Hadoop in Azure HDInsight usando il modello di Resource Manager.For information about creating this item, see [Create Apache Hadoop cluster in Azure HDInsight using Resource Manager template.](./apache-hadoop-linux-tutorial-get-started.md)
+* Un cluster Apache Hadoop in HDInsight. Per informazioni sulla creazione di questo elemento, vedere [creare Apache Hadoop cluster in Azure HDInsight usando Gestione risorse modello](./apache-hadoop-linux-tutorial-get-started.md).
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/). I passaggi descritti in questo articolo usano Visual Studio 2019.The steps in this article use Visual Studio 2019.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/). I passaggi descritti in questo articolo usano Visual Studio 2019.
 
-* Strumenti HDInsight per Visual Studio o Azure Data Lake Tools per Visual Studio. Per informazioni sull'installazione e la configurazione degli strumenti, vedere [Installare Data Lake Tools per Visual Studio](apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio).
+* Strumenti HDInsight per Visual Studio o Azure Data Lake Tools per Visual Studio. Per informazioni sull'installazione e la configurazione degli strumenti, vedere [Install data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio).
 
 ## <a name="run-apache-hive-queries-using-the-visual-studio"></a> Eseguire query Apache Hive usando Visual Studio
 
 Per la creazione e l'esecuzione di query Hive sono disponibili due opzioni:
 
 * Creare query ad hoc.
-* Creare un'applicazione Hive.Create a Hive application.
+* Creare un'applicazione hive.
 
-### <a name="create-an-ad-hoc-hive-query"></a>Creare una query Hive ad hocCreate an ad-hoc Hive query
+### <a name="create-an-ad-hoc-hive-query"></a>Creare una query hive ad hoc
 
-Le query ad hoc possono essere eseguite in modalità **Batch** o **Interattiva.**
+Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva** .
 
-1. Avviare **Visual Studio** e selezionare **Continua senza codice**.
+1. Avviare **Visual Studio** e selezionare **continua senza codice**.
 
-2. In **Esplora server**fare clic con il pulsante destro del mouse su **Azure**, scegliere Connetti a sottoscrizione di **Microsoft Azure...** e completare il processo di accesso.
+2. In **Esplora server**fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
-3. Espandere **HDInsight**, fare clic con il pulsante destro del mouse sul cluster in cui si desidera eseguire la query e quindi scegliere **Scrivi una query Hive**.
+3. Espandere **HDInsight**, fare clic con il pulsante destro del mouse sul cluster in cui si vuole eseguire la query e quindi scegliere **Scrivi una query hive**.
 
 4. Immettere la query hive seguente:
 
@@ -50,33 +50,33 @@ Le query ad hoc possono essere eseguite in modalità **Batch** o **Interattiva.*
     SELECT * FROM hivesampletable;
     ```
 
-5. Scegliere **Execute**(Esegui). Il valore predefinito della modalità di esecuzione è **Interactive**.
+5. Selezionare **Esegui**. Per impostazione predefinita, la modalità di esecuzione è **interattiva**.
 
-    ![Eseguire query Hive interattive, Visual StudioExecute interactive Hive query, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
+    ![Eseguire query hive interattive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
-6. Per eseguire la stessa query in modalità **Batch,** attivare o disattivare l'elenco a discesa da **Interattivo** a **Batch**. Il pulsante di esecuzione cambia da **Esegui** a **Invia**.
+6. Per eseguire la stessa query in modalità **batch** , impostare l'elenco a discesa da **interattivo** a **batch**. Il pulsante di esecuzione passa da **Execute** a **Submit**.
 
-    ![Invia query Hive batch, Visual StudioSubmit batch Hive query, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
+    ![Inviare query hive batch, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
-    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se ad esempio `SELECT * FROM`si digita , IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
+    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se, ad esempio, si `SELECT * FROM`digita, IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
 
-7. Nella barra degli strumenti della query, ovvero l'area sotto la scheda della query e sopra il testo della query, selezionare **Invia**oppure selezionare la freccia a discesa accanto a **Invia** e scegliere **Avanzate** dall'elenco a discesa. Se si seleziona quest'ultima opzione,
+7. Nella barra degli strumenti query (l'area sotto la scheda query e sopra il testo della query) selezionare **Invia**oppure selezionare la freccia a discesa accanto a **Invia** e scegliere **Avanzate** dall'elenco a discesa. Se si seleziona la seconda opzione,
 
-8. Se è stata selezionata l'opzione di invio avanzato, configurare **Nome processo**, **Argomenti**, **Configurazioni aggiuntive**e Directory **di stato** nella finestra di dialogo **Invia script** . Selezionare **Invia**.
+8. Se è stata selezionata l'opzione di invio avanzato, configurare **nome processo**, **argomenti**, **configurazioni aggiuntive**e **directory stato** nella finestra di dialogo **Invia script** . Selezionare **Invia**.
 
-    ![Finestra di dialogo Invia script, query HDInsight Hadoop Hive](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
+    ![Finestra di dialogo Invia script, query hive Hadoop di HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
 
 ### <a name="create-a-hive-application"></a>Creare un'applicazione Hive
 
-Per eseguire una query Hive creando un'applicazione Hive, attenersi alla seguente procedura:
+Per eseguire una query hive creando un'applicazione hive, seguire questa procedura:
 
 1. Aprire **Visual Studio**.
 
 2. Nella finestra **iniziale** selezionare **Crea un nuovo progetto**.
 
-3. Nella casella **Cerca modelli** della finestra Crea un **nuovo progetto** *immettere Hive*. Quindi scegliere **Hive Application** e selezionare **Next**.
+3. Nella finestra **Crea un nuovo progetto** , nella casella **Cerca modelli** , immettere *hive*. Quindi scegliere **applicazione hive** e fare clic su **Avanti**.
 
-4. Nella finestra **Configura il nuovo progetto** immettere un nome di **progetto,** selezionare o creare un **percorso** per il nuovo progetto e quindi selezionare **Crea**.
+4. Nella finestra **Configura nuovo progetto** immettere un **nome di progetto**, selezionare o creare un **percorso** per il nuovo progetto e quindi selezionare **Crea**.
 
 5. Aprire il file **Script.hql** creato con il progetto e incollarvi le seguenti istruzioni HiveQL:
 
@@ -89,38 +89,38 @@ Per eseguire una query Hive creando un'applicazione Hive, attenersi alla seguent
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
     ```
 
-    Queste istruzioni eseguire le azioni seguenti:These statements do the following actions:
+    Queste istruzioni eseguono le azioni seguenti:
 
-    * `DROP TABLE`: elimina la tabella, se esistente.
+    * `DROP TABLE`: Elimina la tabella se esiste.
 
-    * `CREATE EXTERNAL TABLE`: crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. (I dati vengono lasciati nella posizione originale.)
+    * `CREATE EXTERNAL TABLE`: crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
 
         > [!NOTE]  
-        > Le tabelle esterne devono essere usate quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo MapReduce o un servizio di Azure.External tables should be used when you expect the underlying data to be updated by an external source, such as a MapReduce job or an Azure service.
+        > È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo MapReduce o un servizio di Azure.
         >
         > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
     * `ROW FORMAT`: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 
-    * `STORED AS TEXTFILE LOCATION`: indica a Hive che i dati sono archiviati nella directory *di esempio/dati* e che vengono archiviati come testo.
+    * `STORED AS TEXTFILE LOCATION`: Indica a hive che i dati sono archiviati nella directory *example/data* e che sono archiviati come testo.
 
-    * `SELECT`: seleziona un conteggio di `t4` tutte le `[ERROR]`righe in cui la colonna contiene il valore . Questa istruzione restituisce `3`un valore pari a , poiché tre righe contengono questo valore.
+    * `SELECT`: Seleziona un conteggio di tutte le righe in `t4` cui la colonna `[ERROR]`contiene il valore. Questa istruzione restituisce un valore di `3`, perché tre righe contengono questo valore.
 
-    * `INPUT__FILE__NAME LIKE '%.log'`: indica a Hive di restituire solo i dati dai file che terminano con .log. Questa clausola limita la ricerca al file *sample.log* che contiene i dati.
+    * `INPUT__FILE__NAME LIKE '%.log'`: Indica a hive di restituire solo i dati da file che terminano con. log. Questa clausola limita la ricerca al file *Sample. log* che contiene i dati.
 
-6. Dalla barra degli strumenti del file di query , che ha un aspetto simile alla barra degli strumenti di query ad hoc, selezionare il cluster HDInsight che si desidera utilizzare per questa query. Quindi modificare **Interattivo** in Batch (se necessario) e selezionare Invia per eseguire le istruzioni come processo Hive.Then change Interactive to **Batch** (if necessary) and select **Submit** to run the statements as a Hive job.
+6. Dalla barra degli strumenti file di query, che ha un aspetto simile alla barra degli strumenti query ad hoc, selezionare il cluster HDInsight che si desidera utilizzare per la query. Modificare quindi **Interactive** in **batch** (se necessario) e selezionare **Submit (Invia** ) per eseguire le istruzioni come processo hive.
 
    Verrà visualizzata una finestra di **riepilogo del processo Hive** con informazioni relative al processo in esecuzione. Usare il collegamento **Aggiorna** per aggiornare le informazioni del processo finché il campo **Stato processo** non viene impostato su **Completato**.
 
-   ![Riepilogo del processo Hive completato, applicazione Hive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
+   ![Riepilogo del processo hive completato, applicazione hive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
 
-7. Selezionare **Output processo** per visualizzare l'output del processo. Mostra `[ERROR] 3`, ovvero il valore restituito dalla query.
+7. Selezionare **output processo** per visualizzare l'output del processo. Mostra `[ERROR] 3`, ovvero il valore restituito dalla query.
 
 ### <a name="additional-example"></a>Altro esempio
 
-Nell'esempio seguente si `log4jLogs` basa sulla tabella creata nella procedura precedente, [Create a Hive application](#create-a-hive-application).
+L'esempio seguente si basa sulla `log4jLogs` tabella creata nella procedura precedente, [creare un'applicazione hive](#create-a-hive-application).
 
-1. In **Esplora server**fare clic con il pulsante destro del mouse sul cluster e scegliere Scrivi una query **Hive**.
+1. Da **Esplora server**, fare clic con il pulsante destro del mouse sul cluster e selezionare **Scrivi una query hive**.
 
 2. Immettere la query hive seguente:
 
@@ -130,27 +130,27 @@ Nell'esempio seguente si `log4jLogs` basa sulla tabella creata nella procedura p
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
     ```
 
-    Queste istruzioni eseguire le azioni seguenti:These statements do the following actions:
+    Queste istruzioni eseguono le azioni seguenti:
 
-    * `CREATE TABLE IF NOT EXISTS`: crea una tabella se non esiste già. Poiché `EXTERNAL` la parola chiave non viene utilizzata, questa istruzione crea una tabella interna. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono gestite da Hive.
+    * `CREATE TABLE IF NOT EXISTS`: Crea una tabella, se non esiste già. Poiché la `EXTERNAL` parola chiave non viene usata, questa istruzione crea una tabella interna. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono gestite da Hive.
 
         > [!NOTE]  
         > A differenza delle tabelle `EXTERNAL`, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
-    * `STORED AS ORC`: memorizza i dati in formato ORC *(Row Columnar) ottimizzato.* ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
+    * `STORED AS ORC`: Archivia i dati nel formato ORC ( *optimized Row Column* ). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
 
     * `INSERT OVERWRITE ... SELECT`: seleziona le righe della tabella `log4jLogs` contenenti `[ERROR]`, quindi inserisce i dati nella tabella `errorLogs`.
 
-3. Se necessario, impostare **Interattivo** su **Batch,** quindi selezionare **Invia**.
+3. Se necessario, modificare **interattivo** in **batch** , quindi selezionare **Invia**.
 
-4. Per verificare che il processo ha creato la tabella, passare a **Esplora server** ed espandere **Azure** > **HDInsight.** Espandere il cluster HDInsight e quindi espandere **Hive Databases** > **default**. Vengono elencate la tabella **errorLogs** e la tabella **log4jLogs**.
+4. Per verificare che il processo abbia creato la tabella, passare a **Esplora server** ed espandere **Azure** > **HDInsight**. Espandere il cluster HDInsight e quindi espandere **database** > hive**predefinito**. Vengono elencate la tabella **errorLogs** e la tabella **log4jLogs**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Come si può notare, gli strumenti HDInsight per Visual Studio forniscono un modo semplice per lavorare con le query Hive in HDInsight.
 
-* Per informazioni generali su Hive in HDInsight, vedere [Che cos'è Apache Hive e HiveQL in Azure HDInsight?](hdinsight-use-hive.md)
+* Per informazioni generali su hive in HDInsight, vedere [che cos'è Apache hive e HiveQL in Azure HDInsight?](hdinsight-use-hive.md)
 
-* Per informazioni su altri modi in cui è possibile usare Hadoop su HDInsight, vedere [Usare MapReduce in Apache Hadoop in HDInsightFor](hdinsight-use-mapreduce.md) information about other ways you can work with Hadoop on HDInsight, see Use MapReduce in Apache Hadoop on HDInsight
+* Per informazioni su altri modi per lavorare con Hadoop in HDInsight, vedere [usare MapReduce in Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
 
-* Per altre informazioni sugli strumenti HDInsight per Visual Studio, vedere[Usare Data Lake Tools per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Apache HiveFor](apache-hadoop-visual-studio-tools-get-started.md) more information about the HDInsight tools for Visual Studio, see Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries
+* Per altre informazioni su HDInsight Tools per Visual Studio, vedere[usare Data Lake Tools per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Apache hive](apache-hadoop-visual-studio-tools-get-started.md)

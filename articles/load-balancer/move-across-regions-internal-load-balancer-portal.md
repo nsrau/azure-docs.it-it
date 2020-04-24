@@ -1,6 +1,6 @@
 ---
-title: Spostare Azure Internal Load Balancer in un'altra area di Azure usando il portale di AzureMove Azure internal Load Balancer to another Azure region using the Azure portal
-description: Usare il modello di Azure Resource Manager per spostare Azure Internal Load Balancer da un'area di Azure a un'altra usando il portale di AzureUse Azure Resource Manager template to move Azure internal Load Balancer from an Azure region to another using the Azure portal
+title: Spostare Load Balancer interni di Azure in un'altra area di Azure usando il portale di Azure
+description: Usare il modello di Azure Resource Manager per spostare Load Balancer interni di Azure da un'area di Azure a un'altra usando il portale di Azure
 author: asudbring
 ms.service: load-balancer
 ms.topic: article
@@ -13,42 +13,42 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638808"
 ---
-# <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Spostare Azure Internal Load Balancer in un'altra area usando il portale di AzureMove Azure internal Load Balancer to another region using the Azure portal
+# <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Spostare Load Balancer interni di Azure in un'altra area usando il portale di Azure
 
-Esistono vari scenari in cui si desidera spostare il servizio di bilanciamento del carico interno esistente da un'area a un'altra. Ad esempio, è possibile creare un servizio di bilanciamento del carico interno con la stessa configurazione per il test. È anche possibile spostare un servizio di bilanciamento del carico interno in un'altra area come parte della pianificazione del ripristino di emergenza.
+Esistono diversi scenari in cui si vuole spostare il servizio di bilanciamento del carico interno esistente da un'area a un'altra. Ad esempio, è possibile creare un servizio di bilanciamento del carico interno con la stessa configurazione per il test. Potrebbe anche essere necessario spostare un servizio di bilanciamento del carico interno in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
 
-I servizi di bilanciamento del carico interni di Azure non possono essere spostati da un'area a un'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente e la rete virtuale di un servizio di bilanciamento del carico interno.  È quindi possibile creare temporaneamente la risorsa in un'altra area esportando il servizio di bilanciamento del carico e la rete virtuale in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire i modelli nella nuova area.  Per altre informazioni su Resource Manager e sui modelli, vedere Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure.For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
+I bilanciamenti del carico interno di Azure non possono essere spostati da un'area all'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente e la rete virtuale di un servizio di bilanciamento del carico interno.  È quindi possibile organizzare la risorsa in un'altra area esportando il servizio di bilanciamento del carico e la rete virtuale in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire i modelli nella nuova area.  Per altre informazioni su Gestione risorse e sui modelli, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Assicurarsi che il servizio di bilanciamento del carico interno di Azure si trovi nell'area di Azure da cui si vuole spostare.
+- Verificare che il servizio di bilanciamento del carico interno di Azure si trovi nell'area di Azure da cui si vuole eseguire lo spostamento.
 
-- I servizi di bilanciamento del carico interni di Azure non possono essere spostati da un aree all'altro.  È necessario associare il nuovo servizio di bilanciamento del carico alle risorse nell'area di destinazione.
+- Non è possibile spostare i bilanciamenti del carico interno di Azure tra le aree.  È necessario associare il nuovo servizio di bilanciamento del carico alle risorse nell'area di destinazione.
 
-- Per esportare una configurazione del servizio di bilanciamento del carico interno e distribuire un modello per creare un servizio di bilanciamento del carico interno in un'altra area, è necessario il ruolo Collaboratore di rete o versione successiva.
+- Per esportare una configurazione del servizio di bilanciamento del carico interno e distribuire un modello per creare un servizio di bilanciamento del carico interno in un'altra area, è necessario il ruolo Collaboratore rete o versione successiva.
 
-- Identificare il layout di rete di origine e tutte le risorse attualmente in uso, Questo layout include ma non è limitato a servizi di bilanciamento del carico, gruppi di sicurezza di rete, macchine virtuali e reti virtuali.
+- Identificare il layout di rete di origine e tutte le risorse attualmente in uso, Questo layout include ma non è limitato a bilanciamento del carico, gruppi di sicurezza di rete, macchine virtuali e reti virtuali.
 
-- Verificare che la sottoscrizione di Azure consenta di creare servizi di bilanciamento del carico interni nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
+- Verificare che la sottoscrizione di Azure consenta di creare bilanciamenti del carico interno nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di servizi di bilanciamento del carico per questo processo.  Vedere Limiti, quote e vincoli di sottoscrizione e servizio di [AzureSee Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta dei bilanciamenti del carico per questo processo.  Vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Preparare e spostare
-I passaggi seguenti illustrano come preparare il servizio di bilanciamento del carico interno per lo spostamento usando un modello di Resource Manager e spostare la configurazione del servizio di bilanciamento del carico interno nell'area di destinazione usando il portale di Azure.The following steps show how to prepare the internal load balancer for the move using a Resource Manager template, and move the internal load balancer configuration to the target region using the Azure portal.  Come parte di questo processo, la configurazione della rete virtuale del servizio di bilanciamento del carico interno deve essere inclusa e deve essere eseguita prima di spostare il servizio di bilanciamento del carico interno.
+I passaggi seguenti illustrano come preparare il servizio di bilanciamento del carico interno per lo spostamento usando un modello di Gestione risorse e spostare la configurazione del servizio di bilanciamento del carico interno nell'area di destinazione usando il portale di Azure.  Come parte di questo processo, la configurazione della rete virtuale del servizio di bilanciamento del carico interno deve essere inclusa e deve essere eseguita prima di trasferire il servizio di bilanciamento del carico interno.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Esportare il modello di rete virtuale e distribuirlo dal portale di AzureExport the virtual network template and deploy from the Azure portal
+### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Esportare il modello di rete virtuale e distribuirlo dalla portale di Azure
 
-1. Accedere a**Gruppi di risorse**del portale > di [Azure](https://portal.azure.com).
+1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
 2. Individuare il gruppo di risorse che contiene la rete virtuale di origine e fare clic su di esso.
-3. Selezionare >**modello di esportazione** **impostazioni** > .
-4. Scegliere **Distribuisci** nel pannello **Esporta modello.**
-5. Fare clic su **MODELLO** > **Modificare i parametri** per aprire il file **parameters.json** nell'editor online.
-6. Per modificare il parametro del nome della rete virtuale, modificare la proprietà **value** in **parameters**:
+3. Selezionare > **Impostazioni** > **Esporta modello**.
+4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
+5. Fare clic su **modello** > **modifica parametri** per aprire il file **Parameters. JSON** nell'editor online.
+6. Per modificare il parametro del nome della rete virtuale, modificare la proprietà **value** in **Parameters**:
 
     ```json
     {
@@ -61,13 +61,13 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         }
     }
     ```
-7. Modificare il valore del nome della rete virtuale di origine nell'editor con un nome di scelta per la rete virtuale di destinazione. Assicurarsi di racchiudere il nome tra virgolette.
+7. Modificare il valore del nome della rete virtuale di origine nell'editor con il nome desiderato per il VNET di destinazione. Assicurarsi di racchiudere il nome tra virgolette.
 
 8. Fare clic su **Salva** nell'editor.
 
-9. Fare clic su **MODELLO** > **Modifica modello** per aprire il file **template.json** nell'editor online.
+9.  > Fare **clic su modello****modifica modello** per aprire il file **template. JSON** nell'editor online.
 
-10. Per modificare l'area di destinazione in cui verrà spostata la rete virtuale, modificare la proprietà **location** in risorse:
+10. Per modificare l'area di destinazione in cui verrà spostato il VNET, modificare la proprietà **location** in Resources:
 
     ```json
     "resources": [
@@ -87,11 +87,11 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
     ```
 
-11. Per ottenere i codici di ubicazione, vedere [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per una regione è il nome dell'area senza spazi, **Central US** = **centralus**.
+11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
 
-12. È inoltre possibile modificare altri parametri nel file **template.json,** se lo si desidera, e sono facoltativi a seconda dei requisiti:
+12. È anche possibile modificare altri parametri nel file **template. JSON** se si sceglie e sono facoltativi in base ai requisiti:
 
-    * **Spazio indirizzi** - Lo spazio degli indirizzi della rete virtuale può essere modificato prima di salvare modificando la sezione**addressSpace** **delle risorse** > e modificando la proprietà **addressPrefixes** nel file **template.json:**
+    * **Spazio degli indirizzi** : lo spazio degli indirizzi di VNET può essere modificato prima del salvataggio modificando la sezione **Resources** > **addressSpace** e modificando la proprietà **addressPrefixes** nel file **template. JSON** :
 
         ```json
                 "resources": [
@@ -111,7 +111,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
         ```
 
-    * **Subnet:** il nome della subnet e lo spazio degli indirizzi della subnet possono essere modificati o aggiunti modificando la sezione **subnets** del file **template.json.** Il nome della subnet può essere modificato modificando la proprietà **name.** Lo spazio degli indirizzi della subnet può essere modificato modificando la proprietà **addressPrefix** nel file **template.json:**
+    * **Subnet** : il nome della subnet e lo spazio degli indirizzi della subnet possono essere modificati o aggiunti a modificando la sezione **Subnet** del file **template. JSON** . Il nome della subnet può essere modificato modificando la proprietà **Name** . Lo spazio degli indirizzi della subnet può essere modificato modificando la proprietà **addressPrefix** nel file **template. JSON** :
 
         ```json
                 "subnets": [
@@ -142,7 +142,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                 ]
         ```
 
-         Nel file **template.json,** per modificare il prefisso dell'indirizzo, è necessario modificarlo in due posizioni, la sezione elencata sopra e la sezione **del tipo** elencata di seguito.  Modificare la proprietà **addressPrefix** in modo che corrisponda a quella precedente:
+         Nel file **template. JSON** , per modificare il prefisso dell'indirizzo, è necessario modificarlo in due posizioni, la sezione sopra indicata e la sezione **Type** elencata di seguito.  Modificare la proprietà **addressPrefix** in modo che corrisponda a quella precedente:
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -180,27 +180,27 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 13. Fare clic su **Salva** nell'editor online.
 
-14. Fare clic su**Sottoscrizione** **BASICS** > per scegliere la sottoscrizione in cui verrà distribuita la rete virtuale di destinazione.
+14. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuita la VNET di destinazione.
 
-15. Fare clic su Gruppo di**risorse** **BASICS** > per scegliere il gruppo di risorse in cui verrà distribuita la rete virtuale di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per la rete virtuale di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine della rete virtuale esistente.
+15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito il VNET di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il VNET di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del VNET esistente.
 
-16. Verificare**che** **Percorso BASICS** > sia impostato sul percorso di destinazione in cui si desidera distribuire il disco rigido virtuale.
+16. Il **BASICS** > **percorso** di base della verifica è impostato sul percorso di destinazione in cui si desidera distribuire il vnet.
 
-17. Verificare in **CELLE** che il nome corrisponda al nome immesso nell'editor dei parametri precedente.
+17. Verificare in **Impostazioni** che il nome corrisponda al nome immesso nell'editor di parametri precedente.
 
-18. Selezionare la casella in **TERMINI E CONDIZIONI**.
+18. Selezionare la casella in **termini e condizioni**.
 
 19. Fare clic sul pulsante **Acquista** per distribuire la rete virtuale di destinazione.
 
-### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Esportare il modello di bilanciamento del carico interno e distribuirlo da Azure PowerShellExport the internal load balancer template and deploy from Azure PowerShell
+### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Esportare il modello del servizio di bilanciamento del carico interno e distribuirlo da Azure PowerShell
 
-1. Accedere a**Gruppi di risorse**del portale > di [Azure](https://portal.azure.com).
+1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
 2. Individuare il gruppo di risorse che contiene il servizio di bilanciamento del carico interno di origine e fare clic su di esso.
-3. Selezionare >**modello di esportazione** **impostazioni** > .
-4. Scegliere **Distribuisci** nel pannello **Esporta modello.**
-5. Fare clic su **MODELLO** > **Modificare i parametri** per aprire il file **parameters.json** nell'editor online.
+3. Selezionare > **Impostazioni** > **Esporta modello**.
+4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
+5. Fare clic su **modello** > **modifica parametri** per aprire il file **Parameters. JSON** nell'editor online.
 
-6. Per modificare il parametro del nome del servizio di bilanciamento del carico interno, modificare la proprietà **defaultValue** del nome del servizio di bilanciamento del carico interno di origine con il nome del servizio di bilanciamento del carico interno di destinazione, verificare che il nome sia tra virgolette:
+6. Per modificare il parametro del nome del servizio di bilanciamento del carico interno, modificare la proprietà **DefaultValue** del nome del servizio di bilanciamento del carico interno di origine con il nome del servizio di bilanciamento del carico interno di destinazione, verificare che il nome sia racchiuso tra virgolette:
 
     ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -216,13 +216,13 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
              }
     ```
 
-6. Per modificare il valore della rete virtuale di destinazione spostata in precedenza, è necessario innanzitutto ottenere l'ID risorsa, quindi copiarlo e incollarlo nel file **parameters.json.** Per ottenere l'ID:
+6. Per modificare il valore della rete virtuale di destinazione spostata sopra, è innanzitutto necessario ottenere l'ID risorsa e quindi copiarlo e incollarlo nel file **Parameters. JSON** . Per ottenere l'ID:
 
-    1. Accedere > **ai gruppi di risorse** del portale di [Azure](https://portal.azure.com)in un'altra scheda o finestra del browser.
-    2. Individuare il gruppo di risorse di destinazione che contiene la rete virtuale spostata dai passaggi precedenti e fare clic su di esso.
-    3. Selezionare >**Proprietà** **impostazioni** > .
-    4. Nel pannello a destra, evidenziare **l'ID risorsa** e copiarlo negli Appunti.  In alternativa, è possibile fare clic sul pulsante **Copia negli Appunti** a destra del percorso ID **risorsa.**
-    5. Incollare l'ID risorsa nella proprietà **defaultValue** nell'editor **Modifica parametri** aperto nell'altra finestra del browser o scheda:
+    1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > in un'altra scheda o finestra del browser.
+    2. Individuare il gruppo di risorse di destinazione che contiene la rete virtuale spostata nei passaggi precedenti e fare clic su di essa.
+    3. Selezionare > **Settings** > **proprietà**impostazioni.
+    4. Nel pannello a destra evidenziare l' **ID risorsa** e copiarlo negli Appunti.  In alternativa, è possibile fare clic sul pulsante **copia negli Appunti** a destra del percorso dell' **ID risorsa** .
+    5. Incollare l'ID risorsa nella proprietà **DefaultValue** nell'editor **modifica parametri** aperto nell'altra finestra o scheda del browser:
 
         ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -239,8 +239,8 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         ```
     6. Fare clic su **Salva** nell'editor online.
 
-7. Fare clic su **MODELLO** > **Modifica modello** per aprire il file **template.json** nell'editor online.
-8. Per modificare l'area di destinazione in cui verrà spostata la configurazione del servizio di bilanciamento del carico interno, modificare la proprietà location in resources nel file **template.json:To** edit the target region where the internal load balancer configuration will be moved, change the **location** property under **resources** in the template.json file:
+7.  > Fare **clic su modello****modifica modello** per aprire il file **template. JSON** nell'editor online.
+8. Per modificare l'area di destinazione in cui verrà spostata la configurazione del servizio di bilanciamento del carico interno, modificare la proprietà **location** in **Resources** nel file **template. JSON** :
 
     ```json
         "resources": [
@@ -255,11 +255,11 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                 },
     ```
 
-9.  Per ottenere i codici di ubicazione, vedere [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per una regione è il nome dell'area senza spazi, **Central US** = **centralus**.
+9.  Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
 
-10. È inoltre possibile modificare altri parametri nel modello, se lo si desidera, e sono facoltativi a seconda dei requisiti:
+10. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
 
-    * **Sku** - È possibile modificare lo sku del servizio di bilanciamento del carico interno nella configurazione da standard a basic o basic a standard modificando la proprietà del**nome** **sku** > nel file **template.json:**
+    * **SKU** : è possibile modificare lo SKU del servizio di bilanciamento del carico interno nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel file **template. JSON** :
 
         ```json
         "resources": [
@@ -273,9 +273,9 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                 "tier": "Regional"
             },
         ```
-      Per altre informazioni sulle differenze tra i servizi di bilanciamento del carico sku di base e standard, vedere Panoramica di [Azure Standard Load BalancerFor](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) more information on the differences between basic and standard sku load balancers, see Azure Standard Load Balancer overview
+      Per altre informazioni sulle differenze tra i bilanciamenti del carico SKU Basic e standard, vedere [Panoramica di Azure Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Regole di bilanciamento del carico:** è possibile aggiungere o rimuovere regole di bilanciamento del carico nella configurazione aggiungendo o rimuovendo voci nella sezione **loadBalancingRules** del file **template.json:**
+    * **Regole di bilanciamento del carico** : è possibile aggiungere o rimuovere le regole di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **loadBalancingRules** del file **template. JSON** :
 
         ```json
         "loadBalancingRules": [
@@ -305,9 +305,9 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                     }
                 ]
         ```
-       Per altre informazioni sulle regole di bilanciamento del carico, vedere [Che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Per ulteriori informazioni sulle regole di bilanciamento del carico, vedere [che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Probe** - È possibile aggiungere o rimuovere un probe per il servizio di bilanciamento del carico nella configurazione aggiungendo o rimuovendo voci nella sezione **probes** del file **template.json:**
+    * **Probe** : è possibile aggiungere o rimuovere un probe per il servizio di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **Probe** del file **template. JSON** :
 
         ```json
         "probes": [
@@ -325,9 +325,9 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                     }
                 ],
         ```
-       Per altre informazioni sui probe di integrità di Azure Load Balancer, vedere Test di integrità di Load BalancerFor more information on Azure Load Balancer health [probes,](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) see Load Balancer health probes
+       Per altre informazioni sui Probe di integrità di Azure Load Balancer, vedere [Probe di integrità Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Regole NAT in ingresso:** è possibile aggiungere o rimuovere regole NAT in ingresso per il servizio di bilanciamento del carico aggiungendo o rimuovendo voci nella sezione **inboundNatRules** del file **template.json:**
+    * **Regole NAT in ingresso** : è possibile aggiungere o rimuovere le regole NAT in ingresso per il servizio di bilanciamento del carico aggiungendo o rimuovendo le voci nella sezione **inboundNatRules** del file **template. JSON** :
 
         ```json
         "inboundNatRules": [
@@ -349,7 +349,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                     }
                 ]
         ```
-        Per completare l'aggiunta o la rimozione di una regola NAT in ingresso, la regola deve essere presente o rimossa come proprietà **di tipo** alla fine del file **template.json:**
+        Per completare l'aggiunta o la rimozione di una regola NAT in ingresso, è necessario che la regola sia presente o rimossa come proprietà del **tipo** alla fine del file **template. JSON** :
 
         ```json
         {
@@ -373,25 +373,25 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
             }
         }
         ```
-        Per altre informazioni sulle regole NAT in ingresso, vedere [Che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Per ulteriori informazioni sulle regole NAT in ingresso, vedere [che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
 12. Fare clic su **Salva** nell'editor online.
 
-13. Fare clic su**Sottoscrizione** **BASICS** > per scegliere la sottoscrizione in cui verrà distribuito il servizio di bilanciamento del carico interno di destinazione.
+13. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuito il servizio di bilanciamento del carico interno di destinazione.
 
-15. Fare clic su**Gruppo di risorse** **BASICS** > per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico interno di destinazione o scegliere il gruppo di risorse esistente creato in precedenza per la rete virtuale.  Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico interno di origine esistente.
+15. Fare clic su**gruppo di risorse** di **base** > per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico interno di destinazione oppure scegliere il gruppo di risorse esistente creato in precedenza per la rete virtuale.  Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico interno di origine esistente.
 
-16. Verificare**che** **Percorso BASICS** > sia impostato sul percorso di destinazione in cui si vuole distribuire il servizio di bilanciamento del carico interno.
+16. Il **BASICS** > **percorso** di base della verifica è impostato sul percorso di destinazione in cui si desidera distribuire il servizio di bilanciamento del carico interno.
 
-17. Verificare in **CELLE** che il nome corrisponda al nome immesso nell'editor dei parametri precedente.  Verificare che gli ID di risorsa siano popolati per tutte le reti virtuali nella configurazione.
+17. Verificare in **Impostazioni** che il nome corrisponda al nome immesso nell'editor di parametri precedente.  Verificare che gli ID risorsa siano popolati per tutte le reti virtuali nella configurazione.
 
-18. Selezionare la casella in **TERMINI E CONDIZIONI**.
+18. Selezionare la casella in **termini e condizioni**.
 
 19. Fare clic sul pulsante **Acquista** per distribuire la rete virtuale di destinazione.
 
 ## <a name="discard"></a>Discard
 
-Se si desidera eliminare la rete virtuale di destinazione e il servizio di bilanciamento del carico interno, eliminare il gruppo di risorse che contiene la rete virtuale di destinazione e il servizio di bilanciamento del carico interno.  A tale scopo, selezionare il gruppo di risorse dal dashboard nel portale e selezionare **Elimina** nella parte superiore della pagina di panoramica.
+Se si vuole rimuovere la rete virtuale di destinazione e il servizio di bilanciamento del carico interno, eliminare il gruppo di risorse che contiene la rete virtuale di destinazione e il servizio di bilanciamento del carico interno.  A tale scopo, selezionare il gruppo di risorse dal dashboard nel portale e selezionare **Elimina** nella parte superiore della pagina Overview (panoramica).
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
@@ -399,7 +399,7 @@ Per eseguire il commit delle modifiche e completare lo spostamento della rete vi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato spostato un servizio di bilanciamento del carico interno di Azure da un'area a un'altra e sono stati puliti le risorse di origine.  Per altre informazioni sullo spostamento delle risorse tra aree e il ripristino di emergenza in Azure, vedere:To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+In questa esercitazione è stato spostato un servizio di bilanciamento del carico interno di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo trasferimento di risorse tra aree e ripristino di emergenza in Azure, vedere:
 
 
 - [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

@@ -42,30 +42,30 @@ Questo documento illustra la creazione di report HTTP avanzati nella rete CDN di
 ## <a name="geography-reports-map-based"></a>Report geografici (basati su mappe)
 Esistono cinque report che sfruttano una mappa per indicare le aree da cui il contenuto viene richiesto. Questi report sono Mappa del mondo, Mappa Stati Uniti, Mappa Canada, Mappa Europa e Mappa Asia Pacifico.
 
-Ogni report basato su mappa classifica le entità geografiche (ad esempio, paesi/aree geografiche, viene fornita una mappa per aiutarti a visualizzare le località da cui viene richiesto il contenuto. A questo scopo, contraddistingue con il colore ogni area in base alla quantità di domanda proveniente da tale area. Le aree con una sfumatura più chiara indicano una domanda minore di contenuto, mentre le aree più scure indicano livelli più alti di domanda di contenuto.
+Ogni report basato su mappa classifica le entità geografiche (ad esempio, Paesi o aree geografiche, viene fornita una mappa che consente di visualizzare le posizioni da cui viene richiesto il contenuto). A questo scopo, contraddistingue con il colore ogni area in base alla quantità di domanda proveniente da tale area. Le aree con una sfumatura più chiara indicano una domanda minore di contenuto, mentre le aree più scure indicano livelli più alti di domanda di contenuto.
 
-Proprio sotto la mappa vengono fornite informazioni dettagliate sul traffico e sulla larghezza di banda per ogni area. In questo modo è possibile visualizzare il numero totale di riscontri, la percentuale di riscontri, la quantità totale di dati trasferiti (in gigabyte) e la percentuale di dati trasferiti per ogni area. Visualizzare una descrizione per ogni metrica. Infine, quando si passa il puntatore del mouse su un'area geografica(ad esempio, paese/area geografica, stato o provincia), il nome e la percentuale di riscontri che si sono verificati nell'area geografica verranno visualizzati come descrizione comando.
+Proprio sotto la mappa vengono fornite informazioni dettagliate sul traffico e sulla larghezza di banda per ogni area. In questo modo è possibile visualizzare il numero totale di riscontri, la percentuale di riscontri, la quantità totale di dati trasferiti (in gigabyte) e la percentuale di dati trasferiti per ogni area. Visualizzare una descrizione per ogni metrica. Infine, quando si passa il mouse su un'area, ad esempio paese/area geografica, stato o provincia, il nome e la percentuale di riscontri che si sono verificati nell'area verranno visualizzati come descrizione comando.
 
 Di seguito viene fornita una breve descrizione di ogni tipo di report geografico basato su mappa.
 
 | Nome del report | Descrizione |
 | --- | --- |
-| Mappa del mondo |Questo report consente di visualizzare la domanda mondiale del contenuto della rete CDN. Ogni paese/area geografica è contraddetto a colori sulla mappa del mondo per indicare la percentuale di riscontri originati da tale regione. |
+| Mappa del mondo |Questo report consente di visualizzare la domanda mondiale del contenuto della rete CDN. Ogni paese/area geografica è codificato a colori sulla mappa del mondo per indicare la percentuale di riscontri originati da tale area. |
 | Mappa Stati Uniti |Questo report consente di visualizzare la domanda del contenuto della rete CDN negli Stati Uniti. Su questa mappa ogni stato è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area. |
 | Mappa Canada |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Canada. Su questa mappa ogni provincia è contraddistinta dal colore per indicare la percentuale di riscontri originati da tale area. |
-| Mappa Europa |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Europa. Ogni paese/area geografica è contraddetto a colori su questa mappa per indicare la percentuale di riscontri originati da tale regione. |
-| Mappa Asia Pacifico |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Asia. Ogni paese/area geografica è contraddetto a colori su questa mappa per indicare la percentuale di riscontri originati da tale regione. |
+| Mappa Europa |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Europa. Ogni paese/area geografica è codificato in base a colori sulla mappa per indicare la percentuale di riscontri originati da tale area. |
+| Mappa Asia Pacifico |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Asia. Ogni paese/area geografica è codificato in base a colori sulla mappa per indicare la percentuale di riscontri originati da tale area. |
 
 ## <a name="geography-reports-bar-charts"></a>Report geografici (grafici a barre)
-Esistono altri due report che forniscono informazioni statistiche basate sulla geografia, Città principali e Paesi principali. Questi rapporti classificano rispettivamente le città e i paesi/aree geografiche in base al numero di hit originati da tali paesi. Dopo aver generato questo tipo di report, un grafico a barre indicherà le prime 10 città o paesi/aree geografiche che hanno richiesto contenuti su una piattaforma specifica. Questo grafico a barre consente di valutare rapidamente le aree che generano il numero più alto di richieste per il contenuto.
+Esistono altri due report che forniscono informazioni statistiche basate sulla geografia, Città principali e Paesi principali. Questi report classificano rispettivamente città e paesi/aree geografiche in base al numero di riscontri originati da tali paesi/aree. Al momento della generazione di questo tipo di report, un grafico a barre indicherà le prime 10 città o i paesi/aree geografiche che hanno richiesto contenuto su una piattaforma specifica. Questo grafico a barre consente di valutare rapidamente le aree che generano il numero più alto di richieste per il contenuto.
 
 Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nell'area specificata. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta per ognuna delle prime 10 aree.
 
 ### <a name="using-the-bar-charts"></a>Uso dei grafici a barre
 * Se si passa il puntatore su una barra, il nome e il numero totale di riscontri che si sono verificati nell'area verrà visualizzato come descrizione comando.
-* La descrizione comando per il rapporto Città principali identifica una città in base al nome, allo stato/regione e all'abbreviazione del paese.
-* Se la città o l'area (ad esempio, stato/provincia) da cui ha avuto origine una richiesta non può essere determinata, verrà indicata come sconosciuta. Se il paese/area geografica è sconosciuto, verranno visualizzati due punti interrogativi (ad esempio, ??).
-* Un report può includere le metriche per l'area "Europa" o "Asia/Pacifico". Tali elementi non servono a offrire informazioni statistiche su tutti gli indirizzi IP in tali aree, Piuttosto, si applicano solo alle richieste provenienti da indirizzi IP distribuiti in Europa o Asia/Pacifico anziché a una città o un paese/area geografica specifica.
+* La descrizione comando per il rapporto città principali identifica una città in base al nome, allo stato/provincia e all'abbreviazione del paese/area geografica.
+* Se la città o l'area (ad esempio, stato/provincia) da cui ha avuto origine una richiesta non può essere determinata, verrà indicata come sconosciuta. Se il paese/area geografica è sconosciuto, verranno visualizzati due punti interrogativi (ad esempio,??).
+* Un report può includere le metriche per l'area "Europa" o "Asia/Pacifico". Tali elementi non servono a offrire informazioni statistiche su tutti gli indirizzi IP in tali aree, Ma si applicano solo alle richieste che hanno origine da indirizzi IP distribuiti in Europa o in Asia/Pacifico anziché in una città o in un paese specifico.
 
 I dati usati per generare il grafico a barre possono essere visualizzati sotto il grafico stesso, dove saranno indicati il numero totale di riscontri, la percentuale di riscontri, la quantità di dati trasferiti (in gigabyte) e la percentuale di dati trasferiti per le prime 250 aree. Visualizzare una descrizione per ogni metrica.
 
@@ -74,7 +74,7 @@ Per entrambi i tipi di report seguenti viene fornita una breve descrizione.
 | Nome del report | Descrizione |
 | --- | --- |
 | Città principali |Questo report classifica le città in base al numero di riscontri originati da una determinata area. |
-| Paesi principali |Questo rapporto classifica i paesi/aree geografiche in base al numero di riscontri originati da tale paese/area geografica. |
+| Paesi principali |Questo report classifica i paesi/aree geografiche in base al numero di riscontri originati da tale paese/area geografica. |
 
 ## <a name="daily-summary"></a>Riepilogo giornaliero
 Il report Riepilogo giornaliero consente di visualizzare il numero totale di riscontri e i dati trasferiti ogni giorno su una determinata piattaforma. Queste informazioni possono essere usate per individuare velocemente gli schemi di attività della rete CDN. Questo report, ad esempio, consente di rilevare in quali giorni il traffico è stato superiore o inferiore al previsto.
@@ -199,8 +199,8 @@ Il lato sinistro del grafico (asse y) indica il nome file per ognuno dei primi 1
 
 Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per i primi 250 asset richiesti: il percorso relativo (incluso il nome file), il numero di richieste che hanno restituito un codice di stato 404 Non trovato, il numero totale di volte in cui l'asset è stato richiesto e la percentuale di richieste che hanno restituito un codice di stato 404 Non trovato.
 
-## <a name="see-also"></a>Vedere anche
-* [Panoramica della rete CDN di AzureAzure CDN Overview](cdn-overview.md)
+## <a name="see-also"></a>Vedi anche
+* [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
 * [Analizzare delle prestazioni edge](cdn-edge-performance.md)

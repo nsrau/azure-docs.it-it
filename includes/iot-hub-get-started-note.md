@@ -12,4 +12,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180256"
 ---
 > [!NOTE]
-> Prima di iniziare questo tutorial, completare il simulatore online tutorial [Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md) o uno dei tutorial del dispositivo; ad esempio, [Raspberry Pi con node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md). In questi articoli si configura il dispositivo IoT di Azure e l'hub IoT e si distribuisce un'applicazione di esempio per l'esecuzione nel dispositivo. L'applicazione invia i dati del sensore raccolti all'hub IoT.
+> Prima di iniziare questa esercitazione, completare l'esercitazione del [simulatore online Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md) o una delle esercitazioni sui dispositivi; ad esempio, [Raspberry Pi con node. js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md). In questi articoli si configurano il dispositivo e l'hub di Azure e si distribuisce un'applicazione di esempio da eseguire nel dispositivo. L'applicazione invia i dati del sensore raccolti all'hub IoT.

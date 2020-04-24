@@ -12,6 +12,6 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180677"
 ---
 1. Accedere al server di elaborazione come amministratore.
-2. Scaricare la versione più recente del programma di [installazione dell'installazione unificata](https://aka.ms/unifiedinstaller).
+2. Scaricare la versione più recente del programma di installazione di [configurazione unificata](https://aka.ms/unifiedinstaller).
 3. Fare doppio clic sul programma di installazione per avviare il processo di aggiornamento.
 4. Il programma di installazione rileva i componenti di Site Recovery installati e li aggiorna alla versione più recente.

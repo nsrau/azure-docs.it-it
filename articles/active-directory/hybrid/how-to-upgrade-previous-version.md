@@ -27,7 +27,7 @@ ms.locfileid: "60347692"
 Questo argomento descrive i diversi metodi che è possibile usare per aggiornare l'installazione di Azure Active Directory (Azure AD) Connect alla versione più recente. È consigliabile mantenersi sempre al passo con le versioni di Azure AD Connect. È anche possibile usare le procedure illustrate nella sezione [Migrazione swing](#swing-migration), che consentono di apportare modifiche significative alla configurazione.
 
 >[!NOTE]
-> È attualmente supportato per l'aggiornamento da qualsiasi versione di Azure AD Connect alla versione corrente. Gli aggiornamenti sul posto di DirSync o ADSync non sono supportati ed è necessaria una migrazione swing.  Se si vuole eseguire l'aggiornamento da DirSync, vedere Eseguire l'aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync) o la sezione Migrazione Swing.If you want to upgrade from DirSync, see [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md) or the [Swing migration](#swing-migration) section.  </br>In practice, customers on extremely old versions may encounter problems not directly related to Azure AD Connect. I server che sono stati in produzione per diversi anni, in genere hanno avuto diverse patch applicate a loro e non tutti questi possono essere presi in considerazione.  In generale, i clienti che non hanno effettuato l'aggiornamento in 12-18 mesi dovrebbero considerare invece un aggiornamento swing in quanto questa è l'opzione più conservativa e meno rischiosa.
+> Attualmente è supportato l'aggiornamento da qualsiasi versione di Azure AD Connect alla versione corrente. Gli aggiornamenti sul posto di DirSync o ADSync non sono supportati ed è necessaria una migrazione swing.  Se si vuole eseguire l'aggiornamento da DirSync, vedere [eseguire l'aggiornamento dallo strumento di sincronizzazione Azure ad (dirsync)](how-to-dirsync-upgrade-get-started.md) o dalla sezione [migrazione swing](#swing-migration) .  </br>In pratica, i clienti con versioni molto vecchie potrebbero riscontrare problemi non direttamente correlati a Azure AD Connect. I server che sono stati in produzione per diversi anni, in genere hanno applicato diverse patch e non tutti questi possono essere considerati.  In genere, i clienti che non hanno eseguito l'aggiornamento in 12-18 mesi devono considerare un aggiornamento swing, in quanto si tratta dell'opzione più conservativa e meno rischiosa.
 
 Se si vuole eseguire l'aggiornamento da DirSync, vedere invece l'argomento relativo all'[aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) .
 
@@ -42,7 +42,7 @@ Esistono diverse strategie per eseguire l'aggiornamento di Azure AD Connect.
 Per informazioni sulle autorizzazioni, vedere le [autorizzazioni necessarie per un aggiornamento](reference-connect-accounts-permissions.md#upgrade).
 
 > [!NOTE]
-> Dopo aver abilitato il nuovo server Azure AD Connect per avviare la sincronizzazione delle modifiche ad Azure AD, non è necessario eseguire il rollback all'uso di DirSync o della sincronizzazione di Azure AD. Il downgrade da Azure AD Connect ai client legacy, inclusi DirSync e Azure AD Sync, non è supportato e può causare problemi come la perdita di dati in Azure AD.
+> Dopo aver abilitato il nuovo server Azure AD Connect per avviare la sincronizzazione delle modifiche Azure AD, non è necessario eseguire il rollback all'uso di DirSync o Azure AD Sync. Il downgrade da Azure AD Connect ai client legacy, inclusi DirSync e Azure AD Sync, non è supportato e può causare problemi come la perdita di dati in Azure AD.
 
 ## <a name="in-place-upgrade"></a>Aggiornamento sul posto
 Un aggiornamento sul posto è indicato per il passaggio da Azure AD Sync o Azure AD Connect. Non è possibile usarlo per lo spostamento da DirSync o per una soluzione con Forefront Identity Manager (FIM) e Azure AD Connect.
@@ -93,7 +93,7 @@ Se sono state apportate modifiche di configurazione al server attivo, è necessa
 Per spostare le regole di sincronizzazione personalizzate, seguire questa procedura:
 
 1. Aprire l' **editor delle regole di sincronizzazione** nel server attivo.
-2. Selezionare una regola personalizzata. Fare clic su **Esporta**. Viene visualizzata una finestra del Blocco note. Salvare il file temporaneo con estensione ps1. In questo modo diventa uno script PowerShell. Copiare il file con estensione PS1 nel server di staging.  
+2. Selezionare una regola personalizzata. Fare clic su **esportare**. Viene visualizzata una finestra del Blocco note. Salvare il file temporaneo con estensione ps1. In questo modo diventa uno script PowerShell. Copiare il file con estensione PS1 nel server di staging.  
    ![Esportazione delle regole di sincronizzazione](./media/how-to-upgrade-previous-version/exportrule.png)
 3. Il GUID del connettore è diverso nel server di staging e deve essere modificato. Per ottenere il GUID, avviare l'**editor di sincronizzazione delle regole**, selezionare una delle regole predefinite che rappresentano lo stesso sistema connesso e fare clic sul pulsante per l'**esportazione**. Sostituire il GUID nel file con estensione ps1 con il GUID del server di gestione temporanea.
 4. In un prompt dei comandi di PowerShell eseguire il file con estensione ps1. In questo modo viene creata la regola di sincronizzazione personalizzata nel server di staging.
@@ -168,4 +168,4 @@ Se si desidera installare una versione più recente di Azure AD Connect: chiuder
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni [sull'integrazione delle identità locali con Azure Active Directory.](whatis-hybrid-identity.md)
+Altre informazioni sull' [integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

@@ -50,7 +50,7 @@ ms.locfileid: "75750694"
    * Metodi diretti  
    * Traccia distribuita (anteprima)
    * Configurazioni
-   * Flussi di dispositivi
+   * Flussi del dispositivo
    * Metriche del dispositivo
 
 6. Salvare le nuove impostazioni. 

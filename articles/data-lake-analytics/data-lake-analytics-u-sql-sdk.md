@@ -1,5 +1,5 @@
 ---
-title: Eseguire i processi U-SQL in locale - Azure Data Lake U-SQL SDKRun U-SQL jobs locally - Azure Data Lake U-SQL SDK
+title: Eseguire processi U-SQL in locale-Azure Data Lake SDK U-SQL
 description: Informazioni su come eseguire e testare i processi di U-SQL locali con la riga di comando e le interfacce di programmazione nella workstation locale.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -23,7 +23,7 @@ Per capire come eseguire in locale manualmente ed eseguire il debug di uno scrip
 
 ## <a name="install-azure-data-lake-u-sql-sdk"></a>Installare l'SDK U-SQL di Azure Data Lake
 
-È possibile ottenere Azure Data Lake U-SQL SDK [qui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) su Nuget.org. E prima di utilizzarlo, è necessario assicurarsi di avere dipendenze come segue.
+È possibile ottenere il Azure Data Lake U-SQL SDK [qui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) in NuGet.org. Prima di usarlo, è necessario assicurarsi di avere dipendenze come indicato di seguito.
 
 ### <a name="dependencies"></a>Dependencies
 
@@ -120,7 +120,7 @@ Per l'esecuzione locale di U-SQL è necessaria una radice di dati specificata co
 
     Oltre a impostare la variabile di ambiente, è possibile specificare l'argomento **-CppSDK** quando si usa la riga di comando. Questo argomento sovrascrive la variabile di ambiente CppSDK predefinita.
 
-- Impostare la variabile di ambiente **LOCALRUN_DATAROOT.**
+- Impostare la variabile di ambiente **LOCALRUN_DATAROOT** .
 
     Definire una nuova variabile di ambiente denominata **LOCALRUN_DATAROOT** che punta alla cartella data-root.
 
@@ -326,7 +326,7 @@ Di seguito è riportato il codice di esempio per il test dello script U-SQL. Per
 
 ### <a name="programming-interfaces-in-localrunhelperexe"></a>Interfacce di programmazione in LocalRunHelper.exe
 
-LocalRunHelper.exe fornisce le interfacce di programmazione per la compilazione locale U-SQL, l'esecuzione e così via. Le interfacce sono elencate come segue.
+LocalRunHelper. exe fornisce le interfacce di programmazione per la compilazione locale di U-SQL, l'esecuzione e così via. Le interfacce sono elencate come segue.
 
 **Costruttore**
 
@@ -386,7 +386,7 @@ Verificare quanto segue:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-* Per registrare le informazioni di diagnostica, vedere Accesso ai log di [diagnostica per Azure Data Lake Analytics.](data-lake-analytics-diagnostic-logs.md)
-* Per visualizzare una query più complessa, vedere Analizzare i log dei [siti Web usando Azure Data Lake Analytics.](data-lake-analytics-analyze-weblogs.md)
-* Per visualizzare i dettagli del processo, vedere Usare Job Browser e Job View per i processi di [Analisi di Azure Data Lake.](data-lake-analytics-data-lake-tools-view-jobs.md)
-* Per utilizzare la visualizzazione esecuzione dei vertici, vedere [Utilizzare la visualizzazione Esecuzione vertice in Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+* Per registrare le informazioni di diagnostica, vedere [accesso ai log di diagnostica per Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
+* Per visualizzare una query più complessa, vedere [analizzare i log dei siti Web con Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+* Per visualizzare i dettagli dei processi, vedere [usare il browser processi e la visualizzazione processi per Azure Data Lake Analytics processi](data-lake-analytics-data-lake-tools-view-jobs.md).
+* Per usare la visualizzazione esecuzioni vertici, vedere [usare la visualizzazione esecuzioni vertici in data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

@@ -117,7 +117,7 @@ Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni comple
 | Campo | Descrizione |
 | --- | --- |
 | Velocità di trasferimento |Indica la velocità media del trasferimento del contenuto dalla rete CDN a un richiedente. |
-| Duration |Indica il tempo medio, in millisecondi, necessario per distribuire un asset a un richiedente (ad esempio un Web browser). |
+| Durata |Indica il tempo medio, in millisecondi, necessario per distribuire un asset a un richiedente (ad esempio un Web browser). |
 | Velocità richieste con compressione |Indica la percentuale di riscontri distribuiti dalla rete CDN (server perimetrali) al richiedente (ad esempio un Web browser) in formato compresso. |
 | Frequenza degli errori 4xx |Indica la percentuale di riscontri che hanno generato un codice di stato 4xx. |
 | Frequenza degli errori 5xx |Indica la percentuale di riscontri che hanno generato un codice di stato 5xx. |
@@ -183,8 +183,8 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
 | Errori 502 |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno restituito un codice di risposta di tipo 502 - Gateway non valido. Un codice di risposta di tipo 502 - Gateway non valido viene restituito in caso di errore del protocollo HTTP tra un server e un proxy HTTP. Nel caso della rete CDN, un codice di risposta di tipo 502 - Gateway non valido viene in genere restituito quando un server di origine del cliente restituisce una risposta non valida a un server perimetrale. Una risposta non è valida se non può essere analizzata o se è incompleta. |
 | Errori 5xx |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta incluso nell'intervallo 500.  I codici di risposta di tipo 502 - Gateway non valido e 504 - Timeout gateway sono esclusi da questo report. |
 
-## <a name="see-also"></a>Vedere anche
-* [Panoramica della rete CDN di AzureAzure CDN Overview](cdn-overview.md)
+## <a name="see-also"></a>Vedi anche
+* [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
 * [Report HTTP avanzati](cdn-advanced-http-reports.md)

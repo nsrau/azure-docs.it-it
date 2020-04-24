@@ -14,4 +14,4 @@ ms.locfileid: "67180665"
 ## <a name="availability"></a>Disponibilità
 
 > [!IMPORTANT]
-> Questa funzionalità è disponibile nei livelli **Premium** e **Developer** di Gestione API.
+> Questa funzionalità è disponibile nei livelli **Premium** e **Developer** di gestione API.

@@ -15,7 +15,7 @@ ms.locfileid: "67180825"
 > * [Azure Active Directory](../articles/app-service/configure-authentication-provider-aad.md)
 > * [Facebook](../articles/app-service/configure-authentication-provider-facebook.md)
 > * [Google](../articles/app-service/configure-authentication-provider-google.md)
-> * [Account Microsoft](../articles/app-service/configure-authentication-provider-microsoft.md)
+> * [account Microsoft](../articles/app-service/configure-authentication-provider-microsoft.md)
 > * [Twitter](../articles/app-service/configure-authentication-provider-twitter.md)
 > 
 > 

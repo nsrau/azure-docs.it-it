@@ -1,6 +1,6 @@
 ---
-title: Estensione della subnet in Azure . Documenti Microsoft
-description: Informazioni sull'estensione della subnet in Azure.Learn about subnet extension in Azure.
+title: Estensione della subnet in Azure | Microsoft Docs
+description: Informazioni sull'estensione della subnet in Azure.
 services: virtual-network
 documentationcenter: na
 author: anupam-p
@@ -23,34 +23,34 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "73587511"
 ---
 # <a name="subnet-extension"></a>Estensione della subnet
-La migrazione del carico di lavoro al cloud pubblico richiede un'attenta pianificazione e coordinamento. Una delle considerazioni chiave può essere la possibilità di mantenere i tuoi indirizzi IP. Che può essere importante soprattutto se le applicazioni hanno dipendenza di indirizzo IP o si dispone di requisiti di conformità per utilizzare indirizzi IP specifici. Rete virtuale di Azure risolve questo problema automaticamente consentendo di creare rete virtuale e subnet utilizzando un intervallo di indirizzi IP di propria scelta.
+La migrazione del carico di lavoro al cloud pubblico richiede un'attenta pianificazione e coordinamento. Una delle considerazioni principali può essere la possibilità di mantenere gli indirizzi IP. Ciò può essere importante soprattutto se le applicazioni hanno una dipendenza di indirizzi IP o se sono presenti requisiti di conformità per l'uso di indirizzi IP specifici. Rete virtuale di Azure risolve questo problema consentendo di creare VNet e subnet usando un intervallo di indirizzi IP di propria scelta.
 
-Le migrazioni possono diventare un po' impegnative quando il requisito precedente è associato a un requisito aggiuntivo per mantenere alcune applicazioni in locale. In questo caso, ad esempio una situazione, è necessario dividere le applicazioni tra Azure e locale, senza rinumerare gli indirizzi IP su entrambi i lati. Inoltre, è necessario consentire alle applicazioni di comunicare come se si trovassero nella stessa rete.
+Le migrazioni possono risultare difficoltose quando il requisito precedente è associato a un requisito aggiuntivo per la conservazione di alcune applicazioni locali. In una situazione di questo tipo, è necessario suddividere le applicazioni tra Azure e l'ambiente locale, senza rinumerare gli indirizzi IP su entrambi i lati. Inoltre, sarà necessario consentire alle applicazioni di comunicare come se si trovassero nella stessa rete.
 
-Una soluzione al problema precedente è l'estensione della subnet. L'estensione di una rete consente alle applicazioni di comunicare sullo stesso dominio di trasmissione quando esistono in posizioni fisiche diverse, eliminando la necessità di riprogettare la topologia di rete. 
+Una soluzione al problema precedente è l'estensione della subnet. L'estensione di una rete consente alle applicazioni di comunicare sullo stesso dominio broadcast quando si trovano in posizioni fisiche diverse, eliminando la necessità di riprogettare la topologia di rete. 
 
-Anche se l'estensione della rete non è una buona pratica in generale, i casi d'uso riportati di seguito possono renderla necessaria.
+Mentre l'estensione della rete non è una procedura consigliata in generale, i casi d'uso possono essere necessari.
 
-- **Migrazione in più fasi:** lo scenario più comune è quello di voler eseguire una fase della migrazione. Si vuole portare alcune applicazioni prima e nel tempo eseguire la migrazione di resto delle applicazioni in Azure.You want to bring a few applications first and over time migrate rest of the applications to Azure.
-- **Latenza :** I requisiti di latenza bassa possono essere un altro motivo per mantenere alcune applicazioni in locale per garantire che siano il più vicino possibile al data center.
-- **Conformità**: Un altro caso d'uso è che si potrebbero avere requisiti di conformità per mantenere alcune delle applicazioni in locale.
+- **Migrazione**in più fasi: lo scenario più comune è che si vuole eseguire una fase della migrazione. Si desidera trasferire prima alcune applicazioni e nel tempo eseguire la migrazione di altre applicazioni in Azure.
+- **Latenza**: i requisiti di bassa latenza possono essere un altro motivo per mantenere alcune applicazioni in locale per assicurarsi che siano il più vicino possibile al proprio Data Center.
+- **Conformità**: un altro caso di utilizzo è che potrebbero essere presenti requisiti di conformità per la conservazione di alcune applicazioni locali.
  
 > [!NOTE] 
-> È consigliabile non estendere le subnet a meno che non sia necessario. Nei casi in cui si estendono le subnet, è consigliabile provare a renderlo un passaggio intermedio. Con il tempo, è consigliabile provare a rinumerare le applicazioni nella rete locale ed eseguirne la migrazione in Azure.With time, you should try re-num-number applications in your on-premises network and migrate them to Azure.
+> Non è necessario estendere le subnet a meno che non sia necessario. Nei casi in cui si estendono le subnet, è consigliabile provare a impostarlo come passaggio intermedio. Con il tempo, è consigliabile provare a rinumerare le applicazioni nella rete locale ed eseguirne la migrazione in Azure.
 
-In the next section, we'll discuss how you can extend your subnets into Azure.
+Nella sezione successiva verrà illustrato come è possibile estendere le subnet in Azure.
 
 
-## <a name="extend-your-subnet-to-azure"></a>Estendere la subnet ad AzureExtend your subnet to Azure
- È possibile estendere le subnet locali ad Azure usando una soluzione basata su rete overlay di livello 3.You can extend your on-premises subnets to Azure using a layer-3 overlay network based solution. La maggior parte delle soluzioni utilizza una tecnologia di overlay come VXLAN per estendere la rete layer-2 utilizzando una rete overlay di livello 3. Il diagramma seguente mostra una soluzione generalizzata. In questa soluzione, la stessa subnet esiste su entrambi i lati, ovvero Azure e locale. 
+## <a name="extend-your-subnet-to-azure"></a>Estendi la tua subnet ad Azure
+ È possibile estendere le subnet locali in Azure usando una soluzione basata sulla rete sovrapposta di livello 3. La maggior parte delle soluzioni usa una tecnologia di sovrapposizione, ad esempio VXLAN, per estendere la rete di livello 2 usando una rete sovrapposta di livello 3. Il diagramma seguente illustra una soluzione generalizzata. In questa soluzione, la stessa subnet esiste su entrambi i lati, ovvero Azure e in locale. 
 
-![Esempio di estensione subnetSubnet Extension Example](./media/subnet-extension/subnet-extension.png)
+![Esempio di estensione della subnet](./media/subnet-extension/subnet-extension.png)
 
-Gli indirizzi IP della subnet vengono assegnati alle macchine virtuali in Azure e in locale. Sia Azure che in locale hanno un'nVA inserita nelle reti. Quando una macchina virtuale in Azure tenta di comunicare con una macchina virtuale nella rete locale, l'infrastruttura NVA di Azure acquisisce il pacchetto, lo incapsula e lo invia tramite VPN/Express Route alla rete locale. L'nVA locale riceve il pacchetto, lo decapsula e lo inoltra al destinatario desiderato nella rete. Il traffico restituito utilizza un percorso e una logica simili.
+Gli indirizzi IP dalla subnet vengono assegnati alle macchine virtuali in Azure e in locale. In Azure e in locale è stato inserito un appliance virtuale di rete. Quando una macchina virtuale in Azure prova a comunicare con una macchina virtuale in una rete locale, l'appliance virtuale di Azure acquisisce il pacchetto, lo incapsula e lo invia tramite VPN/Express route alla rete locale. L'appliance virtuale di rete locale riceve il pacchetto, lo decapsulates e lo inoltra al destinatario previsto nella propria rete. Il traffico di ritorno usa un percorso e una logica simili.
 
-Nell'esempio precedente, l'infrastruttura di rete di Azure e l'infrastruttura di rete locale comunicano e apprendono gli indirizzi IP uno dietro l'altro. Reti più complesse possono anche avere un servizio di mappatura, che mantiene il mapping tra le nVA e gli indirizzi IP dietro di loro. Quando un'nVA riceve un pacchetto, interroga il servizio di mapping per individuare l'indirizzo dell'nVA che contiene l'indirizzo IP di destinazione.
+Nell'esempio precedente, l'appliance virtuale di Azure e l'appliance virtuale locale comunicano e apprenderanno informazioni sugli indirizzi IP. Reti più complesse possono anche avere un servizio di mapping, che mantiene il mapping tra appliance virtuali e gli indirizzi IP sottostanti. Quando un appliance virtuale di virtualizzazione riceve un pacchetto, esegue una query sul servizio di mapping per trovare l'indirizzo dell'appliance virtuale di dispositivo con l'indirizzo IP di destinazione sottostante.
 
-In the next section, you'll find details on subnet extension solutions we've tested on Azure.
+Nella sezione successiva sono disponibili informazioni dettagliate sulle soluzioni di estensione della subnet testate in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi 
-[Estendere la subnet ad Azure usando le soluzioni dei fornitori.](https://github.com/microsoft/Azure-LISP)
+[Estendi la tua subnet ad Azure usando le soluzioni del fornitore.](https://github.com/microsoft/Azure-LISP)

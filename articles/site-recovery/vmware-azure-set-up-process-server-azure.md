@@ -1,5 +1,5 @@
 ---
-title: Configurare un server di elaborazione VMware/failback fisico in Azure Site RecoverySet up a process server VMware/physical failback in Azure Site Recovery
+title: Configurare un failback del server di elaborazione VMware/fisico in Azure Site Recovery
 description: Questo articolo descrive come configurare un server di elaborazione in Azure per eseguire il failback di macchine virtuali di Azure in VMware.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -28,7 +28,7 @@ Per altre informazioni, vedere il processo di [riprotezione](vmware-azure-reprot
 
 ## <a name="deploy-a-process-server-in-azure"></a>Distribuire un server di elaborazione in Azure
 
-1. Nell'insieme di > Server > **di configurazione** **dell'infrastruttura**> **Manage**di ripristino del sito selezionare il server di configurazione.
+1. Nell'insieme di credenziali > **Site Recovery infrastruttura**> **Gestisci** > **server di configurazione**selezionare il server di configurazione.
 2. Nella pagina del server fare clic su **+ Server di elaborazione**
 3. Nella pagina **Aggiungere il server di elaborazione** selezionare di distribuire il server di elaborazione in Azure.
 4. Specificare le impostazioni di Azure, tra cui la sottoscrizione usata per il failover, un gruppo di risorse, l'area di Azure usata per il failover e la rete virtuale in cui si trovano le macchine virtuali di Azure. Se si usano più reti di Azure, è necessario un server di elaborazione in ciascuna di esse.
@@ -37,7 +37,7 @@ Per altre informazioni, vedere il processo di [riprotezione](vmware-azure-reprot
 
 4. In **Nome server**, **Nome utente**e **Password** specificare un nome per il server di elaborazione e le credenziali a cui verranno assegnate le autorizzazioni di amministrazione sul server.
 5. Specificare un account di archiviazione da usare per i dischi della macchina virtuale del server, la subnet in cui la macchina virtuale del server di elaborazione sarà disponibile e l'indirizzo IP del server che verrà assegnato all'avvio della macchina virtuale.
-6. Fare clic sul pulsante **OK** per avviare la distribuzione della macchina virtuale del server di elaborazione. Il server di elaborazione verrà distribuito in Standard_A8_v2 SKU. Verificare che questo SKU della macchina virtuale sia disponibile per la sottoscrizione.
+6. Fare clic sul pulsante **OK** per avviare la distribuzione della macchina virtuale del server di elaborazione. Il server di elaborazione verrà distribuito in Standard_A8_v2 SKU. Assicurarsi che lo SKU della macchina virtuale sia disponibile per la sottoscrizione.
 
 >
 

@@ -24,7 +24,7 @@ Nel portale di Azure è possibile visualizzare lo stato della connessione di un 
     ![Sito locale](./media/vpn-gateway-verify-connection-azureportal-classic/localsitename.png "sito locale")
 4. Nel pannello **Connessioni VPN da sito a sito** visualizzare le informazioni sul sito.
 
-    ![Stato della connessione](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Stato della connessione")
+    ![Stato connessione](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Stato della connessione")
 5. Per visualizzare altre informazioni sulla connessione, fare clic sul nome della connessione per aprire il pannello **Connessione VPN da sito a sito**.
 
-    ![Stato della connessione altro](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Stato della connessione Ulteriori informazioni")
+    ![Stato connessione altro](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Ulteriori informazioni sullo stato della connessione")

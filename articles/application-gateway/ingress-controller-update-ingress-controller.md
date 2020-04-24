@@ -1,6 +1,6 @@
 ---
-title: Aggiornare il controller in ingresso con Helm
-description: In questo articolo vengono fornite informazioni su come aggiornare un ingresso del gateway applicazione tramite Helm.This article provides information on how to upgrade an Application Gateway Ingress using Helm.
+title: Aggiornare il controller di ingresso con Helm
+description: Questo articolo fornisce informazioni su come aggiornare il traffico in ingresso di un gateway applicazione usando Helm.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -16,11 +16,11 @@ ms.locfileid: "73795896"
 ---
 # <a name="how-to-upgrade-application-gateway-ingress-controller-using-helm"></a>Come aggiornare il controller di ingresso del gateway applicazione usando Helm 
 
-Il controller di ingresso del gateway applicazione di Azure per Kubernetes (AGIC) può essere aggiornato usando un repository Helm ospitato in Archiviazione di Azure.The Azure Application Gateway Ingress Controller for Kubernetes (AGIC) can be upgraded using a Helm repository hosted on Azure Storage.
+È possibile aggiornare il controller di ingresso applicazione Azure gateway per Kubernetes (AGIC) usando un repository Helm ospitato in archiviazione di Azure.
 
-Prima di iniziare la procedura di aggiornamento, assicurarsi di aver aggiunto il repository richiesto:
+Prima di iniziare la procedura di aggiornamento, verificare di aver aggiunto il repository necessario:
 
-- Visualizza i repository Helm attualmente aggiunti con:
+- Visualizzare i repository Helm attualmente aggiunti con:
 
     ```bash
     helm repo list
@@ -34,15 +34,15 @@ Prima di iniziare la procedura di aggiornamento, assicurarsi di aver aggiunto il
         https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     ```
 
-## <a name="upgrade"></a>Aggiornamento
+## <a name="upgrade"></a>Aggiornamento di versione/Aggiornare la versione
 
-1. Aggiornare il repository AGIC Helm per ottenere la versione più recente:
+1. Aggiornare il repository Helm di AGIC per ottenere la versione più recente:
 
     ```bash
     helm repo update
     ```
 
-1. Visualizzare le versioni `application-gateway-kubernetes-ingress` disponibili del grafico:
+1. Visualizzare le `application-gateway-kubernetes-ingress` versioni disponibili del grafico:
 
     ``` bash
     helm search -l application-gateway-kubernetes-ingress
@@ -56,7 +56,7 @@ Prima di iniziare la procedura di aggiornamento, assicurarsi di aver aggiunto il
     application-gateway-kubernetes-ingress/ingress-azure    0.6.0           0.6.0           Use Azure Application Gateway as the ingress for an Azure...
     ```
 
-    L'ultima versione disponibile dall'elenco precedente è:`0.7.0-rc1`
+    La versione più recente disponibile nell'elenco precedente è la seguente:`0.7.0-rc1`
 
 1. Visualizza i grafici Helm attualmente installati:
 
@@ -71,9 +71,9 @@ Prima di iniziare la procedura di aggiornamento, assicurarsi di aver aggiunto il
     odd-billygoat   22              Fri Jun 21 15:56:06 2019        FAILED  ingress-azure-0.7.0-rc1 0.7.0-rc1       default
     ```
 
-    L'installazione del grafico Helm dalla `odd-billygoat`risposta di esempio precedente è denominata . Useremo questo nome per il resto dei comandi. Il nome di distribuzione effettivo sarà molto probabilmente diverso.
+    L'installazione del grafico Helm dalla risposta di esempio precedente è `odd-billygoat`denominata. Questo nome verrà usato per il resto dei comandi. Il nome effettivo della distribuzione è probabilmente diverso.
 
-1. Aggiornare la distribuzione di Helm a una nuova versione:
+1. Aggiornare la distribuzione Helm a una nuova versione:
 
     ```bash
     helm upgrade \
@@ -84,9 +84,9 @@ Prima di iniziare la procedura di aggiornamento, assicurarsi di aver aggiunto il
 
 ## <a name="rollback"></a>Rollback
 
-Se la distribuzione di Helm non riesce, è possibile eseguire il rollback a una versione precedente.
+Se la distribuzione Helm ha esito negativo, è possibile eseguire il rollback a una versione precedente.
 
-1. Ottenere l'ultimo numero di versione integro noto:Get the last known healthy release number:
+1. Ottenere l'ultimo numero di versione integro noto:
 
     ```bash
     helm history odd-billygoat
@@ -100,9 +100,9 @@ Se la distribuzione di Helm non riesce, è possibile eseguire il rollback a una 
     2               Fri Jun 21 15:56:06 2019        FAILED          ingress-azure-xx        xxxx
     ```
 
-    Dall'output di `helm history` esempio del comando sembra che `odd-billygoat` l'ultima distribuzione riuscita del nostro è stata la revisione`1`
+    Dall'output di esempio del `helm history` comando è simile all'ultima distribuzione riuscita della revisione was `odd-billygoat``1`
 
-1. Ripristinare l'ultima revisione riuscita:
+1. Eseguire il rollback all'ultima revisione riuscita:
 
     ```bash
     helm rollback odd-billygoat 1

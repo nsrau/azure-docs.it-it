@@ -1,5 +1,5 @@
 ---
-title: Limitare l'accesso di rete alle risorse PaaS - Interfaccia della riga di comando di AzureRestrict network access to PaaS resources - Azure CLI
+title: Limitare l'accesso di rete alle risorse PaaS-interfaccia della riga di comando di Azure
 description: In questo articolo viene descritto come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, tramite endpoint servizio di rete virtuale con l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -39,11 +39,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If]( /cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nel percorso *eastus.*
+Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
 ```azurecli-interactive
 az group create \
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Ogni gruppo di sicurezza di rete contiene diverse regole di [sicurezza predefinite.](security-overview.md#default-security-rules) La regola che segue esegue l'override di una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. L'opzione `destination-address-prefix "Internet"` nega l'accesso in uscita a tutti gli indirizzi IP pubblici. La regola precedente esegue l'override di questa regola, a causa della priorità più alta, che consente l'accesso agli indirizzi IP pubblici di Archiviazione di Azure.
+Ogni gruppo di sicurezza di rete contiene diverse [regole di sicurezza predefinite](security-overview.md#default-security-rules). La regola che segue sostituisce una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. L' `destination-address-prefix "Internet"` opzione Nega l'accesso in uscita a tutti gli indirizzi IP pubblici. La regola precedente esegue l'override di questa regola, a causa della priorità più alta, che consente l'accesso agli indirizzi IP pubblici di Archiviazione di Azure.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +137,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-La regola seguente consente il traffico SSH in ingresso nella subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. SSH è consentito alla subnet in modo che la connettività possa essere testata in un passaggio successivo.
+La regola seguente consente il traffico SSH in ingresso verso la subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. SSH è consentito alla subnet in modo che la connettività possa essere testata in un passaggio successivo.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -272,7 +272,7 @@ La creazione della VM richiede alcuni minuti. Dopo la creazione, prendere nota d
 
 ## <a name="confirm-access-to-storage-account"></a>Verificare che venga consentito l'accesso a un account di archiviazione
 
-Eseguire SSH nella VM *myVmPrivate*. Sostituire * \<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale *myVmPrivate.Replace publicIpAddress*>with the public IP address of your myVmPrivate VM.
+Eseguire SSH nella VM *myVmPrivate*. Sostituire * \<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>
@@ -316,7 +316,7 @@ Creare una directory per un punto di montaggio:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Provare a montare la condivisione file di Azure nella directory creata. Questo articolo presuppone che sia stata distribuita la versione più recente di Ubuntu. Se si usano versioni meno recenti di Ubuntu, vedere [Eseguire il montaggio in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per istruzioni aggiuntive sul montaggio di condivisioni file. Prima di eseguire il `<storage-account-name>` comando seguente, `<storage-account-key>` sostituire con il nome dell'account e con la chiave recuperata in [Creare un account di archiviazione:](#create-a-storage-account)
+Provare a montare la condivisione file di Azure nella directory creata. Questo articolo presuppone che sia stata distribuita la versione più recente di Ubuntu. Se si usano versioni meno recenti di Ubuntu, vedere [Eseguire il montaggio in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per istruzioni aggiuntive sul montaggio di condivisioni file. Prima di eseguire il comando seguente, `<storage-account-name>` sostituire con il nome dell' `<storage-account-key>` account e con la chiave recuperata in [creare un account di archiviazione](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino

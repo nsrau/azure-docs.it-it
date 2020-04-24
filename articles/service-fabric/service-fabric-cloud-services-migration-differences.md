@@ -1,5 +1,5 @@
 ---
-title: Differenze tra Servizi cloud e Service Fabric
+title: Differenze tra servizi cloud e Service Fabric
 description: Panoramica concettuale per la migrazione di applicazioni da Servizi cloud a Service Fabric.
 author: vturecek
 ms.topic: conceptual
@@ -81,22 +81,22 @@ Lo stesso modello di comunicazione può essere usato in Service Fabric. Può ess
 ![Comunicazione diretta di Service Fabric][8]
 
 ## <a name="parity"></a>Parity
-[Servizi cloud è simile a Service Fabric in grado di controllo rispetto alla facilità d'uso, ma ora è un servizio legacy e Service Fabric è consigliato per il nuovo sviluppo.](https://docs.microsoft.com/azure/app-service/overview-compare) di seguito è riportato un confronto API:
+I [servizi cloud sono simili a Service fabric in grado di controllare rispetto alla semplicità d'uso, ma ora è un servizio legacy e Service Fabric è consigliato per il nuovo sviluppo](https://docs.microsoft.com/azure/app-service/overview-compare); di seguito è riportato un confronto tra API:
 
 
-| **API del servizio cloud** | **API dell'infrastruttura di servizioService Fabric API** | **Note** |
+| **API del servizio cloud** | **API Service Fabric** | **Note** |
 | --- | --- | --- |
-| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId o . Nodename | ID è una proprietà di NodeName |
-| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrare in base a NodeName e utilizzare la proprietà FDFilter on NodeName and use FD Property |
-| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrare in base a NodeName e utilizzare la proprietà Upgrade |
-| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext o denominazione (ResolveService) | CodePackageActivationContext fornito sia da FabricRuntime.GetActivationContext che all'interno delle repliche tramite ServiceInitializationParameters.CodePackageActivationContext fornito durante . Inizializzare |
-| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Se si desidera eseguire lo stesso tipo di filtro in base al tipo, è possibile ottenere l'elenco dei tipi di nodo dal manifesto del cluster tramite FabricClient.ClusterManager.GetClusterManifest e acquisire i tipi di ruolo/nodo da lì. |
-| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster o creare un FabricRuntime che punta a un nodo specifico | * |
-| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
-| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
-| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
-| Role.GetInstances | FabricClient.QueryManager.GetNodeList o ResolveService | * |
-| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext o denominazione (ResolveService) | * |
+| RoleInstance. GetID | FabricRuntime. GetNodeContext. NodeId o. NodeName | ID è una proprietà di nodeName |
+| RoleInstance. GetFaultDomain | FabricClient. QueryManager. getnodelist | Filtrare in nodeName e usare la proprietà FD |
+| RoleInstance. GetUpgradeDomain | FabricClient. QueryManager. getnodelist | Filtrare in nodeName e usare la proprietà upgrade |
+| RoleInstance. GetInstanceEndpoints | FabricRuntime. GetActivationContext o Naming (ResolveService) | CodePackageActivationContext fornito da FabricRuntime. GetActivationContext e all'interno delle repliche tramite ServiceInitializationParameters. CodePackageActivationContext fornito durante. Inizializzare |
+| RoleEnvironment. GetRoles | FabricClient. QueryManager. getnodelist | Se si vuole eseguire la stessa operazione di filtro in base al tipo, è possibile ottenere l'elenco dei tipi di nodo dal manifesto del cluster tramite FabricClient. ClusterManager. GetClusterManifest e acquisire i tipi di ruolo/nodo da questa posizione. |
+| RoleEnvironment. GetIsAvailable | Connect-WindowsFabricCluster o creare un FabricRuntime che punta a un nodo specifico | * |
+| RoleEnvironment. GetLocalResource | CodePackageActivationContext. log/temp/work | * |
+| RoleEnvironment. GetCurrentRoleInstance | CodePackageActivationContext. log/temp/work | * |
+| LocalResource. GetRootPath | CodePackageActivationContext. log/temp/work | * |
+| Role. GetInstances | FabricClient. QueryManager. getnodelist o ResolveService | * |
+| RoleInstanceEndpoint. GetIPEndpoint | FabricRuntime. GetActivationContext o Naming (ResolveService) | * |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Il percorso di migrazione più semplice da Servizi cloud a Service Fabric consiste nel sostituire solo la distribuzione di Servizi cloud con un'applicazione di Service Fabric, conservando approssimativamente la stessa l'architettura complessiva. L'articolo seguente fornisce una guida per convertire un ruolo di lavoro o Web in un servizio di Service Fabric senza stato.

@@ -27,9 +27,9 @@ Per altre informazioni sull'API etcd in Azure Cosmos DB, vedere l'articolo [Pano
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Installare la versione più recente [dell'interfaccia della riga](/cli/azure/install-azure-cli?view=azure-cli-latest)di comando di Azure. È possibile scaricare l'interfaccia della riga di comando di Azure specifica del sistema operativo in uso e installarla.
+1. Installare la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). È possibile scaricare l'interfaccia della riga di comando di Azure specifica del sistema operativo in uso e installarla.
 
-1. Installare la [versione più recente](https://github.com/Azure/aks-engine/releases) di Azure Kubernetes Engine. Le istruzioni di installazione per diversi sistemi operativi sono disponibili nella pagina di [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Hai solo bisogno dei passaggi dalla sezione **Installare il motore AKS** del documento collegato. Dopo il download, estrarre il file zip.
+1. Installare la [versione più recente](https://github.com/Azure/aks-engine/releases) di Azure Kubernetes Engine. Le istruzioni di installazione per diversi sistemi operativi sono disponibili nella pagina di [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Sono necessari solo i passaggi della sezione **installare il motore AKS** del documento collegato. Al termine del download, estrarre il file zip.
 
    Azure Kubernetes Engine (**aks-engine**) genera i modelli di Azure Resource Manager per i cluster Kubernetes in Azure. L'input in aks-engine è un file di definizione del cluster che descrive il cluster desiderato, inclusi agente di orchestrazione, funzionalità e agenti. La struttura dei file di input è simile all'API pubblica per Azure Kubernetes Service.
 
@@ -139,17 +139,17 @@ Per altre informazioni sull'API etcd in Azure Cosmos DB, vedere l'articolo [Pano
 
    Azure Kubernetes Engine utilizza una definizione del cluster che descrive la forma, la dimensione e la configurazione desiderata di Azure Kubernetes. Esistono numerose funzionalità che è possibile abilitare tramite la definizione del cluster. In questo esempio si useranno i parametri seguenti:
 
-   * **subscription-id:** ID sottoscrizione di Azure con L'API Azure Cosmos DB e così comanda.Azure subscription ID that has Azure Cosmos DB etcd API enabled.
-   * **id-client:** AppId dell'entità servizio. `appId` è stato restituito come output nel passaggio 4.
-   * **Segreto client:** Password dell'entità servizio o password generata casualmente. Questo valore è stato restituito come output nel parametro 'password' nel passaggio 4. 
-   * **dnsPrefix:** Un nome DNS univoco per l'area geografica. Questo valore fa parte del nome host (sono valori di esempio: myprod1, staging).
-   * **posizione:**  La posizione in cui deve essere distribuito il cluster, attualmente è supportato solo "centralus".
+   * **ID sottoscrizione:** ID sottoscrizione di Azure con Azure Cosmos DB API ETCD abilitata.
+   * **ID client:** AppId dell'entità servizio. `appId` è stato restituito come output nel passaggio 4.
+   * **Segreto client:** La password dell'entità servizio o una password generata in modo casuale. Questo valore è stato restituito come output nel parametro 'password' nel passaggio 4. 
+   * **dnsPrefix:** Nome DNS univoco dell'area. Questo valore fa parte del nome host (sono valori di esempio: myprod1, staging).
+   * **percorso:**  Il percorso in cui deve essere distribuito il cluster, attualmente è supportato solo "centralus".
 
    > [!Note]
    > L'API etcd di Azure Cosmos etcd è attualmente disponibile solo per la distribuzione nell'area "centralus". 
  
-   * **modello api:** Percorso completo del file modello.
-   * **sovrascrittura forzata:** Questa opzione viene utilizzata per sovrascrivere automaticamente i file esistenti nella directory di output.
+   * **modello API:** Percorso completo del file modello.
+   * **sovrascrittura forzata:** Questa opzione consente di sovrascrivere automaticamente i file esistenti nella directory di output.
  
    Il comando seguente illustra un esempio di distribuzione:
 

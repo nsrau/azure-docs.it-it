@@ -1,6 +1,6 @@
 ---
 title: Configurare Advanced Threat Protection
-description: Advanced Threat Protection rileva attività di database anomale che indicano potenziali minacce alla sicurezza del database in un singolo database o pool elastico.
+description: Advanced Threat Protection rileva le attività anomale del database che indicano potenziali minacce alla sicurezza per il database in un database singolo o in un pool elastico.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -17,17 +17,17 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822497"
 ---
-# <a name="azure-sql-database-advanced-threat-protection-for-single-or-pooled-databases"></a>Azure SQL Database Advanced Threat Protection per database singoli o in poolAzure SQL Database Advanced Threat Protection for single or pooled databases
+# <a name="azure-sql-database-advanced-threat-protection-for-single-or-pooled-databases"></a>Protezione avanzata dalle minacce del database SQL di Azure per database singoli o in pool
 
-[Advanced Threat Protection](sql-database-threat-detection-overview.md) per database singoli e in pool rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Advanced Threat Protection è in grado di identificare **Potential SQL injection**, Access from unusual location or data **center**, Access **from unfamiliar principal or potentially harmful application**, and **Brute force SQL credentials** - See more details in [Advanced Threat Protection alerts](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
+La [protezione avanzata dalle minacce](sql-database-threat-detection-overview.md) per database singoli e in pool rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Advanced Threat Protection è in grado di identificare **potenziali attacchi SQL injection**, **accesso da posizioni insolite o Data Center**, **accesso da un'applicazione principale o potenzialmente dannosa**e **forza bruta per le credenziali SQL** . per ulteriori informazioni, vedere gli [avvisi di Advanced Threat Protection](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
 È possibile ricevere notifiche sulle minacce rilevate tramite [posta elettronica](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) o il [portale di Azure](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)
 
-[Advanced Threat Protection](sql-database-threat-detection-overview.md) fa parte dell'offerta avanzata di sicurezza dei dati (ADS, [Advanced Data Security),](sql-database-advanced-data-security.md) che è un pacchetto unificato per le funzionalità di sicurezza SQL avanzate. È possibile accedere e gestire Advanced Threat Protection tramite il portale centrale Sicurezza dei dati avanzata di SQL.
+[Advanced Threat Protection](sql-database-threat-detection-overview.md) fa parte dell'offerta [Advanced Data Security](sql-database-advanced-data-security.md) (ADS), che è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. È possibile accedere e gestire Advanced Threat Protection tramite il portale centrale Sicurezza dei dati avanzata di SQL.
 
-## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Configurare Advanced Threat Protection nel portale di AzureSet up Advanced Threat Protection in the Azure portal
+## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Configurare Advanced Threat Protection nella portale di Azure
 
-1. Avviare il [https://portal.azure.com](https://portal.azure.com)portale di Azure all'indirizzo .
+1. Avviare il portale di Azure all' [https://portal.azure.com](https://portal.azure.com)indirizzo.
 2. Passare alla pagina di configurazione del server di database SQL di Azure che si vuole proteggere. Nelle impostazioni di sicurezza, selezionare **Sicurezza dei dati avanzata**.
 3. Nella pagina di configurazione **Sicurezza dei dati avanzata**:
 
@@ -37,17 +37,17 @@ ms.locfileid: "73822497"
    ![Configurare Advanced Threat Protection](./media/sql-database-threat-detection/set_up_threat_detection.png)
 
    > [!NOTE]
-   > I prezzi nelle schermate non sempre riflettono il prezzo corrente e sono un esempio.
+   > I prezzi nelle schermate non riflettono sempre il prezzo corrente e sono un esempio.
 
 ## <a name="set-up-advanced-threat-protection-using-powershell"></a>Configurare Advanced Threat Protection tramite PowerShell
 
-Per un esempio di script, vedere [Configurare il controllo e Advanced Threat Protection tramite PowerShell.](scripts/sql-database-auditing-and-threat-detection-powershell.md)
+Per un esempio di script, vedere [configurare il controllo e la protezione avanzata dalle minacce tramite PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ulteriori informazioni su [Advanced Threat Protection](sql-database-threat-detection-overview.md).
-- Ulteriori informazioni su [Advanced Threat Protection nell'istanza gestita](sql-database-managed-instance-threat-detection.md).  
+- Altre informazioni su [Advanced Threat Protection](sql-database-threat-detection-overview.md).
+- Altre informazioni su [Advanced Threat Protection nell'istanza gestita](sql-database-managed-instance-threat-detection.md).  
 - Altre informazioni su [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md).
 - Altre informazioni su [Controllo](sql-database-auditing.md)
-- Altre informazioni sul Centro sicurezza di [AzureLearn](https://docs.microsoft.com/azure/security-center/security-center-intro) more about Azure security center
-- Per altre informazioni sui prezzi, vedere la [pagina dei prezzi del database SQLFor](https://azure.microsoft.com/pricing/details/sql-database/) more information on pricing, see the SQL Database pricing page  
+- Scopri di più sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Per ulteriori informazioni sui prezzi, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/)  

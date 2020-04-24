@@ -64,6 +64,6 @@ union
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [l'espressione dell'app](app-expression.md) per fare riferimento a un'app di Application Insights.See the app expression to refer to an Application Insights app.
+- Vedere l' [espressione app](app-expression.md) per fare riferimento a un'app Application Insights.
 - Vedere altre informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](log-query-overview.md).
 - Accedere alla documentazione completa relativa al [linguaggio di query Kusto](/azure/kusto/query/).

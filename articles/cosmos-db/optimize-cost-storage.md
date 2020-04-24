@@ -15,7 +15,7 @@ ms.locfileid: "72754951"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Ottimizzare i costi di archiviazione in Azure Cosmos DB
 
-Azure Cosmos DB offre archiviazione e velocità effettiva illimitate. A differenza della velocità effettiva, di cui è necessario effettuare il provisioning o è necessario configurare nei contenitori o database di Azure Cosmos, l'archiviazione viene fatturata in base al consumo. La fatturazione viene effettuata solo per lo spazio di archiviazione logico utilizzato e non è necessario riservare in anticipo alcuno spazio di archiviazione. L'archiviazione viene ridimensionata automaticamente verso l'alto e verso il basso in base ai dati aggiunti o rimossi in un contenitore Cosmos di Azure.Storage automatically scale up and down based on the data that add or remove to an Azure Cosmos container.
+Azure Cosmos DB offre archiviazione e velocità effettiva illimitate. A differenza della velocità effettiva, di cui è necessario effettuare il provisioning o è necessario configurare nei contenitori o database di Azure Cosmos, l'archiviazione viene fatturata in base al consumo. La fatturazione viene effettuata solo per lo spazio di archiviazione logico utilizzato e non è necessario riservare in anticipo alcuno spazio di archiviazione. L'archiviazione viene scalata automaticamente in base ai dati aggiunti o rimossi in un contenitore di Azure Cosmos.
 
 ## <a name="storage-cost"></a>Costo di archiviazione
 
@@ -39,7 +39,7 @@ Se si vogliono archiviare tipi di dati multimediali avanzati, ad esempio video, 
 
 ## <a name="check-storage-consumed"></a>Controllare lo spazio di archiviazione utilizzato
 
-Per controllare lo spazio di archiviazione utilizzato da un contenitore di Azure Cosmos, è possibile eseguire una richiesta HEAD o GET per il contenitore e controllare le intestazioni `x-ms-request-quota` e `x-ms-request-usage`. In alternativa, quando si utilizza .NET SDK, è possibile utilizzare le proprietà [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) per ottenere lo spazio di archiviazione utilizzato.
+Per controllare lo spazio di archiviazione utilizzato da un contenitore di Azure Cosmos, è possibile eseguire una richiesta HEAD o GET per il contenitore e controllare le intestazioni `x-ms-request-quota` e `x-ms-request-usage`. In alternativa, quando si usa .NET SDK, è possibile usare le proprietà [le](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) per ottenere lo spazio di archiviazione utilizzato.
 
 ## <a name="using-sdk"></a>Uso dell'SDK
 

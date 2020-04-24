@@ -1,6 +1,6 @@
 ---
-title: Cmdlet di Azure AD PowerShell per la creazione di report Documenti Microsoft
-description: Riferimento dei cmdlet di Azure AD PowerShell per la creazione di report.
+title: Cmdlet di Azure AD PowerShell per la creazione di report | Microsoft Docs
+description: Informazioni di riferimento sui cmdlet di Azure AD PowerShell per la creazione di report.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -27,35 +27,35 @@ ms.locfileid: "75495318"
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlet di Azure AD PowerShell per la creazione di report
 
 > [!NOTE] 
-> Questi cmdlet di Powershell attualmente funzionano solo con il modulo di anteprima di [Azure AD.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Si prega di notare che il modulo di anteprima non è consigliato per l'uso in produzione. 
+> Questi cmdlet di PowerShell funzionano attualmente solo con il modulo [Azure ad Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) . Si noti che il modulo di anteprima non è consigliato per l'uso in produzione. 
 
-Per installare la versione di anteprima pubblica, utilizzare quanto segue. 
+Per installare la versione di anteprima pubblica, usare il codice seguente. 
 
 ```powershell
 Install-module AzureADPreview
 ```
-Per altre informazioni su come connettersi ad Azure AD tramite Powershell, vedere l'articolo [Azure AD Powershell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Per altre informazioni su come connettersi a Azure AD tramite PowerShell, vedere l'articolo [Azure ad PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
-Con i report di Azure Active Directory (Azure AD) è possibile ottenere dettagli sulle attività relative a tutte le operazioni di scrittura nella direzione (log di controllo) e ai dati di autenticazione (log di accesso). Anche se le informazioni sono disponibili tramite l'API MS Graph, è ora possibile recuperare gli stessi dati usando i cmdlet PowerShell di Azure AD per la creazione di report.
+Con Azure Active Directory (Azure AD) report è possibile ottenere informazioni dettagliate sulle attività relative a tutte le operazioni di scrittura nella direzione (log di controllo) e i dati di autenticazione (log di accesso). Sebbene le informazioni siano disponibili tramite il API Graph MS, ora è possibile recuperare gli stessi dati utilizzando i cmdlet di Azure AD PowerShell per la creazione di report.
 
-In questo articolo viene fornita una panoramica dei cmdlet di PowerShell da utilizzare per i log di controllo e i log di accesso.
+Questo articolo fornisce una panoramica dei cmdlet di PowerShell da usare per i log di controllo e i log di accesso.
 
 ## <a name="audit-logs"></a>Log di controllo
 
-[I log](concept-audit-logs.md) di controllo forniscono la tracciabilità tramite log per tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
+I [log di controllo](concept-audit-logs.md) forniscono la tracciabilità tramite i log per tutte le modifiche apportate dalle diverse funzionalità all'interno Azure ad. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
 
-È possibile accedere ai log di controllo utilizzando il cmdlet 'Get-AzureADAuditDirectoryLogs.You get access to the audit logs using the 'Get-AzureADAuditDirectoryLogs cmdlet.
+Per ottenere l'accesso ai log di controllo, usare il cmdlet "Get-AzureADAuditDirectoryLogs".
 
 
 | Scenario                      | Comando di PowerShell |
 | :--                           | :--                |
-| Nome visualizzato dell'applicazione      | Get-AzureADAuditDirectoryLogs -Filtro "initiatedBy/app/displayName eq 'Azure AD Cloud Sync'" |
-| Category                      | Get-AzureADAuditDirectoryLogs -Filtro "categoria eq 'Gestione applicazioni'" |
-| Data attività Ora            | Get-AzureADAuditDirectoryLogs -Filtro "activityDateTime gt 2019-04-18" |
-| Tutte le precedenti              | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync' e categoria eq 'Application Management' e activityDateTime gt 2019-04-18"|
+| Nome visualizzato dell'applicazione      | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "" |
+| Category                      | Get-AzureADAuditDirectoryLogs-Filter "Category EQ ' Gestione applicazioni" |
+| Data/ora attività            | Get-AzureADAuditDirectoryLogs-Filter "activityDateTime gt 2019-04-18" |
+| Tutte le precedenti              | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "e Category EQ" Application Management "e activityDateTime gt 2019-04-18"|
 
 
-L'immagine seguente mostra un esempio per questo comando. 
+Nell'immagine seguente viene illustrato un esempio di questo comando. 
 
 ![Pulsante per il riepilogo dati](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
@@ -63,21 +63,21 @@ L'immagine seguente mostra un esempio per questo comando.
 
 ## <a name="sign-in-logs"></a>Log di accesso
 
-I log di [accesso](concept-sign-ins.md) forniscono informazioni sull'utilizzo delle applicazioni gestite e delle attività di accesso degli utenti.
+I log degli [accessi](concept-sign-ins.md) forniscono informazioni sull'utilizzo delle applicazioni gestite e delle attività di accesso degli utenti.
 
-È possibile accedere ai log di accesso utilizzando il cmdlet 'Get-AzureADAuditSignInLogs.You get access to the sign-in logs using the 'Get-AzureADAuditSignInLogs cmdlet.
+Per ottenere l'accesso ai log di accesso, usare il cmdlet ' Get-AzureADAuditSignInLogs '.
 
 
 | Scenario                      | Comando di PowerShell |
 | :--                           | :--                |
-| Nome utente visualizzato             | Get-AzureADAuditSignInLogs -Filter "userDisplayName eq 'Timothy Perkins'" |
-| Crea data ora              | Get-AzureADAuditSignInLogs -Filter "createdDateTime gt 2019-04-18T17:30:00.0" (Tutto dalle 17:30 del 4/18) |
-| Stato                        | Get-AzureADAuditSignInLogs -Filtro "stato/codiceerrore eq 50105" |
-| Nome visualizzato dell'applicazione      | Get-AzureADAuditSignInLogs -Filtro "appDisplayName eq 'StoreFrontStudio [wsfed abilitato]'" |
-| Tutte le precedenti              | Get-AzureADAuditSignInLogs -Filter "userDisplayName eq 'Timothy Perkins' e status/errorCode ne 0 e appDisplayName eq 'StoreFrontStudio [wsfed abilitato]'" |
+| Nome utente visualizzato             | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ ' Timothy Perkins '" |
+| Data/ora di creazione              | Get-AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (tutto dalle 5:30 PM su 4/18) |
+| Stato                        | Get-AzureADAuditSignInLogs-Filter "status/errorCode EQ 50105" |
+| Nome visualizzato dell'applicazione      | Get-AzureADAuditSignInLogs-Filter "appDisplayName EQ ' StoreFrontStudio [WSFED Enabled]'" |
+| Tutte le precedenti              | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ ' Timothy Perkins ' and status/errorCode ne 0 e appDisplayName EQ ' StoreFrontStudio [WSFED Enabled]'" |
 
 
-L'immagine seguente mostra un esempio per questo comando. 
+Nell'immagine seguente viene illustrato un esempio di questo comando. 
 
 ![Pulsante per il riepilogo dati](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
@@ -86,5 +86,5 @@ L'immagine seguente mostra un esempio per questo comando.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica dei report di Azure AD](overview-reports.md).
-- [Report dei registri di controllo](concept-audit-logs.md). 
+- [Report log di controllo](concept-audit-logs.md). 
 - [Accesso programmatico ai report di Azure AD](concept-reporting-api.md)

@@ -16,4 +16,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "70050275"
 ---
 >[!NOTE]
->Alcune delle funzionalità menzionate in questo articolo, come la messaggistica da cloud a dispositivo, i dispositivi gemelli e la gestione dei dispositivi, sono disponibili solo nel livello standard dell'hub IoT.Some of the features mentioned in this article, like cloud-to-device messaging, device twins, and device management, are only available in the standard tier of IoT Hub. Per altre informazioni sui livelli Basic e Standard dell'hub IoT, vedere [come scegliere il livello corretto dell'hub IoT](../articles/iot-hub/iot-hub-scaling.md).
+>Alcune delle funzionalità descritte in questo articolo, come la messaggistica da cloud a dispositivo, i dispositivi gemelli e la gestione dei dispositivi, sono disponibili solo nel livello standard dell'hub Internet. Per altre informazioni sui livelli Basic e Standard dell'hub IoT, vedere [come scegliere il livello corretto dell'hub IoT](../articles/iot-hub/iot-hub-scaling.md).

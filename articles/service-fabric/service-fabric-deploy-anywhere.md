@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei cluster di Azure e Di Service Fabric autonomiOverview of Azure and standalone Service Fabric clusters
+title: Panoramica dei cluster di Azure e Service Fabric autonomo
 description: È possibile creare cluster di Service Fabric in qualsiasi macchina virtuale o computer con Windows Server o Linux. È quindi possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente in cui è presente un set di computer Windows Server o Linux interconnessi, in locale, in Microsoft Azure o con qualsiasi provider di cloud.
 author: dkkapur
 ms.topic: conceptual
@@ -27,7 +27,7 @@ Per semplificare e rendere più affidabili le operazioni e la gestione del clust
 * **Gestione risorse di Azure:** l'uso di Gestione risorse di Azure consente di gestire facilmente tutte le risorse usate dal cluster come singola unità e semplifica il tracciamento dei costi e la fatturazione.
 * **Cluster di Service Fabric come risorsa di Azure:** un cluster di Service Fabric è una risorsa di Azure, quindi è possibile modellarla in modo analogo alle altre risorse in Azure.
 * **Integrazione con l'infrastruttura di Azure** Service Fabric si coordina con l'infrastruttura di Azure per il sistema operativo, la rete e altri aggiornamenti, in modo da migliorare la disponibilità e l'affidabilità delle applicazioni.  
-* **Diagnostica:** In Azure forniamo l'integrazione con la diagnostica di Azure e i log di Monitoraggio di Azure.On Azure, we provide integration with Azure diagnostics and Azure Monitor logs.
+* **Diagnostica:** In Azure viene fornita l'integrazione con diagnostica di Azure e i log di monitoraggio di Azure.
 * **Ridimensionamento automatico:** per i cluster in Azure è disponibile la funzionalità predefinita di ridimensionamento automatico, grazie a set di ridimensionamento delle macchine virtuali. In locale e in altri ambienti cloud è necessario sviluppare una funzionalità di ridimensionamento automatico specifica oppure ridimensionare manualmente usando le API esposte da Service Fabric per il ridimensionamento dei cluster.
 
 ## <a name="benefits-of-standalone-clusters"></a>Vantaggi dei cluster autonomi
@@ -43,4 +43,4 @@ Per semplificare e rendere più affidabili le operazioni e la gestione del clust
 
 * Leggere la panoramica dei [cluster di Service Fabric in Azure](service-fabric-azure-clusters-overview.md)
 * Leggere la panoramica dei [cluster di Service Fabric autonomi](service-fabric-standalone-clusters-overview.md)
-* Informazioni sulle opzioni di supporto di [Service Fabric](service-fabric-support.md)
+* Informazioni sulle [Opzioni di supporto Service Fabric](service-fabric-support.md)

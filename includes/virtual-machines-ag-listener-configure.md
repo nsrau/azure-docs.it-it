@@ -28,7 +28,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
 
     a. Espandere il nome del cluster, quindi fare clic su **Ruoli**.
 
-    b. Nel riquadro **Ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi **scegliere Aggiungi** > punto di**accesso client**risorsa .
+    b. Nel riquadro **ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi scegliere **Aggiungi risorsa** > **punto di accesso client**.
 
    ![Punto di accesso client](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
@@ -56,7 +56,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-1. <a name = "dependencyGroup"></a>Rendere la risorsa del gruppo di disponibilità di SQL Server dipendente dal punto di accesso client.
+1. <a name = "dependencyGroup"></a>Rendere la risorsa del gruppo di disponibilità SQL Server dipendente dal punto di accesso client.
 
     a. In Gestione cluster di failover fare clic su **Ruoli** e quindi sul gruppo di disponibilità.
 
@@ -76,7 +76,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
 
    ![Risorsa IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Fare clic sulla scheda **Dipendenze** . Verificare che l'indirizzo IP sia una dipendenza. In caso contrario, impostare una dipendenza sull'indirizzo IP. Se sono presenti più risorse elencate, verificare che gli indirizzi abbiano le dipendenze OR, e non quelle AND. Fare clic su **OK**. 
+    c. Fare clic sulla scheda **dipendenze** . Verificare che l'indirizzo IP sia una dipendenza. In caso contrario, impostare una dipendenza sull'indirizzo IP. Se sono presenti più risorse elencate, verificare che gli indirizzi abbiano le dipendenze OR, e non quelle AND. Fare clic su **OK**. 
 
    ![Risorsa IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -84,7 +84,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
     >È possibile confermare che le dipendenze sono state configurate correttamente. In Gestione cluster di failover passare a Ruoli, fare clic con il pulsante destro del mouse sul gruppo di disponibilità, scegliere **Altre azioni** e infine fare clic su **Visualizza rapporto dipendenze**. Quando le dipendenze sono configurate correttamente, il gruppo di disponibilità dipende dal nome della rete e il nome della rete dipende dall'indirizzo IP. 
 
 
-1. <a name="setparam"></a>Impostare i parametri del cluster in PowerShell.Set the cluster parameters in PowerShell.
+1. <a name="setparam"></a>Impostare i parametri del cluster in PowerShell.
 
    a. Copiare lo script di PowerShell seguente in una delle istanze di SQL Server. Aggiornare le variabili per l'ambiente.
 
@@ -118,7 +118,7 @@ Se necessario, ripetere i passaggi precedenti per impostare i parametri del clus
 
 1. Copiare il **nome** dell'indirizzo IP. Potrebbe essere `Cluster IP Address`. 
 
-1. <a name="setwsfcparam"></a>Impostare i parametri del cluster in PowerShell.Set the cluster parameters in PowerShell.
+1. <a name="setwsfcparam"></a>Impostare i parametri del cluster in PowerShell.
   
    a. Copiare lo script di PowerShell seguente in una delle istanze di SQL Server. Aggiornare le variabili per l'ambiente.
 
@@ -140,4 +140,4 @@ Se necessario, ripetere i passaggi precedenti per impostare i parametri del clus
    b. Impostare i parametri del cluster eseguendo lo script di PowerShell in uno dei nodi del cluster.  
 
 >[!WARNING]
->La porta del probe di integrità del listener del gruppo di disponibilità deve essere diversa dalla porta del probe di integrità dell'indirizzo IP principale del cluster. In questi esempi, la porta del listener è 59999 e la porta del probe di integrità dell'indirizzo IP principale del cluster è 58888.In these examples, the listener port is 59999 and the cluster core IP address health probe port is 58888. Entrambe le porte richiedono una regola di assenso del traffico in ingresso del firewall.
+>La porta del probe di integrità del listener del gruppo di disponibilità deve essere diversa dalla porta del probe di integrità dell'indirizzo IP principale del cluster. In questi esempi, la porta del listener è 59999 e la porta Probe di integrità dell'indirizzo IP principale del cluster è 58888. Entrambe le porte richiedono una regola di assenso del traffico in ingresso del firewall.

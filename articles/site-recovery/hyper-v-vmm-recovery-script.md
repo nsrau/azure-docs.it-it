@@ -1,5 +1,5 @@
 ---
-title: Aggiungere uno script a un piano di ripristino in Azure Site RecoveryAdd a script to a recovery plan in Azure Site Recovery
+title: Aggiungere uno script a un piano di ripristino in Azure Site Recovery
 description: Informazioni su come aggiungere uno script VMM a un piano per il ripristino di emergenza di macchine virtuali Hyper-V di cloud VMM.
 author: rajani-janaki-ram
 manager: rochakm
@@ -18,7 +18,7 @@ ms.locfileid: "74084881"
 
 In questo articolo viene descritto come creare uno script di System Center Virtual Machine Manager (VMM) e aggiungerlo a un piano di ripristino in [Azure Site Recovery](site-recovery-overview.md).
 
-Pubblicare commenti o domande nella parte inferiore di questo articolo o nel forum di Servizi di ripristino di [Azure.](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+Inviare commenti o domande nella parte inferiore di questo articolo oppure nel [Forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Pubblicare commenti o domande nella parte inferiore di questo articolo o nel for
     - Se si verifica un errore, la parte rimanente dello script non viene eseguita.
     - Se si verifica un errore quando si esegue un failover non pianificato, il piano di ripristino continua.
     - Se si verifica un errore quando si esegue un failover pianificato, il piano di ripristino si interrompe. Correggere lo script, verificare che venga eseguito come previsto e quindi eseguire nuovamente il piano di ripristino.
-        - Il comando `Write-Host` non funziona nello script di un piano di ripristino. Se si usa il comando `Write-Host` in uno script, lo script non riesce. Per creare l'output, creare uno script del proxy che a sua volta esegue lo script principale. Per assicurarsi che tutto l'output ** \> ** venga reindirizzato, utilizzare il comando .
+        - Il comando `Write-Host` non funziona nello script di un piano di ripristino. Se si usa il comando `Write-Host` in uno script, lo script non riesce. Per creare l'output, creare uno script del proxy che a sua volta esegue lo script principale. Per assicurarsi che tutto l'output venga reindirizzato, usare ** \> ** il comando.
         - Lo script si interrompe se non viene restituito in 600 secondi.
         - Se viene scritto qualcosa in STDERR, lo script viene classificato come non completato. Queste informazioni vengono visualizzate nei dettagli dell'esecuzione di script.
 

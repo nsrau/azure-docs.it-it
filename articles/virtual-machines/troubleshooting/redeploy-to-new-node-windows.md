@@ -28,7 +28,7 @@ Se si stanno riscontrando difficoltà nella risoluzione dei problemi relativi a 
 
 
 ## <a name="using-azure-powershell"></a>Uso di Azure PowerShell
-Assicurarsi che sia installata la versione più recente di Azure PowerShell 1.x. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell.For](/powershell/azure/overview)more information, see How to install and configure Azure PowerShell .
+Assicurarsi che sia installata la versione più recente di Azure PowerShell 1.x. Per ulteriori informazioni, vedere [come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 L'esempio seguente distribuisce la VM denominata `myVM` nel gruppo di risorse `myResourceGroup`:
 

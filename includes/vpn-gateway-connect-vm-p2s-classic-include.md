@@ -20,7 +20,7 @@ Creare una connessione Desktop remoto per connettersi a una macchina virtuale di
 1. Individuare l'indirizzo IP privato per la VM. Per trovare l'indirizzo IP privato di una macchina virtuale, visualizzare le proprietà di tale macchina virtuale nel portale di Azure oppure usare PowerShell.
 2. Verificare di essere connessi alla rete virtuale con la connessione VPN da punto a sito. 
 3. Per aprire Connessione Desktop remoto, immettere *RDP* o *Connessione Desktop remoto* nella casella di ricerca nella barra delle applicazioni, quindi selezionare **Connessione Desktop remoto**. È anche possibile aprire con il comando **mstsc** in PowerShell. 
-3. In **Connessione desktop remoto**immettere l'indirizzo IP privato della macchina virtuale. Se necessario, selezionare **Mostra opzioni** per modificare altre impostazioni e quindi connettersi.
+3. In **Connessione desktop remoto**, immettere l'indirizzo IP privato della macchina virtuale. Se necessario, selezionare **Mostra opzioni** per modificare altre impostazioni e quindi connettersi.
 
 ### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Per risolvere i problemi di una connessione RDP a una VM
 

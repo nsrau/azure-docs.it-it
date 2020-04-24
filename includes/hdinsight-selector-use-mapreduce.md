@@ -13,9 +13,9 @@ ms.locfileid: "67180274"
 ---
 > [!div class="op_single_selector"]
 > * [Panoramica](../articles/hdinsight/hadoop/hdinsight-use-mapreduce.md)
-> * [Ssh](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh.md)
-> * [Curl](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-curl.md)
-> * [Powershell](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-powershell.md)
+> * [SSH](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh.md)
+> * [CURL](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-curl.md)
+> * [PowerShell](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-powershell.md)
 > * [.NET SDK](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md)
 > * [Desktop remoto](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md)
 > 

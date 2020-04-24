@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Events
+title: Eventi Service Fabric di Azure
 description: Informazioni sugli eventi di Service Fabric forniti automaticamente per monitorare il cluster di Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
@@ -17,7 +17,7 @@ ms.locfileid: "75451721"
 La piattaforma Service Fabric scrive diversi eventi strutturati per le attività operative chiave eseguite all'interno del cluster. Queste variano dagli aggiornamenti del cluster alle decisioni di posizionamento delle repliche. Ogni evento esposto da Service Fabric è mappato a una delle seguenti entità nel cluster:
 * Cluster
 * Applicazione
-* Service
+* Servizio
 * Partition
 * Replica 
 * Contenitore
@@ -36,7 +36,7 @@ Di seguito sono riportati alcuni esempi di scenari per cui è possibile visualiz
 ## <a name="how-to-access-events"></a>Come accedere agli eventi
 
 Esistono diversi modi tramite cui è possibile accedere agli eventi di Service Fabric:
-* Gli eventi vengono registrati tramite canali standard, ad esempio i log eventi ETW/Windows, e possono essere visualizzati da qualsiasi strumento di monitoraggio che supporta questi log di Monitoraggio di Azure.The events are logged through standard channels such as ETW/Windows Event logs and can be visualized by any monitoring tool that supports these such as Azure Monitor logs. Per impostazione predefinita, nei cluster creati nel portale è attivata la diagnostica e l'agente di diagnostica di Windows Azure invia gli eventi all'archiviazione tabelle di Azure, ma è comunque necessario integrarlo con la risorsa di analisi dei log. Altre informazioni sulla configurazione dell'agente di Diagnostica di Azure per modificare la configurazione di diagnostica del cluster per raccogliere più log o contatori delle prestazioni e l'integrazione dei log di Monitoraggio di [AzureRead](service-fabric-diagnostics-event-analysis-oms.md) more about configuring the Azure Diagnostics [agent](service-fabric-diagnostics-event-aggregation-wad.md) to modify the diagnostics configuration of your cluster to pick up more logs or performance counters and the Azure Monitor logs integration
+* Gli eventi vengono registrati tramite canali standard, ad esempio registri eventi ETW/Windows e possono essere visualizzati da qualsiasi strumento di monitoraggio che supporti tali registri, ad esempio i log di monitoraggio di Azure. Per impostazione predefinita, i cluster creati nel portale hanno attivato la diagnostica e l'agente di diagnostica di Microsoft Azure invia gli eventi all'archiviazione tabelle di Azure, ma è comunque necessario integrarla con la risorsa di log Analytics. Altre informazioni sulla configurazione dell' [agente di diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md) per modificare la configurazione di diagnostica del cluster per prelevare più log o contatori delle prestazioni e l' [integrazione dei log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md)
 * API Rest del servizio EventStore che consentono di eseguire query del cluster, direttamente o tramite la libreria client di Service Fabric. Vedere [Eseguire query sulle API di EventStore per eventi del cluster](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -30,7 +30,7 @@ Finora le funzionalità di limitazione della frequenza avevano come ambito una s
 ## <a name="custom-key-based-throttling"></a>Limitazione basata su chiave personalizzata
 
 > [!NOTE]
-> I `rate-limit-by-key` `quota-by-key` criteri e non sono disponibili nel livello Consumo di Gestione API di Azure.The and policies are not available when in the Consumption tier of Azure API Management. 
+> I `rate-limit-by-key` criteri `quota-by-key` e non sono disponibili quando si usa il livello di consumo di gestione API di Azure. 
 
 I nuovi criteri [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) e [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) offrono una soluzione più flessibile per il controllo del traffico. Questi nuovi criteri consentono di definire le espressioni per l'identificazione delle chiavi che vengono usate per tenere traccia dell'utilizzo del traffico. Il modo più semplice per spiegarne il funzionamento è illustrare un esempio. 
 
@@ -79,5 +79,5 @@ In questo modo l'applicazione client dello sviluppatore è in grado di scegliere
 Gestione API di Azure offre funzionalità di limitazione della frequenza e della quota per proteggere e aggiungere valore al proprio servizio API. I nuovi criteri di limitazione con regole personalizzate di definizione dell'ambito consentono di controllare con granularità maggiore tali criteri per consentire ai clienti di creare applicazioni migliori. Gli esempi in questo articolo illustrano l'uso di questi nuovi criteri tramite la produzione di chiavi per la limitazione della frequenza con gli indirizzi IP del client, l'identità dell'utente e valori generati dal client. È tuttavia possibile usare molte altre parti del messaggio, ad esempio l'agente utente, frammenti del percorso dell'URL e la dimensione del messaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Si prega di darci il vostro feedback come un problema GitHub per questo argomento. Può essere utile individuare altri potenziali valori di chiave che sono utili negli scenari in uso.
+Inviare commenti e suggerimenti come problema di GitHub per questo argomento. Può essere utile individuare altri potenziali valori di chiave che sono utili negli scenari in uso.
 

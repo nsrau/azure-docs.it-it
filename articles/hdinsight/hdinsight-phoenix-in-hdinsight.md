@@ -37,7 +37,7 @@ Creare un indice secondario con il comando `CREATE INDEX`:
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-Questo approccio può produrre un aumento significativo delle prestazioni rispetto all'esecuzione di query con singola indicizzazione. Questo tipo di indice secondario è un **indice di copertura**, contenente tutte le colonne incluse nella query. Pertanto, la ricerca della tabella non è necessaria e l'indice soddisfa l'intera query.
+Questo approccio può produrre un aumento significativo delle prestazioni rispetto all'esecuzione di query con singola indicizzazione. Questo tipo di indice secondario è un **indice di copertura**, contenente tutte le colonne incluse nella query. Pertanto, la ricerca della tabella non è obbligatoria e l'indice soddisfa l'intera query.
 
 ### <a name="views"></a>Viste
 
@@ -70,7 +70,7 @@ Per aggiungere più colonne in un secondo momento, usare l'istruzione `ALTER VIE
 
 L'analisi con salto usa una o più colonne di un indice composto per trovare valori distinti. Diversamente da un'analisi di intervalli, l'analisi con salto viene implementata tra le righe offrendo [prestazioni migliori](https://phoenix.apache.org/performance.html#Skip-Scan). Durante l'analisi, il primo valore corrispondente viene ignorato insieme all'indice fino a quando non viene trovato il valore successivo.
 
-Un'analisi con salto usa l'enumerazione `SEEK_NEXT_USING_HINT` del filtro HBase. Tramite `SEEK_NEXT_USING_HINT`, l'analisi con salto tiene traccia del set di chiavi o degli intervalli di chiavi di cui viene eseguita la ricerca in ogni colonna. L'analisi ignorata accetta quindi un tasto che è stato passato durante la valutazione del filtro e determina se è una delle combinazioni. In caso contrario, l'analisi con salto procede con la chiave più alta successiva a cui passare.
+Un'analisi con salto usa l'enumerazione `SEEK_NEXT_USING_HINT` del filtro HBase. Tramite `SEEK_NEXT_USING_HINT`, l'analisi con salto tiene traccia del set di chiavi o degli intervalli di chiavi di cui viene eseguita la ricerca in ogni colonna. L'analisi Skip accetta quindi una chiave passata durante la valutazione del filtro e determina se è una delle combinazioni. In caso contrario, l'analisi con salto procede con la chiave più alta successiva a cui passare.
 
 ### <a name="transactions"></a>Transazioni
 
@@ -97,7 +97,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 ### <a name="salted-tables"></a>Tabelle con salting
 
-*L'area sensibile* del server di area può verificarsi quando si scrivono record con chiavi sequenziali in HBase.Region server hotspotting can occur when writing records with sequential keys to HBase. Anche se il cluster include più server di area, tutte le scritture vengono eseguite in uno solo. Questa concentrazione crea il problema di hotspot, ovvero la condizione nella quale il carico di lavoro di scrittura viene gestito da un solo server di area invece di essere distribuito su tutti i server di area disponibili. Poiché ogni area ha una dimensione massima predefinita, quando un'area raggiunge tale limite, viene suddivisa in due piccole aree. In questo caso, una di queste nuove aree accetta tutti i nuovi record, diventando il nuovo hotspot.
+Il *server di area hotspot* può verificarsi durante la scrittura di record con chiavi sequenziali in HBase. Anche se il cluster include più server di area, tutte le scritture vengono eseguite in uno solo. Questa concentrazione crea il problema di hotspot, ovvero la condizione nella quale il carico di lavoro di scrittura viene gestito da un solo server di area invece di essere distribuito su tutti i server di area disponibili. Poiché ogni area ha una dimensione massima predefinita, quando un'area raggiunge tale limite, viene suddivisa in due aree di piccole dimensioni. In questo caso, una di queste nuove aree accetta tutti i nuovi record, diventando il nuovo hotspot.
 
 Per attenuare questo problema e ottenere prestazioni migliori, usare tabelle pre-suddivise in modo che tutti i server di area vengano usati uniformemente. Phoenix supporta *tabelle con salting*, aggiungendo in modo trasparente il byte di salt alla chiave di riga per una determinata tabella. La tabella viene pre-suddivisa in base ai limiti del byte di salt per garantire una distribuzione del carico uniforme tra i server di area durante la fase iniziale della tabella. Questo approccio consente di distribuire il carico di lavoro di scrittura su tutti i server di area disponibili, con conseguente miglioramento delle prestazioni di scrittura e di lettura. Per applicare il salting a una tabella, specificare la proprietà di tabella `SALT_BUCKETS` al momento della creazione della tabella:
 
@@ -128,14 +128,14 @@ Un cluster HBase di HDInsight include l'[interfaccia utente di Ambari](hdinsight
 
 2. Selezionare **HBase** nell'elenco dei servizi nel menu a sinistra, quindi selezionare la scheda **Configs** (Configurazioni).
 
-    ![Configurazioni Apache Ambari HBase](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
+    ![Configurazioni di Apache Ambari HBase](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
 
 3. Trovare la sezione di configurazione **Phoenix SQL** per abilitare o disabilitare Phoenix e impostare il timeout per le query.
 
     ![Sezione di configurazione Phoenix SQL in Ambari](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Usare Apache Phoenix con cluster HBase basati su Linux in HDInsight](hbase/apache-hbase-query-with-phoenix.md)
 
-* [Usare Apache per eseguire query Apache Phoenix su Apache HBase in Azure HDInsightUse Apache zeppelin to run Apache Phoenix queries over Apache HBase in Azure HDInsight](./hbase/apache-hbase-phoenix-zeppelin.md)
+* [Usare Apache Zeppelin per eseguire query Apache Phoenix su Apache HBase in Azure HDInsight](./hbase/apache-hbase-phoenix-zeppelin.md)

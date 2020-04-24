@@ -1,6 +1,6 @@
 ---
-title: Inserimento dati cache HPC di Azure - copia manualeAzure HPC Cache data ingest - manual copy
-description: Come usare i comandi cp per spostare i dati in una destinazione di archiviazione BLOB nella cache HPC di AzureHow to use cp commands to move data to a Blob storage target in Azure HPC Cache
+title: Inserimento di dati nella cache HPC di Azure-copia manuale
+description: Come usare i comandi CP per spostare i dati in una destinazione di archiviazione BLOB nella cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
@@ -13,17 +13,17 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168490"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Inserimento dati cache HPC di Azure - metodo di copia manualeAzure HPC Cache data ingest - manual copy method
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Inserimento di dati nella cache HPC di Azure-metodo di copia manuale
 
-Questo articolo fornisce istruzioni dettagliate per la copia manuale dei dati in un contenitore di archiviazione BLOB da usare con la cache HPC di Azure.This article gives detailed instructions for manually copying data to a Blob storage container for use with Azure HPC Cache. Utilizza operazioni parallele multithread per ottimizzare la velocità di copia.
+Questo articolo fornisce istruzioni dettagliate per la copia manuale dei dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure. USA operazioni parallele multithread per ottimizzare la velocità di copia.
 
-Per altre informazioni sullo spostamento dei dati nell'archivio BLOB per la cache HPC di Azure, vedere [Spostare i dati nell'archiviazione BLOB](hpc-cache-ingest.md)di Azure.To learn more about moving data to Blob storage for your Azure HPC Cache, read Move data to Azure Blob storage .
+Per altre informazioni sullo spostamento dei dati nell'archiviazione BLOB per la cache HPC di Azure, vedere [spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md).
 
 ## <a name="simple-copy-example"></a>Esempio di copia semplice
 
 Si può creare manualmente una copia a thread multipli in un client eseguendo simultaneamente più comandi di copia in background su un set predefinito di file o percorsi.
 
-Il comando Linux/UNIX ``cp`` include l'argomento ``-p`` per conservare i metadati mtime e di proprietà. L'aggiunta di questo argomento ai comandi riportati di seguito è facoltativa. L'aggiunta dell'argomento aumenta il numero di chiamate al file system inviate dal client al file system di destinazione per la modifica dei metadati.
+Il comando Linux/UNIX ``cp`` include l'argomento ``-p`` per conservare i metadati mtime e di proprietà. L'aggiunta di questo argomento ai comandi riportati di seguito è facoltativa. L'aggiunta dell'argomento aumenta il numero di chiamate file system inviate dal client al file system di destinazione per la modifica dei metadati.
 
 Questo semplice esempio copia due file in parallelo:
 
@@ -33,9 +33,9 @@ cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1
 
 Dopo aver eseguito questo comando, il comando `jobs` mostrerà che sono in esecuzione due thread.
 
-## <a name="copy-data-with-predictable-file-names"></a>Copiare dati con nomi di file prevedibili
+## <a name="copy-data-with-predictable-file-names"></a>Copiare dati con nomi di file stimabili
 
-Se i nomi dei file sono prevedibili, è possibile utilizzare le espressioni per creare thread di copia parallela. 
+Se i nomi di file sono stimabili, è possibile usare espressioni per creare thread di copia paralleli. 
 
 Ad esempio, se la directory contiene 1.000 file numerati in sequenza da `0001` a `1000`, è possibile usare le espressioni seguenti per creare dieci thread paralleli, ognuno dei quali copia 100 file:
 
@@ -54,7 +54,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 ## <a name="copy-data-with-unstructured-file-names"></a>Copiare dati con nomi di file non strutturati
 
-Se la struttura di denominazione dei file non è prevedibile, è possibile raggruppare i file in base ai nomi delle directory. 
+Se la struttura di denominazione dei file non è stimabile, è possibile raggruppare i file in base ai nomi di directory. 
 
 Questo esempio raccoglie intere directory a cui inviare comandi ``cp`` eseguiti come attività in background:
 
@@ -81,9 +81,9 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## <a name="when-to-add-mount-points"></a>Quando aggiungere punti di montaggio
 
-Dopo aver avuto un numero sufficiente di thread paralleli che vanno contro un singolo punto di montaggio del file system di destinazione, ci sarà un punto in cui l'aggiunta di più thread non fornisce più velocità effettiva. La velocità effettiva verrà misurata in file/secondo o byte/secondo, a seconda del tipo di dati. O peggio, l'overthreading può talvolta causare una riduzione della velocità effettiva.  
+Quando si dispone di un numero sufficiente di thread paralleli rispetto a una singola destinazione file system punto di montaggio, sarà presente un punto in cui l'aggiunta di più thread non offre una maggiore velocità effettiva. (La velocità effettiva viene misurata in file al secondo o in byte al secondo, a seconda del tipo di dati.) O peggio, il overthreading può a volte causare una riduzione della velocità effettiva.  
 
-In questo caso, è possibile aggiungere punti di montaggio lato client ad altri indirizzi di montaggio della cache HPC di Azure, usando lo stesso percorso di montaggio del file system remoto:When this happens, you can add client-side mount points to other Azure HPC Cache mount addresses, using the same remote file system mount path:
+Quando si verifica questo problema, è possibile aggiungere punti di montaggio lato client ad altri indirizzi di montaggio della cache HPC di Azure, usando lo stesso percorso di montaggio file system remoto:
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>Creare manifesti di file
 
-Dopo aver compreso gli approcci precedenti (più copy-thread per destinazione, più destinazioni per client, più client per ogni file system di origine accessibile dalla rete), prendere in considerazione questa raccomandazione: Compilare i manifesti dei file e quindi utilizzarli con la copia comandi su più client.
+Dopo aver compreso gli approcci precedenti (più thread di copia per destinazione, più destinazioni per client, più client per origine accessibile alla rete file system), considerare questa raccomandazione: compilare manifesti di file e quindi usarli con i comandi di copia tra più client.
 
 Questo scenario usa il comando UNIX ``find`` per creare manifesti di file o directory:
 
@@ -208,7 +208,7 @@ Se hai cinque client, usare un comando simile al seguente:
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-E per sei... Estrapolare in base alle esigenze.
+E per sei.... Estrapolare in base alle esigenze.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done

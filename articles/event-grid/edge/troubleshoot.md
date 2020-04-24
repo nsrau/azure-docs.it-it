@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi - Azure Event Grid IoT Edge Documenti Microsoft
-description: Risoluzione dei problemi in Griglia di eventi su Edge Edge.Troubleshooting in Event Grid on IoT Edge.
+title: Risoluzione dei problemi-IoT Edge di griglia di eventi di Azure | Microsoft Docs
+description: Risoluzione dei problemi in griglia di eventi in IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -18,11 +18,11 @@ ms.locfileid: "73100152"
 ---
 # <a name="common-issues"></a>Problemi comuni
 
-Se si verificano problemi con Griglia di eventi di Azure in IoT Edge nell'ambiente, usare questo articolo come guida per la risoluzione dei problemi e la risoluzione.
+Se si verificano problemi durante l'uso di griglia di eventi di Azure in IoT Edge nell'ambiente in uso, usare questo articolo come guida per la risoluzione dei problemi e la risoluzione.
 
-## <a name="view-event-grid-module-logs"></a>Visualizzare i registri dei moduli Griglia di eventi
+## <a name="view-event-grid-module-logs"></a>Visualizzare i log dei moduli di griglia di eventi
 
-Per risolvere i problemi, potrebbe essere necessario accedere ai registri dei moduli Griglia di eventi. A tale scopo, nella macchina virtuale in cui è distribuito il modulo eseguire il comando seguente:To do this, on the VM where the module is deployed run the following command:
+Per risolvere il problemi, potrebbe essere necessario accedere ai log del modulo di griglia di eventi. A tale scopo, nella macchina virtuale in cui è distribuito il modulo eseguire il comando seguente:
 
 In Windows,
 
@@ -30,21 +30,21 @@ In Windows,
 docker -H npipe:////./pipe/iotedge_moby_engine container logs eventgridmodule
 ```
 
-Su Linux,
+In Linux,
 
 ```sh
 sudo docker logs eventgridmodule
 ```
 
-## <a name="unable-to-make-https-requests"></a>Impossibile effettuare richieste HTTPS
+## <a name="unable-to-make-https-requests"></a>Non è possibile effettuare richieste HTTPS
 
-* Verificare innanzitutto che il modulo Griglia di eventi sia **inbound:serverAuth:tlsPolicy** impostato su **strict** o **enabled**.
+* Assicurarsi prima di tutto che il modulo griglia di eventi abbia in **ingresso: serverAuth: tlsPolicy** impostato su **strict** o **Enabled**.
 
-* Se le comunicazioni da modulo a modulo, assicurarsi che si sta effettuando la chiamata sulla porta **4438** e il nome del modulo corrisponde a ciò che viene distribuito. 
+* Se le comunicazioni da modulo a modulo, assicurarsi di effettuare la chiamata sulla porta **4438** e il nome del modulo corrisponde a quello distribuito. 
 
-  Ad esempio, se il modulo Griglia di eventi è stato distribuito con nome **eventgridmodule,** l'URL deve essere **https://eventgridmodule:4438**. Assicurarsi che l'uso dell'involucro e il numero di porta siano corretti.
+  Ad esempio, se il modulo griglia di eventi è stato distribuito con il nome **eventgridmodule** , l' **https://eventgridmodule:4438**URL deve essere. Verificare che il numero di porta e di maiuscole e minuscole sia corretto.
     
-* Se proviene da un modulo non IoT, assicurarsi che la porta Griglia di eventi sia mappata al computer host durante la distribuzione, ad esempio,
+* Se è un modulo diverso da Internet, assicurarsi che la porta della griglia di eventi sia mappata al computer host durante la distribuzione, ad esempio
 
     ```json
     "HostConfig": {
@@ -58,15 +58,15 @@ sudo docker logs eventgridmodule
      }
     ```
 
-## <a name="unable-to-make-http-requests"></a>Impossibile effettuare richieste HTTP
+## <a name="unable-to-make-http-requests"></a>Non è possibile effettuare richieste HTTP
 
-* Verificare innanzitutto che il modulo Griglia di eventi sia **iningresso:serverAuth:tlsPolicy** impostato su **enabled** o **disabled**.
+* Assicurarsi prima di tutto che il modulo griglia di eventi disponga di in **ingresso: serverAuth: tlsPolicy** impostato su **abilitato** o **disabilitato**.
 
-* Se le comunicazioni da modulo a modulo, assicurarsi che si sta effettuando la chiamata sulla porta **5888** e il nome del modulo corrisponde a ciò che viene distribuito. 
+* Se le comunicazioni da modulo a modulo, assicurarsi di effettuare la chiamata sulla porta **5888** e il nome del modulo corrisponde a quello distribuito. 
 
-  Ad esempio, se il modulo Griglia di eventi è stato distribuito con nome **eventgridmodule,** l'URL deve essere **http://eventgridmodule:5888**. Assicurarsi che l'uso dell'involucro e il numero di porta siano corretti.
+  Ad esempio, se il modulo griglia di eventi è stato distribuito con il nome **eventgridmodule** , l' **http://eventgridmodule:5888**URL deve essere. Verificare che il numero di porta e di maiuscole e minuscole sia corretto.
     
-* Se proviene da un modulo non IoT, assicurarsi che la porta Griglia di eventi sia mappata al computer host durante la distribuzione, ad esempio,
+* Se è un modulo diverso da Internet, assicurarsi che la porta della griglia di eventi sia mappata al computer host durante la distribuzione, ad esempio
 
     ```json
     "HostConfig": {
@@ -82,30 +82,30 @@ sudo docker logs eventgridmodule
 
 ## <a name="certificate-chain-was-issued-by-an-authority-thats-not-trusted"></a>La catena di certificati è stata emessa da un'autorità non attendibile
 
-Per impostazione predefinita, il modulo Griglia di eventi è configurato per autenticare i client con il certificato emesso dal daemon di sicurezza IoT Edge.By default, Event Grid module is configured to authenticate clients with certificate issued by the IoT Edge security daemon. Assicurarsi che il client stia presentando un certificato radicato a questa catena.
+Per impostazione predefinita, il modulo di griglia di eventi è configurato per autenticare i client con il certificato emesso dal daemon di sicurezza IoT Edge. Verificare che il client stia presentando un certificato radicato in questa catena.
 
-La classe **IoTSecurity** in [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) mostra come recuperare i certificati dal daemon IoT Edge Security e usarli per configurare le chiamate in uscita.
+**IoTSecurity** La classe IoTSecurity [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) in Mostra come recuperare i certificati da IOT Edge daemon di sicurezza e usarli per configurare le chiamate in uscita.
 
-Se si tratta di un ambiente non di produzione, è possibile disattivare l'autenticazione client. Fare riferimento a [Sicurezza e autenticazione](security-authentication.md) per informazioni dettagliate su come eseguire questa operazione.
+Se si tratta di un ambiente non di produzione, è possibile disattivare l'autenticazione client. Per informazioni dettagliate su come eseguire questa operazione, vedere [sicurezza e autenticazione](security-authentication.md) .
 
-## <a name="debug-events-not-received-by-subscriber"></a>Eventi di debug non ricevuti dal server di sottoscrizioneDebug Events not received by subscriber
+## <a name="debug-events-not-received-by-subscriber"></a>Eventi di debug non ricevuti dal Sottoscrittore
 
-Motivi tipici per questo sono:
+I motivi tipici sono:
 
-* L'evento non è mai stato pubblicato con successo. Un StatusCode HTTP pari a 200(OK) deve essere ricevuto durante la pubblicazione di un evento nel modulo Griglia di eventi.
+* L'evento non è stato inviato correttamente. È stato ricevuto un StatusCode HTTP di 200 (OK) per l'invio di un evento al modulo di griglia di eventi.
 
-* Controllare la sottoscrizione di eventi per verificare:
+* Controllare la sottoscrizione dell'evento per verificare:
     * L'URL dell'endpoint è valido
-    * Eventuali filtri nella sottoscrizione non causano l'eliminazione dell'evento.
+    * Eventuali filtri della sottoscrizione non causano l'eliminazione dell'evento.
 
-* Verificare se il modulo del sottoscrittore è in esecuzione
+* Verificare che il modulo Sottoscrittore sia in esecuzione
 
-* Accedere alla macchina virtuale in cui è distribuito il modulo Griglia di eventi e visualizzarne i log.
+* Accedere alla macchina virtuale in cui è distribuito il modulo di griglia di eventi e visualizzare i relativi log.
 
-* Attivare la registrazione per recapito impostando **broker:logDeliverySuccess, true** e ridistribuendo il modulo Griglia di eventi e ritentando la richiesta. L'attivazione della registrazione per recapito può influire sulla velocità effettiva e sulla latenza, pertanto una volta completato il debug, è consigliabile riportare il problema in **broker:logDeliverySuccess, false** e ridistribuire il modulo Griglia di eventi.
+* Attivare la registrazione per recapito impostando **Broker: logDeliverySuccess = true** e ridistribuendo il modulo griglia di eventi e ritentando la richiesta. L'attivazione della registrazione per ogni recapito può compromettere la velocità effettiva e la latenza, quindi, al termine del debug, è consigliabile tornare a **Service Broker: logDeliverySuccess = false** e ridistribuire il modulo griglia di eventi.
 
-* Attiva le metriche impostando **le metriche:reportertype-console** e ridistribuisci il modulo Griglia di eventi. Tutte le operazioni successive determineranno la registrazione delle metriche nella console del modulo Griglia di eventi, che può essere utilizzata per eseguire ulteriormente il debug. È consigliabile attivare le metriche solo per il debug e una volta completate per disattivarle impostando **metrics:reportertype-none** e ridistribuendo il modulo Griglia di eventi.
+* Attivare la metrica impostando **metrica: reportertype = console** e Ridistribuisci modulo griglia di eventi. Qualsiasi operazione dopo questa operazione comporterà la registrazione delle metriche nella console del modulo di griglia di eventi, che può essere usato per eseguire il debug. Si consiglia di attivare le metriche solo per il debug e, una volta completate, per disattivarla impostando **metrica: reportertype = None** e ridistribuendo il modulo griglia di eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Segnalare eventuali problemi, suggerimenti sull'utilizzo di [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)Griglia di eventi in IoT Edge all'indirizzo .
+Segnalare eventuali problemi, suggerimenti con l'uso di griglia di eventi [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)su IOT Edge all'indirizzo.

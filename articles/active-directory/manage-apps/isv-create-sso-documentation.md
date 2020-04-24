@@ -1,6 +1,6 @@
 ---
-title: Creare & pubblicare la documentazione Single Sign-On per l'applicazioneCreate a publish single sign-on documentation for your application
-description: Linee guida per i fornitori di software indipendenti sull'integrazione con Azure Active Directory
+title: Creare & pubblicare Single Sign-On documentazione per l'applicazione
+description: Linee guida per i fornitori di software indipendenti per l'integrazione con Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -19,13 +19,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232274"
 ---
-# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>Creare e pubblicare la documentazione Single Sign-On per l'applicazione   
+# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>Creare e pubblicare Single Sign-On documentazione per l'applicazione   
 
-## <a name="documentation-on-your-site"></a>Documentazione sul tuo sito
+## <a name="documentation-on-your-site"></a>Documentazione sul sito
 
-La facilità di adozione è un fattore significativo nelle decisioni relative al software aziendale. Una chiara documentazione facile da seguire supporta i clienti nel loro percorso di adozione e riduce i costi di supporto. Lavorando con migliaia di fornitori di software, Microsoft ha visto cosa funziona.
+La facilità di adozione è un fattore significativo nelle decisioni relative al software aziendale. La documentazione chiara facile da seguire supporta i clienti nel percorso di adozione e riduce i costi di supporto. Lavorando con migliaia di fornitori di software, Microsoft ha visto cosa funziona.
 
-Ti consigliamo di documentare almeno la tua documentazione sul tuo sito di includere i seguenti elementi.
+È consigliabile che la documentazione nel sito includa almeno gli elementi seguenti.
 
 * Introduzione alla funzionalità SSO
 
@@ -33,13 +33,13 @@ Ti consigliamo di documentare almeno la tua documentazione sul tuo sito di inclu
 
   * Versione e SKU
 
-  * Elenco dei provider di identità supportati con collegamenti alla documentazioneSupported Identity Providers list with documentation links
+  * Elenco dei provider di identità supportati con collegamenti alla documentazione
 
 * Informazioni sulle licenze per l'applicazione
 
-* Controllo degli accessi in base al ruolo per la configurazione di SSORole-based access control for configuring SSO
+* Controllo degli accessi in base al ruolo per la configurazione di SSO
 
-* Passaggi di configurazione SSO
+* Procedura di configurazione SSO
 
   * Elementi di configurazione dell'interfaccia utente per SAML con i valori previsti dal provider
 
@@ -47,18 +47,18 @@ Ti consigliamo di documentare almeno la tua documentazione sul tuo sito di inclu
 
 * Se OIDC/OAuth
 
-  * Elenco delle autorizzazioni necessarie per il consenso con motivazioni aziendali
+  * Elenco delle autorizzazioni necessarie per il consenso con le motivazioni aziendali
 
-* Passaggi di test per gli utenti pilotaTesting steps for pilot users
+* Passaggi di test per gli utenti pilota
 
-* Informazioni sulla risoluzione dei problemi, inclusi i codici di errore e i messaggi
+* Informazioni sulla risoluzione dei problemi, inclusi codici e messaggi di errore
 
 * Meccanismi di supporto per i clienti
 
 ## <a name="documentation-on-the-microsoft-site"></a>Documentazione sul sito Microsoft
 
-Quando si elenca l'applicazione con la raccolta di applicazioni di Azure Active Directory, che pubblica anche l'applicazione in Azure Marketplace, Microsoft genererà la documentazione per i clienti comuni che spiegano il processo passo-passo. Potete vedere un esempio [qui](https://aka.ms/appstutorial). Questa documentazione viene creata in base all'invio alla raccolta ed è possibile aggiornarla facilmente se si apportano modifiche all'applicazione usando l'account GitHub.This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
+Quando l'applicazione viene elencata con la raccolta di applicazioni di Azure Active Directory, che pubblica anche l'applicazione in Azure Marketplace, Microsoft genererà la documentazione per i clienti reciproci che spiegano il processo dettagliato. È possibile vedere un esempio [qui](https://aka.ms/appstutorial). Questa documentazione viene creata in base all'invio alla raccolta ed è possibile aggiornarla facilmente se si apportano modifiche all'applicazione con l'account GitHub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Elencare l'applicazione nella raccolta di applicazioni di Azure ADList your application in the Azure AD Application Gallery](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[Elencare l'applicazione nella raccolta di applicazioni Azure AD](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)

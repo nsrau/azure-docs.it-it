@@ -16,7 +16,7 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "68968886"
 ---
 > [!NOTE]
-> Azure Data Lake Storage Gen2 è ora disponibile a livello generale. È consigliabile iniziare a usarlo oggi stesso. Per ulteriori informazioni, vedere la pagina del [prodotto](https://aka.ms/adlsgen2-product).
+> Azure Data Lake Storage Gen2 è ora disponibile a livello generale. È consigliabile iniziare a usarlo oggi stesso. Per ulteriori informazioni, vedere la [pagina del prodotto](https://aka.ms/adlsgen2-product).
 > 
 
 

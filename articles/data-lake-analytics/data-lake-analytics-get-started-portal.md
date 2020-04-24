@@ -1,5 +1,5 @@
 ---
-title: Creare & eseguire query su Analisi di Azure Data Lake - Portale di AzureCreate to query Azure Data Lake Analytics - Azure portal
+title: Creare & query Azure Data Lake Analytics-portale di Azure
 description: Usare il portale di Azure per creare un account Azure Data Lake Analytics e inviare un processo U-SQL.
 ms.service: data-lake-analytics
 author: saveenr
@@ -22,14 +22,14 @@ Questo articolo descrive come usare il portale di Azure per creare account Azure
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare questa esercitazione, è necessario disporre di una sottoscrizione di Azure.Before you begin this tutorial, you must have an **Azure subscription**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Prima di iniziare questa esercitazione, è necessario disporre di una **sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
 
 A questo punto verranno creati un account Data Lake Analytics e un account Azure Data Lake Storage Gen1 contemporaneamente.  Questo passaggio è semplice e richiede solo 60 secondi.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
-2. Fare clic su **Crea una risorsa** >  **Dati - Analisi** > **data Lake analitica**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Fare clic su **Crea una risorsa** >  **dati e analisi** > **Data Lake Analytics**.
 3. Selezionare i valori per gli elementi seguenti:
    * **Nome**: il nome dell'account di Data Lake Analytics deve contenere solo lettere minuscole e numeri.
    * **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analytics.
@@ -63,10 +63,10 @@ OUTPUT @a
 2. Incollare il testo dello script U-SQL precedente. Assegnare un nome al processo. 
 3. Selezionare il pulsante **Invia** per avviare il processo.   
 4. Monitorare lo **stato** del processo e attendere che lo stato del processo diventi **Completato**.
-5. Selezionare la scheda **Dati,** quindi selezionare la `data.csv` scheda **Uscite.**
+5. Selezionare la scheda **dati** , quindi selezionare la scheda **output** . Selezionare il file di output `data.csv` denominato e visualizzare i dati di output.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-* Per le attività di gestione, vedere Gestire Azure Data Lake Analytics tramite il portale di Azure.For management tasks, see [Manage Azure Data Lake Analytics using Azure portal.](data-lake-analytics-manage-use-portal.md)
+* Per le attività di gestione, vedere [manage Azure Data Lake Analytics using portale di Azure](data-lake-analytics-manage-use-portal.md).

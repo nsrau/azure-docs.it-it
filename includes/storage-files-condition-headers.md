@@ -15,18 +15,18 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "70737492"
 ---
-## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Condizione di errore ConditionHeadersNotSupported da un'applicazione Web che usa file di Azure dal browserError ConditionHeadersNotSupported from a Web Application using Azure Files from Browser
+## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Errore ConditionHeadersNotSupported da un'applicazione Web utilizzando File di Azure dal browser
 
-L'errore ConditionHeadersNotSupported si verifica quando si accede al contenuto ospitato in File di Azure tramite un'applicazione che usa intestazioni condizionali, ad esempio un Web browser, l'accesso non riesce. L'errore indica che le intestazioni di condizione non sono supportate.
+L'errore ConditionHeadersNotSupported si verifica quando si accede al contenuto ospitato in File di Azure tramite un'applicazione che utilizza le intestazioni condizionali, ad esempio un Web browser, l'accesso ha esito negativo. L'errore indica che le intestazioni di condizione non sono supportate.
 
-![Errore relativo alle intestazioni condizionali dei file di AzureAzure Files conditional headers error](media/storage-files-condition-headers/conditionalerror.png)
+![Errore File di Azure intestazioni condizionali](media/storage-files-condition-headers/conditionalerror.png)
 
 ### <a name="cause"></a>Causa
 
-Le intestazioni condizionali non sono ancora supportate. Le applicazioni che li implementano dovranno richiedere il file completo ogni volta che si accede al file.
+Le intestazioni condizionali non sono ancora supportate. Le applicazioni che li implementano dovranno richiedere il file completo ogni volta che viene eseguito l'accesso al file.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-Quando viene caricato un nuovo file, la proprietà cache-control per impostazione predefinita è "no-cache". Per forzare l'applicazione a richiedere il file ogni volta, la proprietà del controllo della cache del file deve essere aggiornata da "no-cache" a "no-cache, no-store, must-revalidate". A tale scopo, è possibile usare [Azure Storage Explorer.](https://azure.microsoft.com/features/storage-explorer/)
+Quando viene caricato un nuovo file, per impostazione predefinita la proprietà Cache-Control è "no-cache". Per forzare l'applicazione a richiedere il file ogni volta, è necessario aggiornare la proprietà Cache-Control del file da "no-cache" a "no-cache, No-Store, must-revalidate". Questa operazione può essere eseguita usando [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-![Modifica della cache del contenuto di Esplora archiviazione per le intestazioni condizionali di File di AzureStorage explorer content cache modification for Azure Files conditional headers](media/storage-files-condition-headers/storage-explorer-cache.png)
+![Modifica della cache del contenuto di Storage Explorer per File di Azure intestazioni condizionali](media/storage-files-condition-headers/storage-explorer-cache.png)

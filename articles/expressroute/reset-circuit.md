@@ -1,5 +1,5 @@
 ---
-title: 'Reimpostare un circuito non riuscito - ExpressRoute: PowerShell: Azure . Documenti Microsoft'
+title: 'Reimpostare un circuito ExpressRoute non riuscito: PowerShell: Azure | Microsoft Docs'
 description: Questo articolo illustra come reimpostare un circuito ExpressRoute in stato di errore.
 services: expressroute
 author: anzaman

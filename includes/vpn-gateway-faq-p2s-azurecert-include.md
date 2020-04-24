@@ -17,19 +17,19 @@ ms.locfileid: "75752055"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>Cosa devo fare se ricevo una mancata corrispondenza del certificato durante la connessione con l'autenticazione del certificato?
+### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>Cosa è necessario fare se si verifica una mancata corrispondenza del certificato durante la connessione tramite l'autenticazione del certificato?
 
-Deselezionare **"Verificare l'identità del server convalidando il certificato"** o **aggiungere l'FQDN del server insieme al certificato** durante la creazione manuale di un profilo. È possibile farlo eseguendo **rasphone** da un prompt dei comandi e selezionando il profilo dall'elenco a discesa.
+Deselezionare **"verifica l'identità del server convalidando il certificato"** o **aggiungere il nome di dominio completo del server insieme al certificato durante la** creazione manuale di un profilo. A tale scopo, è possibile eseguire **RASPHONE** da un prompt dei comandi e selezionare il profilo dall'elenco a discesa.
 
-Ignorare la convalida dell'identità del server non è consigliato in generale, ma con l'autenticazione del certificato di Azure viene usato lo stesso certificato per la convalida del server nel protocollo IKEv2/SSTP VPN e nel protocollo EAP. Poiché il certificato server e il nome fqdN sono già convalidati dal protocollo di tunneling VPN, è ridondante convalidare nuovamente lo stesso in EAP.
+Il bypass della convalida dell'identità del server non è consigliato in generale, ma con l'autenticazione del certificato di Azure, lo stesso certificato viene usato per la convalida del server nel protocollo di tunneling VPN (IKEv2/SSTP) e nel protocollo EAP. Poiché il certificato del server e il nome di dominio completo sono già convalidati dal protocollo di tunneling VPN, è ridondante per convalidare di nuovo lo stesso in EAP.
 
 ![da punto a sito](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificato server")
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>È possibile utilizzare la propria CA radice PKI interna per generare certificati per la connettività da punto a sito?
+### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>È possibile usare la CA radice PKI interna per generare certificati per la connettività da punto a sito?
 
 Sì. In precedenza, era possibile utilizzare solo certificati radice autofirmati. È ancora possibile caricare 20 certificati radice.
 
-### <a name="can-i-use-certificates-from-azure-key-vault"></a>È possibile usare i certificati dall'insieme di credenziali delle chiavi di Azure?
+### <a name="can-i-use-certificates-from-azure-key-vault"></a>È possibile usare I certificati di Azure Key Vault?
 
 No.
 
@@ -45,7 +45,7 @@ No.
 
 * **MakeCert:** per la procedura, vedere l'articolo relativo a [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md).
 
-* **Openssl:** 
+* **OpenSSL** 
 
     * Quando si esportano certificati, assicurarsi di convertire il certificato radice in Base64.
 

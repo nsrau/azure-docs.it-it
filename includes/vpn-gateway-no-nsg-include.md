@@ -16,6 +16,6 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "72935507"
 ---
 > [!IMPORTANT]
-> Quando si usano le subnet del gateway, evitare di associare un gruppo di sicurezza di rete (NSG) alla subnet del gateway. L'associazione di un gruppo di sicurezza di rete a questa subnet può causare l'interruzione del funzionamento del gateway di rete virtuale (VPN, gateway Express Route). Per altre informazioni sui gruppi di sicurezza di rete, vedere [Che cos'è un gruppo di sicurezza di rete](../articles/virtual-network/security-overview.md).
+> Quando si usano le subnet del gateway, evitare di associare un gruppo di sicurezza di rete (NSG) alla subnet del gateway. Se si associa un gruppo di sicurezza di rete a questa subnet, il gateway di rete virtuale (VPN, Express Route gateway) potrebbe smettere di funzionare come previsto. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Che cos'è un gruppo di sicurezza di rete](../articles/virtual-network/security-overview.md).
 > 
 > 

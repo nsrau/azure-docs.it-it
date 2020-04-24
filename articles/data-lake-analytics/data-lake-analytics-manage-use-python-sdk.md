@@ -24,17 +24,17 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
 ## <a name="supported-python-versions"></a>Versioni di Python supportate
 
 * Usare una versione a 64 bit di Python.
-* È possibile utilizzare la distribuzione standard Python disponibile in **[Python.org download](https://www.python.org/downloads/)**. 
-* Molti sviluppatori trovano conveniente utilizzare la **[distribuzione Anaconda Python](https://www.anaconda.com/download/)**.  
+* È possibile usare la distribuzione di Python standard disponibile in **[Python.org downloads](https://www.python.org/downloads/)**. 
+* Molti sviluppatori ritengono utile usare la **[distribuzione anaconda Python](https://www.anaconda.com/download/)**.  
 * Questo articolo si basa su Python versione 3.6 della distribuzione di Python standard
 
 ## <a name="install-azure-python-sdk"></a>Installare Azure Python SDK
 
 Installare i moduli seguenti:
 
-* Il modulo **azure-mgmt-resource** include altri moduli di Azure per Active Directory e così via.
+* Il modulo **Azure-Mgmt-Resource** include altri moduli di azure per Active Directory e così via.
 * Il modulo **azure-datalake-store** include le operazioni di file system di Azure Data Lake Store. 
-* Il modulo azure-mgmt-datalake-store include le operazioni di gestione degli account di Azure Data Lake Store.The **azure-mgmt-datalake-store** module includes the Azure Data Lake Store account management operations.
+* Il modulo **Azure-Mgmt-datalake-Store** include le operazioni di gestione degli account Azure Data Lake Store.
 * Il modulo **azure-mgmt-datalake-analytics** include le operazioni di Azure Data Lake Analytics. 
 
 Assicurarsi prima di tutto di avere la versione più recente di `pip` usando il comando seguente:
@@ -263,5 +263,5 @@ adlaAccountClient.computePolicies.createOrUpdate(
 
 - Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 - Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-- Per le attività di gestione, vedere Gestire Azure Data Lake Analytics tramite il portale di Azure.For management tasks, see [Manage Azure Data Lake Analytics using Azure portal.](data-lake-analytics-manage-use-portal.md)
+- Per le attività di gestione, vedere [manage Azure Data Lake Analytics using portale di Azure](data-lake-analytics-manage-use-portal.md).
 

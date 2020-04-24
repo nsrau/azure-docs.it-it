@@ -12,5 +12,5 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "66244674"
 ---
- - Se si usano più account di archiviazione con il servizio Data Box, tutti gli account di archiviazione devono appartenere alla stessa area di Azure.If you use multiple storage accounts with the Data Box service, all the storage accounts should belong to the same Azure region.
- - È consigliabile usare non più di tre account di archiviazione. L'uso di più account di archiviazione potrebbe influire sulle prestazioni.
+ - Se si usano più account di archiviazione con il servizio Data Box, tutti gli account di archiviazione devono appartenere alla stessa area di Azure.
+ - È consigliabile usare non più di tre account di archiviazione. L'uso di più account di archiviazione potrebbe potenzialmente influire sulle prestazioni.

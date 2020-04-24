@@ -11,8 +11,8 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "68781463"
 ---
-Tenere presenti le procedure consigliate seguenti:Keep these best practices in mind:
+Tenere presente queste procedure consigliate:
 
-- Ti consigliamo di archiviare tutte le password in un luogo sicuro in modo da non dover reimpostare una password se viene dimenticata. Il servizio di gestione non è in grado di recuperare le password esistenti. È possibile reimpostarli solo tramite il portale di Azure.It can only reset them via the Azure portal. Se reimposti una password, assicurati di inviare una notifica a tutti gli utenti prima di reimpostarla.
-- È possibile accedere all'interfaccia di Windows PowerShell del dispositivo in modalità remota tramite HTTP. Per una sicurezza ottimale, è consigliabile utilizzare HTTP solo su reti attendibili.
-- Assicurarsi che le password dei dispositivi siano complesse e ben protette. Seguire le [procedure consigliate per](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#enable-password-management)le password .
+- È consigliabile archiviare tutte le password in un luogo sicuro, in modo da non dover reimpostare una password se viene dimenticata. Il servizio di gestione non è in grado di recuperare le password esistenti. È possibile reimpostarle solo tramite il portale di Azure. Se si reimposta una password, assicurarsi di notificare tutti gli utenti prima di reimpostarla.
+- È possibile accedere all'interfaccia di Windows PowerShell del dispositivo in modalità remota tramite HTTP. Come procedura consigliata di sicurezza, è consigliabile usare HTTP solo su reti attendibili.
+- Assicurarsi che le password dei dispositivi siano sicure e ben protette. Seguire le [procedure consigliate](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#enable-password-management)per la password.

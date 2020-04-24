@@ -16,5 +16,5 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "73590914"
 ---
 > [!NOTE]
-> IoT Hub include il supporto SDK per molte piattaforme e linguaggi di dispositivi (inclusi C, Java, Javascript e Python) tramite gli SDK dei [dispositivi IoT](https://github.com/azure/azure-iot-sdks)di Azure. Per istruzioni su come usare Python per connettere il dispositivo al codice di questa esercitazione e in genere all'hub IoT di Azure, vedere [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python).
+> L'hub di Internet delle cose dispone del supporto SDK per molte piattaforme e linguaggi del dispositivo (inclusi C, Java, JavaScript e Python) tramite gli [SDK per dispositivi Azure](https://github.com/azure/azure-iot-sdks). Per istruzioni su come usare Python per connettere il dispositivo al codice dell'esercitazione e in generale all'hub Internet Azure, vedere l' [SDK Python per Azure](https://github.com/Azure/azure-iot-sdk-python).
 >

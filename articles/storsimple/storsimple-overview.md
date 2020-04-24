@@ -95,7 +95,7 @@ L'appliance cloud presenta le seguenti funzionalità:
 * È possibile creare un numero illimitato di appliance cloud nel cloud e attivarle e disattivarle in base alle esigenze.
 * Consente di simulare ambienti locali in scenari di ripristino di emergenza, sviluppo e test ed è in grado di facilitare il recupero a livello di elementi dai backup.
 
-L'appliance cloud StorSimple è disponibile in due modelli: il dispositivo 8010, precedentemente noto come modello 1100, e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB Nei livelli locali, Archiviazione Premium di Azure archivia i dati nelle unità SSD, mentre l'archiviazione standard archivia i dati nei dischi rigidi. Si noti che è necessario disporre di un account di archiviazione Premium di Azure per usare l'archiviazione Premium.Note that you must have an Azure premium storage account to use premium storage.
+L'appliance cloud StorSimple è disponibile in due modelli: il dispositivo 8010, precedentemente noto come modello 1100, e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB Nei livelli locali, archiviazione Premium di Azure archivia i dati sulle unità SSD, mentre archiviazione standard archivia i dati su HDD. Si noti che è necessario avere un account di archiviazione Premium di Azure per usare archiviazione Premium.
 
 Per altre informazioni sull'appliance cloud StorSimple, vedere [Distribuire e gestire un'appliance cloud StorSimple in Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -131,7 +131,7 @@ Per altre informazioni, vedere l'articolo relativo all' [uso di Windows PowerShe
 ## <a name="azure-powershell-storsimple-cmdlets"></a>i cmdlet PowerShell di azure StorSimple
 I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet di Windows PowerShell che consentono di automatizzare le attività  a livello di servizio e di migrazione dalla riga di comando. Per altre informazioni sui cmdlet di Azure PowerShell per StorSimple, visitare la [Documentazione di riferimento relativa ai cmdlet](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 
-## <a name="storsimple-snapshot-manager"></a>Gestione snapshot StorSimple 
+## <a name="storsimple-snapshot-manager"></a>Gestione snapshot StorSimple
 Gestione snapshot StorSimple è uno snap-in di Microsoft Management Console (MMC) che consente di creare copie di backup coerenti e temporizzate di dati locali o cloud. Lo snap-in viene eseguito su un host basato su Windows Server. Gestione snapshot StorSimple può essere usato per:
 
 * Configurare, eseguire il backup ed eliminare volumi.
@@ -208,7 +208,7 @@ La deduplicazione riduce la quantità complessiva di dati archiviati eliminando 
 ## <a name="storsimple-workload-summary"></a>Riepilogo dei carichi di lavoro di StorSimple
 Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati.
 
-| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
+| Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
 | --- | --- | --- | --- | --- |
 | Collaborazione |Condivisione di file |Sì | |Tutte le versioni |
 | Collaborazione |Condivisione di file distribuita |Sì | |Tutte le versioni |
@@ -235,7 +235,7 @@ I carichi di lavoro seguenti non sono supportati dai dispositivi StorSimple dell
 
 Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati da StorSimple.
 
-| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
+| Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
 | --- | --- | --- | --- | --- |
 | Generale |Express Route |Sì | |Tutte le versioni |
 | Generale |DataCore FC |Sì* |Supportato con DataCore SANsymphony |Tutte le versioni |
@@ -303,7 +303,7 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 | archiviazione di Azure |Set di credenziali di accesso collegato all'account di archiviazione di un determinato provider di servizi cloud. |
 | Adattatore StorSimple per SharePoint |Componente di Microsoft Azure StorSimple che estende in modo trasparente l'archiviazione e la protezione dei dati di StorSimple a farm di SharePoint Server. |
 | Servizio Gestione dispositivi StorSimple |Estensione del portale di Azure che consente di gestire i dispositivi Azure StorSimple locali e virtuali. |
-| Gestione snapshot StorSimple  |Snap-in di Microsoft Management Console (MMC) per la gestione di operazioni di backup e ripristino in Microsoft Azure StorSimple. |
+| Gestione snapshot StorSimple |Snap-in di Microsoft Management Console (MMC) per la gestione di operazioni di backup e ripristino in Microsoft Azure StorSimple. |
 | Esegui backup |Funzionalità che consente all'utente di eseguire un backup interattivo di un volume. È un'alternativa al backup manuale di un volume invece del backup automatizzato con un criterio definito. |
 | Thin provisioning |Metodo per ottimizzare l'efficienza con cui lo spazio di archiviazione disponibile viene utilizzato nei sistemi di archiviazione. Nel thin provisioning lo spazio di archiviazione viene allocato tra più utenti in base allo spazio minimo richiesto da ogni utente in un determinato momento. Vedere anche *fat provisioning*. |
 | suddivisione in livelli |Disposizione dei dati in raggruppamenti logici basati sull'utilizzo corrente, l'età e relazioni con altri dati. StorSimple organizza automaticamente i dati in livelli. |

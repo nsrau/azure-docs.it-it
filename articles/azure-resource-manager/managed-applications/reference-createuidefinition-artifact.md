@@ -1,6 +1,6 @@
 ---
-title: Elemento CreateUiDefinition
-description: Viene illustrato come creare l'elemento createUiDefinition per un'applicazione gestita di Azure.Shows how to create the createUiDefinition artifact for an Azure Managed Application. Il file è denominato createUiDefinition.json.The file is named createUiDefinition.json.
+title: Artefatto CreateUiDefinition
+description: Viene illustrato come creare l'elemento createUiDefinition per un'applicazione gestita di Azure. Il file è denominato createUiDefinition. JSON.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
@@ -12,13 +12,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651488"
 ---
-# <a name="reference-user-interface-elements-artifact"></a>Riferimento: elemento degli elementi dell'interfaccia utenteReference: User interface elements artifact
+# <a name="reference-user-interface-elements-artifact"></a>Riferimento: artefatto degli elementi dell'interfaccia utente
 
-Questo articolo è un riferimento per un elemento createUiDefinition.json nelle applicazioni gestite di Azure.This article is a reference for a *createUiDefinition.json* artifact in Azure Managed Applications. Per ulteriori informazioni sulla creazione di elementi dell'interfaccia utente, vedere [Creare elementi dell'interfaccia utente](create-uidefinition-elements.md).
+Questo articolo è un riferimento per un elemento *createUiDefinition. JSON* nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione di elementi dell'interfaccia utente, vedere [creare elementi dell'interfaccia utente](create-uidefinition-elements.md).
 
 ## <a name="user-interface-elements"></a>Elementi dell'interfaccia utente
 
-Il codice JSON seguente mostra un esempio di file createUiDefinition.json per le applicazioni gestite di Azure:The following JSON shows an example of *createUiDefinition.json* file for Azure Managed Applications:
+Il codice JSON seguente mostra un esempio di file *createUiDefinition. JSON* per le applicazioni gestite di Azure:
 
 ```json
 {
@@ -81,6 +81,6 @@ Il codice JSON seguente mostra un esempio di file createUiDefinition.json per le
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare un'applicazione gestita con risorse e azioni personalizzateTutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
-- [Riferimento: Elemento del modello di distribuzioneReference: Deployment template artifact](reference-main-template-artifact.md)
-- [Riferimento: Elemento di definizione della vistaReference: View definition artifact](reference-view-definition-artifact.md)
+- [Esercitazione: creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
+- [Riferimento: artefatto modello di distribuzione](reference-main-template-artifact.md)
+- [Riferimento: elemento della definizione della visualizzazione](reference-view-definition-artifact.md)

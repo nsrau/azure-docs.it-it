@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "68642085"
 ---
-Nell'output del `identity` comando, la sezione `UserAssigned` mostra l'identità di tipo è impostata nell'attività:
+Nell'output del comando, la `identity` sezione indica che l'identità di `UserAssigned` tipo è impostata nell'attività:
 
 ```console
 [...]

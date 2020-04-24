@@ -1,6 +1,6 @@
 ---
 title: Usare Apache Hive con PowerShell in HDInsight - Azure
-description: Usare PowerShell per eseguire query Apache Hive in Apache Hadoop in Azure HDInsightUse PowerShell to run Apache Hive queries in Apache Hadoop in Azure HDInsight
+description: Usare PowerShell per eseguire query Apache Hive in Apache Hadoop in Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -19,14 +19,14 @@ ms.locfileid: "75552594"
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Questo documento fornisce un esempio di utilizzo di Azure PowerShell per eseguire query Apache Hive in un Apache Hadoop nel cluster HDInsight.This document provides an example of using Azure PowerShell to run Apache Hive queries in an Apache Hadoop on HDInsight cluster.
+Questo documento fornisce un esempio di uso di Azure PowerShell per eseguire query Apache Hive in un Apache Hadoop nel cluster HDInsight.
 
 > [!NOTE]  
 > Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Apache Hive con Apache Hadoop in HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Apache Hadoop in HDInsight. Vedere [Introduzione a HDInsight su Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Apache Hadoop in HDInsight. Vedere [Introduzione a HDInsight in Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Il [modulo Az](https://docs.microsoft.com/powershell/azure/overview) di PowerShell installato.
 
@@ -54,7 +54,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
         .\hivejob.ps1
 
-    Quando lo script viene eseguito, viene richiesto di immettere il nome del cluster e le credenziali dell'account di amministrazione del cluster HTTPS/Cluster. Potrebbe anche essere richiesto di accedere alla sottoscrizione di Azure.You may also be prompted to sign in to your Azure subscription.
+    Quando viene eseguito lo script, viene richiesto di immettere il nome del cluster e le credenziali dell'account amministratore HTTPS/cluster. Potrebbe anche essere richiesto di accedere alla sottoscrizione di Azure.
 
 3. Al termine, il processo restituisce informazioni simili al testo seguente:
 

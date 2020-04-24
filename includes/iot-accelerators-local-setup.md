@@ -59,21 +59,21 @@ Se non sono ancora state create le risorse di Azure necessarie, seguire questa p
 
      Lo script crea un gruppo di risorse in Azure con il nome della soluzione. Questo gruppo di risorse contiene le risorse di Azure usate dall'acceleratore di soluzione. È possibile eliminare il gruppo di risorse nel momento in cui le risorse corrispondenti non sono più necessarie.
 
-     Lo script aggiunge anche un set di variabili di ambiente con un prefisso **PCS** nel computer locale. Queste variabili di ambiente forniscono i dettagli per il monitoraggio remoto per essere in grado di leggere da una risorsa dell'insieme di credenziali delle chiavi di Azure.These environment variables provide the details for Remote Monitoring to be able to read from an Azure Key Vault resource. Questa risorsa dell'insieme di credenziali delle chiavi è la posizione da cui il monitoraggio remoto leggerà i valori di configurazione.
+     Lo script aggiunge anche un set di variabili di ambiente con un prefisso **PCS** nel computer locale. Queste variabili di ambiente forniscono i dettagli per il monitoraggio remoto per poter leggere da una risorsa Azure Key Vault. Questa risorsa Key Vault è il punto in cui il monitoraggio remoto leggerà i valori di configurazione da.
 
      > [!TIP]
-     > Al termine dello script, le variabili di ambiente vengono salvate anche in un file denominato ** \<nome soluzione\>\\\\\<\>.env della cartella inizio .pcs**. Sarà possibile usarle per distribuzioni future di acceleratori di soluzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+     > Quando lo script viene completato, salva anche le variabili di ambiente in un file denominato ** \<cartella\>\\Home. PC\\\<\>soluzione nome. env**. Sarà possibile usarle per distribuzioni future di acceleratori di soluzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
 1. Uscire dall'ambiente della riga di comando.
 
 ### <a name="use-existing-azure-resources"></a>Usare le risorse di Azure esistenti
 
 Se sono già state create le risorse di Azure necessarie, creare le corrispondenti variabili di ambiente nel computer locale.
-Impostare le variabili di ambiente per gli elementi seguenti:Set the environment variables for the following:
-* **PCS_KEYVAULT_NAME** - Nome della risorsa dell'insieme di credenziali delle chiavi di Azure
-* **PCS_AAD_APPID** - L'ID applicazione AAD
-* **PCS_AAD_APPSECRET** - Il segreto dell'applicazione AAD
+Impostare le variabili di ambiente per gli elementi seguenti:
+* Nome **PCS_KEYVAULT_NAME** della risorsa Azure Key Vault
+* **PCS_AAD_APPID** : ID dell'applicazione AAD
+* **PCS_AAD_APPSECRET** : segreto dell'applicazione AAD
 
-I valori di configurazione verranno letti da questa risorsa dell'insieme di credenziali delle chiavi di Azure.Configuration values will be read from this Azure Key Vault resource. Queste variabili di ambiente possono essere salvate nel ** \<\>\\file\\\<\>.pcs nome soluzione** della cartella inizio dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+I valori di configurazione verranno letti da questa risorsa Azure Key Vault. Queste variabili di ambiente possono essere salvate nel file con ** \<estensione\>\\ENV della\\\<soluzione\>Home Folder. PCS** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
-Parte della configurazione necessaria per il microservizio **Key Vault** viene archiviata in un'istanza dell'insieme di credenziali delle chiavi creata durante la distribuzione iniziale. Le variabili corrispondenti in keyvault devono essere modificate in base alle esigenze.
+Parte della configurazione richiesta dal microservizio è archiviata in un'istanza di **Key Vault** creata durante la distribuzione iniziale. Le variabili corrispondenti nell'insieme di credenziali delle credenziali devono essere modificate in base alle esigenze.

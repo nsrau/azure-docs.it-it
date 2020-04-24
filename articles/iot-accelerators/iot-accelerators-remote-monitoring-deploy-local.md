@@ -1,5 +1,5 @@
 ---
-title: Distribuire la soluzione di monitoraggio remoto in locale - IDE di Gestione remota - Azure . Documenti Microsoft
+title: Distribuire la soluzione di monitoraggio remoto in locale-IDE di Visual Studio-Azure | Microsoft Docs
 description: Questa guida pratica illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale tramite Visual Studio a scopo di test e sviluppo.
 author: avneet723
 manager: hegate
@@ -27,7 +27,7 @@ Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in Doc
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure Free Trial .
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-Al termine dell'avvio, il browser visualizza la pagina **\/http: /localhost:3000/dashboard**. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, completare la procedura seguente.
+Al termine dell'avvio, il browser Visualizza la pagina **http:\//localhost: 3000/dashboard**. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, completare la procedura seguente.
 
 ### <a name="configure-and-run-nginx"></a>Configurare ed eseguire NGINX
 
@@ -109,7 +109,7 @@ Per altre informazioni sull'esecuzione **nginx**, vedere [nginx per Windows](htt
 
 ### <a name="connect-to-the-dashboard"></a>Connettersi al dashboard
 
-Per accedere al dashboard della soluzione\/di monitoraggio remoto, passare a http: /localhost:9000 nel browser.
+Per accedere al dashboard della soluzione di monitoraggio remoto, passare a\/http:/localhost: 9000 nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

@@ -25,7 +25,7 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 > 
 
 #### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Connettersi all'account dell'emulatore utilizzando un collegamento
-Il modo più semplice per eseguire la connessione all'emulatore di archiviazione dall'applicazione consiste nel configurare una stringa di connessione nel file di configurazione dell'applicazione che fa riferimento al collegamento `UseDevelopmentStorage=true`. Ecco un esempio di stringa di connessione all'emulatore di archiviazione in un file app.config:Here's an example of a connection string to the storage emulator in an *app.config* file: 
+Il modo più semplice per eseguire la connessione all'emulatore di archiviazione dall'applicazione consiste nel configurare una stringa di connessione nel file di configurazione dell'applicazione che fa riferimento al collegamento `UseDevelopmentStorage=true`. Di seguito è riportato un esempio di stringa di connessione all'emulatore di archiviazione in un file *app. config* : 
 
 ```xml
 <appSettings>

@@ -15,11 +15,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "75371778"
 ---
-Una firma di accesso condiviso consente di concedere un accesso limitato ai contenitori e ai BLOB nell'account di archiviazione. Quando si crea una firma di accesso locale, si specificano i vincoli, incluse le risorse di Archiviazione di Azure a cui un client può accedere, le autorizzazioni di cui dispongono per tali risorse e la durata della firma di accesso locale.
+Una firma di accesso condiviso consente di concedere l'accesso limitato a contenitori e BLOB nell'account di archiviazione. Quando si crea una firma di accesso condiviso, si specificano i relativi vincoli, incluse le risorse di archiviazione di Azure a cui un client può accedere, le autorizzazioni per tali risorse e il tempo di validità della firma di accesso condiviso.
 
-Ogni firma di accesso base è firmata con una chiave. È possibile firmare una firma di accesso base in uno dei due modi seguenti:You can sign a SAS in one of two ways:
+Ogni firma di accesso condiviso è firmata con una chiave. È possibile firmare una firma di accesso condiviso in uno dei due modi seguenti:
 
-- Con una chiave creata con le credenziali di Azure Active Directory (Azure AD). Una firma di accesso condiviso firmata con le credenziali di Azure AD è una firma di accesso condiviso *di delega utente.*
-- Con la chiave dell'account di archiviazione. Sia una *firma di* accesso livello accesso livello del servizio che una firma di accesso livello *dell'account* sono firmate con la chiave dell'account di archiviazione.
+- Con una chiave creata con le credenziali Azure Active Directory (Azure AD). Una firma di accesso condiviso con Azure AD credenziali è una firma di accesso condiviso *dell'utente* .
+- Con la chiave dell'account di archiviazione. Una firma di accesso condiviso del *servizio* e una firma di accesso condiviso dell' *account* sono firmate con la chiave account di archiviazione
 
-Una firma di accesso sas di delega degli utenti offre una sicurezza superiore a una firma di accesso livello firmata con la chiave dell'account di archiviazione. Microsoft consiglia di usare una sAS di delega utente quando possibile. Per ulteriori informazioni, vedere [Concedere un accesso limitato ai dati con firme](../articles/storage/common/storage-sas-overview.md)di accesso condiviso.
+Una firma di accesso condiviso di delega utente offre una protezione superiore a una firma di accesso condiviso con la chiave dell'account di archiviazione. Quando possibile, Microsoft consiglia di usare una firma di accesso condiviso di delega utente. Per altre informazioni, vedere [concedere l'accesso limitato ai dati con le firme di accesso condiviso (SAS)](../articles/storage/common/storage-sas-overview.md).

@@ -20,7 +20,7 @@ Il modello di fatturazione per Servizio Azure SignalR è basato sul numero di co
 
 ## <a name="message-formats"></a>Formati di messaggi 
 
-Il servizio SignalR di Azure supporta gli stessi formati di ASP.NET Core SignalR: [JSON](https://www.json.org/) e [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
+Il servizio Azure SignalR supporta gli stessi formati di ASP.NET Core SignalR: [JSON](https://www.json.org/) e [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
 
 ## <a name="message-size"></a>Dimensioni dei messaggi
 
@@ -40,15 +40,15 @@ Si supponga, ad esempio, di avere tre client e un server applicazioni. Un client
 
 ## <a name="how-connections-are-counted"></a>Come vengono conteggiate le connessioni
 
-Esistono connessioni server e connessioni client con il servizio SignalR di Azure.There are server connections and client connections with Azure SignalR Service. Per impostazione predefinita, ogni server applicazioni inizia con cinque connessioni iniziali per hub e ogni client dispone di una connessione client.
+Sono disponibili connessioni al server e client con il servizio Azure SignalR. Per impostazione predefinita, ogni server applicazioni inizia con cinque connessioni iniziali per hub e ogni client dispone di una connessione client.
 
 Il conteggio delle connessioni visualizzato nel portale di Azure include sia le connessioni server che quelle client.
 
-Si supponga, ad esempio, di avere due server applicazioni e di definire cinque hub nel codice. Il numero di connessioni al server sarà 50: 2 server applicazioni , 5 hub e 5 connessioni per hub.
+Si supponga, ad esempio, di avere due server applicazioni e di definire cinque hub nel codice. Il numero di connessioni server sarà 50:2 server applicazioni * 5 Hub * 5 connessioni per hub.
 
-ASP.NET SignalR il calcola le connessioni server in modo diverso. Include un hub predefinito in aggiunta agli hub definiti dall'utente. Per impostazione predefinita, ogni server applicazioni richiede altre cinque connessioni iniziali al server. Il numero di connessioni iniziale per l'hub predefinito rimane coerente con quello degli altri hub.
+ASP.NET SignalR il calcola le connessioni server in modo diverso. Include un hub predefinito in aggiunta agli hub definiti dall'utente. Per impostazione predefinita, ogni server applicazioni necessita di altre cinque connessioni server iniziali. Il numero di connessioni iniziale per l'Hub predefinito rimane coerente con quello degli altri hub.
 
-Durante la durata del server applicazioni, il servizio e il server applicazioni mantengono lo stato della connessione di sincronizzazione e apportano modifiche alle connessioni server per migliorare le prestazioni e la stabilità del servizio. Così si potrebbe vedere il numero di connessione del server cambia di volta in volta.
+Durante il ciclo di vita del server applicazioni, il servizio e il server applicazioni mantengono lo stato della connessione di sincronizzazione e apportano modifiche alle connessioni server per una migliore stabilità dei servizi e delle prestazioni. Per questo motivo è possibile che le modifiche apportate al numero di connessione del server vengano apportate
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Come viene conteggiato il traffico in ingresso/in uscita
 
@@ -58,5 +58,5 @@ La distinzione tra traffico in ingresso e traffico in uscita si basa sulla prosp
 
 - [Tipi di aggregazione in Monitoraggio di Azure](/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr )
 - [Configurazione di ASP.NET Core SignalR](/aspnet/core/signalr/configuration)
-- [Json](https://www.json.org/)
+- [JSON](https://www.json.org/)
 - [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

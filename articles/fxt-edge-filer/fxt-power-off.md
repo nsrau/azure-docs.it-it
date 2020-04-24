@@ -1,6 +1,6 @@
 ---
-title: Come arrestare un'unità Filer di Microsoft Azure FXT Edge
-description: Procedure per l'avvio e l'arresto sicuro di un nodo Filer di Azure FXT Edge
+title: Come arrestare un'unità di file di Microsoft Azure FXT Edge
+description: Procedure per l'avvio e l'arresto sicuro di un nodo del filer di Azure FXT Edge
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
@@ -13,27 +13,27 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "72255995"
 ---
-# <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Come spegnere in modo sicuro l'hardware di Azure FXT Edge Filer
+# <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Come spegnere in modo sicuro l'hardware del filer di Azure FXT Edge
 
-Sebbene sia possibile utilizzare il pulsante di alimentazione fisica per attivare un singolo nodo, non è consigliabile utilizzarlo per arrestare l'unità in circostanze normali.
+Sebbene sia possibile usare il pulsante di alimentazione fisico per attivare un singolo nodo, è consigliabile non usarlo per arrestare l'unità in circostanze normali.
 
-Dopo che un nodo Filer di Azure FXT Edge è in uso come parte di un cluster, è necessario usare il software del pannello di controllo del cluster per arrestare l'hardware. 
+Dopo l'uso di un nodo del filer di Azure FXT Edge come parte di un cluster, è necessario usare il software del pannello di controllo del cluster per arrestare l'hardware. 
 
 > [!NOTE] 
-> To avoid possible data loss or corruption, always use the Control Panel software to shut down an Azure FXT Edge Filer. Non utilizzare il pulsante di alimentazione fisica per l'arresto a meno che non venga richiesto dal Servizio Supporto Tecnico Clienti Microsoft.
+> Per evitare possibili perdite di dati o danneggiamenti, usare sempre il software del pannello di controllo per arrestare un filer di Azure FXT Edge. Non usare il pulsante di alimentazione fisico per l'arresto, a meno che non venga richiesto dal servizio supporto tecnico clienti Microsoft.
 > 
-> In caso di emergenza elettrica, scollegare i cavi di alimentazione o utilizzare il meccanismo di disconnessione dell'elettricità del data center.
+> In caso di emergenza elettrica, scollegare i cavi di alimentazione o usare il meccanismo di disconnessione elettrica del data center.
 
-## <a name="shut-down-a-node-from-the-control-panel"></a>Arrestare un nodo dal Pannello di controllo
+## <a name="shut-down-a-node-from-the-control-panel"></a>Arrestare un nodo dal pannello di controllo
 
-Seguire queste istruzioni per spegnere in modo sicuro un nodo Filer di Azure FXT Edge:Follow these instructions to safely power off an Azure FXT Edge Filer node:
+Seguire queste istruzioni per spegnere in modo sicuro un nodo del filer di Azure FXT Edge:
 
-1. Accedere al Pannello di controllo del cluster. (Indicazioni in [Aprire le pagine Impostazioni](fxt-cluster-create.md#open-the-settings-pages))
-1. Fare clic sulla scheda **Impostazioni,** quindi caricare la pagina**Nodi FXT** **cluster.** > 
-1. Nell'elenco dei nodi del cluster individuare quello che si desidera arrestare. Fare clic sul pulsante **Spegne** nella relativa colonna **Azioni.** 
-1. Aspetta qualche istante. Il nodo si spegnerà e si spegnerà.
+1. Accedere al pannello di controllo del cluster. (Direzioni in [aprire le pagine Impostazioni](fxt-cluster-create.md#open-the-settings-pages))
+1. Fare clic sulla scheda **Impostazioni** , quindi caricare la pagina nodi **cluster** > **FXT** .
+1. Nell'elenco dei nodi del cluster individuare quello che si desidera arrestare. Fare clic sul pulsante **Spegni** nella colonna **azioni** . 
+1. Attendere alcuni istanti. Il nodo si arresterà e si spegnerà.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sui LED di stato e altri indicatori, vedere Monitorare lo stato hardware di [Azure FXT Edge Filer](fxt-monitor.md).
-* Per altre informazioni sugli alimentatori di Azure FXT Edge Filer, vedere Collegare i cavi di [alimentazione.](fxt-network-power.md#connect-power-cables)
+* Per informazioni sui LED di stato e sugli altri indicatori, vedere [monitorare lo stato hardware del filer di Azure FXT Edge](fxt-monitor.md).
+* Per altre informazioni sugli alimentatori di Azure FXT Edge, vedere [connettere cavi di alimentazione](fxt-network-power.md#connect-power-cables).

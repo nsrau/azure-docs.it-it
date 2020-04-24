@@ -12,5 +12,5 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180743"
 ---
 > [!div class="op_single_selector"]
-> * [Portale di Azure](../articles/lab-services/devtest-lab-create-template.md)
-> * [Powershell](../articles/lab-services/devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+> * [Azure portal](../articles/lab-services/devtest-lab-create-template.md)
+> * [PowerShell](../articles/lab-services/devtest-lab-create-custom-image-from-vhd-using-powershell.md)

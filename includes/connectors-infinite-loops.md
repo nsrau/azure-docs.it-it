@@ -12,4 +12,4 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789401"
 ---
 > [!IMPORTANT]
-> Prestare attenzione quando si seleziona un trigger e un'azione con lo stesso tipo di connettore e li si usa per utilizzare la stessa entità, ad esempio una coda di messaggistica o una sottoscrizione di argomenti. Questa combinazione può creare un ciclo infinito, che si traduce in un'app per la logica che non termina mai.
+> Prestare attenzione quando si selezionano un trigger e un'azione che hanno lo stesso tipo di connettore e li usano per lavorare con la stessa entità, ad esempio una sottoscrizione di un argomento o una coda di messaggistica. Questa combinazione può creare un ciclo infinito, che comporta un'app per la logica che non termina mai.

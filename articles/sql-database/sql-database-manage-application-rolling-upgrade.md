@@ -109,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Terminare la replica geografica disconnettendo il database secondario (11). Questa azione crea una copia indipendente ma completamente sincronizzata del database di produzione. Questo database verrà aggiornato. L'esempio seguente usa Transact-SQLTransact-SQL, ma è disponibile anche [PowerShell.The](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) following example uses Transact-SQLTransact-SQL but PowerShell is also available. 
+2. Terminare la replica geografica disconnettendo il database secondario (11). Questa azione crea una copia indipendente ma completamente sincronizzata del database di produzione. Questo database verrà aggiornato. Nell'esempio seguente viene usato Transact-SQL, ma [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) è anche disponibile. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -151,7 +151,7 @@ I due metodi di aggiornamento descritti nell'articolo differiscono in termini di
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per una panoramica e scenari di continuità aziendale, vedere [Panoramica della continuità aziendale](sql-database-business-continuity.md).
-* Per altre informazioni sulla replica geografica attiva del database SQL di Azure, vedere [Creare database secondari leggibili usando](sql-database-active-geo-replication.md)la replica geografica attiva.
+* Per informazioni sulla replica geografica attiva del database SQL di Azure, vedere [creare database secondari leggibili usando la replica geografica attiva](sql-database-active-geo-replication.md).
 * Per altre informazioni sui gruppi di failover del database SQL di Azure, vedere [Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md).
 * Per altre informazioni sugli ambienti di gestione temporanea nel Servizio app di Azure, vedere [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../app-service/deploy-staging-slots.md).
 * Per informazioni su profili di Gestione traffico di Azure, vedere [Gestire un profilo di Gestione traffico di Azure](../traffic-manager/traffic-manager-manage-profiles.md).

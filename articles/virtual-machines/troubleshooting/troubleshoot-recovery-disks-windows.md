@@ -40,7 +40,7 @@ I passaggi per la risoluzione dei problemi sono i seguenti:
 6. Smontare e scollegare il disco dalla VM di ripristino.
 7. Modificare il disco del sistema operativo per la VM interessata.
 
-È possibile usare i comandi di ripristino della macchina virtuale per automatizzare i passaggi 1, 2, 3, 4, 6 e 7.You can use the VM repair commands to automate steps 1, 2, 3, 4, 6, and 7. Per altre informazioni sulla documentazione e sulle istruzioni, vedere Ripristinare una macchina virtuale Windows usando i comandi di ripristino di Macchine virtuali di [Azure.](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+È possibile usare i comandi di ripristino della macchina virtuale per automatizzare i passaggi 1, 2, 3, 4, 6 e 7. Per altri documenti e istruzioni, vedere [ripristinare una VM Windows usando i comandi di ripristino della macchina virtuale di Azure](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Verificare di aver prima installato e registrato [la versione più recente di Azure PowerShell](/powershell/azure/overview) nella sottoscrizione:
 

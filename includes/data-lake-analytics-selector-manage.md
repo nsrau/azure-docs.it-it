@@ -16,9 +16,9 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180611"
 ---
 > [!div class="op_single_selector"]
-> * [Portale di Azure](../articles/data-lake-analytics/data-lake-analytics-manage-use-portal.md)
-> * [Interfaccia della riga di comando di AzureAzure](../articles/data-lake-analytics/data-lake-analytics-manage-use-cli.md)
-> * [Powershell](../articles/data-lake-analytics/data-lake-analytics-manage-use-powershell.md)
+> * [Azure portal](../articles/data-lake-analytics/data-lake-analytics-manage-use-portal.md)
+> * [Interfaccia della riga di comando di Azure](../articles/data-lake-analytics/data-lake-analytics-manage-use-cli.md)
+> * [PowerShell](../articles/data-lake-analytics/data-lake-analytics-manage-use-powershell.md)
 > * [Java](../articles/data-lake-analytics/data-lake-analytics-manage-use-java-sdk.md)
 > * [.NET SDK](../articles/data-lake-analytics/data-lake-analytics-manage-use-dotnet-sdk.md)
 > * [Node.js](../articles/data-lake-analytics/data-lake-analytics-manage-use-nodejs.md)

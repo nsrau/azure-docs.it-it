@@ -1,5 +1,5 @@
 ---
-title: Servizio DNS di Azure Service FabricAzure Service Fabric DNS service
+title: Servizio DNS di Azure Service Fabric
 description: Usare il servizio DNS di Service Fabric per individuare microservizi dall'interno del cluster.
 ms.topic: conceptual
 ms.date: 7/20/2018
@@ -103,7 +103,7 @@ Quando si dispone di un modello, è possibile abilitare il servizio DNS seguendo
 3. Dopo avere aggiornato il modello di cluster con le modifiche, applicarle e consentire il completamento dell'aggiornamento. Al termine dell'aggiornamento, il servizio di sistema DNS viene avviato nel cluster. Il nome del servizio è `fabric:/System/DnsService`, e sarà possibile trovarlo nella sezione **Sistema** del servizio in Service Fabric Explorer. 
 
 > [!NOTE]
-> Quando si aggiorna DNS da disabilitato ad abilitato, Service Fabric Explorer potrebbe non riflettere il nuovo stato. Per risolvere, riavviare i nodi modificando UpgradePolicy nel modello di Azure Resource Manager.To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. Per altre informazioni, vedere La Guida di riferimento ai modelli di Service Fabric.See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
+> Quando si aggiorna DNS da disabilitato ad abilitato, Service Fabric Explorer possibile che non rifletta il nuovo stato. Per risolvere il problemi, riavviare i nodi modificando il UpgradePolicy nel modello di Azure Resource Manager. Per ulteriori informazioni, vedere il [riferimento al modello di Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
 
 > [!NOTE]
 > L'abilitazione del servizio DNS durante lo sviluppo in un computer locale sostituirà alcune impostazioni DNS. Se si verificano problemi di connessione a Internet, controllare le impostazioni DNS.

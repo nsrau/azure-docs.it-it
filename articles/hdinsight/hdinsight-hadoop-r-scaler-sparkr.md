@@ -1,6 +1,6 @@
 ---
 title: Usare ScaleR e SparkR con Azure HDInsight
-description: Usare ScaleR e SparkR per la manipolazione dei dati e lo sviluppo di modelli con i servizi di ML in Azure HDInsightUse ScaleR and SparkR for data manipulation and model development with ML Services on Azure HDInsight
+description: Usare Scaler e Sparkr per la manipolazione dei dati e lo sviluppo di modelli con ML Services in Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -19,17 +19,17 @@ ms.locfileid: "75500076"
 
 Questo documento illustra come stimare i ritardi di arrivo dei voli usando un modello di regressione logistica **ScaleR**. Nell'esempio vengono usati dati sul ritardo dei voli e dati sulle condizioni atmosferiche, uniti in join tramite **SparkR**.
 
-Anche se entrambi i pacchetti vengono eseguiti nel motore di esecuzione Spark di Apache Hadoop, vengono bloccati dalla condivisione dei dati in memoria in quanto ognuno di essi richiede le rispettive sessioni Spark. Finché questo problema non verrà risolto in una versione futura di ML Server, la soluzione alternativa consiste nel mantenere sessioni di Spark non sovrapposte e scambiare i dati tramite file intermedi. Le istruzioni riportate di seguito mostrano che questi requisiti sono semplici da rispettare.
+Sebbene entrambi i pacchetti vengano eseguiti sul motore di esecuzione Spark di Apache Hadoop, vengono bloccati dalla condivisione dei dati in memoria perché ognuno di essi richiede le rispettive sessioni Spark. Finché questo problema non verrà risolto in una versione futura di ML Server, la soluzione alternativa consiste nel mantenere sessioni di Spark non sovrapposte e scambiare i dati tramite file intermedi. Le istruzioni riportate di seguito mostrano che questi requisiti sono semplici da rispettare.
 
 Questo esempio è stato condiviso inizialmente in un discorso tenuto a Strata 2016 da Mario Inchiosa e Roni Burd. Il discorso è disponibile nel webinar [Building a Scalable Data Science Platform with R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop) (Compilazione di una piattaforma Data Science scalabile con R).
 
 Il codice è stato scritto originariamente per ML Server in esecuzione in Spark in un cluster HDInsight di Azure. Tuttavia, il concetto di combinazione dell'uso di SparkR e ScaleR in un unico script è valido anche nel contesto di ambienti locali.
 
-I passaggi in questo documento presuppongono un livello intermedio di conoscenza di R e della libreria [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) di ML Server. Viene introdotto [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) mentre si cammina attraverso questo scenario.
+I passaggi in questo documento presuppongono un livello intermedio di conoscenza di R e della libreria [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) di ML Server. Questo scenario è stato introdotto in [sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html) .
 
 ## <a name="the-airline-and-weather-datasets"></a>Set di dati relativi alle compagnie aeree e alle previsioni meteo
 
-I dati di volo sono disponibili negli [archivi del governo statunitense](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). È disponibile anche come zip da [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+I dati di volo sono disponibili negli [archivi del governo statunitense](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). È disponibile anche come file zip da [AirOnTimeCSV. zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
 I dati meteo suddivisi per mese possono essere scaricati come file ZIP in formato non elaborato dal [repository della National Oceanic and Atmospheric Administration](https://www.ncdc.noaa.gov/orders/qclcd/). Per questo esempio, scaricare i dati per maggio 2007 - dicembre 2012. Usare i file dei dati orari e il file `YYYYMMMstation.txt` all'interno di ognuno degli ZIP.
 
@@ -114,7 +114,7 @@ Per preparare i dati meteo, creare un subset per le colonne necessarie per la mo
 
 Aggiungere quindi un codice aeroporto associato a una stazione meteo e convertire le misurazioni dall'ora locale in ora UTC.
 
-Iniziare creando un file per eseguire il mapping delle informazioni sulla stazione meteo (WBAN) al codice dell'aeroporto. Il codice seguente legge ognuno dei file di dati meteo non elaborati ogni ora, sottoinsieme delle colonne necessarie, unisce il file di mappatura delle stazioni meteorologiche, regola le ore di data delle misurazioni in UTC e quindi scrive una nuova versione del file:
+Iniziare creando un file per eseguire il mapping delle informazioni sulla stazione meteo (WBAN) al codice dell'aeroporto. Il codice seguente legge ognuno dei file di dati meteorologici non elaborati, i subset per le colonne necessarie, unisce il file di mapping della stazione meteo, modifica la data e l'ora delle misurazioni in UTC e quindi scrive una nuova versione del file:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -194,7 +194,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importazione dei dati relativi al meteo e alle compagnie aeree per i DataFrame di Spark
 
-A questo punto verrà usata la funzione SparkR [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) per importare i dati relativi al meteo e alle compagnie aeree nei DataFrame di Spark. Questa funzione, come molti altri metodi Spark, viene eseguita in modo non anteceso, vale a dire che sono in coda per l'esecuzione ma non eseguiti fino a quando non è necessario.
+A questo punto verrà usata la funzione SparkR [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) per importare i dati relativi al meteo e alle compagnie aeree nei DataFrame di Spark. Questa funzione, come molti altri metodi Spark, viene eseguita in modo differito, vale a dire che vengono accodate per l'esecuzione, ma non vengono eseguite fino a quando richiesto.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -267,7 +267,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>Unione in join dei dati meteo e delle compagnie aeree
 
-La funzione [join()](https://spark.apache.org/docs/latest/api/R/join.html) di SparkR verrà ora usata per eseguire un left outer join dei dati sulle compagnie aeree e dei dati meteo in base ai valori di datetime e AirportID di partenza. L'outer join ci permette di conservare tutti i dati della compagnia aerea anche se non ci sono dati meteo corrispondenti. Dopo il join verranno rimosse alcune colonne ridondanti e verranno rinominate le colonne conservate per rimuovere il prefisso DataFrame introdotto dal join.
+La funzione [join()](https://spark.apache.org/docs/latest/api/R/join.html) di SparkR verrà ora usata per eseguire un left outer join dei dati sulle compagnie aeree e dei dati meteo in base ai valori di datetime e AirportID di partenza. Il outer join consente di conservare tutti i record di dati della compagnia aerea anche se non sono presenti dati meteorologici corrispondenti. Dopo il join verranno rimosse alcune colonne ridondanti e verranno rinominate le colonne conservate per rimuovere il prefisso DataFrame introdotto dal join.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -349,7 +349,7 @@ rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 
 ## <a name="import-to-xdf-for-use-by-scaler"></a>Importare in XDF per l'uso da parte di ScaleR
 
-È possibile usare direttamente il file CSV dei dati relativi al meteo e alle compagnie aeree aggiunti per la modellazione tramite un'origine dati di testo ScaleR. Ma lo importiamo prima in XDF, dal momento che è più efficiente quando si eseguono più operazioni sul set di dati:
+È possibile usare direttamente il file CSV dei dati relativi al meteo e alle compagnie aeree aggiunti per la modellazione tramite un'origine dati di testo ScaleR. Ma viene importato prima in XDF, perché è più efficiente quando si eseguono più operazioni sul set di dati:
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
@@ -459,7 +459,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>Eseguire il training e il test di un modello di regressione logistica
 
-Ora siamo pronti per costruire un modello. Per visualizzare l'influenza dei dati meteo sui ritardi dell'ora di arrivo verrà usata la routine di regressione logistica di ScaleR. Questa viene usata per la modellazione se un ritardo di arrivo maggiore di 15 minuti è influenzato dal meteo negli aeroporti di partenza e arrivo:
+A questo punto è possibile compilare un modello. Per visualizzare l'influenza dei dati meteo sui ritardi dell'ora di arrivo verrà usata la routine di regressione logistica di ScaleR. Questa viene usata per la modellazione se un ritardo di arrivo maggiore di 15 minuti è influenzato dal meteo negli aeroporti di partenza e arrivo:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Assegnazione di punteggi in un'altra posizione
 
-È possibile anche usare il modello per l'assegnazione di punteggi ai dati in un'altra piattaforma salvandolo come file di Servizi desktop remoto e trasferendo e importando questo file di Servizi Desktop remoto nell'ambiente per l'assegnazione di punteggi di destinazione, ad esempio R Services per Microsoft SQL Server. È importante assicurarsi che i livelli di fattore dei dati da assegnare un punteggio corrispondano a quelli su cui è stato creato il modello. Questa corrispondenza può essere ottenuta tramite l'estrazione e il salvataggio delle informazioni sulla colonna associate ai dati di modellazione tramite la funzione `rxCreateColInfo()` di ScaleR, quindi applicando queste informazioni sulla colonna all'origine dati di input per la previsione. Di seguito sono state salvate alcune righe del set di dati di test e le informazioni sulla colonna verranno estratte e usate da questo esempio nello script di previsione:
+È possibile anche usare il modello per l'assegnazione di punteggi ai dati in un'altra piattaforma salvandolo come file di Servizi desktop remoto e trasferendo e importando questo file di Servizi Desktop remoto nell'ambiente per l'assegnazione di punteggi di destinazione, ad esempio R Services per Microsoft SQL Server. È importante assicurarsi che i livelli di fattore dei dati a cui assegnare un punteggio corrispondano a quelli in cui è stato compilato il modello. Questa corrispondenza può essere ottenuta tramite l'estrazione e il salvataggio delle informazioni sulla colonna associate ai dati di modellazione tramite la funzione `rxCreateColInfo()` di ScaleR, quindi applicando queste informazioni sulla colonna all'origine dati di input per la previsione. Di seguito sono state salvate alcune righe del set di dati di test e le informazioni sulla colonna verranno estratte e usate da questo esempio nello script di previsione:
 
 ```
 # save the model and a sample of the test dataset 
@@ -531,16 +531,16 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Riepilogo
 
-In this article, we've shown how it's possible to combine use of SparkR for data manipulation with ScaleR for model development in Hadoop Spark. In questo scenario è necessario gestire sessioni di Spark separate eseguendo una sola sessione alla volta e scambiando i dati tramite file CSV. Anche se semplice, questo processo sarà ancora più semplice nella prossima versione di ML Services in cui SparkR e ScaleR potranno condividere una sessione di Spark e pertanto i relativi DataFrame.
+In questo articolo è stato illustrato come è possibile combinare l'uso di Sparkr per la manipolazione dei dati con scaler per lo sviluppo di modelli in Hadoop Spark. In questo scenario è necessario gestire sessioni di Spark separate eseguendo una sola sessione alla volta e scambiando i dati tramite file CSV. Anche se semplice, questo processo sarà ancora più semplice nella prossima versione di ML Services in cui SparkR e ScaleR potranno condividere una sessione di Spark e pertanto i relativi DataFrame.
 
 ## <a name="next-steps-and-more-information"></a>Passaggi successivi e altre informazioni
 
 - Per ulteriori informazioni sull'utilizzo di ML Server in Apache Spark, vedere la [Guida introduttiva](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
-- Per informazioni sui servizi DiM su HDInsight, vedere [Panoramica dei servizi di ML in HDInsight.](r-server/r-server-overview.md)
+- Per informazioni su ML Services in HDInsight, vedere [Panoramica di ml Services in HDInsight](r-server/r-server-overview.md).
 
 Per altre informazioni sull'uso di SparkR, vedere:
 
-- [Documento Apache SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html).
+- [Documento Apache sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Panoramica di SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) da Databricks.
+- [Panoramica di sparkr](https://docs.databricks.com/spark/latest/sparkr/overview.html) da databricks.

@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM Agent Overview
+title: Panoramica dell'agente VM Linux di Azure
 description: Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -42,7 +42,7 @@ L'agente Linux di Microsoft Azure (waagent) gestisce il provisioning di Linux e 
   * Gestione del disco risorse
   * Formattazione e montaggio del disco risorse
   * Configurazione dell'area di swap
-* **Rete**
+* **Funzionalità di rete**
   
   * Gestisce i percorsi per migliorare la compatibilità con i server DHCP della piattaforma.
   * Garantisce la stabilità del nome dell'interfaccia di rete
@@ -60,7 +60,7 @@ L'agente Linux di Microsoft Azure (waagent) gestisce il provisioning di Linux e 
 * **Estensione VM**
   
   * Inserire il componente creato da Microsoft e partner in VM Linux (IaaS) per attivare il software e l'automazione di configurazione
-  * Implementazione di riferimento dell'estensione VM in[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementazione di riferimento dell'estensione della macchina virtuale in[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicazione
 Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canali:
@@ -72,7 +72,7 @@ Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canal
 I sistemi seguenti sono stati testati e funzionano con l'agente Linux di Azure:
 
 > [!NOTE]
-> Questo elenco può differire dall'elenco ufficiale dei sistemi supportati nella piattaforma Microsoft Azure, come descritto di seguito:This list may differ from the official list of supported systems on the Microsoft Azure Platform, as described here:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Questo elenco può differire dall'elenco ufficiale dei sistemi supportati nella piattaforma Microsoft Azure, come descritto di seguito:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -243,14 +243,14 @@ Default: 10
 ```
 Lunghezza di salt casuale usata durante la generazione di hash della password.
 
-**ResourceDisk.Format:**  
+**ResourceDisk. Format:**  
 ```
 Type: Boolean  
 Default: y
 ```
 Se questa voce è impostata, il disco risorse fornito dalla piattaforma viene formattato e montato da waagent se il tipo di file system richiesto dall'utente in "ResourceDisk.Filesystem" è diverso da "ntfs". Una singola partizione di tipo Linux (83) viene resa disponibile nel disco. La partizione non viene formattata se è possibile montarla correttamente.
 
-**ResourceDisk.Filesystem:**  
+**ResourceDisk. filesystem:**  
 ```
 Type: String  
 Default: ext4
@@ -278,7 +278,7 @@ Default: n
 ```
 Se questa voce è impostata, viene creato un file di scambio (/swapfile) nel disco risorse e aggiunto all'area di swap del sistema.
 
-**ResourceDisk.SwapSizeMB:**  
+**ResourceDisk. SwapSizeMB:**  
 ```
 Type: Integer  
 Default: 0
@@ -337,12 +337,12 @@ Le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpad.net/ubuntu
   
   * **ResourceDisk.Format**
   * **ResourceDisk.Filesystem**
-  * **ResourceDisk.MountPoint (Informazioni in base al fatto di**
-  * **ResourceDisk.EnableSwap (Informazioni in base al gruppo dei problemi**
+  * **ResourceDisk. MountPoint**
+  * **ResourceDisk. EnableSwap**
   * **ResourceDisk.SwapSizeMB**
 
 * Per altre informazioni, vedere le risorse seguenti per configurare il punto di montaggio del disco di risorsa e scambiare spazio nelle immagini di Ubuntu Cloud durante il provisioning:
   
   * [Ubuntu Wiki: Configurare partizioni di scambio](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Inserimento di dati personalizzati in una macchina virtuale di AzureInjecting Custom Data into an Azure Virtual Machine](../windows/classic/inject-custom-data.md)
+  * [Inserimento di dati personalizzati in una macchina virtuale di Azure](../windows/classic/inject-custom-data.md)
 

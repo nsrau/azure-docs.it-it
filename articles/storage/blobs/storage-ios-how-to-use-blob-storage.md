@@ -16,7 +16,7 @@ ms.locfileid: "68726411"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Come usare l'archivio BLOB da iOS
 
-Questa guida illustra i diversi scenari comuni di uso del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Objective-C e usano la [libreria del client di archiviazione di Azure per iOS](https://github.com/Azure/azure-storage-ios). Gli scenari presentati includono caricamento, visualizzazione in elenchi, download ed eliminazione di BLOB. Per altre informazioni sui BLOB, vedere la sezione [Passaggi successivi.](#next-steps) È possibile scaricare l' [app di esempio](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) per visualizzare rapidamente l'uso di Archiviazione di Azure in un'applicazione iOS.
+Questa guida illustra i diversi scenari comuni di uso del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Objective-C e usano la [libreria del client di archiviazione di Azure per iOS](https://github.com/Azure/azure-storage-ios). Gli scenari presentati includono caricamento, visualizzazione in elenchi, download ed eliminazione di BLOB. Per ulteriori informazioni sui BLOB, vedere la sezione [passaggi successivi](#next-steps) . È possibile scaricare l' [app di esempio](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) per visualizzare rapidamente l'uso di Archiviazione di Azure in un'applicazione iOS.
 
 Per altre informazioni su archiviazione BLOB, vedere [Introduzione all'archiviazione BLOB di Azure](storage-blobs-introduction.md).
 
@@ -62,7 +62,7 @@ Per usare questa libreria, sono necessari i componenti seguenti:
 L'altro modo per usare la libreria consiste nel creare il framework manualmente:
 
 1. Per prima cosa, scaricare o clonare il [repository azure-storage-ios](https://github.com/azure/azure-storage-ios).
-2. Passare a libreria client di Archiviazione di Azure-ios e aprire in Xcode.Go into *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library*, and open `AZSClient.xcodeproj` in Xcode.
+2. Passare ad *Azure-Storage-iOS* -> *lib* -> *Azure Storage client library*e aprire `AZSClient.xcodeproj` in Xcode.
 3. In alto a sinistra in Xcode cambiare lo schema attivo da "Azure Storage Client Library" a "Framework".
 4. Compilare il progetto (⌘+B). Verrà creato un file `AZSClient.framework` sulla scrivania.
 
@@ -82,7 +82,7 @@ L'altro modo per usare la libreria consiste nel creare il framework manualmente:
 #import <AZSClient/AZSClient.h>
 ```
 
-Se si utilizza Swift, è necessario creare un'intestazione di bridging e importare \<l'indirizzo A-SClient/A-SClient.h>:
+Se si utilizza Swift, sarà necessario creare un'intestazione bridging e importare \<AZSClient/AZSClient. h>:
 
 1. Creare un file di intestazione `Bridging-Header.h` e aggiungere l'istruzione di importazione precedente.
 2. Passare alla scheda *Build Settings* (Impostazioni compilazione) e cercare *Objective-C Bridging Header* (Intestazione provvisoria Objective-C).
@@ -137,7 +137,7 @@ Per impostazione predefinita, le autorizzazioni di un contenitore vengono config
 - **BLOB**: i dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
 - **Contenitore**: dati BLOB e contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
 
-Nell'esempio seguente viene illustrato come creare un contenitore con autorizzazioni di accesso **al contenitore,** che consentirà l'accesso pubblico e di sola lettura per tutti gli utenti su Internet:The following example shows you how to create a container with Container access permissions, which will allow public, read-only access for all users on the Internet:
+Nell'esempio seguente viene illustrato come creare un contenitore con le autorizzazioni di accesso al **contenitore** , che consente l'accesso pubblico di sola lettura per tutti gli utenti su Internet:
 
 ```objc
 -(void)createContainerWithPublicAccess{
@@ -391,8 +391,8 @@ A questo punto, dopo avere appreso a usare l'archiviazione BLOB da iOS, seguire 
 
 - [Libreria client di archiviazione di Azure per iOS](https://github.com/azure/azure-storage-ios)
 - [Documentazione di riferimento iOS di Archiviazione di Azure](https://azure.github.io/azure-storage-ios/)
-- [API REST di Servizi di archiviazione di AzureAzure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blog del team di Archiviazione di AzureAzure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage)
+- [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Blog del team di archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage)
 
-Se hai domande su questa libreria, non esitare a pubblicare post sul nostro [forum MSDN Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o [sull'overflow dello stack](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+In caso di domande su questa libreria, è possibile pubblicare un post nel [Forum di Azure su MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [stack overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).

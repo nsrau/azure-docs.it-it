@@ -1,6 +1,6 @@
 ---
-title: Debug Spark job with IntelliJ Azure Toolkit (preview) - HDInsight
-description: Indicazioni sull'uso degli strumenti HDInsight in Azure Toolkit per IntelliJ per il debug delle applicazioni
+title: Eseguire il debug del processo Spark con IntelliJ Azure Toolkit (anteprima)-HDInsight
+description: Indicazioni sull'uso degli strumenti HDInsight in Azure Toolkit for IntelliJ per eseguire il debug delle applicazioni
 keywords: eseguire debug remoto di intellij, debug remoto di intellij, ssh, intellij, hdinsight, debug di intellij, debug
 author: hrasheed-msft
 ms.author: hrasheed
@@ -16,107 +16,107 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "73494594"
 ---
-# <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Debug del processo di spark non riuscite con Azure Toolkit per IntelliJ (anteprima)Failure spark job debugging with Azure Toolkit for IntelliJ (preview)
+# <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima)
 
-Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDInsight in Azure Toolkit per IntelliJ per l'esecuzione di applicazioni di debug degli **errori di Spark.This** article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) to run Spark Failure Debug applications.
+Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDInsight in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) per eseguire le applicazioni di **debug degli errori di Spark** .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Oracle Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Questa esercitazione usa Java versione 8.0.202.
   
-* IntelliJ IDEA. In questo articolo viene utilizzata [IntelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
+* IntelliJ IDEA. Questo articolo usa [INTELLIJ idea community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
 * Azure Toolkit for IntelliJ. Vedere [Installazione di Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
-* Connettersi al cluster HDInsight.Connect to your HDInsight cluster. Vedere [Connettersi al cluster HDInsight.](apache-spark-intellij-tool-plugin.md)
+* Connettersi al cluster HDInsight. Vedere [connettersi al cluster HDInsight](apache-spark-intellij-tool-plugin.md).
 
-* Microsoft Azure Storage Explorer. Vedere [Scaricare Esplora archivi di Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/).
+* Microsoft Azure Storage Explorer. Vedere [scaricare Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="create-a-project-with-debugging-template"></a>Creare un progetto con modello di debugCreate a project with debugging template
+## <a name="create-a-project-with-debugging-template"></a>Creare un progetto con il modello di debug
 
-Creare un progetto spark2.3.2 per continuare il debug degli errori, prendere un'attività di debug dell'attività in questo documento.
+Creare un progetto Spark 2.3.2 per continuare il debug degli errori, eseguire il debug dell'attività di esempio file di esempio in questo documento.
 
-1. Aprire IntelliJ IDEA. Aprire la finestra **Nuovo progetto.**
+1. Aprire IntelliJ IDEA. Aprire la finestra **nuovo progetto** .
 
    a. Selezionare **Azure Spark/HDInsight** nel riquadro sinistro.
 
-   b. Selezionare Progetto Spark con Esempio di debug di **attività di errore (anteprima)(Scala)** dalla finestra principale.
+   b. Selezionare il **progetto Spark con l'esempio di debug dell'attività non riuscita (anteprima) (scala)** dalla finestra principale.
 
-     ![Intellij Creare un progetto di debugIntellij Create a debug project](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
+     ![IntelliJ creare un progetto di debug](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
 
-   c. Fare clic su **Avanti**.
+   c. Selezionare **Avanti**.
 
 2. Nella finestra di dialogo **New Project** (Nuovo progetto) eseguire questa procedura:
 
-   ![Intellij Nuovo progetto selezionare versione Spark](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
+   ![IntelliJ nuovo progetto selezionare versione Spark](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
 
    a. Specificare un nome per il progetto e il relativo percorso.
 
-   b. Nell'elenco a discesa **PROJECT SDK** selezionare **Java 1.8** per il cluster **Spark 2.3.2.**
+   b. Nell'elenco a discesa **SDK progetto** selezionare **Java 1,8** per il cluster **Spark 2.3.2** .
 
-   c. Nell'elenco a discesa **Versione Spark** selezionare **Spark 2.3.2(Scala 2.11.8)**.
+   c. Nell'elenco a discesa **Spark Version (versione Spark** **) selezionare Spark 2.3.2 (scala 2.11.8)**.
 
-   d. Fare clic su **Fine**.
+   d. Selezionare **Fine**.
 
-3. Selezionare **src** > **scala** **principale** > per aprire il codice nel progetto. In questo esempio viene utilizzato lo script **AgeMean_Div().**
+3. Selezionare **src** > **Main** > **scala** per aprire il codice nel progetto. In questo esempio viene usato lo script **AgeMean_Div ()** .
 
-## <a name="run-a-spark-scalajava-application-on-an-hdinsight-cluster"></a>Eseguire un'applicazione Spark Scala/Java in un cluster HDInsightRun a Spark Scala/Java application on an HDInsight cluster
+## <a name="run-a-spark-scalajava-application-on-an-hdinsight-cluster"></a>Eseguire un'applicazione Spark scala/Java in un cluster HDInsight
 
-Creare un'applicazione spark Scala/Java, quindi eseguire l'applicazione in un cluster Spark eseguendo la procedura seguente:
+Creare un'applicazione Spark scala/Java, quindi eseguire l'applicazione in un cluster Spark attenendosi alla procedura seguente:
 
-1. Fare clic su **Aggiungi configurazione** per aprire la finestra **Configurazioni di esecuzione/debug.**
+1. Fare clic su **Aggiungi configurazione** per aprire la finestra **configurazioni di esecuzione/debug** .
 
-   ![Configurazione dell'aggiunta di Intellij HDI](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
+   ![Aggiunta configurazione di HDI IntelliJ](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
 
-2. Nella finestra di dialogo **Run/Debug Configurations** (Esegui/Debug delle configurazioni) selezionare il segno più (**+**). Selezionare quindi l'opzione **Apache Spark in HDInsight.Then select the Apache Spark on HDInsight** option.
+2. Nella finestra di dialogo **Run/Debug Configurations** (Esegui/Debug delle configurazioni) selezionare il segno più (**+**). Selezionare quindi l'opzione **Apache Spark on HDInsight** .
 
-   ![Intellij Aggiungi nuova configurazione](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
+   ![IntelliJ aggiungere una nuova configurazione](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
-3. Passare alla scheda Esegui in remoto **Name**nel **Spark cluster** **cluster.** **Main class name** Questi strumenti supportano il debug con **executor**. Il **numExectors**, il valore predefinito è 5 e sarebbe meglio non impostare su un valore superiore a 3. Per ridurre il tempo di esecuzione, è possibile aggiungere **spark.yarn.maxAppAttempts** in **configurazioni di processo** e impostare il valore su 1. Fare clic sul pulsante **OK** per salvare la configurazione.
+3. Passare alla scheda **Esegui in remoto in cluster** . Immettere le informazioni per **nome**, **cluster Spark**e **nome della classe principale**. Questi strumenti supportano il debug con **executor**. **NumExectors**, il valore predefinito è 5 e non è consigliabile impostare un valore maggiore di 3. Per ridurre il tempo di esecuzione, è possibile aggiungere **Spark. Yarn. maxAppAttempts** nelle **configurazioni dei processi** e impostare il valore su 1. Fare clic sul pulsante **OK** per salvare la configurazione.
 
-   ![Intellij Eseguire le configurazioni di debug nuovo](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
+   ![IntelliJ eseguire configurazioni di debug nuove](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 
 4. A questo punto, la configurazione viene salvata con il nome specificato. Per visualizzare i dettagli della configurazione, selezionare il relativo nome. Per apportare modifiche, selezionare **Modifica configurazioni**.
 
-5. Dopo aver completato le impostazioni di configurazione, è possibile eseguire il progetto nel cluster remoto.
+5. Dopo aver completato le impostazioni di configurazione, è possibile eseguire il progetto sul cluster remoto.
 
-   ![Pulsante Esegui remoto processo Spark remoto di debug Intellij](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png)
+   ![Pulsante di esecuzione remota del processo Spark remoto di IntelliJ](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png)
 
-6. È possibile controllare l'ID dell'applicazione dalla finestra di output.
+6. È possibile controllare l'ID applicazione dalla finestra output.
 
-   ![Risultato dell'esecuzione remota del processo Spark remoto di debug IntellijIntellij Debug Remote Spark Job Remote run Remote run](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)
+   ![Risultato dell'esecuzione remota del processo Spark remoto di IntelliJ debug](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)
 
-## <a name="download-failed-job-profile"></a>Download del profilo di lavoro non riuscito
+## <a name="download-failed-job-profile"></a>Download profilo processo non riuscito
 
-Se l'invio del processo non riesce, è possibile scaricare il profilo del processo non riuscito nel computer locale per un ulteriore debug.
+Se l'invio del processo ha esito negativo, è possibile scaricare il profilo del processo non riuscito nel computer locale per eseguire ulteriori operazioni di debug.
 
-1. Aprire **Esplora archivi di Microsoft Azure**, individuare l'account HDInsight del cluster per il processo non riuscito, scaricare le risorse del processo non riuscito dal percorso corrispondente: **.hdp\\spark2-events .spark-failures\\\<ID applicazione>** in una cartella locale. La finestra **delle attività** mostrerà l'avanzamento del download.
+1. Aprire **Microsoft Azure Storage Explorer**, individuare l'account HDInsight del cluster per il processo non riuscito, scaricare le risorse del processo non riuscite dal percorso corrispondente: **\\\hdp\spark2-Events. Spark\\\<-errore ID applicazione>** in una cartella locale. La finestra **attività** indicherà lo stato del download.
 
-   ![Errore di download di Azure Storage ExplorerAzure Storage Explorer download failure](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
+   ![Errore di download Azure Storage Explorer](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
-   ![Download del download di Azure Storage Explorer](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)
+   ![Download Azure Storage Explorer riuscito](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)
 
-## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>Configurare l'ambiente di debug locale ed eseguire il debug in caso di erroreConfigure local debugging environment and debug on failure
+## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>Configurare l'ambiente di debug locale ed eseguire il debug in caso di errore
 
-1. Aprire il progetto originale o creare un nuovo progetto e associarlo al codice sorgente originale. Solo la versione spark2.3.2 è attualmente supportata per il debug degli errori.
+1. Aprire il progetto originale o creare un nuovo progetto e associarlo al codice sorgente originale. Attualmente è supportata solo la versione di Spark 2.3.2 per il debug degli errori.
 
-1. In IntelliJ IDEA creare un file di configurazione **Spark Failure Debug,** selezionare il file FTD dalle risorse di processo non riuscite scaricate in precedenza per il campo **Percorso contesto errore processo Spark.**
+1. In IntelliJ IDEA creare un file di configurazione di **debug di errore Spark** , selezionare il file FTD dal campo risorse processo non riuscito scaricato in precedenza per il campo **percorso del contesto di errore del processo Spark** .
 
-   ![configurazione errore crete](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
+   ![configurazione degli errori di Crete](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
 
-1. Fare clic sul pulsante di esecuzione locale nella barra degli strumenti, l'errore verrà visualizzato nella finestra Esegui.
+1. Fare clic sul pulsante Esegui locale sulla barra degli strumenti. l'errore verrà visualizzato nella finestra Esegui.
 
-   ![run-failure-configuration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+   ![esecuzione-errore-Configuration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
 
-   ![run-failure-configuration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
+   ![esecuzione-errore-Configuration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
 
-1. Impostare il punto di interruzione come indicato nel log, quindi fare clic sul pulsante di debug locale per eseguire il debug locale come i normali progetti Scala / Java in IntelliJ.
+1. Impostare punto di rottura come indicato nel log, quindi fare clic sul pulsante debug locale per eseguire il debug locale esattamente come i normali progetti scala/Java in IntelliJ.
 
-1. Dopo il debug, se il progetto viene completato correttamente, è possibile inviare nuovamente il processo non riuscito al servizio di replica nel cluster HDInsight.After debugging, if the project completes successfully, you could resubmit the failed job to your spark on HDInsight cluster.
+1. Dopo il debug, se il progetto viene completato correttamente, è possibile inviare nuovamente il processo non riuscito al cluster Spark in HDInsight.
 
 ## <a name="next-steps"></a><a name="seealso"></a>Passaggi successivi
 
-* [Panoramica: Debug di applicazioni Apache Spark](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Panoramica: eseguire il debug di applicazioni Apache Spark](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 
 ### <a name="demo"></a>Demo
 
@@ -125,7 +125,7 @@ Se l'invio del processo non riesce, è possibile scaricare il profilo del proces
 
 ### <a name="scenarios"></a>Scenari
 
-* [Apache Spark con BI: eseguire l'analisi interattiva dei dati tramite Spark in HDInsight con gli strumenti di BIApache Spark with BI: Do interactive data analysis by using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
+* [Apache Spark con BI: eseguire un'analisi interattiva dei dati usando Spark in HDInsight con gli strumenti di Business Intelligence](apache-spark-use-bi-tools.md)
 * [Apache Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione usando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per prevedere i risultati di un controllo alimentare](apache-spark-machine-learning-mllib-ipython.md)
 * [Analisi dei log del sito Web con Apache Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)

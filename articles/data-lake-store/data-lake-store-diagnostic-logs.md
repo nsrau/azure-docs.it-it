@@ -22,14 +22,14 @@ ms.locfileid: "60878715"
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accesso ai log di diagnostica per Azure Data Lake Storage Gen1
 Informazioni su come abilitare la registrazione diagnostica per l'account Azure Data Lake Storage Gen1 e visualizzare i log raccolti per l'account.
 
-Le organizzazioni possono abilitare la registrazione diagnostica per l'account Azure Data Lake Storage Gen1 per raccogliere audit trail di accesso ai dati che forniscono informazioni quali l'elenco di utenti che accedono ai dati, la frequenza di accesso ai dati, la quantità di dati archiviati nell'account e così via. Se abilitata, la diagnostica e/o le richieste vengono registrate in base al massimo sforzo. Vengono create voci nei log sia delle richieste che della diagnostica solo se esistono richieste effettuate verso l'endpoint di servizio.
+Le organizzazioni possono abilitare la registrazione diagnostica per l'account Azure Data Lake Storage Gen1 per raccogliere gli itinerari di controllo dell'accesso ai dati che forniscono informazioni come l'elenco di utenti che accedono ai dati, la frequenza con cui si accede ai dati, la quantità di dati archiviati nell'account e così via. Se abilitata, la diagnostica e/o le richieste vengono registrate in base al massimo sforzo. Vengono create voci nei log sia delle richieste che della diagnostica solo se esistono richieste effettuate verso l'endpoint di servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Account Azure Data Lake Storage Gen1**. Seguire le istruzioni in [Introduzione a Azure Data Lake Storage Gen1 usando il portale](data-lake-store-get-started-portal.md)di Azure .
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Account Azure Data Lake Storage Gen1**. Seguire le istruzioni [riportate in Introduzione all'Azure Data Lake storage Gen1 usando il portale di Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-storage-gen1-account"></a>Abilitare la registrazione diagnostica per l'account di Data Lake Storage Gen1
-1. Accedere al nuovo portale di [Azure](https://portal.azure.com).
+1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
 2. Aprire l'account di Data Lake Storage Gen1 e nel pannello corrispondente fare clic su **Impostazioni di diagnostica**.
 3. Nel pannello **Impostazioni di diagnostica**, fare clic su **Attivare la diagnostica**.
 
@@ -46,11 +46,11 @@ Le organizzazioni possono abilitare la registrazione diagnostica per l'account A
         
         * Selezionare l'opzione per eseguire lo **streaming in Hub eventi** per trasmettere i dati di log a un Hub eventi di Azure. Molto probabilmente questa opzione viene utilizzata se si dispone di una pipeline di elaborazione a valle per analizzare in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
 
-        * Selezionare l'opzione **Invia a Log Analytics** per usare il servizio Monitoraggio di Azure per analizzare i dati di log generati. Se si seleziona questa opzione, è necessario fornire i dettagli per l'area di lavoro Log Analytics che si vuole usare per eseguire l'analisi dei log. Per informazioni dettagliate sull'uso dei log di Monitoraggio di Azure, [vedere Visualizzare o analizzare](../azure-monitor/learn/tutorial-viewdata.md) i dati raccolti con i log di Monitoraggio di Azure.See View or analyze data collected with Azure Monitor logs search for details on using Azure Monitor logs.
+        * Consente di selezionare l'opzione da **inviare a log Analytics** per usare il servizio monitoraggio di Azure per analizzare i dati di log generati. Se si seleziona questa opzione, è necessario fornire i dettagli per l'area di lavoro Log Analytics che si vuole usare per eseguire l'analisi dei log. Per informazioni dettagliate sull'uso dei log di monitoraggio di Azure, vedere [visualizzare o analizzare i dati raccolti con i log di monitoraggio di Azure](../azure-monitor/learn/tutorial-viewdata.md) .
      
    * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.
    * Specificare il numero di giorni per cui devono essere conservati i dati. La conservazione dei dati è disponibile solo se si usano account di archiviazione di Azure per archiviare i dati del log.
-   * Fare clic su **Salva**.
+   * Fare clic su **Save**.
 
 Dopo aver attivato le impostazioni di diagnostica, è possibile controllare i log nella scheda **Log di diagnostica** .
 
@@ -136,7 +136,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | EndTime |string |L'ora in cui il server ha inviato una risposta |
 
 ### <a name="audit-logs"></a>Log di controllo
-Di seguito viene riportata una voce di esempio nel log di controllo in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log
+Di seguito viene riportata una voce di esempio nel log di controllo in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti log
 
     {
     "records": 
@@ -178,7 +178,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | StreamName |string |Il percorso coinvolto nell'operazione |
 
 ## <a name="samples-to-process-the-log-data"></a>Esempi per elaborare i dati di log
-Quando si inviano log da Azure Data Lake Storage Gen1 ai log di Monitoraggio di Azure (vedere [Visualizzare o analizzare i dati raccolti con i log](../azure-monitor/learn/tutorial-viewdata.md) di Monitoraggio di Azure cercare i dettagli sull'uso dei log di Monitoraggio di Azure), la query seguente restituirà una tabella contenente un elenco di nomi visualizzati utente, l'ora degli eventi e il numero di eventi per l'ora dell'evento insieme a un grafico visivo. È possibile modificarlo facilmente per mostrare i GUID utente o altri attributi:
+Quando si inviano log da Azure Data Lake Storage Gen1 ai log di monitoraggio di Azure (vedere [visualizzare o analizzare i dati raccolti con](../azure-monitor/learn/tutorial-viewdata.md) i log di monitoraggio di Azure ricerca per informazioni dettagliate sull'uso dei log di monitoraggio di Azure), la query seguente restituisce una tabella contenente un elenco di nomi visualizzati dall'utente, l'ora degli eventi e il numero di eventi per l'ora dell'evento insieme a un grafico visivo. È possibile modificarlo facilmente per mostrare i GUID utente o altri attributi:
 
 ```
 search *
@@ -187,9 +187,9 @@ search *
 ```
 
 
-Azure Data Lake Storage Gen1 fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)l'esempio in . 
+Azure Data Lake Storage Gen1 fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio in [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

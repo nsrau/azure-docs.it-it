@@ -1,6 +1,6 @@
 ---
-title: SQL subqueries for Azure Cosmos DB
-description: Informazioni sulle sottoquery SQL e sui relativi casi d'uso comuni e i diversi tipi di sottoquery in Azure Cosmos DB
+title: Sottoquery SQL per Azure Cosmos DB
+description: Informazioni sulle sottoquery SQL e sui casi d'uso comuni e sui diversi tipi di sottoquery in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -13,39 +13,39 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74870565"
 ---
-# <a name="sql-subquery-examples-for-azure-cosmos-db"></a>SQL subquery examples for Azure Cosmos DB
+# <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Esempi di sottoquery SQL per Azure Cosmos DB
 
-Una sottoquery è una query nidificata all'interno di un'altra query. Una sottoquery viene anche definita query interna o selezione interna. L'istruzione che contiene una sottoquery viene in genere definita query esterna.
+Una sottoquery è una query nidificata all'interno di un'altra query. Una sottoquery è detta anche query interna o selezione interna. L'istruzione che contiene una sottoquery viene in genere chiamata query esterna.
 
-Questo articolo descrive le sottoquery SQL e i relativi casi d'uso comuni in Azure Cosmos DB. Tutte le query di esempio in questo documento possono essere eseguite su un set di dati nutrizionale precaricato in [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
+Questo articolo descrive le sottoquery SQL e i casi d'uso comuni in Azure Cosmos DB. Tutte le query di esempio in questo documento possono essere eseguite su un set di dati nutrizionale precaricato nella [Azure Cosmos DB Playground per le query](https://www.documentdb.com/sql/demo).
 
 ## <a name="types-of-subqueries"></a>Tipi di sottoquery
 
 Esistono due tipi principali di sottoquery:
 
-* **Correlatid**: Sottoquery che fa riferimento a valori dalla query esterna. La sottoquery viene valutata una volta per ogni riga etere dalla query esterna.
-* **Non correlato:** sottoquery indipendente dalla query esterna. Può essere eseguito da solo senza basarsi sulla query esterna.
+* **Correlato**: una sottoquery che fa riferimento a valori della query esterna. La sottoquery viene valutata una volta per ogni riga elaborata dalla query esterna.
+* **Non correlato**: una sottoquery indipendente dalla query esterna. Può essere eseguito autonomamente senza basarsi sulla query esterna.
 
 > [!NOTE]
-> Il database Cosmos di Azure supporta solo sottoquery correlate.
+> Azure Cosmos DB supporta solo sottoquery correlate.
 
-Le sottoquery possono essere ulteriormente classificate in base al numero di righe e colonne restituite. Ci sono tre tipi:
-* **Tabella**: Restituisce più righe e più colonne.
-* **Multivalore**: Restituisce più righe e una singola colonna.
-* **Scalare**: Restituisce una singola riga e una singola colonna.
+Le sottoquery possono essere ulteriormente classificate in base al numero di righe e colonne restituite. Sono disponibili tre tipi:
+* **Table**: restituisce più righe e più colonne.
+* **Multi-value**: restituisce più righe e una singola colonna.
+* **Scalar**: restituisce una singola riga e una singola colonna.
 
-Le query SQL in Azure Cosmos DB restituiscono sempre una singola colonna (un valore semplice o un documento complesso). Pertanto, solo le sottoquery multivalore e scalari sono applicabili in Azure Cosmos DB. È possibile utilizzare una sottoquery multivalore solo nella clausola FROM come espressione relazionale. È possibile utilizzare una sottoquery scalare come espressione scalare nella clausola SELECT o WHERE oppure come espressione relazionale nella clausola FROM.
+Le query SQL in Azure Cosmos DB restituiscono sempre una singola colonna (un semplice valore o un documento complesso). In Azure Cosmos DB sono pertanto applicabili solo sottoquery multivalore e scalare. È possibile utilizzare una sottoquery multivalore solo nella clausola FROM come espressione relazionale. È possibile utilizzare una sottoquery scalare come espressione scalare nella clausola SELECT o WHERE oppure come espressione relazionale nella clausola FROM.
 
 ## <a name="multi-value-subqueries"></a>Sottoquery multivalore
 
-Le sottoquery multivalore restituiscono un set di documenti e vengono sempre utilizzate all'interno della clausola FROM. Sono utilizzati per:
+Le sottoquery multivalore restituiscono un set di documenti e vengono sempre utilizzate all'interno della clausola FROM. Sono usati per:
 
-* Ottimizzazione delle espressioni JOIN. 
-* Valutazione di espressioni costose una sola volta e riferimento più volte.
+* Ottimizzazione delle espressioni di JOIN. 
+* Valutazione di espressioni onerose una volta e riferimento più volte.
 
-## <a name="optimize-join-expressions"></a>Ottimizzare le espressioni JOINOptimize JOIN expressions
+## <a name="optimize-join-expressions"></a>Ottimizza espressioni di JOIN
 
-Le sottoquery multivalore possono ottimizzare le espressioni JOIN eseguendo il push di predicati dopo ogni espressione select-many anziché dopo tutti i cross join nella clausola WHERE.
+Le sottoquery multivalore consentono di ottimizzare le espressioni di JOIN eseguendo il push dei predicati dopo ogni espressione SELECT-many invece che dopo tutti i cross join nella clausola WHERE.
 
 Si consideri la query seguente:
 
@@ -59,11 +59,11 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-Per questa query, l'indice corrisponderà a qualsiasi documento con un tag con il nome "formula per neonati". È un elemento nutritivo con un valore compreso tra 0 e 10 e un elemento da portata con una quantità maggiore di 1. L'espressione JOIN qui eseguirà il cross-product di tutti gli elementi di tag, sostanze nutritive e serve array per ogni documento corrispondente prima di applicare qualsiasi filtro. 
+Per questa query, l'indice corrisponderà a qualsiasi documento con un tag denominato "Infant formula". Si tratta di un elemento nutriente con un valore compreso tra 0 e 10 e un elemento di servizio con una quantità maggiore di 1. L'espressione di JOIN eseguirà il prodotto incrociato di tutti gli elementi di tag, nutrienti e servirà matrici per ogni documento corrispondente prima dell'applicazione di qualsiasi filtro. 
 
-La clausola WHERE applicherà quindi il predicato del filtro a ogni <c, t, n, s> tupla. Ad esempio, se un documento corrispondente ha 10 elementi in ognuna delle tre matrici, si espanderà a 1 x 10 x 10 x 10 (vale a dire, 1.000) tuple. L'utilizzo di sottoquery può essere utile per filtrare gli elementi della matrice unita in join prima di unirsi all'espressione successiva.
+La clausola WHERE applicherà quindi il predicato del filtro a ogni tupla <c, t, n, s>. Se, ad esempio, un documento corrispondente include 10 elementi in ognuna delle tre matrici, si espanderà fino a 1 x 10 x 10 x 10 (ovvero 1.000) Tuple. L'uso di sottoquery consente di filtrare gli elementi della matrice aggiunti prima di unirli all'espressione successiva.
 
-Questa query è equivalente a quella precedente, ma utilizza sottoquery:
+Questa query è equivalente a quella precedente, ma usa sottoquery:
 
 ```sql
 SELECT Count(1) AS Count
@@ -73,13 +73,13 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-Si supponga che solo un elemento nella matrice di tag corrisponda al filtro e che siano presenti cinque elementi sia per le matrici di nutrienti che per le matrici di serve. Le espressioni JOIN si espanderanno quindi a 1 x 1 x 5 x 5 x 25 elementi, a differenza di 1.000 elementi nella prima query.
+Si supponga che un solo elemento nella matrice dei tag corrisponda al filtro e che siano disponibili cinque elementi sia per i nutrienti che per la conservazione delle matrici. Le espressioni di JOIN si espanderanno quindi a 1 x 1 x 5 x 5 = 25 elementi, anziché 1.000 elementi nella prima query.
 
-## <a name="evaluate-once-and-reference-many-times"></a>Valutare una volta e fare riferimento molte volte
+## <a name="evaluate-once-and-reference-many-times"></a>Valuta una sola volta e fai riferimento molte volte
 
-Le sottoquery consentono di ottimizzare le query con espressioni costose, ad esempio funzioni definite dall'utente, stringhe complesse o espressioni aritmetiche. È possibile utilizzare una sottoquery insieme a un'espressione JOIN per valutare l'espressione una sola volta, ma farvi riferimento più volte.
+Le sottoquery consentono di ottimizzare le query con espressioni costose, ad esempio funzioni definite dall'utente (UDF), stringhe complesse o espressioni aritmetiche. È possibile utilizzare una sottoquery insieme a un'espressione di JOIN per valutare l'espressione una sola volta, ma farvi riferimento più volte.
 
-La query seguente esegue `GetMaxNutritionValue` la funzione definita dall'utente due volte:
+La query seguente esegue due volte `GetMaxNutritionValue` la funzione definita dall'utente:
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -87,7 +87,7 @@ FROM c
 WHERE udf.GetMaxNutritionValue(c.nutrients) > 100
 ```
 
-Di seguito è riportata una query equivalente che esegue la funzione definita dall'utente una sola volta:Here's an equivalent query that runs the UDF only once:
+Ecco una query equivalente che esegue la funzione definita dall'utente una sola volta:
 
 ```sql
 SELECT TOP 1000 c.id, MaxNutritionValue
@@ -97,10 +97,10 @@ WHERE MaxNutritionValue > 100
 ``` 
 
 > [!NOTE] 
-> Tieni presente il comportamento tra prodotti delle espressioni JOIN. Se l'espressione UDF può restituire undefined, è necessario assicurarsi che l'espressione JOIN produca sempre una singola riga restituendo un oggetto dalla sottoquery anziché direttamente dal valore.
+> Tenere presente il comportamento del prodotto incrociato delle espressioni JOIN. Se l'espressione UDF può restituire undefined, è necessario assicurarsi che l'espressione di JOIN produca sempre una singola riga restituendo un oggetto dalla sottoquery invece che direttamente il valore.
 >
 
-Ecco un esempio simile che restituisce un oggetto anziché un valore:Here's a similar example that returns an object rather than a value:
+Di seguito è riportato un esempio simile che restituisce un oggetto anziché un valore:
 
 ```sql
 SELECT TOP 1000 c.id, m.MaxNutritionValue
@@ -109,7 +109,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-L'approccio non è limitato alle funzioni definite dall'utente. Si applica a qualsiasi espressione potenzialmente costosa. Ad esempio, è possibile adottare lo `avg`stesso approccio con la funzione matematica :
+L'approccio non è limitato alle funzioni definite dall'utente. Si applica a qualsiasi espressione potenzialmente costosa. Ad esempio, è possibile adottare lo stesso approccio con la funzione `avg`matematica:
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -118,34 +118,34 @@ JOIN (SELECT VALUE avg(n.nutritionValue) FROM n IN c.nutrients) AvgNutritionValu
 WHERE AvgNutritionValue > 80
 ```
 
-## <a name="mimic-join-with-external-reference-data"></a>Imitazione del join con dati di riferimento esterni
+## <a name="mimic-join-with-external-reference-data"></a>Riprodurre un join con dati di riferimento esterni
 
-Spesso potrebbe essere necessario fare riferimento a dati statici che cambiano raramente, ad esempio unità di misura o codici paese. È preferibile non duplicare tali dati per ogni documento. Evitare questa duplicazione consente di risparmiare sull'archiviazione e migliorare le prestazioni di scrittura mantenendo le dimensioni del documento più piccole. È possibile utilizzare una sottoquery per simulare la semantica di inner join con una raccolta di dati di riferimento.
+Spesso può essere necessario fare riferimento a dati statici che cambiano raramente, ad esempio unità di misura o codici paese. È preferibile non duplicare tali dati per ogni documento. Evitando questa duplicazione si risparmia sull'archiviazione e si migliorano le prestazioni di scrittura mantenendo le dimensioni del documento più ridotte. È possibile utilizzare una sottoquery per simulare la semantica dei join interni con una raccolta di dati di riferimento.
 
-Si consideri, ad esempio, questo set di dati di riferimento:For instance, consider this set of reference data:
+Si consideri, ad esempio, questo set di dati di riferimento:
 
 | **Unità** | **Nome**            | **Moltiplicatore** | **Unità di base** |
 | -------- | ------------------- | -------------- | ------------- |
-| Ng       | Nanogrammo            | 1.00E-09       | Grammo          |
-| Μg       | Microgrammi           | 1.00E-06       | Grammo          |
-| mg       | Milligrammo           | 1.00E-03       | Grammo          |
-| g        | Grammo                | 1.00E-00       | Grammo          |
-| kg       | Chilogrammo            | 1.00E-03       | Grammo          |
-| Mg       | Megagramma            | 1.00E-06       | Grammo          |
-| Gg       | Gigagram            | 1.00E-09       | Grammo          |
-| Nj       | Nanojoule           | 1.00E-09       | Joule         |
-| JJ (J)       | Microjoule          | 1.00E-06       | Joule         |
-| Mj       | Millijoule          | 1.00E-03       | Joule         |
-| J        | Joule               | 1.00E-00       | Joule         |
-| Kj       | Kilojoule           | 1.00E-03       | Joule         |
-| Mj       | Megajoule           | 1.00E-06       | Joule         |
-| Gj       | Gigajoule           | 1.00E-09       | Joule         |
-| cal      | Calorie             | 1.00E-00       | calorie       |
-| Kcal     | Calorie             | 1.00E-03       | calorie       |
-| Ui       | Unità internazionali |                |               |
+| ng       | Nanogrammo            | 1.00 e-09       | Gram          |
+| μg       | Microgrammi           | 1.00 e-06       | Gram          |
+| mg       | Milligrammo           | 1.00 e-03       | Gram          |
+| g        | Gram                | 1.00 e + 00       | Gram          |
+| kg       | Chilogrammo            | 1.00 e + 03       | Gram          |
+| Gruppo       | Megagrammo            | 1.00 e + 06       | Gram          |
+| GG       | Gigagram            | 1.00 e + 09       | Gram          |
+| nJ       | Nanojoule           | 1.00 e-09       | Joule         |
+| μJ       | Microjoule          | 1.00 e-06       | Joule         |
+| mJ       | Millijoule          | 1.00 e-03       | Joule         |
+| J        | Joule               | 1.00 e + 00       | Joule         |
+| kJ       | Kilojoule           | 1.00 e + 03       | Joule         |
+| MJ       | Megajoule           | 1.00 e + 06       | Joule         |
+| GJ       | Gigajoule           | 1.00 e + 09       | Joule         |
+| cal      | Calorie             | 1.00 e + 00       | calorie       |
+| kcal     | Calorie             | 1.00 e + 03       | calorie       |
+| IU       | Unità internazionali |                |               |
 
 
-La query seguente consente di unire questi dati in modo da aggiungere il nome dell'unità all'output:
+La query seguente simula l'Unione con questi dati in modo da aggiungere il nome dell'unità all'output:
 
 ```sql
 SELECT TOP 10 n.id, n.description, n.nutritionValue, n.units, r.name
@@ -177,17 +177,17 @@ WHERE n.units = r.unit
 
 ## <a name="scalar-subqueries"></a>Sottoquery scalari
 
-Un'espressione di sottoquery scalare è una sottoquery che restituisce un singolo valore. Il valore dell'espressione di sottoquery scalare è il valore della proiezione (clausola SELECT) della sottoquery.  È possibile utilizzare un'espressione di sottoquery scalare in molte posizioni in cui un'espressione scalare è valida. Ad esempio, è possibile utilizzare una sottoquery scalare in qualsiasi espressione nelle clausole SELECT e WHERE.
+Un'espressione di sottoquery scalare è una sottoquery che restituisce un singolo valore. Il valore dell'espressione di sottoquery scalare è il valore della proiezione (clausola SELECT) della sottoquery.  È possibile utilizzare un'espressione di sottoquery scalare in molte posizioni in cui un'espressione scalare è valida. È possibile, ad esempio, utilizzare una sottoquery scalare in qualsiasi espressione nelle clausole SELECT e WHERE.
 
-L'utilizzo di una sottoquery scalare non sempre consente di ottimizzare, tuttavia. Ad esempio, il passaggio di una sottoquery scalare come argomento a un sistema o a funzioni definite dall'utente non offre alcun vantaggio nel consumo o nella latenza delle unità di risorsa (RU).
+Tuttavia, l'utilizzo di una sottoquery scalare non sempre consente l'ottimizzazione. Ad esempio, il passaggio di una sottoquery scalare come argomento a una funzione di sistema o a una funzione definita dall'utente non fornisce alcun vantaggio nell'utilizzo delle unità di risorse (UR) o nella latenza.
 
-Le sottoquery scalari possono essere ulteriormente classificate come:Scalar subqueries can be further classified as:
-* Sottoquery scalari a espressioni semplici
+Le sottoquery scalari possono essere ulteriormente classificate come:
+* Sottoquery scalari con espressioni semplici
 * Sottoquery scalari aggregate
 
-## <a name="simple-expression-scalar-subqueries"></a>Sottoquery scalari a espressioni semplici
+## <a name="simple-expression-scalar-subqueries"></a>Sottoquery scalari con espressioni semplici
 
-Una sottoquery scalare di espressioni semplici è una sottoquery correlata con una clausola SELECT che non contiene espressioni di aggregazione. Queste sottoquery non forniscono alcun vantaggio di ottimizzazione perché il compilatore le converte in un'unica espressione semplice più grande. Non esiste alcun contesto correlato tra le query interne ed esterne.
+Una sottoquery scalare a espressione semplice è una sottoquery correlata che include una clausola SELECT che non contiene espressioni di aggregazione. Queste sottoquery non forniscono vantaggi di ottimizzazione perché il compilatore le converte in un'espressione semplice più grande. Non esiste alcun contesto correlato tra le query interne ed esterne.
 
 Di seguito sono riportati alcuni esempi:
 
@@ -197,13 +197,13 @@ Di seguito sono riportati alcuni esempi:
 SELECT 1 AS a, 2 AS b
 ```
 
-È possibile riscrivere questa query usando una sottoquery scalare a espressione semplice, per:You can rewrite this query, by using a simple-expression scalar subquery, to:
+È possibile riscrivere la query utilizzando una sottoquery scalare di espressione semplice per:
 
 ```sql
 SELECT (SELECT VALUE 1) AS a, (SELECT VALUE 2) AS b
 ```
 
-Entrambe le query producono questo output:Both queries produce this output:
+Entrambe le query producono questo output:
 
 ```json
 [
@@ -218,14 +218,14 @@ SELECT TOP 5 Concat('id_', f.id) AS id
 FROM food f
 ```
 
-È possibile riscrivere questa query usando una sottoquery scalare a espressione semplice, per:You can rewrite this query, by using a simple-expression scalar subquery, to:
+È possibile riscrivere la query utilizzando una sottoquery scalare di espressione semplice per:
 
 ```sql
 SELECT TOP 5 (SELECT VALUE Concat('id_', f.id)) AS id
 FROM food f
 ```
 
-Output query:
+Output della query:
 
 ```json
 [
@@ -244,14 +244,14 @@ SELECT TOP 5 f.id, Contains(f.description, 'fruit') = true ? f.description : und
 FROM food f
 ```
 
-È possibile riscrivere questa query usando una sottoquery scalare a espressione semplice, per:You can rewrite this query, by using a simple-expression scalar subquery, to:
+È possibile riscrivere la query utilizzando una sottoquery scalare di espressione semplice per:
 
 ```sql
 SELECT TOP 10 f.id, (SELECT f.description WHERE Contains(f.description, 'fruit')).description
 FROM food f
 ```
 
-Output query:
+Output della query:
 
 ```json
 [
@@ -265,11 +265,11 @@ Output query:
 
 ### <a name="aggregate-scalar-subqueries"></a>Sottoquery scalari aggregate
 
-Una sottoquery scalare aggregata è una sottoquery con una funzione di aggregazione nella proiezione o nel filtro che restituisce un singolo valore.
+Una sottoquery scalare aggregata è una sottoquery che dispone di una funzione di aggregazione nella proiezione o nel filtro che restituisce un singolo valore.
 
 **Esempio 1:**
 
-Ecco una sottoquery con una singola espressione di funzione di aggregazione nella sua proiezione:Here's a subquery with a single aggregate function expression in its projection:
+Ecco una sottoquery con una singola espressione di funzione di aggregazione nella proiezione:
 
 ```sql
 SELECT TOP 5 
@@ -279,7 +279,7 @@ SELECT TOP 5
 FROM food f
 ```
 
-Output query:
+Output della query:
 
 ```json
 [
@@ -293,7 +293,7 @@ Output query:
 
 **Esempio 2**
 
-Di seguito è riportata una sottoquery con più espressioni di funzione di aggregazione:Here's a subquery with multiple aggregate function expressions:
+Ecco una sottoquery con più espressioni di funzione di aggregazione:
 
 ```sql
 SELECT TOP 5 f.id, (
@@ -304,7 +304,7 @@ SELECT TOP 5 f.id, (
 FROM food f
 ```
 
-Output query:
+Output della query:
 
 ```json
 [
@@ -318,7 +318,7 @@ Output query:
 
 **Esempio 3**
 
-Di seguito è riportata una query con una sottoquery aggregata sia nella proiezione che nel filtro:
+Ecco una query con una sottoquery di aggregazione sia nella proiezione che nel filtro:
 
 ```sql
 SELECT TOP 5 
@@ -328,7 +328,7 @@ FROM food f
 WHERE (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') > 20
 ```
 
-Output query:
+Output della query:
 
 ```json
 [
@@ -340,7 +340,7 @@ Output query:
 ]
 ```
 
-Un modo più ottimale per scrivere questa query consiste nel partecipare alla sottoquery e fare riferimento all'alias della sottoquery in entrambe le clausole SELECT e WHERE. Questa query è più efficiente perché è necessario eseguire la sottoquery solo all'interno dell'istruzione join e non nella proiezione e nel filtro.
+Un modo più ottimale per scrivere questa query consiste nell'unirsi alla sottoquery e fare riferimento all'alias della sottoquery nelle clausole SELECT e WHERE. Questa query è più efficiente perché è necessario eseguire la sottoquery solo nell'istruzione di join e non sia nella proiezione che nel filtro.
 
 ```sql
 SELECT TOP 5 f.id, count_mg
@@ -349,13 +349,13 @@ JOIN (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') AS count
 WHERE count_mg > 20
 ```
 
-## <a name="exists-expression"></a>Espressione EXISTS
+## <a name="exists-expression"></a>Espressione EXISTs
 
-Azure Cosmos DB supporta le espressioni EXISTS. Si tratta di una sottoquery scalare aggregata incorporata nell'API SQL del database Cosmos di Azure.This is an aggregate scalar subquery built into the Azure Cosmos DB SQL API. EXISTS è un'espressione booleana che accetta un'espressione di sottoquery e restituisce true se la sottoquery restituisce righe. Negli altri casi, viene restituito false.
+Azure Cosmos DB supporta le espressioni EXISTs. Si tratta di una sottoquery scalare aggregata incorporata nell'API SQL Azure Cosmos DB. EXISTs è un'espressione booleana che accetta un'espressione di sottoquery e restituisce true se la sottoquery restituisce qualsiasi riga. Negli altri casi, viene restituito false.
 
-Poiché l'API SQL del database di Azure non distingue tra espressioni booleane e altre espressioni scalari, è possibile usare EXISTS nelle clausole SELECT e WHERE. Questo è diverso da T-SQL, dove un'espressione booleana (ad esempio, EXISTS, BETWEEN e IN) è limitata al filtro.
+Poiché l'API SQL Azure Cosmos DB non distingue tra le espressioni booleane e qualsiasi altra espressione scalare, è possibile utilizzare EXISTs nelle clausole SELECT e WHERE. Questo è diverso da T-SQL, in cui un'espressione booleana, ad esempio EXISTs, BETWEEN e IN, è limitata al filtro.
 
-Se la sottoquery EXISTS restituisce un singolo valore non definito, EXISTS restituirà false. Si consideri, ad esempio, la query seguente che restituisce false:For instance, consider the following query that evaluates to false:
+Se la sottoquery EXISTs restituisce un singolo valore non definito, EXISTs restituirà false. Si consideri, ad esempio, la query seguente che restituisce false:
 ```sql
 SELECT EXISTS (SELECT VALUE undefined)
 ```   
@@ -366,11 +366,11 @@ Se la parola chiave VALUE nella sottoquery precedente viene omessa, la query res
 SELECT EXISTS (SELECT undefined) 
 ```
 
-La sottoquery racchiuderà l'elenco di valori nell'elenco selezionato in un oggetto. Se l'elenco selezionato non contiene valori, la{}sottoquery restituirà il singolo valore ' '. Questo valore è definito, pertanto EXISTS restituisce true.
+La sottoquery includerà l'elenco dei valori nell'elenco selezionato in un oggetto. Se l'elenco selezionato non contiene valori, la sottoquery restituirà il singolo valore '{}'. Questo valore è definito, pertanto EXISTs restituisce true.
 
-### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Esempio: riscrittura di ARRAY_CONTAINS e JOIN come EXISTS
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Esempio: riscrittura ARRAY_CONTAINS e JOIN come EXISTs
 
-Un caso d'uso comune di ARRAY_CONTAINS consiste nel filtrare un documento in base all'esistenza di un elemento in una matrice. In questo caso, stiamo controllando se la matrice di tag contiene un elemento denominato "arancione".
+Un caso d'uso comune di ARRAY_CONTAINS consiste nel filtrare un documento in base all'esistenza di un elemento in una matrice. In questo caso, viene verificato se la matrice di tag contiene un elemento denominato "Orange".
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -378,7 +378,7 @@ FROM food f
 WHERE ARRAY_CONTAINS(f.tags, {name: 'orange'})
 ```
 
-È possibile riscrivere la stessa query per utilizzare EXISTS:
+È possibile riscrivere la stessa query per utilizzare EXISTs:
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -386,9 +386,9 @@ FROM food f
 WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 ```
 
-Inoltre, ARRAY_CONTAINS può verificare solo se un valore è uguale a qualsiasi elemento all'interno di una matrice. Se sono necessari filtri più complessi sulle proprietà dell'array, utilizzare JOIN.
+Inoltre, ARRAY_CONTAINS possibile verificare solo se un valore è uguale a qualsiasi elemento all'interno di una matrice. Se sono necessari filtri più complessi sulle proprietà della matrice, usare JOIN.
 
-Si consideri la query seguente `nutritionValue` che filtra in base alle unità e alle proprietà nell'array: 
+Si consideri la query seguente che filtra in base `nutritionValue` alle unità e alle proprietà nella matrice: 
 
 ```sql
 SELECT VALUE c.description
@@ -397,9 +397,9 @@ JOIN n IN c.nutrients
 WHERE n.units= "mg" AND n.nutritionValue > 0
 ```
 
-Per ognuno dei documenti della raccolta, viene eseguito un cross-product con i relativi elementi della matrice. Questa operazione JOIN consente di filtrare le proprietà all'interno della matrice. Tuttavia, il consumo di RU di questa query sarà significativo. Ad esempio, se 1.000 documenti hanno 100 elementi in ogni matrice, si espanderà a 1.000 x 100 (vale a dire, 100.000) tuple.
+Per ogni documento della raccolta, viene eseguito un prodotto incrociato con i relativi elementi di matrice. Questa operazione di JOIN consente di filtrare le proprietà all'interno della matrice. Tuttavia, l'utilizzo delle UR della query sarà significativo. Se, ad esempio, 1.000 documenti contengono 100 elementi in ogni matrice, si espanderà a 1.000 x 100 (ovvero 100.000) Tuple.
 
-L'utilizzo di EXISTS può aiutare a evitare questo costoso cross-product:
+L'uso di EXISTs può contribuire a evitare questo costoso prodotto incrociato:
 
 ```sql
 SELECT VALUE c.description
@@ -411,9 +411,9 @@ WHERE EXISTS(
 )
 ```
 
-In questo caso, si filtrano gli elementi della matrice all'interno della sottoquery EXISTS. Se un elemento della matrice corrisponde al filtro, si proietta e EXISTS restituisce true.
+In questo caso, si filtrano gli elementi della matrice all'interno della sottoquery EXISTs. Se un elemento di matrice corrisponde al filtro, viene proiettato e EXISTs restituisce true.
 
-È inoltre possibile aliasre EXISTS e farvi riferimento nella proiezione:
+È anche possibile alias EXISTs e farvi riferimento nella proiezione:
 
 ```sql
 SELECT TOP 1 c.description, EXISTS(
@@ -423,7 +423,7 @@ SELECT TOP 1 c.description, EXISTS(
 FROM c
 ```
 
-Output query:
+Output della query:
 
 ```json
 [
@@ -434,16 +434,16 @@ Output query:
 ]
 ```
 
-## <a name="array-expression"></a>Espressione ARRAY
+## <a name="array-expression"></a>Espressione di matrice
 
-È possibile utilizzare l'espressione ARRAY per proiettare i risultati di una query come matrice. È possibile utilizzare questa espressione solo all'interno della clausola SELECT della query.
+È possibile utilizzare l'espressione di matrice per proiettare i risultati di una query sotto forma di matrice. È possibile utilizzare questa espressione solo all'interno della clausola SELECT della query.
 
 ```sql
 SELECT TOP 1   f.id, ARRAY(SELECT VALUE t.name FROM t in f.tags) AS tagNames
 FROM  food f
 ```
 
-Output query:
+Output della query:
 
 ```json
 [
@@ -459,14 +459,14 @@ Output query:
 ]
 ```
 
-Come con altre sottoquery, sono possibili filtri con l'espressione ARRAY.
+Come per le altre sottoquery, i filtri con l'espressione di matrice sono possibili.
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t FROM t in c.tags WHERE t.name != 'infant formula') AS tagNames
 FROM c
 ```
 
-Output query:
+Output della query:
 
 ```json
 [
@@ -493,7 +493,7 @@ Output query:
 ]
 ```
 
-Le espressioni di matrice possono anche essere dopo la clausola FROM nelle sottoquery.
+Le espressioni di matrice possono anche essere successive alla clausola FROM nelle sottoquery.
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t.name FROM t in c.tags) as tagNames
@@ -501,7 +501,7 @@ FROM c
 JOIN n IN (SELECT VALUE ARRAY(SELECT t FROM t in c.tags WHERE t.name != 'infant formula'))
 ```
 
-Output query:
+Output della query:
 
 ```json
 [

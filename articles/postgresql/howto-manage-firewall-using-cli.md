@@ -1,6 +1,6 @@
 ---
-title: Gestire le regole del firewall - interfaccia della riga di comando di Azure - Database di Azure per PostgreSQL - Server singoloManage firewall rules - Azure CLI - Azure Database for PostgreSQL - Single Server
-description: Questo articolo descrive come creare e gestire le regole del firewall nel database di Azure per PostgreSQL - Singolo server usando la riga di comando dell'interfaccia della riga di comando dell'interfaccia della riga di comando di Azure.This article describes how to create and manage firewall rules in Azure Database for PostgreSQL - Single Server using Azure CLI command line.
+title: Gestire le regole del firewall-interfaccia della riga di comando di Azure-database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive come creare e gestire le regole del firewall in database di Azure per PostgreSQL-server singolo usando la riga di comando dell'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -14,10 +14,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74765648"
 ---
-# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Creare e gestire le regole del firewall nel database di Azure per PostgreSQL - Singolo server con l'interfaccia della riga di comando di AzureCreate and manage firewall rules in Azure Database for PostgreSQL - Single Server using Azure CLI
-Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per PostgreSQL Server da un indirizzo IP specifico o da un intervallo di indirizzi IP. Usando pratici comandi dell'interfaccia della riga di comando di Azure è possibile creare, aggiornare, eliminare, elencare e visualizzare le regole del firewall per gestire il server. Per una panoramica del database di Azure per le regole del firewall PostgreSQL, vedere Database di [Azure per le regole del firewall di PostgreSQL Server.](concepts-firewall-rules.md)
+# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Creare e gestire regole del firewall in database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando di Azure
+Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per il server PostgreSQL da un indirizzo IP o un intervallo di indirizzi IP specifico. Usando pratici comandi dell'interfaccia della riga di comando di Azure è possibile creare, aggiornare, eliminare, elencare e visualizzare le regole del firewall per gestire il server. Per una panoramica delle regole del firewall di database di Azure per PostgreSQL, vedere [regole del firewall del server database di Azure per PostgreSQL](concepts-firewall-rules.md).
 
-Le regole di rete virtuale (VNet) possono essere utilizzate anche per proteggere l'accesso al server. Altre informazioni sulla creazione e la gestione di endpoint e regole del [servizio di rete virtuale tramite l'interfaccia della](howto-manage-vnet-using-cli.md)riga di comando di Azure.Learn more about creating and managing Virtual Network service endpoints and rules using the Azure CLI .
+Le regole della rete virtuale (VNet) possono essere usate anche per proteggere l'accesso al server. Altre informazioni sulla [creazione e la gestione di endpoint e regole del servizio rete virtuale con l'interfaccia della](howto-manage-vnet-using-cli.md)riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
@@ -81,5 +81,5 @@ Al completamento dell'operazione non verrà visualizzato alcun output. In caso d
 ## <a name="next-steps"></a>Passaggi successivi
 - Analogamente, è possibile usare un Web browser per [creare e gestire le regole firewall di Database di Azure per PostgreSQL usando il portale di Azure](howto-manage-firewall-using-portal.md).
 - Altre informazioni sulle [regole firewall di Database di Azure per il server PostgreSQL](concepts-firewall-rules.md).
-- Proteggere ulteriormente l'accesso al server creando e gestendo gli endpoint e le regole del [servizio di rete virtuale tramite l'interfaccia della riga di comando](howto-manage-vnet-using-cli.md)di Azure.
-- Per informazioni sulla connessione a un database di Azure per il server PostgreSQL, vedere Librerie di connessione per il database di [Azure per PostgreSQL.](concepts-connection-libraries.md)
+- Proteggere ulteriormente l'accesso al server [creando e gestendo gli endpoint e le regole del servizio rete virtuale usando l'interfaccia della](howto-manage-vnet-using-cli.md)riga di comando di Azure.
+- Per informazioni sulla connessione a un database di Azure per il server PostgreSQL, vedere [raccolte di connessioni per database di Azure per PostgreSQL](concepts-connection-libraries.md).

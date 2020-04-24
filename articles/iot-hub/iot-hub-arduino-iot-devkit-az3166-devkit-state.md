@@ -77,7 +77,7 @@ ms.locfileid: "73483946"
 
 Con il dispositivo MXChip IoT DevKit connesso al computer:
 
-1. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività di compilazione...** Lo schizzo Arduino viene compilato e caricato in DevKit.
+1. Fare clic sul menu a discesa **attività** in Visual Studio Code e selezionare **Esegui attività di compilazione...** Lo sketch Arduino viene compilato e caricato nella DevKit.
 
 2. Dopo il caricamento dello sketch viene visualizzato il messaggio *Build & Upload Sketch: success* (Compilazione e caricamento sketch: operazione riuscita).
 
@@ -106,7 +106,7 @@ Con il dispositivo MXChip IoT DevKit connesso al computer:
 ![Procedura di test di esempio](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> È possibile visualizzare i dati non elaborati del dispositivo\> gemello nel\> portale di Azure: Hub IoT - dispositivi IoT - - \> * \<dispositivo\> * gemello.
+> È possibile visualizzare i dati non elaborati di un dispositivo gemello in\> portale di Azure: dispositivi\> * \<dell'\> *  - \> hub Internet delle cose: dispositivo gemello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

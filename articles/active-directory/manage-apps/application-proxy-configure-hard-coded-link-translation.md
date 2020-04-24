@@ -33,9 +33,9 @@ Il modo migliore per assicurarsi che i collegamenti funzionino all'interno e all
 Se non è possibile usare domini personalizzati nel tenant, esistono molte altre opzioni per fornire questa funzionalità. Tutte queste sono compatibili con i domini personalizzati e tra loro, pertanto è possibile configurare domini personalizzati e altre soluzioni, se necessario.
 
 > [!NOTE]
-> La conversione dei collegamenti non è supportata per gli URL interni hardcoded generati tramite Javascript.
+> La conversione dei collegamenti non è supportata per gli URL interni hardcoded generati tramite JavaScript.
 
-**Opzione 1: utilizzare Managed Browser o Microsoft Edge:** questa soluzione è applicabile solo se si prevede di consigliare o richiedere agli utenti di accedere all'applicazione tramite Intune Managed Browser o Microsoft Edge Browser. Gestisce tutti gli URL pubblicati. 
+**Opzione 1: usare il Managed browser o Microsoft Edge:** questa soluzione è applicabile solo se si prevede di consigliare o richiedere agli utenti di accedere all'applicazione tramite il browser Intune Managed browser o Microsoft Edge. Gestisce tutti gli URL pubblicati. 
 
 **Opzione 2: Usare l'estensione MyApps** - Questa soluzione richiede agli utenti di installare un'estensione del browser lato client, ma gestisce tutti gli URL pubblicati e funziona con i browser più diffusi. 
 
@@ -50,9 +50,9 @@ Queste tre caratteristiche mantengono i collegamenti funzionanti indipendentemen
 > Oppure, se l'applicazione che deve essere configurata con la traslazione del collegamento è SharePoint, vedere [Configurare i mapping di accesso alternativo per SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) per un altro approccio ai collegamenti di mapping. 
 
  
-### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opzione 1: Intune Managed Browser e integrazione di Microsoft EdgeOption 1: Intune Managed Browser and Microsoft Edge Integration 
+### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opzione 1: integrazione di Intune Managed Browser e Microsoft Edge 
 
-È possibile usare Intune Managed Browser o Microsoft Edge per proteggere ulteriormente l'applicazione e il contenuto. Per usare questa soluzione, è necessario richiedere/consigliare agli utenti di accedere all'applicazione mediante Intune Managed Browser. Tutti gli URL interni pubblicati con Application Proxy verranno riconosciuti da Managed Browser e reindirizzati all'URL esterno corrispondente. Ciò garantisce il funzionamento di tutti gli URL interni a livello di codice e, se un utente va al browser e digita direttamente l'URL interno, funziona anche se l'utente è in remoto.  
+È possibile usare il Intune Managed Browser o Microsoft Edge per proteggere ulteriormente l'applicazione e il contenuto. Per usare questa soluzione, è necessario richiedere/consigliare agli utenti di accedere all'applicazione mediante Intune Managed Browser. Tutti gli URL interni pubblicati con Application Proxy verranno riconosciuti da Managed Browser e reindirizzati all'URL esterno corrispondente. Ciò garantisce il funzionamento di tutti gli URL interni a livello di codice e, se un utente va al browser e digita direttamente l'URL interno, funziona anche se l'utente è in remoto.  
 
 Per altre informazioni, ad esempio come configurare questa opzione, vedere la documentazione di [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
 
@@ -62,14 +62,14 @@ Con l'estensione MyApps del browser, tutti gli URL interni pubblicati con Applic
 
 Per usare questa funzionalità, l'utente deve scaricare l'estensione e avere effettuato l'accesso. Non è necessaria nessun'altra configurazione per gli amministratori o gli utenti. 
 
-Per ulteriori informazioni, inclusa la configurazione di questa opzione, vedere la documentazione relativa [all'estensione del browser MyApps.](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension)
+Per altre informazioni, ad esempio su come configurare questa opzione, vedere la documentazione dell' [estensione del browser app](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) .
 
 ### <a name="option-3-link-translation-setting"></a>Opzione 3: Impostazione di conversione dei collegamenti 
 
-Quando la conversione dei collegamenti è abilitata, il servizio Application Proxy cerca nel codice HTML e CSS i collegamenti interni pubblicati e li converte in modo da offrire agli utenti un'esperienza senza interruzioni. L'utilizzo dell'estensione del browser MyApps è preferito all'impostazione di conversione dei collegamenti poiché offre un'esperienza più performante agli utenti.
+Quando la conversione dei collegamenti è abilitata, il servizio Application Proxy cerca nel codice HTML e CSS i collegamenti interni pubblicati e li converte in modo da offrire agli utenti un'esperienza senza interruzioni. L'uso dell'estensione del browser app è preferibile all'impostazione della traduzione dei collegamenti, perché offre agli utenti un'esperienza più efficiente.
 
 > [!NOTE]
-> Se si utilizza l'opzione 2 o 3, solo uno di questi deve essere abilitato alla volta.
+> Se si usa l'opzione 2 o 3, è necessario abilitare solo uno di questi alla volta.
 
 ## <a name="how-link-translation-works"></a>Come funziona la conversione dei collegamenti
 
@@ -86,7 +86,7 @@ Esistono due tipi comuni di collegamenti interni nelle applicazioni locali:
 - I **collegamenti interni relativi** che puntano a una risorsa condivisa in una struttura di file locale come `/claims/claims.html`. Questi collegamenti sono attivati automaticamente nelle app che vengono pubblicate tramite il proxy di applicazione e continuano a funzionare con o senza la conversione dei collegamenti. 
 - I **collegamenti interni hardcoded** ad altre applicazioni locali come `http://expenses` o i file pubblicati come `http://expenses/logo.jpg`. La funzionalità di conversione dei collegamenti opera sui collegamenti interni hardcoded e li converte, in modo che puntino agli URL esterni che gli utenti remoti devono usare.
 
-L'elenco completo dei tag di codice HTML per i quali il proxy di applicazione supporta la conversione dei collegamenti:
+L'elenco completo dei tag di codice HTML che il proxy di applicazione supporta la conversione dei collegamenti per includono:
 * a
 * audio
 * base
@@ -98,10 +98,10 @@ L'elenco completo dei tag di codice HTML per i quali il proxy di applicazione su
 * head
 * html
 * iframe
-* Immagine
+* immagine
 * input
 * link
-* Menuitem
+* MenuItem
 * meta
 * object
 * script
@@ -109,7 +109,7 @@ L'elenco completo dei tag di codice HTML per i quali il proxy di applicazione su
 * track
 * video
 
-Inoltre, all'interno di CSS viene tradotto anche l'attributo URL.
+Inoltre, all'interno di CSS viene convertito anche l'attributo URL.
 
 ### <a name="how-do-apps-link-to-each-other"></a>In che modo le app si collegano tra loro?
 
@@ -136,8 +136,8 @@ Se è necessario supportare uno di questi due scenari, usare gli stessi URL inte
 
 Per iniziare con la conversione dei collegamenti, è sufficiente fare clic su un pulsante:
 
-1. Accedere al [portale](https://portal.azure.com) di Azure come amministratore.
-2. Passare ad **Applicazioni Azure Active Directory** > **Enterprise** > **Tutte le applicazioni** > selezionare l'app da gestire > proxy **di applicazione**.
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
+2. Passare a **Azure Active Directory** > **applicazioni** > aziendali**tutte le applicazioni** > selezionare l'app che si vuole gestire > **proxy di applicazione**.
 3. Impostare l'opzione di **conversione URL nel corpo dell'applicazione** su **Sì**.
 
    ![Selezionare Sì per convertire gli URL nel corpo dell'applicazione](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)

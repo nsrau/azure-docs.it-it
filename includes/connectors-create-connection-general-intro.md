@@ -11,4 +11,4 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "74786887"
 ---
-Quando si usa un trigger o un'azione che accede a un servizio per la prima volta, Progettazione app per la logica richiede di creare una *connessione* a tale servizio. È quindi possibile fornire le informazioni di connessione necessarie direttamente dall'app per la logica all'interno della finestra di progettazione.
+Quando si usa un trigger o un'azione che accede a un servizio per la prima volta, la finestra di progettazione di app per la logica richiede di creare una *connessione* a tale servizio. È quindi possibile fornire le informazioni di connessione necessarie direttamente dall'app per la logica all'interno della finestra di progettazione.

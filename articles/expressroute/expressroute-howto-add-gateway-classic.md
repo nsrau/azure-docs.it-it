@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Aggiungere un gateway a una rete virtuale: classicaAzure ExpressRoute: Add a gateway to a VNet: classic'
+title: 'Azure ExpressRoute: aggiungere un gateway a una VNet: classica'
 description: Configurare un gateway VNet per una rete virtuale con modello di distribuzione classico usando PowerShell per una configurazione ExpressRoute.
 services: expressroute
 author: charwen

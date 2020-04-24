@@ -1,6 +1,6 @@
 ---
-title: Concedere a un'applicazione l'accesso ad altre risorse di AzureGrant an application access to other Azure resources
-description: Questo articolo illustra come concedere all'applicazione Service Fabric abilitata per l'identità gestita l'accesso ad altre risorse di Azure che supportano l'autenticazione basata su Azure Active Directory.This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Azure Active Directory-based authentication.
+title: Concedere a un'applicazione l'accesso ad altre risorse di Azure
+description: Questo articolo illustra come concedere l'accesso alle applicazioni Service Fabric abilitato per l'identità gestita ad altre risorse di Azure che supportano l'autenticazione basata su Azure Active Directory.
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
@@ -10,32 +10,32 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614794"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concessione dell'accesso dell'identità gestita di un'applicazione Service Fabric alle risorse di Azure (anteprima)Granting a service Fabric application's managed identity access to Azure resources (preview)
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concessione dell'accesso alle identità gestite di un'applicazione Service Fabric alle risorse di Azure (anteprima)
 
-Prima che l'applicazione possa usare la propria identità gestita per accedere ad altre risorse, è necessario concedere autorizzazioni a tale identità nella risorsa di Azure protetta a cui si accede. La concessione delle autorizzazioni è in genere un'azione di gestione sul "piano di controllo" del servizio di Azure proprietario della risorsa protetta instradata tramite Azure Resource Manager, che applicherà qualsiasi controllo dell'accesso basato sui ruoli applicabile.
+Prima che l'applicazione possa usare la propria identità gestita per accedere ad altre risorse, le autorizzazioni devono essere concesse a tale identità nella risorsa di Azure protetta a cui si accede. La concessione di autorizzazioni è in genere un'azione di gestione sul ' piano di controllo ' del servizio di Azure proprietario della risorsa protetta indirizzata tramite Azure Resource Manager, che imporrà qualsiasi controllo dell'accesso in base al ruolo applicabile.
 
-L'esatta sequenza di passaggi dipenderà quindi dal tipo di risorsa di Azure a cui si accede, nonché dalla lingua o dal client usato per concedere le autorizzazioni. Nella parte restante dell'articolo si presuppone un'identità assegnata dall'utente assegnata all'applicazione e include diversi esempi tipici per comodità, ma non è in alcun modo un riferimento esaustivo per questo argomento. consultare la documentazione dei rispettivi servizi di Azure per istruzioni aggiornate sulla concessione delle autorizzazioni.  
+La sequenza esatta di passaggi dipenderà quindi dal tipo di risorsa di Azure a cui si accede, nonché dal linguaggio/client utilizzato per concedere le autorizzazioni. Il resto dell'articolo presuppone che un'identità assegnata dall'utente sia assegnata all'applicazione e includa diversi esempi tipici per praticità, ma non è in alcun modo un riferimento esaustivo per questo argomento. per istruzioni aggiornate sulla concessione di autorizzazioni, vedere la documentazione dei rispettivi servizi di Azure.  
 
-## <a name="granting-access-to-azure-storage"></a>Concessione dell'accesso ad Archiviazione di AzureGranting access to Azure Storage
-È possibile usare l'identità gestita dell'applicazione Service Fabric (in questo caso assegnata dall'utente) per recuperare i dati da un BLOB di archiviazione di Azure.You can use the Service Fabric application's managed identity (user-assigned in this case) to retrieve the data from an Azure storage blob. Concedere all'identità le autorizzazioni necessarie nel portale di Azure con i passaggi seguenti:Grant the identity the required permissions in the Azure portal with the following steps:
+## <a name="granting-access-to-azure-storage"></a>Concessione dell'accesso ad archiviazione di Azure
+È possibile usare l'identità gestita dell'applicazione Service Fabric, in questo caso assegnata dall'utente, per recuperare i dati da un BLOB di archiviazione di Azure. Concedere all'identità le autorizzazioni necessarie nel portale di Azure con i passaggi seguenti:
 
 1. Passare all'account di archiviazione
 2. Fare clic sul collegamento Controllo di accesso (IAM) nel pannello di sinistra.
-3. (opzionale) Controllare l'accesso esistente: selezionare Identità gestita assegnata dal sistema o dall'utente nel controllo 'Trova'; selezionare l'identità appropriata dall'elenco dei risultati risultante
-4. Fare clic su Aggiungi assegnazione ruolo nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo per l'identità dell'applicazione.
+3. opzionale Verifica accesso esistente: selezionare identità gestita di sistema o assegnata dall'utente nel controllo ' trova '; Selezionare l'identità appropriata dall'elenco dei risultati risultante
+4. Fare clic su + Aggiungi assegnazione ruolo nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo per l'identità dell'applicazione.
 In Ruolo scegliere Lettore dei dati del BLOB di archiviazione dall'elenco a discesa.
-5. Nell'elenco a discesa successivo, `User assigned managed identity`in Assegna accesso a, scegliere .
+5. Nell'elenco a discesa successivo, in assegna accesso a, `User assigned managed identity`scegliere.
 6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa Sottoscrizione e quindi impostare Gruppo di risorse su Tutti i gruppi di risorse.
-7. In Seleziona scegliere l'UAI corrispondente all'applicazione Service Fabric e quindi fare clic su Salva.Under Select, choose the UAI corresponding to the Service Fabric application and then click Save.
+7. In Seleziona scegliere il UAI corrispondente all'applicazione Service Fabric e quindi fare clic su Salva.
 
-Il supporto per le identità gestite di Service Fabric assegnate dal sistema non include l'integrazione nel portale di Azure. Se l'applicazione utilizza un'identità assegnata dal sistema, sarà necessario innanzitutto trovare l'ID client `Azure AD user, group, or service principal` dell'identità dell'applicazione e quindi ripetere i passaggi precedenti, ma selezionando l'opzione nel controllo Find.
+Il supporto per le identità gestite Service Fabric assegnate dal sistema non include l'integrazione nel portale di Azure; Se l'applicazione usa un'identità assegnata dal sistema, sarà necessario trovare prima l'ID client dell'identità dell'applicazione, quindi ripetere i passaggi precedenti, ma selezionando l' `Azure AD user, group, or service principal` opzione nel controllo trova.
 
-## <a name="granting-access-to-azure-key-vault"></a>Concessione dell'accesso all'insieme di credenziali delle chiavi di AzureGranting access to Azure Key Vault
-Analogamente, con l'accesso all'archiviazione, è possibile sfruttare l'identità gestita di un'applicazione Service Fabric per accedere a un insieme di credenziali delle chiavi di Azure.Similarly with accessing storage, you can leverage the managed identity of a Service Fabric application to access an Azure key vault. I passaggi per concedere l'accesso nel portale di Azure sono simili a quelli elencati in precedenza e non verranno ripetuti qui. Fare riferimento all'immagine seguente per le differenze.
+## <a name="granting-access-to-azure-key-vault"></a>Concessione dell'accesso a Azure Key Vault
+Analogamente all'accesso allo spazio di archiviazione, è possibile sfruttare l'identità gestita di un'applicazione Service Fabric per accedere a un insieme di credenziali delle chiavi di Azure. I passaggi per concedere l'accesso all'portale di Azure sono simili a quelli elencati in precedenza e non verranno ripetuti qui. Per le differenze, vedere l'immagine seguente.
 
 ![Criteri di accesso dell'insieme di credenziali delle chiavi](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-Nell'esempio seguente viene illustrata la concessione dell'accesso a un insieme di credenziali tramite una distribuzione di modelli. aggiungere i frammenti di codice sottostanti come un'altra voce sotto l'elemento `resources` del modello. Nell'esempio viene illustrata la concessione dell'accesso sia per i tipi di identità assegnati dall'utente che per quelli assegnati dal sistema, rispettivamente: scegliere quella applicabile.
+Nell'esempio seguente viene illustrato come concedere l'accesso a un insieme di credenziali tramite una distribuzione modello. aggiungere i frammenti di codice riportati di seguito come un'altra voce `resources` sotto l'elemento del modello. Nell'esempio viene illustrata la concessione dell'accesso per i tipi di identità assegnati dall'utente e di sistema, rispettivamente, scegliere quella appropriata.
 
 ```json
     # under 'variables':
@@ -102,8 +102,8 @@ E per le identità gestite assegnate dal sistema:
     }
 ```
 
-Per ulteriori dettagli, vedere [Vaults - Update Access Policy](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
+Per altri dettagli, vedere insiemi di credenziali [-aggiornare i criteri di accesso](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire un'applicazione Azure Service Fabric con un'identità gestita assegnata dal sistemaDeploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Distribuire un'applicazione Azure Service Fabric con un'identità gestita assegnata dall'utenteDeploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dal sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dall'utente](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)

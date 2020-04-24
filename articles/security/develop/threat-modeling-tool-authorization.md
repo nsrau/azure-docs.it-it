@@ -25,20 +25,20 @@ ms.locfileid: "68728375"
 # <a name="security-frame-authorization--mitigations"></a>Infrastruttura di sicurezza: autorizzazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
-| **Limite di trust dei computer** | <ul><li>[Verificare che gli ACL appropriati siano configurati per limitare l'accesso non autorizzato ai dati nel dispositivoEnsure that proper ACLs are configured to restrict unauthorized access to data on the device](#acl-restricted-access)</li><li>[Verificare che il contenuto sensibile dell'applicazione specifico dell'utente venga archiviato nella directory del profilo utente](#sensitive-directory)</li><li>[Verificare che le applicazioni distribuite vengano eseguite con privilegi minimi](#deployed-privileges)</li></ul> |
-| **Applicazione Web** | <ul><li>[Applicare l'ordine sequenziale dei passaggi durante l'elaborazione dei flussi della logica di businessEnforce sequential step order when processing business logic flows](#sequential-logic)</li><li>[Implementare un meccanismo di limitazione della frequenza per impedire l'enumerazione](#rate-enumeration)</li><li>[Assicurarsi che sia in atto un'autorizzazione adeguata e che venga seguito il principio dei privilegi minimi](#principle-least-privilege)</li><li>[Le decisioni riguardanti la logica di business e l'autorizzazione di accesso alle risorse non devono basarsi sui parametri di richiesta in ingresso](#logic-request-parameters)</li><li>[Verificare che il contenuto e le risorse non siano enumerabili o accessibili tramite browsing forzato](#enumerable-browsing)</li></ul> |
-| **Database** | <ul><li>[Assicurarsi che vengano usati account con privilegi minimi per connettersi al server di database](#privileged-server)</li><li>[Implementare RLS di sicurezza a livello di riga per impedire ai tenant di accedere reciprocamente ai dati](#rls-tenants)</li><li>[Il ruolo sysadmin deve avere solo utenti necessari validi](#sysadmin-users)</li></ul> |
+| **Limite di trust dei computer** | <ul><li>[Assicurarsi che gli ACL appropriati siano configurati per limitare l'accesso non autorizzato ai dati nel dispositivo](#acl-restricted-access)</li><li>[Verificare che il contenuto sensibile dell'applicazione specifico dell'utente venga archiviato nella directory del profilo utente](#sensitive-directory)</li><li>[Verificare che le applicazioni distribuite vengano eseguite con privilegi minimi](#deployed-privileges)</li></ul> |
+| **Applicazione Web** | <ul><li>[Applicare l'ordine dei passaggi sequenziali durante l'elaborazione dei flussi della logica di business](#sequential-logic)</li><li>[Implementare un meccanismo di limitazione della frequenza per impedire l'enumerazione](#rate-enumeration)</li><li>[Verificare che sia presente l'autorizzazione appropriata e che venga seguito il principio dei privilegi minimi](#principle-least-privilege)</li><li>[Le decisioni riguardanti la logica di business e l'autorizzazione di accesso alle risorse non devono basarsi sui parametri di richiesta in ingresso](#logic-request-parameters)</li><li>[Verificare che il contenuto e le risorse non siano enumerabili o accessibili tramite browsing forzato](#enumerable-browsing)</li></ul> |
+| **Database** | <ul><li>[Assicurarsi che vengano usati account con privilegi minimi per connettersi al server di database](#privileged-server)</li><li>[Implementare Sicurezza a livello di riga RLS per impedire ai tenant di accedere ai dati degli altri](#rls-tenants)</li><li>[Il ruolo sysadmin deve avere solo utenti necessari validi](#sysadmin-users)</li></ul> |
 | **Gateway IoT cloud** | <ul><li>[Connettersi al gateway nel cloud usando token con privilegi minimi](#cloud-least-privileged)</li></ul> |
-| **Hub eventi di AzureAzure Event Hub** | <ul><li>[Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo](#sendonly-sas)</li><li>[Non usare token di accesso che forniscono l'accesso diretto all'hub eventi](#access-tokens-hub)</li><li>[Connettersi all'hub eventi tramite chiavi di firma di accesso condiviso aventi solo le autorizzazioni minime necessarie](#sas-minimum-permissions)</li></ul> |
+| **Hub eventi di Azure** | <ul><li>[Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo](#sendonly-sas)</li><li>[Non usare token di accesso che forniscono accesso diretto all'hub eventi](#access-tokens-hub)</li><li>[Connettersi all'hub eventi tramite chiavi di firma di accesso condiviso aventi solo le autorizzazioni minime necessarie](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[Usare i token delle risorse per la connessione ad Azure Cosmos DB, quando possibile](#resource-docdb)</li></ul> |
 | **Limite di trust di Azure** | <ul><li>[Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando il controllo degli accessi in base al ruolo](#grained-rbac)</li></ul> |
-| **Limite di trust di Service Fabric** | <ul><li>[Limitare l'accesso del client alle operazioni del cluster tramite il controllo degli accessi in base al ruolo](#cluster-rbac)</li></ul> |
-| **Dynamics CRM** | <ul><li>[Eseguire la modellazione della sicurezza e utilizzare la sicurezza a livello di campo dove necessario](#modeling-field)</li></ul> |
+| **Limite di trust di Service Fabric** | <ul><li>[Limitare l'accesso del client alle operazioni del cluster usando RBAC](#cluster-rbac)</li></ul> |
+| **Dynamics CRM** | <ul><li>[Eseguire la modellazione di sicurezza e usare la sicurezza a livello di campo, se necessario](#modeling-field)</li></ul> |
 | **Portale di Dynamics CRM** | <ul><li>[Eseguire la modellazione di sicurezza degli account del portale tenendo presente che il modello di sicurezza per il portale è diverso dagli altri componenti di CRM](#portal-security)</li></ul> |
-| **Archiviazione di AzureAzure Storage** | <ul><li>[Concedere l'autorizzazione con granularità fine in un intervallo di entità nell'archiviazione tabelle di Azure](#permission-entities)</li><li>[Abilitare il controllo degli accessi in base al ruolo per l'account di archiviazione di Azure usando Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Archiviazione di Azure** | <ul><li>[Concedere l'autorizzazione con granularità fine in un intervallo di entità nell'archiviazione tabelle di Azure](#permission-entities)</li><li>[Abilitare il controllo degli accessi in base al ruolo per l'account di archiviazione di Azure usando Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Client per dispositivi mobili** | <ul><li>[Implementare il rilevamento implicito di jailbreak o rooting](#rooting-detection)</li></ul> |
-| **WCF** | <ul><li>[Riferimento alla classe debole in WCFWeak Class Reference in WCF](#weak-class-wcf)</li><li>[Controllo autorizzazione WCF-ImplementWCF-Implement Authorization control](#wcf-authz)</li></ul> |
-| **Web API** | <ul><li>[Implementare un meccanismo di autorizzazione appropriato in ASP.NETAPI WebImplement proper authorization mechanism in ASP.NET Web API](#authz-aspnet)</li></ul> |
+| **WCF** | <ul><li>[Riferimento di classe debole in WCF](#weak-class-wcf)</li><li>[WCF-implementare il controllo di autorizzazione](#wcf-authz)</li></ul> |
+| **API Web** | <ul><li>[Implementare il meccanismo di autorizzazione appropriato in API Web ASP.NET](#authz-aspnet)</li></ul> |
 | **Dispositivo IoT** | <ul><li>[Eseguire i controlli di autorizzazione nel dispositivo se il dispositivo supporta azioni che richiedono diversi livelli di autorizzazione](#device-permission)</li></ul> |
 | **Gateway IoT sul campo** | <ul><li>[Eseguire i controlli di autorizzazione nel gateway sul campo se il gateway supporta azioni che richiedono diversi livelli di autorizzazione](#field-permission)</li></ul> |
 
@@ -51,7 +51,7 @@ ms.locfileid: "68728375"
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Verificare che gli ACL appropriati siano configurati per limitare l'accesso non autorizzato ai dati nel dispositivo|
+| **Passaggi** | Verificare che gli ACL appropriati siano configurati per limitare l'accesso non autorizzato ai dati nel dispositivo|
 
 ## <a name="ensure-that-sensitive-user-specific-application-content-is-stored-in-user-profile-directory"></a><a id="sensitive-directory"></a>Verificare che il contenuto sensibile dell'applicazione specifico dell'utente venga archiviato nella directory del profilo utente
 
@@ -62,7 +62,7 @@ ms.locfileid: "68728375"
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Verificare che il contenuto sensibile dell'applicazione specifico dell'utente venga archiviato nella directory del profilo utente. Si impedisce così che un utente del computer possa accedere ai dati degli altri utenti.|
+| **Passaggi** | Verificare che il contenuto sensibile dell'applicazione specifico dell'utente venga archiviato nella directory del profilo utente. Si impedisce così che un utente del computer possa accedere ai dati degli altri utenti.|
 
 ## <a name="ensure-that-the-deployed-applications-are-run-with-least-privileges"></a><a id="deployed-privileges"></a>Verificare che le applicazioni distribuite vengano eseguite con privilegi minimi
 
@@ -73,7 +73,7 @@ ms.locfileid: "68728375"
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Verificare che l'applicazione distribuita venga eseguita con privilegi minimi. |
+| **Passaggi** | Verificare che l'applicazione distribuita venga eseguita con privilegi minimi. |
 
 ## <a name="enforce-sequential-step-order-when-processing-business-logic-flows"></a><a id="sequential-logic"></a>Applicare l'ordine dei passaggi in sequenza durante l'elaborazione di flussi di logica di business
 
@@ -84,7 +84,7 @@ ms.locfileid: "68728375"
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Per verificare che questa fase sia stata eseguita da un utente reale si vuole far sì che l'applicazione elabori i flussi della logica di business solo nell'ordine dei passaggi in sequenza, con tutti i passaggi elaborati in tempi umanamente realistici e senza elaborazioni in un ordine diverso, passaggi omessi, passaggi elaborati da un altro utente o transazioni inviate troppo rapidamente.|
+| **Passaggi** | Per verificare che questa fase sia stata eseguita da un utente reale si vuole far sì che l'applicazione elabori i flussi della logica di business solo nell'ordine dei passaggi in sequenza, con tutti i passaggi elaborati in tempi umanamente realistici e senza elaborazioni in un ordine diverso, passaggi omessi, passaggi elaborati da un altro utente o transazioni inviate troppo rapidamente.|
 
 ## <a name="implement-rate-limiting-mechanism-to-prevent-enumeration"></a><a id="rate-enumeration"></a>Implementare un meccanismo di limitazione della frequenza per impedire l'enumerazione
 
@@ -95,7 +95,7 @@ ms.locfileid: "68728375"
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Assicurarsi che gli identificatori sensibili siano casuali. Implementare il controllo CAPTCHA nelle pagine anonime. Verificare che errori ed eccezioni non rivelino dati specifici|
+| **Passaggi** | Assicurarsi che gli identificatori sensibili siano casuali. Implementare il controllo CAPTCHA nelle pagine anonime. Verificare che errori ed eccezioni non rivelino dati specifici|
 
 ## <a name="ensure-that-proper-authorization-is-in-place-and-principle-of-least-privileges-is-followed"></a><a id="principle-least-privilege"></a>Verificare che sia presente l'autorizzazione necessaria e che venga seguito il principio dei privilegi minimi
 
@@ -106,7 +106,7 @@ ms.locfileid: "68728375"
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | <p>Con questo principio, all'account utente vengono assegnati solo i privilegi essenziali per il lavoro. Un utente del backup non deve ad esempio installare software, di conseguenza sarà autorizzato solo a eseguire backup e applicazioni correlate al backup. Gli altri privilegi, ad esempio l'installazione di nuovo software, saranno bloccati. Il principio è applicabile anche a un utente di PC che in genere svolge il lavoro in un normale account utente e apre un account con privilegi protetto da password (ovvero un utente con privilegi avanzati) solo quando la situazione lo rende assolutamente necessario. </p><p>Questo principio è applicabile anche alle applicazioni Web. Invece di dipendere esclusivamente da metodi di autenticazione basati sul ruolo che usano le sessioni, si preferisce assegnare privilegi agli utenti tramite un sistema di autenticazione basato su database. Si continuano a usare le sessioni per determinare se l'utente ha effettuato l'accesso correttamente, solo che ora invece di assegnare all'utente un ruolo specifico gli vengono assegnati privilegi per verificare le azioni che è autorizzato a eseguire nel sistema. Un grande vantaggio di questo metodo risiede nel fatto che quando a un utente devono essere assegnati meno privilegi, le modifiche verranno applicate immediatamente perché l'assegnazione non dipende dalla sessione che altrimenti dovrebbe prima scadere.</p>|
+| **Passaggi** | <p>Con questo principio, all'account utente vengono assegnati solo i privilegi essenziali per il lavoro. Un utente del backup non deve ad esempio installare software, di conseguenza sarà autorizzato solo a eseguire backup e applicazioni correlate al backup. Gli altri privilegi, ad esempio l'installazione di nuovo software, saranno bloccati. Il principio è applicabile anche a un utente di PC che in genere svolge il lavoro in un normale account utente e apre un account con privilegi protetto da password (ovvero un utente con privilegi avanzati) solo quando la situazione lo rende assolutamente necessario. </p><p>Questo principio è applicabile anche alle applicazioni Web. Invece di dipendere esclusivamente da metodi di autenticazione basati sul ruolo che usano le sessioni, si preferisce assegnare privilegi agli utenti tramite un sistema di autenticazione basato su database. Si continuano a usare le sessioni per determinare se l'utente ha effettuato l'accesso correttamente, solo che ora invece di assegnare all'utente un ruolo specifico gli vengono assegnati privilegi per verificare le azioni che è autorizzato a eseguire nel sistema. Un grande vantaggio di questo metodo risiede nel fatto che quando a un utente devono essere assegnati meno privilegi, le modifiche verranno applicate immediatamente perché l'assegnazione non dipende dalla sessione che altrimenti dovrebbe prima scadere.</p>|
 
 ## <a name="business-logic-and-resource-access-authorization-decisions-should-not-be-based-on-incoming-request-parameters"></a><a id="logic-request-parameters"></a>Le decisioni riguardanti la logica di business e l'autorizzazione di accesso alle risorse non devono basarsi sui parametri di richiesta in ingresso
 
@@ -117,7 +117,7 @@ ms.locfileid: "68728375"
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Quando si verifica se un utente è limitato alla visualizzazione di dati specifici, le limitazioni di accesso devono essere elaborate sul lato server. L'ID utente deve essere archiviato all'interno di una variabile di sessione all'accesso e deve essere usato per recuperare i dati utente dal database |
+| **Passaggi** | Quando si verifica se un utente è limitato alla visualizzazione di dati specifici, le limitazioni di accesso devono essere elaborate sul lato server. L'ID utente deve essere archiviato all'interno di una variabile di sessione all'accesso e deve essere usato per recuperare i dati utente dal database |
 
 ### <a name="example"></a>Esempio
 ```SQL
@@ -136,7 +136,7 @@ Ora un utente malintenzionato non può manomettere e modificare il funzionamento
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | <p>I file statici e di configurazione sensibili non devono essere conservati nella directory web-root. Per il contenuto che non deve essere pubblico, applicare i controlli di accesso appropriati oppure rimuovere il contenuto stesso.</p><p>Il browsing forzato si associa di solito a tecniche di forza bruta per raccogliere informazioni tentando di accedere al maggior numero di URL possibile per enumerare directory e file in un server. Gli utenti malintenzionati possono cercare tutte le varianti dei file comunemente esistenti. La ricerca di file di password include ad esempio file come psswd.txt, password.htm, password.dat e altre varianti.</p><p>Per attenuare questo problema è necessario includere funzionalità di rilevamento di tentativi di attacchi di forza bruta.</p>|
+| **Passaggi** | <p>I file statici e di configurazione sensibili non devono essere conservati nella directory web-root. Per il contenuto che non deve essere pubblico, applicare i controlli di accesso appropriati oppure rimuovere il contenuto stesso.</p><p>Il browsing forzato si associa di solito a tecniche di forza bruta per raccogliere informazioni tentando di accedere al maggior numero di URL possibile per enumerare directory e file in un server. Gli utenti malintenzionati possono cercare tutte le varianti dei file comunemente esistenti. La ricerca di file di password include ad esempio file come psswd.txt, password.htm, password.dat e altre varianti.</p><p>Per attenuare questo problema è necessario includere funzionalità di rilevamento di tentativi di attacchi di forza bruta.</p>|
 
 ## <a name="ensure-that-least-privileged-accounts-are-used-to-connect-to-database-server"></a><a id="privileged-server"></a>Assicurarsi che vengano usati account con privilegi minimi per connettersi al server di database
 
@@ -147,7 +147,7 @@ Ora un utente malintenzionato non può manomettere e modificare il funzionamento
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [Gerarchia delle autorizzazioni del database SQL](https://msdn.microsoft.com/library/ms191465), [Entità a protezione diretta del database SQL](https://msdn.microsoft.com/library/ms190401) |
-| **Passi** | È necessario usare account con privilegi minimi per connettersi al database. L'account di accesso dell'applicazione deve essere limitato nel database ed eseguire solo stored procedure specifiche. L'account di accesso dell'applicazione non deve avere accesso diretto alle tabelle. |
+| **Passaggi** | È necessario usare account con privilegi minimi per connettersi al database. L'account di accesso dell'applicazione deve essere limitato nel database ed eseguire solo stored procedure specifiche. L'account di accesso dell'applicazione non deve avere accesso diretto alle tabelle. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implementare la sicurezza a livello di riga per impedire ai tenant di accedere ai dati degli altri tenant
 
@@ -158,7 +158,7 @@ Ora un utente malintenzionato non può manomettere e modificare il funzionamento
 | **Tecnologie applicabili** | SQL Azure, locale |
 | **Attributi**              | Versione SQL: 12, versione SQL: MSSQL2016 |
 | **Riferimenti**              | [Sicurezza a livello di riga di SQL Server](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
-| **Passi** | <p>La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella di database in base alle caratteristiche dell'utente che esegue una query, ad esempio l'appartenenza a un gruppo o il contesto di esecuzione.</p><p>La sicurezza a livello di riga semplifica la progettazione e la codifica della sicurezza nell'applicazione Consente di implementare limitazioni per l'accesso alle righe di dati, assicurando ad esempio che i collaboratori possano accedere solo alle righe di dati pertinenti per il proprio reparto o limitando l'accesso ai dati di un cliente ai soli dati di interesse per l'azienda.</p><p>La logica di restrizione dell'accesso si trova sul livello del database e non su un altro livello applicazione lontano dai dati. Il sistema del database applica le restrizioni di accesso a ogni tentativo di accesso ai dati da qualsiasi livello. Il sistema di sicurezza è così più affidabile e solido, grazie alla riduzione della superficie del sistema di sicurezza.</p><p>|
+| **Passaggi** | <p>La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella di database in base alle caratteristiche dell'utente che esegue una query, ad esempio l'appartenenza a un gruppo o il contesto di esecuzione.</p><p>La sicurezza a livello di riga semplifica la progettazione e la codifica della sicurezza nell'applicazione Consente di implementare limitazioni per l'accesso alle righe di dati, assicurando ad esempio che i collaboratori possano accedere solo alle righe di dati pertinenti per il proprio reparto o limitando l'accesso ai dati di un cliente ai soli dati di interesse per l'azienda.</p><p>La logica di restrizione dell'accesso si trova sul livello del database e non su un altro livello applicazione lontano dai dati. Il sistema del database applica le restrizioni di accesso a ogni tentativo di accesso ai dati da qualsiasi livello. Il sistema di sicurezza è così più affidabile e solido, grazie alla riduzione della superficie del sistema di sicurezza.</p><p>|
 
 Si noti che la sicurezza a livello di riga come funzionalità di database predefinita è applicabile solo a SQL Server a partire dalla versione 2016 e al database SQL di Azure. Se non viene implementata la funzionalità predefinita della sicurezza a livello di riga, assicurarsi l'accesso ai dati sia limitato tramite viste e procedure
 
@@ -171,7 +171,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [Gerarchia delle autorizzazioni del database SQL](https://msdn.microsoft.com/library/ms191465), [Entità a protezione diretta del database SQL](https://msdn.microsoft.com/library/ms190401) |
-| **Passi** | I membri del ruolo predefinito SysAdmin del server devono essere molto limitati e non contenere mai account usati dalle applicazioni.  Esaminare l'elenco di utenti nel ruolo e rimuovere gli account non necessari|
+| **Passaggi** | I membri del ruolo predefinito SysAdmin del server devono essere molto limitati e non contenere mai account usati dalle applicazioni.  Esaminare l'elenco di utenti nel ruolo e rimuovere gli account non necessari|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Connettersi al gateway nel cloud usando token con privilegi minimi
 
@@ -181,8 +181,8 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Fase SDL**               | Distribuzione |  
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | Opzione gateway: Hub IoT di Azure |
-| **Riferimenti**              | [Controllo degli accessi all'hub di Iot](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
-| **Passi** | Assegnare autorizzazioni con privilegi minimi a vari componenti che si connettono al gateway cloud (hub IoT). Esempio tipico: il componente di gestione/provisioning di dispositivi usa registryread/write, l'elaboratore eventi (ASA) usa Connessione servizio. I singoli dispositivi si connettono usando le credenziali dispositivo|
+| **Riferimenti**              | [Controllo di accesso dell'hub Internet](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
+| **Passaggi** | Assegnare autorizzazioni con privilegi minimi a vari componenti che si connettono al gateway cloud (hub IoT). Esempio tipico: il componente di gestione/provisioning di dispositivi usa registryread/write, l'elaboratore eventi (ASA) usa Connessione servizio. I singoli dispositivi si connettono usando le credenziali dispositivo|
 
 ## <a name="use-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo
 
@@ -193,7 +193,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [Panoramica del modello di sicurezza e autenticazione di Hub eventi](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Passi** | Viene usata una chiave di firma di accesso condiviso per generare i singoli token di dispositivo. Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo per un determinato server di pubblicazione|
+| **Passaggi** | Viene usata una chiave di firma di accesso condiviso per generare i singoli token di dispositivo. Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo per un determinato server di pubblicazione|
 
 ## <a name="do-not-use-access-tokens-that-provide-direct-access-to-the-event-hub"></a><a id="access-tokens-hub"></a>Non usare token di accesso che consentono l'accesso diretto all'hub eventi
 
@@ -204,7 +204,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [Panoramica del modello di sicurezza e autenticazione di Hub eventi](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Passi** | Non assegnare al dispositivo un token che concede l'accesso diretto all'hub eventi. L'uso di un token con privilegi minimi per il dispositivo che fornisce l'accesso solo a un server di pubblicazione consente di identificare e aggiungere il dispositivo alla blacklist se ritenuto non autorizzato o compromesso.|
+| **Passaggi** | Non assegnare al dispositivo un token che concede l'accesso diretto all'hub eventi. L'uso di un token con privilegi minimi per il dispositivo che fornisce l'accesso solo a un server di pubblicazione consente di identificare e aggiungere il dispositivo alla blacklist se ritenuto non autorizzato o compromesso.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Connettersi all'hub eventi tramite chiavi di firma di accesso condiviso aventi solo le autorizzazioni minime necessarie
 
@@ -215,7 +215,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [Panoramica del modello di sicurezza e autenticazione di Hub eventi](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Passi** | Assegnare autorizzazioni con privilegi minimi a varie applicazioni back-end che si connettono all'hub eventi. Generare chiavi di firma di accesso condiviso separate per ogni applicazione back-end e assegnare solo le autorizzazioni necessarie, ovvero invio, ricezione o gestione.|
+| **Passaggi** | Assegnare autorizzazioni con privilegi minimi a varie applicazioni back-end che si connettono all'hub eventi. Generare chiavi di firma di accesso condiviso separate per ogni applicazione back-end e assegnare solo le autorizzazioni necessarie, ovvero invio, ricezione o gestione.|
 
 ## <a name="use-resource-tokens-to-connect-to-cosmos-db-whenever-possible"></a><a id="resource-docdb"></a>Usare i token delle risorse per la connessione ad Azure Cosmos DB, quando possibile
 
@@ -226,7 +226,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Un token di risorsa è associato a una risorsa autorizzazione di Azure Cosmos DB e acquisisce la relazione tra l'utente di un database e l'autorizzazione dell'utente per una risorsa applicazione di Azure Cosmos DB specifica (ad esempio, raccolta o documento). Usare sempre un token di risorsa per accedere ad Azure Cosmos DB se il client non è attendibile per quanto riguarda la gestione delle chiavi master o di sola lettura, ad esempio un'applicazione per l'utente finale come un client desktop o mobile. Usare la chiave master o le chiavi di sola lettura di applicazioni back-end in grado di archiviare queste chiavi in modo sicuro.|
+| **Passaggi** | Un token di risorsa è associato a una risorsa autorizzazione di Azure Cosmos DB e acquisisce la relazione tra l'utente di un database e l'autorizzazione dell'utente per una risorsa applicazione di Azure Cosmos DB specifica (ad esempio, raccolta o documento). Usare sempre un token di risorsa per accedere ad Azure Cosmos DB se il client non è attendibile per quanto riguarda la gestione delle chiavi master o di sola lettura, ad esempio un'applicazione per l'utente finale come un client desktop o mobile. Usare la chiave master o le chiavi di sola lettura di applicazioni back-end in grado di archiviare queste chiavi in modo sicuro.|
 
 ## <a name="enable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando il controllo degli accessi in base al ruolo
 
@@ -237,7 +237,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
-| **Passi** | Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. L'uso del Controllo degli accessi in base al ruolo permette di concedere agli utenti solo il livello di accesso necessario per lavorare.|
+| **Passaggi** | Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. L'uso del Controllo degli accessi in base al ruolo permette di concedere agli utenti solo il livello di accesso necessario per lavorare.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Limitare l'accesso del client alle operazioni di cluster con il controllo degli accessi in base al ruolo
 
@@ -248,7 +248,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | Ambiente: Azure |
 | **Riferimenti**              | [Controllo degli accessi in base al ruolo per i client di Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
-| **Passi** | <p>Azure Service Fabric supporta due tipi di controllo di accesso diversi per i client connessi a un cluster di Service Fabric: amministratore e utente. Il Controllo di accesso consente all'amministratore del cluster di limitare l'accesso a determinate operazioni del cluster per diversi gruppi di utenti, rendendo più sicuro il cluster.</p><p>Gli amministratori hanno accesso completo alle funzionalità di gestione, incluse funzionalità di lettura/scrittura. Gli utenti, per impostazione predefinita, hanno solo l'accesso in lettura alle funzionalità di gestione, ad esempio funzionalità di query, e la possibilità di risolvere applicazioni e servizi.</p><p>I due ruoli di client, amministratore o client, vengono specificati al momento della creazione del cluster fornendo certificati separati per ognuno di essi.</p>|
+| **Passaggi** | <p>Azure Service Fabric supporta due tipi di controllo di accesso diversi per i client connessi a un cluster di Service Fabric: amministratore e utente. Il Controllo di accesso consente all'amministratore del cluster di limitare l'accesso a determinate operazioni del cluster per diversi gruppi di utenti, rendendo più sicuro il cluster.</p><p>Gli amministratori hanno accesso completo alle funzionalità di gestione, incluse funzionalità di lettura/scrittura. Gli utenti, per impostazione predefinita, hanno solo l'accesso in lettura alle funzionalità di gestione, ad esempio funzionalità di query, e la possibilità di risolvere applicazioni e servizi.</p><p>I due ruoli di client, amministratore o client, vengono specificati al momento della creazione del cluster fornendo certificati separati per ognuno di essi.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Eseguire la modellazione di sicurezza e usare la sicurezza a livello di campo quando richiesto
 
@@ -259,7 +259,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Eseguire la modellazione di sicurezza e usare la sicurezza a livello di campo quando richiesto|
+| **Passaggi** | Eseguire la modellazione di sicurezza e usare la sicurezza a livello di campo quando richiesto|
 
 ## <a name="perform-security-modeling-of-portal-accounts-keeping-in-mind-that-the-security-model-for-the-portal-differs-from-the-rest-of-crm"></a><a id="portal-security"></a>Eseguire la modellazione di sicurezza degli account del portale tenendo presente che il modello di sicurezza per il portale è diverso dagli altri componenti di CRM
 
@@ -270,7 +270,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Eseguire la modellazione di sicurezza degli account del portale tenendo presente che il modello di sicurezza per il portale è diverso dagli altri componenti di CRM|
+| **Passaggi** | Eseguire la modellazione di sicurezza degli account del portale tenendo presente che il modello di sicurezza per il portale è diverso dagli altri componenti di CRM|
 
 ## <a name="grant-fine-grained-permission-on-a-range-of-entities-in-azure-table-storage"></a><a id="permission-entities"></a>Concedere l'autorizzazione con granularità fine in un intervallo di entità nell'archiviazione tabelle di Azure
 
@@ -281,7 +281,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | Tipo di archiviazione: tabella |
 | **Riferimenti**              | [Come delegare l'accesso agli oggetti nell'account di archiviazione di Azure con la firma di accesso condiviso](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Passi** | In alcuni scenari di business, l'archiviazione tabelle di Azure potrebbe essere necessaria per archiviare dati sensibili per diverse parti, Ad esempio, dati sensibili relativi a diversi paesi/aree geografiche. In questi casi, le firme di firma di accesso utenti possono essere costruite specificando gli intervalli di chiavi di partizione e riga, in modo che un utente possa accedere ai dati specifici di un determinato paese.In that cases, SAS signatures can be constructed by specifying the partition and row key ranges, such that a user can access data specific to a particular country/region.| 
+| **Passaggi** | In alcuni scenari di business, l'archiviazione tabelle di Azure potrebbe essere necessaria per archiviare dati sensibili per diverse parti, Ad esempio, dati sensibili relativi a paesi/aree geografiche diverse. In questi casi, le firme SAS possono essere costruite specificando gli intervalli di chiavi di partizione e di riga, in modo che un utente possa accedere ai dati specifici di un determinato paese/area geografica.| 
 
 ## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Abilitare il controllo degli accessi in base al ruolo per l'account di archiviazione di Azure usando Azure Resource Manager
 
@@ -292,7 +292,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
-| **Passi** | <p>Quando si crea un nuovo account di archiviazione, si seleziona un modello di distribuzione classica o di Azure Resource Manager. Il modello di distribuzione classica per la creazione di risorse in Azure consente solo l'accesso di tipo "tutto o niente" alla sottoscrizione e, di conseguenza, all'account di archiviazione.</p><p>Con il modello di Azure Resource Manager si inserisce l'account di archiviazione in un gruppo di risorse e si controlla l'accesso al piano di gestione di quello specifico account di archiviazione tramite Azure Active Directory. Ad esempio, è possibile concedere a utenti specifici la possibilità di accedere alle chiavi dell'account di archiviazione, mentre altri utenti possono visualizzare le informazioni sull'account di archiviazione, ma non accedere alle relative chiavi.</p>|
+| **Passaggi** | <p>Quando si crea un nuovo account di archiviazione, si seleziona un modello di distribuzione classica o di Azure Resource Manager. Il modello di distribuzione classica per la creazione di risorse in Azure consente solo l'accesso di tipo "tutto o niente" alla sottoscrizione e, di conseguenza, all'account di archiviazione.</p><p>Con il modello di Azure Resource Manager si inserisce l'account di archiviazione in un gruppo di risorse e si controlla l'accesso al piano di gestione di quello specifico account di archiviazione tramite Azure Active Directory. Ad esempio, è possibile concedere a utenti specifici la possibilità di accedere alle chiavi dell'account di archiviazione, mentre altri utenti possono visualizzare le informazioni sull'account di archiviazione, ma non accedere alle relative chiavi.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementare il rilevamento implicito di jailbreak o rooting
 
@@ -303,7 +303,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | <p>L'applicazione deve proteggere i propri dati di configurazione e dell'utente in caso di jailbreak o rooting del telefono. Il rooting/jailbreak implica un accesso non autorizzato che gli utenti normali non eseguono sui propri telefoni. L'applicazione deve quindi avere una logica di rilevamento implicito all'avvio, per rilevare se è stato eseguito il rooting del telefono.</p><p>La logica di rilevamento può prevedere semplicemente l'accesso a file cui normalmente solo gli utenti ROOT possono accedere, ad esempio:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>Se può accedere a questi file, l'applicazione è in esecuzione come utente ROOT.</p>|
+| **Passaggi** | <p>L'applicazione deve proteggere i propri dati di configurazione e dell'utente in caso di jailbreak o rooting del telefono. Il rooting/jailbreak implica un accesso non autorizzato che gli utenti normali non eseguono sui propri telefoni. L'applicazione deve quindi avere una logica di rilevamento implicito all'avvio, per rilevare se è stato eseguito il rooting del telefono.</p><p>La logica di rilevamento può prevedere semplicemente l'accesso a file cui normalmente solo gli utenti ROOT possono accedere, ad esempio:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>Se può accedere a questi file, l'applicazione è in esecuzione come utente ROOT.</p>|
 
 ## <a name="weak-class-reference-in-wcf"></a><a id="weak-class-wcf"></a>Riferimento debole alla classe in WCF
 
@@ -314,7 +314,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico, NET Framework 3 |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
-| **Passi** | <p>Il sistema usa un riferimento debole alla classe che potrebbe consentire a un utente malintenzionato di eseguire codice non autorizzato. Il programma fa riferimento a una classe definita dall'utente che non è identificata in modo univoco. Quando .NET carica questa classe con identificazione debole, il caricatore di tipo CLR cerca la classe nei percorsi seguenti nell'ordine specificato:</p><ol><li>Se l'assembly del tipo è noto, il caricatore esegue una ricerca nei percorsi di reindirizzamento del file di configurazione, in GAC, nell'assembly corrente usando le informazioni di configurazione e nella directory base dell'applicazione</li><li>Se l'assembly è sconosciuto, il caricatore esegue una ricerca nell'assembly corrente, in mscorlib e nel percorso restituito dal gestore eventi TypeResolve</li><li>Questo ordine di ricerca CLR può essere modificato con hook quali il meccanismo di inoltro dei tipi e l'evento AppDomain.TypeResolve</li></ol><p>Se un utente malintenzionato sfrutta l'ordine di ricerca CLR creando una classe alternativa con lo stesso nome e inserendola in un percorso alternativo che CLR caricherà per primo, il CLR eseguirà involontariamente il codice specificato dall'utente malintenzionato</p>|
+| **Passaggi** | <p>Il sistema usa un riferimento debole alla classe che potrebbe consentire a un utente malintenzionato di eseguire codice non autorizzato. Il programma fa riferimento a una classe definita dall'utente che non è identificata in modo univoco. Quando .NET carica questa classe con identificazione debole, il caricatore di tipo CLR cerca la classe nei percorsi seguenti nell'ordine specificato:</p><ol><li>Se l'assembly del tipo è noto, il caricatore esegue una ricerca nei percorsi di reindirizzamento del file di configurazione, in GAC, nell'assembly corrente usando le informazioni di configurazione e nella directory base dell'applicazione</li><li>Se l'assembly è sconosciuto, il caricatore esegue una ricerca nell'assembly corrente, in mscorlib e nel percorso restituito dal gestore eventi TypeResolve</li><li>Questo ordine di ricerca CLR può essere modificato con hook quali il meccanismo di inoltro dei tipi e l'evento AppDomain.TypeResolve</li></ol><p>Se un utente malintenzionato sfrutta l'ordine di ricerca CLR creando una classe alternativa con lo stesso nome e inserendola in un percorso alternativo che CLR caricherà per primo, il CLR eseguirà involontariamente il codice specificato dall'utente malintenzionato</p>|
 
 ### <a name="example"></a>Esempio
 L'elemento `<behaviorExtensions/>` del file di configurazione WCF seguente indica a WCF di aggiungere una classe di comportamento personalizzata a una particolare estensione WCF.
@@ -351,7 +351,7 @@ L'elemento `<behaviorExtensions/>` del file di configurazione WCF seguente indic
 | **Tecnologie applicabili** | Generico, NET Framework 3 |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
-| **Passi** | <p>Questo servizio non usa un controllo di autorizzazione. Quando un client chiama un servizio WCF specifico, WCF mette a disposizione vari schemi di autorizzazione per verificare che il chiamante sia autorizzato a eseguire il metodo del servizio nel server. Se i controlli di autorizzazione non sono abilitati per i servizi WCF, un utente autenticato può ottenere l'escalation dei privilegi.</p>|
+| **Passaggi** | <p>Questo servizio non usa un controllo di autorizzazione. Quando un client chiama un servizio WCF specifico, WCF mette a disposizione vari schemi di autorizzazione per verificare che il chiamante sia autorizzato a eseguire il metodo del servizio nel server. Se i controlli di autorizzazione non sono abilitati per i servizi WCF, un utente autenticato può ottenere l'escalation dei privilegi.</p>|
 
 ### <a name="example"></a>Esempio
 La configurazione seguente indica a WCF di non verificare il livello di autorizzazione del client quando si esegue il servizio:
@@ -399,7 +399,7 @@ return result;
 | **Tecnologie applicabili** | Generico, MVC 5 |
 | **Attributi**              | N/D, provider di identità: AD FS, provider di identità: Azure AD |
 | **Riferimenti**              | [Autenticazione e autorizzazione nell'API Web ASP.NET](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
-| **Passi** | <p>Le informazioni sui ruoli per gli utenti dell'applicazione possono essere ottenute da attestazioni di Azure AD o AD FS se l'applicazione si basa su di essi come provider di identità. In alternativa, le informazioni possono essere fornite dall'applicazione stessa. In questi casi, l'implementazione di autorizzazione personalizzata deve convalidare le informazioni sui ruoli utente.</p><p>Le informazioni sui ruoli per gli utenti dell'applicazione possono essere ottenute da attestazioni di Azure AD o AD FS se l'applicazione si basa su di essi come provider di identità. In alternativa, le informazioni possono essere fornite dall'applicazione stessa. In questi casi, l'implementazione di autorizzazione personalizzata deve convalidare le informazioni sui ruoli utente.</p>
+| **Passaggi** | <p>Le informazioni sui ruoli per gli utenti dell'applicazione possono essere ottenute da attestazioni di Azure AD o AD FS se l'applicazione si basa su di essi come provider di identità. In alternativa, le informazioni possono essere fornite dall'applicazione stessa. In questi casi, l'implementazione di autorizzazione personalizzata deve convalidare le informazioni sui ruoli utente.</p><p>Le informazioni sui ruoli per gli utenti dell'applicazione possono essere ottenute da attestazioni di Azure AD o AD FS se l'applicazione si basa su di essi come provider di identità. In alternativa, le informazioni possono essere fornite dall'applicazione stessa. In questi casi, l'implementazione di autorizzazione personalizzata deve convalidare le informazioni sui ruoli utente.</p>
 
 ### <a name="example"></a>Esempio
 ```csharp
@@ -450,7 +450,7 @@ public class CustomController : ApiController
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | <p>Il dispositivo deve autorizzare il chiamante per verificare se il chiamante è in possesso delle autorizzazioni necessarie per eseguire l'azione richiesta. Si supponga ad esempio che il dispositivo sia una serratura intelligente che può essere monitorata dal cloud e che offra funzionalità quali la chiusura remota della porta.</p><p>La serratura intelligente consente l'apertura solo quando qualcuno si avvicina fisicamente alla porta con una scheda. In questo caso, l'implementazione del comando e del controllo remoto deve essere eseguita in modo da non fornire funzionalità di apertura della porta perché il gateway nel cloud non è autorizzato a inviare un comando per l'apertura della porta.</p>|
+| **Passaggi** | <p>Il dispositivo deve autorizzare il chiamante per verificare se il chiamante è in possesso delle autorizzazioni necessarie per eseguire l'azione richiesta. Si supponga ad esempio che il dispositivo sia una serratura intelligente che può essere monitorata dal cloud e che offra funzionalità quali la chiusura remota della porta.</p><p>La serratura intelligente consente l'apertura solo quando qualcuno si avvicina fisicamente alla porta con una scheda. In questo caso, l'implementazione del comando e del controllo remoto deve essere eseguita in modo da non fornire funzionalità di apertura della porta perché il gateway nel cloud non è autorizzato a inviare un comando per l'apertura della porta.</p>|
 
 ## <a name="perform-authorization-checks-in-the-field-gateway-if-it-supports-various-actions-that-require-different-permission-levels"></a><a id="field-permission"></a>Eseguire i controlli di autorizzazione nel gateway sul campo se il gateway supporta azioni che richiedono diversi livelli di autorizzazione
 
@@ -461,4 +461,4 @@ public class CustomController : ApiController
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passi** | Il gateway sul campo deve autorizzare il chiamante per verificare se il chiamante è in possesso delle autorizzazioni necessarie per eseguire l'azione richiesta. Devono essere ad esempio disponibili autorizzazioni diverse per un'interfaccia/API di utente amministratore usata per configurare un gateway sul campo rispetto ai dispositivi che si connettono al gateway.|
+| **Passaggi** | Il gateway sul campo deve autorizzare il chiamante per verificare se il chiamante è in possesso delle autorizzazioni necessarie per eseguire l'azione richiesta. Devono essere ad esempio disponibili autorizzazioni diverse per un'interfaccia/API di utente amministratore usata per configurare un gateway sul campo rispetto ai dispositivi che si connettono al gateway.|

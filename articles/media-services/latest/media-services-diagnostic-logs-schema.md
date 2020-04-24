@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services diagnostic logs schemas - Azure
-description: Questo articolo illustra gli schemi dei log di diagnostica di Servizi multimediali di Azure.This article demonstrates the Azure Media Services diagnostic logs schemas.
+title: Schemi dei log di diagnostica di servizi multimediali di Azure-Azure
+description: Questo articolo illustra gli schemi dei log di diagnostica di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -22,29 +22,29 @@ ms.locfileid: "75750880"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
 
-[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. È possibile monitorare i log di diagnostica di Servizi multimediali e creare avvisi e notifiche per le metriche e i log raccolti. È possibile inviare log ad [Archiviazione di Azure,](https://azure.microsoft.com/services/storage/)trasmetterli in streaming agli [hub eventi](https://azure.microsoft.com/services/event-hubs/)di Azure ed esportarli in [Log Analytics](https://azure.microsoft.com/services/log-analytics/)oppure usare servizi di terze parti.
+[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. È possibile monitorare i log di diagnostica di servizi multimediali e creare avvisi e notifiche per le metriche e i log raccolti. È possibile inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)ed esportarli in [log Analytics](https://azure.microsoft.com/services/log-analytics/)o usare servizi di terze parti.
 
-Per informazioni dettagliate, vedere [Metriche di monitoraggio](../../azure-monitor/platform/data-platform.md) di Azure e Log di [diagnostica di Monitoraggio di Azure.For](../../azure-monitor/platform/platform-logs-overview.md)detailed information, see Azure Monitor Metrics and Azure Monitor Diagnostic logs .
+Per informazioni dettagliate, vedere [metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md) e [log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
-In questo articolo vengono descritti gli schemi dei log di diagnostica di Servizi multimediali.
+Questo articolo descrive gli schemi dei log di diagnostica di servizi multimediali.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Schema dei log di diagnostica di primo livello
 
-Per una descrizione dettagliata dello schema dei log di diagnostica di primo livello, vedere Servizi, schemi e categorie supportati per i log di diagnostica di Azure.For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../azure-monitor/platform/tutorial-dashboards.md).
+Per una descrizione dettagliata dello schema dei log di diagnostica di primo livello, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../azure-monitor/platform/tutorial-dashboards.md).
 
-## <a name="key-delivery-log-schema"></a>Schema del log di recapito delle chiaviKey delivery log schema
+## <a name="key-delivery-log-schema"></a>Schema del log di distribuzione delle chiavi
 
 ### <a name="properties"></a>Proprietà
 
-Queste proprietà sono specifiche dello schema del log di recapito delle chiavi.
+Queste proprietà sono specifiche dello schema del log di distribuzione delle chiavi.
 
 |Nome|Descrizione|
 |---|---|
 |keyId|ID della chiave richiesta.|
-|keyType|Potrebbe essere uno dei valori seguenti: "Clear" (nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|
-|policyName|Nome del criterio di Azure Resource Manager.|
+|keyType|Può essere uno dei valori seguenti: "Clear" (nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|
+|policyName|Nome Azure Resource Manager del criterio.|
 |tokenType|Tipo di token.|
-|statoMessaggio|Messaggio di stato.|
+|statusMessage|Messaggio di stato.|
 
 ### <a name="examples"></a>Esempi
 
@@ -114,4 +114,4 @@ Proprietà dello schema delle richieste di recapito delle chiavi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Monitorare le metriche di Servizi multimediali e i log di diagnosticaMonitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
+[Monitorare le metriche di servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md)

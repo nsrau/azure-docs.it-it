@@ -37,7 +37,7 @@ ms.locfileid: "67180183"
     
     **Cablaggio di alimentazione**
     
-    | Etichetta | Descrizione |
+    | Label | Descrizione |
     |:--- |:--- |
     | 1 |Enclosure principale |
     | 2 |PCM 0 |

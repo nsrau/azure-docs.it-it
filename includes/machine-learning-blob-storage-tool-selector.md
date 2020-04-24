@@ -15,12 +15,12 @@ ms.locfileid: "67180678"
 -->
 Questo menu contiene collegamenti alle tecnologie che è possibile usare per spostare dati da e verso un archivio BLOB di Azure:
 
-> [!div class="op_single_selector" title1="Strumenti di archiviazione BLOBBlob storage tools"]
+> [!div class="op_single_selector" title1="Strumenti di archiviazione BLOB"]
 > * [Panoramica](../articles/machine-learning/team-data-science-process/move-azure-blob.md)
 > * [Azure Storage Explorer](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md)
-> * [Copia Azzurra](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy.md)
+> * [AzCopy](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy.md)
 > * [Python](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-python.md)
-> * [Ssis](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-ssis.md)
+> * [SSIS](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-ssis.md)
 > 
 > 
 

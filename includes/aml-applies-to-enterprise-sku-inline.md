@@ -17,4 +17,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "75536850"
 ---
 >[!Important]
-> La funzionalità di https://ml.azure.comquesto studio, , è **accessibile solo dalle aree di lavoro dell'organizzazione**. [Ulteriori informazioni sulle edizioni e l'aggiornamento](../articles/machine-learning/overview-what-is-azure-ml.md#sku).
+> La funzionalità in questo studio https://ml.azure.comè **accessibile solo dalle aree di lavoro aziendali**. [Altre informazioni sulle edizioni e sull'aggiornamento](../articles/machine-learning/overview-what-is-azure-ml.md#sku).

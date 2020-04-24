@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Collegare una rete virtuale a un circuito: classicoAzure ExpressRoute: Link a VNet to a circuit: classic'
+title: 'Azure ExpressRoute: collegare un VNet a un circuito: classico'
 description: Questo documento offre una panoramica sulle procedure di collegamento delle reti virtuali ai circuiti ExpressRoute usando il modello di distribuzione classico e PowerShell.
 services: expressroute
 author: cherylmc
@@ -16,10 +16,10 @@ ms.locfileid: "74930042"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Collegare una rete virtuale a un circuito ExpressRoute usando PowerShell (versione classica)
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-linkvnet-arm.md)
-> * [Interfaccia della riga di comando di AzureAzure](howto-linkvnet-cli.md)
-> * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
+> * [portale di Azure video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (versione classica)](expressroute-howto-linkvnet-classic.md)
 >
 
@@ -39,7 +39,7 @@ Questo articolo illustra come collegare reti virtuali a circuiti ExpressRoute di
 * Verificare i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 * È necessario avere un circuito ExpressRoute attivo.
    * Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) e fare in modo che il circuito venga abilitato dal provider di connettività.
-   * Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Vedere l'articolo [Configurare](expressroute-howto-routing-classic.md) il routing per le istruzioni di routing.
+   * Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Per istruzioni sul routing, vedere l'articolo relativo alla [configurazione del routing](expressroute-howto-routing-classic.md) .
    * Per abilitare la connettività end-to-end, assicurarsi che sia configurato il peering privato di Azure e sia attivo il peering BGP tra la rete e Microsoft.
    * È necessario disporre di una rete virtuale e di un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni per [configurare una rete virtuale per ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 

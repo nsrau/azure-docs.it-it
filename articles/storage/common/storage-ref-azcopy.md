@@ -1,6 +1,6 @@
 ---
-title: azcopy Documenti Microsoft
-description: Questo articolo fornisce informazioni di riferimento per il comando azcopy.
+title: azcopy | Microsoft Docs
+description: Questo articolo contiene informazioni di riferimento per il comando azcopy.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -17,30 +17,30 @@ ms.locfileid: "74038084"
 ---
 # <a name="azcopy"></a>azcopy
 
-AzCopy is a command-line tool that moves data into and out of Azure Storage.
+AzCopy è uno strumento da riga di comando che sposta i dati all'interno e all'esterno di archiviazione di Azure.
 
 ## <a name="synopsis"></a>Riepilogo
 
-Il formato generale dei `azcopy [command] [arguments] --[flag-name]=[flag-value]`comandi è: .
+Il formato generale dei comandi è: `azcopy [command] [arguments] --[flag-name]=[flag-value]`.
 
-Per segnalare problemi o per ulteriori [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy)informazioni sullo strumento, vedere .
+Per segnalare problemi o per ulteriori informazioni sullo strumento, vedere [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy).
 
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire dati con AzCopy e l'archiviazione BLOBTransfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opzioni
 
-**--cap-mbps uint32**   Limita la velocità di trasferimento, in megabit al secondo. La velocità effettiva momento per momento potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
+**--Cap-Mbps UInt32**   Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
 
-**-h, --help** Aiuto per l'azcopy
+**-h,--Help** Guida per azcopy
       
-**--output-tipo**  Formato dell'output del comando. Le opzioni disponibili includono: text, json. Il valore predefinito è 'text'. (predefinito "testo")
+**--output-tipo**  Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo")
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

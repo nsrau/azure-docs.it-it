@@ -18,7 +18,7 @@ ms.locfileid: "68965352"
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
  
-Questo documento offre una panoramica delle opzioni per il trasferimento dei dati locali in Azure, confrontando: Data Box Edge e Azure File Sync con la serie StorSimple 8000.This document provides an overview of options for on-premises data transfer to Azure, comparing: Data Box Edge vs.
+Questo documento offre una panoramica delle opzioni per il trasferimento di dati locali in Azure, confrontando: Data Box Edge rispetto a Sincronizzazione file di Azure serie vs. StorSimple 8000.
 
 - **[Data Box Edge](/azure/databox-online/data-box-edge-overview)**: Data Box Edge è un dispositivo di rete locale che sposta i dati da e verso Azure e dispone di una funzionalità di calcolo Edge per l'intelligenza artificiale per eseguire l'analisi preliminare dei dati durante il caricamento. Data Box Gateway è una versione virtuale del dispositivo con le stesse capacità di trasferimento dati.
 - **[Sincronizzazione file di Azure](/azure/storage/files/storage-sync-files-deployment-guide)**: il servizio Sincronizzazione file di Azure può essere usato per centralizzare le condivisioni di file dell'organizzazione in File di Azure, mantenendo al contempo la flessibilità, le prestazioni e la compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. La disponibilità generale di Sincronizzazione file di Azure è stata annunciata all'inizio del 2018.

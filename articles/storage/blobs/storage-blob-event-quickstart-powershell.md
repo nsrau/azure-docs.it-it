@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "68847166"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Guida introduttiva: Instradare gli eventi di archiviazione all'endpoint Web con PowerShellQuickstart: Route storage events to web endpoint with PowerShell
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con PowerShell
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo illustra come usare Azure PowerShell per sottoscrivere eventi di archiviazione BLOB, attivare un evento e visualizzare il risultato. 
 
@@ -29,7 +29,7 @@ Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Ai fini di questo articolo, è necessario eseguire la versione più recente di Azure PowerShell. Se è necessario installare o [aggiornare, vedere Installare e configurare Azure PowerShell.If](/powershell/azure/install-Az-ps)you need to install or upgrade, see Install and configure Azure PowerShell.
+Ai fini di questo articolo, è necessario eseguire la versione più recente di Azure PowerShell. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -60,7 +60,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Gli eventi di archiviazione BLOB sono disponibili negli account di archiviazione BLOB e negli account di archiviazione per utilizzo generico v2. Gli account di archiviazione per **utilizzo generico v2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi quelli relativi a BLOB, file, code e tabelle. Un **account di archiviazione BLOB** è un account di archiviazione specializzato per l'archiviazione dei dati non strutturati come BLOB (oggetti) in Archiviazione di Azure.A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
+Gli eventi di archiviazione BLOB sono disponibili negli account di archiviazione BLOB e negli account di archiviazione per utilizzo generico v2. Gli account di archiviazione per **utilizzo generico v2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi quelli relativi a BLOB, file, code e tabelle. Un **account di archiviazione BLOB** è un account di archiviazione specializzato per l'archiviazione dei dati non strutturati come BLOB (oggetti) in archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
 Creare un account di archiviazione BLOB con replica dell'archiviazione con ridondanza locale tramite [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) e quindi recuperare il contesto che definisce l'account di archiviazione da usare. Quando si usa un account di archiviazione, si può fare riferimento al contesto anziché fornire ripetutamente le credenziali. Questo esempio crea un account di archiviazione denominato **gridstorage** con archiviazione con ridondanza locale. 
 
@@ -103,7 +103,7 @@ Il sito dovrebbe essere visibile senza messaggi attualmente visualizzati.
 
 ## <a name="subscribe-to-your-storage-account"></a>Sottoscrivere l'account di archiviazione
 
-Si sottoscrive un argomento per indicare a Griglia di eventi gli eventi di cui si desidera tenere traccia. L'esempio seguente sottoscrive l'account di archiviazione creato e passa l'URL dall'app Web come endpoint per la notifica degli eventi. L'endpoint per l'app Web deve includere il suffisso `/api/updates/`.
+Si sottoscrive un argomento per indicare a griglia di eventi gli eventi di cui si vuole tenere traccia. L'esempio seguente sottoscrive l'account di archiviazione creato e passa l'URL dall'app Web come endpoint per la notifica degli eventi. L'endpoint per l'app Web deve includere il suffisso `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
@@ -172,5 +172,5 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Ora che si è appreso come creare argomenti e sottoscrizioni di eventi, è possibile approfondire le operazioni possibili con gli eventi di archiviazione BLOB e con la Griglia di eventi:
 
-- [Reazione agli eventi di archiviazione BLOBReacting to Blob storage events](storage-blob-event-overview.md)
+- [Reazione a eventi di archiviazione BLOB](storage-blob-event-overview.md)
 - [Informazioni sulla griglia di eventi](../../event-grid/overview.md)

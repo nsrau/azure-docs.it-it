@@ -1,7 +1,7 @@
 ---
-title: Come gestire le scritture simultanee nelle risorseHow to manage concurrent writes to resources
+title: Come gestire le scritture simultanee nelle risorse
 titleSuffix: Azure Cognitive Search
-description: Usare la concorrenza ottimistica per evitare conflitti a mezz'aria in aggiornamenti o eliminazioni di indici di Ricerca cognitiva di Azure, indicizzatori, origini dati.
+description: Usare la concorrenza ottimistica per evitare collisioni a metà di aggiornamenti o eliminazioni in Azure ricerca cognitiva indici, indicizzatori e origini dati.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -15,12 +15,12 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792206"
 ---
-# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Come gestire la concorrenza in Ricerca cognitiva di AzureHow to manage concurrency in Azure Cognitive Search
+# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Come gestire la concorrenza in Azure ricerca cognitiva
 
-Quando si gestiscono risorse di Ricerca cognitiva di Azure, ad esempio indici e origini dati, è importante aggiornare le risorse in modo sicuro, soprattutto se l'accesso alle risorse avviene contemporaneamente da componenti diversi dell'applicazione. Quando due client aggiornano simultaneamente un risorsa senza coordinazione, si possono verificare race condition. Per evitare questo problema, Ricerca cognitiva di Azure offre un modello di *concorrenza ottimistica.* Non sono presenti blocchi su una risorsa, ma per ogni risorsa esiste un ETag che identifica la versione della risorsa in modo che sia possibile creare richieste che evitano sovrascritture accidentali.
+Quando si gestiscono risorse ricerca cognitiva di Azure, ad esempio indici e origini dati, è importante aggiornare le risorse in modo sicuro, soprattutto se si accede simultaneamente alle risorse da componenti diversi dell'applicazione. Quando due client aggiornano simultaneamente un risorsa senza coordinazione, si possono verificare race condition. Per evitare questo problema, Azure ricerca cognitiva offre un *modello di concorrenza ottimistica*. Non sono presenti blocchi su una risorsa, ma per ogni risorsa esiste un ETag che identifica la versione della risorsa in modo che sia possibile creare richieste che evitano sovrascritture accidentali.
 
 > [!Tip]
-> Il codice concettuale in una soluzione di esempio in C' illustra il funzionamento del controllo della concorrenza in Ricerca cognitiva di Azure.Conceptual code in a [sample C'è](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) spias how concurrency control works in Azure Cognitive Search. Il codice crea le condizioni che richiamano il controllo della concorrenza. La lettura del [frammento di codice riportato più avanti](#samplecode) è probabilmente sufficiente per la maggior parte degli sviluppatori, ma, se lo si vuole eseguire, modificare appsettings.json per aggiungere il nome del servizio e una chiave API di amministrazione. Dato un URL del servizio `http://myservice.search.windows.net`, il nome del service è `myservice`.
+> Il codice concettuale in una [soluzione C# di esempio](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) illustra il funzionamento del controllo della concorrenza in Azure ricerca cognitiva. Il codice crea le condizioni che richiamano il controllo della concorrenza. La lettura del [frammento di codice riportato più avanti](#samplecode) è probabilmente sufficiente per la maggior parte degli sviluppatori, ma, se lo si vuole eseguire, modificare appsettings.json per aggiungere il nome del servizio e una chiave API di amministrazione. Dato un URL del servizio `http://myservice.search.windows.net`, il nome del service è `myservice`.
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -169,7 +169,7 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
 
 Uno schema progettuale per l'implementazione della concorrenza ottimistica deve includere un ciclo che recupera il controllo della condizione di accesso, un test per la condizione di accesso e, facoltativamente, una risorsa aggiornata prima di provare ad applicare di nuovo le modifiche.
 
-Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice deriva [dall'esempio di Synonym in c'è per Ricerca cognitiva](search-synonyms-tutorial-sdk.md)di Azure .
+Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice viene dal [sinonimo di esempio C# per ricerca cognitiva di Azure](search-synonyms-tutorial-sdk.md).
 
 Il frammento ottiene l'indice "hotels", controlla la versione dell'oggetto in un'operazione di aggiornamento, genera un'eccezione se la condizione ha esito negativo e quindi esegue un nuovo tentativo di operazione (fino a tre volte), iniziando con il recupero dell'indice dal server per ottenere la versione più recente.
 
@@ -212,10 +212,10 @@ Per altre informazioni su come aggiornare in modo sicuro un indice esistente, ve
 Provare a modificare uno dei due esempi seguenti per includere ETag o oggetti AccessCondition.
 
 + [Esempio di API REST in GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
-+ [Esempio di .NET SDK in GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Questa soluzione include il progetto "DotNetEtagsExplainer" contenente il codice presentato in questo articolo.
++ [Esempio .NET SDK su GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Questa soluzione include il progetto "DotNetEtagsExplainer" contenente il codice presentato in questo articolo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-[Codici di](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-stato HTTP comuni di richiesta e risposta Operazioni di[indice (API REST)Common](https://docs.microsoft.com/rest/api/searchservice/index-operations) HTTP request and response[headers HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
-Index operations (REST API)
+[Intestazioni di richiesta e risposta HTTP comuni operazioni di](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+indicizzazione di[codici](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+di stato http[(API REST)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

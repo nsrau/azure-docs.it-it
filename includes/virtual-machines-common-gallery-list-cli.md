@@ -17,7 +17,7 @@ ms.locfileid: "66226038"
 ---
 ## <a name="using-rbac-to-share-images"></a>Usare RBCA per condividere immagini
 
-È possibile condividere immagini tra sottoscrizioni usando il controllo degli accessi in base al ruolo. Qualsiasi utente che disponga di autorizzazioni di lettura per la versione immagine, perfino tra sottoscrizioni, riuscirà a distribuire una macchina virtuale usando la versione immagine.
+È possibile condividere immagini tra sottoscrizioni tramite il controllo degli accessi in base al ruolo (RBAC). Qualsiasi utente che disponga di autorizzazioni di lettura per la versione immagine, perfino tra sottoscrizioni, riuscirà a distribuire una macchina virtuale usando la versione immagine.
 
 Per altre informazioni su come condividere risorse usando RBCA, vedere [Gestione dell'accesso usando RBCA e L'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
 

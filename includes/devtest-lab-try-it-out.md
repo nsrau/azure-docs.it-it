@@ -12,9 +12,9 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180574"
 ---
 ## <a name="get-started-with-azure-devtest-labs"></a>Introduzione ad Azure DevTest Labs
-Non si è ancora provato Azure? [Creare un account Azure gratuito.](https://azure.microsoft.com/free)
+Non si è ancora provato Azure? [Creare un account Azure gratuito](https://azure.microsoft.com/free).
 
 Si usa già Azure? È possibile iniziare a usare il primo laboratorio in DevTest Labs.
 
-[![Inizia a usare i laboratori di Azure DevTest in pochi minuti](./media/devtest-lab-try-it-out/get-started.png)](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
+[![Inizia a usare Azure DevTest Labs in pochi minuti](./media/devtest-lab-try-it-out/get-started.png)](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 

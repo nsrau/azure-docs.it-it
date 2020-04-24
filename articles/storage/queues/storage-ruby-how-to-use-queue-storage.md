@@ -1,5 +1,5 @@
 ---
-title: Come usare l'archiviazione delle code da Ruby - Archiviazione di AzureHow to use Queue storage from Ruby - Azure Storage
+title: Come usare l'archiviazione di Accodamento da Ruby-archiviazione di Azure
 description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Ruby.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -46,7 +46,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Configurare una connessione di archiviazione di Azure
-Il modulo azure leggerà le variabili di ambiente **COME AEURNO STORAGE ACCOUNT\_\_** e AZURE STORAGE ACCESS_KEY per le informazioni necessarie per connettersi all'account di archiviazione di Azure.The azure module will read the environment variables AZURE STORAGE ACCOUNT and **Azure\_STORAGE\_ACCESS_KEY** for information required to connect to your Azure storage account. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di utilizzare **Azure::QueueService** con il codice seguente:
+Il modulo di Azure leggerà le variabili **di\_ambiente\_Azure storage account** e **\_Azure Storage\_ACCESS_KEY** per informazioni necessarie per connettersi all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di utilizzare **Azure::QueueService** con il codice seguente:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -55,7 +55,7 @@ Azure.config.storage_access_key = "<your Azure storage access key>"
 
 Per ottenere questi valori da un account di archiviazione classico o di Resource Manager nel portale di Azure:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso**.
 4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente. 
@@ -86,7 +86,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Procedura: visualizzare il messaggio successivo
-È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peek\_messages()** . Per impostazione predefinita, **\_peek messages()** visualizza un singolo messaggio. È anche possibile specificare il numero di messaggi che si desidera visualizzare.
+È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peek\_messages()** . Per impostazione predefinita **,\_Peek messages ()** Visualizza un singolo messaggio. È anche possibile specificare il numero di messaggi che si desidera visualizzare.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -97,9 +97,9 @@ result = azure_queue_service.peek_messages("test-queue",
 È possibile rimuovere un messaggio da una coda in due passaggi.
 
 1. Per impostazione predefinita, chiamando **list\_messages()** si ottiene il messaggio successivo in una coda. È anche possibile specificare il numero di messaggi che si desidera ottenere. I messaggi restituiti da **list\_messages()** diventano invisibili a qualsiasi altro codice che legge i messaggi dalla stessa coda. Passare il timeout di visibilità in secondi come parametro.
-2. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message()**.
+2. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message ()**.
 
-Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **\_delete message()** subito dopo l'elaborazione del messaggio.
+Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **Delete\_Message ()** subito dopo l'elaborazione del messaggio.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)

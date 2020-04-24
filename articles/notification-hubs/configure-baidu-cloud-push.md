@@ -1,6 +1,6 @@
 ---
-title: Configurare Baidu Cloud Push negli hub di notifica di Azure Documenti Microsoft
-description: Informazioni su come configurare le impostazioni Baidu per un hub di notifica di Azure.Learn how to configure Baidu settings for an Azure notification hub.
+title: Configurare il push cloud Baidu in hub di notifica di Azure | Microsoft Docs
+description: Informazioni su come configurare le impostazioni di Baidu per un hub di notifica di Azure.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -18,9 +18,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212510"
 ---
-# <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Deprecato: Configurare le impostazioni di Baidu Cloud Push per un hub di notifica nel portale di AzureDeprecated: Configure Baidu Cloud Push settings for a notification hub in the Azure portal
+# <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Deprecato: configurare le impostazioni di push cloud Baidu per un hub di notifica nel portale di Azure
 
-Questo articolo illustra come configurare le impostazioni Baidu Cloud Push per un hub di notifica di Azure usando il portale di Azure.This article shows you how to configure Baidu Cloud Push settings for an Azure notification hub by using the Azure portal.
+Questo articolo illustra come configurare le impostazioni push cloud Baidu per un hub di notifica di Azure usando il portale di Azure.
 
 > [!IMPORTANT]
 > Questa esercitazione è deprecata. 
@@ -29,9 +29,9 @@ Questo articolo illustra come configurare le impostazioni Baidu Cloud Push per u
 Se non è stato già creato un hub di notifica, crearne uno ora. Per altre informazioni, vedere [Creare un hub di notifica di Azure nel portale di Azure](create-notification-hub-portal.md). 
 
 ## <a name="configure-baidu-cloud-push"></a>Configurare Baidu Cloud Push
-La procedura seguente illustra come configurare le impostazioni Baidu Cloud Push per un hub di notifica:
+La procedura seguente illustra i passaggi per configurare le impostazioni di push cloud Baidu per un hub di notifica:
 
-1. Nel portale di Azure, nella pagina **Hub di notifica,** selezionare **Baidu (Android Cina)** nel menu a sinistra. 
+1. Nella portale di Azure nella pagina Hub di **notifica** selezionare **Baidu (Android China)** dal menu a sinistra. 
 2. Immettere il valore **Chiave API** ottenuto dalla console di Baidu nel progetto push cloud Baidu. 
 3. Immettere il valore **Chiave privata** ottenuto dalla console di Baidu nel progetto push cloud Baidu. 
 4. Selezionare **Salva**. 
@@ -39,4 +39,4 @@ La procedura seguente illustra come configurare le impostazioni Baidu Cloud Push
     ![Screenshot di Hub di notifica che illustra la configurazione di Baidu (Android China) per le notifiche push](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un'esercitazione con istruzioni dettagliate per il push delle notifiche a Baidu tramite Hub di notifica di Azure e Baidu Cloud Push, vedere Introduzione agli hub di [notifica tramite Baidu](notification-hubs-baidu-china-android-notifications-get-started.md).
+Per un'esercitazione con istruzioni dettagliate per il push delle notifiche a Baidu usando hub di notifica di Azure e Baidu cloud push, vedere [Introduzione ad hub di notifica tramite Baidu](notification-hubs-baidu-china-android-notifications-get-started.md).

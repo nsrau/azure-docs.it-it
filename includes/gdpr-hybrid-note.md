@@ -16,4 +16,4 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "75613763"
 ---
 >[!Note]
->Se sei interessato a visualizzare o eliminare i dati personali, consulta le linee guida di Microsoft nel sito Richieste soggetto dati di Windows per il sito [GDPR.](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests) Per informazioni generali sul GDPR, vedere la [sezione GDPR del portale Service Trust](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Se si è interessati a visualizzare o eliminare i dati personali, consultare le indicazioni di Microsoft nelle [richieste relative ai dati di Windows per il](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests) sito di GDPR. Per informazioni generali su GDPR, vedere la [sezione GDPR del portale di attendibilità del servizio](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

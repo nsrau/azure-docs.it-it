@@ -17,7 +17,7 @@ ms.locfileid: "67179881"
 ---
 > [!NOTE]
 > Questi esempi non sono validi per la configurazione di connessioni con coesistenza S2S/ExpressRoute.
-> Per altre informazioni sull'uso dei gateway in una configurazione coesistente, vedere [Configurare connessioni coesistenti.](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)
+> Per altre informazioni sull'uso dei gateway in una configurazione coesistente, vedere [configurare connessioni coesistenti.](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)
 
 ## <a name="add-a-gateway"></a>Aggiungere un gateway
 

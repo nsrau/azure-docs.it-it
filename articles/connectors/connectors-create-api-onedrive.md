@@ -1,6 +1,6 @@
 ---
-title: Accedere e gestire file in Microsoft OneDrive
-description: Caricare e gestire file in OneDrive creando flussi di lavoro automatizzati nelle app per la logica di AzureUpload and manage files in OneDrive by creating automated workflows in Azure Logic Apps
+title: Accedere e gestire i file in Microsoft OneDrive
+description: Caricare e gestire i file in OneDrive creando flussi di lavoro automatizzati in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378433"
 ---
-# <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Accedere e gestire i file nel connettore OneDrive tramite app per la logica di AzureAccess and manage files in OneDrive connector by using Azure Logic Apps
+# <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Accedere e gestire i file in OneDrive Connector usando app per la logica di Azure
 
-Usando [le app per](../logic-apps/logic-apps-overview.md) la logica di Azure e il [connettore OneDrive,](/connectors/onedriveconnector/)è possibile creare attività e flussi di lavoro automatizzati per gestire i file, inclusi il caricamento, il get, l'eliminazione di file e altro ancora. Con OneDrive è possibile eseguire le attività seguenti:With OneDrive, you can perform these tasks:
+Usando app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore OneDrive](/connectors/onedriveconnector/), è possibile creare attività e flussi di lavoro automatizzati per gestire i file, ad esempio caricare, ottenere, eliminare file e altro ancora. Con OneDrive è possibile eseguire queste attività:
 
 * Creare un flusso di lavoro mediante l'archiviazione di file in OneDrive o aggiornare i file esistenti in OneDrive. 
 * Usare trigger per avviare il flusso di lavoro quando un file viene creato o aggiornato in OneDrive.
@@ -38,7 +38,7 @@ Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario
 
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. I trigger eseguono il "polling" del servizio agli intervalli e con la frequenza desiderati. [Altre informazioni sui trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. In Progettazione app `onedrive` per la logica digitare per ottenere un elenco dei trigger:  
+1. Nella finestra di progettazione dell'app per `onedrive` la logica digitare per ottenere un elenco dei trigger:  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -58,7 +58,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 ## <a name="use-an-action"></a>Usare un'azione
 
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Ulteriori informazioni sulle azioni](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione** e le opzioni in **Altro**.
 
@@ -66,7 +66,7 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 2. Selezionare **Aggiungi un'azione**.
 
-3. Nella casella di `onedrive` ricerca digitare per ottenere un elenco di tutte le azioni disponibili.
+3. Nella casella di ricerca digitare `onedrive` per ottenere un elenco di tutte le azioni disponibili.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
@@ -74,9 +74,9 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
    ![](./media/connectors-create-api-onedrive/sample-action.png)
 
-   Se vengono richieste le informazioni di connessione, immettere i dettagli per [creare la connessione come descritto](#create-the-connection) in questo argomento.
+   Se vengono richieste le informazioni di connessione, immettere i dettagli per [creare la connessione, come descritto](#create-the-connection) in questo argomento.
 
-   In questo esempio, si crea un nuovo file in una cartella oneDrive.In this example, you create a new file in a OneDrive folder. Per creare il file di OneDrive è possibile usare l'output di un altro trigger. Ad esempio aggiungere il trigger di Office 365 Outlook *All'arrivo di un nuovo messaggio di posta elettronica*. Quindi aggiungere l'azione di OneDrive *Crea file* che usa i campi Allegati e Content-Type in un ciclo ForEach per creare il nuovo file in OneDrive.
+   In questo esempio viene creato un nuovo file in una cartella OneDrive. Per creare il file di OneDrive è possibile usare l'output di un altro trigger. Ad esempio aggiungere il trigger di Office 365 Outlook *All'arrivo di un nuovo messaggio di posta elettronica*. Quindi aggiungere l'azione di OneDrive *Crea file* che usa i campi Allegati e Content-Type in un ciclo ForEach per creare il nuovo file in OneDrive.
 
    ![](./media/connectors-create-api-onedrive/foreach-action.png)
 

@@ -12,16 +12,16 @@ ms.locfileid: "74893485"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Ruoli e autorizzazioni di Registro Azure Container
 
-Il servizio Registro di sistema contenitore di Azure supporta un set di ruoli di Azure incorporati che forniscono diversi livelli di autorizzazioni per un registro contenitori di Azure.The Azure Container Registry service supports a set of [built-in Azure roles](../role-based-access-control/built-in-roles.md) that provide different levels of permissions to an Azure container registry. Usare il controllo degli [accessi in base](../role-based-access-control/index.yml) al ruolo di Azure per assegnare autorizzazioni specifiche a utenti, entità servizio o altre identità che devono interagire con un Registro di sistema. 
+Il servizio Azure Container Registry supporta un set di [ruoli di Azure predefiniti](../role-based-access-control/built-in-roles.md) che forniscono diversi livelli di autorizzazioni per un registro contenitori di Azure. Usare il [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) (RBAC) di Azure per assegnare autorizzazioni specifiche a utenti, entità servizio o altre identità che devono interagire con un registro. 
 
 | Ruolo/autorizzazione       | [Accedere ad Azure Resource Manager](#access-resource-manager) | [Creare/eliminaliminare registro di sistema](#create-and-delete-registry) | [Immagine di push](#push-image) | [Eseguire il pull dell'immagine](#pull-image) | [Eliminare i dati di immagini](#delete-image-data) | [Modificare i criteri](#change-policies) |   [Firma delle immagini](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietario | X | X | X | X | X | X |  |  
 | Collaboratore | X | X | X |  X | X | X |  |  
-| Reader | X |  |  | X |  |  |  |
+| Lettore | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
-| AcrDelete (Elimina) |  |  |  |  | X |  |  |
+| AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Distinguere gli utenti e i servizi
@@ -58,7 +58,7 @@ La possibilità di `docker pull` un'immagine non in quarantena o di eseguire il 
 
 ## <a name="delete-image-data"></a>Eliminare i dati di immagini
 
-Possibilità di [eliminare immagini contenitore](container-registry-delete.md)o di altri [elementi supportati,](container-registry-image-formats.md) ad esempio i grafici Helm, da un Registro di sistema.
+La possibilità di [eliminare immagini del contenitore](container-registry-delete.md)o di eliminare altri [elementi supportati](container-registry-image-formats.md) , ad esempio i grafici Helm, da un registro di sistema.
 
 ## <a name="change-policies"></a>Modificare i criteri
 
@@ -70,18 +70,18 @@ La possibilità di firmare immagini, in genere assegnate a un processo automatiz
 
 ## <a name="custom-roles"></a>Ruoli personalizzati
 
-Come con altre risorse di Azure, è possibile creare ruoli personalizzati con autorizzazioni specifiche per il Registro di sistema del contenitore di Azure.As with other Azure resources, you can create your own [custom roles](../role-based-access-control/custom-roles.md) with fine-grained permissions to Azure Container Registry. Assegnare quindi i ruoli personalizzati a utenti, entità servizio o altre identità che devono interagire con un Registro di sistema. 
+Come per le altre risorse di Azure, è possibile creare [ruoli personalizzati](../role-based-access-control/custom-roles.md) con le autorizzazioni con granularità fine per Azure container Registry. Assegnare quindi i ruoli personalizzati a utenti, entità servizio o altre identità che devono interagire con un registro. 
 
-Per determinare le autorizzazioni da applicare a un ruolo personalizzato, vedere l'elenco delle [azioni](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)di Microsoft.ContainerRegistry , esaminare le azioni consentite dei [ruoli ACR incorporati](../role-based-access-control/built-in-roles.md)o eseguire il comando seguente:
+Per determinare le autorizzazioni da applicare a un ruolo personalizzato, vedere l'elenco di [azioni](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)Microsoft. ContainerRegistry, esaminare le azioni consentite dei [ruoli predefiniti di ACR](../role-based-access-control/built-in-roles.md)oppure eseguire il comando seguente:
 
 ```azurecli
 az provider operation show --namespace Microsoft.ContainerRegistry
 ```
 
-Per definire un ruolo personalizzato, vedere [Passaggi per creare un ruolo personalizzato.](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)
+Per definire un ruolo personalizzato, vedere [passaggi per la creazione di un ruolo personalizzato](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 > [!IMPORTANT]
-> In un ruolo personalizzato, il Registro di sistema `Microsoft.ContainerRegistry/*` `Microsoft.ContainerRegistry/registries/*` del contenitore di Azure non supporta attualmente i caratteri jolly, ad esempio o che concedono l'accesso a tutte le azioni corrispondenti. Specificare l'azione richiesta singolarmente nel ruolo.
+> In un ruolo personalizzato, Azure Container Registry attualmente non supporta i caratteri jolly, `Microsoft.ContainerRegistry/*` ad `Microsoft.ContainerRegistry/registries/*` esempio o, che concedono l'accesso a tutte le azioni corrispondenti. Specificare un'azione obbligatoria singolarmente nel ruolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -89,4 +89,4 @@ Per definire un ruolo personalizzato, vedere [Passaggi per creare un ruolo perso
 
 * Informazioni su [opzioni di autenticazione](container-registry-authentication.md) per il Registro Azure Container.
 
-* Informazioni sull'abilitazione delle [autorizzazioni con ambito repository](container-registry-repository-scoped-permissions.md) (anteprima) in un registro contenitori.
+* Informazioni su come abilitare le [autorizzazioni con ambito repository](container-registry-repository-scoped-permissions.md) (anteprima) in un registro contenitori.

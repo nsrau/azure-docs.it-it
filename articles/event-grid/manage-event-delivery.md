@@ -1,5 +1,5 @@
 ---
-title: Criteri di tentativi e lettere non recapitabili - Griglia di eventi di AzureDead letter and retry policies - Azure Event Grid
+title: Criteri di ripetizione dei messaggi non recapitabili-griglia di eventi di Azure
 description: Descrive come personalizzare le opzioni di recapito degli eventi per Griglia di eventi. Impostare una destinazione per i messaggi non recapitabili e specificare il numero di tentativi di recapito.
 services: event-grid
 author: spelluru
@@ -25,8 +25,8 @@ Quando si crea una sottoscrizione di eventi, è possibile personalizzare le impo
 Per impostare una posizione per gli eventi non recapitabili, è necessario un account di archiviazione per contenere gli eventi che non possono essere recapitati a un endpoint. Gli esempi ricevono l'ID di risorsa da un account di archiviazione esistente. Creano una sottoscrizione evento che usa un contenitore in tale account di archiviazione per l'endpoint di messaggi non recapitabili.
 
 > [!NOTE]
-> - Creare un account di archiviazione e un contenitore BLOB nell'archiviazione prima di eseguire comandi in questo articolo.
-> - Il servizio Griglia di eventi crea BLOB in questo contenitore. I nomi dei BLOB avranno il nome della sottoscrizione griglia di eventi con tutte le lettere in maiuscolo. Ad esempio, se il nome della sottoscrizione è My-Blob-Subscription, i nomi dei BLOB dei messaggi non recapitabili avranno MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-1111111111111.json). Questo comportamento consiste nel proteggersi dalle differenze nella gestione dei casi tra i servizi di Azure.This behavior is to protect against differences in case handling between Azure services.
+> - Prima di eseguire i comandi in questo articolo, creare un account di archiviazione e un contenitore BLOB nella risorsa di archiviazione.
+> - Il servizio griglia di eventi crea BLOB in questo contenitore. I nomi dei BLOB avranno il nome della sottoscrizione di griglia di eventi con tutte le lettere maiuscole. Ad esempio, se il nome della sottoscrizione è My-BLOB-Subscription, i nomi dei BLOB di messaggi non recapitabili avranno MY-BLOB-SUBSCRIPTION (contenitoreblob/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111 -111111111111. Json). Questo comportamento prevede la protezione da differenze nella gestione dei casi tra i servizi di Azure.
 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure

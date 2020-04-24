@@ -1,6 +1,6 @@
 ---
 title: Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure | Microsoft Docs
-description: Questo articolo illustra come gestire il livello di sicurezza su larga scala applicando criteri a tutte le sottoscrizioni collegate al tenant di Azure Active Directory.This article explains how to manage your security posture posture at scale by applying policies to all subscriptions linked to your Azure Active Directory tenant.
+description: Questo articolo illustra come gestire il comportamento di sicurezza su larga scala applicando criteri a tutte le sottoscrizioni collegate al tenant Azure Active Directory.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -21,7 +21,7 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "74559338"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
-Questo articolo illustra come gestire il livello di sicurezza dell'organizzazione su larga scala applicando i criteri di sicurezza a tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory.This article explains how to manage your organization's security posture on scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
+Questo articolo illustra come gestire il comportamento di sicurezza dell'organizzazione su larga scala applicando criteri di sicurezza a tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,8 +39,8 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
 È possibile organizzare le sottoscrizioni in gruppi di gestione a cui vengono applicati i criteri di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente i criteri applicati al gruppo di gestione. Anche se i gruppi di gestione non sono necessari per l'onboarding del Centro sicurezza, è consigliabile creare almeno un gruppo di gestione per poter creare il gruppo di gestione radice. Dopo la creazione del gruppo, vi saranno collegate tutte le sottoscrizioni nel tenant di Azure AD. Per le istruzioni relative a PowerShell e per altre informazioni, vedere [Creare gruppi di gestione per la gestione e l'organizzazione delle risorse](../azure-resource-manager/management-groups-create.md).
 
  
-1. Accedere al [portale](https://portal.azure.com)di Azure .
-2. Selezionare Tutti i**gruppi di gestione** **dei servizi** > .
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Selezionare **tutti i servizi** > **gruppi di gestione**.
 3. Nella pagina principale selezionare **Nuovo Gruppo di gestione.** 
 
     ![Gruppo principale](./media/security-center-management-groups/main.png) 
@@ -52,7 +52,7 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
 5.  Selezionare **Salva**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visualizzare i gruppi di gestione nel portale di Azure
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Per visualizzare i gruppi di gestione, selezionare **Tutti i servizi** nel menu principale di Azure.
 3. In **Generale** selezionare **Gruppi di gestione**.
 
@@ -93,7 +93,7 @@ Per ottenere visibilità in tutte le sottoscrizioni, gli amministratori tenant d
 
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Assegnare ruoli Controllo degli accessi in base al ruolo agli utenti tramite il portale di Azure: 
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Per visualizzare i gruppi di gestione, selezionare **Tutti i servizi** nel menu principale di Azure, quindi selezionare **Gruppi di gestione**.
 1.  Selezionare un gruppo di gestione e fare clic su **dettagli**.
 
@@ -140,7 +140,7 @@ Per ottenere visibilità in tutte le sottoscrizioni, gli amministratori tenant d
 ### <a name="open-or-refresh-security-center"></a>Aprire o aggiornare il Centro sicurezza
 Dopo avere ottenuto l'accesso con privilegi elevati, aprire o aggiornare il Centro sicurezza di Azure per verificare di avere visibilità su tutte le sottoscrizioni nel tenant di Azure AD. 
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Assicurarsi di selezionare nel selettore delle sottoscrizioni tutte le sottoscrizioni da visualizzare nel Centro sicurezza.
 
     ![Screenshot del selettore delle sottoscrizioni](./media/security-center-management-groups/subscription-selector.png)
@@ -167,7 +167,7 @@ Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati a
 
 
 
-## <a name="adding-subscriptions-to-a-management-group"></a>Aggiunta di sottoscrizioni a un gruppo di gestioneAdding subscriptions to a management group
+## <a name="adding-subscriptions-to-a-management-group"></a>Aggiunta di sottoscrizioni a un gruppo di gestione
 È possibile aggiungere le sottoscrizioni al gruppo di gestione creato. Questi passaggi non sono obbligatori per ottenere visibilità a livello di tenant sui criteri globali e sulla gestione dell'accesso.
 
 1. In **Gruppi di gestione** selezionare un gruppo di gestione a cui aggiungere la sottoscrizione.
@@ -189,7 +189,7 @@ Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati a
 In questo articolo è stato illustrato come ottenere visibilità a livello di tenant per il Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Security health monitoring in Azure Security Center](security-center-monitoring.md)
+> [Monitoraggio dell'integrità della sicurezza nel centro sicurezza di Azure](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
 > [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)

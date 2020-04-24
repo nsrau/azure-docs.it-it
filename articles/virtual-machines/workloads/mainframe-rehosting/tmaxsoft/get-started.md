@@ -1,6 +1,6 @@
 ---
-title: Introduzione a TmaxSoft OpenFrame in Macchine virtuali di AzureGet started with TmaxSoft OpenFrame on Azure Virtual Machines
-description: Riospita i carichi di lavoro mainframe IBM z/OS usando l'ambiente OpenFrame TmaxSoft nelle macchine virtuali di Azure.Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure Virtual Machines (VMs).
+title: Introduzione a TmaxSoft OpenFrame in macchine virtuali di Azure
+description: Riospitare i carichi di lavoro del mainframe IBM z/OS usando l'ambiente OpenFrame di TmaxSoft in macchine virtuali di Azure.
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
@@ -13,33 +13,33 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "61485437"
 ---
-# <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Introduzione a TmaxSoft OpenFrame in AzureGet started with TmaxSoft OpenFrame on Azure
+# <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Introduzione a TmaxSoft OpenFrame in Azure
 
-Prendi le tue risorse mainframe esistenti e spostale in Microsoft Azure usando TmaxSoft OpenFrame. Questa soluzione di rehosting comune crea un ambiente di emulazione in Azure, consentendo di eseguire rapidamente la migrazione delle applicazioni. Non è richiesta alcuna riformattazione.
+Prendere le risorse mainframe esistenti e spostarle in Microsoft Azure usando TmaxSoft OpenFrame. Questa popolare soluzione di riallocazione crea un ambiente di emulazione in Azure, consentendo di eseguire rapidamente la migrazione delle applicazioni. Non è richiesta alcuna riformattazione.
 
-## <a name="openframe-rehosting-environment"></a>Ambiente di rehosting OpenFrame
+## <a name="openframe-rehosting-environment"></a>Ambiente di riallocazione OpenFrame
 
-Configurare un ambiente OpenFrame in Azure per carichi di lavoro di sviluppo, demo, test o produzione. Come illustrato nella figura seguente, OpenFrame include più componenti che creano l'ambiente di emulazione mainframe in Azure.As the following figure shows, OpenFrame includes multiple components that create the mainframe emulation environment on Azure. Ad esempio, i servizi online OpenFrame sostituiscono il middleware mainframe mainframe come IBM Customer Information Control System (CICS). OpenFrame Batch, con il suo componente TJES, sostituisce il Job Entry Subsystem (JES) del mainframe IBM. 
+Configura un ambiente OpenFrame in Azure per carichi di lavoro di sviluppo, demo, test o produzione. Come illustrato nella figura seguente, OpenFrame include più componenti che creano l'ambiente di emulazione mainframe in Azure. Ad esempio, OpenFrame Servizi online sostituire il middleware mainframe come IBM Customer Information Control System (CICS). OpenFrame batch, con il relativo componente TJES, sostituisce il sottosistema di immissione dei processi (JES) del mainframe IBM. 
 
-![Processo di rehosting OpenFrame](media/openframe-01.png)
+![Processo di riallocazione OpenFrame](media/openframe-01.png)
 
 > [!NOTE]
-> Per eseguire l'ambiente OpenFrame in Azure, è necessario disporre di una licenza di prodotto valida o di una licenza di valutazione da TmaxSoft.To run the OpenFrame environment on Azure, you must have a valid product license or trial license from TmaxSoft.
+> Per eseguire l'ambiente OpenFrame in Azure, è necessario avere una licenza del prodotto valida o una licenza di valutazione di TmaxSoft.
 
-## <a name="openframe-components"></a>Componenti OpenFrame
+## <a name="openframe-components"></a>Componenti di OpenFrame
 
 I componenti seguenti fanno parte dell'ambiente OpenFrame in Azure:
 
-- Strumenti di **migrazione,** tra cui OFMiner, una soluzione che analizza gli asset mainframes e quindi ne esegue la migrazione in Azure.Migration tools including OFMiner, a solution that analyzes the mainframes assets and then migrates them to Azure.
-- **Compilatori**, incluso OFCOBOL, un compilatore che interpreta i programmi COBOL del mainframe; OFPLI, che interpreta i programmi PL/I del mainframe; e OFASM, un compilatore che interpreta i programmi assembler del mainframe.
-- **Componenti front-end,** tra cui Java Enterprise User Solution (JEUS), un server applicazioni Web certificato per Java Enterprise Edition 6.OFGW e il componente gateway OpenFrame che fornisce un listener 3270.
-- **Ambiente applicativo.** OpenFrame Base è il middleware che gestisce l'intero sistema. OpenFrame Server Type C (OSC) sostituisce il middleware mainframe e IBM CICS.
-- **Database relazionale**, ad esempio Tibero (illustrato), Oracle Database, Microsoft SQL Server, IBM Db2 o MySQL. Le applicazioni OpenFrame utilizzano il protocollo ODBC (Open Database Connectivity) per comunicare con il database.
-- **Sicurezza** tramite TACF, un modulo di servizio che controlla l'accesso degli utenti a sistemi e risorse. 
-- **OFManager** è una soluzione che fornisce le funzioni operative e di gestione di OpenFrame nell'ambiente Web.
+- **Strumenti di migrazione** , tra cui OFMiner, una soluzione che analizza gli asset mainframe e li esegue quindi la migrazione in Azure.
+- **Compilatori**, incluso OFCOBOL, un compilatore che interpreta i programmi COBOL del mainframe; OFPLI, che interpreta i programmi del mainframe PL/I; e OFASM, un compilatore che interpreta i programmi assembler del mainframe.
+- Componenti **front-end** , tra cui Java Enterprise User Solution (JEUS), un server applicazioni web certificato per Java Enterprise Edition 6. OFGW e il componente gateway OpenFrame che fornisce un listener 3270.
+- Ambiente **dell'applicazione** . OpenFrame base è il middleware che gestisce l'intero sistema. OpenFrame Server Type C (OSC) sostituisce il middleware del mainframe e IBM CICS.
+- **Database relazionale**, ad esempio tibero (visualizzato), Oracle Database, Microsoft SQL Server, IBM DB2 o MySQL. Le applicazioni OpenFrame utilizzano il protocollo ODBC (Open Database Connectivity) per comunicare con il database.
+- **Sicurezza** tramite TACF, un modulo del servizio che controlla l'accesso degli utenti a sistemi e risorse. 
+- **OFManager** è una soluzione che fornisce funzioni operative e di gestione di OpenFrame nell'ambiente Web.
 
 ![Architettura OpenFrame](media/openframe-02.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Installare TmaxSoft OpenFrame in AzureInstall TmaxSoft OpenFrame on Azure](./install-openframe-azure.md)
+- [Installare TmaxSoft OpenFrame in Azure](./install-openframe-azure.md)

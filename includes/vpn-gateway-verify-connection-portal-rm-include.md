@@ -19,6 +19,6 @@ Nel portale di Azure è possibile visualizzare lo stato della connessione di un 
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Tutte le risorse** e passare al gateway di rete virtuale.
 2. Nel pannello del gateway di rete virtuale fare clic su **Connessioni**. È possibile visualizzare lo stato di ogni connessione.
-3. Fare clic sul nome della connessione da verificare per aprire **Informazioni di base**. In Informazioni di base è possibile visualizzare altre informazioni sulla connessione. Lo **stato** è 'Succeeded' e 'Connected' quando la connessione è stata stabilita correttamente.
+3. Fare clic sul nome della connessione da verificare per aprire **Informazioni di base**. In Informazioni di base è possibile visualizzare altre informazioni sulla connessione. Lo **stato** è' succeeded ' è Connected ' quando si è stabilita una connessione.
 
    ![Verificare la connessione gateway VPN usando il portale di Azure](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)

@@ -22,14 +22,14 @@ ms.locfileid: "73802822"
 
 I database multimodello consentono di archiviare e usare i dati rappresentati in più formati di dati, come ad esempio dati relazionali, grafi, documenti JSON/XML, coppie chiave-valore e così via.
 
-## <a name="when-to-use-multi-model-capabilities"></a>Quando usare le funzionalità multimodelloWhen to use multi-model capabilities
+## <a name="when-to-use-multi-model-capabilities"></a>Quando usare le funzionalità multimodello
 
 Il database SQL di Azure è progettato per funzionare con il modello relazionale che offre le prestazioni migliori nella maggior parte dei casi per un'ampia gamma di applicazioni per utilizzo generico. Tuttavia, il database SQL di Azure non è limitato ai soli dati relazionali. Il database SQL di Azure consente di usare un'ampia gamma di formati non relazionali strettamente integrati nel modello relazionale.
-È consigliabile usare funzionalità multimodello del database SQL di Azure nei casi seguenti:You should consider using multi-model capabilities of Azure SQL Database in the following cases:
-- Si dispone di alcune informazioni o strutture che sono meglio adatta per i modelli NoSQL e non si desidera utilizzare un database NoSQL separato.
-- La maggior parte dei dati è adatta per il modello relazionale ed è necessario modellare alcune parti dei dati in stile NoSQL.A majority of your data is suitable for relational model, and you need to model some parts of your data in noSQL style.
-- Si desidera sfruttare un linguaggio Transact-SQLTransact-SQL avanzato per eseguire query e analizzare dati relazionali e NoSQL e integrarlo con un'ampia gamma di strumenti e applicazioni in grado di utilizzare il linguaggio SQL.
-- Si desidera applicare funzionalità di database, ad esempio [tecnologie in memoria,](sql-database-in-memory.md) per migliorare le prestazioni dell'analisi o l'elaborazione delle strutture di dati NoSQL, utilizzare la [replica transazionale](sql-database-managed-instance-transactional-replication.md) o [repliche leggibili](sql-database-read-scale-out.md) per creare una copia dei dati nell'altra posizione e scaricare alcuni carichi di lavoro analitici dal database primario.
+È consigliabile usare le funzionalità multimodello del database SQL di Azure nei casi seguenti:
+- Sono disponibili alcune informazioni o strutture più adatte per i modelli NoSQL e non si vuole usare un database NoSQL separato.
+- La maggior parte dei dati è adatta per il modello relazionale ed è necessario modellare alcune parti dei dati nello stile NoSQL.
+- Si desidera sfruttare il linguaggio Transact-SQL avanzato per eseguire query e analizzare i dati relazionali e NoSQL e integrarli con un'ampia gamma di strumenti e applicazioni in grado di utilizzare il linguaggio SQL.
+- Si desidera applicare funzionalità di database quali le [tecnologie in memoria](sql-database-in-memory.md) per migliorare le prestazioni dell'analisi o dell'elaborazione delle strutture di dati NoSQL, utilizzare la [replica transazionale](sql-database-managed-instance-transactional-replication.md) o le [repliche leggibili](sql-database-read-scale-out.md) per creare una copia dei dati in un'altra posizione ed eseguire l'offload di alcuni carichi di lavoro analitici dal database primario.
 
 ## <a name="overview"></a>Panoramica
 
@@ -38,7 +38,7 @@ SQL di Azure offre le seguenti funzionalità multimodello:
 - Le [funzionalità JSON](#json-features) consentono di inserire documenti JSON in tabelle, trasformare i dati relazionali in documenti JSON e viceversa. È possibile usare il linguaggio Transact-SQL standard migliorato con le funzioni JSON per l'analisi dei documenti e usare indici non cluster, indici columnstore o tabelle ottimizzate per la memoria per ottimizzare le query.
 - [Funzionalità spaziali](#spatial-features) consente di archiviare i dati geometrici e geografici, indicizzarli utilizzando gli indici spaziali e recuperare i dati usando le query spaziali.
 - Le [funzionalità XML](#xml-features) consentono di archiviare e indicizzare i dati XML nel database e usare operazioni XQuery o XPath native per usare i dati XML. Il database SQL di Azure è dotato di un motore di query XML incorporato che elabora i dati XML.
-- [Le coppie chiave-valore](#key-value-pairs) non sono supportate in modo esplicito come funzionalità speciali poiché le coppie chiave-valore possono essere modellate in modo nativo come tabelle a due colonne.
+- Le [coppie chiave-valore](#key-value-pairs) non sono supportate in modo esplicito come funzionalità speciali perché le coppie chiave-valore possono essere modellate in modo nativo come tabelle a due colonne.
 
   > [!Note]
   > È possibile usare espressioni di percorso JSON, espressioni XQuery o XPath, funzioni spaziali ed espressioni query-grafo nella stessa query Transact-SQL per accedere ai dati archiviati nel database. Inoltre, qualsiasi strumento o linguaggio di programmazione in grado di eseguire query Transact-SQL può usare quell'interfaccia di query per accedere ai dati multimodello. Questa è la differenza principale rispetto ai database multimodello, come ad esempio [Azure Cosmos DB](/azure/cosmos-db/) che fornisce API specializzate per diversi modelli di dati.
@@ -68,7 +68,7 @@ Non esiste nulla che possa essere ottenuto da un database a grafo, che non possa
 
 Il database SQL di Azure consente di analizzare ed eseguire query sui dati rappresentati in formato JavaScript Object Notation [(JSON)](https://www.json.org/) e di esportare i dati relazionali come testo JSON.
 
-JSON è un formato di dati diffuso usato per scambiare dati nelle moderne applicazioni Web e per dispositivi mobili. JSON è usato anche per archiviare dati semistrutturati nei file di log o nei database NoSQL come [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Molti servizi Web REST restituiscono risultati formattati come testo JSON oppure accettano dati formattati come JSON. La maggior parte dei servizi di Azure, ad esempio [Ricerca cognitiva di Azure,](https://azure.microsoft.com/services/search/) [Archiviazione di Azure](https://azure.microsoft.com/services/storage/)e Database cosmodi di [Azure,](https://azure.microsoft.com/services/cosmos-db/) dispone di endpoint REST che restituiscono o utilizzano JSON.
+JSON è un formato di dati diffuso usato per scambiare dati nelle moderne applicazioni Web e per dispositivi mobili. JSON è usato anche per archiviare dati semistrutturati nei file di log o nei database NoSQL come [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Molti servizi Web REST restituiscono risultati formattati come testo JSON oppure accettano dati formattati come JSON. La maggior parte dei servizi di Azure, ad esempio [azure ricerca cognitiva](https://azure.microsoft.com/services/search/), [archiviazione di Azure](https://azure.microsoft.com/services/storage/)e [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hanno endpoint REST che restituiscono o utilizzano JSON.
 
 Il database SQL di Azure consente di lavorare facilmente con dati JSON e integrare il database con i servizi moderni. Il database SQL di Azure fornisce le funzioni seguenti per lavorare con i dati JSON:
 
@@ -89,7 +89,7 @@ In alcuni scenari specifici è possibile usare i modelli di documento invece dei
 
 ## <a name="spatial-features"></a>Funzionalità spaziali
 
-I dati spaziali rappresentano informazioni sulla posizione fisica e sulla forma degli oggetti geometrici. Questi oggetti possono essere posizioni punto o oggetti più complessi, ad esempio paesi/aree geografiche, strade o laghi.
+I dati spaziali rappresentano informazioni sulla posizione fisica e sulla forma degli oggetti geometrici. Questi oggetti possono essere percorsi di punti o più oggetti complessi, ad esempio paesi/aree geografiche, strade o laghi.
 
 Il database SQL di Azure supporta due tipi di dati spaziali: il tipo di dati geometria e il tipo di dati geografia.
 - Il tipo geometria rappresenta i dati in un sistema di coordinate Euclideo (piano).
@@ -142,4 +142,4 @@ Le funzionalità multimodello nei database SQL di Azure sono anche le funzionali
 * [Elaborazione del grafico](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [Dati JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
 * [Supporto spaziale](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
-* [Dati XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)
+* [dati XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)

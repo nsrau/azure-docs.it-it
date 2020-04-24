@@ -1,5 +1,5 @@
 ---
-title: Creare pipeline di dati predittive usando Azure Data FactoryCreate predictive data pipelines using Azure Data Factory
+title: Creare pipeline di dati predittivi usando Azure Data Factory
 description: Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -21,15 +21,15 @@ ms.locfileid: "73683134"
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
-> * [Attività Hive](data-factory-hive-activity.md)
+> * [Attività hive](data-factory-hive-activity.md)
 > * [Attività di Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>Introduzione
@@ -38,21 +38,21 @@ ms.locfileid: "73683134"
 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) consente di creare, testare e distribuire soluzioni di analisi predittiva. Da un punto di vista generale, questo avviene in tre passaggi:
+[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) consente di compilare, testare e distribuire soluzioni di analisi predittiva. Da un punto di vista generale, questo avviene in tre passaggi:
 
 1. **Creare un esperimento di training**. Questo passaggio deve essere eseguito con Azure Machine Learning Studio. Azure Machine Learning Studio è un ambiente di sviluppo visivo di collaborazione usato per eseguire il training e il test di un modello di analisi predittiva usando dati di training.
 2. **Convertirlo in un esperimento predittivo**. Dopo aver eseguito il training del modello con i dati esistenti, preparare e semplificare l'esperimento di assegnazione dei punteggi quando si è pronti a usarlo per valutare nuovi dati.
 3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
 
 ### <a name="azure-data-factory"></a>Data factory di Azure
-Data Factory è un servizio di data integration basato su cloud che orchestra e automatizza lo **spostamento** e la **trasformazione** dei dati. È possibile creare soluzioni di integrazione dei dati usando Azure Data Factory che può inserire dati da diversi archivi dati, trasformare/elaborare i dati e pubblicare i dati risultanti negli archivi dati.
+Data Factory è un servizio di integrazione dei dati basato sul cloud che orchestra e automatizza lo **spostamento** e la **trasformazione** dei dati. È possibile creare soluzioni di integrazione dei dati usando Azure Data Factory che può inserire dati da diversi archivi dati, trasformare/elaborare i dati e pubblicare i dati risultanti negli archivi dati.
 
 Il servizio Data Factory consente di creare pipeline di dati che spostano e trasformano i dati e quindi di eseguire le pipeline in base a una pianificazione specificata (ogni ora, ogni giorno, ogni settimana e così via). Offre anche viste avanzate per visualizzare la derivazione e le dipendenze tra le pipeline di dati e monitorare tutte le pipeline di dati da una singola visualizzazione unificata per individuare facilmente i problemi e configurare avvisi di monitoraggio.
 
 Per una rapida introduzione al servizio Azure Data Factory, vedere gli articoli [Introduzione al servizio Azure Data Factory](data-factory-introduction.md) e [Creare la prima pipeline](data-factory-build-your-first-pipeline.md).
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory e Machine Learning
-Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web di [Azure Machine Learning][azure-machine-learning] pubblicato per l'analisi predittiva. Con **Attività di esecuzione batch** in una pipeline di Azure Data Factory è possibile eseguire stime dei dati in batch richiamando un servizio Web di Azure Machine Learning Studio. Per altre informazioni, vedere Richiamo di un servizio Web di Azure Machine Learning Studio tramite Attività di esecuzione batch.
+Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato [Azure Machine Learning][azure-machine-learning] per l'analisi predittiva. Con **Attività di esecuzione batch** in una pipeline di Azure Data Factory è possibile eseguire stime dei dati in batch richiamando un servizio Web di Azure Machine Learning Studio. Per altre informazioni, vedere Richiamo di un servizio Web di Azure Machine Learning Studio tramite Attività di esecuzione batch.
 
 Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure Machine Learning Studio usando nuovi set di dati di input. È possibile ripetere il training di un modello di Azure Machine Learning Studio da una pipeline di Data Factory seguendo questa procedura:
 
@@ -80,7 +80,7 @@ Il questo scenario il servizio Web Azure Machine Learning esegue stime usando da
 > [!IMPORTANT]
 > Se il servizio Web accetta più input, usare la proprietà **webServiceInputs** invece di **webServiceInput**. Vedere la sezione [Il servizio Web richiede più input](#web-service-requires-multiple-inputs) per un esempio di uso della proprietà webServiceInputs.
 >
-> I set di dati a cui fanno riferimento le proprietà/**webServiceInput webInputs** e **webServiceOutputs** (in **typeProperties**) devono essere inclusi anche negli **input** e negli **output**dell'attività . **webServiceInput**
+> I set di elementi a cui fanno riferimento le proprietà**webServiceInputs** e **webServiceOutputs** di **webServiceInput**/(in **typeProperties**) devono essere inclusi anche negli **input** e negli **output**dell'attività.
 >
 > Nell'esperimento di Azure Machine Learning Studio, le porte e i parametri globali di input e output del servizio Web hanno nomi predefiniti ("input1", "input2") che è possibile personalizzare. I nomi scelti per le impostazioni webServiceInputs, webServiceOutputs e globalParameters devono corrispondere esattamente ai nomi negli esperimenti. Per verificare il mapping previsto, è possibile visualizzare il payload della richiesta di esempio nella pagina della Guida relativa all'esecuzione in batch per l'endpoint di Azure Machine Learning Studio.
 >
@@ -301,7 +301,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
       }
       ```
 
-      Sia **datetime di inizio** che di **fine** devono essere in [formato ISO.](https://en.wikipedia.org/wiki/ISO_8601) ad esempio 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica il valore per la proprietà **finale,** viene calcolato come "**inizio - 48 ore ".** Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
+      I valori DateTime di **inizio** e di **fine** devono essere in [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). ad esempio 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica un valore per la proprietà **end** , questo viene calcolato come "**Start + 48 hours".** Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
 
       > [!NOTE]
       > La specifica dell'input per l'attività AzureMLBatchExecution è opzionale.
@@ -405,7 +405,7 @@ Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è p
 Nell'esempio JSON precedente:
 
 * Il servizio Web Azure Machine Learning distribuito usa un modulo Reader e un modulo Writer per leggere e scrivere i dati da e in un database SQL di Azure. Il servizio Web espone i quattro parametri seguenti: Database server name, Database name, Server user account name e Server user account password.
-* Sia **datetime di inizio** che di **fine** devono essere in [formato ISO.](https://en.wikipedia.org/wiki/ISO_8601) ad esempio 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica il valore per la proprietà **finale,** viene calcolato come "**inizio - 48 ore ".** Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
+* I valori DateTime di **inizio** e di **fine** devono essere in [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). ad esempio 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica un valore per la proprietà **end** , questo viene calcolato come "**Start + 48 hours".** Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
 
 ### <a name="other-scenarios"></a>Altri scenari
 #### <a name="web-service-requires-multiple-inputs"></a>Il servizio Web richiede più input
@@ -555,7 +555,7 @@ Per informazioni dettagliate sui BLOB di Azure o sui moduli Reader e Writer SQL 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 **D:** Ho più file generati dalle pipeline di Big Data. Posso usare l'attività AzureMLBatchExecution per lavorare con tali file?
 
-**A:** Sì. Per informazioni dettagliate, vedere la sezione **Uso di un modulo Reader per leggere dati da più file del BLOB di Azure** .
+**R:** Sì. Per informazioni dettagliate, vedere la sezione **Uso di un modulo Reader per leggere dati da più file del BLOB di Azure** .
 
 ## <a name="azure-machine-learning-studio-batch-scoring-activity"></a>Attività di assegnazione punteggio batch di Azure Machine Learning Studio
 Se si sta usando l'attività **AzureMLBatchScoring** per l'integrazione con Azure Machine Learning, si consiglia di passare alla più recente attività **AzureMLBatchExecution**.
@@ -627,7 +627,7 @@ Per specificare i valori dei parametri del servizio Web, aggiungere una sezione 
 >
 >
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Post di blog di Azure: Guida introduttiva a Data Factory di Azure e ad Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md

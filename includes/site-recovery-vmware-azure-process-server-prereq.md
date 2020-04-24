@@ -15,7 +15,7 @@ Questo articolo presuppone quanto segue:
 
 1. È già stata stabilita una connessione **VPN da sito a sito** o **ExpressRoute** tra la rete locale e la rete virtuale di Azure.
 2. L'account utente ha le autorizzazioni necessarie per creare una nuova macchina virtuale nella sottoscrizione di Azure in cui è stato eseguito il failover delle macchine virtuali.
-3. La sottoscrizione ha almeno 8 Core disponibili per la creazione di una nuova macchina virtuale di Process Server.Your subscription has a minimum of 8 Cores available to spin up a new Process Server virtual machine.
+3. La sottoscrizione ha un minimo di 8 core disponibili per creare una nuova macchina virtuale del server di elaborazione.
 4. È disponibile la **passphrase del server di configurazione**.
 
 > [!TIP]

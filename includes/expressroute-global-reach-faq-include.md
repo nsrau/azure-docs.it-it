@@ -33,7 +33,7 @@ ExpressRoute abilita la connettività dalla rete locale ai servizi cloud Microso
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Dove è supportato il servizio Copertura globale di ExpressRoute?
 
-La copertura globale ExpressRoute è supportata in [paesi/aree geografiche o luoghi selezionati.](../articles/expressroute/expressroute-global-reach.md) I circuiti ExpressRoute devono essere creati nei percorsi di peering in tali paesi/aree geografiche o posizioni.
+ExpressRoute Copertura globale è supportato in [paesi o aree geografiche selezionate](../articles/expressroute/expressroute-global-reach.md). I circuiti ExpressRoute devono essere creati nelle località di peering in questi paesi/aree geografiche o posizioni.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Se esistono più di due reti locali, ciascuna connessa a un circuito ExpressRoute, è possibile abilitare Copertura globale di ExpressRoute per connettere tra loro tutte le reti locali?
 
@@ -41,7 +41,7 @@ Sì, è possibile, purché i circuiti si trovino nei paesi/aree geografiche supp
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>È possibile abilitare Copertura globale di ExpressRoute tra due circuiti ExpressRoute nella stessa località di peering?
 
-No. I due circuiti devono appartenere a posizioni di peering diverse. Se un metro in un paese/area geografica supportato ha più di una posizione di peering ExpressRoute, è possibile connettere insieme i circuiti ExpressRoute creati in posizioni di peering diverse in tale metro. 
+No. I due circuiti devono appartenere a posizioni di peering diverse. Se un metro in un paese/area geografica supportato ha più di una località di peering ExpressRoute, è possibile connettere i circuiti ExpressRoute creati in posizioni di peering diverse in tale metro. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>Se il servizio Copertura globale di ExpressRoute è abilitato tra il circuito X e il circuito Y e tra il circuito Y e il circuito Z, le reti locali connesse al circuito X e al circuito Z potranno comunicare tra loro tramite la rete Microsoft?
 
@@ -49,7 +49,7 @@ No. Per abilitare la connettività tra due delle reti locali, è necessario conn
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Quale velocità effettiva della rete ci si può aspettare tra le reti locali dopo l'abilitazione di Copertura globale di ExpressRoute?
 
-La velocità effettiva di rete tra le reti locali, resa possibile da Copertura globale di ExpressRoute, è limitata dal più piccolo tra i due circuiti ExpressRoute. Il traffico da locale ad Azure e il traffico da locale a locale condividono lo stesso circuito e sono soggetti allo stesso limite di larghezza di banda. 
+La velocità effettiva di rete tra le reti locali, resa possibile da Copertura globale di ExpressRoute, è limitata dal più piccolo tra i due circuiti ExpressRoute. Il traffico da locale ad Azure e dal traffico locale a quello locale condividono lo stesso circuito e sono soggetti allo stesso limite di larghezza di banda. 
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Con Copertura globale di ExpressRoute, qual è il limite al numero di route che è possibile annunciare e al numero di route che si riceverà?
 

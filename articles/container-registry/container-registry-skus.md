@@ -1,6 +1,6 @@
 ---
-title: Livelli di servizio e SKUService tiers and SKUs
-description: Informazioni sulle funzionalità e i limiti nei livelli di servizio (SKU) Basic, Standard e Premium del Registro di sistema del contenitore di Azure.Learn about the features and limits in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
+title: Livelli di servizio e SKU
+description: Informazioni sulle funzionalità e i limiti dei livelli di servizio Basic, standard e Premium (SKU) di Azure Container Registry.
 ms.topic: article
 ms.date: 11/05/2019
 ms.openlocfilehash: 1ebe5339b7523a4463dee45b126244d7ec5b2e4b
@@ -16,13 +16,13 @@ Registro Azure Container è disponibile su più livelli di servizio, noti come S
 
 | SKU | Descrizione |
 | --- | ----------- |
-| **Base** | Un punto di ingresso di ottimizzazione dei costi per gli sviluppatori che iniziano a usare Registro Azure Container. I registri di base hanno le stesse funzionalità a livello di codice di Standard e Premium (ad esempio [l'integrazione dell'autenticazione](container-registry-authentication.md#individual-login-with-azure-ad)di Azure Active Directory, [l'eliminazione][container-registry-delete]delle immagini e [i webhook).][container-registry-webhook] Tuttavia, le risorse di archiviazione incluse e la velocità effettiva di immagine sono più appropriate per scenari di utilizzo inferiore. |
+| **Basic** | Un punto di ingresso di ottimizzazione dei costi per gli sviluppatori che iniziano a usare Registro Azure Container. I registri di base hanno le stesse funzionalità programmatiche di standard e Premium (ad esempio Azure Active Directory [l'integrazione dell'autenticazione, l'](container-registry-authentication.md#individual-login-with-azure-ad) [eliminazione di immagini][container-registry-delete]e i [webhook][container-registry-webhook]). Tuttavia, le risorse di archiviazione incluse e la velocità effettiva di immagine sono più appropriate per scenari di utilizzo inferiore. |
 | **Standard** | I registri standard offrono le stesse funzionalità del livello base, con risorse di archiviazione incluse e velocità effettiva di immagine maggiori. I registri Standard devono soddisfare le esigenze della maggior parte degli scenari di produzione. |
-| **Premium** | I registri Premium offrono il massimo livello di risorse di archiviazione incluse e operazioni simultanee, consentendo scenari con volumi elevati. Oltre a una maggiore velocità effettiva delle immagini, Premium aggiunge funzionalità come la [replica geografica][container-registry-geo-replication] per la gestione di un singolo Registro di sistema in più aree, [l'attendibilità](container-registry-content-trust.md) del contenuto per la firma dei tag delle immagini, [i firewall e le reti virtuali (anteprima)](container-registry-vnet.md) per limitare l'accesso al Registro di sistema. |
+| **Premium** | I registri Premium offrono il massimo livello di risorse di archiviazione incluse e operazioni simultanee, consentendo scenari con volumi elevati. Oltre a una velocità effettiva di immagine superiore, il livello Premium aggiunge funzionalità come la [replica geografica][container-registry-geo-replication] per la gestione di un singolo registro in più aree, l' [attendibilità del contenuto](container-registry-content-trust.md) per la firma dei tag immagine, i [firewall e le reti virtuali (anteprima)](container-registry-vnet.md) per limitare l'accesso al registro di sistema. |
 
-Gli SKU Basic, Standard e Premium offrono tutte le stesse funzionalità a livello di codice. Inoltre, tutti traggono vantaggio [dall'archiviazione delle immagini][container-registry-storage] gestita interamente da Azure.They they also all benefit from image storage managed entirely by Azure. La scelta di uno SKU di livello superiore offre maggiori prestazioni e una migliore scalabilità. Con più livelli di servizio, è possibile iniziare con il livello Basic, quindi passare a Standard e Premium con l'aumento dell'utilizzo del registro.
+Gli SKU Basic, standard e Premium forniscono tutte le stesse funzionalità a livello di codice. Anche tutti traggono vantaggio dall' [archiviazione di immagini][container-registry-storage] gestita interamente da Azure. La scelta di uno SKU di livello superiore offre maggiori prestazioni e una migliore scalabilità. Con più livelli di servizio, è possibile iniziare con il livello Basic, quindi passare a Standard e Premium con l'aumento dell'utilizzo del registro.
 
-## <a name="sku-features-and-limits"></a>Caratteristiche e limiti dello SKU
+## <a name="sku-features-and-limits"></a>Funzionalità e limiti dello SKU
 
 La tabella seguente illustra le funzionalità e i limiti dei livelli di servizio Basic, Standard e Premium.
 
@@ -30,7 +30,7 @@ La tabella seguente illustra le funzionalità e i limiti dei livelli di servizio
 
 ## <a name="changing-skus"></a>Cambiare SKU
 
-È possibile cambiare lo SKU del registro con l'interfaccia della riga di comando di Azure o nel portale di Azure. È possibile spostarsi liberamente tra gli SKU finché lo SKU a cui si sta passando disponga della capacità di archiviazione massima richiesta. 
+È possibile cambiare lo SKU del registro con l'interfaccia della riga di comando di Azure o nel portale di Azure. È possibile spostarsi liberamente tra gli SKU purché lo SKU a cui si sta passando ha la capacità di archiviazione massima richiesta. 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

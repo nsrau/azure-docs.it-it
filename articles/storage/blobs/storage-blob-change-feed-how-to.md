@@ -1,5 +1,5 @@
 ---
-title: Feed di modifiche del processo in Archiviazione BLOB di Azure (anteprima)Process change feed in Azure Blob Storage (Preview) Documenti Microsoft
+title: Elaborare il feed delle modifiche nell'archiviazione BLOB di Azure (anteprima) | Microsoft Docs
 description: Informazioni su come elaborare i log dei feed di modifiche in un'applicazione client .NET
 author: normesta
 ms.author: normesta
@@ -15,30 +15,30 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74111864"
 ---
-# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Feed di modifiche del processo in Archiviazione BLOB di Azure (anteprima)Process change feed in Azure Blob Storage (Preview)
+# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Elaborare il feed delle modifiche nell'archiviazione BLOB di Azure (anteprima)
 
-Il feed modifiche fornisce i log delle transazioni di tutte le modifiche apportate ai BLOB e ai metadati BLOB nell'account di archiviazione. Questo articolo illustra come leggere i record del feed di modifiche usando la libreria del processore del feed di modifiche BLOB.
+Il feed di modifiche fornisce i log delle transazioni di tutte le modifiche apportate ai BLOB e ai metadati del BLOB nell'account di archiviazione. Questo articolo illustra come leggere i record del feed di modifiche usando la libreria del processore dei feed delle modifiche BLOB.
 
-Per altre informazioni sul feed di modifiche, vedere [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md).
+Per altre informazioni sul feed delle modifiche, vedere [feed delle modifiche nell'archivio BLOB di Azure (anteprima)](storage-blob-change-feed.md).
 
 > [!NOTE]
-> Il feed di modifiche è disponibile nell'anteprima pubblica ed è disponibile nelle regioni **westcentralus** e **westus2.** Per altre informazioni su questa funzionalità insieme a problemi noti e limitazioni, vedere [Modificare il supporto dei feed in Archiviazione BLOB](storage-blob-change-feed.md)di Azure.To learn more about this feature along with known issues and limitations, see Change feed support in Azure Blob Storage . La libreria del processore del feed di modifiche è soggetta a modifiche da ora a quando questa libreria diventa generalmente disponibile.
+> Il feed delle modifiche è in anteprima pubblica ed è disponibile nelle aree **westcentralus** e **westus2** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [supporto del feed di modifiche nell'archivio BLOB di Azure](storage-blob-change-feed.md). La libreria del processore dei feed delle modifiche è soggetta a modifiche tra ora e quando la libreria diventa disponibile a livello generale.
 
-## <a name="get-the-blob-change-feed-processor-library"></a>Ottenere la libreria del processore del feed di modifiche BLOBGet the blob change change feed processor library
+## <a name="get-the-blob-change-feed-processor-library"></a>Ottenere la libreria del processore dei feed delle modifiche BLOB
 
-1. In Visual Studio aggiungere `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` l'URL alle origini del pacchetto NuGet.In Visual Studio, add the URL to your NuGet package sources. 
+1. In Visual Studio aggiungere l'URL `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` alle origini dei pacchetti NuGet. 
 
-   Per informazioni, vedere [origini dei pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
+   Per informazioni, vedere [origini di pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
 
-2. In Gestione pacchetti NuGet individuare il pacchetto **Microsoft.Azure.Storage.Changefeed** e installarlo nel progetto. 
+2. In Gestione pacchetti NuGet trovare il pacchetto **Microsoft. Azure. storage. offre** e installarlo nel progetto. 
 
-   Per ulteriori informazioni, consultate [Trovare e installare un pacchetto.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package)
+   Per informazioni, vedere [trovare e installare un pacchetto](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 ## <a name="connect-to-the-storage-account"></a>Effettuare la connessione all'account di archiviazione
 
-Analizzare la stringa di connessione chiamando il [metodo CloudStorageAccount.TryParse.Parse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) the connection string by calling the CloudStorageAccount.TryParse method. 
+Analizzare la stringa di connessione chiamando il metodo [CloudStorageAccount. TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) . 
 
-Creare quindi un oggetto che rappresenta l'archiviazione BLOB nell'account di archiviazione chiamando il metodo CloudStorageAccount.CreateCloudBlobClient.Then, create an object that represents Blob Storage in your storage account by calling the [CloudStorageAccount.CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient) method.
+Quindi, creare un oggetto che rappresenti l'archiviazione BLOB nell'account di archiviazione chiamando il metodo [CloudStorageAccount. CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient) .
 
 ```cs
 public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageConnectionString)
@@ -58,7 +58,7 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 }
 ```
 
-## <a name="initialize-the-change-feed"></a>Inizializzare il feed di modifiche
+## <a name="initialize-the-change-feed"></a>Inizializzare il feed delle modifiche
 
 Aggiungere le istruzioni using seguenti all'inizio del file di codice. 
 
@@ -67,7 +67,7 @@ using Avro.Generic;
 using ChangeFeedClient;
 ```
 
-Quindi, creare un'istanza della classe **ChangeFeed** chiamando il **metodo GetContainerReference.** Passare il nome del contenitore del feed di modifiche.
+Quindi, creare un'istanza della classe **offre** chiamando il metodo **GetContainerReference** . Passare il nome del contenitore del feed di modifiche.
 
 ```csharp
 public async Task<ChangeFeed> GetChangeFeed(CloudBlobClient cloudBlobClient)
@@ -82,12 +82,12 @@ public async Task<ChangeFeed> GetChangeFeed(CloudBlobClient cloudBlobClient)
 }
 ```
 
-## <a name="reading-records"></a>Lettura dei record
+## <a name="reading-records"></a>Lettura di record
 
 > [!NOTE]
-> Il feed di modifiche è un'entità non modificabile e di sola lettura nell'account di archiviazione. Qualsiasi numero di applicazioni può leggere ed elaborare il feed di modifiche contemporaneamente e in modo indipendente a proprio piacimento. I record non vengono rimossi dal feed di modifiche quando un'applicazione li legge. Lo stato di lettura o iterazione di ogni lettore consumer è indipendente e gestito solo dall'applicazione.
+> Il feed delle modifiche è un'entità non modificabile e di sola lettura nell'account di archiviazione. Un numero qualsiasi di applicazioni può leggere ed elaborare il feed di modifiche simultaneamente e in modo indipendente con la loro convenienza. I record non vengono rimossi dal feed di modifiche quando vengono letti da un'applicazione. Lo stato di lettura o di iterazione di ogni lettore che lo utilizza è indipendente e gestito dall'applicazione.
 
-Il modo più semplice per leggere i record consiste nel creare un'istanza della classe **ChangeFeedReader.** 
+Il modo più semplice per leggere i record consiste nel creare un'istanza della classe **ChangeFeedReader** . 
 
 Questo esempio scorre tutti i record nel feed di modifiche e quindi stampa nella console alcuni valori di ogni record. 
  
@@ -118,13 +118,13 @@ public async Task ProcessRecords(ChangeFeed changeFeed)
 
 ## <a name="resuming-reading-records-from-a-saved-position"></a>Ripresa della lettura dei record da una posizione salvata
 
-Puoi scegliere di salvare la posizione di lettura nel feed delle modifiche e riprendere l'iterare i record in un momento futuro. È possibile salvare lo stato dell'iterazione del feed di modifiche in qualsiasi momento utilizzando il metodo **ChangeFeedReader.SerializeState().** Lo stato è una **stringa** e l'applicazione può salvare tale stato in base alla progettazione dell'applicazione (ad esempio: in un database o un file).
+È possibile scegliere di salvare la posizione di lettura nel feed di modifiche e riprendere l'iterazione dei record in un momento successivo. È possibile salvare lo stato dell'iterazione del feed di modifiche in qualsiasi momento usando il metodo **ChangeFeedReader. SerializeState ()** . Lo stato è una **stringa** e l'applicazione può salvare lo stato in base alla progettazione dell'applicazione (ad esempio, in un database o in un file).
 
 ```csharp
     string currentReadState = processor.SerializeState();
 ```
 
-È possibile continuare a scorrere i record dall'ultimo stato creando **ChangeFeedReader** usando il **createChangeFeedReaderFromPointerAsync** metodo.
+È possibile continuare a scorrere i record dall'ultimo stato creando il **ChangeFeedReader** usando il metodo **CreateChangeFeedReaderFromPointerAsync** .
 
 ```csharp
 public async Task ProcessRecordsFromLastPosition(ChangeFeed changeFeed, string lastReadState)
@@ -152,9 +152,9 @@ public async Task ProcessRecordsFromLastPosition(ChangeFeed changeFeed, string l
 
 ```
 
-## <a name="stream-processing-of-records"></a>Elaborazione del flusso dei record
+## <a name="stream-processing-of-records"></a>Elaborazione di flussi di record
 
-È possibile scegliere di elaborare i record del feed di modifiche non appena arrivano. Vedere [Specifiche](storage-blob-change-feed.md#specifications).
+È possibile scegliere di elaborare i record del feed di modifiche man mano che arrivano. Vedere le [specifiche](storage-blob-change-feed.md#specifications).
 
 ```csharp
 public async Task ProcessRecordsStream(ChangeFeed changeFeed, int waitTimeMs)
@@ -188,9 +188,9 @@ public async Task ProcessRecordsStream(ChangeFeed changeFeed, int waitTimeMs)
 
 ## <a name="reading-records-within-a-time-range"></a>Lettura di record in un intervallo di tempo
 
-Il feed di modifiche è organizzato in segmenti orari in base all'ora dell'evento di modifica. Vedere [Specifiche](storage-blob-change-feed.md#specifications). È possibile leggere i record dai segmenti di feed di modifiche che rientrano in un intervallo di tempo specifico.
+Il feed delle modifiche è organizzato in segmenti orari in base all'ora dell'evento di modifica. Vedere le [specifiche](storage-blob-change-feed.md#specifications). È possibile leggere i record dei segmenti del feed di modifiche che rientrano in un intervallo di tempo specifico.
 
-In questo esempio vengono ottenuti gli orari di inizio di tutti i segmenti. Quindi, scorre l'elenco fino a quando l'ora di inizio è oltre l'ora dell'ultimo segmento consumabile o oltre l'ora finale dell'intervallo desiderato. 
+Questo esempio Mostra come ottenere l'ora di inizio di tutti i segmenti. Quindi scorre l'elenco fino a quando l'ora di inizio non è successiva all'ora dell'ultimo segmento utilizzabile o oltre l'ora di fine dell'intervallo desiderato. 
 
 ### <a name="selecting-segments-for-a-time-range"></a>Selezione dei segmenti per un intervallo di tempo
 
@@ -267,11 +267,11 @@ public async Task ProcessRecordsInSegment(ChangeFeed changeFeed, DateTimeOffset 
 }
 ```
 
-## <a name="read-records-starting-from-a-time"></a>Leggere i record a partire da un orario
+## <a name="read-records-starting-from-a-time"></a>Lettura dei record a partire da un'ora
 
-È possibile leggere i record del feed di modifiche da un segmento iniziale fino alla fine. Analogamente alla lettura dei record all'interno di un intervallo di tempo, è possibile elencare i segmenti e scegliere un segmento da cui iniziare l'iterazione.
+È possibile leggere i record del feed di modifiche da un segmento iniziale fino alla fine. Analogamente alla lettura di record in un intervallo di tempo, è possibile elencare i segmenti e scegliere un segmento da cui iniziare l'iterazione.
 
-In questo esempio viene ottenuto il [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?view=netframework-4.8) del primo segmento da elaborare.
+Questo esempio Mostra come ottenere l'oggetto [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?view=netframework-4.8) del primo segmento da elaborare.
 
 ```csharp
 public async Task<DateTimeOffset> GetChangeFeedSegmentRefAfterTime
@@ -304,7 +304,7 @@ public async Task<DateTimeOffset> GetChangeFeedSegmentRefAfterTime
 }
 ```
 
-In questo esempio vengono processi i record del feed di modifica a partire da [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?view=netframework-4.8) di un segmento iniziale.
+Questo esempio elabora i record del feed di modifiche a partire da [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?view=netframework-4.8) di un segmento iniziale.
 
 ```csharp
 public async Task ProcessRecordsStartingFromSegment(ChangeFeed changeFeed, DateTimeOffset segmentStart)
@@ -367,8 +367,8 @@ private async Task<bool> IsSegmentConsumableAsync(ChangeFeed changeFeed, ChangeF
 ```
 
 >[!TIP]
-> Un segmento di può avere registri del feed di modifiche in uno o più *chunkFilePath*. In caso di più *chunkFilePath* il sistema ha partizionato internamente i record in più partizioni per gestire la velocità effettiva di pubblicazione. È garantito che ogni partizione del segmento conterrà modifiche per BLOB che si escludono a vicenda e può essere elaborata in modo indipendente senza violare l'ordine. È possibile utilizzare la classe **ChangeFeedSegmentShardReader** per scorrere i record a livello di partizione, se questo è più efficiente per lo scenario.
+> Un segmento di può avere log del feed delle modifiche in uno o più *chunkFilePath*. Nel caso di più *chunkFilePath* , il sistema ha partizionato internamente i record in più partizioni per gestire la velocità effettiva di pubblicazione. Si garantisce che ogni partizione del segmento conterrà modifiche per i BLOB che si escludono a vicenda e possa essere elaborata in modo indipendente senza violare l'ordinamento. È possibile usare la classe **ChangeFeedSegmentShardReader** per scorrere i record a livello di partizione, se questa è la più efficiente per lo scenario.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni sui log dei feed di modifiche. Vedere Modificare il feed in Archiviazione BLOB di [Azure (anteprima)See Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+Altre informazioni sui log del feed di modifiche. Vedere il [feed delle modifiche nell'archivio BLOB di Azure (anteprima)](storage-blob-change-feed.md)

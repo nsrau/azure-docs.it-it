@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi relativi al provisioning cloud di Azure AD ConnectAzure AD Connect cloud provisioning troubleshooting
-description: In questo articolo viene descritto come risolvere i problemi che potrebbero verificarsi con l'agente di provisioning cloud.
+title: Risoluzione dei problemi di provisioning nel Cloud Azure AD Connect
+description: Questo articolo descrive come risolvere i problemi che possono verificarsi con l'agente di provisioning cloud.
 author: billmath
 ms.author: billmath
 manager: daveba
@@ -15,94 +15,94 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75549486"
 ---
-# <a name="cloud-provisioning-troubleshooting"></a>Risoluzione dei problemi relativi al provisioning cloud
+# <a name="cloud-provisioning-troubleshooting"></a>Risoluzione dei problemi di provisioning nel cloud
 
-Il provisioning del cloud tocca molte cose diverse e ha molte dipendenze diverse. Questa ampia portata può dar luogo a vari problemi. Questo articolo consente di risolvere questi problemi. Introduce le aree tipiche su cui concentrarti, come raccogliere informazioni aggiuntive e le varie tecniche che puoi utilizzare per rintracciare i problemi.
+Il provisioning nel cloud tocca molti elementi diversi e presenta diverse dipendenze. Questo ampio ambito può dare luogo a diversi problemi. Questo articolo consente di risolvere questi problemi. Vengono presentate le aree tipiche in cui concentrarsi, come raccogliere informazioni aggiuntive e le varie tecniche che è possibile utilizzare per tenere traccia dei problemi.
 
 
 ## <a name="common-troubleshooting-areas"></a>Aree comuni per la risoluzione dei problemi
 
 |Nome|Descrizione|
 |-----|-----|
-|[Problemi dell'agente](#agent-problems)|Verificare che l'agente sia stato installato correttamente e che comunichi con Azure Active Directory (Azure AD).|
-|[Problemi di sincronizzazione degli oggetti](#object-synchronization-problems)|Utilizzare i registri di provisioning per risolvere i problemi di sincronizzazione degli oggetti.|
-|[Provisioning dei problemi in quarantena](#provisioning-quarantined-problems)|Comprendere i problemi di quarantena del provisioning e come risolverli.|
+|[Problemi relativi all'agente](#agent-problems)|Verificare che l'agente sia stato installato correttamente e che comunichi con Azure Active Directory (Azure AD).|
+|[Problemi di sincronizzazione degli oggetti](#object-synchronization-problems)|Usare i log di provisioning per risolvere i problemi di sincronizzazione degli oggetti.|
+|[Provisioning di problemi in quarantena](#provisioning-quarantined-problems)|Informazioni sui problemi di quarantena per il provisioning e su come risolverli.|
 
 
-## <a name="agent-problems"></a>Problemi dell'agente
-Alcune delle prime cose che si desidera verificare con l'agente sono:
+## <a name="agent-problems"></a>Problemi relativi all'agente
+Di seguito sono riportate alcune delle prime operazioni da verificare con l'agente:
 
 -  È installato?
--  L'agente è in esecuzione localmente?
--  L'agente è nel portale?
+-  L'agente è in esecuzione in locale?
+-  L'agente è presente nel portale?
 -  L'agente è contrassegnato come integro?
 
-Questi elementi possono essere verificati nel portale di Azure e nel server locale che esegue l'agente.
+Questi elementi possono essere verificati nella portale di Azure e nel server locale in cui è in esecuzione l'agente.
 
 ### <a name="azure-portal-agent-verification"></a>Verifica dell'agente nel portale di Azure
 
-Per verificare che l'agente sia visualizzato da Azure e sia integro, eseguire la procedura seguente.
+Per verificare che l'agente sia visualizzato da Azure ed è integro, attenersi alla seguente procedura.
 
 1. Accedere al portale di Azure.
-1. A sinistra selezionare **Azure Active Directory** > **Azure AD Connect**. Al centro, selezionare **Gestisci provisioning (anteprima)**.
-1. Nella schermata **Provisioning (anteprima)** di Azure AD selezionare **Controlla tutti gli agenti.**
+1. A sinistra selezionare **Azure Active Directory** > **Azure ad Connect**. In centro selezionare **Manage provisioning (anteprima)**.
+1. Nella schermata **Azure ad provisioning (anteprima)** selezionare **verifica tutti gli agenti**.
 
-   ![Esaminare tutti gli agentiReview all agents](media/how-to-install/install7.png)</br>
+   ![Esaminare tutti gli agenti](media/how-to-install/install7.png)</br>
  
-1. Nella schermata Agenti di provisioning locali vengono **visualizzati** gli agenti installati. Verificare che l'agente in questione sia presente e sia contrassegnato come *Integro*.
+1. Nella schermata **agenti di provisioning locali** vengono visualizzati gli agenti installati. Verificare che l'agente in questione sia presente ed è contrassegnato come *integro*.
 
-   ![Schermata Degli agenti di provisioning locali](media/how-to-install/install8.png)</br>
+   ![Schermata agenti di provisioning locale](media/how-to-install/install8.png)</br>
 
 ### <a name="verify-the-port"></a>Verificare la porta
 
-Per verificare che Azure sia in ascolto sulla porta 443 e che l'agente possa comunicare con esso, usare lo strumento seguente:To verify that Azure is listening on port 443 and that your agent can communicate with it, use the following tool:
+Per verificare che Azure sia in ascolto sulla porta 443 e che l'agente sia in grado di comunicare con esso, usare lo strumento seguente:
 
 https://aadap-portcheck.connectorporttest.msappproxy.net/ 
 
-Questo test verifica che gli agenti possano comunicare con Azure tramite la porta 443.This test verifies that your agents can communicate with Azure over port 443. Aprire un browser e passare all'URL precedente dal server in cui è installato l'agente.
+Questo test verifica che gli agenti possano comunicare con Azure tramite la porta 443. Aprire un browser e passare all'URL precedente dal server in cui è installato l'agente.
 
-![Verifica della raggiungibilità del porto](media/how-to-install/verify2.png)
+![Verifica della raggiungibilità della porta](media/how-to-install/verify2.png)
 
 ### <a name="on-the-local-server"></a>Nel server locale
 
 Per verificare che l'agente sia in esecuzione, attenersi alla seguente procedura.
 
-1. Nel server in cui è installato l'agente aprire **Servizi** accedendovi o accedendo a **Avvia** > **eseguire** > **Services.msc**.
-1. In **Servizi**verificare che **Microsoft Azure AD Connect Agent Updater** e **Microsoft Azure AD Connect Provisioning Agent** siano presenti e che il relativo stato sia *In esecuzione.*
+1. Nel server in cui è installato l'agente, aprire **Servizi** passando a tale server oppure **avviando** > **Esegui** > **Services. msc**.
+1. In **Servizi**verificare che **Microsoft Azure ad Connect agent Updater** e **Microsoft Azure ad Connect provisioning Agent** siano presenti e che il relativo stato sia *in esecuzione*.
 
-   ![Schermata Servizi](media/how-to-troubleshoot/troubleshoot1.png)
+   ![Schermata dei servizi](media/how-to-troubleshoot/troubleshoot1.png)
 
 ### <a name="common-agent-installation-problems"></a>Problemi comuni di installazione dell'agente
 
-Nelle sezioni seguenti vengono descritti alcuni problemi comuni di installazione degli agenti e le soluzioni tipiche.
+Nelle sezioni seguenti vengono descritti alcuni problemi comuni di installazione dell'agente e le risoluzioni tipiche.
 
-#### <a name="agent-failed-to-start"></a>Avvio dell'agente non riuscito
+#### <a name="agent-failed-to-start"></a>Impossibile avviare l'agente
 
 È possibile che venga visualizzato un messaggio di errore che indica:
 
-**Impossibile avviare il servizio 'Agente di provisioning di Microsoft Azure AD Connect'. Verificare di disporre di privilegi sufficienti per avviare i servizi di sistema.** 
+**Impossibile avviare il servizio ' Microsoft Azure AD connettere l'agente di provisioning '. Verificare di disporre di privilegi sufficienti per avviare i servizi di sistema.** 
 
-Questo problema è in genere causato da un criterio di gruppo che ha impedito l'applicazione delle autorizzazioni all'account di accesso del servizio NT locale creato dal programma di installazione (NT SERVICE, AADConnectProvisioningAgent). Queste autorizzazioni sono necessarie per avviare il servizio.
+Questo problema è in genere causato da criteri di gruppo che impediscono l'applicazione delle autorizzazioni all'account di accesso locale del servizio NT creato dal programma di installazione (NT SERVICE\AADConnectProvisioningAgent). Queste autorizzazioni sono necessarie per avviare il servizio.
 
-Per risolvere questo problema, attenersi alla seguente procedura.
+Per risolvere il problema, attenersi alla seguente procedura.
 
-1. Accedere al server con un account amministratore.
-1. Aprire **Servizi** accedendo ad esso o accedendo a **Avvia** > **eseguire** > **Services.msc**.
-1. In **Servizi**fare doppio clic su **Agente di provisioning di Microsoft Azure AD Connect**.
-1. Nella scheda **Connessione** modificare **Questo account** in un amministratore di dominio. Quindi riavviare il servizio. 
+1. Accedere al server con un account di amministratore.
+1. Per aprire i **Servizi** , passare a esso o **avviare** > **Run** > **Services. msc**.
+1. In **Servizi**fare doppio clic su **Microsoft Azure ad Connetti agente di provisioning**.
+1. Nella scheda **accesso** modificare **questo account** in un amministratore di dominio. Riavviare quindi il servizio. 
 
-   ![Scheda Accesso](media/how-to-troubleshoot/troubleshoot3.png)
+   ![Scheda accesso](media/how-to-troubleshoot/troubleshoot3.png)
 
 #### <a name="agent-times-out-or-certificate-is-invalid"></a>Timeout dell'agente o certificato non valido
 
-Quando si tenta di registrare l'agente, è possibile che venga visualizzato il seguente messaggio di errore.
+Quando si tenta di registrare l'agente, è possibile che venga ricevuto il messaggio di errore seguente.
 
 ![Messaggio di errore di timeout](media/how-to-troubleshoot/troubleshoot4.png)
 
-Questo problema è in genere causato dall'impossibilità dell'agente di connettersi al servizio di identità ibrido e richiede la configurazione di un proxy HTTP. Per risolvere questo problema, configurare un proxy in uscita. 
+Questo problema in genere è dovuto al fatto che l'agente non è in grado di connettersi al servizio di identità ibrido e richiede la configurazione di un proxy HTTP. Per risolvere il problema, configurare un proxy in uscita. 
 
-L'agente di provisioning supporta l'utilizzo di un proxy in uscita. È possibile configurarlo modificando il file di configurazione dell'agente *C:*. Aggiungere le seguenti righe, verso la fine del `</configuration>` file subito prima del tag di chiusura.
-Sostituire le `[proxy-server]` `[proxy-port]` variabili e con il nome del server proxy e i valori della porta.
+L'agente di provisioning supporta l'uso di un proxy in uscita. È possibile configurarlo modificando il file di configurazione dell'agente *c:\programmi\microsoft Azure ad Connect provisioning Agent\AADConnectProvisioningAgent.exe.config*. Aggiungere le righe seguenti, verso la fine del file immediatamente prima del tag di chiusura `</configuration>` .
+Sostituire le variabili `[proxy-server]` e `[proxy-port]` con i valori di nome e porta del server proxy.
 
 ```xml
     <system.net>
@@ -116,23 +116,23 @@ Sostituire le `[proxy-server]` `[proxy-port]` variabili e con il nome del server
     </system.net>
 ```
 
-#### <a name="agent-registration-fails-with-security-error"></a>Registrazione dell'agente non riesce con errore di sicurezza
+#### <a name="agent-registration-fails-with-security-error"></a>La registrazione dell'agente non riesce con errore di sicurezza
 
-Quando si installa l'agente di provisioning cloud, è possibile che venga visualizzato un messaggio di errore.
+Quando si installa l'agente di provisioning cloud, è possibile che venga ricevuto un messaggio di errore.
 
-Questo problema è in genere causato dall'agente non è in grado di eseguire gli script di registrazione di PowerShell a causa di criteri di esecuzione di PowerShell locali.
+Questo problema in genere è dovuto al fatto che l'agente non è in grado di eseguire gli script di registrazione di PowerShell a causa dei criteri di esecuzione di PowerShell locali.
 
-Per risolvere questo problema, modificare i criteri di esecuzione di PowerShell nel server. È necessario che i criteri Computer e Utente siano impostati come *Undefined* o *RemoteSigned*. Se sono impostati come *Unrestricted*, verrà visualizzato questo errore. Per ulteriori informazioni, vedere Criteri di esecuzione di [PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Per risolvere questo problema, modificare i criteri di esecuzione di PowerShell nel server. È necessario che i criteri computer e utente siano impostati come *undefined* o *RemoteSigned*. Se sono impostati come *senza restrizioni*, verrà visualizzato questo errore. Per altre informazioni, vedere [criteri di esecuzione di PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
-### <a name="log-files"></a>File di log
+### <a name="log-files"></a>File di registro
 
-Per impostazione predefinita, l'agente genera messaggi di errore minimi e informazioni sull'analisi dello stack. È possibile trovare questi registri di traccia nella cartella *C:*
+Per impostazione predefinita, l'agente genera messaggi di errore e informazioni di analisi dello stack minime. È possibile trovare i log di traccia nella cartella *C:\ProgramData\Microsoft\Azure il provisioning di AGENT\TRACE ad Connect*.
 
 Per raccogliere ulteriori dettagli per la risoluzione dei problemi relativi agli agenti, attenersi alla seguente procedura.
 
-1. Arrestare il servizio **Microsoft Azure AD Connect Provisioning Agent.**
-1. Creare una copia del file di configurazione originale: *C:*.
-1. Sostituire la `<system.diagnostics>` sezione esistente con la sezione seguente e tutti i messaggi di traccia verranno inviati al file *ProvAgentTrace.log*.
+1. Arrestare il servizio **Microsoft Azure ad connettere l'agente di provisioning**.
+1. Creare una copia del file di configurazione originale: *c:\programmi\microsoft Azure ad Connect provisioning Agent\AADConnectProvisioningAgent.exe.config*.
+1. Sostituire la sezione `<system.diagnostics>` esistente con la seguente e tutti i messaggi di traccia andranno al file *ProvAgentTrace. log*.
 
    ```xml
      <system.diagnostics>
@@ -155,50 +155,50 @@ Per raccogliere ulteriori dettagli per la risoluzione dei problemi relativi agli
      </system.diagnostics>
     
    ```
-1. Avviare il servizio **Microsoft Azure AD Connect Provisioning Agent**.
-1. Utilizzare il comando seguente per inserire i problemi di file e debug. 
+1. Avviare il servizio **Microsoft Azure ad connettere l'agente di provisioning**.
+1. Usare il comando seguente per eseguire il backup del file e risolvere i problemi. 
     ```
     Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
     ```
 ## <a name="object-synchronization-problems"></a>Problemi di sincronizzazione degli oggetti
 
-La sezione seguente contiene informazioni sulla risoluzione dei problemi relativi alla sincronizzazione degli oggetti.
+La sezione seguente contiene informazioni sulla risoluzione dei problemi di sincronizzazione degli oggetti.
 
 ### <a name="provisioning-logs"></a>Log di provisioning
 
-Nel portale di Azure è possibile usare i log di provisioning per individuare e risolvere i problemi di sincronizzazione degli oggetti. Per visualizzare i registri, selezionare **Registri**.
+Nella portale di Azure è possibile usare i log di provisioning per individuare e risolvere i problemi di sincronizzazione degli oggetti. Per visualizzare i log, selezionare **log**.
 
 ![Pulsante Log](media/how-to-troubleshoot/log1.png)
 
-I log di provisioning forniscono numerose informazioni sullo stato degli oggetti sincronizzati tra l'ambiente Active Directory locale e Azure.
+I log di provisioning forniscono un'ampia gamma di informazioni sullo stato degli oggetti sincronizzati tra l'ambiente di Active Directory locale e Azure.
 
-![Schermata Registri di provisioning](media/how-to-troubleshoot/log2.png)
+![Schermata dei log di provisioning](media/how-to-troubleshoot/log2.png)
 
-È possibile utilizzare le caselle di riepilogo a discesa nella parte superiore della pagina per filtrare la visualizzazione a zero in su problemi specifici, ad esempio le date. Fare doppio clic su un singolo evento per visualizzare ulteriori informazioni.
+È possibile utilizzare le caselle di riepilogo a discesa nella parte superiore della pagina per filtrare la visualizzazione in base a problemi specifici, ad esempio le date. Fare doppio clic su un singolo evento per visualizzare informazioni aggiuntive.
 
-![Informazioni sulla casella di riepilogo a discesa Registri di provisioning](media/how-to-troubleshoot/log3.png)
+![Informazioni sulla casella di riepilogo a discesa log di provisioning](media/how-to-troubleshoot/log3.png)
 
-Queste informazioni forniscono i passaggi dettagliati e la posizione del problema di sincronizzazione. In questo modo, è possibile individuare il punto esatto del problema.
+Queste informazioni forniscono i passaggi dettagliati e la posizione in cui si verifica il problema di sincronizzazione. In questo modo, è possibile individuare il punto esatto del problema.
 
 
-## <a name="provisioning-quarantined-problems"></a>Provisioning dei problemi in quarantena
+## <a name="provisioning-quarantined-problems"></a>Provisioning di problemi in quarantena
 
-Il provisioning cloud monitora l'integrità della configurazione e inserisce gli oggetti non integri in uno stato di quarantena. Se la maggior parte o tutte le chiamate effettuate sul sistema di destinazione hanno esito negativo in modo coerente a causa di un errore, ad esempio credenziali di amministratore non valide, il processo di provisioning viene contrassegnato come in quarantena.
+Il provisioning nel Cloud monitora l'integrità della configurazione e inserisce oggetti non integri in uno stato di quarantena. Se la maggior parte o tutte le chiamate effettuate sul sistema di destinazione hanno esito negativo a causa di un errore, ad esempio le credenziali di amministratore non valide, il processo di provisioning è contrassegnato come in quarantena.
 
 ![Stato di quarantena](media/how-to-troubleshoot/quarantine1.png)
 
-Selezionando lo stato, è possibile visualizzare informazioni aggiuntive sulla quarantena. È inoltre possibile ottenere il codice di errore e il messaggio.
+Selezionando lo stato, è possibile visualizzare informazioni aggiuntive sulla quarantena. È anche possibile ottenere il codice di errore e il messaggio.
 
 ![Informazioni sullo stato della quarantena](media/how-to-troubleshoot/quarantine2.png)
 
 ### <a name="resolve-a-quarantine"></a>Risolvere una quarantena
 
-- Usare il portale di Azure per riavviare il processo di provisioning. Nella pagina di configurazione dell'agente selezionare **Riavvia provisioning**.
+- Usare il portale di Azure per riavviare il processo di provisioning. Nella pagina Configurazione agente selezionare **Riavvia provisioning**.
 
   ![Riavviare il provisioning](media/how-to-troubleshoot/quarantine3.png)
 
-- Utilizzare Microsoft Graph per [riavviare il processo](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http)di provisioning. Avrai il pieno controllo su ciò che riavvierai. È possibile scegliere di deselezionare:
-  - Escrows, per riavviare il contatore di deposito a garanzia che si accumula verso lo stato di quarantena.
+- Usare Microsoft Graph per [riavviare il processo di provisioning](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Si avrà il controllo completo su ciò che viene riavviato. È possibile scegliere di cancellare:
+  - Escrow, per riavviare il contatore del deposito per la quarantena.
   - Quarantena, per rimuovere l'applicazione dalla quarantena.
   - Filigrane. 
   

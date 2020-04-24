@@ -16,9 +16,9 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "75646390"
 ---
 > [!div class="op_single_selector"]
-> * [Portale di Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
-> * [Powershell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [Interfaccia della riga di comando di AzureAzure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
+> * [Azure portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
+> * [Interfaccia della riga di comando di Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 >
 
 Una macchina virtuale di Azure può essere associata a una o più interfacce di rete. A ogni scheda di interfaccia di rete possono essere assegnati uno o più indirizzi IP pubblici o privati, statici e dinamici. L'assegnazione di più indirizzi IP a una VM consente di:

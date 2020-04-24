@@ -1,6 +1,6 @@
 ---
-title: 'Configurare criteri IPsec personalizzati per la rete WAN virtuale di Azure: Portale Documenti Microsoft'
-description: Informazioni su come configurare criteri IPsec personalizzati per la rete WAN virtuale di Azure tramite il portale.
+title: 'Configurare i criteri IPsec personalizzati per la rete WAN virtuale di Azure: portale | Microsoft Docs'
+description: Informazioni su come configurare i criteri IPsec personalizzati per la rete WAN virtuale di Azure usando il portale.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -14,24 +14,24 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "73515746"
 ---
-# <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>Configurare un criterio IPsec personalizzato per la rete WAN virtuale tramite il portale
+# <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>Configurare un criterio IPsec personalizzato per la rete WAN virtuale usando il portale
 
-È possibile configurare criteri IPsec personalizzati per la rete WAN virtuale nel portale di Azure.You can configure custom IPsec policy for Virtual WAN in the Azure portal. I criteri personalizzati sono utili quando si vuole che entrambe le parti (gateway locale e gateway VPN di Azure) utilizzino le stesse impostazioni per la fase 1 di IKE e la fase 2 di IKE.
+È possibile configurare i criteri IPsec personalizzati per la rete WAN virtuale nel portale di Azure. I criteri personalizzati sono utili quando si vuole che entrambi i lati (locale e il gateway VPN di Azure) usino le stesse impostazioni per IKE fase 1 e IKE fase 2.
 
-## <a name="working-with-custom-policies"></a>Utilizzo dei criteri personalizzati
+## <a name="working-with-custom-policies"></a>Uso dei criteri personalizzati
 
 [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## <a name="configure-a-policy"></a>Configurare i criteri
 
-1. **Individuare l'hub virtuale.** In un browser passare al [portale di Azure](https://aka.ms/azurevirtualwanpreviewfeatures) e accedere con l'account Azure. Individuare l'hub virtuale per il sito.
-2. **Selezionare il sito VPN**. Nella pagina hub selezionare il sito VPN per il quale si desidera configurare un criterio personalizzato.
+1. **Individuare l'hub virtuale**. In un browser passare al [portale di Azure](https://aka.ms/azurevirtualwanpreviewfeatures) e accedere con l'account Azure. Individuare l'hub virtuale per il sito.
+2. **Selezionare il sito VPN**. Dalla pagina Hub selezionare il sito VPN per cui si desidera configurare un criterio personalizzato.
 
    ![Proprietà](./media/virtual-wan-custom-ipsec-portal/locate.png)
-3. **Modificare la connessione VPN**. Dal **menu di scelta rapida...** **...**, selezionare Modifica **connessione VPN**.
+3. **Modificare la connessione VPN**. Dal **menu di scelta rapida** **...** Selezionare **Modifica connessione VPN**.
 
    ![modifica](./media/virtual-wan-custom-ipsec-portal/contextmenu.png)
-4. **Configurare le impostazioni**. Nella pagina **Modifica connessione VPN** configurare le impostazioni. Selezionare **Salva** per salvare le impostazioni.
+4. **Configurare le impostazioni**. Nella pagina **Modifica connessione VPN** configurare le impostazioni. Selezionare **Save (Salva** ) per salvare le impostazioni.
 
    ![configurare e salvare](./media/virtual-wan-custom-ipsec-portal/edit.png)
 

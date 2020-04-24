@@ -27,12 +27,12 @@ Come illustrato nell'articolo [Aggiungere una macchina virtuale a un lab](devtes
 Questo articolo illustra come aggiungere la rete virtuale esistente alle impostazioni della rete virtuale di un lab in modo che sia disponibile al momento della creazione delle macchine virtuali.
 
 > [!NOTE]
-> Per informazioni sui costi associati al servizio Rete virtuale di Azure, vedere Prezzi per la rete virtuale di Azure.To learn about costs associated with the Azure Virtual Network service, see [Pricing for Azure Virtual Network](../virtual-network/virtual-networks-overview.md#pricing).
+> Per informazioni sui costi associati al servizio rete virtuale di Azure, vedere [prezzi per rete virtuale di Azure](../virtual-network/virtual-networks-overview.md#pricing).
 
 ## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Configurare una rete virtuale per un lab con il portale di Azure
 I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esistente (e una subnet) a un lab in modo che sia disponibile al momento della creazione di una VM nel lab. 
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 1. Nell'elenco dei lab selezionare il lab desiderato. 
 1. Nel riquadro principale del lab selezionare **Configurazione e criteri**.
@@ -55,10 +55,10 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
     ![Riquadro Subnet del lab](./media/devtest-lab-configure-vnet/lab-subnet.png)
      
    - Specificare un **nome per la subnet del lab**.
-   - Per consentire l'utilizzo di una subnet nella creazione di macchine virtuali lab, selezionare **Usa nella creazione di macchine virtuali**.
+   - Per consentire l'uso di una subnet nella creazione di VM Lab, selezionare **USA nella creazione della macchina virtuale**.
    - Per abilitare un [indirizzo IP pubblico condiviso](devtest-lab-shared-ip.md), selezionare **Enable shared public IP** (Abilita indirizzo IP pubblico condiviso).
    - Per consentire gli indirizzi IP pubblici in una subnet, selezionare **Allow public IP creation** (Consenti la creazione di un indirizzo IP pubblico).
-   - Nel campo **Numero massimo di macchine virtuali per utente** specificare il numero massimo di macchine virtuali per utente per ogni subnet. Se si desidera un numero illimitato di VM, lasciare vuoto questo campo.
+   - Nel campo **numero massimo di macchine virtuali per utente** specificare il numero massimo di macchine virtuali per utente per ogni subnet. Se si desidera un numero illimitato di VM, lasciare vuoto questo campo.
 1. Selezionare **OK** per chiudere il riquadro Subnet del lab.
 1. Selezionare **Salva** per chiudere il riquadro Rete virtuale.
 

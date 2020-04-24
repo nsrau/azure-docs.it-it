@@ -18,18 +18,18 @@ ms.locfileid: "73518437"
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Un hub virtuale è una rete virtuale gestita da Microsoft che consente la connettività da altre risorse. Quando un hub virtuale viene creato da una rete WAN virtuale nel portale di Azure, una rete virtuale dell'hub virtuale e i gateway (facoltativo) vengono creati come componenti.
+Un hub virtuale è una rete virtuale gestita da Microsoft che consente la connettività da altre risorse. Quando un hub virtuale viene creato da una rete WAN virtuale nel portale di Azure, vengono creati come componenti un hub virtuale VNet e gateway (facoltativo).
 
-Un hub virtuale *protetto* è un hub WAN virtuale di Azure con criteri di sicurezza e routing associati configurati da Gestione firewall di Azure.A secured virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) with associated security and routing policy configured by Azure Firewall Manager. Usa hub virtuali protetti per creare facilmente architetture hub-and-spoke e transitive con servizi di sicurezza nativi per la governance e la protezione del traffico. 
+Un hub virtuale *protetto* è un [Hub WAN virtuale di Azure](../virtual-wan/virtual-wan-about.md#resources) con criteri di sicurezza e routing associati configurati da gestione firewall di Azure. USA Hub virtuali protetti per creare con facilità architetture con hub e spoke e transitive con servizi di sicurezza nativi per la governance e la protezione del traffico. 
 
-È possibile utilizzare un hub virtuale protetto come rete virtuale centrale gestita senza connettività locale. Sostituisce la rete virtuale centrale precedentemente necessaria per una distribuzione di Firewall di Azure.It replaces the central VNet that was previously required for an Azure Firewall deployment. Poiché l'hub virtuale protetto fornisce il routing automatico, non è necessario configurare i propri UDR (route definite dall'utente) per instradare il traffico attraverso il firewall.
+È possibile usare un hub virtuale protetto come VNet centrale gestito senza connettività locale. Sostituisce la VNet centrale che in precedenza era necessaria per una distribuzione del firewall di Azure. Poiché l'hub virtuale protetto fornisce il routing automatico, non è necessario configurare UdR (route definite dall'utente) per instradare il traffico attraverso il firewall.
 
-È anche possibile usare hub virtuali protetti come parte di un'architettura WAN virtuale completa. Questa architettura offre connettività di succursale protetta, ottimizzata e automatizzata verso e tramite Azure.This architecture provides secured, optimized, and automated branch connectivity to and through Azure. È possibile scegliere i servizi per proteggere e gestire il traffico di rete, inclusi Firewall di Azure e altri provider di sicurezza di terze parti come servizio (SECaaS).
+È anche possibile usare hub virtuali protetti come parte di un'architettura WAN virtuale completa. Questa architettura offre connettività di ramo protetta, ottimizzata e automatizzata a e tramite Azure. È possibile scegliere i servizi per proteggere e gestire il traffico di rete, inclusi il firewall di Azure e altri provider di sicurezza come servizio (SECar) di terze parti.
 
-## <a name="create-a-secured-virtual-hub"></a>Creare un hub virtuale protettoCreate a secured virtual hub
+## <a name="create-a-secured-virtual-hub"></a>Creare un hub virtuale protetto
 
-Using Firewall Manager in the Azure portal, you can either create a new secured virtual hub, or convert an existing virtual hub that you previously created using Azure Virtual WAN.
+Usando gestione firewall nella portale di Azure è possibile creare un nuovo hub virtuale protetto o convertire un hub virtuale esistente creato in precedenza tramite la rete WAN virtuale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per creare un hub virtuale protetto e usarlo per proteggere e gestire una rete hub e spoke, vedere [Esercitazione: Proteggere la rete cloud con Azure Firewall Manager tramite il portale](secure-cloud-network.md)di Azure.
+Per creare un hub virtuale protetto e usarlo per proteggere e governare una rete hub-spoke, vedere [esercitazione: proteggere la rete cloud con Azure Firewall Manager usando il portale di Azure](secure-cloud-network.md).

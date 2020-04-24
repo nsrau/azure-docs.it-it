@@ -1,5 +1,5 @@
 ---
-title: HBase cluster replication in virtual networks - Azure HDInsight
+title: Replica di cluster HBase nelle reti virtuali-Azure HDInsight
 description: Informazioni su come configurare la replica HBase da una versione di HDInsight a un'altra, per bilanciamento del carico, disponibilità elevata, aggiornamenti e migrazione senza tempo di inattività e ripristino di emergenza.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -21,7 +21,7 @@ Informazioni su come configurare la replica [Apache HBase](https://hbase.apache.
 
 La replica di cluster usa una metodologia con push dell'origine. Un cluster HBase può essere un'origine o una destinazione o può soddisfare entrambi i ruoli in una sola volta. La replica è asincrona. L'obiettivo della replica è la coerenza finale. Quando l'origine riceve una modifica a una famiglia di colonne con la replica abilitata, tale modifica viene propagata in tutti i cluster di destinazione. Quando i dati vengono replicati da un cluster a un altro, viene tenuta traccia del cluster di origine e di tutti i cluster che hanno già usato i dati, per evitare cicli di replica.
 
-In questo articolo viene impostata una replica di destinazione di origine. Per altre topologie di cluster, vedere la [guida di riferimento di Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
+In questo articolo viene configurata una replica di destinazione di origine. Per altre topologie di cluster, vedere la [guida di riferimento di Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Di seguito sono illustrati i casi d'uso della replica HBase per una singola rete virtuale:
 
@@ -39,7 +39,7 @@ Di seguito sono illustrati i casi d'uso della replica HBase per due reti virtual
 È possibile replicare i cluster tramite gli script di [azione script](../hdinsight-hadoop-customize-cluster-linux.md) di [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare questo articolo, è necessario disporre di una sottoscrizione di Azure.Before you begin this article, you must have an Azure subscription. Vedere [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Ottenere una versione di valutazione gratuita di Azure).
+Prima di iniziare questo articolo, è necessario disporre di una sottoscrizione di Azure. Vedere [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Ottenere una versione di valutazione gratuita di Azure).
 
 ## <a name="set-up-the-environments"></a>Configurare gli ambienti
 
@@ -66,7 +66,7 @@ Alcuni valori hardcoded nel modello:
 
 **Rete virtuale 1**
 
-| Proprietà | valore |
+| Proprietà | Valore |
 |----------|-------|
 | Location | Stati Uniti occidentali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
@@ -83,7 +83,7 @@ Alcuni valori hardcoded nel modello:
 
 **VNet 2**
 
-| Proprietà | valore |
+| Proprietà | Valore |
 |----------|-------|
 | Location | Stati Uniti orientali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
@@ -125,7 +125,7 @@ Per installare Bind, usare la procedura seguente:
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
     > * [Bash in Ubuntu su Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [Git (https://git-scm.com/)](https://git-scm.com/)
+    > * [Githttps://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. Per installare Bind, usare i comandi seguenti dalla sessione SSH:
@@ -135,7 +135,7 @@ Per installare Bind, usare la procedura seguente:
     sudo apt-get install bind9 -y
     ```
 
-3. Configurare Bind per inoltrare le richieste di risoluzione dei nomi al server DNS locale. A questo scopo, usare il testo seguente come contenuto del file `/etc/bind/named.conf.options`:
+3. Configurare binding per l'invio di richieste di risoluzione dei nomi al server DNS locale. A questo scopo, usare il testo seguente come contenuto del file `/etc/bind/named.conf.options`:
 
     ```
     acl goodclients {
@@ -276,7 +276,7 @@ Quando si esegue la replica di un cluster, è necessario specificare le tabelle 
 Per creare una tabella **Contatti** e inserire alcuni dati nella tabella, seguire le istruzioni in [Esercitazione su Apache HBase: Iniziare a usare un esempio di Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 > [!NOTE]
-> Se si desidera replicare tabelle da uno spazio dei nomi personalizzato, è necessario assicurarsi che gli spazi dei nomi personalizzati appropriati siano definiti anche nel cluster di destinazione.
+> Se si desidera replicare tabelle da uno spazio dei nomi personalizzato, è necessario assicurarsi che anche gli spazi dei nomi personalizzati appropriati siano definiti nel cluster di destinazione.
 >
 
 ## <a name="enable-replication"></a>Abilitare la replica
@@ -285,7 +285,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 
 **Per abilitare la replica di HBase dal portale di Azure**
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Aprire il cluster HBase di origine.
 3. Dal menu del cluster scegliere **Azioni script**.
 4. Nella parte superiore della pagina selezionare **Invia nuova**.
@@ -301,9 +301,9 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
       > [!NOTE]
       > Usare il nome host invece di FQDN per il nome DNS del cluster di origine e di destinazione.
       >
-      > In questa procedura dettagliata viene assunto hn1 come nodo head attivo. Controllare il cluster per identificare il nodo head attivo.
+      > Questa procedura dettagliata presuppone HN1 come nodo head attivo. Verificare il cluster per identificare il nodo head attivo.
 
-6. Selezionare **Crea**. L'esecuzione dello script può richiedere tempo, in particolare se si usa l'argomento **-copydata**.
+6. Seleziona **Crea**. L'esecuzione dello script può richiedere tempo, in particolare se si usa l'argomento **-copydata**.
 
 Argomenti obbligatori:
 
@@ -392,7 +392,7 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
 - **Disabilitare la replica in tutte le tabelle**:
 
         -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
-  o
+  oppure
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
@@ -401,12 +401,12 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 > [!NOTE]
-> Se si intende eliminare il cluster di destinazione, assicurarsi di rimuoverlo dall'elenco peer del cluster di origine. Questa operazione può essere eseguita eseguendo il comando remove_peer '1' nella shell hbase nel cluster di origine. In caso contrario, il cluster di origine potrebbe non funzionare correttamente.
+> Se si intende eliminare il cluster di destinazione, assicurarsi di rimuoverlo dall'elenco peer del cluster di origine. Questa operazione può essere eseguita eseguendo il comando remove_peer "1" nella shell HBase del cluster di origine. In caso contrario, il cluster di origine potrebbe non funzionare correttamente.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come configurare la replica Apache HBase all'interno di una rete virtuale o tra due reti virtuali. Per altre informazioni su HDInsight e Apache HBase, vedere questi articoli:
+In questo articolo si è appreso come configurare la replica di Apache HBase in una rete virtuale o tra due reti virtuali. Per altre informazioni su HDInsight e Apache HBase, vedere questi articoli:
 
 * [Introduzione ad Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Panoramica di Apache HBase di HDInsight](./apache-hbase-overview.md)

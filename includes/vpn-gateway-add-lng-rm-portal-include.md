@@ -18,7 +18,7 @@ ms.locfileid: "68781462"
 1. Nel portale fare clic su **+Crea una risorsa**.
 2. Nella casella di ricerca digitare **Gateway di rete locale**, quindi premere **INVIO** per eseguire la ricerca. Verrà restituito un elenco di risultati. Fare clic su **Gateway di rete locale**, quindi sul pulsante **Crea** per aprire la pagina **Crea un gateway di rete locale**.
 
-   ![Creare il gateway di rete localeCreate the local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/local-network-gateway.png "Creare il gateway di rete locale")
+   ![Creare il gateway di rete locale](./media/vpn-gateway-add-lng-rm-portal-include/local-network-gateway.png "Creare il gateway di rete locale")
 
 3. Nella pagina **Crea un gateway di rete locale** specificare i valori per il gateway di rete locale.
 
@@ -30,4 +30,4 @@ ms.locfileid: "68781462"
    - **Gruppo di risorse:** selezionare il gruppo di risorse che si vuole usare. È possibile creare un nuovo gruppo di risorse o selezionarne uno già creato.
    - **Località:** selezionare la località in cui verrà creato questo oggetto. È possibile, ma non necessario, selezionare la stessa località in cui risiede la rete virtuale.
 
-4. Dopo aver specificato i valori, fare clic sul pulsante **Crea** per creare il gateway.
+4. Al termine della specifica dei valori, fare clic sul pulsante **Crea** per creare il gateway.

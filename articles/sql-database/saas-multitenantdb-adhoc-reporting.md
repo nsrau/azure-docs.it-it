@@ -1,5 +1,5 @@
 ---
-title: Query di report ad hoc in più database
+title: Query di Reporting ad hoc su più database
 description: Eseguire query di reporting ad hoc su più database SQL in un esempio di app multi-tenant.
 services: sql-database
 ms.service: sql-database
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà:
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
-* È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione Database multi-tenant SaaS di Wingtip](saas-multitenantdb-get-started-deploy.md)
+* È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio (SSMS) è installato. Per scaricare e installare SSMS, vedere [Scaricare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 

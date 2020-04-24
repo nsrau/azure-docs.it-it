@@ -16,6 +16,6 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "69012165"
 ---
 > [!IMPORTANT]
-> La serie StorSimple 8000 raggiungerà la [fine del ciclo di vita](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%208000%20Series) nel dicembre 2022. Se si stanno prendendo in considerazione nuove distribuzioni della serie StorSimple 8000, è consigliabile esplorare altre alternative, ad esempio i dispositivi [Azure File Sync](../articles/storage/files/storage-sync-files-deployment-guide.md) o Azure Data Box [Online](https://docs.microsoft.com/azure/databox-online/) per i carichi di lavoro.
+> La serie StorSimple 8000 raggiungerà la [fine del ciclo di vita](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%208000%20Series) nel 2022 dicembre. Se si stanno valutando nuove distribuzioni della serie StorSimple 8000, è consigliabile esplorare altre alternative, ad esempio [sincronizzazione file di Azure](../articles/storage/files/storage-sync-files-deployment-guide.md) o [Azure Data Box i dispositivi online](https://docs.microsoft.com/azure/databox-online/) per i carichi di lavoro.
 
 

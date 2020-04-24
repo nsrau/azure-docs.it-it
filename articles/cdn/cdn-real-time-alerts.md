@@ -110,5 +110,5 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * Per un'analisi più approfondita, vedere [Report HTTP avanzati nella rete CDN di Microsoft Azure](cdn-advanced-http-reports.md)
-* Analizzare [i modelli di utilizzoAnalyze usage patterns](cdn-analyze-usage-patterns.md)
+* Analizzare i [modelli di utilizzo](cdn-analyze-usage-patterns.md)
 

@@ -47,7 +47,7 @@ pip install azure-storage-file
 Per metodi di installazione alternativi, vedere la pagina di [Azure Storage SDK per Python su GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="view-the-sample-application"></a>Visualizzare l'applicazione di esempio
-f Per visualizzare ed eseguire un'applicazione di esempio che illustra come usare Python con i file di Azure, vedere Archiviazione di [Azure: Introduzione ai file](https://github.com/Azure-Samples/storage-file-python-getting-started)di Azure in Python.f To view and run a sample application that shows how to use Python with Azure Files, see Azure Storage: Getting Started with Azure Files in Python . 
+f per visualizzare ed eseguire un'applicazione di esempio che illustra come usare Python con File di Azure, vedere [archiviazione di Azure: introduzione con file di Azure in Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
 
 Per eseguire questa applicazione di esempio, verificare di aver installato entrambi i pacchetti `azure-storage-file` e `azure-storage-common`.
 
@@ -180,5 +180,5 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 Dopo aver appreso come interagire con File di Azure con Python, selezionare i collegamenti seguenti per altre informazioni.
 
 * [Centro per sviluppatori Python](https://azure.microsoft.com/develop/python/)
-* [API REST di Servizi di archiviazione di AzureAzure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355)
+* [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python)

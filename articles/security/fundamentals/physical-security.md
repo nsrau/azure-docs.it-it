@@ -1,6 +1,6 @@
 ---
-title: Sicurezza fisica dei data center di Azure - Microsoft Azure Documenti Microsoft
-description: L'articolo descrive le operazioni eseguite da Microsoft per proteggere i data center di Azure, incluse le offerte di infrastruttura fisica, sicurezza e conformità.
+title: Sicurezza fisica dei Data Center di Azure-Microsoft Azure | Microsoft Docs
+description: Questo articolo descrive le funzionalità di Microsoft per la protezione dei Data Center di Azure, tra cui l'infrastruttura fisica, la sicurezza e le offerte di conformità.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -23,9 +23,9 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726735"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)
-Questo articolo descrive cosa fa Microsoft per proteggere l'infrastruttura di Azure.This article describes what Microsoft does to secure the Azure infrastructure.
+Questo articolo descrive il funzionamento di Microsoft per proteggere l'infrastruttura di Azure.
 
-## <a name="datacenter-infrastructure"></a>Infrastruttura del data center
+## <a name="datacenter-infrastructure"></a>Infrastruttura Datacenter
 Azure è costituito da un'[infrastruttura del Data Center distribuita a livello globale](https://azure.microsoft.com/global-infrastructure/), che supporta migliaia di servizi online e che si estende su più di 100 strutture altamente protette in tutto il mondo.
 
 L'infrastruttura è progettata per avvicinare le applicazioni agli utenti in tutto il mondo, mantenendo la residenza dei dati e fornendo ai clienti opzioni complete per la conformità e la resilienza. Azure ha 52 aree in tutto il mondo ed è disponibile in 140 paesi/aree geografiche.
@@ -71,7 +71,7 @@ Microsoft usa le procedure consigliate migliori e una soluzione di pulizia che s
 Al termine del ciclo di vita di un sistema, il personale operativo Microsoft segue rigorosi processi di gestione dei dati e di eliminazione dell'hardware per garantire che nessun componente hardware in cui possano essere contenuti dati dei clienti sia reso disponibile a parti non fidate. Viene usato un approccio di eliminazione sicura per i dischi rigidi che lo supportano. Per i dischi rigidi che non possono essere cancellati, viene usato un processo di distruzione che li distrugge e rende impossibile il recupero delle informazioni. Il processo di distruzione può essere disintegrato, suddiviso, polverizzato o bruciato. Viene determinato il metodo di smaltimento in base al tipo di asset. Viene comunque conservata la documentazione relativa alla distruzione. Tutti i servizi di Azure usano servizi approvati per l'archiviazione dei contenuti multimediali e la gestione dello smaltimento.
 
 ## <a name="compliance"></a>Conformità
-L'infrastruttura di Azure è progettata e gestita per soddisfare un'ampia gamma di standard di conformità internazionali e specifici del settore, come ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Soddisfiamo anche gli standard specifici del paese o della regione, tra cui Australia IRAP, UK G-Cloud e MTCS di Singapore. Controlli rigorosi di terzi, come quelli eseguiti dal British Standards Institute, verificano la conformità di Azure con le rigide normative di sicurezza definite da questi standard.
+L'infrastruttura di Azure è progettata e gestita per soddisfare un'ampia gamma di standard di conformità internazionali e specifici del settore, come ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Sono inoltre conformi standard specifici per paesi o aree geografiche, tra cui Australia IRAP, G-Cloud UK e Singapore MTC. Controlli rigorosi di terzi, come quelli eseguiti dal British Standards Institute, verificano la conformità di Azure con le rigide normative di sicurezza definite da questi standard.
 
 Vedere le [Offerte di conformità](https://www.microsoft.com/trustcenter/compliance/complianceofferings) per un elenco completo degli standard di conformità rispettati da Azure.
 
@@ -82,7 +82,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
 - [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)

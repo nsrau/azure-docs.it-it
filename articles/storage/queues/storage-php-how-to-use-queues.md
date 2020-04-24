@@ -1,5 +1,5 @@
 ---
-title: Come usare l'archiviazione delle code da PHP - Archiviazione di AzureHow to use Queue storage from PHP - Azure Storage
+title: Come usare l'archiviazione di Accodamento da PHP-archiviazione di Azure
 description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in PHP.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -31,7 +31,7 @@ In questa guida viene illustrato come eseguire scenari comuni usando il servizio
 
 Per creare un'applicazione PHP che acceda al servizio di archiviazione code di Azure, è sufficiente fare riferimento alle classi in [Libreria client di Archiviazione di Azure per PHP][download] dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
-In this guide, you use the Queue storage service features that can be called within a PHP application locally, or in code running within a web application in Azure.
+In questa guida vengono usate le funzionalità del servizio di archiviazione di accodamento che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione all'interno di un'applicazione Web in Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Acquisire le librerie client di Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza per un'app di SharePoint a più livelli con Azure Site Recovery
+title: Ripristino di emergenza per un'app SharePoint a più livelli con Azure Site Recovery
 description: Questo articolo descrive come configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello usando le funzionalità di Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -27,9 +27,9 @@ Oggi Microsoft SharePoint non include funzionalità di ripristino di emergenza p
 
 Una buona soluzione di ripristino di emergenza deve consentire la modellazione di piani di ripristino basati su architetture di applicazioni complesse, come SharePoint. Deve anche permettere di aggiungere passaggi personalizzati per gestire i mapping delle applicazioni tra diversi livelli e quindi fornire il failover con un solo clic e un RTO inferiore nel caso di un evento di emergenza.
 
-In questo articolo viene descritto in dettaglio come proteggere un'applicazione di SharePoint usando [Azure Site Recovery](site-recovery-overview.md). Questo articolo descrive le procedure consigliate per la replica di un'applicazione di SharePoint in Azure, l'esecuzione di un'esercitazione sul ripristino di emergenza e il failover dell'applicazione in Azure.
+Questo articolo descrive in dettaglio come proteggere un'applicazione di SharePoint usando [Azure Site Recovery](site-recovery-overview.md). Questo articolo descrive le procedure consigliate per la replica di un'applicazione di SharePoint in Azure, l'esecuzione di un'esercitazione sul ripristino di emergenza e il failover dell'applicazione in Azure.
 
-È possibile guardare il video seguente sul ripristino di un'applicazione a più livelli in Azure.You can watch the below video about recovering a multi-tier application to Azure.
+È possibile guardare il video seguente sul ripristino di un'applicazione multilivello in Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -56,16 +56,16 @@ SharePoint può essere distribuito in uno o più server usando topologie a livel
 
 ## <a name="site-recovery-support"></a>Supporto di Site Recovery
 
-Site Recovery è indipendente dall'applicazione e deve funzionare con qualsiasi versione di SharePoint in esecuzione in un computer supportato. Ai fini di questo articolo sono state usate macchine virtuali VMware con Windows Server 2012 R2 Enterprise. Sono stati usati SharePoint 2013 Enterprise Edition e SQL Server 2014 Enterprise Edition.
+Site Recovery è indipendente dall'applicazione e dovrebbe funzionare con qualsiasi versione di SharePoint in esecuzione in un computer supportato. Ai fini di questo articolo sono state usate macchine virtuali VMware con Windows Server 2012 R2 Enterprise. Sono stati usati SharePoint 2013 Enterprise Edition e SQL Server 2014 Enterprise Edition.
 
 ### <a name="source-and-target"></a>Origine e destinazione
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
 **Hyper-V** | Sì | Sì
-**Vmware** | Sì | Sì
+**VMware** | Sì | Sì
 **Server fisico** | Sì | Sì
-**Azure** | ND | Sì
+**Azure** | N/D | Sì
 
 
 ### <a name="things-to-keep-in-mind"></a>Aspetti da considerare
@@ -102,7 +102,7 @@ Seguire [queste linee guida](site-recovery-vmware-to-azure.md) per avviare la re
 Per i siti con connessione Internet, [creare un profilo di Gestione traffico di tipo "Priorità"](../traffic-manager/traffic-manager-create-profile.md) nella sottoscrizione di Azure. Configurare quindi il DNS e il profilo di Gestione traffico nel modo seguente.
 
 
-| **Dove** | **origine** | **Destinazione**|
+| **In cui** | **origine** | **Destinazione**|
 | --- | --- | --- |
 | DNS pubblico | DNS pubblico per siti di SharePoint <br/><br/> Esempio: sharepoint.contoso.com | Gestione traffico <br/><br/> contososharepoint.trafficmanager.net |
 | DNS locale | sharepointonprem.contoso.com | IP pubblico nella farm locale |
@@ -136,7 +136,7 @@ Un piano di ripristino consente di definire la sequenza di failover di vari live
 
 È possibile distribuire gli script di Azure Site Recovery usate più comunemente nell'account di Automazione facendo clic sul pulsante "Distribuisci in Azure" di seguito. Quando si usa uno script pubblicato, assicurarsi di seguire le istruzioni nello script.
 
-[![Distribuire in AzureDeploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Aggiungere uno script precedente all'azione a "Gruppo 1" per il gruppo di disponibilità SQL. Usare lo script "ASR-SQL-FailoverAG" pubblicato negli script di esempio. Assicurarsi di seguire le istruzioni nello script e apportare le modifiche necessarie nello script nel modo appropriato.
 
@@ -189,7 +189,7 @@ Seguire [queste linee guida](site-recovery-test-failover-to-azure.md) per esegui
 
 Per le linee guida su come eseguire il failover di test per Active Directory e DNS, fare riferimento al documento [Considerazioni sul failover di test per Active Directory e DNS](site-recovery-active-directory.md#test-failover-considerations).
 
-Per istruzioni sull'esecuzione del failover di test per i gruppi di disponibilità SQL Always ON, vedere Esecuzione del ripristino di emergenza [dell'applicazione con Azure Site Recovery ed esecuzione](site-recovery-sql.md#disaster-recovery-of-an-application) del documento di failover di Test.For guidance on doing Test failover for SQL Always ON availability groups, refer to Performing Application DR with Azure Site Recovery and doing Test failover document.
+Per istruzioni su come eseguire il failover di test per i gruppi di disponibilità Always ON di SQL, vedere l'articolo relativo al ripristino di emergenza [dell'applicazione con Azure Site Recovery e il](site-recovery-sql.md#disaster-recovery-of-an-application) documento di failover
 
 ## <a name="doing-a-failover"></a>Esecuzione di un failover
 Seguire [queste linee guida](site-recovery-failover.md) per eseguire un failover.

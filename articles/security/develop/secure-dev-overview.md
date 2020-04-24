@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per lo sviluppo sicuro in Microsoft AzureSecure development best practices on Microsoft Azure
-description: Procedure consigliate per sviluppare codice più sicuro e distribuire un'applicazione più sicura nel cloud.
+title: Procedure consigliate per lo sviluppo sicuro in Microsoft Azure
+description: Procedure consigliate per sviluppare codice più sicuro e distribuire un'applicazione più protetta nel cloud.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
@@ -20,26 +20,26 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "68934856"
 ---
-# <a name="secure-development-best-practices-on-azure"></a>Procedure consigliate per lo sviluppo sicuro in AzureSecure development best practices on Azure
-Questa serie di articoli presenta le attività di sicurezza e i controlli da considerare quando si sviluppano applicazioni per il cloud. Vengono trattate le fasi del ciclo di vita dello sviluppo della sicurezza microsoft (SDL) e le domande e i concetti di sicurezza da considerare durante ogni fase del ciclo di vita. L'obiettivo consiste nel definire le attività e i servizi di Azure che è possibile usare in ogni fase del ciclo di vita per progettare, sviluppare e distribuire un'applicazione più sicura.
+# <a name="secure-development-best-practices-on-azure"></a>Procedure consigliate per lo sviluppo sicuro in Azure
+Questa serie di articoli presenta le attività e i controlli di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le fasi dell'Microsoft Security Development Lifecycle (SDL) e le domande e i concetti di sicurezza da considerare durante ogni fase del ciclo di vita. L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare in ogni fase del ciclo di vita per progettare, sviluppare e distribuire un'applicazione più protetta.
 
-I consigli negli articoli derivano dalla nostra esperienza con la sicurezza di Azure e dalle esperienze dei nostri clienti. È possibile utilizzare questi articoli come riferimento per ciò che è necessario considerare durante una fase specifica del progetto di sviluppo, ma si consiglia di leggere anche tutti gli articoli dall'inizio alla fine almeno una volta. La lettura di tutti gli articoli illustra i concetti che potrebbero essere stati persi nelle fasi precedenti del progetto. L'implementazione di questi concetti prima di rilasciare il prodotto consente di creare software sicuro, soddisfare i requisiti di conformità alla sicurezza e ridurre i costi di sviluppo.
+I consigli negli articoli provengono dalla nostra esperienza con la sicurezza di Azure e dalle esperienze dei nostri clienti. È possibile usare questi articoli come riferimento per gli elementi da prendere in considerazione durante una fase specifica del progetto di sviluppo, ma è consigliabile leggere anche tutti gli articoli dall'inizio alla fine almeno una volta. La lettura di tutti gli articoli presenta i concetti che potrebbero mancare nelle fasi precedenti del progetto. L'implementazione di questi concetti prima di rilasciare il prodotto può essere utile per creare software protetto, soddisfare i requisiti di conformità della sicurezza e ridurre i costi di sviluppo.
 
-Questi articoli sono destinati a essere una risorsa per progettisti software, sviluppatori e tester a tutti i livelli che creano e distribuiscono applicazioni di Azure sicure.
+Questi articoli sono destinati a essere una risorsa per progettisti, sviluppatori e tester di software a tutti i livelli che compilano e distribuiscono applicazioni Azure sicure.
 
 ## <a name="overview"></a>Panoramica
 
-La sicurezza è uno degli aspetti più importanti di qualsiasi applicazione e non è una cosa semplice da ottenere a destra. Fortunatamente, Azure offre molti servizi che consentono di proteggere l'applicazione nel cloud. Questi articoli affrontano le attività e i servizi di Azure che è possibile implementare in ogni fase del ciclo di vita dello sviluppo software per sviluppare codice più sicuro e distribuire un'applicazione più sicura nel cloud.
+La sicurezza è uno degli aspetti più importanti di tutte le applicazioni e non è un'operazione semplice da ottenere correttamente. Fortunatamente, Azure offre molti servizi che consentono di proteggere l'applicazione nel cloud. Questi articoli indirizzano le attività e i servizi di Azure che è possibile implementare in ogni fase del ciclo di vita di sviluppo del software per facilitare lo sviluppo di codice più sicuro e la distribuzione di un'applicazione più sicura nel cloud.
 
 ## <a name="security-development-lifecycle"></a>Security Development Lifecycle
 
-Seguire le procedure consigliate per lo sviluppo sicuro del software richiede l'integrazione della sicurezza in ogni fase del ciclo di vita dello sviluppo software, dall'analisi dei requisiti alla manutenzione, indipendentemente dalla metodologia del progetto ([waterfall](https://en.wikipedia.org/wiki/Waterfall_model), [agile](https://en.wikipedia.org/wiki/Agile_software_development)o [DevOps](https://en.wikipedia.org/wiki/DevOps)). Sulla scia di violazioni dei dati di alto profilo e dello sfruttamento dei difetti di sicurezza operativa, sempre più sviluppatori stanno comprendendo che la sicurezza deve essere affrontata durante tutto il processo di sviluppo.
+Le seguenti procedure consigliate per lo sviluppo di software sicuro richiedono l'integrazione della sicurezza in ogni fase del ciclo di vita dello sviluppo del software, dall'analisi dei requisiti alla manutenzione, indipendentemente dalla metodologia del progetto ([Waterfall](https://en.wikipedia.org/wiki/Waterfall_model), [agile](https://en.wikipedia.org/wiki/Agile_software_development)o [DevOps](https://en.wikipedia.org/wiki/DevOps)). In seguito alle violazioni dei dati di alto profilo e all'exploit dei difetti di sicurezza operativa, più sviluppatori sono in grado di comprendere che la sicurezza deve essere risolta durante tutto il processo di sviluppo.
 
-Più tardi si risolve un problema nel ciclo di vita di sviluppo, più tale correzione vi costerà. I problemi di sicurezza non fanno eccezione. Se si ignorano i problemi di sicurezza nelle prime fasi dello sviluppo del software, ogni fase che segue potrebbe ereditare le vulnerabilità della fase precedente. Il prodotto finale avrà accumulato più problemi di sicurezza e la possibilità di una violazione. La creazione di sicurezza in ogni fase del ciclo di vita dello sviluppo consente di rilevare tempestivamente i problemi e di ridurre i costi di sviluppo.
+Più avanti si corregge un problema nel ciclo di vita di sviluppo, maggiore sarà il costo della correzione. I problemi di sicurezza non fanno eccezione. Se si ignorano i problemi di sicurezza nelle fasi iniziali dello sviluppo del software, ogni fase che segue potrebbe ereditare le vulnerabilità della fase precedente. Il prodotto finale avrà accumulato più problemi di sicurezza e la possibilità di una violazione. La creazione di sicurezza in ogni fase del ciclo di vita dello sviluppo consente di rilevare tempestivamente i problemi e di ridurre i costi di sviluppo.
 
-Seguiamo le fasi del ciclo di vita dello sviluppo della sicurezza Microsoft [(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) per introdurre attività e servizi di Azure che è possibile usare per soddisfare procedure di sviluppo software sicure in ogni fase del ciclo di vita.
+Seguiamo le fasi di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) per introdurre le attività e i servizi di Azure che puoi usare per soddisfare le procedure di sviluppo software sicure in ogni fase del ciclo di vita.
 
-Le fasi Di SDL sono:
+Le fasi SDL sono:
 
   - Formazione
   - Requisiti
@@ -51,33 +51,33 @@ Le fasi Di SDL sono:
 
 ![Security Development Lifecycle](./media/secure-dev-overview/01-sdl-phase.png)
 
-In questi articoli le fasi del processo SDL vengono raggruppate in fasi di progettazione, sviluppo e distribuzione.
+In questi articoli vengono raggruppate le fasi SDL per la progettazione, lo sviluppo e la distribuzione.
 
-## <a name="engage-your-organizations-security-team"></a>Coinvolgi il team di sicurezza della tua organizzazione
+## <a name="engage-your-organizations-security-team"></a>Coinvolgere il team di sicurezza dell'organizzazione
 
-L'organizzazione potrebbe disporre di un programma formale di sicurezza delle applicazioni che consente di accedere alle attività di sicurezza dall'inizio alla fine durante il ciclo di vita dello sviluppo. Se l'organizzazione dispone di team di sicurezza e conformità, assicurarsi di coinvolgerli prima di iniziare a sviluppare l'applicazione. Chiedere loro in ogni fase del processo SDL se vi sono attività che vi siete persi.
+È possibile che l'organizzazione disponga di un programma formale per la sicurezza delle applicazioni che assiste le attività di sicurezza dall'inizio alla fine durante il ciclo di vita dello sviluppo. Se l'organizzazione dispone di team di sicurezza e conformità, assicurarsi di coinvolgerli prima di iniziare a sviluppare l'applicazione. Chiedere a ogni fase del processo SDL se sono presenti attività mancanti.
 
-Siamo consapevoli che molti lettori potrebbero non avere un team di sicurezza o conformità da coinvolgere. Questi articoli possono aiutarvi a prendere in considerazione le domande e le decisioni sulla sicurezza che è necessario prendere in considerazione in ogni fase del livello SDL.
+È chiaro che molti lettori potrebbero non avere un team di sicurezza o conformità per impegnarsi. Questi articoli possono essere utili per le domande e le decisioni di sicurezza da prendere in considerazione in ogni fase del processo SDL.
 
 ## <a name="resources"></a>Risorse
 
-Usare le risorse seguenti per altre informazioni sullo sviluppo di applicazioni sicure e per proteggere le applicazioni in Azure:Use the following resources to learn more about developing secure applications and to help secure your applications on Azure:
+Usare le risorse seguenti per altre informazioni sullo sviluppo di applicazioni protette e per proteggere le applicazioni in Azure:
 
-[Microsoft Security Development Lifecycle (SDL):](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) Il processo di sviluppo software è un processo di sviluppo software di Microsoft che consente agli sviluppatori di creare software più sicuro. Consente di soddisfare i requisiti di conformità alla sicurezza riducendo al contempo i costi di sviluppo.
+[Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) : SDL è un processo di sviluppo software di Microsoft che consente agli sviluppatori di creare software più sicuro. Consente di soddisfare i requisiti di conformità della sicurezza riducendo al tempo stesso i costi di sviluppo.
 
-[Open Web Application Security Project (OWASP):](https://www.owasp.org/index.php/Main_Page) OWASP è una community online che produce articoli, metodologie, documentazione, strumenti e tecnologie disponibili gratuitamente nel campo della sicurezza delle applicazioni Web.
+[Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) : OWASP è una community online che produce articoli, metodologie, documentazione, strumenti e tecnologie disponibili gratuitamente nel settore della sicurezza delle applicazioni Web.
 
-[Pushing Left, Like a Boss](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) – Una serie di articoli online che delinea diversi tipi di attività di sicurezza delle applicazioni che gli sviluppatori dovrebbero completare per creare codice più sicuro.
+A [sinistra, come un capo,](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) una serie di articoli online che delineano diversi tipi di attività di sicurezza dell'applicazione che gli sviluppatori devono completare per creare codice più sicuro.
 
-[Piattaforma di identità Microsoft:](../../active-directory/develop/index.yml) la piattaforma di identità Microsoft è un'evoluzione del servizio di identità di Azure AD e della piattaforma per sviluppatori. Si tratta di una piattaforma completa che consiste in un servizio di autenticazione, librerie open source, registrazione e configurazione dell'applicazione, documentazione completa per sviluppatori, esempi di codice e altro contenuto per sviluppatori. La piattaforma di identità Microsoft supporta protocolli standard del settore come OAuth 2.0 e OpenID Connect.
+[Piattaforma](../../active-directory/develop/index.yml) di identità Microsoft: la piattaforma di identità Microsoft è un'evoluzione del servizio di identità Azure ad e della piattaforma per sviluppatori. Si tratta di una piattaforma con funzionalità complete costituita da un servizio di autenticazione, librerie open source, registrazione e configurazione dell'applicazione, documentazione completa per gli sviluppatori, esempi di codice e altri contenuti per gli sviluppatori. La piattaforma Microsoft Identity supporta protocolli standard di settore come OAuth 2,0 e OpenID Connect.
 
-Procedure consigliate per la sicurezza per le [soluzioni di Azure:](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) raccolta di procedure consigliate per la sicurezza da usare durante la progettazione, distribuzione e gestione di soluzioni cloud tramite Azure.Security best practices for Azure solutions – A collection of security best practices to use when you design, deploy, and manage cloud solutions by using Azure. Questo documento è destinato a essere una risorsa per i professionisti IT. Potrebbe trattarsi di designer, architetti, sviluppatori e tester che creano e distribuiscono soluzioni sicure per Azure.
+[Procedure di sicurezza consigliate per le soluzioni di Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) : una raccolta di procedure consigliate per la sicurezza da usare per la progettazione, la distribuzione e la gestione di soluzioni cloud con Azure. Questo documento è destinato a essere una risorsa per i professionisti IT. Potrebbe trattarsi di designer, architetti, sviluppatori e tester che creano e distribuiscono soluzioni sicure per Azure.
 
-[Blueprint di sicurezza e conformità in Azure:](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) i blueprint di sicurezza e conformità di Azure sono risorse che consentono di creare e lanciare applicazioni basate sul cloud conformi a normative e standard rigorosi.
+[Progetti di sicurezza e conformità in Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) : i progetti di sicurezza e conformità di Azure sono risorse che consentono di creare e avviare applicazioni basate sul cloud conformi a normative e standard rigorosi.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Negli articoli seguenti sono consigliati i controlli di sicurezza e le attività che consentono di progettare, sviluppare e distribuire applicazioni protette.
+Negli articoli seguenti si consigliano i controlli di sicurezza e le attività che consentono di progettare, sviluppare e distribuire applicazioni protette.
 
-- [Progettare applicazioni sicure](secure-design.md)
+- [Progettare applicazioni protette](secure-design.md)
 - [Sviluppare applicazioni sicure](secure-develop.md)
 - [Distribuire applicazioni sicure](secure-deploy.md)

@@ -1,5 +1,5 @@
 ---
-title: Gestire i dati cronologici nelle tabelle temporaliManage historical data in Temporal Tables
+title: Gestire i dati cronologici nelle tabelle temporali
 description: Informazioni su come usare criteri di conservazione temporale per tenere sotto controllo i dati cronologici.
 services: sql-database
 ms.service: sql-database
@@ -30,7 +30,7 @@ Dopo che sono stati definiti i criteri di conservazione, il database SQL di Azur
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ```
 
-Nell'esempio precedente si presuppone che la colonna **ValidTo** corrisponda alla fine di SYSTEM_TIME periodo.
+Nell'esempio precedente si presuppone che la colonna **ValidTo** corrisponda alla fine del periodo di SYSTEM_TIME.
 
 ## <a name="how-to-configure-retention-policy"></a>Come si configurano i criteri di conservazione?
 
@@ -41,7 +41,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-Il flag del database **is_temporal_history_retention_enabled** è ON per impostazione predefinita, ma gli utenti possono modificarlo con l'istruzione ALTER DATABASE. Viene inoltre impostato automaticamente su OFF dopo l'operazione di [ripristino temporizzato.](sql-database-recovery-using-backups.md) Per impostare la pulizia della cronologia temporale per il database eseguire l'istruzione seguente:
+Il flag del database **is_temporal_history_retention_enabled** è ON per impostazione predefinita, ma gli utenti possono modificarlo con l'istruzione ALTER DATABASE. Viene inoltre impostata automaticamente su OFF dopo l'operazione di [ripristino temporizzato](sql-database-recovery-using-backups.md) . Per impostare la pulizia della cronologia temporale per il database eseguire l'istruzione seguente:
 
 ```sql
 ALTER DATABASE <myDB>
@@ -110,17 +110,17 @@ L'attività di pulizia per columnstore in cluster rimuove interi [gruppi di righ
 
 ![Conservazione columnstore cluster](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
 
-Un'ottima compressione dei dati e una pulizia efficiente dei dati conservati fanno dell'indice columnstore cluster la soluzione ottimale per gli scenari in cui il carico di lavoro genera rapidamente volumi elevati di dati cronologici. Questo modello è tipico per carichi di lavoro di [elaborazione transazionale intensivi che usano tabelle temporali](https://msdn.microsoft.com/library/mt631669.aspx) per il rilevamento e il controllo delle modifiche, l'analisi delle tendenze o l'inserimento di dati IoT.That pattern is typical for intensive transactional processing workloads that use temporal tables for change tracking and auditing, trend analysis, or IoT data ingestion.
+Un'ottima compressione dei dati e una pulizia efficiente dei dati conservati fanno dell'indice columnstore cluster la soluzione ottimale per gli scenari in cui il carico di lavoro genera rapidamente volumi elevati di dati cronologici. Questo modello è tipico per i [carichi di lavoro di elaborazione transazionale intensivi che usano le tabelle temporali](https://msdn.microsoft.com/library/mt631669.aspx) per il rilevamento delle modifiche e il controllo, l'analisi delle tendenze o l'inserimento di dati.
 
 ## <a name="index-considerations"></a>Considerazioni sull'indice
 
 L'attività di pulizia per le tabelle con indice rowstore in cluster richiede che l'indice inizi con la colonna che corrisponde alla fine del periodo SYSTEM_TIME. Se questa colonna non esiste, non è possibile configurare un periodo di conservazione finito:
 
-*Msg 13765, Livello 16, Stato 1 <br> </br> Impostazione del periodo di conservazione finito non riuscita nella tabella temporale con controllo del sistema 'temporalstagetestdb.dbo.WebsiteUserInfo' perché la tabella di cronologia 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' non contiene l'indice cluster richiesto. Valutare la possibilità di creare un indice columnstore o B-tree cluster a partire dalla colonna che corrisponde alla fine di SYSTEM_TIME periodo nella tabella di cronologia.*
+*Il messaggio 13765, livello 16, stato <br> </br> 1 impostazione del periodo di conservazione finito sulla tabella temporale con controllo delle versioni di sistema ' temporalstagetestdb. dbo. WebsiteUserInfo ' non è riuscito perché la tabella di cronologia ' temporalstagetestdb. dbo. WebsiteUserInfoHistory ' non contiene l'indice cluster richiesto. Si consiglia di creare un indice columnstore cluster o albero B a partire dalla colonna che corrisponde alla fine del periodo di SYSTEM_TIME nella tabella di cronologia.*
 
 È importante notare che la tabella di cronologia predefinito già creata dal database SQL di Azure dispone già dell'indice in cluster, che è conforme a criteri di conservazione. Se si tenta di rimuovere l'indice in una tabella con periodo di conservazione definito, l'operazione ha esito negativo con l'errore seguente:
 
-*Msg 13766, Livello 16, Stato 1 <br> </br> Impossibile eliminare l'indice cluster 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory' perché viene utilizzato per la pulizia automatica dei dati obsoleti. Considerare l'impostazione di HISTORY_RETENTION_PERIOD su INFINITE nella tabella temporale con controllo delle versioni di sistema corrispondente se è necessario eliminare l'indice.*
+*Il messaggio 13766, livello 16, stato <br> </br> 1 non è in grado di eliminare l'indice cluster ' WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory ' perché è usato per la pulizia automatica dei dati obsoleti. Se è necessario eliminare l'indice, provare a impostare HISTORY_RETENTION_PERIOD su infinito nella tabella temporale con controllo delle versioni di sistema corrispondente.*
 
 La pulizia dell'indice columnstore in cluster funziona in modo ottimale se vengono inserite righe cronologiche in ordine crescente (ordinate in base alla fine della colonna del periodo); questo viene sempre applicato quando la tabella di cronologia viene popolata esclusivamente dal meccanismo SYSTEM_VERSIONIOING. Se le righe della tabella di cronologia non sono ordinate in base alla fine della colonna del periodo (ad esempio in caso di migrazione dei dati cronologici esistenti), è necessario ricreare un indice columnstore in cluster sull'indice rowstore B-tree ordinato in modo corretto, per ottenere prestazioni ottimali.
 
@@ -144,7 +144,7 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 
 Un tentativo di eseguire l'istruzione sopra indicata avrà esito negativo con l'errore seguente:
 
-*Msg 13772, Livello 16, Stato 1 <br> </br> Impossibile creare un indice non cluster in una tabella di cronologia temporale 'WebsiteUserInfoHistory' poiché ha periodo di conservazione finito e l'indice columnstore cluster definito.*
+*Il messaggio 13772, livello 16, stato <br> </br> 1 non è in grado di creare un indice non cluster in una tabella di cronologia temporale ' WebsiteUserInfoHistory ' perché contiene un periodo di conservazione finito e un indice columnstore cluster definito.*
 
 ## <a name="querying-tables-with-retention-policy"></a>Esecuzione di query su tabelle con criteri di conservazione
 

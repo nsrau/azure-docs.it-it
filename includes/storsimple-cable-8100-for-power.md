@@ -25,7 +25,7 @@ ms.locfileid: "67180184"
    
     **Cablaggio di alimentazione su un dispositivo 8100**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |Controller 1 |

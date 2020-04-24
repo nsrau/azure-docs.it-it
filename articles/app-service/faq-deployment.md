@@ -31,16 +31,16 @@ Di seguito sono riportate alcune opzioni per la pubblicazione del codice dell'ap
 
 Per altre informazioni, vedere [Distribuire l'app nel servizio app](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Viene visualizzato un messaggio di errore quando si prova a eseguire la distribuzione da Visual Studio. Come posso risolvere questo errore?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Viene visualizzato un messaggio di errore quando si prova a eseguire la distribuzione da Visual Studio. Ricerca per categorie risolvere l'errore?
 
-Se viene visualizzato il messaggio seguente, è possibile che si stia usando una versione precedente dell'SDK: "Si è verificato un errore durante la distribuzione per la risorsa 'YourResourceName' nel gruppo di risorse 'YourResourceGroup': MissingRegistrationForLocation: La sottoscrizione non è registrata per il tipo di risorsa 'components' nella località 'Stati Uniti centrali'. Registrarsi nuovamente per questo provider per avere accesso a questa posizione." 
+Se viene visualizzato il messaggio seguente, è possibile che si stia usando una versione precedente dell'SDK: "Si è verificato un errore durante la distribuzione per la risorsa 'YourResourceName' nel gruppo di risorse 'YourResourceGroup': MissingRegistrationForLocation: La sottoscrizione non è registrata per il tipo di risorsa 'components' nella località 'Stati Uniti centrali'. Ripetere la registrazione per questo provider per poter accedere a questo percorso. " 
 
 Per risolvere questo errore, eseguire l'aggiornamento all'[SDK più recente](https://azure.microsoft.com/downloads/). Se viene visualizzato questo messaggio e si ha l'SDK più recente, inviare una richiesta di supporto.
 
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Come si distribuisce un'applicazione ASP.NET da Visual Studio al servizio app?
 <a id="deployasp"></a>
 
-L'esercitazione [Creare la prima ASP.NET app Web in Azure in cinque minuti](app-service-web-get-started-dotnet.md) illustra come distribuire un'applicazione Web ASP.NET a un'app Web nel servizio app usando Visual Studio.The tutorial Create your first ASP.NET web app in Azure in five minutes shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio.
+L'esercitazione [creare la prima app web ASP.NET in Azure in cinque minuti](app-service-web-get-started-dotnet.md) illustra come distribuire un'applicazione Web ASP.NET in un'app Web nel servizio app usando Visual Studio.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quali sono i diversi tipi di servizi di credenziali di distribuzione?
 
@@ -52,7 +52,7 @@ Per informazioni sulla struttura dei file dell'app del servizio app, vedere [Str
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>Come si risolve il problema "Errore FTP 550. Spazio su disco insufficiente" quando si prova a caricare i file tramite FTP?
 
-Se viene visualizzato questo messaggio, è probabile che si stia eseguendo una quota disco nel piano di servizio per l'app Web. Potrebbe essere necessario passare a un livello di servizio superiore in base alle esigenze di spazio su disco. Per altre informazioni sui piani tariffari e i limiti delle risorse, vedere il [piano tariffario del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
+Se viene visualizzato questo messaggio, è probabile che sia in esecuzione una quota disco nel piano di servizio per l'app Web. Potrebbe essere necessario passare a un livello di servizio superiore in base alle esigenze di spazio su disco. Per altre informazioni sui piani tariffari e i limiti delle risorse, vedere il [piano tariffario del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Come si configura la distribuzione continua dell'app Web del servizio app?
 
@@ -66,7 +66,7 @@ Per informazioni sull'analisi dei problemi con la distribuzione continua da GitH
 
 Per risolvere i problemi FTP:
 
-1. Verificare che si sta immettendo il nome host e le credenziali corrette. Per informazioni dettagliate sui diversi tipi di credenziali e sul loro uso, vedere [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials) (Credenziali di distribuzione).
+1. Verificare di immettere il nome host e le credenziali corretti. Per informazioni dettagliate sui diversi tipi di credenziali e sul loro uso, vedere [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials) (Credenziali di distribuzione).
 2. Verificare che le porte FTP non siano bloccate da un firewall. Le porte devono avere le impostazioni seguenti:
     * Porta di connessione di controllo FTP: 21
     * Porta di connessione dati FTP: 989, 10001-10300
@@ -83,7 +83,7 @@ Per informazioni sulle circostanze in cui la distribuzione di un'applicazione pu
 
 Sono disponibili due opzioni per l'uso della distribuzione continua con Azure DevOps:
 
-*   Usare un progetto Git. Connettersi tramite il servizio app tramite il Centro distribuzione.
+*   Usare un progetto Git. Connettersi tramite il servizio app tramite il centro distribuzione.
 *   Usare un progetto di controllo della versione di Team Foundation. Eseguire la distribuzione usando l'agente di compilazione per il servizio app.
 
 La distribuzione continua di codice per entrambe le opzioni dipende dai flussi di lavoro di sviluppo esistenti e dalle procedure di archiviazione. Per altre informazioni, vedere questi articoli: 

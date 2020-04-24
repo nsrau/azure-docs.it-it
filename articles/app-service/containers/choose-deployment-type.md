@@ -1,6 +1,6 @@
 ---
-title: Opzioni di distribuzione per i contenitori LinuxDeployment options for Linux containers
-description: Decidere tra la distribuzione di contenitori Docker personalizzati, multi-contenitore e un framework di applicazione incorporato per il servizio app in Linux.Decide between custom Docker container deployment, multi-container and a built-in application framework for App Service on Linux.
+title: Opzioni di distribuzione per i contenitori Linux
+description: Decidere tra la distribuzione personalizzata del contenitore Docker, il multicontenitore e un Framework di applicazione incorporato per il servizio app in Linux.
 keywords: Servizio app di Azure, app Web, Linux, OSS
 author: msangapu-msft
 ms.topic: article
@@ -19,7 +19,7 @@ ms.locfileid: "74687505"
 Il [servizio app in Linux](app-service-linux-intro.md) offre tre percorsi diversi per pubblicare un'applicazione sul Web:
 
 - **Distribuzione di immagini personalizzate**: integrare l'app in un'immagine Docker che contiene tutti i file e le dipendenze in un pacchetto pronto per l'esecuzione.
-- **Distribuzione multi-contenitore:**"Dockerize" dell'app in più contenitori usando un file di configurazione Docker Compose.Multi-container deployment : "Dockerize" your app across multiple containers using a Docker Compose configuration file.
+- **Distribuzione multicontenitore**: "contenitore Docker" l'app in più contenitori usando un file di configurazione Docker compose.
 - **Distribuzione di app con un'immagine della piattaforma predefinita**: le immagini di piattaforma predefinite contengono runtime e dipendenze di app Web comuni, come Node e PHP. Usare uno qualsiasi dei [metodi di distribuzione di Servizio app di Azure](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per distribuire l'app nello spazio di archiviazione dell'app Web e quindi usare un'immagine della piattaforma predefinita per eseguirla.
 
 ## <a name="which-method-is-right-for-your-app"></a>Qual è il metodo più appropriato per l'app? 
@@ -40,13 +40,13 @@ Ecco i principali fattori da prendere in considerazione:
 Contenitore personalizzato:
 * [Eseguire il contenitore personalizzato](quickstart-docker-go.md)
 
-Multi-contenitore:
+Più contenitori:
 * [Creare un'app multicontenitore](quickstart-multi-container.md)
 
-Gli articoli seguenti consentono di iniziare a usare il servizio app in Linux con un'immagine della piattaforma incorporata:The following articles get you started with App Service on Linux with a built-in platform image:
+Gli articoli seguenti consentono di iniziare a usare il servizio app in Linux con un'immagine della piattaforma incorporata:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [Php](quickstart-php.md)
+* [PHP](quickstart-php.md)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)

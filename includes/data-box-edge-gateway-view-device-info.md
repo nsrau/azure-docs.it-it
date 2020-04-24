@@ -11,8 +11,8 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180607"
 ---
-1. [Connettersi all'interfaccia](#connect-to-the-powershell-interface)di PowerShell .
-2. Utilizzare `Get-HcsApplianceInfo` il per ottenere le informazioni per il dispositivo.
+1. [Connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
+2. Usare `Get-HcsApplianceInfo` per ottenere le informazioni per il dispositivo.
 
     Nell'esempio seguente viene illustrato l'utilizzo di questo cmdlet:
 
@@ -43,16 +43,16 @@ ms.locfileid: "67180607"
     IsRegistered                  : False
     ```
 
-    Ecco una tabella che riassume alcune delle informazioni importanti sul dispositivo:
+    Ecco una tabella che riepiloga alcune informazioni importanti sul dispositivo:
     
     | Parametro                             | Descrizione                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | Nome descrittivo del dispositivo configurato tramite l'interfaccia utente Web locale durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo.  |   |
-    | SerialNumber                   | Il numero di serie del dispositivo è un numero univoco assegnato in fabbrica.                                                                             |   |
+    | SerialNumber                   | Il numero di serie del dispositivo è un numero univoco assegnato alla Factory.                                                                             |   |
     | Modello                          | Modello per il dispositivo Data Box Edge o Data Box Gateway. Il modello è virtuale per Data Box Gateway e fisico per Data Box Edge.                   |   |
-    | FriendlySoftwareVersion        | Stringa descrittiva che corrisponde alla versione del software del dispositivo. Per un sistema che esegue l'anteprima, la versione software amichevole sarebbe Data Box Edge 1902. |   |
+    | FriendlySoftwareVersion        | Stringa descrittiva che corrisponde alla versione del software del dispositivo. Per un sistema che esegue l'anteprima, la versione del software descrittivo sarà Data Box Edge 1902. |   |
     | HcsVersion                     | Versione del software HCS in esecuzione nel dispositivo. Ad esempio, la versione del software HCS corrispondente a Data Box Edge 1902 è 1.4.771.324.            |   |
-    | LocalCapacityInMb              | La capacità locale totale del dispositivo in Megabits.                                                                                                        |   |
-    | IsRegistered (Registrato)                   | Questo valore indica se il dispositivo è attivato con il servizio.                                                                                         |   |
+    | LocalCapacityInMb              | Capacità locale totale del dispositivo in megabit.                                                                                                        |   |
+    | IsRegistered                   | Questo valore indica se il dispositivo è attivato con il servizio.                                                                                         |   |
 
 

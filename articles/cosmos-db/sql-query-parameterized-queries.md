@@ -1,6 +1,6 @@
 ---
-title: Query con parametri in Azure Cosmos DBParameterized queries in Azure Cosmos DB
-description: Informazioni su come le query con parametri SQL forniscono una gestione ed un'escapazione affidabili dell'input dell'utente e impediscono l'esposizione accidentale dei dati tramite SQL injection.
+title: Query con parametri in Azure Cosmos DB
+description: Informazioni sul modo in cui le query con parametri SQL forniscono una gestione efficace e l'escape dell'input dell'utente e impediscono l'esposizione accidentale dei dati tramite SQL injection.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -13,13 +13,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74870820"
 ---
-# <a name="parameterized-queries-in-azure-cosmos-db"></a>Query con parametri in Azure Cosmos DBParameterized queries in Azure Cosmos DB
+# <a name="parameterized-queries-in-azure-cosmos-db"></a>Query con parametri in Azure Cosmos DB
 
-Cosmos DB supporta le query con parametri espressi dalla notazione familiare. SQL con parametri fornisce una gestione ed un'escaping affidabili dell'input dell'utente e impedisce l'esposizione accidentale dei dati tramite SQL injection.
+Cosmos DB supporta le query con parametri espressi dalla nota @ Notation. SQL con parametri fornisce una gestione efficace e l'escape dell'input dell'utente e impedisce l'esposizione accidentale dei dati tramite SQL injection.
 
 ## <a name="examples"></a>Esempi
 
-Ad esempio, è possibile scrivere `lastName` `address.state` una query che accetta e `lastName` come `address.state` parametri ed eseguirla per vari valori di e in base all'input dell'utente.
+Ad esempio, è possibile scrivere una query che accetta `lastName` e `address.state` come parametri ed eseguirla per diversi valori di `lastName` e `address.state` in base all'input dell'utente.
 
 ```sql
     SELECT *
@@ -27,7 +27,7 @@ Ad esempio, è possibile scrivere `lastName` `address.state` una query che accet
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-È quindi possibile inviare questa richiesta a Cosmos DB come query JSON con parametri come segue:You can then send this request to Cosmos DB as a parameterized JSON query like the following:
+È quindi possibile inviare questa richiesta a Cosmos DB come query JSON con parametri come la seguente:
 
 ```sql
     {
@@ -50,7 +50,7 @@ Nell'esempio seguente viene impostato l'argomento TOP con una query con parametr
     }
 ```
 
-I valori dei parametri possono essere qualsiasi JSON valido: stringhe, numeri, valori booleani, null, matrici uniformi o JSON annidato. Poiché Cosmos DB è privo di schema, i parametri non vengono convalidati in base a qualsiasi tipo.
+I valori dei parametri possono essere qualsiasi JSON valido: stringhe, numeri, valori booleani, valori null, persino matrici o JSON annidato. Poiché Cosmos DB è senza schema, i parametri non vengono convalidati rispetto a qualsiasi tipo.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

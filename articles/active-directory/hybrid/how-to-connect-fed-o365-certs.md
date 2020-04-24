@@ -36,7 +36,7 @@ Questo articolo fornisce informazioni aggiuntive per gestire i certificati per l
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Configurazione predefinita di AD FS per i certificati per la firma di token
 I certificati di decrittografia token e per la firma di token sono in genere certificati autofirmati e sono validi per un anno. Per impostazione predefinita, AD FS include un processo di rinnovo automatico denominato **AutoCertificateRollover**. Se si usa AD FS 2.0 o versione successiva, Office 365 e Azure AD aggiornano automaticamente il certificato prima della scadenza.
 
-### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Notifica di rinnovo dall'interfaccia di amministrazione di Microsoft 365 o da un messaggio di posta elettronicaRenewal notification from the Microsoft 365 admin center or an email
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Notifica di rinnovo dall'interfaccia di amministrazione di Microsoft 365 o da un messaggio di posta elettronica
 > [!NOTE]
 > Se si è ricevuta una notifica di posta elettronica o un avviso nel portale con la richiesta di rinnovare il certificato per Office, vedere la sezione sulla [gestione delle modifiche ai certificati per la firma di token](#managecerts) per verificare se è necessario intraprendere un'azione. Microsoft è a conoscenza di un possibile problema che può comportare l'invio di notifiche per il rinnovo dei certificati, anche quando non è richiesta alcuna azione.
 >
@@ -44,8 +44,8 @@ I certificati di decrittografia token e per la firma di token sono in genere cer
 
 Azure AD prova a monitorare i metadati della federazione e ad aggiornare i certificati per la firma di token come indicato dai metadati. 30 giorni prima della scadenza dei certificati per la firma di token, Azure AD verifica se i nuovi certificati sono disponibili eseguendo il poll dei metadati della federazione.
 
-* Se è possibile eseguire correttamente il polling dei metadati federativi e recuperare i nuovi certificati, non viene rilasciata alcuna notifica o avviso di posta elettronica nell'interfaccia di amministrazione di Microsoft 365 per l'utente.
-* Se non è possibile recuperare i nuovi certificati per la firma di token, perché i metadati federativi non sono raggiungibili o il rollover automatico dei certificati non è abilitato, Azure AD invia una notifica tramite posta elettronica e un avviso nell'interfaccia di amministrazione di Microsoft 365.If it cannot retrieve the new token signing certificates, either because the federation metadata is not reachable or automatic certificate rollover is not enabled, Azure AD issues an email notification and a warning in the Microsoft 365 admin center.
+* Se è possibile eseguire il polling dei metadati di Federazione e recuperare i nuovi certificati, non viene inviata alcuna notifica di posta elettronica o avviso nell'Microsoft 365 interfaccia di amministrazione.
+* Se non è possibile recuperare i nuovi certificati per la firma di token, perché i metadati della Federazione non sono raggiungibili o il rollover automatico dei certificati non è abilitato, Azure AD invia una notifica di posta elettronica e un avviso nell'interfaccia di amministrazione di Microsoft 365.
 
 ![Notifica del portale di Office 365](./media/how-to-connect-fed-o365-certs/notification.png)
 
@@ -118,7 +118,7 @@ Verificare quanto segue per assicurarsi che il certificato possa essere aggiorna
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-dove `(your_FS_name)` viene sostituito con il nome host del servizio federativo utilizzato dall'organizzazione, ad esempio fs.contoso.com.  Se si è in grado di verificare entrambe le impostazioni correttamente, non occorre eseguire altre operazioni.  
+dove `(your_FS_name)` viene sostituito con il nome host del servizio federativo usato dall'organizzazione, ad esempio FS.contoso.com.  Se si è in grado di verificare entrambe le impostazioni correttamente, non occorre eseguire altre operazioni.  
 
 Esempio: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## <a name="renew-the-token-signing-certificate-manually"></a>Rinnovare manualmente il certificato per la firma di token <a name="manualrenew"></a>

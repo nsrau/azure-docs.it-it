@@ -140,7 +140,7 @@ In questa sezione si configura Docker per caricare i file di modello dei disposi
 
 Se si prevede di esplorare la soluzione ulteriormente, mantenere distribuito l'acceleratore di soluzione Monitoraggio remoto.
 
-Se l'acceleratore di soluzioni non è più necessario, eliminarlo dalla pagina [Soluzioni](https://www.azureiotsolutions.com/Accelerators#dashboard) di cui è stato eseguito il provisioning selezionandolo e quindi facendo clic su **Elimina soluzione**.
+Se l'acceleratore di soluzione non è più necessario, eliminarlo dalla pagina soluzioni di cui è stato effettuato il [provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard) , selezionandolo e quindi facendo clic su **Elimina soluzione**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

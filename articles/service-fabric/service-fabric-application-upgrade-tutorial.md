@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sull'aggiornamento dell'app Service FabricService Fabric app upgrade tutorial
+title: Esercitazione sull'aggiornamento dell'app Service Fabric
 description: Questo articolo esamina l'esperienza di distribuzione di un'applicazione di Service Fabric, la modifica del codice e l'implementazione di un aggiornamento tramite Visual Studio.
 ms.topic: conceptual
 ms.date: 2/23/2018
@@ -12,7 +12,7 @@ ms.locfileid: "75464817"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio
 > [!div class="op_single_selector"]
-> * [Powershell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
@@ -30,7 +30,7 @@ Selezionando **Pubblica** viene visualizzata una finestra popup in cui è possib
 
 ![Pubblicazione di un'applicazione di Service Fabric][image2]
 
-Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Oggetti visivi dispone di un [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) servizio Web a cui è possibile accedere digitando nella barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
+Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione oggetti visivi dispone di un servizio Web a cui è possibile accedere [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) digitando nella barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
 
 **NOTA:** in caso di distribuzione nel profilo `Cloud.xml` (Azure Service Fabric), l'applicazione deve quindi essere disponibile all'indirizzo **http://{NomeServiceFabric}.{Area}.cloudapp.azure.com:8081/visualobjects/**. Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
 
@@ -63,7 +63,7 @@ In pochi minuti tutti i domini di aggiornamento devono essere aggiornati (comple
 Come esercitazione, è possibile provare a cambiare le versioni e a passare dalla versione 2.0.0 alla versione 3.0.0 oppure addirittura dalla versione 2.0.0 alla versione 1.0.0. Esercitarsi inoltre con i timeout e i criteri di integrità per acquisire familiarità anche con questi concetti. Quando si esegue la distribuzione in un cluster di Azure, invece che in un cluster locale, i parametri usati possono essere diversi. È consigliabile impostare i timeout su valori contenuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[L'aggiornamento dell'applicazione tramite PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) illustra un aggiornamento dell'applicazione tramite PowerShell.Upgrading your application using PowerShell walks you through an application upgrade using PowerShell.
+L' [aggiornamento dell'applicazione tramite PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) illustra l'aggiornamento di un'applicazione tramite PowerShell.
 
 Controllare l'aggiornamento dell'applicazione tramite i [parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
 

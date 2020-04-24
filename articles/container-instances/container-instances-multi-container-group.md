@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Distribuire un gruppo multicontenitore - modelloTutorial - Deploy multi-container group - template
-description: In this tutorial, you learn how to deploy a container group with multiple containers in Azure Container Instances by using an Azure Resource Manager template with the Azure CLI.
+title: Esercitazione-distribuire un gruppo di più contenitori-modello
+description: Questa esercitazione illustra come distribuire un gruppo di contenitori con più contenitori in istanze di contenitore di Azure usando un modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure.
 ms.topic: article
 ms.date: 04/03/2019
 ms.custom: mvc
@@ -11,22 +11,22 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533631"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Esercitazione: Distribuire un gruppo multicontenitore usando un modello di Resource ManagerTutorial: Deploy a multi-container group using a Resource Manager template
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Esercitazione: distribuire un gruppo multicontenitore con un modello di Gestione risorse
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
 > * [Gestione risorse](container-instances-multi-container-group.md)
 
-Istanze di Azure Container supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). Un gruppo di contenitori è utile quando si compila un sidecar dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio richiede un secondo processo collegato.
+Istanze di Azure Container supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). Un gruppo di contenitori è utile quando si compila un'applicazione sidecar per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo collegato.
 
-In this tutorial, you follow steps to run a simple two-container sidecar configuration by deploying an Azure Resource Manager template using the Azure CLI. Si apprenderà come:
+In questa esercitazione si seguono i passaggi per eseguire una semplice configurazione sidecar a due contenitori distribuendo un modello di Azure Resource Manager usando l'interfaccia della riga di comando di Azure. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Configurare un modello di gruppo multicontenitoreConfigure a multi-container group template
+> * Configurare un modello di gruppo a più contenitori
 > * Distribuire il gruppo di contenitori
-> * Visualizzare i registri dei contenitori
+> * Visualizzare i log dei contenitori
 
-Un modello di Resource Manager può essere facilmente adattato per gli scenari quando è necessario distribuire risorse di servizio di Azure aggiuntive (ad esempio, una condivisione File di Azure o una rete virtuale) con il gruppo di contenitori. 
+Un modello di Gestione risorse può essere facilmente adattato per gli scenari in cui è necessario distribuire altre risorse dei servizi di Azure (ad esempio, una condivisione File di Azure o una rete virtuale) con il gruppo di contenitori. 
 
 > [!NOTE]
 > I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="configure-a-template"></a>Configurare un modello
 
-Iniziare copiando il codice JSON `azuredeploy.json`seguente in un nuovo file denominato . In Azure Cloud Shell è possibile usare Visual Studio Code per creare il file nella directory di lavoro:In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
+Per iniziare, copiare il codice JSON seguente in un nuovo `azuredeploy.json`file denominato. In Azure Cloud Shell, è possibile usare Visual Studio Code per creare il file nella directory di lavoro:
 
 ```
 code azuredeploy.json
@@ -177,7 +177,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Visualizzare i log dei contenitori
 
-Visualizzare l'output del log di un contenitore con il comando [az container logs][az-container-logs]. L'argomento `--container-name` specifica il contenitore da cui effettuare il pull dei log. In questo esempio `aci-tutorial-app` viene specificato il contenitore.
+Visualizzare l'output del log di un contenitore con il comando [az container logs][az-container-logs]. L'argomento `--container-name` specifica il contenitore da cui effettuare il pull dei log. In questo esempio viene specificato `aci-tutorial-app` il contenitore.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -192,7 +192,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Per visualizzare i log per il contenitore sidecar, eseguire un comando simile che specifica il `aci-tutorial-sidecar` contenitore.
+Per visualizzare i log per il contenitore sidecar, eseguire un comando simile che specifichi `aci-tutorial-sidecar` il contenitore.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -218,20 +218,20 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Come si può notare, il contenitore collaterale invia periodicamente una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo per verificare che l'applicazione sia in esecuzione. Questo esempio di sidecar può essere espanso per attivare `200 OK`un avviso se ha ricevuto un codice di risposta HTTP diverso da .
+Come si può notare, il contenitore collaterale invia periodicamente una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo per verificare che l'applicazione sia in esecuzione. Questo esempio di sidecar può essere espanso per attivare un avviso se è stato ricevuto un codice di risposta `200 OK`http diverso da.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In this tutorial, you used an Azure Resource Manager template to deploy a multi-container group in Azure Container Instances. Si è appreso come:
+In questa esercitazione è stato usato un modello di Azure Resource Manager per distribuire un gruppo di più contenitori in istanze di contenitore di Azure. Si è appreso come:
 
 > [!div class="checklist"]
-> * Configurare un modello di gruppo multicontenitoreConfigure a multi-container group template
+> * Configurare un modello di gruppo a più contenitori
 > * Distribuire il gruppo di contenitori
-> * Visualizzare i registri dei contenitori
+> * Visualizzare i log dei contenitori
 
-Per altri esempi di modelli, vedere Modelli di [Azure Resource Manager per le istanze dei contenitori](container-instances-samples-rm.md)di Azure.For additional template samples, see Azure Resource Manager templates for Azure Container Instances.
+Per altri esempi di modelli, vedere [modelli di Azure Resource Manager per istanze di contenitore di Azure](container-instances-samples-rm.md).
 
-È inoltre possibile specificare un gruppo multicontenitore utilizzando un [file YAML](container-instances-multi-container-yaml.md). A causa della natura più concisa del formato YAML, la distribuzione con un file YAML è una buona scelta quando la distribuzione include solo istanze del contenitore.
+È anche possibile specificare un gruppo di più contenitori usando un [file YAML](container-instances-multi-container-yaml.md). A causa della natura più concisa del formato YAML, la distribuzione con un file YAML è una scelta ottimale quando la distribuzione include solo istanze di contenitore.
 
 
 <!-- LINKS - Internal -->

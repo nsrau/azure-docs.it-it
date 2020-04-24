@@ -42,11 +42,11 @@ Quando si collegano più account di archiviazione a un account di Servizi multim
 
 Altre considerazioni:
 
-Servizi multimediali utilizza il valore della proprietà **IAssetFile.Name** durante la creazione di URL per il contenuto in streaming (ad esempio, http:// WAMSAccount.origin.mediaservices.windows.net/net/'GUID / IAssetFile.Name/streamingParameters). Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione di URL per il contenuto di streaming, ad esempio http://{WAMSAccount}. Origin. MediaServices. Windows. NET/{GUID}/{IAssetFile. Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
 ## <a name="to-attach-storage-accounts"></a>Per collegare account di archiviazione  
 
-Per collegare gli account di archiviazione all'account AMS, usare le API di Azure Resource Manager e [Powershell,](/powershell/module/az.media)come illustrato nell'esempio seguente:To attach storage accounts to your AMS account, use [Azure Resource Manager APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) and Powershell , as shown in the following example:
+Per alleghi gli account di archiviazione all'account AMS, usare [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) e [PowerShell](/powershell/module/az.media), come illustrato nell'esempio seguente:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -280,6 +280,6 @@ namespace MultipleStorageAccounts
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

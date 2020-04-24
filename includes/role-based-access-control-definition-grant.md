@@ -15,4 +15,4 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "74707813"
 ---
-Il controllo degli accessi in base al ruolo di Azure è il sistema di autorizzazione usato per gestire l'accesso alle risorse di [Azure.Azure role-based access control (RBAC)](../articles/role-based-access-control/overview.md) is the authorization system you use to manage access to Azure resources. Per concedere l'accesso, assegnare ruoli a utenti, gruppi, entità servizio o identità gestite in un determinato ambito.
+Il [controllo degli accessi in base al ruolo (RBAC) di Azure](../articles/role-based-access-control/overview.md) è il sistema di autorizzazione usato per gestire l'accesso alle risorse di Azure. Per concedere l'accesso, assegnare i ruoli a utenti, gruppi, entità servizio o identità gestite in un ambito specifico.

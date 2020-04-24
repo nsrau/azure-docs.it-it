@@ -22,8 +22,8 @@ ms.locfileid: "70813630"
 Questo articolo descrive come gestire account, origini dati, processi e utenti di Azure Data Lake Analytics usando un'app scritta con l'SDK Java di Azure. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Java Development Kit (JDK) 8** (utilizzando Java versione 1.8).
-* **IntelliJ** o un altro ambiente di sviluppo Java adatto. Le istruzioni in questo documento sono relative a IntelliJ.
+* **Java Development Kit (JDK) 8** (con java versione 1,8).
+* **IntelliJ** o un altro ambiente di sviluppo Java appropriato. Le istruzioni in questo documento sono relative a IntelliJ.
 * Creare un'applicazione Azure Active Directory (AAD) e recuperarne **ID client**, **ID tenant** e **chiave**. Per altre informazioni sulle applicazioni AAD e le istruzioni su come ottenere un ID client, vedere [Usare il portale per creare un'applicazione di Active Directory che acceda alle risorse](../active-directory/develop/howto-create-service-principal-portal.md). Dopo aver creato l'applicazione e generato la chiave, anche l'URI di risposta e la chiave saranno disponibili dal portale.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Autenticazione tramite Azure Active Directory
@@ -78,7 +78,7 @@ Il frammento di codice seguente contiene il codice per l'autenticazione **non in
 
 Passare a **File > Settings (Impostazioni) > Build (Compilazione) > Execution (Esecuzione) > Deployment (Distribuzione)**. Selezionare **Build Tools (Strumenti di compilazione) > Maven > Importing (Importazione)**. Selezionare **Import Maven projects automatically**(Importa automaticamente progetti Maven).
 
-Aprire `Main.java` e sostituire il blocco di codice esistente con il codice seguente:Open and replace the existing code block with the following code:
+Aprire `Main.java` e sostituire il blocco di codice esistente con il codice seguente:
 
 ```java
 import com.microsoft.azure.CloudException;
@@ -320,5 +320,5 @@ Fornire i valori per i parametri indicati nel frammento di codice:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) e [U-SQL language reference](https://docs.microsoft.com/u-sql/) (Riferimenti al linguaggio U-SQL).
-* Per le attività di gestione, vedere Gestire Azure Data Lake Analytics tramite il portale di Azure.For management tasks, see [Manage Azure Data Lake Analytics using Azure portal.](data-lake-analytics-manage-use-portal.md)
+* Per le attività di gestione, vedere [manage Azure Data Lake Analytics using portale di Azure](data-lake-analytics-manage-use-portal.md).
 * Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).

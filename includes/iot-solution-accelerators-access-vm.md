@@ -17,7 +17,7 @@ ms.locfileid: "68781464"
 ---
 ## <a name="access-the-virtual-machine"></a>Accesso alla macchina virtuale
 
-The following steps use the Azure CLI in Azure Cloud Shell. Se si preferisce, è possibile [installare l'interfaccia della riga di comando](/cli/azure/install-azure-cli) di Azure nel computer di sviluppo ed eseguire i comandi in locale.
+I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure Cloud Shell. Se si preferisce, è possibile [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure nel computer di sviluppo ed eseguire i comandi localmente.
 
 I passaggi seguenti mostrano come configurare la macchina virtuale di Azure per consentire l'accesso **SSH**. I passaggi illustrati presuppongono che il nome scelto per l'acceleratore di soluzioni sia **contoso-simulation**. Sostituire questo valore con il nome della distribuzione:
 
@@ -35,7 +35,7 @@ I passaggi seguenti mostrano come configurare la macchina virtuale di Azure per 
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Abilitare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [è necessario disabilitarlo di nuovo il prima possibile](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines).
+    Abilitare l'accesso SSH solo durante il test e lo sviluppo. Se si Abilita SSH, [è necessario disabilitarlo di nuovo il prima possibile](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines).
 
 1. Aggiornare la password dell'account **azureuser** nella macchina virtuale con una password conosciuta. Scegliere la propria password quando si esegue questo comando:
 

@@ -1,6 +1,6 @@
 ---
-title: Deprecazione della funzionalità di crittografia dei dati di Azure Site Recovery Documenti Microsoft
-description: Dettagli regolare la funzionalità di crittografia dei dati di Azure Site RecoveryDetails regarig Azure Site Recovery data encryption feature
+title: Deprecazione della funzionalità di crittografia dei dati Azure Site Recovery | Microsoft Docs
+description: Dettagli regarig Azure Site Recovery funzionalità di crittografia dei dati
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -15,33 +15,33 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74134996"
 ---
-# <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Deprecata la funzionalità di crittografia dei dati di Site Recovery
+# <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Funzionalità di crittografia dei dati Site Recovery deprecata
 
-Questo documento descrive i dettagli di deprecazione e l'azione di correzione da eseguire se si usa la funzionalità di crittografia dei dati di Site Recovery durante la configurazione del ripristino di emergenza delle macchine virtuali Hyper-V in Azure.This document describes the deprecation details and the remediation action you need to take if you are using the Site Recovery data encryption feature while configuring disaster recovery of Hyper-V virtual machines to Azure. 
+Questo documento descrive i dettagli di deprecazione e l'azione di correzione che è necessario eseguire se si usa la funzionalità di crittografia dei dati Site Recovery durante la configurazione del ripristino di emergenza di macchine virtuali Hyper-V in Azure. 
 
-## <a name="deprecation-information"></a>Informazioni sulla deprecazione
+## <a name="deprecation-information"></a>Informazioni di deprecazione
 
 
-La funzionalità di crittografia dei dati di Site Recovery era disponibile per i clienti che proteggono le macchine virtuali Hyper-V per garantire che i dati replicati siano protetti da minacce alla sicurezza. questa funzionalità sarà deprecata entro il **30 dicembre 2019**. Viene sostituito dalla funzionalità [crittografia al rest](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) più avanzata, che utilizza la crittografia del servizio di [archiviazione](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE). Con SSE, i dati vengono crittografati prima di essere resipersistenti nell'archiviazione e decrittografati al momento del recupero e, dopo il failover in Azure, le macchine virtuali verranno eseguite dagli account di archiviazione crittografati, consentendo un migliore obiettivo di tempo di ripristino (RTO).
+La funzionalità di crittografia dei dati Site Recovery è disponibile per i clienti che proteggono le VM Hyper-V per garantire che i dati replicati siano protetti da minacce per la sicurezza. Questa funzionalità verrà deprecata entro il **30 dicembre 2019**. Viene sostituita dalla funzionalità [crittografia](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) inattiva più avanzata, che usa [crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE). Con SSE i dati vengono crittografati prima di essere salvati in modo permanente nell'archiviazione e decrittografati durante il recupero e, al momento del failover in Azure, le macchine virtuali vengono eseguite dagli account di archiviazione crittografati, consentendo un obiettivo del tempo di recupero migliorato (RTO).
 
-Si prega di notare che se sei un cliente esistente che utilizza questa funzione, si sarebbe ricevuto comunicazioni con i dettagli di deprecazione e la procedura di correzione. 
+Si noti che, se si è un cliente esistente che utilizza questa funzionalità, si riceveranno le comunicazioni con i dettagli di deprecazione e le procedure di correzione. 
 
 
 ## <a name="what-are-the-implications"></a>Quali sono le implicazioni?
 
-Dopo il **30 dicembre 2019**, le macchine virtuali che usano ancora la funzionalità di crittografia ritirata non potranno eseguire il failover. 
+Dopo il **30 dicembre 2019**, le macchine virtuali che usano ancora la funzionalità di crittografia ritirata non saranno autorizzati a eseguire il failover. 
 
-## <a name="required-action"></a>Azione richiesta
-Per continuare le operazioni di failover riuscite e le repliche, attenersi alla procedura descritta di seguito:
+## <a name="required-action"></a>Azione obbligatoria
+Per continuare correttamente le operazioni di failover e le repliche seguono i passaggi indicati di seguito:
 
-Seguire questi passaggi per ogni macchina virtuale:Follow these steps for each VM: 
+Seguire questa procedura per ogni macchina virtuale: 
 1.  [Disabilitare la replica](https://docs.microsoft.com/azure/site-recovery/site-recovery-manage-registration-and-protection#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
-2.  [Creare un nuovo criterio di replica.](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-tutorial#set-up-a-replication-policy)
-3.  [Abilitare la replica](https://docs.microsoft.com/azure/site-recovery/hyper-v-vmm-azure-tutorial#enable-replication) e selezionare un account di archiviazione con SSE abilitato.
+2.  [Creare nuovi criteri di replica](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-tutorial#set-up-a-replication-policy).
+3.  [Abilitare la replica](https://docs.microsoft.com/azure/site-recovery/hyper-v-vmm-azure-tutorial#enable-replication) e selezionare un account di archiviazione con la crittografia SSE abilitata.
 
-Dopo aver completato la replica iniziale agli account di archiviazione con SSE abilitato, le macchine virtuali utilizzeranno la crittografia inattivi con Azure Site Recovery.After completing the initial replication to storage accounts with SSE enabled, your VMs will be using Encryption at Rest with Azure Site Recovery.
+Dopo aver completato la replica iniziale negli account di archiviazione con la crittografia SSE abilitata, le macchine virtuali useranno la crittografia dei computer inattivi con Azure Site Recovery.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Pianificare l'esecuzione dei passaggi di correzione ed eseguirli al più presto. Nel caso in cui si dispone di eventuali domande relative a questa deprecazione, si prega di contattare il supporto tecnico Microsoft. Per altre informazioni sullo scenario da Hyper-V ad Azure, fare riferimento [qui](hyper-v-vmm-architecture.md).
+Pianificare l'esecuzione dei passaggi correttivi ed eseguirli al più presto. Se sono presenti query relative a questa deprecazione, contattare supporto tecnico Microsoft. Per altre informazioni sullo scenario da Hyper-V ad Azure, vedere [qui](hyper-v-vmm-architecture.md).
 

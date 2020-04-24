@@ -24,7 +24,7 @@ Attenersi alla seguente procedura per autorizzare l'app per la logica a connette
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 2. Se non sono mai state create connessioni a OneDrive prima d'ora, verrà chiesto di effettuare l'accesso usando le credenziali di OneDrive:  
    ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-3. Fare clic su **Accedi**, quindi immettere il nome utente e la password. Fare clic su **Accedi**:  
+3. Fare clic su **Accedi**, quindi immettere il nome utente e la password. Selezionare **Accedi**:  
    ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
    
     Queste credenziali vengono usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati presenti nell'account OneDrive. 

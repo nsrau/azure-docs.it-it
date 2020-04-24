@@ -40,7 +40,7 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
 
 ## <a name="python-only"></a>Solo Python
 
-Vedere Usare Python con Apache Storm in HDInsight per un esempio di componenti Python con una topologia Flux.See [Use Python with Apache Storm on HDInsight](apache-storm-develop-python-topology.md) for an example of Python components with a Flux topology.
+Vedere [usare Python con Apache Storm in HDInsight](apache-storm-develop-python-topology.md) per un esempio di componenti Python con una topologia Flux.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

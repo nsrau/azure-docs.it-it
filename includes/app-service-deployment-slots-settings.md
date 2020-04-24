@@ -11,22 +11,22 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "71129686"
 ---
-Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Alcuni elementi di configurazione seguono il contenuto in uno scambio (non specifico dello slot), mentre altri elementi di configurazione rimangono nello stesso slot dopo uno scambio (specifico dello slot). Negli elenchi seguenti sono riportate le impostazioni che vengono modificate durante lo scambio degli slot.
+Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Alcuni elementi di configurazione seguono il contenuto in uno scambio (non specifico dello slot), mentre altri elementi di configurazione si mantengono nello stesso slot dopo uno scambio (specifico dello slot). Negli elenchi seguenti sono riportate le impostazioni che vengono modificate durante lo scambio degli slot.
 
 **Impostazioni che vengono scambiate**:
 
-* Impostazioni generali, ad esempio la versione del framework, 32/64 bit, socket Web
+* Impostazioni generali, ad esempio versione del Framework, 32/64 bit, Web socket
 * Impostazioni app (possono essere configurate per adattarsi a uno slot)
 * Stringhe di connessione (possono essere configurate per adattarsi a uno slot)
 * Mapping dei gestori
 * Certificati pubblici
 * Contenuto WebJobs
-* Connessioni ibride
-* Integrazione con la rete virtuale
-* Endpoint di servizio
-* Rete per la distribuzione di contenuti di Azure
+* Connessioni ibride *
+* Integrazione della rete virtuale *
+* Endpoint di servizio *
+* Rete per la distribuzione di contenuti di Azure *
 
-È prevista l'unswapped delle feature contrassegnate con un asterisco. 
+Le funzionalità contrassegnate con un asterisco (*) sono pianificate per lo scambio. 
 
 **Impostazioni che non vengono scambiate**:
 
@@ -37,9 +37,9 @@ Quando si clona la configurazione da un altro slot di distribuzione, la configur
 * Utilità di pianificazione WebJobs
 * Restrizioni IP
 * Always On
-* Impostazioni del registro di diagnostica
-* Condivisione delle risorse tra origini (CORS)
+* Impostazioni del log di diagnostica
+* Condivisione di risorse tra le origini (CORS)
 
 > [!NOTE]
-> Anche alcune impostazioni dell'app che si applicano alle impostazioni non scambiate non vengono scambiate. Ad esempio, poiché le impostazioni del log `WEBSITE_HTTPLOGGING_RETENTION_DAYS` di `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` diagnostica non vengono scambiate, anche le impostazioni dell'app correlate, ad esempio e non vengono scambiate, anche se non vengono visualizzate come impostazioni dello slot.
+> Anche alcune impostazioni di app che si applicano alle impostazioni non scambiate non vengono scambiate. Ad esempio, poiché le impostazioni del log di diagnostica non vengono scambiate, le `WEBSITE_HTTPLOGGING_RETENTION_DAYS` impostazioni `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` dell'app correlate come e non vengono scambiate anche se non vengono visualizzate come impostazioni dello slot.
 >

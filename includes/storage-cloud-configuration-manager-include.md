@@ -11,9 +11,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "72038161"
 ---
-La [libreria di Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) fornisce una classe per l'analisi della stringa di connessione da un file di configurazione. La classe [CloudConfigurationManager](https://msdn.microsoft.com/library/azure/mt634650.aspx) analizza le impostazioni di configurazione. Analizza le impostazioni per le applicazioni client eseguite sul desktop, in un dispositivo mobile, in una macchina virtuale di Azure o in un servizio cloud di Azure.It parses settings for client applications that run on the desktop, on a mobile device, in an Azure virtual machine, or in an Azure cloud service.
+La [libreria di Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) fornisce una classe per l'analisi della stringa di connessione da un file di configurazione. La classe [CloudConfigurationManager](https://msdn.microsoft.com/library/azure/mt634650.aspx) analizza le impostazioni di configurazione. Analizza le impostazioni per le applicazioni client in esecuzione sul desktop, su un dispositivo mobile, in una macchina virtuale di Azure o in un servizio cloud di Azure.
 
-Per fare `CloudConfigurationManager` riferimento al `using` pacchetto, aggiungere le direttive seguenti:To reference the package, add the following directives:
+Per fare riferimento `CloudConfigurationManager` al pacchetto, aggiungere le `using` direttive seguenti:
 
 ```csharp
 using Microsoft.Azure; //Namespace for CloudConfigurationManager
@@ -28,4 +28,4 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 ```
 
-L'uso di Gestione configurazione di Azure è facoltativo. È inoltre possibile utilizzare un'API, ad esempio la [classe ConfigurationManager](/dotnet/api/system.configuration.configurationmanager)di .NET Framework.
+L'uso di Gestione configurazione di Azure è facoltativo. È anche possibile usare un'API, ad esempio la [classe ConfigurationManager](/dotnet/api/system.configuration.configurationmanager)del .NET Framework.

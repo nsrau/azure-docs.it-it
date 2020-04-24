@@ -1,5 +1,5 @@
 ---
-title: Esercitazione Usare l'identità gestita per accedere ad Archiviazione di Azure usando le credenziali di archiviazione della rete di sicurezza - Azure ADTutorial`:` Use managed identity to access Azure Storage using SAS credential - Azure AD
+title: Esercitazione`:` usare identità gestita per accedere ad archiviazione di Azure usando le credenziali SAS-Azure ad
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso anziché tramite una chiave di accesso dell'account di archiviazione.
 services: active-directory
 documentationcenter: ''
@@ -86,7 +86,7 @@ Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macch
 In questa sezione è necessario usare i cmdlet PowerShell di Azure Resource Manager.  Se non è già stato installato, [scaricare la versione più recente](https://docs.microsoft.com/powershell/azure/overview) prima di continuare.
 
 1. Nel portale di Azure passare a **Macchine virtuali** selezionare la propria VM Windows, quindi nella pagina **Panoramica** fare clic su **Connetti** nella parte superiore.
-2. Immettere il **nome utente** e la password per cui è stata aggiunta la macchina virtuale di Windows.Enter in your Username and **Password** for which you added when you created the Windows VM. 
+2. Immettere il **nome utente** e la **password** per i quali è stato aggiunto al momento della creazione della macchina virtuale Windows. 
 3. Ora che si è creata una **connessione Desktop remoto** con la macchina virtuale, aprire PowerShell nella sessione remota. 
 4. Usando Invoke-WebRequest di PowerShell, eseguire una richiesta all'endpoint locale dell'identità gestita per le risorse di Azure per ottenere un token di accesso per Azure Resource Manager.
 
@@ -205,6 +205,6 @@ Name              : testblob
 Questa esercitazione ha illustrato come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso.  Per altre informazioni su Archiviazione di Azure SAS, consultare:
 
 > [!div class="nextstepaction"]
->[Uso delle firme di accesso condiviso](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+>[Uso delle firme di accesso condiviso (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
 

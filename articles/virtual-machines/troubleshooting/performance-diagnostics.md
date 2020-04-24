@@ -22,29 +22,29 @@ ms.locfileid: "70080608"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostica delle prestazioni per le macchine virtuali di Azure
 
-Lo strumento di diagnostica delle prestazioni consente di risolvere i problemi di prestazioni che possono interessare una macchina virtuale (VM) Windows o Linux.The performance diagnostics tool helps you troubleshoot performance issues that can affect a Windows or Linux virtual machine (VM). Tra gli scenari di risoluzione dei problemi supportati figura un controllo rapido dei problemi noti e delle procedure consigliate, nonché dei problemi complessi che coinvolgono il rallentamento delle prestazioni della macchina virtuale o un utilizzo elevato della CPU, dello spazio su disco o della memoria.
+Lo strumento di diagnostica delle prestazioni consente di risolvere i problemi relativi alle prestazioni che possono influire su una macchina virtuale (VM) Windows o Linux. Tra gli scenari di risoluzione dei problemi supportati figura un controllo rapido dei problemi noti e delle procedure consigliate, nonché dei problemi complessi che coinvolgono il rallentamento delle prestazioni della macchina virtuale o un utilizzo elevato della CPU, dello spazio su disco o della memoria.
 
 È possibile eseguire la diagnostica delle prestazioni direttamente dal portale di Azure, in cui sono disponibili anche informazioni dettagliate e un registro dei vari log, la configurazione avanzata e i dati di diagnostica. È consigliato eseguire la diagnostica delle prestazioni ed esaminare i dati di diagnostica e le informazioni dettagliate prima di contattare il supporto tecnico Microsoft.
 
 > [!NOTE]
-> Per Windows, diagnostica delle prestazioni è attualmente supportata nelle macchine virtuali in cui è installata .NET SDK versione 4.5 o versione successiva. Per informazioni su come eseguire la diagnostica delle prestazioni per macchine virtuali classiche, vedere [Estensione della diagnostica delle prestazioni di Azure per macchine virtuali](performance-diagnostics-vm-extension.md).
+> Per Windows, la diagnostica delle prestazioni è attualmente supportata nelle macchine virtuali in cui è installato .NET SDK versione 4,5 o una versione successiva. Per informazioni su come eseguire la diagnostica delle prestazioni per macchine virtuali classiche, vedere [Estensione della diagnostica delle prestazioni di Azure per macchine virtuali](performance-diagnostics-vm-extension.md).
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
 
 ### <a name="linux"></a>Linux
 
-Oracle`*`Linux Server 6.10 [ ], 7.3, 7.6, 7.5 (immagine del marketplace Oracle-Database-Ee 13.8), CentOS 6.5 [`*`],`*`7.6, RHEL 7.2, 7.5, 8.0 [ ], Ubuntu 14.04, 16.04, 18.04, Debian 8, 9, 10 [`*`], SLES 124`*`
+Oracle Linux Server 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-database-EE 13,8 Marketplace image), CentOS 6,5 [`*`], 7,6, RHEL 7,2, 7,5, 8,0 [`*`], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9, 10 [`*`], SLES 12 SP4 [`*`]
 
 >[!Note]
->[`*`] Fare riferimento a [Problemi noti](how-to-use-perfinsights-linux.md#known-issues)
+>[`*`] Consultare i [problemi noti](how-to-use-perfinsights-linux.md#known-issues)
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Installare ed eseguire la diagnostica delle prestazioni della macchina virtuale
 
-La diagnostica delle prestazioni consente di installare sulla macchina virtuale un'estensione che esegue uno strumento di diagnostica denominato PerfInsights. PerfInsights è disponibile sia per [Windows](https://aka.ms/perfinsights) che per [Linux.](https://aka.ms/perfinsightslinux) Per installare lo strumento ed eseguire la diagnostica delle prestazioni, seguire questa procedura:
+La diagnostica delle prestazioni consente di installare sulla macchina virtuale un'estensione che esegue uno strumento di diagnostica denominato PerfInsights. PerfInsights è disponibile sia per [Windows](https://aka.ms/perfinsights) che per [Linux](https://aka.ms/perfinsightslinux). Per installare lo strumento ed eseguire la diagnostica delle prestazioni, seguire questa procedura:
 
 1. Nella colonna sinistra dei comandi, selezionare **Macchine virtuali**.
 1. Dall'elenco di nomi delle macchine virtuali, selezionare la macchina virtuale per cui si desidera eseguire la diagnostica.
@@ -53,7 +53,7 @@ La diagnostica delle prestazioni consente di installare sulla macchina virtuale 
     ![Screenshot del portale di Azure che mostra il pulsante di installazione della diagnostica delle prestazioni evidenziato](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
-    > In questa schermata, il pannello dei nomi delle macchine virtuali è nascosto.
+    > In questa schermata il pannello dei nomi delle VM è nascosto.
 1. Selezionare un account di archiviazione (facoltativo)
 
     Se si desidera usare un singolo account di archiviazione per archiviare i risultati di diagnostica delle prestazioni per più macchine virtuali, è possibile selezionare un account di archiviazione facendo clic sul pulsante **Impostazioni** sulla barra degli strumenti. Fare clic sul pulsante **OK** dopo aver selezionato l'account di archiviazione.
@@ -74,16 +74,16 @@ La diagnostica delle prestazioni consente di installare sulla macchina virtuale 
 I seguenti scenari di analisi sono disponibili sul portale di Azure. Selezionare un'analisi, a seconda del problema di prestazioni riscontrato. Selezionare le opzioni di durata e di traccia in base alle esigenze di analisi.
 
 * **Analisi rapida delle prestazioni**  
-    Verifica la presenza di problemi noti, analizza le procedure consigliate e raccoglie i dati di diagnostica. L'esecuzione di questa analisi richiede alcuni minuti. Scopri di più [su Windows](https://aka.ms/perfinsights/quick) o [Linux](https://aka.ms/perfinsightslinux/quick)
+    Verifica la presenza di problemi noti, analizza le procedure consigliate e raccoglie i dati di diagnostica. L'esecuzione di questa analisi richiede alcuni minuti. Altre informazioni su [Windows](https://aka.ms/perfinsights/quick) o [Linux](https://aka.ms/perfinsightslinux/quick)
 
 * **Analisi delle prestazioni**  
-    Include tutti i controlli nell'analisi rapida delle prestazioni e consente di monitorare il consumo elevato di risorse. Usare questa versione per risolvere i problemi generali relativi alle prestazioni, ad esempio un utilizzo elevato della CPU, della memoria e dello spazio su disco. Questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. Scopri di più [su Windows](https://aka.ms/perfinsights/vmslow) o [Linux](https://aka.ms/perfinsightslinux/vmslow)
+    Include tutti i controlli nell'analisi rapida delle prestazioni e consente di monitorare il consumo elevato di risorse. Usare questa versione per risolvere i problemi generali relativi alle prestazioni, ad esempio un utilizzo elevato della CPU, della memoria e dello spazio su disco. Questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. Altre informazioni su [Windows](https://aka.ms/perfinsights/vmslow) o [Linux](https://aka.ms/perfinsightslinux/vmslow)
 
 * **Analisi avanzata delle prestazioni**`*`  
-    Include tutti i controlli nell'analisi delle prestazioni e raccoglie una o più tracce, come indicato nelle sezioni seguenti. Usare questo scenario per risolvere problemi complessi che richiedono tracce supplementari. L’esecuzione di questo scenario per periodi più lunghi aumenterà le dimensioni complessive dell'output di diagnostica, a seconda delle dimensioni della macchina virtuale e delle opzioni di traccia selezionate. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Scopri di più](https://aka.ms/perfinsights/advanced)
+    Include tutti i controlli nell'analisi delle prestazioni e raccoglie una o più tracce, come indicato nelle sezioni seguenti. Usare questo scenario per risolvere problemi complessi che richiedono tracce supplementari. L’esecuzione di questo scenario per periodi più lunghi aumenterà le dimensioni complessive dell'output di diagnostica, a seconda delle dimensioni della macchina virtuale e delle opzioni di traccia selezionate. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Altre informazioni](https://aka.ms/perfinsights/advanced)
 
-* **Analisi dei file di AzureAzure Files analysis**`*`  
-    Include tutti i controlli nell'analisi delle prestazioni e consente di acquisire una traccia della rete e i contatori SMB. Usare questo scenario per risolvere i problemi di prestazione dei file di Azure. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Scopri di più](https://aka.ms/perfinsights/azurefiles)
+* **Analisi file di Azure**`*`  
+    Include tutti i controlli nell'analisi delle prestazioni e consente di acquisire una traccia della rete e i contatori SMB. Usare questo scenario per risolvere i problemi di prestazione dei file di Azure. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Altre informazioni](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
 >[`*`] Questi scenari di analisi sono supportati solo in Windows.
@@ -109,7 +109,7 @@ Viene visualizzata una notifica all'avvio dell'installazione della diagnostica d
 Al termine dell'analisi, i seguenti elementi vengono caricati nelle tabelle di Azure e nel contenitore BLOB (oggetto binario di grandi dimensioni) relativi all'account di archiviazione specificato:
 
 * Tutte le informazioni dettagliate e le informazioni correlate dell'esecuzione
-* Un file di output compresso (con estensione zip) (denominato **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip)** in Windows e un file calabrone (denominato **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.tar.gz)** su Linux che contiene i file di registro
+* Un file compresso (con estensione zip) di output (denominato **PerformanceDiagnostics_yyyy-mm-DD_HH-mm-SS-fff. zip** ) in Windows e un file tar ball (denominato **PerformanceDiagnostics_yyyy-mm-DD_HH-mm-SS-fff. tar. gz** ) in Linux che contiene i file di log
 * Un report HTML
 
 Dopo il caricamento, viene elencato un nuovo report di diagnostica nel portale di Azure.
@@ -122,7 +122,7 @@ Usare il pulsante **Impostazioni** della barra degli strumenti per modificare l'
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>Esaminare le informazioni dettagliate e il report di diagnostica delle prestazioni
 
-Ogni diagnostica eseguita contiene un elenco di informazioni dettagliate e di elementi consigliati, di risorse interessate, di file di log e altre informazioni di diagnostica avanzata raccolte, oltre a un report per la visualizzazione offline. Per un elenco completo di tutti i dati di diagnostica raccolti, vedere **Che tipo di informazioni vengono raccolte da PerfInsights?** su [Windows](how-to-use-perfinsights.md#what-kind-of-information-is-collected-by-perfinsights) o [Linux](how-to-use-perfinsights-linux.md#what-kind-of-information-is-collected-by-perfinsights).
+Ogni diagnostica eseguita contiene un elenco di informazioni dettagliate e di elementi consigliati, di risorse interessate, di file di log e altre informazioni di diagnostica avanzata raccolte, oltre a un report per la visualizzazione offline. Per un elenco completo di tutti i dati di diagnostica raccolti, vedere **quali tipi di informazioni vengono raccolti da PerfInsights?** in [Windows](how-to-use-perfinsights.md#what-kind-of-information-is-collected-by-perfinsights) o [Linux](how-to-use-perfinsights-linux.md#what-kind-of-information-is-collected-by-perfinsights).
 
 ### <a name="select-a-performance-diagnostics-report"></a>Selezionare un report di diagnostica delle prestazioni
 
@@ -160,13 +160,13 @@ I livelli di impatto rappresentano il potenziale dei problemi di prestazione, in
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>Dove sono archiviati i dati di diagnostica dalla macchina virtualeWhere is the diagnostics data from my VM stored
+### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>Dove sono archiviati i dati di diagnostica della macchina virtuale
 
 Tutte le informazioni dettagliate di diagnostica delle prestazioni e i report vengono archiviati nel proprio account di archiviazione. Le informazioni dettagliate vengono archiviate all'interno delle tabelle di Azure. Il file compresso di report viene archiviato in un contenitore di oggetto binario di grandi dimensioni (BLOB) denominato azdiagextnresults.
 
 È possibile visualizzare le informazioni sull'account di archiviazione usando il pulsante Impostazioni sulla barra degli strumenti.
 
-### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Come si condividono questi dati con il Supporto Tecnico Clienti Microsoft
+### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Ricerca per categorie condividere questi dati con il supporto tecnico Microsoft
 
 Esistono diversi modi per condividere il report di diagnostica con Microsoft.
 
@@ -174,7 +174,7 @@ Esistono diversi modi per condividere il report di diagnostica con Microsoft.
 Quando si apre un ticket di supporto con Microsoft, è importante condividere il report di diagnostica delle prestazioni. Se si sceglie di condividere queste informazioni con Microsoft mentre si esegue la diagnostica (selezionando la casella di controllo "**Accetto di condividere le informazioni di diagnostica con Microsoft**"), Microsoft sarà in grado di accedere al report nell’account di archiviazione usando un collegamento SAS al file ZIP di output fino a 30 giorni dalla data di esecuzione. Il tecnico del supporto avrà accesso solo al report più recente.
 
 **Opzione 2:** generare una firma di accesso condiviso per il file ZIP contenente i dati di diagnostica  
-È possibile condividere un collegamento al file ZIP del report usando una firma di accesso condiviso. A questo scopo, seguire questa procedura:
+È possibile condividere un collegamento al file ZIP del report usando una firma di accesso condiviso. A tale scopo, effettuare le operazioni seguenti:
 
 1. Nel portale di Azure, passare all'account di archiviazione in cui i dati di diagnostica vengono archiviati.
 1. Selezionare **BLOB** nella sezione **Servizio BLOB**.
@@ -188,7 +188,7 @@ Quando si apre un ticket di supporto con Microsoft, è importante condividere il
 
 È anche possibile individuare il file ZIP di report di diagnostica delle prestazioni usando i passaggi 1-4 dell'opzione 2. Selezionare questa opzione per scaricare il file e quindi condividerlo tramite posta elettronica, o chiedere al tecnico del supporto le istruzioni da seguire per caricare il file.  
 
-### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Come acquisire i dati di diagnostica al momento corretto
+### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Ricerca per categorie acquisire i dati di diagnostica all'ora corretta
 
 L’esecuzione di ogni diagnostica delle prestazioni presenta due fasi:
 
@@ -201,4 +201,4 @@ Attualmente non vi è alcun modo semplice per sapere con esattezza quando l'inst
 
 Dopo avere esaminato le informazioni dettagliate di diagnostica delle prestazioni e il report, se non è ancora possibile stabilire la causa del problema è si necessita di ulteriore assistenza, è possibile aprire un ticket di supporto con il Supporto tecnico Microsoft.
 
-Se è necessaria ulteriore assistenza in qualsiasi momento di questo articolo, è possibile contattare gli esperti di Azure nei [forum MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/)di Azure e selezionare Ottieni **supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto](https://azure.microsoft.com/support/faq/)di Microsoft Azure .
+Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).

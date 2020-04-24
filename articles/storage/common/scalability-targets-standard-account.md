@@ -20,11 +20,11 @@ ms.locfileid: "75750637"
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-## <a name="scale-targets-for-standard-storage-accounts"></a>Obiettivi di scalabilità per gli account di archiviazione standardScale targets for standard storage accounts
+## <a name="scale-targets-for-standard-storage-accounts"></a>Ridimensionare gli obiettivi per gli account di archiviazione standard
 
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-- [Obiettivi di scalabilità per il provider di risorse di Archiviazione di AzureScalability targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md)
+- [Obiettivi di scalabilità per il provider di risorse di archiviazione di Azure](../common/scalability-targets-resource-provider.md)
 - [Limiti e quote della sottoscrizione di Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

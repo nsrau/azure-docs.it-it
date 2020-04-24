@@ -1,5 +1,5 @@
 ---
-title: Accesso remoto alle app locali - Proxy di applicazione di Azure AD
+title: Accesso remoto alle app locali-Azure AD proxy di applicazione
 description: Azure Active Directory Application Proxy consente l'accesso remoto sicuro ad applicazioni Web locali. Dopo un accesso singolo (SSO) ad Azure AD, gli utenti possono accedere sia alle applicazioni nel cloud che a quelle locali tramite un URL esterno o un portale per le applicazioni interno. Ad esempio, Application Proxy può rendere disponibile l'accesso remoto e Single Sign-On a Desktop remoto, SharePoint, Teams, Tableau, Qlik e applicazioni line-of-business (LOB).
 services: active-directory
 author: msmimart
@@ -27,7 +27,7 @@ Il proxy di applicazione di Azure AD:
 
 - **Semplice da usare**. Gli utenti possono accedere alle applicazioni locali nello stesso modo in cui accedono a Office 365 e alle altre app SaaS integrate in Azure AD. Non è necessario modificare o aggiornare le applicazioni per usare il proxy di applicazione. 
 
-- **Sicuro**. Le applicazioni locali possono usare i controlli di autorizzazione e le funzionalità di analisi della sicurezza di Azure. Ad esempio, le applicazioni locali possono usare l'accesso condizionale e la verifica in due passaggi. Application Proxy non richiede l'apertura delle connessioni in ingresso attraverso il firewall.
+- **Sicurezza**. Le applicazioni locali possono usare i controlli di autorizzazione e le funzionalità di analisi della sicurezza di Azure. Ad esempio, le applicazioni locali possono usare l'accesso condizionale e la verifica in due passaggi. Application Proxy non richiede l'apertura delle connessioni in ingresso attraverso il firewall.
  
 - **Convenienza**. Le soluzioni locali richiedono generalmente di configurare e gestire reti perimetrali, server perimetrali o altre infrastrutture complesse. Application Proxy viene eseguito nel cloud ed è quindi facile da usare. Per usare Application Proxy non è necessario modificare l'infrastruttura di rete o installare altre appliance nell'ambiente locale.
 
@@ -44,7 +44,7 @@ Application Proxy supporta:
 
 Application Proxy supporta Single Sign-On. Per altre informazioni sui metodi supportati, vedere [Scelta di un metodo di accesso Single Sign-On](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
-Il proxy di applicazione è consigliato per consentire agli utenti remoti l'accesso alle risorse interne. Il proxy di applicazione sostituisce la necessità di una VPN o di un proxy inverso. Non è destinato agli utenti interni della rete aziendale.  Questi utenti che utilizzano inutilmente il proxy di applicazione possono introdurre problemi di prestazioni imprevisti e indesiderati.
+Il proxy di applicazione è consigliato per concedere agli utenti remoti l'accesso alle risorse interne. Il proxy di applicazione sostituisce la necessità di una VPN o di un proxy inverso. Non è destinato agli utenti interni della rete aziendale.  Questi utenti che utilizzano inutilmente il proxy di applicazione possono presentare problemi di prestazioni imprevisti e indesiderati.
 
 ## <a name="how-application-proxy-works"></a>Come funziona Application Proxy
 
@@ -69,7 +69,7 @@ Il diagramma seguente illustra come interagiscono Azure AD e Application Proxy p
 | Applicazione locale | Infine, l'utente è in grado di accedere a un'applicazione locale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per iniziare a utilizzare il proxy di applicazione, vedere [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione](application-proxy-add-on-premises-application.md). 
+Per iniziare a usare il proxy di applicazione, vedere [esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione](application-proxy-add-on-premises-application.md). 
 
 Per le notizie e gli aggiornamenti più recenti, vedere il [blog di Application Proxy](https://blogs.technet.com/b/applicationproxyblog/)
 

@@ -1,6 +1,6 @@
 ---
-title: Usare le identità gestite di Azure per creare ambienti in DevTest Labs. Documenti Microsoft
-description: Informazioni su come usare le identità gestite in Azure per distribuire ambienti in un lab in Azure DevTest Labs.Learn how to use managed identities in Azure to deploy environments in a lab in Azure DevTest Labs.
+title: Usare le identità gestite di Azure per creare ambienti in DevTest Labs | Microsoft Docs
+description: Informazioni su come usare le identità gestite in Azure per distribuire gli ambienti in un Lab in Azure DevTest Labs.
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -18,43 +18,43 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "73931148"
 ---
-# <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Usare le identità gestite di Azure per distribuire ambienti in un labUse Azure managed identities to deploy environments in a lab 
-Il proprietario di un lab può usare un'identità gestita per distribuire ambienti in un lab. Questa funzionalità è utile negli scenari in cui l'ambiente contiene o contiene riferimenti a risorse di Azure, ad esempio insiemi di credenziali delle chiavi, raccolte di immagini condivise e reti esterne al gruppo di risorse dell'ambiente. Consente la creazione di ambienti sandbox che non sono limitati al gruppo di risorse di tale ambiente.
+# <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Usare le identità gestite di Azure per distribuire gli ambienti in un Lab 
+In qualità di proprietario del Lab, è possibile usare un'identità gestita per distribuire gli ambienti in un Lab. Questa funzionalità è utile negli scenari in cui l'ambiente contiene o contiene riferimenti alle risorse di Azure, ad esempio insiemi di credenziali delle chiavi, raccolte di immagini condivise e reti esterne al gruppo di risorse dell'ambiente. Consente la creazione di ambienti sandbox che non sono limitati al gruppo di risorse dell'ambiente.
 
 > [!NOTE]
-> Attualmente, una singola identità assegnata dall'utente è supportata per laboratorio. 
+> Attualmente, per Lab è supportata una singola identità assegnata dall'utente. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-- [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente tramite il portale](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)di Azure. 
+- [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente usando il portale di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
-In questa sezione, in qualità di proprietario del lab, usare il portale di Azure per aggiungere un'identità gestita dall'utente al lab. 
+In questa sezione, in qualità di proprietario del Lab, usare il portale di Azure per aggiungere un'identità gestita dall'utente al Lab. 
 
-1. Nella pagina del lab selezionare **Configurazione e criteri**. 
-1. Selezionare **Identità** nella sezione **Impostazioni.Select** Identity in the Settings section.
-1. Per aggiungere un'identità assegnata dall'utente, selezionare **Aggiungi** sulla barra degli strumenti. 
-1. Selezionare **un'identità** da un elenco a discesa prepopolato.
-1. Selezionare **OK**.
+1. Nella pagina Lab selezionare **configurazione e criteri**. 
+1. Selezionare **Identity (identità** ) nella sezione **Settings (impostazioni** ).
+1. Per aggiungere un'identità assegnata a un utente, selezionare **Aggiungi** sulla barra degli strumenti. 
+1. Selezionare un' **identità** da un elenco a discesa pre-popolato.
+1. Fare clic su **OK**.
 
-    ![Aggiungere l'identità gestita dall'utenteAdd user-managed identity](./media/use-managed-identities-environments/add-user-managed-identity.png)
+    ![Aggiungi identità gestita dall'utente](./media/use-managed-identities-environments/add-user-managed-identity.png)
 2. Nell'elenco viene visualizzata l'identità gestita dall'utente aggiunta. 
 
     ![Identità gestita dall'utente nell'elenco](./media/use-managed-identities-environments/identity-in-list.png)
 
-Una volta salvato, il lab utilizzerà questa identità durante la distribuzione di tutti gli ambienti lab. È anche possibile accedere alla risorsa identità in Azure selezionando l'identità dall'elenco. 
+Una volta salvato, il Lab utilizzerà questa identità durante la distribuzione di tutti gli ambienti Lab. È anche possibile accedere alla risorsa di identità in Azure selezionando l'identità dall'elenco. 
 
-Il proprietario del lab non deve eseguire alcuna operazione speciale durante la distribuzione di un ambiente, purché l'identità aggiunta al lab disponga delle autorizzazioni per le risorse esterne a cui l'ambiente deve accedere. 
+Il proprietario del Lab non deve eseguire alcuna operazione speciale durante la distribuzione di un ambiente purché l'identità aggiunta al lab disponga delle autorizzazioni per le risorse esterne a cui l'ambiente deve accedere. 
 
-Per modificare l'identità gestita dall'utente assegnata al lab, rimuovere prima l'identità associata al lab e quindi aggiungerne un'altra al lab. Per rimuovere un'identità associata al lab, selezionare **... (i lipsiane)** e fare clic su **Rimuovi**. 
+Per modificare l'identità gestita dall'utente assegnata al Lab, rimuovere prima l'identità collegata al Lab, quindi aggiungerne un'altra al Lab. Per rimuovere un'identità collegata al Lab, selezionare **... (puntini**di sospensione) e fare clic su **Rimuovi**. 
 
 ![Identità gestita dall'utente nell'elenco](./media/use-managed-identities-environments/replace-identity.png)  
 
-## <a name="use-api"></a>Utilizzare l'API
+## <a name="use-api"></a>USA API
 
-1. Dopo aver creato un'identità, prendere nota dell'ID risorsa di questa identità. Dovrebbe essere simile all'esempio seguente:It should look like the following sample: 
+1. Dopo aver creato un'identità, prendere nota dell'ID risorsa dell'identità. Dovrebbe essere simile all'esempio seguente: 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-1. Eseguire un metodo PUT Https `ServiceRunner` per aggiungere una nuova risorsa al lab simile all'esempio seguente. La risorsa service runner è una risorsa proxy per gestire e controllare le identità gestite in DevTest Labs. Il nome del corridore del servizio può essere qualsiasi nome valido, ma è consigliabile usare il nome della risorsa di identità gestita. 
+1. Eseguire un metodo PUT HTTPS per aggiungere una nuova `ServiceRunner` risorsa al Lab in modo analogo all'esempio seguente. La risorsa di Service Runner è una risorsa proxy per gestire e controllare le identità gestite in DevTest Labs. Il nome del Runner del servizio può essere qualsiasi nome valido, ma è consigliabile usare il nome della risorsa di identità gestita. 
  
     ```json
     PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}
@@ -93,4 +93,4 @@ Per modificare l'identità gestita dall'utente assegnata al lab, rimuovere prima
     }
     ```
  
-Dopo aver aggiunto l'identità assegnata all'utente al lab, il servizio Azure DevTest Labs la userà durante la distribuzione di ambienti Azure Resource Manager.Once the user assigned identity is added to the lab, the Azure DevTest Labs service will use it while deploying Azure Resource Manager environments. Ad esempio, se è necessario il modello di Resource Manager per accedere a un'immagine esterna della raccolta di immagini condivise, assicurarsi che l'identità aggiunta al lab disponga delle autorizzazioni minime necessarie per la risorsa raccolta immagini condivise. 
+Una volta aggiunta l'identità assegnata all'utente al Lab, il servizio Azure DevTest Labs lo utilizzerà durante la distribuzione di Azure Resource Manager ambienti. Se ad esempio è necessario il modello di Gestione risorse per accedere a un'immagine della raccolta di immagini condivise esterna, assicurarsi che l'identità aggiunta al lab disponga delle autorizzazioni minime necessarie per la risorsa della raccolta immagini condivisa. 

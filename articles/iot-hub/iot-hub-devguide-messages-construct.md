@@ -1,6 +1,6 @@
 ---
 title: Informazioni sul formato della messaggistica di hub IoT di Azure | Microsoft Docs
-description: "Guida per gli sviluppatori: descrive il formato e il contenuto previsto dei messaggi dell'hub IoT."
+description: "Guida per gli sviluppatori: descrive il formato e il contenuto previsto dei messaggi dell'hub Internet."
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -21,7 +21,7 @@ Per supportare l'interoperabilità senza problemi tra i protocolli, l'hub IoT de
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-L'hub IoT implementa la messaggistica da dispositivo a cloud usando un modello di messaggistica di flusso. I messaggi da dispositivo a cloud dell'hub IoT sono più simili agli *eventi* degli hub eventi rispetto [ai](/azure/event-hubs/) *messaggi* del [bus](/azure/service-bus-messaging/) di servizio in quanto è presente un volume elevato di eventi che passano attraverso il servizio che può essere letto da più lettori.
+L'hub IoT implementa la messaggistica da dispositivo a cloud usando un modello di messaggistica di flusso. I messaggi da dispositivo a cloud dell'hub delle cose sono più simili *agli eventi* di [Hub eventi](/azure/event-hubs/) rispetto ai *messaggi* del [bus di servizio](/azure/service-bus-messaging/) in quanto è presente un volume elevato di eventi che passano attraverso il servizio che possono essere letti da più lettori.
 
 Un messaggio dell'hub IoT è costituito da:
 
@@ -43,23 +43,23 @@ La messaggistica da dispositivo a cloud con hub IoT ha le caratteristiche seguen
 
 * Come illustrato in [Controllare l'accesso all'hub IoT](iot-hub-devguide-security.md), l'hub IoT consente il controllo di accesso e l'autenticazione per singoli dispositivi.
 
-* È possibile eliminare i messaggi con informazioni che vengono inserite nelle proprietà dell'applicazione. Per ulteriori informazioni, vedere [arricchimenti](iot-hub-message-enrichments-overview.md)di messaggi .
+* È possibile contrassegnare i messaggi con le informazioni contenute nelle proprietà dell'applicazione. Per ulteriori informazioni, vedere la pagina relativa all' [arricchimento dei messaggi](iot-hub-message-enrichments-overview.md).
 
 Per altre informazioni sulla codifica e la decodifica dei messaggi inviati tramite diversi protocolli, vedere [Azure IoT SDK](iot-hub-devguide-sdks.md).
 
-## <a name="system-properties-of-d2c-iot-hub-messages"></a>Proprietà di sistema dei messaggi dell'hub **IoT D2C**
+## <a name="system-properties-of-d2c-iot-hub-messages"></a>Proprietà di sistema dei messaggi dell'hub **D2C**
 
 | Proprietà | Descrizione  |Impostabile dall'utente?|Parola chiave per il parametro  </br>query di routing|
 | --- | --- | --- | --- |
 | message-id |Un identificatore configurabile dall'utente per il messaggio, usato per i modelli di richiesta-risposta. Formato: stringa con distinzione tra maiuscole e minuscole (con lunghezza massima di 128 caratteri) di caratteri alfanumerici ASCII a 7 bit + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  | Sì | messageId |
-| iothub-enqueuedtime |Data e ora in cui il messaggio [da dispositivo a cloud](iot-hub-devguide-d2c-guidance.md) è stato ricevuto dall'hub IoT. | No | queuedTime |
+| iothub-enqueuedtime |Data e ora in cui il messaggio da [dispositivo a cloud](iot-hub-devguide-d2c-guidance.md) è stato ricevuto dall'hub Internet. | No | enqueuedTime |
 | user-id |ID usato per specificare l'origine dei messaggi. Quando i messaggi vengono generati dall'hub IoT, viene impostata su `{iot hub name}`. | Sì | userId |
 | iothub-connection-device-id |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il valore **deviceId** del dispositivo che ha inviato il messaggio. | No | connectionDeviceId |
-| iothub-connection-module-id |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il **moduleId** del dispositivo che ha inviato il messaggio. | No | connectionModuleId (ID di connessione) |
-| iothub-connection-auth-generation-id |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene l'identità **connectionDeviceGenerationId** (in base alle [proprietà dell'identità del dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo che ha inviato il messaggio. | No |connectionDeviceGenerationId (idgenerazione di connessione) |
-| iothub-connection-auth-method |Metodo di autenticazione impostato dall'hub IoT sui messaggi da dispositivo a cloud. Questa proprietà contiene informazioni sul metodo di autenticazione usato per autenticare il dispositivo che invia il messaggio.| No | connectionAuthMethod (metodo connessione) |
+| iothub-Connection-Module-ID |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il **ModuleID** del dispositivo che ha inviato il messaggio. | No | connectionModuleId |
+| iothub-connection-auth-generation-id |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il **connectionDeviceGenerationId** (in base alle [proprietà di identità del dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo che ha inviato il messaggio. | No |connectionDeviceGenerationId |
+| iothub-connection-auth-method |Metodo di autenticazione impostato dall'hub IoT sui messaggi da dispositivo a cloud. Questa proprietà contiene informazioni sul metodo di autenticazione usato per autenticare il dispositivo che invia il messaggio.| No | connectionAuthMethod |
 
-## <a name="system-properties-of-c2d-iot-hub-messages"></a>Proprietà di sistema dei messaggi dell'hub **IoT C2D**
+## <a name="system-properties-of-c2d-iot-hub-messages"></a>Proprietà di sistema dei messaggi dell'hub **C2D**
 
 | Proprietà | Descrizione  |Impostabile dall'utente?|
 | --- | --- | --- |
@@ -73,7 +73,7 @@ Per altre informazioni sulla codifica e la decodifica dei messaggi inviati trami
 
 ## <a name="message-size"></a>Dimensioni dei messaggi
 
-L'hub IoT misura le dimensioni dei messaggi in modo indipendente dal protocollo, prendendo in considerazione solo il payload effettivo. La dimensione in byte viene calcolata come somma dei seguenti valori:
+L'hub IoT misura le dimensioni dei messaggi in modo indipendente dal protocollo, prendendo in considerazione solo il payload effettivo. Le dimensioni in byte vengono calcolate come somma dei valori seguenti:
 
 * Dimensioni del corpo in byte.
 * Dimensioni in byte di tutti i valori delle proprietà di sistema dei messaggi.
@@ -85,7 +85,7 @@ I nomi e i valori delle proprietà sono limitati ai caratteri ASCII, in modo che
 
 Per evitare lo spoofing di dispositivi nei messaggi da dispositivo a cloud, l'hub IoT contrassegna tutti i messaggi con le proprietà seguenti:
 
-* **iothub-connection-device-id**
+* **iothub-Connection-Device-ID**
 * **iothub-connection-auth-generation-id**
 * **iothub-connection-auth-method**
 

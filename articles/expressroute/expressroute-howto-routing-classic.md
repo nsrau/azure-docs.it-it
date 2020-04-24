@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Configurare il peering: classicoAzure ExpressRoute: Configure peering: classic'
+title: 'Azure ExpressRoute: configurare il peering: classico'
 description: Questo articolo descrive come creare ed eseguire il provisioning di un circuito ExpressRoute per il peering privato, il peering pubblico e il peering Microsoft. Questo articolo mostra anche come controllare lo stato e aggiornare o eliminare i peering per un circuito.
 services: expressroute
 author: cherylmc
@@ -16,9 +16,9 @@ ms.locfileid: "74931383"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creare e modificare il peering per un circuito ExpressRoute (versione classica)
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-routing-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-routing-arm.md)
-> * [Interfaccia della riga di comando di AzureAzure](howto-routing-cli.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-routing-arm.md)
+> * [Interfaccia della riga di comando di Azure](howto-routing-cli.md)
 > * [Video - Peering privato](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Video - Peering pubblico](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Video - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
@@ -157,7 +157,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 ### <a name="to-create-azure-public-peering"></a>Per creare un peering pubblico di Azure
 
-1. **Creare un circuito ExpressRouteCreate an ExpressRoute circuit**
+1. **Creare un circuito ExpressRoute**
 
    Seguire le istruzioni per creare un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e chiedere al provider di connettività di effettuarne il provisioning. Se il provider di connettività offre servizi gestiti di livello 3, è possibile chiedere al provider di abilitare il peering privato di Azure. In questo caso, non sarà necessario seguire le istruzioni riportate nelle sezioni seguenti. Se invece il provider di connettività non gestisce il routing per conto dell'utente, dopo aver creato il circuito, seguire questa procedura.
 2. **Verificare che sia stato eseguito il provisioning del circuito ExpressRoute**
@@ -261,7 +261,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 ### <a name="to-create-microsoft-peering"></a>Per creare il peering Microsoft
 
-1. **Creare un circuito ExpressRouteCreate an ExpressRoute circuit**
+1. **Creare un circuito ExpressRoute**
   
    Seguire le istruzioni per creare un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e chiedere al provider di connettività di effettuarne il provisioning. Se il provider di connettività offre servizi gestiti di livello 3, è possibile chiedere al provider di connettività di abilitare il peering privato di Azure. In questo caso, non sarà necessario seguire le istruzioni riportate nelle sezioni seguenti. Se invece il provider di connettività non gestisce il routing per conto dell'utente, dopo aver creato il circuito, seguire questa procedura.
 2. **Verificare che sia stato eseguito il provisioning del circuito ExpressRoute**

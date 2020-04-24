@@ -1,6 +1,6 @@
 ---
-title: Inserimento dei dati della cache HPC di Azure - script di copia parallelaAzure HPC Cache data ingest - parallel copy script
-description: Come usare uno script di copia parallela per spostare i dati in una destinazione di archiviazione BLOB nella cache HPC di AzureHow to use a parallel copy script to move data to a Blob storage target in Azure HPC Cache
+title: Inserimento di dati nella cache HPC di Azure-script di copia parallela
+description: Come usare uno script di copia parallela per spostare i dati in una destinazione di archiviazione BLOB nella cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
@@ -13,13 +13,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74166887"
 ---
-# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Inserimento dei dati della cache HPC di Azure - metodo di script di copia parallelaAzure HPC Cache data ingest - parallel copy script method
+# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Inserimento di dati nella cache HPC di Azure-metodo script di copia parallela
 
-Questo articolo fornisce istruzioni ``parallelcp`` per creare lo script e usarlo per spostare i dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure.This article gives instructions for creating the script and using it to move data to a Blob storage container for use with Azure HPC Cache.
+Questo articolo fornisce le istruzioni per creare ``parallelcp`` lo script e usarlo per spostare i dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure.
 
-Per altre informazioni sullo spostamento dei dati nell'archivio BLOB per la cache HPC di Azure, vedere [Spostare i dati nell'archiviazione BLOB](hpc-cache-ingest.md)di Azure.To learn more about moving data to Blob storage for your Azure HPC Cache, read Move data to Azure Blob storage .
+Per altre informazioni sullo spostamento dei dati nell'archiviazione BLOB per la cache HPC di Azure, vedere [spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md).
 
-## <a name="create-the-parallelcp-script"></a>Creare lo script parallelcpCreate the parallelcp script
+## <a name="create-the-parallelcp-script"></a>Creare lo script parallelcp
 
 Lo script seguente aggiungerà l'eseguibile `parallelcp`. Questo script è progettato per Ubuntu, se si usa un'altra distribuzione è necessario installare ``parallel`` separatamente.
 
@@ -75,11 +75,11 @@ EOM
 
 ## <a name="parallel-copy-example"></a>Esempio di copia parallela
 
-Questo esempio usa lo script ``glibc`` di copia parallela per eseguire la compilazione usando i file di origine nella cache HPC di Azure.This example uses the parallel copy script to compile using source files in the Azure HPC Cache.
+Questo esempio usa lo script di copia parallela ``glibc`` per compilare usando i file di origine nella cache HPC di Azure.
 
-I file di origine vengono memorizzati nella cache nel punto di montaggio della cache HPC di Azure e i file oggetto vengono archiviati nel disco rigido locale.
+I file di origine vengono memorizzati nella cache nel punto di montaggio della cache HPC di Azure e i file oggetto vengono archiviati sul disco rigido locale.
 
-In questo esempio viene utilizzato ``-j`` lo ``make`` script di copia parallela con l'opzione e per ottenere la parallelizzazione.
+In questo esempio viene usato lo script di copia parallela con l'opzione ``-j`` e ``make`` per ottenere la parallelizzazione.
 
 ```bash
 sudo apt-get update

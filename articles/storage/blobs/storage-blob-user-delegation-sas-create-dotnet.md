@@ -1,7 +1,7 @@
 ---
-title: Usare .NET per creare una classe di accesso client di delega utente per un contenitore o un BLOBUse .NET to create a user delegation SAS for a container or blob
+title: Usare .NET per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB
 titleSuffix: Azure Storage
-description: Informazioni su come creare una sAS di delega utente con credenziali di Azure Active Directory usando la libreria client .NET per Archiviazione di Azure.Learn how to create a user delegation SAS with Azure Active Directory credentials by using the .NET client library for Azure Storage.
+description: Informazioni su come creare una firma di accesso condiviso di delega utente con Azure Active Directory credenziali usando la libreria client .NET per archiviazione di Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -17,25 +17,25 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75371837"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Creare una classe di accesso client di delega utente per un contenitore o un BLOB con .NETCreate a user delegation SAS for a container or blob with .NET
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Questo articolo illustra come usare le credenziali di Azure Active Directory (Azure AD) per creare una provider di servizi di accesso condiviso di delega utente per un contenitore o un BLOB con la libreria client di Archiviazione di Azure per .NET.
+Questo articolo illustra come usare le credenziali Azure Active Directory (Azure AD) per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con la libreria client di archiviazione di Azure per .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>Assegnare ruoli RBAC per l'accesso ai datiAssign RBAC roles for access to data
+## <a name="assign-rbac-roles-for-access-to-data"></a>Assegnare i ruoli RBAC per l'accesso ai dati
 
-Quando un'entità di sicurezza di Azure AD tenta di accedere ai dati BLOB, tale entità di sicurezza deve disporre delle autorizzazioni per la risorsa. Se l'entità di sicurezza è un'identità gestita in Azure o un account utente di Azure AD che esegue il codice nell'ambiente di sviluppo, all'entità di sicurezza deve essere assegnato un ruolo Controllo degli accessi in base al ruolo che conceda l'accesso ai dati BLOB in Archiviazione di Azure.Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an RBAC role that grants access to blob data in Azure Storage. Per informazioni sull'assegnazione di autorizzazioni tramite controllo degli accessi in base al ruolo, vedere la sezione **relativa all'assegnazione** dei ruoli RBAC per i diritti di accesso in [Autorizzare l'accesso ai BLOB e alle code di Azure tramite Azure Active Directory.](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)
+Quando un Azure AD entità di sicurezza tenta di accedere ai dati BLOB, l'entità di sicurezza deve avere le autorizzazioni per la risorsa. Se l'entità di sicurezza è un'identità gestita in Azure o un account utente Azure AD che esegue il codice nell'ambiente di sviluppo, all'entità di sicurezza deve essere assegnato un ruolo RBAC che concede l'accesso ai dati BLOB in archiviazione di Azure. Per informazioni sull'assegnazione di autorizzazioni tramite RBAC, vedere la sezione assegnare i **ruoli RBAC per i diritti di accesso** in [autorizzare l'accesso a BLOB e code di Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-Per altre informazioni su come eseguire l'autenticazione con la libreria client di Azure Identity da Archiviazione di Azure, vedere la sezione **Autenticazione con la libreria di identità** di Azure in [Autorizzare l'accesso a BLOB e code con Azure Active Directory e le identità gestite per](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)le risorse di Azure.To learn more about how to authenticate with the Azure Identity client library from Azure Storage, see the section titled Authenticate with the Azure Identity library in Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources.
+Per altre informazioni su come eseguire l'autenticazione con la libreria client di identità di Azure da archiviazione di Azure, vedere la sezione **eseguire l'autenticazione con la libreria di identità di Azure** in [autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
 
 ## <a name="add-using-directives"></a>Aggiungere le direttive using
 
-Aggiungere le `using` direttive seguenti al codice per usare le librerie client di Archiviazione di Azure.Add the following directives to your code to use the Azure Identity and Azure Storage client libraries.
+Aggiungere le direttive seguenti `using` al codice per usare le librerie di identità di Azure e client di archiviazione di Azure.
 
 ```csharp
 using System;
@@ -48,11 +48,11 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## <a name="get-an-authenticated-token-credential"></a>Ottenere una credenziale di token autenticataGet an authenticated token credential
+## <a name="get-an-authenticated-token-credential"></a>Ottenere le credenziali di un token autenticato
 
-Per ottenere una credenziale token che il codice può usare per autorizzare le richieste ad Archiviazione di Azure, creare un'istanza della classe [DefaultAzureCredential.To](/dotnet/api/azure.identity.defaultazurecredential) get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the DefaultAzureCredential class.
+Per ottenere una credenziale token che il codice può usare per autorizzare le richieste ad archiviazione di Azure, creare un'istanza della classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) .
 
-Il frammento di codice seguente mostra come ottenere le credenziali del token autenticate e usarle per creare un client di servizio per l'archiviazione BLOB:The following code snippet shows how to get the authenticated token credential and use it to create a service client for Blob storage:
+Il frammento di codice seguente mostra come ottenere le credenziali del token autenticato e usarle per creare un client del servizio per l'archiviazione BLOB:
 
 ```csharp
 // Construct the blob endpoint from the account name.
@@ -63,18 +63,18 @@ BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
                                                      new DefaultAzureCredential());
 ```
 
-## <a name="get-the-user-delegation-key"></a>Ottenere la chiave di delega utenteGet the user delegation key
+## <a name="get-the-user-delegation-key"></a>Ottenere la chiave di delega utente
 
-Ogni firma di accesso base è firmata con una chiave. Per creare una firma di accesso client di firma di accesso utente, è innanzitutto necessario richiedere una chiave di delega utente, che viene quindi utilizzata per firmare la firma di accesso base. La chiave di delega utente è analoga alla chiave dell'account usata per firmare una firma di accesso condiviso del servizio o una firma di accesso condiviso dell'account, ad eccezione del fatto che si basa sulle credenziali di Azure AD. Quando un client richiede una chiave di delega utente usando un token OAuth 2.0, Archiviazione di Azure restituisce la chiave di delega utente per conto dell'utente.
+Ogni firma di accesso condiviso è firmata con una chiave. Per creare una firma di accesso condiviso di delega utente, è necessario prima richiedere una chiave di delega utente, che viene quindi usata per firmare la firma di accesso condiviso. La chiave di delega utente è analoga alla chiave dell'account usata per firmare una firma di accesso condiviso del servizio o una firma di accesso condiviso dell'account, con la differenza che si basa sulle credenziali Azure AD. Quando un client richiede una chiave di delega utente usando un token OAuth 2,0, archiviazione di Azure restituisce la chiave di delega utente per conto dell'utente.
 
-Una volta che si dispone della chiave di delega utente, è possibile utilizzare tale chiave per creare un numero qualsiasi di firme di accesso condiviso di delega utente per tutta la durata della chiave. La chiave di delega utente è indipendente dal token OAuth 2.0 utilizzato per acquisirla, pertanto non è necessario rinnovare il token finché la chiave è ancora valida. È possibile specificare che la chiave è valida per un periodo massimo di 7 giorni.
+Una volta creata la chiave di delega utente, è possibile usare tale chiave per creare un numero qualsiasi di firme di accesso condiviso per la delega utente, per tutta la durata della chiave. La chiave di delega utente è indipendente dal token OAuth 2,0 usato per acquisirla, pertanto non è necessario rinnovare il token finché la chiave è ancora valida. È possibile specificare che la chiave sia valida per un periodo di un massimo di 7 giorni.
 
-Utilizzare uno dei seguenti metodi per richiedere la chiave di delega dell'utente:
+Per richiedere la chiave di delega utente, usare uno dei metodi seguenti:
 
 - [GetUserDelegationKey](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
 - [GetUserDelegationKeyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkeyasync)
 
-Il frammento di codice seguente ottiene la chiave di delega utente e scrive le relative proprietà:The following code snippet gets the user delegation key and writes out its properties:
+Il seguente frammento di codice ottiene la chiave di delega dell'utente e ne scrive le proprietà:
 
 ```csharp
 // Get a user delegation key for the Blob service that's valid for seven days.
@@ -92,9 +92,9 @@ Console.WriteLine("Key signed service: {0}", key.SignedService);
 Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 ```
 
-## <a name="create-the-sas-token"></a>Creare il token di firma di accesso condivisoCreate the SAS token
+## <a name="create-the-sas-token"></a>Creare il token SAS
 
-Il frammento di codice seguente illustra la creazione di un nuovo [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e fornisce i parametri per la firma di accesso livello di delega dell'utente. Il frammento di codice chiama quindi [il ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) per ottenere la stringa del token di firma di accesso condiviso. Infine, il codice compila l'URI completo, inclusi l'indirizzo di risorsa e il token di firma di accesso condiviso.
+Il frammento di codice seguente illustra come creare un nuovo [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e specificare i parametri per la firma di accesso condiviso della delega utente. Il frammento chiama quindi [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) per ottenere la stringa del token SAS. Infine, il codice compila l'URI completo, inclusi l'indirizzo della risorsa e il token di firma di accesso condiviso.
 
 ```csharp
 // Create a SAS token that's valid for one hour.
@@ -123,9 +123,9 @@ UriBuilder fullUri = new UriBuilder()
 };
 ```
 
-## <a name="example-get-a-user-delegation-sas"></a>Esempio: Ottenere una sAS di delega utenteExample: Get a user delegation SAS
+## <a name="example-get-a-user-delegation-sas"></a>Esempio: ottenere una firma di accesso condiviso di delega utente
 
-The following example method shows the complete code for authenticating the security principal and creating the user delegation SAS:
+Il metodo di esempio seguente mostra il codice completo per l'autenticazione dell'entità di sicurezza e la creazione della firma di accesso condiviso della delega utente:
 
 ```csharp
 async static Task<Uri> GetUserDelegationSasBlob(string accountName, string containerName, string blobName)
@@ -183,9 +183,9 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 }
 ```
 
-## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Esempio: leggere un BLOB con una connessione SAS di delega utenteExample: Read a blob with a user delegation SAS
+## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Esempio: lettura di un BLOB con una firma di accesso condiviso dell'utente
 
-Nell'esempio seguente viene verificata la sAS di delega degli utenti creata nell'esempio precedente da un'applicazione client simulata. Se la firma di accesso client è valida, l'applicazione client è in grado di leggere il contenuto del BLOB. Se la firma di accesso locale non è valida, ad esempio se è scaduta, Archiviazione di Azure restituisce il codice di errore 403 (Accesso negato).
+Nell'esempio seguente viene verificata la firma di accesso condiviso della delega utente creata nell'esempio precedente da un'applicazione client simulata. Se la firma di accesso condiviso è valida, l'applicazione client è in grado di leggere il contenuto del BLOB. Se la firma di accesso condiviso non è valida, ad esempio se è scaduta, archiviazione di Azure restituisce il codice di errore 403 (accesso negato).
 
 ```csharp
 private static async Task ReadBlobWithSasAsync(Uri sasUri)
@@ -235,8 +235,8 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-- [Concedere l'accesso limitato alle risorse di Archiviazione di Azure usando le firme di accesso condivisoGrant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
-- [Operazione Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key)
-- [Creare una sAS (GH) di delega utenteCreate a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
+- [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](../common/storage-sas-overview.md)
+- [Operazione di ottenimento della chiave di delega utente](/rest/api/storageservices/get-user-delegation-key)
+- [Creare una firma di accesso condiviso per la delega utente (API REST)](/rest/api/storageservices/create-user-delegation-sas)

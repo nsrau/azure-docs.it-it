@@ -11,5 +11,5 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "67179962"
 ---
-Se il problema di Azure non viene risolto in questo articolo, visitare i forum di Azure su [MSDN e Overflow dello Stack](https://azure.microsoft.com/support/forums/). Puoi pubblicare il tuo problema in [ @AzureSupport ](https://twitter.com/AzureSupport)questi forum o su Twitter . È anche possibile inviare una richiesta di supporto tecnico di Azure. Per inviare una richiesta di supporto tecnico, nella pagina [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) selezionare **Supporto**.
+Se il problema di Azure non viene risolto in questo articolo, visitare i forum di Azure su [MSDN e stack overflow](https://azure.microsoft.com/support/forums/). È possibile pubblicare il problema in questi forum o pubblicare un post [ @AzureSupport su su Twitter](https://twitter.com/AzureSupport). È anche possibile inviare una richiesta di supporto tecnico di Azure. Per inviare una richiesta di supporto tecnico, nella pagina [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) selezionare **Supporto**.
 

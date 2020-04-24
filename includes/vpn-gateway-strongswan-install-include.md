@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "69520851"
 ---
-La seguente configurazione è stata utilizzata per la procedura seguente:
+Per la procedura seguente è stata usata la configurazione seguente:
 
   | | |
   |---|---|
@@ -37,10 +37,10 @@ sudo apt install strongswan-pki
 sudo apt install libstrongswan-extra-plugins
 ```
 
-Usare il comando seguente per installare l'interfaccia della riga di comando di Azure:Use the following command to install the Azure command-line interface:
+Usare il comando seguente per installare l'interfaccia della riga di comando di Azure:
 
 ```
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-[Istruzioni aggiuntive su come installare l'interfaccia della riga di comando di AzureAdditional instructions on how to install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+[Istruzioni aggiuntive su come installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)

@@ -21,22 +21,22 @@ ms.locfileid: "74703145"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Richiamare i programmi MapReduce da Data factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
-> * [Attività Hive](data-factory-hive-activity.md) 
+> * [Attività hive](data-factory-hive-activity.md) 
 > * [Attività di Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Trasformare dati tramite l'attività MapReduce in Data Factory](../transform-data-using-hadoop-map-reduce.md).
 
 
-L'attività HDInsight MapReduce in una [pipeline](data-factory-create-pipelines.md) di Data Factory esegue programmi MapReduce sul cluster HDInsight [basato](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) su Windows/Linux su richiesta o [su richiesta.](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
+L'attività HDInsight MapReduce in una [pipeline](data-factory-create-pipelines.md) di data factory esegue programmi [MapReduce nel cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) HDInsight basato [su](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux su richiesta. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
 > [!NOTE] 
 > Se non si ha familiarità con Azure Data Factory, leggere l'[Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione: [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md) prima di leggere questo articolo.  
@@ -118,7 +118,7 @@ Nella definizione JSON per l'attività HDInsight:
 La pipeline in questo esempio esegue il programma di mapping e riduzione del conteggio delle parole sul cluster HDInsight di Azure.   
 
 ### <a name="linked-services"></a>Servizi collegati
-In primo luogo, si crea un servizio collegato per collegare l'archiviazione di Azure utilizzata dal cluster HDInsight di Azure per la factory di dati di Azure. Se si copia/incolla il codice seguente, non dimenticare di sostituire il nome account e la **chiave dell'account** con il nome e la chiave di Archiviazione di Azure.If you copy/paste the following code, do not forget to replace **account name** and account key with the name and key of your Azure Storage. 
+In primo luogo, si crea un servizio collegato per collegare l'archiviazione di Azure utilizzata dal cluster HDInsight di Azure per la factory di dati di Azure. Se si copia e incolla il codice seguente, non dimenticare di sostituire il **nome account** e la **chiave dell'account** con il nome e la chiave di archiviazione di Azure. 
 
 #### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
 
@@ -135,7 +135,7 @@ In primo luogo, si crea un servizio collegato per collegare l'archiviazione di A
 ```
 
 #### <a name="azure-hdinsight-linked-service"></a>Servizio collegato Azure HDInsight
-Successivamente, si crea un servizio collegato per collegare il cluster HDInsight di Azure alla factory di dati di Azure. Se si copia/incolla il codice seguente, sostituire il nome del **cluster HDInsight** con il nome del cluster HDInsight e modificare i valori di nome utente e password.   
+Successivamente, si crea un servizio collegato per collegare il cluster HDInsight di Azure alla factory di dati di Azure. Se si copia e incolla il codice seguente, sostituire il **nome del cluster HDInsight** con il nome del cluster HDInsight e modificare i valori di nome utente e password.   
 
 ```JSON
 {
@@ -245,8 +245,8 @@ La pipeline in questo esempio contiene una sola attività che è di tipo: HDInsi
 [Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: https://portal.azure.com
 
-## <a name="see-also"></a>Vedere anche
-* [Attività Hive](data-factory-hive-activity.md)
+## <a name="see-also"></a>Vedi anche
+* [Attività hive](data-factory-hive-activity.md)
 * [Attività di Pig](data-factory-pig-activity.md)
 * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)

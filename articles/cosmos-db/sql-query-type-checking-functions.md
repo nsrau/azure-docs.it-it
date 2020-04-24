@@ -1,6 +1,6 @@
 ---
-title: Funzioni di controllo dei tipi nel linguaggio di query del database Cosmos di AzureType checking functions in Azure Cosmos DB query language
-description: Informazioni sul controllo dei tipi delle funzioni di sistema SQL in Azure Cosmos DB.
+title: Funzioni di controllo dei tipi nel linguaggio di query Azure Cosmos DB
+description: Informazioni sul controllo dei tipi funzioni di sistema SQL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -14,13 +14,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "71349072"
 ---
-# <a name="type-checking-functions-azure-cosmos-db"></a>Funzioni di controllo dei tipi (Azure Cosmos DB)Type checking functions (Azure Cosmos DB)
+# <a name="type-checking-functions-azure-cosmos-db"></a>Funzioni di controllo del tipo (Azure Cosmos DB)
 
-Le funzioni di controllo dei tipi consentono di controllare il tipo di un'espressione all'interno di una query SQL. È possibile utilizzare le funzioni di controllo dei tipi per determinare i tipi di proprietà all'interno degli elementi in tempo reale, quando sono variabili o sconosciuti. 
+Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione all'interno di una query SQL. È possibile utilizzare le funzioni di controllo del tipo per determinare i tipi di proprietà all'interno di elementi in tempo reale, quando sono variabili o sconosciute. 
 
 ## <a name="functions"></a>Funzioni
 
-Ecco una tabella delle funzioni di controllo dei tipi incorporate supportate:Here's a table of supported built-in type-checking functions:
+Ecco una tabella delle funzioni di controllo dei tipi predefinite supportate:
 
 Le funzioni seguenti supportano il controllo del tipo per i valori di input e ogni funzione restituisce un valore booleano.  
   

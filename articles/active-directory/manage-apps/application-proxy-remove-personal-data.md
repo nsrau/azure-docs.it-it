@@ -1,5 +1,5 @@
 ---
-title: Rimuovere i dati personali - Proxy di applicazione di Azure Active DirectoryRemove personal data - Azure Active Directory Application Proxy
+title: Rimuovere i dati personali-Azure Active Directory Application Proxy
 description: Rimuovere i dati personali dai connettori installati nei dispositivi nell'Azure Active Directory Application Proxy.
 documentationcenter: ''
 author: msmimart

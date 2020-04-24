@@ -1,5 +1,5 @@
 ---
-title: Disabilitare i criteri di rete per gli endpoint privati in AzureDisable network policies for private endpoints in Azure
+title: Disabilitare i criteri di rete per gli endpoint privati in Azure
 description: Informazioni su come disabilitare i criteri di rete per gli endpoint privati.
 services: private-link
 author: malopMSFT
@@ -14,16 +14,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75453011"
 ---
-# <a name="disable-network-policies-for-private-endpoints"></a>Disabilitare i criteri di rete per gli endpoint privatiDisable network policies for private endpoints
+# <a name="disable-network-policies-for-private-endpoints"></a>Disabilitare i criteri di rete per gli endpoint privati
 
-I criteri di rete, ad esempio i gruppi di sicurezza di rete (NSG), non sono supportati per gli endpoint privati.Network policies like network security groups (NSG) are not supported for private endpoints. Per distribuire un endpoint privato in una determinata subnet, è necessaria un'impostazione di disabilitazione esplicita su tale subnet. Questa impostazione è applicabile solo per l'endpoint privato. Per altre risorse nella subnet, l'accesso viene controllato in base alla definizione delle regole di sicurezza dei gruppi di sicurezza di rete.For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
+I criteri di rete come i gruppi di sicurezza di rete (NSG) non sono supportati per gli endpoint privati. Per distribuire un endpoint privato in una determinata subnet, è necessaria un'impostazione di disabilitazione esplicita in tale subnet. Questa impostazione è applicabile solo per l'endpoint privato. Per altre risorse nella subnet, l'accesso viene controllato in base alla definizione delle regole di sicurezza dei gruppi di sicurezza di rete (NSG). 
  
-Quando si usa il portale per creare un endpoint privato, questa impostazione viene disabilitata automaticamente come parte del processo di creazione. La distribuzione tramite altri client richiede un passaggio aggiuntivo per modificare questa impostazione. È possibile disabilitare l'impostazione usando la shell cloud dal portale di Azure o le installazioni locali di Azure PowerShell, l'interfaccia della riga di comando di Azure o i modelli di Azure Resource Manager.You can disable the setting using cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
+Quando si usa il portale per creare un endpoint privato, questa impostazione viene disabilitata automaticamente come parte del processo di creazione. Per la distribuzione con altri client è necessario un passaggio aggiuntivo per modificare questa impostazione. È possibile disabilitare l'impostazione usando cloud shell dalla portale di Azure o dalle installazioni locali di Azure PowerShell, dall'interfaccia della riga di comando di Azure o usare modelli di Azure Resource Manager.  
  
-Negli esempi seguenti viene `PrivateEndpointNetworkPolicies` descritto come disabilitare per una rete virtuale denominata *myVirtualNetwork* con una subnet *predefinita* ospitata in un gruppo di risorse denominato *myResourceGroup*.
+Gli esempi seguenti descrivono come disabilitare `PrivateEndpointNetworkPolicies` per una rete virtuale denominata *myVirtualNetwork* con una subnet *predefinita* ospitata in un gruppo di risorse denominato *myResourceGroup*.
 
 ## <a name="using-azure-powershell"></a>Uso di Azure PowerShell
-In questa sezione viene descritto come disabilitare i criteri degli endpoint privati della subnet usando Azure PowerShell.This section describes how to disable subnet private endpoint policies using Azure PowerShell.
+Questa sezione descrive come disabilitare i criteri dell'endpoint privato della subnet usando Azure PowerShell.
 
 ```azurepowershell
 $virtualNetwork= Get-AzVirtualNetwork `
@@ -35,7 +35,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
-In questa sezione viene descritto come disabilitare i criteri degli endpoint privati della subnet usando l'interfaccia della riga di comando di Azure.This section describes how to disable subnet private endpoint policies using Azure CLI.
+Questa sezione descrive come disabilitare i criteri dell'endpoint privato della subnet usando l'interfaccia della riga di comando di Azure.
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -44,7 +44,7 @@ az network vnet subnet update \
   --disable-private-endpoint-network-policies true
 ```
 ## <a name="using-a-template"></a>Uso di un modello
-Questa sezione descrive come disabilitare i criteri degli endpoint privati della subnet usando il modello di Azure Resource Manager.This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
+Questa sezione descrive come disabilitare i criteri dell'endpoint privato della subnet usando Azure Resource Manager modello.
 ```json
 { 
           "name": "myVirtualNetwork", 
@@ -70,5 +70,5 @@ Questa sezione descrive come disabilitare i criteri degli endpoint privati della
 } 
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sull'endpoint privato di [AzureLearn](private-endpoint-overview.md) more about Azure private endpoint
+- Altre informazioni sull' [endpoint privato di Azure](private-endpoint-overview.md)
  

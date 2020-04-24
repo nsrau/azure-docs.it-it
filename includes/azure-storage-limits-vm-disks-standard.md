@@ -11,11 +11,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180135"
 ---
-**Dischi standard delle macchine virtuali non gestite: limiti per discoStandard unmanaged virtual machine disks: Per-disk limits**
+**Dischi di macchina virtuale non gestiti standard: limiti per disco**
 
-| Livello VM | VM di livello baseBasic tier VM | VM di livello StandardStandard tier VM |
+| Livello VM | VM di livello Basic | VM di livello standard |
 | --- | --- | --- |
 | Dimensioni disco |4.095 GB |4.095 GB |
-| Numero massimo di operazioni di I/O al secondo per disco persistente |300 |500 |
-| Numero massimo di dischi che eseguono il numero massimo di operazioni di I/O al secondo |66 |40 |
+| Numero massimo di IOPS da 8 KB per disco persistente |300 |500 |
+| Numero massimo di dischi che eseguono il numero massimo di IOPS |66 |40 |
 

@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "67179985"
 ---
-| **Modello/metodo di distribuzione** | **Portale di Azure** | **Powershell** |
+| **Modello/metodo di distribuzione** | **Azure portal** | **PowerShell** |
 | --- | --- | --- |
 | Gestione risorse |[Esercitazione](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |Supportato |
 | Classico | Non supportato | [Esercitazione](../articles/vpn-gateway/vpn-gateway-multi-site.md) |

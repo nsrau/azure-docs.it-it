@@ -22,7 +22,7 @@ Generare il certificato della CA.
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
 
-Stampare il certificato della CA nel formato base64. Questo è il formato supportato da Azure. Questo certificato viene caricato in Azure come parte dei passaggi di [configurazione P2S.](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+Stampare il certificato della CA nel formato base64. Questo è il formato supportato da Azure. Questo certificato viene caricato in Azure come parte della [procedura di configurazione P2S](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo

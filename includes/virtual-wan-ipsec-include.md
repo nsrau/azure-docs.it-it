@@ -16,7 +16,7 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "72168396"
 ---
 >[!NOTE]
->Quando si utilizzano i criteri predefiniti, Azure può agire sia come aprore che come risponditore durante l'installazione di un tunnel IPsec. Non è disponibile alcun supporto solo per Azure come risponditore.
+>Quando si utilizzano i criteri predefiniti, Azure può fungere sia da iniziatore che da risponditore durante un'installazione di tunnel IPsec. Non è disponibile alcun supporto per Azure come risponditore.
 >
 
 ### <a name="initiator"></a>Iniziatore

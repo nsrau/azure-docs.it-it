@@ -1,6 +1,6 @@
 ---
 title: Ottenere le modifiche delle risorse
-description: Comprendere come trovare quando una risorsa è stata modificata, ottenere un elenco delle proprietà modificate e valutare le differenze.
+description: Informazioni su come individuare quando una risorsa è stata modificata, ottenere un elenco delle proprietà modificate e valutare le differenze.
 ms.date: 10/09/2019
 ms.topic: how-to
 ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
@@ -12,37 +12,37 @@ ms.locfileid: "74873030"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
-Le risorse vengono modificate nel corso dell'uso quotidiano, della riconfigurazione e persino della ridistribuzione.
-Il cambiamento può provenire da un individuo o da un processo automatizzato. La maggior parte del cambiamento è in base alla progettazione, ma a volte non lo è. Con gli ultimi 14 giorni di cronologia delle modifiche, Azure Resource Graph consente di:With the last 14 days of change history, Azure Resource Graph enables you to:
+Le risorse vengono modificate nel corso dell'utilizzo giornaliero, della riconfigurazione e persino della ridistribuzione.
+La modifica può provenire da un singolo utente o da un processo automatizzato. La maggior parte delle modifiche è la progettazione, ma a volte non lo è. Con gli ultimi 14 giorni di cronologia delle modifiche, il grafico delle risorse di Azure consente di:
 
-- Individuare quando sono state rilevate modifiche in una proprietà di Azure Resource ManagerFind when changes were detected on an Azure Resource Manager property
-- Per ogni modifica delle risorse, vedere i dettagli della modifica delle proprietàFor each resource change, see property change details
-- Visualizzare un confronto completo della risorsa prima e dopo la modifica rilevata
+- Individuare quando sono state rilevate modifiche in una proprietà Azure Resource Manager
+- Per ogni modifica della risorsa, vedere dettagli delle modifiche delle proprietà
+- Vedere un confronto completo della risorsa prima e dopo la modifica rilevata
 
-Il rilevamento delle modifiche e i dettagli sono utili per gli scenari di esempio seguenti:Change detection and details are valuable for the following example scenarios:
+Il rilevamento delle modifiche e i dettagli sono utili per gli scenari di esempio seguenti:
 
-- Durante la gestione degli incidenti per comprendere le modifiche _potenzialmente_ correlate. Eseguire una query per gli eventi di modifica durante un intervallo di tempo specifico e valutare i dettagli della modifica.
-- Mantenere aggiornato un database di gestione della configurazione, noto come CMDB. Anziché aggiornare tutte le risorse e i relativi set di proprietà completi con una frequenza pianificata, ottenere solo le modifiche.
-- Informazioni sulle altre proprietà che potrebbero essere state modificate quando una risorsa ha modificato lo stato di conformità. La valutazione di queste proprietà aggiuntive può fornire informazioni dettagliate su altre proprietà che potrebbe essere necessario gestire tramite una definizione di criteri di Azure.Evaluation of these additional properties can provide insights into other properties that may need to be managed via an Azure Policy definition.
+- Durante la gestione degli eventi imprevisti per comprendere le modifiche _potenzialmente_ correlate. Eseguire una query per gli eventi di modifica durante un intervallo di tempo specifico e valutare i dettagli della modifica.
+- Mantenere un database di gestione della configurazione, noto come CMDB, aggiornato. Anziché aggiornare tutte le risorse e i relativi set di proprietà completi in base a una frequenza pianificata, ottenere solo le modifiche.
+- Informazioni sulle altre proprietà che potrebbero essere state modificate quando una risorsa ha modificato lo stato di conformità. La valutazione di queste proprietà aggiuntive può fornire informazioni approfondite sulle altre proprietà che potrebbero dover essere gestite tramite una definizione di criteri di Azure.
 
-This article shows how to gather this information through Resource Graph's SDK. Per visualizzare queste informazioni nel portale di Azure, vedere Cronologia delle modifiche di Criteri di Azure o Cronologia delle modifiche del log attività di Azure.To see this information in the Azure portal, see Azure Policy's [Change history](../../policy/how-to/determine-non-compliance.md#change-history-preview) or Azure Activity Log [Change history](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
-Per informazioni dettagliate sulle modifiche apportate alle applicazioni dal livello di infrastruttura fino alla distribuzione delle applicazioni, vedere Usare l'analisi delle modifiche delle applicazioni (anteprima) in Monitoraggio di Azure.For details about changes to your applications from the infrastructure layer to the application deployment, see [Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure Monitor.
+Questo articolo illustra come raccogliere queste informazioni tramite l'SDK di Resource Graph. Per visualizzare queste informazioni nella portale di Azure, vedere [cronologia delle modifiche](../../policy/how-to/determine-non-compliance.md#change-history-preview) di criteri di Azure o [cronologia modifiche](../../../azure-monitor/platform/activity-log-view.md#azure-portal)del log attività di Azure.
+Per informazioni dettagliate sulle modifiche apportate alle applicazioni dal livello dell'infrastruttura fino alla distribuzione delle applicazioni, vedere [usare l'analisi delle modifiche dell'applicazione (anteprima)](../../../azure-monitor/app/change-analysis.md) in monitoraggio di Azure.
 
 > [!NOTE]
-> I dettagli delle modifiche in Resource Graph sono relativi alle proprietà di Resource Manager.Change details in Resource Graph are for Resource Manager properties. Per tenere traccia delle modifiche all'interno di una macchina virtuale, vedere [Rilevamento delle](../../../automation/automation-change-tracking.md) modifiche di Automazione di Azure o Configurazione guest di Criteri di Azure [per le macchine virtuali.](../../policy/concepts/guest-configuration.md)
+> I dettagli delle modifiche nel grafico risorse sono per le proprietà Gestione risorse. Per tenere traccia delle modifiche all'interno di una macchina virtuale, vedere [rilevamento modifiche](../../../automation/automation-change-tracking.md) di automazione di Azure o configurazione Guest di criteri di Azure [per le macchine virtuali](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
-> La cronologia delle modifiche in Azure Resource Graph è in Anteprima pubblica.
+> La cronologia delle modifiche in Azure Resource Graph è in anteprima pubblica.
 
 ## <a name="find-detected-change-events-and-view-change-details"></a>Trovare gli eventi di modifica rilevati e visualizzare i dettagli delle modifiche
 
-Il primo passaggio per vedere cosa è cambiato in una risorsa consiste nell'individuare gli eventi di modifica correlati a tale risorsa in un intervallo di tempo. Ogni evento di modifica include anche i dettagli sulle modifiche apportate alla risorsa. Questo passaggio viene eseguito tramite l'endpoint REST **resourceChanges.This** step is done through the resourceChanges REST endpoint.
+Il primo passaggio per vedere le modifiche apportate a una risorsa consiste nel trovare gli eventi di modifica correlati a tale risorsa in un intervallo di tempo. Ogni evento di modifica include anche informazioni dettagliate sulle modifiche apportate alla risorsa. Questo passaggio viene eseguito tramite l'endpoint REST di **resourceChanges** .
 
-L'endpoint resourceChanges accetta i parametri seguenti nel corpo della richiesta:The **resourceChanges** endpoint accepts the following parameters in the request body:
+L'endpoint **resourceChanges** accetta i parametri seguenti nel corpo della richiesta:
 
-- **resourceId** \[\]required: risorsa di Azure in cui cercare le modifiche.
-- **intervallo** \[\]richiesto : Una proprietà con date di _inizio_ e _di fine_ per quando controllare la presenza di un evento di modifica utilizzando il fuso **orario zulu (sezione)**.
-- **fetchPropertyChanges** (facoltativo): proprietà booleana che imposta se l'oggetto risposta include modifiche alle proprietà.
+- **resourceId** \[required\]: la risorsa di Azure in cui cercare le modifiche.
+- **intervallo** \[necessario\]: proprietà con date di _inizio_ e di _fine_ per il momento in cui verificare la presenza di un evento di modifica usando il **fuso orario Zulu (Z)**.
+- **fetchPropertyChanges** (facoltativo): Proprietà booleana che imposta se l'oggetto risposta include le modifiche alle proprietà.
 
 Corpo della richiesta di esempio:
 
@@ -57,13 +57,13 @@ Corpo della richiesta di esempio:
 }
 ```
 
-Con il corpo della richiesta precedente, l'URI dell'API REST per resourceChanges è:With the above request body, the REST API URI for **resourceChanges** is:
+Con il corpo della richiesta precedente, l'URI dell'API REST per **resourceChanges** è:
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChanges?api-version=2018-09-01-preview
 ```
 
-La risposta è simile a questa:
+La risposta ha un aspetto simile all'esempio seguente:
 
 ```json
 {
@@ -140,28 +140,28 @@ La risposta è simile a questa:
 }
 ```
 
-Ogni evento di modifica rilevato per resourceId ha le proprietà seguenti:Each detected change event for the **resourceId** has the following properties:
+Ogni evento di modifica rilevato per **resourceId** presenta le proprietà seguenti:
 
-- **changeId** - Questo valore è univoco per la risorsa.ChangeId - This value is unique to that resource. Mentre la stringa **changeId** può talvolta contenere altre proprietà, è garantito solo per essere univoco.
-- **beforeSnapshot** - Contiene lo **snapshotId** e il **timestamp** dello snapshot della risorsa creato prima che venisse rilevata una modifica.
-- **afterSnapshot** - Contiene lo **snapshotId** e il **timestamp** dello snapshot della risorsa creato dopo il rilevamento di una modifica.
-- **changeType** - Descrive il tipo di modifica rilevata per l'intero record di modifica tra **beforeSnapshot** e **afterSnapshot**. I valori sono: _Create_, _Update_ed _Delete_. La matrice di proprietà **propertyChanges** viene inclusa solo quando **changeType** è _Update_.
-- **propertyChanges** - Questa matrice di proprietà descrive in dettaglio tutte le proprietà della risorsa aggiornate tra **beforeSnapshot** e **afterSnapshot**:
-  - **propertyName** - Il nome della proprietà della risorsa che è stata modificata.
-  - **changeCategory** - Descrive cosa ha apportato la modifica. I valori sono: _Sistema_ e _Utente_.
-  - **changeType** - Descrive il tipo di modifica rilevata per la singola proprietà della risorsa.
+- **changeId** : questo valore è univoco per la risorsa. Sebbene la stringa **changeId** possa talvolta contenere altre proprietà, è garantito che sia univoca.
+- **beforeSnapshot** : contiene il **snapshotId** e il **timestamp** dello snapshot di risorsa che è stato effettuato prima che venisse rilevata una modifica.
+- **afterSnapshot** : contiene l' **snapshotId** e il **timestamp** dello snapshot di risorsa che è stato eseguito dopo il rilevamento di una modifica.
+- **ChangeType** : descrive il tipo di modifica rilevata per l'intero record delle modifiche tra **beforeSnapshot** e **afterSnapshot**. I valori sono: _create_, _Update_e _Delete_. La matrice di proprietà **propertyChanges** viene inclusa solo quando **ChangeType** è _Update_.
+- **propertyChanges** : questa matrice di proprietà descrive in dettaglio tutte le proprietà delle risorse aggiornate tra **beforeSnapshot** e **afterSnapshot**:
+  - **PropertyName** : nome della proprietà della risorsa che è stata modificata.
+  - **changeCategory** : descrive la modifica apportata. I valori sono: _System_ e _User_.
+  - **ChangeType** : descrive il tipo di modifica rilevata per la singola proprietà della risorsa.
     I valori sono: _Insert_, _Update_, _Remove_.
-  - **beforeValue** - Il valore della proprietà della risorsa in **beforeSnapshot**. Non viene visualizzato quando **changeType** è _Insert_.
-  - **afterValue** - Il valore della proprietà della risorsa in **afterSnapshot**. Non viene visualizzato quando **changeType** è _Remove_.
+  - **beforeValue** : valore della proprietà Resource in **beforeSnapshot**. Non viene visualizzato quando **ChangeType** è _Insert_.
+  - **afterValue** : valore della proprietà Resource in **afterSnapshot**. Non viene visualizzato quando **ChangeType** è _Remove_.
 
-## <a name="compare-resource-changes"></a>Confrontare le modifiche alle risorse
+## <a name="compare-resource-changes"></a>Confrontare le modifiche delle risorse
 
-Con **changeId** dall'endpoint **resourceChanges,** l'endpoint REST **resourceChangeDetails** viene quindi usato per ottenere gli snapshot prima e dopo della risorsa modificata.
+Con **changeId** dall'endpoint **resourceChanges** , l'endpoint REST **resourceChangeDetails** viene quindi usato per ottenere gli snapshot before e After della risorsa che è stata modificata.
 
-L'endpoint resourceChangeDetails richiede due parametri nel corpo della richiesta:The **resourceChangeDetails** endpoint requires two parameters in the request body:
+L'endpoint **resourceChangeDetails** richiede due parametri nel corpo della richiesta:
 
-- **resourceId**: la risorsa di Azure in cui confrontare le modifiche.
-- **changeId**: l'evento di modifica univoco per **resourceId** raccolto da **resourceChanges**.
+- **resourceId**: risorsa di Azure in cui confrontare le modifiche.
+- **changeId**: evento di modifica univoco per il **resourceId** raccolto da **resourceChanges**.
 
 Corpo della richiesta di esempio:
 
@@ -172,13 +172,13 @@ Corpo della richiesta di esempio:
 }
 ```
 
-Con il corpo della richiesta precedente, l'URI dell'API REST per resourceChangeDetails è:With the above request body, the REST API URI for **resourceChangeDetails** is:
+Con il corpo della richiesta precedente, l'URI dell'API REST per **resourceChangeDetails** è:
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChangeDetails?api-version=2018-09-01-preview
 ```
 
-La risposta è simile a questa:
+La risposta ha un aspetto simile all'esempio seguente:
 
 ```json
 {
@@ -280,12 +280,12 @@ La risposta è simile a questa:
 }
 ```
 
-**beforeSnapshot** e **afterSnapshot** forniscono ciascuno l'ora in cui è stata scattata la istantanea e le proprietà in quel momento. La modifica è avvenuta a un certo punto tra queste istantanee. Esaminando l'esempio precedente, è possibile vedere che la proprietà modificata è **supportsHttpsTrafficOnly**.
+**beforeSnapshot** e **afterSnapshot** forniscono ogni volta che lo snapshot è stato utilizzato e le proprietà in quel momento. La modifica si è verificata in un determinato punto tra gli snapshot. Esaminando l'esempio precedente, è possibile notare che la proprietà modificata è **supportsHttpsTrafficOnly**.
 
-Per confrontare i risultati, usare la proprietà **changes** in **resourceChanges** o valutare la parte di **contenuto** di ogni snapshot in **resourceChangeDetails** per determinare la differenza. Se si confrontano gli snapshot, il **timestamp** viene sempre visualizzato come differenza nonostante sia previsto.
+Per confrontare i risultati, usare la proprietà **changes** in **resourceChanges** o valutare la parte del **contenuto** di ogni snapshot in **resourceChangeDetails** per determinare la differenza. Se si confrontano gli snapshot, il **timestamp** viene sempre visualizzato come differenza nonostante sia previsto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere la lingua in uso nelle [query Starter](../samples/starter.md).
-- Vedere Utilizzo avanzato nelle [query avanzate](../samples/advanced.md).
+- Vedere il linguaggio in uso nelle [query Starter](../samples/starter.md).
+- Vedere uso avanzato nelle [query avanzate](../samples/advanced.md).
 - Altre informazioni su come [esplorare le risorse](../concepts/explore-resources.md).

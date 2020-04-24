@@ -1,6 +1,6 @@
 ---
-title: azcopy logout Documenti Microsoft
-description: In questo articolo vengono fornite informazioni di riferimento per il comando azcopy logout.
+title: disconnessione azcopy | Microsoft Docs
+description: Questo articolo contiene informazioni di riferimento per il comando di disconnessione di azcopy.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -17,11 +17,11 @@ ms.locfileid: "74034062"
 ---
 # <a name="azcopy-logout"></a>azcopy logout
 
-Disconnette l'utente e termina l'accesso alle risorse di Archiviazione di Azure.Logs the user out and terminates access to Azure Storage resources.
+Disconnette l'utente e termina l'accesso alle risorse di archiviazione di Azure.
 
 ## <a name="synopsis"></a>Riepilogo
 
-Questo comando rimuoverà tutte le informazioni di accesso memorizzate nella cache per l'utente corrente.
+Tramite questo comando vengono rimosse tutte le informazioni di accesso memorizzate nella cache per l'utente corrente.
 
 ```azcopy
 azcopy logout [flags]
@@ -30,7 +30,7 @@ azcopy logout [flags]
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire dati con AzCopy e l'archiviazione BLOBTransfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
@@ -38,15 +38,15 @@ azcopy logout [flags]
 
 |Opzione|Descrizione|
 |--|--|
-|-h, --help|Visualizzare il contenuto della Guida per il comando di disconnessione.|
+|-h, --help|Mostra il contenuto della Guida per il comando Disconnetti.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
 |Opzione|Descrizione|
 |---|---|
-|--cap-mbps uint32|Limita la velocità di trasferimento, in megabit al secondo. La velocità effettiva momento per momento potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
-|--output-tipo stringa|Formato dell'output del comando. Le opzioni disponibili includono: text, json. Il valore predefinito è "text".|
+|--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
+|--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy](storage-ref-azcopy.md)

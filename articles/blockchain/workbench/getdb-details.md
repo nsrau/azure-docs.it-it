@@ -1,6 +1,6 @@
 ---
 title: Ottenere i dettagli del database di Azure Blockchain Workbench
-description: Informazioni su come ottenere informazioni sul database e sul server di database di Azure Blockchain Workbench Preview.Learn how to get Azure Blockchain Workbench Preview database and database server information.
+description: Informazioni su come ottenere informazioni su database e server di database di Azure blockchain Workbench Preview.
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
@@ -13,7 +13,7 @@ ms.locfileid: "74324700"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Ottenere informazioni sul database di Azure Blockchain Workbench
 
-Questo articolo illustra come ottenere informazioni dettagliate sul database di Azure Blockchain Workbench Preview.This article shows how to get detailed information about your Azure Blockchain Workbench Preview database.
+Questo articolo illustra come ottenere informazioni dettagliate sul database di anteprima di Azure blockchain Workbench.
 
 ## <a name="overview"></a>Panoramica
 
@@ -28,7 +28,7 @@ Prima che uno sviluppatore possa connettersi al database è necessario avere:
 
 Per connettersi al database:
 
-1. Accedere al portale di Azure con un account con autorizzazioni **di proprietario** per le risorse di Azure Blockchain Workbench.Sign in to the Azure portal with an account that has Owner permissions for the Azure Blockchain Workbench resources.
+1. Accedere al portale di Azure con un account con autorizzazioni **proprietario** per le risorse di Azure blockchain Workbench.
 2. Nel riquadro di spostamento a sinistra scegliere **Gruppi di risorse**.
 3. Scegliere il nome del gruppo di risorse per la distribuzione di Blockchain Workbench.
 4. Selezionare **Tipo** per ordinare l'elenco di risorse e quindi scegliere **SQL server**. L'elenco ordinato dello screenshot successivo mostra due database SQL, "master" e uno che usa "lhgn" come **prefisso della risorsa**.

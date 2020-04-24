@@ -1,6 +1,6 @@
 ---
-title: Configurare la disponibilità elevata - Hyperscale (Citus) - Database di Azure per PostgreSQLConfigure high availability - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Come abilitare o disabilitare la disponibilità elevataHow to enable or disable high availability
+title: Configurare la disponibilità elevata-iperscala (CITUS)-database di Azure per PostgreSQL
+description: Come abilitare o disabilitare la disponibilità elevata
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -13,23 +13,23 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74977660"
 ---
-# <a name="configure-hyperscale-citus-high-availability"></a>Configurare la disponibilità elevata di Hyperscale (Citus)Configure Hyperscale (Citus) high availability
+# <a name="configure-hyperscale-citus-high-availability"></a>Configurare la disponibilità elevata di CITUS (iperscale)
 
-Database di Azure per PostgreSQL - Hyperscale (Citus) offre disponibilità elevata (HA) per evitare tempi di inattività del database. Con la disponibilità dell'utente abilitata, ogni nodo in un gruppo di server otterrà uno standby. Se il nodo originale diventa non integro, il relativo standby verrà promosso per sostituirlo.
+Database di Azure per PostgreSQL-iperscalabilità (CITUS) fornisce disponibilità elevata (HA) per evitare tempi di inattività del database. Con la disponibilità elevata abilitata, ogni nodo in un gruppo di server riceverà un standby. Se il nodo originale diventa non integro, il relativo standby verrà promosso per sostituirlo.
 
 > [!IMPORTANT]
-> Poiché HA raddoppia il numero di server nel gruppo, raddoppierà anche il costo.
+> Poiché HA raddoppiato il numero di server nel gruppo, il costo sarà anche doppio.
 
-L'abilitazione della disponibilità elevata è possibile durante la creazione del gruppo di server o in un secondo momento nella scheda Configura per il gruppo di server nel portale di Azure.Enabling HA is possible during server group creation, or afterward in the **Configure** tab for your server group in the Azure portal. In entrambi i casi l'interfaccia utente è simile. Trascinare il dispositivo di scorrimento per **Disponibilità elevata** su YES:
+È possibile abilitare la disponibilità elevata durante la creazione del gruppo di server o successivamente nella scheda **Configura** del gruppo di server nel portale di Azure. L'interfaccia utente è simile in entrambi i casi. Trascinare il dispositivo di scorrimento per la **disponibilità elevata** su Sì:
 
-![ha cursore](./media/howto-hyperscale-high-availability/01-ha-slider.png)
+![dispositivo di scorrimento a disponibilità elevata](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 
-Fare clic sul pulsante **Salva** per applicare la selezione. L'abilitazione della disponibilità di sistema può richiedere del tempo in quanto il gruppo di server effettua il provisioning di standby e trasmette i dati.
+Fare clic sul pulsante **Salva** per applicare la selezione. L'abilitazione di disponibilità elevata può richiedere del tempo quando il gruppo di server effettua il provisioning dei dati in standby e li trasmette.
 
-La scheda **Panoramica** per il gruppo di server elencherà tutti i nodi e i relativi standby, insieme a una colonna **Disponibilità elevata** che indica se la disponibilità elevata è abilitata correttamente per ogni nodo.
+Nella scheda **Panoramica** per il gruppo di server vengono elencati tutti i nodi e i relativi standby, insieme a una colonna a **disponibilità elevata** che indica se la disponibilità elevata è stata abilitata per ogni nodo.
 
-![la colonna ha nella panoramica del gruppo di server](./media/howto-hyperscale-high-availability/02-ha-column.png)
+![Panoramica della colonna a disponibilità elevata in gruppo di server](./media/howto-hyperscale-high-availability/02-ha-column.png)
 
 ### <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni sulla [disponibilità elevata](concepts-hyperscale-high-availability.md).
+Altre informazioni sulla [disponibilità elevata](concepts-hyperscale-high-availability.md).

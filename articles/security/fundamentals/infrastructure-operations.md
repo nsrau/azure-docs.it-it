@@ -1,6 +1,6 @@
 ---
-title: Gestione della rete di produzione di Azure - Microsoft Azure
-description: Questo articolo descrive come Microsoft gestisce e gestisce la rete di produzione di Azure per proteggere i data center di Azure.This article describes how Microsoft manages and operates the Azure production network to secure the Azure datacenters.
+title: Gestione della rete di produzione di Azure-Microsoft Azure
+description: Questo articolo descrive il modo in cui Microsoft gestisce e gestisce la rete di produzione di Azure per la protezione dei Data Center di Azure.
 services: security
 documentationcenter: n
 author: TerryLanfear
@@ -23,9 +23,9 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727124"
 ---
 # <a name="management-and-operation-of-the-azure-production-network"></a>Gestione e funzionamento della rete di produzione di Azure    
-Questo articolo descrive come Microsoft gestisce e gestisce la rete di produzione di Azure per proteggere i data center di Azure.This article describes how Microsoft manages and operates the Azure production network to secure the Azure datacenters.
+Questo articolo descrive il modo in cui Microsoft gestisce e gestisce la rete di produzione di Azure per la protezione dei Data Center di Azure.
 
-## <a name="monitor-log-and-report"></a>Monitorare, registrare e segnalare
+## <a name="monitor-log-and-report"></a>Monitoraggio, log e report
 
 La gestione e il funzionamento della rete di produzione di Azure sono il risultato di una collaborazione coordinata tra i team operativi di Azure e del database SQL di Azure. Nell'ambiente, i team usano vari strumenti di monitoraggio delle prestazioni delle applicazioni e del sistema. E usano strumenti appropriati per il monitoraggio della rete dei dispositivi, dei server e dei processi delle applicazioni.
 
@@ -58,7 +58,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)

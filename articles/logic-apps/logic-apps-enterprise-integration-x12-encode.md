@@ -25,7 +25,7 @@ Per usare questo connettore, è necessario aggiungerlo a un trigger esistente ne
 Sono necessari gli elementi seguenti:
 
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
-* Un account di [integrazione](logic-apps-enterprise-integration-create-integration-account.md) già definito e associato alla sottoscrizione di Azure.An integration account that's already defined and associated with your Azure subscription. Per usare il connettore di messaggi Encode X12 è necessario un account di integrazione.
+* Un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) già definito e associato alla sottoscrizione di Azure. Per usare il connettore di messaggi Encode X12 è necessario un account di integrazione.
 * Almeno due [partner](logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione.
 * Un [contratto X12](logic-apps-enterprise-integration-x12.md) già definito nell'account di integrazione.
 
@@ -91,5 +91,5 @@ Il connettore Encode X12 esegue queste attività:
 Vedere i [dettagli del file Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Scopri di più su Enterprise Integration Pack") 
+[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack") 
 

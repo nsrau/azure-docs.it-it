@@ -13,7 +13,7 @@ ms.locfileid: "69014696"
 ---
 ### <a name="media-services-v3-latest"></a>Servizi multimediali v3 (versione più recente)
 
-Scopri la versione più recente di Servizi multimediali di Azure! 
+Scopri la versione più recente di servizi multimediali di Azure. 
 
 * [Panoramica](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
 * [Concetti](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
@@ -24,5 +24,5 @@ Scopri la versione più recente di Servizi multimediali di Azure!
 
 * [Panoramica](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
 * [Crea account](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
-* [Consegna su richiesta](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
-* [Consegna in diretta](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)
+* [Distribuisci su richiesta](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
+* [Distribuisci in tempo reale](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

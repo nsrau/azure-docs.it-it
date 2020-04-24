@@ -1,5 +1,5 @@
 ---
-title: Archiviazione dei dati di identità per i clienti europei - Azure ADIdentity data storage for European customers - Azure AD
+title: Archiviazione dei dati Identity per i clienti europei-Azure AD
 description: Informazioni su dove Azure Active Directory archivia i dati relativi all'identità per i clienti Europai.
 services: active-directory
 author: msaburnley
@@ -20,25 +20,25 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "75422990"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti Europai - Azure Active Directory
-I dati di identità vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione durante la sottoscrizione a un servizio Microsoft Online, ad esempio Office 365 e Azure.Identity data is stored by Azure AD in a geographical location based on the address provided by your organization when sottocribing for a Microsoft Online service such as Office 365 and Azure. Per informazioni sulla posizione in cui sono archiviati i dati di identità, è possibile utilizzare la sezione [Dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) del Centro protezione Microsoft.
+I dati di identità vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione quando si sottoscrive un servizio online Microsoft, ad esempio Office 365 e Azure. Per informazioni sul percorso di archiviazione dei dati di identità, è possibile usare la sezione [dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) di Microsoft Trust Center.
 
-Per i clienti che hanno fornito un indirizzo in Europa, Azure AD mantiene la maggior parte dei dati di identità all'interno dei data center europei. Questo documento fornisce informazioni su tutti i dati archiviati all'esterno dell'Europa dai servizi di Azure AD.
+Per i clienti che hanno fornito un indirizzo in Europa, Azure AD mantiene la maggior parte dei dati di identità nei data center europei. In questo documento vengono fornite informazioni sui dati archiviati al di fuori dell'Europa da Azure AD Services.
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Autenticazione a più fattori di Microsoft Azure (MFA)Microsoft Azure multi-factor authentication (MFA)
+## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi-factor authentication
     
-- Tutte le autenticazioni a due fattori che utilizzano chiamate telefoniche o SMS provengono da data center statunitensi e vengono inoltre instradate da provider globali.
-- Le notifiche push tramite l'app Microsoft Authenticator provengono dai data center degli Stati Uniti. Inoltre, possono entrare in gioco anche servizi specifici per fornitori di dispositivi e questi servizi possono essere al di fuori dell'Europa.
+- Tutte le autenticazioni a due fattori che usano chiamate telefoniche o SMS hanno origine da Data Center statunitensi e vengono instradate anche dai provider globali.
+- Le notifiche push che usano l'app Microsoft Authenticator provengono dai data center statunitensi. Inoltre, è possibile che anche i servizi specifici del fornitore del dispositivo entrino in gioco e questi servizi siano all'esterno dell'Europa.
 - I codici OATH vengono sempre convalidati negli Stati Uniti. 
 
-Per altre informazioni sulle informazioni utente raccolte dal server Azure Multi-Factor Authentication (MFA Server) e dall'autenticazione a più fattori basata su cloud, vedere Raccolta dati utente di Azure Multi-Factor Authentication.For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure MFA, see [Azure Multi-Factor Authentication user data collection](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
+Per altre informazioni sulle informazioni sugli utenti raccolte da Azure server Multi-Factor Authentication (server di autenticazione a più fattori) e dall'autenticazione a più fattori di Azure basata sul cloud, vedere [raccolta di dati utente multi-factor authentication di Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 
-I dati di configurazione dei criteri B2C di Azure AD e i contenitori di chiavi vengono archiviati nei data center degli Stati Uniti.Azure AD B2C policy configuration data and Key Containers are stored in U.S. datacenters. Questi non contengono dati personali dell'utente. Per altre informazioni sulle configurazioni dei criteri, vedere l'articolo [Azure Active Directory B2C: criteri predefiniti](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
+I dati di configurazione dei criteri di Azure AD B2C e i contenitori di chiavi vengono archiviati nei data center statunitensi. Non contengono dati personali dell'utente. Per altre informazioni sulle configurazioni dei criteri, vedere l'articolo [Azure Active Directory B2C: criteri predefiniti](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
 
 ## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-Azure AD B2B archivia gli inviti con redeem link e redirect URL nelle data center degli Stati Uniti. Inoltre, l'indirizzo di posta elettronica degli utenti che annullano la sottoscrizione alla ricezione di inviti B2B vengono archiviati anche nei data center degli Stati Uniti.
+Azure AD B2B archivia gli inviti con il collegamento di riscatto e le informazioni sull'URL di reindirizzamento nei data center degli Stati Uniti. Inoltre, l'indirizzo di posta elettronica degli utenti che annullano la sottoscrizione alla ricezione degli inviti B2B vengono archiviati anche nei data center statunitensi.
 
 ## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
@@ -46,16 +46,16 @@ Azure Active Directory Domain Services archivia i dati utente nella stessa posiz
 
 ## <a name="federation-in-microsoft-exchange-server-2013"></a>Federazione in Microsoft Exchange Server 2013
     
-- Identificatore applicazione (AppID): numero univoco generato dal sistema di autenticazione di Azure Active Directory per identificare le organizzazioni di Exchange.Application identifier (AppID) - A unique number generated by the Azure Active Directory authentication system to identify Exchange organizations.
+- ID applicazione (AppID): numero univoco generato dal sistema di autenticazione Azure Active Directory per identificare le organizzazioni di Exchange.
 - Elenco di domini federati approvati per l'applicazione
-- Chiave pubblica per la firma di token dell'applicazioneApplication's token signing Public Key 
+- Chiave pubblica per la firma di token dell'applicazione 
 
-Per ulteriori informazioni sulla federazione in Microsoft Exchange Server, vedere l'articolo [della Federazione: Exchange 2013 Help.](https://docs.microsoft.com/exchange/federation-exchange-2013-help)
+Per ulteriori informazioni sulla Federazione in Microsoft Exchange Server, vedere l'articolo della Guida relativa alla [Federazione: Exchange 2013](https://docs.microsoft.com/exchange/federation-exchange-2013-help) .
 
 
 ## <a name="other-considerations"></a>Altre considerazioni
 
-I servizi e le applicazioni che si integrano con Azure AD hanno accesso ai dati di identità. Valutare ogni servizio e applicazione usato per determinare come i dati di identità vengono elaborati da tale servizio e applicazione specifici e se soddisfano i requisiti di archiviazione dei dati dell'azienda.
+I servizi e le applicazioni che si integrano con Azure AD hanno accesso ai dati di identità. Valutare ogni servizio e applicazione usato per determinare come vengono elaborati i dati di identità da tale servizio e applicazione specifica e se soddisfano i requisiti di archiviazione dei dati dell'azienda.
 
 Per altre informazioni sulla residenza dei dati dei servizi Microsoft, vedere la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.
 
@@ -63,10 +63,10 @@ Per altre informazioni sulla residenza dei dati dei servizi Microsoft, vedere la
 Per altre informazioni sulle caratteristiche e le funzionalità descritte in precedenza, vedere questi articoli:
 - [Informazioni su Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 
-- [Reimpostazione della password self-service di Azure ADAzure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+- [Azure AD la reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 
 - [Informazioni su Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
 
-- [Che cos'è la collaborazione B2B di Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- [Che cos'è Azure AD collaborazione B2B?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 
 - [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)

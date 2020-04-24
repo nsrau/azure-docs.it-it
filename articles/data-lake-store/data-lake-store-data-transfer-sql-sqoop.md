@@ -1,5 +1,5 @@
 ---
-title: Copiare i dati tra Data Lake Storage Gen1 e Azure SQL - Sqoop Documenti Microsoft
+title: Copiare dati tra Data Lake Storage Gen1 e Azure SQL-Sqoop | Microsoft Docs
 description: Usare Sqoop per copiare i dati tra il database SQL di Azure e Azure Data Lake Storage Gen1
 services: data-lake-store
 author: twooley
@@ -14,28 +14,28 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "73839067"
 ---
-# <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiare i dati tra Data Lake Storage Gen1 e il database SQL di Azure usando SqoopCopy data between Data Lake Storage Gen1 and Azure SQL Database using Sqoop
+# <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiare dati tra Data Lake Storage Gen1 e il database SQL di Azure con Sqoop
 
 Informazioni su come usare Apache Sqoop per importare ed esportare dati tra un database SQL di Azure e Azure Data Lake Storage Gen1.
 
 ## <a name="what-is-sqoop"></a>Informazioni su Sqoop
 
-Le applicazioni Big Data sono una scelta naturale per l'elaborazione di dati non strutturati e semi-strutturati, ad esempio log e file. Tuttavia, potrebbe anche essere necessario elaborare i dati strutturati archiviati in database relazionali.
+Le applicazioni Big Data sono una scelta naturale per l'elaborazione di dati non strutturati e semi-strutturati, ad esempio log e file. Tuttavia, potrebbe essere necessario elaborare dati strutturati archiviati in database relazionali.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) è uno strumento progettato per trasferire dati tra database relazionali e un repository Big Data, ad esempio Data Lake Storage Gen1. È possibile usarlo per importare dati da un sistema di gestione di database relazionali (RDBMS), ad esempio un database SQL di Azure, in Data Lake Storage Gen1. È quindi possibile trasformare e analizzare i dati usando carichi di lavoro Big Data e quindi esportarli nuovamente in un sistema RDBMS. In questo articolo si usa un database SQL di Azure come database relazionale da cui importare/esportare.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) è uno strumento progettato per trasferire dati tra database relazionali e un repository Big Data, ad esempio Data Lake Storage Gen1. È possibile usarlo per importare dati da un sistema di gestione di database relazionali (RDBMS), ad esempio un database SQL di Azure, in Data Lake Storage Gen1. È quindi possibile trasformare e analizzare i dati usando Big Data carichi di lavoro e quindi esportare di nuovo i dati in un RDBMS. In questo articolo si usa un database SQL di Azure come database relazionale per importare/esportare da.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire le procedure descritte è necessario:
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come creare l'account, vedere Introduzione ad [Azure Data Lake Storage Gen1For](data-lake-store-get-started-portal.md) instructions on how to create the account, see Get started with Azure Data Lake Storage Gen1
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come creare l'account, vedere [Introduzione a Azure Data Lake storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Questo articolo presuppone un cluster HDInsight Linux con accesso a Data Lake Storage Gen1.
 * **Database SQL di Azure**. Per istruzioni su come crearne uno, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started.md)
 
-## <a name="create-sample-tables-in-the-azure-sql-database"></a>Creare tabelle di esempio nel database SQL di AzureCreate sample tables in the Azure SQL database
+## <a name="create-sample-tables-in-the-azure-sql-database"></a>Creare tabelle di esempio nel database SQL di Azure
 
-1. Per iniziare, creare due tabelle di esempio nel database SQL di Azure.To start, create two sample tables in the Azure SQL database. Utilizzare [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) o Visual Studio per connettersi al database e quindi eseguire le query seguenti.
+1. Per iniziare, creare due tabelle di esempio nel database SQL di Azure. Utilizzare [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) o Visual Studio per connettersi al database e quindi eseguire le query seguenti.
 
     **Create Table1**
 
@@ -63,15 +63,15 @@ Per eseguire le procedure descritte è necessario:
        ) ON [PRIMARY]
        GO
 
-1. Eseguire il comando seguente per aggiungere alcuni dati di esempio a **Table1**. Lasciare vuota **Table2** . Successivamente, importerai i dati da **Table1** in Data Lake Storage Gen1. Quindi, si esserverranno i dati da Data Lake Storage Gen1 in **Table2**.
+1. Eseguire il comando seguente per aggiungere alcuni dati di esempio a **Tabella1**. Lasciare vuota **Table2** . Successivamente, verranno importati dati da **Tabella1** in data Lake storage Gen1. Si esporteranno quindi i dati da Data Lake Storage Gen1 a **Table2**.
 
        INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
 
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-storage-gen1"></a>Usare Sqoop da un cluster HDInsight con accesso a Data Lake Storage Gen1
 
-In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluster HDInsight è stato configurato per l'uso di Data Lake Storage Gen1 come spazio di archiviazione aggiuntivo, è possibile usare Sqoop (senza modifiche di configurazione) per importare/esportare dati tra un database relazionale, ad esempio un database SQL di Azure, e un account Data Lake Storage Gen1.
+In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluster HDInsight è stato configurato per l'uso di Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva, è possibile usare Sqoop (senza apportare modifiche alla configurazione) per importare/esportare dati tra un database relazionale come il database SQL di Azure e un account di Data Lake Storage Gen1.
 
-1. Per questo articolo, si presuppone che sia stato creato un cluster Linux in modo da utilizzare SSH per connettersi al cluster. Vedere [Connettersi a un cluster HDInsight basato su Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Per questo articolo si presuppone che sia stato creato un cluster Linux, quindi è consigliabile usare SSH per connettersi al cluster. Vedere [Connettersi a un cluster HDInsight basato su Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Analogamente, verificare se è possibile accedere all'account di Data Lake Storage Gen1 dal cluster. Eseguire il comando seguente dal prompt SSH:
 
@@ -81,13 +81,13 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
 
 ### <a name="import-data-from-azure-sql-database-into-data-lake-storage-gen1"></a>Importare dati da un database SQL di Azure a Data Lake Storage Gen1
 
-1. Passare alla directory in cui sono disponibili i pacchetti di Sqoop. In genere, `/usr/hdp/<version>/sqoop/bin`questa posizione è .
+1. Passare alla directory in cui sono disponibili i pacchetti di Sqoop. Questo percorso è `/usr/hdp/<version>/sqoop/bin`in genere.
 
 1. Importare i dati da **Table1** all'account di Data Lake Storage Gen1. Usare la sintassi seguente:
 
        sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-   Il segnaposto **sql-database-server-name** rappresenta il nome del server in cui è in esecuzione il database SQL di Azure. **sql-database-name** rappresenta il nome effettivo del database.
+   Il segnaposto **SQL-database-server-name** rappresenta il nome del server in cui è in esecuzione il database SQL di Azure. **sql-database-name** rappresenta il nome effettivo del database.
 
    Ad esempio,
 
@@ -121,7 +121,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
 
        SELECT * FROM TABLE2
 
-   Questo comando dovrebbe avere il seguente output.
+   Questo comando deve avere il seguente output.
 
         ID  FName    LName
        -------------------
@@ -132,7 +132,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Considerazioni sulle prestazioni per l'uso di Sqoop
 
-Per informazioni sull'ottimizzazione delle prestazioni del processo Sqoop per copiare i dati in Data Lake Storage Gen1, vedere il post di [blog sulle prestazioni di Sqoop.](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)
+Per informazioni sulle prestazioni che consentono di ottimizzare il processo del Sqoop per copiare i dati in Data Lake Storage Gen1, vedere il [post di Blog sulle prestazioni di Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

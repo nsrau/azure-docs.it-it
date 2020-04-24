@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento per la cache di risorse personalizzate
-description: Custom resource cache reference for Azure Custom Resource Providers. Questo articolo illustra i requisiti per gli endpoint che implementano le risorse personalizzate della cache.
+description: Informazioni di riferimento sulla cache di risorse personalizzate per i provider di risorse personalizzati di Azure. In questo articolo verranno esaminati i requisiti per gli endpoint che implementano risorse personalizzate della cache.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
@@ -12,15 +12,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75650383"
 ---
-# <a name="custom-resource-cache-reference"></a>Informazioni di riferimento sulla cache delle risorse personalizzateCustom Resource Cache Reference
+# <a name="custom-resource-cache-reference"></a>Riferimento alla cache delle risorse personalizzate
 
-Questo articolo illustra i requisiti per gli endpoint che implementano le risorse personalizzate della cache. Se non si ha familiarità con i provider di risorse personalizzate di Azure, vedere [panoramica sui provider](overview.md)di risorse personalizzati.
+In questo articolo verranno esaminati i requisiti per gli endpoint che implementano risorse personalizzate della cache. Se non si ha familiarità con i provider di risorse personalizzati di Azure, vedere [la panoramica sui provider di risorse personalizzati](overview.md).
 
-## <a name="how-to-define-a-cache-resource-endpoint"></a>Come definire un endpoint di risorse della cacheHow to define a cache resource endpoint
+## <a name="how-to-define-a-cache-resource-endpoint"></a>Come definire un endpoint di risorsa della cache
 
-È possibile creare una risorsa proxy specificando **routingType** su "Proxy, Cache".
+È possibile creare una risorsa proxy specificando il valore di **routingType** su "proxy, cache".
 
-Provider di risorse personalizzato di esempio:Sample custom resource provider:
+Provider di risorse personalizzato di esempio:
 
 ```JSON
 {
@@ -40,17 +40,17 @@ Provider di risorse personalizzato di esempio:Sample custom resource provider:
 }
 ```
 
-## <a name="building-proxy-resource-endpoint"></a>Creazione di un endpoint di risorse proxyBuilding proxy resource endpoint
+## <a name="building-proxy-resource-endpoint"></a>Compilazione dell'endpoint della risorsa proxy
 
-Un endpoint che implementa un endpoint di risorsa "Proxy, Cache" deve gestire la richiesta e la risposta per la nuova API in Azure.An **endpoint** that implements a "Proxy, Cache" resource **endpoint** must handle the request and response for the new API in Azure. In questo caso, resourceType genererà una nuova `GET`API `DELETE` delle risorse di Azure per `GET` , , ed esegue CRUD su una singola risorsa, nonché per recuperare tutte le risorse esistenti:In this case, the **resourceType** will generate a new Azure resource API for `PUT`, , and to perform CRUD on a single resource, as well as to retrieve all existing resources:
+Un **endpoint** che implementa un **endpoint** della risorsa "proxy, cache" deve gestire la richiesta e la risposta per la nuova API in Azure. In questo caso, il **ResourceType** genererà una nuova API risorse di Azure `PUT`per `GET`, e `DELETE` per eseguire CRUD su una singola risorsa, oltre che `GET` per recuperare tutte le risorse esistenti:
 
 > [!NOTE]
-> L'API di Azure `PUT`genererà i `GET`metodi di richiesta , , e `DELETE`, ma l'endpoint della cache deve solo gestire **endpoint** `PUT` e `DELETE`.
-> È consigliabile che `GET` **l'endpoint** implementi anche .
+> L'API di Azure genererà i metodi `PUT`di `GET`richiesta, `DELETE`e, ma l' **endpoint** della cache deve solo `PUT` gestire `DELETE`e.
+> Si consiglia inoltre di **endpoint** implementare `GET`l'endpoint.
 
 ### <a name="create-a-custom-resource"></a>Creare una risorsa personalizzata
 
-Richiesta in ingresso API di Azure:Azure API Incoming Request:
+Richiesta in ingresso API di Azure:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -67,7 +67,7 @@ Content-Type: application/json
 }
 ```
 
-Questa richiesta verrà quindi inoltrata **all'endpoint** nel formato:
+Questa richiesta verrà quindi trasmessa all' **endpoint** nel formato seguente:
 
 ``` HTTP
 PUT https://{endpointURL}/?api-version=2018-09-01-preview
@@ -84,14 +84,14 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Analogamente, la risposta **dall'endpoint** viene quindi inoltrata al cliente. La risposta dall'endpoint deve restituire:The response from the endpoint should return:
+Analogamente, la risposta dall' **endpoint** viene quindi reinviata al cliente. La risposta dall'endpoint deve restituire:
 
-- Documento oggetto JSON valido. Tutte le matrici e le stringhe devono essere annidate sotto un oggetto superiore.
-- L'intestazione `Content-Type` deve essere impostata su "application/json; charset:utf-8".
-- Il provider di risorse `name` `type`personalizzato `id` sovrascriverà i campi , e per la richiesta.
-- Il provider di risorse personalizzato `properties` restituirà solo i campi sotto l'oggetto per un endpoint della cache.
+- Documento oggetto JSON valido. Tutte le matrici e le stringhe devono essere annidate in un oggetto top.
+- L' `Content-Type` intestazione deve essere impostata su "Application/JSON; charset = UTF-8 ".
+- Il provider di risorse personalizzato `name`sovrascriverà `type`i campi `id` , e per la richiesta.
+- Il provider di risorse personalizzato restituirà solo i `properties` campi nell'oggetto per un endpoint della cache.
 
-**Endpoint** Risposta:
+**Endpoint** di Risposta
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -107,9 +107,9 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-I `name` `id`campi `type` , e verranno generati automaticamente per la risorsa personalizzata dal provider di risorse personalizzato.
+I `name`campi `id`, e `type` verranno generati automaticamente per la risorsa personalizzata dal provider di risorse personalizzato.
 
-Risposta del provider di risorse personalizzato di Azure:Azure Custom Resource Provider Response:
+Risposta del provider di risorse personalizzato di Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -130,7 +130,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="remove-a-custom-resource"></a>Rimuovere una risorsa personalizzata
 
-Richiesta in ingresso API di Azure:Azure API Incoming Request:
+Richiesta in ingresso API di Azure:
 
 ``` HTTP
 Delete https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -138,7 +138,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Questa richiesta verrà quindi inoltrata **all'endpoint** nel formato:
+Questa richiesta verrà quindi trasmessa all' **endpoint** nel formato seguente:
 
 ``` HTTP
 Delete https://{endpointURL}/?api-version=2018-09-01-preview
@@ -146,20 +146,20 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Analogamente, la risposta **dall'endpoint** viene quindi inoltrata al cliente. La risposta dall'endpoint deve restituire:The response from the endpoint should return:
+Analogamente, la risposta dall' **endpoint** viene quindi reinviata al cliente. La risposta dall'endpoint deve restituire:
 
-- Documento oggetto JSON valido. Tutte le matrici e le stringhe devono essere annidate sotto un oggetto superiore.
-- L'intestazione `Content-Type` deve essere impostata su "application/json; charset:utf-8".
-- Il provider di risorse personalizzato di Azure rimuoverà l'elemento dalla cache solo se viene restituita una risposta di livello 200.The Azure Custom Resource Provider will only remove the item from its cache if a 200-level response is returned. Anche se la risorsa non esiste, **l'endpoint** deve restituire 204.
+- Documento oggetto JSON valido. Tutte le matrici e le stringhe devono essere annidate in un oggetto top.
+- L' `Content-Type` intestazione deve essere impostata su "Application/JSON; charset = UTF-8 ".
+- Il provider di risorse personalizzato di Azure rimuoverà l'elemento dalla relativa cache solo se viene restituita una risposta di 200 a livello. Anche se la risorsa non esiste, l' **endpoint** deve restituire 204.
 
-**Endpoint** Risposta:
+**Endpoint** di Risposta
 
 ``` HTTP
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
 
-Risposta del provider di risorse personalizzato di Azure:Azure Custom Resource Provider Response:
+Risposta del provider di risorse personalizzato di Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -168,7 +168,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="retrieve-a-custom-resource"></a>Recuperare una risorsa personalizzata
 
-Richiesta in ingresso API di Azure:Azure API Incoming Request:
+Richiesta in ingresso API di Azure:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -176,9 +176,9 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-La richiesta **non** verrà inoltrata **all'endpoint.**
+La richiesta **non** verrà trasmessa all' **endpoint**.
 
-Risposta del provider di risorse personalizzato di Azure:Azure Custom Resource Provider Response:
+Risposta del provider di risorse personalizzato di Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -197,9 +197,9 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="enumerate-all-custom-resources"></a>Enumerare tutte le risorse personalizzate
+### <a name="enumerate-all-custom-resources"></a>Enumera tutte le risorse personalizzate
 
-Richiesta in ingresso API di Azure:Azure API Incoming Request:
+Richiesta in ingresso API di Azure:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources?api-version=2018-09-01-preview
@@ -207,9 +207,9 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Questa richiesta **non** verrà inoltrata **all'endpoint.**
+Questa richiesta **non** verrà trasmessa all' **endpoint**.
 
-Risposta del provider di risorse personalizzato di Azure:Azure Custom Resource Provider Response:
+Risposta del provider di risorse personalizzato di Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -234,8 +234,8 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica sui provider di risorse personalizzate di AzureOverview on Azure Custom Resource Providers](overview.md)
-- [Guida introduttiva: Creare il provider di risorse personalizzato di Azure e distribuire risorse personalizzate](./create-custom-provider.md)
-- [Esercitazione: Creare azioni e risorse personalizzate in AzureTutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
-- [Procedura: Aggiunta di azioni personalizzate all'API REST di AzureHow To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [Riferimento: Riferimento al proxy di risorsa personalizzatoReference: Custom Resource Proxy Reference](proxy-resource-endpoint-reference.md)
+- [Panoramica sui provider di risorse personalizzati di Azure](overview.md)
+- [Guida introduttiva: creare un provider di risorse personalizzato di Azure e distribuire risorse personalizzate](./create-custom-provider.md)
+- [Esercitazione: creare azioni e risorse personalizzate in Azure](./tutorial-get-started-with-custom-providers.md)
+- [Procedura: aggiungere azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
+- [Riferimento: riferimento al proxy di risorsa personalizzato](proxy-resource-endpoint-reference.md)

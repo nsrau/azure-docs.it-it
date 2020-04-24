@@ -1,5 +1,5 @@
 ---
-title: Data Lake tools for Visual Studio & Hortonworks - Azure HDInsight
+title: Strumenti di Data Lake per Visual Studio & Hortonworks-Azure HDInsight
 description: Informazioni su come usare gli strumenti Azure Data Lake per VIsual Studio con Sandbox di Hortonworks (in esecuzione su una macchina virtuale locale). Grazie a questi strumenti è possibile creare ed eseguire i processi Hive e Pig in Sandbox, oltre a visualizzare l'output del processo e la cronologia.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -41,17 +41,17 @@ Assicurarsi che l'ambiente Hortonworks Sandbox sia in esecuzione. Seguire la pro
 
 2. In **Esplora server** fare clic con il pulsante destro del mouse sulla voce **HDInsight** e quindi scegliere **Connect to HDInsight Emulator** (Connetti a HDInsight Emulator).
 
-    ![Esplora server, con l'evidenziato all'emulatore HDInsight](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
+    ![Esplora server, con Connetti all'emulatore di HDInsight evidenziato](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
 
 3. Nella finestra di dialogo **Connect to HDInsight Emulator** (Connetti a HDInsight Emulator) immettere la password configurata per Ambari.
 
-    ![Screenshot della finestra di dialogo con la casella di testo della password ambari evidenziata](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
+    ![Screenshot della finestra di dialogo con la casella di testo password Ambari evidenziata](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     Selezionare **Avanti** per continuare.
 
 4. Usare il campo **Password** per immettere la password configurata per l'account `root`. Mantenere i valori predefiniti per gli altri campi.
 
-    ![Cattura della finestra di dialogo con la casella di testo della password radice evidenziata](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password1.png)
+    ![Screenshot della finestra di dialogo con la casella di testo password radice evidenziata](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password1.png)
 
     Selezionare **Avanti** per continuare.
 
@@ -90,7 +90,7 @@ Hive fornisce un linguaggio di query simile a SQL (HiveQL) per la gestione dei d
 
     È anche possibile usare il menu a discesa accanto a **Invia** per selezionare **Avanzate**. In questo modo è possibile specificare opzioni aggiuntive durante l'invio del processo.
 
-    ![Schermata dell'hive della finestra di dialogo Invia script](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-hive.png)
+    ![Screenshot della finestra di dialogo Invia script hive](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-hive.png)
 
 3. Dopo aver inviato la query viene visualizzato lo stato del processo, che fornisce informazioni sul processo mentre viene elaborato da Hadoop. La voce **Stato processo** indica lo stato del processo. Anche se lo stato viene aggiornato periodicamente, è possibile usare l'icona di aggiornamento per eseguire l'operazione manualmente.
 
@@ -122,7 +122,7 @@ Inoltre, è possibile creare un progetto che contiene più script Hive. Usare un
 
 2. Nell'elenco dei progetti espandere **Modelli** e **Azure Data Lake**, quindi selezionare **HIVE (HDInsight)**. Nell'elenco dei modelli selezionare **Hive Sample** (Esempio Hive). Immettere un nome e un percorso e quindi selezionare **OK**.
 
-    ![Nuova finestra progetto, con Azure Data Lake, Hive Sample e OK](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
+    ![Finestra nuovo progetto, con Azure Data Lake, esempio hive e OK](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
 
 Il progetto **Hive Sample** (Esempio Hive) contiene due script, **WebLogAnalysis.hql** e **SensorDataAnalysis.hql**. È possibile inviare gli script usando lo stesso pulsante **Invia** nella parte superiore della finestra.
 
@@ -130,7 +130,7 @@ Il progetto **Hive Sample** (Esempio Hive) contiene due script, **WebLogAnalysis
 
 Mentre Hive offre un linguaggio simile a SQL per la gestione dei dati strutturati, Pig esegue trasformazioni sui dati. Pig offre infatti un linguaggio (Pig Latin) che consente di sviluppare una pipeline di trasformazioni. Per usare Pig con il cluster locale, seguire questa procedura:
 
-1. Aprire Visual Studio e selezionare **File**, **Nuovo**, quindi **Progetto**. Nell'elenco dei progetti espandere **Modelli** e **Azure Data Lake** e quindi selezionare **Pig (HDInsight)**. Nell'elenco dei modelli selezionare **Pig Application** (Applicazione Pig). Immettere un nome e un percorso e quindi selezionare **OK**.
+1. Aprire Visual Studio e selezionare **file**, **nuovo**, quindi **progetto**. Nell'elenco dei progetti espandere **Modelli** e **Azure Data Lake** e quindi selezionare **Pig (HDInsight)**. Nell'elenco dei modelli selezionare **Pig Application** (Applicazione Pig). Immettere un nome e un percorso e quindi selezionare **OK**.
 
     ![Screenshot della finestra Nuovo progetto, con Azure Data Lake, Pig, Pig Application e OK evidenziati](./media/hdinsight-hadoop-emulator-visual-studio/new-apche-pig-project.png)
 
@@ -147,9 +147,9 @@ Mentre Hive offre un linguaggio simile a SQL per la gestione dei dati strutturat
         c = GROUP b BY ip_address;
         DUMP c;
 
-    Mentre Pig usa una lingua diversa da Hive, la modalità di esecuzione dei processi è coerente tra entrambe le lingue, tramite il pulsante **Invia.** Selezionando l'elenco a discesa accanto a **Invia** viene visualizzata una finestra di dialogo di invio avanzato per Pig.
+    Sebbene Pig usi un linguaggio diverso rispetto a hive, la modalità di esecuzione dei processi è coerente tra entrambi i linguaggi, tramite il pulsante **Invia** . Selezionando l'elenco a discesa accanto a **Invia** viene visualizzata una finestra di dialogo di invio avanzato per Pig.
 
-    ![Schermata della finestra di dialogo Invia script](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-pig1.png)
+    ![Screenshot della finestra di dialogo Invia script Pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-pig1.png)
 
 3. Anche lo stato del processo e l'output vengono visualizzati allo stesso modo di una query Hive.
 
@@ -179,7 +179,7 @@ Gli strumenti Data Lake consentono anche di visualizzare facilmente le informazi
 
 2. L'espansione della consente di visualizzare le colonne presenti in essa. Per visualizzare rapidamente i dati fare clic con il pulsante destro del mouse su una tabella e scegliere **Visualizza prime 100 righe**.
 
-    ![Esplora server, con la tabella espansa e l'opzione Visualizza prime 100 righe selezionata](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
+    ![Esplora server, con tabella espansa e visualizza le prime 100 righe selezionate](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
 
 ### <a name="database-and-table-properties"></a>Proprietà del database e della tabella
 

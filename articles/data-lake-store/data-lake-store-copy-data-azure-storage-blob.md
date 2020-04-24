@@ -1,5 +1,5 @@
 ---
-title: Copiare i dati dai BLOB di Archiviazione di Azure a Data Lake Storage Gen1
+title: Copiare i dati da BLOB di archiviazione di Azure a Data Lake Storage Gen1
 description: Usare lo strumento AdlCopy per copiare i dati da BLOB di Archiviazione di Azure ad Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
@@ -23,7 +23,7 @@ ms.locfileid: "75638869"
 
 Data Lake Storage Gen1 fornisce uno strumento da riga di comando, [AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358), per copiare i dati dalle origini seguenti:
 
-* Dai BLOB di Archiviazione di Azure ai dati di Archiviazione dati Gen1.From Azure Storage blobs into Data Lake Storage Gen1. Non è possibile usare AdlCopy per copiare i dati da Data Lake Storage Gen1 ai BLOB di Archiviazione di Azure.You can't use AdlCopy to copy data from Data Lake Storage Gen1 to Azure Storage blobs.
+* Da BLOB di archiviazione di Azure in Data Lake Storage Gen1. Non è possibile usare AdlCopy per copiare i dati da Data Lake Storage Gen1 nei BLOB di archiviazione di Azure.
 * Tra due account Data Lake Storage Gen1.
 
 È anche possibile usare lo strumento AdlCopy in due modi diversi:
@@ -35,10 +35,10 @@ Data Lake Storage Gen1 fornisce uno strumento da riga di comando, [AdlCopy](http
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Contenitore BLOB di Archiviazione di Azure** con alcuni dati.
-* **Un account Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere Introduzione a [Azure Data Lake Storage Gen1For](data-lake-store-get-started-portal.md) instructions on how to create one, see Get started with Azure Data Lake Storage Gen1
-* **Account data Lake Analytics (facoltativo):** vedere Introduzione ad Azure Data Lake Analytics per istruzioni su come creare un account Data Lake Analytics.Data Lake Analytics account (optional) - See [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) for instructions on how to create a Data Lake Analytics account.
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Contenitore **BLOB di archiviazione di Azure** con alcuni dati.
+* **Un account data Lake storage Gen1**. Per istruzioni su come crearne uno, vedere [Introduzione a Azure Data Lake storage Gen1](data-lake-store-get-started-portal.md)
+* **Data Lake Analytics account (facoltativo)** : per istruzioni su come creare un account data Lake Analytics, vedere [Introduzione a Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) .
 * **Lo strumento AdlCopy**. Installare lo [strumento AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintassi dello strumento AdlCopy
@@ -51,12 +51,12 @@ I parametri nella sintassi sono descritti di seguito:
 
 | Opzione | Descrizione |
 | --- | --- |
-| Source (Sorgente) |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
+| Origine |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
 | Dest |Specifica la destinazione di Data Lake Storage Gen1 in cui eseguire la copia. |
 | SourceKey |Specifica la chiave di accesso alle risorse di archiviazione per l'origine BLOB di Archiviazione di Azure. La chiave è necessaria solo se l'origine è un contenitore BLOB o un BLOB. |
 | Account |**Facoltativo**. Scegliere questa opzione se si vuole usare l'account di Analisi Azure Data Lake per eseguire il processo di copia. Se si usa l'opzione /Account nella sintassi ma non si specifica un account di Analisi Data Lake, AdlCopy usa un account predefinito per eseguire il processo. Inoltre, se si sceglie questa opzione, è necessario aggiungere l'origine (BLOB di Archiviazione di Azure) e la destinazione (Azure Data Lake Storage Gen1) come origini dati per l'account di Data Lake Analytics. |
 | Unità |Specifica il numero di unità di Analisi Data Lake che verranno usate per il processo di copia. Questa opzione è obbligatoria se si usa l'opzione **/Account** per specificare l'account di Analisi Data Lake. |
-| Modello |Specifica un modello regex che indica quali BLOB o file copiare. AdlCopy usa la corrispondenza tra maiuscole e minuscole. Il modello predefinito quando non viene specificato alcun modello consiste nel copiare tutti gli elementi. Non è consentito specificare più criteri file. |
+| Modello |Specifica un modello regex che indica quali BLOB o file copiare. AdlCopy usa la corrispondenza tra maiuscole e minuscole. Il criterio predefinito quando non viene specificato alcun modello consiste nel copiare tutti gli elementi. Non è consentito specificare più criteri file. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>Usare AdlCopy (come file autonomo) per copiare i dati da un BLOB di Archiviazione di Azure
 
@@ -123,7 +123,7 @@ Quando si esegue una copia da un account di Archiviazione BLOB di Azure, è poss
 
 ### <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
-Quando si usa AdlCopy come strumento autonomo, la copia viene eseguita in risorse condivise gestite da Azure.When using AdlCopy as a standalone tool, the copy is run on shared, Azure-managed resources. Le prestazioni che è possibile ottenere in questo ambiente dipendono dal carico del sistema e dalle risorse disponibili. Questa modalità è più adatta ai trasferimenti di piccole dimensioni eseguiti ad hoc. Quando si usa AdlCopy come strumento autonomo, non è necessario impostare alcun parametro.
+Quando si usa AdlCopy come strumento autonomo, la copia viene eseguita su risorse condivise gestite da Azure. Le prestazioni che è possibile ottenere in questo ambiente dipendono dal carico del sistema e dalle risorse disponibili. Questa modalità è più adatta ai trasferimenti di piccole dimensioni eseguiti ad hoc. Quando si usa AdlCopy come strumento autonomo, non è necessario impostare alcun parametro.
 
 ## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>Usare AdlCopy (con un account Data Lake Analytics) per copiare i dati
 
@@ -172,11 +172,11 @@ Questa sezione descrive come usare AdlCopy per copiare i dati da un'origine (nel
 
 ## <a name="considerations-for-using-adlcopy"></a>Considerazioni sull'uso di AdlCopy
 
-* AdlCopy (per la versione 1.0.5) supporta la copia dei dati da origini che collettivamente contengono migliaia di file e cartelle. Tuttavia, se si verificano problemi durante la copia di un set di dati di grandi dimensioni, è possibile distribuire i file e le cartelle in sottocartelle diverse e utilizzare il percorso di tali sottocartelle come origine.
+* AdlCopy (per la versione 1.0.5) supporta la copia dei dati da origini che collettivamente contengono migliaia di file e cartelle. Tuttavia, se si verificano problemi durante la copia di un set di dati di grandi dimensioni, è possibile distribuire i file o le cartelle in sottocartelle diverse e utilizzare invece il percorso delle sottocartelle come origine.
 
 ## <a name="performance-considerations-for-using-adlcopy"></a>Considerazioni sulle prestazioni per l'uso di AdlCopy
 
-AdlCopy supporta la copia dei dati che contengono migliaia di file e cartelle. Tuttavia, se si verificano problemi durante la copia di un set di dati di grandi dimensioni, è possibile distribuire i file/cartelle in sottocartelle più piccole. AdlCopy è stato creato per copie ad hoc. Se si tenta di copiare dati su base periodica, è consigliabile usare [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) che consente gestire completamente le operazioni di copia.
+AdlCopy supporta la copia dei dati che contengono migliaia di file e cartelle. Tuttavia, se si verificano problemi durante la copia di un set di dati di grandi dimensioni, è possibile distribuire i file o le cartelle in sottocartelle più piccole. AdlCopy è stato creato per copie ad hoc. Se si tenta di copiare dati su base periodica, è consigliabile usare [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) che consente gestire completamente le operazioni di copia.
 
 ## <a name="release-notes"></a>Note sulla versione
 

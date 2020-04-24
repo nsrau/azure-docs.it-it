@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza Citrix XenDesktop/XenApp con Azure Site RecoverySet up Citrix XenDesktop/XenApp disaster recovery with Azure Site Recovery
+title: Configurare il ripristino di emergenza Citrix XenDesktop/XenApp con Azure Site Recovery
 description: Questo articolo descrive come configurare il ripristino di emergenza delle distribuzioni Citrix XenDesktop e XenApp con Azure Site Recovery.
 author: ponatara
 manager: abhemraj
@@ -57,7 +57,7 @@ Per le finalità di questo articolo, sono state usate distribuzioni Citrix in ma
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
 **Hyper-V** | Non nell'ambito | Sì
-**Vmware** | Non nell'ambito | Sì
+**VMware** | Non nell'ambito | Sì
 **Server fisico** | Non nell'ambito | Sì
 
 ### <a name="versions"></a>Versioni
@@ -156,7 +156,7 @@ Il piano di ripristino personalizzato ha un aspetto simile al seguente:
    >[!NOTE]     
    >I passaggi 4, 6 e 7 contenenti le azioni manuali o di script sono applicabili solo a un ambiente XenApp locale con cataloghi MCS/PVS.
 
-4. Gruppo 3 Azione manuale o script: arrestare la macchina virtuale VDA master.
+4. Gruppo 3 azione manuale o script: arrestare la macchina virtuale VDA master.
 Lo stato della macchina virtuale VDA master quando ne viene eseguito il failover in Azure è In esecuzione. Per creare nuovi cataloghi MCS usando l'hosting di Azure, è necessario che lo stato della VM VDA master sia Arrestato (deallocato). Arrestare la VM dal portale di Azure.
 
 5. Gruppo di failover 4: controller di distribuzione e VM del server StoreFront

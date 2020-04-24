@@ -66,7 +66,7 @@ Gli script U-SQL in un progetto U-SQL potrebbero includere istruzioni di query p
 Leggere altre informazioni sul [progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
->Istruzione DROP può causare un problema di eliminazione degli incidenti. Per abilitare l'istruzione DROP, è necessario specificare in modo esplicito gli argomenti MSBuild. **AllowDropStatement** abiliterà l'operazione DROP non correlata ai dati, ad esempio l'assembly di rilascio e la funzione con valori di tabella di rilascio. **AllowDataDropStatement** abiliterà l'operazione DROP correlata ai dati, ad esempio la tabella di rilascio e lo schema di rilascio. È necessario abilitare AllowDropStatement prima di utilizzare AllowDataDropStatement.You have to enable AllowDropStatement before using AllowDataDropStatement.
+>DROP Statement può causare un problema di eliminazione accidentale. Per abilitare l'istruzione DROP, è necessario specificare in modo esplicito gli argomenti MSBuild. **AllowDropStatement** Abilita l'operazione di rilascio non correlata ai dati, ad esempio drop assembly e drop table valued Function. **AllowDataDropStatement** consentirà l'operazione drop relativa ai dati, ad esempio drop table e drop schema. Prima di usare AllowDataDropStatement, è necessario abilitare AllowDropStatement.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>Compilare il progetto U-SQL con la riga di comando di MSBuild
@@ -79,11 +79,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 La definizione e i valori degli argomenti sono i seguenti:
 
-* **USQLSDKPath:\<pacchetto U-SQL Nuget>.** Questo parametro fa riferimento al percorso di installazione del pacchetto NuGet per il servizio di linguaggio U-SQL.
+* **USQLSDKPath =\<pacchetto NUGET U-SQL> \build\runtime**. Questo parametro fa riferimento al percorso di installazione del pacchetto NuGet per il servizio di linguaggio U-SQL.
 * **USQLTargetType=Merge o SyntaxCheck**:
     * **Unisci**. La modalità Merge compila i file code-behind. Ad esempio, i file **.cs**, **.py** e **.r**. La libreria di codice definita dall'utente risultante viene inserita nello script U-SQL. Ad esempio, codice DLL binario, Python o R.
     * **SyntaxCheck**. La modalità SyntaxCheck prima unisce i file code-behind nello script U-SQL. Compila quindi lo script U-SQL per convalidare il codice.
-* **DataRoot:\<percorso DataRoot>**. DataRoot è necessario solo per la modalità SyntaxCheck. Durante la compilazione dello script con la modalità SyntaxCheck, MSBuild controlla i riferimenti agli oggetti di database nello script. Prima della compilazione, assicurarsi di configurare un ambiente locale corrispondente che contiene gli oggetti di riferimento del database U-SQL nella cartella DataRoot del computer di compilazione. È anche possibile gestire le dipendenze del database [facendo riferimento a un progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild controlla solo i riferimenti agli oggetti di database, non i file.
+* **Dataroot =\<dataroot percorso>**. DataRoot è necessario solo per la modalità SyntaxCheck. Durante la compilazione dello script con la modalità SyntaxCheck, MSBuild controlla i riferimenti agli oggetti di database nello script. Prima della compilazione, assicurarsi di configurare un ambiente locale corrispondente che contiene gli oggetti di riferimento del database U-SQL nella cartella DataRoot del computer di compilazione. È anche possibile gestire le dipendenze del database [facendo riferimento a un progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild controlla solo i riferimenti agli oggetti di database, non i file.
 * **EnableDeployment=true** o **false**. EnableDeployment indica se è consentita la distribuzione dei database U-SQL di riferimento durante il processo di compilazione. Se si fa riferimento a un progetto di database U-SQL e si utilizzano gli oggetti di database nello script U-SQL, impostare questo parametro su **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Integrazione continua con Azure Pipelines
@@ -92,7 +92,7 @@ Oltre alla riga di comando, è anche possibile usare un'attività di MSBuild o V
 
 ![Attività di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
-1.  Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare la `$(Build.SourcesDirectory)/packages` directory di**destinazione** **avanzata** > su se si desidera utilizzare l'esempio di argomenti MSBuild direttamente nel passaggio 2.
+1.  Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare **Advanced** > **directory di destinazione** avanzata `$(Build.SourcesDirectory)/packages` su se si desidera utilizzare l'esempio di argomenti MSBuild direttamente nel passaggio 2.
 
     ![Attività di ripristino di NuGet per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -328,7 +328,7 @@ Oltre alla riga di comando, è possibile usare un'attività di MSBuild o Visual 
    ![Attività di CI/CD di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
 
-1. Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione, che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare la `$(Build.SourcesDirectory)/packages` directory di**destinazione** **avanzata** > su se si desidera utilizzare l'esempio di argomenti MSBuild direttamente nel passaggio 2.
+1. Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione, che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare **Advanced** > **directory di destinazione** avanzata `$(Build.SourcesDirectory)/packages` su se si desidera utilizzare l'esempio di argomenti MSBuild direttamente nel passaggio 2.
 
    ![Attività di CI/CD di NuGet per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -454,37 +454,37 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="common-parameters"></a>Parametri comuni
 
-| Parametro | Descrizione | Default Value | Obbligatoria |
+| Parametro | Descrizione | Default Value | Obbligatorio |
 |---------|-----------|-------------|--------|
-|Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
+|Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|null|true|
 |Database|Nome del database da distribuire o creare.|master|false|
-|LogFile|Percorso del file per la registrazione. L'impostazione predefinita è l'output standard (console).|Null|false|
+|LogFile|Percorso del file per la registrazione. L'impostazione predefinita è l'output standard (console).|null|false|
 |LogLevel|Livello di log: dettagliato, normale, avviso o errore.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Parametro per la distribuzione locale
 
-|Parametro|Descrizione|Default Value|Obbligatoria|
+|Parametro|Descrizione|Default Value|Obbligatorio|
 |---------|-----------|-------------|--------|
-|DataRoot|Percorso della cartella radice dei dati locale.|Null|true|
+|DataRoot|Percorso della cartella radice dei dati locale.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametri per la distribuzione di Azure Data Lake Analytics
 
-|Parametro|Descrizione|Default Value|Obbligatoria|
+|Parametro|Descrizione|Default Value|Obbligatorio|
 |---------|-----------|-------------|--------|
-|Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|Null|true|
-|ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|Null|true|
-|SubscriptionId|ID sottoscrizione di Azure per l'account di Azure Data Lake Analytics.|Null|true|
-|Tenant|Il nome del tenant è il nome di dominio di Azure Active Directory (Azure AD). È possibile individuarlo nella pagina di gestione della sottoscrizione nel portale di Azure.|Null|true|
-|AzureSDKPath|Percorso di ricerca degli assembly dipendenti in Azure SDK.|Null|true|
-|Interattività|Indica se usare o meno la modalità interattiva per l'autenticazione.|false|false|
-|ClientId|ID applicazione di Azure AD necessario per l'autenticazione non interattiva.|Null|Necessario per l'autenticazione non interattiva.|
-|Secrete|Segreto o password per l'autenticazione non interattiva. Da usare solo in un ambiente sicuro e attendibile.|Null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare SecreteFile.|
-|SecreteFile|File in cui viene salvato il segreto o la password per l'autenticazione non interattiva. Assicurarsi che possa essere letto solo dall'utente corrente.|Null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare Secrete.|
-|CertFile|File in cui viene salvata la certificazione X.509 per l'autenticazione non interattiva. Per impostazione predefinita viene usata l'autenticazione con segreto client.|Null|false|
+|Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|null|true|
+|ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|null|true|
+|SubscriptionId|ID sottoscrizione di Azure per l'account di Azure Data Lake Analytics.|null|true|
+|Tenant|Il nome del tenant è il nome di dominio di Azure Active Directory (Azure AD). È possibile individuarlo nella pagina di gestione della sottoscrizione nel portale di Azure.|null|true|
+|AzureSDKPath|Percorso di ricerca degli assembly dipendenti in Azure SDK.|null|true|
+|Interactive (Interattivo)|Indica se usare o meno la modalità interattiva per l'autenticazione.|false|false|
+|ClientId|ID applicazione di Azure AD necessario per l'autenticazione non interattiva.|null|Necessario per l'autenticazione non interattiva.|
+|Secrete|Segreto o password per l'autenticazione non interattiva. Da usare solo in un ambiente sicuro e attendibile.|null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare SecreteFile.|
+|SecreteFile|File in cui viene salvato il segreto o la password per l'autenticazione non interattiva. Assicurarsi che possa essere letto solo dall'utente corrente.|null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare Secrete.|
+|CertFile|File in cui viene salvata la certificazione X.509 per l'autenticazione non interattiva. Per impostazione predefinita viene usata l'autenticazione con segreto client.|null|false|
 | JobPrefix | Prefisso per la distribuzione di database di un processo DDL U-SQL. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Testare il codice Azure Data Lake Analytics](data-lake-analytics-cicd-test.md).
-- [Eseguire lo script U-SQL nel computer locale.](data-lake-analytics-data-lake-tools-local-run.md)
+- [Eseguire lo script U-SQL nel computer locale](data-lake-analytics-data-lake-tools-local-run.md).
 - [Usare un progetto di database U-SQL per sviluppare un database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).

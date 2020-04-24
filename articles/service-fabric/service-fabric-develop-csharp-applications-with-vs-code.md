@@ -33,7 +33,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 
 ## <a name="open-the-application-in-vs-code"></a>Aprire l'applicazione in Visual Studio Code
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 Fare clic con il pulsante destro del mouse sull'icona di Visual Studio Code nel menu Start e scegliere **Esegui come amministratore**. Per associare il debugger ai servizi, è necessario eseguire Visual Studio Code come amministratore.
 
 ### <a name="linux"></a>Linux
@@ -61,22 +61,22 @@ Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale
 
    ![Comando per la distribuzione dell'applicazione in Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Al termine della distribuzione, avviare un browser e\/aprire Service Fabric Explorer: http: /localhost:19080/Explorer.When the deployment is complete, launch a browser and open Service Fabric Explorer: http: /localhost:19080/Explorer. Si noterà che l'applicazione è in esecuzione. Questa operazione potrebbe richiedere tempo. 
+4. Al termine della distribuzione, avviare un browser e aprire Service Fabric Explorer: http:\//localhost: 19080/Explorer. Si noterà che l'applicazione è in esecuzione. Questa operazione potrebbe richiedere tempo. 
 
    ![Applicazione CounterService in Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Dopo aver verificato che l'applicazione sia in esecuzione, avviare un browser e aprire questa pagina: http: http:\//localhost:31002. Questo è il front-end Web dell'applicazione. Aggiornare la pagina per visualizzare il valore corrente del contatore mentre viene incrementato automaticamente.
+4. Dopo aver verificato che l'applicazione è in esecuzione, avviare un browser e aprire la pagina: http\/:/localhost: 31002. Questo è il front-end Web dell'applicazione. Aggiornare la pagina per visualizzare il valore corrente del contatore mentre viene incrementato automaticamente.
 
    ![Applicazione CounterService nel browser](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
-## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Pubblicare l'applicazione in un cluster di Azure Service FabricPublish the application to an Azure Service Fabric cluster
-Oltre a distribuire l'applicazione nel cluster locale, è anche possibile pubblicarla in un cluster remoto di Azure Service Fabric. 
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Pubblicare l'applicazione in un cluster di Service Fabric di Azure
+Con la distribuzione dell'applicazione nel cluster locale è anche possibile pubblicare l'applicazione in un cluster remoto di Service Fabric di Azure. 
 
-1. Assicurarsi di aver compilato l'applicazione seguendo le istruzioni riportate sopra. Aggiornare il `Cloud.json` file di configurazione generato con i dettagli del cluster remoto in cui si desidera eseguire la pubblicazione.
+1. Assicurarsi che l'applicazione sia stata compilata seguendo le istruzioni riportate sopra. Aggiornare il file `Cloud.json` di configurazione generato con i dettagli del cluster remoto in cui si vuole eseguire la pubblicazione.
 
-2. Dalla **tavolozza dei comandi**, selezionare il **comando Service Fabric: Pubblica applicazione**. L'output del processo di installazione viene inviato al terminale integrato.
+2. Dal **riquadro comandi**selezionare il **comando Service Fabric: Publish Application**. L'output del processo di installazione viene inviato al terminale integrato.
 
-   ![Comando Pubblica applicazione nel codice VS](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+   ![Comando pubblica applicazione in VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
 3. Al termine della distribuzione, avviare un browser e aprire Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Si noterà che l'applicazione è in esecuzione. Questa operazione potrebbe richiedere tempo. 
 
@@ -93,7 +93,7 @@ Per impostare un punto di interruzione ed eseguire il debug, seguire questa proc
 
    ![Icona di debug nell'area di lavoro di Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Aprire Service Fabric Explorer in\/un browser: http: http: /localhost:19080/Explorer. Fare clic su **Applicazioni** ed eseguire il drill down per determinare il nodo primario in cui è in esecuzione CounterService. Nell'immagine seguente il nodo primario per CounterService è il nodo 0.
+3. Aprire Service Fabric Explorer in un browser: http:\//localhost: 19080/Explorer. Fare clic su **Applicazioni** ed eseguire il drill down per determinare il nodo primario in cui è in esecuzione CounterService. Nell'immagine seguente il nodo primario per CounterService è il nodo 0.
 
    ![Nodo primario per CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

@@ -17,7 +17,7 @@ Per informazioni aggiornate su limiti del servizio Archiviazione di Azure e le p
 
 - [Naming and referencing containers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Assegnazione di nomi e riferimenti a contenitori)
 - [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata) (Assegnazione di nomi e riferimenti a condivisioni)
-- [Bloccare i BLOB e le convenzioni dei BLOB di pagineBlock blobs and page blob conventions](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Convenzioni di BLOB in blocchi e BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Se sono presenti file o directory che superano i limiti del servizio archiviazione di Azure o non sono conformi alle convenzioni di denominazione File/BLOB di Azure, questi file o directory non vengono inseriti in Archiviazione di Azure tramite il servizio Data Box.If there are any files or directories that exceed the Azure Storage service limits, or don't conform to Azure Files/Blob naming conventions, then these files or directories are't inested into the Azure Storage via the Data Box service.
+> Se sono presenti file o directory che superano i limiti del servizio di archiviazione di Azure o non sono conformi alle convenzioni di denominazione File di Azure/BLOB, questi file o directory non vengono inseriti in archiviazione di Azure tramite il servizio Data Box.

@@ -17,7 +17,7 @@ ms.locfileid: "67180089"
 
 1. Nel riquadro della console di Gestione configurazione SQL Server espandere **Configurazione di rete SQL Server**.
 
-1. Nel riquadro della console fare clic su **Protocolli per MSSQLSERVER** (il nome dell'istanza predefinita). Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **TCP** e **scegliere Abilita** se non è già abilitato.
+1. Nel riquadro della console fare clic su **protocolli per MSSQLSERVER** (nome istanza predefinita). Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **TCP** e scegliere **Abilita** se non è già abilitato.
 
     ![Abilitazione del protocollo TCP](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 

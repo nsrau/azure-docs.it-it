@@ -1,5 +1,5 @@
 ---
-title: Spingere & tirare l'immagine Docker
+title: Push & immagine Docker pull
 description: Effettuare il push e il pull di immagini Docker in un registro contenitori privato in Azure tramite l'interfaccia della riga di comando di Docker
 ms.topic: article
 ms.date: 01/23/2019
@@ -13,13 +13,13 @@ ms.locfileid: "74456362"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro contenitori Docker privato tramite l'interfaccia della riga di comando di Docker
 
-Un registro contenitori di Azure archivia e gestisce le immagini private del contenitore [Docker,](https://hub.docker.com) in modo simile al modo in cui [Docker Hub](https://hub.docker.com/) archivia le immagini Docker pubbliche. È possibile usare l'[interfaccia della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/cli/) per eseguire l'[accesso](https://docs.docker.com/engine/reference/commandline/login/), il [push](https://docs.docker.com/engine/reference/commandline/push/), il [pull](https://docs.docker.com/engine/reference/commandline/pull/) e altre operazioni sul registro contenitori.
+Un registro contenitori di Azure archivia e gestisce le immagini del contenitore [Docker](https://hub.docker.com) private, in modo analogo a come [Docker Hub](https://hub.docker.com/) archivia le immagini Docker pubbliche. È possibile usare l'[interfaccia della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/cli/) per eseguire l'[accesso](https://docs.docker.com/engine/reference/commandline/login/), il [push](https://docs.docker.com/engine/reference/commandline/push/), il [pull](https://docs.docker.com/engine/reference/commandline/pull/) e altre operazioni sul registro contenitori.
 
 La procedura seguente esegue il download di un'[immagine di Nginx](https://store.docker.com/images/nginx) ufficiale dal registro pubblico di Docker Hub, la contrassegna per il Registro Azure Container privato, ne effettua il push nel registro e quindi ne effettua il pull dal registro.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Registro** di sistema del contenitore di Azure: creare un registro contenitori nella sottoscrizione di Azure.Azure container registry - Create a container registry in your Azure subscription. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
+* **Registro contenitori di Azure** : creare un registro contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
 * **Interfaccia della riga di comando di Docker**: è anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
 ## <a name="log-in-to-a-registry"></a>Accedere a un registro
@@ -30,7 +30,7 @@ Esistono [diversi modi per eseguire l'autenticazione](container-registry-authent
 az acr login --name myregistry
 ```
 
-È anche possibile eseguire l'accesso con il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Ad esempio, è possibile che sia stata [assegnata un'entità servizio](container-registry-authentication.md#service-principal) al Registro di sistema per uno scenario di automazione. Quando si esegue questo comando, specificare in modo interattivo l'appID dell'entità servizio (nome utente) e la password quando richiesto. Per le procedure consigliate relative alla gestione delle credenziali di accesso, vedere le informazioni di riferimento sul comando [docker login](https://docs.docker.com/engine/reference/commandline/login/):
+È anche possibile eseguire l'accesso con il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Ad esempio, è possibile che sia stata [assegnata un'entità servizio](container-registry-authentication.md#service-principal) al registro per uno scenario di automazione. Quando si esegue questo comando, specificare in modo interattivo l'appID dell'entità servizio (nome utente) e la password quando richiesto. Per le procedure consigliate relative alla gestione delle credenziali di accesso, vedere le informazioni di riferimento sul comando [docker login](https://docs.docker.com/engine/reference/commandline/login/):
 
 ```
 docker login myregistry.azurecr.io
@@ -122,7 +122,7 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 Una volta apprese le nozioni di base, si è pronti per iniziare a usare il registro. È possibile, ad esempio, distribuire le immagini del contenitore dal registro nella posizione seguente:
 
 * [Servizio Azure Kubernetes](../aks/tutorial-kubernetes-prepare-app.md)
-* [Istanze del contenitore di AzureAzure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Istanze di Azure Container](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
 Installare eventualmente l'[estensione Docker per Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e l'estensione [Account Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) per l'uso dei registri contenitori di Azure. Eseguire il pull e il push delle immagini in un registro contenitori di Azure o eseguire Attività del Registro Azure Container, il tutto all'interno di Visual Studio Code.

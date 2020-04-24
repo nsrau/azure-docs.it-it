@@ -15,7 +15,7 @@ ms.locfileid: "75365190"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>Confronto tra query SQL e query di log in Monitoraggio di Azure: scheda di riferimento rapido 
 
-La tabella seguente consente agli utenti che hanno familiarità con SQL di apprendere il linguaggio di query Kusto per scrivere query di log in Monitoraggio di Azure. Esaminare il comando T-SQL per risolvere scenari comuni e l'equivalente in una query di log di Monitoraggio di Azure.Do a look at the T-SQL command for solving common scenarios and the equivalent in an Azure Monitor log query.
+La tabella seguente consente agli utenti che hanno familiarità con SQL di apprendere il linguaggio di query Kusto per scrivere query di log in Monitoraggio di Azure. Esaminare il comando T-SQL per la risoluzione di scenari comuni e l'equivalente in una query di log di monitoraggio di Azure.
 
 ## <a name="sql-to-azure-monitor"></a>Confronto tra SQL e Monitoraggio di Azure
 
@@ -43,4 +43,4 @@ Join                                    |`SELECT * FROM dependencies JOIN except
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Passare alle lezioni sulla scrittura di query di [log in Monitoraggio di Azure](get-started-queries.md).
+- Esaminare le lezioni sulla [scrittura di query di log in monitoraggio di Azure](get-started-queries.md).

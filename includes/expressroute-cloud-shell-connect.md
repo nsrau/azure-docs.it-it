@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "67179880"
 ---
- Se si usa Azure Cloud Shell, accedere automaticamente all'account Azure dopo aver fatto clic su "Prova". Per accedere localmente, aprire la console di PowerShell con privilegi elevati ed eseguire il cmdlet per connettersi.
+ Se si usa il Azure Cloud Shell, si accede automaticamente al proprio account di Azure dopo aver fatto clic su "prova". Per accedere in locale, aprire la console di PowerShell con privilegi elevati ed eseguire il cmdlet per connettersi.
 
 ```azurepowershell
 Connect-AzAccount

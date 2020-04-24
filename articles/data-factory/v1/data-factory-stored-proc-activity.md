@@ -21,15 +21,15 @@ ms.locfileid: "74931635"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Attività di stored procedure di SQL Server
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
-> * [Attività Hive](data-factory-hive-activity.md)
+> * [Attività hive](data-factory-hive-activity.md)
 > * [Attività di Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
@@ -40,7 +40,7 @@ Le attività di trasformazione dei dati in una [pipeline](data-factory-create-pi
 
 È possibile usare l'attività stored procedure per richiamare una stored procedure in uno dei seguenti archivi dati presenti in azienda o in una macchina virtuale di Azure:
 
-- database SQL di Azure
+- Database SQL di Azure
 - Azure SQL Data Warehouse
 - Database di SQL Server. Se si usa SQL Server, è necessario installare Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato che ha accesso al database. Gateway di gestione dati è un componente che connette in modo sicuro e gestito origini dati presenti in locale o in macchine virtuali di Azure ai servizi cloud. Per informazioni dettagliate, vedere [Data Management Gateway](data-factory-data-management-gateway.md) (Gateway di gestione dati).
 
@@ -84,10 +84,10 @@ La procedura dettagliata seguente usa l'attività stored procedure in una pipeli
     ```
 
    > [!IMPORTANT]
-   > Il **nome** e la **combinazione di maiuscole e minuscole** per il parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nel codice JSON per la pipeline/attività. Nella definizione della stored **\@** procedure assicurarsi che venga utilizzato come prefisso per il parametro.
+   > Il **nome** e la **combinazione di maiuscole e minuscole** per il parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nel codice JSON per la pipeline/attività. Nella definizione stored procedure assicurarsi che **\@** venga usato come prefisso per il parametro.
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
-1. Accedere al portale di [Azure](https://portal.azure.com/).
+1. Accedere a [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **NUOVO** nel menu a sinistra e quindi su **Intelligence e analisi** e **Data factory**.
 
     ![Nuova data factory](media/data-factory-stored-proc-activity/new-data-factory.png)
@@ -98,7 +98,7 @@ La procedura dettagliata seguente usa l'attività stored procedure in una pipeli
 5. In **Gruppo di risorse** eseguire una di queste operazioni:
    1. Fare clic su **Crea nuovo** e immettere un nome per il gruppo di risorse.
    2. Fare clic su **Usa esistente** e scegliere un gruppo di risorse esistente.
-6. Selezionare il **percorso** per la data factory.
+6. Selezionare il **percorso** per il data factory.
 7. Selezionare **Aggiungi al dashboard** per visualizzare la data factory nel dashboard al successivo tentativo di accesso.
 8. Fare clic su **Crea** nel pannello **Nuova data factory**.
 9. Nel **dashboard** del portale di Azure verrà visualizzata la data factory in fase di creazione. Dopo la creazione della data factory, viene visualizzata la pagina corrispondente con elencato il contenuto della data factory.
@@ -127,7 +127,7 @@ Dopo aver creato la data factory, si crea un servizio collegato SQL di Azure che
 ### <a name="create-an-output-dataset"></a>Creare un set di dati di output
 È necessario specificare un set di dati di output per un'attività stored procedure, anche se questa non produce alcun dato. È il set di dati di output, infatti, che determina la pianificazione dell'attività (la frequenza con cui l'attività viene eseguita: ogni ora, ogni settimana e così via). Il set di dati di output deve usare un **servizio collegato** che faccia riferimento a un database SQL di Azure, a un Azure SQL Data Warehouse o a un database SQL Server in cui si vuole che venga eseguita la stored procedure. Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività, [concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline), nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. In alcuni casi, il set di dati di output può essere un **set di dati fittizio** (un set di dati che punta a una tabella che in realtà non contiene alcun output della stored procedure). Il set di dati fittizio viene usato solo per specificare la pianificazione di esecuzione dell'attività stored procedure.
 
-1. Fare clic su **... Altre opzioni** sulla barra degli strumenti fare clic su **Nuovo set di dati**e quindi su SQL di **Azure**. **Nuovo set di dati** sulla barra dei comandi e selezionare **Azure SQL**.
+1. Fare clic su **... Altre informazioni** sulla barra degli strumenti, fare clic su **nuovo set di dati**e quindi su **Azure SQL**. **Nuovo set di dati** sulla barra dei comandi e selezionare **Azure SQL**.
 
     ![Visualizzazione albero con servizio collegato](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Copiare e incollare il seguente script JSON nell'editor JSON.
@@ -161,7 +161,7 @@ Tenere presenti le proprietà seguenti:
 - Nelle proprietà type, **storedProcedureName** deve essere impostato su **usp_sample** (nome della stored procedure).
 - La sezione **storedProcedureParameters** contiene un parametro denominato **DateTime**. Il nome e la combinazione di maiuscole e minuscole del parametro in JSON deve corrispondere al nome e alla combinazione di maiuscole e minuscole del parametro nella definizione della stored procedure. Se è necessario passare null per un parametro, usare la sintassi `"param1": null` (tutte lettere minuscole).
 
-1. Fare clic su **... Altre informazioni** sulla barra dei comandi e fare clic su **Nuova pipeline**.
+1. Fare clic su **... Ulteriori informazioni** sulla barra dei comandi e su **nuova pipeline**.
 2. Copiare e incollare il frammento JSON seguente:
 
     ```JSON
@@ -303,12 +303,12 @@ Di seguito è riportato il formato JSON per la definizione di un'attività di St
 
 La tabella seguente illustra queste proprietà JSON:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | name | Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No |
 | type | Deve essere impostato su: **SqlServerStoredProcedure** | Sì |
-| inputs | Facoltativa. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
+| inputs | Facoltativo. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
 | outputs | È necessario specificare un set di dati di output per un'attività della stored procedure. Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). <br/><br/>Il set di dati di output deve usare un **servizio collegato** che faccia riferimento a un database SQL di Azure, a un Azure SQL Data Warehouse o a un database SQL Server in cui si vuole che venga eseguita la stored procedure. <br/><br/>Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività, [concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline), nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. <br/><br/>In alcuni casi, il set di dati di output può essere un **set di dati fittizio**che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure. |Sì |
 | storedProcedureName |Specificare il nome della stored procedure nel database SQL di Azure, nel database SQL Server o in Azure SQL Data Warehouse rappresentato dal servizio collegato usato dalla tabella di output. |Sì |
 | storedProcedureParameters |Specificare i valori dei parametri della stored procedure. Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole). Vedere l'esempio seguente per informazioni sull'uso di questa proprietà. |No |
@@ -345,7 +345,7 @@ BEGIN
 END
 ```
 
-A questo punto, passare il parametro **Scenario** e il valore dall'attività della stored procedure. La sezione typeProperties dell'esempio precedente è simile al frammento di codice seguente:The **typeProperties** section in the preceding sample looks like the following snippet:
+A questo punto, passare il parametro dello **scenario** e il valore dall'attività stored procedure. La sezione **typeProperties** nell'esempio precedente è simile al frammento di codice seguente:
 
 ```JSON
 "typeProperties":

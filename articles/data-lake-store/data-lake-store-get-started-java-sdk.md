@@ -22,13 +22,13 @@ ms.locfileid: "60877465"
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operazioni del file system in Azure Data Lake Storage Gen1 con Java SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
+> * [SDK per Java](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
-Informazioni su come usare Azure Data Lake Storage Gen1 Java SDK per eseguire operazioni di base come creare cartelle, caricare e scaricare file di dati e così via. Per altre informazioni su Data Lake Storage Gen1, vedere Azure Data Lake Storage Gen1.For more information about Data Lake [Storage Gen1,](data-lake-store-overview.md)see Azure Data Lake Storage Gen1 .
+Informazioni su come usare l'SDK di Azure Data Lake Storage Gen1 Java per eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati e così via. Per ulteriori informazioni su Data Lake Storage Gen1, vedere [Azure Data Lake storage Gen1](data-lake-store-overview.md).
 
 Per la documentazione dell'API Java SDK per Data Lake Storage Gen1 accedere a [Documentazione dell'API Java di Azure Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
@@ -43,7 +43,7 @@ Il codice di esempio disponibile in [GitHub](https://azure.microsoft.com/documen
 
 1. Creare un progetto Maven usando l'[archetipo mvn](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) dalla riga di comando o con un IDE. Per istruzioni su come creare un progetto Java usando IntelliJ, vedere [qui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Per istruzioni su come creare un progetto Java usando Eclipse, vedere [qui](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
 
-2. Aggiungere le dipendenze seguenti al file **pom.xml** di Maven. Aggiungere il frammento ** \<** di codice seguente prima del tag /project>:
+2. Aggiungere le dipendenze seguenti al file **pom.xml** di Maven. Aggiungere il frammento di codice seguente prima del ** \<Tag>/Project** :
    
         <dependencies>
           <dependency>

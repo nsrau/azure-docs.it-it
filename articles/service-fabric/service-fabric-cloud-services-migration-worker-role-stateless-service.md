@@ -1,5 +1,5 @@
 ---
-title: Convertire le app di Servizi cloud di Azure in Service Fabric
+title: Convertire le app di servizi cloud di Azure in Service Fabric
 description: Questa guida confronta i ruoli di lavoro e Web di Servizi Cloud con i servizi senza stato di Service Fabric per facilitare la migrazione da Servizi cloud a Service Fabric.
 author: vturecek
 ms.topic: conceptual
@@ -23,7 +23,7 @@ La differenza è che il progetto di Servizi cloud abbina la distribuzione dell'a
 ![Confronto tra i progetti di Servizi cloud e Service Fabric][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Da ruolo di lavoro a servizio senza stato
-Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, ovvero ogni istanza del carico di lavoro è identica e le richieste possono essere indirizzate a qualsiasi istanza in qualsiasi momento. Non è previsto che ogni istanza ricordi la richiesta precedente. State that the workload operates on is managed by an external state store, such as Azure Table Storage or Azure Cosmos DB. In Service Fabric questo tipo di carico di lavoro è rappresentato da un servizio senza stato. L'approccio più semplice per la migrazione di un ruolo di lavoro a Service Fabric può avvenire mediante la conversione di codice del ruolo di lavoro in un servizio senza stato.
+Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, ovvero ogni istanza del carico di lavoro è identica e le richieste possono essere indirizzate a qualsiasi istanza in qualsiasi momento. Non è previsto che ogni istanza ricordi la richiesta precedente. Lo stato in cui viene eseguito il carico di lavoro è gestito da un archivio stati esterno, ad esempio archiviazione tabelle di Azure o Azure Cosmos DB. In Service Fabric questo tipo di carico di lavoro è rappresentato da un servizio senza stato. L'approccio più semplice per la migrazione di un ruolo di lavoro a Service Fabric può avvenire mediante la conversione di codice del ruolo di lavoro in un servizio senza stato.
 
 ![Da ruolo di lavoro a servizio senza stato][4]
 

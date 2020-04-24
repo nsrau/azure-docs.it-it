@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per la sicurezza di Internet delle cose (IoT)
-description: Procedure consigliate per la protezione dei dati e dell'infrastruttura IoT
+description: Procedure consigliate per proteggere i dati e l'infrastruttura di Internet delle cose
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
@@ -18,7 +18,7 @@ ms.locfileid: "73931169"
 
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 Per altre informazioni su come proteggere una soluzione creata con un acceleratore di soluzioni IoT, vedere [Secure your IoT deployment](iot-security-deployment.md) (Proteggere la distribuzione di IoT in uso).
 

@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "68249928"
 ---
-Un ID risorsa di Azure AD indica il gruppo di destinatari per il quale è possibile usare un token rilasciato per fornire l'accesso a una risorsa di Azure.An Azure AD resource ID indicates the audience for which a token that is issued can be used to provide access to an Azure resource. Nel caso di Archiviazione di Azure, l'ID risorsa può essere specifico di un singolo account di archiviazione oppure può essere applicato a qualsiasi account di archiviazione. Nella tabella seguente vengono descritti i valori che è possibile specificare per l'ID risorsa:
+Un ID di risorsa Azure AD indica i destinatari per i quali è possibile usare un token emesso per fornire l'accesso a una risorsa di Azure. Nel caso di archiviazione di Azure, l'ID risorsa può essere specifico per un singolo account di archiviazione o può essere applicato a qualsiasi account di archiviazione. La tabella seguente descrive i valori che è possibile fornire per l'ID risorsa:
 
 |ID risorsa  |Descrizione  |
 |---------|---------|
-|`https://<account>.blob.core.windows.net` <br /><br /> `https://<account>.queue.core.windows.net`    | Endpoint del servizio per un determinato account di archiviazione. Usare questo valore per acquisire un token per l'autorizzazione delle richieste solo all'account e al servizio di archiviazione di Azure specifici. Sostituire il valore tra parentesi quadre con il nome dell'account di archiviazione.      |
-|`https://storage.azure.com/`     | Usare per acquisire un token per l'autorizzazione delle richieste a qualsiasi account di archiviazione di Azure.Use to acquire a token for authorizing requests to any Azure Storage account.        |
+|`https://<account>.blob.core.windows.net` <br /><br /> `https://<account>.queue.core.windows.net`    | Endpoint del servizio per un determinato account di archiviazione. Usare questo valore per acquisire un token per l'autorizzazione delle richieste solo per l'account di archiviazione di Azure e per il servizio specifici. Sostituire il valore tra parentesi quadre con il nome dell'account di archiviazione.      |
+|`https://storage.azure.com/`     | Usare per acquisire un token per autorizzare le richieste a qualsiasi account di archiviazione di Azure.        |

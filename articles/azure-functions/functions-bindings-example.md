@@ -1,6 +1,6 @@
 ---
-title: Esempio di trigger e associazione di Funzioni di AzureAzure Functions trigger and binding example
-description: Informazioni su come configurare le associazioni delle funzioni di AzureLearn to configure Azure Function bindings
+title: Esempio di trigger e binding di funzioni di Azure
+description: Informazioni su come configurare le associazioni di funzioni di Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
@@ -12,9 +12,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74227233"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Esempio di trigger e associazione di Funzioni di AzureAzure Functions trigger and binding example
+# <a name="azure-functions-trigger-and-binding-example"></a>Esempio di trigger e binding di funzioni di Azure
 
-Questo articolo illustra come configurare un trigger e le associazioni in una funzione di Azure.This article demonstrates how to configure a [trigger and bindings](./functions-triggers-bindings.md) in an Azure Function.
+Questo articolo illustra come configurare un [trigger e le associazioni](./functions-triggers-bindings.md) in una funzione di Azure.
 
 Si supponga di voler scrivere una nuova riga in archiviazione tabelle di Azure ogni volta che viene visualizzato un messaggio nuovo in archiviazione code di Azure. Questo scenario può essere implementato tramite un trigger di archiviazione code di Azure e un'associazione di output di archiviazione tabelle di Azure. 
 
@@ -82,7 +82,7 @@ public class Person
 
 ## <a name="javascript-example"></a>Esempio JavaScript
 
-Lo stesso file *function.json* può essere utilizzato con una funzione JavaScript:
+Lo stesso file *Function. JSON* può essere usato con una funzione JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -130,9 +130,9 @@ public class Person
 }
 ```
 
-Si dispone ora di una funzione funzionante che viene attivata da una coda di Azure e restituisce i dati nell'archiviazione tabelle di Azure.You now have a working function that is triggered by an Azure Queue and outputs data to Azure Table storage.
+È ora disponibile una funzione funzionante che viene attivata da una coda di Azure e restituisce i dati nell'archiviazione tabelle di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Espressioni di Azure associare modelli di espressioneAzure Functions binding expression patterns](./functions-bindings-expressions-patterns.md)
+> [Modelli di espressione di binding di funzioni di Azure](./functions-bindings-expressions-patterns.md)

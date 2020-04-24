@@ -46,7 +46,7 @@ All'IoT è associato un esclusivo insieme di sfide di gestione dei dispositivi e
 
 * **Servizio per diversi ruoli**: il supporto degli esclusivi processi e flussi di lavoro dei ruoli operativi dell'IoT è essenziale. Il personale operativo deve poter lavorare in armonia con i vincoli specificati dei reparti IT interni.  Inoltre, deve trovare modi sostenibili per segnalare informazioni operative sui dispositivi in tempo reale ai supervisori e agli altri ruoli di gestione aziendale.
 
-## <a name="device-lifecycle"></a>Ciclo di vita dei dispositivi
+## <a name="device-lifecycle"></a>Ciclo di vita del dispositivo
 Esistono alcune fasi generali per la gestione dei dispositivi, comuni a tutti i progetti ioT enterprise. In IoT di Azure, ci sono cinque fasi nel ciclo di vita dei dispositivi:
 
 ![Le cinque fasi del ciclo di vita dei dispositivi Azure IoT: pianificazione, provisioning, configurazione, monitoraggio e ritiro](./media/iot-hub-device-management-overview/image5.png)
@@ -55,40 +55,40 @@ Ciascuna di queste cinque fasi prevede diversi requisiti per gli operatori dei d
 
 * **Pianificazione**: gli operatori possono creare uno schema di metadati dei dispositivi che consentirà di eseguire query su un gruppo di dispositivi e indirizzare le operazioni di gestione in blocco in modo facile e accurato. È possibile usare il dispositivo gemello per archiviare i metadati del dispositivo sotto forma di tag e proprietà.
   
-    *Ulteriori letture*: 
+    *Ulteriori informazioni*: 
     * [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md)
     * [Informazioni sui dispositivi gemelli](iot-hub-devguide-device-twins.md)
-    * [Come usare le proprietà del dispositivo gemelloHow to use device twin properties](tutorial-device-twins.md)
+    * [Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
     * [Procedure consigliate per la configurazione di dispositivi in una soluzione IoT](iot-hub-configuration-best-practices.md)
 
 * **Provisioning**: il provisioning dei nuovi dispositivi viene eseguito in modo sicuro nell'hub IoT e gli operatori possono individuare immediatamente le funzionalità dei dispositivi.  Usare il registro di identità dell'hub IoT per creare credenziali e identità flessibili per i dispositivi ed eseguire l'operazione in blocco tramite un processo. Creare dispositivi per creare report delle funzionalità e delle condizioni tramite le proprietà del dispositivo nel dispositivo gemello.
   
-    *Ulteriori letture*: 
+    *Ulteriori informazioni*: 
     * [Gestire le identità dei dispositivi](iot-hub-devguide-identity-registry.md)
     * [Gestione in blocco delle identità dei dispositivi](iot-hub-bulk-identity-mgmt.md)
-    * [Come usare le proprietà del dispositivo gemelloHow to use device twin properties](tutorial-device-twins.md)
+    * [Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
     * [Procedure consigliate per la configurazione di dispositivi in una soluzione IoT](iot-hub-configuration-best-practices.md)
     * [Servizio Device Provisioning in hub IoT di Azure](https://azure.microsoft.com/documentation/services/iot-dps)
 
 * **Configurazione**: vengono facilitate le operazioni in blocco di modifica alla configurazione e aggiornamento del firmware dei dispositivi mantenendo al tempo stesso integrità e sicurezza. Per eseguire queste operazioni di gestione dei dispositivi in blocco, usare le proprietà desiderate oppure metodi diretti e processi di trasmissione.
   
-    *Ulteriori letture*:
-    * [Come usare le proprietà del dispositivo gemelloHow to use device twin properties](tutorial-device-twins.md)
+    *Ulteriori informazioni*:
+    * [Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
     * [Configurare e monitorare i dispositivi IoT su larga scala](iot-hub-auto-device-config.md)
     * [Procedure consigliate per la configurazione di dispositivi in una soluzione IoT](iot-hub-configuration-best-practices.md)
 
 * **Monitoraggio**: vengono monitorati l'integrità complessiva della raccolta di dispositivi e lo stato delle operazioni in corso per segnalare agli operatori i problemi che potrebbero richiedere la loro attenzione.  Applicare il dispositivo gemello per consentire ai dispositivi di creare report in tempo reale sulle condizioni operative e sullo stato delle operazioni di aggiornamento. Creare report avanzati sui dashboard per mostrare i problemi più immediati mediante le query su dispositivo gemello.
   
-    *Ulteriori letture*: 
-    * [Come usare le proprietà del dispositivo gemelloHow to use device twin properties](tutorial-device-twins.md)
+    *Ulteriori informazioni*: 
+    * [Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
     * [Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi](iot-hub-devguide-query-language.md)
     * [Configurare e monitorare i dispositivi IoT su larga scala](iot-hub-auto-device-config.md)
     * [Procedure consigliate per la configurazione di dispositivi in una soluzione IoT](iot-hub-configuration-best-practices.md)
 
-* **Ritiro**: Sostituire o rimuovere le autorizzazioni dei dispositivi dopo un errore, un ciclo di aggiornamento o alla fine del ciclo di vita del servizio.  Usare il dispositivo gemello per mantenere le informazioni sul dispositivo se il dispositivo fisico viene sostituito o archiviato in caso di ritiro. Usare il registro di identità dell'hub IoT per revocare in modo sicuro le credenziali e le identità del dispositivo.
+* **Ritira**: sostituire o rimuovere le autorizzazioni dei dispositivi dopo un errore, un ciclo di aggiornamento o alla fine della durata del servizio.  Usare il dispositivo gemello per mantenere le informazioni sul dispositivo se il dispositivo fisico viene sostituito o archiviato in caso di ritiro. Usare il registro di identità dell'hub IoT per revocare in modo sicuro le credenziali e le identità del dispositivo.
   
-    *Ulteriori letture*: 
-    * [Come usare le proprietà del dispositivo gemelloHow to use device twin properties](tutorial-device-twins.md)
+    *Ulteriori informazioni*: 
+    * [Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
     * [Gestire le identità dei dispositivi](iot-hub-devguide-identity-registry.md)
 
 ## <a name="device-management-patterns"></a>Modelli di gestione dei dispositivi

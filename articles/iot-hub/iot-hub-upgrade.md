@@ -25,13 +25,13 @@ Quando si dispone di più dispositivi e si necessita di altre funzionalità, esi
 
 * Modificare le dimensioni dell'hub IoT. Ad esempio, eseguire la migrazione dal livello B1 al livello B2 per aumentare il numero di messaggi che ogni unità può supportare al giorno.
 
-* Eseguire l'aggiornamento a un livello superiore. Ad esempio, eseguire l'aggiornamento dal livello B1 al livello S1 per l'accesso a funzionalità avanzate con la stessa capacità di messaggistica.
+* Eseguire l'aggiornamento a un livello superiore. Ad esempio, eseguire l'aggiornamento dal livello B1 al livello S1 per accedere alle funzionalità avanzate con la stessa capacità di messaggistica.
 
 Queste modifiche possono essere apportate senza interrompere le operazioni esistenti.
 
-Se si desidera eseguire il downgrade dell'hub IoT, è possibile rimuovere le unità e ridurre le dimensioni dell'hub IoT, ma non è possibile eseguire il downgrade a un livello inferiore. Ad esempio, è possibile passare dal livello S2 al livello S1, ma non dal livello S2 al livello B1. È possibile scegliere un solo tipo di edizione Iot Hub all'interno di un livello per ogni hub IoT.Only one type of [Iot Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. Ad esempio, è possibile creare un hub IoT con più unità di S1, ma non con una combinazione di unità appartenenti a edizioni diverse, ad esempio, S1, B3 o S1 e S2.
+Se si vuole effettuare il downgrade dell'hub Internet delle cose, è possibile rimuovere le unità e ridurne le dimensioni, ma non è possibile effettuare il downgrade a un livello inferiore. Ad esempio, è possibile passare dal livello S2 al livello S1, ma non dal livello S2 al livello B1. È possibile scegliere solo un tipo di l' [edizione dell'hub](https://azure.microsoft.com/pricing/details/iot-hub/) Internet all'interno di un livello per ogni hub. Ad esempio, è possibile creare un hub IoT con più unità di S1, ma non con una combinazione di unità appartenenti a edizioni diverse, ad esempio, S1, B3 o S1 e S2.
 
-Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambiamenti della soluzione. Per informazioni specifiche sulle funzionalità di ogni livello, è sempre necessario fare riferimento ai [prezzi dell'hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/)di Azure.
+Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambiamenti della soluzione. Per informazioni specifiche sulle funzionalità di ogni livello, è necessario fare sempre riferimento ai [prezzi dell'hub Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="upgrade-your-existing-iot-hub"></a>Aggiornare l'hub IoT esistente
 
@@ -47,11 +47,11 @@ Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambi
 
 4. Per modificare il numero di unità nell'hub, immettere un nuovo valore in **Unità di hub IoT**.
 
-5. Selezionare **Salva** per salvare le modifiche.
+5. Fare clic su **Salva** per salvare le modifiche.
 
 L'hub IoT viene ora regolato e le configurazioni rimangono invariate.
 
-Il limite massimo di partizioni per l'hub IoT di livello base e l'hub IoT di livello standard è 32.The maximum partition limit for basic tier IoT Hub and standard tier IoT Hub is 32. La maggior parte degli hub IoT richiede solo 4 partizioni. Il limite partizioni mette viene scelto quando l'hub IoT viene creato e associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. Questo valore rimarrà invariato con la migrazione dal livello di base al livello standard.
+Il limite massimo di partizioni per l'hub delle cose di livello Basic e l'hub delle cose di livello standard è 32. La maggior parte degli hub IoT richiede solo 4 partizioni. Il limite partizioni mette viene scelto quando l'hub IoT viene creato e associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. Questo valore rimarrà invariato con la migrazione dal livello di base al livello standard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

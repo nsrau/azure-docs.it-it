@@ -46,7 +46,7 @@ Dopo avere installato i prerequisiti, è possibile installare Strumenti Azure Da
 
    Dopo alcuni secondi il pulsante **Installa** diventa **Ricarica**.
 4. Scegliere **Ricarica** per attivare l'estensione **Strumenti Azure Data Lake**.
-5. Selezionare **Ricarica finestra** per confermare. È possibile visualizzare **strumenti di Azure Data Lake** nel riquadro **Estensioni.You** can see Azure Data Lake Tools in the Extensions pane.
+5. Selezionare **Ricarica finestra** per confermare. È possibile visualizzare **Azure Data Lake strumenti** nel riquadro **estensioni** .
 
  
 ## <a name="activate-azure-data-lake-tools"></a>Attivare Strumenti Azure Data Lake
@@ -121,8 +121,8 @@ Nella scheda **RIEPILOGO** della visualizzazione del processo è possibile veder
 3. Si apre il file xxx_settings.json con le proprietà seguenti:
 
    - **account**: un account di Azure Data Lake Analytics nella sottoscrizione di Azure necessario per compilare ed eseguire i processi U-SQL. È necessario configurare l'account del computer prima di compilare ed eseguire i processi di U-SQL.
-   - **database**: Un database sotto il tuo account. Il valore predefinito è **master**.
-   - **schema**: uno schema sotto il database. Il valore predefinito è **dbo**.
+   - **database**: un database nell'account. Il valore predefinito è **Master**.
+   - **schema**: uno schema nel database. Il valore predefinito è **dbo**.
    - **optionalSettings**:
         - **priority**: l'intervallo di priorità va da 1 a 1000 dove la priorità più alta corrisponde al valore 1. Il valore predefinito è **1000**.
         - **degreeOfParallelism**: l'intervallo di parallelismo va da 1 a 150. Il valore predefinito è il parallelismo massimo consentito nell'account Azure Data Lake Analytics. 
@@ -135,7 +135,7 @@ Nella scheda **RIEPILOGO** della visualizzazione del processo è possibile veder
 **Per impostare Git Ignore**
 
 1. Premere CTRL+MAIUSC+P per aprire il riquadro comandi. 
-2. Immettere **ADL: Impostare Git Ignore**.
+2. Immettere **ADL: set Git Ignore**.
 
    - Se nella cartella di lavoro di VS Code non è presente un file con estensione **gitIgnore**, nella cartella viene creato un file denominato **.gitIgnore**. Per impostazione predefinita, nel file vengono aggiunti quattro elementi: **usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache** e **obj**. Se necessario, è possibile effettuare altri aggiornamenti.
    - Se nella cartella di lavoro di VS Code è già presente un file con estensione **gitIgnore** e nel file non sono presenti gli elementi **usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache** e **obj**, lo strumento li aggiunge al file con estensione **gitIgnore**.
@@ -172,7 +172,7 @@ Un modo più pratico per attivare il comando **ADL: Register Assembly** (ADL: Re
 1.  Premere CTRL+MAIUSC+P per aprire il riquadro comandi.
 2.  Immettere **ADL: Register Assembly (Advanced)** (ADL: Registra assembly (avanzato)). 
 3.  Specificare il percorso dell'assembly locale. 
-4.  Verrà visualizzato il file JSON. Esaminare e modificare le dipendenze dell'assembly e i parametri delle risorse, se necessario. Le istruzioni vengono visualizzate nella finestra **Output.** Salvare (CTRL+S) il file JSON per procedere con la registrazione dell'assembly.
+4.  Verrà visualizzato il file JSON. Esaminare e modificare le dipendenze dell'assembly e i parametri delle risorse, se necessario. Le istruzioni vengono visualizzate nella finestra **output** . Salvare (CTRL+S) il file JSON per procedere con la registrazione dell'assembly.
 
     ![File JSON con dipendenze dell'assembly e i parametri delle risorse](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
     
@@ -226,7 +226,7 @@ La funzionalità di esecuzione locale e debug locale funziona solo in ambienti W
 Per istruzioni sull'esecuzione e il debug locali, vedere [Esecuzione locale e debug locale di U-SQL con Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
 
-## <a name="connect-to-azure"></a>Connettersi ad Azure
+## <a name="connect-to-azure"></a>Connettiti ad Azure
 
 Prima di compilare ed eseguire gli script U-SQL in Data Lake Analytics, è necessario connettersi al proprio account di Azure.
 
@@ -370,7 +370,7 @@ Un altro modo per caricare file da archiviare è attraverso il menu di scelta ra
 
 **Per scaricare un file tramite il comando ADL: Download file (Advanced)** (ADL: Scarica file - (Opzioni avanzate))
 1. Fare clic con il pulsante destro del mouse sull'editor di script e scegliere **Download file (Advanced)** (Scarica file - Opzioni avanzate).
-2. VS Code visualizza un file JSON. È possibile immettere i percorsi di file e scaricare più file contemporaneamente. Le istruzioni vengono visualizzate nella finestra **Output.** Salvare (CTRL+S) il file JSON per procedere con il download dei file.
+2. VS Code visualizza un file JSON. È possibile immettere i percorsi di file e scaricare più file contemporaneamente. Le istruzioni vengono visualizzate nella finestra **output** . Salvare (CTRL+S) il file JSON per procedere con il download dei file.
 
     ![File JSON con i percorsi per il download dei file](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
 

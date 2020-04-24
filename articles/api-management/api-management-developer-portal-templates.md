@@ -1,5 +1,5 @@
 ---
-title: Personalizzare il portale per sviluppatori di Gestione API usando i modelliCustomize the API Management developer portal using templates
+title: Personalizzare il portale per sviluppatori di gestione API usando i modelli
 titleSuffix: Azure API Management
 description: Informazioni su come personalizzare il portale per sviluppatori di Gestione API di Azure usando i modelli.
 services: api-management
@@ -37,7 +37,7 @@ I modelli vengono usati per personalizzare il contenuto delle pagine del portale
 
 ## <a name="developer-portal-templates-overview"></a>Panoramica sui modelli del portale per sviluppatori
 
-La modifica dei modelli viene eseguita dal **portale per sviluppatori** quando vi si accede come amministratore. Per aprirci prima di rete, apri il portale di Azure e fai clic su **Portale per sviluppatori** dalla barra degli strumenti del servizio dell'istanza di Gestione API.
+La modifica dei modelli viene eseguita dal **portale per sviluppatori** quando vi si accede come amministratore. Per iniziare, aprire il portale di Azure e fare clic su **portale per sviluppatori** dalla barra degli strumenti del servizio dell'istanza di gestione API.
 
 Per accedere ai modelli del portale per sviluppatori, fare clic sull'icona di personalizzazione a sinistra per visualizzare il menu di personalizzazione e quindi fare clic su **Templates**.
 
@@ -47,7 +47,7 @@ L'elenco dei modelli include varie categorie di modelli che coprono le diverse p
 
 ![Modelli del portale per sviluppatori][api-management-templates-menu]
 
-Facendo clic su un modello si passa alla pagina del portale per sviluppatori personalizzabile con il modello selezionato. In questo esempio viene visualizzato il modello **Elenco prodotti.** Il modello **Product list** controlla l'area dello schermo indicata dal rettangolo rosso.
+Facendo clic su un modello si passa alla pagina del portale per sviluppatori personalizzabile con il modello selezionato. In questo esempio viene visualizzato il modello **Product List** . Il modello **Product list** controlla l'area dello schermo indicata dal rettangolo rosso.
 
 ![Modello Product list][api-management-developer-portal-templates-overview]
 
@@ -65,7 +65,7 @@ Il riquadro **Template data** fornisce una guida al modello di dati per le entit
 
 ![Modello Template data][api-management-template-data]
 
-Nell'esempio precedente, nel portale per sviluppatori sono stati visualizzati due prodotti recuperati dai dati visualizzati nel riquadro **Dati modello,** come illustrato nell'esempio seguente:In the previous example, there are two products displayed in the developer portal that were retrieved from the data displayed in the Template data pane, as shown in the following example:
+Nell'esempio precedente sono disponibili due prodotti visualizzati nel portale per sviluppatori che sono stati recuperati dai dati visualizzati nel riquadro **dei dati del modello** , come illustrato nell'esempio seguente:
 
 ```json
 {

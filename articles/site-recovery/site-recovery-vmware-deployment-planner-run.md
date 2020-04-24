@@ -1,5 +1,5 @@
 ---
-title: Eseguire il pianificatore di distribuzione per il ripristino di emergenza VMware con Azure Site Recovery
+title: Eseguire il Deployment Planner per il ripristino di emergenza di VMware con Azure Site Recovery
 description: Questo articolo descrive come eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure.
 author: mayurigupta13
 manager: rochakm
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953291"
 ---
-# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Eseguire la pianificazione della distribuzione per il ripristino di emergenza di VMware
+# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Eseguire il Deployment Planner per il ripristino di emergenza di VMware
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
 
 
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (Facoltativo) Specificare il protocollo 'http' o 'https' per la connessione a vCenter. Il protocollo predefinito è https.|
 | -StorageAccountName | (Facoltativo) Nome dell'account di archiviazione usato per determinare la velocità effettiva ottenibile per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per calcolare la velocità effettiva. L'account di archiviazione deve essere di tipo Utilizzo generico v1 (GPv1). |
 | -StorageAccountKey | (Facoltativo) Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure e scegliere Account di archiviazione > <*nome account di archiviazione*> > Impostazioni > Chiavi di accesso > Key1. |
-| -Environment | (Facoltativo) Ambiente dell'account di archiviazione di Azure di destinazione. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment, AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di Azure di destinazione è Azure US per enti pubblici o Azure China 21Vianet.Use the parameter when your target Azure region is either Azure US Government or Azure China 21Vianet. |
+| -Environment | (Facoltativo) Ambiente dell'account di archiviazione di Azure di destinazione. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment, AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di Azure di destinazione è Azure US Government o Azure Cina 21Vianet. |
 
 
 È consigliabile profilare le VM per oltre 7 giorni. Se il modello di varianza varia in un mese, è consigliabile eseguire la profilatura durante la settimana quando si osserva la varianza massima. La soluzione ottimale consiste nell'eseguire la profilatura per 31 giorni per ottenere l'indicazione migliore. Durante il periodo di profilatura, ASRDeploymentPlanner.exe rimane in esecuzione. Lo strumento accetta l'input della durata della profilatura in giorni. Per un rapido test dello strumento o per il modello di verifica è possibile eseguire la profilatura per alcune ore o minuti. La durata minima della profilatura è di 30 minuti.
@@ -95,7 +95,7 @@ Per impostazione predefinita, lo strumento è configurato per profilare, generan
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Per profilare, ad esempio, 1500 VM con le impostazioni predefinite, creare due file VMList.txt, uno con l'elenco di 1000 VM e l'altro di 500 VM. Eseguire le due istanze di Azure Site Recovery Deployment Planner, una con VMList1.txt e l'altra con VMList2.txt. È possibile usare lo stesso percorso di directory per archiviare i dati di profilatura delle VM di entrambi i file VMList.
+Per profilare, ad esempio, 1500 VM con le impostazioni predefinite, creare due file VMList.txt, uno con l'elenco di 1000 VM e l'altro di 500 VM. Eseguire le due istanze di Azure Site Recovery Deployment Planner, una con VMList1. txt e l'altra con VMList2. txt. È possibile usare lo stesso percorso di directory per archiviare i dati di profilatura delle VM di entrambi i file VMList.
 
 È stato osservato che in base alla configurazione hardware, in particolare alle dimensioni della RAM del server da cui viene eseguito lo strumento per generare il report, l'operazione può non riuscire a causa di memoria insufficiente. Se l'hardware è appropriato, è possibile modificare MaxVMsSupported in base a un valore maggiore.  
 
@@ -136,10 +136,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Generare il report
-Lo strumento genera un file di Microsoft Excel con attivazione macro (file XLSM) come output del report, con il riepilogo di tutte le indicazioni di distribuzione. Il report `DeploymentPlannerReport_<unique numeric identifier>.xlsm` viene denominato e inserito nella directory specificata.
+Lo strumento genera un file di Microsoft Excel con attivazione macro (file XLSM) come output del report, con il riepilogo di tutte le indicazioni di distribuzione. Il report viene denominato `DeploymentPlannerReport_<unique numeric identifier>.xlsm` e inserito nella directory specificata.
 
 >[!NOTE]
->La generazione del report richiede un PC Windows o Windows Server con Excel 2013 o versione successiva. Il simbolo decimale su questa macchina deve essere configurato come "." per produrre le stime dei costi. Nel caso in cui si dispone di impostazione "," come simbolo decimale, si prega di andare a "Cambia data, ora o formati numerici" nel Pannello di controllo e andare a "Impostazioni aggiuntive" per modificare il simbolo decimale in ".".
+>Per la generazione di report è necessario un PC Windows o Windows Server con Excel 2013 o versione successiva. Il simbolo decimale in questo computer deve essere configurato come "." per produrre le stime dei costi. Se è stato configurato "," come simbolo decimale, passare a "modifica data, ora o formati numerici" nel pannello di controllo e passare a "impostazioni aggiuntive" per modificare il simbolo decimale in ".".
 
 Al termine della profilatura, è possibile eseguire lo strumento in modalità di generazione di report. La tabella seguente contiene un elenco dei parametri obbligatori e facoltativi dello strumento per l'esecuzione in modalità di generazione di report.
 
@@ -241,8 +241,8 @@ Si supponga, ad esempio, che attualmente la VM sia idonea per un account di repl
 Il report di Microsoft Excel generato contiene le informazioni seguenti:
 
 * [Riepilogo ambiente locale](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
-* [Consigli](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [Posizionamento di archiviazione<->VM](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [Indicazioni](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
+* [< macchina virtuale->posizione di archiviazione](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [VM compatibili](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [VM incompatibili](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
 * [Stima dei costi](site-recovery-vmware-deployment-planner-cost-estimation.md)
@@ -265,7 +265,7 @@ Aprire una console della riga di comando e passare alla cartella dello strumento
 | -StorageAccountName | Nome dell'account di archiviazione usato per determinare la larghezza di banda utilizzata per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per determinare la larghezza di banda utilizzata. L'account di archiviazione deve essere un account per utilizzo generico versione 1 (GPv1).|
 | -StorageAccountKey | Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure e scegliere Account di archiviazione > <*nome account di archiviazione*> > Impostazioni > Chiavi di accesso > Key1 oppure una chiave di accesso primaria per un account di archiviazione classico. |
 | -VMListFile | File contenente l'elenco di VM da profilare per calcolare la larghezza di banda utilizzata. Il percorso del file può essere assoluto o relativo. Il file deve contenere un solo nome/indirizzo IP di VM per riga. I nomi delle VM specificati nel file devono corrispondere ai nomi nel server vCenter o nell'host vSphere ESXi.<br>Ad esempio, il file VMList.txt contiene le VM seguenti:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (Facoltativo) Ambiente dell'account di archiviazione di Azure di destinazione. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment, AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di Azure di destinazione è Azure US per enti pubblici o Azure China 21Vianet.Use the parameter when your target Azure region is either Azure US Government or Azure China 21Vianet. |
+| -Environment | (Facoltativo) Ambiente dell'account di archiviazione di Azure di destinazione. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment, AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di Azure di destinazione è Azure US Government o Azure Cina 21Vianet. |
 
 Lo strumento crea diversi file asrvhdfile<#>.vhd (dove "#" è il numero di file) da 64 MB nella directory specificata. Lo strumento carica i file nell'account di archiviazione per determinare la velocità effettiva. Dopo aver misurato la velocità effettiva, lo strumento elimina tutti i file dall'account di archiviazione e dal server locale. Se per qualsiasi motivo lo strumento viene terminato mentre sta calcolando la velocità effettiva, non elimina i file dalla risorsa di archiviazione o dal server locale. Sarà necessario eliminarli manualmente.
 

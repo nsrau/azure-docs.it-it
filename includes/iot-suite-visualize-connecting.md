@@ -17,9 +17,9 @@ ms.locfileid: "67180581"
 ---
 ## <a name="view-device-telemetry"></a>Visualizzare la telemetria dei dispositivi
 
-È possibile visualizzare i dati di telemetria inviati dal dispositivo nella pagina **Esplora dispositivi** della soluzione.
+È possibile visualizzare i dati di telemetria inviati dal dispositivo nella pagina **Device Explorer** della soluzione.
 
-1. Selezionare il dispositivo di cui è stato eseguito il provisioning nell'elenco dei dispositivi nella pagina **Esplora dispositivi.** Un pannello visualizza le informazioni sul dispositivo, incluso un tracciato dei dati di telemetria del dispositivo:
+1. Selezionare il dispositivo di cui è stato effettuato il provisioning nell'elenco dei dispositivi nella pagina **Device Explorer** . Un pannello visualizza le informazioni sul dispositivo, incluso un tracciato dei dati di telemetria del dispositivo:
 
     ![Vedere i dettagli del dispositivo](media/iot-suite-visualize-connecting/devicesdetail.png)
 
@@ -33,17 +33,17 @@ ms.locfileid: "67180581"
 
 ## <a name="act-on-your-device"></a>Agire sul dispositivo
 
-Per richiamare metodi nei dispositivi, usare la pagina **Esplora dispositivi** nella soluzione Monitoraggio remoto. Ad esempio, nella soluzione di monitoraggio remoto I dispositivi Chiller implementano un metodo **Reboot.For** example, in the Remote Monitoring solution **Chiller** devices implement a Reboot method.
+Per richiamare i metodi sui dispositivi, usare la pagina **Device Explorer** nella soluzione di monitoraggio remoto. Ad esempio, nella soluzione di monitoraggio remoto i dispositivi **chiller** implementano un metodo di **riavvio** .
 
-1. Scegliere **Dispositivi** per passare alla pagina **Esplora dispositivi** nella soluzione.
+1. Scegliere **dispositivi** per passare alla pagina **Device Explorer** nella soluzione.
 
-1. Selezionare il dispositivo di cui è stato eseguito il provisioning nell'elenco dei dispositivi nella pagina **Esplora dispositivi:**
+1. Selezionare il dispositivo di cui è stato effettuato il provisioning nell'elenco dei dispositivi nella pagina **Device Explorer** :
 
     ![Selezionare il dispositivo reale](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Per visualizzare un elenco dei metodi che è possibile chiamare sul dispositivo, scegliere **Processi**, quindi **Metodi**. Per pianificare un processo in modo che venga eseguito su più dispositivi, è possibile selezionare più dispositivi nell'elenco. Il pannello **Jobs** (Processi) visualizza i tipi di metodi comuni a tutti i dispositivi selezionati.
+1. Per visualizzare un elenco dei metodi che è possibile chiamare sul dispositivo, scegliere **processi**, quindi **Metodi**. Per pianificare un processo in modo che venga eseguito su più dispositivi, è possibile selezionare più dispositivi nell'elenco. Il pannello **Jobs** (Processi) visualizza i tipi di metodi comuni a tutti i dispositivi selezionati.
 
-1. Scegliere **Riavvia**, impostare il nome del processo su **RebootPhysicalChiller,** quindi scegliere **Applica**:
+1. Scegliere **reboot**, impostare il nome del processo su **RebootPhysicalChiller** , quindi scegliere **applica**:
 
     ![Pianificare l'aggiornamento del firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 
@@ -54,4 +54,4 @@ Per richiamare metodi nei dispositivi, usare la pagina **Esplora dispositivi** n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nell'articolo [Customize the Remote Monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) vengono descritti alcuni modi per personalizzare l'acceleratore di soluzioni.
+L'articolo [personalizzare Remote Monitoring Solution Accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descrive alcuni modi per personalizzare Solution Accelerator.

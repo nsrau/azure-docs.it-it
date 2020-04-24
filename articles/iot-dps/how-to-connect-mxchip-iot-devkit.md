@@ -1,6 +1,6 @@
 ---
 title: Come usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT | Microsoft Docs
-description: Come usare il provisioning automatico del servizio DPS (Hub Device Provisioning Service) di Azure IoT per registrare MXChip IoT DevKit con l'hub IoT.
+description: Come usare il provisioning automatico del servizio Device provisioning in hub Azure (DPS) per registrare il DevKit MXChip.
 author: liydu
 ms.author: liydu
 ms.date: 06/25/2019
@@ -30,15 +30,15 @@ Questo articolo descrive come usare il [provisioning automatico](concepts-auto-p
 
 Per completare la procedura di questa esercitazione, effettuare le attività seguenti:
 
-* Configurare il Wi-Fi di DevKit e preparare l'ambiente di sviluppo seguendo i passaggi della sezione "Preparare l'ambiente di sviluppo" descritti nella sezione [Connect IoT DevKit A3166 all'hub IoT](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)di Azure nel cloud.
+* Configurare la connessione Wi-Fi di DevKit e preparare l'ambiente di sviluppo seguendo la procedura descritta nella sezione "preparare l'ambiente di sviluppo" in [Connect DevKit AZ3166 nell'hub Azure Internet nel cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Eseguire l'aggiornamento al firmware più recente (1.3.0 o versioni successive) seguendo l'esercitazione [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) (Aggiornare il firmware del DevKit).
-* Creare e collegare un hub IoT a un'istanza del servizio Device Provisioning seguendo la procedura descritta in [Configurare il servizio di provisioning dei dispositivi Hub IoT con il portale](/azure/iot-dps/quick-setup-auto-provision)di Azure.Create and link an IoT Hub with a Device Provisioning service instance by following the steps in Set up the IoT Hub Device Provisioning Service with the Azure portal .
+* Creare e collegare un hub Internet delle cose con un'istanza del servizio Device provisioning seguendo la procedura descritta in [configurare il servizio Device provisioning in hub Internet con il portale di Azure](/azure/iot-dps/quick-setup-auto-provision).
 
 ## <a name="open-sample-project"></a>Aprire il progetto di esempio
 
 1. Assicurarsi che il DevKit IoT **non** sia connesso al computer. Avviare per prima cosa Visual Studio Code, quindi connettere il DevKit al computer.
 
-1. Fare `F1` clic per aprire la tavolozza dei comandi, digitare e selezionare **Azure IoT Device Workbench: Open Examples...**. Quindi selezionare **IoT DevKit** come scheda.
+1. Fare `F1` clic per aprire il riquadro comandi, digitare e selezionare **Azure Internet Azure per dispositivi Workbench: aprire esempi..**.. Selezionare quindi **DevKit** come lavagna.
 
 1. Nella pagina degli esempi di IoT Workbench, individuare **Device Registration with DPS** (Registrazione del dispositivo con DPS) e fare clic su **Open Sample** (Apri esempio). Selezionare quindi il percorso predefinito per scaricare il codice di esempio.
     ![Aprire esempio](media/how-to-connect-mxchip-iot-devkit/open-sample.png)
@@ -58,9 +58,9 @@ Per salvare un segreto UDS nel DevKit:
 1. In VS Code fare clic sulla barra di stato per selezionare la porta COM per il DevKit.
   ![Selezionare la porta COM](media/how-to-connect-mxchip-iot-devkit/select-com.png)
 
-1. In DevKit tenere premuto **il pulsante A**, premere e rilasciare il pulsante **di ripristino,** quindi rilasciare **il pulsante A**. DevKit passa alla modalità di configurazione.
+1. In DevKit, tenendo premuto il pulsante **a**, premere e rilasciare il pulsante di **reimpostazione** e quindi rilasciare il **pulsante a**. Il DevKit entra in modalità di configurazione.
 
-1. Fare `F1` clic per aprire la tavolozza dei comandi, digitare e selezionare **Azure IoT Device Workbench: Configure Device Settings... > Config Unique Device String (UDS)**.
+1. Fare `F1` clic per aprire il riquadro comandi, digitare e selezionare **Azure Internet Azure per dispositivi Workbench: configurare le impostazioni del dispositivo... > config Unique Device String (UDS)**.
   ![Configurare la stringa UDS](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
 1. Prendere nota della stringa UDS generata. Sarà necessaria per generare il certificato X.509. Premere quindi `Enter`.
@@ -76,7 +76,7 @@ Per salvare un segreto UDS nel DevKit:
 
 Nel codice del dispositivo è necessario specificare l'[endpoint di provisioning del dispositivo](/azure/iot-dps/concepts-service#device-provisioning-endpoint) e l'ambito ID per garantire l'isolamento del tenant.
 
-1. Nel portale di Azure selezionare il riquadro **Panoramica** del servizio Device Provisioning e annotare i valori **dell'endpoint del dispositivo globale** e dell'ambito **dell'ID.**
+1. Nella portale di Azure selezionare il riquadro **Panoramica** del servizio Device provisioning e prendere nota dei valori **endpoint dispositivo globale** e **ambito ID** .
   ![Ambito ID ed endpoint globale del servizio Device Provisioning](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
 1. Aprire **DevKitDPS.ino**. Trovare e sostituire `[Global Device Endpoint]` e `[ID Scope]` con i valori annotati.
@@ -85,7 +85,7 @@ Nel codice del dispositivo è necessario specificare l'[endpoint di provisioning
 1. Compilare la variabile `registrationId` nel codice. Sono consentiti solo caratteri alfanumerici, caratteri minuscoli e trattini con un massimo di 128 caratteri. Prendere nota anche del valore.
   ![ID registrazione](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
-1. Fare `F1`clic su , digitare e selezionare **Azure IoT Device Workbench: Upload Device Code**. Vengono avviati la compilazione e il caricamento nel codice in DevKit.
+1. Fare `F1`clic su, digitare e selezionare **Azure Internet Azure per dispositivi Workbench: caricare il codice del dispositivo**. Vengono avviati la compilazione e il caricamento nel codice in DevKit.
   ![Caricamento del dispositivo](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
 
 ## <a name="generate-x509-certificate"></a>Generare il certificato X.509

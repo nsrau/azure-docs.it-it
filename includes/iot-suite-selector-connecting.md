@@ -37,7 +37,7 @@ Il dispositivo di esempio inoltre:
 * Risponde alle azioni attivate dalla pagina **Dispositivi** della soluzione.
 * Risponde alle modifiche di configurazione inviate dalla pagina **Dispositivi** della soluzione.
 
-Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure Free Trial .
+Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -58,9 +58,9 @@ Al termine del processo di distribuzione per la soluzione di monitoraggio remoto
 
 Per connettere un dispositivo all'acceleratore di soluzioni, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. Quando si aggiunge il dispositivo alla soluzione, si ha la possibilità di salvare la stringa di connessione del dispositivo che contiene queste credenziali. Le istruzioni per includere la stringa di connessione del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
 
-Per aggiungere un dispositivo alla soluzione di monitoraggio remoto, completare i passaggi seguenti nella pagina Esplora dispositivi della soluzione:To add a device to your Remote Monitoring solution, complete the following steps on the **Device Explorer** page in the solution:
+Per aggiungere un dispositivo alla soluzione di monitoraggio remoto, completare i passaggi seguenti nella pagina **Device Explorer** della soluzione:
 
-1. Scegliere **Nuovo dispositivo**, quindi **Reale** come Tipo **di dispositivo**:
+1. Scegliere **+ nuovo dispositivo**, quindi scegliere **reale** come tipo di **dispositivo**:
 
     ![Aggiungere un dispositivo reale](media/iot-suite-selector-connecting/devicesprovision.png)
 

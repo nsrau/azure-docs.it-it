@@ -121,8 +121,8 @@ Test-AdlAnalyticsAccount -Name $adla
 ## <a name="manage-data-sources"></a>Gestire le origini dati
 Azure Data Lake Analytics supporta attualmente le origini dati seguenti:
 
-* [Archivio di Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
-* [Archiviazione di AzureAzure Storage](../storage/common/storage-introduction.md)
+* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+* [Archiviazione di Azure](../storage/common/storage-introduction.md)
 
 Ogni account Data Lake Analytics ha un account Data Lake Store predefinito. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. 
 
@@ -557,5 +557,5 @@ foreach ($sub in $subs)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* Introduzione a Data Lake Analytics usando il [portale](data-lake-analytics-get-started-portal.md) | di Azure[Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure CLI](data-lake-analytics-get-started-cli.md)
-* Gestire Azure Data Lake Analytics usando l'interfaccia[della riga di comando](data-lake-analytics-manage-use-cli.md) di Azure [PowerShell](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) |  
+* Introduzione a data Lake Analytics usando l'interfaccia della riga di comando di [portale di Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure](data-lake-analytics-get-started-cli.md)
+* Gestire Azure Data Lake Analytics usando l'[interfaccia](data-lake-analytics-manage-use-cli.md) della riga di comando di [portale di Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) |  

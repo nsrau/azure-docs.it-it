@@ -1,6 +1,6 @@
 ---
-title: Spostare le risorse di Azure in un'altra areaMove Azure resources to another region
-description: Viene fornita una panoramica dello spostamento delle risorse di Azure tra aree di Azure.Provides an overview of moving Azure resources across Azure regions.
+title: Spostare le risorse di Azure in un'altra area
+description: Viene fornita una panoramica dello stato di trasferimento delle risorse di Azure tra aree di Azure.
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: conceptual
@@ -13,36 +13,36 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75485208"
 ---
-# <a name="moving-azure-resources-across-regions"></a>Spostamento di risorse di Azure tra aree
+# <a name="moving-azure-resources-across-regions"></a>Trasferimento di risorse di Azure tra aree
 
-Questo articolo fornisce informazioni sullo spostamento di risorse di Azure tra aree di Azure.This article provides information about moving Azure resources across Azure regions.
+Questo articolo fornisce informazioni sullo trasferimento di risorse di Azure tra aree di Azure.
 
-Aree geografiche, aree e zone di disponibilità di Azure costituiscono la base dell'infrastruttura globale di Azure.Azure geographies, regions, and Availability zones form the base of the Azure global infrastructure. Le [aree geografiche](https://azure.microsoft.com/global-infrastructure/geographies/) di Azure contengono in genere due o più [aree di Azure.Azure](https://azure.microsoft.com/global-infrastructure/regions/)geographies typically contain two or more Azure regions . Un'area è un'area all'interno di un'area geografica contenente zone di disponibilità e più data center. 
+Aree geografiche e zone di disponibilità di Azure costituiscono la base dell'infrastruttura globale di Azure. Le aree [geografiche](https://azure.microsoft.com/global-infrastructure/geographies/) di Azure contengono in genere due o più [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). Un'area è un'area all'interno di una geografia che contiene zone di disponibilità e più data center. 
 
-Dopo aver distribuito le risorse in un'area di Azure specifica, è possibile spostare le risorse in un'area diversa per diversi.
+Dopo la distribuzione delle risorse in un'area specifica di Azure, è possibile che si voglia spostare le risorse in un'area diversa.
 
-- **Allinea all'avvio di un'area:** spostare le risorse in un'area di Azure appena introdotta che non era disponibile in precedenza.
-- **Align for services/features**: Spostare le risorse per sfruttare i vantaggi dei servizi o delle funzionalità disponibili in un'area specifica.
-- **Rispondere agli sviluppi aziendali**: spostare le risorse in un'area in risposta a modifiche aziendali, ad esempio fusioni o acquisizioni.
-- **Allinea per prossimità**: Spostare le risorse in una regione locale per l'azienda.
-- **Soddisfare i requisiti**dei dati : Spostare le risorse per allinearle ai requisiti di residenza dei dati o alle esigenze di classificazione dei dati. [Scopri di più](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
-- **Rispondere ai requisiti**di distribuzione : Spostare le risorse distribuite per errore o spostarsi in risposta alle esigenze di capacità. 
-- **Rispondi allo smantellamento:** spostare le risorse a causa dello smantellamento delle aree.
+- **Allinea a un'area di avvio**: spostare le risorse in un'area di Azure appena introdotta che non era disponibile in precedenza.
+- **Allinea per servizi/funzionalità**: spostare le risorse per sfruttare i vantaggi dei servizi o delle funzionalità disponibili in un'area specifica.
+- **Rispondere agli sviluppi aziendali**: spostare le risorse in un'area in risposta alle modifiche aziendali, ad esempio fusioni o acquisizioni.
+- **Allinea per prossimità**: sposta le risorse in un'area locale nell'azienda.
+- **Soddisfare i requisiti dei dati**: spostare le risorse per allinearli ai requisiti di residenza dei dati o alle esigenze di classificazione dei dati. [Altre informazioni](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf)
+- **Rispondere ai requisiti di distribuzione**: spostare le risorse distribuite in errore o spostarle in risposta alle esigenze di capacità. 
+- **Rispondere alla rimozione delle autorizzazioni**: spostare le risorse dovute alla rimozione delle autorizzazioni delle aree.
 
-## <a name="move-process"></a>Processo di spostamento
+## <a name="move-process"></a>Sposta processo
 
-Il processo di spostamento effettivo dipende dalle risorse che si stanno spostando. Tuttavia, ci sono alcuni passaggi chiave comuni:
+Il processo di spostamento effettivo dipende dalle risorse che si stanno spostando. Tuttavia, esistono alcuni passaggi chiave comuni:
 
-- **Verifica prerequisiti:** i prerequisiti includono la verifica che le risorse necessarie siano disponibili nell'area di destinazione, che si disponga di una quota sufficiente e che la sottoscrizione possa accedere all'area di destinazione.
-- **Analizza dipendenze:** le risorse potrebbero avere dipendenze da altre risorse. Prima dello spostamento, individuare le dipendenze in modo che le risorse in movimento continuino a funzionare come previsto dopo lo spostamento.
-- **Preparazione per**lo spostamento : Questi sono i passaggi da eseguire nella regione primaria prima dello spostamento. Ad esempio, potrebbe essere necessario esportare un modello di Azure Resource Manager o iniziare a replicare le risorse dall'origine alla destinazione.
-- **Spostare le risorse**: La modalità di spostamento delle risorse dipende da quali sono. Potrebbe essere necessario distribuire un modello nell'area di destinazione o eseguire il failover delle risorse nella destinazione.
-- **Elimina le risorse**di destinazione: dopo aver spostato le risorse, è possibile esaminare le risorse ora nell'area di destinazione e decidere se non è necessario.
-- **Eseguire il commit dello spostamento:** dopo aver verificato le risorse nell'area di destinazione, alcune risorse potrebbero richiedere un'azione di commit finale. Ad esempio, in un'area di destinazione che è ora l'area primaria, potrebbe essere necessario impostare il ripristino di emergenza in una nuova area secondaria. 
-- **Pulizia dell'origine:** infine, dopo che tutti gli elementi sono stati operativi nella nuova area, è possibile pulire e rimuovere le risorse create per lo spostamento e le risorse nell'area primaria.
+- **Verificare i prerequisiti**: i prerequisiti includono assicurarsi che le risorse necessarie siano disponibili nell'area di destinazione, verificare di disporre di una quota sufficiente e verificare che la sottoscrizione sia in grado di accedere all'area di destinazione.
+- **Analizzare le dipendenze**: le risorse potrebbero avere dipendenze da altre risorse. Prima dello spostamento, determinare le dipendenze in modo che le risorse spostate continuino a funzionare come previsto dopo lo spostamento.
+- **Prepararsi per lo spostamento**: questi sono i passaggi da eseguire nell'area primaria prima dello spostamento. Ad esempio, potrebbe essere necessario esportare un modello di Azure Resource Manager o avviare la replica delle risorse dall'origine alla destinazione.
+- **Spostare le risorse: il**modo in cui si spostano le risorse dipende da quali sono. Potrebbe essere necessario distribuire un modello nell'area di destinazione o eseguire il failover delle risorse nella destinazione.
+- **Scartare le risorse di destinazione**: dopo lo stato di trasferimento delle risorse, è possibile esaminare le risorse ora nell'area di destinazione e decidere se sono presenti operazioni non necessarie.
+- Eseguire **il commit dello spostamento**: dopo aver verificato le risorse nell'area di destinazione, alcune risorse potrebbero richiedere un'azione di commit finale. Ad esempio, in un'area di destinazione che è ora l'area primaria, potrebbe essere necessario configurare il ripristino di emergenza in una nuova area secondaria. 
+- **Pulire l'origine**: Infine, dopo che tutto è in esecuzione nella nuova area, è possibile pulire e rimuovere le autorizzazioni create per lo spostamento e le risorse nell'area primaria.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un elenco delle risorse che supportano lo spostamento tra aree, vedere [Spostare il supporto delle operazioni per le risorse](region-move-support.md).
+Per un elenco delle risorse che supportano lo spostamento tra le aree, vedere [spostare il supporto delle operazioni per le risorse](region-move-support.md).

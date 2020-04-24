@@ -1,6 +1,6 @@
 ---
-title: Aprire un ticket di supporto per la cache HPC di AzureOpen a support ticket for Azure HPC Cache
-description: Come aprire una richiesta di assistenza per la cache HPC di AzureHow to open a help request for Azure HPC Cache
+title: Aprire un ticket di supporto per la cache HPC di Azure
+description: Come aprire una richiesta di supporto per la cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
@@ -13,20 +13,20 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74169367"
 ---
-# <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Aprire un ticket di supporto per la cache HPC di AzureOpen a support ticket for Azure HPC Cache
+# <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Aprire un ticket di supporto per la cache HPC di Azure
 
-Usare il portale di Azure per aprire un ticket di supporto. Passa all'istanza della cache, quindi fai clic sul collegamento **Nuova richiesta di supporto** visualizzato nella parte inferiore della barra laterale.
+Usare il portale di Azure per aprire un ticket di supporto. Passare all'istanza della cache, quindi fare clic sul collegamento **nuova richiesta di supporto** visualizzato nella parte inferiore della barra laterale.
 
-Per aprire un ticket quando non si dispone di una cache attiva, usare la pagina principale Guida - Supporto dal portale di Azure.To open a ticket when you do not have an active cache, use the main Help - support page from the Azure portal. Aprire il menu del portale dal controllo nella parte superiore sinistra dello schermo, quindi scorrere verso il basso e fare clic su **Guida e supporto**.
+Per aprire un ticket quando non si dispone di una cache attiva, utilizzare la pagina principale della guida e del supporto tecnico dalla portale di Azure. Aprire il menu del portale dal controllo nella parte superiore sinistra della schermata, quindi scorrere fino alla fine e fare clic su **Guida e supporto**.
 
-Scegliere **Nuova richiesta di supporto** e selezionare Tecnico per la guida specifica della cache HPC di Azure.Choose New support request and select **Technical** for help specific to Azure HPC Cache.
+Scegliere **nuova richiesta di supporto** e selezionare **tecnico** per la guida specifica della cache HPC di Azure.
 
-Selezionare l'abbonamento dall'elenco.
+Selezionare la sottoscrizione dall'elenco.
 
-Per trovare il servizio cache HPC di Azure, fare clic sul pulsante **Tutti i servizi** e cercare HPC.
+Per trovare il servizio cache HPC di Azure, fare clic sul pulsante **tutti i servizi** e cercare HPC.
 
-![Screenshot della richiesta di supporto - scheda Nozioni di base, parzialmente compilata come descritto](media/hpc-cache-support-request.png)
+![Screenshot della scheda richiesta di supporto-nozioni di base, compilata in parte come descritto](media/hpc-cache-support-request.png)
 
-Compila il resto dei campi con le tue informazioni e preferenze, quindi invia il biglietto quando sei pronto.
+Compilare il resto dei campi con le informazioni e le preferenze, quindi inviare il ticket quando si è pronti.
 
-Dopo aver inviato la richiesta, riceverai un'e-mail di conferma con un numero di biglietto. Un membro del personale di supporto ti contatterà per la richiesta.
+Dopo aver inviato la richiesta, si riceverà un messaggio di posta elettronica di conferma con un numero di ticket. Un membro del personale di supporto contatterà l'utente per la richiesta.

@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi relativi ad Azure Blockchain Workbench
-description: Come risolvere i problemi di un'applicazione Azure Blockchain Workbench Preview.How to troubleshoot an Azure Blockchain Workbench Preview application.
+description: Come risolvere i problemi di un'applicazione Azure blockchain Workbench Preview.
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: brendal
@@ -11,14 +11,14 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "74324308"
 ---
-# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Risoluzione dei problemi di Azure Blockchain Workbench PreviewAzure Blockchain Workbench Preview troubleshooting
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Risoluzione dei problemi di anteprima di Azure blockchain Workbench
 
 È disponibile uno script di PowerShell per semplificare il debug o il supporto per gli sviluppatori. Lo script genera un riepilogo e raccoglie log dettagliati per la risoluzione dei problemi. I log raccolti includono:
 
 * Rete blockchain, ad esempio Ethereum
 * Microservizi Blockchain Workbench
 * Application Insights
-* Monitoraggio di Azure (log di Monitoraggio di Azure)Azure Monitoring (Azure Monitor logs)
+* Monitoraggio di Azure (log di monitoraggio di Azure)
 
 È possibile usare le informazioni per determinare i passaggi successivi e determinare la causa principale dei problemi.
 
@@ -42,15 +42,15 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 Questo script accetta i parametri seguenti:
 
-| Parametro  | Descrizione | Obbligatoria |
+| Parametro  | Descrizione | Obbligatorio |
 |---------|---------|----|
 | SubscriptionID | ID sottoscrizione per creare o individuare tutte le risorse. | Sì |
 | ResourceGroupName | Nome del gruppo di risorse di Azure in cui è stato distribuito Blockchain Workbench. | Sì |
 | OutputDirectory | Percorso in cui creare il file ZIP di output. Se non è specificato, per impostazione predefinita viene usata la directory corrente. | No |
 | LookbackHours | Numero di ore da usare durante il pull dei dati di telemetria. Il valore predefinito è 24 ore. Il valore massimo è 90 ore. | No |
-| OmsSubscriptionId | ID sottoscrizione in cui vengono distribuiti i log di Monitoraggio di Azure.The subscription ID where Azure Monitor logs is deployed. Passare questo parametro solo se i log di Monitoraggio di Azure per la rete blockchain vengono distribuiti all'esterno del gruppo di risorse di Blockchain Workbench.Pass this parameter only if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
-| OmsResourceGroup |Gruppo di risorse in cui vengono distribuiti i log di Monitoraggio di Azure.The resource group where Azure Monitor logs is deployed. Passare questo parametro solo se i log di Monitoraggio di Azure per la rete blockchain vengono distribuiti all'esterno del gruppo di risorse di Blockchain Workbench.Pass this parameter only if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
-| OmsWorkspaceName | Nome dell'area di lavoro Log Analytics. Passare questo parametro solo se i log di Monitoraggio di Azure per la rete blockchain vengono distribuiti all'esterno del gruppo di risorse di Blockchain Workbench | No |
+| OmsSubscriptionId | ID sottoscrizione in cui vengono distribuiti i log di monitoraggio di Azure. Passare questo parametro solo se i log di monitoraggio di Azure per la rete blockchain vengono distribuiti all'esterno del gruppo di risorse di blockchain Workbench.| No |
+| OmsResourceGroup |Il gruppo di risorse in cui vengono distribuiti i log di monitoraggio di Azure. Passare questo parametro solo se i log di monitoraggio di Azure per la rete blockchain vengono distribuiti all'esterno del gruppo di risorse di blockchain Workbench.| No |
+| OmsWorkspaceName | Nome dell'area di lavoro Log Analytics. Passare questo parametro solo se i log di monitoraggio di Azure per la rete blockchain sono distribuiti all'esterno del gruppo di risorse di blockchain Workbench | No |
 
 ## <a name="what-is-collected"></a>Quali dati vengono raccolti?
 

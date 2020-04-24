@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75772918"
 ---
-Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l'opzione -debug con l'interfaccia della riga di comando e l'opzione -Debug con PowerShell.Debug mode is activated by passing the **-debug** switch with CLI and the **-Debug** switch with PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
+Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l'opzione **-debug** con l'interfaccia della riga di comando e l'opzione **-debug** con PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Impossibile creare una raccolta di immagini condivisa
@@ -88,7 +88,7 @@ Verificare che il valore di **OSType** della versione dell'immagine da cui si st
 
 ## <a name="unable-to-share-resources"></a>Impossibile condividere le risorse
 
-La condivisione delle risorse della raccolta di immagini condivise, della definizione dell'immagine e della versione dell'immagine tra le sottoscrizioni è abilitata tramite il controllo degli accessi in [base](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) al ruolo. 
+Il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC) consente di condividere le risorse della raccolta di immagini condivise, della definizione dell'immagine e della versione di immagine tra le sottoscrizioni. 
 
 ## <a name="replication-is-slow"></a>La replica è lenta
 

@@ -15,5 +15,5 @@ Per i dati inattivi:
 
 - L'accesso ai dati archiviati nelle condivisioni è limitato.
 
-    - I client SMB che accedono ai dati di condivisione necessitano delle credenziali utente associate alla condivisione. Queste credenziali vengono definite al momento della creazione della condivisione.
-    - Gli indirizzi IP dei client NFS che accedono a una condivisione devono essere aggiunti quando viene creata la condivisione.
+    - I client SMB che accedono ai dati di condivisione necessitano di credenziali utente associate alla condivisione. Queste credenziali vengono definite al momento della creazione della condivisione.
+    - Quando viene creata la condivisione, è necessario aggiungere gli indirizzi IP dei client NFS che accedono a una condivisione.

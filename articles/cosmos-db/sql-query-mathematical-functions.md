@@ -1,6 +1,6 @@
 ---
-title: Funzioni matematiche nel linguaggio di query di Azure Cosmos DBMathematical functions in Azure Cosmos DB query language
-description: Informazioni sulle funzioni matematiche in Azure Cosmos DB per eseguire un calcolo, in base ai valori di input forniti come argomenti, e restituire un valore numerico.
+title: Funzioni matematiche nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni matematiche di Azure Cosmos DB per eseguire un calcolo in base ai valori di input forniti come argomenti e restituire un valore numerico.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -18,7 +18,7 @@ ms.locfileid: "74873268"
 
 Le funzioni matematiche eseguono un calcolo basato su valori di input passati come argomenti e restituiscono un valore numerico.
 
-È possibile eseguire query come nell'esempio seguente:You can run queries like the following example:
+È possibile eseguire query come nell'esempio seguente:
 
 ```sql
     SELECT VALUE ABS(-4)
@@ -32,18 +32,18 @@ Il risultato è:
 
 ## <a name="functions"></a>Funzioni
 
-Le seguenti funzioni matematiche predefinite supportate eseguono un calcolo, in genere basato su argomenti di input, e restituiscono un'espressione numerica.
+Le funzioni matematiche predefinite supportate seguenti eseguono un calcolo, in genere in base agli argomenti di input, e restituiscono un'espressione numerica.
   
 ||||  
 |-|-|-|  
-|[abs](sql-query-abs.md)|[Acos](sql-query-acos.md)|[Asin](sql-query-asin.md)|  
-|[Atan](sql-query-atan.md)|[ATN2](sql-query-atn2.md)|[CEILING](sql-query-ceiling.md)|  
-|[COS](sql-query-cos.md)|[COT](sql-query-cot.md)|[Gradi](sql-query-degrees.md)|  
-|[Exp](sql-query-exp.md)|[Pavimento](sql-query-floor.md)|[Registro](sql-query-log.md)|  
-|[LOG10 (informazioni in questo stati in comsi](sql-query-log10.md)|[PI](sql-query-pi.md)|[POWER](sql-query-power.md)|  
-|[Radianti](sql-query-radians.md)|[RAND](sql-query-rand.md)|[Rotondo](sql-query-round.md)|
-|[SIGN](sql-query-sign.md)|[Peccato](sql-query-sin.md)|[Sqrt](sql-query-sqrt.md)|
-|[Piazza](sql-query-square.md)|[Tan](sql-query-tan.md)|[TRUNC](sql-query-trunc.md)||  
+|[ABS](sql-query-abs.md)|[ACOS](sql-query-acos.md)|[ASIN](sql-query-asin.md)|  
+|[ATAN](sql-query-atan.md)|[ATN2](sql-query-atn2.md)|[CEILING](sql-query-ceiling.md)|  
+|[COS](sql-query-cos.md)|[CULLA](sql-query-cot.md)|[GRADI](sql-query-degrees.md)|  
+|[EXP](sql-query-exp.md)|[FLOOR](sql-query-floor.md)|[LOG](sql-query-log.md)|  
+|[LOG10](sql-query-log10.md)|[PI](sql-query-pi.md)|[POTERE](sql-query-power.md)|  
+|[RADIANTI](sql-query-radians.md)|[RAND](sql-query-rand.md)|[TURNO](sql-query-round.md)|
+|[SIGN](sql-query-sign.md)|[PECCATO](sql-query-sin.md)|[SQRT](sql-query-sqrt.md)|
+|[SQUARE](sql-query-square.md)|[TAN](sql-query-tan.md)|[TRUNC](sql-query-trunc.md)||  
   
 Tutte le funzioni matematiche, ad eccezione di RAND, sono deterministiche, ovvero restituiscono sempre lo stesso risultato ogni volta che vengono chiamate con un set specifico di valori di input.
 

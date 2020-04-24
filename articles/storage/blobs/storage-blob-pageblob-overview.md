@@ -22,7 +22,7 @@ Archiviazione di Azure offre tre tipi di archivio BLOB: BLOB in blocchi, BLOB di
 
 I BLOB di pagine sono una raccolta di pagine da 512 byte, che offrono la possibilità di leggere/scrivere intervalli arbitrari di byte. I BLOB di pagine sono quindi ideali per l'archiviazione di strutture di dati di tipo sparse e basati sull'indice, ad esempio i dischi del sistema operativo e di dati per le macchine virtuali e i database. Il database SQL di Azure, ad esempio, usa i BLOB di pagine come risorsa di archiviazione permanente sottostante per i database. I BLOB di pagine vengono spesso usati anche per i file con aggiornamenti basati su intervalli.  
 
-Le funzionalità principali dei BLOB di pagine di Azure sono l'interfaccia REST, la durabilità della risorsa di archiviazione sottostante e le funzionalità di migrazione senza problemi in Azure. Queste funzionalità sono illustrate in modo più dettagliato nella sezione successiva. I BLOB di pagine di Azure sono inoltre attualmente supportati in due tipi di risorsa di archiviazione: Archiviazione Premium e Archiviazione Standard. Archiviazione Premium è progettato specificamente per i carichi di lavoro che richiedono prestazioni elevate coerenti e bassa latenza, rendendo i BLOB di pagine premium ideali per scenari di archiviazione ad alte prestazioni. Gli account di archiviazione standard sono più convenienti per l'esecuzione di carichi di lavoro senza latenza.
+Le funzionalità principali dei BLOB di pagine di Azure sono l'interfaccia REST, la durabilità della risorsa di archiviazione sottostante e le funzionalità di migrazione senza problemi in Azure. Queste funzionalità sono illustrate in modo più dettagliato nella sezione successiva. I BLOB di pagine di Azure sono inoltre attualmente supportati in due tipi di risorsa di archiviazione: Archiviazione Premium e Archiviazione Standard. Archiviazione Premium è progettata specificamente per i carichi di lavoro che richiedono prestazioni elevate e bassa latenza coerenti, rendendo i BLOB di pagine Premium ideali per scenari di archiviazione ad alte prestazioni. Gli account di archiviazione standard sono più convenienti per l'esecuzione di carichi di lavoro non sensibili alla latenza.
 
 ## <a name="sample-use-cases"></a>Caso d'uso di esempio
 
@@ -31,7 +31,7 @@ Verrà ora esaminato qualche caso d'uso per i BLOB di pagine a partire dai disch
 I servizi forniti da Microsoft, ad esempio Azure Site Recovery e Backup di Azure, e molti sviluppatori di terze parti hanno implementato le innovazioni leader del settore usando l'interfaccia REST del BLOB di pagine. Di seguito sono elencati alcuni degli scenari univoci implementati in Azure: 
 
 * Gestione degli snapshot incrementali controllata dell'applicazione: le applicazioni possono sfruttare gli snapshot dei BLOB di pagine e le API REST per il salvataggio dei checkpoint dell'applicazione senza dover sostenere la costosa duplicazione dei dati. Archiviazione di Azure supporta gli snapshot locali per i BLOB di pagine, che non richiedono la copia dell'intero BLOB. Queste API snapshot pubbliche consentono anche l'accesso e la copia dei valori differenziali tra gli snapshot.
-* Migrazione in tempo reale di applicazioni e dati da locale al cloud: copiare i dati locali e usare le API REST per scrivere direttamente in un BLOB di pagine di Azure mentre la macchina virtuale locale continua a essere eseguita. Dopo l'aggiornamento della destinazione, è possibile effettuare rapidamente il failover nella VM di Azure usando tali dati. In questo modo, è possibile eseguire la migrazione delle macchine virtuali e dei dischi virtuali da locale al cloud con tempi di inattività minimi poiché la migrazione dei dati si verifica in background mentre si continua a usare la macchina virtuale e il tempo di inattività necessario per il failover sarà breve (in minuti).
+* Migrazione in tempo reale dell'applicazione e dei dati dall'ambiente locale al cloud: copiare i dati locali e usare le API REST per scrivere direttamente in un BLOB di pagine di Azure mentre la macchina virtuale locale continua a essere eseguita. Dopo l'aggiornamento della destinazione, è possibile effettuare rapidamente il failover nella VM di Azure usando tali dati. In questo modo, è possibile eseguire la migrazione delle VM e dei dischi virtuali da locale a cloud con tempi di inattività minimi, perché la migrazione dei dati avviene in background mentre si continua a usare la VM e il tempo di inattività necessario per il failover sarà breve (in minuti).
 * Accesso condiviso [basato sulla firma di accesso condiviso](../common/storage-sas-overview.md), che consente scenari come quelli con più lettori e un singolo writer con il supporto per il controllo della concorrenza.
 
 ## <a name="page-blob-features"></a>Funzionalità dei BLOB di pagine
@@ -42,11 +42,11 @@ Per un'introduzione, vedere il documento relativo allo [sviluppo con i BLOB di p
 
 Il diagramma seguente illustra le relazioni generali tra account, contenitori e BLOB di pagine.
 
-![Screenshot che mostra le relazioni tra account, contenitori e BLOB di pagine](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
+![Screenshot che mostra le relazioni tra l'account, i contenitori e i BLOB di pagine](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Creazione di un BLOB di pagine vuoto di una dimensione specificata
 
-Per creare un BLOB di pagine, viene prima creato un oggetto **CloudBlobClient**, con l'URI di base per l'accesso all'archivio BLOB per l'account di archiviazione (*pbaccount* nella figura 1) con l'oggetto **StorageCredentialsAccountAndKey**, come illustrato nell'esempio seguente. Nell'esempio viene quindi illustrata la creazione di un riferimento a un oggetto **CloudBlobContainer** e quindi la creazione del contenitore (*testvhds*) se non esiste già. Usando l'oggetto **CloudBlobContainer**, creare un riferimento a un oggetto **CloudPageBlob** specificando il nome del BLOB di pagine (os4.vhd) a cui accedere. Per creare il BLOB di pagine, chiamare [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passando la dimensione massima per il BLOB da creare. *BlobSize* deve essere un multiplo di 512 byte.
+Per creare un BLOB di pagine, viene prima creato un oggetto **CloudBlobClient**, con l'URI di base per l'accesso all'archivio BLOB per l'account di archiviazione (*pbaccount* nella figura 1) con l'oggetto **StorageCredentialsAccountAndKey**, come illustrato nell'esempio seguente. Nell'esempio viene quindi illustrata la creazione di un riferimento a un oggetto **CloudBlobContainer** e quindi la creazione del contenitore (*testvhds*) se non esiste già. Usando l'oggetto **CloudBlobContainer**, creare un riferimento a un oggetto **CloudPageBlob** specificando il nome del BLOB di pagine (os4.vhd) a cui accedere. Per creare il BLOB di pagine, chiamare [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passando le dimensioni massime per il BLOB da creare. *BlobSize* deve essere un multiplo di 512 byte.
 
 ```csharp
 using Microsoft.Azure;
@@ -73,7 +73,7 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### <a name="resizing-a-page-blob"></a>Ridimensionamento di un BLOB di pagine
 
-Per ridimensionare un BLOB di pagine dopo la creazione, usare il metodo [Resize.To](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) resize a page blob after creation, use the Resize method. Le dimensioni richieste devono essere un multiplo di 512 byte.
+Per ridimensionare un BLOB di pagine dopo la creazione, usare il metodo [Resize](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) . Le dimensioni richieste devono essere un multiplo di 512 byte.
 
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes);
@@ -105,7 +105,7 @@ byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
 ```
 
-Nella figura seguente viene illustrata un'operazione di lettura con un offset di 256 e una dimensione dell'intervallo pari a 4352.The following figure shows a Read operation with a offset of 256 and a range size of 4352. I dati restituiti sono evidenziati in arancione. Gli zeri vengono restituiti per le pagine NUL.
+Nella figura seguente viene illustrata un'operazione di lettura con un offset di 256 e una dimensione di intervallo pari a 4352. I dati restituiti vengono evidenziati in arancione. Per le pagine NUL vengono restituiti zeri.
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
@@ -143,9 +143,9 @@ Un'opzione alternativa consiste nell'usare i BLOB di pagine direttamente tramite
 
 ### <a name="durability-and-high-availability"></a>Durabilità e disponibilità elevate
 
-Le archiviazioni Standard e Premium sono risorse di archiviazione durevoli in cui i dati dei BLOB di pagine vengono sempre replicati per garantire la durabilità e la disponibilità elevata. Per altre informazioni sulla ridondanza di Archiviazione di Azure, vedere questa [documentazione](../common/storage-redundancy.md). Azure ha costantemente fornito durabilità di livello enterprise per i dischi IaaS e i BLOB di pagine, con una frequenza di errori [annualizzata zero](https://en.wikipedia.org/wiki/Annualized_failure_rate)percento leader del settore.
+Le archiviazioni Standard e Premium sono risorse di archiviazione durevoli in cui i dati dei BLOB di pagine vengono sempre replicati per garantire la durabilità e la disponibilità elevata. Per altre informazioni sulla ridondanza di Archiviazione di Azure, vedere questa [documentazione](../common/storage-redundancy.md). Azure ha fornito in modo coerente una durabilità di livello aziendale per i dischi IaaS e i BLOB di pagine, con una [percentuale di errori annuale](https://en.wikipedia.org/wiki/Annualized_failure_rate)di percentuale pari allo zero per il settore.
 
-### <a name="seamless-migration-to-azure"></a>Migrazione senza soluzione di continuità in Azure
+### <a name="seamless-migration-to-azure"></a>Migrazione senza problemi ad Azure
 
 Per i clienti e gli sviluppatori interessati a implementare la propria soluzione di backup personalizzata, Azure offre anche snapshot incrementali che includono solo valori differenziali. Questa funzionalità elimina il costo della copia iniziale completa, riducendo considerevolmente il costo del backup. Si tratta di un'altra caratteristica avanzata, che si aggiunge alla possibilità di leggere e copiare in modo efficiente i dati differenziali e che consente agli sviluppatori di realizzare sempre più innovazioni e offre un'esperienza all'avanguardia di backup e ripristino di emergenza in Azure. È possibile configurare la propria soluzione di backup o ripristino di emergenza per le VM in Azure usando [Blob Snapshot](/rest/api/storageservices/snapshot-blob) con l'API [Get Page Ranges](/rest/api/storageservices/get-page-ranges) e l'API [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob), che è possibile usare per copiare facilmente i dati incrementali per il ripristino di emergenza. 
 

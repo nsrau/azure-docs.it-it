@@ -17,15 +17,15 @@ ms.locfileid: "66814769"
 ---
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente di una macchina virtuale generalizzata. Per altre informazioni, vedere [Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con l'interfaccia della riga di comando](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images)di Azure.For more information, see Tutorial: Create a custom image of an Azure VM with the Azure CLI. Se l'immagine gestita contiene un disco dati, la dimensione del disco dati non può essere superiore a 1 TB.
+Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente di una macchina virtuale generalizzata. Per altre informazioni, vedere [esercitazione: creare un'immagine personalizzata di una macchina virtuale di Azure con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono superare 1 TB.
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
 Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. 
 
-Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È inoltre possibile avviare Cloud Shell in [https://shell.azure.com/bash](https://shell.azure.com/bash)una scheda separata del browser accedendo a . Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
+Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/bash](https://shell.azure.com/bash). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
-Se si preferisce installare e usare l'interfaccia della riga di comando in locale, vedere Installare l'interfaccia della riga di comando di [Azure.](/cli/azure/install-azure-cli)
+Se si preferisce installare e usare l'interfaccia della riga di comando in locale, vedere [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini 
 
@@ -40,7 +40,7 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine
 
-Le definizioni delle immagini creano un raggruppamento logico per le immagini. Vengono utilizzati per gestire le informazioni sulle versioni dell'immagine create al loro interno. I nomi delle definizioni di immagine possono essere costituiti da lettere maiuscole o minuscole, cifre, punti, trattini e punti. Per ulteriori informazioni sui valori che è possibile specificare per una definizione di immagine, vedere [Definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Le definizioni di immagine creano un raggruppamento logico per le immagini. Vengono utilizzati per gestire le informazioni sulle versioni delle immagini create al suo interno. I nomi delle definizioni di immagine possono essere costituiti da lettere maiuscole o minuscole, cifre, punti, trattini e punti. Per ulteriori informazioni sui valori che è possibile specificare per la definizione di un'immagine, vedere [definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
 Creare una definizione dell'immagine iniziale nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -62,7 +62,7 @@ Creare versioni dell'immagine in base alle esigenze usando [az image gallery cre
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
 
-In questo esempio, la versione dell'immagine è *1.0.0* e creeremo 2 repliche nell'area *Stati Uniti centro-occidentali,* 1 replica nell'area *Stati Uniti centro-meridionali* e 1 replica nell'area *Stati Uniti orientali 2* utilizzando l'archiviazione con ridondanza di zona.
+In questo esempio, la versione dell'immagine è *1.0.0* e verranno create 2 repliche nell'area stati *Uniti centro-occidentali* , una replica nell'area Stati Uniti centro- *meridionali* e una replica nell'area *Stati Uniti orientali 2* con archiviazione con ridondanza della zona.
 
 
 ```azurecli-interactive 
@@ -77,14 +77,14 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> È necessario attendere che la versione dell'immagine termini completamente la compilazione e la replica prima di poter utilizzare la stessa immagine gestita per creare un'altra versione dell'immagine.
+> È necessario attendere che la versione dell'immagine completi la compilazione e la replica prima di poter usare la stessa immagine gestita per creare un'altra versione dell'immagine.
 >
-> È inoltre possibile archiviare tutte le repliche della `--storage-account-type standard_zrs` versione dell'immagine in [Archiviazione ridondante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) di zona aggiungendo quando si crea la versione dell'immagine.
+> È anche possibile archiviare tutte le repliche di versione dell'immagine nell' [archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) aggiungendo `--storage-account-type standard_zrs` quando si crea la versione dell'immagine.
 >
 
-## <a name="share-the-gallery"></a>Condividere la galleria
+## <a name="share-the-gallery"></a>Condividere la raccolta
 
-È consigliabile condividere con altri utenti a livello di raccolta. Per ottenere l'ID oggetto della galleria, utilizzare [az sig show](/cli/azure/sig#az-sig-show).
+Si consiglia di condividere con altri utenti a livello di raccolta. Per ottenere l'ID oggetto della raccolta, usare [AZ sig Show](/cli/azure/sig#az-sig-show).
 
 ```azurecli-interactive
 az sig show \
@@ -93,7 +93,7 @@ az sig show \
    --query id
 ```
 
-Utilizzare l'ID oggetto come ambito, insieme a un indirizzo di posta elettronica e [un'assegnazione](/cli/azure/role/assignment#az-role-assignment-create) di ruolo az per concedere a un utente l'accesso alla raccolta di immagini condivise.
+Usare l'ID oggetto come ambito, insieme a un indirizzo di posta elettronica e [AZ Role Assignment create](/cli/azure/role/assignment#az-role-assignment-create) per concedere a un utente l'accesso alla raccolta di immagini condivise.
 
 ```azurecli-interactive
 az role assignment create --role "Reader" --assignee <email address> --scope <gallery ID>

@@ -1,6 +1,6 @@
 ---
-title: Modificare la password dell'account del connettore di Azure AD Documenti Microsoft
-description: In questo argomento viene illustrato come ripristinare l'account azure AD Connector.This topic documents how to restore the Azure AD Connector account.
+title: Modificare la password dell'account del connettore Azure AD | Microsoft Docs
+description: Questo argomento illustra come ripristinare l'account Azure AD Connector.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -24,10 +24,10 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "67204522"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Cambiare la password dell'account del connettore di Azure AD
-L'account del connettore di Azure AD dovrebbe essere gratuito per il servizio. Questo argomento descrive come reimpostare le credenziali in caso di necessità, Ad esempio, se un amministratore globale ha per errore reimpostato la password sull'account utilizzando PowerShell.For example, if a Global Administrator has by mistake reset the password on the account using PowerShell.
+L'account di Azure AD Connector dovrebbe essere gratuito. Questo argomento descrive come reimpostare le credenziali in caso di necessità, Ad esempio, se un amministratore globale ha per errore, reimpostare la password dell'account usando PowerShell.
 
 ## <a name="reset-the-credentials"></a>Reimpostazione delle credenziali
-Se l'account del connettore di Azure AD non riesce a contattare Azure AD a causa di problemi di autenticazione, la password può essere reimpostata.
+Se l'account Azure AD Connector non è in grado di contattare Azure AD a causa di problemi di autenticazione, è possibile reimpostare la password.
 
 1. Effettuare l'accesso al server di sincronizzazione Azure AD Connect e avviare PowerShell.
 2. Eseguire `Add-ADSyncAADServiceAccount`.  
@@ -37,7 +37,7 @@ Se l'account del connettore di Azure AD non riesce a contattare Azure AD a causa
 Questo cmdlet reimposta la password dell'account del servizio e la aggiorna sia in Azure AD, sia nel motore di sincronizzazione.
 
 ## <a name="known-issues-these-steps-can-solve"></a>Problemi noti che possono essere risolti con questi passaggi
-Questa sezione è un elenco di errori segnalati dai clienti che sono stati corretti da una reimpostazione delle credenziali nell'account del connettore di Azure AD.
+Questa sezione è un elenco di errori segnalati dai clienti che sono stati corretti da una reimpostazione delle credenziali nell'account del connettore Azure AD.
 
 ---
 Evento 6900  
